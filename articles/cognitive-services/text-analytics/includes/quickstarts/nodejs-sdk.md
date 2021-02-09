@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/20/2021
+ms.date: 02/09/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
@@ -23,10 +23,6 @@ ms.custom: devx-track-js
 
 [v3 Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-latest) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
-
-# [Version 2.1](#tab/version-2)
-
-[v2 Reference documentation](/javascript/api/@azure/cognitiveservices-textanalytics) | [v2 Library source code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [v2 Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics) | [v2 Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ---
 
@@ -81,17 +77,6 @@ npm install --save @azure/ai-text-analytics@5.0.0
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/TextAnalytics/text-analytics-v3-client-library.js), which contains the code examples in this quickstart. 
 
-# [Version 2.1](#tab/version-2)
-
-Install the `@azure/cognitiveservices-textanalytics` NPM packages:
-
-```console
-npm install --save @azure/cognitiveservices-textanalytics @azure/ms-rest-js
-```
-
-> [!TIP]
-> Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js), which contains the code examples in this quickstart. 
-
 ---
 
 Your app's `package.json` file will be updated with the dependencies.
@@ -113,15 +98,6 @@ const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-anal
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 ```
 
-# [Version 2.1](#tab/version-2)
-
-```javascript
-"use strict";
-
-const os = require("os");
-const CognitiveServicesCredentials = require("@azure/ms-rest-js");
-const TextAnalyticsAPIClient = require("@azure/cognitiveservices-textanalytics");
-```
 ---
 
 Create variables for your resource's Azure endpoint and key.
@@ -169,12 +145,6 @@ Create a new `TextAnalyticsClient` object with your key and endpoint as paramete
 ```javascript
 const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 ```
-
-# [Version 2.1](#tab/version-2)
-
-Create a new [TextAnalyticsClient](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) object with `credentials` and `endpoint` as a parameter.
-
-[!code-javascript[Authentication and client creation](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=authentication)]
 
 ---
 
@@ -353,23 +323,6 @@ ID: 0
                 Positive: 0.21  Negative: 0.02  Neutral: 0.77
 ```
 
-# [Version 2.1](#tab/version-2)
-
-Create a list of dictionary objects, containing the documents you want to analyze. Call the client's [sentiment()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#sentiment-models-textanalyticsclientsentimentoptionalparams-) method and get the returned [SentimentBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/sentimentbatchresult). Iterate through the list of results, and print each document's ID and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
-
-[!code-javascript[Sentiment analysis](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=sentimentAnalysis)]
-
-Run your code with `node index.js` in your console window.
-
-### Output
-
-```console
-[ { id: '1', score: 0.87 } ]
-[ { id: '2', score: 0.11 } ]
-[ { id: '3', score: 0.44 } ]
-[ { id: '4', score: 1.00 } ]
-```
-
 ---
 
 ## Language detection
@@ -430,22 +383,6 @@ Run your code with `node index.js` in your console window.
 ```console
 ID: 0
         Primary Language French
-```
-
-# [Version 2.1](#tab/version-2)
-
-Create a list of dictionary objects containing your documents. Call the client's [detectLanguage()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#detectlanguage-models-textanalyticsclientdetectlanguageoptionalparams-) method and get the returned [LanguageBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/languagebatchresult). Then iterate through the results, and print each document's ID, and language.
-
-[!code-javascript[Language detection](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=languageDetection)]
-
-Run your code with `node index.js` in your console window.
-
-### Output
-
-```console
-Document ID: 1 , Language: English
-Document ID: 2 , Language: Spanish
-Document ID: 3 , Language: Chinese_Simplified
 ```
 
 ---
@@ -699,46 +636,6 @@ Document ID: 0
                 Text: BASIC     Score: 0.33
 ```
 
-# [Version 2.1](#tab/version-2)
-
-> [!NOTE]
-> In version 2.1, entity linking is included in the NER response.
-
-Create a list of objects, containing your documents. Call the client's [entities()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) method and get the [EntitiesBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult) object. Iterate through the list of results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
-
-[!code-javascript[Entity recognition](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=entityRecognition)]
-
-Run your code with `node index.js` in your console window.
-
-### Output
-
-```console
-Document ID: 1
-    Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-    Offset: 0, Length: 9,   Score: 1.0
-    Name: Bill Gates,       Type: Person,   Sub-Type: N/A
-    Offset: 25, Length: 10, Score: 0.999847412109375
-    Name: Paul Allen,       Type: Person,   Sub-Type: N/A
-    Offset: 40, Length: 10, Score: 0.9988409876823425
-    Name: April 4,  Type: Other,    Sub-Type: N/A
-    Offset: 54, Length: 7,  Score: 0.8
-    Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
-    Offset: 54, Length: 13, Score: 0.8
-    Name: BASIC,    Type: Other,    Sub-Type: N/A
-    Offset: 89, Length: 5,  Score: 0.8
-    Name: Altair 8800,      Type: Other,    Sub-Type: N/A
-    Offset: 116, Length: 11,        Score: 0.8
-
-Document ID: 2
-    Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-    Offset: 21, Length: 9,  Score: 0.999755859375
-    Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
-    Offset: 60, Length: 7,  Score: 0.9911284446716309
-    Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
-    Offset: 71, Length: 13, Score: 0.8
-    Name: Seattle,  Type: Location, Sub-Type: N/A
-    Offset: 88, Length: 7,  Score: 0.9998779296875
-```
 
 ---
 
@@ -802,24 +699,6 @@ ID: 0
         Document Key Phrases: cat,veterinarian
 ```
 
-# [Version 2.1](#tab/version-2)
-
-Create a list of objects, containing your documents. Call the client's [keyPhrases()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#keyphrases-models-textanalyticsclientkeyphrasesoptionalparams-) method and get the returned     [KeyPhraseBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/keyphrasebatchresult) object. Iterate through the results and print each document's ID, and any detected key phrases.
-
-[!code-javascript[Key phrase extraction](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=keyPhraseExtraction)]
-
-Run your code with `node index.js` in your console window.
-
-### Output
-
-```console
-[
-    { id: '1', keyPhrases: [ '幸せ' ] }
-    { id: '2', keyPhrases: [ 'Stuttgart', "hotel", "Fahrt", "Fu" ] }
-    { id: '3', keyPhrases: [ 'cat', 'veterinarian' ] }
-    { id: '3', keyPhrases: [ 'fútbol' ] }
-]
-```
 
 ---
 
@@ -881,10 +760,6 @@ You can also use the Analyze operation to detect PII and key phrase extraction. 
 # [Version 3.0](#tab/version-3)
 
 This feature is not available in version 3.0.
-
-# [Version 2.1](#tab/version-2)
-
-This feature is not available in version 2.1.
 
 ---
 

@@ -3,7 +3,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/20/2021
+ms.date: 02/09/2021
 ms.author: aahi
 ---
 
@@ -16,10 +16,6 @@ ms.author: aahi
 # [Version 3.0](#tab/version-3)
 
 [v3 Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
-
-# [Version 2.1](#tab/version-2)
-
-[v2 Reference documentation](/python/api/overview/azure/cognitiveservices/textanalytics) | [v2 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [v2 Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [v2 Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 ---
 
@@ -57,15 +53,6 @@ pip install --upgrade azure-ai-textanalytics
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py), which contains the code examples in this quickstart. 
 
 
-# [Version 2.1](#tab/version-2)
-
-```console
-pip install --upgrade azure-cognitiveservices-language-textanalytics
-```
-
-> [!TIP]
-> Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py), which contains the code examples in this quickstart. 
-
 ---
 
 ### Create a new python application
@@ -98,12 +85,6 @@ When batch processing text is sent to the API as a list of `documents`, which ar
 
 The response object is a list containing the analyzed information for each document. 
 
-# [Version 2.1](#tab/version-2)
-
-The Text Analytics client is a [TextAnalyticsClient](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient) object that authenticates to Azure using your key. The client provides several methods for analyzing text, as a single string, or a batch. 
-
-Text is sent to the API as a list of `documents`, which are `dictionary` objects containing a combination of `id`, `text`, and `language` attributes depending on the method used. The `text` attribute stores the text to be analyzed in the origin `language`, and the `id` can be any value. 
-
 ---
 
 ## Code examples
@@ -123,15 +104,6 @@ These code snippets show you how to do the following tasks with the Text Analyti
 
 
 # [Version 3.0](#tab/version-3)
-
-* [Authenticate the client](#authenticate-the-client)
-* [Sentiment Analysis](#sentiment-analysis)
-* [Language detection](#language-detection)
-* [Named Entity recognition](#named-entity-recognition-ner) 
-* [Entity linking](#entity-linking)
-* [Key phrase extraction](#key-phrase-extraction)
-
-# [Version 2.1](#tab/version-2)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis)
@@ -198,14 +170,6 @@ def authenticate_client():
    
 client = authenticate_client()
 ```
-
-# [Version 2.1](#tab/version-2)
-
-[!code-python[imports statements](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=imports)]
-
-Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. 
-
-[!code-python[version 2 authentication](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=authentication)]
 
 --- 
 
@@ -416,21 +380,6 @@ Neutral=0.77
 Negative=0.02
 ```
 
-# [Version 2.1](#tab/version-2)
-
-Authenticate a client object, and call the [sentiment()](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function. Iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
-
-[!code-python[sentiment analysis](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=sentimentAnalysis)]
-
-### Output
-
-```console
-Document ID: 1 , Sentiment Score: 0.87
-Document ID: 2 , Sentiment Score: 0.11
-Document ID: 3 , Sentiment Score: 0.44
-Document ID: 4 , Sentiment Score: 1.00
-```
-
 ---
 
 ## Language detection
@@ -487,20 +436,6 @@ language_detection_example(client)
 Language:  French
 ```
 
-# [Version 2.1](#tab/version-2)
-
-Using the client created earlier, call [detect_language()](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
-
-[!code-python[language detection](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=languageDetection)]
-
-
-### Output
-
-```console
-Document ID: 1 , Language: English
-Document ID: 2 , Language: Spanish
-Document ID: 3 , Language: Chinese_Simplified
-```
 
 ---
 
@@ -784,54 +719,6 @@ Linked Entities:
                 Confidence Score: 0.33
 ```
 
-# [Version 2.1](#tab/version-2)
-
-> [!NOTE]
-> In version 2.1, entity linking is included in the NER response.
-
-Using the client created earlier, call the [entities()](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
-
-[!code-python[Entity recognition](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=entityRecognition)]
-
-### Output
-
-```console
-Document ID: 1
-        Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-        Offset: 0, Length: 9,   Score: 1.0
-
-        Name: Bill Gates,       Type: Person,   Sub-Type: N/A
-        Offset: 25, Length: 10, Score: 0.999847412109375
-
-        Name: Paul Allen,       Type: Person,   Sub-Type: N/A
-        Offset: 40, Length: 10, Score: 0.9988409876823425
-
-        Name: April 4,  Type: Other,    Sub-Type: N/A
-        Offset: 54, Length: 7,  Score: 0.8
-
-        Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
-        Offset: 54, Length: 13, Score: 0.8
-
-        Name: BASIC,    Type: Other,    Sub-Type: N/A
-        Offset: 89, Length: 5,  Score: 0.8
-
-        Name: Altair 8800,      Type: Other,    Sub-Type: N/A
-        Offset: 116, Length: 11,        Score: 0.8
-
-Document ID: 2
-        Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-        Offset: 21, Length: 9,  Score: 0.999755859375
-
-        Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
-        Offset: 60, Length: 7,  Score: 0.9911284446716309
-
-        Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
-        Offset: 71, Length: 13, Score: 0.8
-
-        Name: Seattle,  Type: Location, Sub-Type: N/A
-        Offset: 88, Length: 7,  Score: 0.9998779296875
-```
-
 ---
 
 ### Key phrase extraction
@@ -904,33 +791,6 @@ key_phrase_extraction_example(client)
          veterinarian
 ```
 
-# [Version 2.1](#tab/version-2)
-
-Using the client created earlier, call the [key_phrases()](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the key phrases contained in it.
-
-[!code-python[key phrase extraction](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=keyPhrases)]
-
-
-### Output
-
-```console
-Document ID: 1
-         Key phrases:
-                幸せ
-Document ID: 2
-         Key phrases:
-                Stuttgart
-                Hotel
-                Fahrt
-                Fu
-Document ID: 3
-         Key phrases:
-                cat
-                veterinarian
-Document ID: 4
-         Key phrases:
-                fútbol
-```
 
 ---
 
@@ -998,9 +858,5 @@ You can also use the Analyze operation to detect PII and key phrase extraction. 
 # [Version 3.0](#tab/version-3)
 
 This feature is not available in version 3.0.
-
-# [Version 2.1](#tab/version-2)
-
-This feature is not available in version 2.1.
 
 ---
