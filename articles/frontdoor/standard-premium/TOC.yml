@@ -1,0 +1,91 @@
+- name: Front Door Standard/Premium documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Front Door Preview?
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a Front Door Standard/Premium - Portal
+    href: create-front-door-portal.md
+- name: Concepts
+  items:
+  - name: Front Door FAQ
+    href: faq.md
+  - name: Endpoint Manager
+    href: concept-endpoint-manager.md
+  - name: Origin
+    href: concept-origin.md
+  - name: Route
+    href: concept-route.md
+  - name: Rule Set
+    href: concept-rule-set.md
+  - name: Rule Set Match Condition
+    href: concept-rule-set-match-condition.md
+  - name: Rule Set Action
+    href: concept-rule-action.md
+  - name: Azure Load Balancing
+    href: concept-load-balancing-suite.md
+  - name: Health Probe
+    href: concept-health-probes.md
+  - name: Url Rewrite
+    href: concept-rule-set-url-redirect-and-rewrite.md
+  - name: Reports
+    href: concept-reports.md
+  - name: Private Endpoints
+    hred: concept-private-endpoints.md
+  - name: Caching
+    hred: concept-caching.md
+  - name: DDoS
+    hred: concept-ddos.md
+  - name: Geo-filtering
+    hred: concept-geo-filtering.md
+- name: How-to guides
+  items:
+  - name: Configure Endpoint Manager
+    href: how-to-configure-endpoint-manager.md
+  - name: Configure Origin Groups
+    href: how-to-create-origin.md
+  - name: Route Associate
+    href: how-to-configure-route.md
+  - name: Configure security headers with Rule Set
+    href: how-to-add-security-headers.md
+  - name: Cache purge
+    href: how-to-cache-purge.md
+  - name: Compression
+    href: how-to-compression.md
+  - name: Logging
+    href: how-to-logging.md
+  - name: Monitoring and alerts
+    href: how-to-monitoring-metrics.md
+  - name: Configure security headers with Rule Set
+    href: how-to-add-security-headers.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot routing issues
+      href: troubleshoot-routing.md
+    - name: Allowed certificate authorities
+      href: troubleshoot-allowed-ca.md
+    - name: Troubleshoot compression
+      href: troubleshoot-compression.md
+    - name: Troubleshoot cross origin resource sharing
+      href: troubleshoot-cross-origin-resource-sharing.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/ext/front-door/
+  - name: Azure PowerShell
+    href: /powershell/module/az.frontdoor
+  - name: REST API
+    href: /rest/api/frontdoor
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/frontdoor/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=frontdoor
