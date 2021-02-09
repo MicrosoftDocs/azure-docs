@@ -18,12 +18,12 @@ If you want to delete your Azure Automation account, you'll need to prepare the 
 
 1. [Disable your features.](#disable-features)
 1. [Unlink your workspace.](#unlink-your-workspace)
-1. [Delete the Automation account.](#delete-your-automation-account)
+1. [Delete your Automation account.](#delete-your-automation-account)
 
 >[!NOTE]
 >Azure Automation allows you to move some resources to a new resource group or subscription. Automation accounts are among the resources that can be moved. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-## Disable features
+## Disable your features
 
 To unlink your workspace from your Automation account, you must first remove these feature resources in your workspace:
 
