@@ -208,7 +208,7 @@ Your [QnA pairs](question-answer-set.md) should be designed and developed based 
 Each pair can contain:
 * Metadata - filterable when querying to allow you to tag your QnA pairs with additional information about the source, content, format, and purpose of your data.
 * Follow-up prompts - helps to determine a path through your knowledge base so the user arrives at the correct answer.
-* Alternate questions - important to allow search to match to your answer from different  forms of the question. [Active learning suggestions](active-learning-suggestions.md) turn into alternate questions.
+* Alternate questions - important to allow search to match to your answer from different  forms of the question. [Active learning suggestions](../How-To/use-active-learning.md) turn into alternate questions.
 
 ### DevOps development
 
