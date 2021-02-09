@@ -109,7 +109,7 @@ gMSAs are the most secure type of service account for on-premises needs. If you 
 
 1.  Ensure that the [KDS Root Key is deployed in the forest](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/create-the-key-distribution-services-kds-root-key). This is a one-time operation.
 
-2. [Create a new gMSA](../azure/active-directory-domain-services/create-gmsa).
+2. [Create a new gMSA](https://docs.microsoft.com/en-us/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
 
 3. Install the new gMSA on each host running the service.
    > [!NOTE] 
