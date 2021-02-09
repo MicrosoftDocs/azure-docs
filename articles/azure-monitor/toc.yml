@@ -781,6 +781,8 @@
       - name: Availability alerts
         displayname: alerts, global, alerting
         href: app/availability-alerts.md
+      - name: SLA Report
+        href: app/sla-report.md
       - name: Troubleshooting
         displayname: availability, troubleshoot, troubleshoot availability
         href: app/troubleshoot-availability.md
@@ -794,8 +796,6 @@
     - name: Live Metric stream
       displayname: live, quickpulse, quick pulse, live metrics
       href: app/live-stream.md
-    - name: SLA Report
-      href: app/sla-report.md
     - name: Metrics
       items:
       - name: Log-based & pre-aggregated metrics
