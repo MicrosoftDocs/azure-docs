@@ -114,7 +114,7 @@ Once you have found the service accounts in your on-premises environment, docume
 
 * Anticipated lifetime and periodic attestation. How long do you anticipate this account being live? How often must the owner review and attest to ongoing need?
 
-* Password security. For user and local computer accounts, where the password is stored. Ensure passwords are kept secure, and document who has access. Consider using [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) to secure stored passwords. 
+* Password security. For user and local computer accounts, where the password is stored. Ensure passwords are kept secure, and document who has access. Consider using [Privileged Identity Management](..y/privileged-identity-management/pim-configure) to secure stored passwords. 
 
   
 
