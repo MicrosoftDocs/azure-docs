@@ -1,6 +1,6 @@
 ---
-title: Configure a Temporary Access Pass to register Passwordless credentials
-description: Learn how to configure and enable users to to register Passwordless credentials by using a Temporary Access Pass (TAP)
+title: Configure a Temporary Access Pass to register Passwordless authentication methods
+description: Learn how to configure and enable users to to register Passwordless authentication methods by using a Temporary Access Pass (TAP)
 
 services: active-directory
 ms.service: active-directory
@@ -16,14 +16,17 @@ ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
 ---
 
-# Configure Temporary Access Pass to register Passwordless credentials 
+# Configure Temporary Access Pass to register Passwordless authentication methods 
 
-To use Passwordless credentials, users need to register themselves as a first step. 
-If users are already registered for Azure AD Multi-Factor Authentication (MFA), they can use Azure AD MFA to bootstrap their Passwordless credentials. 
-In cases where users can’t use Azure AD MFA (for example, phones can’t be used in the facility), you can configure a Temporary Access Pass (TAP) to bootstrap their Passwordless credentials.  
+Passwordless authentication methods, such as FIDO2 and Passwordless Phone Sign-in through the Microsoft Authenticator app, enable users to sign in securely without a password. 
+Users can bootstrap Passwordless methods in one of two ways:
 
-TAP is a time-limited passcode that serves as strong credentials and allows onboarding of Passwordless credentials. 
-TAP also makes recovery easier when a user has lost or forgotten their strong authentication factor like a FIDO2 security key or Microsoft Authenticator app, but needs to sign in to register new strong authentication methods. 
+- Using existing Azure AD multi-factor authentication methods 
+- Using a Temporary Access Pass (TAP) 
+
+TAP is a time-limited passcode issued by an admin that satisfies strong authentication requirements and can be used to onboard other authentication methods, including Passwordless ones. 
+TAP also makes recovery easier when a user has lost or forgotten their strong authentication factor like a FIDO2 security key or Microsoft Authenticator app, but needs to sign in to register new strong authentication methods.
+
 
 This article shows you how to enable and use a TAP in Azure AD using the Azure portal. 
 You can also perform these actions using the REST APIs. 
