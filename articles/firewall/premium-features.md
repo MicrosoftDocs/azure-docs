@@ -69,6 +69,12 @@ For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/n
 
 - Firewall Premium – the complete URL will be examined, so `www.google.com/news` will be categorized as *News*.
 
+The categories are organized based on severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**.
+
+#### Category exceptions
+
+You can create exceptions to your web category rules. Create a separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the pre-defined **Social networking** web category. 
+
 ## Known issues
 
 Azure Firewall Premium Preview has the following known issues:

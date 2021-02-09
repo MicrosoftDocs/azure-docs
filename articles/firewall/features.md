@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 02/09/2021
 ms.author: victorh
 ---
 
@@ -105,6 +105,24 @@ Azure Firewall Workbook provides a flexible canvas for Azure Firewall data analy
 ## Forced tunneling
 
 You can configure Azure Firewall to route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you may have an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
+
+### Web categories (preview)
+
+Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories is included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium Preview. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. For more information about Azure Firewall Premium Preview, see [Azure Firewall Premium Preview features](premium-features.md).
+
+For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/news`, the following categorization is expected: 
+
+- Firewall Standard – only the FQDN part will be examined, so `www.google.com` will be categorized as *Search Engine*. 
+
+- Firewall Premium – the complete URL will be examined, so `www.google.com/news` will be categorized as *News*.
+
+The categories are organized based on severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**.
+
+#### Category exceptions
+
+You can create exceptions to your web category rules. Create a separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the pre-defined **Social networking** web category.
+
+
 
 ## Certifications
 
