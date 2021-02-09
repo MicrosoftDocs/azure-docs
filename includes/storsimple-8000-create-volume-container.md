@@ -2,18 +2,19 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 02/98/2021
+ms.date: 02/09/2021
 ms.author: alkohli
 ---
 
 #### To create a volume container
+
 1. Go to your StorSimple Device Manager service and click **Devices**. From the tabular listing of the devices, select and click a device. 
 
-    ![Volume container blade](./media/storsimple-8000-create-volume-container/createvolumecontainer1.png)
+    ![Volume container blade](./media/storsimple-8000-create-volume-container/create-volume-container-01.png)
 
 2. In the device dashboard, click **+ Add volume container**
 
-    ![Volume container blade 2](./media/storsimple-8000-create-volume-container/createvolumecontainer2.png)
+    ![Volume container blade 2](./media/storsimple-8000-create-volume-container/create-volume-container-02.png)
 
 3. In the **Add volume container** blade:
    
@@ -26,18 +27,16 @@ ms.author: alkohli
    
       If you have your bandwidth usage information available, you may be able to allocate bandwidth based on a schedule by specifying **Select a bandwidth template**. For a step-by-step procedure, go to [Add a bandwidth template](../articles/storsimple/storsimple-8000-manage-bandwidth-templates.md#add-a-bandwidth-template).
 
-      ![Volume container blade 3](./media/storsimple-8000-create-volume-container/createvolumecontainer6b.png)
+      ![Volume container blade 3](./media/storsimple-8000-create-volume-container/create-volume-container-06-b.png)
 
    7. Click **Create**.
 
-        ![Volume container blade 4](./media/storsimple-8000-create-volume-container/createvolumecontainer6.png)
+        ![Volume container blade 4](./media/storsimple-8000-create-volume-container/create-volume-container-06.png)
    
        You are notified when the volume container is successfully created.
 
-       ![Volume container creation notification](./media/storsimple-8000-create-volume-container/createvolumecontainer8.png)
+       ![Volume container creation notification](./media/storsimple-8000-create-volume-container/create-volume-container-08.png)
 
    The newly created volume container is listed in the list of volume containers for your device.
 
-   ![Add volume container blade](./media/storsimple-8000-create-volume-container/createvolumecontainer9.png)
-
-
+   ![Add volume container blade](./media/storsimple-8000-create-volume-container/create-volume-container-09.png)
