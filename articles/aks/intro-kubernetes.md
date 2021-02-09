@@ -14,12 +14,12 @@ Azure Kubernetes Service (AKS) simplifies deploying a managed Kubernetes cluster
 
 Since the Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes. Thus, as a managed Kubernetes service, AKS is free; you only pay for the agent nodes within your clusters, not for the masters.  
 
-You can create an AKS cluster using the Azure Portal, the Azure CLI, Azure PowerShell, or using template-driven deployment options, such as Resource Manager templates and Terraform. When you deploy an AKS cluster, the Kubernetes master and all nodes are deployed and configured for you. 
+You can create an AKS cluster using the Azure portal, the Azure CLI, Azure PowerShell, or using template-driven deployment options, such as Resource Manager templates and Terraform. When you deploy an AKS cluster, the Kubernetes master and all nodes are deployed and configured for you. 
 Additional features such as advanced networking, Azure Active Directory integration, and monitoring can also be configured during the deployment process. Windows Server containers are supported in AKS.
 
 For more information on Kubernetes basics, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
-To get started, complete the AKS Quickstart [in the Azure Portal][aks-portal] or [with the Azure CLI][aks-cli].
+To get started, complete the AKS Quickstart [in the Azure portal][aks-portal] or [with the Azure CLI][aks-cli].
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
@@ -41,7 +41,7 @@ To secure your AKS clusters, see [Integrate Azure Active Directory with AKS][aks
 
 ### Integrated logging and monitoring
 
-Azure Monitor for Container Health collects memory and processor performance metrics from containers, nodes, and controllers within your AKS cluster and deployed applications. You can review both the container logs and [the Kubernetes master logs][aks-master-logs]. This monitoring data is stored in an Azure Log Analytics workspace and is available through the Azure Portal, Azure CLI, or a REST endpoint.
+Azure Monitor for Container Health collects memory and processor performance metrics from containers, nodes, and controllers within your AKS cluster and deployed applications. You can review both the container logs and [the Kubernetes master logs][aks-master-logs]. This monitoring data is stored in an Azure Log Analytics workspace and is available through the Azure portal, Azure CLI, or a REST endpoint.
 
 For more information, see [Monitor Azure Kubernetes Service container health][container-health].
 
@@ -59,7 +59,7 @@ For more information, see [Scale an Azure Kubernetes Service (AKS) cluster][aks-
 
 ### Cluster node upgrades
 
-AKS offers multiple Kubernetes versions. As new versions become available in AKS, your cluster can be upgraded using the Azure Portal or Azure CLI. During the upgrade process, nodes are carefully cordoned and drained to minimize disruption to running applications.  
+AKS offers multiple Kubernetes versions. As new versions become available in AKS, your cluster can be upgraded using the Azure portal or Azure CLI. During the upgrade process, nodes are carefully cordoned and drained to minimize disruption to running applications.  
 
 To learn more about lifecycle versions, see [Supported Kubernetes versions in AKS][aks-supported versions]. For steps on how to upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
