@@ -38,6 +38,10 @@ Using Resource Mover, you can currently move the following resources across regi
 
 You can't select disks as resources to the moved across regions. However, disks are moved as part of a VM move.
 
+### What does it mean to move a Resource Group
+
+When a resource is selected for move, the corresponding Resource Group is automatically added for move. This is needed as the destination resource will need to be placed under a Resource Group like it was in the target. You can choose to customize and provide an exsiting Resource Group, once it is added for move. Note that, moving a Resource Group **doesnt** mean that all the resources in the source Resource Group will be moved.
+
 ### Can I move resources across subscriptions when I move them across regions?
 
 You can change the subscription after moving resources to the destination region. [Learn more](../azure-resource-manager/management/move-resource-group-and-subscription.md) about moving resources to a different subscription. 
