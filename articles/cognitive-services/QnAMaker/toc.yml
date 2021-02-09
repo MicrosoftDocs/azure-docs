@@ -43,7 +43,6 @@
     displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
   - name: Using QnA Maker and LUIS
     href: choose-natural-language-processing-service.md
-   
 - name: How-to guides
   items:
   - name: Manage Azure resources
