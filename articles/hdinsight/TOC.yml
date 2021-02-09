@@ -52,7 +52,7 @@
             - name: HDI 3.6 component versions
               href: ./hdinsight-36-component-versioning.md
         - name: Service-level agreement
-          href: .hdinsight-service-agreement-versioning.md
+          href: ./hdinsight-service-agreement-versioning.md
     - name: Enterprise Security Package
       href: ./enterprise-security-package.md
     - name: Hortonworks release notes

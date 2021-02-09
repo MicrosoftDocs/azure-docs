@@ -32,7 +32,7 @@ HDInsight now uses Azure virtual machines to provision the cluster. Starting fro
 
 ## Deprecation
 ### Deprecation of HDInsight 3.6 ML Services cluster
-HDInsight 3.6 ML Services cluster type will be end of support by December 31 2020. Customers won't be able to create new 3.6 ML Services clusters after December 31 2020. Existing clusters will run as is without the support from Microsoft. Check the support expiration for HDInsight versions and cluster types [here](./hdinsight-component-versioning.md#available-versions).
+HDInsight 3.6 ML Services cluster type will be end of support by December 31 2020. Customers won't be able to create new 3.6 ML Services clusters after December 31 2020. Existing clusters will run as is without the support from Microsoft. Check the support expiration for HDInsight versions and cluster types [here](./hdinsight-component-versioning.md).
 
 ### Disabled VM sizes
 Starting from November 16 2020, HDInsight will block new customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing customers who have used these VM sizes in the past three months won't be affected. Starting form January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
@@ -51,7 +51,7 @@ HDInsight will introduce the first major official release of .NET for Apache Spa
 Starting from next release (around end of January), default cluster VM sizes will be changed from D family to Ev3 family. This change applies to head nodes and worker nodes. To avoid this change, specify the VM sizes that you want to use in the ARM template.
 
 ### Default cluster version will be changed to 4.0
-Starting February 2021, the default version of HDInsight cluster will be changed from 3.6 to 4.0. For more information about available versions, see [available versions](./hdinsight-component-versioning.md#available-versions). Learn more about what is new in [HDInsight 4.0](./hdinsight-version-release.md)
+Starting February 2021, the default version of HDInsight cluster will be changed from 3.6 to 4.0. For more information about available versions, see [supported versions](./hdinsight-component-versioning.md#supported-HDInsight-versions). Learn more about what is new in [HDInsight 4.0](./hdinsight-version-release.md)
 
 ### OS version upgrade
 HDInsight is upgrading OS version from 16.04 to 18.04. The upgrade will complete before April 2021.
