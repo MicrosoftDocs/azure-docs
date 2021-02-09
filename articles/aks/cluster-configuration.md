@@ -90,7 +90,7 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 
 The following section will explain how you can use and test AKS with `containerD` on clusters that aren't yet using a Kubernetes version 1.19 or higher, or were created before this feature became generally available, by using the container runtime configuration preview.
 
-### Use `containerd` as your container runtime (preview)
+### Use `containerd` as your container runtime
 
 You must have the following pre-requisites:
 
@@ -127,29 +127,13 @@ When the status shows as registered, refresh the registration of the `Microsoft.
 az provider register --namespace Microsoft.ContainerService
 ```  
 
-### Use `containerd` on new clusters (preview)
-
-Configure the cluster to use `containerd` when the cluster is created. Use the `--aks-custom-headers` flag to set `containerd` as the container runtime.
-
-> [!NOTE]
-> The `containerd` runtime is only supported on nodes and node pools using the AKS Ubuntu 18.04 image.
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804,ContainerRuntime=containerd
-```
-
-If you want to create clusters with the Moby (docker) runtime, you can do so by omitting the custom `--aks-custom-headers` tag.
-
-### Use `containerd` on existing clusters (preview)
+### Use `containerd` on existing clusters
 
 Configure a new node pool to use `containerd`. Use the `--aks-custom-headers` flag to set `containerd` as the runtime for that node pool.
 
 ```azurecli
 az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804,ContainerRuntime=containerd
 ```
-
-If you want to create node pools with the Moby (docker) runtime, you can do so by omitting the custom `--aks-custom-headers` tag.
-
 
 ### `Containerd` limitations/differences
 
