@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-author: ronytho
+ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 

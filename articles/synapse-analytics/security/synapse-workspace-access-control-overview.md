@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: overview 
 ms.subservice: security 
 ms.date: 12/03/2020 
-author: ronytho
+ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 # Synapse access control 
