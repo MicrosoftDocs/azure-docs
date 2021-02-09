@@ -35,7 +35,7 @@ Migration of Hive tables to a new Storage Account needs to be done as a separate
 
     |Property | Value |
     |---|---|
-    |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive-alter-table-location-expand-adl-path-v01.sh`|
+    |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive-adl-expand-location-v01.sh`|
     |Node type(s)|Head|
     |Parameters||
 
