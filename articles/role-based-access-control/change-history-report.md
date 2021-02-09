@@ -134,7 +134,7 @@ Here are the basic steps to get started:
 
    ![Azure Monitor logs option in portal](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Optionally use the [Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) to query and view the logs. For more information, see [Get started with Azure Monitor log queries](../azure-monitor/log-query/get-started-queries.md).
+1. Optionally use the [Azure Monitor Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) to query and view the logs. For more information, see [Get started with Azure Monitor log queries](../azure-monitor/logs/get-started-queries.md).
 
 Here's a query that returns new role assignments organized by target resource provider:
 

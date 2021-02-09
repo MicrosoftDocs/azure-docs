@@ -44,7 +44,7 @@
   - name: Collect logs from Azure resource
     href: essentials/tutorial-resource-logs.md
   - name: Write log queries
-    href: log-query/get-started-queries.md
+    href: logs/get-started-queries.md
   - name: Create a dashboard from log query
     href: learn/tutorial-logs-dashboards.md
   - name: Create alert from log query
@@ -237,7 +237,7 @@
         href: logs/log-analytics-overview.md
       - name: Tutorial
         displayname: Log Analytics workspace, log query, log queries, query, queries
-        href: log-query/log-analytics-tutorial.md
+        href: logs/log-analytics-tutorial.md
       - name: Query scope
         href: log-query/scope.md
       - name: Example queries
@@ -1438,6 +1438,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

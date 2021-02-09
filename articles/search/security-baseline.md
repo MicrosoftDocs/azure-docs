@@ -221,9 +221,9 @@ In Azure Monitor, set your Log Analytics workspace retention period according to
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Learn about Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Learn about Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not applicable
 

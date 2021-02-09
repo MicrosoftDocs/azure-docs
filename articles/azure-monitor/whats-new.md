@@ -108,7 +108,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 New and updated articles from restructure of log query content.
 
-- [Log Analytics tutorial](log-query/log-analytics-tutorial.md)
+- [Log Analytics tutorial](logs/log-analytics-tutorial.md)
 - [Log queries in Azure Monitor](logs/log-query-overview.md)
 - [Overview of Log Analytics in Azure Monitor](logs/log-analytics-overview.md)
 - [Samples for queries for Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor)
@@ -346,7 +346,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Added error message and section CMK configuration for queries.
 - [Azure Monitor HTTP Data Collector API](logs/data-collector-api.md) - Added Python 3 sample.
 - [Optimize log queries in Azure Monitor](logs/query-optimization.md) - Added section on avoiding multiple data scans when using subqueries.
-- [Tutorial: Get started with Log Analytics queries](./log-query/log-analytics-tutorial.md) - Added video.
+- [Tutorial: Get started with Log Analytics queries](./logs/log-analytics-tutorial.md) - Added video.
 
 ### Platform logs
 - [Create diagnostic settings to send platform logs and metrics to different destinations](essentials/diagnostic-settings.md) - Added video.

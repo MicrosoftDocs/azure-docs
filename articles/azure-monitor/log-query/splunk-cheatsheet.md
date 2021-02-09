@@ -169,4 +169,4 @@ You can use `summarize arg_min()` instead to reverse the order of which record g
 
 ## Next steps
 
-- Go through a lesson on the [writing log queries in Azure Monitor](get-started-queries.md).
+- Go through a lesson on the [writing log queries in Azure Monitor](../logs/get-started-queries.md).

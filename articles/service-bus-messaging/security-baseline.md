@@ -195,9 +195,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results related to your Service Bus entities. Use Azure Monitor to review logs and perform queries on log data related to Service Bus.
 
-- [For more information about the Log Analytics workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [For more information about the Log Analytics workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 

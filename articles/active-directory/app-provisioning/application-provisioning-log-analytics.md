@@ -52,7 +52,7 @@ Application provisioning comes with a set of pre-built workbooks. You can find t
 
 ## Custom queries
 
-You can create custom queries and show the data on Azure dashboards. To learn how, see [Create and share dashboards of Log Analytics data](../../azure-monitor/log-query/get-started-queries.md). Also, be sure to check out [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
+You can create custom queries and show the data on Azure dashboards. To learn how, see [Create and share dashboards of Log Analytics data](../../azure-monitor/logs/get-started-queries.md). Also, be sure to check out [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Here are some samples to get started with application provisioning.
 
@@ -113,7 +113,7 @@ We're taking an open source and community-based approach to application provisio
 ## Next steps
 
 - [Log analytics](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)
-- [Get started with queries in Azure Monitor logs](../../azure-monitor/log-query/get-started-queries.md)
+- [Get started with queries in Azure Monitor logs](../../azure-monitor/logs/get-started-queries.md)
 - [Create and manage alert groups in the Azure portal](../../azure-monitor/alerts/action-groups.md)
 - [Install and use the log analytics views for Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
 - [Provisioning logs API](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)
