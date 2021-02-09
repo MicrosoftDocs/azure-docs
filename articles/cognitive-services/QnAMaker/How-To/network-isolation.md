@@ -11,14 +11,14 @@ ms.date: 11/09/2020
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-1. Protect Cognitive Service Resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
-2. Protect App Service (QnA Runtime) from public access.
+* Protect Cognitive Service Resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
+* Protect App Service (QnA Runtime) from public access.
 
    ##### Add IPs to App Service allowlist
 
-    * Allow traffic only from Cognitive Service IPs. These are already included in Service Tag `CognitiveServicesManagement`. This is required for Authoring APIs (Create/Update KB) to invoke the app service and update Azure Search service accordingly. Check out [more information about service tags.](../../../virtual-network/service-tags-overview.md)
-    * Make sure you also allow other entry points like Bot service, QnA Maker portal (may be your corpnet) etc. for prediction "GenerateAnswer" API access.
-    * Please follow these steps to add the IP Address ranges to an allowlist:
+    1. Allow traffic only from Cognitive Service IPs. These are already included in Service Tag `CognitiveServicesManagement`. This is required for Authoring APIs (Create/Update KB) to invoke the app service and update Azure Search service accordingly. Check out [more information about service tags.](../../../virtual-network/service-tags-overview.md)
+    2. Make sure you also allow other entry points like Bot service, QnA Maker portal (may be your corpnet) etc. for prediction "GenerateAnswer" API access.
+    3. Please follow these steps to add the IP Address ranges to an allowlist:
 
       * Download [IP Ranges for all service tags](https://www.microsoft.com/download/details.aspx?id=56519).
       * Select the IPs of "CognitiveServicesManagement".
@@ -40,7 +40,7 @@ ms.date: 11/09/2020
         * Add a new Inbound Security Rule with source as 'Service Tag' and source service tag as 'CognitiveServicesManagement'.
     4.  Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to the App Service     Endpoint created above (https:// mywebsite.myase.p.azurewebsite.net).
     
-3. Configuring Cognitive Search as a private endpoint inside a VNET
+* Configuring Cognitive Search as a private endpoint inside a VNET
 
     When a Search instance is created during the creation of a QnA Maker resource, you can force Cognitive Search to support a private endpoint configuration created entirely within a customer’s VNet.
 
@@ -63,8 +63,8 @@ ms.date: 11/09/2020
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
-1. Protect Cognitive Service Resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
-2. [Create Private endpoints](../reference-private-endpoint.md) to the Azure Search resource.
+* Protect Cognitive Service Resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
+* [Create Private endpoints](../reference-private-endpoint.md) to the Azure Search resource.
 
 ---
 
