@@ -343,7 +343,7 @@ To restrict the inbound IP addresses for your logic app through the Azure portal
 
 <a name="restrict-inbound-ip-template"></a>
 
-#### [Resource Manager Template](#tab/azure-resource-managere)
+#### [Resource Manager Template](#tab/azure-resource-manager)
 
 If you [automate deployment for logic apps by using Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can specify the permitted inbound IP address ranges in your logic app's resource definition by using the `accessControl` section. In this section, use the `triggers`, `actions`, and the optional `contents` sections as appropriate by including the `allowedCallerIpAddresses` section with the `addressRange` property and set the property value to the permitted IP range in *x.x.x.x/x* or *x.x.x.x-x.x.x.x* format.
 
