@@ -34,12 +34,12 @@ If you are unable to connect your data source to Azure Sentinel using any of the
 
 The following table compares essential details about each method for creating custom connectors described in this article. Follow the links for more details about each method.
 
-|Method description  |Capabilitiy | Serverless    |Complexity  |
+|Method description  |Capability | Serverless    |Complexity  |
 |---------|---------|---------|---------|
 |**[Log Analytics agent](#use-the-azure-monitor-log-analytics-agent-to-create-your-connector)** <br>Best for collecting files from on-premises and IaaS sources   | File collection only  |   No      |Low         |
 |**[Logstash](#use-logstash-to-create-your-connector)** <br>Best for on-premises and IaaS sources, any source for which a plugin is available, and organizations already familiar with Logstash  | Available plugins plus custom plugin capabilities provide significant flexibility.   |   No; requires a VM or VM cluster to run           |   Low; supports many scenarios with plugins      |
 |**[Logic Apps](#using-logic-apps-to-create-your-connector)** <br>High cost; avoid for high-volume data <br>Best for low-volume cloud sources  | Codeless programming has flexibility, but does not allow for implementing algorithms.<br><br> If there is no available action to support your requirements, creating a custom action adds complexity.    |    Yes         |   Low; simple, codeless development      |
-|**[PowerShell](#use-powershell-to-create-your-custom-connector)** <br>Best for prototyping and periodic file uploads | Direct support for file collection. <br><br>PowerShell can be used to collect additional sources, but will require coding and configuring the script as a service.      |No               |  Low       |
+|**[PowerShell](#use-powershell-to-create-your-custom-connector)** <br>Best for prototyping and periodic file uploads | Direct support for file collection. <br><br>PowerShell can be used to collect more sources, but will require coding and configuring the script as a service.      |No               |  Low       |
 |**[Log Analytics API](#create-a-custom-connector-via-the-log-analytics-data-collector-api)** <br>Best for ISVs implementing integration, and for unique collection requirements   | Supports all capabilities available with the code.  | Depends on the implementation           |     High    |
 |**[Azure Functions](#use-azure-functions-to-create-your-custom-connector)** Best for high-volume cloud sources, and for unique collection requirements  | Supports all capabilities available with the code.  |  Yes             |     High; requires programming knowledge    |
 |     |         |                |
@@ -90,7 +90,7 @@ Use an [Azure Logic App](/azure/logic-apps/) to create a serverless, custom conn
     - **On-demand triggering**. Run your Logic App on-demand for manual data collection and testing. For more information, see  [Call, trigger, or nest logic apps using HTTPS endpoints](/azure/logic-apps/logic-apps-http-endpoint).
     - **HTTP/S endpoint**. Recommended for streaming, and if the source system can initiate the data transfer. For more information, see [Call service endpoints over HTTP or HTTPs](/azure/connectors/connectors-native-http).
 
-1. **Use any of the Logic App connectors that reads information to get your events**.
+1. **Use any of the Logic App connectors that read information to get your events**.
 
     For example:
 
@@ -174,7 +174,7 @@ For more information, see the [Log Analytics Data collector API](/azure/azure-mo
 
 ## Use Azure Functions to create your custom connector
 
-Use Azure Functions to create a serverless, custom connector using the RESTful API and a variety of languages, including [PowerShell](/azure/azure-functions/functions-reference-powershell?tabs=portal).
+Use Azure Functions to create a serverless, custom connector using the RESTful API and various languages, including [PowerShell](/azure/azure-functions/functions-reference-powershell?tabs=portal).
 
 For examples of this method, see:
 
