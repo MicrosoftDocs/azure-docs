@@ -525,18 +525,18 @@ Once you restore the disks, go to the next section to create the VM.
 
 #### Restore disks to Secondary region
 
-If CRR is enabled on the vault with which you have protected your VMs, the backup data is replicated to the secondary region and hence can be used to perform a restore. Perform the below steps to trigger restore in secondary region:
+If CRR is enabled on the vault with which you have protected your VMs, the backup data is replicated to the secondary region and so can be used to perform a restore. Perform the following steps to trigger a restore in the secondary region
 
 * Step 1: [Fetch the vault with which you have protected your VMs](backup-azure-vms-automation.md#fetch-the-vault-id)
 * Step 2: [Select the right backup item  for which you want to trigger the restore](backup-azure-vms-automation#select-the-vm-when-restoring-files)
-* Step 3: Select the appropriate recovery point in secondary region that you want to use for performing restore
+* Step 3: Select the appropriate recovery point in the secondary region that you want to use for performing the restore
 
 ```powershell
 $rp=Get-AzRecoveryServicesBackupRecoveryPoint -UseSecondaryRegion -Item $backupitem -VaultId $targetVault.ID
 $rp=$rp[0]
 ```
 
-* Step 4: Execute [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet with -RestoreToSecondaryRegion parameter to trigger restore in secondary region
+* Step 4: Execute the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet with -RestoreToSecondaryRegion parameter to trigger a restore in the secondary region
 
 ```powershell
 $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -VaultLocation $targetVault.Location -RestoreToSecondaryRegion -RestoreOnlyOSDisk
@@ -550,13 +550,13 @@ WorkloadName     Operation             Status              StartTime            
 V2VM             CrossRegionRestore   InProgress           4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-Step 5:Execute [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet with -UseSecondaryRegion paramter to monitor the restore job.
+Step 5:Execute the [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet with the -UseSecondaryRegion parameter to monitor the restore job.
 
 ```powershell
 Get-AzRecoveryServicesBackupJob -From (Get-Date).AddDays(-7).ToUniversalTime() -To (Get-Date).ToUniversalTime() -UseSecondaryRegion -VaultId $targetVault.ID
 ```
 
-The output would be similar to the below:
+The output will be similar to the following:
 
 ```output
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
