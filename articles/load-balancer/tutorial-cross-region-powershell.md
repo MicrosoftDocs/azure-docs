@@ -97,17 +97,6 @@ $be = @{
 }
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig @be
 
-## Create the health probe ##
-$pr = @{
-    Name = 'MyHealthProbe-CR'
-    Protocol = 'HTTP'
-    Port = '80'
-    IntervalInSeconds = '15'
-    ProbeCount = '2'
-    RequestPath = '/'
-}
-$probe = New-AzLoadBalancerProbeConfig @pr
-
 ## Create the load balancer rule ##
 $rul = @{
     Name = 'myHTTPRule-CR'
