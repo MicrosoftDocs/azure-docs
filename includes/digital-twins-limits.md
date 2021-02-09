@@ -9,9 +9,10 @@ ms.author: baanders
 
 ### Functional limits
 
-The table below lists the functional limits of Azure Digital Twins. See 
-[Best Practices for Designing Models](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models)
-for modeling recommendations to operate within these functional limits.
+The table below lists the functional limits of Azure Digital Twins. 
+
+> [!TIP]
+> See [Best Practices for Designing Models](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models) for modeling recommendations to operate within these functional limits.
 
 | Area | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
