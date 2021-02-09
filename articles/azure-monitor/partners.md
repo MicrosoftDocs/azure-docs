@@ -124,7 +124,7 @@ Elastic is a search company. As the creators of the Elastic Stack (Elasticsearch
 
 Grafana is an open-source application that enables you to visualize time series metric data.
 
-[Azure Monitor Grafana integration](../platform/grafana-plugin.md)
+[Azure Monitor Grafana integration](platform/grafana-plugin.md)
 
 ## InfluxData
 
@@ -132,7 +132,7 @@ Grafana is an open-source application that enables you to visualize time series 
 
 InfluxData is the creator of InfluxDB, the open-source time series database. Our technology is purpose-built to handle the massive volumes of time-stamped data produced by IoT devices, applications, networks, containers, and computers. We are on a mission to help developers and organizations, such as IBM, Visa, Siemens, Tesla and NASA, store and analyze real-time data, empowering them to build transformative monitoring, analytics, and IoT applications quicker and to scale. Microsoft Azure Monitor's metrics and events collection capabilities can be expanded with InfluxData's Telegraf Agent enabling Microsoft users to benefit from a leading time series database solution and leverage the growing open-source contributions to Telegraf.
 
-[Azure Monitor Influx data Telegraf integration](../essentials/collect-custom-metrics-linux-telegraf.md) 
+[Azure Monitor Influx data Telegraf integration](essentials/collect-custom-metrics-linux-telegraf.md) 
 
 ## Logic Monitor
 
@@ -325,10 +325,10 @@ Using Azure Monitor to route monitoring data to an Azure Event Hub  allows you t
 
 ## Next steps
 
-- [Learn more about Azure Monitor](../overview.md)
-- [Access metrics using the REST API](../essentials/rest-api-walkthrough.md)
-- [Stream the Activity Log to a non-Microsoft service](./activity-log.md#legacy-collection-methods)
-- [Stream resource logs to a non-Microsoft service](../essentials/resource-logs.md#send-to-azure-event-hubs)
+- [Learn more about Azure Monitor](overview.md)
+- [Access metrics using the REST API](essentials/rest-api-walkthrough.md)
+- [Stream the Activity Log to a non-Microsoft service](essentials/activity-log.md#legacy-collection-methods)
+- [Stream resource logs to a non-Microsoft service](essentials/resource-logs.md#send-to-azure-event-hubs)
 
 
 
