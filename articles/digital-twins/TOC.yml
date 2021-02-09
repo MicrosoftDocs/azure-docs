@@ -52,7 +52,11 @@
       - name: Scripted version
         href: how-to-set-up-instance-scripted.md
     - name: Enable private access with Private Link
-      href: how-to-enable-private-link.md
+      items:
+      - name: Portal version
+        href: how-to-enable-private-link-portal.md
+      - name: CLI version
+        href: how-to-enable-private-link-cli.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration
@@ -108,7 +112,11 @@
       - name: Portal version
         href: how-to-manage-routes-portal.md
     - name: Enable a managed identity for routing events
-      href: how-to-enable-managed-identities.md
+      items:
+      - name: Portal version
+        href: how-to-enable-managed-identities-portal.md
+      - name: CLI version
+        href: how-to-enable-managed-identities-cli.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
     - name: Integrate with Azure Time Series Insights

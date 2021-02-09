@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Enable a managed identity for routing events (preview)
+title: Enable a managed identity for routing events (preview) - portal
 titleSuffix: Azure Digital Twins
-description: See how to enable a system-assigned identity for Azure Digital Twins and use it to forward events.
+description: See how to enable a system-assigned identity for Azure Digital Twins and use it to forward events, using the Azure portal.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 1/21/2021
@@ -15,9 +15,13 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Enable a managed identity for routing Azure Digital Twins events (preview)
+# Enable a managed identity for routing Azure Digital Twins events (preview) - Azure portal
+
+[!INCLUDE [digital-twins-msi-selector.md](../../includes/digital-twins-msi-selector.md)]
 
 This article describes how to enable a [system-assigned identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources-preview) (currently in preview), and use the identity when forwarding events to supported destinations such as [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
+
+This article walks through the process using the [Azure portal](https://portal.azure.com).
 
 Here are the steps that are covered in this article: 
 

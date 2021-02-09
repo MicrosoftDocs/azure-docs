@@ -18868,6 +18868,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/how-to-enable-private-link.md",
+      "redirect_url": "/azure/digital-twins/how-to-enable-private-link-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-enable-managed-identities.md",
+      "redirect_url": "/azure/digital-twins/how-to-enable-managed-identities-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/overview-differences.md",
       "redirect_url": "/azure/digital-twins/resources-compare-original-release",
       "redirect_document_id": false
