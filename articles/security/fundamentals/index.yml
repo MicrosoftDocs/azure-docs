@@ -59,6 +59,9 @@ landingContent:
             url: management-monitoring-overview.md
           - text: Threat protection
             url: threat-detection.md
+      - linkListType: tutorial
+        links:
+          - text: Secure against systemic-identity compromise
 
   # Card
   - title: Best practices for securing your cloud solutions

@@ -1,5 +1,5 @@
 ---
-title: Securing your system against systemic-identity compromise| Microsoft Docs
+title: Securing your system against systemic-identity compromise | Microsoft Docs
 description: Learn how to use Microsoft resources to secure your system against systemic-identity compromises similar to the SolarWinds attack (Solorigate).
 services: sentinel
 documentationcenter: na
