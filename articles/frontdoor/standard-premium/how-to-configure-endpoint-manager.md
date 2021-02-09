@@ -9,7 +9,7 @@ ms.date: 02/18/2021
 ms.author: qixwang
 ---
 
-# Configure an Azure Front Door Standard/Premium Endpoint with Endpoint Manager
+# Configure an Azure Front Door Standard/Premium (Preview) Endpoint with Endpoint Manager
 
 This article shows you how to create an Azure Front Door (AFD) endpoint for an existing Azure Front Door profile with Endpoint Manager.
 
