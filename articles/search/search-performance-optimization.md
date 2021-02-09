@@ -90,17 +90,17 @@ Since replicas are copies of your data, having multiple replicas allows Azure Co
 You can utilize Availability Zones with Azure Cognitive Search by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region. If you have more replicas than Availability Zones, the replicas will be distributed across Availability Zones as evenly as possible.
 
 Azure Cognitive Search currently supports Availability Zones for Standard tier or higher search services that were created in one of the following regions:
-+ Australia East (created January 30th, 2021 or later)
-+ Canada Central (created January 30th, 2021 or later)
-+ Central US (created December 4th, 2020 or later)
-+ East US 2 (created January 30th, 2021 or later)
-+ France Central (October 23rd, 2020 or later)
-+ Japan East (created January 30th, 2021 or later)
-+ North Europe (created January 28th, 2021 or later)
-+ South East Asia (created January 31st, 2021 or later)
-+ UK South (created January 30th, 2021 or later)
-+ West Europe (created January 29th, 2021 or later)
-+ West US 2 (created January 30th, 2021 or later)
++ Australia East (created January 30, 2021 or later)
++ Canada Central (created January 30, 2021 or later)
++ Central US (created December 4, 2020 or later)
++ East US 2 (created January 30, 2021 or later)
++ France Central (created October 23, 2020 or later)
++ Japan East (created January 30, 2021 or later)
++ North Europe (created January 28, 2021 or later)
++ South East Asia (created January 31, 2021 or later)
++ UK South (created January 30, 2021 or later)
++ West Europe (created January 29, 2021 or later)
++ West US 2 (created January 30, 2021 or later)
 
 Availability Zones do not impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
