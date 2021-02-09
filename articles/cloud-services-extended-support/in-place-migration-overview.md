@@ -96,7 +96,7 @@ These are top scenarios involving combinations of resources, features and Cloud 
 | Virtual Network | Migration of deployment with roles in different subnet. |
 	
 
-## Unsupported resources and features not available for migration associated with Cloud Services (classic)
+## Resources and features not available for migration
 | Resource | Next steps / work around | 
 |---|---|
 | Auto Scale Rules | Migration goes through but rules are dropped. Recreate the rules after migration on Cloud Services (extended support). | 
@@ -114,7 +114,7 @@ These are top scenarios involving combinations of resources, features and Cloud 
 | Role-Based Access Control	| Post migration, the URI of the resource changes from Microsoft.ClassicCompute to Microsoft.Compute RBAC policies needs to be updated after migration. | 
 | Application Gateway | Not Supported. <br><br> Remove the Application Gateway before beginning migration and then recreate the Application Gateway once migration is completed to Azure Resource Manager | 
 
-## Unsupported configurations / Migration Scenarios
+## Unsupported configurations / migration scenarios
 
 | Configuration / Scenario	| Next steps / work around | 
 |---|---|
