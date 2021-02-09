@@ -30,7 +30,7 @@ Requests to the Translator service require a read-only key for authenticating ac
 1. You'll paste it into the code below to authenticate your request to the Document Translation service.
 
 > [!IMPORTANT]
-> You won't use the endpoint found on the Keys and Endpoint page for Document Translation. Instead, you will use a custom endpoint for Document Translation requests. *See* [Set your custom endpoint](#set-your-custom-endpoint), below.
+> You won't use the endpoint found on the Keys and Endpoint page for Document Translation. Instead, you will use a custom endpoint for Document Translation requests. *See* [Create your custom endpoint](#create-your-custom-endpoint), below.
 
 ## Create your custom endpoint
 
