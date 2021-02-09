@@ -55,7 +55,7 @@ You can edit the report like any other [Azure Monitor Workbook](../platform/work
 
 The queries can all be run in [Log Analytics](../log-query/log-analytics-overview.md) and used in other reports or dashboards. Remove the parameter restriction and reuse the core query.
 
-:::image type="content" source="./media/sla-report/logs.gif" alt-text=" GIF of log query." lightbox="./media/sla-report/logs.gif"":::
+:::image type="content" source="./media/sla-report/logs.gif" alt-text=" GIF of log query." lightbox="./media/sla-report/logs.gif":::
 
 ## Access and sharing
 
