@@ -2,6 +2,11 @@
   "redirections": [
     
     {
+      "source_path": "articles/virtual-machines/windows/install-mongodb.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/install-mongodb",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/docker-compose-quickstart.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/docker-compose-quickstart",
       "redirect_document_id": false
@@ -61681,6 +61686,11 @@
     {
       "source_path_from_root": "/articles/key-vault/secrets/quick-create-github-secret.md",
       "redirect_url": "/azure/developer/github/deploy-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/upgrade-managed-disks.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
       "redirect_document_id": false
     }
   ]

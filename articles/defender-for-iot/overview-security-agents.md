@@ -29,7 +29,7 @@ Use the following workflow to deploy and test your Defender for IoT security age
 
 1. If your IoT Hub has no registered devices, [Register a new device](../iot-accelerators/iot-accelerators-device-simulation-overview.md).
 
-1. [Create an DefenderIotMicroAgent module twin](quickstart-create-micro-agent-module-twin.md) for your devices.
+1. [Create a DefenderIotMicroAgent module twin](quickstart-create-micro-agent-module-twin.md) for your devices.
 
 1. To install the agent on an Azure simulated device instead of installing on an actual device, [spin up a new Azure Virtual Machine (VM)](../virtual-machines/linux/quick-create-portal.md) in an available zone.
 

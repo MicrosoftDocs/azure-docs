@@ -78,6 +78,10 @@ To analyze the telemetry for a device group:
 
     You can customize the view, change the time period shown, and export the data.
 
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## Next steps
 
 Now that you've learned how to use device groups in your Azure IoT Central application, here is the suggested next step:

@@ -39,8 +39,11 @@ The next stage for getting started is preparing your Azure resources. You'll nee
 An IoT Hub connection is required to get started. 
 
 1. Open your **IoT Hub** in Azure portal.
+
 1. Navigate to **IoT Devices**.
+
 1. Select **Create**.
+
 1. Copy the IoT connection string to the [configuration file](how-to-azure-rtos-security-module.md).
 
 The connections credentials are taken from the user application configuration **HOST_NAME**, **DEVICE_ID**, and **DEVICE_SYMMETRIC_KEY**.
