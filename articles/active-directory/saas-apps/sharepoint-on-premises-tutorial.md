@@ -193,7 +193,7 @@ The basic configuration of the trust between SharePoint and Azure AD is now fini
 
 ## Sign-in as a member user
 
-Azure Active Directory has [2 type of users](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-user-properties): Guest users and Member users. Let's start with a member user, which is merely a user that is homed in your organization.
+Azure Active Directory has [2 type of users](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-user-properties): Guest users and Member users. Let's start with a member user, which is merely a user that is homed in your organization.
 
 ### Create a member user in Azure Active Directory
 
@@ -341,6 +341,6 @@ $t.Update()
 
 1. On the **Set up Single Sign-On with SAML** page, edit **Basic SAML Configuration**.
 
-1. In the section **Reply URL (Assertion Consumer Service URL)**, add the URL (for example, `https://otherwebapp.contoso.local/`) of each additional web application that need to sign-in users with Azure Active Directory and click **Save**.
+1. In the section **Reply URL (Assertion Consumer Service URL)**, add the URL (for example, `https://otherwebapp.contoso.local/`) of all additional web application that need to sign-in users with Azure Active Directory and click **Save**.
 
 ![Specify additional web applications](./media/sharepoint-on-premises-tutorial/aad-app-reply-urls.png)
