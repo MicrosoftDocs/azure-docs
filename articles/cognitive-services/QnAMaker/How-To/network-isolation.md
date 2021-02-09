@@ -57,7 +57,7 @@ ms.date: 11/09/2020
     3. Create a new [Virtual Network resource](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM).
     4. Configure the VNET on the App service resource created in step 1 of this procedure. Create a new DNS entry in the VNET for new Cognitive Search resource created in step 2. to the Cognitive Search IP address.
     5. [Associate the App service to the new Cognitive Search resource](#configure-qna-maker-to-use-different-cognitive-search-resource) created in step 2. Then, you can delete the original Cognitive Search resource created in step 1.
-
+    
     In the [QnA Maker portal](https://www.qnamaker.ai/), create your first knowledge base.
 
 # [QnA Maker managed (preview release)](#tab/v2)
