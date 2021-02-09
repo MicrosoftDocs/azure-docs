@@ -22,7 +22,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 
 The following diagram shows how the sample app works:
 
-![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
+![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
 
 > [!div renderon="docs"]
 > ## Prerequisites
@@ -123,7 +123,7 @@ This section gives an overview of the code required to sign in users. This overv
 
 ### Startup class
 
-The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's executed when the hosting process starts:
+The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's run when the hosting process starts:
 
 ```csharp
   public void ConfigureServices(IServiceCollection services)
