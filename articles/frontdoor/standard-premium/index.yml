@@ -31,7 +31,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a Front Door profile
+          - text: Create a Front Door Standard/Premium profile
             url: quickstart-create-front-door-portal.md
 
   # Card
@@ -41,7 +41,7 @@ landingContent:
         links:
           - text: Reports
             url: concept-reports.md
-          - text: Monitoring Metrics with Azure Monitor
+          - text: Monitoring Metrics and Alerts
             url: how-to-monitor-metrics.md
 
   # Card

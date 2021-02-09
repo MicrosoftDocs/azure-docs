@@ -2,12 +2,12 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Front Door Preview?
+  - name: What is Azure Front Door Standard/Premium (Preview)?
     href: overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Front Door Standard/Premium - Portal
+  - name: Create an Front Door Standard/Premium - Portal
     href: create-front-door-portal.md
 - name: Concepts
   items:
@@ -26,10 +26,10 @@
   - name: Rule Set Action
     href: concept-rule-action.md
   - name: Azure Load Balancing
-    href: concept-load-balancing-suite.md
+    href: ../frontdoor/front-door-lb-with-azure-app-delivery-suite.md?toc=%2fazure%2fexpressroute%2standard-premium%2ftoc.json
   - name: Health Probe
     href: concept-health-probes.md
-  - name: Url Rewrite
+  - name: URl Rewrite
     href: concept-rule-set-url-redirect-and-rewrite.md
   - name: Reports
     href: concept-reports.md
@@ -59,17 +59,15 @@
     href: how-to-logging.md
   - name: Monitoring and alerts
     href: how-to-monitoring-metrics.md
-  - name: Configure security headers with Rule Set
-    href: how-to-add-security-headers.md
   - name: Troubleshoot
     items:
-    - name: Troubleshoot routing issues
+    - name: Routing issues
       href: troubleshoot-routing.md
     - name: Allowed certificate authorities
       href: troubleshoot-allowed-ca.md
-    - name: Troubleshoot compression
+    - name: Compression
       href: troubleshoot-compression.md
-    - name: Troubleshoot cross origin resource sharing
+    - name: Cross origin resource sharing
       href: troubleshoot-cross-origin-resource-sharing.md
 - name: Reference
   items:

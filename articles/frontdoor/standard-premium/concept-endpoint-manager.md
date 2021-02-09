@@ -10,10 +10,10 @@ ms.date: 02/18/2021
 ms.author: qixwang
 ---
 
-# What is Azure Front Door Standard/Premium Endpoint Manager?
+# What is Azure Front Door Standard/Premium (Preview) Endpoint Manager?
 
 > [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](frontdoor/front-door-overview.md).
+> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
@@ -39,4 +39,6 @@ With the linked view within Endpoint Manager, you could easily identify the asso
 
 :::image type="content" source="../media/concept-endpoint-manager/EndpointManager2.png" alt-text="Front Door EndpointManager2":::
 
-Learn how to [create a Front Door](create-front-door-standard-premium-portal.md).
+## Next Steps
+
+Learn how to [create a Front Door](create-front-door-portal.md).

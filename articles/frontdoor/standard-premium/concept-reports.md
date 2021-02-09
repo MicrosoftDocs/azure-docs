@@ -22,7 +22,7 @@ ms.author: yuajia
 Azure Front Door Analytics Reports provide a built-in and all-around view of how Azure Front Door is behaving and the associated WAF metrics. You can take advantage of Access Log to do further troubleshooting and debugging. Azure Front Door Analytics reports include AFD reports and security reports
 
 > [!Note]
-> Security reports is only applicable to Azure Front Door Premium (Preview) SKU.
+> Security reports is only available with Azure Front Door Premium SKU.
 
 | Reports | Details |
 |---------|---------|
@@ -50,7 +50,8 @@ Reports support any selected date range from the previous 90 days. With data poi
 
 1. In the navigation pane, select **Reports or Security** under *Analytics*.
 
-   :::image type="content" source="../media/concept-reports/front-door-reports-landing-page.png" alt-text="Create a web app in the Azure portal":::
+   :::image type="content" source="../media/concept-reports/front-door-reports-landing-page.png" alt-text="Reports landing page":::
+
 1. There are seven tabs for different dimensions, select the dimension of interest.
    * Traffic by domain
    * Usage 
@@ -82,22 +83,22 @@ Reports support any selected date range from the previous 90 days. With data poi
 
     1. **Location** - Select single or multiple client locations by country. Countries are grouped into six regions: North America, Asia, Europe, Africa, Oceania, and South America. Refer to [region/country mapping](https://en.wikipedia.org/wiki/Subregion). By default, all countries are selected.
     
-        :::image type="content" source="../media/concept-reports/front-door-reports-dimension-locations.png" alt-text="Create a web app in the Azure portal":::
+        :::image type="content" source="../media/concept-reports/front-door-reports-dimension-locations.png" alt-text="Report for location dimension":::
    
     1. **Protocol** - Select either HTTP or HTTPS to view traffic data.
  
-        :::image type="content" source="../media/concept-reports/front-door-reports-dimension-protocol.png" alt-text="Create a web app in the Azure portal":::
+        :::image type="content" source="../media/concept-reports/front-door-reports-dimension-protocol.png" alt-text="Report for protocol dimension":::
     
     1. **Domains** - Select single or multi Endpoints or Custom Domains. By default, all endpoints and custom domains are selected. 
     
         * If you delete an endpoint or a custom domain in one profile and then recreate the same endpoint or domain in another profile. The endpoint will be considered a second endpoint.  
         * If you're viewing reports by custom domain - when you delete one custom domain and bind it to a different endpoint. They'll be treated as one custom domain. If view by endpoint - they'll be treated as separate items. 
     
-        :::image type="content" source="../media/concept-reports/front-door-reports-dimension-domain.png" alt-text="Create a web app in the Azure portal":::
+        :::image type="content" source="../media/concept-reports/front-door-reports-dimension-domain.png" alt-text="Report for domain dimension":::
 
 1. If you want to export the data to a CSV file, select the *Download CSV* link on the selected tab.
 
-    :::image type="content" source="../media/concept-reports/front-door-reports-download-csv.png" alt-text="Create a web app in the Azure portal":::
+    :::image type="content" source="../media/concept-reports/front-door-reports-download-csv.png" alt-text="Download csv file for reports":::
 
 ### Key metrics for all reports
 
@@ -123,13 +124,13 @@ You can go to other tabs to investigate further or view access log for more info
 
 For definition of cache hit ratio, refer to Caching. 
 
-:::image type="content" source="../media/concept-reports/front-door-reports-landing-page.png" alt-text="Create a web app in the Azure portal":::
+:::image type="content" source="../media/concept-reports/front-door-reports-landing-page.png" alt-text="Landing page for reports":::
 
 ## Traffic by Location
 
 This report displays the top 50 locations by the country of the visitors that access your asset the most. The report also provides a breakdown of metrics by country and gives you an overall view of countries where the most traffic gets generated. Lastly you can see which country is having higher cache hit ratio or 4XX/5XX error codes.
 
-:::image type="content" source="../media/concept-reports/front-door-reports-by-location.png" alt-text="Create a web app in the Azure portal":::
+:::image type="content" source="../media/concept-reports/front-door-reports-by-location.png" alt-text="Reports by locations":::
 
 The following are included in the reports:
 
@@ -159,7 +160,7 @@ This report shows the trends of traffic and response status code by different di
 
 * Number of requests from the edge to clients by HTTP status code. Percentage of requests by HTTP status code among all requests in grid. 
 
-:::image type="content" source="../media/concept-reports/front-door-reports-usage.png" alt-text="Create a web app in the Azure portal":::
+:::image type="content" source="../media/concept-reports/front-door-reports-usage.png" alt-text="Report by usage":::
 
 ## Caching
 
@@ -195,7 +196,7 @@ It excludes all of the following cases:
 
 * Origin response headers indicate that they shouldn't be cached. For example, Cache-Control: private, Cache-Control: no-cache, or Pragma: no-cache headers will prevent an asset from being cached. 
 
-:::image type="content" source="../media/concept-reports/front-door-reports-caching.png" alt-text="Create a web app in the Azure portal":::
+:::image type="content" source="../media/concept-reports/front-door-reports-caching.png" alt-text="Reports for caching":::
 
 ## Top URLs
 
@@ -226,7 +227,7 @@ Top Referrers allow customers to view the top 50 referrer that originated the mo
 * Data transferred 
 * Data transferred % 
 
-:::image type="content" source="../media/concept-reports/front-door-reports-top-referrer.png" alt-text="Create a web app in the Azure portal":::
+:::image type="content" source="../media/concept-reports/front-door-reports-top-referrer.png" alt-text="Reports for top referrer":::
 
 ## Traffic by User Agent
 
@@ -237,8 +238,6 @@ This report allows you to have graphical and statistics view of the top 50 user 
 * Safari/537.36.  
 
 A grid displays the request counts, request %, data transferred and data transferred. User Agent refers to the value of UserAgent in access logs.
-
-:::image type="content" source="../media/concept-reports/front-door-reports-top-user-agent.png" alt-text="Create a web app in the Azure portal":::
 
 ## Security Report
 
@@ -262,8 +261,6 @@ This report allows you to have graphical and statistics view of WAF patterns by 
 | Requests by top Request URL |  A table of requests by top 50 URLs, in descending order. |
 | Request by top Hostnames | A table of top 50 requests by hostname, in descending order. |
 | Requests by top user agents | A table of requests by top 50 user agents, in descending order. |
-
-:::image type="content" source="../media/concept-reports/front-door-reports-security.png" alt-text="Create a web app in the Azure portal":::
 
 ## CVS format
 
