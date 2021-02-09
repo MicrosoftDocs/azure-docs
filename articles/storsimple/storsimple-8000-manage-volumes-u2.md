@@ -85,7 +85,7 @@ You [created a volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-creat
 
 1. From the tabular listing of the devices in the **Devices** blade, select your device. Click **+ Add volume**.
 
-    ![Add a new volume](./media/storsimple-8000-manage-volumes-u2/step5createvol1.png)
+    ![Add a new volume](./media/storsimple-8000-manage-volumes-u2/add-volume-01.png)
 
 2. In the **Add a volume** blade:
    
@@ -107,11 +107,13 @@ You [created a volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-creat
       
        If you provision a locally pinned volume of 8.5 TB (maximum allowable size) on your 8100 device, then you have exhausted all the local space available on the device. You can't create any tiered volume from that point onwards as there is no local space on the device to host the working set of the tiered volume. Existing tiered volumes also affect the space available. For example, if you have an 8100 device that already has tiered volumes of roughly 106 TB, only 4 TB of space is available for locally pinned volumes.
 
-    6. In the **Connected hosts** field, click the arrow. In the **Connected hosts** blade, choose an existing ACR or add a new ACR. If you choose a new ACR, then supply a **Name** for your ACR, provide the **iSCSI Qualified Name** (IQN) of your Windows host. If you don't have the IQN, go to Get the IQN of a Windows Server host. Click **Create**. A volume is created with the specified settings.
+    6. In the **Connected hosts** field, click the arrow, and then select each ACRs you want to connect. <!--In the **Connected hosts** blade, choose an existing ACR or add a new ACR. If you choose a new ACR, then supply a **Name** for your ACR, provide the **iSCSI Qualified Name** (IQN) of your Windows host. If you don't have the IQN, go to Get the IQN of a Windows Server host.--> 
 
-        ![Click Create](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
+        ![Add a connected host](./media/storsimple-8000-manage-volumes-u2/add-volume-02.png)
 
-Your new volume is now ready to use.
+   7. When you finish your settings, click **Create**. 
+
+      A volume is created with the specified settings. Your new volume is ready to use.
 
 > [!NOTE]
 > If you create a locally pinned volume and then create another locally pinned volume immediately afterwards, the volume creation jobs run sequentially. The first volume creation job must finish before the next volume creation job can begin.
