@@ -203,7 +203,7 @@ The [development lifecycle](development-lifecycle-knowledge-base.md) of a knowle
 
 ### Knowledge base development of QnA Maker pairs
 
-Your [QnA pairs](question-answer-set.md) should be designed and developed based on your client application usage.
+Your QnA pairs should be designed and developed based on your client application usage.
 
 Each pair can contain:
 * Metadata - filterable when querying to allow you to tag your QnA pairs with additional information about the source, content, format, and purpose of your data.
