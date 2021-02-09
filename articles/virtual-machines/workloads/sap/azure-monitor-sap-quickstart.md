@@ -80,6 +80,7 @@ Sign in to the Azure portal at https://portal.azure.com
 
 > [!IMPORTANT]
 > To configure OS (Linux) provider, ensure that Node_Exporter is installed in each BareMetal instance. For more information, see [Node_Exporter](https://github.com/prometheus/node_exporter)
+> ALso download the Node Exporter from [this](https://prometheus.io/download/#node_exporter) link only.
 
 2. Input a name, which will be the identifier for the BareMetal Instance.
 3. Input the Node Exporter Endpoint in the form of http://IP:9100/metrics.
