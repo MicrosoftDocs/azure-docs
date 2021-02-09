@@ -8,6 +8,8 @@
     href: faq.md
   - name: What's new?
     href: whats-new.md
+  - name: Migrate from Operations Manager
+    href: azure-monitor-operations-manager.md
 - name: Quickstarts
   items:
   - name: Monitor Azure resource
@@ -196,6 +198,8 @@
         href: platform/metric-chart-samples.md
       - name: Troubleshooting metric charts
         href: platform/metrics-troubleshoot.md
+      - name: Understanding metrics aggregation 
+        href: platform/metrics-aggregation-explained.md
   - name: Azure Monitor Logs
     items:
     - name: Overview
@@ -325,6 +329,8 @@
         href: platform/data-sources-linux-applications.md
       - name: IIS logs
         href: platform/data-sources-iis-logs.md
+      - name: Event Tracing for Windows data
+        href: platform/data-sources-event-tracing-windows.md
       - name: Custom logs
         href: platform/data-sources-custom-logs.md
       - name: Custom fields
@@ -567,17 +573,27 @@
       - name: Data Synced From Your ITSM Product
         href: platform/itsmc-synced-data.md
       - name: Troubleshooting problems in ITSM Connector
-        href: platform/itsmc-resync-servicenow.md
+        items:
+        - name: Overview
+          href: platform/itsmc-troubleshoot-overview.md
+        - name: Dashboard Investigation
+          href: platform/itsmc-dashboard.md
+        - name: Common Errors
+          href: platform/itsmc-dashboard-errors.md
+        - name: Sync ITSM Connector
+          href: platform/itsmc-resync-servicenow.md
       - name: Integrate with Secure Export
         items:
            - name: Overview
              href: platform/it-service-management-connector-secure-webhook-connections.md
            - name: Secure Export Azure Configuration
              href: platform/itsm-connector-secure-webhook-connections-azure-configuration.md
-           - name: BMC
-             href: platform/itsmc-secure-webhook-connections-bmc.md
-           - name: ServiceNow
-             href: platform/itsmc-secure-webhook-connections-servicenow.md
+           - name: ITSM Connector Partners Setup
+             items:
+              - name: BMC
+                href: platform/itsmc-secure-webhook-connections-bmc.md
+              - name: ServiceNow
+                href: platform/itsmc-secure-webhook-connections-servicenow.md
     - name: Migrate classic alert rules
       items:
       - name: About classic alerts 
@@ -664,6 +680,8 @@
             href: app/javascript-react-native-plugin.md 
           - name: Angular plugin
             href: app/javascript-angular-plugin.md
+          - name: Click Analytics Auto-collection plugin
+            href: app/javascript-click-analytics-plugin.md
         - name: Troubleshoot
           items: 
           - name: SDK load failure 
@@ -1004,7 +1022,7 @@
         href: insights/vminsights-health-troubleshoot.md
     - name: Analyze data with log queries
       href: insights/vminsights-log-search.md
-    - name: Monitor performance
+    - name: Alerts
       href: insights/vminsights-alerts.md
     - name: Monitor changes
       href: insights/vminsights-change-analysis.md
@@ -1026,6 +1044,8 @@
         href: insights/container-insights-enable-new-cluster.md
       - name: Enable for existing AKS cluster
         href: insights/container-insights-enable-existing-clusters.md
+      - name: Enable for AKS with Azure Policy
+        href: containers/container-insights-enable-aks-policy.md
       - name: Enable for Arc enabled cluster
         href: insights/container-insights-enable-arc-enabled-clusters.md
       - name: Enable for hybrid cluster

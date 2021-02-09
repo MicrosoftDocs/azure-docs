@@ -7,7 +7,7 @@ ms.date: 1/6/2021
 
 # Migrate Batch pool configuration from Cloud Services to Virtual Machines
 
-Batch pools can be created using either [cloudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) or [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration). 'virtualMachineConfiguration' is the recommended configuration as it supports all Batch capabilities. 'cloudServiceConfiguration' pools do not support all features and no new features are planned.
+Batch pools can be created using either [cloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) or [virtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration). 'virtualMachineConfiguration' is the recommended configuration as it supports all Batch capabilities. 'cloudServiceConfiguration' pools do not support all features and no new features are planned.
 
 If you use 'cloudServiceConfiguration' pools, it is highly recommended that you move to use 'virtualMachineConfiguration' pools. This will enable you to benefit from all Batch capabilities, such as an expanded [selection of VM series](batch-pool-vm-sizes.md), Linux VMs, [containers](batch-docker-container-workloads.md), [Azure Resource Manager virtual networks](batch-virtual-network.md), and [node disk encryption](disk-encryption.md).
 
@@ -17,7 +17,7 @@ This article describes how to migrate to 'virtualMachineConfiguration'.
 
 Existing active pools cannot be updated from 'cloudServiceConfiguration' to 'virtualMachineConfiguration', new pools must be created. Creating pools using 'virtualMachineConfiguration' is supported by all Batch APIs, command-line tools, Azure portal, and the Batch Explorer UI.
 
-The [.NET](tutorial-parallel-dotnet.md) and [Python](tutorial-parallel-python.md) tutorials provide examples of pool creation using 'virtualMachineConfiguration'.
+**The [.NET](tutorial-parallel-dotnet.md) and [Python](tutorial-parallel-python.md) tutorials provide examples of pool creation using 'virtualMachineConfiguration'.**
 
 ## Pool configuration differences
 
@@ -36,4 +36,4 @@ The following should be considered when updating pool configuration:
 
 - Learn more about [pool configurations](nodes-and-pools.md#configurations).
 - Learn more about [pool best practices](best-practices.md#pools).
-- REST API reference for [pool addition](https://docs.microsoft.com/rest/api/batchservice/pool/add) and [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration).
+- REST API reference for [pool addition](/rest/api/batchservice/pool/add) and [virtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).

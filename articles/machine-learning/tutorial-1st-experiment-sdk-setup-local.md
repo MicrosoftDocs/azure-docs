@@ -32,13 +32,14 @@ In part 1 of this tutorial series, you will:
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try [Azure Machine Learning](https://aka.ms/AMLFree).
-- [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://www.anaconda.com/download/) to manage Python virtual environments and install packages.
+- [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://www.anaconda.com/download/) to manage Python virtual environments and install packages.  
+- If you're not familiar with using conda, see [Getting started with conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html).
 
 ## Install the Azure Machine Learning SDK
 
-Throughout this tutorial, you will use the Azure Machine Learning SDK for Python. To avoid Python dependency issues, you'll create an isolated environment. This tutorial series uses Conda to create that environment. If you prefer to use other solutions, such as `venv`, `virtualenv`, or docker, make sure you use a Python version >=3.5 and < 3.9.
+Throughout this tutorial, you will use the Azure Machine Learning SDK for Python. To avoid Python dependency issues, you'll create an isolated environment. This tutorial series uses conda to create that environment. If you prefer to use other solutions, such as `venv`, `virtualenv`, or docker, make sure you use a Python version >=3.5 and < 3.9.
 
-Check if you have Conda installed on your system:
+Check if you have conda installed on your system:
     
 ```bash
 conda --version

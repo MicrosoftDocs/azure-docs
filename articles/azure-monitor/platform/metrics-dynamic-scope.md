@@ -1,6 +1,6 @@
 ---
-title: Viewing multiple resources in Metrics Explorer
-description: Learn how to visualize multiple resources on Azure Monitor Metrics Explorer
+title: View multiple resources in the Azure metrics explorer
+description: Learn how to visualize multiple resources by using the Azure metrics explorer.
 author: ritaroloff
 services: azure-monitor
 
@@ -10,77 +10,79 @@ ms.author: riroloff
 ms.subservice: metrics
 ---
 
-# Viewing multiple resources in Metrics Explorer
+# View multiple resources in the Azure metrics explorer
 
-The resource scope picker allows you to view metrics across multiple resources that are within the same subscription and region. Below are instructions on how to view multiple resources in Azure Monitor Metrics Explorer. 
+The resource scope picker allows you to view metrics across multiple resources that are within the same subscription and region. This article explains how to view multiple resources by using the Azure metrics explorer feature of Azure Monitor. 
 
-## Selecting a resource 
+## Select a resource 
 
-Select **Metrics** from the **Azure Monitor** menu or from the **Monitoring** section of a resource's menu. Click on the "Select a scope" button to open the resource scope picker, which will allow you to select the resource(s) you want to see metrics for. This should already be populated if you opened metrics explorer from a resource's menu. 
+Select **Metrics** from the **Azure Monitor** menu or from the **Monitoring** section of a resource's menu. Then choose **Select a scope** to open the scope picker. 
 
-![Screenshot of resource scope picker highlighted in red](./media/metrics-charts/019.png)
+Use the scope picker to select the resources whose metrics you want to see. The scope should be populated if you opened the metrics explorer from a resource's menu. 
 
-## Selecting multiple resources 
+![Screenshot showing how to open the resource scope picker.](./media/metrics-charts/019.png)
 
-Some resource types have enabled the ability to query for metrics over multiple resources, as long as they are within the same subscription and location. These resource types can be found at the top of the “Resource Types” dropdown. 
+## Select multiple resources 
 
-![Screenshot that shows a dropdown of resources that are multi-resource compatible ](./media/metrics-charts/020.png)
+Some resource types can query for metrics over multiple resources. The metrics must be within the same subscription and location. Find these resource types at the top of the **Resource types** menu.
+
+![Screenshot that shows a menu of resources that are compatible with multiple resources.](./media/metrics-charts/020.png)
 
 > [!WARNING] 
-> You must have Monitoring Reader permission at the subscription level to visualize metrics across multiple resources, resource groups or a subscription. In order to do this, please follow the instructions in [this document](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+> You must have Monitoring Reader permission at the subscription level to visualize metrics across multiple resources, resource groups, or a subscription. For more information, see [Add or remove Azure role assignments by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-In order to visualize metrics over multiple resources, start by selecting multiple resources within the resource scope picker. 
+To visualize metrics over multiple resources, start by selecting multiple resources within the resource scope picker. 
 
-![Screenshot that shows how to select multiple resources](./media/metrics-charts/021.png)
+![Screenshot that shows how to select multiple resources.](./media/metrics-charts/021.png)
 
 > [!NOTE]
-> You are only able to select multiple resources within the same resource type, location and subscription. Resources outside of this criteria will not be selectable. 
+> The resources you select must be within the same resource type, location, and subscription. Resources that don't fit these criteria aren't selectable. 
 
-When you are done selecting, click on the “Apply” button to save your selection. 
+When you finish, choose **Apply** to save your selections. 
 
-## Selecting a resource group or subscription 
+## Select a resource group or subscription 
 
 > [!WARNING]
-> You must have Monitoring Reader permission at the subscription level to visualize metrics across multiple resources, resource groups or a subscription. 
+> You must have Monitoring Reader permission at the subscription level to visualize metrics across multiple resources, resource groups, or a subscription. 
 
-For multi-resource compatible types, you can also query for metrics across a subscription or multiple resource groups. Start by selecting a subscription or one or more resource groups: 
+For types that are compatible with multiple resources, you can query for metrics across a subscription or multiple resource groups. Start by selecting a subscription or one or more resource groups: 
 
-![Screenshot that shows how to query across multiple resource groups ](./media/metrics-charts/022.png)
+![Screenshot that shows how to query across multiple resource groups.](./media/metrics-charts/022.png)
 
-You will then need to select a resource type and location before you can continue applying your new scope. 
+Select a resource type and location. 
 
-![Screenshot that shows the selected resource groups ](./media/metrics-charts/023.png)
+![Screenshot that shows the selected resource groups.](./media/metrics-charts/023.png)
 
-You are also able to expand the selected scopes to verify which resources this will apply to.
+You can expand the selected scopes to verify the resources your selections apply to.
 
-![Screenshot that shows the selected resources within the groups ](./media/metrics-charts/024.png)
+![Screenshot that shows the selected resources within the groups.](./media/metrics-charts/024.png)
 
-Once you are finished selecting your scopes, click “Apply” to save your selections. 
+When you finish selecting scopes, select **Apply**. 
 
-## Splitting and filtering by resource group or resources
+## Split and filter by resource group or resources
 
-After plotting your resources, you can use the splitting and filtering tool to gain more insight into your data. 
+After plotting your resources, you can use splitting and filtering to gain more insight into your data. 
 
-Splitting allows you to visualize how different segments of the metric compare with each other. For instance, when you are plotting a metric for multiple resources you can use the “Apply splitting” tool to split by resource id or resource group. This will allow you to easily compare a single metric across multiple resources or resource groups.  
+Splitting allows you to visualize how different segments of the metric compare with each other. For instance, when you plot a metric for multiple resources, you can choose **Apply splitting** to split by resource ID or resource group. The split allows you to compare a single metric across multiple resources or resource groups.  
 
-For example, below is a chart of the percentage CPU across 9VMs. By splitting by resource id, you can easily see how percentage CPU differs per VM. 
+For example, the following chart shows the percentage CPU across nine VMs. When you split by resource ID, you see how percentage CPU differs by VM. 
 
-![Screenshot that shows how you can use splitting to see percentage CPU per VM](./media/metrics-charts/026.png)
+![Screenshot that shows how to use splitting to see the percentage CPU across VMs.](./media/metrics-charts/026.png)
 
-In addition to splitting, you can use the filtering feature to only display the resource groups that you want to see.  For instance, if you want to view the percentage CPU for VMs for a certain resource group, you can use the "Add filter” tool to filter by resource group. In this example we filter by TailspinToysDemo, which removes metrics associated with resources in TailspinToys. 
+Along with splitting, you can use filtering to display only the resource groups that you want to see.  For instance, to view the percentage CPU for VMs for a certain resource group, you can select **Add filter** to filter by resource group. 
 
-![Screenshot that shows how you can filter by resource group](./media/metrics-charts/027.png)
+In this example, we filter by TailspinToysDemo. Here, the filter removes metrics associated with resources in TailspinToys. 
 
-## Pinning your multi-resource charts 
+![Screenshot that shows how to filter by resource group.](./media/metrics-charts/027.png)
 
-> [!WARNING] 
-> You must have Monitoring Reader permission at the subscription level to visualize metrics across multiple resources, resource groups or a subscription. In order to do this, please follow the instructions in [this document](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
+## Pin multiple-resource charts 
 
-To pin your multi-resource chart, please follow the instructions [here](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pin-charts-to-dashboards). 
+Multiple-resource charts that visualize metrics across resource groups and subscriptions require the user to have *Monitoring Reader* permission at the subscription level. Ensure that all users of the dashboards to which you pin multiple-resource charts have sufficient permissions. For more information, see [Add or remove Azure role assignments by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+
+To pin your multiple-resource chart to a dashboard, see [Pinning to dashboards](./metrics-charts.md#pinning-to-dashboards). 
 
 ## Next steps
 
-* [Troubleshooting Metrics Explorer](metrics-troubleshoot.md)
+* [Troubleshoot the metrics explorer](metrics-troubleshoot.md)
 * [See a list of available metrics for Azure services](metrics-supported.md)
 * [See examples of configured charts](metric-chart-samples.md)
-

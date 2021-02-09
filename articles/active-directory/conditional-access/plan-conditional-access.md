@@ -482,4 +482,4 @@ Once you have collected the information, See the following resources:
 
 [Learn more about Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Manage Conditional Access policies with Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy)
+[Manage Conditional Access policies with Microsoft Graph API](/graph/api/resources/conditionalaccesspolicy)

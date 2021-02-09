@@ -84,9 +84,6 @@ If you already have a desired VNET that you would like to connect to, skip this 
 
 In the Azure portal, or using Azure CLI, Azure PowerShell, etc. create a resource group and a virtual network in the new resource group, **the resource group and virtual network need to be in the same region**.
 
-> [!NOTE]
-> While in public preview, the resource group and virtual network must be located in either WestCentralUS or WestUS.
-
 ### ARM templates
 Utilize the [Azure Quickstart Template](https://aka.ms/cloudshell/docs/vnet/template) for creating Cloud Shell resources in a virtual network, and the [Azure Quickstart Template](https://aka.ms/cloudshell/docs/vnet/template/storage) for creating necessary storage. Take note of your resource names, primarily your file share name.
 

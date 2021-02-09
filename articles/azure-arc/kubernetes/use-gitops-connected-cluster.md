@@ -44,7 +44,7 @@ If you are associating a private repository with the `sourceControlConfiguration
 
 Use the Azure CLI extension for `k8sconfiguration` to link a connected cluster to the [example Git repository](https://github.com/Azure/arc-k8s-demo). We will give this configuration a name `cluster-config`, instruct the agent to deploy the operator in the `cluster-config` namespace, and give the operator `cluster-admin` permissions.
 
-```console
+```azurecli
 az k8sconfiguration create --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/Azure/arc-k8s-demo --scope cluster --cluster-type connectedClusters
 ```
 
@@ -134,7 +134,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > HTTPS Helm release private auth is supported only with Helm operator chart version >= 1.2.0.  Version 1.2.0 is used by default.
 > HTTPS Helm release private auth is not supported currently for Azure Kubernetes Services managed clusters.
-> If you need Flux to access the Git repo through your proxy, then you will need to update the Azure Arc agents with the proxy settings. [More information](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#connect-using-an-outbound-proxy-server)
+> If you need Flux to access the Git repo through your proxy, then you will need to update the Azure Arc agents with the proxy settings. [More information](./connect-cluster.md#connect-using-an-outbound-proxy-server)
 
 #### Additional Parameters
 
@@ -175,7 +175,7 @@ For more information, see [Flux documentation](https://aka.ms/FluxcdReadme).
 
 Using the Azure CLI validate that the `sourceControlConfiguration` was successfully created.
 
-```console
+```azurecli
 az k8sconfiguration show --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
@@ -347,7 +347,7 @@ Delete a `sourceControlConfiguration` using the Azure CLI or Azure portal.  Afte
 > After a sourceControlConfiguration with namespace scope is created, it's possible for users with `edit` role binding on the namespace to deploy workloads on this namespace. When this `sourceControlConfiguration` with namespace scope gets deleted, the namespace is left intact and will not be deleted to avoid breaking these other workloads.  If needed you can delete this namespace manually with kubectl.
 > Any changes to the cluster that were the result of deployments from the tracked Git repo are not deleted when the `sourceControlConfiguration` is deleted.
 
-```console
+```azurecli
 az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 

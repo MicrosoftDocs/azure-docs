@@ -8,14 +8,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/14/2020
+ms.date: 01/23/2021
 ---
 
 # Quickstart: Create an Azure Cognitive Search service in the portal
 
-Azure Cognitive Search is a standalone resource used to plug a search experience into custom apps. Cognitive Search integrates easily with other Azure services, with apps on network servers, or with software running on other cloud platforms.
+[Azure Cognitive Search](search-what-is-azure-search.md) is an Azure resource used for adding a full text search experience to custom apps. You can integrate it easily with other Azure services that provide data or additional processing, with apps on network servers, or with software running on other cloud platforms.
 
-In this article, learn how to create a resource in the [Azure portal](https://portal.azure.com/).
+In this article, learn how to create a search service in the [Azure portal](https://portal.azure.com/).
 
 [![Animated GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -26,8 +26,8 @@ Prefer PowerShell? Use the Azure Resource Manager [service template](https://azu
 The following service properties are fixed for the lifetime of the service - changing any of them requires a new service. Because they are fixed, consider the usage implications as you fill in each property:
 
 * Service name becomes part of the URL endpoint ([review tips](#name-the-service) for helpful service names).
-* Service tier [affects billing](search-sku-tier.md) and sets an upward limit on capacity. Some features are not available on the free tier.
-* Service region can determine the availability of certain scenarios. If you need [high security features](search-security-overview.md) or [AI enrichment](cognitive-search-concept-intro.md), you will need to place Azure Cognitive Search in the same region as other services, or in regions that provide the feature in question. 
+* [Service tier](search-sku-tier.md) affects billing and sets an upward limit on capacity. Some features are not available on the free tier.
+* Service region can determine the availability of certain scenarios. If you need [high security features](search-security-overview.md) or [AI enrichment](cognitive-search-concept-intro.md), you will need to create Azure Cognitive Search in the same region as other services, or in regions that provide the feature in question. 
 
 ## Subscribe (free or paid)
 
@@ -39,7 +39,7 @@ Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/p
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Click the plus sign ("+ Create Resource") in the top-left corner.
+1. Click the plus sign (**"+ Create Resource"**) in the top-left corner.
 
 1. Use the search bar to find "Azure Cognitive Search" or navigate to the resource through **Web** > **Azure Cognitive Search**.
 

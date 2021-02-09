@@ -136,11 +136,6 @@ You can choose to enable new workspace features on your existing pools. If you d
 
 A: By Default, all new dedicated SQL pools will be deployed to a workspace; however, if you need to you can still create a dedicated SQL pool (formerly SQL DW) in a standalone form factor. 
 
-
-### Q: What are the functional differences between dedicated SQL pools and serverless SQL pools?
-
-A: You can find a full list of differences in [T-SQL feature differences in Synapse SQL](./sql/overview-features.md).
-
 ## Next steps
 
 * [Get started with Azure Synapse Analytics](get-started.md)

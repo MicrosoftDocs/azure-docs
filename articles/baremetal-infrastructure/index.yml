@@ -26,7 +26,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: BareMetal workload types
-            url: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/workloads/sap/context/context
+            url: ../virtual-machines/workloads/sap/get-started.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
 
            
 # card 2

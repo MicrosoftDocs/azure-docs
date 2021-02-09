@@ -168,7 +168,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Gov4Miles](https://www.milestechnologies.com)|
 |Gravity Pro Consulting|
 |[Green House Data](https://www.greenhousedata.com/)|
-|[Hanu Software Solutions Inc.](https://www.hanusoftware.com/contact)|
+|[Hanu Software Solutions Inc.](https://www.hanusoftware.com/hanu/#contact)|
 |[Harmonia Holdings Group LLC](https://www.harmonia.com)|
 |[HCL Technologies](https://www.hcltech.com/aerospace-and-defense)|
 |[HD Dynamics](https://www.hddynamics.com/)|
@@ -207,7 +207,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Jacobs Technolgy Inc.](https://www.jacobs.com/)|
 |[Jadex Strategic Group](https://jadexstrategic.com)|
 |[Jasper Solutions Inc.](https://jaspersolutions.com/)|
-|[JHC Technology, Inc.](https://www.jhctechnology.com/)|
+|[JHC Technology, Inc.](https://www.effectual.com/jhc-technology/)|
 |[Quiet Professionals](https://quietprofessionalsllc.com)|
 |[Quzara LLC](https://www.quzara.com)|
 |[Karpel Solutions](https://www.karpel.com/)|
@@ -283,7 +283,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Perspecta](https://perspecta.com/)|
 |[Phacil](https://www.phacil.com/)|
 |[Pharicode LLC](https://pharicode.com)|
-|[Picis Envision](https://www.picis.com/solution/analytics-suite/)|
+|[Picis Envision](https://www.picis.com/en/)|
 |[Pinao Consulting LLC](https://www.pcg-msp.com)|
 |[Pitech Solutions Inc](https://www.pitechsol.com/)|
 |[Planet Technologies](https://go-planet.com)|

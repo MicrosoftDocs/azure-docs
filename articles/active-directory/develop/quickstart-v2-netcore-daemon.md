@@ -14,7 +14,7 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core"
-#Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
+#Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by the Microsoft identity platform using client credentials flow.
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph API using console app's identity
@@ -62,7 +62,7 @@ This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/
 > ### Download and configure your quickstart app
 >
 > #### Step 1: Configure your application in Azure portal
-> For the code sample for this quickstart to work, you need to create a client secret, and add Graph API's **User.Read.All** application permission.
+> For the code sample in this quickstart to work, create a client secret and add Graph API's **User.Read.All** application permission.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
@@ -127,7 +127,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 
 ##### Standard user
 
-If you're a standard user of your tenant, then you need to ask a global administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
+If you're a standard user of your tenant, ask a global administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here

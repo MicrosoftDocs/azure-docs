@@ -90,18 +90,18 @@ A function can also simplify a commonly used union. For example, you can save th
 
 You can then write a query across both workspaces by beginning with `unionSecurityEvent | where ...` .
 
-#### Scheduled alerts
+#### Cross-workspace analytics rules<a name="scheduled-alerts"></a>
+<!-- Bookmark added for backward compatibility with old heading -->
+Cross-workspace queries can now be included in scheduled analytics rules, subject to the following limitations:
 
-Cross-workspace queries can now be included in scheduled alerts in analytics rules, subject to the following limitations:
-
-- Up to 10 workspaces can be included in a single query.
+- Up to 15 workspaces can be included in a single query.
 - Azure Sentinel must be deployed on every workspace referenced in the query.
 
 > [!NOTE] 
 > Querying multiple workspaces in the same query might affect performance, and therefore is recommended only when the logic requires this functionality.
 
-### Using cross-workspace workbooks
-
+#### Cross-workspace workbooks<a name="using-cross-workspace-workbooks"></a>
+<!-- Bookmark added for backward compatibility with old heading -->
 [Workbooks](./overview.md#workbooks) provide dashboards and apps to Azure Sentinel. When working with multiple workspaces, they provide monitoring and actions across workspaces.
 
 Workbooks can provide cross-workspace queries in one of three methods, each of which cater to different levels of end-user expertise:
@@ -113,7 +113,7 @@ Workbooks can provide cross-workspace queries in one of three methods, each of w
 | Edit the workbook interactively | An advanced user modifying an existing workbook can edit the queries in it, selecting the target workspaces using the workspace selector in the editor. | This option enables a power user to easily modify existing workbooks to work with multiple workspaces. |
 |
 
-### Cross-workspace hunting
+#### Cross-workspace hunting
 
 Azure Sentinel provides preloaded query samples designed to get you started and get you familiar with the tables and the query language. These built-in hunting queries are developed by Microsoft security researchers on a continuous basis, both adding new queries and fine-tuning existing queries, to provide you with an entry point to look for new detections and identify signs of intrusion that may have gone undetected by your security tools.  
 
@@ -123,7 +123,7 @@ Cross-workspace hunting capabilities enable your threat hunters to create new hu
 
 To configure and manage multiple Azure Sentinel workspaces, you will need to automate the use of the Azure Sentinel management API. For more information on how to automate the deployment of Azure Sentinel resources, including alert rules, hunting queries, workbooks and playbooks, see [Extending Azure Sentinel: APIs, Integration and management automation](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
-See also [Deploying and Managing Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) and [Combining Azure Lighthouse with Sentinel’s DevOps capabilities](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) for a consolidated, community-contributed methodology for managing Azure Sentinel as code and for deploying and configuring resources from a private GitHub repository. 
+See also [Deploying and Managing Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) and [Combining Azure Lighthouse with Azure Sentinel’s DevOps capabilities](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) for a consolidated, community-contributed methodology for managing Azure Sentinel as code and for deploying and configuring resources from a private GitHub repository. 
 
 ## Managing workspaces across tenants using Azure Lighthouse
 

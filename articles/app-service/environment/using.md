@@ -46,7 +46,7 @@ To create an app in an ASE:
     > Linux apps and Windows apps can't be in the same App Service plan, but they can be in the same App Service Environment.
     >
 
-1. Select ** Next: Monitoring**  If you want to enable App Insights with your app, you can do it here during the creation flow. 
+1. Select **Next: Monitoring**  If you want to enable App Insights with your app, you can do it here during the creation flow. 
 
 1.  Select **Next: Tags** Add any tags you want to the app  
 

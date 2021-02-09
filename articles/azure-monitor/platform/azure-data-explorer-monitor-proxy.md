@@ -12,7 +12,7 @@ ms.date: 10/13/2020
 
 # Query data in Azure Monitor using Azure Data Explorer (Preview)
 
-The Azure Data Explorer supports cross service queries between Azure Data Explorer, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics (LA)](/azure/azure-monitor/platform/data-platform-logs). You can then query your Log Analytics/Application Insights workspace using Azure Data Explorer tools and refer to it in a cross service query. The article shows how to make a cross service query and how to add the Log Analytics/Application Insights workspace to Azure Data Explorer Web UI.
+The Azure Data Explorer supports cross service queries between Azure Data Explorer, [Application Insights (AI)](../app/app-insights-overview.md), and [Log Analytics (LA)](./data-platform-logs.md). You can then query your Log Analytics/Application Insights workspace using Azure Data Explorer tools and refer to it in a cross service query. The article shows how to make a cross service query and how to add the Log Analytics/Application Insights workspace to Azure Data Explorer Web UI.
 
 The Azure Data Explorer cross service queries flow:
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Azure data explorer proxy flow.":::
@@ -59,7 +59,7 @@ You can run the queries using client tools that support Kusto queries, such as: 
 > * Database name should have the same name as the resource specified in the cross service query. Names are case sensitive.
 > * In cross cluster queries, make sure that the naming of Application Insights apps and Log Analytics workspaces is correct.
 > * If names contain special characters, they are replaced by URL encoding in the cross service query.
-> * If names include characters that don't meet [KQL identifier name rules](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names), they are replaced by the dash **-** character.
+> * If names include characters that don't meet [KQL identifier name rules](/azure/data-explorer/kusto/query/schema-entities/entity-names), they are replaced by the dash **-** character.
 
 ### Direct query on your Log Analytics or Application Insights workspaces from Azure Data Explorer client tools
 
@@ -87,7 +87,7 @@ union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<tabl
 
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-cross-query-proxy.png" alt-text="Cross service query from the Azure Data Explorer.":::
 
-Using the [`join` operator](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator), instead of union, may require a [`hint`](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator#join-hints) to run it on an Azure Data Explorer native cluster.
+Using the [`join` operator](/azure/data-explorer/kusto/query/joinoperator), instead of union, may require a [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) to run it on an Azure Data Explorer native cluster.
 
 ### Join data from an Azure Data Explorer cluster in one tenant with an Azure Monitor resource in another
 
@@ -95,9 +95,9 @@ Cross-tenant queries between the services are not supported. You are signed in t
 
 If the Azure Data Explorer resource is in Tenant 'A' and Log Analytics workspace is in Tenant 'B' use one of the following two methods:
 
-1. Azure Data Explorer allows you to add roles for principals in different tenants. Add your user ID in Tenant 'B' as an authorized user on the Azure Data Explorer cluster. Validate the *['TrustedExternalTenant'](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* property on the Azure Data Explorer cluster contains Tenant 'B'. Run the cross-query fully in Tenant 'B'.
+1. Azure Data Explorer allows you to add roles for principals in different tenants. Add your user ID in Tenant 'B' as an authorized user on the Azure Data Explorer cluster. Validate the *['TrustedExternalTenant'](/powershell/module/az.kusto/update-azkustocluster)* property on the Azure Data Explorer cluster contains Tenant 'B'. Run the cross-query fully in Tenant 'B'.
 
-2. Use [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) to project the Azure Monitor resource into Tenant 'A'.
+2. Use [Lighthouse](../../lighthouse/index.yml) to project the Azure Monitor resource into Tenant 'A'.
 ### Connect to Azure Data Explorer clusters from different tenants
 
 Kusto Explorer automatically signs you into the tenant to which the user account originally belongs. To access resources in other tenants with the same user account, the `tenantId` has to be explicitly specified in the connection string:
@@ -132,4 +132,4 @@ The following syntax options are available when calling the Log Analytics or App
 ## Next steps
 
 - Read more about the [data structure of Log Analytics workspaces and Application Insights](data-platform-logs.md).
-- Learn to [write queries in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/write-queries).
+- Learn to [write queries in Azure Data Explorer](/azure/data-explorer/write-queries).

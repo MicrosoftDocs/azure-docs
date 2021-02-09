@@ -32,7 +32,10 @@ This article discusses the following:
 
 - Moving CMK encrypted Recovery Services vault across Resource Groups and Subscriptions isn't currently supported.
 
-- This feature is currently configurable from the Azure portal only.
+- This feature can be configured through the Azure portal and PowerShell.
+
+    >[!NOTE]
+    >Use Az module 5.3.0 or greater to use customer managed keys for backups in the Recovery Services vault.
 
 If you haven't created and configured your Recovery Services vault, you can [read how to do so here](backup-create-rs-vault.md).
 
@@ -57,6 +60,8 @@ Azure Backup uses system assigned managed identity to authenticate the Recovery 
 >[!NOTE]
 >Once enabled, the managed identity must **not** be disabled (even temporarily). Disabling the managed identity may lead to inconsistent behavior.
 
+**In the portal:**
+
 1. Go to your Recovery Services vault -> **Identity**
 
     ![Identity settings](./media/encryption-at-rest-with-cmk/managed-identity.png)
@@ -65,9 +70,33 @@ Azure Backup uses system assigned managed identity to authenticate the Recovery 
 
 1. An Object ID is generated, which is the system-assigned managed identity of the vault.
 
+**With PowerShell:**
+
+Use the [Update-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) command to enable system-assigned managed identity for the recovery services vault.
+
+Example:
+
+```AzurePowerShell
+$vault=Get-AzRecoveryServicesVault -ResourceGroupName "testrg" -Name "testvault"
+
+Update-AzRecoveryServicesVault -IdentityType SystemAssigned -VaultId $vault.ID
+
+$vault.Identity | fl
+```
+
+Output:
+
+```output
+PrincipalId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Type        : SystemAssigned
+```
+
 ### Assign permissions to the Recovery Services vault to access the encryption key in the Azure Key Vault
 
 You now need to permit the Recovery Services vault to access the Azure Key Vault that contains the encryption key. This is done by allowing the Recovery Services vault’s managed identity to access the Key Vault.
+
+**In the portal**:
 
 1. Go to your Azure Key Vault -> **Access Policies**. Continue to **+Add Access Policies**.
 
@@ -84,6 +113,32 @@ You now need to permit the Recovery Services vault to access the Azure Key Vault
 1. Once done, select **Add** to add the new access policy.
 
 1. Select **Save** to save changes made to the access policy of the Azure Key Vault.
+
+**With PowerShell**:
+
+Use the [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) command to enable encryption using customer-managed keys, and to assign or update the encryption key to be used.
+
+Example:
+
+```azurepowershell
+$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
+$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
+Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
+
+
+$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
+$enc.encryptionProperties | fl
+```
+
+Output:
+
+```output
+EncryptionAtRestType          : CustomerManaged
+KeyUri                        : testkey
+SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
+LastUpdateStatus              : Succeeded
+InfrastructureEncryptionState : Disabled
+```
 
 ### Enable soft-delete and purge protection on the Azure Key Vault
 
@@ -215,6 +270,8 @@ You can encrypt the restored disk / VM after the restore is complete, regardless
 
 #### Select a Disk Encryption Set while restoring from Vault Recovery Point
 
+**In the portal**:
+
 The Disk Encryption Set is specified under Encryption Settings in the restore pane, as shown below:
 
 1. In the **Encrypt disk(s) using your key**, select **Yes**.
@@ -225,6 +282,21 @@ The Disk Encryption Set is specified under Encryption Settings in the restore pa
 >The ability to choose a DES while restoring isn't available if you're restoring a VM that uses Azure Disk Encryption.
 
 ![Encrypt disk using your key](./media/encryption-at-rest-with-cmk/encrypt-disk-using-your-key.png)
+
+**With PowerShell**:
+
+Use the [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) command with the parameter [`-DiskEncryptionSetId <string>`] to [specify the DES](/powershell/module/az.compute/get-azdiskencryptionset) to be used for encrypting the restored disk. For more information about restoring disks from VM backup, see [this article](./backup-azure-vms-automation.md#restore-an-azure-vm).
+
+Example:
+
+```azurepowershell
+$namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM" -VaultId $vault.ID
+$backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $vault.ID
+$startDate = (Get-Date).AddDays(-7)
+$endDate = Get-Date
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -VaultId $vault.ID
+$restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -DiskEncryptionSetId “testdes1” -VaultId $vault.ID
+```
 
 #### Restoring files
 

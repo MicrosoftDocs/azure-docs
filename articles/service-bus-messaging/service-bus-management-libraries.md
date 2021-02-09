@@ -10,14 +10,20 @@ ms.custom: devx-track-csharp
 # Dynamically provision Service Bus namespaces and entities 
 The Azure Service Bus management libraries can dynamically provision Service Bus namespaces and entities. This enables complex deployments and messaging scenarios, and makes it possible to programmatically determine what entities to provision. These libraries are currently available for .NET.
 
-## Supported functionality
+## Overview
+There are three management libraries available for you create and manage Service Bus entities. They are:
 
-* Namespace creation, update, deletion
-* Queue creation, update, deletion
-* Topic creation, update, deletion
-* Subscription creation, update, deletion
+- [Azure.Messaging.ServiceBus.Administration](#azuremessagingservicebusadministration)
+- [Microsoft.Azure.ServiceBus.Management](#microsoftazureservicebusmanagement)
+- [Microsoft.Azure.Management.ServiceBus](#microsoftazuremanagementservicebus)
 
-## Azure.Messaging.ServiceBus.Administration (Recommended)
+All of these packages support create, get, list, delete, update, delete, and update operations on **queues, topics, and subscriptions**. But, only [Microsoft.Azure.Management.ServiceBus](#microsoftazuremanagementservicebus) supports create, update, list, get, and delete operations on **namespaces**, listing and re-regenerating SAS keys, and more. 
+
+The Microsoft.Azure.Management.ServiceBus library works only with Azure Active Directory (Azure AD) authentication, and it doesn't support using a connection string. Whereas the other two libraries (Azure.Messaging.ServiceBus and Microsoft.Azure.ServiceBus) support using a connection string for authenticating with the service and are easier to use. Between these libraries, Azure.Messaging.ServiceBus is the latest and that's what we recommend you to use.
+
+The following sections provide more details on these libraries. 
+
+## Azure.Messaging.ServiceBus.Administration
 You can use the [ServiceBusAdministrationClient](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient) class in the [Azure.Messaging.ServiceBus.Administration](/dotnet/api/azure.messaging.servicebus.administration) namespace to manage namespaces, queues, topics, and subscriptions. Here's the sample code. For a complete example, see [CRUD example](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/tests/Samples/Sample07_CrudOperations.cs).
 
 ```csharp
@@ -84,7 +90,7 @@ namespace adminClientTrack2
 You can use the [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) class in the [Microsoft.Azure.ServiceBus.Management](/dotnet/api/microsoft.azure.servicebus.management) namespace to manage namespaces, queues, topics, and subscriptions. Here's the sample code: 
 
 > [!NOTE]
-> We recommend that you use the `ServiceBusAdministrationClient` class from the `Azure.Messaging.ServiceBus.Administration` library, which is the latest SDK. For details, see the [first section](#azuremessagingservicebusadministration-recommended). 
+> We recommend that you use the `ServiceBusAdministrationClient` class from the `Azure.Messaging.ServiceBus.Administration` library, which is the latest SDK. For details, see the [first section](#azuremessagingservicebusadministration). 
 
 ```csharp
 using System;
@@ -151,7 +157,7 @@ To get started using this library, you must authenticate with the Azure Active D
 
 * [Use the Azure portal to create Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Use Azure PowerShell to create a service principal to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Use Azure CLI to create a service principal to access resources](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Use Azure CLI to create a service principal to access resources](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (authentication key), all of which are used for authentication by the management libraries. You must have at-least [**Azure Service Bus Data Owner**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) or [**Contributor**](../role-based-access-control/built-in-roles.md#contributor) permissions for the resource group on which you wish to run.
 

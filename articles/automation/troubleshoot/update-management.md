@@ -2,9 +2,9 @@
 title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
-ms.date: 12/04/2020
-ms.topic: conceptual
-ms.service: automation
+ms.subservice: update-management
+ms.date: 01/13/2021
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot Update Management issues
@@ -139,13 +139,11 @@ This issue can be caused by local configuration issues or by improperly configur
    | summarize by Computer, Solutions
    ```
 
-4. If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. If your machine shows up in the query results, check for scope configuration problems. The [scope configuration](../update-management/scope-configuration.md) determines which machines are configured for Update Management.
+    If your machine is listed in the query results, verify under the **Solutions** property that **updates** is listed. This verifies it is registered with Update Management. If it is not, check for scope configuration problems. The [scope configuration](../update-management/scope-configuration.md) determines which machines are configured for Update Management. To configure the scope configuration for the target the machine, see [Enable machines in the workspace](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
-6. If your machine is showing up in your workspace but not in Update Management, you must configure the scope configuration to target the machine. To learn how to do this, see [Enable machines in the workspace](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
-
-7. In your workspace, run this query.
+4. In your workspace, run this query.
 
    ```kusto
    Operation
@@ -153,9 +151,9 @@ This issue can be caused by local configuration issues or by improperly configur
    | sort by TimeGenerated desc
    ```
 
-8. If you get a `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` result, the quota defined on your workspace has been reached, which has stopped data from being saved. In your workspace, go to **data volume management** under **Usage and estimated costs**, and change or remove the quota.
+   If you get a `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` result, the quota defined on your workspace has been reached, which has stopped data from being saved. In your workspace, go to **data volume management** under **Usage and estimated costs**, and change or remove the quota.
 
-9. If your issue is still unresolved, follow the steps in [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows. For Linux, follow the steps in [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
+5. If your issue is still unresolved, follow the steps in [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows. For Linux, follow the steps in [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
 ## <a name="rp-register"></a>Scenario: Unable to register Automation resource provider for subscriptions
 

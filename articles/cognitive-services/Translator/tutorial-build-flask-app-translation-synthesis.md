@@ -3,13 +3,13 @@ title: "Tutorial: Build a Flask app to translate, synthesize, and analyze text -
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll build a Flask-based web app to translate text, analyze sentiment, and synthesize translated text into speech.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js
 ---
 

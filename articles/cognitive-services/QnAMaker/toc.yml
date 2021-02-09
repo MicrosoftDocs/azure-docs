@@ -14,9 +14,7 @@
       href: Quickstarts/create-publish-knowledge-base.md
     - name: Query a knowledge base
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-  - name: Using REST
-    href: Quickstarts/quickstart-rest-curl.md
-  - name: Using SDK
+  - name: Using client libraries or REST API
     href: Quickstarts/quickstart-sdk.md
 - name: Tutorials
   items:
@@ -32,6 +30,8 @@
     href: Concepts/azure-resources.md
   - name: Data sources and content
     href: Concepts/data-sources-and-content.md
+  - name: Azure role-based access control (Azure RBAC)	    
+    href: Concepts/role-based-access-control.md	
   - name: Ranker Process	
     displayName: DefaultAnswer, Default answer	
     href: Concepts/query-knowledge-base.md	
@@ -48,7 +48,7 @@
   - name: Manage Azure resources
     href: How-To/set-up-qnamaker-service-azure.md
     displayName: azure, resource, key, upgrade, pricing, tier,
-  - name: Manage QnA Maker App
+  - name: Manage QnA Maker resource access
     href: How-To/manage-qna-maker-app.md
   - name: Turn on active learning
     href: How-To/use-active-learning.md
@@ -94,8 +94,6 @@
     href: Concepts/confidence-score.md
   - name: Troubleshooting
     href: troubleshooting.md
-  - name: Question and answer pairs	
-    href: Concepts/question-answer-set.md
   - name: Precise answering
     href: reference-precise-answering.md
   - name: Add secured SharePoint files
@@ -105,16 +103,12 @@
     href: How-To/change-default-answer.md
   - name: Service configuration
     href: reference-app-service.md
-  - name: Content and data formats
-    items:
-    - name: Content format guidelines
-      href: reference-document-format-guidelines.md
-    - name: URLs
-      href: reference-document-type-url.md
-    - name: Import and export data guidelines
-      href: reference-data-guidelines.md
+  - name: Content format guidelines
+    href: reference-document-format-guidelines.md
   - name: Display format
     href: reference-markdown-format.md
+  - name: Private Links
+    href: reference-private-endpoint.md
   - name: Batch testing format
     href: reference-tsv-format-batch-testing.md
   - name: Encryption	

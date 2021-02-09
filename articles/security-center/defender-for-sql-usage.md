@@ -25,7 +25,7 @@ You'll see alerts when there are suspicious database activities, potential vulne
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|General Availability (GA)|
 |Pricing:|**Azure Defender for SQL servers on machines** is billed as shown on [the pricing page](security-center-pricing.md)|
 |Protected SQL versions:|Azure SQL Server (all versions covered by Microsoft support)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
@@ -74,7 +74,7 @@ Both of these are described below.
 
 
 1. Optionally, configure email notification for security alerts. 
-    You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct sk to the alert in Azure Security Center with all the relevant details. For more information, see [Set up email notifications for security alerts](security-center-provide-security-contact-details.md).
+    You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. For more information, see [Set up email notifications for security alerts](security-center-provide-security-contact-details.md).
 
 
 
