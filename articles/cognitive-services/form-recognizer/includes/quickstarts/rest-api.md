@@ -1381,11 +1381,11 @@ The `"readResults"` node contains all of the recognized text (if you set the opt
 This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md). To start analyzing a business card, you call the **[Analyze Business Card](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)** API using the cURL command below. Before you run the command, make these changes:
 
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
-1. Replace `{your receipt URL}` with the URL address of a receipt image.
+1. Replace `{your business card URL}` with the URL address of a receipt image.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 
 ```bash
-curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your business card URL}'}"
 ```
 
 You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results.
