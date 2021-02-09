@@ -1,5 +1,5 @@
 ---
-title: 'Migrating application authentication to Azure Active Directory'
+title: 'Migrate application authentication to Azure Active Directory'
 description: This whitepaper details the planning for and benefits of migrating your application authentication to Azure AD.
 services: active-directory
 author: kenwith
@@ -16,7 +16,7 @@ ms.reviewer: baselden
 ms.collection: M365-identity-device-management
 ---
 
-# Migrating application authentication to Azure Active Directory
+# Migrate application authentication to Azure Active Directory
 
 ## About this paper
 
@@ -180,7 +180,7 @@ Communicating the overall state of the migration project is crucial, as it shows
 
 The migration states you might consider using are as follows:
 
-| Migration States       | Action Plan                                   |
+| Migration states       | Action plan                                   |
 | ---------------------- | --------------------------------------------- |
 | **Initial Request** | Find the app and contact the owner for more information |
 | **Assessment Complete** | App owner evaluates the app requirements and returns the app questionnaire</td>
@@ -209,7 +209,7 @@ The first decision point in an application migration is which apps to migrate, w
 
 **Using Active Directory Federation Services (AD FS) To gather a correct app inventory:**
 
-- **Use Azure AD Connect Health.** If you have an Azure AD Premium license, we recommend deploying [Azure AD Connect Health](/azure/active-directory/hybrid/how-to-connect-health-adfs) to analyze the app usage in your onpremises environment. You can use the [ADFS application report](/azure/active-directory/manage-apps/migrate-adfs-application-activity) (preview) to discover ADFS applications that can be migrated and evaluate the readiness of the application to be migrated. After completing your migration, deploy [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery) that allows you to continuously monitor Shadow IT in your organization once you’re in the cloud.
+- **Use Azure AD Connect Health.** If you have an Azure AD Premium license, we recommend deploying [Azure AD Connect Health](/azure/active-directory/hybrid/how-to-connect-health-adfs) to analyze the app usage in your on premises environment. You can use the [ADFS application report](/azure/active-directory/manage-apps/migrate-adfs-application-activity) (preview) to discover ADFS applications that can be migrated and evaluate the readiness of the application to be migrated. After completing your migration, deploy [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery) that allows you to continuously monitor Shadow IT in your organization once you’re in the cloud.
 
 - **AD FS log parsing**. If you don’t have Azure AD Premium licenses, we recommend using the ADFS to Azure AD app migration tools based on [PowerShell.](https://github.com/AzureAD/Deployment-Plans/tree/master/ADFS%20to%20AzureAD%20App%20Migration). Refer to [Solution guide](https://aka.ms/migrateapps/adfssolutionguide):
 
@@ -521,7 +521,7 @@ If your migration fails, the best strategy is to rollback and test. Here are the
 
 - Ensure that your app experience has a **Feedback button** or pointers to your **helpdesk** in case of issues.
 
-### Exit Criteria
+### Exit criteria
 
 You are successful in this phase when you have:
 
@@ -597,7 +597,7 @@ Azure AD provides a centralized access location to manage your migrated apps. Go
 
 You can also use the [Azure portal](https://portal.azure.com/) to audit all your apps from a centralized location,
 
-- **Audit your app** using **Enterprise Applications, Audit** or access the same information from the [Azure  AD Reporting API](/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) to slurp into your favorite tools.
+- **Audit your app** using **Enterprise Applications, Audit** or access the same information from the [Azure AD Reporting API](/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) to integrate into your favorite tools.
 
 - **View the permissions for an app** using **Enterprise Applications, Permissions** for apps using OAuth / OpenID Connect.
 
