@@ -1032,6 +1032,8 @@
       href: managed-instance/alerts-create.md
     - name: Manually initiate a failover on managed instance
       href: managed-instance/user-initiated-failover.md
+    - name: Migrate database using Log Replay Service
+      href: managed-instance/log-replay-service-migrate.md
 
   - name: Samples
     items:
