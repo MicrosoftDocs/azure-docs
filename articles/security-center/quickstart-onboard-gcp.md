@@ -3,7 +3,7 @@ title: Connect your GCP account to Azure Security Center
 description: Monitoring your GCP resources from Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 02/07/2021
+ms.date: 02/08/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
@@ -40,7 +40,9 @@ In the screenshot below you can see GCP projects displayed in Security Center's 
 
 ## Connect your GCP account
 
-Follow the steps below to create your GCP cloud connector to connect your Google Cloud resources at either the organization or project level. 
+Follow the steps below to create your GCP cloud connector. A connector connects your Google Cloud resources at the *organization* level. When you connect an organization, all projects within that organization are added to Security Center.
+
+Create a connector for every organization you want to monitor from Security Center.
 
 > [!TIP]
 > Learn about the Google Cloud resource hierarchy in their online docs [here](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
@@ -80,7 +82,7 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
     1. Switch to organization level.
     1. Select **ADD**.
     1. In the **New members** field, paste the **Email value** you copied earlier.
-    1. Specify the Role as **Security Center Admin Viewer** and then select Save.
+    1. Specify the role as **Security Center Admin Viewer** and then select **Save**.
         :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Setting the relevant GCP permissions":::
 
 
@@ -93,7 +95,7 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
 1. Save this JSON file for later use.
 
 
-### Step 5. Connect GCP to Security Center 
+### Step 5. Connect GCP to Security Center
 1. From Security Center's menu, select **Cloud connectors**.
 1. Select add GCP account.
 1. In the onboarding page, do the following and then select **Next**.
@@ -123,8 +125,12 @@ To view all the active recommendations for your resources by resource type, use 
 
 ## FAQ for connecting GCP accounts to Azure Security Center
 
-### Can I connect multiple GCP accounts to Security Center?
-Yes. As mentioned above, you can connect your Google Cloud resources at either the organization or project level. Learn about the Google Cloud resource hierarchy in their online docs [here](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
+### Can I connect multiple GCP organizations to Security Center?
+Yes. Security Center's GCP connector connects your Google Cloud resources at the *organization* level. 
+
+Create a connector for every GCP organization you want to monitor from Security Center. When you connect an organization, all projects within that organization are added to Security Center.
+
+Learn about the Google Cloud resource hierarchy in Google's online docs [here](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
 
 
 ### Is there an API for connecting my GCP resources to Security Center?
