@@ -54,7 +54,7 @@ Azure Cache for Redis supports zone redundant configurations in the Premium and 
 
 The following diagram illustrates the zone redundant configuration for the Premium tier:
 
-:::image type="content" source="media/cach+e-high-availability/zone-redundancy.png" alt-text="Zone redundancy setup":::
+:::image type="content" source="media/cache-high-availability/zone-redundancy.png" alt-text="Zone redundancy setup":::
    
 Azure Cache for Redis distributes nodes in a zone redundant cache in a round-robin manner over the AZs you've selected. It also determines which node will serve as the primary initially.
 
