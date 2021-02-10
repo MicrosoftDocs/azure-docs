@@ -127,6 +127,9 @@ The files should be uploaded to the following path in the storage account's defa
 abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
+These packages are added automatically to your python environment, they must not be mentioned in your *requirements.txt*.
+Note that this method currently suports only `*.whl` files do not add any `*.tar.gz` files to the container.
+
 >[!IMPORTANT]
 >Custom packages can be added or modified between sessions. However, you will need to wait for the pool and session to restart to see the updated package.
 
