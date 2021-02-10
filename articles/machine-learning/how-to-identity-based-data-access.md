@@ -20,7 +20,7 @@ ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
 >[!IMPORTANT]
 > The functionalities presented in this article are in preview, and should be considered [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview features that may change at any time.
 
-In this article, learn how to connect to storage services on Azure with identity-based data access and Azure Machine Learning datastores.  
+In this article, you learn how to connect to storage services on Azure with identity-based data access and Azure Machine Learning datastores.  
 
 Typically, datastores use key-based data access to confirm that you have permission to access the storage service. They store connection information, like your subscription ID and token authorization, in your [Key Vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace. When you create a datastore that uses identity-based data access, your [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) token is used to confirm that you have permission to access the storage service. In this scenario, no authentication credentials are saved, and only the storage account information is stored in the datastore. 
 
@@ -51,7 +51,7 @@ The same behavior applies when you,
     * Azure Machine Learning studio, which includes data profile and preview, automated machine learning, designer and data labeling projects. 
 
 > [!NOTE]
-> Credentials include: subscription ID, shared access signature (SAS) tokens, storage access keys and service principal information like, client ID and tenant ID.
+> Credentials stored using key-based authentication include: subscription ID, shared access signature (SAS) tokens, storage access keys and service principal information like, client ID and tenant ID.
 
 ### Model training on private data
 
@@ -122,7 +122,7 @@ In the code examples in following sections, notice the absence of authentication
 
 To register an Azure blob container as a datastore, use [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
 
-The following code creates and registers the `credentialless_blob`datastore to the `ws` workspace and assigns it to the variable, `blob_datastore`. This datastore accesses the `my_container_name` blob container on the `my-account-name` storage account.
+The following code creates and registers the `credentialless_blob` datastore to the `ws` workspace and assigns it to the variable, `blob_datastore`. This datastore accesses the `my_container_name` blob container on the `my-account-name` storage account.
 
 ```Python
 # create blob datastore without credentials
@@ -198,7 +198,7 @@ To create datasets that use identity-based data access, you can
     blob_dataset = Dataset.Tabular.from_delimited_files(blob_datastore,'test.csv') 
     ```
 
-* Skip the datastore and create datasets directly from storage urls.
+* Skip datastore creation and create datasets directly from storage urls.
 
     ```python
     blob_dset = Dataset.File.from_files(‘https://myblob.blob.core.windows.net/may/keras-mnist-fashion/’)
