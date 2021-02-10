@@ -22,12 +22,12 @@ You can configure data protection for your blob and Azure Data Lake Storage Gen2
 Azure Storage includes data protection features that enable you to prevent accidental deletes or overwrites, restore data that has been deleted, track changes to data, and apply legal holds and time-based retention policies. You can implement these features for your blob data without needing to reach out to Microsoft.
 
 | Data protection scenario | Blob storage | Azure Data Lake Storage Gen2 |
-|-|-|
-| Quickly recover data in the event of accidental or malicious deletes | [Container soft delete (preview)](#container-soft-delete)<br>[Blob soft delete](#blob-soft-delete)<br>[Blob versioning](#blob-versioning)<br>[Point-in-time restore](#point-in-time-restore) | [Container soft delete (preview)](#container-soft-delete)|
-| Quickly recover data in the event of accidental or malicious updates | [Blob versioning](#blob-versioning)<br>[Blob snapshots](#blob-snapshots)<br>[Point-in-time restore](#point-in-time-restore) | [Blob snapshots](#blob-snapshots) (preview) |
+|--|--|--|
+| Maintain deleted data for a period of time | [Container soft delete (preview)](#container-soft-delete)<br />[Blob soft delete](#blob-soft-delete) | [Container soft delete (preview)](#container-soft-delete) |
+| Retain a copy of data when it is updated or deleted | [Blob versioning](#blob-versioning)<br />[Blob snapshots](#blob-snapshots) | [Blob snapshots](#blob-snapshots) (preview) |
 | Restore all or some of your data to a previous point in time | [Point-in-time restore](#point-in-time-restore) | Not yet available |
-| Track changes to your data | [Change feed](#change-feed) | Not yet available |
 | Prevent all updates and deletes for a specified period of time | [Immutable blob storage](#immutable-blob-storage) for Write-Once, Read-Many (WORM) workloads | [Immutable blob storage](#immutable-blob-storage) for WORM workloads (preview) |
+| Track changes to your data | [Change feed](#change-feed) | Not yet available |
 
 ## Scenario: Recover deleted data
 
