@@ -78,7 +78,7 @@ In this section, you will use the Node.js SDK to send messages from your simulat
     node ./simple_sample_device.js
     ```
 
-    Optionally, you can run the Node.js code from the sample in your Javascript IDE:
+    Optionally, you can run the Node.js code from the sample in your JavaScript IDE:
     ```javascript
     'use strict';
 
