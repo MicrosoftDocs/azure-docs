@@ -92,17 +92,19 @@ When you create your ISE, you can select the Developer SKU or Premium SKU. This 
 
 * **Developer**
 
-  Provides a lower-cost ISE that you can use for exploration, experiments, development, and testing, but not for production or performance testing. The Developer SKU includes built-in triggers and actions, Standard connectors, Enterprise connectors, and a single [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account for a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps). To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+  Provides a lower-cost ISE that you can use for exploration, experiments, development, and testing, but not for production or performance testing. The Developer SKU includes built-in triggers and actions, Standard connectors, Enterprise connectors, and a single [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account for a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps). 
 
   > [!IMPORTANT]
-  > This SKU has no service-level agreement (SLA), scale up capability, published limits, 
-  > or redundancy during recycling, which means that you might experience delays or downtime. 
-  > Backend updates might intermittently interrupt service. Make sure that you keep loads 
-  > on your ISE under 500 executions per minute.
+  > This SKU has no service-level agreement (SLA), scale up capability, 
+  > or redundancy during recycling, which means that you might experience delays or downtime. Backend updates might intermittently interrupt service.
+
+  For capacity and limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). To learn how billing works for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
 * **Premium**
 
-  Provides an ISE that you can use for production and includes SLA support, built-in triggers and actions, Standard connectors, Enterprise connectors, a single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account, options for scaling up capacity, and redundancy during recycling for a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps). To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+  Provides an ISE that you can use for production and performance testing. The Premium SKU includes SLA support, built-in triggers and actions, Standard connectors, Enterprise connectors, a single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account, scale up capability, and redundancy during recycling for a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps).
+
+  For capacity and limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). To learn how billing works for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
 
 <a name="endpoint-access"></a>
 
