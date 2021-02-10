@@ -135,8 +135,8 @@ In the following example, the per subscription rate limit is 20 calls per 90 sec
 | name           | The name of the API for which to apply the rate limit.                                                | Yes      | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. | Yes      | N/A     |
 | renewal-period | The time period in seconds after which the limit resets.                                              | Yes      | N/A     |
-| retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the call rate limit is exceeded. |  No | N/A  |
-| retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the call rate is exceeded. |  No | N/A  |
+| retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
+| retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
 | remaining-calls-variable-name    | The name of a policy expression variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
 | total-calls-header-name    | The name of a response header whose value is the value specified in `calls`. |  No | N/A  |
@@ -154,7 +154,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 > [!IMPORTANT]
 > This feature is unavailable in the **Consumption** tier of API Management.
 
-The `rate-limit-by-key` policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this call rate is reached, the caller receives a `429 Too Many Requests` response status code.
+The `rate-limit-by-key` policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this call rate is exceeded, the caller receives a `429 Too Many Requests` response status code.
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
@@ -211,8 +211,8 @@ In the following example, the rate limit of 10 calls per 60 seconds is keyed by 
 | counter-key         | The key to use for the rate limit policy.                                                             | Yes      | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`).        | No       | N/A     |
 | renewal-period      | The time period in seconds after which the limit resets.                                              | Yes      | N/A     |
-| retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the call rate limit is exceeded. |  No | N/A  |
-| retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the call rate is exceeded. |  No | N/A  |
+| retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
+| retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
 | remaining-calls-variable-name    | The name of a policy expression variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
 | total-calls-header-name    | The name of a response header whose value is the value specified in `calls`. |  No | N/A  |
@@ -336,7 +336,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 > [!IMPORTANT]
 > This feature is unavailable in the **Consumption** tier of API Management.
 
-The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. If multiple policies would increment the same key value, it is incremented only once per request. When the call limit is reached, the caller receives a `403 Forbidden` response status code.
+The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. If multiple policies would increment the same key value, it is incremented only once per request. When the call rate is exceeded, the caller receives a `403 Forbidden` response status code.
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
