@@ -17,16 +17,16 @@ In this how-to, you'll learn how to request hosts (quota increase) and enable th
 
 You'll need an Azure account in an Azure subscription. The Azure subscription must follow with one of the following criteria:
 
-* A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
-* A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
+- A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
+- A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
 
 
 ## Overall process
+The overall process is simple that includes two steps:
+- Request additional host quota/capacity for either [EA customers](#request-additional-quotacapacity-for-ea-customers) or [CSP customers](#request-additional-quotacapacity-for-csp-customers)
+- Enable the Microsoft.AVS resource provider
 
-
-## Enable Azure VMware Solution for EA customers
-
-Request additional quota/capacity 
+## Request additional quota/capacity for EA customers
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
    - **Issue type:** Technical
@@ -50,9 +50,7 @@ Request additional quota/capacity
 1. Select **Review + Create** to submit the request.
 
 
-
-
-## Enable Azure VMware Solution for CSP customers 
+## Request additional quota/capacity for CSP customers 
 
 CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. This article uses [CSP Azure plan](/partner-center/azure-plan-lp) as an example to illustrate the purchase procedure for partners.
 
@@ -105,9 +103,9 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    
    1. Select **Review + Create** to submit the request.
 
-1. Register the **Microsoft.AVS** resource provider:
+## Register the **Microsoft.AVS** resource provider:
 
-    [!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
+[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
 
 ## Next steps
