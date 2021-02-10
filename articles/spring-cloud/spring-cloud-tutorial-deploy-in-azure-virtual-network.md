@@ -45,7 +45,7 @@ The virtual network to which you deploy your Azure Spring Cloud instance must me
     * One for your Spring Boot microservice applications.
     * There's a one-to-one relationship between these subnets and an Azure Spring Cloud instance. Use a new subnet for each service instance you deploy. Each subnet can only include a single service instance.
 * **Address space**: CIDR blocks up to */28* for both the service runtime subnet and the Spring Boot microservice applications subnet.
-* **Route table**: By default the subnets do not need existing route tables associated. But you have the option to [bring your own route table](#bring-your-own-route-table).
+* **Route table**: By default the subnets do not need existing route tables associated. You can [bring your own route table](#bring-your-own-route-table).
 
 The following procedures describe setup of the virtual network to contain the instance of Azure Spring Cloud.
 
@@ -179,10 +179,10 @@ For a service runtime subnet, the minimum size is /28. This size has no bearing 
 
 Azure Spring Cloud supports using existing subnets and route tables.
 
-If your custom subnets do not contain route tables, Azure Spring Cloud creates them for each of the subnets and adds rules to them throughout the instance lifecycle. If your custom subnets contain route tables, when you create your instance, Azure Spring Cloud acknowledges the existing route tables during instance operations and adds/updates and/or rules accordingly for operations.
+If your custom subnets do not contain route tables, Azure Spring Cloud creates them for each of the subnets and adds rules to them throughout the instance lifecycle. If your custom subnets contain route tables, Azure Spring Cloud acknowledges the existing route tables during instance operations and adds/updates and/or rules accordingly for operations.
 
 > [!Warning] 
-> Custom rules can be added to the custom route tables and updated. However, rules are added by Azure Spring Cloud that must not be updated or removed. Rules such as 0.0.0.0/0 must always exist on a given route table and map to the target of your internet gateway, such as an NVA or other egress gateway. Use caution when updating rules that only your custom rules are being modified.
+> Custom rules can be added to the custom route tables and updated. However, rules are added by Azure Spring Cloud and these must not be updated or removed. Rules such as 0.0.0.0/0 must always exist on a given route table and map to the target of your internet gateway, such as an NVA or other egress gateway. Use caution when updating rules when only your custom rules are being modified.
 
 
 ### Route table requirements
