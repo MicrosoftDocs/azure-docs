@@ -31,7 +31,7 @@ The Azure Maps Web SDK supports the following desktop browsers:
 - Microsoft Edge (current and previous version)
 - Google Chrome (current and previous version)
 - Mozilla Firefox  (current and previous version)
-- Apple Safari (Mac OS X) (current and previous version)
+- Apple Safari (macOS X) (current and previous version)
 
 See also [Target legacy browsers](#Target-Legacy-Browsers) later in this article.
 
