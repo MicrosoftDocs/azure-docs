@@ -20,8 +20,8 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 |------------------------------|---------------|---------------|
 | [Semantic search](semantic-search-overview.md) | A collection of features that realign query results to better reflect user intent. All of these features can be used on existing search indexes, with small modifications to query syntax.</br></br>[Semantic ranking](NEW-FILE) is a new search ranking algorithm that uses deep neural networks to re-rank results based on how closely the results match the intent of query.</br></br>[Semantic answers](NEW-FILE) uses AI from Bing to extract relevant passages from the top documents, and then promotes any matches that have a greater likelihood of answering the query.</br></br> [Semantic captions](NEW-FILE) is similar to semantic answers, but instead extracts and returns the most relevant section of each the top documents. You can quickly skim results to find the content you care about. </br></br> |
 | [Spell check queries](speller-howto-add.md) | Before a query string reaches the parser, you can check it for spelling errors. The `speller` option works with any query type (simple, full, or semantic). |  Public preview, REST only, api-version=2020-06-30-Preview|
-| [SharePoint Online indexer](search-howto-index-sharepoint-online.md) | TBD | Public preview, REST only, api-version=2020-06-30-Preview |
-| Azure Data Lake Storage Gen2 indexer | Indexer support for content stored in [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction). | Generally available in 2020-06-30 REST API (feature adoption in Azure SDKs is determined by each SDK team) |
+| SharePoint Online indexer | This indexer connects you to a SharePoint Online site so that you can index content from a document library. | Public preview, REST only, api-version=2020-06-30-Preview |
+| Azure Data Lake Storage Gen2 indexer | Indexer support for content stored in [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md). | Generally available in 2020-06-30 REST API (feature adoption in Azure SDKs is determined by each SDK team) |
 
 ## February 2021
 
