@@ -62251,11 +62251,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-logs.md",
-      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-logs",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-overview.md",
       "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-overview",
       "redirect_document_id": false
