@@ -9,7 +9,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 02/10/2021
 ms.author: aahi
 keywords: on-premises, Docker, container, sentiment analysis, natural language processing
 ---
@@ -76,7 +76,7 @@ Container images for Text Analytics are available on the Microsoft Container Reg
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-# [Language Detection (preview)](#tab/language)
+# [Language Detection](#tab/language)
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
@@ -100,7 +100,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
 > * The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
-> * The sentiment analysis v3 container is now generally available, which returns [sentiment labels](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) in the response. The key phrase extraction and language detection containers use v2 of the API, and are in preview.
+> * The sentiment analysis and language detection containers are generally available. The key phrase extraction container uses v2 of the API, and is in preview.
 
 # [Sentiment Analysis v3](#tab/sentiment)
 
@@ -110,7 +110,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-# [Language Detection (preview)](#tab/language)
+# [Language Detection](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
@@ -157,7 +157,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Text Analytics provides three Linux containers for Docker, encapsulating various capabilities:
    * *Sentiment Analysis*
    * *Key Phrase Extraction (preview)* 
-   * *Language Detection (preview)*
+   * *Language Detection*
    * *Text Analytics for health (preview)*
 * Container images are downloaded from the Microsoft Container Registry (MCR) or preview container repository.
 * Container images run in Docker.
