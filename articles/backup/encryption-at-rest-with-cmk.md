@@ -114,32 +114,6 @@ You now need to permit the Recovery Services vault to access the Azure Key Vault
 
 1. Select **Save** to save changes made to the access policy of the Azure Key Vault.
 
-**With PowerShell**:
-
-Use the [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) command to enable encryption using customer-managed keys, and to assign or update the encryption key to be used.
-
-Example:
-
-```azurepowershell
-$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
-$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
-Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
-
-
-$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
-$enc.encryptionProperties | fl
-```
-
-Output:
-
-```output
-EncryptionAtRestType          : CustomerManaged
-KeyUri                        : testkey
-SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
-LastUpdateStatus              : Succeeded
-InfrastructureEncryptionState : Disabled
-```
-
 ### Enable soft-delete and purge protection on the Azure Key Vault
 
 You need to **enable soft delete and purge protection** on your Azure Key Vault that stores your encryption key. You can do this from the Azure Key Vault UI as shown below. (Alternatively, these properties can be set while creating the Key Vault). Read more about these Key Vault properties [here](../key-vault/general/soft-delete-overview.md).
@@ -192,7 +166,7 @@ You can also enable soft delete and purge protection through PowerShell using th
 
 Once the above are ensured, continue with selecting the encryption key for your vault.
 
-To assign the key:
+#### To assign the key in the portal
 
 1. Go to your Recovery Services vault -> **Properties**
 
@@ -225,6 +199,32 @@ To assign the key:
     The encryption key updates are also logged in the vault’s Activity Log.
 
     ![Activity log](./media/encryption-at-rest-with-cmk/activity-log.png)
+
+#### To assign the key with PowerShell
+
+Use the [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) command to enable encryption using customer-managed keys, and to assign or update the encryption key to be used.
+
+Example:
+
+```azurepowershell
+$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
+$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
+Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
+
+
+$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
+$enc.encryptionProperties | fl
+```
+
+Output:
+
+```output
+EncryptionAtRestType          : CustomerManaged
+KeyUri                        : testkey
+SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
+LastUpdateStatus              : Succeeded
+InfrastructureEncryptionState : Disabled
+```
 
 >[!NOTE]
 > This process remains the same when you wish to update or change the encryption key. If you wish to update and use a key from another Key Vault (different from the one that's being currently used), make sure that:
