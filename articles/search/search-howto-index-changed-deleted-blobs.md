@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/29/2021
 ---
 
-# How to set up change and deletion detection for blobs in Azure Cognitive Search indexing
+# Change and deletion detection in blob indexing (Azure Cognitive Search)
 
 After an initial search index is created, you might want subsequent indexer jobs to only pick up new and changed documents. For search content that originates from Azure Blob storage, change detection occurs automatically when you use a schedule to trigger indexing. By default, the service reindexes only the changed blobs, as determined by the blob's `LastModified` timestamp. In contrast with other data sources supported by search indexers, blobs always have a timestamp, which eliminates the need to set up a change detection policy manually.
 
