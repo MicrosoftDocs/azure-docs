@@ -68,7 +68,7 @@ If you're moving VMs that have Azure disk encryption enabled, you need to run a 
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png" alt-text="Dropdown list to select key vault permissions." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png":::
 
 4. In **Secret permissions**,  **Secret Management Operations**, select **Get**, **List**, and **Set**. 
-5. In **Select principal**, search for the [Managed System Identity](./common-questions#how-is-managed-identity-used-in-resource-mover) that Resource Mover uses for accessing the Azure resource in your behalf. The MSI name is ```movecollection-<sourceregion>-<target-region>-<metadata-region>```
+5. In **Select principal**, search for the [Managed System Identity](./common-questions.md#how-is-managed-identity-used-in-resource-mover) that Resource Mover uses for accessing the Azure resource in your behalf. The MSI name is ```movecollection-<sourceregion>-<target-region>-<metadata-region>```
 6. In **Access policies**, make sure that **Azure Disk Encryption for volume encryption** is enabled.
 7. Repeat the procedure for the key vault in the destination region.
 
