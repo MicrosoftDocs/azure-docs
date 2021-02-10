@@ -17,7 +17,7 @@ keywords: on-premises, Docker, container, sentiment analysis, natural language p
 # Install and run Text Analytics containers
 
 > [!NOTE]
-> * The container for Sentiment Analysis v3 is now Generally Available. The key phrase extraction and language detection containers are available as an ungated public preview.
+> * The container for Sentiment Analysis and language detection are now Generally Available. The key phrase extraction container is available as an ungated public preview.
 > * Entity linking and NER are not currently available as a container.
 > * Accessing the Text Analytics for health container requires a [request form](https://aka.ms/csgate). Currently, you will not be billed for its usage.
 > * The container image locations may have recently changed. Read this article to see the updated location for this container.
@@ -56,7 +56,7 @@ The following table describes the minimum and recommended specifications for the
 |  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
 |---|---------|-------------|--|--|
 | **Language detection, key phrase extraction**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30|
-| **Sentiment Analysis v3**   | 1 core, 2GB memory | 4 cores, 8GB memory |15 | 30|
+| **Sentiment Analysis**   | 1 core, 2GB memory | 4 cores, 8GB memory |15 | 30|
 | **Text Analytics for health - 1 document/request**   |  4 core, 10GB memory | 6 core, 12GB memory |15 | 30|
 | **Text Analytics for health - 10 documents/request**   |  6 core, 16GB memory | 8 core, 20GB memory |15 | 30|
 
@@ -68,7 +68,7 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 Container images for Text Analytics are available on the Microsoft Container Registry.
 
-# [Sentiment Analysis v3](#tab/sentiment)
+# [Sentiment Analysis ](#tab/sentiment)
 
 [!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
@@ -102,7 +102,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 > * The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 > * The sentiment analysis and language detection containers are generally available. The key phrase extraction container uses v2 of the API, and is in preview.
 
-# [Sentiment Analysis v3](#tab/sentiment)
+# [Sentiment Analysis](#tab/sentiment)
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
