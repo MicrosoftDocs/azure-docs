@@ -25,7 +25,7 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | VM series  | Supported sizes |
 |------------|---------|
 | Basic A | All sizes *except* Basic_A0 (A0) |
-| A | All sizes *except* Standard_A0 |
+| A | All sizes *except* Standard_A0, Standard_A8, Standard_A9, Standard_A10, Standard_A11 |
 | Av2 | All sizes |
 | B | Not supported |
 | DC | Not supported |

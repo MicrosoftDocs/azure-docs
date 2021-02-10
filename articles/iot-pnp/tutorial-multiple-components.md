@@ -60,6 +60,10 @@ zone_pivot_groups: programming-languages-set-twenty-six
 
 :::zone-end
 
+## Clean up resources
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
+
 ## Next steps
 
 In this tutorial, you've learned how to connect an IoT Plug and Play device with components to an IoT hub. To learn more about IoT Plug and Play device models, see:
