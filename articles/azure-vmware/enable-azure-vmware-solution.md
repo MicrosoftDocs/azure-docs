@@ -15,7 +15,7 @@ In this how-to, you'll learn how to request hosts (quota increase) and enable th
 
 
 The overall process is simple that includes two steps:
-- Request additional host quota/capacity for either [EA customers](#request-additional-quotacapacity-for-ea-customers) or [CSP customers](#request-additional-quotacapacity-for-csp-customers)
+- Request additional host quota/capacity for either [EA customers](#request-hosts-for-ea-customers) or [CSP customers](#request-hosts-for-csp-customers)
 - Enable the Microsoft.AVS resource provider
 
 ## Eligibility criteria
@@ -25,7 +25,7 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
 - A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 - A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
 
-## Request additional quota/capacity for EA customers
+## Request hosts for EA customers
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
    - **Issue type:** Technical
@@ -49,7 +49,7 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
 1. Select **Review + Create** to submit the request.
 
 
-## Request additional quota/capacity for CSP customers 
+## Request hosts for CSP customers 
 
 CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. This article uses [CSP Azure plan](/partner-center/azure-plan-lp) as an example to illustrate the purchase procedure for partners.
 
