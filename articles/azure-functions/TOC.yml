@@ -138,6 +138,20 @@
               href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Concepts
   items:
+    - name: Best practices
+      items:
+        - text: Performance and reliability
+          url: functions-best-practices.md
+          displayName: best practices
+        - text: Manage connections
+          url: manage-connections.md
+          displayName: best practices
+        - text: Error handling and function retries
+          url: functions-bindings-error-pages.md
+          displayName: best practices
+        - text: Security
+          url: security-concepts.md
+          displayName: best practices
     - name: Compare runtime versions
       href: functions-versions.md
       displayName: migrate, migration, v3
