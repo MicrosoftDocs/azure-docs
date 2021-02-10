@@ -1,5 +1,5 @@
 ---
-title: Send telemetry from a device to Azure IoT Hub (Python) quickstart
+title: Send device telemetry to Azure IoT Hub quickstart (Python) 
 description: In this quickstart, you use the Azure IoT Hub Device SDK for Python to send telemetry from a device to an Iot hub.
 author: elhorton
 ms.author: elhorton
@@ -17,9 +17,10 @@ In this quickstart, you learn a basic Azure IoT application workflow for securel
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Azure CLI. You can run all commands in this quickstart using the Azure Cloud Shell, an interactive CLI shell that runs in your browser. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this quickstart requires Azure CLI version 2.0.76 or later. Run az --version to find the version. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 - [Python 3.7+](https://www.python.org/downloads/). For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
-    - **Note that this sample is configured for Python 3.7+.** To ensure that your Python version is up to date, run `python --version`. If you have both Python 2 and Python 3 installed (and are using a Python 3 environment for this SDK), then install all libraries using `pip3` as opposed to `pip`. This ensures that the libraries are installed to your Python 3 runtime.
-    - > [!IMPORTANT]
-        > In the Python installer, select the option to **Add Python to PATH**. If you already have Python 3.7 or higher installed, confirm that you've added the  Python installation folder to the `PATH` environment variable.
+    
+    To ensure that your Python version is up to date, run `python --version`. If you have both Python 2 and Python 3 installed, and are using a Python 3 environment, install all libraries using `pip3`. This ensures that the libraries are installed to your Python 3 runtime.
+    > [!IMPORTANT]
+    > In the Python installer, select the option to **Add Python to PATH**. If you already have Python 3.7 or higher installed, confirm that you've added the Python installation folder to the `PATH` environment variable.
 
 [!INCLUDE [iot-hub-include-create-hub-cli](../../includes/iot-hub-include-create-hub-cli.md)]
 
