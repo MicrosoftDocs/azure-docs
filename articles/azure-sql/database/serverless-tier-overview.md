@@ -42,13 +42,13 @@ For more cost details, see [Billing](serverless-tier-overview.md#billing).
 
 Serverless is price-performance optimized for single databases with intermittent, unpredictable usage patterns that can afford some delay in compute warm-up after idle usage periods. In contrast, the provisioned compute tier is price-performance optimized for single databases or multiple databases in elastic pools with higher average usage that cannot afford any delay in compute warm-up.
 
-### Scenarios well-suited for serverless compute
+### Scenarios well suited for serverless compute
 
 - Single databases with intermittent, unpredictable usage patterns interspersed with periods of inactivity and lower average compute utilization over time.
 - Single databases in the provisioned compute tier that are frequently rescaled and customers who prefer to delegate compute rescaling to the service.
 - New single databases without usage history where compute sizing is difficult or not possible to estimate prior to deployment in SQL Database.
 
-### Scenarios well-suited for provisioned compute
+### Scenarios well suited for provisioned compute
 
 - Single databases with more regular, predictable usage patterns and higher average compute utilization over time.
 - Databases that cannot tolerate performance trade-offs resulting from more frequent memory trimming or delays in resuming from a paused state.
@@ -87,11 +87,11 @@ Unlike provisioned compute databases, memory from the SQL cache is reclaimed fro
 - Active cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
 - When cache reclamation is triggered, the target cache size is reduced incrementally to a fraction of its previous size and reclaiming only continues if usage remains low.
 - When cache reclamation occurs, the policy for selecting cache entries to evict is the same selection policy as for provisioned compute databases when memory pressure is high.
-- The cache size is never reduced below the min memory limit as defined by min vCores which can be configured.
+- The cache size is never reduced below the min memory limit as defined by min vCores, that can be configured.
 
 In both serverless and provisioned compute databases, cache entries may be evicted if all available memory is used.
 
-Note that when CPU utilization is low, active cache utilization can remain high depending on the usage pattern and prevent memory reclamation.  Also, there can be additional delay after user activity stops before memory reclamation occurs due to periodic background processes responding to prior user activity.  For example, delete operations and QDS cleanup tasks generate ghost records that are marked for deletion, but are not physically deleted until the ghost cleanup process runs which can involve reading data pages into cache.
+Note that when CPU utilization is low, active cache utilization can remain high depending on the usage pattern and prevent memory reclamation.  Also, there can be additional delays after user activity stops before memory reclamation occurs due to periodic background processes responding to prior user activity.  For example, delete operations and QDS cleanup tasks generate ghost records that are marked for deletion, but are not physically deleted until the ghost cleanup process runs that can involve reading data pages into cache.
 
 #### Cache hydration
 
