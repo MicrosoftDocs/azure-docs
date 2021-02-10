@@ -78,6 +78,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type the URL:
     `https://rewatch.tv/login`
 
+1. Rewatch application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+
+	![image](common/default-attributes.png)
+
+1. In addition to above, Rewatch application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+	
+	| Name |  Source Attribute|
+	| --------------- | --------- |
+	| Group | user.groups |
+
 
 1. Click **Save**.
 
