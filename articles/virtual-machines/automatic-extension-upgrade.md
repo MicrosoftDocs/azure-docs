@@ -197,20 +197,7 @@ PUT on `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/provi
 ```
 
 ### Azure PowerShell for Virtual Machines
-Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet:
-
-```azurepowershell-interactive
-Add-AzVmssExtension -VirtualMachineScaleSet $vmss
-    -Name "Microsoft.Azure.Monitoring.DependencyAgent" `
-    -Publisher "Microsoft.Azure.Monitoring.DependencyAgent" `
-    -Type "DependencyAgentWindows" `
-    -TypeHandlerVersion 9.5 `
-    -EnableAutomaticUpgrade $true
-```
-
-
-### Azure PowerShell for Virtual Machine Scale Sets
-Use the [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet to add the extension to the scale set model:
+Use the [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet:
 
 ```azurepowershell-interactive
 Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
@@ -223,7 +210,21 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -EnableAutomaticUpgrade $true
 ```
 
+
+### Azure PowerShell for Virtual Machine Scale Sets
+Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet to add the extension to the scale set model:
+
+```azurepowershell-interactive
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss
+    -Name "Microsoft.Azure.Monitoring.DependencyAgent" `
+    -Publisher "Microsoft.Azure.Monitoring.DependencyAgent" `
+    -Type "DependencyAgentWindows" `
+    -TypeHandlerVersion 9.5 `
+    -EnableAutomaticUpgrade $true
+```
+
 Update the scale set using [Update-AzVmss](/powershell/module/az.compute/update-azvmss) after adding the extension.
+
 
 ### Azure CLI for Virtual Machines
 Use the [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) cmdlet:
