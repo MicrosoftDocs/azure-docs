@@ -27,7 +27,7 @@ In this article, learn how to attach the semantic query subsystems of Azure Cogn
 
 We recommend [Postman](search-get-started-rest.md) or [Visual Studio Code with the Cognitive Search extension](search-get-started-vs-code.md).
 
-There is currently no charge for semantic search while it's in public preview, but as features transition to general availability, the computational cost of running the deep learning models will be passed along as an added charge. This information will eventually be documented in the [pricing page](https://azure.microsoft.com/pricing/details/search/) and in [estimate and manage costs](search-sku-manage-costs/md).
+There is currently no charge for semantic search while it's in public preview, but as features transition to general availability, the computational cost of running the deep learning models will be passed along as an added charge. This information will eventually be documented in the [pricing page](https://azure.microsoft.com/pricing/details/search/) and in [estimate and manage costs](search-sku-manage-costs.md).
 
 ## What's a semantic query?
 
