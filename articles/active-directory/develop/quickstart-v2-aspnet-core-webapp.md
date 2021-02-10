@@ -36,14 +36,14 @@ The following diagram shows how the sample app works:
 > ### Automatic configuration
 > If you want to automatically configure your app and then download the code sample, follow these steps:
 >
-> 1. Go to the <a href="https://aka.ms/aspnetcore2-1-aad-quickstart-v2/" target="_blank">Azure portal page for app registration<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Go to the <a href="https://aka.ms/aspnetcore2-1-aad-quickstart-v2/" target="_blank">Azure portal page for app registration</a>.
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application in one click.
 >
 > ### Manual configuration
 > If you want to manually configure your application and code sample, use the following procedures.
 > #### Step 1: Register your application
-> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: on the top menu to select the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
