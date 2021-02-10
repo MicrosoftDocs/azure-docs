@@ -11,7 +11,7 @@ ms.subservice: alerts
 
 # Supported resources for metric alerts in Azure Monitor
 
-Azure Monitor now supports a [new metric alert type](./alerts-overview.md) which has significant benefits over the older [classic metric alerts](./alerts-classic.overview.md). Metrics are available for [large list of Azure services](../platform/metrics-supported.md). The newer alerts support a (growing) subset of the resource types. This article lists that subset.
+Azure Monitor now supports a [new metric alert type](../platform/alerts-overview.md) which has significant benefits over the older [classic metric alerts](./alerts-classic.overview.md). Metrics are available for [large list of Azure services](../platform/metrics-supported.md). The newer alerts support a (growing) subset of the resource types. This article lists that subset.
 
 You can also use newer metric alerts on popular log data stored in a Log Analytics workspace extracted as metrics. For more information, view [Metric Alerts for Logs](./alerts-metric-logs.md).
 
@@ -19,7 +19,7 @@ You can also use newer metric alerts on popular log data stored in a Log Analyti
 Currently, you can create newer metric alerts only in the Azure portal, [REST API](/rest/api/monitor/metricalerts/), or [Resource Manager Templates](./alerts-metric-create-templates.md). Support for configuring newer alerts using PowerShell and Azure CLI versions 2.0 and higher is coming soon.
 
 ## Metrics and Dimensions Supported
-Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer](./metrics-charts.md).
+Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer](../essentials/metrics-charts.md).
 
 Here's the full list of Azure Monitor metric sources supported by the newer alerts:
 
@@ -178,6 +178,6 @@ The POST operation contains the following JSON payload and schema for all near n
 
 ## Next steps
 
-* Learn more about the new [Alerts experience](./alerts-overview.md).
+* Learn more about the new [Alerts experience](../platform/alerts-overview.md).
 * Learn about [log alerts in Azure](./alerts-unified-log.md).
-* Learn about [alerts in Azure](./alerts-overview.md).
+* Learn about [alerts in Azure](../platform/alerts-overview.md).
