@@ -19,9 +19,11 @@ This article explains how customers can access Azure Spring Cloud config server 
 
 2. Click **Access Control (IAM)** to open the access control blade.
 
-3. Click **Add** button and **Role assignments** (Authorization may be required to add).
+3. Click **Add** button and **Add role assignments** (Authorization may be required to add).
 
-4. Find and select *Azure Spring Cloud Data Reader* in **Role**, Assign access to `User, group, or service principal` or `User assigned managed identity` according to the user type. Search fro and select user.  Click `Save`
+4. Find and select *Azure Spring Cloud Data Reader* in **Role**.
+5. Assign access to `User, group, or service principal` or `User assigned managed identity` according to the user type. Search for and select user.  
+6. Click `Save`
 
    ![assign-role](media/access-data-plane-aad-rbac/assign-data-reader-role.png)
 
