@@ -58,6 +58,15 @@ Here's the sequence of steps involved in this process of connecting a cluster to
 | Audit and compliance status of in-cluster policy enforcements | Azure Policy | Agent pushes to Azure |
 | Metrics and logs of customer workloads | Azure Monitor | Agent pushes to Log Analytics workspace resource in customer's tenant and subscription |
 
+## Connectivity status
+
+| Status | Description |
+| ------ | ----------- |
+| Connecting | Azure Arc enabled Kubernetes resource created in ARM, but service hasn't received agent heartbeat yet |
+| Connected | Azure Arc enabled Kubernetes service has received agent heartbeat in the previous 15 minutes |
+| Offline | Azure Arc enabled Kubernetes resource was connected at some point of time in the past, but the service hasn't received any agent heartbeat in the previous 15 minutes |
+| Expired | Managed service identity (MSI) certificate has expired. `az connectedk8s delete` needs to be run to delete Azure Arc enabled Kubernetes resource and agents on the cluster, following which `az connectedk8s connect` needs to be run again to create the Azure Arc enabled Kubernetes resource and to deploy agents on the cluster. Note that `az connectedk8s delete` will also lead to deletion of configurations on top of the cluster. So after running `az connectedk8s connect`, the configurations need to be created again on the cluster - either manually by you or by Azure Policy |
+
 ## Connectivity pattern - Fully connected, semi-connected, and disconnected clusters
 
 **Fully connected:** Azure Arc enabled Kubernetes works seamlessly for fully connected mode of deployed where agents are always able to reach out to Azure.
