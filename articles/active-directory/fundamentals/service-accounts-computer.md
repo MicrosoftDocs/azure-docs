@@ -1,5 +1,5 @@
 ---
-title: Securing computer accounts in Active Directory
+title: Securing computer accounts | Azure Active Directory
 description: A guide to securing on-premises computer accounts.
 services: active-directory
 author: BarbaraSelden
@@ -65,7 +65,7 @@ Use the following PowerShell cmdlet to find computer accounts that are member of
 
 Use the following PowerShell cmdlet to find computer accounts that are member of Identity Administrators groups (Domain Admins, Enterprise Admins, Administrators)
 
-```pOWERSHELL
+```powershell
 Get-ADGroupMember -Identity Administrators -Recursive | Where objectClass -eq "computer"
 ```
 ## Move from computer accounts

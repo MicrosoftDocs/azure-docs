@@ -1,5 +1,5 @@
 ---
-title: Securing standalone managed service accounts in Azure Active Directory
+title: Securing standalone managed service accounts | Azure Active Directory
 description: A guide to securing standalone managed service accounts.
 services: active-directory
 author: BarbaraSelden

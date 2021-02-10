@@ -1,5 +1,5 @@
 ---
-title: Introduction to Active Directory service accounts
+title: Introduction to Active Directory service accounts | Azure Active Directory
 description: An introduction to the types of service accounts in Active Directory, and how to secure them.
 services: active-directory
 author: BarbaraSelden

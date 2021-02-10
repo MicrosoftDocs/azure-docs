@@ -1,5 +1,5 @@
 ---
-title: Securing group managed service accounts in Active Directory
+title: Securing group managed service accounts  | Azure Active Directory
 description: A guide to securing group managed service accounts computer accounts.
 services: active-directory
 author: BarbaraSelden

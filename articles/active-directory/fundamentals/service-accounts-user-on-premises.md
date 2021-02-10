@@ -1,5 +1,5 @@
 ---
-title: Securing user-based service accounts in Active Directory
+title: Securing user-based service accounts  | Azure Active Directory
 description: A guide to securing on-premises user accounts.
 services: active-directory
 author: BarbaraSelden

@@ -1,5 +1,5 @@
 ---
-title: Governing on-premises service accounts in Active Directory
+title: Governing on-premises service accounts  | Azure Active Directory
 description: A guide to creating and running an account lifecycle process for service accounts
 services: active-directory
 author: BarbaraSelden
@@ -115,7 +115,7 @@ Consider a service account that is used to run a web site and has privileges to 
 | Purpose| Run the HR webpage and connect to HR-databases. Can impersonate end user when accessing databases. |
 | Permissions, Scopes| HR-WEBServer: log on locally, run web page<br>HR-SQL1: log on locally, Read on all HR* database<br>HR-SQL2: log on locally, READ on SALARY* database |
 | Cost Center| 883944 |
-| Risk Assessed| Medium; Business Impact: Medium; Personally identifiable information; Medium |
+| Risk Assessed| Medium; Business Impact: Medium; private information; Medium |
 | Account Restrictions| Log on to: only aforementioned servers; Cannot change password; MBI-Password Policy; |
 | Lifetime| unrestricted |
 | Review Cycle| Bi-annually (by owner, by security team, by privacy) |
