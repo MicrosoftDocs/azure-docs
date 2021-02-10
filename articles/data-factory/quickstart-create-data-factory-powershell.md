@@ -36,8 +36,8 @@ This quickstart describes how to use PowerShell to create an Azure Data Factory.
 
 Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
-[!WARNING]
-If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
+>[!WARNING]
+>If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
 
 #### Log in to PowerShell
 
