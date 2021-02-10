@@ -1,6 +1,6 @@
 ---
 title: Configure role-based access control for your Azure Cosmos DB account
-description: Learn how to configure role-based access control for your Azure Cosmos DB account with Azure Active Directory
+description: Learn how to configure role-based access control with Azure Active Directory for your Azure Cosmos DB account
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.date: 02/12/2021
 ms.author: thweiss
 ---
 
-# Configure role-based access control for your Azure Cosmos DB account with Azure Active Directory (Preview)
+# Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account (Preview)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
@@ -29,6 +29,8 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
     - An Azure Cosmos DB account,
     - An Azure Cosmos DB database,
     - An Azure Cosmos DB container.
+
+:::image type="content" source="./media/how-to-setup-rbac/concepts.png" alt-text="RBAC concepts":::
 
 > [!NOTE]
 > The Azure Cosmos DB RBAC does not currently expose any built-in roles. Built-in roles will be added before the feature becomes generally available.
@@ -119,6 +121,7 @@ Get-AzCosmosDBSqlRoleDefinition -AccountName $accountName `
 Create a role named "MyReadOnlyRole" that only contains read actions:
 
 ```json
+// role-definition-ro.json
 {
     "RoleName": "MyReadOnlyRole",
     "Type": "CustomRole",
@@ -133,7 +136,6 @@ Create a role named "MyReadOnlyRole" that only contains read actions:
     }]
 }
 ```
-*role-definition-ro.json*
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -144,6 +146,7 @@ az cosmosdb sql role definition create -a $accountName -g $resourceGroupName -b 
 Create a role named "MyReadWriteRole" that contains all actions:
 
 ```json
+// role-definition-rw.json
 {
     "RoleName": "MyReadWriteRole",
     "Type": "CustomRole",
@@ -157,7 +160,6 @@ Create a role named "MyReadWriteRole" that contains all actions:
     }]
 }
 ```
-*role-definition-rw.json*
 
 ```azurecli-interactive
 az cosmosdb sql role definition create -a $accountName -g $resourceGroupName -b @role-definition-rw.json
@@ -211,7 +213,7 @@ To use the Azure Cosmos DB RBAC in your application, you have to update the way 
 The way you create a `TokenCredential` instance is beyond the scope of this article. There are many ways to create such an instance depending on the type of AAD identity you want to use (user principal, service principal, group etc.). Most importantly, your `TokenCredential` instance must resolve to the identity (principal ID) that you've assigned your roles to. You can find examples of creating a `TokenCredential` class:
 
 - [in .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#credential-classes)
-- [in Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable#credential-classes)
+- [in Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme#credential-classes)
 
 The examples below use a service principal with a `ClientSecretCredential` instance.
 
