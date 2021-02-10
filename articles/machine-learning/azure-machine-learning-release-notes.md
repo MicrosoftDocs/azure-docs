@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 02/09/2021
+ms.date: 09/10/2020
 ---
 
 # Azure Machine Learning release notes
