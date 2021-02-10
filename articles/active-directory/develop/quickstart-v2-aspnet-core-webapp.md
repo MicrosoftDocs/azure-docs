@@ -51,7 +51,6 @@ The following diagram shows how the sample app works:
 > 1. For **Redirect URI**, enter **https://localhost:44321/signin-oidc**.
 > 1. Select **Register**.
 > 1. Under **Manage**, select **Authentication**.
-> 1. Under **Redirect URIs**, select **Add URI**, and then enter **https://localhost:44321/signin-oidc**.
 > 1. For **Front-channel logout URL**, enter **https://localhost:44321/signout-oidc**.
 > 1. Under **Implicit grant and hybrid flows**, select **ID tokens**.
 > 1. Select **Save**.
