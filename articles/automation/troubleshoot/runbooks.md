@@ -240,7 +240,7 @@ The subscription context might be lost when a runbook invokes multiple runbooks.
    Disable-AzContextAutosave –Scope Process
    ```
 
-* The Azure PowerShell cmdlets support the `-DefaultProfile` switch. This was added to all Az and AzureRm cmdlets to support running multiple PowerShell scripts in the same process, allowing you to specify the context (and which subscription to use. With your runbooks, you should save the context object in your runbook when it's created (that is, when an account signs in) and every time it's changed, and reference it in every Az/AzureRm cmdlet that you specify.
+* The Azure PowerShell cmdlets support the `-DefaultProfile` parameter. This was added to all Az and AzureRm cmdlets to support running multiple PowerShell scripts in the same process, allowing you to specify the context and which subscription to use for each cmdlet. With your runbooks, you should save the context object in your runbook when it's created (that is, when an account signs in) and every time it's changed, and reference it in every Az/AzureRm cmdlet that you specify.
 
    > [!NOTE]
    > You should pass in a context object even when manipulating the context directly using cmdlets such as `Set-AzContext` or `Select-AzSubscription`.
