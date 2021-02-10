@@ -781,6 +781,8 @@
       - name: Availability alerts
         displayname: alerts, global, alerting
         href: app/availability-alerts.md
+      - name: SLA Report
+        href: app/sla-report.md
       - name: Troubleshooting
         displayname: availability, troubleshoot, troubleshoot availability
         href: app/troubleshoot-availability.md
@@ -796,8 +798,6 @@
       href: app/live-stream.md
     - name: Work Item integration
       href: app/work-item-integration.md
-    - name: SLA Report
-      href: app/sla-report.md
     - name: Metrics
       items:
       - name: Log-based & pre-aggregated metrics
