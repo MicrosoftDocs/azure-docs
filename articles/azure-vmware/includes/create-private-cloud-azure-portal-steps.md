@@ -1,8 +1,8 @@
 ---
-title: Deploy Azure VMware Solution
-description: Steps to deploy Azure VMware Solution using the Azure portal.
+title: Create an Azure VMware Solution private cloud
+description: Steps to create an Azure VMware Solution private cloud using the Azure portal.
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 02/17/2021
 ---
 
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
