@@ -58,7 +58,7 @@
     - name: Find application performance issues
       href: app/tutorial-performance.md
     - name: Alert on application health
-      href: alerts/tutorial-alert.md
+      href: app/tutorial-alert.md
     - name: Understand application users
       href: app/tutorial-users.md
     - name: Dashboard with application data
