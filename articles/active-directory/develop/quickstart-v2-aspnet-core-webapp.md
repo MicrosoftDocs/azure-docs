@@ -48,7 +48,7 @@ The following diagram shows how the sample app works:
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. For **Name**, enter a name for your application. For example, enter **AspNetCore-Quickstart**. Users of your app will see this name, and you can change it later.
-> 1. For **Redirect URI**, enter **https://localhost:44321/**.
+> 1. For **Redirect URI**, enter **https://localhost:44321/signin-oidc**.
 > 1. Select **Register**.
 > 1. Under **Manage**, select **Authentication**.
 > 1. Under **Redirect URIs**, select **Add URI**, and then enter **https://localhost:44321/signin-oidc**.
