@@ -19,7 +19,7 @@ The following sections provide details about how to connect your ServiceNow prod
 Ensure that you've met the following prerequisites:
 
 * Azure AD is registered.
-* You have the supported version of The ServiceNow Event Management - ITOM (version Orlando or later).
+* You have the supported version of The ServiceNow Event Management - ITOM (version New York or later).
 
 ## Configure the ServiceNow connection
 
