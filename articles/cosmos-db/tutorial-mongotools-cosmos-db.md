@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Migrate MongoDB offline to Azure Cosmos DB API for MongoDB, using MongoDB native tools
+title: Migrate MongoDB offline to Azure Cosmos DB API for MongoDB, using MongoDB native tools
 description: Learn how MongoDB native tools can be used to migrate small datasets from MongoDB instances to Azure Cosmos DB
 author: anfeldma-ms
 ms.author: anfeldma
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 
 In this tutorial, you migrate a dataset in MongoDB hosted in an Azure Virtual Machine to Azure Cosmos DB's API for MongoDB by using MongoDB native tools. The MongoDB native tools are a set of binaries that facilitate data manipulation on an existing MongoDB instance. Since Azure Cosmos DB exposes a Mongo API, the MongoDB native tools are able to insert data into Azure Cosmos DB. The focus of this doc is on migrating data out of a MongoDB instance using *mongoexport/mongoimport* or *mongodump/mongorestore*. Since the native tools connect to MongoDB using connection strings, you can run the tools anywhere, however we recommend running these tools within the same network as the MongoDB instance to avoid firewall issues. 
 
-The MongoDB native tools can move data only as fast as the host hardware allows; the native tools can be the simplest solution for small datasets where total migration time is not a concern. [MongoDB Spark connector](https://docs.mongodb.com/spark-connector/current/), [Azure Data Migration Service (DMS)](../dms/tutorial-mongodb-cosmos-db.md), or [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) can be better alternatives if you need a scalable migration pipeline.
+The MongoDB native tools can move data only as fast as the host hardware allows; the native tools can be the simplest solution for small datasets where total migration time is not a concern. [MongoDB Spark connector](https://docs.mongodb.com/spark-connector/current/), [Azure Data Migration Service (DMS)](../dms/tutorial-mongodb-cosmos-db.md), or [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db-mongodb-api.md) can be better alternatives if you need a scalable migration pipeline.
 
 If you don't have a MongoDB source set up already, see the article [Install and configure MongoDB on a Windows VM in Azure](../virtual-machines/windows/install-mongodb.md).
 
@@ -39,15 +39,15 @@ To complete this tutorial, you need to:
 
 ## Configure Azure Cosmos DB Server Side Retries for efficient migration
 
-Customers migrating from MongoDB to Azure Cosmos DB benefit from resource governance capabilities, which guarantee the ability to fully utilize your provisioned RU/s of throughput. Azure Cosmos DB may throttle a given request in the course of migration if that request exceeds the container provisioned RU/s; then that request needs to be retried. The round-trip time involved in the network hop between Data Migration Service and Azure Cosmos DB impacts the overall response time of that request; furthermore MongoDB native tools may not handle retries. The *Server Side Retry* feature of Azure Cosmos DB allows the service to intercept throttle error codes and retry with much lower round-trip time, dramatically improving request response times. From the perspective of MongoDB native tools, the need to handle retries is minimized, which will positively impact your experience during migration.
+Customers migrating from MongoDB to Azure Cosmos DB benefit from resource governance capabilities, which guarantee the ability to fully utilize your provisioned RU/s of throughput. Azure Cosmos DB may throttle a given request in the course of migration if that request exceeds the container provisioned RU/s; then that request needs to be retried. The round-trip time involved in the network hop between the migration tool and Azure Cosmos DB impacts the overall response time of that request; furthermore MongoDB native tools may not handle retries. The *Server Side Retry* feature of Azure Cosmos DB allows the service to intercept throttle error codes and retry with much lower round-trip time, dramatically improving request response times. From the perspective of MongoDB native tools, the need to handle retries is minimized, which will positively impact your experience during migration.
 
 You can find the Server Side Retry capability in the *Features* blade of the Azure Cosmos DB portal
 
-![MongoDB SSR feature](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-feature.png)
+![MongoDB SSR feature](../dms/media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-feature.png)
 
 And if it is *Disabled*, then we recommend you enable it as shown below
 
-![MongoDB SSR enable](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
+![MongoDB SSR enable](../dms/media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
 
 ## Choose the proper MongoDB native tool
 
@@ -90,14 +90,14 @@ The rest of this section will guide you through using the pair of tools you sele
 
     `mongoexport --host source-mongodb-hostname:port -u username -p password --db edx --collection query --out edx.json`
 
-    On windows, the executable will be `mongoexport.exe`. *source-mongodb-hostname*, *port*, *username*, *password* should be filled in based on the properties of your existing MongoDB database instance. You should see that an `edx.json` file is produced:
+    On windows, the executable will be `mongoexport.exe`. *source-mongodb-hostname*, *port*, *username*, and *password* should be filled in based on the properties of your existing MongoDB database instance. You should see that an `edx.json` file is produced:
 
     ![mongoexport call](media/tutorial-mongotools-cosmos-db/mongo-export-output.png)
 3. You can use the same terminal to import `edx.json` into Azure Cosmos DB. If you are running `mongoimport` on a Linux machine, type
 
     `mongoimport --host HOST:PORT -u USERNAME -p PASSWORD --db edx --collection importedQuery --ssl --type json --file edx.json`
 
-    On Windows, the executable will be `mongoimport.exe`. *HOST*, *PORT*, *USERNAME*, *PASSWORD* should be filled in based on the Azure Cosmos DB credentials you collected earlier. You should see that *mongoimport* prints lines to the terminal updating on the migration status:
+    On Windows, the executable will be `mongoimport.exe`. *HOST*, *PORT*, *USERNAME*, and *PASSWORD* should be filled in based on the Azure Cosmos DB credentials you collected earlier. You should see that *mongoimport* prints lines to the terminal updating on the migration status:
 
     ![mongoimport call](media/tutorial-mongotools-cosmos-db/mongo-import-output.png)    
 
@@ -107,14 +107,14 @@ The rest of this section will guide you through using the pair of tools you sele
 
     `mongodump --host source-mongodb-hostname:port -u username -p password --db edx --collection query --out edx-dump`
 
-    *source-mongodb-hostname*, *port*, *username*, *password* should be filled in based on the properties of your existing MongoDB database instance. You should see that an `edx-dump` directory is produced and that the directory structure of `edx-dump` reproduces the resource hierarchy (database and collection structure) of your source MongoDB instance. Each collection is represented by a BSON file:
+    *source-mongodb-hostname*, *port*, *username*, and *password* should be filled in based on the properties of your existing MongoDB database instance. You should see that an `edx-dump` directory is produced and that the directory structure of `edx-dump` reproduces the resource hierarchy (database and collection structure) of your source MongoDB instance. Each collection is represented by a BSON file:
 
     ![mongodump call](media/tutorial-mongotools-cosmos-db/mongo-dump-output.png)
 3. You can use the same terminal to restore the contents of `edx-dump` into Azure Cosmos DB. If you are running `mongorestore` on a Linux machine, type
 
     `mongorestore --host HOST:PORT -u USERNAME -p PASSWORD --db edx --collection importedQuery --ssl edx-dump/edx/query.bson`
 
-    On Windows, the executable will be `mongorestore.exe`. *HOST*, *PORT*, *USERNAME*, *PASSWORD* should be filled in based on the Azure Cosmos DB credentials you collected earlier. You should see that *mongorestore* prints lines to the terminal updating on the migration status:
+    On Windows, the executable will be `mongorestore.exe`. *HOST*, *PORT*, *USERNAME*, and *PASSWORD* should be filled in based on the Azure Cosmos DB credentials you collected earlier. You should see that *mongorestore* prints lines to the terminal updating on the migration status:
 
     ![mongoimport call](media/tutorial-mongotools-cosmos-db/mongo-restore-output.png)    
 
