@@ -16,6 +16,8 @@ ms.custom: devx-track-azurepowershell
 
 This article shows you how to use PowerShell to create and manage directories and files in storage accounts that have a hierarchical namespace.
 
+To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use PowerShell to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md).
+
 [Reference](/powershell/module/Az.Storage/) | [Gen1 to Gen2 mapping](#gen1-gen2-map) | [Give feedback](https://github.com/Azure/azure-powershell/issues)
 
 ## Prerequisites

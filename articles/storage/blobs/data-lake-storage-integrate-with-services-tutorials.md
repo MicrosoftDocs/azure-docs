@@ -11,7 +11,7 @@ ms.subservice: data-lake-storage-gen2
 
 # Tutorials that use Azure services with Azure Data Lake Storage Gen2
 
-This article contains links to tutorials that show you how to use various Azure services with Data Lake Storage Gen2. The Data Lake Storage Gen2 content collection features only a few of these tutorials. In general, tutorials are hosted in the content collection for the service. You can use this article to find those articles. 
+This article contains links to tutorials that show you how to use various Azure services with Data Lake Storage Gen2. 
 
 ## List of tutorials
 
@@ -19,4 +19,4 @@ This article contains links to tutorials that show you how to use various Azure 
 
 ## Next steps
 
-- View a complete list of supported Azure services. See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+- Learn how these services can be used together to build workloads that ingest, download, process, and visualize data. See [Using Azure Data Lake Storage Gen2 for big data requirements](data-lake-storage-data-scenarios.md).

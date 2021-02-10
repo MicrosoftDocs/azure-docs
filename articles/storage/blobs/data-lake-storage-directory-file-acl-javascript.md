@@ -16,6 +16,8 @@ ms.custom: devx-track-js
 
 This article shows you how to use JavaScript to create and manage directories and files in storage accounts that have a hierarchical namespace.
 
+To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use JavaScript to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-javascript.md).
+
 [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-file-datalake) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples) | [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## Prerequisites

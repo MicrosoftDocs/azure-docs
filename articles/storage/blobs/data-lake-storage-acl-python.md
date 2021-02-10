@@ -1,5 +1,5 @@
 ---
-title: Use Python to set ACLs in Azure Data Lake Storage Gen2
+title: Use Python to manage ACLs in Azure Data Lake Storage Gen2
 description: Use Python manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
@@ -11,7 +11,7 @@ ms.reviewer: prishet
 ms.custom: devx-track-python
 ---
 
-# Use Python to set ACLs in Azure Data Lake Storage Gen2
+# Use Python to manage ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use the Python to get, set, and update the access control lists of directories and files. 
 
@@ -91,7 +91,7 @@ This example creates a **DataLakeServiceClient** instance by using an account ke
 
 ## Set ACLs
 
-When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs](#update-acls) section of this article.  
+When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs](#update-acls-recursively) section of this article.  
 
 This section shows you how to:
 
@@ -118,7 +118,7 @@ This example gets and sets the ACL of a file named `my-file.txt`. The string `rw
 
 ## Set ACLs recursively
 
-When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs](#update-acls) section of this article.
+When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs recursively](#update-acls-recursively) section of this article.
 
 Set ACLs recursively by calling the **DataLakeDirectoryClient.set_access_control_recursive** method.
 
@@ -207,3 +207,5 @@ To see an example that processes ACLs recursively in batches by specifying a bat
 - [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)
+- [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+- [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

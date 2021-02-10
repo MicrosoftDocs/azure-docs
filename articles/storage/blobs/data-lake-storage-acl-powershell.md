@@ -1,5 +1,5 @@
 ---
-title: Use PowerShell to set ACLs in Azure Data Lake Storage Gen2
+title: Use PowerShell to manage ACLs in Azure Data Lake Storage Gen2
 description: Use PowerShell cmdlets to manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 services: storage
 author: normesta
@@ -362,3 +362,5 @@ To see an example that sets ACLs recursively in batches by specifying a batch si
 
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 - [Storage PowerShell cmdlets](/powershell/module/az.storage)
+- [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+- [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

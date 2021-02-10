@@ -12,7 +12,7 @@ ms.custom: devx-track-js
 
 ---
 
-# Use JavaScript to set ACLs in Azure Data Lake Storage Gen2
+# Use JavaScript to manage ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use JavaScript to get, set, and update the access control lists of directories and files. 
 
@@ -222,3 +222,5 @@ await fileClient.setAccessControl(acl);
 - [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-file-datalake)
 - [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
+- [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+- [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

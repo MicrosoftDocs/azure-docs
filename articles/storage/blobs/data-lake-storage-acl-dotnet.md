@@ -230,3 +230,5 @@ To see an example that sets ACLs recursively in batches by specifying a batch si
 - [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
+- [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+- [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

@@ -248,3 +248,5 @@ az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --con
 - [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 - [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+- [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+- [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
