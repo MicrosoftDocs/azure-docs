@@ -27,7 +27,7 @@ If you're just starting to integrate with Azure Active Directory (Azure AD), Mic
 
 Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
 
-- [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- Go to the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 - If you are not an Azure customer, you can also open a support request with Microsoft via [our commercial support](https://support.serviceshub.microsoft.com/supportforbusiness).
 
@@ -62,7 +62,7 @@ The following posts from [Microsoft Q&A](https://docs.microsoft.com/answers/prod
 
 For answers on your developer questions from the largest community developer ecosystem, ask your question on Stack Overflow.
 
-If you do submit a new question to Stack Overflow, please use one or more of the following tags when you create the question:
+If you submit a new question to Stack Overflow, please use one or more of the following tags when you create the question:
 
 :::row:::
     :::column:::
