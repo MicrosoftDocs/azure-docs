@@ -1,7 +1,7 @@
 ---
-title: Plan your Azure Communication Services telephony and SMS solution
+title: Phone number types in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Learn how to effectively plan your use of phone numbers and telephony.
+description: Learn how to effectively use different types of phone numbers for SMS and telephony.
 author: prakulka
 manager: nmurav
 services: azure-communication-services
