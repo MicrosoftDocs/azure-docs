@@ -27,8 +27,6 @@ landingContent:
         links:
           - text: Azure Files planning guide
             url: storage-files-planning.md
-          - text: Azure File Sync planning guide
-            url: storage-sync-files-planning.md
           - text: What is Azure Files?
             url: storage-files-introduction.md
 
@@ -42,12 +40,10 @@ landingContent:
             url: storage-files-quick-create-use-windows.md
           - text: Create premium file shares
             url: storage-how-to-create-premium-fileshare.md
-          - text: Manage your server with Azure File Sync
-            url: storage-sync-files-server-registration.md
       - linkListType: tutorial
         links:
           - text: Extend Windows file servers with Azure File Sync
-            url: storage-sync-files-extend-servers.md
+            url: ../filesync/file-sync-extend-servers.md
 
   # Card
   - title: Troubleshoot
@@ -61,4 +57,4 @@ landingContent:
           - text: Azure Files performance troubleshooting
             url: storage-troubleshooting-files-performance.md
           - text: Azure File Sync troubleshooting
-            url: storage-sync-files-troubleshoot.md
+            url: ../filesync/file-sync-troubleshoot.md

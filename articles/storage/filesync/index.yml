@@ -4,7 +4,7 @@ title: Azure Files documentation # < 60 chars
 summary: Azure Files offers fully managed cross-platform file shares in the cloud that are accessible via the Server Message Block (SMB) protocol. # < 160 chars
 
 metadata:
-  title: Azure Files documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure File Sync documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Mount file shares in the cloud or on-premises on Windows, Linux, and macOS. Cache Azure file shares on Windows Servers with Azure File Sync for local access.  # Required; article description that is displayed in search results. < 160 chars.
   services: storage
   ms.service: storage #Required; service per approved list. service slug assigned to your service by ACOM.
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: roygara #Required; your GitHub user alias, with correct capitalization.
   ms.author: rogarana #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/27/2019 #Required; mm/dd/yyyy format.
+  ms.date: 02/09/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,8 +27,8 @@ landingContent:
         links:
           - text: Azure File Sync planning guide
             url: file-sync-planning.md
-          - text: What is Azure Files?
-            url: storage-files-introduction.md
+          - text: What is Azure File Sync?
+            url: file-sync-introduction.md
 
 
   # Card (optional)
@@ -37,15 +37,15 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Create/use file shares - Windows
-            url: storage-files-quick-create-use-windows.md
+            url: ../files/storage-files-quick-create-use-windows.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
           - text: Create premium file shares
-            url: storage-how-to-create-premium-fileshare.md
+            url: ../files/storage-how-to-create-premium-fileshare.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
           - text: Manage your server with Azure File Sync
-            url: storage-sync-files-server-registration.md
+            url: file-sync-server-registration.md
       - linkListType: tutorial
         links:
           - text: Extend Windows file servers with Azure File Sync
-            url: storage-sync-files-extend-servers.md
+            url: file-sync-extend-servers.md 
 
   # Card
   - title: Troubleshoot
@@ -53,10 +53,8 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure Files Windows troubleshooting
-            url: storage-troubleshoot-windows-file-connection-problems.md
-          - text: Azure Files Linux troubleshooting
-            url: storage-troubleshoot-linux-file-connection-problems.md
+            url: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
           - text: Azure Files performance troubleshooting
-            url: storage-troubleshooting-files-performance.md
+            url: ../files/storage-troubleshooting-files-performance.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
           - text: Azure File Sync troubleshooting
-            url: storage-sync-files-troubleshoot.md
+            url: file-sync-troubleshoot.md

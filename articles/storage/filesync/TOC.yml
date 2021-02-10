@@ -5,16 +5,6 @@
   items:
   - name: What is Azure File Sync?
     href: storage-file-sync-introduction.md
-- name: Quickstarts
-  items:
-  - name: Create / use file shares - Windows
-    href: ../files/storage-files-quick-create-use-windows.md
-  - name: Create file shares - Portal
-    href: ../files/storage-how-to-use-files-portal.md
-  - name: Create file shares - PowerShell
-    href: ../files/storage-how-to-use-files-powershell.md
-  - name: Create file shares - CLI
-    href: ../files/storage-how-to-use-files-cli.md
 - name: Tutorials
   items:
   - name: Extend Windows file servers with Azure File Sync
@@ -22,21 +12,21 @@
 - name: Concepts
   items:
   - name: Planning for an Azure File Sync deployment
-    href: ../files/storage-sync-files-planning.md
+    href: file-sync-planning.md
   - name: Networking considerations for hybrid access
-    href: ../files/storage-sync-files-networking-overview.md
+    href: file-sync-networking-overview.md
   - name: Optimize Azure file shares
-    href: optimize-file-share.md
+    href: ../files/optimize-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: About cloud tiering
-    href: ../files/storage-sync-cloud-tiering.md
+    href: file-sync-tiering.md
   - name: Performance and scale
     items:
     - name: SMB Multichannel performance
-      href: ../files/storage-files-smb-multichannel-performance.md
+      href: ../files/storage-files-smb-multichannel-performance.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Scalability and performance targets
-      href: ../files/storage-files-scale-targets.md
+      href: ../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: Prevent accidental data deletion
-    href: ../files/storage-files-prevent-file-share-deletion.md
+    href: ../files/storage-files-prevent-file-share-deletion.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: Back up file shares
     href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: Encryption at-rest
@@ -46,7 +36,7 @@
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: FAQ
-    href: ../files/storage-files-faq.md
+    href: ../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
 - name: How-to guides
   items:
   - name: Create
@@ -58,27 +48,19 @@
   - name: Deploy
     items:
     - name: Deploy Azure File Sync
-      href: ../files/storage-sync-files-deployment-guide.md
-  - name: Mount
-    items:
-    - name: Mount SMB file share to Windows
-      href: ../files/storage-how-to-use-files-windows.md
-    - name: Mount SMB file share to Linux
-      href: ../files/storage-how-to-use-files-linux.md
-    - name: Mount SMB file share to macOS
-      href: ../files/storage-how-to-use-files-mac.md
+      href: file-sync-deployment-guide.md
+  - name: Mount SMB file share to Windows
+    href: ../files/storage-how-to-use-files-windows.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: Network
     items:
     - name: Configuring Azure File Sync network endpoints
-      href: ../files/storage-sync-files-networking-endpoints.md
+      href: file-sync-networking-endpoints.md
     - name: Configure File Sync proxy and firewall settings
-      href: ../files/storage-sync-files-firewall-and-proxy.md
+      href: file-sync-firewall-and-proxy.md
     - name: Configure Site-to-Site VPN 
-      href: ../files/storage-files-configure-s2s-vpn.md
+      href: ../files/storage-files-configure-s2s-vpn.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Configure Point-to-Site VPN on Windows
-      href: ../files/storage-files-configure-p2s-vpn-windows.md
-    - name: Configure Point-to-Site VPN on Linux
-      href: ../files/storage-files-configure-p2s-vpn-linux.md
+      href: ../files/storage-files-configure-p2s-vpn-windows.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: Manage
     items:
     - name: Register a server with Azure File Sync
@@ -92,7 +74,7 @@
   - name: Data protection
     items:
     - name: Enable soft delete
-      href: ../files/storage-files-enable-soft-delete.md
+      href: ../files/storage-files-enable-soft-delete.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Change how data is replicated
       href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Manage data redundancy
@@ -140,33 +122,33 @@
   - name: Monitor
     items:
     - name: Monitor Azure Files
-      href: ../files/storage-files-monitoring.md
+      href: ../files/storage-files-monitoring.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Monitor Azure File Sync
       href: file-sync-monitoring.md
   - name: Migrate
     items:
     - name: Migrate to Azure file shares
-      href: ../files/storage-files-migration-overview.md
+      href: ../files/storage-files-migration-overview.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Target a hybrid deployment
       items:
       - name: Migrate bulk data to Azure File Sync with Azure Data Box
         href: file-sync-offline-data-transfer.md
       - name: Migrate from Linux to a hybrid file server with Azure File Sync
-        href: ../files/storage-files-migration-linux-hybrid.md
+        href: ../files/storage-files-migration-linux-hybrid.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
       - name: Migrate from an on-premises NAS to a hybrid file server with Azure File Sync
-        href: ../files/storage-files-migration-nas-hybrid.md
+        href: ../files/storage-files-migration-nas-hybrid.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: From StorSimple
       items:
       - name: StorSimple 8100 and 8600 migration guide
-        href: ../files/storage-files-migration-storsimple-8000.md
+        href: ../files/storage-files-migration-storsimple-8000.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
       - name: StorSimple 1200 migration guide
-        href: ../files/storage-files-migration-storsimple-1200.md
+        href: ../files/storage-files-migration-storsimple-1200.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: Improve performance
     items:
     - name: Enable SMB Multichannel
-      href: ../files/storage-files-enable-smb-multichannel.md
+      href: ../files/storage-files-enable-smb-multichannel.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Enable large file shares
-      href: ../files/storage-files-how-to-create-large-file-share.md
+      href: ../files/storage-files-how-to-create-large-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: Secure
     items:
     - name: Manage encryption keys for the storage account
@@ -196,23 +178,21 @@
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Files on Windows (SMB)
-      href: ../files/storage-troubleshoot-windows-file-connection-problems.md
-    - name: Troubleshoot Azure Files on Linux (SMB)
-      href: ../files/storage-troubleshoot-linux-file-connection-problems.md
+      href: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Troubleshoot Azure file shares performance
-      href: ../files/storage-troubleshooting-files-performance.md
+      href: ../files/storage-troubleshooting-files-performance.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Troubleshoot Azure File Sync
-      href: ../files/storage-sync-files-troubleshoot.md
+      href: ../files/storage-sync-files-troubleshoot.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Troubleshoot deleting Azure file shares
-      href: ../files/storage-troubleshoot-cannot-delete-files-azure-file-share.md
+      href: ../files/storage-troubleshoot-cannot-delete-files-azure-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Troubleshoot backing up file shares
       href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
 - name: Reference
   items:
   - name: Azure Files reference
-    href: ../files/reference.md
+    href: ../files/reference.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: Monitoring Azure Files reference
-    href: ../files/storage-files-monitoring-reference.md
+    href: ../files/storage-files-monitoring-reference.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
@@ -223,7 +203,7 @@
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?category=storage
   - name: Azure File Sync release notes
-    href: storage-files-release-notes.md
+    href: ../files/storage-files-release-notes.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: Azure Files on Microsoft Q&A
     href: /answers/topics/azure-files.html
   - name: Azure Files on Stack Overflow
