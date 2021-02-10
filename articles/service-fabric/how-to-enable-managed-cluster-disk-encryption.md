@@ -54,6 +54,8 @@ $keyvaultName = "<kv-name>"
 az keyvault create --resource-group $resourceGroup --name $keyvaultName --enabled-for-disk-encryption
 ```
 
+---
+
 ### Update existing Key Vault to enable disk encryption
 
 Run the following commands to enable disk encryption for an existing Key Vault.
@@ -71,6 +73,8 @@ Set-AzKeyVaultAccessPolicy -ResourceGroupName $resourceGroupName -VaultName $key
 ```azurecli
 az keyvault update --name keyvaultName --enabled-for-disk-encryption 
 ```
+
+---
 
 ## Update the template and parameters files for disk encryption
 
