@@ -32,7 +32,6 @@ This script creates a route-based VPN Gateway and adds Site-to-Site configuratio
   $GWIPName = "VNet1GWIP"
   $GWIPconfName = "gwipconf"
   $LNGName = "Site1"
-
 # Create a resource group
 New-AzResourceGroup -Name $RG -Location $Location
 # Create a virtual network
@@ -91,7 +90,7 @@ This script uses the following commands to create the deployment. Each item in t
 | Command | Notes |
 |---|---|
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Adds a subnet configuration. This configuration is used with the virtual network creation process. |
-| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Gets a virtual network details. |
+| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Gets virtual network details. |
 | [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) | Gets virtual network gateway details. |
 | [Get-AzLocalNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) | Gets local network gateway details. |
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Gets the virtual network subnet configuration details. |
