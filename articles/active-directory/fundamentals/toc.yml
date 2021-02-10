@@ -55,7 +55,7 @@
         href: service-accounts-on-premises.md
       - name: Securing group MSAs
         href: service-accounts-group-managed.md
-      - name: Securing stand-alone MSAs
+      - name: Securing standalone MSAs
         href: service-accounts-standalone-managed.md
       - name: Securing computer accounts
         href: service-accounts-computer.md
