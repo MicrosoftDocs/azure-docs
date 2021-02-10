@@ -19,7 +19,7 @@ ms.author: dech
 Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualize your data from the Azure portal. This article describes how to enable this feature for your Azure Cosmos DB account.
 
 ## Create a new Cosmos account
-Starting February 10, 2021, new Cosmos accounts created in a [supported region](#supported-regions) will automatically have notebooks enabled. There is no additional configuration needed to enable notebooks. Follow these instructions to create a new Cosmos account. 
+Starting February 10, 2021, new Azure Cosmos accounts created in one of the [supported region](#supported-regions) will automatically have notebooks enabled. There is no additional configuration needed to enable notebooks. Use the following instructions to create a new account:
 1. Sign into the [Azure portal](https://portal.azure.com/).
 1. Select **Create a resource** > **Databases** > **Azure Cosmos DB**.
 1. Enter the basic settings for the account. 
@@ -71,7 +71,7 @@ You can also select **New Notebook** to create a new notebook or upload an exist
 :::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Create or upload a new notebook":::
 
 ## Supported regions
-Built-in notebooks for Azure Cosmos DB are currently available in 29 Azure regions. New Cosmos accounts created in these regions will have notebooks automatically enabled. Notebooks are free with your account. 
+Built-in notebooks for Azure Cosmos DB are currently available in 29 Azure regions. New Azure Cosmos accounts created in these regions will have notebooks automatically enabled. Notebooks are free with your account. 
 
 - Australia Central
 - Australia Central 2
