@@ -92,9 +92,9 @@ If OS (Linux) provider creation fails to succeed with the error "Unable to fetch
 - Is firewall enabled on the host for traffic on port 9100? You can check this by running `curl http:<private-ip>:9100/metrics` from a BareMetal/VM running in the same VNet as the host, with node_exporter running.  
 -If firewall isn't enabled for traffic on port 9100, use these commands to enable it:
 
-  firewall-cmd --permanent --add-port=9100/tcp
+  ```firewall-cmd --permanent --add-port=9100/tcp
   firewall-cmd –reload
-  
+  ```
 - The Latency between the AMS VM & BM Instance should not be more than 2ms.
 - For a VM, check that the NSGs are configured to allow traffic on port 9100. 
 
