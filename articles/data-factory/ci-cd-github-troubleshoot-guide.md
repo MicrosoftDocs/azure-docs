@@ -164,11 +164,11 @@ CI/CD process has been enhanced. The **Automated publish** feature takes, valida
 
 #### Issue
 
-You can not deploy because you hit ARM limit of 4mb total template size. You need a solution to deploy after crossing the limit. 
+You can not deploy because you hit Azure Resource Manager (ARM) limit of 4mb total template size. You need a solution to deploy after crossing the limit. 
 
 #### Cause
 
-ARM restricts template size to be 4mb. Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
+Azure Resource Manager (ARM) restricts template size to be 4mb. Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
 
 #### Resolution
 
