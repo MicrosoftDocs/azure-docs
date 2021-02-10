@@ -36,7 +36,7 @@ If you'd like to continue using your existing app registration for your applicat
 
 Follow these steps for app registrations that are currently configured with **Web** platform redirect URIs:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> and select your **Azure Active Directory** tenant.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and select your **Azure Active Directory** tenant.
 1. In **App registrations**, select your application, and then **Authentication**.
 1. In the **Web** platform tile under **Redirect URIs**, select the warning banner indicating that you should migrate your URIs.
 
