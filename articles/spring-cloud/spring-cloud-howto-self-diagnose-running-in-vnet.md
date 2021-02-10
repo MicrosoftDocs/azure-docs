@@ -44,11 +44,9 @@ The following diagnostic report example assumes the context end time is **2021-0
 The unknown health status results contain related documentation.  You can click the left angle bracket to see the drop-down display.
     ![DNS unknown](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-unknown.png)
 
-
-The following report assumes the context end time is 2021-01-20T22:22:00Z and that you misconfigured your Private DNS Zone record set. In this case you will get a critical result such as: `Failed to resolve the Private DNS in subnet xxx`. 
+If you misconfigured your Private DNS Zone record set, you will get a critical result such as: `Failed to resolve the Private DNS in subnet xxx`. 
 
 In the drop-down **DNS Resolution Table Renderings** you will find the detail message info from which you can check your config.
-    ![DNS failed](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-failed.png)
 
 ### Required Outbound Traffic 
 Healthy applications show results such as the following:
