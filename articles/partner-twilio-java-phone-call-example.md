@@ -199,7 +199,7 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [twimlet_message_url]: https://twimlets.com/message
 [twiml]: https://www.twilio.com/docs/api/twiml
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
+[add_ca_cert]: https://docs.blackberry.com/en/endpoint-management/blackberry-enterprise-mobility-server/3_1/bems-blackberry-uem-configuration-html/ibz1474381569269/msf1474468494766/Import-the-CA-certificate-into-the-Java-certificate-store
 [azure_java_eclipse_hello_world]: /java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app
 [howto_twilio_voice_sms_java]: partner-twilio-java-how-to-use-voice-sms.md
 [howto_blob_storage_java]: https://www.windowsazure.com/develop/java/how-to-guides/blob-storage/
