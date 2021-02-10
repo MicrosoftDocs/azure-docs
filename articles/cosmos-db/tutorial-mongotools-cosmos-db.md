@@ -93,16 +93,13 @@ The rest of this section will guide you through using the pair of tools you sele
     On windows, the executable will be `mongoexport.exe`. *source-mongodb-hostname*, *port*, *username*, *password* should be filled in based on the properties of your existing MongoDB database instance. You should see that an `edx.json` file is produced:
 
     ![mongoexport call](media/tutorial-mongotools-cosmos-db/mongo-export-output.png)
-3. You can use the same terminal to import `edx.json` into Azure Cosmos DB. If it is a Linux machine, type
+3. You can use the same terminal to import `edx.json` into Azure Cosmos DB. If you are running `mongoimport` on a Linux machine, type
 
     `mongoimport --host HOST:PORT -u USERNAME -p PASSWORD --db edx --collection importedQuery --ssl --type json --file edx.json`
 
-    On Windows, the executable will be `mongoimport.exe`. *HOST*, *PORT*, *USERNAME*, *PASSWORD* should be filled in based on the properties of your existing MongoDB database instance. You should see that *mongoimport* prints lines to the terminal updating on the migration status:
+    On Windows, the executable will be `mongoimport.exe`. *HOST*, *PORT*, *USERNAME*, *PASSWORD* should be filled in based on the Azure Cosmos DB credentials you collected earlier. You should see that *mongoimport* prints lines to the terminal updating on the migration status:
 
     ![mongoimport call](media/tutorial-mongotools-cosmos-db/mongo-import-output.png)    
-
-    * One line is printed indicating that *mongoimport* successfully connected to Azure Cosmos DB
-    * The next line indicates the number of documents imported
 
 ### *mongodump/mongorestore*
 
@@ -110,74 +107,16 @@ The rest of this section will guide you through using the pair of tools you sele
 
     `mongodump --host source-mongodb-hostname:port -u username -p password --db edx --collection query --out edx-dump`
 
-    *source-mongodb-hostname*, *port*, *username*, *password* should be filled in based on the properties of your existing MongoDB database instance. You should see that an `edx-dump` file is produced:
+    *source-mongodb-hostname*, *port*, *username*, *password* should be filled in based on the properties of your existing MongoDB database instance. You should see that an `edx-dump` directory is produced and that the directory structure of `edx-dump` reproduces the resource hierarchy (database and collection structure) of your source MongoDB instance. Each collection is represented by a BSON file:
 
     ![mongodump call](media/tutorial-mongotools-cosmos-db/mongo-dump-output.png)
+3. You can use the same terminal to restore the contents of `edx-dump` into Azure Cosmos DB. If you are running `mongorestore` on a Linux machine, type
 
-### *mongodump/mongorestore*
+    `mongorestore --host HOST:PORT -u USERNAME -p PASSWORD --db edx --collection importedQuery --ssl edx-dump/edx/query.bson`
 
-## Specify target details
+    On Windows, the executable will be `mongorestore.exe`. *HOST*, *PORT*, *USERNAME*, *PASSWORD* should be filled in based on the Azure Cosmos DB credentials you collected earlier. You should see that *mongorestore* prints lines to the terminal updating on the migration status:
 
-1. On the **Migration target details** screen, specify the connection details for the target Azure Cosmos DB account, which is the pre-provisioned Azure Cosmos DB's API for MongoDB account to which you're migrating your MongoDB data.
-
-    ![Specify target details](media/tutorial-mongodb-to-cosmosdb/dms-specify-target.png)
-
-2. Select **Save**.
-
-## Map to target databases
-
-1. On the **Map to target databases** screen, map the source and the target database for migration.
-
-    If the target database contains the same database name as the source database, Azure Database Migration Service selects the target database by default.
-
-    If the string **Create** appears next to the database name, it indicates that Azure Database Migration Service didn't find the target database, and the service will create the database for you.
-
-    At this point in the migration, you can [provision throughput](../cosmos-db/set-throughput.md). In Cosmos DB, you can provision throughput either at the database-level or individually for each collection. Throughput is measured in [Request Units](../cosmos-db/request-units.md) (RUs). Learn more about [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
-
-    ![Map to target databases](media/tutorial-mongodb-to-cosmosdb/dms-map-target-databases.png)
-
-2. Select **Save**.
-3. On the **Collection setting** screen, expand the collections listing, and then review the list of collections that will be migrated.
-
-    Azure Database Migration Service auto selects all the collections that exist on the source MongoDB instance that don't exist on the target Azure Cosmos DB account. If you want to remigrate collections that already include data, you need to explicitly select the collections on this blade.
-
-    You can specify the amount of RUs that you want the collections to use. Azure Database Migration Service suggests smart defaults based on the collection size.
-
-    > [!NOTE]
-    > Perform the database migration and collection in parallel using multiple instances of Azure Database Migration Service, if necessary, to speed up the run.
-
-    You can also specify a shard key to take advantage of [partitioning in Azure Cosmos DB](../cosmos-db/partitioning-overview.md) for optimal scalability. Be sure to review the  [best practices for selecting a shard/partition key](../cosmos-db/partitioning-overview.md#choose-partitionkey).
-
-    ![Select collections tables](media/tutorial-mongodb-to-cosmosdb/dms-collection-setting.png)
-
-4. Select **Save**.
-
-5. On the **Migration summary** screen, in the **Activity name** text box, specify a name for the migration activity.
-
-    ![Migration summary](media/tutorial-mongodb-to-cosmosdb/dms-migration-summary.png)
-
-## Run the migration
-
-* Select **Run migration**.
-
-    The migration activity window appears, and the **Status** of the activity is **Not started**.
-
-    ![Activity status](media/tutorial-mongodb-to-cosmosdb/dms-activity-status.png)
-
-## Monitor the migration
-
-* On the migration activity screen, select **Refresh** to update the display until the **Status** of the migration shows as **Completed**.
-
-   > [!NOTE]
-   > You can select the Activity to get details of database- and collection-level migration metrics.
-
-    ![Activity status completed](media/tutorial-mongodb-to-cosmosdb/dms-activity-completed.png)
-
-## Verify data in Cosmos DB
-
-* After the migration completes, you can check your Azure Cosmos DB account to verify that all the collections were migrated successfully.
-
-    ![Screenshot that shows where to check your Azure Cosmos DB account to verify that all the collections were migrated successfully.](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
+    ![mongoimport call](media/tutorial-mongotools-cosmos-db/mongo-restore-output.png)    
 
 ## Post-migration optimization
 
@@ -186,6 +125,7 @@ After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API
 ## Additional resources
 
 * [Cosmos DB service information](https://azure.microsoft.com/services/cosmos-db/)
+* [MongoDB database tools documentation](https://docs.mongodb.com/database-tools/)
 
 ## Next steps
 
