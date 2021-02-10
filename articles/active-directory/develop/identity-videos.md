@@ -24,7 +24,6 @@ Learn the basics of modern authentication, the Microsoft identity platform, and 
 Learn the key components and capabilities of the Microsoft identity platform.
 
 ___
-
 :::row:::
   :::column:::
         <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank">The basics of modern authentication - Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (12:28)
@@ -134,7 +133,7 @@ ___
         1 - <a href="https://www.youtube.com/watch?v=fbSVgC8nGz4&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=1" target="_blank">Basics: The concepts of modern authentication <span class="docon docon-navigate-external x-hidden-focus"></span></a> (4:33)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=fbSVgC8nGz4" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-01.jpg" alt="Video thumbnail for a video about the concept of modern authentication."> </a>
+        <a href="https://www.youtube.com/watch?v=fbSVgC8nGz4" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-01.jpg" alt="Video thumbnail for a video about the concept of modern authentication." scrolling = "no"> </a>
     :::column-end:::
      :::column:::
         2 - <a href="https://www.youtube.com/watch?v=tCNcG1lcCHY&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=2" target="_blank">Modern authentication for web applications <span class="docon docon-navigate-external x-hidden-focus"></span></a> (6:02)
