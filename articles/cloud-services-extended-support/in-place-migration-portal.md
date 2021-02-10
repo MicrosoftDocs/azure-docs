@@ -10,7 +10,7 @@ ms.date: 2/08/2021
 ms.custom: 
 ---
 
-# How to migrate to Cloud Services (extended support) using the Azure portal
+# Migrate to Cloud Services (extended support) using the Azure portal
 
 ## Before you begin
 
