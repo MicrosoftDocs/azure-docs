@@ -76,6 +76,8 @@ A single resource can incur several charges for different services. For example,
 
 [!INCLUDE [Transform data before using large usage files](../../../includes/cost-management-billing-transform-data-before-using-large-usage-files.md)]
 
+[!INCLUDE [Troubleshoot usage spikes](../../../includes/cost-management-billing-troubleshoot-usage-spikes.md)]
+
 ## Next steps
 
 - [Explore and analyze costs with cost analysis](../costs/quick-acm-cost-analysis.md).

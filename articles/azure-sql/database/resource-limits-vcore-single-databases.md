@@ -206,7 +206,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max log size (TB)|Unlimited |Unlimited |Unlimited |Unlimited |Unlimited |Unlimited |Unlimited |
 |TempDB max data size (GB)|512|576|640|768|1024|1280|2560|
 |Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |
-|Max local SSD IOPS *|64000 |72000 |80000 |96000 |160000 |192000 |204800 |
+|Max local SSD IOPS *|64000 |72000 |80000 |96000 |128000 |160000 |204800 |
 |Max log rate (MBps)|100 |100 |100 |100 |100 |100 |100 |
 |IO latency (approximate)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
 |Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|

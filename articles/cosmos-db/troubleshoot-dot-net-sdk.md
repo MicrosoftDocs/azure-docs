@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues when using .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 09/12/2020
+ms.date: 02/05/2021
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
@@ -61,6 +61,7 @@ Cosmos DB SDK on any IO failure will attempt to retry the failed operation if re
 |----------|-------------|
 | 400 | Bad request (Depends on the error message)| 
 | 401 | [Not authorized](troubleshoot-unauthorized.md) | 
+| 403 | [Forbidden](troubleshoot-forbidden.md) |
 | 404 | [Resource is not found](troubleshoot-not-found.md) |
 | 408 | [Request timed out](troubleshoot-dot-net-sdk-request-timeout.md) |
 | 409 | Conflict failure is when the ID provided for a resource on a write operation has been taken by an existing resource. Use another ID for the resource to resolve this issue as ID must be unique within all documents with the same partition key value. |

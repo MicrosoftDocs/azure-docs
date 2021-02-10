@@ -43,7 +43,7 @@ Understanding these requirements will help you choose the right client library:
 
 Details about feature availability in the varied [UI SDKs is available here](ui-sdk-features.md), but key trade-offs are summarized below.
 
-|Client library / SDK|Implementation Complexity|	Customization Ability|	Calling| Chat| [Teams Interop](./../voice-video-calling/teams-interop.md)
+|Client library / SDK|Implementation Complexity|	Customization Ability|	Calling| Chat| [Teams Interop](./../teams-interop.md)
 |---|---|---|---|---|---|---|
 |Composite Components|Low|Low|✔|✔|✕
 |Base Components|Medium|Medium|✔|✔|✕

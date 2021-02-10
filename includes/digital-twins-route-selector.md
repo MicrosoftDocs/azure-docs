@@ -11,5 +11,5 @@
 ---
 
 > [!div class="op_single_selector"]
-> * [APIs and CLI](../articles/digital-twins/how-to-manage-routes-apis-cli.md)
 > * [Portal](../articles/digital-twins/how-to-manage-routes-portal.md)
+> * [APIs and CLI](../articles/digital-twins/how-to-manage-routes-apis-cli.md)
