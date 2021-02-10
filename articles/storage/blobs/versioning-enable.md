@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 # Enable and manage blob versioning
 
-You can enable Blob storage versioning to automatically maintain previous versions of an object.  When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted.
+You can enable Blob storage versioning to automatically maintain previous versions of a blob when it is modified or deleted. When blob versioning is enabled, then you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted.
 
 This article shows how to enable or disable blob versioning for the storage account by using the Azure portal or an Azure Resource Manager template. To learn more about blob versioning, see [Blob versioning](versioning-overview.md).
 
@@ -25,13 +25,39 @@ This article shows how to enable or disable blob versioning for the storage acco
 
 # [Azure portal](#tab/portal)
 
-To enable blob versioning in the Azure portal:
+To enable blob versioning for a storage account in the Azure portal:
 
 1. Navigate to your storage account in the portal.
 1. Under **Blob service**, choose **Data protection**.
 1. In the **Versioning** section, select **Enabled**.
 
 :::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Screenshot showing how to enable blob versioning in Azure portal":::
+
+# [PowerShell](#tab/powershell)
+
+To enable blob versioning for a storage account with PowerShell, first install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module version 2.3.0 or later. Then call the [Update-AzStorageBlobServiceProperty](/powershell/module/az.storage/update-azstorageblobserviceproperty) command to enable versioning, as shown in the following example. Remember to replace the values in angle brackets with your own values:
+
+```powershell
+# Set resource group and account variables.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+# Enable versioning.
+Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -IsVersioningEnabled $true
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To enable blob versioning for a storage account with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) command to enable versioning, as shown in the following example. Remember to replace the values in angle brackets with your own values:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --enable-versioning true
+```
 
 # [Template](#tab/template)
 

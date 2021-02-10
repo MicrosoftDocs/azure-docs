@@ -299,6 +299,8 @@
     href: partner-center-portal/downloads-dashboard.md
   - name: Ratings and reviews dashboard
     href: partner-center-portal/ratings-reviews.md
+  - name: Anomaly detection for metered billing 
+    href: anomaly-detection.md    
   - name: Analytics common questions 
     href: analytics-faq.md 
 - name: Policies and terms
