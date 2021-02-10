@@ -30,7 +30,7 @@ To get started, you'll need:
 > * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
 > * **All API requests to the Document Translation service require a custom domain endpoint**.
 
-### What is the custom domain endpoint?
+### What is the custom domain endpoint? 
 
 The custom domain endpoint is a URL formatted with your resource name, hostname, and Translator subdirectories:
 
