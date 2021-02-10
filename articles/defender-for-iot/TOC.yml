@@ -20,16 +20,16 @@
       href: getting-started.md
   - name: Agent-based solution for device builders
     items: 
-    - name: Configure security module for Azure RTOS
-      href: quickstart-azure-rtos-security-module.md
     - name: Onboard to Defender for IoT agent-based solution
       href: quickstart-onboard-iot-hub.md
-    - name: Create a Defender IoT micro agent module twin (Preview)
-      href: quickstart-create-micro-agent-module-twin.md
     - name: Install Defender for IoT micro agent (Preview)
       href: quickstart-standalone-agent-binary-installation.md
+    - name: Create a Defender IoT micro agent module twin (Preview)
+      href: quickstart-create-micro-agent-module-twin.md
     - name: Build the Defender for IoT micro agent from source code (Preview)
       href: quickstart-building-the-defender-micro-agent-from-source.md
+    - name: Configure security module for Azure RTOS
+      href: quickstart-azure-rtos-security-module.md
     - name: Add Azure resources to your IoT solution
       href: quickstart-configure-your-solution.md
     - name: Classic
@@ -206,15 +206,6 @@
         href: integration-splunk.md
   - name: Agent-based solution for device builders
     items:
-    - name: Security Module for Azure RTOS
-      href: iot-security-azure-rtos.md
-      items: 
-      - name: Work with Security Module for Azure RTOS
-        href: how-to-azure-rtos-security-module.md
-      - name: Understand the Security Module for Azure RTOS
-        href: concept-rtos-security-module.md
-      - name: Security Module for Azure RTOS alerts and recommendations 
-        href: concept-rtos-security-alerts-recommendations.md
     - name: Connect to Azure Sentinel
       href: how-to-configure-with-sentinel.md
     - name: Configure Azure Defender for IoT agent-based solution
@@ -227,6 +218,15 @@
       href: quickstart-investigate-security-alerts.md
     - name: Create custom alerts
       href: quickstart-create-custom-alerts.md
+    - name: Security Module for Azure RTOS
+      href: iot-security-azure-rtos.md
+      items: 
+      - name: Work with Security Module for Azure RTOS
+        href: how-to-azure-rtos-security-module.md
+      - name: Understand the Security Module for Azure RTOS
+        href: concept-rtos-security-module.md
+      - name: Security Module for Azure RTOS alerts and recommendations 
+        href: concept-rtos-security-alerts-recommendations.md
     - name: Classic
       items: 
       - name: Which agent should I deploy?
