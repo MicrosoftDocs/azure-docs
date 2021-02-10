@@ -42,9 +42,9 @@ For more information:
 For databases that are too large for BACPAC files, you can configure active geo-replication from Azure Germany to global Azure.
 
 > [!IMPORTANT]
-> Configuring active geo-replication to migrate databases to global Azure is only supported using Transact-SQL (T-SQL), and you must [request access for your subscription](#requesting-access) to support migrating to global Azure by opening a support ticket in the Azure portal.
+> Configuring active geo-replication to migrate databases to global Azure is only supported using Transact-SQL (T-SQL), and prior to migrating you must request enablement of your subscription to support migrating to global Azure. To submit a request, [open a support ticket in the Azure portal](#requesting-access).
 
-Migrating databases with active geo-replication requires an Azure SQL logical server in global Azure. You can create the server using the portal, Azure PowerShell, CLI, etc., but configuring active geo-replication to replicate (migrate) a database is only supported in Transact-SQL (T-SQL).
+Migrating databases with active geo-replication requires an Azure SQL logical server in global Azure. You can create the server using the portal, Azure PowerShell, CLI, etc., but configuring active geo-replication to replicate (migrate) a database is only supported using Transact-SQL (T-SQL).
 
 The `ALTER DATABASE` statement allows you to specify a target server in global Azure by using its fully qualified dns server name on the target side: 
 
@@ -159,7 +159,7 @@ To enable your global Azure subscription, create a support request in the Azure 
    :::image type="content" source="media/germany-migration-databases/support-request-details.png" alt-text="support request details":::
 
 
-After reviewing the support request, select **Create**. 
+5. Review the support request, then select **Create**. 
 
 It can take up to 24 hours to process the support request. Confirmation will be sent to the contact email provided.
 
