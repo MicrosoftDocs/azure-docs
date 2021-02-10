@@ -140,16 +140,16 @@
   items:
     - name: Best practices
       items:
-        - text: Performance and reliability
+        - name: Performance and reliability
           url: functions-best-practices.md
           displayName: best practices
-        - text: Manage connections
+        - name: Manage connections
           url: manage-connections.md
           displayName: best practices
-        - text: Error handling and function retries
+        - name: Error handling and function retries
           url: functions-bindings-error-pages.md
           displayName: best practices
-        - text: Security
+        - name: Security
           url: security-concepts.md
           displayName: best practices
     - name: Compare runtime versions
