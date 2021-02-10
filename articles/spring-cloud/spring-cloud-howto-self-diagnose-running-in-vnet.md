@@ -10,19 +10,21 @@ ms.custom: devx-track-java
 ---
 
 # Self-diagnose running Azure Spring Cloud in VNET
-Azure Spring Cloud diagnostics supports interactive troubleshooting apps running in virtual networks. No configuration is required. When you find issues, Azure Spring Cloud diagnostics points out what’s wrong and guides you to information that helps troubleshoot and resolve the issue.
+Azure Spring Cloud diagnostics supports interactive troubleshooting apps running in virtual networks. No configuration is required. When you find issues, Azure Spring Cloud diagnostics identifies what’s wrong and guides you to information that helps troubleshoot and resolve the issue.
 
 ## Navigate to the diagnostics page
 The following procedure starts diagnostics for networked applications.
 1. Sign in to the Azure portal.
 1. Go to your Azure Spring Cloud Overview page.
-1. Open **Diagnose and solve problems** in the menu on the left side of the page.
+1. Open **Diagnose and solve problems** in the menu on the left navigation pane.
 1. Select the third category, **Networking**.
 
     ![Self diagnostic title](media/spring-cloud-self-diagnose-vnet/self-diagostic-title.png)
 
 ## View a diagnostic report
 After you click the **Networking** category, you can view two issues related to Networking specific to your VNet injected Azure Spring Cloud: **DNS Resolution** and **Required Outbound Traffic**.
+
+    ![Self diagnostic options](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-req-outbound-options.png)
 
 Find your target issue, and click it to view the diagnostic report. A summary of diagnostics will be displayed. Some results contain related documentation.
 
