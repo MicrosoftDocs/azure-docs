@@ -7,7 +7,7 @@ author: v-dalc@microsoft.com
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/09/2021
+ms.date: 02/10/2021
 ms.author: alkohli
 ---
 
@@ -15,10 +15,11 @@ ms.author: alkohli
 
 This article describes how to test wireless network connectivity for an Azure Stack Edge Mini R device using a sample WiFi profile. 
 
-You can use this profile for testing if your network administrator hasn't provided a WiFi profile for your environment. 
+You can use this profile for testing if your network administrator hasn't provided a wireless network (WiFi) profile for your environment. 
 
 > [!IMPORTANT]
-> The sample profile is for testing purposes only. The profile won't work in all environments. Before you use the profile, make sure it complies with your organization's wireless networking guidelines.
+> - The sample profile is for testing purposes only. The profile won't work in all environments. Before you use the profile, make sure it complies with your organization's wireless networking guidelines.
+> - If your network administrator has a WiFi profile available that meets your organization's security standards, you should use that profile instead and follow the steps in [Manage wireless connectivity on your Azure Stack Edge Mini R](./azure-stack-edge-mini-r-manage-wifi.md).
 
 ## About Wi-Fi profiles
 
@@ -28,27 +29,72 @@ To enable wireless networking, you configure the WiFi port, add the WiFi profile
 
 ## Prerequisites
 
-- Complete the device configuration.
-
+- Complete the device configuration for your Azure Stack Edge Mini R device.
+- Review wireless security policies for your organization.
+- Can the network admin provide a standard WiFi profile for your organization?
 - Collect the security key, SSID, etc. - Or just use the table in the "Sample script" section.
 
-Nothing to download? How will we provide the profile? Sample text in the article only?
+
+## Download wireless profile
+
+If your organization doesn't have a standard wireless networking profile<!--This seems highly unlikely.-->, you can download and edit an existing profile.
+
+To download a wireless networking profile, do these steps:
+
+1. To see the wireless profiles on your computer, on the **Start** menu, open **Command prompt** (cmd.exe), and enter this command:<!--All Programs, then Accessories does not open a command prompt in the latest Windows build.-->
+
+   `netsh wlan show profiles`
+
+   The output will look something like this:<!--Output needs further editing. Profile names are too close to MSFT profile names.-->
+
+   ```dos
+   Profiles on interface Wi-Fi:
+
+   Group policy profiles (read only)
+   ---------------------------------
+       <None>
+
+   User profiles
+   -------------
+       All User Profile     : ContosoCONNECT
+       All User Profile     : ContosoCORP
+       All User Profile     : ContosoINET
+       All User Profile     : CenturyLink7006
+       All User Profile     : Boat
+    ```
+
+2. To export a profile, enter the following command:
+
+   `netsh wlan export profile name=”<profileName>” folder=”<path>\<profileName>"
+
+   For example, the following command saves the ContosoINET profile in XML format to gusp’s Downloads folder.
+
+   ```dos
+   C:\Users\gusp>netsh wlan export profile name="ContosoFTINET" folder=c:Downloads
+
+   Interface profile "ContosoFTINET" is saved in file "c:Downloads\ContosoFTINET.xml" successfully.
+
+   ```
+
+If others in your org are using WiFi with their Mini R device, you can ask them to download the wireless networking profile they're using. See: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-mini-r-manage-wifi#download-wi-fi-profile
+
+## Edit wireless profile
+
+If we expect them to edit the profile, what settings will they update for their environment?
 
 ## Sample WiFi profile
 
-Introduce/describe the sample profile.
+Describe the sample profile.
 
---Sample text--
+-- Sample text - from Shivani? --
 
-Table: Settings to update for their environment
-
-If others in your org are using WiFi with their Mini R device, ask them to download the WiFi profile they are using. See: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-mini-r-manage-wifi#download-wi-fi-profile
+Settings to update for their environment (table)
 
 Before testing, make sure the profile complies with networking security requirements for your organization.
 
-## Add and connect to profile
+## Connect to profile from device
 
-Very high-level instructions. For details/specifics, lnk to: /databox-online/azure-stack-edge-mini-r-manage-wifi#add-connect-to-wi-fi-profile. 
+High-level instructions. For details/specifics, lnk to: /databox-online/azure-stack-edge-mini-r-manage-wifi#add-connect-to-wi-fi-profile. 
 
 ## Next steps
 
