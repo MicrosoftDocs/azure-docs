@@ -327,7 +327,8 @@
       href: ./linux/tutorial-build-deploy-azure-pipelines.md
     - name: Create LAMP stack
       href: ./linux/tutorial-lamp-stack.md
-    - name: Secure web server with SSL
+    - name: Secure web server with TLS\SSL
+      displayname: SSL TLS
       items:
       - name: Linux
         href: ./linux/tutorial-secure-web-server.md
