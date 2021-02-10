@@ -12,11 +12,11 @@ ms.custom:
 
 # How to migrate to Cloud Services (extended support) using the Azure portal
 
-## Before you Begin
+## Before you begin
 
 Review the [Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)](in-place-migration-overview.md) overview document and complete the prerequisites required before beginning any migration steps. 
 
-## Migrate your Cloud Service Resources
+## Migrate your Cloud Service resources
 
 1. Go to Cloud Services (classic) portal blade. 
 2. Select the Cloud Service you want to migrate.
@@ -61,7 +61,7 @@ Review the [Migrate Azure Cloud Services (classic) to Azure Cloud Services (exte
  
     :::image type="content" source="media/in-place-migration-portal-8.png" alt-text="Image shows validation failure error message.":::
 
-7.	Commit Migration
+7.	Commit migration.
 
     >[!IMPORTANT]
     > Once you commit to the migration, there is no option to roll back. 
