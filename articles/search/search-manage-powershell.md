@@ -18,7 +18,7 @@ ms.date: 02/09/2021
 > * [PowerShell](search-manage-powershell.md)
 > * [REST API](/rest/api/searchmanagement/)
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
-> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
+> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
 You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](../cloud-shell/overview.md) to create and configure Azure Cognitive Search. The **Az.Search** module extends [Azure PowerShell](/powershell/) with full parity to the [Search Management REST APIs](/rest/api/searchmanagement) and the ability to perform the following tasks:
 
@@ -26,9 +26,11 @@ You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud
 > * [List search services in a subscription](#list-search-services)
 > * [Return service information](#get-search-service-information)
 > * [Create or delete a service](#create-or-delete-a-service)
+> * [Create a service with a private endpoint](#create-a-service-with-a-private-endpoint)
 > * [Regenerate admin API-keys](#regenerate-admin-keys)
 > * [Create or delete query api-keys](#create-or-delete-query-keys)
 > * [Scale up or down with replicas and partitions](#scale-replicas-and-partitions)
+> * [Create a shared private link resource](#create-a-shared-private-link-resource)
 
 Occasionally, questions are asked about tasks *not* on the above list. Currently, you cannot use either the **Az.Search** module or the management REST API to change a server name, region, or tier. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. Similarly, there are no tools or APIs for transferring content, such as an index, from one service to another.
 
@@ -201,7 +203,7 @@ Tags
 
 ### Create a service with IP rules
 
-Depending on your security requirements, you may want to create a search service with an [IP firewall configured](service-configure-firewall.md). To do so, first define the IP Rules and then pass them to the `IPRuleList` parameter as shown below:
+Depending on your security requirements, you may want to create a search service with an [IP firewall configured](service-configure-firewall.md). To do so, first define the IP Rules and then pass them to the `IPRuleList` parameter as shown below.
 
 ```azurepowershell-interactive
 $ipRules = @([pscustomobject]@{Value="55.5.63.73"},
@@ -236,7 +238,9 @@ New-AzSearchService -ResourceGroupName <resource-group-name> `
 [Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For more details, please refer to the documentation on 
 [creating a private endpoint for Azure Cognitive Search](service-create-private-endpoint.md)
 
-The following example shows how to create a search service with a private endpoint:
+The following example shows how to create a search service with a private endpoint.
+
+First, deploy a search service with `PublicNetworkAccess` set to `Disabled`.
 
 ```azurepowershell-interactive
 $searchService = New-AzSearchService `
@@ -247,12 +251,18 @@ $searchService = New-AzSearchService `
     -PartitionCount 1 -ReplicaCount 1 `
     -HostingMode Default `
     -PublicNetworkAccess Disabled
+```
 
+Next, create a virtual network, private network connection, and the private endpoint.
+
+```azurepowershell-interactive
+# Create the subnet
 $subnetConfig = New-AzVirtualNetworkSubnetConfig `
     -Name <subnet-name> `
     -AddressPrefix 10.1.0.0/24 `
-    -PrivateLinkServiceNetworkPolicies Disabled
+    -PrivateEndpointNetworkPolicies Disabled 
 
+# Create the virtual network
 $virtualNetwork = New-AzVirtualNetwork `
     -ResourceGroupName <resource-group-name> `
     -Location "West US" `
@@ -260,19 +270,50 @@ $virtualNetwork = New-AzVirtualNetwork `
     -AddressPrefix 10.1.0.0/16 `
     -Subnet $subnetConfig
 
+# Create the private network connection
 $privateLinkConnection = New-AzPrivateLinkServiceConnection `
-    -Name <virtual-network-name> `
+    -Name <private-link-name> `
     -PrivateLinkServiceId $searchService.Id `
-    -GroupId search
+    -GroupId searchService
 
+# Create the private endpoint
 $privateEndpoint = New-AzPrivateEndpoint `
     -Name <private-endpoint-name> `
     -ResourceGroupName <resource-group-name> `
     -Location "West US" `
     -Subnet $virtualNetwork.subnets[0] `
     -PrivateLinkServiceConnection $privateLinkConnection
-
 ```
+
+Finally, create a private DNS Zone. 
+
+```azurepowershell-interactive
+## Create private dns zone
+$zone = New-AzPrivateDnsZone `
+    -ResourceGroupName <resource-group-name> `
+    -Name "privatelink.search.windows.net"
+
+## Create dns network link
+$link = New-AzPrivateDnsVirtualNetworkLink `
+    -ResourceGroupName <resource-group-name> `
+    -ZoneName "privatelink.search.windows.net" `
+    -Name "myLink" `
+    -VirtualNetworkId $virtualNetwork.Id
+
+## Create DNS configuration 
+$config = New-AzPrivateDnsZoneConfig `
+    -Name "privatelink.search.windows.net" `
+    -PrivateDnsZoneId $zone.ResourceId
+
+## Create DNS zone group
+New-AzPrivateDnsZoneGroup `
+    -ResourceGroupName <resource-group-name> `
+    -PrivateEndpointName <private-endpoint-name> `
+    -Name 'myZoneGroup' `
+    -PrivateDnsZoneConfig $config
+```
+
+For more details on creating private endpoints in PowerShell, see this [Private Link Quickstart](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell)
 
 ### Manage private endpoint connections
 
@@ -287,13 +328,13 @@ Get-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -
 [Set-AzSearchPrivateEndpointConnection](/powershell/module/az.search/get-azsearchservice/Set-AzSearchPrivateEndpointConnection) is used to update the connection. The following example sets a private endpoint connection to rejected:
 
 ```azurepowershell-interactive
-Set-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name demo-searchapp-pe.4c74dd7c-7016-42ac-827a-8d5d1378f266 -Status Rejected  -Description "Rejected"
+Set-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name> -Status Rejected  -Description "Rejected"
 ```
 
 [Remove-AzSearchPrivateEndpointConnection](/powershell/module/az.search/get-azsearchservice/Remove-AzSearchPrivateEndpointConnection) is used to delete the private endpoint connection.
 
 ```azurepowershell-interactive
- Remove-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name demo-searchapp-pe.4c74dd7c-7016-42ac-827a-8d5d1378f266
+ Remove-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name>
 ```
 
 ## Regenerate admin keys
@@ -361,7 +402,7 @@ Private endpoints of secured resources that are created through Azure Cognitive 
 
 If you're using an indexer to index data in Azure Cognitive Search, and your data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach the data.
 
-A full list of the Azure Resources for which you can create outbound private endpoints from Azure Cognitive Search can be found [here](search-indexer-howto-access-private#shared-private-link-resources-management-apis) along with the related **Group Id** values.
+A full list of the Azure Resources for which you can create outbound private endpoints from Azure Cognitive Search can be found [here](search-indexer-howto-access-private.md#shared-private-link-resources-management-apis) along with the related **Group ID** values.
 
 [New-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/get-azsearchservice/New-AzSearchSharedPrivateLinkResource) is used to create the shared private link resource. Keep in mind that some configuration may be required for the data source before running this command.
 
@@ -370,13 +411,13 @@ New-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -
 ```
 
 [Get-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/get-azsearchservice/Get-AzSearchSharedPrivateLinkResource)
-allows you to retreive the shared private link resources and view their status.
+allows you to retrieve the shared private link resources and view their status.
 
 ```azurepowershell-interactive
 Get-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name>
 ```
 
-You will need to approve the connection with the following command before it can be used.
+You'll need to approve the connection with the following command before it can be used.
 
 ```azurepowershell-interactive
 Approve-AzPrivateEndpointConnection `
@@ -394,7 +435,7 @@ $job = Remove-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-gro
 $job | Get-Job
 ```
 
-For full details on setting up shared private link resources, please see the documentation on [making indexer connections through a private endpoint](search-indexer-howto-access-private.md).
+For full details on setting up shared private link resources, see the documentation on [making indexer connections through a private endpoint](search-indexer-howto-access-private.md).
 
 ## Next steps
 
