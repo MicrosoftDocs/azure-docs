@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.date: 06/02/2020
+ms.date: 02/01/2021
 ---
 
 # Management hub in Azure Data Factory
@@ -35,7 +35,11 @@ An integration runtime is a compute infrastructure used by Azure Data Factory to
 
 ### Git configuration
 
-View and edit your configured git repository settings in the management hub. For more information, learn about [source control in Azure Data Factory](source-control.md).
+You can view/ edit all the Git-related information under the Git configuration settings in the management hub. 
+
+Last published commit information is listed as well and can help to understand the precise commit, which was last published/ deployed across environments. It can also be helpful when doing Hot Fixes in production.
+
+For more information, learn about [source control in Azure Data Factory](source-control.md).
 
 ![Manage git repo](media/author-management-hub/management-hub-git.png)
 

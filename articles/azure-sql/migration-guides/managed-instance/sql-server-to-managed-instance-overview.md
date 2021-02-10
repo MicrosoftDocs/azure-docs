@@ -166,7 +166,7 @@ SQL logins from the source SQL Server can be moved to Azure SQL Managed Instance
 
 By default, Azure Database Migration Service only supports migrating SQL logins. However, you can enable the ability to migrate Windows logins by:
 
-Ensuring that the target SQL Managed Instance has Azure AD read access, which can be configured via the Azure portal by a user with the **Company Administrator** or a **Global Administrator**" role.
+Ensuring that the target SQL Managed Instance has Azure AD read access, which can be configured via the Azure portal by a user with the **Global Administrator** role.
 Configuring your Azure Database Migration Service instance to enable Windows user/group login migrations, which is set up via the Azure portal, on the Configuration page. After enabling this setting, restart the service for the changes to take effect.
 
 After restarting the service, Windows user/group logins appear in the list of logins available for migration. For any Windows user/group logins you migrate, you are prompted to provide the associated domain name. Service user accounts (account with domain name NT AUTHORITY) and virtual user accounts (account name with domain name NT SERVICE) are not supported.

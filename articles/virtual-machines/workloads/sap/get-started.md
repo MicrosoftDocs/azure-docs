@@ -14,7 +14,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/23/2021
+ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -81,6 +81,10 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 ## Change Log
 
+- 02/03/2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to update  pcmk_host_map in the stonith create command
+- 02/03/2021: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to add pcmk_host_map in the stonith create command 
+- 02/03/2021: More details on I/O scheduler settings for SUSE in article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
+- 02/01/2021: Change in [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md), [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [SAP HANA scale-out with standby node on Azure VMs with ANF on SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) and [SAP HANA scale-out with standby node on Azure VMs with ANF on RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md) to add a link to [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 - 01/23/2021: Introduce the functionality of HANA data volume partitioning as functionality to stripe I/O operations against HANA data files across different Azure disks or NFS shares without using a disk volume manager in articles [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) and [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 - 01/18/2021: Added support of Azure net Apps Files based NFS for Oracle in [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md) and adjusting decimals in table in document [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 - 01/11/2021: Minor changes in [HA for SAP NW on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md), [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md) to adjust commands to work for both RHEL8 and RHEL7, and ENSA1 and ENSA2

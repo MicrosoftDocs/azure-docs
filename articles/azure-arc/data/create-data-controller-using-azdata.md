@@ -265,6 +265,8 @@ Azure Red Hat OpenShift requires a security context constraint.
 
 #### Apply the security context
 
+Before you create the data controller on Azure Red Hat OpenShift, you will need to apply specific security context constraints (SCC). For the preview release, these relax the security constraints. Future releases will provide updated SCC.
+
 [!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 
 #### Create custom deployment profile

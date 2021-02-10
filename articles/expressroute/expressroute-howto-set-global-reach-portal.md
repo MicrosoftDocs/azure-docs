@@ -65,7 +65,7 @@ If the two circuits aren't in the same Azure subscription, you'll need authoriza
 
    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/create-authorization-expressroute-circuit.png" alt-text="Generate authorization key"::: 
 
-   Make a note of the private peering ID of circuit 2 and the authorization key.
+   Make a note of the circuit resource ID of circuit 2 and the authorization key.
 
 1. Select the **Azure private** peering configuration. 
 

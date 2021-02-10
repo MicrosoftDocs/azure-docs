@@ -48,7 +48,7 @@ Following are the configuration prerequisites for your Azure Stack Edge resource
 
 Before you begin, make sure that:
 
-* Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions are not supported.
+* Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions aren't supported.
 
 * You have owner or contributor access at resource group level for the Azure Stack Edge / Data Box Gateway, IoT Hub, and Azure Storage resources.
 
@@ -86,6 +86,8 @@ Before you begin, make sure that:
 
 If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
+### [Portal](#tab/azure-portal)
+
 To create an Azure Stack Edge resource, take the following steps in the Azure portal.
 
 1. Use your Microsoft Azure credentials to sign in to 
@@ -106,7 +108,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
     
     |Setting  |Value  |
     |---------|---------|
-    |Subscription    |This is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
+    |Subscription    |This value is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
     |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).     |
 
 4. Enter or select the following **Instance details**.
@@ -137,13 +139,57 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
    ![Go to the Azure Stack Edge resource](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
 
-After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
+After the order is placed, Microsoft reviews the order and contacts you (via email) with shipping details.
 
 ![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
 
-
 > [!NOTE]
 > If you want to create multiple orders at one time or clone an existing order, you can use the [scripts in Azure Samples](https://github.com/Azure-Samples/azure-stack-edge-order). For more information, see the README file.
+
+### [Azure CLI](#tab/azure-cli)
+
+If necessary, prepare your environment for Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+To create an Azure Stack Edge resource, run the following commands in Azure CLI.
+
+1. Create a resource group by using the [az group create](/cli/azure/group#az_group_create) command, or use an existing resource group:
+
+   ```azurecli
+   az group create --name myasepgpu1 --location eastus
+   ```
+
+1. To create a device, use the [az databoxedge device create](/cli/azure/databoxedge/device#az_databoxedge_device_create) command:
+
+   ```azurecli
+   az databoxedge device create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --location eastus --sku Edge 
+   ```
+
+   Choose a location closest to the geographical region where you want to deploy your device. The region stores only the metadata for device management. The actual data can be stored in any storage account.
+
+   For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
+
+1. To create an order, run the [az databoxedge order create](/cli/azure/databoxedge/order#az_databoxedge_order_create) command:
+
+   ```azurecli
+   az databoxedge order create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --company-name "Contoso" \
+      --address-line1 "1020 Enterprise Way" --city "Sunnyvale" \
+      --state "California" --country "United States" --postal-code 94089 \
+      --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
+   ```
+
+The resource creation takes a few minutes. Run the [az databoxedge order show](/cli/azure/databoxedge/order#az_databoxedge_order_show) command to see the order:
+
+```azurecli
+az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
+```
+
+After you place an order, Microsoft reviews the order and contacts you by email with shipping details.
+
+---
 
 ## Get the activation key
 

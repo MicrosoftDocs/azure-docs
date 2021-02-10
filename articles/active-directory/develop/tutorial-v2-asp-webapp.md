@@ -357,7 +357,7 @@ To register your application and add your application registration information t
 
 To quickly register your application, follow these steps:
 
-1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.  
+1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.  
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application in a single click.
 
@@ -371,7 +371,7 @@ To register your application and add the app's registration information to your 
    1. Right-click the project in Visual Studio, select **Properties**, and then select the **Web** tab. In the **Servers** section, change the **Project Url** setting to the **SSL URL**.
    1. Copy the SSL URL. You'll add this URL to the list of Redirect URIs in the Registration portal's list of Redirect URIs in the next step.<br/><br/>![Project properties](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
    
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -379,7 +379,7 @@ To register your application and add the app's registration information to your 
 1. Add the SSL URL you copied from Visual Studio in step 1 (for example, `https://localhost:44368/`) in **Redirect URI**.
 1. Select **Register**.
 1. Under **Manage**, select **Authentication**.
-1. In the **Implicit Grant** section, select **ID tokens**, and then select **Save**.
+1. In the **Implicit grant and hybrid flows** section, select **ID tokens**, and then select **Save**.
 1. Add the following in the web.config file, located in the root folder in the `configuration\appSettings` section:
 
     ```xml
