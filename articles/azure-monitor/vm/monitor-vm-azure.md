@@ -92,9 +92,9 @@ Select **Advanced Settings** from the workspace menu and then **Data** to config
 
 
 ### Enable diagnostics extension and Telegraf agent
-Azure Monitor for VMs is based on the Log Analytics agent that sends data to a Log Analytics workspace. This supports multiple features of Azure Monitor such as [log queries](../log-query/log-query-overview.md), [log alerts](../alerts/alerts-log.md), and [workbooks](../visualizations/workbooks-overview.md). The [diagnostics extension](../essentials/diagnostics-extension-overview.md) collects performance data from the guest operating system of Windows virtual machines to Azure Storage and optionally sends performance data to [Azure Monitor Metrics](../platform/data-platform-metrics.md). For Linux virtual machines, the [Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md) is required to send data to Azure Metrics.  This enables other features of Azure Monitor such as [metrics explorer](../platform/metrics-getting-started.md) and [metrics alerts](../alerts/alerts-metric.md). You can also configure the diagnostics extension to send events and performance data outside of Azure Monitor using Azure Event Hubs.
+Azure Monitor for VMs is based on the Log Analytics agent that sends data to a Log Analytics workspace. This supports multiple features of Azure Monitor such as [log queries](../log-query/log-query-overview.md), [log alerts](../alerts/alerts-log.md), and [workbooks](../visualizations/workbooks-overview.md). The [diagnostics extension](../agents/diagnostics-extension-overview.md) collects performance data from the guest operating system of Windows virtual machines to Azure Storage and optionally sends performance data to [Azure Monitor Metrics](../platform/data-platform-metrics.md). For Linux virtual machines, the [Telegraf agent](../platform/collect-custom-metrics-linux-telegraf.md) is required to send data to Azure Metrics.  This enables other features of Azure Monitor such as [metrics explorer](../platform/metrics-getting-started.md) and [metrics alerts](../alerts/alerts-metric.md). You can also configure the diagnostics extension to send events and performance data outside of Azure Monitor using Azure Event Hubs.
 
-Install the diagnostics extension for a single Windows virtual machine in the Azure portal from the **Diagnostics setting** option in the VM menu. Select the option to enable **Azure Monitor** in the **Sinks** tab. To enable the extension from a template or command line for multiple virtual machines, see [Installation and configuration](../essentials/diagnostics-extension-overview.md#installation-and-configuration). Unlike the Log Analytics agent, the data to collect is defined in the configuration for the extension on each virtual machine.
+Install the diagnostics extension for a single Windows virtual machine in the Azure portal from the **Diagnostics setting** option in the VM menu. Select the option to enable **Azure Monitor** in the **Sinks** tab. To enable the extension from a template or command line for multiple virtual machines, see [Installation and configuration](../agents/diagnostics-extension-overview.md#installation-and-configuration). Unlike the Log Analytics agent, the data to collect is defined in the configuration for the extension on each virtual machine.
 
 ![Diagnostic setting](media/monitor-vm-azure/diagnostic-setting.png)
 
@@ -129,11 +129,11 @@ Once you configure collection of monitoring data for a virtual machine, you have
 | Menu option | Description |
 |:---|:---|
 | Overview | Displays [platform metrics](../platform/data-platform-metrics.md) for the virtual machine host. Click on a graph to work with this data in [metrics explorer](../platform/metrics-getting-started.md). |
-| Activity log | [Activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for the current virtual machine. |
+| Activity log | [Activity log](../agents/activity-log.md#view-the-activity-log) entries filtered for the current virtual machine. |
 | Insights | Opens [Azure Monitor for VMs](../vm/vminsights-overview.md) with the map for the current virtual machine selected. |
 | Alerts | Views [alerts](../platform/alerts-overview.md) for the current virtual machine.  |
 | Metrics | Open [metrics explorer](../platform/metrics-getting-started.md) with the scope set to the current virtual machine. |
-| Diagnostic settings | Enable and configure [diagnostics extension](../essentials/diagnostics-extension-overview.md) for the current virtual machine. |
+| Diagnostic settings | Enable and configure [diagnostics extension](../agents/diagnostics-extension-overview.md) for the current virtual machine. |
 | Advisor recommendations | Recommendations for the current virtual machine from [Azure Advisor](../../advisor/index.yml). |
 | Logs | Open [Log Analytics](../log-query/log-analytics-overview.md) with the [scope](../log-query/scope.md) set to the current virtual machine. |
 | Connection monitor | Open [Network Watcher Connection Monitor](../../network-watcher/connection-monitor-overview.md) to monitor connections between the current virtual machine and other virtual machines. |
@@ -147,8 +147,8 @@ There are three namespaces used by virtual machines for metrics:
 | Namespace | Description | Requirement |
 |:---|:---|:---|
 | Virtual Machine Host | Host metrics automatically collected for all Azure virtual machines. Detailed list of metrics at [Microsoft.Compute/virtualMachines](../platform/metrics-supported.md#microsoftcomputevirtualmachines). | Collected automatically with no configuration required. |
-| Guest (classic) | Limited set of guest operating system and application performance data. Available in metrics explorer but not other Azure Monitor features such as metric alerts.  | [Diagnostic extension](../essentials/diagnostics-extension-overview.md) installed. Data is read from Azure storage.  |
-| Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | For Windows, [diagnostic extension installed](../essentials/diagnostics-extension-overview.md) installed with Azure Monitor sink enabled. For Linux, [Telegraf agent installed](../platform/collect-custom-metrics-linux-telegraf.md). |
+| Guest (classic) | Limited set of guest operating system and application performance data. Available in metrics explorer but not other Azure Monitor features such as metric alerts.  | [Diagnostic extension](../agents/diagnostics-extension-overview.md) installed. Data is read from Azure storage.  |
+| Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | For Windows, [diagnostic extension installed](../agents/diagnostics-extension-overview.md) installed with Azure Monitor sink enabled. For Linux, [Telegraf agent installed](../platform/collect-custom-metrics-linux-telegraf.md). |
 
 ![Metrics explorer in the Azure portal](media/monitor-vm-azure/metrics.png)
 

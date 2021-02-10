@@ -136,7 +136,7 @@ Resource abuse can be a problem when VM processes consume more resources than th
 We recommend that you use [Azure Monitor](../../azure-monitor/data-platform.md) to gain visibility into your resource’s health. Azure Monitor features:
 
 - [Resource diagnostic log files](../../azure-monitor/essentials/platform-logs-overview.md): Monitors your VM resources and identifies potential issues that might compromise performance and availability.
-- [Azure Diagnostics extension](../../azure-monitor/essentials/diagnostics-extension-overview.md): Provides monitoring and diagnostics capabilities on Windows VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../../virtual-machines/extensions/diagnostics-template.md).
+- [Azure Diagnostics extension](../../azure-monitor/agents/diagnostics-extension-overview.md): Provides monitoring and diagnostics capabilities on Windows VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../../virtual-machines/extensions/diagnostics-template.md).
 
 Organizations that don't monitor VM performance can’t determine whether certain changes in performance patterns are normal or abnormal. A VM that’s consuming more resources than normal might indicate an attack from an external resource or a compromised process running in the VM.
 
