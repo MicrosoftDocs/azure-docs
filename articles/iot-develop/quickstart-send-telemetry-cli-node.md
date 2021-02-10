@@ -176,30 +176,6 @@ event:
 
 Your device is now securely connected and sending telemetry to Azure IoT Hub.
 
-## View messaging metrics in the portal
-The Azure portal enables you to manage all aspects of your IoT Hub and devices. In a typical IoT Hub application that ingests telemetry from devices, you might want to monitor devices or view metrics on device telemetry. 
-
-To visualize messaging metrics in the Azure portal:
-1. In the left navigation menu on the portal, select **All Resources**. This lists all resources in your subscription, including the IoT hub you created. 
-
-1. Select the link on the IoT hub you created. The portal displays the overview page for the hub.
-
-1. Select **Metrics** in the left pane of your IoT Hub. 
-
-    ![IoT Hub messaging metrics](media/quickstart-send-telemetry-python/iot-hub-portal-metrics.png)
-
-1. Enter your IoT hub name in **Scope**.
-
-2. Select *Iot Hub Standard Metrics* in **Metric Namespace**.
-
-3. Select *Telemetry messages sent* in **Metric**. 
-
-4. Hover your mouse pointer over the area of the timeline in which your device sent messages. The total number of messages at a point in time appears in the lower left corner of the timeline.
-
-    ![View Azure IoT Hub metrics](media/quickstart-send-telemetry-python/iot-hub-portal-view-metrics.png)
-
-5. Optionally, use the **Metric** dropdown to display other metrics on your simulated device.  
-
 ## Clean up resources
 If you no longer need the Azure resources created in this quickstart, you can use the Azure CLI to delete them.
 
