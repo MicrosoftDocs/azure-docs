@@ -1,0 +1,48 @@
+---
+title: NP-series - Azure Virtual Machines
+description: Specifications for the NP-series VMs.
+author: vikancha-MSFT
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: conceptual
+ms.date: 02/09/2021
+ms.author: vikancha
+---
+
+# NP-series
+
+The NP-series virtual machines are powered by [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) FPGAs for accelerating workloads including machine learning inference, video transcoding, and database search & analytics. NP-series VMs are also powered by Intel Xeon E5-2690 v3 (Haswell) CPUs.
+
+
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 1<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+<br>
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | FPGA | FPGA memory: GiB | Max data disks | Max NICs | 
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_NP10s  | 10  | 16  | 736  | 1 | 64  | 8 | 1 | 
+| Standard_NP20s | 20 | 32 | 1474  | 2 | 128 | 16 | 2 | 
+| Standard_NP40s | 40 | 64 | 2948 | 4 | 256 | 32 | 4 | 
+
+
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+
+## Other sizes
+
+- [General purpose](sizes-general.md)
+- [Memory optimized](sizes-memory.md)
+- [Storage optimized](sizes-storage.md)
+- [GPU optimized](sizes-gpu.md)
+- [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
+
+## Next steps
+
+Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
