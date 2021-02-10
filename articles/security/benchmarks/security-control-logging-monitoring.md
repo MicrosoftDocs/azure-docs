@@ -110,7 +110,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 - [How to manage alerts in Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md)
 
-- [How to alert on log analytics log data](../../azure-monitor/learn/tutorial-response.md)
+- [How to alert on log analytics log data](../../azure-monitor/alerts/tutorial-response.md)
 
 ## 2.8: Centralize anti-malware logging
 

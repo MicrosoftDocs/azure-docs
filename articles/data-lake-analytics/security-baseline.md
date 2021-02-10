@@ -204,7 +204,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+* [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 * [Accessing diagnostic logs for Azure Data Lake Analytics](./data-lake-analytics-diagnostic-logs.md)
 

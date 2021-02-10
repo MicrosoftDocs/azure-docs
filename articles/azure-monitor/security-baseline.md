@@ -172,7 +172,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [How to alert on log analytics log data](learn/tutorial-response.md)
+- [How to alert on log analytics log data](alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -370,7 +370,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Use Azure role-based access control (Azure RBAC) to manage access to Azure Monitor.
 
-- [Roles, permissions, and security in Azure Monitor](platform/roles-permissions-security.md)
+- [Roles, permissions, and security in Azure Monitor](/roles-permissions-security.md)
 
 - [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
@@ -430,7 +430,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
-- [Roles, permissions, and security in Azure Monitor](platform/roles-permissions-security.md)
+- [Roles, permissions, and security in Azure Monitor](/roles-permissions-security.md)
 
 **Azure Security Center monitoring**: Not applicable
 

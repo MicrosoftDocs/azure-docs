@@ -173,7 +173,7 @@ Alternatively, you can enable and on-board data related to and produced by Azure
 
 - [How to manage alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) 
 
-- [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 - [Set up automated threat responses in Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
 

@@ -105,4 +105,4 @@ Monitoring CPU usage is useful to establish a baseline for performance. For exam
 
 ## Next steps
 * Learn more about [configuring webhooks in alerts](../azure-monitor/alerts/alerts-webhooks.md).
-* Get an [overview of metrics collection](../azure-monitor/platform/data-platform.md) to make sure your service is available and responsive.
+* Get an [overview of metrics collection](../azure-monitor/data-platform.md) to make sure your service is available and responsive.

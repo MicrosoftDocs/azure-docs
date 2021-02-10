@@ -16,7 +16,7 @@ This article shows you sample PowerShell commands to help you access Azure Monit
 > [!NOTE]
 > Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the following commands still contain the word *insights*.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Set up PowerShell
 If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](/powershell/azure/).
@@ -222,7 +222,7 @@ The additional webhook properties are optional. You can get back the contents of
 > For Cloud Services (Microsoft.ClassicCompute), autoscale supports a time grain of 5 minutes (PT5M). For the other services autoscale supports a time grain of minimum of 1 minute (PT1M)
 
 A resource (a Web app, VM, Cloud Service, or Virtual Machine Scale Set) can have only one autoscale setting configured for it.
-However, each autoscale setting can have multiple profiles. For example, one for a performance-based scale profile and a second one for a schedule-based profile. Each profile can have multiple rules configured on it. For more information about Autoscale, see [How to Autoscale an Application](../../cloud-services/cloud-services-how-to-scale-portal.md).
+However, each autoscale setting can have multiple profiles. For example, one for a performance-based scale profile and a second one for a schedule-based profile. Each profile can have multiple rules configured on it. For more information about Autoscale, see [How to Autoscale an Application](../cloud-services/cloud-services-how-to-scale-portal.md).
 
 Here are the steps to use:
 

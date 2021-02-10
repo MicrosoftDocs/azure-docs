@@ -64,7 +64,7 @@ To get other metrics, substitute "Egress" for the metric name you are interested
 
 ## See also
 
-- [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md)
+- [Azure Monitor Metrics](../../azure-monitor/data-platform.md)
 - [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 ## Next steps

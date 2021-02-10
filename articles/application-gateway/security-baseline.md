@@ -298,7 +298,7 @@ Use Azure Monitor for Networks for a comprehensive view of health and metrics fo
 
 * [How to use Azure Monitor for Networks](../azure-monitor/insights/network-insights-overview.md)
 
-* [How to create alerts within Azure](../azure-monitor/learn/tutorial-response.md)
+* [How to create alerts within Azure](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Yes
 

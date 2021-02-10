@@ -133,7 +133,7 @@ Organizations that don't enforce strong security for their VMs remain unaware of
 ## Monitor VM performance
 Resource abuse can be a problem when VM processes consume more resources than they should. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. This is particularly important for VMs that are hosting IIS or other web servers, because high CPU or memory usage might indicate a denial of service (DoS) attack. It’s imperative to monitor VM access not only reactively while an issue is occurring, but also proactively against baseline performance as measured during normal operation.
 
-We recommend that you use [Azure Monitor](../../azure-monitor/platform/data-platform.md) to gain visibility into your resource’s health. Azure Monitor features:
+We recommend that you use [Azure Monitor](../../azure-monitor/data-platform.md) to gain visibility into your resource’s health. Azure Monitor features:
 
 - [Resource diagnostic log files](../../azure-monitor/essentials/platform-logs-overview.md): Monitors your VM resources and identifies potential issues that might compromise performance and availability.
 - [Azure Diagnostics extension](../../azure-monitor/essentials/diagnostics-extension-overview.md): Provides monitoring and diagnostics capabilities on Windows VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../../virtual-machines/extensions/diagnostics-template.md).

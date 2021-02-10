@@ -17,7 +17,7 @@ The same operations have been supported through a set of Azure Resource Manager 
 
 If you are managing autoscale via the Azure portal, the [new Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, CLI, or Resource Manager templates, no action is necessary.  
 
-If you are consuming metrics via the Azure portal or via various [monitoring partner services](./partners.md), no action is necessary. Microsoft is working with monitoring partners to migrate to the new APIs.
+If you are consuming metrics via the Azure portal or via various [monitoring partner services](../partners.md), no action is necessary. Microsoft is working with monitoring partners to migrate to the new APIs.
 
 ## Who is affected
 

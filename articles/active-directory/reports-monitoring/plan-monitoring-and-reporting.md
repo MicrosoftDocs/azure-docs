@@ -45,7 +45,7 @@ With Azure AD monitoring, you can route logs to:
 * an Azure event hub where you can integrate with your existing SIEM tools such as Splunk, Sumologic, or QRadar.
 
 > [!NOTE]
-We recently started using the term Azure Monitor logs instead of Log Analytics. Log data is still stored in a Log Analytics workspace and is still collected and analyzed by the same Log Analytics service. We are updating the terminology to better reflect the role of [logs in Azure Monitor](../../azure-monitor/platform/data-platform.md). See [Azure Monitor terminology changes](../../azure-monitor/terminology.md) for details.
+We recently started using the term Azure Monitor logs instead of Log Analytics. Log data is still stored in a Log Analytics workspace and is still collected and analyzed by the same Log Analytics service. We are updating the terminology to better reflect the role of [logs in Azure Monitor](../../azure-monitor/data-platform.md). See [Azure Monitor terminology changes](../../azure-monitor/terminology.md) for details.
 
 [Learn more about report retention policies](./reference-reports-data-retention.md).
 

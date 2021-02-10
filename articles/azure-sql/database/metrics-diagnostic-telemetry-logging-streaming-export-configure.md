@@ -742,7 +742,7 @@ Learn more about the [Intelligent Insights log format](intelligent-insights-use-
 
 To learn how to enable logging and to understand the metrics and log categories supported by the various Azure services, see:
 
-- [Overview of metrics in Microsoft Azure](../../azure-monitor/platform/data-platform.md)
+- [Overview of metrics in Microsoft Azure](../../azure-monitor/data-platform.md)
 - [Overview of Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md)
 
 To learn about Event Hubs, read:

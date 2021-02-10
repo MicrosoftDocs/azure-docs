@@ -200,6 +200,6 @@ The following sample creates a [workspace-based Application Insights resource](.
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](resource-manager-samples.md).
+* [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
 * [Learn more about classic Application Insights resources](../app/create-new-resource.md).
 * [Learn more about workspace-based Application Insights resources](../app/create-workspace-resource.md).

@@ -108,7 +108,7 @@ by bin(TimeGenerated, 10s), OperationName
 
 ## Next steps
 
-* To understand how to enable logging, and also the metrics and log categories that are supported by the various Azure services, read both the [Overview of metrics](../azure-monitor/platform/data-platform.md) in Microsoft Azure and [Overview of Azure Diagnostic Logs](../azure-monitor/essentials/platform-logs-overview.md) articles.
+* To understand how to enable logging, and also the metrics and log categories that are supported by the various Azure services, read both the [Overview of metrics](../azure-monitor/data-platform.md) in Microsoft Azure and [Overview of Azure Diagnostic Logs](../azure-monitor/essentials/platform-logs-overview.md) articles.
 * Read these articles to learn about event hubs:
   * [What is Azure Event Hubs?](../event-hubs/event-hubs-about.md)
   * [Get started with Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)

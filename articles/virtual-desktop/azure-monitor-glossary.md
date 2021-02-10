@@ -19,7 +19,7 @@ This article lists and briefly describes key terms and concepts related to Azure
 
 ## Alerts
 
-Any active Azure Monitor alerts that you've configured on the subscription and classified as [severity 1](#severity-1-alerts) will appear in the Overview page. To learn how to set up alerts, see [Respond to events with Azure Monitor Alerts](../azure-monitor/learn/tutorial-response.md).
+Any active Azure Monitor alerts that you've configured on the subscription and classified as [severity 1](#severity-1-alerts) will appear in the Overview page. To learn how to set up alerts, see [Respond to events with Azure Monitor Alerts](../azure-monitor/alerts/tutorial-response.md).
 
 ## Available sessions
 

@@ -49,7 +49,7 @@ After you've created your workspace, follow the instructions in [Connect Windows
 
 You'll need this information later in the setup process.
 
-Make sure to review permission management for Azure Monitor to enable data access for those who monitor and maintain your Windows Virtual Desktop environment. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md).
+Make sure to review permission management for Azure Monitor to enable data access for those who monitor and maintain your Windows Virtual Desktop environment. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/roles-permissions-security.md).
 
 ## Push diagnostics data to your workspace
 

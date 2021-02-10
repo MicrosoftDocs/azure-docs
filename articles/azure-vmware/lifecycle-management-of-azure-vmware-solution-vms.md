@@ -96,7 +96,7 @@ Azure Monitor is a comprehensive solution for collecting, analyzing, and acting 
 
 - Azure Monitor allows you to collect data from different sources to monitor and analyze. For more information, see [Sources of monitoring data for Azure Monitor](../azure-monitor/agents/data-sources.md).
 
-- Collect different types of data for analysis, visualization, and alerting. For more information, see [Azure Monitor data platform](../azure-monitor/platform/data-platform.md).
+- Collect different types of data for analysis, visualization, and alerting. For more information, see [Azure Monitor data platform](../azure-monitor/data-platform.md).
 
 - To configure Azure Monitor with your Log Analytics workspace, see [Configure Log Analytics workspace for Azure Monitor for VMs](../azure-monitor/vm/vminsights-configure-workspace.md).
 

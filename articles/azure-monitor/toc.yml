@@ -48,7 +48,7 @@
   - name: Create a dashboard from log query
     href: learn/tutorial-logs-dashboards.md
   - name: Create alert from log query
-    href: learn/tutorial-response.md
+    href: alerts/tutorial-response.md
   - name: Autoscale on performance and schedule
     href: learn/tutorial-autoscale-performance-schedule.md
   - name: Application Insights
@@ -68,7 +68,7 @@
   - name: Resource Manager templates
     items:
     - name: Overview
-      href: samples/resource-manager-samples.md
+      href: /resource-manager-samples.md
     - name: Agents
       href: agents/resource-manager-agent.md
     - name: Alerts
@@ -102,9 +102,9 @@
     - name: Azure Monitor for VMs
       href: vm/resource-manager-vminsights.md
   - name: Azure CLI
-    href: samples/cli-samples.md
+    href: /cli-samples.md
   - name: Azure PowerShell
-    href: samples/powershell-samples.md
+    href: /powershell-samples.md
 - name: Concepts
   items:
   - name: What can you monitor?
@@ -114,7 +114,7 @@
   - name: Data sources
     href: agents/data-sources.md
   - name: Data platform
-    href: platform/data-platform.md
+    href: /data-platform.md
   - name: Data security
     items:
     - name: Log data
@@ -142,14 +142,14 @@
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
-    href: platform/partners.md
+    href: /partners.md
   - name: Security
     items:
     - name: Security baseline
       href: security-baseline.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
-      href: ./platform/security-controls-policy.md
+      href: .//security-controls-policy.md
 - name: How-to guides
   items:
   - name: Scenarios
@@ -169,7 +169,7 @@
   - name: Manage and configure
     items:
     - name: Roles permissions and security
-      href: platform/roles-permissions-security.md
+      href: /roles-permissions-security.md
     - name: IP addresses
       href: app/ip-addresses.md
       displayname: firewall, firewall exceptions, whitelist
@@ -1387,7 +1387,7 @@
       href: /azure/templates/microsoft.operationalinsights/allversions
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
-    href: samples/policy-reference.md
+    href: /policy-reference.md
   - name: Feature and API Retirement 
     items:
     - name: OperationalInsights API
@@ -1438,6 +1438,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 
