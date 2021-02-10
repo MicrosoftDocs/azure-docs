@@ -5,7 +5,7 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/09/2021
+ms.date: 02/11/2021
 ---
 
 # Create SAS tokens for Document Translation

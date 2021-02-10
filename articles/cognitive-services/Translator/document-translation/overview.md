@@ -5,7 +5,7 @@ ms.topic: overview
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/09/2021
+ms.date: 02/11/2021
 ---
 
 # What is Document Translation (Preview)?
@@ -55,6 +55,6 @@ The following glossary file types are supported by Document Translation:
 |Localization Interchange File Format|.xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
 |Tab Separated Values/TAB|.tsv/.tab| a tab-delimited raw-data file used by spreadsheet programs.|
 
-### Next Step
+## Next Step
 
 [**Get Started with Document Translation**](get-started-with-document-translation.md)

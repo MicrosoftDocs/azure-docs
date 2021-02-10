@@ -5,7 +5,7 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/09/2021
+ms.date: 02/11/2021
 ---
 
 # Get started with Document Translation (Preview)
@@ -25,24 +25,26 @@ To get started, you'll need:
 
 ## Get your custom domain name and subscription key
 
-### Custom domain
-
 > [!IMPORTANT]
 >
 > * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
 > * **All API requests to the Document Translation service require a custom domain endpoint**.
 
-* The custom domain endpoint is formatted with your resource name, hostname, and Translator subdirectories:
+### What is the custom domain endpoint?
+
+The custom domain endpoint is a URL formatted with your resource name, hostname, and Translator subdirectories:
 
 ```http
 https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1
 ```
 
-* The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is the value that you entered in the **Name** field when you created your Translator resource.
+### Find your custom domain name
 
-* ![Image of the Azure portal, create resource, instant details, name field](../media/instance-details-azure-portal.png).
+The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is the value that you entered in the **Name** field when you created your Translator resource.
 
-### Subscription key
+:::image type="content" source="../media/instance-details-azure-portal.png" alt-text="Image of the Azure portal, create resource, instant details, name field.":::
+
+### Find your subscription key
 
 Requests to the Translator service require a read-only key for authenticating access.
 
@@ -51,15 +53,15 @@ Requests to the Translator service require a read-only key for authenticating ac
 1. Copy and paste your subscription key in a convenient location, such as *Microsoft Notepad*.
 1. You'll paste it into the code below to authenticate your request to the Document Translation service.
 
-## Create Azure blob storage containers
+## Create your Azure blob storage containers
 
 You'll need to  [create containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your storage account for source, target, and optional glossary files.
 
 1. **A source container**. This container is where you upload your files for translation (required).
 1. **A target container**. This container is where your translated files will be stored (required).  
-1. **A glossary container**. This container is where you upload your glossary files (optional).
+1. **A glossary container**. This container is where you upload your glossary files (optional).  
 
-### Source and target SAS access tokens for blob storage
+*See* **Create SAS access tokens for Document Translation**
 
 The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Shared Access Signature (SAS) token, appended as a query string. The token can be assigned to your container or specific blobs.
 
@@ -67,25 +69,13 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 * Your **target** container or blob must have designated  **write** and **list** access.
 * Your **glossary** container or blob must have designated  **read** and **list** access.
 
-### *See* [Create SAS tokens for Document Translator](create-sas-tokens.md)
-
 > [!TIP]
 >
 > * If you're translating **multiple** files (blobs) in an operation, **delegate SAS access at the  container level**.  
 > * If you're translating a **single** file (blob) in an operation, **delegate SAS access at the blob level**.  
 >
 
-### HTTP headers
-
-The following headers are included with each Document Translator API request:
-
-|HTTP header|Description|
-|---|--|
-|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure subscription key for your Translator or Cognitive Services resource.|
-|Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
-|Content-Length|**Required**: the length of the request body.|
-
-## Platform setup
+## Set up your coding Platform
 
 ### [C#](#tab/csharp)
 
@@ -175,11 +165,21 @@ gradle run
 
 ---
 
-## Document Translation requests
+## Make Document Translation requests
 
 A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service.
 
-### POST request properties
+### HTTP headers
+
+The following headers are included with each Document Translator API request:
+
+|HTTP header|Description|
+|---|--|
+|Ocp-Apim-Subscription-Key|**Required**: The value is the Azure subscription key for your Translator or Cognitive Services resource.|
+|Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
+|Content-Length|**Required**: the length of the request body.|
+
+### POST request body properties
 
 * The POST request body is a JSON object named `inputs`.
 * The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs and can optionally contain a `glossaryURL` container address.
@@ -190,7 +190,7 @@ A batch Document Translation request is submitted to your Translator service end
 >[!NOTE]
 > If a file with the same name already exists in the destination, it will be overwritten.
 
-## POST a translation request
+### POST a translation request
 
 > [!IMPORTANT]
 >
@@ -275,6 +275,10 @@ A batch Document Translation request is submitted to your Translator service end
 }​​​​​​​​
 
 ```
+
+## _POST Document Translation_ request code samples
+
+Submit a batch Document Translation request to the translation service.
 
 ### [C#](#tab/csharp)
 
@@ -505,9 +509,7 @@ if err != nil {
 
 ---
 
-## GET file formats
-
-### Brief overview
+## _GET file formats_ code samples
 
 Retrieve a list of supported file formats. If successful, this method returns a `200 OK` response code.
 
@@ -684,9 +686,7 @@ func main() {
 
 ---
 
-## GET job status
-
-### Brief overview
+## _GET job status_ code samples
 
 Get the current status for a single job and a summary of all jobs in a Document Translation request. If successful, this method returns a `200 OK` response code.
 <!-- markdownlint-disable MD024 -->
@@ -865,7 +865,7 @@ func main() {
 
 ---
 
-## GET document status
+## _GET document status_ code samples
 
 ### Brief overview
 
@@ -1045,7 +1045,7 @@ func main() {
 
 ---
 
-## DELETE job
+## _DELETE job_ code samples
 
 ### Brief overview
 
