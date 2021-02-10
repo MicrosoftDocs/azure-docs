@@ -215,14 +215,9 @@ In this section, you will use the Python SDK to build a simulated device and sen
         # loop.close()
     ```
 
-As the Python code sends a message from your device to your IoT Central application, you will be able to see the messages appearing under the *Raw Data* tab of your device:
+As the Python code sends a message from your device to your IoT Central application, you will be able to see the messages appearing under the **Raw data** tab of your device:
 
-```output
-Starting event monitor, use ctrl-c to stop...
-event:
-origin: <your Device name>
-payload: This is a message that is being sent
-```
+   :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-telemetry-output.png" alt-text="IoT Central raw data output":::
 
 Your device is now securely connected and sending telemetry to Azure IoT.
 
