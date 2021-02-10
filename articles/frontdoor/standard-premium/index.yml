@@ -1,0 +1,71 @@
+### YamlMime:Landing
+
+title: Azure Front Door Standard/Premium (Preview) documentation
+summary: Azure Front Door Standard/Premium (Preview) is a modern secure application delivery network platform providing a scalable CDN, DSA, GLB for your global web applications.
+
+metadata:
+  title: Azure Front Door Standard/Premium Documentation
+  description: Azure Front Door Standard/Premium (Preview) provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
+  services: frontdoor
+  ms.service: frontdoor
+  ms.topic: landing-page
+  author: duongau
+  ms.author: duau
+  ms.date: 02/18/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Learn about Azure Front Door Standard/Premium (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Front Door Standard/Premium (Preview)?
+            url: overview.md
+       
+  # Card
+  - title: Create a Front Door profile
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Front Door Standard/Premium profile
+            url: quickstart-create-front-door-portal.md
+
+  # Card
+  - title: Reports, Metrics and Logs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Reports
+            url: concept-reports.md
+          - text: Monitoring Metrics and Alerts
+            url: how-to-monitor-metrics.md
+
+  # Card
+  - title: Configure a Rules Set
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure a Rule Set
+            url: how-to-configure-rule-set.md
+          
+  # Card
+  - title: Manage your Origin Groups
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Caching with Azure Front Door
+            url: concept-caching.md
+
+  # Card
+  - title: Troubleshoot Azure Front Door
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Common routing issues
+            url: troubleshoot-routing.md
+          - text: Allowed certificate authorities
+            url: troubleshoot-allowed-ca.md
