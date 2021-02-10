@@ -14,11 +14,11 @@ ms.author: allensu
 
 ## Prerequisites
 
-* Use the [latest API version](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#supported-api-versions) for your request.
+* Use the [latest API version](/virtual-machines/windows/instance-metadata-service?tabs=windows#supported-api-versions) for your request.
 
 ## Sample request and response
 > [!IMPORTANT]
-> This example bypasses proxies. You **must** bypass proxies when querying IMDS. For more information, see [Proxies](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies).
+> This example bypasses proxies. You **must** bypass proxies when querying IMDS. For more information, see [Proxies](/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies).
 ### [Windows](#tab/windows/)
 
 ```powershell
@@ -77,9 +77,9 @@ curl -H "Metadata:true" --noproxy "*" "http://169.254.169.254:80/metadata/loadba
 ## Next Steps
 [Common error codes and troubleshooting steps](troubleshoot-load-balancer-imds.md)
 
-Learn more about [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+Learn more about [Azure Instance Metadata Service](/virtual-machines/windows/instance-metadata-service)
 
-[Retrieve all metadata for an instance](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#access-azure-instance-metadata-service)
+[Retrieve all metadata for an instance](/virtual-machines/windows/instance-metadata-service?tabs=windows#access-azure-instance-metadata-service)
 
-[Deploy a standard load balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal?tabs=option-1-create-load-balancer-standard)
+[Deploy a standard load balancer](quickstart-load-balancer-standard-public-portal.md)
 
