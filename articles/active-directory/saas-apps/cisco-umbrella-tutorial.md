@@ -69,7 +69,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-    a. If you wish to configure the application in **SP** intiated mode, perform the following steps:
+    a. If you wish to configure the application in **SP** initiated mode, perform the following steps:
 
     b. Click **Set additional URLs**.
 
