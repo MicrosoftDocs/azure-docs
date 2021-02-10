@@ -46,9 +46,9 @@ In this section, you will use the Node.js SDK to send messages from your simulat
     ```console
     npm install
     ```
-    This will install the proper dependencies as specified in the *package.json* file in the device samples directory.
+    This command installs the proper dependencies as specified in the *package.json* file in the device samples directory.
 
-1. Set the Device Connection String as an environment variable called `DEVICE_CONNECTION_STRING`. This is the string you obtained in the previous section after creating your simulated Node.js device. 
+1. Set the Device Connection String as an environment variable called `DEVICE_CONNECTION_STRING`. The string value to use is the string you obtained in the previous section after creating your simulated Node.js device. 
 
     **Windows (cmd)**
 
@@ -183,7 +183,7 @@ If you no longer need the Azure resources created in this quickstart, you can us
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
 
 To delete a resource group by name:
-1. Run the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) command. This removes the resource group, the IoT Hub, and the device registration you created.
+1. Run the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) command. This command removes the resource group, the IoT Hub, and the device registration you created.
 
     ```azurecli
     az group delete --name MyResourceGroup
@@ -200,4 +200,4 @@ In this quickstart, you learned a basic Azure IoT application workflow for secur
 
 As a next step, explore the Azure IoT Node.js SDK through application samples.
 
-- [Additional Node.js Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples): This directory contains additional samples from the Node.js SDK repository to showcase additional IoT Hub scenarios. 
+- [More Node.js Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples): This directory contains more samples from the Node.js SDK repository to showcase IoT Hub scenarios. 
