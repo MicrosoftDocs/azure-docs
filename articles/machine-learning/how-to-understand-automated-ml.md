@@ -238,7 +238,7 @@ To view the interpretability dashboard in the studio:
 6. In the **Explanations** tab, you may see an explanation was already created if the model was the best
 7. To create a new explanation, select **Explain model** and select the remote compute with which to compute explanations
 
-[Learn more about model explanations in automated ML](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-automl).
+[Learn more about model explanations in automated ML](how-to-machine-learning-interpretability-automl.md).
 
 > [!NOTE]
 > The ForecastTCN model is not currently supported by automated ML explanations and other forecasting models may have limited access to interpretability tools.
