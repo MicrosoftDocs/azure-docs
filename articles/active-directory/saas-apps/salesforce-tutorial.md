@@ -32,11 +32,11 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Salesforce supports **SP** initiated SSO
+* Salesforce supports **SP** initiated SSO.
 
-* Salesforce supports [**Automated** user provisioning and deprovisioning](salesforce-provisioning-tutorial.md) (recommended)
+* Salesforce supports [**Automated** user provisioning and deprovisioning](salesforce-provisioning-tutorial.md) (recommended).
 
-* Salesforce supports **Just In Time** user provisioning
+* Salesforce supports **Just In Time** user provisioning.
 
 * Salesforce Mobile application can now be configured with Azure AD for enabling SSO. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
@@ -82,20 +82,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
     
-    b. In the **Reply URL** textbox, type the value using the following pattern:
+    b. In the **Identifier** textbox, type the value using the following pattern:
 
     Enterprise account: `https://<subdomain>.my.salesforce.com`
 
     Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
 
-    c. In the **Identifier** textbox, type the value using the following pattern:
+    c. In the **Reply URL** textbox, type the value using the following pattern:
 
     Enterprise account: `https://<subdomain>.my.salesforce.com`
 
     Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Sign-on URL and Identifier. Contact [Salesforce Client support team](https://help.salesforce.com/support) to get these values.
+	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [Salesforce Client support team](https://help.salesforce.com/support) to get these values.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -168,7 +168,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Configure Single Sign-On Choose File](./media/salesforce-tutorial/xmlchoose.png)
 
-1. On the **SAML Single Sign-On Settings** page, fields populate automatically, if you want to use SAML JIT, select the **User Provisioning Enabled** and select **SAML Identity Type** as **Assertion contains the User's Salesforce username** otherwise, unselect the **User Provisioning Enabled** and select **SAML Identity Type** as **Assertion contains the Federation ID from the User object**. Click **Save**.
+1. On the **SAML Single Sign-On Settings** page, fields populate automatically, if you want to use SAML JIT, select the **User Provisioning Enabled** and select **SAML Identity Type** as **Assertion contains the Federation ID from the User object** otherwise, unselect the **User Provisioning Enabled** and select **SAML Identity Type** as **Assertion contains the User's Salesforce username**. Click **Save**.
 
     ![Configure Single Sign-On User Provisioning Enabled](./media/salesforce-tutorial/salesforcexml.png)
 
