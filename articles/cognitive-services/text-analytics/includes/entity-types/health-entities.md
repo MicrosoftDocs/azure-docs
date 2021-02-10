@@ -103,7 +103,9 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/exam-relational-operator-attribute.png" alt-text="An example of a relational operator with an examination name entity.":::
 
-**TIME** – Temporal terms relating to the beginning and/or length (duration) of an examination. For example, when the test occurred.
+**TIME** – Temporal terms relating to the beginning and/or length (duration) of an examination. For example, the duration of the MRI scan.
+
+**DATE** – Temporal terms relating to the date of an examination. For example, the date when the test was performed.
 
 :::image type="content" source="../../media/ta-for-health/exam-time-attribute.png" alt-text="An example of a time attribute with an examination name entity.":::
 
@@ -112,6 +114,7 @@ Additionally, the service recognizes relations between the different concepts in
 + **DIRECTION_OF_EXAMINATION**
 +	**RELATION_OF_EXAMINATION**
 +	**TIME_OF_EXAMINATION**
++	**DATE_OF_EXAMINATION**
 +	**UNIT_OF_EXAMINATION**
 +	**VALUE_OF_EXAMINATION**
 
@@ -142,6 +145,17 @@ Additionally, the service recognizes relations between the different concepts in
 :::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="This screenshot shows another example of a healthcare environment entity.":::
 
 :::image type="content" source="../../media/ta-for-health/healthcare-profession-entity-2.png" alt-text="Another example of a healthcare environment entity.":::
+
+### Attributes
+
+**TIME** – Temporal terms relating to the beginning and/or length (duration) of an administrative event. For example, the time of admission into a hospital.
+
+**DATE** – Temporal terms relating to the date of an examination. For example, the date when the patient was discharged from the hospital.
+
+### Supported relations
+
++ **TIME_OF_ADMINISTRATIVE_EVENT**
++	**DATE_OF_ADMINISTRATIVE_EVENT**
 
 ## Medical condition
 
@@ -205,6 +219,8 @@ Additionally, the service recognizes relations between the different concepts in
 
 **TIME** - Temporal terms relating to the beginning and/or length (duration) of a medical condition. For example, when a symptom started (onset) or when a disease occurred.
 
+**DATE** – Temporal terms relating to the date of a medical condition. For example, the date when the symptom or disease was first observed.
+
 :::image type="content" source="../../media/ta-for-health/medical-condition-time-attribute.png" alt-text="Screenshot shows an additional example of a direction attribute with a symptom or sign entity.":::
 
 ### Supported relations
@@ -212,6 +228,7 @@ Additionally, the service recognizes relations between the different concepts in
 + **DIRECTION_OF_CONDITION**
 +	**QUALIFIER_OF_CONDITION**
 +	**TIME_OF_CONDITION**
++	**DATE_OF_CONDITION**
 +	**UNIT_OF_CONDITION**
 +	**VALUE_OF_CONDITION**
 
@@ -253,6 +270,10 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="Screenshot shows another example of a relational operator attribute with a medication entity.":::
 
+**TIME** - Temporal terms relating to the time when a medication was administered. For example, the time when the patient took 800mg of extra-strength acetaminophen.
+
+**DATE** – Temporal terms relating to the date of a medication was administered. For example, the date when the patient was administered the monoclonal antibodies.
+
 ### Supported relations
 
 + **DOSAGE_OF_MEDICATION**
@@ -260,6 +281,7 @@ Additionally, the service recognizes relations between the different concepts in
 +	**FREQUENCY_OF_MEDICATION**
 +	**ROUTE_OF_MEDICATION**
 +	**TIME_OF_MEDICATION**
++	**DATE_OF_MEDICATION**
 
 ## Social
 
@@ -291,7 +313,9 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/treatment-relational-operator.png" alt-text="An example of a treatment relational operator attribute.":::
 
-**TIME** - Temporal terms relating to the beginning and/or length (duration) of a treatment. For example, the date the treatment was given.
+**TIME** - Temporal terms relating to the beginning and/or length (duration) of a treatment. For example, the time the treatment was given.
+
+**DATE** - Temporal terms relating to the date of a treatment. For example, the date the treatment was received.
 
 :::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Screenshot shows an example of a treatment time attribute.":::
 
@@ -299,4 +323,5 @@ Additionally, the service recognizes relations between the different concepts in
 
 + **DIRECTION_OF_TREATMENT**
 +	**TIME_OF_TREATMENT**
++	**DATE_OF_TREATMENT**
 +	**FREQUENCY_OF_TREATMENT**
