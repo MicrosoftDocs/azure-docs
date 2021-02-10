@@ -24,10 +24,10 @@ Document Translation is a cloud-based feature of the [Azure Translator](../trans
 
 ## How to get started?
 
-In our [how-to guide](get-started-with-document-translation.md), you'll learn how to quickly get started using Document Translator. To begin, you'll need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account)(https://azure.microsoft.com/free/).
+In our how-to guide, you'll learn how to quickly get started using Document Translator. To begin, you'll need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
-> [Get Started with Document Translation](get-started-with-document-translation.md)
+> [Get Started](get-started-with-document-translation.md)
 
 ## Supported document formats
 

@@ -55,8 +55,6 @@ Requests to the Translator service require a read-only key for authenticating ac
 
 :::image type="content" source="../../media/cognitive-services-apis-create-account/get-cog-serv-keys.png" alt-text="Get key and endpoint.":::
 
-[get](../../media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
-
 ## Create your Azure blob storage containers
 
 You'll need to  [create containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your storage account for source, target, and optional glossary files.
