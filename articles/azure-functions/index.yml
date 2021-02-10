@@ -126,7 +126,7 @@ landingContent:
             url: functions-how-to-azure-devops.md
           - text: Deploy using the Jenkins plugin
             url: /azure/developer/jenkins/deploy-to-azure-functions
-  - title: Best practices
+  - title: Performance and monitoring best practices
     linkLists:
       - linkListType: concept
         links:
@@ -138,10 +138,6 @@ landingContent:
             url: functions-bindings-error-pages.md
           - text: Security
             url: security-concepts.md
-  - title: Performance and monitoring
-    linkLists:
-      - linkListType: concept
-        links:
           - text: Monitor functions
             url: functions-monitoring.md
           - text: Networking considerations

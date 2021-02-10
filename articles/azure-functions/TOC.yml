@@ -226,8 +226,6 @@
       href: functions-diagnostics.md
     - name: Consumption plan costs
       href: functions-consumption-costs.md
-    - name: Performance considerations
-      href: functions-best-practices.md
       displayName: best practice
     - name: Storage considerations
       href: storage-considerations.md
