@@ -230,7 +230,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Added customer lockbox.
 - [Azure Monitor Logs Dedicated Clusters](logs/logs-dedicated-clusters.md) - New article.
 - [Designing your Azure Monitor Logs deployment](logs/design-logs-deployment.md) - Updated scale and ingestion volume rate limit section.
-- [Log query scope in Azure Monitor Log Analytics](log-query/scope.md) - Updates to include workspace-based applications.
+- [Log query scope in Azure Monitor Log Analytics](logs/scope.md) - Updates to include workspace-based applications.
 - [Logs in Azure Monitor](logs/data-platform-logs.md) - Updates to include workspace-based applications.
 - [Standard columns in Azure Monitor log records](logs/log-standard-columns.md) - Updates to include workspace-based applications.
 - [Azure Monitor service limits](service-limits.md) - Updated limits for user query throttling.
@@ -281,8 +281,8 @@ New articles for Azure Monitor for VMs guest health (preview)
 - [Monitor Java applications on any environment - Azure Monitor Application Insights](app/java-in-process-agent.md) - Added table for supported custom telemetry.
 - [Native React plugin for Application Insights JavaScript SDK](app/javascript-react-native-plugin.md) - New article.
 - [React plugin for Application Insights JavaScript SDK](app/javascript-react-plugin.md) - New article.
-- [Resource Manager template sample for creating Azure Function apps with Application Insights monitoring](samples/resource-manager-function-app.md) - New article.
-- [Resource Manager template samples for creating Azure App Services web apps with Application Insights monitoring](samples/resource-manager-web-app.md) - New article.
+- [Resource Manager template sample for creating Azure Function apps with Application Insights monitoring](app/resource-manager-function-app.md) - New article.
+- [Resource Manager template samples for creating Azure App Services web apps with Application Insights monitoring](app/resource-manager-web-app.md) - New article.
 - [Usage analysis with Azure Application Insights](app/usage-overview.md) - Added video.
 
 ### Autoscale
@@ -335,7 +335,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 ### Application Insights
 - [Release Notes for Azure web app extension - Application Insights](app/web-app-extension-release-notes.md) - New article.
-- [Resource Manager template samples for Application Insights Resources](samples/resource-manager-app-resource.md) - New article.
+- [Resource Manager template samples for Application Insights Resources](app/resource-manager-app-resource.md) - New article.
 - [Troubleshoot problems with Azure Application Insights Profiler](app/profiler-troubleshooting.md) - Added note on bug running profiler for ASP.NET Core apps on Azure App Service. 
 
 ### Containers
@@ -477,7 +477,7 @@ New and updated articles from restructure and consolidation of platform log cont
 - [Resource Manager template samples for Azure Monitor for VMs](vm/resource-manager-vminsights.md)
 - [Resource Manager template samples for diagnostic settings](essentials/resource-manager-diagnostic-settings.md)
 - [Resource Manager template samples for Log Analytics workspaces](logs/resource-manager-workspace.md)
-- [Resource Manager template samples for log queries](samples/resource-manager-log-queries.md)
+- [Resource Manager template samples for log queries](logs/resource-manager-log-queries.md)
 - [Resource Manager template samples for log query alert rules](alerts/resource-manager-alerts-log.md)
 - [Resource Manager template samples for metric alert rules](alerts/resource-manager-alerts-metric.md)
 - [Resource Manager template samples for workbooks](visualizations/resource-manager-workbooks.md)
@@ -499,7 +499,7 @@ New and updated articles from restructure and consolidation of platform log cont
 - [Azure Monitor Application Insights workspace-based resource schema](app/apm-tables.md)
 - [Create a new Azure Monitor Application Insights workspace-based resource](app/create-workspace-resource.md)
 - [app() expression in Azure Monitor log queries](logs/app-expression.md)
-- [Log query scope in Azure Monitor Log Analytics](log-query/scope.md)
+- [Log query scope in Azure Monitor Log Analytics](logs/scope.md)
 - [Query across resources with Azure Monitor](logs/cross-workspace-query.md)
 - [Standard properties in Azure Monitor log records](./logs/log-standard-columns.md)
 - [Structure of Azure Monitor Logs](./logs/data-platform-logs.md)

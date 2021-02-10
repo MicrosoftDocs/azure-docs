@@ -257,7 +257,7 @@ For an overall picture of your system, you can display the key monitoring charts
 
 If your system uses other Azure services, such as Stream Analytics, include their monitoring charts as well. 
 
-If you have a client mobile app, use [App Center](../learn/mobile-center-quickstart.md). Create queries in [Analytics](../logs/log-query-overview.md) to display the event counts, and pin them to the dashboard.
+If you have a client mobile app, use [App Center](../app/mobile-center-quickstart.md). Create queries in [Analytics](../logs/log-query-overview.md) to display the event counts, and pin them to the dashboard.
 
 ## Example
 [The example](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.

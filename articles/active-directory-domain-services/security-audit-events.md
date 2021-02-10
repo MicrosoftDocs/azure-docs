@@ -139,7 +139,7 @@ Log Analytic workspaces let you view and analyze the security audit events using
 * [Azure Monitor documentation](../azure-monitor/index.yml)
 * [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 * [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
-* [Create and share dashboards of Log Analytics data](../azure-monitor/learn/tutorial-logs-dashboards.md)
+* [Create and share dashboards of Log Analytics data](../azure-monitor/visualizations/tutorial-logs-dashboards.md)
 
 The following sample queries can be used to start analyzing security audit events from Azure AD DS.
 

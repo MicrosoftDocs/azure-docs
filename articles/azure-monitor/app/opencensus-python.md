@@ -468,7 +468,7 @@ For more detailed information about how to use queries and logs, see [Logs in Az
 * [Tracking incoming requests](./opencensus-python-dependency.md)
 * [Tracking out-going requests](./opencensus-python-request.md)
 * [Application map](./app-map.md)
-* [End-to-end performance monitoring](../learn/tutorial-performance.md)
+* [End-to-end performance monitoring](../app/tutorial-performance.md)
 
 ### Alerts
 

@@ -32,9 +32,9 @@
   - name: Monitor applications
     items:
     - name: Node.js application
-      href: learn/nodejs-quick-start.md
+      href: app/nodejs-quick-start.md
     - name: Mobile application
-      href: learn/mobile-center-quickstart.md
+      href: app/mobile-center-quickstart.md
     - name: Web application
       href: app/website-monitoring.md 
 - name: Tutorials
@@ -46,23 +46,23 @@
   - name: Write log queries
     href: logs/get-started-queries.md
   - name: Create a dashboard from log query
-    href: learn/tutorial-logs-dashboards.md
+    href: visualizations/tutorial-logs-dashboards.md
   - name: Create alert from log query
     href: alerts/tutorial-response.md
   - name: Autoscale on performance and schedule
-    href: learn/tutorial-autoscale-performance-schedule.md
+    href: autoscale/tutorial-autoscale-performance-schedule.md
   - name: Application Insights
     items:  
     - name: Find application run-time exceptions
-      href: learn/tutorial-runtime-exceptions.md
+      href: app/tutorial-runtime-exceptions.md
     - name: Find application performance issues
-      href: learn/tutorial-performance.md
+      href: app/tutorial-performance.md
     - name: Alert on application health
-      href: learn/tutorial-alert.md
+      href: alerts/tutorial-alert.md
     - name: Understand application users
-      href: learn/tutorial-users.md
+      href: app/tutorial-users.md
     - name: Dashboard with application data
-      href: learn/tutorial-app-dashboards.md
+      href: app/tutorial-app-dashboards.md
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -82,11 +82,11 @@
     - name: Application Insights
       items:
         - name: Create a resource
-          href: samples/resource-manager-app-resource.md
+          href: app/resource-manager-app-resource.md
         - name: Azure App Service
-          href: samples/resource-manager-web-app.md
+          href: app/resource-manager-web-app.md
         - name: Azure Functions
-          href: samples/resource-manager-function-app.md
+          href: app/resource-manager-function-app.md
     - name: Data collection rules
       href: agents/resource-manager-data-collection-rules.md
     - name: Diagnostic settings
@@ -94,7 +94,7 @@
     - name: Log Analytics workspaces
       href: logs/resource-manager-workspace.md
     - name: Log queries
-      href: samples/resource-manager-log-queries.md
+      href: logs/resource-manager-log-queries.md
     - name: Workbooks
       href: visualizations/resource-manager-workbooks.md
     - name: Azure Monitor for containers
@@ -239,7 +239,7 @@
         displayname: Log Analytics workspace, log query, log queries, query, queries
         href: logs/log-analytics-tutorial.md
       - name: Query scope
-        href: log-query/scope.md
+        href: logs/scope.md
       - name: Example queries
         href: logs/example-queries.md
     - name: Log queries
@@ -273,9 +273,9 @@
         - name: workspace expression
           href: logs/workspace-expression.md   
         - name: resource expression
-          href: log-query/resource-expression.md   
+          href: logs/resource-expression.md   
         - name: Unify application data resources
-          href: log-query/unify-app-resource-data.md
+          href: logs/unify-app-resource-data.md
         - name: Cross service query between Azure Monitor and Azure Data Explorer overview
           href: logs/azure-data-explorer-monitor-cross-service-query.md
         - name: Query Azure Data Explorer from Azure Monitor
@@ -1272,9 +1272,9 @@
     - name: Dashboards
       items:
       - name: Dashboard using log data
-        href: learn/tutorial-logs-dashboards.md
+        href: visualizations/tutorial-logs-dashboards.md
       - name: Dashboard using application data
-        href: learn/tutorial-app-dashboards.md
+        href: app/tutorial-app-dashboards.md
       - name: Upgrading Log Analytics Dashboards
         href: logs/dashboard-upgrade.md
     - name: Send data to Grafana
@@ -1444,6 +1444,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 
