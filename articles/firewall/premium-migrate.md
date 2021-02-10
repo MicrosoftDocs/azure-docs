@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 02/10/2021
 ms.author: victorh
 ---
 
@@ -27,156 +27,117 @@ Usage example:
 
 `Transform-Policy -PolicyId /subscriptions/XXXXX-XXXXXX-XXXXX/resourceGroups/some-resource-group/providers/Microsoft.Network/firewallPolicies/policy-name`
 
+> [!IMPORTANT]
+> The script doesn't migrate Threat Intelligence settings. You'll need to note those settings before proceeding and migrate them manually.
+
 ```azurepowershell
 <#
     .SYNOPSIS
         Given an Azure firewall policy id the script will transform it to a Premium Azure firewall policy. 
-        The script will first connect to your Azure account, pull the policy, transform/add various parameters and then upload a new premium policy. 
-        The created policy will be named <previous_policy_name>_premium .  
+        The script will first pull the policy, transform/add various parameters and then upload a new premium policy. 
+        The created policy will be named <previous_policy_name>_premium if no new name provided else new policy will be named as the parameter passed.  
     .Example
-        Transform-Policy -PolicyId /subscriptions/XXXXX-XXXXXX-XXXXX/resourceGroups/some-resource-group/providers/Microsoft.Network/firewallPolicies/policy-name
+        Transform-Policy -PolicyId /subscriptions/XXXXX-XXXXXX-XXXXX/resourceGroups/some-resource-group/providers/Microsoft.Network/firewallPolicies/policy-name -NewPolicyName <optional param for the new policy name>
 #>
-[CmdletBinding()]
+
 param (
     #Resource id of the azure firewall policy. 
     [Parameter(Mandatory=$true)]
     [string]
-    $PolicyId
+    $PolicyId,
+
+    # #new filewallpolicy name, if not specified will be the previous name with the '_premium' suffix
+    [Parameter(Mandatory=$false)]
+    [string]
+    $NewPolicyName = ""
 )
 $ErrorActionPreference = "Stop"
 $script:PolicyId = $PolicyId
+$script:PolicyName = $NewPolicyName
 
-$API_VERSION = "2020-06-01"
-$BASE_URI = "https://management.azure.com"
-
-function Connect-Azure {
-    Connect-AzAccount
-
-    if(-not (Get-Module Az.Accounts)) {
-        Import-Module Az.Accounts
-    }
-    $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-    if(-not $azProfile.Accounts.Count) {
-        Write-Error "Ensure you have logged in before calling this function."    
-    }
-    
-    $currentAzureContext = Get-AzContext
-    $profileClient = New-Object Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient($azProfile)
-    $token = $profileClient.AcquireAccessToken($currentAzureContext.Subscription.TenantId) 
-    $script:headers = @{ 
-        "Authorization" = ("Bearer {0}" -f $token.AccessToken);
-        "Content-Type" = "application/json";
-    }   
-}
-
-function Get-AzureResource {
-    [CmdletBinding()]
-    param (
-        [Parameter()]
-        [string]
-        $BaseUri=$BASE_URI,
-        [Parameter(Mandatory=$true)]
-        [string]
-        $ResourceId,
-        [Parameter()]
-        [string]
-        $ApiVersion=$API_VERSION
-    )
-
-    return Invoke-RestMethod -Method Get "$($BaseUri)/$($ResourceId)?api-version=$($ApiVersion)" -Headers $script:headers
-}
-
-function Put-Resource { 
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory=$true)]
-        [Object]
-        $Body,
-        [Parameter(Mandatory=$true)]
-        [string]
-        $ResourceId,
-        [Parameter()]
-        [string]
-        $ApiVersion = $API_VERSION
-    )   
-
-    $jsonBody = $Body | ConvertTo-Json -Depth 10
-    Write-Host "Sending Body: $($jsonBody)" -ForegroundColor Green
-
-    $response = Invoke-RestMethod -Method Put -Uri "$($BASE_URI)/$($ResourceId)?api-version=$($ApiVersion)" -Body $jsonBody -Headers $script:headers 
-    Write-Host $response
-}
-
-function Validate-Policy {
+function ValidatePolicy {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory=$true)]
         [Object]
         $Policy
     )
+
+    Write-Host "Validating resource is as expected"
+
     if ($null -eq $Policy) {
         Write-Error "Recived null policy"
         exit(1)
     }
-    if ($Policy.type -ne "Microsoft.Network/firewallPolicies") {
+    if ($Policy.GetType().Name -ne "PSAzureFirewallPolicy") {
         Write-Host "Resource must be of type Microsoft.Network/firewallPolicies" -ForegroundColor Red
+        exit(1)
+    }
+
+    if ($Policy.Sku.Tier -eq "Premium") {
+        Write-Host "Policy is already premium"
         exit(1)
     }
 }
 
-function Transform-Rules {
+function GetPolicyNewName {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory=$true)]
-        [Object]
+        [Microsoft.Azure.Commands.Network.Models.PSAzureFirewallPolicy]
         $Policy
     )
 
-    foreach ($ruleCollection in $Policy.properties.ruleCollectionGroups) {
-        
-        $group = Get-AzureResource -ResourceId $ruleCollection.id
-        $group.PSObject.Properties.Remove('etag')
-        $splited_id = $group.id.Split('/')
-        $splited_id[8] = $Policy.name
-        $group.id = $splited_id -join '/'
-        Put-Resource -Body $group -ResourceId $group.id
+    if (-not [string]::IsNullOrEmpty($script:PolicyName)) {
+        return $script:PolicyName
     }
+
+    return $Policy.Name + "_premium"
 }
 
-function Transform-Policy {
+function TransformPolicyToPremium {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory=$true)]
-        [Object]
+        [Microsoft.Azure.Commands.Network.Models.PSAzureFirewallPolicy]
         $Policy
-    )
-
-    $suffix = "_premium"
-
-    $Policy.name = "$($Policy.Name)$($suffix)"
-    $Policy.id = "$($PolicyId)$($suffix)"
-    Add-Member -InputObject $Policy.properties -Name "sku" -Value ("{'tier': 'Premium'}" | ConvertFrom-Json) -MemberType NoteProperty
-    $Policy.properties.PSObject.Properties.Remove("provisioningState")
-    $Policy.PSObject.Properties.Remove("etag")
-
-    if (Get-Member -InputObject $Policy -Name "identity" -MemberType Properties) {
-        if (Get-Member -InputObject $Policy.identity -Name "userAssignedIdentities" -MemberType Properties) {
-            $key = $Policy.identity.userAssignedIdentities | Get-Member -MemberType NoteProperty | Select-Object Name
-            $Policy.identity.userAssignedIdentities.PsObject.Properties.Remove($key.Name)
-            Add-Member -InputObject $Policy.identity.userAssignedIdentities -Name $key.Name -Value @{} -MemberType NoteProperty  
-        }
+    )    
+    $NewPolicyParameters = @{
+                        Name = (GetPolicyNewName -Policy $Policy) 
+                        ResourceGroupName = $Policy.ResourceGroupName 
+                        Location = $Policy.Location 
+                        ThreatIntelMode = $Policy.ThreatIntelMode 
+                        BasePolicy = $Policy.BasePolicy 
+                        DnsSetting = $Policy.DnsSettings 
+                        Tag = $Policy.Tag 
+                        SkuTier = "Premium" 
     }
 
-    Put-Resource -Body $Policy -ResourceId $Policy.id
-    Transform-Rules -Policy $Policy   
+    Write-Host "Creating new policy"
+    $premiumPolicy = New-AzFirewallPolicy @NewPolicyParameters
+
+    Write-Host "Populating rules in new policy"
+    foreach ($ruleCollectionGroup in $Policy.RuleCollectionGroups) {
+        $ruleResource = Get-AzResource -ResourceId $ruleCollectionGroup.Id
+        $ruleToTransfom = Get-AzFirewallPolicyRuleCollectionGroup -AzureFirewallPolicy $Policy -Name $ruleResource.Name
+        Set-AzFirewallPolicyRuleCollectionGroup -FirewallPolicyObject $premiumPolicy -RuleCollection $ruleToTransfom.Properties.RuleCollection -Priority $ruleToTransfom.Properties.Priority -Name $ruleToTransfom.Name
+    }
 }
 
+function ValidateAzNetworkModuleExists {
+    Write-Host "Validating needed module exists"
+    $networkModule = Get-InstalledModule -Name "Az.Network" -ErrorAction SilentlyContinue
+    if (($null -eq $networkModule) -or ($networkModule.Version -lt 4.5)){
+        Write-Host "Please install Az.Network module version 4.5.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
+        exit(1)
+    }
+    Import-Module Az.Network
+}
 
-Connect-Azure
-$policy = Get-AzureResource -ResourceId $script:PolicyId
-Validate-Policy -Policy $policy
-Transform-Policy -Policy $policy
-
+ValidateAzNetworkModuleExists
+$policy = Get-AzFirewallPolicy -ResourceId $script:PolicyId
+ValidatePolicy -Policy $policy
+TransformPolicyToPremium -Policy $policy
 ```
 
 ## Migrate an existing standard firewall using the Azure portal
@@ -194,6 +155,8 @@ This example shows how to use the Azure portal to migrate a standard firewall (c
 1. Use the `Transform-Policy.ps1` [Azure PowerShell script](#migrate-an-existing-policy-using-azure-powershell) to transform this new standard policy into a Premium policy.
 1. On the portal, select your standard firewall resource. 
 1. Under **Automation**, select **Export template**. Keep this browser tab open. You'll come back to it later.
+   > [!TIP]
+   > To ensure you don't lose the template, download and save it in case your browser tab gets closed or refreshed.
 1. Open a new browser tab, navigate to the Azure portal, and open the resource group that contains your firewall.
 1. Delete the existing standard firewall instance.
 
