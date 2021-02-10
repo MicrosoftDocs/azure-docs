@@ -36,7 +36,7 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 - [Improved rule tuning with the analytics rule preview graphs](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
-## Analytics rule wizard: Improved query editing experience (public preview)
+### Analytics rule wizard: Improved query editing experience (public preview)
 
 The Azure Sentinel Scheduled analytics rule wizard now provides the following enhancements for writing and editing queries:
 
