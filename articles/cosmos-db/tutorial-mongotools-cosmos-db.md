@@ -37,7 +37,7 @@ To complete this tutorial, you need to:
 * Log into your MongoDB instance
     * [Download and install the MongoDB native tools from this link](https://www.mongodb.com/try/download/database-tools).
         * **Ensure that your MongoDB native tools version matches your existing MongoDB instance.**
-        * If MongoDB instance will has a different version than Azure Cosmos DB Mongo API, then **install both tool versions and use the appropriate tool version for each.**
+        * If your MongoDB instance has a different version than Azure Cosmos DB Mongo API, then **install both MongoDB native tool versions and use the appropriate tool version for MongoDB and Azure Cosmos DB Mongo API, respectively.**
     * Add a user with `readWrite` permissions, unless one already exists. Later in this tutorial, provide this username/password to the *mongoexport* and *mongodump* tools.
 
 ## Configure Azure Cosmos DB Server Side Retries for efficient migration
