@@ -41,7 +41,7 @@ Verify you have `Microsoft.Authorization/policyAssignments/write` permissions on
 1. Set the **Scope** to the management group, subscription, or resource group to which the policy assignment will apply.
     1. If you want to exclude any resources from the policy scope, set **Exclusions**.
 1. Give the policy assignment an easily identifiable **Name** and **Description**.
-1. Ensure **Policy enforcement** is set to *Enabled*.
+1. Ensure **Policy enforcement** is set to **Enabled**.
 1. Select **Next**.
 1. Set the parameter values to be used while creating the `sourceControlConfiguration`.
 1. Select **Next**.
