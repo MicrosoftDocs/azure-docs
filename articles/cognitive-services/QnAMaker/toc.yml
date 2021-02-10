@@ -70,6 +70,9 @@
     - name: Add follow-up prompts
       href: How-To/multiturn-conversation.md
       displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
+  - name: Query knowledge base
+    href: How-To/metadata-generateanswer-usage.md
+    displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
   - name: Set up Active Learning to enhance Knowledge base
     items:
     - name: Turn on active learning
@@ -77,9 +80,6 @@
     - name: Get suggested alternate questions
       href: How-to/improve-knowledge-base.md
       displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount
-- name: Query knowledge base
-    href: How-To/metadata-generateanswer-usage.md
-    displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
   - name: Analytics and telemetry
     href: How-To/get-analytics-knowledge-base.md
 - name: Reference
