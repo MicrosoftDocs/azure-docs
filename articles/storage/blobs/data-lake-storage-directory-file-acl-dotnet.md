@@ -1,6 +1,6 @@
 ---
 title: Use .NET to manage data in Azure Data Lake Storage Gen2
-description: Use the Azure Storage client library for .NET to manage directories and files in storage accounts that has hierarchical namespace (HNS) enabled.
+description: Use the Azure Storage client library for .NET to manage directories and files in storage accounts that has hierarchical namespace enabled.
 author: normesta
 ms.service: storage
 ms.date: 08/26/2020
@@ -21,7 +21,7 @@ This article shows you how to use .NET to create and manage directories and file
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
+- A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
 ## Set up your project
 
@@ -52,7 +52,7 @@ This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.d
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithKey":::
 
-### Connect by using Azure Active Directory (AD)
+### Connect by using Azure Active Directory (Azure AD)
 
 You can use the [Azure identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) to authenticate your application with Azure AD.
 

@@ -637,13 +637,13 @@
       href: data-lake-storage-introduction.md
   - name: Tutorials
     items:
-    - name: Databricks & Spark
+    - name: Use with Databricks and Spark
       href: data-lake-storage-use-databricks-spark.md
-    - name: Apache Hive & HDInsight
+    - name: Use with Apache Hive and HDInsight
       href: data-lake-storage-tutorial-extract-transform-load-hive.md
-    - name: Databricks Delta & Event Grid
+    - name: Use with Databricks Delta & Event Grid
       href: data-lake-storage-events.md
-    - name: Other Azure services
+    - name: Use with other Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
   - name: Concepts
     items:

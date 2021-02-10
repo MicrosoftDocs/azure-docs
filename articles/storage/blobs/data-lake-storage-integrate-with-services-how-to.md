@@ -14,7 +14,7 @@ ms.subservice: data-lake-storage-gen2
 
 This article contains links to articles that show you how to use Azure services with Data Lake Storage Gen2. The Data Lake Storage Gen2 content collection features only a few of these articles. In general, these articles are hosted in the content collection for the service. You can use the table below to find those articles. 
  
-## List of tutorials and how to guides
+## List of tutorials
 
 [!INCLUDE [updated-for-az](../../../includes/data-lake-storage-gen2-azure-service-tutorials.md)]
 

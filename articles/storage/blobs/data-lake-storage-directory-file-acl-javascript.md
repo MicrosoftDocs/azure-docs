@@ -1,6 +1,6 @@
 ---
 title: Use JavaScript to manage data in Azure Data Lake Storage Gen2
-description: Use Azure Storage Data Lake client library for JavaScript to manage directories and files in storage accounts that has hierarchical namespace (HNS) enabled.
+description: Use Azure Storage Data Lake client library for JavaScript to manage directories and files in storage accounts that has hierarchical namespace enabled.
 author: normesta
 ms.service: storage
 ms.date: 03/20/2020
@@ -22,7 +22,7 @@ This article shows you how to use JavaScript to create and manage directories an
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
+- A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
 - If you are using this package in a Node.js application, you'll need Node.js 8.0.0 or higher.
 
@@ -66,9 +66,9 @@ function GetDataLakeServiceClient(accountName, accountKey) {
 ```
 
 > [!NOTE]
-> This method of authorization works only for Node.js applications. If you plan to run your code in a browser, you can authorize by using Azure Active Directory (AD).
+> This method of authorization works only for Node.js applications. If you plan to run your code in a browser, you can authorize by using Azure Active Directory (Azure AD).
 
-### Connect by using Azure Active Directory (AD)
+### Connect by using Azure Active Directory (Azure AD)
 
 You can use the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) to authenticate your application with Azure AD.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Use PowerShell to manage data: Azure Data Lake Storage Gen2'
-description: Use PowerShell cmdlets to manage directories and files in storage accounts that has hierarchical namespace (HNS) enabled.
+description: Use PowerShell cmdlets to manage directories and files in storage accounts that has hierarchical namespace enabled.
 services: storage
 author: normesta
 ms.service: storage
@@ -22,7 +22,7 @@ This article shows you how to use PowerShell to create and manage directories an
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
+- A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
 - .NET Framework is 4.7.2 or greater installed. See [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 
@@ -50,7 +50,7 @@ This article shows you how to use PowerShell to create and manage directories an
 
 Choose how you want your commands to obtain authorization to the storage account. 
 
-### Option 1: Obtain authorization by using Azure Active Directory (AD)
+### Option 1: Obtain authorization by using Azure Active Directory (Azure AD)
 
 With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions.
 
