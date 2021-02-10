@@ -48,13 +48,6 @@ To verify that the agent is seen by Azure and is healthy, follow these steps.
 
    ![On-premises provisioning agents screen](media/how-to-install/install-8.png)</br>
 
-### Verify the port
-
-Verify that Azure is listening on port 443 and that your agent can communicate with it. 
-
-This test verifies that your agents can communicate with Azure over port 443. Open a browser, and go to the previous URL from the server where the agent is installed.
-
-![Verification of port reachability](media/how-to-install/verify-2.png)
 
 ### On the local server
 
