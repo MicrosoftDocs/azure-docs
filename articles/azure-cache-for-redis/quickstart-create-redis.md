@@ -27,4 +27,3 @@ In this quickstart, you learned how to create an instance of Azure Cache for Red
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
-
