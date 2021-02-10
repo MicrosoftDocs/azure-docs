@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://auth.workos.com/sso/saml/acs/<CUSTOM_ID>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Zuddl Client support team](mailto:vedha@zuddl.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [Zuddl Client support team](mailto:support@zuddl.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -117,11 +117,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Zuddl SSO
 
-To configure single sign-on on **Zuddl** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Zuddl support team](mailto:vedha@zuddl.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Zuddl** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Zuddl support team](mailto:support@zuddl.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Zuddl test user
 
-In this section, you create a user called Britta Simon in Zuddl. Work with [Zuddl support team](mailto:vedha@zuddl.com) to add the users in the Zuddl platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Zuddl. Work with [Zuddl support team](mailto:support@zuddl.com) to add the users in the Zuddl platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
