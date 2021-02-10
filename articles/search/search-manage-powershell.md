@@ -319,19 +319,19 @@ For more details on creating private endpoints in PowerShell, see this [Private 
 
 In addition to creating a private endpoint connection, you can also `Get`, `Set`, and `Remove` the connection.
 
-[Get-AzSearchPrivateEndpointConnection](/powershell/module/az.search/get-azsearchservice/Get-AzSearchPrivateEndpointConnection) is used to retrieve a private endpoint connection and to see its status.
+[Get-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Get-AzSearchPrivateEndpointConnection) is used to retrieve a private endpoint connection and to see its status.
 
 ```azurepowershell-interactive
 Get-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name>
 ```
 
-[Set-AzSearchPrivateEndpointConnection](/powershell/module/az.search/get-azsearchservice/Set-AzSearchPrivateEndpointConnection) is used to update the connection. The following example sets a private endpoint connection to rejected:
+[Set-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Set-AzSearchPrivateEndpointConnection) is used to update the connection. The following example sets a private endpoint connection to rejected:
 
 ```azurepowershell-interactive
 Set-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name> -Status Rejected  -Description "Rejected"
 ```
 
-[Remove-AzSearchPrivateEndpointConnection](/powershell/module/az.search/get-azsearchservice/Remove-AzSearchPrivateEndpointConnection) is used to delete the private endpoint connection.
+[Remove-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Remove-AzSearchPrivateEndpointConnection) is used to delete the private endpoint connection.
 
 ```azurepowershell-interactive
  Remove-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name>
@@ -404,13 +404,13 @@ If you're using an indexer to index data in Azure Cognitive Search, and your dat
 
 A full list of the Azure Resources for which you can create outbound private endpoints from Azure Cognitive Search can be found [here](search-indexer-howto-access-private.md#shared-private-link-resources-management-apis) along with the related **Group ID** values.
 
-[New-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/get-azsearchservice/New-AzSearchSharedPrivateLinkResource) is used to create the shared private link resource. Keep in mind that some configuration may be required for the data source before running this command.
+[New-AzSearchSharedPrivateLinkResource](/powershell/module/az.searchNew-AzSearchSharedPrivateLinkResource) is used to create the shared private link resource. Keep in mind that some configuration may be required for the data source before running this command.
 
 ```azurepowershell-interactive
 New-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId <group-id> -RequestMessage "Please approve" 
 ```
 
-[Get-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/get-azsearchservice/Get-AzSearchSharedPrivateLinkResource)
+[Get-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/Get-AzSearchSharedPrivateLinkResource)
 allows you to retrieve the shared private link resources and view their status.
 
 ```azurepowershell-interactive
@@ -427,7 +427,7 @@ Approve-AzPrivateEndpointConnection `
     -Description = "Approved"
 ```
 
-[Remove-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/get-azsearchservice/Remove-AzSearchSharedPrivateLinkResource) is used to delete the shared private link resource.
+[Remove-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/Remove-AzSearchSharedPrivateLinkResource) is used to delete the shared private link resource.
 
 ```azurepowershell-interactive
 $job = Remove-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -Force -AsJob
