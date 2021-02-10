@@ -71,12 +71,10 @@
       href: troubleshoot-cross-origin-resource-sharing.md
 - name: Reference
   items:
-  - name: Azure CLI
-    href: /cli/azure/ext/front-door/
-  - name: Azure PowerShell
-    href: /powershell/module/az.frontdoor
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.cdn
   - name: REST API
-    href: /rest/api/frontdoor
+    href: /rest/api/cdn/
 - name: Resources
   items:
   - name: Azure Roadmap
