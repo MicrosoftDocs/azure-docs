@@ -104,7 +104,7 @@ The code blocks until the target is provisioned and then prints some details of 
 
 ### Configure the training run
 
-The AutoMLStep confiugres its dependencies automatically during job submission. The runtime context is set by creating and configuring a `RunConfiguration` object. Here we set the compute target.
+The AutoMLStep configures its dependencies automatically during job submission. The runtime context is set by creating and configuring a `RunConfiguration` object. Here we set the compute target.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
