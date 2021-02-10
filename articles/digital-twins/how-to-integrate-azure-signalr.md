@@ -121,7 +121,7 @@ On the *Create Event Subscription* page, fill in the fields as follows (fields f
 
 Back on the *Create Event Subscription* page, hit **Create**.
 
-At this point, you should see two event subscriptions in the *Event grid topic* page.
+At this point, you should see two event subscriptions in the *Event Grid Topic* page.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/event-subscriptions.png" alt-text="Azure portal view of two event subscriptions in the Event grid topic page.":::
 
@@ -131,15 +131,16 @@ In this section, you will see the result in action. First, configure the **sampl
 
 ### Configure the sample client web app
 
-1. Collect the *negotiate* function's **HTTP endpoint URL**. To do this, go to the Azure portal's [Function apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) page and select your function app from the list. In the app menu, select *Functions* and choose the *negotiate* function.
+Collect the *negotiate* function's **HTTP endpoint URL**. To do this, go to the Azure portal's [Function apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) page and select your function app from the list. In the app menu, select *Functions* and choose the *negotiate* function.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Azure portal view of the function app, with 'Functions' highlighted in the menu. The list of functions is shown on the page, and the 'negotiate' function is also highlighted.":::
 
 Hit *Get function URL* and copy the value **up through _/api_ (don't include the last _/negotiate?_)**. You will use this later.
 
-   :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure portal view of the 'negotiate' function. The 'Get function URL' button is highlighted, and the portion of the URL from the beginning through '/api'":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure portal view of the 'negotiate' function. The 'Get function URL' button is highlighted, and the portion of the URL from the beginning through '/api'":::
 
-Set up the **SignalR integration web app sample** with these steps:
+Next, set up the **SignalR integration web app sample** with these steps:
+
 1. Using Visual Studio or any code editor of your choice, open the unzipped _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ folder that you downloaded in the [*Download the sample applications*](#download-the-sample-applications) section.
 
 1. Open the *src/App.js* file, and replace the URL in `HubConnectionBuilder` with the HTTP endpoint URL of the **negotiate** function that you saved earlier:
