@@ -20,7 +20,7 @@ Follow the steps below to plug Application Insights into your managed or self-ho
 > [!IMPORTANT]
 > Steps 1 and 2 are not required for managed portals. If you have a managed portal, skip to step 3.
 
-1. Install the **npm** package to add Azure Insights:
+1. Install the **npm** package to add [Paperbits for Azure](https://github.com/paperbits/paperbits-azure):
 
     ```sh
     npm install @paperbits/azure --save
@@ -36,7 +36,7 @@ Follow the steps below to plug Application Insights into your managed or self-ho
 
 1. Retrieve the portal's configuration:
 
-    ```html
+    ```http
     GET /contentTypes/document/contentItems/configuration
     ```
 
@@ -58,7 +58,7 @@ Follow the steps below to plug Application Insights into your managed or self-ho
 
 1. Extend the site configuration from the previous step with Application Insights configuration:
 
-    ```html
+    ```http
     PUT /contentTypes/document/contentItems/configuration
     ```
 
