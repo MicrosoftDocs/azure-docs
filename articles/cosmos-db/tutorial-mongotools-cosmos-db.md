@@ -35,7 +35,9 @@ To complete this tutorial, you need to:
 * [Create an Azure Cosmos DB API for MongoDB account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 * Log into your MongoDB instance
     * [Download and install the MongoDB native tools from this link](https://www.mongodb.com/try/download/database-tools).
-    * Add a user with `readWrite` permissions, unless one already exists. Provide this username/password to the *mongoexport* and *mongodump* tools in this tutorial.
+        * **Ensure that your MongoDB native tools version matches your existing MongoDB instance.**
+        * If MongoDB instance will has a different version than Azure Cosmos DB Mongo API, then **install both tool versions and use the appropriate tool version for each.**
+    * Add a user with `readWrite` permissions, unless one already exists. Later in this tutorial, provide this username/password to the *mongoexport* and *mongodump* tools.
 
 ## Configure Azure Cosmos DB Server Side Retries for efficient migration
 
@@ -88,26 +90,39 @@ The rest of this section will guide you through using the pair of tools you sele
 
 2. To export the data from the source MongoDB instance, open a terminal on the MongoDB instance machine. If it is a Linux machine, type
 
-    `mongoexport --host source-mongodb-hostname:port -u username -p password --db edx --collection query --out edx.json`
+    `mongoexport --host HOST:PORT --authenticationDatabase admin -u USERNAME -p PASSWORD --db edx --collection query --out edx.json`
 
-    On windows, the executable will be `mongoexport.exe`. *source-mongodb-hostname*, *port*, *username*, and *password* should be filled in based on the properties of your existing MongoDB database instance. You should see that an `edx.json` file is produced:
+    On windows, the executable will be `mongoexport.exe`. *HOST*, *PORT*, *USERNAME*, and *PASSWORD* should be filled in based on the properties of your existing MongoDB database instance. 
+    
+    You may also choose to export only a subset of the MongoDB dataset. One way to do this is by adding an additional filter argument:
+    
+    `mongoexport --host HOST:PORT --authenticationDatabase admin -u USERNAME -p PASSWORD --db edx --collection query --out edx.json --query '{"field1":"value1"}'`
+
+    Only documents which match the filter `{"field1":"value1"}` will be exported.
+
+    Once you execute the call, you should see that an `edx.json` file is produced:
 
     ![mongoexport call](media/tutorial-mongotools-cosmos-db/mongo-export-output.png)
 3. You can use the same terminal to import `edx.json` into Azure Cosmos DB. If you are running `mongoimport` on a Linux machine, type
 
-    `mongoimport --host HOST:PORT -u USERNAME -p PASSWORD --db edx --collection importedQuery --ssl --type json --file edx.json`
+    `mongoimport --host HOST:PORT -u USERNAME -p PASSWORD --db edx --collection importedQuery --ssl --type json --writeConcern="{w:0}" --file edx.json`
 
-    On Windows, the executable will be `mongoimport.exe`. *HOST*, *PORT*, *USERNAME*, and *PASSWORD* should be filled in based on the Azure Cosmos DB credentials you collected earlier. You should see that *mongoimport* prints lines to the terminal updating on the migration status:
+    On Windows, the executable will be `mongoimport.exe`. *HOST*, *PORT*, *USERNAME*, and *PASSWORD* should be filled in based on the Azure Cosmos DB credentials you collected earlier. 
+4. Monitor the terminal output from *mongoimport*. You should see that it prints lines of text to the terminal containing updates on the migration status:
 
     ![mongoimport call](media/tutorial-mongotools-cosmos-db/mongo-import-output.png)    
+
+5. Finally, examine Azure Cosmos DB to validate that migration was successful. Open the Azure Cosmos DB portal and navigate to Data Explorer. You should see (1) that an *edx* database with an *importedQuery* collection has been created, and (2) if you exported only a subset of data, *importedQuery* should contain *only* docs matching the desired subset of the data. In the example below, only one doc matched the filter `{"field1":"value1"}`:
+
+    ![review cosmos db](media/tutorial-mongotools-cosmos-db/mongo-review-cosmos.png)    
 
 ### *mongodump/mongorestore*
 
 2. To create a BSON data dump of your MongoDB instance, open a terminal on the MongoDB instance machine. If it is a Linux machine, type
 
-    `mongodump --host source-mongodb-hostname:port -u username -p password --db edx --collection query --out edx-dump`
+    `mongodump --host HOST:PORT -u USERNAME -p PASSWORD --db edx --collection query --out edx-dump`
 
-    *source-mongodb-hostname*, *port*, *username*, and *password* should be filled in based on the properties of your existing MongoDB database instance. You should see that an `edx-dump` directory is produced and that the directory structure of `edx-dump` reproduces the resource hierarchy (database and collection structure) of your source MongoDB instance. Each collection is represented by a BSON file:
+    *HOST*, *PORT*, *USERNAME*, and *PASSWORD* should be filled in based on the properties of your existing MongoDB database instance. You should see that an `edx-dump` directory is produced and that the directory structure of `edx-dump` reproduces the resource hierarchy (database and collection structure) of your source MongoDB instance. Each collection is represented by a BSON file:
 
     ![mongodump call](media/tutorial-mongotools-cosmos-db/mongo-dump-output.png)
 3. You can use the same terminal to restore the contents of `edx-dump` into Azure Cosmos DB. If you are running `mongorestore` on a Linux machine, type
