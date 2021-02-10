@@ -101,7 +101,7 @@ REST API URI
  GET https://<accountname>.<region>.batch.azure.com/pools/test3/nodes/tvmps_a3ce79db285d6c124399c5bd3f3cf308d652c89675d9f1f14bfc184476525278_d/extensions/secretext?api-version=2010-01-01
 ```
 
-Request Body
+Response Body
 
 ```json
 {
