@@ -8,7 +8,7 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ---
 # Configure maintenance window (Preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
