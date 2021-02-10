@@ -29,7 +29,10 @@ The steps below summarize the migration procedure.
 
 5. Deploy VM extensions previously installed on the target machine.
 
-Use the following steps to complete this task.
+## Move machine to other region
+
+> [!NOTE]
+> During this operation, it results in downtime during the migration.
 
 1. Remove VM extensions installed from the [Azure portal](manage-vm-extensions-portal.md#uninstall-extension), using the [Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension), or using [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
 
@@ -59,7 +62,7 @@ Use the following steps to complete this task.
      -ResourceType Microsoft.HybridCompute/machines
     ```
 
-3. Re-register the Connected Machine agent with Arc enabled servers in the other region. Run the `azcmagent` tool with the [Connect](#connect) parameter complete this step.
+3. Re-register the Connected Machine agent with Arc enabled servers in the other region. Run the `azcmagent` tool with the [Connect](manage-agent.md#connect) parameter complete this step.
 
 4. Redeploy the VM extensions that were originally deployed to the machine from Arc enabled servers. If you deployed the Azure Monitor for VMs (insights) agent or the Log Analytics agent using an Azure Policy Guest Configuration policy, the agents are redeployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
