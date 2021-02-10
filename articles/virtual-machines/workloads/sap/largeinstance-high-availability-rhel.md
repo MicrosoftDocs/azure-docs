@@ -4,15 +4,15 @@ title: Azure LargeInstances high availability for SAP on RHEL | Microsoft Docs
 description: Azure Large Instances Machines high availability for SAP Red Hat Enterprise Linux
 services: large-instances,virtual-network,storage
 documentationcenter: saponazure
-author: raklahr,jaawasth
-manager: juergent,hrushib
+author: RalfKlahr
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: large-instances
+ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: largeinstances-linux
+ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/08/2021
 ms.author: jaawasth
@@ -26,7 +26,7 @@ This document describes how to configure the Pacemaker Cluster in RHEL7.6 to aut
 
 ### System Configuration
 
-It is very helpful to setup the ssh key exchange before starting the cluster configuration. The two nodes must trust each other anyway.
+It is very helpful to set up the ssh key exchange before starting the cluster configuration. The two nodes must trust each other anyway.
 
 * Create an identical /etc/hosts on both nodes
 
@@ -147,7 +147,7 @@ It is very helpful to setup the ssh key exchange before starting the cluster con
 
   *  First install the latest updates on the system before we start to install the SBD device.
 
-  * If you don’t want a complete update of the system (even it is recommended), at least these packages need to updated.
+  * If you don’t want a complete update of the system (even it is recommended), at least these packages need to be updated.
 
     * resource-agents-sap-hana
     *  selinux-policy
@@ -346,7 +346,7 @@ It is very helpful to setup the ssh key exchange before starting the cluster con
 	> `- 10:0:3:2 sdl 8:176 active ready running
 
 
-* Creating the SBD discs and setup the cluster primitive fencing (must be executed on first node)
+* Creating the SBD discs and set up the cluster primitive fencing (must be executed on first node)
    *  sbd -d /dev/mapper/3600a098038304179392b4d6c6e2f4b62 -4 20 -1 10
 		> create 
 		> 
@@ -413,7 +413,7 @@ It is very helpful to setup the ssh key exchange before starting the cluster con
 
 ### Cluster initialization
 
-  * Setup the cluster user password (all nodes)
+  * Set up the cluster user password (all nodes)
 
      > passwd hacluster
 
@@ -682,7 +682,7 @@ A much better option is to create a cost optimized scenario where the data base 
 
  #### Steps to follow to configure HSR
 
-* This are the actions to execute on node1 (primary)
+* These are the actions to execute on node1 (primary)
 
  
 
@@ -977,7 +977,7 @@ A much better option is to create a cost optimized scenario where the data base 
   
   
 
-#### Log Replication Mode Describtion
+#### Log Replication Mode Description
 ```
 Synchronous in-memory (default) Synchronous in memory (mode=syncmem) means the log write is considered as successful, when the log entry has been written to the log volume of the primary and sending the log has been acknowledged by the secondary instance after copying to memory.
 
