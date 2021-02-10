@@ -106,9 +106,9 @@ On the **Point-to-site configuration** page, select the tunnel type. The tunnel 
 For **Authentication type**, select **Azure certificate**.
 
 
-## <a name="uploadfile"></a>Upload the root certificate public certificate data
+## <a name="uploadfile"></a>Root certificate data
 
-You can upload additional trusted root certificates up to a total of 20. Once the public certificate data is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate. Upload the public key information for the root certificate to Azure.
+In this section, you upload public root certificate data to Azure. Once the public certificate data is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate.
 
 1. Certificates are added on the **Point-to-site configuration** page in the **Root certificate** section.
 1. Make sure that you exported the root certificate as a Base-64 encoded X.509 (.cer) file. You need to export the certificate in this format so you can open the certificate with text editor.
@@ -122,7 +122,7 @@ You can upload additional trusted root certificates up to a total of 20. Once th
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png" alt-text="Save configuration" border="false":::
 
-## <a name="installclientcert"></a>Install client certificate
+## <a name="installclientcert"></a>Client certificate
 
 If you want to create a P2S connection from a client computer other than the one you used to generate the client certificates, you need to install a client certificate. When installing a client certificate, you need the password that was created when the client certificate was exported.
 
