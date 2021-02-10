@@ -173,6 +173,7 @@ Add disk on replicated VM | Not supported.<br/> Disable replication for the VM, 
 
 > [!NOTE]
 > Any change to disk identity is not supported. For example, if the disk partitioning has been changed from GPT to MBR or vice versa, then this will change the disk identity. In such a scenario, the replication will break and a fresh setup will be required. 
+> For Linux machines, device name change is not supported as it has an impact on the disk identity.
 
 ## Network
 
