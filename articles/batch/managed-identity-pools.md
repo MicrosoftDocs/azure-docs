@@ -28,8 +28,6 @@ After you've created one or more user-assigned managed identities, you can creat
 > [!IMPORTANT]
 > Pools must be configured using [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration) in order to use managed identities.
 
- have been created, using Batch Management library you could create pools with identities.
-
 ```csharp
 var poolParameters = new Pool(name: "yourPoolName")
     {
