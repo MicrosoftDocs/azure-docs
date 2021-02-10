@@ -1,19 +1,18 @@
 ---
-title: Enable remote access to SharePoint with Azure AD Application Proxy | Microsoft Docs
+title: Enable remote access to SharePoint - Azure AD Application Proxy
 description: Covers the basics about how to integrate an on-premises SharePoint server with Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/02/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -157,13 +156,13 @@ Because the Internal URL uses HTTPS protocol (`https://SharePoint/`), a certific
 1. Open the Internet Information Services Manager console.
 1. Expand the server in the tree view, expand **Sites**, select the **SharePoint - AAD Proxy** site, and select **Bindings**.
 1. Select **https binding** and then select **Edit**.
-1. In the SSL certificate field, choose **SharePoint** certificate and then select **OK**.
+1. In the TLS/SSL certificate field, choose **SharePoint** certificate and then select **OK**.
 
 You can now access the SharePoint site externally through Azure AD Application Proxy.
 
 ## Step 3: Configure Kerberos Constrained Delegation
 
-Users will initially authenticate in Azure AD and then to SharePoint by using Kerberos through the Azure AD Proxy connector. To allow the connector to obtain a Kerberos token on behalf of the Azure AD user, you must configure Kerberos Constrained Delegation (KCD) with protocol transition. To learn more about KCD, see [Kerberos Constrained Delegation overview](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)).
+Users will initially authenticate in Azure AD and then to SharePoint by using Kerberos through the Azure AD Proxy connector. To allow the connector to obtain a Kerberos token on behalf of the Azure AD user, you must configure Kerberos Constrained Delegation (KCD) with protocol transition. To learn more about KCD, see [Kerberos Constrained Delegation overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)).
 
 ### Set the SPN for the SharePoint service account
 
@@ -172,7 +171,7 @@ To register SPN `HTTP/sharepoint` for the SharePoint application pool account `C
 
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
-The `Setspn` command searches for the SPN before it adds it. If the SPN already exists, you see a **Duplicate SPN Value** error. In that case, consider removing the existing SPN if it's not set under the correct application pool account. You can verify that the SPN was added successfully by running the `Setspn` command with the -L option. To learn more about this command, see [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
+The `Setspn` command searches for the SPN before it adds it. If the SPN already exists, you see a **Duplicate SPN Value** error. In that case, consider removing the existing SPN if it's not set under the correct application pool account. You can verify that the SPN was added successfully by running the `Setspn` command with the -L option. To learn more about this command, see [Setspn](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
 
 ### Make sure the connector is trusted for delegation to the SPN that was added to the SharePoint application pool account
 

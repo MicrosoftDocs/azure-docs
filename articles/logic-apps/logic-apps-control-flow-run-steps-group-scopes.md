@@ -1,12 +1,9 @@
 ---
-title: Group and run actions by scope - Azure Logic Apps
+title: Group and run actions by scope
 description: Create scoped actions that run based on group status in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
 ---
@@ -25,22 +22,22 @@ you can use scopes when you want to implement
 
 To check a scope's status, you can use the same criteria 
 that you use to determine a logic apps' run status, 
-such as "Succeeded", "Failed", "Cancelled", and so on. 
+such as **Succeeded**, **Failed**, **Cancelled**, and so on. 
 By default, when all the scope's actions succeed, 
-the scope's status is marked "Succeeded." 
+the scope's status is marked as **Succeeded**. 
 But when any action in the scope fails or is canceled, 
-the scope's status is marked "Failed." 
+the scope's status is marked **Failed**. 
 For limits on scopes, see 
 [Limits and config](../logic-apps/logic-apps-limits-and-config.md). 
 
 For example, here is a high-level logic app that uses a scope to 
 run specific actions and a condition to check the scope's status. 
 If any actions in the scope fail or end unexpectedly, 
-the scope is marked "Failed" or "Aborted" respectively, 
+the scope is marked **Failed** or **Aborted** respectively, 
 and the logic app sends a "Scope failed" message. 
 If all the scoped actions succeed, the logic app sends a "Scope succeeded" message.
 
-![Set up "Schedule - Recurrence" trigger](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+![Diagram shows the logic app scope flow with examples of "Scope failed" and "Scope succeeded".](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
 ## Prerequisites
 
@@ -54,7 +51,7 @@ This example uses Outlook.com. If you use a different provider,
 the general flow stays the same, but your UI appears different.
 
 * A Bing Maps key. To get this key, see 
-<a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Get a Bing Maps key</a>.
+<a href="/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key" target="_blank">Get a Bing Maps key</a>.
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -103,13 +100,13 @@ so save your work often.
 
       ![Set up "Bing Maps - Get route" action](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
-      For more information about these parameters, see [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx).
+      For more information about these parameters, see [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route).
 
       | Setting | Value | Description |
       | ------- | ----- | ----------- |
       | **Waypoint 1** | <*start*> | Enter your route's origin. | 
       | **Waypoint 2** | <*end*> | Enter your route's destination. | 
-      | **Avoid** | None | Enter items to avoid on your route, such as highways, tolls, and so on. For possible values, see [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Avoid** | None | Enter items to avoid on your route, such as highways, tolls, and so on. For possible values, see [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route). | 
       | **Optimize** | timeWithTraffic | Select a parameter to optimize your route, such as distance, time with current traffic information, and so on. This example uses this value: "timeWithTraffic" | 
       | **Distance unit** | <*your-preference*> | Enter the unit of distance to calculate your route. This example uses this value: "Mile" | 
       | **Travel mode** | Driving | Enter the mode of travel for your route. This example uses this value "Driving" | 
@@ -246,7 +243,7 @@ the scope's status is equal to "Failed" or "Aborted".
    
       `result('Scope')[0]['status']`
 
-      ![Add expression that checks the scope's status](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Screenshot that shows the "Expression" box with the result expression highlighted.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. For both rows, select **is equal to** as the operator. 
    
@@ -452,7 +449,7 @@ here is the JSON definition for trigger and actions in the previous logic app:
 ## Get support
 
 * For questions, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+[Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * To submit or vote on features and suggestions, 
 visit the [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 

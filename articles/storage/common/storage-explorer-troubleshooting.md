@@ -6,7 +6,7 @@ author: Deland-Han
 manager: dcscontentpm
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 07/28/2020
 ms.author: delhan
 ---
 
@@ -16,13 +16,13 @@ Microsoft Azure Storage Explorer is a standalone app that makes it easy to work 
 
 This guide summarizes solutions for issues that are commonly seen in Storage Explorer.
 
-## RBAC permissions issues
+## Azure RBAC permissions issues
 
-Role-based access control [RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) enables highly granular access management of Azure resources by combining sets of permissions into _roles_. Here are some strategies to get RBAC working optimally in Storage Explorer.
+Azure role-based access control [Azure RBAC](../../role-based-access-control/overview.md) enables highly granular access management of Azure resources by combining sets of permissions into _roles_. Here are some strategies to get Azure RBAC working optimally in Storage Explorer.
 
 ### How do I access my resources in Storage Explorer?
 
-If you're having problems accessing storage resources through RBAC, you might not have been assigned the appropriate roles. The following sections describe the permissions Storage Explorer currently requires for access to your storage resources. Contact your Azure account administrator if you're not sure you have the appropriate roles or permissions.
+If you're having problems accessing storage resources through Azure RBAC, you might not have been assigned the appropriate roles. The following sections describe the permissions Storage Explorer currently requires for access to your storage resources. Contact your Azure account administrator if you're not sure you have the appropriate roles or permissions.
 
 #### "Read: List/Get Storage Account(s)" permissions issue
 
@@ -43,7 +43,7 @@ You must be assigned at least one role that grants access to read data from reso
 
 Azure Storage has two layers of access: _management_ and _data_. Subscriptions and storage accounts are accessed through the management layer. Containers, blobs, and other data resources are accessed through the data layer. For example, if you want to get a list of your storage accounts from Azure, you send a request to the management endpoint. If you want a list of blob containers in an account, you send a request to the appropriate service endpoint.
 
-RBAC roles can contain permissions for management or data layer access. The Reader role, for example, grants read-only access to management layer resources.
+Azure roles can grant you permissions for management or data layer access. The Reader role, for example, grants read-only access to management layer resources.
 
 Strictly speaking, the Reader role provides no data layer permissions and isn't necessary for accessing the data layer.
 
@@ -53,14 +53,35 @@ If you don’t have a role that grants any management layer permissions, Storage
 
 ### What if I can't get the management layer permissions I need from my administrator?
 
-We don't currently have an RBAC-related solution for this issue. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
+If you want to access blob containers or queues, you can attach to those resources using your Azure credentials.
+
+1. Open the Connect dialog.
+2. Select "Add a resource via Azure Active Directory (Azure AD)". Select Next.
+3. Select the user account and tenant associated with the resource you're attaching to. Select Next.
+4. Select the resource type, enter the URL to the resource, and enter a unique display name for the connection. Select Next then Connect.
+
+For other resource types, we don't currently have an Azure RBAC-related solution. As a workaround, you can request a SAS URI to [attach to your resource](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
+
+### Recommended Azure built-in roles
+
+There are several Azure built-in roles that can provide the permissions needed to use Storage Explorer. Some of those roles are:
+- [Owner](../../role-based-access-control/built-in-roles.md#owner): Manage everything, including access to resources.
+- [Contributor](../../role-based-access-control/built-in-roles.md#contributor): Manage everything, excluding access to resources.
+- [Reader](../../role-based-access-control/built-in-roles.md#reader): Read and list resources.
+- [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor): Full management of storage accounts.
+- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Full access to Azure Storage blob containers and data.
+- [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Read, write, and delete Azure Storage containers and blobs.
+- [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Read and list Azure Storage containers and blobs.
+
+> [!NOTE]
+> The Owner, Contributor, and Storage Account Contributor roles grant account key access.
 
 ## Error: Self-signed certificate in certificate chain (and similar errors)
 
 Certificate errors typically occur in one of the following situations:
 
-- The app is connected through a _transparent proxy_, which means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it by using a self-signed certificate.
-- You're running an application that's injecting a self-signed SSL certificate into the HTTPS messages that you receive. Examples of applications that inject certificates include antivirus and network traffic inspection software.
+- The app is connected through a _transparent proxy_. This means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it by using a self-signed certificate.
+- You're running an application that's injecting a self-signed TLS/SSL certificate into the HTTPS messages that you receive. Examples of applications that inject certificates include antivirus and network traffic inspection software.
 
 When Storage Explorer sees a self-signed or untrusted certificate, it no longer knows whether the received HTTPS message has been altered. If you have a copy of the self-signed certificate, you can instruct Storage Explorer to trust it by following these steps:
 
@@ -90,7 +111,7 @@ If you can't find any self-signed certificates by following these steps, contact
 
 Blank sign-in dialog boxes most often occur when Active Directory Federation Services (AD FS) prompts Storage Explorer to perform a redirect, which is unsupported by Electron. To work around this issue, you can try to use Device Code Flow for sign-in. To do so, follow these steps:
 
-1. On the menu, go to **Preview** > **Use Device Code Sign-In**.
+1. On the left vertical tool bar, open **Settings**. In the Settings Panel, go to **Application** > **Sign in**. Enable **Use device code flow sign-in**.
 2. Open the **Connect** dialog box (either through the plug icon on the left-side vertical bar or by selecting **Add Account** on the account panel).
 3. Choose the environment you want to sign in to.
 4. Select **Sign In**.
@@ -164,46 +185,62 @@ If you can't remove an attached account or storage resource through the UI, you 
 
 ## Proxy issues
 
-First, make sure that the following information you entered is correct:
+Storage Explorer supports connecting to Azure Storage resources via a proxy server. If you experience any issues connecting to Azure via proxy, here are some suggestions.
 
-* The proxy URL and port number
-* Username and password if the proxy requires them
+> [!NOTE]
+> Storage Explorer only supports basic authentication with proxy servers. Other authentication methods, such as NTLM, are not supported.
 
 > [!NOTE]
 > Storage Explorer doesn't support proxy auto-config files for configuring proxy settings.
 
-### Common solutions
+### Verify Storage Explorer proxy settings
 
-If you're still experiencing issues, try the following troubleshooting methods:
+The **Application → Proxy → Proxy configuration** setting determines which source Storage Explorer gets the proxy configuration from.
 
-* If you can connect to the internet without using your proxy, verify that Storage Explorer works without proxy settings enabled. If this is the case, there may be an issue with your proxy settings. Work with your administrator to identify the problems.
-* Verify that other applications that use the proxy server work as expected.
-* Verify that you can connect to the portal for the Azure environment you're trying to use.
-* Verify that you can receive responses from your service endpoints. Enter one of your endpoint URLs into your browser. If you can connect, you should receive InvalidQueryParameterValue or a similar XML response.
-* If someone else is also using Storage Explorer with your proxy server, verify that they can connect. If they can, you may have to contact your proxy server admin.
+If you select "Use environment variables", make sure to set the `HTTPS_PROXY` or `HTTP_PROXY` environment variables (environment variables are case-sensitive, so be sure to set the correct variables). If these variables are undefined or invalid, Storage Explorer won't use a proxy. Restart Storage Explorer after modifying any environment variables.
+
+If you select "Use app proxy settings", make sure the in-app proxy settings are correct.
+
+### Steps for diagnosing issues
+
+If you're still experiencing issues, try these troubleshooting methods:
+
+1. If you can connect to the internet without using your proxy, verify that Storage Explorer works without proxy settings enabled. If Storage Explorer connects successfully, there may be an issue with your proxy server. Work with your administrator to identify the problems.
+2. Verify that other applications that use the proxy server work as expected.
+3. Verify that you can connect to the portal for the Azure environment you're trying to use.
+4. Verify that you can receive responses from your service endpoints. Enter one of your endpoint URLs into your browser. If you can connect, you should receive an `InvalidQueryParameterValue` or similar XML response.
+5. Check whether someone else using Storage Explorer with the same proxy server can connect. If they can, you may have to contact your proxy server admin.
 
 ### Tools for diagnosing issues
 
-If you have networking tools, such as Fiddler for Windows, you can diagnose the problems as follows:
+A networking tool, such as Fiddler, can help you diagnose problems.
 
-* If you have to work through your proxy, you may have to configure your networking tool to connect through the proxy.
-* Check the port number used by your networking tool.
-* Enter the local host URL and the networking tool's port number as proxy settings in Storage Explorer. When you do this correctly, your networking tool starts logging network requests made by Storage Explorer to management and service endpoints. For example, enter `https://cawablobgrs.blob.core.windows.net/` for your blob endpoint in a browser, and you'll receive a response that resembles the following:
+1. Configure your networking tool as a proxy server running on the local host. If you have to continue working behind an actual proxy, you may have to configure your networking tool to connect through the proxy.
+2. Check the port number used by your networking tool.
+3. Configure Storage Explorer proxy settings to use the local host and the networking tool's port number (such as "localhost:8888").
+ 
+When set correctly, your networking tool will log network requests made by Storage Explorer to management and service endpoints.
+ 
+If your networking tool doesn't appear to be logging Storage Explorer traffic, try testing your tool with a different application. For example, enter the endpoint URL for one of your storage resources (such as `https://contoso.blob.core.windows.net/`) in a web browser, and you'll receive a response similar to:
 
   ![Code sample](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
-  This response suggests the resource exists, even though you can't access it.
+  The response suggests the resource exists, even though you can't access it.
+
+If your networking tool only shows traffic from other applications, you may need to adjust the proxy settings in Storage Explorer. Otherwise, you made need to adjust your tool's settings.
 
 ### Contact proxy server admin
 
-If your proxy settings are correct, you may have to contact your proxy server admin to:
+If your proxy settings are correct, you may have to contact your proxy server administrator to:
 
 * Make sure your proxy doesn't block traffic to Azure management or resource endpoints.
-* Verify the authentication protocol used by your proxy server. Storage Explorer doesn't currently support NTLM proxies.
+* Verify the authentication protocol used by your proxy server. Storage Explorer only supports basic authentication protocols. Storage Explorer doesn't support NTLM proxies.
 
 ## "Unable to Retrieve Children" error message
 
-If you're connected to Azure through a proxy, verify that your proxy settings are correct. If you're granted access to a resource from the owner of the subscription or account, verify that you have read or list permissions for that resource.
+If you're connected to Azure through a proxy, verify that your proxy settings are correct.
+
+If the owner of a subscription or account has granted you access to a resource, verify that you have read or list permissions for that resource.
 
 ## Connection string doesn't have complete configuration settings
 
@@ -281,6 +318,8 @@ If you accidentally attached by using an invalid SAS URL and now cannot detach, 
 
 ## Linux dependencies
 
+### Snap
+
 Storage Explorer 1.10.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all its dependencies automatically, and it's updated when a new version of the snap is available. Installing the Storage Explorer snap is the recommended method of installation.
 
 Storage Explorer requires the use of a password manager, which you might need to connect manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager by running the following command:
@@ -289,57 +328,76 @@ Storage Explorer requires the use of a password manager, which you might need to
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
+### .tar.gz File
+
 You can also download the application as a .tar.gz file, but you'll have to install dependencies manually.
 
-> [!IMPORTANT]
-> Storage Explorer as provided in the .tar.gz download is supported only for Ubuntu distributions. Other distributions haven't been verified and may require alternative or additional packages.
+Storage Explorer as provided in the .tar.gz download is supported for the following versions of Ubuntu only. Storage Explorer might work on other Linux distributions, but they are not officially supported.
 
-These packages are the most common requirements for Storage Explorer on Linux:
+- Ubuntu 20.04 x64
+- Ubuntu 18.04 x64
+- Ubuntu 16.04 x64
 
-* [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
-* `libgconf-2-4`
-* `libgnome-keyring0` or `libgnome-keyring-dev`
-* `libgnome-keyring-common`
+Storage Explorer requires .NET Core to be installed on your system. We recommend .NET Core 2.1, but Storage Explorer will work with 2.2 as well.
 
 > [!NOTE]
-> Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed, you'll have to [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). If you're running Storage Explorer 1.8.0 or later, you should be able to use up to .NET Core 2.2. Versions beyond 2.2 have not been verified to work at this time.
+> Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed, you'll have to [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). If you're running Storage Explorer 1.8.0 or later, you need at least .NET Core 2.1.
 
-# [Ubuntu 19.04](#tab/1904)
+# [Ubuntu 20.04](#tab/2004)
 
-1. Download Storage Explorer.
-2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
-3. Run the following command:
+1. Download the Storage Explorer .tar.gz file.
+2. Install the [.NET Core Runtime](/dotnet/core/install/linux):
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     sudo dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # [Ubuntu 18.04](#tab/1804)
 
-1. Download Storage Explorer.
-2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
-3. Run the following command:
+1. Download the Storage Explorer .tar.gz file.
+2. Install the [.NET Core Runtime](/dotnet/core/install/linux):
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     sudo dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # [Ubuntu 16.04](#tab/1604)
 
-1. Download Storage Explorer.
-2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
-3. Run the following command:
+1. Download the Storage Explorer .tar.gz file.
+2. Install the [.NET Core Runtime](/dotnet/core/install/linux):
    ```bash
-   sudo apt install libgnome-keyring-dev
-   ```
-
-# [Ubuntu 14.04](#tab/1404)
-
-1. Download Storage Explorer.
-2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
-3. Run the following command:
-   ```bash
-   sudo apt install libgnome-keyring-dev
+   wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     sudo dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 ---
+
+Many libraries needed by Storage Explorer come preinstalled with Canonical's standard installations of Ubuntu. Custom environments may be missing some of these libraries. If you have issues launching Storage Explorer, we recommend making sure the following packages are installed on your system:
+
+- iproute2
+- libasound2
+- libatm1
+- libgconf2-4
+- libnspr4
+- libnss3
+- libpulse0
+- libsecret-1-0
+- libx11-xcb1
+- libxss1
+- libxtables11
+- libxtst6
+- xdg-utils
 
 ### Patching Storage Explorer for newer versions of .NET Core
 

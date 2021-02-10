@@ -1,24 +1,12 @@
 ---
-title: Send and receive events using the .NET Framework - Azure Event Hubs | Microsoft Docs
-description: This article provides a walkthrough for creating a .NET Framework application that sends events to Azure Event Hubs.
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-
-ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.custom: seodec18
-ms.date: 04/15/2019
-ms.author: shvija
-
+title: 'Azure Event Hubs - Send/receive events using the .NET Framework'
+description: 'Quickstart: This article provides a walkthrough for creating a .NET Framework application that sends events to Azure Event Hubs.'
+ms.topic: quickstart
+ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
-# Send events to or receive events from Azure Event Hubs using .NET Framework
+
+# Quickstart: Send events to or receive events from Azure Event Hubs using .NET Framework
 Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
 This tutorial shows how to create .NET Framework console applications in C# to send events to or receive events from an eventhub. 
@@ -36,7 +24,7 @@ This section shows you how to create a .NET Framework console application to sen
 
 In Visual Studio, create a new Visual C# Desktop App project using the **Console Application** project template. Name the project **Sender**.
    
-![Create console application](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
+![Screenshot that shows "New Project" window with "Console App (.NET Framework)" selected, and the project name "Sender" and "OK" button highlighted.](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
 
 ### Add the Event Hubs NuGet package
 

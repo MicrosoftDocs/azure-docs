@@ -1,12 +1,10 @@
 ---
-title: How to troubleshoot issues with the Log Analytics agent for Windows | Microsoft Docs
+title: Troubleshoot issues with Log Analytics agent for Windows
 description: Describe the symptoms, causes, and resolution for the most common issues with the Log Analytics agent for Windows in Azure Monitor.
-ms.service:  azure-monitor
-ms.subservice: 
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
-ms.date: 06/12/2019
+author: bwren
+ms.author: bwren
+ms.date: 11/21/2019
 
 ---
 
@@ -19,6 +17,40 @@ If none of these steps work for you, the following support channels are also ava
 * Customers with Premier support benefits can open a support request with [Premier](https://premier.microsoft.com/).
 * Customers with Azure support agreements can open a support request [in the Azure portal](https://manage.windowsazure.com/?getsupport=true).
 * Visit the Log Analytics Feedback page to review submitted ideas and bugs [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) or file a new one. 
+
+## Log Analytics Troubleshooting Tool
+
+The Log Analytics Agent Windows Troubleshooting Tool is a collection of PowerShell scripts designed to help find and diagnose issues with the Log Analytics Agent. It is automatically included with the agent upon installation. Running the tool should be the first step in diagnosing an issue.
+
+### How to use
+1. Open PowerShell prompt as Administrator on the machine where Log Analytics Agent is installed.
+1. Navigate to the directory where the tool is located.
+   * `cd "C:\Program Files\Microsoft Monitoring Agent\Agent\Troubleshooter"`
+1. Execute the main script using this command:
+   * `.\GetAgentInfo.ps1`
+1. Select a troubleshooting scenario.
+1. Follow instructions on the console. (Note: trace logs steps requires manual intervention to stop log collection. Based upon the reproducibility of the issue, wait for the time duration and press 's' to stop log collection and proceed to the next step).
+
+   Locations of the results file is logged upon completion and a new explorer window highlighting it is opened.
+
+### Installation
+The Troubleshooting Tool is automatically included upon installation of the Log Analytics Agent build 10.20.18053.0 and onwards.
+
+### Scenarios covered
+Below is a list of scenarios checked by the Troubleshooting Tool:
+
+- Agent not reporting data or heartbeat data missing
+- Agent extension deployment failing
+- Agent crashing
+- Agent consuming high CPU/memory
+- Installation/uninstallation failures
+- Custom logs issue
+- OMS Gateway issue
+- Performance counters issue
+- Collect all logs
+
+>[!NOTE]
+>Please run the Troubleshooting tool when you experience an issue. When opening a ticket, having the logs initially will greatly help our support team troubleshoot your issue quicker.
 
 ## Important troubleshooting sources
 
@@ -35,9 +67,9 @@ Double check that the firewall or proxy is configured to allow the following por
 |*.ods.opinsights.azure.com |Port 443 |Outbound|Yes |  
 |*.oms.opinsights.azure.com |Port 443 |Outbound|Yes |  
 |*.blob.core.windows.net |Port 443 |Outbound|Yes |  
-|*.azure-automation.net |Port 443 |Outbound|Yes |  
+|*.agentsvc.azure-automation.net |Port 443 |Outbound|Yes |  
 
-For firewall information required for Azure Government, see [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
+For firewall information required for Azure Government, see [Azure Government management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 There are several ways you can verify if the agent is successfully communicating with Azure Monitor.
 
@@ -63,7 +95,7 @@ There are several ways you can verify if the agent is successfully communicating
     |---------|-------|------------|-----------|
     |2133 & 2129 |Health Service |Connection to the service from the agent failed |This error can occur when the agent cannot communicate directly or through a firewall/proxy server to the Azure Monitor service. Verify agent proxy settings or that the network firewall/proxy allows TCP traffic from the computer to the service.|
     |2138 |Health Service Modules |Proxy requires authentication |Configure the agent proxy settings and specify the username/password required to authenticate with the proxy server. |
-    |2129 |Health Service Modules |Failed connection/Failed SSL negotiation |Check your network adapter TCP/IP settings and agent proxy settings.|
+    |2129 |Health Service Modules |Failed connection/Failed TLS negotiation |Check your network adapter TCP/IP settings and agent proxy settings.|
     |2127 |Health Service Modules |Failure sending data received error code |If it only happens periodically during the day, it could just be a random anomaly that can be ignored. Monitor to understand how often it happens. If it happens often throughout the day, first check your network configuration and proxy settings. If the description includes HTTP error code 404 and it's the first time that the agent tries to send data to the service, it will include a 500 error with an inner 404 error code. 404 means not found, which indicates that the storage area for the new workspace is still being provisioned. On next retry, data will successfully write to the workspace as expected. An HTTP error 403 might indicate a permission or credentials issue. There is more information included with the 403 error to help troubleshoot the issue.|
     |4000 |Service Connector |DNS name resolution failed |The machine could not resolve the Internet address used when sending data to the service. This might be DNS resolver settings on your machine, incorrect proxy settings, or maybe a temporary DNS issue with your provider. If it happens periodically, it could be caused by a transient network-related issue.|
     |4001 |Service Connector |Connection to the service failed. |This error can occur when the agent cannot communicate directly or through a firewall/proxy server to the Azure Monitor service. Verify agent proxy settings or that the network firewall/proxy allows TCP traffic from the computer to the service.|
@@ -102,4 +134,3 @@ If the query returns results, then you need to determine if a particular data ty
     |8000 |HealthService |This event will specify if a workflow related to  performance, event, or other data type collected is unable to forward to the service for ingestion to the workspace. | Event ID 2136 from source HealthService is written together with this event and can indicate the agent is unable to communicate with the service, possibly due to misconfiguration of the proxy and authentication settings, network outage, or the network firewall/proxy does not allow TCP traffic from the computer to the service.| 
     |10102 and 10103 |Health Service Modules |Workflow could not resolve data source. |This can occur if the specified performance counter or instance does not exist on the computer or is incorrectly defined in the workspace data settings. If this is a user-specified [performance counter](data-sources-performance-counters.md#configuring-performance-counters), verify the information specified is following the correct format and exists on the target computers. |
     |26002 |Health Service Modules |Workflow could not resolve data source. |This can occur if the specified Windows event log does not exist on the computer. This error can be safely ignored if the computer is not expected to have this event log registered, otherwise if this is a user-specified [event log](data-sources-windows-events.md#configuring-windows-event-logs), verify the information specified is correct. |
-

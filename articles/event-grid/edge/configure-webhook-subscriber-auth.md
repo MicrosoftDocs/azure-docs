@@ -5,10 +5,8 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
 # Configure webhook subscriber authentication
@@ -20,9 +18,9 @@ This guide gives examples of the possible webhook subscriber configurations for 
 ```json
  {
   "Env": [
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=false"
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=false"
   ]
 }
  ```
@@ -32,42 +30,42 @@ This guide gives examples of the possible webhook subscriber configurations for 
 ```json
  {
   "Env": [
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=true"
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=true"
   ]
 }
  ```
 
 >[!NOTE]
->Set the property `outbound:webhook:allowUnknownCA` to `true` only in test environments as you might typically use self-signed certificates. For production workloads we recommend them to be set to **false**.
+>Set the property `outbound__webhook__allowUnknownCA` to `true` only in test environments as you might typically use self-signed certificates. For production workloads we recommend them to be set to **false**.
 
 ## Allow HTTPS subscriber but skip certificate validation
 
 ```json
  {
   "Env": [
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=true",
-    "outbound:webhook:allowUnknownCA=false"
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=true",
+    "outbound__webhook__allowUnknownCA=false"
   ]
 }
  ```
 
 >[!NOTE]
->Set the property `outbound:webhook:skipServerCertValidation` to `true` only in test environments as you might not be presenting a certificate that needs to be authenticated. For production workloads we recommend them to be set to **false**
+>Set the property `outbound__webhook__skipServerCertValidation` to `true` only in test environments as you might not be presenting a certificate that needs to be authenticated. For production workloads we recommend them to be set to **false**
 
 ## Allow both HTTP and HTTPS with self-signed certificates
 
 ```json
  {
   "Env": [
-    "outbound:webhook:httpsOnly=false",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=true"
+    "outbound__webhook__httpsOnly=false",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=true"
   ]
 }
  ```
 
 >[!NOTE]
->Set the property `outbound:webhook:httpsOnly` to `false` only in test environments as you might want to bring up a HTTP subscriber first. For production workloads we recommend them to be set to **true**
+>Set the property `outbound__webhook__httpsOnly` to `false` only in test environments as you might want to bring up a HTTP subscriber first. For production workloads we recommend them to be set to **true**

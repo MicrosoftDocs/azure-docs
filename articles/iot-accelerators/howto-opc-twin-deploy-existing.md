@@ -1,6 +1,6 @@
 ---
 title: How to deploy an OPC Twin module to an existing Azure project | Microsoft Docs
-description: How to deploy OPC Twin to an existing project.
+description: This article describes how to deploy OPC Twin to an existing project. You can also learn how to troubleshoot deployment failures.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -11,6 +11,9 @@ manager: philmea
 ---
 
 # Deploy OPC Twin to an existing project
+
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
 
 The OPC Twin module runs on IoT Edge and provides several edge services to the OPC Twin and Registry services.
 
@@ -25,7 +28,7 @@ The core of the module is the Supervisor identity. The supervisor manages endpoi
 
 ## Prerequisites
 
-Make sure you have PowerShell and [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) extensions installed. If you've not already done so, clone this GitHub repository. Run the following commands in PowerShell:
+Make sure you have PowerShell and [AzureRM PowerShell](/powershell/azure/azurerm/install-azurerm-ps) extensions installed. If you've not already done so, clone this GitHub repository. Run the following commands in PowerShell:
 
 ```powershell
 git clone --recursive https://github.com/Azure/azure-iiot-components.git

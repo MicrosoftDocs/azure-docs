@@ -1,19 +1,19 @@
 ---
-title: Performance monitoring for Java web apps in Azure Application Insights | Microsoft Docs
+title: Java web apps performance monitoring - Azure Application Insights
 description: Extended performance and usage monitoring of your Java website with Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/10/2019
-
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
 ---
 
 # Monitor dependencies, caught exceptions, and method execution times in Java web apps
 
+> [!IMPORTANT]
+> The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
 
-If you have [instrumented your Java web app with Application Insights][java], you can use the Java Agent to get deeper insights, without any code changes:
+If you have [instrumented your Java web app with Application Insights SDK][java], you can use the Java Agent to get deeper insights, without any code changes:
 
 * **Dependencies:** Data about calls that your application makes to other components, including:
   * **Outgoing HTTP calls** made via Apache HttpClient, OkHttp, and `java.net.HttpURLConnection` are captured.
@@ -32,7 +32,7 @@ If you have [instrumented your Java web app with Application Insights][java], yo
 To use the Java agent, you install it on your server. Your web apps must be instrumented with the [Application Insights Java SDK][java]. 
 
 ## Install the Application Insights agent for Java
-1. On the machine running your Java server, [download the agent](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Please ensure to download the same version of Java Agent as Application Insights Java SDK core and web packages.
+1. On the machine running your Java server, [download the 2.x agent](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/2.6.2). Please make sure the version of the 2.x Java Agent that you use matches the version of the 2.x Application Insights Java SDK that you use.
 2. Edit the application server startup script, and add the following JVM argument:
    
     `-javaagent:<full path to the agent JAR file>`
@@ -85,10 +85,7 @@ For Azure App Services, do the following:
 * Under App Settings, add a new key value pair:
 
 Key: `JAVA_OPTS`
-Value: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
-
-For the latest version of the Java agent, check the releases [here](https://github.com/Microsoft/ApplicationInsights-Java/releases
-). 
+Value: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.6.2.jar`
 
 The agent must be packaged as a resource in your project such that it ends up in the D:/home/site/wwwroot/ directory. You can confirm that your agent is in the correct App Service directory by going to **Development Tools** > **Advanced Tools** > **Debug Console** and examining the contents of the site directory.    
 
@@ -121,19 +118,20 @@ In the Application Insights resource, aggregated remote dependency and method ex
 
 To search for individual instances of dependency, exception, and method reports, open [Search][diagnostic].
 
-[Diagnosing dependency issues - learn more](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
+[Diagnosing dependency issues - learn more](./asp-net-dependencies.md#diagnosis).
 
 ## Questions? Problems?
-* No data? [Set firewall exceptions](../../azure-monitor/app/ip-addresses.md)
+* No data? [Set firewall exceptions](./ip-addresses.md)
 * [Troubleshooting Java](java-troubleshoot.md)
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#track-exception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#track-exception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../platform/metrics-charts.md
+

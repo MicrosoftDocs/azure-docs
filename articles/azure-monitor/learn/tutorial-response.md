@@ -1,11 +1,10 @@
 ---
 title: Respond to events with Azure Log Analytics Alerts | Microsoft Docs
 description: This tutorial helps you understand alerting with Log Analytics to identify important information in your workspace and proactively notify you of issues or invoke actions to attempt to correct them.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/05/2018
 
 ms.custom: mvc
@@ -20,7 +19,7 @@ In this tutorial, you learn how to:
 > * Create an alert rule
 > * Configure an Action Group to send an e-mail notification
 
-To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](../../azure-monitor/learn/quick-collect-azurevm.md).  
+To complete the example in this tutorial, you must have an existing virtual machine [connected to the Log Analytics workspace](quick-collect-azurevm.md).  
 
 ## Sign in to Azure portal
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
@@ -66,4 +65,4 @@ In this tutorial, you learned how alert rules can proactively identify and respo
 Follow this link to see pre-built Log Analytics script samples.  
 
 > [!div class="nextstepaction"]
-> [Log Analytics script samples](../../azure-monitor/platform/powershell-samples.md)
+> [Log Analytics script samples](../samples/powershell-samples.md)

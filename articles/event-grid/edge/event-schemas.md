@@ -5,15 +5,13 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
 # Event schemas
 
-Event Grid module accepts and delivers events in JSON format. There are currently two schemas that are supported by Event Grid: -
+Event Grid module accepts and delivers events in JSON format. There are currently three schemas that are supported by Event Grid: -
 
 * **EventGridSchema**
 * **CustomSchema**

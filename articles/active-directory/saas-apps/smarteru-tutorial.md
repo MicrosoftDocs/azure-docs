@@ -2,23 +2,20 @@
 title: 'Tutorial: Azure Active Directory integration with SmarterU | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SmarterU.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 95fe3212-d052-4ac8-87eb-ac5305227e85
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with SmarterU
+
+> [!NOTE]
+> The process for integrating SmarterU with Azure Active Directory is also documented and maintained in the [SmarterU help system](https://help.smarteru.com/ID2053086).
 
 In this tutorial, you learn how to integrate SmarterU with Azure Active Directory (Azure AD).
 Integrating SmarterU with Azure AD provides you with the following benefits:
@@ -27,7 +24,7 @@ Integrating SmarterU with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to SmarterU (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -57,7 +54,7 @@ To configure the integration of SmarterU into Azure AD, you need to add SmarterU
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, click **New application** button on the top of dialog.
 
 	![The New application button](common/add-new-app.png)
 
@@ -218,18 +215,18 @@ To enable Azure AD users to sign in to SmarterU, they must be provisioned into S
 	d. Click **Save**.
 
 > [!NOTE]
-> You can use any other SmarterU user account creation tools or APIs provided by SmarterU to provision AAD user accounts.
+> You can use any other SmarterU user account creation tools or APIs provided by SmarterU to provision Azure AD user accounts.
 
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the SmarterU tile in the Access Panel, you should be automatically signed in to the SmarterU for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the SmarterU tile in the Access Panel, you should be automatically signed in to the SmarterU for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

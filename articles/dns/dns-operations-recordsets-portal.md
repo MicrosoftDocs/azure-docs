@@ -2,22 +2,22 @@
 title: Manage DNS record sets and records with Azure DNS
 description: Azure DNS provides the capability to manage DNS record sets and records when hosting your domain.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/6/2018
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Manage DNS records and record sets by using the Azure portal
 
 This article shows you how to manage record sets and records for your DNS zone by using the Azure portal.
 
-It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone that have the same name and are the same type. For more information, see [Create DNS record sets and records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
+It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone that have the same name and are the same type. For more information, see [Create DNS record sets and records by using the Azure portal](./dns-getstarted-portal.md).
 
 ## Create a new record set and record
 
-To create a record set in the Azure portal, see [Create DNS records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
+To create a record set in the Azure portal, see [Create DNS records by using the Azure portal](./dns-getstarted-portal.md).
 
 ## View a record set
 

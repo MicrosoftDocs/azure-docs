@@ -1,21 +1,30 @@
 ---
 
-title: Configure ExpressRoute Direct - Azure CLI | Microsoft Docs
-description: This article helps you configure ExpressRoute Direct by using the Azure CLI
+title: 'Azure ExpressRoute: Configure ExpressRoute Direct: CLI'
+description: Learn how to use Azure CLI to configure Azure ExpressRoute Direct to connect directly to the Microsoft global network.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
-ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: cherylmc
-ms.custom: seodec18
+ms.topic: how-to
+ms.date: 12/14/2020
+ms.author: duau 
+ms.custom: devx-track-azurecli
 
 ---
 
 # Configure ExpressRoute Direct by using the Azure CLI
 
-You can use Azure ExpressRoute Direct to connect directly to the Microsoft global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+ExpressRoute Direct gives you the ability to directly connect to Microsoft's global network through peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+
+## Before you begin
+
+Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, send an Email to <ExpressRouteDirect@microsoft.com> with your subscription ID, including the following details:
+
+* Scenarios you're looking to accomplish with **ExpressRoute Direct**
+* Location preferences - see [Partners and peering locations](expressroute-locations-providers.md) for a complete list of all locations
+* Timeline for implementation
+* Any other questions
 
 ## <a name="resources"></a>Create the resource
 
@@ -37,7 +46,12 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
    az account set --subscription "<subscription ID>"
    ```
 
-2. List all locations where ExpressRoute Direct is supported:
+2. Re-register your subscription to Microsoft.Network to access the expressrouteportslocation and expressrouteport APIs
+
+   ```azurecli
+   az provider register --namespace Microsoft.Network
+   ```
+3. List all locations where ExpressRoute Direct is supported:
     
    ```azurecli
    az network express-route port location list
@@ -45,7 +59,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
 
    **Example output**
   
-   ```azurecli
+   ```output
    [
    {
     "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
@@ -104,7 +118,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
    }
    ]
    ```
-3. Determine whether one of the locations listed in the preceding step has available bandwidth:
+4. Determine whether one of the locations listed in the preceding step has available bandwidth:
 
    ```azurecli
    az network express-route port location show -l "Equinix-Ashburn-DC2"
@@ -112,7 +126,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
 
    **Example output**
 
-   ```azurecli
+   ```output
    {
    "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
    "availableBandwidths": [
@@ -130,7 +144,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
    "type": "Microsoft.Network/expressRoutePortsLocations"
    }
    ```
-4. Create an ExpressRoute Direct resource that's based on the location you chose in the preceding steps.
+5. Create an ExpressRoute Direct resource that's based on the location you chose in the preceding steps.
 
    ExpressRoute Direct supports both QinQ and Dot1Q encapsulation. If you select QinQ, each ExpressRoute circuit is dynamically assigned an S-Tag and is unique throughout the ExpressRoute Direct resource. Each C-Tag on the circuit must be unique on the circuit but not across the ExpressRoute Direct resource.  
 
@@ -150,7 +164,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
 
    **Example output**
 
-   ```azurecli
+   ```output
    {
    "allocationDate": "Wednesday, October 17, 2018",
    "bandwidthInGbps": 100,
@@ -218,7 +232,7 @@ Use this process to conduct a layer 1 test. Ensure that each cross-connection is
    ```
    **Example output**
 
-   ```azurecli
+   ```output
    {
    "allocationDate": "Wednesday, October 17, 2018",
    "bandwidthInGbps": 100,
@@ -270,7 +284,7 @@ Use this process to conduct a layer 1 test. Ensure that each cross-connection is
    }
    ```
 
-   Use the same procedure to down the ports by using `AdminState = “Disabled”`.
+   Use the same procedure to down the ports by using `AdminState = "Disabled"`.
 
 ## <a name="circuit"></a>Create a circuit
 
@@ -278,9 +292,10 @@ By default, you can create 10 circuits in the subscription that contains the Exp
 
 You can use additional circuit bandwidths on ExpressRoute Direct only to support the scenarios outlined here. The bandwidths are 40 Gbps and 100 Gbps.
 
-**SkuTier** can be Local, Standard or Premium.
+**SkuTier** can be Local, Standard, or Premium.
 
-**SkuFamily** must be MeteredData only as unlimited is not supported on ExpressRoute Direct.
+**SkuFamily** can only be MeteredData. Unlimited is not supported on ExpressRoute Direct.
+
 Create a circuit on the ExpressRoute Direct resource:
 
   ```azurecli
@@ -291,7 +306,7 @@ Create a circuit on the ExpressRoute Direct resource:
 
   **Example output**
 
-  ```azurecli
+  ```output
   {
   "allowClassicOperations": false,
   "allowGlobalReach": false,

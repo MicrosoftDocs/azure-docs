@@ -1,28 +1,24 @@
 ---
-title: Understand  the Android Microsoft Authentication Library (MSAL) configuration file 
+title: Android MSAL configuration file | Azure
 titleSuffix: Microsoft identity platform
 description: An overview of the Android Microsoft Authentication Library (MSAL) configuration file, which represents an application's configuration in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
+
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: reference
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
 ---
 
-# Android Microsoft Authentication Library (MSAL) configuration file
+# Android Microsoft Authentication Library configuration file
 
-MSAL ships with a [default configuration JSON file](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) that you customize to define the behavior of your public client app for things such as the default authority, which authorities you'll use, and so on.
+The Android Microsoft Authentication Library (MSAL) ships with a [default configuration JSON file](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) that you customize to define the behavior of your public client app for things such as the default authority, which authorities you'll use, and so on.
 
 This article will help you understand the various settings in the configuration file and how to specify the configuration file to use in your MSAL-based app.
 
@@ -34,6 +30,7 @@ This article will help you understand the various settings in the configuration 
 |-----------|------------|-------------|-------|
 | `client_id` | String | Yes | Your app's Client ID from the [Application registration page](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `redirect_uri`   | String | Yes | Your app's Redirect URI from the [Application registration page](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `broker_redirect_uri_registered` | Boolean | No | Possible values: `true`, `false` |
 | `authorities` | List\<Authority> | No | The list of authorities your app needs |
 | `authorization_user_agent` | AuthorizationAgent (enum) | No | Possible values: `DEFAULT`, `BROWSER`, `WEBVIEW` |
 | `http` | HttpConfiguration | No | Configure `HttpUrlConnection` `connect_timeout` and `read_timeout` |
@@ -47,6 +44,10 @@ The client ID or app ID that was created when you registered your application.
 
 The redirect URI you registered when you registered your application. If the redirect URI is to a broker app, refer to [Redirect URI for public client apps](msal-client-application-configuration.md#redirect-uri-for-public-client-apps) to ensure you're using the correct redirect URI format for your broker app.
 
+### broker_redirect_uri_registered
+
+If you want to use brokered authentication, the `broker_redirect_uri_registered` property must be set to `true`. In a brokered authentication scenario, if the application isn't in the correct format to talk to the broker as described in [Redirect URI for public client apps](msal-client-application-configuration.md#redirect-uri-for-public-client-apps), the application validates your redirect URI and throws an exception when it starts.
+
 ### authorities
 
 The list of authorities that are known and trusted by you. In addition to the authorities listed here, MSAL also queries Microsoft to get a list of clouds and authorities known to Microsoft. In this list of authorities, specify the type of the authority and any additional optional parameters such as `"audience"`, which should align with the audience of your app based on your app's registration. The following is an example list of authorities:
@@ -58,14 +59,14 @@ The list of authorities that are known and trusted by you. In addition to the au
     "audience": {
         "type": "AzureADandPersonalMicrosoftAccount"
     },
-    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken or acquireTokenSilent call
+    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken call
 },
 // Example AzureAD My Organization
 {
     "type": "AAD",
     "audience": {
         "type": "AzureADMyOrg",
-        "tenantId": "contoso.com" // Provide your specific tenant ID here
+        "tenant_id": "contoso.com" // Provide your specific tenant ID here
     }
 },
 // Example AzureAD Multiple Organizations
@@ -88,16 +89,17 @@ The list of authorities that are known and trusted by you. In addition to the au
 
 | Type | Audience | Tenant ID | Authority_Url | Resulting Endpoint | Notes |
 |------|------------|------------|----------------|----------------------|---------|
-| AAD | AzureADandPersonalMicrosoftAccount | | | https://login.microsoftonline.com/common | `common` is a tenant alias for where the account is. Such as a specific Azure Active Directory tenant or the Microsoft account system. |
-| AAD | AzureADMyOrg | contoso.com | | https://login.microsoftonline.com/contoso.com | Only accounts present in contoso.com can acquire a token. Any verified domain, or the tenant GUID, may be used as the tenant ID. |
-| AAD | AzureADMultipleOrgs | | | https://login.microsoftonline.com/organizations | Only Azure Active Directory accounts can be used with this endpoint. Microsoft accounts can be members of organizations. To acquire a token using a Microsoft account for a resource in an organization, specify the organizational tenant from which you want the token. |
-| AAD | PersonalMicrosoftAccount | | | https://login.microsoftonline.com/consumers | Only Microsoft accounts can use this endpoint. |
-| B2C | | | See Resulting Endpoint | https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/ | Only accounts present in the contoso.onmicrosoft.com tenant can acquire a token. In this example, the B2C policy is part of the Authority URL path. |
+| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` is a tenant alias for where the account is. Such as a specific Azure Active Directory tenant or the Microsoft account system. |
+| AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Only accounts present in contoso.com can acquire a token. Any verified domain, or the tenant GUID, may be used as the tenant ID. |
+| AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Only Azure Active Directory accounts can be used with this endpoint. Microsoft accounts can be members of organizations. To acquire a token using a Microsoft account for a resource in an organization, specify the organizational tenant from which you want the token. |
+| AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Only Microsoft accounts can use this endpoint. |
+| B2C | | | See Resulting Endpoint | `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/` | Only accounts present in the contoso.onmicrosoft.com tenant can acquire a token. In this example, the B2C policy is part of the Authority URL path. |
 
 > [!NOTE]
 > Authority validation cannot be enabled and disabled in MSAL.
 > Authorities are either known to you as the developer as specified via configuration or known to Microsoft via metadata.
 > If MSAL receives a request for a token to an unknown authority, an `MsalClientException` of type `UnknownAuthority` results.
+> Brokered authentication does not work for Azure AD B2C.
 
 #### Authority properties
 
@@ -150,7 +152,7 @@ The following global settings are for logging:
 | Property | Data Type  | Required | Notes |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | No | Whether to emit personal data |
-| `log_level`   | boolean | No | Which log messages to output |
+| `log_level`   | string | No | Which log messages to output. Supported log levels include `ERROR`,`WARNING`,`INFO`, and `VERBOSE`. |
 | `logcat_enabled` | boolean | No | Whether to output to log cat in addition to the logging interface |
 
 ### account_mode

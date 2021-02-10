@@ -1,9 +1,11 @@
 ---
-title: 'Reference: Ubuntu DSVM'
-description: 'Details on tools included in the Ubuntu Data Science Virtual Machine'
+title: 'Reference: Ubuntu Data Science Virtual Machine'
+titleSuffix: Azure Data Science Virtual Machine 
+description: Details on tools included in the Ubuntu Data Science Virtual Machine
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: devx-track-python
 
 ms.author: gopalv
 ms.date: 09/11/2019
@@ -49,7 +51,7 @@ Some example notebooks are available in JupyterHub.
 
 H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. 
 
-To open H2O from the command line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`. There are various [command-line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you might want to configure. You can access the Flow web UI by browsing to http://localhost:54321 to get started. Sample notebooks are also available in JupyterHub.
+To open H2O from the command line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`. There are various [command-line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you might want to configure. You can access the Flow web UI by browsing to `http://localhost:54321` to get started. Sample notebooks are also available in JupyterHub.
 
 ### Keras
 
@@ -63,7 +65,7 @@ MXNet is a deep learning framework designed for both efficiency and flexibility.
 
 The NVIDIA Deep Learning GPU Training System, known as DIGITS, is a system to simplify common deep learning tasks. These tasks include managing data, designing and training neural networks on GPU systems, and monitoring performance in real time with advanced visualization.
 
-DIGITS is available as a service called *digits*. Start the service and browse to http://localhost:5000 to get started.
+DIGITS is available as a service called *digits*. Start the service and browse to `http://localhost:5000` to get started.
 
 DIGITS is also installed as a Python module in the Conda root environment.
 
@@ -134,7 +136,7 @@ If you're on a graphical interface or have X11 forwarding set up, you can enter 
 
 The Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in by using your local Linux username and password.
 
-The Jupyter notebook server has been pre-configured with Python 2, Python 3, and R kernels. Use the **Jupyter Notebook** desktop icon to open the browser and access the notebook server. If you're on the VM via SSH or the X2Go client, you can also access the Jupyter notebook server at [https://localhost:8000/](https://localhost:8000/).
+The Jupyter notebook server has been pre-configured with Python 2, Python 3, and R kernels. Use the **Jupyter Notebook** desktop icon to open the browser and access the notebook server. If you're on the VM via SSH or the X2Go client, you can also access the Jupyter notebook server at `https://localhost:8000/`.
 
 > [!NOTE]
 > Continue if you get any certificate warnings.
@@ -204,11 +206,11 @@ The ODBC driver package for SQL Server also comes with two command-line tools:
 
 - **bcp**: The bcp tool bulk copies data between an instance of Microsoft SQL Server and a data file in a user-specified format. You can use the bcp tool to import large numbers of new rows into SQL Server tables, or to export data out of tables into data files. To import data into a table, you must use a format file created for that table. Or, you must understand the structure of the table and the types of data that are valid for its columns.
 
-  For more information, see [Connecting with bcp](https://msdn.microsoft.com/library/hh568446.aspx).
+  For more information, see [Connecting with bcp](/sql/connect/odbc/linux-mac/connecting-with-bcp).
 
 - **sqlcmd**: You can enter Transact-SQL statements by using the sqlcmd tool. You can also enter system procedures and script files at the command prompt. This tool uses ODBC to run Transact-SQL batches.
 
-  For more information, see [Connecting with sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
+  For more information, see [Connecting with sqlcmd](/sql/connect/odbc/linux-mac/connecting-with-sqlcmd).
 
   > [!NOTE]
   > There are some differences in this tool between Linux and Windows platforms. See the documentation for details.
@@ -224,11 +226,11 @@ Libraries are available in R and Python for database access:
 
 The following Azure tools are installed on the VM:
 
-* **Azure CLI**: You can use the command-line interface in Azure to create and manage Azure resources through shell commands. To open the Azure tools, enter **azure help**. For more information, see the [Azure CLI documentation page](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Azure CLI**: You can use the command-line interface in Azure to create and manage Azure resources through shell commands. To open the Azure tools, enter **azure help**. For more information, see the [Azure CLI documentation page](/cli/azure/get-started-with-az-cli2).
 * **Azure Storage Explorer**: Azure Storage Explorer is a graphical tool that you can use to browse through the objects that you have stored in your Azure storage account, and to upload and download data to and from Azure blobs. You can access Storage Explorer from the desktop shortcut icon. You can also open it from a shell prompt by entering **StorageExplorer**. You must be signed in from an X2Go client, or have X11 forwarding set up.
 * **Azure libraries**: The following are some of the pre-installed libraries.
   
-  * **Python**: The Azure-related libraries in Python are *azure*, *azureml*, *pydocumentdb*, and *pyodbc*. With the first three libraries, you can access Azure storage services, Azure Machine Learning, and Azure Cosmos DB (a NoSQL database on Azure). The fourth library, pyodbc (along with the Microsoft ODBC driver for SQL Server), enables access to SQL Server, Azure SQL Database, and Azure SQL Data Warehouse from Python by using an ODBC interface. Enter **pip list** to see all the listed libraries. Be sure to run this command in both the Python 2.7 and 3.5 environments.
+  * **Python**: The Azure-related libraries in Python are *azure*, *azureml*, *pydocumentdb*, and *pyodbc*. With the first three libraries, you can access Azure storage services, Azure Machine Learning, and Azure Cosmos DB (a NoSQL database on Azure). The fourth library, pyodbc (along with the Microsoft ODBC driver for SQL Server), enables access to SQL Server, Azure SQL Database, and Azure Synapse Analytics from Python by using an ODBC interface. Enter **pip list** to see all the listed libraries. Be sure to run this command in both the Python 2.7 and 3.5 environments.
   * **R**: The Azure-related libraries in R are AzureML and RODBC.
   * **Java**: The list of Azure Java libraries can be found in the directory /dsvm/sdk/AzureSDKJava on the VM. The key libraries are Azure storage and management APIs, Azure Cosmos DB, and JDBC drivers for SQL Server.  
 
@@ -236,15 +238,13 @@ You can access the [Azure portal](https://portal.azure.com) from the pre-install
 
 ## Azure Machine Learning
 
-Azure Machine Learning is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You build your experiments and models from Azure Machine Learning Studio. You can access it from a web browser on the Data Science Virtual Machine by visiting [Microsoft Azure Machine Learning](https://studio.azureml.net).
+Azure Machine Learning is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You can build your experiments and models in Azure Machine Learning studio (preview). You can access it from a web browser on the Data Science Virtual Machine by visiting [Microsoft Azure Machine Learning](https://ml.azure.com).
 
-After you sign in to Azure Machine Learning Studio, you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Machine Learning Studio. 
+After you sign in to Azure Machine Learning studio, you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning studio. 
 
 Operationalize the machine learning models that you have built by wrapping them in a web service interface. Operationalizing machine learning models enables clients written in any language to invoke predictions from those models. For more information, see the [Machine Learning documentation](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 You can also build your models in R or Python on the VM, and then deploy them in production on Azure Machine Learning. We have installed libraries in R (**AzureML**) and Python (**azureml**) to enable this functionality.
-
-For information on how to deploy models in R and Python into Azure Machine Learning, see [Ten things you can do on the Data Science Virtual Machine](vm-do-ten-things.md).
 
 > [!NOTE]
 > These instructions were written for the Windows version of the Data Science Virtual Machine. But the information provided there on deploying models to Azure Machine Learning is applicable to the Linux VM.
@@ -259,8 +259,10 @@ The VM comes with machine learning tools and algorithms that have been pre-compi
 * **Python**: Anaconda Python comes bundled with machine learning algorithms with libraries like Scikit-learn. You can install other libraries by using the `pip install` command.
 * **LightGBM**: A fast, distributed, high-performance gradient boosting framework based on decision tree algorithms.
 * **R**: A rich library of machine learning functions is available for R. Pre-installed libraries include lm, glm, randomForest, and rpart. You can install other libraries by running this command:
-  
-        install.packages(<lib name>)
+
+    ```r
+    install.packages(<lib name>)
+    ```
 
 Here is some additional information about the first three machine learning tools in the list.
 
@@ -306,7 +308,7 @@ cd xgboostdemo
 xgboost mushroom.conf
 ```
 
-A .model file is written to the specified directory. You can find information about this demo example [on GitHub](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
+A .model file is written to the specified directory. You can find information about this demo example [on GitHub](https://github.com/dmlc/xgboost/tree/master/demo/CLI/binary_classification).
 
 For more information about xgboost, see the [xgboost documentation page](https://xgboost.readthedocs.org/en/latest/) and its [GitHub repository](https://github.com/dmlc/xgboost).
 

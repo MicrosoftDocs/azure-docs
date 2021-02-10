@@ -1,85 +1,109 @@
-﻿- name: IoT Plug and Play Documentation
+﻿- name: IoT Plug and Play documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is IoT Plug and Play?
     href: overview-iot-plug-and-play.md
+  - name: What's in the current release
+    href: overview-iot-plug-and-play-current-release.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Use a device capability model to create a device
-    href: quickstart-create-pnp-device.md
+  - name: Set up your environment
+    href: set-up-environment.md
   - name: Connect a device to IoT Hub
-    href: quickstart-connect-pnp-device.md
-  - name: Connect a device to IoT Central
-    href: ../iot-central/core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-  - name: Connect to a device in your solution
-    href: quickstart-connect-pnp-device-solution.md
+    href: quickstart-connect-device.md
+  - name: Interact with a device from your solution
+    href: quickstart-service.md
 - name: Tutorials
   items:
-  - name: Create a device using VS Code
-    href: tutorial-pnp-visual-studio-code.md
-  - name: Build a device ready for certification
-    href: tutorial-build-device-certification.md
-  - name: Certify your device
-    href: tutorial-certification-test.md
+  - name: Connect a multiple component device
+    href: tutorial-multiple-components.md
+  - name: Use MQTT to connect a device
+    href: tutorial-use-mqtt.md
+  - name: Interact with an MXChip device (Sample)
+    href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
+  - name: Connect a device module
+    href: tutorial-migrate-device-to-module.md
+  - name: Preview - Connect and analyze data with Time Series Insights Gen2
+    href: tutorial-configure-tsi.md
 - name: Concepts
   items:
+  - name: Architecture
+    href: concepts-architecture.md
+  - name: Device developer guide
+    href: concepts-developer-guide-device.md
+  - name: Service developer guide
+    href: concepts-developer-guide-service.md
+  - name: Components
+    href: concepts-components.md
+  - name: IoT Plug and Play conventions
+    href: concepts-convention.md
+  - name: IoT Plug and Play bridge
+    href: concepts-iot-pnp-bridge.md
+  - name: Digital twins
+    href: concepts-digital-twin.md
+  - name: Device certification
+    href: concepts-certification-program.md
+  - name: Model repository
+    href: concepts-model-repository.md
+  - name: Use models in a solution
+    href: concepts-model-discovery.md
+  - name: Model parser
+    href: concepts-model-parser.md
   - name: Glossary
     href: iot-plug-and-play-glossary.md
-  - name: Developer guide
-    href: concepts-developer-guide.md
-  - name: Common interfaces
-    href: concepts-common-interfaces.md
-  - name: Model discovery
-    href: concepts-model-discovery.md
-  - name: Limits and quotas
-    href: concepts-limits-quotas.md
 - name: How-to guides
   items:
-  - name: Develop with Visual Studio and Visual Studio Code
-    href: howto-develop-with-vs-vscode.md
-  - name: Install IoT explorer
-    href: howto-install-iot-explorer.md
-  - name: Install Azure CLI extension
-    href: howto-install-pnp-cli.md    
-  - name: Onboard to the IoT portal
-    href: howto-onboard-portal.md
-  - name: Manage models
-    href: howto-manage-models.md
-  - name: Connect to and interact with a device
-    href: howto-develop-solution.md
+  - name: Install and use IoT explorer
+    href: howto-use-iot-explorer.md
+  - name: Install and use DTDL authoring tools
+    href: howto-use-dtdl-authoring-tools.md
+  - name: Use embedded C
+    href: howto-use-embedded-c.md
+  - name: Manage digital twins
+    href: howto-manage-digital-twin.md
+  - name: Certify a device
+    href: howto-certify-device.md
+  - name: How to connect an IoT Plug and Play bridge sample
+    href: howto-use-iot-pnp-bridge.md
+  - name: Build and deploy IoT Plug and Play bridge
+    href: howto-build-deploy-extend-pnp-bridge.md
+  - name: Extend IoT Plug and Play bridge
+    href: howto-author-pnp-bridge-adapter.md
 - name: Reference
   items:
-  - name: REST
-    href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/createorupdatemodel
-  - name: Generate a REST security token
-    href: howto-generate-sas-token.md
-- name: Related
+  - name: Libraries and SDKs
+    href: libraries-sdks.md
+  - name: Digital Twin REST API
+    href: /rest/api/iothub/service/digitaltwin
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
+- name: Resources
   items:
-  - name: Solutions
-    items:
-    - name: IoT Central
-      href: /azure/iot-central
-    - name: IoT solution accelerators
-      href: /azure/iot-accelerators
-  - name: Platform Services
+  - name: Support and help options
+    href: ../iot-fundamentals/iot-support-help.md
+  - name: Azure IoT services
     items:
     - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Plug and Play
-      href: /azure/iot-pnp
+      href: ../iot-hub/index.yml
     - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
-    - name: IoT Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Maps
-      href: /azure/azure-maps
+      href: ../iot-dps/index.yml
+    - name: IoT Central
+      href: /microsoft-iot-central/
+    - name: IoT Edge
+      href: ../iot-edge/index.yml
+    - name: IoT solution accelerators
+      href: ../iot-accelerators/index.yml
+    - name: IoT Plug and Play
+      href: ./index.yml
+    - name: Azure Maps
+      href: ../azure-maps/index.yml
     - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: IoT Edge
+      href: ../time-series-insights/index.yml
+  - name: Azure IoT SDKs
     items:
-    - name: Azure IoT Edge
-      href: /azure/iot-edge
+    - name: IoT Service SDKs
+      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
     - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks

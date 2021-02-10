@@ -3,18 +3,18 @@ title: Create a CI/CD pipeline with Azure Pipelines - Team Data Science Process
 description: "Create a continuous integration and continuous delivery pipeline for Artificial Intelligence (AI) applications using Docker and Kubernetes."
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
 ---
 # Create CI/CD pipelines for AI apps using Azure Pipelines, Docker, and Kubernetes
 
-An Artificial Intelligence (AI) application is application code embedded with a pretrained machine learning (ML) model. There are always two streams of work for an AI application: Data scientists build the ML model, and app developers build the app and expose it to end users to consume. This article describes how to implement a continuous integration and continuous delivery (CI/CD) pipeline for an AI application that embeds the ML model into the app source code. The sample code and tutorial use a simple Python Flask web application, and fetch a pretrained model from a private Azure blob storage account. You could also use an AWS S3 storage account.
+An Artificial Intelligence (AI) application is application code embedded with a pretrained machine learning (ML) model. There are always two streams of work for an AI application: Data scientists build the ML model, and app developers build the app and expose it to end users to consume. This article describes how to implement a continuous integration and continuous delivery (CI/CD) pipeline for an AI application that embeds the ML model into the app source code. The sample code and tutorial use a Python Flask web application, and fetch a pretrained model from a private Azure blob storage account. You could also use an AWS S3 storage account.
 
 > [!NOTE]
 > The following process is one of several ways to do CI/CD. There are alternatives to this tooling and the prerequisites.
@@ -28,9 +28,9 @@ To use the downloaded source code and tutorial, you need the following prerequis
 - The [source code repository](https://github.com/Azure/DevOps-For-AI-Apps) forked to your GitHub account
 - An [Azure DevOps Organization](/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 - [Azure CLI](/cli/azure/install-azure-cli)
-- An [Azure Container Service for Kubernetes (AKS) cluster](/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
+- An [Azure Container Service for Kubernetes (AKS) cluster](/previous-versions/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) to run commands and fetch configuration from the AKS cluster 
-- An [Azure Container Registry (ACR) account](/azure/container-registry/container-registry-get-started-portal)
+- An [Azure Container Registry (ACR) account](../../container-registry/container-registry-get-started-portal.md)
 
 ## CI/CD pipeline summary
 
@@ -56,7 +56,7 @@ The following diagram and steps describe the CI/CD pipeline architecture:
 
 ## See also
 
-- [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/)
-- [Azure Machine Learning (AML)](/azure/machine-learning/)
+- [Team Data Science Process (TDSP)](./index.yml)
+- [Azure Machine Learning (AML)](../index.yml)
 - [Azure DevOps](https://azure.microsoft.com/services/devops/)
-- [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes)
+- [Azure Kubernetes Services (AKS)](../../aks/intro-kubernetes.md)

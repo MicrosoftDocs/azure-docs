@@ -84,7 +84,9 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
     2. Use the following command to check the policies and reconfigure as needed:
 
        ```
-        reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
+        reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\Licensing Core" /v LicensingMode
+
+        reg query "HKLM\SYSTEM\CurrentControlSet\Services\TermService\Parameters" /v SpecifiedLicenseServers
        ```
 
         If the **LicensingMode** value is set to any value other than 4, per user, then set the value to 4:
@@ -119,7 +121,7 @@ To resolve this problem, [back up the OS disk](../windows/snapshot-copy-managed-
        telnet <FQDN / IP License Server> 135
        ```
 
-3. If there's no Remote Desktop license server in the environment and you want one, you can [install a Remote Desktop licensing role service](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)). Then [configure the RDS licensing](https://techcommunity.microsoft.com/t5/Ask-The-Performance-Team/RD-Licensing-Configuration-on-Windows-Server-2012/ba-p/375383).
+3. If there's no Remote Desktop license server in the environment and you want one, you can [install a Remote Desktop licensing role service](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc731765(v=ws.11)). Then [configure the RDS licensing](https://techcommunity.microsoft.com/t5/Ask-The-Performance-Team/RD-Licensing-Configuration-on-Windows-Server-2012/ba-p/375383).
 
 4. If a Remote Desktop license server is configured and healthy, make sure that the Remote Desktop license server is activated with CALs.
 

@@ -1,12 +1,8 @@
 ---
 title: Get resource changes
-description: Understand how to find when a resource was changed and get a list of the properties that changed.
-services: resource-graph
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 10/09/2019
-ms.topic: conceptual
-ms.service: resource-graph
+description: Understand how to find when a resource was changed, get a list of the properties that changed, and evaluate the diffs.
+ms.date: 01/27/2021
+ms.topic: how-to
 ---
 # Get resource changes
 
@@ -30,17 +26,18 @@ Change detection and details are valuable for the following example scenarios:
 
 This article shows how to gather this information through Resource Graph's SDK. To see this
 information in the Azure portal, see Azure Policy's
-[Change history](../../policy/how-to/determine-non-compliance.md#change-history-preview) or Azure
-Activity Log [Change history](../../../azure-monitor/platform/activity-log-view.md#azure-portal).
-For details about changes to your applications from the infrastructure layer all the way to
-application deployment, see
+[Change history](../../policy/how-to/determine-non-compliance.md#change-history) or Azure Activity
+Log [Change history](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). For
+details about changes to your applications from the infrastructure layer all the way to application
+deployment, see
 [Use Application Change Analysis (preview)](../../../azure-monitor/app/change-analysis.md) in Azure
 Monitor.
 
 > [!NOTE]
 > Change details in Resource Graph are for Resource Manager properties. For tracking changes inside
-> a virtual machine, see Azure Automation's [Change tracking](../../../automation/automation-change-tracking.md)
-> or Azure Policy's [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md).
+> a virtual machine, see Azure Automation's
+> [Change tracking](../../../automation/change-tracking/overview.md) or Azure Policy's
+> [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]
 > Change history in Azure Resource Graph is in Public Preview.
@@ -192,7 +189,7 @@ Example request body:
 ```json
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}"
+    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"afterTime\":'2019-05-10T00:00:00.000Z\"}"
 }
 ```
 
@@ -306,7 +303,7 @@ The response looks similar to this example:
 
 **beforeSnapshot** and **afterSnapshot** each give the time the snapshot was taken and the
 properties at that time. The change happened at some point between these snapshots. Looking at the
-example above, we can see that the property that changed was **supportsHttpsTrafficOnly**.
+previous example, we can see that the property that changed was **supportsHttpsTrafficOnly**.
 
 To compare the results, either use the **changes** property in **resourceChanges** or evaluate the
 **content** portion of each snapshot in **resourceChangeDetails** to determine the difference. If
@@ -316,4 +313,6 @@ you compare the snapshots, the **timestamp** always shows as a difference despit
 
 - See the language in use in [Starter queries](../samples/starter.md).
 - See advanced uses in [Advanced queries](../samples/advanced.md).
-- Learn to [explore resources](../concepts/explore-resources.md).
+- Learn more about how to [explore resources](../concepts/explore-resources.md).
+- For guidance on working with queries at a high frequency, see
+  [Guidance for throttled requests](../concepts/guidance-for-throttled-requests.md).

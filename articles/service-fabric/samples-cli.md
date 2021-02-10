@@ -1,21 +1,10 @@
 ---
 title: Azure CLI (az) and Azure Service Fabric CLI (sfctl) Samples
-description: Azure CLI (az) and Azure Service Fabric CLI (sfctl) Samples
-services: service-fabric
-documentationcenter: service-fabric
-author: athinanthny
-manager: chackdan
-editor: 
-tags: 
+description: Azure CLI (az) and Azure Service Fabric CLI (sfctl) Samples on managing clusters, applications, and services.
 
-ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
-ms.service: service-fabric
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: service-fabric
-ms.date: 04/09/2018
-ms.author: atsenthi
-ms.custom: mvc
+ms.date: 04/09/2018 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI (az) and Azure Service Fabric CLI (sfctl) Samples
@@ -24,7 +13,7 @@ The following table includes links to samples on how to manage Service Fabric cl
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-| | |
+| Sample | Description |
 |-|-|
 | **Create cluster** (with Azure CLI)||
 | [Create a secure Linux cluster](./scripts/cli-create-cluster.md)| Creates an Azure Service Fabric cluster. |

@@ -2,20 +2,15 @@
 title: Azure CLI Script Sample - Rotate storage account access keys | Microsoft Docs
 description: Create an Azure Storage account, then retrieve and rotate its account access keys.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
 
-ms.assetid:
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
+ms.subservice: blobs
+ms.devlang: cli
 ms.topic: sample
-ms.date: 06/22/2017
-ms.author: tamram
+ms.date: 10/20/2020
+ms.author: tamram 
+ms.custom: devx-track-azurecli
 ---
 
 # Create a storage account and rotate its account access keys
@@ -30,7 +25,7 @@ This script creates an Azure Storage account, displays the new storage account's
 
 [!code-azurecli-interactive[main](../../../cli_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.sh "Rotate storage account keys")]
 
-## Clean up deployment 
+## Clean up deployment
 
 Run the following command to remove the resource group, storage account, and all related resources.
 

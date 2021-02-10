@@ -1,22 +1,14 @@
 ---
-title: Azure PowerShell Samples - Attach and use data disks | Microsoft Docs
-description: Azure PowerShell Samples
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
-ms.service: virtual-machine-scale-sets
-ms.devlang: na
+title: Azure PowerShell Samples - Attach and use data disks
+description: This script creates an Azure virtual machine scale set and attaches and prepares data disks using PowerShell.
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/27/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.service: virtual-machine-scale-sets
+ms.subservice: disks
+ms.date: 06/25/2020
+ms.reviewer: jushiman
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 
@@ -50,6 +42,4 @@ This script uses the following commands to create the deployment. Each item in t
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 
 ## Next steps
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
-
-Additional virtual machine scale set PowerShell script samples can be found in the [Azure virtual machine scale set documentation](../powershell-samples.md).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).

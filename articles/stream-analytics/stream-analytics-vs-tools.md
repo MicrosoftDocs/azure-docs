@@ -1,13 +1,11 @@
 ---
 title: View Azure Stream Analytics jobs in Visual Studio
 description: Learn how to view, start and stop, test connections, check results, and export your Azure Stream Analytics jobs using Visual Studio.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2018
 ---
 
@@ -79,5 +77,4 @@ The **Test Connection** results are displayed in the **Output** window.
 
 * [Monitor and manage Azure Stream Analytics jobs using Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
 * [Quickstart: Create a Stream Analytics job using Visual Studio](stream-analytics-quick-create-vs.md)
-* [Tutorial: Deploy an Azure Stream Analytics job with CI/CD using Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Continuously integrate and develop with Stream Analytics tools](stream-analytics-tools-for-visual-studio-cicd.md)

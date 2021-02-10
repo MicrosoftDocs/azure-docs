@@ -3,24 +3,22 @@ title: Manage DNS zones in Azure DNS - PowerShell | Microsoft Docs
 description: You can manage DNS zones using Azure Powershell. This article describes how to update, delete and create DNS zones on Azure DNS
 services: dns
 documentationcenter: na
-author: vhorne
-manager: timlt
-
-ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
+author: rohinkoul
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
-ms.author: victorh
+ms.author: rohink 
+ms.custom: devx-track-azurepowershell
 ---
 # How to manage DNS Zones using PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure classic CLI](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure classic CLI](./dns-operations-dnszones-cli.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 
 This article shows you how to manage your DNS zones by using Azure PowerShell. You can also manage your DNS zones using the cross-platform [Azure CLI](dns-operations-dnszones-cli.md) or the Azure portal.
@@ -170,4 +168,3 @@ Learn how to [manage record sets and records](dns-operations-recordsets.md) in y
 Learn how to [delegate your domain to Azure DNS](dns-domain-delegation.md).
 <br>
 Review the [Azure DNS PowerShell reference documentation](/powershell/module/azurerm.dns).
-

@@ -1,12 +1,10 @@
 ---
-title: "Rate limiting for SMS, emails, Azure App push notifications and webhooks"
+title: Rate limiting for SMS, emails, push notifications
 description: Understand how Azure limits the number of possible SMS, email, Azure App push or webhook notifications from an action group.
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
-ms.author: dukek
 ms.subservice: alerts
 ---
 
@@ -29,5 +27,4 @@ The rate limit thresholds are:
 ## Next steps ##
 * Learn more about [SMS alert behavior](alerts-sms-behavior.md).
 * Get an [overview of activity log alerts](alerts-overview.md), and learn how to receive alerts.  
-* Learn how to [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-
+* Learn how to [configure alerts whenever a service health notification is posted](../../service-health/alerts-activity-log-service-notifications-portal.md).

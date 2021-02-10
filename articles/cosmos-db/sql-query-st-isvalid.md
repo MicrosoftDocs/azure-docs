@@ -3,13 +3,16 @@ title: ST_ISVALID in Azure Cosmos DB query language
 description: Learn about SQL system function ST_ISVALID in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 11/23/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # ST_ISVALID (Azure Cosmos DB)
- Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, or LineString expression is valid.  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
+ Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, MultiPolygon, or LineString expression is valid.  
   
 ## Syntax
   

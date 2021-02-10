@@ -1,29 +1,24 @@
 ---
-title: Get consent for several resources (Microsoft Authentication Library for .NET) 
+title: Get consent for several resources (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how a user can get pre-consent for several resources using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/30/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn how to specify additional scopes so I can get pre-consent for several resources.
-ms.collection: M365-identity-device-management
 ---
 
 # User gets consent for several resources using MSAL.NET
-The Microsoft identity platform endpoint does not allow you to get a token for several resources at once. When using the Microsoft Authentication Library for .NET (MSAL.NET), the scopes parameter in the acquire token method should only contain scopes for a single resource. However, you can pre-consent to several resources upfront by specifying additional scopes using the `.WithExtraScopeToConsent` builder method.
+The Microsoft identity platform does not allow you to get a token for several resources at once. When using the Microsoft Authentication Library for .NET (MSAL.NET), the scopes parameter in the acquire token method should only contain scopes for a single resource. However, you can pre-consent to several resources upfront by specifying additional scopes using the `.WithExtraScopeToConsent` builder method.
 
 > [!NOTE]
 > Getting consent for several resources works for Microsoft identity platform, but not for Azure AD B2C. Azure AD B2C supports only admin consent, not user consent.
@@ -54,7 +49,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-This will get you an access token for the first web API. Then, when you need to access the second web API you can silently acquire the token from the token cache:
+This will get you an access token for the first web API. Then, to access the second web API you can silently acquire the token from the token cache:
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

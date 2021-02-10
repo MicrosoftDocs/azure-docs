@@ -1,17 +1,11 @@
 ---
 title: Deployment FAQs - Azure App Service | Microsoft Docs
 description: Get answers to frequently asked questions about deployment for the Web Apps feature of Azure App Service.
-services: app-service\web
-documentationcenter: ''
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
@@ -42,7 +36,7 @@ To resolve this error, upgrade to the [latest SDK](https://azure.microsoft.com/d
 ## How do I deploy an ASP.NET application from Visual Studio to App Service?
 <a id="deployasp"></a>
 
-The tutorial [Create your first ASP.NET web app in Azure in five minutes](app-service-web-get-started-dotnet.md) shows you how to deploy an ASP.NET web application to a web app in App Service by using Visual Studio.
+The tutorial [Create your first ASP.NET web app in Azure in five minutes](quickstart-dotnetcore.md) shows you how to deploy an ASP.NET web application to a web app in App Service by using Visual Studio.
 
 ## What are the different types of deployment credentials?
 

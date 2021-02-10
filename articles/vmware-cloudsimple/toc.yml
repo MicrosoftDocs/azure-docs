@@ -1,5 +1,5 @@
 - name: VMware Solution by CloudSimple
-  href: /azure/vmware-cloudsimple
+  href: ./index.md
   items:
   - name: Overview
     items: 
@@ -52,6 +52,8 @@
       href: node-quota.md
     - name: Maintenance and updates
       href: cloudsimple-maintenance-updates.md
+    - name: Forbidden actions 
+      href: forbidden-actions.md
     - name: FAQ
       href: cloudsimple-faq.md
   - name: Tutorials
@@ -134,6 +136,10 @@
         href: azure-expressroute-connection.md
       - name: Configure DNS name resolution
         href: on-premises-dns-setup.md
+      - name: Configure highly available Site-to-Site VPN connections
+        href: high-availability-vpn-connection.md
+      - name: Private Cloud DNS configuration to on premises
+        href: private-cloud-dns-forwarding.md
     - name: VMware platform
       items:
       - name: Learn Private Cloud permission model
@@ -174,4 +180,7 @@
         href: on-premises-connection.md
       - name: Azure Virtual network connection with ExpressRoute
         href: azure-expressroute-connection.md
-
+  - name: Release notes
+    items:
+    - name: CloudSimple September 2020 Update
+      href: update-plan-sept-2020.md

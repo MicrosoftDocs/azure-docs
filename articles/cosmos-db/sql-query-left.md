@@ -3,12 +3,15 @@ title: LEFT in Azure Cosmos DB query language
 description: Learn about SQL system function LEFT in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ---
 # LEFT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the left part of a string with the specified number of characters.  
   
 ## Syntax
@@ -42,6 +45,10 @@ SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2
 ```json
 [{"l1": "a", "l2": "ab"}]  
 ```  
+
+## Remarks
+
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
 
 ## Next steps
 

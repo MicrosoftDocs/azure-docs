@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Showpad | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Showpad.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 48b6bee0-dbc5-4863-964d-75b25e517741
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Showpad
 
@@ -27,7 +21,7 @@ Integrating Showpad with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to Showpad (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -131,15 +125,15 @@ To configure Azure AD single sign-on with Showpad, perform the following steps:
 
 1. In the menu on the top, click the **Settings**.
 
-    ![Configure Single Sign-On On App Side](./media/showpad-tutorial/tutorial_showpad_001.png)
+    ![Screenshot shows Settings selected from the Settings menu.](./media/showpad-tutorial/tutorial_showpad_001.png)
 
 1. Navigate to **Single Sign-On** and click **Enable**.
 
-    ![Configure Single Sign-On On App Side](./media/showpad-tutorial/tutorial_showpad_002.png)
+    ![Screenshot shows Single Sign-On selected with an Enable option.](./media/showpad-tutorial/tutorial_showpad_002.png)
 
 1. On the **Add a SAML 2.0 Service** dialog, perform the following steps:
 
-    ![Configure Single Sign-On On App Side](./media/showpad-tutorial/tutorial_showpad_003.png) 
+    ![Screenshot shows the Add a SAML 2.0 Service dialog box where you can enter the values described.](./media/showpad-tutorial/tutorial_showpad_003.png) 
 
     a. In the **Name** textbox, type the name of Identifier Provider (for example: your company name).
 
@@ -210,13 +204,12 @@ In this section, a user called Britta Simon is created in Showpad. Showpad suppo
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Showpad tile in the Access Panel, you should be automatically signed in to the Showpad for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Showpad tile in the Access Panel, you should be automatically signed in to the Showpad for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

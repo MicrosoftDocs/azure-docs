@@ -1,24 +1,1523 @@
 - name: Virtual Machines Documentation
   href: index.yml
-- name: Linux Virtual Machines in Azure
-  href: https://docs.microsoft.com/azure/virtual-machines/linux/
-- name: Windows Virtual Machines in Azure
-  href: https://docs.microsoft.com/azure/virtual-machines/windows/
-- name: VM Extensions Documentation
-  href: ./extensions/overview.md
-- name: Workloads
-  href: ./workloads/workloads.md
-- name: Classic deployments
+- name: Overview
   items:
-  - name: Linux VMs using classic deployment
-    href: https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/
-  - name: Windows VMs using classic deployment
-    href: https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/
+  - name: About Linux Virtual Machines
+    href: ./linux/overview.md
+  - name: About Windows Virtual Machines
+    href: ./windows/overview.md
+- name: Quickstarts
+  items:
+  - name: Create a Linux VM
+    items:
+    - name: CLI
+      href: ./linux/quick-create-cli.md
+    - name: Portal
+      href: ./linux/quick-create-portal.md
+    - name: PowerShell
+      href: ./linux/quick-create-powershell.md
+    - name: ARM template
+      displayName: Resource Manager, template, json
+      href: ./linux/quick-create-template.md
+  - name: Create a Windows VM
+    items:
+    - name: CLI
+      href: ./windows/quick-create-cli.md
+    - name: Portal
+      href: ./windows/quick-create-portal.md
+    - name: PowerShell
+      href: ./windows/quick-create-powershell.md
+    - name: ARM template
+      displayName: Resource Manager, template, json
+      href: ./windows/quick-create-template.md
+  expanded: true
+- name: Tutorials
+  items:
+  - name: Linux
+    items:
+    - name: 1 - Create / manage VMs
+      href: ./linux/tutorial-manage-vm.md
+    - name: 2 - Create / manage disks
+      href: ./linux/tutorial-manage-disks.md
+    - name: 3 - Automate configuration
+      href: ./linux/tutorial-automate-vm-deployment.md
+    - name: 4 - Create VM images
+      href: ./linux/tutorial-custom-images.md
+    - name: 5 - Highly available VMs
+      href: ./linux/tutorial-availability-sets.md
+    - name: 6 - Create a scale set
+      href: ./linux/tutorial-create-vmss.md
+    - name: 7 - Load balance VMs
+      href: ./linux/tutorial-load-balancer.md
+    - name: 8 - Manage networking
+      href: ./linux/tutorial-virtual-network.md
+  - name: Windows
+    items:
+    - name: 1 - Create / manage a VM
+      href: ./windows/tutorial-manage-vm.md
+    - name: 2 - Create / manage disks
+      href: ./windows/tutorial-manage-data-disk.md
+    - name: 3 - Automate configuration
+      href: ./windows/tutorial-automate-vm-deployment.md
+    - name: 4 - Create VM images
+      href: ./windows/tutorial-custom-images.md
+    - name: 5 - Highly available VMs
+      href: ./windows/tutorial-availability-sets.md
+    - name: 6 - Create a scale set
+      href: ./windows/tutorial-create-vmss.md
+    - name: 7 - Load balance VMs
+      href: ./windows/tutorial-load-balancer.md
+    - name: 8 - Manage networking
+      href: ./windows/tutorial-virtual-network.md
+- name: Workloads
+  items:
+  - name: Red Hat
+    href: ./workloads/redhat/overview.md
+  - name: Cloud Foundry
+    href: ../cloudfoundry/index.yml
+  - name: OpenShift
+    items:
+    - name: OpenShift overview
+      href: ./linux/openshift-get-started.md
+    - name: OpenShift Container Platform 4.x
+      href: ./linux/openshift-container-platform-4x.md
+    - name: OpenShift Container Platform 3.11 prerequisites
+      href: ./linux/openshift-container-platform-3x-prerequisites.md
+    - name: OpenShift Container Platform 3.11
+      href: ./linux/openshift-container-platform-3x.md
+    - name: OpenShift Container Platform 3.11 Marketplace Self-Managed
+      href: ./linux/openshift-container-platform-3x-marketplace-self-managed.md
+    - name: Azure Stack
+      href: ./linux/openshift-azure-stack.md
+    - name: OpenShift Container Platform 3.11 post-deployment tasks
+      href: ./linux/openshift-container-platform-3x-post-deployment.md
+    - name: Troubleshooting OpenShift Container Platform 3.11 deployments
+      href: ./linux/openshift-container-platform-3x-troubleshooting.md
+    - name: Deploy OKD
+      href: ./linux/openshift-okd.md
+  - name: SAP on Azure
+    href: ./workloads/sap/get-started.md
+  - name: Oracle
+    href: ./workloads/oracle/oracle-database-quick-create.md
+  - name: Elasticsearch
+    href: ./linux/tutorial-elasticsearch.md
+  - name: Mainframe rehosting
+    href: ./workloads/mainframe-rehosting/overview.md
+  - name: SQL on Virtual Machines
+    href: https://docs.microsoft.com/azure/azure-sql/virtual-machines/
+  - name: High Performance Computing (HPC)
+    href: /azure/architecture/topics/high-performance-computing/
+- name: Instances
+  items:
+  - name: Sizes
+    items:
+    - name: Overview
+      href: sizes.md
+    - name: Change the VM size
+      items:
+      - name: CLI
+        href: ./linux/change-vm-size.md
+      - name: Portal or PowerShell
+        href: ./windows/resize-vm.md
+    - name: Generation 2 VMs
+      href: generation-2.md
+    - name: General purpose
+      items:
+      - name: Overview
+        href: sizes-general.md
+      - name: Av2-series
+        href: av2-series.md
+      - name: B-series burstable
+        href: sizes-b-series-burstable.md
+      - name: DCsv2-series
+        href: dcv2-series.md
+      - name: Dv2 and DSv2-series
+        href: dv2-dsv2-series.md
+      - name: Dv3 and Dsv3-series
+        href: dv3-dsv3-series.md
+      - name: Dav4 and Dasv4-series
+        href: dav4-dasv4-series.md
+      - name: Ddv4 and Ddsv4-series
+        href: ddv4-ddsv4-series.md
+      - name: Dv4 and Dsv4-series
+        href: dv4-dsv4-series.md
+    - name: Compute optimized
+      items:
+      - name: Overview
+        href: sizes-compute.md
+      - name: Fsv2-series
+        href: fsv2-series.md
+    - name: Memory optimized
+      displayName: Esv3 Ev3 Easv4 Eav4 M-series GS G-series DSv2 Dv2
+      items:
+      - name: Overview
+        href: sizes-memory.md
+      - name: Dv2 and DSv2-series 11-15
+        href: dv2-dsv2-series-memory.md
+      - name: Ev3 and Esv3-series
+        href: ev3-esv3-series.md
+      - name: Eav4 and Easv4-series
+        href: eav4-easv4-series.md
+      - name: Edv4 and Edsv4-series
+        href: edv4-edsv4-series.md
+      - name: Ev4 and Esv4-series
+        href: ev4-esv4-series.md
+      - name: M-series
+        href: m-series.md
+      - name: Mv2-series
+        href: mv2-series.md
+      - name: Constrained vCPUs
+        href: constrained-vcpu.md
+    - name: Storage optimized
+      items:
+      - name: Overview
+        href: sizes-storage.md
+      - name: Lsv2-series
+        href: lsv2-series.md
+      - name: Optimize performance
+        items:
+        - name: Linux
+          href: ./linux/storage-performance.md
+        - name: Windows
+          href: ./windows/storage-performance.md
+    - name: GPU - accelerated compute
+      items:
+      - name: Overview
+        href: sizes-gpu.md?context=/azure/virtual-machines/context/context
+      - name: NC-series
+        href: nc-series.md
+      - name: NCv2-series
+        href: ncv2-series.md
+      - name: NCv3-series
+        href: ncv3-series.md
+      - name: NCasT4_v3-series
+        href: nct4-v3-series.md
+      - name: ND-series
+        href: nd-series.md
+      - name: NDv2-series
+        href: ndv2-series.md
+      - name: NV-series
+        href: nv-series.md
+      - name: NVv3-series
+        href: nvv3-series.md
+      - name: NVv4-series
+        href: nvv4-series.md
+      - name: Setup NVIDIA GPU drivers
+        items:
+        - name: Linux
+          href: ./linux/n-series-driver-setup.md
+        - name: Windows
+          href: ./windows/n-series-driver-setup.md
+      - name: Setup AMD GPU drivers
+        href: ./windows/n-series-amd-driver-setup.md
+    - name: High performance compute
+      displayName: H-series
+      items:
+      - name: Overview
+        href: sizes-hpc.md
+      - name: H-series
+        href: h-series.md
+      - name: HB-series
+        href: hb-series.md
+      - name: HBv2-series
+        href: hbv2-series.md
+      - name: HC-series
+        href: hc-series.md
+    - name: vCPU quotas
+      items:
+      - name: CLI
+        href: ./linux/quotas.md
+      - name: PowerShell
+        href: ./windows/quotas.md
+    - name: Azure VMs with no temp disk
+      href: azure-vms-no-temp-disk.md
+    - name: Azure VM sizes naming conventions
+      href: vm-naming-conventions.md
+    - name: Previous generations
+      displayName: D-series Ds-series A-series Basic
+      href: sizes-previous-gen.md
+    - name: Isolated sizes
+      href: isolation.md
+    - name: Azure compute units (ACU)
+      href: acu.md
+    - name: Benchmark scores
+      items:
+      - name: Linux
+        href: ./linux/compute-benchmark-scores.md
+      - name: Windows
+        href: ./windows/compute-benchmark-scores.md
+  - name: Dedicated hosts
+    items:
+    - name: Overview
+      href: ./linux/dedicated-hosts.md
+    - name: CLI
+      href: ./linux/dedicated-hosts-cli.md
+    - name: Portal
+      href: dedicated-hosts-portal.md
+    - name: PowerShell
+      href: ./windows/dedicated-hosts-powershell.md
+  - name: Spot Virtual Machines
+    displayName: pre-empt, preempt, spot
+    items:
+    - name: Overview
+      href: spot-vms.md
+    - name: CLI
+      href: ./linux/spot-cli.md
+    - name: Portal
+      href: spot-portal.md
+    - name: PowerShell
+      href: ./windows/spot-powershell.md
+    - name: ARM template
+      displayName: template ARM
+      href: ./linux/spot-template.md
+    - name: Error codes
+      href: error-codes-spot.md
+  - name: Purchasing options
+    items:
+    - name: Azure Hybrid Benefit
+      items:
+      - name: Linux
+        href: ./linux/azure-hybrid-benefit-linux.md
+      - name: Windows
+        items:
+        - name: Use Azure Hybrid Benefit license
+          href: ./windows/hybrid-use-benefit-licensing.md
+        - name: Use Multitenant Hosting Rights for Windows 10
+          href: ./windows/windows-desktop-multitenant-hosting-deployment.md
+    - name: Reserved instances
+      items:
+      - name: Prepay for VMs
+        href: ./linux/prepay-reserved-vm-instances.md
+      - name: Prepay for Dedicated Hosts
+        href: prepay-dedicated-hosts-reserved-instances.md
+      - name: What are Azure reservations?
+        href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
+      - name: VM instance size flexibility
+        href: reserved-vm-instance-size-flexibility.md
+  - name: Create Linux VMs
+    items:
+    - name: Endorsed distros
+      href: ./linux/endorsed-distros.md
+    - name: Use the CLI
+      href: ./linux/create-cli-complete.md
+    - name: Use an ARM template
+      displayName: Azure Resource Manager
+      href: ./linux/create-ssh-secured-vm-from-template.md
+    - name: Use REST API
+      href: ./linux/create-vm-rest-api.md
+    - name: Copy a VM using CLI
+      href: ./linux/copy-vm.md
+    - name: Build with Jenkins
+      href: /azure/developer/jenkins/pipeline-with-github-and-docker
+    - name: Integrate Jenkins with Azure DevOps
+      href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
+    - name: Configure Rolling deployment strategy
+      href: ./linux/tutorial-devops-azure-pipelines-classic.md
+    - name: Configure Canary deployment strategy
+      href: ./linux/tutorial-azure-devops-canary-strategy.md
+    - name: Configure Blue-Green deployment strategy
+      href: ./linux/tutorial-azure-devops-blue-green-strategy.md
+    - name: CI/CD with Azure Pipelines(YAML)
+      href: ./linux/tutorial-build-deploy-azure-pipelines.md
+    - name: Create LAMP stack
+      href: ./linux/tutorial-lamp-stack.md
+    - name: Secure web server with SSL
+      items:
+      - name: Linux
+        href: ./linux/tutorial-secure-web-server.md
+      - name: Windows
+        href: ./windows/tutorial-secure-web-server.md
+  - name: Connect to Linux VMs
+    items:
+    - name: SSH for Linux VMs
+      items:
+      - name: On Linux or macOS
+        href: ./linux/mac-create-ssh-keys.md
+      - name: On Windows
+        href: ./linux/ssh-from-windows.md
+      - name: In the portal
+        href: ssh-keys-portal.md
+      - name: Detailed steps
+        href: ./linux/create-ssh-keys-detailed.md
+    - name: Remote Desktop for Linux
+      href: ./linux/use-remote-desktop.md
+  - name: Create Windows VMs
+    items:
+    - name: Use C#
+      href: ../azure-resource-manager/templates/deploy-rest.md?context=/azure/virtual-machines/context/context
+    - name: Use specialized disk
+      items:
+      - name: Portal
+        href: ./windows/create-vm-specialized-portal.md
+      - name: PowerShell
+        href: ./windows/create-vm-specialized.md
+    - name: Create VM with Chef
+      href: /azure/developer/chef/windows-vm-configure
+    - name: Use Java
+      href: ./windows/java.md
+    - name: Use Python
+      href: ./windows/python.md
+    - name: Use ARM template
+      displayName: Azure Resource Manager template
+      href: ./windows/ps-template.md
+  - name: Connect to Windows VMs
+    href: ./windows/connect-logon.md
+    items:
+    - name: WinRM
+      href: ./windows/winrm.md
+  - name: Extensions
+    items:
+    - name: Overview
+      href: ./extensions/overview.md
+    - name: Linux
+      items:
+      - name: Linux features
+        href: ./extensions/features-linux.md
+      - name: Linux VM Agent
+        href: ./extensions/agent-linux.md
+    - name: Windows
+      items:
+      - name: Windows features
+        href: ./extensions/features-windows.md
+      - name: Windows VM Agent
+        href: ./extensions/agent-windows.md
+    - name: Azure Disk Encryption
+      items:
+      - name: Linux
+        href: ./extensions/azure-disk-enc-linux.md
+      - name: Windows
+        href: ./extensions/azure-disk-enc-windows.md
+    - name: Azure Key Vault
+      items:
+      - name: Linux
+        href: ./extensions/key-vault-linux.md
+      - name: Windows
+        href: ./extensions/key-vault-windows.md
+    - name: Azure Backup for SQL Server
+      items:
+      - name: Azure Backup for SQL Server
+        href: ./extensions/backup-azure-sql-server-running-azure-vm.md
+    - name: Custom Script
+      items:
+      - name: Linux - version 2
+        href: ./extensions/custom-script-linux.md
+      - name: Windows
+        href: ./extensions/custom-script-windows.md
+    - name: IaaS antimalware for Windows
+      href: ./extensions/iaas-antimalware-windows.md
+    - name: VM snapshot
+      items:
+      - name: Linux
+        href: ./extensions/vmsnapshot-linux.md
+      - name: Windows
+        href: ./extensions/vmsnapshot-windows.md
+    - name: Network Watcher Extension
+      items:
+      - name: Linux
+        href: ./extensions/network-watcher-linux.md
+      - name: Windows
+        href: ./extensions/network-watcher-windows.md
+      - name: Update to latest version
+        href: ./extensions/network-watcher-update.md
+    - name: InfiniBand Drivers
+      items:
+      - name: Linux
+        href: ./extensions/hpc-compute-infiniband-linux.md
+      - name: Windows
+        href: ./extensions/hpc-compute-infiniband-windows.md
+    - name: NVIDIA GPU Drivers
+      items:
+      - name: Linux
+        href: ./extensions/hpccompute-gpu-linux.md
+      - name: Windows
+        href: ./extensions/hpccompute-gpu-windows.md
+    - name: AMD GPU Drivers
+      items:
+      - name: Windows
+        href: ./extensions/hpccompute-amd-gpu-windows.md
+    - name: Azure Monitor
+      items:
+      - name: Azure Monitor agent
+        href: ../azure-monitor/platform/azure-monitor-agent-install.md?context=/azure/virtual-machines/context/context
+      - name: Diagnostics extension
+        href: ../azure-monitor/platform/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
+      - name: Log Analytics
+        items:
+        - name: Linux
+          href: ./extensions/oms-linux.md
+        - name: Windows
+          href: ./extensions/oms-windows.md
+      - name: Azure Monitor for VMs
+        items:
+        - name: Linux Dependency agent
+          href: ./extensions/agent-dependency-linux.md
+        - name: Windows Dependency agent
+          href: ./extensions/agent-dependency-windows.md
+    - name: PowerShell DSC
+      href: ./extensions/dsc-overview.md
+      items:
+      - name: DSC and Linux
+        href: ./extensions/dsc-linux.md
+      - name: DSC and Windows
+        href: ./extensions/dsc-windows.md
+      - name: Handle credentials
+        href: ./extensions/dsc-credentials.md
+      - name: Use templates
+        href: ./extensions/dsc-template.md
+    - name: Virtual machine access
+      href: ./extensions/vmaccess.md
+    - name: Third-party extensions
+      items:
+      - name: Chef
+        href: ./extensions/chef.md
+      - name: Stackify Retrace
+        href: ./extensions/stackify-retrace-linux.md
+      - name: Symantec
+        href: ./extensions/symantec.md
+    - name: Restrict extension installation
+      items:
+      - name: Linux
+        href: ./extensions/extensions-rmpolicy-howto-cli.md
+      - name: Windows
+        href: ./extensions/extensions-rmpolicy-howto-ps.md
+    - name: Update Linux agent
+      href: ./extensions/update-linux-agent.md
+    - name: Export extensions
+      href: ./extensions/export-templates.md
+    - name: Troubleshoot
+      href: ./extensions/troubleshoot.md
+    - name: Issues with Python 3-enabled Linux systems
+      href: ./extensions/issues-using-vm-extensions-python-3.md
+  - name: Migrate from classic to Azure Resource Manager
+    items:
+    - name: Retirement starting March 1, 2023
+      href: classic-vm-deprecation.md
+    - name: Migration Overview
+      href: migration-classic-resource-manager-overview.md
+    - name: Deep dive on migration
+      href: migration-classic-resource-manager-deep-dive.md
+    - name: Plan for migration
+      href: migration-classic-resource-manager-plan.md
+    - name: Migrate using the CLI
+      href: migration-classic-resource-manager-cli.md
+    - name: Migrate using PowerShell
+      href: migration-classic-resource-manager-ps.md
+    - name: Common migration errors
+      href: migration-classic-resource-manager-errors.md
+    - name: Community tools for migration
+      href: migration-classic-resource-manager-community-tools.md
+    - name: FAQ
+      href: migration-classic-resource-manager-faq.md
+  - name: Management basics
+    items:
+    - name: Manage resources
+      items:
+      - name: Linux
+        href: ./linux/tutorial-govern-resources.md
+      - name: Windows
+        href: ./windows/tutorial-govern-resources.md
+    - name: Time sync
+      items:
+      - name: Linux
+        href: ./linux/time-sync.md
+      - name: Windows
+        href: ./windows/time-sync.md
+    - name: Run scripts on a VM
+      items:
+      - name: Custom Script Extension
+        items:
+        - name: Linux
+          href: ./extensions/custom-script-linux.md
+        - name: Windows
+          href: ./extensions/custom-script-windows.md
+      - name: Run Command
+        items:
+        - name: Linux
+          href: ./linux/run-command.md
+        - name: Windows
+          href: ./windows/run-command.md
+      - name: Hybrid Runbook Worker
+        href: ../automation/automation-hybrid-runbook-worker.md
+      - name: Serial console
+        items:
+        - name: Linux
+          href: ./troubleshooting/serial-console-linux.md
+        - name: Windows
+          href: ./troubleshooting/serial-console-windows.md
+    - name: Enable nested virtualization
+      href: ./windows/nested-virtualization.md
+    - name: File storage
+      items:
+      - name: Linux mount using SMB
+        href: ./linux/mount-azure-file-storage-on-linux-using-smb.md
+      - name: Copy files to a Linux VM
+        href: ./linux/copy-files-to-linux-vm-using-scp.md
+    - name: Updates and patches
+      items:
+      - name: Red Hat Update Infrastructure
+        href: ./workloads/redhat/redhat-rhui.md
+- name: Images
+  items:
+  - name: Find Azure Marketplace images
+    items:
+    - name: CLI
+      href: ./linux/cli-ps-findimage.md
+    - name: PowerShell
+      href: ./windows/cli-ps-findimage.md
+    - name: Windows client images
+      href: ./windows/client-images.md
+  - name: Linux custom images
+    items:
+    - name: Overview
+      href: ./linux/imaging.md
+    - name: Linux provisioning
+      href: ./linux/provisioning.md
+    - name: Linux distribution specific requirements
+      items:
+      - name: Generic steps
+        href: ./linux/create-upload-generic.md
+      - name: CentOS
+        href: ./linux/create-upload-centos.md
+      - name: Debian
+        href: ./linux/debian-create-upload-vhd.md
+      - name: Flatcar Container Linux
+        href: ./linux/flatcar-create-upload-vhd.md
+      - name: FreeBSD
+        href: ./linux/freebsd-intro-on-azure.md
+      - name: FreeBSD Packet Filter
+        href: ./linux/freebsd-pf-nat.md
+      - name: Oracle Linux
+        href: ./linux/oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: ./linux/create-upload-openbsd.md
+      - name: Red Hat
+        href: ./linux/redhat-create-upload-vhd.md
+      - name: SUSE
+        href: ./linux/suse-create-upload-vhd.md
+      - name: Ubuntu
+        href: ./linux/create-upload-ubuntu.md
+    - name: Use cloud-init
+      items:
+      - name: Cloud-init overview
+        href: ./linux/using-cloud-init.md
+      - name: Deep dive
+        href: ./linux/cloud-init-deep-dive.md
+      - name: Troubleshooting
+        href: ./linux/cloud-init-troubleshooting.md
+      - name: Configure VM hostname
+        href: ./linux/cloudinit-update-vm-hostname.md
+      - name: Update packages in a VM
+        href: ./linux/cloudinit-update-vm.md
+      - name: Add a user on a VM
+        href: ./linux/cloudinit-add-user.md
+      - name: Configure swapfile
+        href: ./linux/cloudinit-configure-swapfile.md
+      - name: Run existing bash script
+        href: ./linux/cloudinit-bash-script.md
+    - name: Create Linux images without a provisioning agent
+      href: ./linux/no-agent.md
+    - name: Disable Linux Agent provisioning
+      href: ./linux/disable-provisioning.md
+    - name: Capture VM to managed image
+      href: ./linux/capture-image.md
+  - name: Windows custom images
+    items:
+    - name: Prepare a VHD to Upload
+      href: ./windows/prepare-for-upload-vhd-image.md
+    - name: Upload a VHD and create a managed image
+      href: ./windows/upload-generalized-managed.md
+    - name: Capture a managed image
+      href: ./windows/capture-image-resource.md
+    - name: Create a VM from a managed image
+      href: ./windows/create-vm-generalized-managed.md
+    - name: Visual Studio
+      href: ./windows/using-visual-studio-vm.md
+  - name: Shared Image Galleries
+    items:
+    - name: Overview
+      href: ./linux/shared-image-galleries.md
+    - name: CLI
+      items:
+      - name: Create a gallery
+        href: shared-images-cli.md
+      - name: Create an image
+        items:
+        - name: From a VM
+          href: image-version-vm-cli.md
+        - name: From a Managed Disk or snapshot
+          href: image-version-snapshot-cli.md
+        - name: Clone a managed image
+          href: image-version-managed-image-cli.md
+        - name: Copy from another gallery
+          href: image-version-another-gallery-cli.md
+      - name: Create a VM
+        items:
+        - name: Generalized
+          href: vm-generalized-image-version-cli.md
+        - name: Specialized
+          href: vm-specialized-image-version-cli.md
+      - name: Update image resources
+        href: update-image-resources-cli.md
+      - name: App registration for sharing
+        items:
+        - name: Linux
+          href: ./linux/share-images-across-tenants.md
+        - name: Windows
+          href: ./windows/share-images-across-tenants.md
+    - name: PowerShell
+      items:
+      - name: Create a gallery
+        href: shared-images-powershell.md
+      - name: Create an image version
+        items:
+        - name: From a VM
+          href: image-version-vm-powershell.md
+        - name: From a Managed Disk or snapshot
+          href: image-version-snapshot-powershell.md
+        - name: Clone a managed image
+          href: image-version-managed-image-powershell.md
+        - name: Copy from another gallery
+          href: image-version-another-gallery-powershell.md
+      - name: Create a VM
+        items:
+        - name: Generalized
+          href: vm-generalized-image-version-powershell.md
+        - name: Specialized
+          href: vm-specialized-image-version-powershell.md
+        - name: Update image resources
+          href: update-image-resources-powershell.md
+        - name: App registration for sharing
+          href: windows/share-images-across-tenants.md
+    - name: Portal
+      items:
+      - name: Create a gallery, image and VM
+        items:
+        - name: Linux
+          href: ./linux/shared-images-portal.md
+        - name: Windows
+          href: ./windows/shared-images-portal.md
+    - name: Resource Manager Templates
+      items:
+      - name: Create a Shared Image Gallery
+        href: https://azure.microsoft.com/resources/templates/101-sig-create/
+      - name: Create an Image Definition in a Shared Image Gallery
+        href: https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/
+      - name: Create an Image Version in a Shared Image Gallery
+        href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
+      - name: Create a VM from Image Version
+        href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
+    - name: Troubleshoot shared images
+      href: troubleshooting-shared-images.md
+    - name: Using customer-managed keys
+      displayName: SSE, CMK, encrypt
+      href: image-version-encryption.md
+    - name: Managed disk from image version
+      href: managed-disk-from-image-version.md
+    - name: Purchase plan information
+      href: marketplace-images.md
+  - name: Image builder (preview)
+    items:
+    - name: Overview
+      href: image-builder-overview.md
+    - name: CLI
+      items:
+      - name: Linux
+        href: ./linux/image-builder.md
+      - name: Windows
+        href: ./windows/image-builder.md
+    - name: PowerShell
+      href: ./windows/image-builder-powershell.md
+    - name: Security
+      items:
+      - name: Security controls by Azure Policy
+        href: ./security-controls-policy-image-builder.md
+    - name: Use a VNET
+      items:
+      - name: CLI
+        href: ./linux/image-builder-vnet.md
+      - name: PowerShell
+        href: ./windows/image-builder-vnet.md
+    - name: Networking options
+      href: ./linux/image-builder-networking.md
+    - name: Configure permissions
+      items:
+      - name: CLI
+        href: ./linux/image-builder-permissions-cli.md
+      - name: PowerShell
+        href: ./linux/image-builder-permissions-powershell.md
+    - name: DevOps task
+      href: ./linux/image-builder-devops-task.md
+    - name: Image Builder template reference
+      displayName: json
+      href: ./linux/image-builder-json.md
+    - name: Build for image galleries
+      items:
+      - name: Linux
+        href: ./linux/image-builder-gallery.md
+      - name: Windows
+        href: ./windows/image-builder-gallery.md
+    - name: Update an existing image
+      items:
+      - name: Linux
+        href: ./linux/image-builder-gallery-update-image-version.md
+      - name: Windows
+        href: ./windows/image-builder-gallery-update-image-version.md
+    - name: Store scripts
+      href: ./linux/image-builder-user-assigned-identity.md
+    - name: Troubleshoot
+      href: ./linux/image-builder-troubleshoot.md
+  - name: Build image with Packer
+    items:
+    - name: Linux
+      href: ./linux/build-image-with-packer.md
+    - name: Windows
+      href: ./windows/build-image-with-packer.md
+- name: Availability and scale
+  items:
+  - name: Scale sets
+    href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+  - name: Availability
+    href: availability.md
+  - name: Co-location
+    href: ./linux/co-location.md
+  - name: Network performance
+    href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
+  - name: States and lifecycle
+    href: states-lifecycle.md
+  - name: Autoscale
+    href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+  - name: High availability
+    href: manage-availability.md
+  - name: Availability sets
+    items:
+    - name: Linux
+      href: ./linux/tutorial-availability-sets.md
+    - name: Windows
+      items:
+      - name: Create an availability set
+        href: ./windows/tutorial-availability-sets.md
+      - name: Change availability set
+        href: ./windows/change-availability-set.md
+  - name: Create a proximity placement group
+    displayName: PPG aligned colocation co-location
+    items:
+    - name: CLI
+      href: ./linux/proximity-placement-groups.md
+    - name: Portal
+      href: ./windows/proximity-placement-groups-portal.md
+    - name: PowerShell
+      href: ./windows/proximity-placement-groups.md
+  - name: Create VM in availability zone
+    href: ./linux/create-cli-availability-zone.md
+- name: Disks
+  items:
+  - name: Introduction to managed disks
+    href: managed-disks-overview.md
+  - name: Select a disk type for IaaS VMs
+    href: disks-types.md
+  - name: Shared disks
+    href: disks-shared.md
+  - name: Enable shared disks
+    href: disks-shared-enable.md
+  - name: Encryption
+    items:
+    - name: Server-side encryption
+      items:
+      - name: Server-side encryption overview
+        href: disk-encryption.md
+      - name: Enable customer-managed keys
+        items:
+        - name: Portal
+          href: disks-enable-customer-managed-keys-portal.md
+        - name: PowerShell
+          href: windows/disks-enable-customer-managed-keys-powershell.md
+        - name: CLI
+          href: linux/disks-enable-customer-managed-keys-cli.md
+      - name: Enable encryption at host
+        items:
+        - name: Portal
+          href: disks-enable-host-based-encryption-portal.md
+        - name: PowerShell
+          href: windows/disks-enable-host-based-encryption-powershell.md
+        - name: CLI
+          href: linux/disks-enable-host-based-encryption-cli.md
+      - name: Enable double encryption at rest
+        items:
+        - name: Portal
+          href: disks-enable-double-encryption-at-rest-portal.md
+        - name: PowerShell
+          href: windows/disks-enable-double-encryption-at-rest-powershell.md
+        - name: CLI
+          href: linux/disks-enable-double-encryption-at-rest-cli.md
+    - name: Azure Disk Encryption scenarios
+      items:
+      - name: Azure Disk Encryption overviews
+        items:
+        - name: Windows
+        - name: Linux
+      - name: Linux
+        href: ./linux/disk-encryption-linux.md
+      - name: Windows
+        href: ./windows/disk-encryption-windows.md
+      - name: CLI
+        items:
+        - name: Linux
+          href: ./linux/disk-encryption-cli-quickstart.md
+        - name: Windows
+          href: ./windows/disk-encryption-cli-quickstart.md
+      - name: PowerShell
+        items:
+        - name: Linux
+          href: ./linux/disk-encryption-powershell-quickstart.md
+        - name: Windows
+          href: ./windows/disk-encryption-powershell-quickstart.md
+      - name: Portal
+        items:
+        - name: Linux
+          href: ./linux/disk-encryption-portal-quickstart.md
+        - name: Windows
+          href: ./windows/disk-encryption-portal-quickstart.md
+      - name: Key vault for Azure Disk Encryption
+        items:
+        - name: Linux
+          href: ./linux/disk-encryption-key-vault.md
+        - name: Windows
+          href: ./windows/disk-encryption-key-vault.md
+      - name: Sample scripts
+        items:
+        - name: Linux
+          href: ./linux/disk-encryption-sample-scripts.md
+        - name: Windows
+          href: ./windows/disk-encryption-sample-scripts.md
+      - name: Azure Disk encryption on an isolated network
+        href: ./linux/disk-encryption-isolated-network.md
+      - name: How to verify encryption status
+        href: ./linux/how-to-verify-encryption-status.md
+      - name: How to configure LVM RAID on crypt
+        href: ./linux/how-to-configure-lvm-raid-on-crypt.md
+      - name: How to resize encrypted LVM volumes
+        href: ./linux/how-to-resize-encrypted-lvm.md
+      - name: Resize Linux GPT OS partitions
+        href: linux/resize-os-disk-gpt-partition.md
+      - name: troubleshooting
+        items:
+        - name: Linux
+          href: ./linux/disk-encryption-troubleshooting.md
+        - name: Windows
+          href: ./windows/disk-encryption-troubleshooting.md
+      - name: FAQ
+        items:
+        - name: Linux
+          href: ./linux/disk-encryption-faq.md
+        - name: Windows
+          href: ./windows/disk-encryption-faq.md
+      - name: Azure Disk Encryption - previous version
+        items:
+        - name: Overview
+          items:
+          - name: Linux
+            href: ./linux/disk-encryption-overview-aad.md
+          - name: Windows
+            href: ./windows/disk-encryption-overview-aad.md
+        - name: Key vault for Azure Disk Encryption
+          items:
+          - name: Linux
+            href: ./linux/disk-encryption-key-vault-aad.md
+          - name: Windows
+            href: ./windows/disk-encryption-key-vault-aad.md
+        - name: Disk encryption scenarios
+          items:
+          - name: Linux
+            href: ./linux/disk-encryption-linux-aad.md
+          - name: Windows
+            href: ./windows/disk-encryption-windows-aad.md
+  - name: Performance and cost optimization
+    items:
+    - name: Ultra disks
+      href: disks-enable-ultra-ssd.md
+    - name: Virtual machine and disk performance
+      href: disks-performance.md
+    - name: Disk Storage reservations
+      href: ../cost-management-billing/reservations/understand-disk-reservations.md?context=/azure/virtual-machines/context/context
+    - name: Reserve Disk Storage
+      href: disks-reserved-capacity.md
+    - name: Design for high performance
+      href: premium-storage-performance.md
+    - name: Disk bursting
+      href: disk-bursting.md
+    - name: Disk performance tiers
+      href: disks-change-performance.md
+    - name: Change disk performance tier
+      items:
+      - name: CLI and PowerShell
+        href: disks-performance-tiers.md
+      - name: Portal
+        href: disks-performance-tiers-portal.md
+    - name: Enable write accelerator
+      href: how-to-enable-write-accelerator.md
+    - name: Benchmark a disk
+      href: disks-benchmarks.md
+  - name: Scalability targets for disks
+    href: disks-scalability-targets.md
+  - name: Backup and data protection
+    items:
+    - name: Enable incremental snapshots
+      href: disks-incremental-snapshots.md
+    - name: Azure Disk Backup
+      items:
+      - name: Overview
+        href: ../backup/disk-backup-overview.md?context=/azure/virtual-machines/context/context
+      - name: Configure Azure Disk Backup
+        href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
+      - name: Restore disks with Azure Disk Backup
+        href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
+    - name: Backup and disaster recovery for disks
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: Snapshot a disk - CLI
+      href: ./linux/snapshot-copy-managed-disk.md
+    - name: Snapshot a disk - PowerShell
+      href: ./windows/snapshot-copy-managed-disk.md
+    - name: Backup unmanaged disks
+      href: ./linux/incremental-snapshots.md
+  - name: Ephemeral OS disks
+    href: ephemeral-os-disks.md
+  - name: Migration and conversion
+    items:
+    - name: Convert disk between Standard and Premium
+      items:
+      - name: CLI
+        href: ./linux/convert-disk-storage.md
+      - name: PowerShell
+        href: ./windows/convert-disk-storage.md
+    - name: Migrate to premium SSDs with Azure Site Recovery
+      items:
+      - name: Linux
+        href: ./linux/migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: Windows
+        href: ./windows/migrate-to-premium-storage-using-azure-site-recovery.md
+    - name: Migrate to Managed Disks
+      href: ./windows/migrate-to-managed-disks.md
+    - name: Unmanaged VM to Managed Disks
+      items:
+      - name: CLI
+        href: ./linux/convert-unmanaged-to-managed-disks.md
+      - name: PowerShell
+        href: ./windows/convert-unmanaged-to-managed-disks.md
+  - name: Add a data disk
+    items:
+    - name: Linux
+      items:
+      - name: Azure CLI
+        href: ./linux/add-disk.md
+      - name: Azure portal
+        href: ./linux/attach-disk-portal.md
+    - name: Windows
+      items:
+      - name: Azure PowerShell
+        href: ./windows/attach-disk-ps.md
+      - name: Azure portal
+        href: ./windows/attach-managed-disk-portal.md
+      - name: Change temp disk drive letter
+        href: ./windows/change-drive-letter.md
+  - name: Detach a disk
+    items:
+    - name: Linux
+      href: ./linux/detach-disk.md
+    - name: Windows
+      href: ./windows/detach-disk.md
+  - name: Expand OS disk
+    items:
+    - name: Linux
+      href: ./linux/expand-disks.md
+    - name: Windows
+      href: ./windows/expand-os-disk.md
+  - name: Manage storage
+    items:
+    - name: Deploy disks with ARM template
+      displayName: Azure Resource Manager
+      href: using-managed-disks-template-deployments.md
+    - name: Securely import/export a disk
+      items:
+      - name: Configure private links for disks - CLI
+        href: ./linux/disks-export-import-private-links-cli.md
+      - name: Configure private links for disks - Portal
+        href: disks-enable-private-links-for-import-export-portal.md
+      - name: Upload a vhd to a disk - PowerShell
+        href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
+      - name: Upload a vhd to a disk - CLI
+        href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
+      - name: Download a VHD
+        items:
+        - name: Linux
+          href: ./linux/download-vhd.md
+        - name: Windows
+          href: ./windows/download-vhd.md
+    - name: Use Storage Explorer to manage disks
+      href: disks-use-storage-explorer-managed-disks.md
+    - name: Swap the OS disk - CLI
+      href: ./linux/os-disk-swap.md
+    - name: Swap the OS disk - PowerShell
+      href: ./windows/os-disk-swap.md
+    - name: Map managed disk to guest disk - Linux
+      href: ./linux/azure-to-guest-disk-mapping.md
+    - name: Map managed disk to guest disk - Windows
+      href: ./windows/azure-to-guest-disk-mapping.md
+    - name: Find unattached disks
+      items:
+      - name: CLI
+        href: ./linux/find-unattached-disks.md
+      - name: PowerShell
+        href: ./windows/find-unattached-disks.md
+      - name: Portal
+        href: disks-find-unattached-portal.md
+    - name: Disks FAQs
+      href: faq-for-disks.md
+  - name: Code samples
+    items:
+    - name: CLI
+      items:
+      - name: Create managed disk from a VHD
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md
+      - name: Create a managed disk from a snapshot
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md
+      - name: Copy a managed disk to the same or different subscription
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
+      - name: Copy a snapshot to the same or different subscription
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md
+      - name: Export a snapshot as a VHD to a storage account
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-storage-account.md
+      - name: Export a managed disk as a VHD to a storage account
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md
+    - name: PowerShell
+      items:
+      - name: Create managed disk from a VHD
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-vhd.md
+      - name: Create a managed disk from a snapshot
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md
+      - name: Copy a snapshot to the same or different subscription
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
+      - name: Export a snapshot as a VHD to a storage account
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-storage-account.md
+      - name: Export a managed disk as a VHD to a storage account
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-vhd.md
+      - name: Create a snapshot from a VHD
+        href: https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md
+- name: Networking
+  items:
+  - name: Overview
+    href: network-overview.md
+  - name: Create virtual network
+    href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
+  - name: Open ports to a VM
+    items:
+    - name: CLI
+      href: ./linux/nsg-quickstart.md
+    - name: PowerShell
+      href: ./windows/nsg-quickstart-powershell.md
+    - name: Portal
+      href: ./windows/nsg-quickstart-portal.md
+  - name: Assign public IP address
+    href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+  - name: Use multiple NICs
+    items:
+    - name: Linux using CLI
+      href: ./linux/multiple-nics.md
+    - name: Windows using PowerShell
+      href: ./windows/multiple-nics.md
+  - name: Use accelerated networking
+    href: ../virtual-network/create-vm-accelerated-networking-cli.md?context=/azure/virtual-machines/context/context
+  - name: Assign public DNS name
+    href: create-fqdn.md
+  - name: Find and delete unattached NICs
+    href: ./linux/find-unattached-nics.md
+  - name: DNS resolution
+    href: ./linux/azure-dns.md
+  - name: Use internal DNS
+    href: ./linux/static-dns-name-resolution-for-linux-on-azure.md
+- name: Security
+  items:
+  - name: Azure Security center
+    href: ../security-center/security-center-introduction.md
+  - name: Security baselines
+    items:
+    - name: Linux
+      href: ./linux/security-baseline.md
+    - name: Windows
+      href: ./windows/security-baseline.md
+  - name: Recommendations
+    href: security-recommendations.md
+  - name: Just-in-time access
+    href: ../security-center/security-center-just-in-time.md
+  - name: Policy
+    items:
+    - name: Overview
+      href: security-policy.md
+    - name: Controls by policy
+      displayName: regulatory, compliance, standards, domains
+      href: security-controls-policy.md
+    - name: Policy reference
+      href: policy-reference.md
+    - name: Use policies
+      items:
+      - name: Linux
+        href: ./linux/policy.md
+      - name: Windows
+        href: ./windows/policy.md
+  - name: Bastion
+    items:
+    - name: Overview
+      href: ../bastion/bastion-overview.md
+    - name: Create a Bastion host
+      items:
+      - name: Portal
+        href: ../bastion/bastion-create-host-portal.md
+      - name: PowerShell
+        href: ../bastion/bastion-create-host-powershell.md
+      - name: CLI
+        href: ../bastion/create-host-cli.md
+      - name: Bastion SSH connection
+        href: ../bastion/bastion-connect-vm-ssh.md
+      - name: Bastion RDP connection
+        href: ../bastion/bastion-connect-vm-rdp.md
+    - name: Use access controls
+      href: ../role-based-access-control/overview.md
+    - name: Create a Key Vault
+      items:
+      - name: CLI
+        href: ./linux/key-vault-setup.md
+      - name: PowerShell
+        href: ./windows/key-vault-setup.md
+  - name: Mitigating speculative execution
+    href: mitigate-se.md
+  - name: Join a Linux VM to Azure Active Directory
+    displayName: Azure AD
+    items:
+    - name: Red Hat Enterprise Linux
+      href: ../active-directory-domain-services/join-rhel-linux-vm.md
+    - name: CentOS
+      href: ../active-directory-domain-services/join-centos-linux-vm.md
+    - name: Ubuntu
+      href: ../active-directory-domain-services/join-ubuntu-linux-vm.md
+  - name: Configure managed identities
+    items:
+    - name: Portal
+      href: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=/azure/virtual-machines/context/context
+    - name: CLI
+      href: ../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md?context=/azure/virtual-machines/context/context
+    - name: PowerShell
+      href: ../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md?context=/azure/virtual-machines/context/context
+    - name: Azure Resource Manager Template
+      displayName: ARM
+      href: ../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md?context=/azure/virtual-machines/context/context
+    - name: REST
+      href: ../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md?context=/azure/virtual-machines/context/context
+    - name: Azure SDKs
+      href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
+  - name: Linux Active Directory sign-in
+    href: ./linux/login-using-aad.md
+- name: Maintenance and updates
+  items:
+  - name: Overview
+    href: maintenance-and-updates.md
+  - name: Automatic VM guest patching (preview)
+    href: ./windows/automatic-vm-guest-patching.md
+  - name: Maintenance control
+    items:
+    - name: Maintenance notifications
+      items:
+      - name: Overview
+        href: maintenance-notifications.md
+      - name: CLI
+        href: maintenance-notifications-cli.md
+      - name: Portal
+        href: maintenance-notifications-portal.md
+      - name: PowerShell
+        href: maintenance-notifications-powershell.md
+    - name: Platform maintenance
+      items:
+      - name: Overview
+        href: maintenance-control.md
+      - name: CLI
+        href: maintenance-control-cli.md
+      - name: PowerShell
+        href: maintenance-control-powershell.md
+      - name: Portal
+        href: maintenance-control-portal.md
+    - name: Scheduled events
+      items:
+      - name: Linux
+        href: ./linux/scheduled-events.md
+      - name: Windows
+        href: ./windows/scheduled-events.md
+    - name: Track and update VMs
+      items:
+      - name: Linux
+        href: ./linux/tutorial-config-management.md
+      - name: Windows
+        href: ./windows/tutorial-config-management.md
+    - name: Virtual machine scale set OS image upgrades
+      items:
+      - name: Automatic OS upgrades
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
+      - name: Maintenance control
+        items:
+        - name: Overview (Preview)
+          href: virtual-machine-scale-sets-maintenance-control.md
+        - name: PowerShell (Preview)
+          href: virtual-machine-scale-sets-maintenance-control-powershell.md
+- name: Monitoring
+  items:
+  - name: Overview
+    href: ../azure-monitor/insights/monitor-vm-azure.md?context=/azure/virtual-machines/context/context
+  - name: Monitoring VMs
+    items:
+    - name: Windows
+      href: ./windows/tutorial-monitor.md
+  - name: Agents
+    items:
+    - name: Agents overview
+      href: ../azure-monitor/platform/agents-overview.md?context=/azure/virtual-machines/context/context
+    - name: FAQ
+      href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#agents
+    - name: Azure Diagnostics extension
+      items:
+      - name: Overview
+        href: ../azure-monitor/platform/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
+      - name: Linux diagnostics extension
+        items:
+        - name: Version 4.0
+          href: ../virtual-machines/extensions/diagnostics-linux.md?context=/azure/virtual-machines/context/context
+        - name: Version 3.0
+          href: ../virtual-machines/extensions/diagnostics-linux-v3.md?context=/azure/virtual-machines/context/context
+        - name: Collect metrics with Telegraf
+          href: ../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md?context=/azure/virtual-machines/context/context
+          displayname: diagnostics extension
+    - name: Log Analytics agent
+      items:
+      - name: Overview
+        href: ../azure-monitor/platform/log-analytics-agent.md?context=/azure/virtual-machines/context/context
+      - name: Linux agents
+        href: ../azure-monitor/platform/agent-linux.md?context=/azure/virtual-machines/context/context
+      - name: Log Analytics gateway
+        href: ../azure-monitor/platform/gateway.md?context=/azure/virtual-machines/context/context
+      - name: Agent management
+        href: ../azure-monitor/platform/agent-manage.md?context=/azure/virtual-machines/context/context
+      - name: Agent Health
+        href: ../azure-monitor/insights/solution-agenthealth.md?context=/azure/virtual-machines/context/context
+      - name: Data sources
+        items:
+        - name: Overview
+          href: ../azure-monitor/platform/agent-data-sources.md?context=/azure/virtual-machines/context/context
+        - name: Custom JSON data
+          href: ../azure-monitor/platform/data-sources-json.md?context=/azure/virtual-machines/context/context
+        - name: collectd performance data
+          href: ../azure-monitor/platform/data-sources-collectd.md?context=/azure/virtual-machines/context/context
+        - name: Syslog
+          href: ../azure-monitor/platform/data-sources-syslog.md?context=/azure/virtual-machines/context/context
+        - name: Performance counters
+          href: ../azure-monitor/platform/data-sources-performance-counters.md?context=/azure/virtual-machines/context/context
+        - name: Linux application performance
+          href: ../azure-monitor/platform/data-sources-linux-applications.md?context=/azure/virtual-machines/context/context
+        - name: Custom logs
+          href: ../azure-monitor/platform/data-sources-custom-logs.md?context=/azure/virtual-machines/context/context
+        - name: Custom fields
+          href: ../azure-monitor/platform/custom-fields.md?context=/azure/virtual-machines/context/context
+    - name: Troubleshoot
+      items:
+      - name: Log Analytics VM Extension
+        href: ../azure-monitor/platform/vmext-troubleshoot.md?context=/azure/virtual-machines/context/context
+        displayname: troubleshoot, troubleshooting
+      - name: Log Analytics Linux agent
+        href: ../azure-monitor/platform/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
+        displayname: troubleshoot, troubleshooting
+    - name: Azure Monitor for VMs
+      items:
+      - name: Overview
+        href: ../azure-monitor/insights/vminsights-overview.md?context=/azure/virtual-machines/context/context
+      - name: General Availability FAQ
+        href: ../azure-monitor/insights/vminsights-ga-release-faq.md?context=/azure/virtual-machines/context/context
+      - name: FAQ
+        href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#azure-monitor-for-vms
+      - name: Enable monitoring
+        items:
+        - name: Enable monitoring overview
+          href: ../azure-monitor/insights/vminsights-enable-overview.md?context=/azure/virtual-machines/context/context
+        - name: Enable for single Azure VM
+          href: ../azure-monitor/insights/vminsights-enable-portal.md?context=/azure/virtual-machines/context/context
+        - name: Enable using Azure Policy
+          href: ../azure-monitor/insights/vminsights-enable-policy.md?context=/azure/virtual-machines/context/context
+        - name: Enable using Azure PowerShell
+          href: ../azure-monitor/insights/vminsights-enable-powershell.md?context=/azure/virtual-machines/context/context
+        - name: Enable for Hybrid environment
+          href: ../azure-monitor/insights/vminsights-enable-hybrid.md?context=/azure/virtual-machines/context/context
+      - name: Map dependencies
+        href: ../azure-monitor/insights/vminsights-maps.md?context=/azure/virtual-machines/context/context
+      - name: Monitor performance
+        href: ../azure-monitor/insights/vminsights-performance.md?context=/azure/virtual-machines/context/context
+      - name: Analyze data with log queries
+        href: ../azure-monitor/insights/vminsights-log-search.md?context=/azure/virtual-machines/context/context
+      - name: Visualize data with workbooks
+        href: ../azure-monitor/insights/vminsights-workbooks.md?context=/azure/virtual-machines/context/context
+      - name: Create alert rules
+        href: ../azure-monitor/insights/vminsights-alerts.md?context=/azure/virtual-machines/context/context
+      - name: Upgrade Dependency agent
+        href: ../azure-monitor/insights/vminsights-dependency-agent-maintenance.md?context=/azure/virtual-machines/context/context
+      - name: Disable monitoring
+        href: ../azure-monitor/insights/vminsights-optout.md?context=/azure/virtual-machines/context/context
+  - name: VM usage
+    href: vm-usage.md
+  - name: Tag a VM
+    items:
+    - name: CLI
+      href: tag-cli.md
+    - name: Portal
+      href: tag-portal.md
+    - name: PowerShell
+      href: tag-powershell.md
+    - name: Template
+      href: tag-template.md
+  - name: Monitor metadata
+    items:
+    - name: CLI
+      href: ./linux/instance-metadata-service.md
+    - name: PowerShell
+      href: ./windows/instance-metadata-service.md
+  - name: Get usage metrics with REST
+    href: ./linux/metrics-vm-usage-rest.md
+  - name: Boot diagnostics
+    href: boot-diagnostics.md
+- name: Backup and recovery
+  items:
+  - name: Overview
+    href: backup-recovery.md
+  - name: Service disruptions
+    href: virtual-machines-disaster-recovery-guidance.md
+  - name: Back up VMs
+    items:
+    - name: Overview
+      href: ../backup/backup-azure-vms-introduction.md
+    - name: Quickstarts
+      items:
+      - name: CLI
+        href: ../backup/quick-backup-vm-cli.md
+      - name: PowerShell
+        href: ../backup/quick-backup-vm-powershell.md
+      - name: Portal
+        href: ../backup/quick-backup-vm-portal.md
+      - name: Template
+        href: ../backup/quick-backup-vm-template.md
+    - name: Back up multiple VMs
+      href: ../backup/tutorial-backup-vm-at-scale.md
+    - name: Restore options
+      href: /azure/backup/backup-azure-arm-restore-vms
+    - name: Support matrix
+      href: ../backup/backup-support-matrix-iaas.md
+    - name: Pricing
+      href: ../backup/azure-backup-pricing.md
+    - name: FAQ
+      href: ../backup/backup-azure-vm-backup-faq.yml
+  - name: Disaster recovery
+    items:
+    - name: Overview
+      href: ../site-recovery/site-recovery-overview.md
+    - name: Enable disaster recovery
+      items:
+      - name: Linux
+        href: ./linux/tutorial-disaster-recovery.md
+      - name: Windows
+        href: ./windows/tutorial-disaster-recovery.md
+    - name: Enable disaster recovery for a VM
+      href: ../site-recovery/azure-to-azure-tutorial-enable-replication.md
+    - name: Run a disaster recovery drill for a VM
+      href: ../site-recovery/azure-to-azure-tutorial-dr-drill.md
+    - name: Fail over a VM to another region
+      href: ../site-recovery/azure-to-azure-tutorial-failover-failback.md
+  - name: Move and migrate VMs
+    items:
+    - name: Change subscription or resource group
+      items:
+      - name: CLI
+        href: ./linux/move-vm.md
+      - name: PowerShell
+        href: ./windows/move-vm.md
+      - name: Change subscription for Marketplace VMs
+        href: azure-cli-change-subscription-marketplace.md
+    - name: Move VMs to another region
+      href: ../site-recovery/azure-to-azure-tutorial-migrate.md
+    - name: Move to an availability zone
+      href: ../site-recovery/move-azure-vms-avset-azone.md
+    - name: Move Maintenance Control configurations to another region
+      href: move-region-maintenance-configuration.md
+    - name: Move Maintenance Control configuration resources to another region
+      href: move-region-maintenance-configuration-resources.md
+    - name: Migrate AWS and on-premises VMs
+      href: ./windows/on-prem-to-azure.md
+      items:
+      - name: Migrate from Amazon Web Services (AWS) to Azure
+        href: ./windows/aws-to-azure.md
+      - name: Upload on-prem VM
+        href: ./linux/upload-vhd.md
+      - name: Use Azure Site Recovery
+        href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
+- name: Infrastructure automation
+  items:
+  - name: Overview
+    href: infrastructure-automation.md
+  - name: Custom data
+    href: custom-data.md
+  - name: Ansible
+    href: https://docs.microsoft.com/azure/developer/ansible/
+  - name: Terraform
+    href: https://docs.microsoft.com/azure/developer/terraform/
+  - name: Jenkins
+    href: https://docs.microsoft.com/en-us/azure/developer/jenkins/
+  - name: Azure DevOps
+    href: ./linux/tutorial-azure-devops-blue-green-strategy.md
+- name: Troubleshoot
+  href: https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines
 - name: Resources
   items:
+  - name: Cloud adoption framework
+    href: /azure/cloud-adoption-framework/get-started/
+  - name: Architecture center
+    href: /azure/architecture/
+  - name: Microsoft Q&A
+    href: /answers/topics/azure-virtual-machines.html
+  - name: Azure Quickstart templates
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Samples
+    items:
+    - name: Azure CLI samples repo
+      href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
+    - name: PowerShell samples repo
+      href: https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine
+  - name: Common CLI commands
+    href: ./linux/cli-manage.md
+  - name: Common PowerShell commands
+    href: ./windows/ps-common-ref.md
+  - name: Common networking PowerShell commands
+    href: ./windows/ps-common-network-ref.md
+  - name: VM template description
+    href: ./windows/template-description.md
+  - name: Classic deployments
+    items:
+    - name: Linux VMs using classic deployment
+      href: /previous-versions/azure/virtual-machines/linux/classic/
+    - name: Windows VMs using classic deployment
+      href: /previous-versions/azure/virtual-machines/windows/classic/
+  - name: FAQ
+    items:
+    - name: Linux
+      href: ./linux/faq.md
+    - name: Windows
+      href: ./windows/faq.md

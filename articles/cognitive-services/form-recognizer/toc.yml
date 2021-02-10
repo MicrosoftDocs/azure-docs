@@ -1,65 +1,91 @@
 - name: Form Recognizer Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Form Recognizer?
     href: overview.md
-- name: Quickstarts
+  - name: What's new
+    href: whats-new.md
+- name: Get started with Form Recognizer
   expaned: true
   items:
-  - name: Using the REST API
-    items:
-    - name: Train custom model and extract data  
-      items:
-      - name: cURL
-        href: quickstarts/curl-train-extract.md
-      - name: Python
-        href: quickstarts/python-train-extract.md
-    - name: Use prebuilt receipt model
-      items:
-      - name: cURL
-        href: quickstarts/curl-receipts.md
-      - name: Python
-        href: quickstarts/python-receipts.md
-  - name: Using the .NET SDK
-    href: quickstarts/dotnet-sdk.md
+  - name: Using the client library or REST API
+    href: quickstarts/client-library.md
+  - name: Using the sample labeling tool
+    href: quickstarts/label-tool.md
 - name: Tutorials
   items:
-  - name: Use Form Recognizer with Logic Apps
-    href: tutorial-form-recognizer-with-logic-apps.md
+  - name: Use Form Recognizer with Cognitive Search
+    href: ../../search/cognitive-search-custom-skill-form.md
+  - name: Use Form Recognizer with AI Builder
+    href: tutorial-ai-builder.md
+  - name: Extract form data in bulk
+    href: tutorial-bulk-processing.md
+- name: Concepts
+  items:
+  - name: Layout extraction
+    href: concept-layout.md
+  - name: Receipts
+    href: concept-receipts.md
+  - name: Business cards
+    href: concept-business-cards.md
+  - name: Invoices
+    href: concept-invoices.md
 - name: How-to guides
   items:
   - name: Build a training data set
     href: build-training-data-set.md
+  - name: Deploy the sample labeling tool
+    href: deploy-label-tool.md
   - name: Use containers
     items:
     - name: Install and run containers
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
       href: form-recognizer-container-howto.md
     - name: Configure containers
-      href: form-recognizer-container-configuration.md    
+      href: form-recognizer-container-configuration.md
       displayName: docker, container, run, billing, apikey, logging
     - name: Use container instances
-      href: deploy-form-recognizer-on-container-instances.md
+      maintainContext: true 
+      href: ../containers/azure-container-instance-recipe.md
+    - name: Cognitive Services containers documentation
+      href: ../containers/index.yml
+  - name: Back up and recover models
+    href: disaster-recovery.md
 - name: Reference
   items:
-  - name: Form Recognizer API
-    href: https://aka.ms/form-recognizer/api
+  - name: Form Recognizer API v2.1 preview
+    href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync
+  - name: Form Recognizer API v2.0
+    href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
   - name: SDKs
     items:
     - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
+      href: /dotnet/api/overview/azure/ai.formrecognizer-readme
+    - name: Python
+      href: /python/api/azure-ai-formrecognizer/?view=azure-python
+    - name: Java
+      href: /java/api/overview/azure/ai-formrecognizer-readme
+    - name: JavaScript
+      href: /javascript/api/overview/azure/ai-form-recognizer-readme
 - name: Resources
-  items: 
+  items:
+  - name: Support & help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
   - name: Pricing and limits
-    href: https://go.microsoft.com/fwlink/?linkid=2087258
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/
   - name: UserVoice
     href: https://go.microsoft.com/fwlink/?linkid=2090535
   - name: Stack Overflow
-    href: https://go.microsoft.com/fwlink/?linkid=2087186
+    href: https://stackoverflow.com/questions/tagged/form-recognizer
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
     href: https://go.microsoft.com/fwlink/?linkid=2087185
+  - name: Language support
+    href: language-support.md
   - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Encryption
+    href: form-recognizer-encryption-of-data-at-rest.md

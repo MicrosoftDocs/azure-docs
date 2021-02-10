@@ -2,16 +2,15 @@
 title: Set up a mobile device as your two-factor verification method - Azure Active Directory | Microsoft Docs
 description: Learn how to set up a mobile device as your two-factor verification method.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 08/12/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
 # Set up a mobile device as your two-factor verification method
@@ -27,7 +26,7 @@ You can set up your mobile device to act as your two-factor verification method.
 
 2. Select **Send me a code by text message** from the **Method** area, and then select **Next**.
 
-    ![Additional security verification page, with authentication phone and text message](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
+    ![Screenshot that shows the "Additional security verification" page, with "Authentication phone" and "Send me a code by text message" selected.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
 
 3. Type the verification code from the text message sent from Microsoft into the **Step 2: We've sent a text message to your phone** area, and then select **Verify**.
 

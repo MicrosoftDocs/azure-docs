@@ -1,18 +1,19 @@
 ---
-title: Move Azure Public IP to another Azure region using the Azure portal
-description: Use Azure Resource Manager template to move Azure Public IP from one Azure region to another using the Azure portal.
+title: Move Azure Public IP configuration to another Azure region Azure portal
+description: Use a template to move Azure Public IP configuration from one Azure region to another using the Azure portal.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.subservice: ip-services
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
 ---
 
-# Move Azure Public IP to another region using the Azure portal
+# Move Azure Public IP configuration to another region using the Azure portal
 
-There are various scenarios in which you'd want to move your existing Azure Public IPs from one region to another. For example, you may want to create a public IP with the same configuration and sku for testing. You may also want to move a public IP to another region as part of disaster recovery planning.
+There are various scenarios in which you'd want to move your existing Azure Public IP configurations from one region to another. For example, you may want to create a public IP with the same configuration and sku for testing. You may also want to move a public IP configuration to another region as part of disaster recovery planning.
 
-Azure Public IPs are region specific and can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration of a public IP.  You can then stage the resource in another region by exporting the public IP to a template, modifying the parameters to match the destination region, and then deploy the template to the new region.  For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+**Azure Public IPs are region specific and can't be moved from one region to another.** You can however, use an Azure Resource Manager template to export the existing configuration of a public IP.  You can then stage the resource in another region by exporting the public IP to a template, modifying the parameters to match the destination region, and then deploy the template to the new region.  For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 
 ## Prerequisites
@@ -27,7 +28,7 @@ Azure Public IPs are region specific and can't be moved from one region to anoth
 
 - Verify that your Azure subscription allows you to create public IPs in the target region that's used. Contact support to enable the required quota.
 
-- Make sure that your subscription has enough resources to support the addition of public IPs for this process.  See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Make sure that your subscription has enough resources to support the addition of public IPs for this process.  See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 
 ## Prepare and move
@@ -103,7 +104,7 @@ The following steps show how to prepare the public IP for the configuration move
             },
         ```
 
-        For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address):
+        For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](./virtual-network-public-ip-address.md):
 
     * **Public IP allocation method** and **Idle timeout** - You can change both of these options in the template by altering the **publicIPAllocationMethod** property from **Dynamic** to **Static** or **Static** to **Dynamic**. The idle timeout can be changed by altering the **idleTimeoutInMinutes** property to your desired amount.  The default is **4**:
 
@@ -129,7 +130,7 @@ The following steps show how to prepare the public IP for the configuration move
 
         ```
 
-        For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](./virtual-network-public-ip-address.md).
 
 
 13. Click **Save** in the online editor.
@@ -159,5 +160,5 @@ To commit the changes and complete the move of the public IP, delete the source 
 In this tutorial, you moved an Azure Public IP from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 
-- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Move Azure VMs to another region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)

@@ -1,15 +1,15 @@
 ---
-title: Move data from SAP HANA using Azure Data Factory | Microsoft Docs
+title: Move data from SAP HANA using Azure Data Factory 
 description: Learn about how to move data from SAP HANA using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: 
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/10/2018
@@ -235,7 +235,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
                 "typeProperties": {
                     "source": {
                         "type": "RelationalSource",
-        				"query": "<SQL Query for HANA>"
+                        "query": "<SQL Query for HANA>"
                     },
                     "sink": {
                         "type": "BlobSink",

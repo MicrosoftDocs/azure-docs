@@ -1,15 +1,15 @@
 ---
-title: Authentication methods usage & insights reporting (preview) - Azure Active Directory
+title: Authentication methods usage & insights - Azure Active Directory
 description: Reporting on Azure AD self-service password reset and Multi-Factor Authentication authentication method usage
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 06/06/2019
+ms.topic: how-to
+ms.date: 12/17/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: sahenry
 
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Authentication methods usage & insights (preview)
 
-Usage & insights enables you to understand how authentication methods for features like Azure Multi-Factor Authentication and self-service password reset are working in your organization. This reporting capability provides your organization with the means to understand what methods are being registered and how they are being used.
+Usage & insights enables you to understand how authentication methods for features like Azure AD Multi-Factor Authentication and self-service password reset are working in your organization. This reporting capability provides your organization with the means to understand what methods are being registered and how they are being used.
 
 ## Permissions and licenses
 
@@ -28,7 +28,7 @@ The following roles can access usage and insights:
 - Security Administrator
 - Reports Reader
 
-No additional licensing is required to access usage and insights. Azure Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+ An Azure AD Premium P1 or P2 license is required to access usage and insights. Azure AD Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## How it works
 
@@ -87,12 +87,14 @@ Using the controls at the top of the list, you can search for a user and filter 
 
 ## Limitations
 
-The data shown in these reports will be delayed by up to 60 minutes. A “Last refreshed" field exists in the Azure portal to identify how recent your data is.
+The data shown in these reports will be delayed by up to 60 minutes. A "Last refreshed" field exists in the Azure portal to identify how recent your data is.
 
-Usage and insights data is not a replacement for the Azure Multi-Factor Authentication activity reports or information contained in the Azure AD sign-ins report.
+Usage and insights data is not a replacement for the Azure AD Multi-Factor Authentication activity reports or information contained in the Azure AD sign-ins report.
+
+Report can't currently be filtered to exclude external users.
 
 ## Next steps
 
-- [Working with the authentication methods usage report API](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Working with the authentication methods usage report API](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
 - [Choosing authentication methods for your organization](concept-authentication-methods.md)
 - [Combined registration experience](concept-registration-mfa-sspr-combined.md)

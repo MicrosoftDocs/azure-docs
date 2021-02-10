@@ -1,11 +1,10 @@
 ---
 title: Write code to track requests with Azure Application Insights | Microsoft Docs
 description: Write code to track requests with Application Insights so you can get profiles for your requests.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
+ms.custom: devx-track-csharp
 ms.date: 08/06/2018
 
 ms.reviewer: mbullwin

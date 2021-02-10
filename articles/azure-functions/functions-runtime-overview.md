@@ -1,12 +1,8 @@
 ---
-title: Azure Functions Runtime Overview | Microsoft Docs
+title: Azure Functions Runtime Overview 
 description: Overview of the Azure Functions Runtime Preview
-services: functions
 author: apwestgarth
-manager: stefsch
 
-ms.assetid:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
@@ -44,7 +40,7 @@ To get started with the Azure Functions Runtime, you must have a machine with Wi
 
 ## Next Steps
 
-Install the [Azure Functions Runtime preview](https://aka.ms/azafrdoc)
+Install the [Azure Functions Runtime preview](./functions-runtime-install.md)
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png

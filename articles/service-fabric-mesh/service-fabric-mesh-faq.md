@@ -1,16 +1,16 @@
 ---
-title: Common questions for Azure Service Fabric Mesh | Microsoft Docs
+title: Common questions for Azure Service Fabric Mesh 
 description: Learn about commonly asked questions and answers for Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: 
-author: chackdan
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.service: service-fabric-mesh
-manager: jeanpaul.connock
 ---
 # Commonly asked Service Fabric Mesh questions
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. This article has answers to commonly asked questions.
 
@@ -46,8 +46,11 @@ If you see this happen, you can validate that the system shut it down by running
 
 For example: 
 
-```cli
-~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```azurecli
+az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```
+
+```output
 {
   "debugParams": null,
   "description": "Service Fabric Mesh HelloWorld Application!",
@@ -81,7 +84,6 @@ If you are developing on a Windows Fall Creators Update (version 1709) machine, 
 If you are developing on a Windows 10 April 2018 update (version 1803) machine, you can use either Windows version 1709 or Windows version 1803 docker images.
 
 The following container OS images can be used to deploy services:
-
 - Windows - windowsservercore and nanoserver
     - Windows Server 1709
     - Windows Server 1803
@@ -119,7 +121,7 @@ In your local development cluster use `{serviceName}.{applicationName}`. In Azur
 
 Azure Mesh does not currently support DNS resolution across applications.
 
-For other known DNS issues with running a Service Fabric development cluster on Windows 10, see: [Debug Windows containers](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) and [known DNS issues](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+For other known DNS issues with running a Service Fabric development cluster on Windows 10, see: [Debug Windows containers](../service-fabric/service-fabric-how-to-debug-windows-containers.md) and [known DNS issues](../service-fabric/service-fabric-dnsservice.md#known-issues).
 
 ### Networking
 

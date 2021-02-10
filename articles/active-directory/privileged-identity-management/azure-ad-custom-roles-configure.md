@@ -1,5 +1,5 @@
 ---
-title: Configure Azure AD custom roles in Privileged Identity Management (PIM)| Microsoft Docs
+title: Configure Azure AD custom role - Privileged Identity Management (PIM)
 description: How to configure Azure AD custom roles in Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -8,8 +8,9 @@ manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
@@ -25,6 +26,11 @@ ms.collection: M365-identity-device-management
 
 A privileged role administrator can change the role settings that apply to a user when they activate their assignment to a custom role and for other application administrators that are assigning custom roles.
 
+> [!NOTE]
+> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will take place in the built-in roles experience. If you see the following banner, these roles should be managed [in the built-in roles experience](pim-how-to-activate-role.md) and this article does not apply:
+>
+> [![Select Azure AD > Privileged Identity Management](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+
 ## Open role settings
 
 Follow these steps to open the settings for an Azure AD role.
@@ -37,7 +43,7 @@ Follow these steps to open the settings for an Azure AD role.
 1. Select **Setting** to open the **Settings** page. Select the role for the settings you want to configure.
 1. Select **Edit** to open the **Role settings** page.
 
-    ![Open the Azure AD custom role to edit settings](./media/azure-ad-custom-roles-configure/edit-settings.png)
+    ![Screenshot that shows the "Role setting details" page with the "Edit" action selected.](./media/azure-ad-custom-roles-configure/edit-settings.png)
 
 ## Role settings
 
@@ -57,9 +63,9 @@ Also, you can choose one of these *active* assignment duration options:
 - **Allow permanent active assignment**: Administrators can assign permanent active membership.
 - **Expire active assignment after**: Administrators can require that all active assignments have a specified start and end date.
 
-### Require Azure Multi-Factor Authentication
+### Require Azure AD Multi-Factor Authentication
 
-Privileged Identity Management provides optional enforcement of Azure Multi-Factor Authentication for two distinct scenarios.
+Privileged Identity Management provides optional enforcement of Azure AD Multi-Factor Authentication for two distinct scenarios.
 
 - **Require Multi-Factor Authentication on active assignment**
 
@@ -67,7 +73,7 @@ Privileged Identity Management provides optional enforcement of Azure Multi-Fact
 
 - **Require Multi-Factor Authentication on activation**
 
-  You can require eligible users assigned to a role to enroll in Azure Multi-Factor Authentication before they can activate. This process ensures that the user who is requesting activation is who they say they are with reasonable certainty. Enforcing this option protects critical roles in situations when the user account might have been compromised. To require an eligible member to run Azure Multi-Factor Authentication before activation, select the **Require Multi-Factor Authentication on activation** box.
+  You can require eligible users assigned to a role to enroll in Azure AD Multi-Factor Authentication before they can activate. This process ensures that the user who is requesting activation is who they say they are with reasonable certainty. Enforcing this option protects critical roles in situations when the user account might have been compromised. To require an eligible member to run Azure AD Multi-Factor Authentication before activation, select the **Require Multi-Factor Authentication on activation** box.
 
 For more information, see [Multi-factor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
 
@@ -93,7 +99,7 @@ If you want to require approval to activate a role, follow these steps.
 
 ## Next steps
 
-- [Activate an Azure AD custom role](azure-ad-custom-roles-assign.md)
+- [Activate an Azure AD custom role](azure-ad-custom-roles-activate.md)
 - [Assign an Azure AD custom role](azure-ad-custom-roles-assign.md)
 - [Remove or update an Azure AD custom role assignment](azure-ad-custom-roles-update-remove.md)
-- [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Role definitions in Azure AD](../roles/permissions-reference.md)

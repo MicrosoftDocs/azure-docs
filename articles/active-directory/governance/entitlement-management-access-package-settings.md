@@ -1,18 +1,18 @@
 ---
-title: Share link to request an access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to share link to request an access package in Azure Active Directory entitlement management (Preview).
+title: Share link to request an access package in Azure AD entitlement management - Azure Active Directory
+description: Learn how to share link to request an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -21,12 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Share link to request an access package in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Share link to request an access package in Azure AD entitlement management
 
 Most users in your directory can sign in to the My Access portal and automatically see a list of access packages they can request. However, for external business partner users that are not yet in your directory, you will need to send them a link that they can use to request an access package. 
 
@@ -44,7 +39,7 @@ As long as the catalog for the access package is [enabled for external users](en
 
     ![Access package overview - My Access portal link](./media/entitlement-management-shared/my-access-portal-link.png)
 
-    It is important that you copy the entire My Access portal link when sending it to an internal business partner. This ensures that the partner will get access to your directory's portal to make their request. The link starts with `myaccess`, includes a directory hint, and ends with an access package ID.
+    It is important that you copy the entire My Access portal link when sending it to an internal business partner. This ensures that the partner will get access to your directory's portal to make their request. The link starts with `myaccess`, includes a directory hint, and ends with an access package ID.  (For US Government, the domain in the My Access portal link will be `myaccess.microsoft.us`.)
 
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

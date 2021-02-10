@@ -54,7 +54,7 @@ the development lifecycle helps you catch issues early, and it helps you
 reduce your development costs.
 
 We follow the phases of the Microsoft [Security Development Lifecycle
-(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx)
+(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10))
 to introduce activities and Azure services that you can use to fulfill
 secure software development practices in each phase of the lifecycle.
 
@@ -90,7 +90,7 @@ Use the following resources to learn more about developing secure
 applications and to help secure your applications on Azure:
 
 [Microsoft Security Development Lifecycle
-(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx)
+(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10))
 – The SDL is a software development process from Microsoft that helps
 developers build more secure software. It helps you address security
 compliance requirements while reducing development costs.

@@ -1,23 +1,24 @@
 ---
-title: Migrate Azure analytics resources from Azure Germany to global Azure
+title: Migrate Azure analytics resources, Azure Germany to global Azure
 description: This article provides information about migrating your Azure analytics resources from Azure Germany to global Azure.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 8/15/2018
-ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate analytics resources to global Azure
 
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
+
 This article has information that can help you migrate Azure analytics resources from Azure Germany to global Azure.
   
 ## Event Hubs
 
-You can't directly migrate Azure Event Hubs resources from Azure Germany to global Azure. The Event Hubs service doesn't have data export or import capabilities. However, you can export Event Hubs resources [as a template](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates). Then, adapt the exported template for global Azure and re-create the resources.
+You can't directly migrate Azure Event Hubs resources from Azure Germany to global Azure. The Event Hubs service doesn't have data export or import capabilities. However, you can export Event Hubs resources [as a template](../azure-resource-manager/templates/export-template-portal.md). Then, adapt the exported template for global Azure and re-create the resources.
 
 > [!NOTE]
 > Exporting an Event Hubs template doesn't copy data (for example, messages). Exporting a template only re-creates Event Hubs metadata.
@@ -37,9 +38,9 @@ The following metadata elements are re-created when you export an Event Hubs tem
 For more information:
 
 - Review the [Event Hubs overview](../event-hubs/event-hubs-about.md).
-- Refresh your knowledge by completing the [Event Hubs tutorials](https://docs.microsoft.com/azure/event-hubs).
+- Refresh your knowledge by completing the [Event Hubs tutorials](../event-hubs/index.yml).
 - Check the migration steps for [Azure Service Bus](./germany-migration-integration.md#service-bus).
-- Become familiar with how to [export Azure Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read the overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Become familiar with how to [export Azure Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read the overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 ## HDInsight
 
@@ -53,10 +54,10 @@ For more specialized, long-running clusters (Kafka, Spark streaming, Storm, or H
 
 For more information:
 
-- Review the [Azure HDInsight documentation](https://docs.microsoft.com/azure/hdinsight/).
-- Refresh your knowledge by completing the [HDInsight tutorials](https://docs.microsoft.com/azure/hdinsight).
+- Review the [Azure HDInsight documentation](../hdinsight/index.yml).
+- Refresh your knowledge by completing the [HDInsight tutorials](../hdinsight/index.yml).
 - For help with [scaling HDInsight clusters](../hdinsight/hdinsight-administer-use-powershell.md#scale-clusters), see [Administer HDInsight by using PowerShell](../hdinsight/hdinsight-administer-use-powershell.md).
-- Learn how to use [AzCopy](../storage/common/storage-use-azcopy.md).
+- Learn how to use [AzCopy](../storage/common/storage-use-azcopy-v10.md).
 
 ## Stream Analytics
 
@@ -64,7 +65,7 @@ To migrate Azure Stream Analytics services from Azure Germany to global Azure, m
 
 For more information:
 
-- Refresh your knowledge by completing the [Stream Analytics tutorials](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job).
+- Refresh your knowledge by completing the [Stream Analytics tutorials](../stream-analytics/stream-analytics-real-time-fraud-detection.md).
 - Review the [Stream Analytics overview](../stream-analytics/stream-analytics-introduction.md).
 - Learn how to [create a Stream Analytics job by using PowerShell](../stream-analytics/stream-analytics-quick-create-powershell.md).
 
@@ -83,9 +84,9 @@ To migrate smaller Azure SQL Database workloads, use the export function to crea
 
 For more information:
 
-- Learn how to [export a database to a BACPAC file](../sql-database/sql-database-export.md).
-- Learn how to [import a BACPAC file to a database](../sql-database/sql-database-import.md).
-- Review the [Azure SQL Database documentation](https://docs.microsoft.com/azure/sql-database/).
+- Learn how to [export a database to a BACPAC file](../azure-sql/database/database-export.md).
+- Learn how to [import a BACPAC file to a database](../azure-sql/database/database-import.md).
+- Review the [Azure SQL Database documentation](/azure/sql-database/).
 
 ## Analysis Services
 

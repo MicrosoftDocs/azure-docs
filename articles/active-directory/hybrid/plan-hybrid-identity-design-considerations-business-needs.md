@@ -68,10 +68,10 @@ Next, you need to evaluate the identity integration requirements. This evaluatio
   * Your company has an on-premises applications (either built in-house or 3rd party) that uses SAML or similar federation capabilities.
   * MFA via Smart Cards. RSA SecurID, etc.
   * Client access rules that address the questions below:
-    1. Can I block all external access to Office 365 based on the IP address of the client?
-    2. Can I block all external access to Office 365, except Exchange ActiveSync?
-    3. Can I block all external access to Office 365, except for browser-based apps (OWA, SPO)
-    4. Can I block all external access to Office 365 for members of designated AD groups
+    1. Can I block all external access to Microsoft 365 based on the IP address of the client?
+    2. Can I block all external access to Microsoft 365, except Exchange ActiveSync?
+    3. Can I block all external access to Microsoft 365, except for browser-based apps (OWA, SPO)
+    4. Can I block all external access to Microsoft 365 for members of designated AD groups
 * Security/auditing concerns
 * Already existing investment in federated authentication
 * What name will our organization use for our domain in the cloud?

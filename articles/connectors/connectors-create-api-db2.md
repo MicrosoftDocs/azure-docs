@@ -1,20 +1,18 @@
 ---
-title: Connect to IBM DB2 - Azure Logic Apps
-description: Manage resources with IBM DB2 REST APIs and Azure Logic Apps
+title: Access and manage IBM DB2 resources
+description: Read, edit, update, and manage IBM DB2 resources by building automated workflows using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: plarsen, LADocs
+ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 11/19/2020
 tags: connectors
 ---
 
-# Manage IBM DB2 resources with Azure Logic Apps
+# Access and manage IBM DB2 resources by using Azure Logic Apps
 
-With Azure Logic Apps and the IBM DB2 connector, you can create automated 
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the 
+[IBM DB2 connector](/connectors/db2/), you can create automated 
 tasks and workflows based on the resources stored in your DB2 database. 
 Your workflows can connect to the resources in your database, read and 
 list your database tables, add rows, change rows, delete rows, and more. 
@@ -40,7 +38,7 @@ SQL Access Manager (SQLAM) versions 10 and 11:
 
 | Platform | Version | 
 |----------|---------|
-| IBM DB2 for z/OS | 11.1, 10.1 |
+| IBM DB2 for z/OS | 12, 11.1, 10.1 |
 | IBM DB2 for i | 7.3, 7.2, 7.1 |
 | IBM DB2 for LUW | 11, 10.5 |
 |||
@@ -189,7 +187,7 @@ properties that are specific to records in that table.
    | **Area ID** | Yes | The ID for the record you want, such as "99999" in this example |
    ||||
 
-   ![Select table](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![Screenshot that shows the "Get row (Preview)" action with the opened "Table name" list and the "AREA" value selected.](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. When you're done, on the designer toolbar, choose **Save**.
 
@@ -231,7 +229,7 @@ section, but add the **Get rows** action instead, and then return here to contin
 1. Open the **Table name** list, and then select the table you want, 
 which is "AREA" in this example:
 
-   ![Select table](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![Screenshot that shows the "Get row (Preview)" action with the "AREA" value selected in the "Table name" list.](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. To specify a filter or query for results, choose **Show advanced options**.
 
@@ -290,7 +288,7 @@ properties that are specific to records in that table.
 
    For example:
 
-   ![Select table](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![Screenshot that shows the Logic Apps Designer with the "Insert row (Preview)" action and example property values.](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. When you're done, on the designer toolbar, choose **Save**.
 
@@ -348,7 +346,7 @@ properties that are specific to records in that table.
 
    For example:
 
-   ![Select table](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![Screenshot that shows the Logic Apps Designer with the "Update row (Preview)" action where you select a table.](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. When you're done, on the designer toolbar, choose **Save**.
 
@@ -403,7 +401,7 @@ properties that are specific to records in that table.
 
    For example:
 
-   ![Select table](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![Screenshot that shows the Logic Apps Designer with the "Delete row (Preview)" action where you select a table to delete.](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. When you're done, on the designer toolbar, choose **Save**.
 
@@ -431,10 +429,13 @@ Expand the **Delete row** action.
 
 ## Connector reference
 
-For technical details, such as triggers, actions, and limits, 
-as described by the connector's OpenAPI (formerly Swagger) file, 
-see the [connector's reference page](/connectors/db2/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/db2/).
+
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+

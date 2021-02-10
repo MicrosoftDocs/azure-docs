@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Back up workload virtual machines on Private Cloud using Veeam
 description: Describes how you can back up your virtual machines that are running in an Azure-based CloudSimple Private Cloud using Veeam B&R 9.5
-author: sharaths-cs
-ms.author: b-shsury 
+author: Ajayan1008
+ms.author: v-hborys 
 ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -51,7 +51,7 @@ For environments with less than 30 TB to back up, CloudSimple recommends the fol
 * A Linux based primary backup repository in Azure configured as a target for backup jobs.
 * `azcopy` used to copy the data from the primary backup repository to an Azure blob container that is replicated to another region.
 
-![Basic deployment scenarios](media/veeam-basicdeployment.png)
+![Diagram that shows basic Veeam deployment scenarios.](media/veeam-basicdeployment.png)
 
 **Advanced deployment**
 
@@ -116,7 +116,7 @@ Configure infrastructure services in the Private Cloud to make it easy to manage
 
 * You can add an external identity provider as described in [Set up vCenter identity sources to use Active Directory](set-vcenter-identity.md) if any of the following apply:
 
-  * You want to identify users from your on-premise Active Directory (AD) in your Private Cloud.
+  * You want to identify users from your on-premises Active Directory (AD) in your Private Cloud.
   * You want to set up an AD in your Private Cloud for all users.
   * You want to use Azure AD.
 * To provide IP address lookup, IP address management, and name resolution services for your workloads in the Private Cloud, set up a DHCP and DNS server as described in [Set up DNS and DHCP applications and workloads in your CloudSimple Private Cloud](dns-dhcp-setup.md).
@@ -189,8 +189,8 @@ Connect your virtual network to the Private Cloud by following the instructions 
 
 ### Configure Azure blob storage for long term data retention
 
-1. Create a general purpose storage account (GPv2) of standard type and a blob container as described in the Microsoft video [Getting Started with Azure Storage](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage).
-2. Create an Azure storage container, as described in the [Create Container](https://docs.microsoft.com/rest/api/storageservices/create-container) reference.
+1. Create a general purpose storage account (GPv2) of standard type and a blob container as described in the Microsoft video [Getting Started with Azure Storage](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage).
+2. Create an Azure storage container, as described in the [Create Container](/rest/api/storageservices/create-container) reference.
 2. Download the `azcopy` command line utility for Linux from Microsoft. You can use the following commands in the bash shell in CentOS 7.5.
 
     ```
@@ -201,7 +201,7 @@ Connect your virtual network to the Private Cloud by following the instructions 
     sudo yum -y install icu
     ```
 
-3. Use the `azcopy` command to copy backup files to and from the blob container.  See [Transfer data with AzCopy on Linux](../storage/common/storage-use-azcopy-linux.md) for detailed commands.
+3. Use the `azcopy` command to copy backup files to and from the blob container.  See [Transfer data with AzCopy on Linux](../storage/common/storage-use-azcopy-v10.md) for detailed commands.
 
 ### vCenter console of Private Cloud: Install Veeam B&R
 
@@ -285,9 +285,9 @@ To de-escalate privileges, see [De-escalate privileges](escalate-private-cloud-p
 * [Connect a VNet to a circuit - different subscription](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
 * [Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [How to attach a managed data disk to a Windows VM in the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.md)
-* [Getting Started with Azure Storage - Video](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage)
-* [Create Container](https://docs.microsoft.com/rest/api/storageservices/create-container)
-* [Transfer data with AzCopy on Linux](../storage/common/storage-use-azcopy-linux.md)
+* [Getting Started with Azure Storage - Video](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
+* [Create Container](/rest/api/storageservices/create-container)
+* [Transfer data with AzCopy on Linux](../storage/common/storage-use-azcopy-v10.md)
 
 ### VMware references
 

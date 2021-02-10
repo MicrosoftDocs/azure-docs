@@ -3,13 +3,13 @@ author: garyericson
 ms.service: sql-database
 ms.subservice: machine-learning  
 ms.topic: include
-ms.date: 04/10/2019
+ms.date: 05/27/2020
 ms.author: garye
 ---
 
 > [!IMPORTANT]
-> Azure SQL Database Machine Learning Services is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure SQL Database Machine Learning Services is currently in preview. Sign up for the preview is currently **closed**.
 >
-> [Sign up for the preview](../articles/sql-database/sql-database-machine-learning-services-overview.md#signup)
+> As of 30 June 2020, support will be discontinued and the preview will not be released for general availability. R scripts in use after 30 June 2020 will not work.
+>
+> To continue working with machine learning in Azure SQL, see [**Machine Learning Services in Azure SQL Managed Instance** (preview)](../articles/azure-sql/managed-instance/machine-learning-services-overview.md).

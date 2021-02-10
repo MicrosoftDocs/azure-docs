@@ -1,18 +1,22 @@
 ---
-title: Programmatically monitor an Azure data factory | Microsoft Docs
+title: Programmatically monitor an Azure data factory 
 description: Learn how to monitor a pipeline in a data factory by using different software development kits (SDKs).
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.date: 01/16/2018
-author: djpmsft
-ms.author: daperlov
-manager: craigg
+author: dcstwh
+ms.author: weetok
+manager: anandsub
+ms.custom: devx-track-python
 ---
 # Programmatically monitor an Azure data factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes how to monitor a pipeline in a data factory by using different software development kits (SDKs). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -59,7 +63,7 @@ For a complete walkthrough of creating and monitoring a pipeline using .NET SDK,
     Console.ReadKey();
     ```
 
-For complete documentation on .NET SDK, see [Data Factory .NET SDK reference](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
+For complete documentation on .NET SDK, see [Data Factory .NET SDK reference](/dotnet/api/microsoft.azure.management.datafactory).
 
 ## Python
 For a complete walkthrough of creating and monitoring a pipeline using Python SDK, see [Create a data factory and pipeline using Python](quickstart-create-data-factory-python.md).
@@ -77,7 +81,7 @@ activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(
 print_activity_run_details(activity_runs_paged[0])
 ```
 
-For complete documentation on Python SDK, see [Data Factory Python SDK reference](/python/api/overview/azure/datafactory?view=azure-python).
+For complete documentation on Python SDK, see [Data Factory Python SDK reference](/python/api/overview/azure/datafactory).
 
 ## REST API
 For a complete walkthrough of creating and monitoring a pipeline using REST API, see [Create a data factory and pipeline using REST API](quickstart-create-data-factory-rest-api.md).

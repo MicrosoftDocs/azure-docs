@@ -1,5 +1,6 @@
 ---
-title: Azure API management policy sample - Route the request based on the size of its body | Microsoft Docs
+title: Sample API management policy - Route request based on size of message body
+titleSuffix: Azure API Management
 description: Azure API management policy sample - Demonstrates how to route requests based on the size of their bodies.
 services: api-management
 documentationcenter: ''
@@ -17,7 +18,7 @@ ms.author: apimpm
 
 # Route the request based on the size of its body
 
-This article shows an Azure API management policy sample that demonstrates how to route requests based on the size of their bodies. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). To see other examples, see [policy samples](../policy-samples.md).
+This article shows an Azure API management policy sample that demonstrates how to route requests based on the size of their bodies. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). To see other examples, see [policy samples](../policy-reference.md).
 
 ## Policy
 
@@ -30,5 +31,4 @@ Paste the code into the **inbound** block.
 Learn more about APIM policies:
 
 + [Transformation policies](../api-management-transformation-policies.md)
-+ [Policy samples](../policy-samples.md)
-
++ [Policy samples](../policy-reference.md)

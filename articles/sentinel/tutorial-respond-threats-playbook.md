@@ -1,9 +1,9 @@
 ---
-title: Run a playbook in Azure Sentinel| Microsoft Docs
-description: This article describes how to run a playbook in Azure Sentinel.
+title: 'Tutorial: Run a playbook in Azure Sentinel'
+description: Use this tutorial to help you use security playbooks in Azure Sentinel to set automated threat responses to security-related issues.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -15,8 +15,8 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
-ms.author: rkarlin
+ms.date: 02/18/2019
+ms.author: yelevin
 ---
 
 # Tutorial: Set up automated threat responses in Azure Sentinel
@@ -35,7 +35,7 @@ This tutorial helps you to use security playbooks in Azure Sentinel to set autom
 
 ## What is a security playbook in Azure Sentinel?
 
-A security playbook is a collection of procedures that can be run from Azure Sentinel in response to an alert. A security playbook can help automate and orchestrate your response, and can be run manually or set to run automatically when specific alerts are triggered. Security playbooks in Azure Sentinel are based on [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), which means that you get all the power, customizability, and built-in templates of Logic Apps. Each playbook is created for the specific subscription you choose, but when you look at the Playbooks page, you will see all the playbooks across any selected subscriptions.
+A security playbook is a collection of procedures that can be run from Azure Sentinel in response to an alert. A security playbook can help automate and orchestrate your response, and can be run manually or set to run automatically when specific alerts are triggered. Security playbooks in Azure Sentinel are based on [Azure Logic Apps](../logic-apps/logic-apps-overview.md), which means that you get all the power, customizability, and built-in templates of Logic Apps. Each playbook is created for the specific subscription you choose, but when you look at the Playbooks page, you will see all the playbooks across any selected subscriptions.
 
 > [!NOTE]
 > Playbooks leverage Azure Logic Apps, therefore charges apply. Visit [Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) pricing page for more details.
@@ -56,11 +56,11 @@ Security playbooks can be run either manually or automatically. Running them man
 Follow these steps to create a new security playbook in Azure Sentinel:
 
 1. Open the **Azure Sentinel** dashboard.
-2. Under **Management**, select **Playbooks**.
+2. Under **Configuration**, select **Playbooks**.
 
    ![Logic App](./media/tutorial-respond-threats-playbook/playbookimg.png)
 
-3. In the **Azure Sentinel - Playbooks (Preview)** page, click **Add** button.
+3. In the **Azure Sentinel - Playbooks** page, click **Add** button.
 
    ![Create logic app](./media/tutorial-respond-threats-playbook/create-playbook.png) 
 
@@ -68,7 +68,7 @@ Follow these steps to create a new security playbook in Azure Sentinel:
 
 5. In the [**Logic App Designer**](../logic-apps/logic-apps-overview.md), select the template you want to use. If you select a template that necessitates credentials, you will have to provide them. Alternatively, you can create a new blank playbook from scratch. Select **Blank Logic App**. 
 
-   ![Logical app designer](./media/tutorial-respond-threats-playbook/playbook-template.png)
+   ![Screenshot that shows the Blank Logic App panel.](./media/tutorial-respond-threats-playbook/playbook-template.png)
 
 6. You are taken to the Logic App Designer where you can either build new or edit the template. For more information on creating a playbook with [Logic Apps](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 
@@ -114,5 +114,3 @@ To automate responses:
 ## Next steps
 
 In this tutorial, you learned how to run a playbook in Azure Sentinel. Continue to the [how to proactively hunt for threats](hunting.md) using Azure Sentinel.
-
-

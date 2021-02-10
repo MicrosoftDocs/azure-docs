@@ -5,10 +5,8 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/24/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
 # Common Issues
@@ -22,7 +20,7 @@ To troubleshoot, you might need to access Event Grid module logs. To do this, on
 On Windows,
 
 ```sh
-docker -H npipe:////./pipe/notedly_moby_engine container logs eventgridmodule
+docker -H npipe:////./pipe/iotedge_moby_engine container logs eventgridmodule
 ```
 
 On Linux,

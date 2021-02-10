@@ -1,5 +1,5 @@
 ---
-title: Update or remove an Azure AD custom role assignment in Privileged Identity Management (PIM) | Microsoft Docs
+title: Update or remove Azure AD custom role - Privileged Identity Management (PIM)
 description: How to update or remove an Azure AD custom role assignment Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -8,8 +8,9 @@ manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
@@ -25,11 +26,13 @@ ms.collection: M365-identity-device-management
 
 This article tells you how to use Privileged Identity Management (PIM) to update or remove just-in-time and time-bound assignment to custom roles created for application management in the Azure Active Directory (Azure AD) administrative experience. 
 
-- For more information about creating custom roles to delegate application management in Azure AD, see [Custom administrator roles in Azure Active Directory (preview)](../users-groups-roles/roles-custom-overview.md). 
+- For more information about creating custom roles to delegate application management in Azure AD, see [Custom administrator roles in Azure Active Directory (preview)](../roles/custom-overview.md). 
 - If you haven't used Privileged Identity Management yet, get more information at [Start using Privileged Identity Management](pim-getting-started.md).
 
 > [!NOTE]
-> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management role management will take place in the built-in roles experience.
+> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will take place in the built-in roles experience. If you see the following banner, these roles should be managed [in the built-in roles experience](pim-how-to-add-role-to-user.md) and this article does not apply:
+>
+> [![Select Azure AD > Privileged Identity Management.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## Update or remove an assignment
 

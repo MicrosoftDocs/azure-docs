@@ -1,22 +1,17 @@
 ---
 title: Azure Germany IoT services | Microsoft Docs
-description: Provides a starting point for IoT Suite for Azure Germany
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: This article provides a starting point for Azure IoT Suite for Azure Germany.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/01/2018
-ms.author: ralfwi
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
+
 # Azure Germany IoT services
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 ## IoT solution accelerators
 All the required services for Azure IoT Suite are available in Azure Germany. 
@@ -40,13 +35,15 @@ Both solutions can be deployed in two ways, via website or via PowerShell.
 
 ### Deploy via website
 
-Follow the instructions in the [tutorial for the preconfigured solutions](../iot-accelerators/iot-accelerators-remote-monitoring-explore.md) by using the home page mentioned earlier.
+Follow the instructions in the [tutorial for the preconfigured solutions](/previous-versions/azure/iot-accelerators/about-iot-accelerators) by using the home page mentioned earlier.
 
 ### Deploy via PowerShell
 
 There's a full version (using Azure Resource Manager templates and Visual Studio) for the *remote monitoring* solution. Download from the [Azure-IoT-Remote-Monitoring repository on GitHub](https://github.com/Azure/azure-iot-remote-monitoring). The PowerShell deployment is ready for other environments like Azure Germany. Provide the *Environment* parameter "AzureGermanCloud," so it looks similar to this:
 
-    build.cmd cloud debug AzureGermanCloud
+```powershell
+build.cmd cloud debug AzureGermanCloud
+```
 
 Bing Maps is currently not available in Azure Germany and therefore cannot be subscribed to automatically. You can solve this problem by subscribing to the service in global Azure and using the service there. 
 
@@ -70,4 +67,4 @@ Here's how to do it:
 
 ## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
+[Azure Germany blog](/archive/blogs/azuregermany/).

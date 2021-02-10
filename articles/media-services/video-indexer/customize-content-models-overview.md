@@ -1,5 +1,5 @@
 ---
-title: Customizing content models in Azure Media Services Video Indexer   
+title: Customizing content models in Azure Media Services Video Indexer
 titleSuffix: Azure Media Services
 description: This article gives links to the conceptual articles that explain the benefits of each type of customization. This article also links to how-to guides that show how you can implement the customization of each model.
 services: media-services
@@ -10,7 +10,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 06/26/2019
-ms.author: anzaman
+ms.author: kumud
 ---
 
 # Customizing content models in Video Indexer

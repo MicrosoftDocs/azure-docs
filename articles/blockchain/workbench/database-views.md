@@ -1,19 +1,14 @@
 ---
-title: Database views in Azure Blockchain Workbench Preview
-description: Overview of Azure Blockchain Workbench Preview SQL DB database views.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
+title: Azure Blockchain Workbench database views
+description: Overview of available Azure Blockchain Workbench Preview SQL DB database views.
 ms.date: 09/05/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
+#Customer intent: As a developer, I want to understand the available Azure Blockchain Workbench SQL Server database views for querying off-chain blockchain data.
 ---
-# Database views in Azure Blockchain Workbench Preview
+# Azure Blockchain Workbench database views
 
-Azure Blockchain Workbench Preview delivers data from distributed ledgers to an *off-chain* SQL DB database. The off-chain database makes it possible to use SQL and existing tools, such as [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), to interact with blockchain data.
+Azure Blockchain Workbench Preview delivers data from distributed ledgers to an *off-chain* SQL DB database. The off-chain database makes it possible to use SQL and existing tools, such as [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), to interact with blockchain data.
 
 Azure Blockchain Workbench provides a set of database views that provide access to data that will be helpful when performing your queries. These views are heavily denormalized to make it easy to quickly get started building reports, analytics, and otherwise consume blockchain data with existing tools and without having to retrain database staff.
 

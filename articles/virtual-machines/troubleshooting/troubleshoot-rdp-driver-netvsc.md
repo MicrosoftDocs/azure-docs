@@ -66,7 +66,7 @@ Connect to [the Serial Console, open a PowerShell instance](serial-console-windo
 
 ### Repair the VM Offline
 
-1. [Attach the system disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Attach the system disk to a recovery VM](./troubleshoot-recovery-disks-portal-windows.md).
 
 2. Start a Remote Desktop connection to the recovery VM.
 
@@ -111,7 +111,7 @@ Connect to [the Serial Console, open a PowerShell instance](serial-console-windo
     reg unload HKLM\BROKENSYSTEM
     ```
 
-16. [Detach the system disk, and create the VM again](../windows/troubleshoot-recovery-disks-portal.md).
+16. [Detach the system disk, and create the VM again](./troubleshoot-recovery-disks-portal-windows.md).
 
 ## Need help? Contact support
 

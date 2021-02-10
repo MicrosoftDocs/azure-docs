@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: notification-hubs
- author: spelluru
+ author: sethmanheim
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 03/30/2018
- ms.author: spelluru
+ ms.date: 11/07/2019
+ ms.author: sethm
  ms.custom: include file
 ---
 
@@ -40,12 +40,15 @@ In this section, you send breaking news as tagged template notifications from a 
         // Define the notification hub.
         NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
 
+        // Apple requires the apns-push-type header for all requests
+        var headers = new Dictionary<string, string> {{"apns-push-type", "alert"}};
+
         // Create an array of breaking news categories.
         var categories = new string[] { "World", "Politics", "Business", "Technology", "Science", "Sports"};
 
         // Send the notification as a template notification. All template registrations that contain
         // "messageParam" and the proper tags will receive the notifications.
-        // This includes APNS, GCM, WNS, and MPNS template registrations.
+        // This includes APNS, GCM/FCM, WNS, and MPNS template registrations.
 
         Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
@@ -75,7 +78,7 @@ In this section, you send breaking news as tagged template notifications from a 
 
 <!-- URLs. -->
 [Get started with Notification Hubs]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Notification Hubs REST interface]: https://msdn.microsoft.com/library/windowsazure/dn223264.aspx
-[Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
+[Notification Hubs REST interface]: /previous-versions/azure/reference/dn223264(v=azure.100)
+[Add push notifications for Mobile Apps]: /previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push
 [How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
 [Microsoft.Azure.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/

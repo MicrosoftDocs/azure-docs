@@ -3,17 +3,14 @@ title: Azure traffic analytics frequently asked questions | Microsoft Docs
 description: Get answers to some of the most frequently asked questions about traffic analytics.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
-
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 03/08/2018
-ms.author: kumud
+ms.date: 01/04/2021
+ms.author: damendo
 ---
 
 # Traffic Analytics frequently asked questions
@@ -34,7 +31,7 @@ Traffic Analytics requires the following prerequisites:
 
 Your account must meet one of the following to enable traffic analytics:
 
-- Your account must have any one of the following role-based access control (RBAC) roles at the subscription scope: owner, contributor, reader, or network contributor.
+- Your account must have any one of the following Azure roles at the subscription scope: owner, contributor, reader, or network contributor.
 - If your account is not assigned to one of the previously listed roles, it must be assigned to a custom role that is assigned the following actions, at the subscription level.
             
     - Microsoft.Network/applicationGateways/read
@@ -57,7 +54,7 @@ To check roles assigned to a user for a subscription:
 3. To list all the roles that are assigned to a specified user, use
     **Get-AzRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**. 
 
-If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Add or remove Azure role assignments using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## In which Azure regions is Traffic Analytics available?
@@ -88,19 +85,22 @@ You can use traffic analytics for NSGs in any of the following supported regions
 - Japan East
 - Japan West
 - US Gov Virginia
+- China East 2
 
 The Log Analytics workspace must exist in the following regions:
 - Canada Central
 - West Central US
-- West US
-- West US 2
-- South Central US
-- Central US
 - East US
 - East US 2
+- North Central US
+- South Central US
+- Central US
+- West US
+- West US 2
 - France Central
 - West Europe
 - North Europe
+- UK West
 - UK South
 - Australia East
 - Australia Southeast
@@ -110,6 +110,7 @@ The Log Analytics workspace must exist in the following regions:
 - Central India
 - Japan East
 - US Gov Virginia
+- China East 2
 
 ## Can the NSGs I enable flow logs for be in different regions than my workspace?
 
@@ -121,7 +122,7 @@ Yes.
 
 ## Can I use an existing workspace?
 
-Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Monitor logs upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
+Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Monitor logs upgrade to new log search](../azure-monitor/log-query/log-query-overview.md).
 
 ## Can my Azure Storage Account be in one subscription and my Log Analytics workspace be in a different subscription?
 
@@ -129,7 +130,7 @@ Yes, your Azure Storage account can be in one subscription, and your Log Analyti
 
 ## Can I store raw logs in a different subscription?
 
-No. You can store raw logs in any storage account where an NSG is enabled for flow logs. However, both the storage account and the raw logs must be in the same subscription and region.
+Yes. You can configure NSG Flow Logs to be sent to a storage account located in a different subscription, provided you have the appropriate privileges, and that the storage account is located in the same region as the NSG. The NSG and the destination storage account must also share the same Azure Active Directory Tenant.
 
 ## What if I can't configure an NSG for traffic analytics due to a "Not found" error?
 
@@ -171,7 +172,7 @@ You are seeing the resources information on the dashboard; however, no flow-rela
 
 ## Can I configure traffic analytics using PowerShell or an Azure Resource Manager template or client?
 
-You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To configure flow logging and traffic analytics for a specific NSG by using the Set cmdlet, see [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). To get the flow logging and traffic analytics status for a specific NSG, see [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To configure flow logging and traffic analytics for a specific NSG by using the Set cmdlet, see [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). To get the flow logging and traffic analytics status for a specific NSG, see [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Currently, you can't use an Azure Resource Manager template to configure traffic analytics.
 
@@ -246,7 +247,7 @@ For example, as per the [pricing plan](https://azure.microsoft.com/pricing/detai
 
 ## How frequently does Traffic Analytics process data?
 
-Refer to the [data aggregation section](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) in Traffic Analytics Schema and Data Aggregation Document
+Refer to the [data aggregation section](./traffic-analytics-schema.md#data-aggregation) in Traffic Analytics Schema and Data Aggregation Document
 
 ## How does Traffic Analytics decide that an IP is malicious? 
 
@@ -260,7 +261,72 @@ Steps :
 - You can use the shortlink for Log Analytics in Traffic Analytics. 
 - Use the [schema documented here](traffic-analytics-schema.md) to write your queries 
 - Click "New alert rule" to create the alert
-- Refer to [log alerts documentation](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) to create the alert
+- Refer to [log alerts documentation](../azure-monitor/platform/alerts-log.md) to create the alert
+
+## How do I check which VMs are receiving most on-premises traffic?
+
+```
+AzureNetworkAnalytics_CL
+| where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+| where <Scoping condition>
+| mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
+| where isnotempty(vm) 
+| extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
+| make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by vm
+| render timechart
+```
+
+  For IPs:
+
+```
+AzureNetworkAnalytics_CL
+| where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+//| where <Scoping condition>
+| mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
+| where isnotempty(IP) 
+| extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
+| make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by IP
+| render timechart
+```
+
+For time, use format : yyyy-mm-dd 00:00:00
+
+## How do I check standard deviation in traffic received by my VMs from on-premises machines?
+
+```
+AzureNetworkAnalytics_CL
+| where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+//| where <Scoping condition>
+| mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
+| where isnotempty(vm) 
+| extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + utboundBytes_d
+| summarize deviation = stdev(traffic)  by vm
+```
+
+For IPs:
+
+```
+AzureNetworkAnalytics_CL
+| where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+//| where <Scoping condition>
+| mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
+| where isnotempty(IP) 
+| extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
+| summarize deviation = stdev(traffic)  by IP
+```
+
+## How do I check which ports are reachable (or blocked) between IP pairs with NSG rules?
+
+```
+AzureNetworkAnalytics_CL
+| where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
+| extend sourceIPs = iif(isempty(SrcIP_s), split(SrcPublicIPs_s, " ") , pack_array(SrcIP_s)),
+destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_s))
+| mvexpand SourceIp = sourceIPs to typeof(string)
+| mvexpand DestIp = destIPs to typeof(string)
+| project SourceIp = tostring(split(SourceIp, "|")[0]), DestIp = tostring(split(DestIp, "|")[0]), NSGList_s, NSGRule_s, DestPort_d, L4Protocol_s, FlowStatus_s 
+| summarize DestPorts= makeset(DestPort_d) by SourceIp, DestIp, NSGList_s, NSGRule_s, L4Protocol_s, FlowStatus_s
+```
 
 ## How can I navigate by using the keyboard in the geo map view?
 
@@ -289,7 +355,7 @@ The geo map page contains two main sections:
 ### Keyboard navigation at any stage
     
 - `Esc` collapses the expanded selection.
-- The `Up arrow` key performs the same action as `Esc`. The `Down arrow` key performs the same action as `Enter`.
+- The `Up-arrow` key performs the same action as `Esc`. The `Down arrow` key performs the same action as `Enter`.
 - Use `Shift+Plus` to zoom in, and `Shift+Minus` to zoom out.
 
 ## How can I navigate by using the keyboard in the virtual network topology view?
@@ -333,5 +399,7 @@ The virtual subnetworks topology page contains two main sections:
 - After you have selected any filter on the banner and pressed `Ctrl+F6`, focus moves to one of the highlighted nodes (**Subnet**) in the topology view.
 - To move to other highlighted nodes in the topology view, use the `Shift+Right arrow` key for forward movement. 
 - On highlighted nodes, focus moves to the **Information Tool Box** for the node. By default, focus moves to the **More details** button on the **Information Tool Box**. To further move inside the **Box** view, use `Right arrow` and `Left arrow` keys to move forward and backward, respectively. Pressing `Enter` has same effect as selecting the focused button in the **Information Tool Box**.
-- On selection of any such nodes, you can visit all its connections, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.    
+- On selection of any such nodes, you can visit all its connections, one by one, by pressing `Shift+Left arrow` key. Focus moves to the **Information Tool Box** of that connection. At any point, the focus can be shifted back to the node by pressing `Shift+Right arrow` again.
 
+## Are Classic NSGs supported?
+No, Traffic Analytics does not support classic NSG. It is recommended to migrate IaaS resources from classic to Azure Resource Manager as classic resources will be [deprecated](../virtual-machines/classic-vm-deprecation.md). Refer this article to understand [how to migrate](../virtual-machines/migration-classic-resource-manager-overview.md).

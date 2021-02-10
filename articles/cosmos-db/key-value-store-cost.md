@@ -3,15 +3,17 @@ title: Request unit charges for Azure Cosmos DB as a key value store
 description: Learn about the request unit charges of Azure Cosmos DB for simple write and read operations when it’s used as a key/value store.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.subservice: cosmosdb-sql
+ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
 ---
 
 # Azure Cosmos DB as a key value store – cost overview
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB is a globally distributed, multi-model database service for building highly available, large-scale applications easily. By default, Azure Cosmos DB automatically and efficiently indexes all the data it ingests. This enables fast and consistent [SQL](how-to-sql-query.md) (and [JavaScript](stored-procedures-triggers-udfs.md)) queries on the data. 
+Azure Cosmos DB is a globally distributed, multi-model database service for building highly available, large-scale applications easily. By default, Azure Cosmos DB automatically and efficiently indexes all the data it ingests. This enables fast and consistent [SQL](./sql-query-getting-started.md) (and [JavaScript](stored-procedures-triggers-udfs.md)) queries on the data. 
 
 This article describes the cost of Azure Cosmos DB for simple write and read operations when it’s used as a key/value store. Write operations include inserts, replaces, deletes, and upserts of data items. Besides guaranteeing a 99.999% availability SLA for all multi-region accounts, Azure Cosmos DB offers guaranteed <10-ms latency for reads and for the (indexed) writes, at the 99th percentile. 
 
@@ -21,7 +23,7 @@ Azure Cosmos DB performance is based on the amount of provisioned throughput exp
 
 As a globally distributed database system, Cosmos DB is the only Azure service that provides comprehensive SLAs covering latency, throughput, consistency and high availability. The throughput you provision is applied to each of the regions associated with your Cosmos account. For reads, Cosmos DB offers multiple, well-defined [consistency levels](consistency-levels.md) for you to choose from. 
 
-The following table shows the number of RUs required to perform read and write operations based on a data item of size 1 KB and 100 KBs.
+The following table shows the number of RUs required to perform read and write operations based on a data item of size 1 KB and 100 KBs with default automatic indexing turned off. 
 
 |Item Size|1 Read|1 Write|
 |-------------|------|-------|
@@ -43,4 +45,3 @@ Most of the basic blob or object stores services charge $0.40 per million read t
 ## Next steps
 
 * Use [RU calculator](https://cosmos.azure.com/capacitycalculator/) to estimate throughput for your workloads.
-

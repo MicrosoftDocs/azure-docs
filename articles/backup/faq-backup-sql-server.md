@@ -1,19 +1,15 @@
 ---
-title: FAQ - Backing up SQL Server databases on Azure VMs - Azure Backup
+title: FAQ - Backing up SQL Server databases on Azure VMs
 description: Find answers to common questions about backing up SQL Server databases on Azure VMs with Azure Backup.
 ms.reviewer: vijayts
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: dacurwin
 ---
 # FAQ about SQL Server databases that are running on an Azure VM backup
 
 This article answers common questions about backing up SQL Server databases that run on Azure virtual machines (VMs) and use the [Azure Backup](backup-overview.md) service.
 
-## Can I use Azure backup for IaaS VM as well as SQL Server on the same machine?
+## Can I use Azure Backup for IaaS VM as well as SQL Server on the same machine?
 
 Yes, you can have both VM backup and SQL backup on the same VM. In this case, we internally trigger copy-only full backup on the VM to not truncate the logs.
 
@@ -28,31 +24,33 @@ Under some circumstances, the Azure Backup service triggers remedial backups. Au
 - If you choose to overwrite the database during Restore, the next log/differential backup fails and a full backup is triggered instead.
 - In cases where a full backup is required to reset the log chains due to change in database recovery model, a full gets triggered automatically on the next schedule.
 
-Auto-heal as a capability is enabled for all user by default; However in case you choose to opt-out of it, then perform the below:
+Auto-heal as a capability is enabled for all users by default. However if you choose to opt-out of it, then perform the following steps:
 
 - On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create or edit the **ExtensionSettingsOverrides.json** file.
 - In the **ExtensionSettingsOverrides.json**, set *{"EnableAutoHealer": false}*.
 - Save your changes and close the file.
 - On the SQL Server instance, open **Task Manage** and then restart the **AzureWLBackupCoordinatorSvc** service.
 
-## Can I control as to how many concurrent backups run on the SQL server?
+## Can I control how many concurrent backups run on the SQL server?
 
 Yes. You can throttle the rate at which the backup policy runs to minimize the impact on a SQL Server instance. To change the setting:
 
 1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create the *ExtensionSettingsOverrides.json* file.
 2. In the *ExtensionSettingsOverrides.json* file, change the **DefaultBackupTasksThreshold** setting to a lower value (for example, 5). <br>
   `{"DefaultBackupTasksThreshold": 5}`
+<br>
+The default value of DefaultBackupTasksThreshold is **20**.
 
 3. Save your changes and close the file.
 4. On the SQL Server instance, open **Task Manager**. Restart the **AzureWLBackupCoordinatorSvc** service.<br/> <br/>
- While this method helps if the backup application is consuming a large quantity of resources, SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) is a more generic way to specify limits on the amount of CPU, physical IO, and memory that incoming application requests can use.
+ While this method helps if the backup application is consuming a large quantity of resources, SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) is a more generic way to specify limits on the amount of CPU, physical IO, and memory that incoming application requests can use.
 
 > [!NOTE]
-> In the UX you can still go ahead and schedule as many backups at any given time, however they will processed in a sliding window of say, 5, as per the above example.
+> In the UX you can still go ahead and schedule as many backups at any given time. However they'll be processed in a sliding window of say, 5, according to the above example.
 
 ## Can I run a full backup from a secondary replica?
 
-According to SQL limitations, you can run Copy Only Full backup on Secondary Replica; however Full backup is not allowed.
+According to SQL limitations, you can run Copy Only Full backup on Secondary Replica. However, Full backup isn't allowed.
 
 ## Can I protect availability groups on-premises?
 
@@ -64,11 +62,11 @@ The Azure Backup Recovery Services vault can detect and protect all nodes that a
 
 ## Do successful backup jobs create alerts?
 
-No. Successful backup jobs don't generate alerts. Alerts are sent only for backup jobs that fail. Detailed behavior for portal alerts is documented [here](backup-azure-monitoring-built-in-monitor.md). However, in case you are interested do have alerts even for successful jobs, you can use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+No. Successful backup jobs don't generate alerts. Alerts are sent only for backup jobs that fail. Detailed behavior for portal alerts is documented [here](backup-azure-monitoring-built-in-monitor.md). However, if you're interested in having alerts even for successful jobs, you can use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## Can I see scheduled backup jobs in the Backup Jobs menu?
 
-The **Backup Job** menu will only show ad-hoc backup jobs. For scheduled job use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+The **Backup Job** menu shows all scheduled and on-demand operations, except the scheduled log backups since they can be very frequent. For scheduled log jobs, use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## Are future databases automatically added for backup?
 
@@ -88,15 +86,27 @@ If you do **stop backup with delete data**, no future backups will take place an
 
 ## If I change the name of the database after it has been protected, what will be the behavior?
 
-A renamed database is treated as a new database. Hence, the service will treat this situation as if the database were not found and with fail the backups.
+A renamed database is treated as a new database. So the service will treat this situation as if the database weren't found and with fail the backups.
 
-You can select the database, which is now renamed and configure protection on it. In case the auto-protection is enabled on the instance, the renamed database will be automatically detected and protected.
+You can select the database, which is now renamed and configure protection on it. If the auto-protection is enabled on the instance, the renamed database will be automatically detected and protected.
 
 ## Why can’t I see an added database for an autoprotected instance?
 
 A database that you [add to an autoprotected instance](backup-sql-server-database-azure-vms.md#enable-auto-protection) might not immediately appear under protected items. This is because the discovery typically runs every 8 hours. However, you can discover and protect new databases immediately if you manually run a discovery by selecting **Rediscover DBs**, as shown in the following image:
 
   ![Manually discover a newly added database](./media/backup-azure-sql-database/view-newly-added-database.png)
+
+## Can I protect databases on virtual machines that have Azure Disk Encryption (ADE) enabled?
+Yes, you can protect databases on virtual machines that have Azure Disk Encryption (ADE) enabled.
+
+## Can I protect databases that have TDE (Transparent Data Encryption) turned on and will the database stay encrypted through the entire backup process?
+
+Yes, Azure Backup supports backup of SQL Server databases or server with TDE enabled. Backup supports [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption) with keys managed by Azure, or with customer-managed keys (BYOK).  Backup doesn't perform any SQL encryption as part of the backup process so the database will stay encrypted when backed up.
+
+## Does Azure Backup perform a checksum operation on the data stream?
+
+We do perform a checksum operation on the data stream. However, this isn't to be confused with [SQL checksum](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+Azure workload backup computes the checksum on the data stream and stores it explicitly during the backup operation. This checksum stream is then taken as a reference and cross-verified with the checksum of the data stream during the restore operation to make sure that the data is consistent.
 
 ## Next steps
 

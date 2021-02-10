@@ -1,22 +1,13 @@
 ---
-title: Threat Modeling Tool Releases - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: Documenting the release notes for the threat modeling tool
-services: security
-documentationcenter: na
+title: Microsoft Threat Modeling Tool release 4/9/2019 
+titleSuffix: Azure
+description: Documenting the release notes for the threat modeling tool release 7.1.60408.1.
 author: jegeib
-manager: jegeib
-editor: jegeib
-
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: jegeib
-
 ---
 
 # Threat Modeling Tool update release 7.1.60408.1 - 4/9/2019
@@ -32,7 +23,7 @@ Version 7.1.60408.1 of the Microsoft Threat Modeling Tool (TMT) was released on 
 
 ### New Stencils for Azure Key Vault and Azure Traffic Manager
 
-![Azure Key Vault Stencil](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
+![Screenshot shows icons for Azure Key Vault and Azure Traffic Manager.](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
 
 New stencils and threats for Azure Key Vault and Azure Traffic Manager have been added to the Azure stencil set. When opening models based on the Azure stencil set, users will be prompted to update the template associated with the model. Updating a model based on the Azure stencil set can also be manually initiated by using the "Apply Template" command in the "File" menu and reapplying the latest Azure Cloud Services.tb7 file.
 
@@ -40,7 +31,7 @@ New stencils and threats for Azure Key Vault and Azure Traffic Manager have been
 
 The client version of the Threat Modeling Tool is now shown on the home screen of the application of for ease of access.
 
-![Azure Key Vault Stencil](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
+![Screenshot shows the Microsoft Threat Modeling Tool with the client version number.](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
 
 ### Support links have been updated
 

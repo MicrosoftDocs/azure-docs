@@ -1,18 +1,12 @@
 ---
 title: Create a blockchain application - Azure Blockchain Workbench
-description: Tutorial on how to create a blockchain application in Azure Blockchain Workbench Preview.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/14/2019
+description: Tutorial on how to create a blockchain application for Azure Blockchain Workbench Preview.
+ms.date: 08/24/2020
 ms.topic: tutorial
-ms.service: azure-blockchain
-ms.reviewer: brendal
-manager: femila
-#customer intent: As a developer, I want to use Azure Blockchain Workbench to create a blockchain app.
+ms.reviewer: ravastra
+#Customer intent: As a developer, I want to use Azure Blockchain Workbench to create a blockchain app.
 ---
-# Tutorial: Create a blockchain application in Azure Blockchain Workbench
+# Tutorial: Create a blockchain application for Azure Blockchain Workbench
 
 You can use Azure Blockchain Workbench to create blockchain applications that represent multi-party workflows defined by configuration and smart contract code.
 
@@ -41,7 +35,7 @@ Follow the steps to create the application files or you can [download the sample
 
 ## Configuration file
 
-Configuration metadata defines the high-level workflows and interaction model of the blockchain application. Configuration metadata represents the workflow stages and interaction model of the blockchain application.
+Configuration metadata defines the high-level workflows and interaction model of the blockchain application. Configuration metadata represents the workflow stages and interaction model of the blockchain application. For more information about the contents of configuration files, see [Azure Blockchain Workflow configuration reference](configuration.md).
 
 1. In your favorite editor, create a file named `HelloBlockchain.json`.
 2. Add the following JSON to define the configuration of the blockchain application.
@@ -213,8 +207,6 @@ The application roles section defines the user roles who can act or participate 
 
 Workflows define one or more stages and actions of the contract. In the request-response scenario, the first stage (state) of the workflow is a requestor (role) takes an action (transition) to send a request (function). The next stage (state) is a responder (role) takes an action (transition) to send a response (function). An application's workflow can involve properties, functions, and states required describe the flow of a contract.
 
-For more information about the contents of configuration files, see [Azure Blockchain Workflow configuration reference](configuration.md).
-
 ## Smart contract code file
 
 Smart contracts represent the business logic of the blockchain application. Currently, Blockchain Workbench supports Ethereum for the blockchain ledger. Ethereum uses [Solidity](https://solidity.readthedocs.io) as its programming language for writing self-enforcing business logic for smart contracts.
@@ -330,7 +322,7 @@ To add a blockchain application to Blockchain Workbench, you upload the configur
 Deployment of the blockchain application takes a few minutes. When deployment is finished, the new application is displayed in **Applications**. 
 
 > [!NOTE]
-> You can also create blockchain applications by using the [Azure Blockchain Workbench REST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench).
+> You can also create blockchain applications by using the [Azure Blockchain Workbench REST API](/rest/api/azure-blockchain-workbench).
 
 ## Add blockchain application members
 

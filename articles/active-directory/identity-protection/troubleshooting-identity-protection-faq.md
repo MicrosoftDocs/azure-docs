@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 01/07/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -25,19 +25,22 @@ ms.collection: M365-identity-device-management
 
 There is a current known issue causing latency in the user risk dismissal flow. If you have a "User risk policy", this policy will stop applying to dismissed users within minutes of clicking on "Dismiss user risk". However, there are known delays with the UX refreshing the "Risk state" of dismissed users. As a workaround, refresh the page on the browser level to see the latest user "Risk state".
 
-## Risky users report known issues
-
-Queries on the **username** field are case-sensitive, while queries on the **Name** field are case-agnostic.
-
-Toggling **Show dates as** hides the **RISK LAST UPDATED** column. To readd the column click **Columns** at the top of the Risky Users blade.
-
-**Dismiss all events** in classic Identity Protection sets the status of the risk detections to **Closed (resolved)**.
-
-## Risky sign-ins report known issues
-
-**Resolve** on a risk detection sets the status to **Users passed MFA driven by risk-based policy**.
 
 ## Frequently asked questions
+
+### Why is a user at risk?
+
+If you are an Azure AD Identity Protection customer, go to the [risky users](howto-identity-protection-investigate-risk.md#risky-users) view and click on an at-risk user. In the drawer at the bottom, tab ‘Risk history’ will show all the events that led to a user risk change. To see all risky sign-ins for the user, click on ‘User’s risky sign-ins’. To see all risk detections for this user, click on ‘User’s risk detections’.
+
+### Why was my sign-in blocked but Identity Protection didn't generate a risk detection?
+Sign-ins can be blocked for several reasons. It is important to note that Identity Protection only generates risk detections when correct credentials are used in the authentication request. If a user uses incorrect credentials, it will not be flagged by Identity Protection since there is not of risk of credential compromise unless a bad actor uses the correct credentials. Some reasons a user can be blocked from signing that will not generate an Identity Protection detection include:
+* The **IP can be blocked** due to malicious activity from the IP address. The IP blocked message does not differentiate whether the credentials were correct or not. If the IP is blocked and correct credentials are not used, it will not generate an Identity Protection detection
+* **[Smart Lockout](../authentication/howto-password-smart-lockout.md)** can block the account from signing-in after multiple failed attempts
+* A **Conditional Access policy** can be enforced that uses conditions other than risk level to block an authentication request
+
+### How can I get a report of detections of a specific type?
+
+Go to the risk detections view and filter by ‘Detection type’. You can then download this report in .CSV or .JSON format using the **Download** button at the top. For more information, see the article [How To: Investigate risk](howto-identity-protection-investigate-risk.md#risk-detections).
 
 ### Why can’t I set my own risk levels for each risk detection?
 
@@ -46,6 +49,20 @@ Risk levels in Identity Protection are based on the precision of the detection a
 ### Why does the location of a sign-in not match where the user truly signed in from?
 
 IP geolocation mapping is an industry-wide challenge. If you feel that the location listed in the sign-ins report does not match the actual location, reach out to Microsoft support. 
+
+### How can I close specific risk detections like I did in the old UI?
+
+You can give feedback on risk detections by confirming the linked sign-in as compromised or safe. The feedback given on the sign-in trickles down to all the detections made on that sign-in. If you want to close detections that are not linked to a sign-in, you can provide that feedback on the user level. For more information, see the article [How to: Give risk feedback in Azure AD Identity Protection](howto-identity-protection-risk-feedback.md).
+
+### How far can I go back in time to understand what’s going on with my user?
+
+- The [risky users](howto-identity-protection-investigate-risk.md#risky-users) view shows a user’s risk standing based on all past sign-ins. 
+- The [risky sign-ins](howto-identity-protection-investigate-risk.md#risky-sign-ins) view shows at-risk signs in the last 30 days. 
+- The [risk detections](howto-identity-protection-investigate-risk.md#risk-detections) view shows risk detections made in the last 90 days.
+
+### How can I learn more about a specific detection?
+
+All risk detections are documented in the article [What is risk](concept-identity-protection-risks.md#risk-types-and-detection). You can hover over the (i) symbol next to the detection on the Azure portal to learn more about a detection.
 
 ### How do the feedback mechanisms in Identity Protection work?
 
@@ -62,9 +79,11 @@ IP geolocation mapping is an industry-wide challenge. If you feel that the locat
 
 - Upon receiving this feedback, we move the sign-in (not the user) risk state to **Confirmed safe** and the risk level to **-**.
 
-- In addition, we provide the information to our machine learning systems for future improvements in risk assessment.
+- In addition, we provide the information to our machine learning systems for future improvements in risk assessment. 
 
     > [!NOTE]
+    >Today, selecting confirm safe on a sign-in does not by itself prevent future sign-ins with the same properties from being flagged as risky. The best way to train the system to learn a user's properties is to use the risky sign-in policy with MFA. When a risky sign-ins is prompted for MFA and the user successfully responds to the request, the sign-in can succeed and help to train the system on the legitimate user's behavior.
+    >
     > If you believe the user is not compromised, use **Dismiss user risk** on the user level instead of using **Confirmed safe** on the sign-in level. A **Dismiss user risk** on the user level closes the user risk and all past risky sign-ins and risk detections.
 
 ### Why am I seeing a user with a low (or above) risk score, even if no risky sign-ins or risk detections are shown in Identity Protection?
@@ -73,4 +92,8 @@ Given the user risk is cumulative in nature and does not expire, a user may have
 
 ### Why does a sign-in have a “sign-in risk (aggregate)” score of High when the detections associated with it are of low or medium risk?
 
-The high aggregate risk score could be based on other features of the sign-in, or the fact that more than one detection fired for that sign-in. And conversely, a sign-in may have a sign-in risk (aggregate) of Medium even if the detections associated with the sign-in are of High risk. 
+The high aggregate risk score could be based on other features of the sign-in, or the fact that more than one detection fired for that sign-in. And conversely, a sign-in may have a sign-in risk (aggregate) of Medium even if the detections associated with the sign-in are of High risk.
+
+### What is the difference between the "Activity from anonymous IP address" and "Anonymous IP address" detections?
+
+The "Anonymous IP address" detection's source is Azure AD Identity Protection, while the "Activity from anonymous IP address" detection is integrated from MCAS (Microsoft Cloud App Security). While they have very similar names and it is possible that you may see overlap in these signals, they have distinct back-end detections.

@@ -1,13 +1,10 @@
 ---
 title: Authorize users for Ambari Views - Azure HDInsight 
 description: 'How to manage Ambari user and group permissions for HDInsight clusters with ESP enabled.'
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 11/27/2019
 ---
 
 # Authorize users for Apache Ambari Views
@@ -19,11 +16,11 @@ Active Directory users can sign in to the cluster nodes using their domain crede
 > [!WARNING]  
 > Do not change the password of the Ambari watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password breaks the ability to use script actions or perform scaling operations with your cluster.
 
-If you have not already done so, follow [these instructions](./domain-joined/apache-domain-joined-configure.md) to provision a new ESP cluster.
+If you have not already done so, follow [these instructions](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) to provision a new ESP cluster.
 
 ## Access the Ambari management page
 
-To get to the **Ambari management page** on the [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md), browse to **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Enter the cluster administrator username and password that you defined when creating the cluster. Next, from the Ambari dashboard, select **Manage Ambari** underneath the **admin** menu:
+To get to the **Ambari management page** on the [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md), browse to `https://CLUSTERNAME.azurehdinsight.net`. Enter the cluster administrator username and password that you defined when creating the cluster. Next, from the Ambari dashboard, select **Manage Ambari** underneath the **admin** menu:
 
 ![Apache Ambari dashboard manage](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
@@ -245,7 +242,7 @@ The List view provides quick editing capabilities in two categories: Users and G
 
     ![Apache Ambari roles list view - users](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-*  The Groups category of the List view displays all groups, and the role assigned to each group. In our example, the list of groups is synchronized from the Azure AD groups specified in the **Access user group** property of the cluster's Domain settings. See [Create a HDInsight cluster with ESP enabled](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
+* The Groups category of the List view displays all groups, and the role assigned to each group. In our example, the list of groups is synchronized from the Azure AD groups specified in the **Access user group** property of the cluster's Domain settings. See [Create a HDInsight cluster with ESP enabled](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
 
     ![Apache Ambari roles list view - groups](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

@@ -1,14 +1,17 @@
 ---
 title: FLOOR in Azure Cosmos DB query language
-description: Learn about SQL system function FLOOR in Azure Cosmos DB.
+description: Learn about the FLOOR SQL system function in Azure Cosmos DB to return the largest integer less than or equal to the specified numeric expression
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ---
 # FLOOR (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns the largest integer less than or equal to the specified numeric expression.  
   
 ## Syntax
@@ -38,7 +41,11 @@ SELECT FLOOR(123.45) AS fl1, FLOOR(-123.45) AS fl2, FLOOR(0.0) AS fl3
   
 ```json
 [{fl1: 123, fl2: -124, fl3: 0}]  
-```  
+```
+
+## Remarks
+
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
 
 ## Next steps
 

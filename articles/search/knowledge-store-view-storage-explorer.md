@@ -1,21 +1,18 @@
 ---
 title: View a knowledge store with Storage Explorer
 titleSuffix: Azure Cognitive Search
-description: View and analyze an Azure Cognitive Search knowledge store with the Azure portal's Storage Explorer.  
+description: View and analyze an Azure Cognitive Search knowledge store with the Azure portal's Storage Explorer.
 
 manager: nitinme
-author: lisaleib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/30/2020
 ---
 
 # View a knowledge store with Storage Explorer
 
-> [!Note]
-> Knowledge store is in preview and should not be used in production. The portal and [Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
->
 In this article, you'll learn by example how to connect to and explore a knowledge store using Storage Explorer in the Azure portal.
 
 ## Prerequisites
@@ -24,7 +21,7 @@ In this article, you'll learn by example how to connect to and explore a knowled
 
 + You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
 
-## View, edit and query a knowledge store in Storage Explorer
+## View, edit, and query a knowledge store in Storage Explorer
 
 1. In the Azure portal, [open the Storage account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) that you used to create the knowledge store.
 
@@ -32,7 +29,7 @@ In this article, you'll learn by example how to connect to and explore a knowled
 
 1. Expand the **TABLES** list to show a list of Azure table projections that were created when you ran the **Import Data** wizard on your hotel reviews sample data.
 
-Select any table to view the enriched data, including key phrases sentiment scores, latitude and longitude location data and more.
+Select any table to view the enriched data, including key phrases and sentiment scores.
 
    ![View tables in Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "View tables in Storage Explorer")
 
@@ -58,4 +55,4 @@ Connect this knowledge store to Power BI for deeper analysis, or move forward wi
 
 > [!div class="nextstepaction"]
 > [Connect with Power BI](knowledge-store-connect-power-bi.md)
-> [Create a knowledge store in REST](knowledge-store-howto.md)
+> [Create a knowledge store in REST](knowledge-store-create-rest.md)

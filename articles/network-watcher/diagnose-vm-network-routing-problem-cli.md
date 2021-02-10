@@ -1,35 +1,35 @@
 ---
-title: Diagnose a virtual machine network routing problem - Azure CLI | Microsoft Docs
-description: In this article, you learn how to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
+title: Diagnose a VM network routing problem - Azure CLI
+titleSuffix: Azure Network Watcher
+description: In this article, you learn how use Azure CLI to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
-
 ms.assetid: 
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
-ms.date: 04/20/2018
-ms.author: kumud
+ms.date: 01/07/2021
+ms.author: damendo
 ms.custom:
-
 ---
 
 # Diagnose a virtual machine network routing problem - Azure CLI
 
 In this article, you deploy a virtual machine (VM), and then check communications to an IP address and URL. You determine the cause of a communication failure and how you can resolve it.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.28 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). After you verify the CLI version, run `az login`  to create a connection with Azure. The CLI commands in this article are formatted to run in a Bash shell.
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
+
+- The Azure CLI commands in this article are formatted to run in a Bash shell.
 
 ## Create a VM
 
@@ -49,7 +49,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-The VM takes a few minutes to create. Don't continue with remaining steps until the VM is created and the CLI returns output.
+The VM takes a few minutes to create. Don't continue with remaining steps until the VM is created and the Azure CLI returns output.
 
 ## Test network communication
 
@@ -110,7 +110,7 @@ az network nic show-effective-route-table \
 
 The following text is included in the returned output:
 
-```azurecli
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -130,7 +130,7 @@ When you used the `az network watcher show-next-hop` command to test outbound co
 
 When you used the `az network watcher show-next-hop` command to test outbound communication to 172.31.0.100 however, the result informed you that there was no next hop type. In the returned output you also see the following text:
 
-```azurecli
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false

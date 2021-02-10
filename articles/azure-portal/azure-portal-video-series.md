@@ -1,35 +1,28 @@
 ---
 title: Azure portal how-to video series
-description: Find video demos for how to work with Azure services in the portal
-services: azure-portal
+description: Find video demos for how to work with Azure services in the portal. View and link directly to the latest how-to videos.
 keywords: 
-author: kfollis
-ms.author: kfollis
-ms.date: 10/16/2019
+ms.date: 10/05/2020
 ms.topic: conceptual
-
-ms.service: azure-portal
-manager: mtillman
 ---
+
 # Azure portal how-to video series
 
 The Azure portal how-to video series showcases how to work with Azure services in the Azure portal. Each week the Azure portal team adds to the video playlist. These interactive demos can help you be more efficient and productive.
 
 ## Featured video
 
-In this featured video, we explore how to diagnose and solve the most common problems with Azure resources.
+In this featured video, we show you how to use Azure Cost Management views.
 
-> [!VIDEO https://www.youtube.com/embed/FgfcSdHErus]
+> [!VIDEO https://www.youtube.com/embed/VRJA5bn2VH0]
 
-[Troubleshoot common problems with Azure resources](https://www.youtube.com/watch?v=FgfcSdHErus)
+[How to use Azure Cost Management views](https://www.youtube.com/watch?v=VRJA5bn2VH0)
 
 Catch up on these recent videos you may have missed:
 
-|   |   |   |
+| [How to use pills to filter in the Azure portal](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [How to get a visualization view of your resources](https://www.youtube.com/watch?v=wudqkkJd5E4)  | [How to pin content to your Azure portal dashboard](https://www.youtube.com/watch?v=eyOJkhYItSg) |
 | ------| ------ | ------ |
-| [![Image of YouTube video about cost management](https://i.ytimg.com/vi/mfxysF-kTFA/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDSzqNnsCYuKxe8kjbZFoM-FwB_vw)](http://www.youtube.com/watch?v=mfxysF-kTFA) | [![Image of YouTube video about applying budgets to subscriptions](https://i.ytimg.com/vi/UrkHiUx19Po/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAymEmnvYBmUSIJ_I7BU30ipAcsNA)](http://www.youtube.com/watch?v=UrkHiUx19Po) | [![Image of YouTube video about making the most of Azure Advisor](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA_2QjNx26-LIkEzo22KBUsB2zSAg)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
-| [How to use Cost Management](https://www.youtube.com/watch?v=mfxysF-kTFA) | [How to Apply Budgets to Subscriptions](https://www.youtube.com/watch?v=UrkHiUx19Po) | [How to make the most of Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
-
+| [![Image of YouTube video about how to use pills to filter in the Azure portal](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![Image of YouTube video about how to get a visualization view of your resources](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) | [![Image of YouTube video about how to pin content to your Azure portal dashboard](https://i.ytimg.com/vi/eyOJkhYItSg/hqdefault.jpg)](http://www.youtube.com/watch?v=eyOJkhYItSg) |
 
 ## Video playlist
 

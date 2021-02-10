@@ -11,9 +11,9 @@ metadata:
   ms.subservice: azure-sentinel
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: rkarlin #Required; your GitHub user alias, with correct capitalization.
-  ms.author: rkarlin #Required; microsoft alias of author; optional team alias.
-  ms.date: 25/09/2019 #Required; mm/dd/yyyy format.
+  author: yelevin #Required; your GitHub user alias, with correct capitalization.
+  ms.author: yelevin #Required; microsoft alias of author; optional team alias.
+  ms.date: 06/25/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -27,6 +27,8 @@ landingContent:
         links:
           - text: What is Azure Sentinel?
             url: overview.md
+          - text: What's new in Azure Sentinel?
+            url: whats-new.md
        
   # Card (optional)
   - title: Get started
@@ -47,7 +49,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Connect Azure AD
+          - text: Connect Azure Active Directory
             url: connect-azure-active-directory.md
           - text: Connect Azure Information Protection
             url: connect-azure-information-protection.md

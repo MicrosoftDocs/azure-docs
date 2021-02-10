@@ -1,85 +1,104 @@
 ---
-title: Add tiles to your dashboard | Microsoft Docs
-description: As a builder, learn how to configure the default Azure IoT Central application dashboard.
-author: mavoge
-ms.author: mavoge
-ms.date: 10/17/2019
-ms.topic: conceptual
+title: Configure to your Azure IoT Central dashboard | Microsoft Docs
+description: As a builder, learn how to configure the default Azure IoT Central application dashboard with tiles.
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 12/19/2020
+ms.topic: how-to
 ms.service: iot-central
-services: iot-central
-manager: philmea
 ---
 
 # Configure the application dashboard
 
-The **Dashboard** is the page that loads when users who have access to the application navigate to the application's URL. If you created your application from one of the **Application Templates**, your application will have a pre-defined dashboard to start. If you created your application from the **Custom Application** application template, your dashboard will be blank to start.
+The **Dashboard** is the first page you see when you connect to an IoT Central application. If you create your application from one of the industry-focused [application templates](./concepts-app-templates.md), your application has a pre-defined dashboard to start. If you create your application from a custom [application template](./concepts-app-templates.md), your dashboard shows some tips to get started.
 
-> [!NOTE]
-> Users can [create multiple dashboards](howto-create-personal-dashboards.md) in addition to the default application dashboard. These dashboards can be personal to the user only, or shared across all users of the application. 
+> [!TIP]
+> Users can [create multiple dashboards](howto-create-personal-dashboards.md) in addition to the default application dashboard. These dashboards can be personal to the user only, or shared across all users of the application.  
 
 ## Add tiles
 
-The following screenshot shows the dashboard in an application created from the **Custom Application** template. To customize the default dashboard for your application, select **Edit** at the top-left of the page.
+The following screenshot shows the dashboard in an application created from the **Custom application** template. To customize the current dashboard, select **Edit**, to add a custom personal or shared dashboard, select **New**:
 
-> [!div class="mx-imgBorder"]
-> ![Dashboard for applications based on the "Sample Contoso" template](media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png)
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png" alt-text="Dashboard for applications based on the custom application template":::
 
-Selecting **Edit** opens the dashboard library panel. The library contains the tiles and dashboard primitives you can use to customize the dashboard.
+After you select **Edit** or **New**, the dashboard is in *edit* mode. You can use the tools in the **Edit dashboard** panel to add tiles to the dashboard, and customize and remove tiles on the dashboard itself. For example, to add a **Telemetry** tile to show current temperature reported by one or more devices:
 
-> [!div class="mx-imgBorder"]
-> ![Dashboard library](media/howto-add-tiles-to-your-dashboard/dashboard-library.png)
+1. Select a **Device Group** and then choose your devices in the **Devices** dropdown to show on the tile. You now see the available telemetry, properties, and commands from the devices.
 
-For example, you can add a **Telemetry** tile for the current temperature of the device. To do so:
-1. Select a **Device Template**
-1. Select a **Device Instance** for the device you want to see on a dashboard tile. Then you will see a list of the device's properties that can be used on the tile.
-1. To create the tile on the dashboard, click on **Temperature** and drag it to the dashboard area. You can also click the checkbox next to **Temperature** and click **Combine**. The following screenshot shows selecting a Device Template and Device Instance then creating a Temperature Telemetry tile on the dashboard.
-1. Select **Save** in the top left to save the tile to the dashboard.
+1. If needed, you use the dropdown to select a telemetry value to show on the tile. You can add more items to the tile another by selecting **+ Telemetry**, **+ Property**, or **+ Cloud Property**.
 
-> [!div class="mx-imgBorder"]
-> !["Configure Device Details" form with details for settings and properties](media/howto-add-tiles-to-your-dashboard/device-details.png)
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Add a temperature telemetry tile to the dashboard":::
 
-Now when an operator views the default application dashboard, they see the new tile with the **Temperature** for the device. Each tile has a pre-selected graph, chart, etc. that will be displayed when the tile is created. However, users can choose to edit and change this visualization. 
+When you've selected all the values to show on the tile, click **Add tile.** The tile now appears on the dashboard where you can change the visualization, resize it, move it, and configure it.
 
-> [!div class="mx-imgBorder"]
-> !["Dashboard" tab with displayed settings and properties for the tile](media/howto-add-tiles-to-your-dashboard/settings-and-properties.png)
+When you've finished adding and customizing tiles on the dashboard, select **Save** to save the changes to the dashboard, which takes you out of edit mode.
+
+## Customize tiles
+
+To edit a tile, you must be in edit mode.  The available customization options depend on the [tile type](#tile-types):
+
+* The ruler icon on a tile lets you change the visualization. Visualizations include line charts, bar charts, pie charts, last known values, key performance indicators (or KPIs), heatmaps, and maps.
+
+* The square icon lets you resize the tile.
+
+* The gear icon lets you configure the visualization. For example, for a line chart visualization you can choose to show the legend and axes, and choose the time range to plot.
 
 
-## Edit Tiles
+## Tile types
 
-To edit a tile on the dashboard, first click **Edit** at the top left of the page, which will open edit mode for the dashboard and all its tiles. 
+The following table describes the different types of tile you can add to a dashboard:
 
-> [!div class="mx-imgBorder"]
-> ![Dashboard screen with edit mode activated for a selected tile](media/howto-add-tiles-to-your-dashboard/edit-mode.png)
+| Tile             | Description |
+| ---------------- | ----------- |
+| Markdown         | Markdown tiles are clickable tiles that display a heading and description text formatted using markdown. The URL can be a relative link to another page in the application, or an absolute link to an external site.|
+| Image            | Image tiles display a custom image and can be clickable. The URL can be a relative link to another page in the application, or an absolute link to an external site.|
+| Label            | Label tiles display custom text on a dashboard. You can choose the size of the text. Use a label tile to add relevant information to the dashboard such descriptions, contact details, or help.|
+| Count            | Count tiles display the number of devices in a device group.|
+| Map              | Map tiles display the location of one or more devices on a map. You can also display up to 100 points of a device's location history. For example, you can display sampled route of where a device has been on the past week.|
+| KPI              |  KPI tiles display aggregate telemetry values for one or more devices over a time period. For example, you can use it to show the maximum temperature and pressure reached for one or more devices during the last hour.|
+| Line chart       | Line chart tiles plot one or more aggregate telemetry values for one or more devices for a time period. For example, you can display a line chart to plot the average temperature and pressure of one or more devices for the last hour.|
+| Bar chart        | Bar chart tiles plot one or more aggregate telemetry values for one or more devices for a time period. For example, you can display a bar chart to show the average temperature and pressure of one or more devices over the last hour.|
+| Pie chart        | Pie chart tiles display one or more aggregate telemetry values for one or more devices for a time period.|
+| Heat map         | Heat map tiles display information about one or more devices, represented as colors.|
+| Last Known Value | Last known value tiles display the latest telemetry values for one or more devices. For example, you can use this tile to display the most recent temperature, pressure, and humidity values for one or more devices. |
+| Event History    | Event History tiles display the events for a device over a time period. For example, you can use it to show all the valve open and close events for one or more devices during the last hour.|
+| Property         |  Property tiles display the current value for properties and cloud properties of one or more devices. For example, you can use this tile to display device properties such as the manufacturer or firmware version for a device. |
 
-Then click the **Gear** icon in the top-right corner of the tile you wish to edit. Here you can edit aspects of the tile including its title, its visualization, aggregation, etc.
+Currently, you can add up to 10 devices to tiles that support multiple devices.
 
-> [!div class="mx-imgBorder"]
-> ![Dropdown for tile aggregation settings](media/howto-add-tiles-to-your-dashboard/aggregation-settings.png)
+### Customizing visualizations
 
-You can also change the chart visualization by clicking the **Ruler** icon on the tile.
+By default, line charts show data over a range of time. The selected time range is split into 50 equal-sized buckets and the device data is then aggregated per bucket to give 50 data points over the selected time range. If you wish to view raw data, you can change your selection to view the last 100 values. To change the time range or to select raw data visualization, use the Display Range dropdown in the **Configure chart** panel.
 
-> [!div class="mx-imgBorder"]
-> ![Dropdown for tile visualization settings](media/howto-add-tiles-to-your-dashboard/visualization-settings.png)
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/display-range.png" alt-text="Change the display range of a line chart":::
 
-## Tile Types
+For tiles that display aggregate values, select the gear icon next to the telemetry type in the **Configure chart** panel to choose the aggregation. You can choose from average, sum, maximum, minimum, and count.
 
-The following table summarizes the usage of tiles in Azure IoT Central:
- 
-| Tile | Dashboard | Description
-| ----------- | ------- | ------- |
-| Content | Application and device set dashboards |Markdown supported tiles are clickable tiles that display heading and description text. You can also use this tile as a link tile to enable a user to navigate to a URL related to your application.|
-| Image | Application and device set dashboards |Image tiles display a custom image and can be clickable. Use an image tile to add graphics to a dashboard and optionally enable a user to navigate to a URL relevant to your application.|
-| Label | Application dashboards |Label tiles display custom text on a dashboard. You can choose the size of the text. Use a label tile to add relevant information to the dashboard such descriptions, contact details, or help.|
-| Map | Application and device set dashboards |Map tiles display the location and state of a device on a map. For example, you can display where a device is and whether its fan is switched on.|
-| Line Chart | Application and device dashboards |Line chart tiles display a chart of aggregate measurement for a device for a time period. For example, you can display a line chart that shows the average temperature and pressure of a device for the last hour.|
-| Bar Chart | Application and device dashboards |Bar chart tiles display a chart of aggregate measurements for a device for a time period. For example, you can display a bar chart that shows the average temperature and pressure of a device for the last hour.|
-| Pie Chart | Application and device set dashboards |Pie chart tiles display a chart of aggregate measurements for a device for a time period.|
-| Heat Map | Application and device set dashboards |Heat Map tiles display information about the device set, represented as colors.|
-| Event History | Application and device dashboards |Event History tiles display the events for a device over a time period. For example, you can use it to show all the temperature changes for a device during the last hour.|
-| State History | Application and device dashboards |State history tiles display the measurement values for a time period. For example, you can use it to show the temperature values for a device during the last hour.|
-| KPI | Application and device dashboards | KPI tiles display an aggregate telemetry or event measurement for a time period. For example, you can use it to show the maximum temperature reached for a device during the last hour.|
-| Last Known Value | Application and device dashboards |Last known value tiles display the latest value for a telemetry or state measurement. For example, you can use this tile to display the most recent measurements of temperature, pressure and humidity for a device.|
+For line charts, bar charts, and pie charts, you can customize the color of the different telemetry values. Select the palette icon next to the telemetry you want to customize:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Change the color of a telemetry value":::
+
+For tiles that show string properties or telemetry values, you can choose how to display the text. For example, if the device stores a URL in a string property, you can display it as a clickable link. If the URL references an image, you can render the image in a last known value or property tile. To change how a string displays, in the tile configuration select the gear icon next to the telemetry type or property:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Change how a string displays on a tile":::
+
+For numeric **KPI**, **Last Known Value**, and **Property** tiles you can use conditional formatting to customize the color of the tile based on its current value. To add conditional formatting, select **Configure** on the tile and then select the **Conditional formatting** icon next to the value to customize:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Screenshot showing how to find the configure option for a tile and then the conditional formatting icon":::
+
+Add your conditional formatting rules:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot showing conditional formatting rules for average flow. There are three rules - less than 20 is green, less than 50 is yellow, and anything over 50 is red":::
+   
+The following screenshot shows the effect of the conditional formatting rule:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot showing the red background color on the Average water flow tile. The number on the tile is 50.54":::
+
+### "tile" formatting
+This feature, available in KPI, LKV, and Property tiles, lets users adjust font size, choose decimal precision, abbreviate numeric values (for example format 1,700 as 1.7K), or wrap string values in their tiles.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/tile-format.png" alt-text="Tile Format":::
 
 ## Next steps
 
-Now that you've learned how to configure your Azure IoT Central default application dashboard, you can [Learn how to prepare and upload images](howto-prepare-images.md).
+Now that you've learned how to configure your Azure IoT Central default application dashboard, you can [Learn how to create a personal dashboard](howto-create-personal-dashboards.md).

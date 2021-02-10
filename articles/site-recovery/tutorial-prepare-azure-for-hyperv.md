@@ -1,16 +1,16 @@
 ---
-title: Prepare Azure resources for disaster recovery of on-premises machines
+title: Prepare Azure for Hyper-V disaster recovery with Azure Site Recovery
 description: Learn how to prepare Azure for disaster recovery of on-premises Hyper-V VMs by using Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
 
 ---
-# Prepare Azure resources for disaster recovery of on-premises machines
+# Prepare Azure resources for Hyper-V disaster recovery
 
  [Azure Site Recovery](site-recovery-overview.md) helps business continuity and disaster recovery (BCDR) by keeping business apps running during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
 
@@ -58,7 +58,7 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 9. In **Location**, choose the geographic location for your storage account. For this tutorial, use **West Europe**.
 10. Select **Create** to create the storage account.
 
-   ![Create a storage account](media/tutorial-prepare-azure/create-storageacct.png)
+   ![Screenshot of the Create a storage account options.](media/tutorial-prepare-azure/create-storageacct.png)
 
 ## Create a recovery services vault
 
@@ -69,7 +69,7 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 3. In **Location**, select the region where the vault should be located. For this tutorial, use **West Europe**.
 4. To quickly access the vault from the dashboard, select **Pin to dashboard** > **Create**.
 
-![Create a new vault](./media/tutorial-prepare-azure/new-vault-settings.png)
+![Screenshot of the Create Recovery Services vault page.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
 The new vault appears on **Dashboard** > **All resources**, and on the main **Recovery Services vaults** page.
 
@@ -86,15 +86,15 @@ When Azure VMs are created from storage after failover, they're joined to this n
 7. Leave the default options of basic DDoS protection, with no service endpoint on the network.
 8. Select **Create**.
 
-![Create a virtual network](media/tutorial-prepare-azure/create-network.png)
+![Screenshot of the Create virtual network options.](media/tutorial-prepare-azure/create-network.png)
 
 The virtual network takes a few seconds to create. After it's created, you'll see it in the Azure portal dashboard.
 
 ## Useful links
 
 Learn about:
-- [Azure networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-- [Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)
+- [Azure networks](../virtual-network/virtual-networks-overview.md)
+- [Managed disks](../virtual-machines/managed-disks-overview.md)
 
 
 

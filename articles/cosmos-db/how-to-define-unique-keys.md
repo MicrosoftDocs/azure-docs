@@ -1,14 +1,18 @@
 ---
 title: Define unique keys for an Azure Cosmos container
-description: Learn how to define unique keys for an Azure Cosmos container
+description: Learn how to define unique keys for an Azure Cosmos container using Azure portal, PowerShell, .NET, Java, and various other SDKs. 
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 09/28/2019
+ms.subservice: cosmosdb-sql
+ms.topic: how-to
+ms.date: 12/02/2019
 ms.author: thweiss
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+
 ---
 
 # Define unique keys for an Azure Cosmos container
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article presents the different ways to define [unique keys](unique-keys.md) when creating an Azure Cosmos container. It's currently possible to perform this operation either by using the Azure portal or through one of the SDKs.
 
@@ -28,13 +32,15 @@ This article presents the different ways to define [unique keys](unique-keys.md)
 
 1. If needed, add more unique key entries by clicking on **+ Add unique key**
 
-    ![Screenshot of unique key constraint entry on Azure portal](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    :::image type="content" source="./media/how-to-define-unique-keys/unique-keys-portal.png" alt-text="Screenshot of unique key constraint entry on Azure portal":::
 
-## Use Powershell
+## Use PowerShell
 
 To create a container with unique keys see, [Create an Azure Cosmos container with unique key and TTL](manage-with-powershell.md#create-container-unique-key-ttl)
 
-## Use the .NET SDK V2
+## Use the .NET SDK
+
+# [.NET SDK V2](#tab/dotnetv2)
 
 When creating a new container using the [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), a `UniqueKeyPolicy` object can be used to define unique key constraints.
 
@@ -54,7 +60,7 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 });
 ```
 
-## Use the .NET SDK V3
+# [.NET SDK V3](#tab/dotnetv3)
 
 When creating a new container using the [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), use the SDK's fluent API to declare unique keys in a concise and readable way.
 
@@ -70,6 +76,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
     .Attach()
     .CreateIfNotExistsAsync();
 ```
+---
 
 ## Use the Java SDK
 
@@ -142,5 +149,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## Next steps
 
-- Learn more about [partitioning](partition-data.md)
+- Learn more about [partitioning](partitioning-overview.md)
 - Explore [how indexing works](index-overview.md)

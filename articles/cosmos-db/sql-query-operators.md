@@ -1,14 +1,16 @@
 ---
 title: SQL query operators for Azure Cosmos DB
-description: Learn about SQL operators for Azure Cosmos DB.
-author: markjbrown
+description: Learn about SQL operators such as equality, comparison, and logical operators supported by Azure Cosmos DB.
+author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.author: mjbrown
+ms.date: 07/29/2020
+ms.author: tisande
 
 ---
 # Operators in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article details the various operators supported by Azure Cosmos DB.
 
@@ -30,34 +32,57 @@ For comparison operators such as `>`, `>=`, `!=`, `<`, and `<=`, comparison acro
 
 If the result of the scalar expression is `Undefined`, the item isn't included in the result, because `Undefined` doesn't equal `true`.
 
+For example, the following query's comparison between a number and string value produces `Undefined`. Therefore, the filter does not include any results.
+
+```sql
+SELECT *
+FROM c
+WHERE 7 = 'a'
+```
+
 ## Logical (AND, OR and NOT) operators
 
 Logical operators operate on Boolean values. The following tables show the logical truth tables for these operators:
 
 **OR operator**
 
-| OR | True | False | Undefined |
+Returns `true` when either of the conditions is `true`.
+
+|  | **True** | **False** | **Undefined** |
 | --- | --- | --- | --- |
-| True |True |True |True |
-| False |True |False |Undefined |
-| Undefined |True |Undefined |Undefined |
+| **True** |True |True |True |
+| **False** |True |False |Undefined |
+| **Undefined** |True |Undefined |Undefined |
 
 **AND operator**
 
-| AND | True | False | Undefined |
+Returns `true` when both expressions are `true`.
+
+|  | **True** | **False** | **Undefined** |
 | --- | --- | --- | --- |
-| True |True |False |Undefined |
-| False |False |False |False |
-| Undefined |Undefined |False |Undefined |
+| **True** |True |False |Undefined |
+| **False** |False |False |False |
+| **Undefined** |Undefined |False |Undefined |
 
 **NOT operator**
 
-| NOT |  |
-| --- | --- |
-| True |False |
-| False |True |
-| Undefined |Undefined |
+Reverses the value of any Boolean expression.
 
+|  | **NOT** |
+| --- | --- |
+| **True** |False |
+| **False** |True |
+| **Undefined** |Undefined |
+
+**Operator Precedence**
+
+The logical operators `OR`, `AND`, and `NOT` have the precedence level shown below:
+
+| **Operator** | **Priority** |
+| --- | --- |
+| **NOT** |1 |
+| **AND** |2 |
+| **OR** |3 |
 
 ## * operator
 
@@ -65,7 +90,7 @@ The special operator * projects the entire item as is. When used, it must be the
 
 ## ? and ?? operators
 
-You can use the Ternary (?) and Coalesce (??) operators to build conditional expressions, as in programming languages like C# and JavaScript. 
+You can use the Ternary (?) and Coalesce (??) operators to build conditional expressions, as in programming languages like C# and JavaScript.
 
 You can use the ? operator to construct new JSON properties on the fly. For example, the following query classifies grade levels into `elementary` or `other`:
 

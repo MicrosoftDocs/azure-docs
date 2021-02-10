@@ -1,11 +1,7 @@
 ---
 title: Azure Application Insights Overview Dashboard | Microsoft Docs
 description: Monitor applications with Azure Application Insights and Overview Dashboard functionality.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/03/2019
 
 ---
@@ -36,7 +32,7 @@ Application dashboard leverages the existing dashboard technology within Azure t
 
 To access the default dashboard select _Application Dashboard_ in the upper left corner.
 
-![Dashboard view](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+![Screenshot shows the Application Dashboard button highlighted.](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
 If this is your first time accessing the dashboard, it will launch a default view:
 
@@ -53,10 +49,11 @@ To navigate back to the overview experience just select:
 
 ## Troubleshooting
 
-If you select **Configure tile settings** and set a custom time range in excess of 31 days your dashboard will not display beyond 31 days of data, even with the default data retention of 90 days. There is currently no workaround for this behavior.
+There is currently a limit of 30 days of data for data displayed in a dashboard.If you select a time filter beyond 30 days, or if you select **Configure tile settings** and set a custom time range in excess of 30 days your dashboard will not display beyond 30 days of data, even with the default data retention of 90 days. There is currently no workaround for this behavior.
 
 ## Next steps
 
-- [Funnels](../../azure-monitor/app/usage-funnels.md)
-- [Retention](../../azure-monitor/app/usage-retention.md)
-- [User Flows](../../azure-monitor/app/usage-flows.md)
+- [Funnels](./usage-funnels.md)
+- [Retention](./usage-retention.md)
+- [User Flows](./usage-flows.md)
+

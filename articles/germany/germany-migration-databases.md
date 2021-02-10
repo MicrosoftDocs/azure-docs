@@ -1,17 +1,17 @@
 ---
-title: Migrate Azure database resources from Azure Germany to global Azure
+title: Migrate Azure database resources, Azure Germany to global Azure
 description: This article provides information about migrating your Azure database resources from Azure Germany to global Azure
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 8/15/2018
-ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate database resources to global Azure
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 This article has information that can help you migrate Azure database resources from Azure Germany to global Azure.
 
@@ -30,19 +30,20 @@ To migrate smaller Azure SQL Database workloads, use the export function to crea
 
 For more information:
 
-- Learn how to [export a database to a BACPAC file](../sql-database/sql-database-export.md).
-- Learn how to [import a BACPAC file to a database](../sql-database/sql-database-import.md).
-- Review the [Azure SQL Database documentation](https://docs.microsoft.com/azure/sql-database/).
+- Learn how to [export a database to a BACPAC file](../azure-sql/database/database-export.md).
+- Learn how to [import a BACPAC file to a database](../azure-sql/database/database-import.md).
+- Review the [Azure SQL Database documentation](/azure/sql-database/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## SQL Data Warehouse
+## Azure Synapse Analytics
 
-To migrate Azure SQL Data Warehouse resources from Azure Germany to global Azure, follow the steps that are described in Azure SQL Database.
+To migrate Azure Synapse Analytics resources from Azure Germany to global Azure, follow the steps that are described in Azure SQL Database.
 
 ## Azure Cosmos DB
 
-You can use Azure Cosmos DB Data Migration Tool to migrate data to Azure Cosmos DB. Azure Cosmos DB Data Migration Tool is an open-source solution that imports data to Azure Cosmos DB from different sources.
+You can use Azure Cosmos DB Data Migration Tool to migrate data to Azure Cosmos DB. Azure Cosmos DB Data Migration Tool is an open-source solution that imports data to Azure Cosmos DB from different sources including: JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, Amazon DynamoDB, HBase, and Azure Cosmos containers.
+
 
 Azure Cosmos DB Data Migration Tool is available as a graphical interface tool or as command-line tool. The source code is available in the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool) GitHub repository. A [compiled version of the tool](https://www.microsoft.com/download/details.aspx?id=46436) is available in the Microsoft Download Center.
 
@@ -62,8 +63,9 @@ To migrate Azure Cosmos DB resources, we recommend that you complete the followi
 
 For more information:
 
-- Read an [introduction to Azure Cosmos DB](../cosmos-db/introduction.md).
-- Learn how to [import data to Azure Cosmos DB](../cosmos-db/import-data.md).
+- To learn how to use the Data migration tool, see [Tutorial: Use Data migration tool to migrate your data to Azure Cosmos DB](../cosmos-db/import-data.md).
+- To learn about Cosmos DB, see [Welcome to Azure Cosmos DB](../cosmos-db/introduction.md).
+
 
 ## Azure Cache for Redis
 
@@ -103,13 +105,13 @@ This approach takes advantage of features that are available only in the Premium
 To export from the source instance and import to the destination instance:
 
 1. Create a new Premium tier Azure Cache for Redis instance in the target region. Use the same size as the source Azure Cache for Redis instance.
-1. [Export data from the source cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Export-AzRedisCache PowerShell cmdlet](/powershell/module/az.rediscache/export-azrediscache).
+1. [Export data from the source cache](../azure-cache-for-redis/cache-how-to-import-export-data.md) or use the [Export-AzRedisCache PowerShell cmdlet](/powershell/module/az.rediscache/export-azrediscache).
 
    > [!NOTE]
    > The export Azure Storage account must be in the same region as the cache instance.
 
 1. Copy the exported blobs to a storage account in destination region (for example, by using AzCopy).
-1. [Import data to the destination cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Import-AzRedisCAche PowerShell cmdlet](/powershell/module/az.rediscache/import-azrediscache).
+1. [Import data to the destination cache](../azure-cache-for-redis/cache-how-to-import-export-data.md) or use the [Import-AzRedisCAche PowerShell cmdlet](/powershell/module/az.rediscache/import-azrediscache).
 1. Reconfigure your application to use the target Azure Cache for Redis instance.
 
 ### Option 4: Write data to two Azure Cache for Redis instances, read from one instance
@@ -121,7 +123,13 @@ For this approach, you must modify your application. The application needs to wr
 
 For more information:
 
-- Review the [overview of Azure Cache for Redis](../redis-cache/cache-overview.md).
+- Review the [overview of Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md).
+
+## PostgreSQL and MySQL
+
+For more information, see the articles in the "Back up and migrate data" section of [PostgreSQL](../postgresql/index.yml) and [MySQL](../mysql/index.yml).
+
+![PostgreSQL and MySQL](./media/germany-migration-main/databases.png)
 
 ## Next steps
 

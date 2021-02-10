@@ -88,5 +88,4 @@ Looking for an older release note? Go to:
 * [StorSimple Virtual Array Update 0.4 Release Notes](storsimple-virtual-array-update-04-release-notes.md)
 * [StorSimple Virtual Array Update 0.3 Release Notes](storsimple-ova-update-03-release-notes.md)
 * [StorSimple Virtual Array Update 0.1 and 0.2 Release Notes](storsimple-ova-update-01-release-notes.md)
-* [StorSimple Virtual Array General Availability Release Notes](storsimple-ova-pp-release-notes.md)
-
+* [StorSimple Virtual Array General Availability Release Notes]()

@@ -1,11 +1,7 @@
 ---
 title: Azure Application Insights Transaction Diagnostics | Microsoft Docs
 description: Application Insights end-to-end transaction diagnostics
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/19/2018
 
 ms.reviewer: sdash
@@ -64,7 +60,7 @@ This collapsible pane shows the other results that meet the filter criteria. Cli
 
 ## Profiler and snapshot debugger
 
-[Application Insights profiler](../../azure-monitor/app/profiler.md) or [snapshot debugger](snapshot-debugger.md) help with code-level diagnostics of performance and failure issues. With this experience, you can see profiler traces or snapshots from any component with a single click.
+[Application Insights profiler](./profiler.md) or [snapshot debugger](snapshot-debugger.md) help with code-level diagnostics of performance and failure issues. With this experience, you can see profiler traces or snapshots from any component with a single click.
 
 If you could not get Profiler working, please contact **serviceprofilerhelp\@microsoft.com**
 
@@ -80,8 +76,7 @@ Potential reasons:
 
 * Are the other components instrumented with Application Insights?
 * Are they using the latest stable Application Insights SDK?
-* If these components are separate Application Insights resources, do you have required access to their telemetry?
-
+* If these components are separate Application Insights resources, do you have required [access](resources-roles-access-control.md)
 If you do have access and the components are instrumented with the latest Application Insights SDKs, let us know via the top right feedback channel.
 
 *I see duplicate rows for the dependencies. Is this expected?*
@@ -95,3 +90,4 @@ Timelines are adjusted for clock skews in the transaction chart. You can see the
 *Why is the new experience missing most of the related items queries?*
 
 This is by design. All of the related items, across all components, are already available on the left side (top and bottom sections). The new experience has two related items that the left side doesn't cover: all telemetry from five minutes before and after this event and the user timeline.
+
