@@ -20,14 +20,15 @@ The service provides automated deployment and scaling operations for managed ope
 
 ### Hybrid Deployments
 
-You can use the service to easily inject managed instances of Apache Cassandra datacenters (deployed automatically as VM scale sets), into your existing Azure VNET, or even connect to your on-premises Apache Cassandra cluster via [Azure ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute).
+You can use the service to easily inject managed instances of Apache Cassandra datacenters (deployed automatically as VM scale sets), into a new or existing Azure VNET. These datacenters can be added to your existing Apache Cassandra ring running on-premises (via [Azure ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute)), in Azure, or another cloud environment. 
 
 - Simplified deployment (once hybrid connectivity is established through gossip protocol).
 - Hosted metrics in [Prometheus](https://prometheus.io/docs/introduction/overview/) to monitor activity across your cluster.
 
+
 ### Simplified Scaling
 
-Azure Managed Instance for Apache Cassandra provides a scaling orchestrator which simplifies the process of adding and commissioning new nodes to a data center and establishing their proper operation within any Apache Cassandra cluster ring.
+In Azure Managed Instance for Apache Cassandra, scaling up and scaling down nodes in a datacenter is fully managed. You enter how many nodes you need, and our scaling orchestrator takes care of establishing their proper operation within the Cassandra ring.
 
 
 ### Managed and cost-effective
