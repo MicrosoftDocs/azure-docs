@@ -62252,37 +62252,37 @@
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-overview.md",
-      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-overview",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-schema-windows.md",
-      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-schema-windows",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-schema-windows",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-stream-event-hubs.md",
-      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-stream-event-hubs",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-stream-event-hubs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-to-application-insights.md",
-      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-to-application-insights",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-to-application-insights",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-troubleshooting.md",
-      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-troubleshooting",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-troubleshooting",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-versions.md",
-      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-versions",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-versions",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-windows-install.md",
-      "redirect_url": "/azure/azure-monitor/essentials/diagnostics-extension-windows-install",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-windows-install",
       "redirect_document_id": false
     },
     {
@@ -63018,41 +63018,6 @@
     {
       "source_path_from_root": "/articles/azure-monitor/platform/security-controls-policy.md",
       "redirect_url": "/azure/azure-monitor//security-controls-policy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-overview.md",
-      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-schema-windows.md",
-      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-schema-windows",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-stream-event-hubs.md",
-      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-stream-event-hubs",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-to-application-insights.md",
-      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-to-application-insights",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-troubleshooting.md",
-      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-troubleshooting",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-versions.md",
-      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-versions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-windows-install.md",
-      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-windows-install",
       "redirect_document_id": false
     },
     {
