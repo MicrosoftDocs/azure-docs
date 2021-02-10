@@ -96,6 +96,8 @@
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
+  - name: Semantic search
+    href: semantic-search-overview.md
   - name: Relevance scoring
     href: index-similarity-and-scoring.md
   - name: Indexers
@@ -262,6 +264,8 @@
       href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
     - name: Azure SQL Server VMs
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+    - name: SharePoint Online indexer
+      href: search-howto-index-sharepoint-online.md
   - name: Skillsets
     items:
     - name: Attach a Cognitive Services resource
@@ -306,6 +310,10 @@
     items:
     - name: Create a basic query
       href: search-query-create.md
+    - name: Create a semantic query
+      href: semantic-howto-create-query.md
+    - name: Add spell check to queries
+      href: speller-howto-add.md
     - name: Query types and composition
       href: search-query-overview.md
     - name: Use simple syntax (examples)

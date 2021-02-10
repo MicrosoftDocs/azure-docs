@@ -7,12 +7,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/02/2021
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
 
 Learn what's new in the service. Bookmark this page to keep up to date with the service. Check out the [Preview feature list](search-api-preview.md) to view features in public preview.
+
+## March 2021 (Ignite)
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------|---------------|---------------|
+| [Semantic queries](semantic-howto-create-query.md) | TBD |  TBD |
+| Semantic answers | TBD  |  TBD  |
+| Semantic captions | TBD  |  TBD  |
+| [Spell check queries](speller-howto-add.md) | TBD |  TBD |
+| [SharePoint Online indexer](search-howto-index-sharepoint-online.md) | TBD |  TBD |
+| ADLS Gen 2 indexer | TBD | Generally available in 2020-06-30 REST API (Azure SDK implementations are TBD) |
 
 ## February 2021
 
