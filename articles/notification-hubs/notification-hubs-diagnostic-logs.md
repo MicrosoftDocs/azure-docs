@@ -14,25 +14,26 @@ When you start using your Azure Notification Hubs namespace, you might want to m
 
 Azure Notification Hubs currently supports activity and operational logs, which capture *management operations* that are performed on the Azure Notification Hubs namespace.
 
-## Operational logs schema
+## Diagnostic logs schema
 
 All logs are stored in JavaScript Object Notation (JSON) format in the following two locations:
 
 - **AzureActivity**: Displays logs from operations and actions that are conducted against your namespace in the Azure portal or through Azure Resource Manager template deployments.
 - **AzureDiagnostics**: Displays logs from operations and actions that are conducted against your namespace by using the API, or through management clients on the language SDK.
 
-Operational log JSON strings include the elements listed in the following table:
+Diagnostic log JSON strings include the elements listed in the following table:
 
 | Name | Description |
 | ------- | ------- |
+| time | UTC timestamp of the log |
+| resourceId | Relative path to the Azure resource |
 | operationName | Name of the management operation |
-| resourceId | Relative path to the resource |
-| time | Operation date and time |
-| category | OperationalLogs |
-| resultType | Status of the management operation |
+| category | Log category. Valid values: `OperationalLogs` |
+| callerIdentity | Identity of the caller who initiated the management operation |
+| resultType | Status of the management operation. Valid values: `Succeeded` or `Failed` |
 | resultDescription | Description of the management operation |
 | correlationId | Correlation ID of the management operation (if specified) |
-| callerIdentity | Identity of the caller who initiated the management operation |
+| callerIpAddress | The caller IP address. Empty for calls that originated from the Azure Portal |
 
 Here's an example of an operational log JSON string:
 
@@ -46,6 +47,32 @@ Here's an example of an operational log JSON string:
     "resultDescription": "Gets Hub Authorization Rules",
     "correlationId": "00000000-0000-0000-0000-000000000000",
     "callerIdentity": "{ \"identityType\": \"Portal\", \"identity\": \"\" }"
+}
+```
+
+The `callerIdentity` field can be empty, or a JSON string with one of the following formats.
+
+For calls originating from the Azure Portal the `identity` field is empty. The log can be correlated to activity logs to determine the logged in user.
+```json
+{
+    "identityType": "Portal",
+    "identity": ""
+}
+```
+
+For calls from an ARM client (or to the ARM management endpoint) the `identity` field will contain the username of the logged in user.
+```json
+{
+   "identityType": "Username",
+   "identity": "test@foo.com"
+}
+```
+
+For calls to the Notification Hubs REST API the `identity` field will contain the name of the access policy used to generate the SharedAccessSignature token.
+```json
+{
+   "identityType": "KeyName",
+   "identity": "SharedAccessRootKey2"
 }
 ```
 
