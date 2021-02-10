@@ -12,20 +12,12 @@ ms.author: tagore
 
 # Migrate to Cloud Services (extended support) using PowerShell
 
-These steps show you how to use Azure PowerShell commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model.
-
-
-* For background on supported migration scenarios, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md).
-* For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md).
-* [Review the most common migration errors](migration-classic-resource-manager-errors.md).
-
-<br>
-Here's a flowchart to identify the order in which steps need to be executed during a migration process. 
+These steps show you how to use Azure PowerShell commands to migrate from Cloud Services (classic) to Cloud Services (extended supprot).
 
 ## Step 1: Plan for migration
-Here are a few best practices that we recommend as you evaluate whether to migrate IaaS resources from classic to Resource Manager:
+Here are a few best practices that we recommend as you evaluate whether to migrate to Cloud Services (extended support):
 
-* Read through the [supported and unsupported features and configurations](migration-classic-resource-manager-overview.md). If you have virtual machines that use unsupported configurations or features, wait for the configuration or feature support to be announced. Alternatively, if it suits your needs, remove that feature or move out of that configuration to enable migration.
+* Read through the [Cloud Services (extended support) overview](overview.md). 
 * If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
 > [!IMPORTANT]
@@ -53,36 +45,35 @@ First, start a PowerShell prompt. For migration, set up your environment for bot
 Sign in to your account for the Resource Manager model.
 
 ```powershell
-    Connect-AzAccount
+Connect-AzAccount
 ```
 
 Get the available subscriptions by using the following command:
 
 ```powershell
-    Get-AzSubscription | Sort Name | Select Name
+Get-AzSubscription | Sort Name | Select Name
 ```
 
 Set your Azure subscription for the current session. This example sets the default subscription name to **My Azure Subscription**. Replace the example subscription name with your own.
 
 ```powershell
-    Select-AzSubscription –SubscriptionName "My Azure Subscription"
+Select-AzSubscription –SubscriptionName "My Azure Subscription"
 ```
 
+Register with the migration resource provider by using the following command:
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+```
 > [!NOTE]
 > Registration is a one-time step, but you must do it once before you attempt migration. Without registering, you see the following error message:
 >
 > *BadRequest : Subscription is not registered for migration.*
 
-Register with the migration resource provider by using the following command:
-
-```powershell
-    Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-```
-
 Wait five minutes for the registration to finish. Check the status of the approval by using the following command:
 
 ```powershell
-    Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
 Make sure that RegistrationState is `Registered` before you proceed.
@@ -92,77 +83,68 @@ Before switching to the classic deployment model, make sure that you have enough
 This example checks the availability in the **West US** region. Replace the example region name with your own.
 
 ```powershell
-    Get-AzVMUsage -Location "West US"
+Get-AzVMUsage -Location "West US"
 ```
 
 Now, sign in to your account for the classic deployment model.
 
 ```powershell
-    Add-AzureAccount
+Add-AzureAccount
 ```
 
 Get the available subscriptions by using the following command:
 
 ```powershell
-    Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
+Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
 ```
 
 Set your Azure subscription for the current session. This example sets the default subscription to **My Azure Subscription**. Replace the example subscription name with your own.
 
 ```powershell
-    Select-AzureSubscription –SubscriptionName "My Azure Subscription"
+Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 ```
 
 
-## Step 5: Run commands to migrate your IaaS resources
-* [Migrate VMs in a cloud service (not in a virtual network)](#step-51-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
-* [Migrate VMs in a virtual network](#step-51-option-2---migrate-virtual-machines-in-a-virtual-network)
+## Step 5: Run commands to migrate your Cloud Services (classic) resources
+* [Migrate a Cloud Service not in a virtual network](#step-51-option-1---migrate-a-cloud-service-not-in-a-virtual-network)
+* [Migrate a Cloud Service in a virtual network](#step-51-option-2---migrate-a-cloud-service-in-a-virtual-network)
 * [Migrate a storage account](#step-52-migrate-a-storage-account)
 
 > [!NOTE]
 > All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform then tries the action again.
 
 
-### Step 5.1: Option 1 - Migrate virtual machines in a cloud service (not in a virtual network)
+### Step 5.1: Option 1 - Migrate a Cloud Service not in a virtual network
 Get the list of cloud services by using the following command. Then pick the cloud service that you want to migrate. If the VMs in the cloud service are in a virtual network or if they have web or worker roles, the command returns an error message.
 
 ```powershell
-    Get-AzureService | ft Servicename
+Get-AzureService | ft Servicename
 ```
 
 Get the deployment name for the cloud service. In this example, the service name is **My Service**. Replace the example service name with your own service name.
 
 ```powershell
-    $serviceName = "My Service"
-    $deployment = Get-AzureDeployment -ServiceName $serviceName
-    $deploymentName = $deployment.DeploymentName
+$serviceName = "My Service"
+$deployment = Get-AzureDeployment -ServiceName $serviceName
+$deploymentName = $deployment.DeploymentName
 ```
 
-Prepare the virtual machines in the cloud service for migration. You have two options to choose from.
+First, validate that you can migrate the cloud service by using the following commands:
 
-* **Option 1: Migrate the VMs to a platform-created virtual network.**
+```powershell
+$validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+$validate.ValidationMessages
+ ```
 
-    First, validate that you can migrate the cloud service by using the following commands:
+The following command displays any warnings and errors that block migration. If validation is successful, you can move on to the Prepare step.
 
-    ```powershell
-    $validate = Move-AzureService -Validate -ServiceName $serviceName `
-        -DeploymentName $deploymentName -CreateNewVirtualNetwork
-    $validate.ValidationMessages
-    ```
+```powershell
+Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+```
 
-    The following command displays any warnings and errors that block migration. If validation is successful, you can move on to the Prepare step.
+### Step 5.1: Option 2 - Migrate a Cloud Service in a virtual network
 
-    ```powershell
-    Move-AzureService -Prepare -ServiceName $serviceName `
-        -DeploymentName $deploymentName -CreateNewVirtualNetwork
-    ```
-
-### Step 5.1: Option 2 - Migrate virtual machines in a virtual network
-
-To migrate virtual machines in a virtual network, you migrate the virtual network. The virtual machines automatically migrate with the virtual network. Pick the virtual network that you want to migrate.
-> [!NOTE]
-> [Migrate a single virtual machine](./windows/create-vm-specialized-portal.md) created using the classic deployment model by creating a new Resource Manager virtual machine with Managed Disks by using the VHD (OS and data) files of the virtual machine.
-<br>
+To migrate a Cloud Service in a virtual network, you migrate the virtual network. The Cloud Service automatically migrates with the virtual network.
 
 > [!NOTE]
 > The virtual network name might be different from what is shown in the new portal. The new Azure portal displays the name as `[vnet-name]`, but the actual virtual network name is of type `Group [resource-group-name] [vnet-name]`. Before you start the migration, look up the actual virtual network name by using the command `Get-AzureVnetSite | Select -Property Name` or view it in the old Azure portal. 
@@ -170,42 +152,37 @@ To migrate virtual machines in a virtual network, you migrate the virtual networ
 This example sets the virtual network name to **myVnet**. Replace the example virtual network name with your own.
 
 ```powershell
-    $vnetName = "myVnet"
+$vnetName = "myVnet"
 ```
-
-> [!NOTE]
-> If the virtual network contains web or worker roles, or VMs with unsupported configurations, you get a validation error message.
 
 First, validate that you can migrate the virtual network by using the following command:
 
 ```powershell
-    Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
 ```
 
 The following command displays any warnings and errors that block migration. If validation is successful, you can proceed with the following Prepare step:
 
 ```powershell
-    Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
 ```
 
-Check the configuration for the prepared virtual machines by using either Azure PowerShell or the Azure portal. If you're not ready for migration and you want to go back to the old state, use the following command:
+Check the configuration for the prepared Cloud Service by using either Azure PowerShell or the Azure portal. If you're not ready for migration and you want to go back to the old state, use the following command:
 
 ```powershell
-    Move-AzureVirtualNetwork -Abort -VirtualNetworkName $vnetName
+Move-AzureVirtualNetwork -Abort -VirtualNetworkName $vnetName
 ```
 
 If the prepared configuration looks good, you can move forward and commit the resources by using the following command:
 
 ```powershell
-    Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
+Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
 
 ## Next steps
-* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md)
-* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
-* [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md)
-* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-cli.md)
-* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
-* [Review most common migration errors](migration-classic-resource-manager-errors.md)
-* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md)
+* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
+* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-deep-dive.md)
+* [Planning for migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-plan.md)
+* [Review most common migration errors](../virtual-machines/migration-classic-resource-manager-errors.md)
+* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-faq.md)

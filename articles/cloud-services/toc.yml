@@ -20,6 +20,8 @@
       href: security-baseline.md
 - name: How To
   items:
+  - name: Migrate to Cloud Services (extended support) 
+    href: ../cloud-services-extended-support/in-place-migration-overview.md
   - name: Plan
     items:
     - name: Virtual machine sizes
@@ -131,10 +133,6 @@
       href: diagnostics-extension-to-storage.md
     - name: Trace Cloud Service with Diagnostics
       href: cloud-services-dotnet-diagnostics-trace-flow.md
-  - name: Migrate
-    items: 
-    - name: Migration overview.md
-      href: ../cloud-services-extended-support/in-place-migration-overview.md?context=/azure/cloud-services/context/context
   - name: Troubleshoot
     items:
     - name: Debug
