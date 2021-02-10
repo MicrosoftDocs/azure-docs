@@ -34,13 +34,13 @@ The infrastructure requirements for the supported SBCs, domains, and other netwo
 |Session Border Controller (SBC)|A supported SBC. For more information, see [Supported SBCs](#supported-session-border-controllers-sbcs).|
 |Telephony trunks connected to the SBC|One or more telephony trunks connected to the SBC. On one end, the SBC connects to the Azure Communication Service via SIP Interface. The SBC can also connect to third-party telephony entities, such as PBXs, Analog Telephony Adapters, and so on. Any PSTN connectivity option connected to the SBC will work. (For configuration of the PSTN trunks to the SBC, please refer to the SBC vendors or trunk providers.)|
 |Azure subscription|An Azure subscription that you use to create ACS resource, and the configuration and connection to the SBC.|
-|ACS Identities|Created ACS identity with voip scope. See [scopes in ACS](https://docs.microsoft.com/en-us/azure/communication-services/concepts/identity-model#access-tokens)|
+|ACS Access Token|To make calls, you need a valid Access Token with `voip` scope. See [Access Tokens](https://docs.microsoft.com/en-us/azure/communication-services/concepts/identity-model#access-tokens)|
 |Public IP address for the SBC|A public IP address that can be used to connect to the SBC. Based on the type of SBC, the SBC can use NAT.|
 |Fully Qualified Domain Name (FQDN) for the SBC|A FQDN for the SBC, where the domain portion of the FQDN does not match registered domains in your Microsoft 365 or Office 365 organization. For more information, see [SBC domain names](#sbc-domain-names).|
 |Public DNS entry for the SBC |A public DNS entry mapping the SBC FQDN to the public IP Address. |
 |Public trusted certificate for the SBC |A certificate for the SBC to be used for all communication with SIP Interface. For more information, see [Public trusted certificate for the SBC](#public-trusted-certificate-for-the-sbc).|
 |Firewall IP addresses and ports for SIP signaling and media |The SBC communicates to the following services in the cloud:<br/><br/>SIP Proxy, which handles the signaling<br/>Media Processor, which handles media<br/><br/>These two services have separate IP addresses in Microsoft Cloud, described later in this document.
-|Media Transport Profile|TCP/RTP/SAVP <br/>UDP/RTP/SAVP|
+
 
 ## SBC domain names
 
@@ -138,7 +138,6 @@ You must use the following ports for ACS SIP Interface:
 |:--- |:--- |:--- |:--- |:--- |
 |SIP/TLS|SIP Proxy|SBC|1024 – 65535|Defined on the SBC (For Office 365 GCC High/DoD only port 5061 must be used)|
 SIP/TLS|SBC|SIP Proxy|Defined on the SBC|5061|
-||||||
 
 ### Failover mechanism for SIP Signaling
 
@@ -195,7 +194,7 @@ On the leg between the Cloud Media Processor and ACS SDK app either SILK or G.72
 
 ## Supported Session Border Controllers (SBCs)
 
-Certification is in progress. The certified devices are guaranteed to work in all scenarios. 
+Certification is in progress. Meanwhile, customers can use [Teams Certifed Session Border Controlers](https://docs.microsoft.com/en-us/MicrosoftTeams/direct-routing-border-controllers). 
 
 ## Next steps
 
