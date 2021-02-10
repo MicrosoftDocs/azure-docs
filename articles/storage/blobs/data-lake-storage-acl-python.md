@@ -97,7 +97,6 @@ This section shows you how to:
 
 - Set the ACL of a directory
 - Set the ACL of a file
-- Set ACLs recursively
 
 ### Set the ACL of a directory
 
@@ -117,7 +116,9 @@ This example gets and sets the ACL of a file named `my-file.txt`. The string `rw
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/ACL_datalake.py" id="Snippet_FileACL":::
 
-### Set ACLs recursively
+## Set ACLs recursively
+
+When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs](#update-acls) section of this article.
 
 Set ACLs recursively by calling the **DataLakeDirectoryClient.set_access_control_recursive** method.
 
@@ -133,20 +134,9 @@ The entries of the ACL give the owning user read, write, and execute permissions
 
 To see an example that processes ACLs recursively in batches by specifying a batch size, see the python [sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py).
 
-## Update ACLs
+## Update ACLs recursively
 
 When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set ACLs](#set-acls) section of this article.
-
-This section shows you how to:
-
-- Update an ACL
-- Update ACLs recursively
-
-### Update an ACL
-
-Put something here.
-
-### Update ACLs recursively
 
 To update an ACL recursively, create a new ACL object with the ACL entry that you want to update, and then use that object in update ACL operation. Do not get the existing ACL, just provide ACL entries to be updated. Update an ACL recursively by calling the **DataLakeDirectoryClient.update_access_control_recursive** method. If you want to update a **default** ACL entry, then add the string `default:` to the beginning of each ACL entry string.
 
@@ -158,20 +148,9 @@ This example sets the ACL of a directory named `my-parent-directory`. This metho
 
 To see an example that processes ACLs recursively in batches by specifying a batch size, see the python [sample](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py).
 
-## Remove ACL entries
+## Remove ACL entries recursively
 
-You can remove one or more ACL entries. This section shows you how to:
-
-- Remove an ACL entry
-- Remove ACL entries recursively
-
-### Remove an ACL entry
-
-Put something here.
-
-### Remove ACL entries recursively
-
-To remove ACL entries recursively, create a new ACL object for ACL entry to be removed, and then use that object in remove ACL operation. Do not get the existing ACL, just provide the ACL entries to be removed. 
+You can remove one or more ACL entries. To remove ACL entries recursively, create a new ACL object for ACL entry to be removed, and then use that object in remove ACL operation. Do not get the existing ACL, just provide the ACL entries to be removed. 
 
 Remove ACL entries by calling the **DataLakeDirectoryClient.remove_access_control_recursive** method. If you want to remove a **default** ACL entry, then add the string `default:` to the beginning of the ACL entry string. 
 
