@@ -5,7 +5,7 @@ author: rezar
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 02/09/2021
 ms.author: rezar
 ms.reviewer: cynthn
 
