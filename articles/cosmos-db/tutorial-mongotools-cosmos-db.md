@@ -20,6 +20,7 @@ In this tutorial, you learn how to:
 > * Choose the appropriate MongoDB native tool for your use-case
 > * Run the migration.
 > * Monitor the migration.
+> * Verify that migration was successful.
 
 In this tutorial, you migrate a dataset in MongoDB hosted in an Azure Virtual Machine to Azure Cosmos DB's API for MongoDB by using MongoDB native tools. The MongoDB native tools are a set of binaries that facilitate data manipulation on an existing MongoDB instance. Since Azure Cosmos DB exposes a Mongo API, the MongoDB native tools are able to insert data into Azure Cosmos DB. The focus of this doc is on migrating data out of a MongoDB instance using *mongoexport/mongoimport* or *mongodump/mongorestore*. Since the native tools connect to MongoDB using connection strings, you can run the tools anywhere, however we recommend running these tools within the same network as the MongoDB instance to avoid firewall issues. 
 
@@ -129,7 +130,8 @@ The rest of this section will guide you through using the pair of tools you sele
 
     `mongorestore --host HOST:PORT --authenticationDatabase admin -u USERNAME -p PASSWORD --db edx --collection importedQuery --ssl edx-dump/edx/query.bson`
 
-    On Windows, the executable will be `mongorestore.exe`. *HOST*, *PORT*, *USERNAME*, and *PASSWORD* should be filled in based on the Azure Cosmos DB credentials you collected earlier. You should see that *mongorestore* prints lines to the terminal updating on the migration status:
+    On Windows, the executable will be `mongorestore.exe`. *HOST*, *PORT*, *USERNAME*, and *PASSWORD* should be filled in based on the Azure Cosmos DB credentials you collected earlier. 
+4. **Monitor** the terminal output from *mongorestore*. You should see that it prints lines to the terminal updating on the migration status:
 
     ![mongoimport call](media/tutorial-mongotools-cosmos-db/mongo-restore-output.png)    
 
