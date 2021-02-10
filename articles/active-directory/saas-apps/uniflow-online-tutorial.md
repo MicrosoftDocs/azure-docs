@@ -55,7 +55,8 @@ To configure and test Azure AD SSO with uniFLOW Online, perform the following st
    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure uniFLOW Online SSO](#configure-uniflow-online-sso)** - to configure the single sign-on settings on application side.
-    * **[Sign in to uniFLOW Online using the created test user](#sign-in-to-uniflow-online-using-the-created-test-user)** - to test user sign-in on the application side.
+    1. **[Sign in to uniFLOW Online using the created test user](#sign-in-to-uniflow-online-using-the-created-test-user)** - to test user sign-in on the application side.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
@@ -69,7 +70,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+	a. In the **Sign on URL** text box, type a URL using one of the following pattern:
 
 	- `https://<tenant_domain_name>.eu.uniflowonline.com`
 	- `https://<tenant_domain_name>.us.uniflowonline.com`
@@ -77,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	- `https://<tenant_domain_name>.jp.uniflowonline.com`
 	- `https://<tenant_domain_name>.au.uniflowonline.com`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    b. In the **Identifier (Entity ID)** text box, type a URL using one of the following pattern:
 
 	- `https://<tenant_domain_name>.eu.uniflowonline.com`
 	- `https://<tenant_domain_name>.us.uniflowonline.com`
@@ -139,19 +140,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. From the left navigation panel, select **User** tab.
 
-	![Screenshot shows User selected from the uniflow Online site.](./media/uniflow-online-tutorial/configure1.png)
+	![Screenshot shows User selected from the uniflow Online site.](./media/uniflow-online-tutorial/configure-1.png)
 
 1. Click **Identity providers**.
 
-	![Screenshot shows Identity Providers selected.](./media/uniflow-online-tutorial/configure2.png)
+	![Screenshot shows Identity Providers selected.](./media/uniflow-online-tutorial/configure-2.png)
 
 1. Click on **Add identity provider**.
 
-	![Screenshot shows Add identity provider selected.](./media/uniflow-online-tutorial/configure3.png)
+	![Screenshot shows Add identity provider selected.](./media/uniflow-online-tutorial/configure-3.png)
 
 1. On the **ADD IDENTITY PROVIDER** section, perform the following steps:
 
-	![Screenshot shows the ADD IDENTITY PROVIDER section where you can enter the values described.](./media/uniflow-online-tutorial/configure4.png)
+	![Screenshot shows the ADD IDENTITY PROVIDER section where you can enter the values described.](./media/uniflow-online-tutorial/configure-4.png)
 
 	a. Enter the Display name Ex: *AzureAD SSO*.
 
@@ -163,7 +164,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the **General** tab, perform the following steps:
 
-	![Screenshot shows the General tab where you can enter the values described.](./media/uniflow-online-tutorial/configure5.png)
+	![Screenshot shows the General tab where you can enter the values described.](./media/uniflow-online-tutorial/configure-5.png)
 
 	a. Enter the Display name Ex: *AzureAD SSO*.
 
@@ -184,6 +185,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Select the previously created identity provider to sign-in via your Azure AD instance.
 
 1. Sign in using the test user.
+
+## Test SSO
+
+In this section, you test your Azure AD single sign-on configuration with following options. 
+
+* Click on **Test this application** in Azure portal. This will redirect to uniFLOW Online Sign-on URL where you can initiate the login flow. 
+
+* Go to uniFLOW Online Sign-on URL directly and initiate the login flow from there.
+
+* You can use Microsoft My Apps. When you click the uniFLOW Online tile in the My Apps, this will redirect to uniFLOW Online Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next steps
 
