@@ -1,4 +1,4 @@
-﻿---
+---
 title: Implement widgets
 titleSuffix: Azure API Management
 description: Learn how to implement widgets that consume data from external APIs and shows it in developer portal.
@@ -314,7 +314,7 @@ Now, carry out these steps to allow the user to set up the session ID through a 
 
 1. Change the ID to `108`, save the changes, and refresh the browser.
 
-    If you're experiencing problems, you may need to readd the widget onto the page.
+    If you're experiencing problems, you may need to re-add the widget onto the page.
 
     ![Widget editor](media/dev-portal/widget-editor.png)
 
@@ -331,7 +331,7 @@ export const widgetCategory = "Community";
 ```
 
 > [!NOTE]
-> If you're contributing the widget to the repository, the `widgetName` value needs to be the same as its folder name. You need to derive both from the display name. Make sure the whole value is lowercase and you replace the spaces with dashes. The category must remain `Community`.
+> If you're contributing the widget to the repository, the `widgetName` value needs to be the same as its folder name. You need to derive both the widget and folder name from the display name, making sure the value is lowercase and spaces are replaced with dashes. The category must remain `Community`.
 
 ## Next steps
 
