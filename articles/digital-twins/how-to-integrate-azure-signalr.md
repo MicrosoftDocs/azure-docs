@@ -27,10 +27,10 @@ Here are the prerequisites you should complete before proceeding:
 
 * Before integrating your solution with Azure SignalR Service in this article, you should complete the Azure Digital Twins [_**Tutorial: Connect an end-to-end solution**_](tutorial-end-to-end.md), because this how-to article builds on top of it. The tutorial walks you through setting up an Azure Digital Twins instance that works with a virtual IoT device to trigger digital twin updates. This how-to article will connect those updates to a sample web app using Azure SignalR Service.
 
-You'll need the following values from the tutorial
-    - Event grid topic
-    - Resource group
-    - App service function app name
+* You'll need the following values from the tutorial:
+  - Event grid topic
+  - Resource group
+  - App service function app name
     
 * You'll need [**Node.js**](https://nodejs.org/) installed on your machine.
 
@@ -90,7 +90,7 @@ First, go to the browser where the Azure portal is opened, and complete the foll
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Screenshot of the Azure portal that shows the Keys page for the SignalR instance. The 'Copy to clipboard' icon next to the Primary CONNECTION STRING is highlighted." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-1. Finally, add your Azure SignalR **connection string** from earlier to the function's app settings, using the following Azure CLI command. The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
+1. Finally, add your Azure SignalR **connection string** from earlier to the function's app settings, using the following Azure CLI command. Also, replace the placeholders with your resource group and app service function app values from the [tutorial](tutorial-end-to-end.md).The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
  
     ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
