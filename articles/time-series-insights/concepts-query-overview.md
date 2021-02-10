@@ -71,7 +71,7 @@ The above APIs can only execute against one of the two storage types (Cold or Wa
 
 If no parameter is specified, the query will be executed on Cold Store, by default. If a query spans a time range overlapping both Cold and Warm store, it is recommended to route the query to Cold store for the best experience since Warm store will only contain partial data. 
 
-The [Azure Time Series Insights Explorer](./concepts-ux-panels.md) and [Power BI Connector](./how-to-connect-power-bi.md) make calls to the above APIs and will automatically select the correct storeType to parameter where relevant. 
+The [Azure Time Series Insights Explorer](./concepts-ux-panels.md) and [Power BI Connector](./how-to-connect-power-bi.md) make calls to the above APIs and will automatically select the correct storeType parameter where relevant. 
 
 
 ## Next steps
