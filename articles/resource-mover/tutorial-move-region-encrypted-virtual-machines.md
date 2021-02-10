@@ -57,7 +57,7 @@ If you're moving VMs that have Azure disk encryption enabled, you need to run a 
 
 :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Button to open key vault access policies." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
 
-If there are no user permissions, select **Add Access Policy**, and specify the permissions. If the user account already has a policy, under **User**, set the permissions asper the table below.
+If there are no user permissions, select **Add Access Policy**, and specify the permissions. If the user account already has a policy, under **User**, set the permissions as per the table below.
 
 Azure VMs using ADE can have the following variations and the permissions need to be set accordingly for relevant components.
 - Default option where the disk is encrypted using only secrets
