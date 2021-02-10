@@ -41,14 +41,14 @@ az deployment group create \
 
 - [Agents](agents/resource-manager-agent.md) - Deploy and configure Log Analytics agent and diagnostic extension.
 - Alerts
-  - [Log alert rules](samples/resource-manager-alerts-log.md) - Alerts from log queries and Azure activity log.
-  - [Metric alert rules](samples/resource-manager-alerts-metric.md) - Alerts from metrics using different kinds of logic.
+  - [Log alert rules](alerts/resource-manager-alerts-log.md) - Alerts from log queries and Azure activity log.
+  - [Metric alert rules](alerts/resource-manager-alerts-metric.md) - Alerts from metrics using different kinds of logic.
 - [Application Insights](samples/resource-manager-app-resource.md)
 - [Diagnostic settings](essentials/resource-manager-diagnostic-settings.md) - Create diagnostic settings to forward logs and metrics from different resource types.
 - [Log queries](samples/resource-manager-log-queries.md) - Create saved log queries in a Log Analytics workspace.
 - [Log Analytics Workspace](logs/resource-manager-workspace.md) - Create Log Analytics workspace and configure collection of different data sources from Log Analytics agent.
-- [Workbooks](samples/resource-manager-workbooks.md) - Create workbooks.
-- [Azure Monitor for containers](samples/resource-manager-container-insights.md) - Onboard clusters to Azure Monitor for containers.
+- [Workbooks](visualizations/resource-manager-workbooks.md) - Create workbooks.
+- [Azure Monitor for containers](containers/resource-manager-container-insights.md) - Onboard clusters to Azure Monitor for containers.
 - [Azure Monitor for VMs](vm/resource-manager-vminsights.md) - Onboard virtual machines to Azure Monitor for VMs.
 
 

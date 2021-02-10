@@ -118,7 +118,7 @@ Autoscale allows you to have the right amount of resources running to handle the
 ![Workbooks example](media/overview/workbooks.png)
 
 ### Power BI
-[Power BI](https://powerbi.microsoft.com) is a business analytics service that provides interactive visualizations across a variety of data sources. It's an effective means of making data available to others within and outside your organization. You can configure Power BI to [automatically import log data from Azure Monitor](./platform/powerbi.md) to take advantage of these additional visualizations.
+[Power BI](https://powerbi.microsoft.com) is a business analytics service that provides interactive visualizations across a variety of data sources. It's an effective means of making data available to others within and outside your organization. You can configure Power BI to [automatically import log data from Azure Monitor](./visualizations/powerbi.md) to take advantage of these additional visualizations.
 
 
 ![Power BI](media/overview/power-bi.png)

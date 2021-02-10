@@ -143,7 +143,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 
 ### Alerts
 - [Create and manage action groups in the Azure portal](alerts/action-groups.md) - Added section on service tag.
-- [Resource Manager template samples for metric alerts](samples/resource-manager-alerts-metric.md) - Added content match parameter and test locations.
+- [Resource Manager template samples for metric alerts](alerts/resource-manager-alerts-metric.md) - Added content match parameter and test locations.
 - [Troubleshooting Azure metric alerts](alerts/alerts-troubleshoot-metric.md) - Added best practice for rule configuration.
 
 ### Application Insights
@@ -471,19 +471,19 @@ New and updated articles from restructure and consolidation of platform log cont
 
 #### New Resource Manager template samples 
 - [Resource Manager template samples for Azure Monitor](/resource-manager-samples.md)
-- [Resource Manager template samples for action groups](samples/resource-manager-action-groups.md)
+- [Resource Manager template samples for action groups](alerts/resource-manager-action-groups.md)
 - [Resource Manager template samples for agents](agents/resource-manager-agent.md)
-- [Resource Manager template samples for Azure Monitor for containers](samples/resource-manager-container-insights.md)
+- [Resource Manager template samples for Azure Monitor for containers](containers/resource-manager-container-insights.md)
 - [Resource Manager template samples for Azure Monitor for VMs](vm/resource-manager-vminsights.md)
 - [Resource Manager template samples for diagnostic settings](essentials/resource-manager-diagnostic-settings.md)
 - [Resource Manager template samples for Log Analytics workspaces](logs/resource-manager-workspace.md)
 - [Resource Manager template samples for log queries](samples/resource-manager-log-queries.md)
-- [Resource Manager template samples for log query alert rules](samples/resource-manager-alerts-log.md)
-- [Resource Manager template samples for metric alert rules](samples/resource-manager-alerts-metric.md)
-- [Resource Manager template samples for workbooks](samples/resource-manager-workbooks.md)
+- [Resource Manager template samples for log query alert rules](alerts/resource-manager-alerts-log.md)
+- [Resource Manager template samples for metric alert rules](alerts/resource-manager-alerts-metric.md)
+- [Resource Manager template samples for workbooks](visualizations/resource-manager-workbooks.md)
 
 ### Agents
-- [Install and configure Windows Azure diagnostics extension (WAD)](essentials/diagnostics-extension-windows-install.md) - Added detail on configuring diagnostics.
+- [Install and configure Windows Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md) - Added detail on configuring diagnostics.
 - [Log Analytics agent overview](agents/log-analytics-agent.md) - Added supported Linux versions.
 
 ### Application Insights
@@ -670,11 +670,11 @@ General updates for general availability of Azure Monitor for VMs
 Multiple updates as part of rewrite of diagnostics extension content.
 
 - [Overview of the Azure monitoring agents](agents/agents-overview.md) - Restructured tables to better clarify unique features of each agent.
-- [Azure Diagnostics extension overview](essentials/diagnostics-extension-overview.md) - Complete rewrite.
+- [Azure Diagnostics extension overview](agents/diagnostics-extension-overview.md) - Complete rewrite.
 - [Use blob storage for IIS and table storage for events in Azure Monitor](essentials/diagnostics-extension-logs.md) - General rewrite for update and clarity.
-- [Install and configure Windows Azure diagnostics extension (WAD)](essentials/diagnostics-extension-windows-install.md) - New article. 
-- [Windows diagnostics extension schema](essentials/diagnostics-extension-schema-windows.md) - Reorganized.
-- [Send data from Windows Azure diagnostics extension to Azure Event Hubs](essentials/diagnostics-extension-stream-event-hubs.md) - Completely rewritten and updated.
+- [Install and configure Windows Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md) - New article. 
+- [Windows diagnostics extension schema](agents/diagnostics-extension-schema-windows.md) - Reorganized.
+- [Send data from Windows Azure diagnostics extension to Azure Event Hubs](agents/diagnostics-extension-stream-event-hubs.md) - Completely rewritten and updated.
 - [Store and view diagnostic data in Azure Storage](../cloud-services/diagnostics-extension-to-storage.md) - Completely rewritten and updated.
 - [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md) - Better clarifies relationship with Log Analytics agent.
 - [Azure Monitor virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md) - Better clarifies relationship with Log Analytics agent.

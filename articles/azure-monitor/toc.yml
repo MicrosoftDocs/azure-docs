@@ -74,11 +74,11 @@
     - name: Alerts
       items:
       - name: Log alert rules
-        href: samples/resource-manager-alerts-log.md
+        href: alerts/resource-manager-alerts-log.md
       - name: Metric alert rules
-        href: samples/resource-manager-alerts-metric.md
+        href: alerts/resource-manager-alerts-metric.md
       - name: Action groups
-        href: samples/resource-manager-action-groups.md
+        href: alerts/resource-manager-action-groups.md
     - name: Application Insights
       items:
         - name: Create a resource
@@ -96,9 +96,9 @@
     - name: Log queries
       href: samples/resource-manager-log-queries.md
     - name: Workbooks
-      href: samples/resource-manager-workbooks.md
+      href: visualizations/resource-manager-workbooks.md
     - name: Azure Monitor for containers
-      href: samples/resource-manager-container-insights.md
+      href: containers/resource-manager-container-insights.md
     - name: Azure Monitor for VMs
       href: vm/resource-manager-vminsights.md
   - name: Azure CLI
@@ -391,14 +391,14 @@
     - name: Azure Diagnostics extension
       items:
       - name: Overview
-        href: essentials/diagnostics-extension-overview.md
+        href: agents/diagnostics-extension-overview.md
       - name: Windows
         displayname: diagnostics extension
         items:
         - name: Install and configure
           items:
           - name: Installation options
-            href: essentials/diagnostics-extension-windows-install.md
+            href: agents/diagnostics-extension-windows-install.md
           - name: PowerShell
             href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
           - name: Resource Manager template
@@ -414,15 +414,15 @@
           - name: Cloud service
             href: essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
         - name: Send to Event Hubs
-          href: essentials/diagnostics-extension-stream-event-hubs.md
+          href: agents/diagnostics-extension-stream-event-hubs.md
         - name: Send to Logs
           href: essentials/diagnostics-extension-logs.md
         - name: Send to Application Insights
-          href: essentials/diagnostics-extension-to-application-insights.md
+          href: agents/diagnostics-extension-to-application-insights.md
         - name: Version history
-          href: essentials/diagnostics-extension-versions.md
+          href: agents/diagnostics-extension-versions.md
         - name: Troubleshooting
-          href: essentials/diagnostics-extension-troubleshooting.md
+          href: agents/diagnostics-extension-troubleshooting.md
       - name: Linux
         displayname: diagnostics extension
         items: 
@@ -434,7 +434,7 @@
       items:
       - name: Log Analytics VM Extension
         displayname: troubleshoot, troubleshooting
-        href: platform/vmext-troubleshoot.md
+        href: visualizations/vmext-troubleshoot.md
       - name: Log Analytics Windows agent
         displayname: troubleshoot, troubleshooting
         href: agents/agent-windows-troubleshoot.md
@@ -1141,7 +1141,7 @@
         - name: Capacity and performance solution
           href: insights/capacity-performance.md
         - name: Docker and Windows Container monitoring
-          href: insights/containers.md
+          href: containers/containers.md
         - name: Networks
           items:
           - name: Networking Analytics
@@ -1260,7 +1260,7 @@
     - name: Power BI
       items:
       - name: Export log data
-        href: platform/powerbi.md
+        href: visualizations/powerbi.md
       - name: Export application data
         href: app/export-power-bi.md 
     - name: Dashboards
@@ -1308,7 +1308,7 @@
   - name: Diagnostic extension schemas
     items:
     - name: Windows diagnostics extension
-      href: essentials/diagnostics-extension-schema-windows.md
+      href: agents/diagnostics-extension-schema-windows.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection
@@ -1438,6 +1438,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 
