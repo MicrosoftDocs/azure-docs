@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2021
+ms.date: 02/10/2021
 ms.author: yelevin
 
 ---
@@ -43,11 +43,11 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 1. Select an **identifier** for the entity. Identifiers are attributes of an entity that can sufficiently identify it. Choose one from the **Identifier** drop-down list, and then choose a data field from the **Value** drop-down list that will correspond to the identifier. With some exceptions, the **Value** list is populated by the data fields in the table defined as the subject of the rule query.
 
-    You can define **up to three identifiers** for a given entity. Some identifiers are required, others are optional. You must choose at least one required identifier. If you don't, a warning message will instruct you which identifiers are required. See the full list of available [entities and identifiers](entities-reference.md).
+    You can define **up to three identifiers** for a given entity. Some identifiers are required, others are optional. You must choose at least one required identifier. If you don't, a warning message will instruct you which identifiers are required. For best results - for maximum unique identification - you should use **strong identifiers** whenever possible, and using multiple strong identifiers will enable greater correlation between data sources. See the full list of available [entities and identifiers](entities-reference.md).
 
     > [!NOTE]
     >
-    > If you had previously defined entity mappings for this analytics rule using the previous version, those mappings appear in the query code. Entity mappings defined under the new version **do not appear in the query code**. Analytics rules can only support one version of entity mappings at a time. Therefore, any mapping you define here will cause **any** mappings defined in the query code to be **disregarded** when the query runs. 
+    > If you had previously defined entity mappings for this analytics rule using the old version, those mappings appear in the query code. Entity mappings defined under the new version **do not appear in the query code**. Analytics rules can only support one version of entity mappings at a time, and the new version takes precedence. Therefore, any single mapping you define here will cause **any and all** mappings defined in the query code to be **disregarded** when the query runs. 
 
 1. Click **Add new entity** to map more entities. You can map **up to five entities** in a single analytics rule. You can also map more than one of the same type. For example, you can map two **IP** entities, one from a *source IP address* field and one from a *destination IP address* field. This way you can track them both.
 
@@ -56,6 +56,7 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 1. When you have finished mapping entities, click the **Review and create** tab. Once the rule validation is successful, click **Save**.
 
 ## Next steps
+
 In this document, you learned how to map data fields to entities in Azure Sentinel analytics rules. To learn more about Azure Sentinel, see the following articles:
 - Get the complete picture on [scheduled query analytics rules](tutorial-detect-threats-custom.md).
 - Learn more about [entities in Azure Sentinel](entities-in-azure-sentinel.md).

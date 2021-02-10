@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/18/2021
+ms.date: 02/10/2021
 ms.author: yelevin
 
 ---
@@ -25,9 +25,9 @@ ms.author: yelevin
 
 The following table shows the **entity types** currently available for mapping in Azure Sentinel, and the **attributes** available as **identifiers** for each entity type - which appear in the **Identifiers** drop-down list in the [entity mapping](map-data-fields-to-entities.md) section of the [analytics rule wizard](tutorial-detect-threats-custom.md).
 
-Each one of the identifiers in the **required identifiers** column is *usually*, by itself, sufficient to uniquely identify its entity. The more identifiers used, the stronger the unique identification. You can use up to three identifiers for a single entity mapping.
+Each one of the identifiers in the **required identifiers** column is minimally necessary to identify its entity. However, a required identifier might not, by itself, be sufficient to provide *unique* identification. The more identifiers used, the greater the likelihood of unique identification. You can use up to three identifiers for a single entity mapping.
 
-For best results - for guaranteed unique identification - you should use an identifier from the **strongest identifiers** column whenever possible.
+For best results - for guaranteed unique identification - you should use identifiers from the **strongest identifiers** column whenever possible. The use of multiple strong identifiers enables correlation between strong identifiers from varying data sources and schemas. This in turn allows Azure Sentinel to provide more comprehensive insights for a given entity.
 
 | Entity type | Identifiers | Required identifiers | Strongest identifiers |
 | - | - | - | - |

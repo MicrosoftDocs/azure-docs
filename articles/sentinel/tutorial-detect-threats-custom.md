@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/28/2021
+ms.date: 02/10/2021
 ms.author: yelevin
 
 ---
@@ -83,7 +83,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 > [!IMPORTANT]
 > The alert enrichment features are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
     
-- Use the **Entity mapping** configuration section to map parameters from your query results to Azure Sentinel-recognized entities. Entities enrich the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow. They are also the criteria by which you can group alerts into incidents in the **Incident settings** tab.
+- Use the **Entity mapping** configuration section to map parameters from your query results to Azure Sentinel-recognized entities. Entities enrich the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow. They are also the criteria by which you can group alerts together into incidents in the **Incident settings** tab.
 
     Learn more about [entities in Azure Sentinel](entities-in-azure-sentinel.md).
 
@@ -91,10 +91,8 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
 - Use the **Custom details** configuration section to extract event data items from your query and surface them in the alerts produced by this rule, giving you immediate event content visibility in your alerts and incidents.
 
-    Learn more about surfacing custom details in alerts, and see complete instructions, [here](surface-custom-details-in-alerts.md).
+    Learn more about surfacing custom details in alerts, and see the [complete instructions](surface-custom-details-in-alerts.md).
 
-- Use the **Alert properties** configuration section to customize the name, description, tactics, and severity of the alert based on the contents of the events in the query results. The original values of these properties (as specified in the **General** tab) will remain as default values, if they are not populated by values from the events.
-  
 ### Query scheduling and alert threshold
 
 - In the **Query scheduling** section, set the following parameters:

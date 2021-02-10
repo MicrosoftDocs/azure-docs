@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/29/2020
+ms.date: 02/10/2021
 ms.author: yelevin
 ---
 # Classify and analyze data using entities in Azure Sentinel
@@ -66,8 +66,11 @@ You can view these entities' identifiers and other relevant information in the [
 
 How does Azure Sentinel recognize a piece of data in an alert as identifying an entity?
 
-Let's look at how data processing is done in Azure Sentinel.
-Data is ingested from various sources through [connectors](connect-data-sources.md), whether service-to-service, agent-based, or using a syslog service and a log forwarder. The data is stored in tables in your Log Analytics workspace. These tables are then queried at regularly scheduled intervals by the analytics rules you have defined and enabled. One of the many actions taken by these analytics rules is the mapping of data fields in the tables to Azure Sentinel-recognized entities. According to mappings you define in your analytics rules, Azure Sentinel will take fields from the results returned by your query, recognize them by the identifiers you specified for each entity type, and apply to them the entity type identified by those identifiers.
+Let's look at how data processing is done in Azure Sentinel. Data is ingested from various sources through [connectors](connect-data-sources.md), whether service-to-service, agent-based, or using a syslog service and a log forwarder. The data is stored in tables in your Log Analytics workspace. These tables are then queried at regularly scheduled intervals by the analytics rules you have defined and enabled. One of the many actions taken by these analytics rules is the mapping of data fields in the tables to Azure Sentinel-recognized entities. According to mappings you define in your analytics rules, Azure Sentinel will take fields from the results returned by your query, recognize them by the identifiers you specified for each entity type, and apply to them the entity type identified by those identifiers.
+
+What's the point of all this?
+
+When Azure Sentinel is able to identify entities in alerts from different types of data sources, and especially if it can do so using strong identifiers common to each data source or to a third schema, it can then easily correlate between all of these alerts and data sources. These correlations help build a rich store of information and insights on the entities, giving you a solid foundation for your security operations.
 
 Learn how to [map data fields to entities](map-data-fields-to-entities.md).
 
@@ -111,6 +114,8 @@ The insights are based on the following data sources:
 - SigninLogs (Azure AD)
 - OfficeActivity (Office 365)
 - BehaviorAnalytics (Azure Sentinel UEBA)
+- Heartbeat (Azure Monitor Agent)
+- CommonSecurityLog (Azure Sentinel)
 
 ### How to use entity pages
 
