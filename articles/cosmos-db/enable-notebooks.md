@@ -14,7 +14,7 @@ ms.author: dech
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
-> Built-in notebooks for Azure Cosmos DB are currently available in [29 regions](#supported-regions). To use notebooks, [create a new account](#enable-notebooks-in-a-new-cosmos-account) or [enable notebooks on an existing account](#enable-notebooks-in-an-existing-cosmos-account) in one of these regions. 
+> Built-in notebooks for Azure Cosmos DB are currently available in [29 regions](#supported-regions). To use notebooks, [create a new Cosmos account](#create-a-new-cosmos-account) or [enable notebooks on an existing account](#enable-notebooks-in-an-existing-cosmos-account) in one of these regions. 
 
 Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualize your data from the Azure portal. This article describes how to enable this feature for your Azure Cosmos DB account.
 
