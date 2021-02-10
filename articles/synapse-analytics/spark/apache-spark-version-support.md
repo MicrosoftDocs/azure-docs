@@ -8,7 +8,6 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 01/04/2021 
 ms.author: midesa 
-ms.reviewer: euangMS
 ---
 
 # Supported language and runtime versions for Apache Spark and dependent components  
