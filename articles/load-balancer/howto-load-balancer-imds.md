@@ -18,7 +18,7 @@ ms.author: allensu
 
 ## Sample request and response
 > [!IMPORTANT]
-> This example bypasses proxies. You **must** bypass proxies when querying IMDS. See [Proxies](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies) for additional information.
+> This example bypasses proxies. You **must** bypass proxies when querying IMDS. For more information, see [Proxies](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies).
 ### [Windows](#tab/windows/)
 
 ```powershell
