@@ -11,9 +11,9 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ---
 
-# Tutorial: Send push notifications to iOS apps using Azure Notification Hubs (version 3.0.0-preview1)
+# Tutorial: Send push notifications to iOS apps using Azure Notification Hubs SDK for Apple
 
-This tutorial shows you how to use Azure Notification Hubs to send push notifications to an iOS application, using the Azure Notification Hubs SDK version 2.0.4.
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to an iOS application, using the Azure Notification Hubs SDK for Apple.
 
 This tutorial covers the following steps:
 
@@ -22,7 +22,7 @@ This tutorial covers the following steps:
 - Send test push notifications.
 - Verify that your app receives notifications.
 
-You can download the complete code for this tutorial [from GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/v3-preview2/Samples).
+You can download the complete code for this tutorial [from GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/main/SampleNHAppObjC).
 
 ## Prerequisites
 
@@ -80,229 +80,117 @@ configure push credentials in your notification hub. Even if you have no prior e
 
           :::image type="content" source="media/ios-sdk/image4.png" alt-text="Add framework":::
 
-6. Add a new header file to your project named **Constants.h**. To do so, right-click the project name and select **New File...**. Then select **Header File**. This file holds the constants for your notification hub. Then select **Next**. Name the file **Constants.h**.
+6. Add or edit a file called **DevSettings.plist** which contains two properties, `CONNECTION_STRING` for the connection string to the Azure Notification Hub, and `HUB_NAME` for the Azure Notification Hub name.
 
-7. Add the following code to the Constants.h file:
+7. Add the information for connecting to Azure Notification Hubs in the appropriate `<string></string>` section.  Replace the string literal placeholders `--HUB-NAME--` and `--CONNECTION-STRING--` with the hub name and the **DefaultListenSharedAccessSignature**, respectively, as you previously obtained from the portal:
 
-   ```objc
-   #ifndef Constants_h
-   #define Constants_h
-   extern NSString* const NHInfoConnectionString;
-   extern NSString* const NHInfoHubName;
-   extern NSString* const NHUserDefaultTags;
-   #endif /* Constants_h */
-   ```
-
-8. Add the implementation file for Constants.h. To do so, right-click the project name and select **New File...**. Select **Objective-C File**, and then select **Next**. Name the file **Constants.m**.
-
-   :::image type="content" source="media/ios-sdk/image5.png" alt-text="Add implementation file":::
-
-9. Open the **Constants.m** file and replace its contents with the following code. Replace the string literal placeholders `NotificationHubConnectionString` and `NotificationHubConnectionString` with the hub name and the **DefaultListenSharedAccessSignature**, respectively, as you previously obtained from the portal:
-
-   ```objc
-   #import <Foundation/Foundation.h>
-   #import "Constants.h"
-
-   NSString* const NHInfoConnectionString = @"NotificationHubConnectionString";
-   NSString* const NHInfoHubName = @"NotificationHubName";NSString* const NHUserDefaultTags = @"notification_tags";
-   ```
-
-10. In the project **AppDelegate.h** file, add the following `import` statement:
-
-    ```objc
-    #import "Constants.h"
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+    	<key>HUB_NAME</key>
+    	<string>--HUB-NAME--</string>
+    	<key>CONNECTION_STRING</key>
+    	<string>--CONNECTION-STRING--</string>
+    </dict>
+    </plist>
     ```
 
-11. In the same **AppDelegate.m** file, replace all the code after `didFinishLaunchingWithOptions` with the following code:
+8. In the same **AppDelegate.m** file, replace all the code after `didFinishLaunchingWithOptions` with the following code:
 
     ```objc
-    // Tells the delegate that the app successfully registered with Apple Push Notification service (APNs).
+    #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
+    #import <UserNotifications/UserNotifications.h>
 
+    // Extend the AppDelegate to listen for messages using MSNotificationHubDelegate and User Notification Center
+    @interface AppDelegate () <MSNotificationHubDelegate>
+
+    @end
+
+    @implementation AppDelegate
+    
+    @synthesize notificationPresentationCompletionHandler;
+    @synthesize notificationResponseCompletionHandler;
 
     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    NSString *hubName = [[NSBundle mainBundle] objectForInfoDictionaryKey:NHInfoHubName];
-    NSString *connectionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:NHInfoConnectionString];
-    [MSNotificationHub initWithConnectionString:connectionString withHubName:hubName];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"DevSettings" ofType:@"plist"];
+        NSDictionary *configValues = [NSDictionary dictionaryWithContentsOfFile:path];
+        
+        NSString *connectionString = [configValues objectForKey:@"CONNECTION_STRING"];
+        NSString *hubName = [configValues objectForKey:@"HUB_NAME"];
 
+        if([connectionString length] != 0 && [hubName length] != 0) {
+            [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
+            [MSNotificationHub setDelegate:self];
+            [MSNotificationHub initWithConnectionString:connectionString withHubName:hubName];
+    
+            return YES;
+        }
 
-    NSMutableSet *tags = [[NSMutableSet alloc] init];
+        NSLog(@"Please setup CONNECTION_STRING and HUB_NAME in DevSettings.plist and restart application");
 
-    // Load and parse stored tags
-    NSString *unparsedTags = [[NSUserDefaults standardUserDefaults] valueForKey:NHUserDefaultTags];
-    if (unparsedTags.length > 0) {
-        NSArray *tagsArray = [unparsedTags componentsSeparatedByString: @","];
-
-        [MSNotificationHub addTags:tagsArray];
+        exit(-1);
     }
 
-    }
-    - (void)showAlert:(NSString *)message withTitle:(NSString *)title {
-    if (title == nil) {
-        title = @"Alert";
-    }
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-    [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alert animated:YES completion:nil];
-    }
-
-    - (void)showNotification:(NSDictionary *)userInfo {
-    [self logNotificationDetails:userInfo];
-
-    NotificationDetailViewController *notificationDetail = [[NotificationDetailViewController alloc] initWithUserInfo:userInfo];
-    [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:notificationDetail animated:YES completion:nil];
+    - (void)notificationHub:(MSNotificationHub *)notificationHub didReceivePushNotification:(MSNotificationHubMessage *)message {
+        // Send message using NSNotificationCenter with the message
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:message forKey:@"message"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"MessageReceived" object:nil userInfo:userInfo];
     }
 
     @end
     ```
 
-    This code connects to the notification hub using the connection information you specified in **Constants.h**. It then gives the device token to the notification hub, so that the hub can send notifications.
+    This code connects to the notification hub using the connection information you specified in **DevSettings.plist**. It then gives the device token to the notification hub, so that the hub can send notifications.
 
 ### Create NotificationDetailViewController header file
 
-1. Similar to the previous instructions, add another header file named **NotificationDetailViewController.h**. Replace the contents of the new header file with the following code:
+1. Similar to the previous instructions, add another header file named **SetupViewController.h**. Replace the contents of the new header file with the following code:
 
    ```objc
    #import <UIKit/UIKit.h>
 
    NS_ASSUME_NONNULL_BEGIN
 
-   @interface NotificationDetailViewController : UIViewController
-
-   @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-   @property (strong, nonatomic) IBOutlet UILabel *bodyLabel;
-   @property (strong, nonatomic) IBOutlet UIButton *dismissButton;
-
-   @property (strong, nonatomic) NSDictionary *userInfo;
-
-   - (id)initWithUserInfo:(NSDictionary *)userInfo;
+   @interface SetupViewController : UIViewController
 
    @end
 
    NS_ASSUME_NONNULL_END
    ```
 
-2. Add the implementation file **NotificationDetailViewController.m**. Replace the contents of the file with the following code, which implements the UIViewController methods:
+2. Add the implementation file **SetupViewController.m**. Replace the contents of the file with the following code, which implements the UIViewController methods:
 
    ```objc
-   #import "NotificationDetailViewController.h"
+   #import "SetupViewController.h"
 
-   @interface NotificationDetailViewController ()
+    static NSString *const kNHMessageReceived = @"MessageReceived";
+    
+    @interface SetupViewController ()
+    
+    @end
 
-   @end
+    @implementation SetupViewController
 
-   @implementation NotificationDetailViewController
-
-   - (id)initWithUserInfo:(NSDictionary *)userInfo {
-    self = [super initWithNibName:@"NotificationDetail" bundle:nil];
-    if (self) {
-        _userInfo = userInfo;
-    }
-    return self;
-   }
-
-   - (void)viewDidLayoutSubviews {
-    [self.titleLabel sizeToFit];
-    [self.bodyLabel sizeToFit];
-   }
-
-   - (void)viewDidLoad {
-    [super viewDidLoad];
-
-    NSString *title = nil;
-    NSString *body = nil;
-
-    NSDictionary *aps = [_userInfo valueForKey:@"aps"];
-    NSObject *alertObject = [aps valueForKey:@"alert"];
-    if (alertObject != nil) {
-        if ([alertObject isKindOfClass:[NSDictionary class]]) {
-            NSDictionary *alertDict = (NSDictionary *)alertObject;
-            title = [alertDict valueForKey:@"title"];
-            body = [alertObject valueForKey:@"body"];
-        } else if ([alertObject isKindOfClass:[NSString class]]) {
-            body = (NSString *)alertObject;
-        } else {
-            NSLog(@"Unable to parse notification content. Unexpected format: %@", alertObject);
-        }
+    - (void)viewDidLoad {
+        [super viewDidLoad];
+        
+        // Listen for messages using NSNotificationCenter
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceivePushNotification:) name:kNHMessageReceived object:nil];
     }
 
-    if (title == nil) {
-        title = @"<unset>";
+    - (void)dealloc {
+        // Clean up subscription to NSNotificationCenter
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:kNHMessageReceived object:nil];
     }
 
-    if (body == nil) {
-        body = @"<unset>";
-    }
 
-    self.titleLabel.text = title;
-    self.bodyLabel.text = body;
-   }
-
-   - (IBAction)handleDismiss:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-   }
-
-   @end
+    @end
    ```
 
-### ViewController
-
-1. In the project **ViewController.h** file, add the following `import` statements:
-
-   ```objc
-   #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
-   #import <UserNotifications/UserNotifications.h>
-   ```
-
-2. Also in **ViewController.h**, add the following property declaration after the `@interface` declaration:
-
-   ```objc
-   @property (strong, nonatomic) IBOutlet UITextField *tagsTextField;
-   ```
-
-3. In the project's **ViewController.m** implementation file, replace the contents of the file with the following code:
-
-   ```objc
-   #import "ViewController.h"
-   #import "Constants.h"
-   #import "AppDelegate.h"
-
-   @interface ViewController ()
-
-   @end
-
-   @implementation ViewController
-
-   // UIViewController methods
-
-   - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    // Simple method to dismiss keyboard when user taps outside of the UITextField.
-    [self.view endEditing:YES];
-   }
-
-   - (void)viewDidLoad {
-    [super viewDidLoad];
-
-    // Load raw tags text from storage and initialize the text field
-    self.tagsTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:NHUserDefaultTags];
-   }
-
-   - (IBAction)handleRegister:(id)sender {
-    // Save raw tags text in storage
-    [[NSUserDefaults standardUserDefaults] setValue:self.tagsTextField.text forKey:NHUserDefaultTags];
-
-   // Delegate processing the register action to the app delegate.
-   [[[UIApplication sharedApplication] delegate] performSelector:@selector(handleRegister)];
-   }
-
-   - (IBAction)handleUnregister:(id)sender {
-    [[[UIApplication sharedApplication] delegate] performSelector:@selector(handleUnregister)];
-   }
-
-   @end
-   ```
-
-4. To verify there are no failures, build and run the app on your device.
+3. To verify there are no failures, build and run the app on your device.
 
 ## Send test push notifications
 

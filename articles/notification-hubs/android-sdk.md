@@ -160,7 +160,7 @@ also have the connection strings that are necessary to send notifications to a d
 1. In the **build.gradle** file for the app, add the following lines in the dependencies section:
 
    ```gradle
-   implementation 'com.microsoft.azure:notification-hubs-android-sdk:1.0.0-preview1@aar'
+   implementation 'com.microsoft.azure:notification-hubs-android-sdk:1.1.4'
    implementation 'androidx.appcompat:appcompat:1.0.0'
 
    implementation 'com.google.firebase:firebase-messaging:20.1.5'
@@ -196,18 +196,17 @@ also have the connection strings that are necessary to send notifications to a d
    public class CustomNotificationListener implements NotificationHubListener {
 
       @override
-
-      public void onNotificationReceived(Context context, NotificationMessage message) {
-
-      /* The following notification properties are available. */
-
-      String title = message.getTitle();
-      String message = message.getMessage();
-      Map<String, String> data = message.getData();
-
-      if (message != null) {
-         Log.d(TAG, "Message Notification Title: " + title);
-         Log.d(TAG, "Message Notification Body: " + message);
+      public void onNotificationReceived(Context context, RemoteMessage message) {
+    
+         /* The following notification properties are available. */
+         Notification notification = message.getNotification();
+         String title = notification.getTitle();
+         String body = notification.getBody();
+         Map<String, String> data = message.getData();
+    
+         if (message != null) {
+            Log.d(TAG, "Message Notification Title: " + title);
+            Log.d(TAG, "Message Notification Body: " + message);
          }
       }
    }
