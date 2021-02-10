@@ -45,7 +45,7 @@ The number of roles you add counts toward application manifest limits enforced b
 
 To create an app role by using the Azure portal's user interface:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. Select the **Directory + subscription** filter in top menu, and then choose the Azure Active Directory tenant that contains the app registration to which you want to add an app role.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**, and then select the application you want to define app roles in.
@@ -70,7 +70,7 @@ To create an app role by using the Azure portal's user interface:
 
 To add roles by editing the manifest directly:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. Select the **Directory + subscription** filter in top menu, and then choose the Azure Active Directory tenant that contains the app registration to which you want to add an app role.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**, and then select the application you want to define app roles in.
@@ -132,7 +132,7 @@ Once you've added app roles in your application, you can assign users and groups
 
 To assign users and groups to roles by using the Azure portal:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. In **Azure Active Directory**, select **Enterprise applications** in the left-hand navigation menu.
 1. Select **All applications** to view a list of all your applications. If your application doesn't appear in the list, use the filters at the top of the **All applications** list to restrict the list, or scroll down the list to locate your application.
 1. Select the application in which you want to assign users or security group to roles.
@@ -154,7 +154,7 @@ When you assign app roles to an application, you create *application permissions
 
 To assign app roles to an application by using the Azure portal:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. In **Azure Active Directory**, select **App registrations** in the left-hand navigation menu.
 1. Select **All applications** to view a list of all your applications. If your application doesn't appear in the list, use the filters at the top of the **All applications** list to restrict the list, or scroll down the list to locate your application.
 1. Select the application to which you want to assign an app role.
