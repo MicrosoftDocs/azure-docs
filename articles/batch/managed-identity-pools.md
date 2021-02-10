@@ -13,7 +13,7 @@ ms.custom: references_regions
 This topic explains how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 
 > [!IMPORTANT]
-> Support for Azure Batch pools with user-managed identities is currently in public preview for the US Gov Arizona and US Gov Virginia regions.
+> Support for Azure Batch pools with user-assigned managed identities is currently in public preview for the US Gov Arizona and US Gov Virginia regions.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
