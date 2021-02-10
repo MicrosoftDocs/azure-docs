@@ -8,7 +8,7 @@ author: vladvino
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 02/09/2021
 ms.author: apimpm
 ---
 
@@ -18,7 +18,7 @@ This topic provides a reference for the following API Management policies. For i
 
 ## <a name="AccessRestrictionPolicies"></a> Access restriction policies
 
--   [Check HTTP header](#CheckHTTPHeader) - Enforces existence and/or value of a HTTP Header.
+-   [Check HTTP header](#CheckHTTPHeader) - Enforces existence and/or value of a HTTP header.
 -   [Limit call rate by subscription](#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.
 -   [Limit call rate by key](#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.
 -   [Restrict caller IPs](#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
@@ -76,7 +76,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## <a name="LimitCallRate"></a> Limit call rate by subscription
 
-The `rate-limit` policy prevents API usage spikes on a per subscription basis by limiting the call rate to a specified number per a specified time period. When this policy is triggered the caller receives a `429 Too Many Requests` response status code.
+The `rate-limit` policy prevents API usage spikes on a per subscription basis by limiting the call rate to a specified number per a specified time period. When the call rate is exceeded, the caller receives a `429 Too Many Requests` response status code.
 
 > [!IMPORTANT]
 > This policy can be used only once per policy document.
@@ -94,18 +94,25 @@ The `rate-limit` policy prevents API usage spikes on a per subscription basis by
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
     <api name="API name" id="API id" calls="number" renewal-period="seconds" />
-        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" 
+        retry-after-header-name="header name" 
+        retry-after-variable-name="policy expression variable name"
+        remaining-calls-header-name="header name"  
+        remaining-calls-variable-name="policy expression variable name"
+        total-calls-header-name="header name"/>
     </api>
 </rate-limit>
 ```
 
 ### Example
 
+In the following example, the per subscription rate limit is 20 calls per 90 seconds. After each policy execution, the remaining calls allowed in the time period are stored in the variable `remainingCallsPerSubscription`.
+
 ```xml
 <policies>
     <inbound>
         <base />
-        <rate-limit calls="20" renewal-period="90" />
+        <rate-limit calls="20" renewal-period="90" remaining-calls-variable-name="remainingCallsPerSubscription"/>
     </inbound>
     <outbound>
         <base />
@@ -127,7 +134,12 @@ The `rate-limit` policy prevents API usage spikes on a per subscription basis by
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | The name of the API for which to apply the rate limit.                                                | Yes      | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. | Yes      | N/A     |
-| renewal-period | The time period in seconds after which the quota resets.                                              | Yes      | N/A     |
+| renewal-period | The time period in seconds after which the limit resets.                                              | Yes      | N/A     |
+| retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the call rate limit is exceeded. |  No | N/A  |
+| retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the call rate is exceeded. |  No | N/A  |
+| remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
+| remaining-calls-variable-name    | The name of a policy expression variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
+| total-calls-header-name    | The name of a response header whose value is the value specified in `calls`. |  No | N/A  |
 
 ### Usage
 
@@ -142,7 +154,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 > [!IMPORTANT]
 > This feature is unavailable in the **Consumption** tier of API Management.
 
-The `rate-limit-by-key` policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this policy is triggered the caller receives a `429 Too Many Requests` response status code.
+The `rate-limit-by-key` policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this call rate is reached, the caller receives a `429 Too Many Requests` response status code.
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
@@ -159,15 +171,15 @@ For more information and examples of this policy, see [Advanced request throttli
                    renewal-period="seconds"
                    increment-condition="condition"
                    counter-key="key value" 
-                   retry-after-header-name="header name" retry-after-variable-name="variable name"
-                   remaining-calls-header-name="header name"  remaining-calls-variable-name="variable name"
-                   total-calls-header-name="header name" total-calls-variable-name="variablename"/> 
+                   retry-after-header-name="header name" retry-after-variable-name="policy expression variable name"
+                   remaining-calls-header-name="header name"  remaining-calls-variable-name="policy expression variable name"
+                   total-calls-header-name="header name"/> 
 
 ```
 
 ### Example
 
-In the following example, the rate limit is keyed by the caller IP address, and remaining calls after the policy is triggered are truned in the variable `remainingCallsPerIP`.
+In the following example, the rate limit of 10 calls per 60 seconds is keyed by the caller IP address. After each policy execution, the remaining calls allowed in the time period are stored in the variable `remainingCallsPerIP`.
 
 ```xml
 <policies>
@@ -198,13 +210,12 @@ In the following example, the rate limit is keyed by the caller IP address, and 
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. | Yes      | N/A     |
 | counter-key         | The key to use for the rate limit policy.                                                             | Yes      | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`).        | No       | N/A     |
-| renewal-period      | The time period in seconds after which the quota resets.                                              | Yes      | N/A     |
-| retry-after-header-name    | The name of a response header that contains the retry-after period in seconds returned when the policy is triggered. |  No | N/A  |
-| retry-after-variable-name    | The name of a variable that contains the retry-after period in seconds returned when the policy is triggered. |  No | N/A  |
-| remaining-calls-header-name    | The name of a response header that contains the number of remaining calls returned when the poilcy is triggered. |  No | N/A  |
-| remaining-calls-variable-name    | The name of a variable that contains the number of remaining calls returned when the policy is triggered. |  No | N/A  |
-| total-calls-header-name    | The name of a response that contains the total number of calls made. |  No | N/A  |
-| total-calls-variable-name    | The name of a variable that contains the total number of calls made. |  No | N/A  |
+| renewal-period      | The time period in seconds after which the limit resets.                                              | Yes      | N/A     |
+| retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the call rate limit is exceeded. |  No | N/A  |
+| retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the call rate is exceeded. |  No | N/A  |
+| remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
+| remaining-calls-variable-name    | The name of a policy expression variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
+| total-calls-header-name    | The name of a response header whose value is the value specified in `calls`. |  No | N/A  |
 
 ### Usage
 
