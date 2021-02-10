@@ -90,23 +90,32 @@ There's a sample HTTP Trigger Function in the `./examples` folder. To build it a
 
 1. Run this command:
 
-```console
-npm run build-function
-```
+    ```console
+    npm run build-function
+    ```
+1. Sign in to Azure:
 
-Then, sign in to Azure and deploy it:
+    ```console
+    az login
+    ```
 
-```console
-az login
-cd ./dist/function
-func azure functionapp publish <function app name>
-```
+1. Go to the function:
 
-Once it's deployed, you can invoke it with an HTTP call:
+    ```console
+    cd ./dist/function
+    ```
 
-```console
-curl -X POST https://<function app name>.azurewebsites.net/api/publish
-```
+1. Deploy the function app:
+
+    ```console
+    func azure functionapp publish <function app name>
+    ```
+
+1. Once it's deployed, invoke it with a cURL HTTP call:
+
+    ```console
+    curl -X POST https://<function app name>.azurewebsites.net/api/publish
+    ```
 
 ## Hosting and CDN
 
