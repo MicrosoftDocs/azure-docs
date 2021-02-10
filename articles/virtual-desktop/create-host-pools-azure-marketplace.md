@@ -63,7 +63,7 @@ To start creating your new host pool:
      > ![A screenshot of the Azure portal showing the Location field with the East US location selected. Next to the field is text that says, "Metadata will be stored in East US."](media/portal-location-field.png)
   
    >[!NOTE]
-   > If you want to create your host pool in [a supported region](data-locations.md) outside the US, you'll need to re-register the resource provider. After re-registering, you should see the other regions in the drop-down for selecting the location. Learn how to re-register at our [Host pool creation](troubleshoot-set-up-issues.md#i-only-see-US-when-setting-the-location-for-my-service-objects) troubleshooting article.
+   > If you want to create your host pool in [a supported region](data-locations.md) outside the US, you'll need to re-register the resource provider. After re-registering, you should see the other regions in the drop-down for selecting the location. Learn how to re-register at our [Host pool creation](troubleshoot-set-up-issues.md#i-only-see-us-when-setting-the-location-for-my-service-objects) troubleshooting article.
 
 8. Under Host pool type, select whether your host pool will be **Personal** or **Pooled**.
 
