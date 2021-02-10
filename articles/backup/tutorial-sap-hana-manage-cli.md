@@ -221,11 +221,12 @@ Sample JSON (sappolicy.json) output:
     ],
     "workLoadType": "SAPHanaDatabase"
   },
-  "resourceGroup": "azurefiles",
+  "resourceGroup": "saphanaResourceGroup",
   "tags": null,
   "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
 } 
 ```
+Once the policy is created successfully, the output of the command will display the policy JSON that you passed as a parameter while executing the command.
 
 You can modify the following section of the policy to specify the desired backup frequency and retention for incremental backups.
 
