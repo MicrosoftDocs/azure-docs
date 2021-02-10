@@ -120,10 +120,6 @@ Configure the file:
 
 1. Copy and paste the `managementApiUrl`, and `managementApiAccessToken` values from the previous configuration file.
 
-1. Provide the connection string to your storage account in the `"blobStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=..."` parameter.
-
-    You can find it the **Access keys** section of your storage account in the Azure portal. This storage account will host your portal.
-
 1. If you'd like to enable CAPTCHA in your developer portal, see [Enable CAPTCHA](dev-portal-enable-captcha.md).
 
 ### config.runtime.json file
