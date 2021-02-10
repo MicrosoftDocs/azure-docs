@@ -30,4 +30,4 @@ az provider register -n Microsoft.AVS --subscription <your subscription ID>
 1. If the resource provider is not registered, select **Register**.
 
 
-For more information about resource providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+For more information about resource providers, see [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).

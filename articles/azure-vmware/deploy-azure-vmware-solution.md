@@ -47,7 +47,7 @@ If you didn't define a virtual network in the deployment step and your intent is
 
 The jump box is in the virtual network where Azure VMware Solution connects through its ExpressRoute circuit.  In Azure, go to the jump box's network interface and [view the effective routes](../virtual-network/manage-route-table.md#view-effective-routes).
 
-In the effective routes list, you should see the networks created as part of the Azure VMware Solution deployment. You'll see multiple networks that were derived from the [`/22` network you defined](production-ready-deployment-steps.md#ip-address-segment) during the [deployment step](#deploy-azure-vmware-solution) earlier in this article.
+In the effective routes list, you should see the networks created as part of the Azure VMware Solution deployment. You'll see multiple networks that were derived from the [`/22` network you defined](production-ready-deployment-steps.md#ip-address-segment) when you [create a private cloud](#create-an-azure-vmware-solution-private-cloud).  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Verify network routes advertised from Azure VMware Solution to Azure Virtual Network" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 

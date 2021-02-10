@@ -21,9 +21,12 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
 * A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
 
 
+## Overall process
+
+
 ## Enable Azure VMware Solution for EA customers
 
-### Request additional quota/capacity 
+Request additional quota/capacity 
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
    - **Issue type:** Technical
@@ -72,7 +75,7 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    
    1. Review and finish the general setup of the Azure plan subscription for your customer. For more information, see [Microsoft Partner Center documentation](/partner-center/azure-plan-manage).
 
-1. Request additional quota/capacity. After configuring the Azure plan and the needed [Azure RBAC permissions](/partner-center/azure-plan-manage) are in place for the subscription, you'll engage Microsoft to enable the quota for an Azure plan subscription. 
+1. Request additional host quota/capacity. After configuring the Azure plan and the needed [Azure RBAC permissions](/partner-center/azure-plan-manage) are in place for the subscription, you'll engage Microsoft to enable the quota for an Azure plan subscription. 
 
    1. Access Azure portal from [Microsoft Partner Center](https://partner.microsoft.com) using the **Admin On Behalf Of** (AOBO) procedure.
    
