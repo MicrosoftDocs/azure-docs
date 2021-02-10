@@ -2,7 +2,7 @@
 title: How to enable your Azure VMware Solution resource
 description: Learn how to submit a support request to enable your Azure VMware Solution resource. You can also request more hosts in your existing Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 02/10/2021
 ---
 
 # How to enable Azure VMware Solution resource
@@ -10,14 +10,17 @@ Learn how to submit a support request to enable your [Azure VMware Solution](int
 
 ## Eligibility criteria
 
-You'll need an Azure account in an Azure subscription. The Azure subscription must comply with one of the following criteria:
+You'll need an Azure account in an Azure subscription. The Azure subscription must follow with one of the following criteria:
 
 * A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 * A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
 
 
 ## Enable Azure VMware Solution for EA customers
-Before you create your Azure VMware Solution resource, you'll need to submit a support ticket to have your hosts allocated. Once the support team receives your request, it takes up to five business days to confirm your request and allocate your hosts. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll go through the same process.
+Before you create your Azure VMware Solution resource, you'll need to submit a support ticket to have your hosts allocated. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
+
+>[!IMPORTANT]
+>It can take a few days to allocate the hosts depending on the number requested.  So request what is needed for provisioning so you don't need to request a quota increase as often. 
 
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
@@ -52,7 +55,7 @@ Before you create your Azure VMware Solution resource, you'll need to submit a s
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
    ```
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+   For more ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## Enable Azure VMware Solution for CSP customers 
 
@@ -71,7 +74,7 @@ CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enabl
 
 1. Select **Azure plan** and then select **Add to cart**. 
 
-1. Review and finish the general set up of the Azure plan subscription for your customer. For more information, see [Microsoft Partner Center documentation](/partner-center/azure-plan-manage).
+1. Review and finish the general setup of the Azure plan subscription for your customer. For more information, see [Microsoft Partner Center documentation](/partner-center/azure-plan-manage).
 
 After configuring the Azure plan and the needed [Azure RBAC permissions](/partner-center/azure-plan-manage) are in place for the subscription, you'll engage Microsoft to enable the quota for an Azure plan subscription. Access Azure portal from [Microsoft Partner Center](https://partner.microsoft.com) using **Admin On Behalf Of** (AOBO) procedure.
 
@@ -108,17 +111,21 @@ After configuring the Azure plan and the needed [Azure RBAC permissions](/partne
    >[!IMPORTANT] 
    >If you already have an existing Azure VMware Solution, and you are requesting additional hosts, please note that we need five business days to allocate the hosts. 
 
-1. If the subscription is managed by the service provider then their administration team must access Azure portal using again **Admin On Behalf Of** (AOBO) procedure from Partner Center. One in Azure portal launch a [Cloud Shell](../cloud-shell/overview.md) instance and register the **Microsoft.AVS** resource provider and proceed with the deployment of the Azure VMware Solution private cloud.  
+1. For subscriptions managed by the service provider, their administration team must access Azure portal using the **Admin On Behalf Of** (AOBO) procedure from Partner Center. 
+
+   1. In the Azure portal, launch a [Cloud Shell](../cloud-shell/overview.md) instance and register the **Microsoft.AVS** resource provider.     
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
    ```
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+   For more ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
-1. If the subscription is managed directly by the customer the registration of the **Microsoft.AVS** resource provider must be done by an user with enough permissions in the subscription, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md) for more details and ways to register the resource provider. 
+   1. Continue to deploy the Azure VMware Solution private cloud.
+
+1. For subscriptions managed directly by the customer, someone with enough permissions must register the resource provider. For more ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
 
 
 ## Next steps
 
-After you enable your Azure VMware Solution resource, and you have the proper networking in place, you can [create a private cloud](tutorial-create-private-cloud.md).
+After enabling the resource, and the proper networking in place, you can [create a private cloud](tutorial-create-private-cloud.md).
