@@ -76,30 +76,26 @@ Sign in to the Azure portal at https://portal.azure.com
 
 ### OS (Linux) provider 
 
+  > [!IMPORTANT]
+   > Before starting the configration of the OS (Linux) provider, ensure that Node_Exporter is installed in each BareMetal/Virtual Machine instance. For more information, see [Node_Exporter](https://github.com/prometheus/node_exporter).
+   > Ensure to download Node Exporter only from [Prometheus](https://prometheus.io/download/#node_exporter).
+
 1. Select OS (Linux) from the drop-down 
-
-   > [!IMPORTANT]
-   > To configure OS (Linux) provider, ensure that Node_Exporter is installed in each BareMetal instance. For more information, see [Node_Exporter](https://github.com/prometheus/node_exporter).
-   >
-   > Be sure to download Node Exporter only from [Prometheus](https://prometheus.io/download/#node_exporter).
-   >
-
 2. Input a name, which will be the identifier for the BareMetal instance.
 3. Input the Node Exporter Endpoint in the form of http://IP:9100/metrics.
 4. When finished, select **Add provider**. Continue to add more providers as needed or select **Review + create** to complete the deployment. 
 
-If Node Exporter can't connect with the OS provider on the BareMetal or VM instance, check the following settings:
+If OS (Linux) provider creation fails to succeed with the error "Unable to fetch metrics from url", please check the below settings:
 
-- Is Azure Monitor in the same VNet as the host machine?
-- Is firewall enabled on the host for traffic on port 9100? You can check this by running `curl http:<private-ip>:9100/metrics` from a BareMetal/VM running in the same VNet as the host, with node_exporter running.
-   
-  If firewall isn't enabled for traffic on port 9100, use these commands to enable it:
-   
+- Is your Azure Monitor resource deployed in the same VNet as the node (baremetal/vm) where node_exporter is deployed?
+- Ensuring the node_exporter version installed on the host is 1.0.1 or higher
+- Is firewall enabled on the host for traffic on port 9100? You can check this by running `curl http:<private-ip>:9100/metrics` from a BareMetal/VM running in the same VNet as the host, with node_exporter running.  
+-If firewall isn't enabled for traffic on port 9100, use these commands to enable it:
   ```
   firewall-cmd --permanent --add-port=9100/tcp
   firewall-cmd –reload
-  ```
-   
+ ```
+- The Latency between the AMS VM & BM Instance should not be more than 2ms.
 - For a VM, check that the NSGs are configured to allow traffic on port 9100. 
 
 ### Microsoft SQL Server provider
