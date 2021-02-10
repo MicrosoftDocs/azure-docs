@@ -204,6 +204,7 @@ AWS buckets support multiple encryption types. For buckets that use **AWS-KMS** 
     |**Service**     |  Enter and select **KMS**.       |
     |**Actions**     | Under **Access level**, select **Write** to expand the **Write** section.<br>Once expanded, select only the **Decrypt** option.        |
     |**Resources**     |Select a specific resource or **All resources**.         |
+    | | |
 
     When you're done, select **Review policy** to continue.
 
@@ -299,6 +300,7 @@ Use this procedure if you only have a single S3 bucket that you want to register
     |**Name**     |Enter a meaningful name, or use the default provided.         |
     |**Bucket URL**     | Enter your AWS bucket URL, using the following sytnax:   `s3://<bucketName>`     <br><br>**Note**: Make sure to use only the root level of your bucket, without any sub-folders. For more information, see [Retrieve your Amazon S3 bucket name](#retrieve-your-amazon-s3-bucket-name). |
     |**Select a collection** |If you selected to register a data source from within a collection, that collection already listed. <br><br>Select a different collection as needed, **None** to assign no collection, or **New** to create a new collection now. <br><br>For more information about Purview collections, see [Manage data sources in Azure Purview](manage-data-sources.md#manage-collections).|
+    | | |
 
     When you're done, select **Finish** to complete the registration.
 
@@ -327,6 +329,7 @@ Use this procedure if you have multiple S3 buckets in your Amazon account, and y
     |**Name**     |Enter a meaningful name, or use the default provided.         |
     |**AWS account ID**     | Enter your AWS account ID. For more information, see [Locate your AWS account ID](#locate-your-aws-account-id)|
     |**Select a collection** |If you selected to register a data source from within a collection, that collection already listed. <br><br>Select a different collection as needed, **None** to assign no collection, or **New** to create a new collection now. <br><br>For more information about Purview collections, see [Manage data sources in Azure Purview](manage-data-sources.md#manage-collections).|
+    | | |
 
     When you're done, select **Finish** to complete the registration.
 
@@ -364,7 +367,7 @@ Once you've added your buckets as Purview data sources, you can configure a scan
     |---------|---------|
     |**New scan rule set** /<br>**Scan rule description**    |   Enter a meaningful name and an optional description for your rule set      |
     |**Select file types**     | Select all the file types you want to include in the scan, and then select **Continue**.<br><br>To add a new file type, select **New file type**, and define the following: <br>- The file extension you want to add <br>- An optional description  <br>- Whether the file contents have a custom delimiter, or are a system file type. Then, enter your custom delimiter, or select your system file type. <br><br>Select **Create** to create your custom file type.     |
-    |**Select classification rules**     |   Navigate to and select the classification rules you want to run on your dataset.      |
+    |**Select classification rules**     |   Navigate to and select the classification rfules you want to run on your dataset.      |
     |     |         |
 
     Select **Create** when you're done to create your rule set.
