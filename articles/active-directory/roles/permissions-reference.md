@@ -85,6 +85,10 @@ Users in this role can create attack payloads but not actually launch or schedul
 
 Users in this role can create and manage all aspects of attack simulation creation, launch/scheduling of a simulation, and the review of simulation results. Members of this role have this access for all simulations in the tenant.
 
+### [Azure AD Joined Device Local Administrator](#azure-ad-joined-device-local-administrator-permissions)/Device Administrators
+
+This role is available for assignment only as an additional local administrator in [Device settings](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
+
 ### [Azure DevOps Administrator](#azure-devops-administrator-permissions)
 
 Users with this role can manage the Azure DevOps policy to restrict new Azure DevOps organization creation to a set of configurable users or groups. Users in this role can manage this policy through any Azure DevOps organization that is backed by the company's Azure AD organization. This role grants no other Azure DevOps-specific permissions (for example, Project Collection Administrators) inside any of the Azure DevOps organizations backed by the company's Azure AD organization.
@@ -159,12 +163,7 @@ Manages [Customer Lockbox requests](/office365/admin/manage/customer-lockbox-req
 
 ### [Desktop Analytics Administrator](#desktop-analytics-administrator-permissions)
 
-
 Users in this role can manage the Desktop Analytics and Office Customization & Policy services. For Desktop Analytics, this includes the ability to view asset inventory, create deployment plans, view deployment and health status. For Office Customization & Policy service, this role enables users to manage Office policies.
-
-### [Device Administrators](#device-administrators-permissions)
-
-This role is available for assignment only as an additional local administrator in [Device settings](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
 
 ### [Directory Readers](#directory-readers-permissions)
 
@@ -204,7 +203,7 @@ Users with this role can create and manage user flows (also called "built-in" po
 
 Users with this role add or delete custom attributes available to all user flows in the Azure AD organization. As such, users with this role can change or add new elements to the end-user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
 
-### [External IDentity Provider Administrator](#external-identity-provider-administrator-permissions)
+### [External Identity Provider Administrator](#external-identity-provider-administrator-permissions)
 
 This administrator manages federation between Azure AD organizations and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service ID, assigned key containers). This user can enable the Azure AD organization to trust authentications from external identity providers. The resulting impact on end-user experiences depends on the type of organization:
 
@@ -444,6 +443,10 @@ Users with this role have global permissions within Microsoft Skype for Business
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Lync Service Administrator." It is "Skype for Business Administrator" in the [Azure portal](https://portal.azure.com/).
 
+### [Teams Administrator](#teams-administrator-permissions)
+
+Users in this role can manage all aspects of the Microsoft Teams workload via the Microsoft Teams & Skype for Business admin center and the respective PowerShell modules. This includes, among other areas, all management tools related to telephony, messaging, meetings, and the teams themselves. This role additionally grants the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health.
+
 ### [Teams Communications Administrator](#teams-communications-administrator-permissions)
 
 Users in this role can manage aspects of the Microsoft Teams workload related to voice & telephony. This includes the management tools for telephone number assignment, voice and meeting policies, and full access to the call analytics toolset.
@@ -459,10 +462,6 @@ Users in this role can troubleshoot communication issues within Microsoft Teams 
 ### [Teams Devices Administrator](#teams-devices-administrator-permissions)
 
 Users with this role can manage [Teams-certified devices](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) from the Teams Admin Center. This role allows viewing all devices at single glance, with ability to search and filter devices. The user can check details of each device including logged-in account, make and model of the device. The user can change the settings on the device and update the software versions. This role does not grant permissions to check Teams activity and call quality of the device. 
-
-### [Teams Service Administrator](#teams-service-administrator-permissions)
-
-Users in this role can manage all aspects of the Microsoft Teams workload via the Microsoft Teams & Skype for Business admin center and the respective PowerShell modules. This includes, among other areas, all management tools related to telephony, messaging, meetings, and the teams themselves. This role additionally grants the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health.
 
 ### [Usage Summary Reports Reader](#usage-summary-reports-reader-permissions)
 
@@ -597,6 +596,16 @@ Can create and manage all aspects of attack simulation campaigns.
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Create and manage attack payloads in Attack Simulator. |
 > | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training. |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Create and manage attack simulation templates in Attack Simulator. |
+
+### Azure AD Joined Device Local Administrator permissions
+
+Users assigned to this role are added to the local administrators group on Azure AD-joined devices.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/groupSettings/basic/read | Read basic properties on groupSettings in Azure Active Directory. |
+> | microsoft.directory/groupSettingTemplates/basic/read | Read basic properties on groupSettingTemplates in Azure Active Directory. |
 
 ### Azure DevOps Administrator permissions
 
@@ -906,16 +915,6 @@ Can manage the Desktop Analytics and Office Customization & Policy services. For
 > | microsoft.office365.desktopAnalytics/allEntities/allTasks | Manage all aspects of Desktop Analytics. |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-
-### Device Administrators permissions
-
-Users assigned to this role are added to the local administrators group on Azure AD-joined devices.
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | microsoft.directory/groupSettings/basic/read | Read basic properties on groupSettings in Azure Active Directory. |
-> | microsoft.directory/groupSettingTemplates/basic/read | Read basic properties on groupSettingTemplates in Azure Active Directory. |
 
 ### Directory Readers permissions
 Can read basic directory information. For granting access to applications, not intended for users.
@@ -1842,6 +1841,36 @@ Can manage all aspects of the SharePoint service.
 > | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports. |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
+### Teams Administrator permissions
+
+Can manage the Microsoft Teams service.
+
+> [!NOTE]
+> This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
+> | microsoft.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
+> | microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
+> | microsoft.directory/groups.unified/basic/update | Update basic properties of Microsoft 365 groups. |
+> | microsoft.directory/groups.unified/create | Create Microsoft 365 groups. |
+> | microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups. |
+> | microsoft.directory/groups.unified/members/update | Update membership of Microsoft 365 groups. |
+> | microsoft.directory/groups.unified/owners/update | Update ownership of Microsoft 365 groups. |
+> | microsoft.directory/groups.unified/restore | Restore Microsoft 365 groups |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant consent to delegated permissions on behalf of a group |
+> | microsoft.office365.network/performance/allProperties/read | Read network performance pages in M365 Admin Center. |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
+> | microsoft.office365.skypeForBusiness/allEntities/allTasks | Manage all aspects of Skype for Business Online |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+> | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports. |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+> | microsoft.teams/allEntities/allProperties/allTasks | Manage all resources in Teams. |
+
 ### Teams Communications Administrator permissions
 
 Can manage calling and meetings features within the Microsoft Teams service.
@@ -1909,36 +1938,6 @@ Can perform management related tasks on Teams certified devices.
 > | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 > | microsoft.teams/devices/basic/read | Manage  all aspects of Teams-certified devices including configuration policies. |
 
-### Teams Service Administrator permissions
-
-Can manage the Microsoft Teams service.
-
-> [!NOTE]
-> This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
-
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-> | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
-> | microsoft.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
-> | microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
-> | microsoft.directory/groups.unified/basic/update | Update basic properties of Microsoft 365 groups. |
-> | microsoft.directory/groups.unified/create | Create Microsoft 365 groups. |
-> | microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups. |
-> | microsoft.directory/groups.unified/members/update | Update membership of Microsoft 365 groups. |
-> | microsoft.directory/groups.unified/owners/update | Update ownership of Microsoft 365 groups. |
-> | microsoft.directory/groups.unified/restore | Restore Microsoft 365 groups |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant consent to delegated permissions on behalf of a group |
-> | microsoft.office365.network/performance/allProperties/read | Read network performance pages in M365 Admin Center. |
-> | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
-> | microsoft.office365.skypeForBusiness/allEntities/allTasks | Manage all aspects of Skype for Business Online |
-> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-> | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports. |
-> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal. |
-> | microsoft.teams/allEntities/allProperties/allTasks | Manage all resources in Teams. |
-
 ### Usage Summary Reports Reader permissions
 Can see only tenant level aggregates in M365 Usage Analytics and Productivity Score.
 
@@ -1998,7 +1997,7 @@ Application Developer | Application developer | CF1C38E5-3621-4004-A7CB-879624DC
 Authentication Administrator | Authentication administrator | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Attack Payload Author | Attack payload author | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f
 Attack Simulation Administrator | Attack simulation administrator | c430b396-e693-46cc-96f3-db01bf8bb62a
-Azure AD Joined Device Local Administrator | Azure AD Joined Device Local Administrator | 9f06204d-73c1-4d4c-880a-6edb90606fd8
+Azure AD Joined Device Local Administrator | Azure AD joined device local administrator | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Azure DevOps Administrator | Azure DevOps administrator | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure Information Protection Administrator | Azure Information Protection administrator | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C IEF Keyset Administrator | B2C IEF Keyset Administrator | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -2056,11 +2055,11 @@ Security Reader | Security reader | 5d6b6bb7-de71-4623-b4af-96380a352509
 Service Support Administrator | Service support administrator | f023fd81-a637-4b56-95fd-791ac0226033
 SharePoint Administrator | SharePoint administrator | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
 Skype for Business Administrator | Skype for Business administrator | 75941009-915a-4869-abe7-691bff18279e
+Teams Administrator | Teams administrator | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Teams Communications Administrator | Teams Communications Administrator | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Teams Communications Support Engineer | Teams Communications Support Engineer | f70938a0-fc10-4177-9e90-2178f8765737
 Teams Communications Support Specialist | Teams Communications Support Specialist | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Teams Devices Administrator | Teams Devices Administrator | 3d762c5a-1b6c-493f-843e-55a3b42923d4
-Teams Service Administrator | Teams Service Administrator | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Usage Summary Reports Reader | Usage summary reports reader | 75934031-6c7e-415a-99d7-48dbd49e875e
 User | Not shown because it can't be used | a0b1b346-4d3e-4e8b-98f8-753987be4970
 User Administrator | User administrator | fe930be7-5e62-47db-91af-98c3a49a38b1
