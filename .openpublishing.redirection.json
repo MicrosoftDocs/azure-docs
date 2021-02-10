@@ -13116,11 +13116,11 @@
       "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
       "redirect_document_id": false
     },
-    {
-      "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
-      "redirect_url": "/azure/baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal",
-      "redirect_document_id": false
-    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
+      "redirect_url": "/azure/baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/backup/backup-azure-files.md",
       "redirect_url": "/azure/backup/backup-afs",
@@ -40222,6 +40222,11 @@
       "redirect_url": "/azure/vpn-gateway/point-to-site-about",
       "redirect_document_id": false
     },
+	 {
+      "source_path_from_root": "/articles/vpn-gateway/create-vpn-azure-aws-managed-solutions.md",
+      "redirect_url": "/azure/vpn-gateway/tutorial-site-to-site-portal",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-resetgw-classic.md",
       "redirect_url": "/azure/vpn-gateway/reset-gateway",
@@ -46060,6 +46065,11 @@
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/whats-new.md",
       "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-container-faq.md",
+      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto",
       "redirect_document_id": false
     },
     {
@@ -61691,6 +61701,11 @@
     {
       "source_path": "articles/service-fabric/upgrade-managed-disks.md",
       "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/voice-video-calling/teams-interop.md",
+      "redirect_url": "/azure/communication-services/concepts/teams-interop",
       "redirect_document_id": false
     }
   ]
