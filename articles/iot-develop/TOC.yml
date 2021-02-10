@@ -9,10 +9,12 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Send telemetry to the cloud
+    - name: Get started with device application development
       items: 
-      - name: Python
+      - name: Send telemetry to IoT Central
         href: quickstart-send-telemetry-python.md
+      - name: Send telemetry to IoT Hub
+        href: quickstart-send-telemetry-cli-python.md
     - name: Get started with embedded development
       href: quickstart-device-development.md
 - name: Tutorials
@@ -23,8 +25,8 @@
   items:
   - name: Using CMAKE
     href: concepts-using-cmake.md
-  - name: Avoiding common pitfalls with device sdks
-    href: concepts-pitfalls-device-sdks.md
+  - name: Avoid common pitfalls with device sdks
+    href: common-pitfalls-device-sdks.md
 - name: Reference
   items:
     - name: Azure CLI
