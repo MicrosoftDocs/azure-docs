@@ -51,7 +51,7 @@ If you don't want to dependent resources from the source region to the destinati
 - Create a new resource in the destination region. Unless you specify different settings, the new resource will have the same settings as the source resource.
 - Use an existing resource in the destination region.
 
-Exact behavior depends on the resource type. [Learn more](modify-destination-settings.md) about modifying destination settings.
+Exact behavior depends on the resource type. [Learn more](modify-target-settings.md) about modifying destination settings.
 
 You modify the destination settings for a resource using the **Destination configuration** entry in the resource move collection. 
 
