@@ -29,6 +29,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 - [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)
+- [Deprecation of 11 Azure Defender alerts](#deprecation-of-11-azure-defender-alerts)
 
 ### Two recommendations from "Apply system updates" security control being deprecated 
 
@@ -49,6 +50,37 @@ Learn more about these recommendations in the [security recommendations referenc
 **Estimated date for change:** Q2 2021
 
 The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently b0df6f56-862d-4730-8597-38c0fd4ebd59).
+
+
+### Deprecation of 11 Azure Defender alerts
+
+**Estimated date for change:** March 2021
+
+Next month, the eleven Azure Defender alerts listed below will be deprecated.
+
+- New alerts will replace these two alerts and provide better coverage:
+
+    | AlertType                | AlertDisplayName                                                         |
+    |--------------------------|--------------------------------------------------------------------------|
+    | ARM_MicroBurstDomainInfo | PREVIEW - MicroBurst toolkit "Get-AzureDomainInfo" function run detected |
+    | ARM_MicroBurstRunbook    | PREVIEW - MicroBurst toolkit "Get-AzurePasswords" function run detected  |
+    |                          |                                                                          |
+
+- These nine alerts relate to an Azure Active Directory Identity Protection connector that has already been deprecated:
+
+    | AlertType           | AlertDisplayName              |
+    |---------------------|-------------------------------|
+    | UnfamiliarLocation  | Unfamiliar sign-in properties |
+    | AnonymousLogin      | Anonymous IP address          |
+    | InfectedDeviceLogin | Malware linked IP address     |
+    | ImpossibleTravel    | Atypical travel               |
+    | MaliciousIP         | Malicious IP address          |
+    | LeakedCredentials   | Leaked credentials            |
+    | PasswordSpray       | Password Spray                |
+    | LeakedCredentials   | Azure AD threat intelligence  |
+    | AADAI               | Azure AD AI                   |
+    |                     |                               |
+ 
 
 
 

@@ -10,10 +10,15 @@ ms.reviewer: sngun
 
 ---
 
-# Resource model for the Azure Cosmos DB point-in-time restore feature
+# Resource model for the Azure Cosmos DB point-in-time restore feature (Preview)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored in Azure Cosmos DB API for SQL and MongoDB accounts.
+> [!IMPORTANT]
+> The point-in-time restore feature(continuous backup mode) for Azure Cosmos DB is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This article explains the resource model for the Azure Cosmos DB point-in-time restore feature(Preview). It explains the parameters that support the continuous backup and resources that can be restored in Azure Cosmos DB API for SQL and MongoDB accounts.
 
 ## Database account's resource model
 

@@ -40,7 +40,7 @@ If you attempt to use the authorization code flow and see this error:
 
 `access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
 
-Then you need to visit your app registration and update the redirect URI for your app to type `spa`.
+Then, visit your app registration and update the redirect URI for your app to type `spa`.
 
 ## Request an authorization code
 

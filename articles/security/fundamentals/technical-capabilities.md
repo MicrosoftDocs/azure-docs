@@ -3,14 +3,15 @@
 title: Security technical capabilities in Azure - Microsoft Azure
 description: Introduction to security services in Azure that help you protect you data, resources, and applications in the cloud.
 services: security
-author: terrylanfear
+author: TerryLanfear
+manager: rkarlin
 
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 02/04/2021
 ms.author: terrylan
 
 ---
@@ -428,20 +429,6 @@ Resource Manager provides several benefits:
 > [!Note]
 > Resource Manager provides a new way to deploy and manage your solutions. If you used the earlier deployment model and want to learn about the changes, see [Understanding Resource Manager Deployment and classic deployment](../../azure-resource-manager/management/deployment-models.md).
 
-## Next steps
+## Next step
 
-Find out more about security by reading some of our in-depth security topics:
-
-- [Auditing and logging](https://www.microsoft.com/en-us/trustcenter/security/auditingandlogging)
-
-- [Cybercrime](https://www.microsoft.com/en-us/trustcenter/security/cybercrime)
-
-- [Design and operational security](https://www.microsoft.com/en-us/trustcenter/security/designopsecurity)
-
-- [Encryption](https://www.microsoft.com/en-us/trustcenter/security/encryption)
-
-- [Identity and access management](https://www.microsoft.com/en-us/trustcenter/security/identity)
-
-- [Network security](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
-
-- [Threat management](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)
+The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a collection of security recommendations you can use to help secure the services you use in Azure.

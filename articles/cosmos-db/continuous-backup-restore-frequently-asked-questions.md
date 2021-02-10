@@ -10,10 +10,15 @@ ms.reviewer: sngun
 
 ---
 
-# Frequently asked questions on the Azure Cosmos DB point-in-time restore feature
+# Frequently asked questions on the Azure Cosmos DB point-in-time restore feature (Preview)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-This article lists frequently asked questions about the Azure Cosmos DB point-in-time restore functionality that is achieved by using the continuous backup mode.
+> [!IMPORTANT]
+> The point-in-time restore feature(continuous backup mode) for Azure Cosmos DB is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This article lists frequently asked questions about the Azure Cosmos DB point-in-time restore functionality(Preview) that is achieved by using the continuous backup mode.
 
 ## How much time does it takes to restore?
 The restore duration dependents on the size of your data.

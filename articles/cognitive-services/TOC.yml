@@ -42,6 +42,8 @@
     href: authentication.md
   - name: Security baseline
     href: security-baseline.md
+  - name: Security controls by Azure Policy
+    href: ./security-controls-policy.md
 - name: Container support
   items:
   - name: Container support
