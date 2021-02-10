@@ -8,36 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 02/10/2021
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
 
 #### [Sentiment Analysis](#tab/sentiment-analysis)
 
-| Language              | Language code | v2 support | v3 support | Starting v3 model version: |              Notes |
-|:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
-| Chinese-Simplified    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` also accepted |
-| Chinese-Traditional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
-| Danish               |     `da`      |     ✓      |            |                            |                    |
-| Dutch                 |     `nl`      |     ✓      |            |                            |                    |
-| English               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Finnish               |     `fi`      |     ✓      |            |                            |                    |
-| French                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| German                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Greek                 |     `el`      |     ✓      |            |                            |                    |
-| Hindi                 |     `hi`      |            |      ✓     |          2020-04-01        |                    |
-| Italian               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Japanese              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Korean                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
-| Norwegian  (Bokmål)   |     `no`      |     ✓      |     ✓      |         2020-07-01         |                    |
-| Polish                |     `pl`      |     ✓      |            |                            |                    |
-| Portuguese (Brazil)   |    `pt-BR`    |            |     ✓      |         2020-04-01         |                    |
-| Portuguese (Portugal) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt` also accepted |
-| Russian               |     `ru`      |     ✓      |            |                            |                    |
-| Spanish               |     `es`      |     ✓      |     ✓      |         2019-10-01         |                    |
-| Swedish               |     `sv`      |     ✓      |            |                            |                    |
-| Turkish               |     `tr`      |     ✓      |     ✓       |         2020-07-01        |                    |
+| Language              | Language code | v3 support | Starting v3 model version: |              Notes |
+|:----------------------|:-------------:|:----------:|:--------------------------:|-------------------:|
+| Chinese-Simplified    |   `zh-hans`   |     ✓      |         2019-10-01         | `zh` also accepted |
+| Chinese-Traditional   |   `zh-hant`   |    ✓      |         2019-10-01         |                    |
+| English               |     `en`      |     ✓      |         2019-10-01         |                    |
+| French                |     `fr`      |     ✓      |         2019-10-01         |                    |
+| German                |     `de`      |     ✓      |         2019-10-01         |                    |
+| Italian               |     `it`      |     ✓      |         2019-10-01         |                    |
+| Japanese              |     `ja`      |     ✓      |         2019-10-01         |                    |
+| Korean                |     `ko`      |    ✓      |         2019-10-01         |                    |
+| Norwegian  (Bokmål)   |     `no`      |     ✓      |         2020-07-01         |                    |
+| Portuguese (Brazil)   |    `pt-BR`    |     ✓      |         2020-04-01         |                    |
+| Portuguese (Portugal) |    `pt-PT`    |     ✓      |         2019-10-01         | `pt` also accepted |
+| Spanish               |     `es`      |     ✓      |         2019-10-01         |                    |
+| Turkish               |     `tr`      |     ✓       |         2020-07-01        |                    |
 
 ### Opinion mining (v3.1-preview only)
 
@@ -79,24 +71,24 @@ ms.author: aahi
 
 #### [Key phrase extraction](#tab/key-phrase-extraction)
 
-| Language              | Language code | v2 support | v3 support | Available starting with v3 model version: |       Notes        |
-|:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
-| Danish                |     `da`      |     ✓      |      ✓     |                2019-10-01                 |                    |
-| Dutch                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| English               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Finnish               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| French                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| German                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Italian               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Japanese              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Korean                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Norwegian  (Bokmål)   |     `no`      |     ✓      |     ✓      |                2020-07-01                 | `nb` also accepted |
-| Polish                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Portuguese (Brazil)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Portuguese (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` also accepted |
-| Russian               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Spanish               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Swedish               |     `sv`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Language              | Language code |  v3 support | Available starting with v3 model version: |       Notes        |
+|:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|
+| Danish                |     `da`      |     ✓     |                2019-10-01                 |                    |
+| Dutch                 |     `nl`      |     ✓      |                2019-10-01                 |                    |
+| English               |     `en`      |     ✓      |                2019-10-01                 |                    |
+| Finnish               |     `fi`      |     ✓      |                2019-10-01                 |                    |
+| French                |     `fr`      |     ✓      |                2019-10-01                 |                    |
+| German                |     `de`      |     ✓      |                2019-10-01                 |                    |
+| Italian               |     `it`      |     ✓      |                2019-10-01                 |                    |
+| Japanese              |     `ja`      |     ✓      |                2019-10-01                 |                    |
+| Korean                |     `ko`      |     ✓      |                2019-10-01                 |                    |
+| Norwegian  (Bokmål)   |     `no`      |     ✓      |                2020-07-01                 | `nb` also accepted |
+| Polish                |     `pl`      |    ✓      |                2019-10-01                 |                    |
+| Portuguese (Brazil)   |    `pt-BR`    |     ✓      |                2019-10-01                 |                    |
+| Portuguese (Portugal) |    `pt-PT`    |    ✓      |                2019-10-01                 | `pt` also accepted |
+| Russian               |     `ru`      |     ✓      |                2019-10-01                 |                    |
+| Spanish               |     `es`      |     ✓      |                2019-10-01                 |                    |
+| Swedish               |     `sv`      |     ✓      |                2019-10-01                 |                    |
 
 #### [Entity linking](#tab/entity-linking)
 
