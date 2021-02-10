@@ -23,7 +23,7 @@ Manually delete the move collection, and Site Recovery resources created for the
 2. Check that the VM and all other source resources in the move collection have been moved/deleted. This ensures that there are no pending resources using them.
 2. Delete these resources.
 
-    - The move collection name is ```movecollection-<sourceregion>-<target-region>```.
+    - The move collection name is ```movecollection-<sourceregion>-<target-region>-<metadat-region>```.
     - The cache storage account name is ```resmovecache<guid>```
     - The vault name is ```ResourceMove-<sourceregion>-<target-region>-GUID```.
 
