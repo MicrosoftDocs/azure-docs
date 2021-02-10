@@ -213,7 +213,7 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 
 [twilio_java]: https://github.com/twilio/twilio-java
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
+[add_ca_cert]: https://docs.blackberry.com/en/endpoint-management/blackberry-enterprise-mobility-server/3_1/bems-blackberry-uem-configuration-html/ibz1474381569269/msf1474468494766/Import-the-CA-certificate-into-the-Java-certificate-store
 [howto_phonecall_java]: partner-twilio-java-phone-call-example.md
 [misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message
