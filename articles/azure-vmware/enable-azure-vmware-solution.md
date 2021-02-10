@@ -1,12 +1,15 @@
 ---
 title: How to enable your Azure VMware Solution resource
-description: Learn how to submit a support request to enable your Azure VMware Solution resource. You can also request more hosts in your existing Azure VMware Solution private cloud.
+description: In this how-to, you'll learn how to request hosts (quota increase) and enable your Azure VMware Solution resource. You can also request more hosts in your existing Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.date: 02/10/2021
 ---
 
 # How to enable Azure VMware Solution resource
-Learn how to submit a support request to enable your [Azure VMware Solution](introduction.md) resource. You can also request more hosts in your existing Azure VMware Solution private cloud.
+
+title might be: Request hosts and enable the Azure VMware Solution resource
+
+In this how-to, you'll learn how to request hosts (quota increase) and enable your [Azure VMware Solution](introduction.md) resource. If you have an existing Azure VMware Solution private cloud, you can also request more hosts following these steps.
 
 ## Eligibility criteria
 
@@ -16,12 +19,12 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
 * A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
 
 
-## Enable Azure VMware Solution for EA customers
 Before you create your Azure VMware Solution resource, you'll need to submit a support ticket to have your hosts allocated. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
 
 >[!IMPORTANT]
->It can take a few days to allocate the hosts depending on the number requested.  So request what is needed for provisioning so you don't need to request a quota increase as often. 
+>It can take a few days to allocate the hosts depending on the number requested.  So request what is needed for provisioning so you don't need to request a quota increase as often.
 
+## Enable Azure VMware Solution for EA customers
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
    - **Issue type:** Technical
@@ -54,6 +57,8 @@ Before you create your Azure VMware Solution resource, you'll need to submit a s
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
    ```
+
+
 
    For more ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
@@ -106,11 +111,6 @@ After configuring the Azure plan and the needed [Azure RBAC permissions](/partne
 
 1. Select **Review + Create** to submit the request.
 
-   It will take up to five business days for a support representative to confirm your request.
-
-   >[!IMPORTANT] 
-   >If you already have an existing Azure VMware Solution, and you are requesting additional hosts, please note that we need five business days to allocate the hosts. 
-
 1. For subscriptions managed by the service provider, their administration team must access Azure portal using the **Admin On Behalf Of** (AOBO) procedure from Partner Center. 
 
    1. In the Azure portal, launch a [Cloud Shell](../cloud-shell/overview.md) instance and register the **Microsoft.AVS** resource provider.     
@@ -125,6 +125,9 @@ After configuring the Azure plan and the needed [Azure RBAC permissions](/partne
 
 1. For subscriptions managed directly by the customer, someone with enough permissions must register the resource provider. For more ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
 
+## Register the resource provider
+
+[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
 ## Next steps
 

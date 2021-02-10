@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 12/24/2020
 ---
 
-<!-- Used in avs-deployment.md and tutorial-create-private-cloud.md -->
+<!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
 To use Azure VMware Solution, you must first register the resource provider with your subscription.  
 
