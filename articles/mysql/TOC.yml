@@ -554,6 +554,9 @@
   - name: Migrate data with mysqldump or phpmyadmin
     href: concepts-migrate-dump-restore.md
     displayName: migrate, mysqldump
+  - name: Migrate data with dbForge Studio for MySQL
+    href: concepts-migrate-dbforge-studio-for-mysql.md
+    displayName: migrate, dbforge
   - name: Migrate data with MySQL Workbench
     href: concepts-migrate-import-export.md
     displayName: import , migrate, export
