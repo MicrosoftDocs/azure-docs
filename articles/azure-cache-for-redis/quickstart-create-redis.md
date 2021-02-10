@@ -2,6 +2,7 @@
 title: 'Quickstart: Create an open-source Redis cache'
 description: In this quickstart, learn how to create an instance of Azure Cache for Redis in Basic, Standard or Premium tier
 author: yegu-ms
+
 ms.author: yegu
 ms.service: cache
 ms.custom: mvc

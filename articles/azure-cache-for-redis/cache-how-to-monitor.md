@@ -7,7 +7,6 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ---
-
 # Monitor Azure Cache for Redis
 
 Azure Cache for Redis uses [Azure Monitor](../azure-monitor/index.yml) to provide several options for monitoring your cache instances. You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Cache for Redis instances and help you manage your caching applications.

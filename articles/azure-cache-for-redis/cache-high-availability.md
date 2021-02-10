@@ -6,7 +6,6 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-
 ---
 # High availability for Azure Cache for Redis
 
