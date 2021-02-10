@@ -105,6 +105,9 @@ We support sorting by the date last updated: _sort=_lastUpdated. For more inform
 
 $export is part of the FHIR specification: https://hl7.org/fhir/uv/bulkdata/export/index.html. If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account - you can simply call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, check out our [article on $export](./export-data.md).
 
+### Is de-identified export available at Patient and Group level as well?
+Anonymized export is currently supported only on a full system export (/$export), and not for Patient export (/Patient/$export). We are working on making it available at the Patient level as well.
+
 ## Using Azure API for FHIR
 
 ### How do I enable log analytics for Azure API for FHIR?

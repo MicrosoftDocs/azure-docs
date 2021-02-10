@@ -21,7 +21,7 @@ In Azure, this is typically accomplished using an encryption key in the customer
 - [Add an access policy to your Azure Key Vault instance](../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance)
 - [Generate a key in Azure Key Vault](../cosmos-db/how-to-setup-cmk.md#generate-a-key-in-azure-key-vault)
 
-## Specify the Azure Key Vault key
+## Using Azure Portal
 
 When creating your Azure API for FHIR account on Azure portal, you can see a "Data Encryption" configuration option under the "Database Settings" on the "Additional Settings" tab. By default, the service-managed key option will be chosen. 
 
@@ -39,9 +39,100 @@ For existing FHIR accounts, you can view the key encryption choice (service- or 
 
 In addition, you can create a new version of the specified key, after which your data will get encrypted with the new version without any service interruption. You can also remove access to the key to remove access to the data. When the key is disabled, queries will result in an error. If the key is re-enabled, queries will succeed again.
 
+
+
+
+## Using Azure PowerShell
+
+With your Azure Key Vault key URI, you can configure CMK using PowerShell by running the PowerShell command below:
+
+```powershell
+New-AzHealthcareApisService
+    -Name "myService"
+    -Kind "fhir-R4"
+    -ResourceGroupName "myResourceGroup"
+    -Location "westus2"
+    -CosmosKeyVaultKeyUri "https://<my-vault>.vault.azure.net/keys/<my-key>"
+```
+
+## Using Azure CLI
+
+As with PowerShell method, you can configure CMK by passing your Azure Key Vault key URI under the `key-vault-key-uri` parameter and running the CLI command below: 
+
+```azurecli-interactive
+az healthcareapis service create
+    --resource-group "myResourceGroup"
+    --resource-name "myResourceName"
+    --kind "fhir-R4"
+    --location "westus2"
+    --cosmos-db-configuration key-vault-key-uri="https://<my-vault>.vault.azure.net/keys/<my-key>"
+
+```
+## Using Azure Resource Manager Template
+
+With your Azure Key Vault key URI, you can configure CMK by passing it under the **keyVaultKeyUri** property in the **properties** object.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "services_myService_name": {
+            "defaultValue": "myService",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.HealthcareApis/services",
+            "apiVersion": "2020-03-30",
+            "name": "[parameters('services_myService_name')]",
+            "location": "westus2",
+            "kind": "fhir-R4",
+            "properties": {
+                "accessPolicies": [],
+                "cosmosDbConfiguration": {
+                    "offerThroughput": 400,
+                    "keyVaultKeyUri": "https://<my-vault>.vault.azure.net/keys/<my-key>"
+                },
+                "authenticationConfiguration": {
+                    "authority": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                    "audience": "[concat('https://', parameters('services_myService_name'), '.azurehealthcareapis.com')]",
+                    "smartProxyEnabled": false
+                },
+                "corsConfiguration": {
+                    "origins": [],
+                    "headers": [],
+                    "methods": [],
+                    "maxAge": 0,
+                    "allowCredentials": false
+                }
+            }
+        }
+    ]
+}
+```
+
+And you can deploy the template with the following PowerShell script:
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$accountLocation = "West US 2"
+$keyVaultKeyUri = "https://<my-vault>.vault.azure.net/keys/<my-key>"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile "deploy.json" `
+    -accountName $accountName `
+    -location $accountLocation `
+    -keyVaultKeyUri $keyVaultKeyUri
+```
+
 ## Next steps
 
-In this article, you learned how to configure customer-managed keys at rest. Next, you can check out the Azure Cosmos DB FAQ section: 
+In this article, you learned how to configure customer-managed keys at rest using Azure Portal, PowerShell, CLI, and Resource Manager Template. You can check out the Azure Cosmos DB FAQ section for additional questions you might have: 
  
 >[!div class="nextstepaction"]
 >[Cosmos DB: how to setup CMK](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#frequently-asked-questions)
