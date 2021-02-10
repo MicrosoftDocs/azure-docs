@@ -92,10 +92,10 @@ ms.author: aahi
 
 #### [Entity linking](#tab/entity-linking)
 
-| Language | Language code | v2 support | v3 support | Available starting with v3 model version: | Notes |
-|:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
-| English  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
-| Spanish  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
+| Language | Language code |  v3 support | Available starting with v3 model version: | Notes |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
+| English  |     `en`      |     ✓      |                2019-10-01                 |       |
+| Spanish  |     `es`      |    ✓      |                2019-10-01                 |       |
 
 #### [Language Detection](#tab/language-detection)
 
