@@ -75,7 +75,7 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 ## Supported extensions
 The preview of Automatic Extension Upgrade supports the following extensions (and more are added periodically):
 - Dependency Agent – [Windows](./extensions/agent-dependency-windows.md) and [Linux](./extensions/agent-dependency-linux.md)
-- [Application Health Extension](../../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) – Windows and Linux
+- [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) – Windows and Linux
 
 
 ## Enabling preview access
@@ -257,7 +257,7 @@ A VM or Virtual Machine Scale Set can have multiple extensions with automatic ex
 
 If multiple extension upgrades are available for a virtual machine, the upgrades may be batched together. However, each extension upgrade is applied individually on a virtual machine. A failure on one extension does not impact the other extension(s) that may be upgrading. For example, if two extensions are scheduled for an upgrade, and the first extension upgrade fails, the second extension will still be upgraded.
 
-Automatic Extension Upgrades can also be applied when a VM or virtual machine scale set has multiple extensions configured with [extension sequencing](../../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). Extension sequencing is applicable for the first-time deployment of the VM, and any subsequent extension upgrades on an extension are applied independently.
+Automatic Extension Upgrades can also be applied when a VM or virtual machine scale set has multiple extensions configured with [extension sequencing](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). Extension sequencing is applicable for the first-time deployment of the VM, and any subsequent extension upgrades on an extension are applied independently.
 
 
 ## Next steps
