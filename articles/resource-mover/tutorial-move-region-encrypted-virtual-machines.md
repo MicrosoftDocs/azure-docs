@@ -55,7 +55,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you're moving VMs that have Azure disk encryption enabled, you need to run a script as mentioned [below](#copy-the-keys-to-the-destination-key-vault) for which the user executing the script should have appropriate permissions. Please refer to below table to know about permissions needed. The options to change the permissions can be found by navigating to the key vault in the Azure portal, Under **Settings**, select **Access policies**.
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Button to open key vault access policies." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Button to open key vault access policies." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
 
 If there are no user permissions, select **Add Access Policy**, and specify the permissions. If the user account already has a policy, under **User**, set the permissions asper the table below.
 
@@ -89,12 +89,10 @@ In addition to the the above permissions, in the destination key vault you need 
 2. In **Select principal**, search for the MSI. The MSI name is ```movecollection-<sourceregion>-<target-region>-<metadata-region>```. 
 3. Add the below permissions for the MSI
 
-    **Component** | **Permission needed**
-    --- | ---
-    Secrets|  Get and List permission <br> </br> In **Secret permissions**>  **Secret Management Operations**, select **Get** and **List** 
-    Keys <br> </br> If you are using Key encryption you need this permission in addition to secrets| Get, List permission <br> </br> In **Key Permissions** > **Key Management Operations**, select **Get** and **List**
-
-
+**Component** | **Permission needed**
+--- | ---
+Secrets|  Get and List permission <br> </br> In **Secret permissions**>  **Secret Management Operations**, select **Get** and **List** 
+Keys <br> </br> If you are using Key encryption you need this permission in addition to secrets| Get, List permission <br> </br> In **Key Permissions** > **Key Management Operations**, select **Get** and **List**
 
 
 
