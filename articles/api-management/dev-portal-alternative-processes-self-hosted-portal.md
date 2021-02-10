@@ -15,7 +15,7 @@ There are several new processes you can explore when you self-host a portal. You
 
 * Edit content directly in files instead of having to use the visual editor.
 
-* Use your own content management system (CMS) to manage your content.
+* Use your own Content Management System (CMS) to manage your content.
 
 * Use production builds of the designer and the publisher.
 
@@ -31,31 +31,29 @@ The [self-hosting tutorial](dev-portal-self-host-portal.md) described the workfl
 
 ## Bring your own CMS
 
-By default, portal's content (for example, pages) is retrieved from, saved to, and stored in an API Management service.
+By default, the portal stores, saves, and retrieves its content using an API Management service.
 
-You can set up your portal deployment to use a different data source - for example, a headless CMS to manage your content. 
-
-Examples on how to achieve that are coming soon.
+You can set up your portal deployment to use a different data source. For example, use a headless CMS to manage your content.
 
 ## Build for production
 
 If you would like to host the development environment of the portal online for collaboration purposes, use production builds of the designer and the publisher. Production builds bundle the files, exclude source maps, and so on.
 
-Create a bundle in the `./dist/designer` directory by running the command:
+Run this command to create a bundle in the `./dist/designer` directory:
 
-```sh
+```console
 npm run build-designer
 ```
 
-The result is a single page application, so you can still deploy it to a static web host, for example Azure Blob Storage Static Website.
+The result is a single page application. You can still deploy it to a static web host like a Azure Blob Storage Static Website.
 
-Similarly, place a compiled and optimized publisher in the `./dist/publisher` folder:
+Similarly, run this command to place a compiled and optimized publisher in the `./dist/publisher` folder:
 
-```sh
+```console
 npm run build-publisher
 ```
 
-## Using Function App to publish the portal
+## Use a Function App to publish the portal
 
 ![API Management developer portal development - publish external portal](media/dev-portal/readme-dev-publish-external.png)
 
@@ -63,15 +61,19 @@ Running the publishing step in the cloud is an alternative to executing it local
 
 To implement it with an Azure Function App, first you'll need to:
 
-- [Create an Azure Function](../azure-functions/functions-create-first-azure-function.md). The Function needs to be a JavaScript language Function.
+- [Create an Azure Function](../azure-functions/functions-create-first-azure-function.md).
+
+    Make sure it's a JavaScript language Function.
+
 - Install Azure Functions Core Tools:
-    ```sh
+
+    ```console
     npm install –g azure-function-core-tools
     ```
 
 ### Configure output storage
 
-You'll be uploading the content directly to website hosting ("$web" container of output storage), instead of a local folder. Account for it in the `./src/config.publish.json` file:
+You'll upload the content directly to website hosting ("$web" container of output storage), instead of a local folder. Account for it in the `./src/config.publish.json` file:
 
 ```json
 {
@@ -84,15 +86,17 @@ You'll be uploading the content directly to website hosting ("$web" container of
 
 ### Build and deploy the Function App
 
-There's a sample HTTP Trigger Function in the `./examples` folder. To build it and place it in `./dist/function`, run the following command:
+There's a sample HTTP Trigger Function in the `./examples` folder. To build it and place it in `./dist/function`:
 
-```sh
+1. Run this command:
+
+```console
 npm run build-function
 ```
 
 Then, sign in to Azure and deploy it:
 
-```sh
+```console
 az login
 cd ./dist/function
 func azure functionapp publish <function app name>
@@ -100,15 +104,15 @@ func azure functionapp publish <function app name>
 
 Once it's deployed, you can invoke it with an HTTP call:
 
-```sh
+```console
 curl -X POST https://<function app name>.azurewebsites.net/api/publish
 ```
 
 ## Hosting and CDN
 
-Although in the previous section we suggested using Azure Storage Account as a hosting for your website, you can publish the files through any solution, including services of hosting providers.
+Although, in the previous section we suggested using Azure Storage Account as a hosting for your website, you can publish the files through any solution, including services of hosting providers.
 
-You can also front the files with a Content Delivery Network (CDN) to reduce page loading times. We recommend using [Azure CDN](https://azure.microsoft.com/services/cdn/).
+You can also front the files with a CDN to reduce page loading times. We recommend using [Azure CDN](https://azure.microsoft.com/services/cdn/).
 
 ## Next steps
 
