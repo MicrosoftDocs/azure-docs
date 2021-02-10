@@ -188,7 +188,7 @@ The following table shows which redundancy options are supported by each Azure S
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br />Azure premium file shares<br />Azure managed disks | Blob storage<br />Queue storage<br />Table storage<br />Azure Files | Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br /> | Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br /> |
+| Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br />Azure managed disks | Blob storage<br />Queue storage<br />Table storage<br />Azure Files | Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br /> | Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br /> |
 
 ### Supported storage account types
 
