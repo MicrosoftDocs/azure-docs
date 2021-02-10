@@ -9,7 +9,10 @@ ms.date: 02/10/2021
 
 title might be: Request hosts and enable the Azure VMware Solution resource
 
-In this how-to, you'll learn how to request hosts (quota increase) and enable your [Azure VMware Solution](introduction.md) resource. If you have an existing Azure VMware Solution private cloud, you can also request more hosts following these steps.
+In this how-to, you'll learn how to request hosts (quota increase) and enable your [Azure VMware Solution](introduction.md) resource. Before you can enable your Azure VMware Solution resource, you'll need to submit a support ticket to have your hosts allocated. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
+
+>[!IMPORTANT]
+>It can take a few days to allocate the hosts depending on the number requested.  So request what is needed for provisioning so you don't need to request a quota increase as often.
 
 ## Eligibility criteria
 
@@ -18,11 +21,6 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
 * A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 * A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
 
-
-Before you create your Azure VMware Solution resource, you'll need to submit a support ticket to have your hosts allocated. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
-
->[!IMPORTANT]
->It can take a few days to allocate the hosts depending on the number requested.  So request what is needed for provisioning so you don't need to request a quota increase as often.
 
 ## Enable Azure VMware Solution for EA customers
 
