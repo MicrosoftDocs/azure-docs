@@ -70,6 +70,20 @@ configure push credentials in your notification hub. Even if you have no prior e
 
          If you see an error such as **Unable to find a specification for AzureNotificationHubs-iOS** while running pod install, run `pod repo update` to get the latest pods from the Cocoapods repository, and then run pod install.
 
+   - Integration via Carthage: Add the following dependencies to your Cartfile to include the Azure Notification Hubs SDK in your app:
+
+      ```ruby
+      github "Azure/azure-notificationhubs-ios"
+      ```
+
+      - Next, update build dependencies:
+
+      ```shell
+      $ carthage update
+      ```
+
+      For more information about using Carthage, see the [Carthage GitHub repository](https://github.com/Carthage/Carthage).
+
    - Integration by copying the binaries into your project:
 
       You can integrate by copying the binaries into your project, as follows:
@@ -186,6 +200,22 @@ configure push credentials in your notification hub. Even if you have no prior e
         [[NSNotificationCenter defaultCenter] removeObserver:self name:kNHMessageReceived object:nil];
     }
 
+    - (void)didReceivePushNotification:(NSNotification *)notification {
+        MSNotificationHubMessage *message = [notification.userInfo objectForKey:@"message"];
+
+        // Create UI Alert controller with message title and body
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message.title
+                             message:message.body
+                      preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        // Dismiss after 2 seconds
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [alertController dismissViewControllerAnimated:YES completion: nil];
+        });
+
+    }
 
     @end
    ```

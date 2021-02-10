@@ -33,7 +33,7 @@ To complete this tutorial, you must have an active Azure account. If you don't h
 You also need the following items:
 
 - The latest version of [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797) is recommended.
-- Minimum support is API level 16.
+- Minimum support is API level 19.
 
 ## Create an Android Studio project
 
