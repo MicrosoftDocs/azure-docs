@@ -162,7 +162,7 @@ With the Azure RBAC integration, AKS will use a Kubernetes Authorization webhook
 
 ![Azure RBAC for Kubernetes authorization flow](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 
-As shown on the above diagram, when using the Azure RBAC integration all requests to the Kubernetes API will follow the same authentication flow as explained on the [Azure Active integration section](#azure-active-directory-integration). 
+As shown on the above diagram, when using the Azure RBAC integration all requests to the Kubernetes API will follow the same authentication flow as explained on the [Azure Active Directory integration section](#azure-active-directory-integration). 
 
 But after that, instead of solely relying on Kubernetes RBAC for Authorization, the request is actually going to be authorized by Azure, as long as the identity that made the request exists in AAD. If the identity doesn't exist in AAD, for example a Kubernetes service account, then the Azure RBAC won't kick in, and it will be the normal Kubernetes RBAC.
 
