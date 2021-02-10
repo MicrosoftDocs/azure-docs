@@ -11,7 +11,7 @@
   items:
     - name: Get started with device application development
       items: 
-      - name: Send telemetry to IoT Central
+      - name: Send telemetry to IoT Central (Python)
         href: quickstart-send-telemetry-python.md
       - name: Send telemetry to IoT Hub (Python)
         href: quickstart-send-telemetry-cli-python.md
