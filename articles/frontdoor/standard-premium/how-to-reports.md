@@ -12,13 +12,9 @@ ms.author: yuajia
 # Azure Front Door Reports
 
 > [!IMPORTANT]
-> * This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
->
-> * Azure Front Door Standard/Premium (Preview) is currently in public preview.
+> Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> * Security reports is only available with Azure Front Door Premium SKU.
 
 Azure Front Door Analytics Reports provide a built-in and all-around view of how Azure Front Door is behaving and the associated WAF metrics. You can take advantage of Access Log to do further troubleshooting and debugging. Azure Front Door Analytics reports include AFD reports and security reports.
 
@@ -37,6 +33,9 @@ Azure Front Door Analytics Reports provide a built-in and all-around view of how
 |---------|---------|
 | Overview of key metrics | - Shows matched WAF rules<br/>- Matched OWASP rules<br/>- Matched BOT rules<br/>- Matched custom rules |
 | Metrics by dimensions | - Breakdown of matched WAF rules trend by action<br/>- Doughnut chart of events by Rule Set Type and event by rule group<br/>- Break down list of top events by rule ID, country, IP address, URL, and user agent  |
+
+> [!NOTE]
+> Security reports is only available with Azure Front Door Premium SKU.
 
 Most of the reports are based on access logs and are offered free of charge to customers on Azure Front Door. Customer doesn’t have to enable access logs or do any configuration to view these reports. Reports are accessible through portal and API. CSV download is also supported. 
 

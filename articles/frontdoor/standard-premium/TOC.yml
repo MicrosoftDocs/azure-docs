@@ -4,8 +4,6 @@
   items:
   - name: What is Azure Front Door Standard/Premium (Preview)?
     href: overview.md
-  - name: Tier comparison
-    href: tier-comparison.md
 - name: Quickstarts
   expanded: true
   items:
@@ -13,60 +11,16 @@
     href: create-front-door-portal.md
 - name: Concepts
   items:
-  - name: Front Door FAQ
-    href: faq.md
   - name: Endpoint Manager
     href: concept-endpoint-manager.md
-  - name: Origin
-    href: concept-origin.md
-  - name: Route
-    href: concept-route.md
-  - name: Rule Set
-    href: concept-rule-set.md
-  - name: Rule Set Match Condition
-    href: concept-rule-set-match-condition.md
-  - name: Rule Set Action
-    href: concept-rule-action.md
-  - name: Health Probe
-    href: concept-health-probes.md
   - name: Private Endpoints
     hred: concept-private-endpoints.md
-  - name: Caching
-    hred: concept-caching.md
-  - name: DDoS
-    href: concept-ddos.md
 - name: How-to guides
   items:
   - name: Configure Endpoint Manager
     href: how-to-configure-endpoint-manager.md
-  - name: Configure Origin Groups
-    href: how-to-create-origin.md
-  - name: Route Association
-    href: how-to-configure-route.md
-  - name: Configure security headers with Rule Set
-    href: how-to-add-security-headers.md
-  - name: Cache purge
-    href: how-to-cache-purge.md
-  - name: Compression
-    href: how-to-compression.md
-  - name: URL Rewrite
-    href: concept-rule-set-url-redirect-and-rewrite.md
-  - name: Logging
-    href: how-to-logging.md
-  - name: Monitoring and alerts
-    href: how-to-monitoring-metrics.md
-  - name: Troubleshoot
   - name: Reports
-    href: concept-reports.md
-    items:
-    - name: Routing issues
-      href: troubleshoot-routing.md
-    - name: Allowed certificate authorities
-      href: troubleshoot-allowed-ca.md
-    - name: Compression
-      href: troubleshoot-compression.md
-    - name: Cross origin resource sharing
-      href: troubleshoot-cross-origin-resource-sharing.md
+    href: how-to-reports.md
 - name: Reference
   items:
   - name: .NET

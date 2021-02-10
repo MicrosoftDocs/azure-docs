@@ -19,11 +19,6 @@ ms.author: duau
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Get started with Azure Front Door by using the Azure portal to configure a secure and high availability web application. When you can create an Azure Front Door profile, you can select either the *Quick Create* or *Custom Create* experience.
 
 * With *Quick Create*, you can quickly create a Front Door endpoint with basic configurations. You can add an origin, enable caching, and add a WAF policy. If you choose Azure Front Door Premium SKU, you can also enable private link for private connectivity from AFD to your origin. Origin group and route will be enabled by default with default values. Once you complete the quick create, you can explore more advanced configurations to secure and accelerate your app globally in the management experience.
@@ -35,6 +30,11 @@ You can also *Choose SKU by scenario* and *Explore other offerings* to help you 
 **Choose SKU by scenario:** Select your content delivery scenario, Static webpage, Dynamic/API caching, Media streaming, and File download.
 
 **Explore other offerings:** Continue to use existing Azure CDN offerings and Azure Front Door service.
+
+> [!IMPORTANT]
+> Azure Front Door Standard/Premium (Preview) is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

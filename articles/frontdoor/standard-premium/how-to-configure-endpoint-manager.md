@@ -9,9 +9,17 @@ ms.date: 02/18/2021
 ms.author: qixwang
 ---
 
+> [!NOTE]
+> * This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View **[here](../front-door-overview.md)**.
+
 # Configure an Azure Front Door Standard/Premium (Preview) Endpoint with Endpoint Manager
 
 This article shows you how to create an Azure Front Door (AFD) endpoint for an existing Azure Front Door profile with Endpoint Manager.
+
+> [!IMPORTANT]
+> Azure Front Door Standard/Premium (Preview) is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -63,7 +71,7 @@ To create an Azure Front Door profile, see [Create a new Azure Front Door profil
 
 1. For **Name**, enter a unique name for the new origin group
 
-1. Select **Add an Origin** to add a new origin to current group. For information about how to create a new origin, please see [Create a new AFD origin]().
+1. Select **Add an Origin** to add a new origin to current group. For information about how to create a new origin, please see [Create a new Azure Front Door origin](how-to-create-origin.md).
  
 #### Health Probes
 Front Door sends periodic HTTP/HTTPS probe requests to each of your origin. Probe requests determine the proximity and health of each origin to load balance your end-user requests. Health probe settings for an origin group define how we poll the health status of app origin. The following settings are available for load-balancing configuration:
@@ -122,20 +130,15 @@ Select **Add** at the Routes view, The **Add a route** page appears. For informa
 
 1. Select **Add** button. The WAF policy should appear within the Security panel
 
-    :::image type="content" source="/media/folder-with-same-name-as-article-file/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
-
-    ![WAF in security view](../media/how-to-configure-endpoint-manager/waf-in-security-view.png)
+    :::image type="content" source="../media/how-to-configure-endpoint-manager/waf-in-security-view.png" alt-text="Screenshot of WAF policy in security view.":::
 
 ## Clean up resources
 To delete an endpoint when it's no longer needed, select **Delete Endpoint** at the end of the endpoint row 
 
-:::image type="content" source="/media/folder-with-same-name-as-article-file/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
-
-![AFD route](../media/how-to-configure-endpoint-manager/delete-endpoint.png)
+:::image type="content" source="../media/how-to-configure-endpoint-manager/delete-endpoint.png" alt-text="Screenshot of how to delete an endpoint.":::
 
 ## Next steps
 To learn about custom domains, continue to the tutorial for adding a custom domain to your AFD endpoint.
 
 > [!div class="nextstepaction"]
 > [Add a custom domain]()
-

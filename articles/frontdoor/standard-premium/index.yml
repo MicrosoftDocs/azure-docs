@@ -32,7 +32,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a Front Door Standard/Premium profile
-            url: quickstart-create-front-door-portal.md
+            url: create-front-door-portal.md
 
   # Card
   - title: Configure Endpoint Manager
@@ -41,75 +41,8 @@ landingContent:
         links:
           - text: Endpoint Manager
             url: concept-endpoint-manager.md
-          - text: Route
-            url: concept-route.md
       - linkListType: concept
         links:
           - text: Endpoint Manager
             url: concept-endpoint-manager.md
-          
-  # Card
-  - title: Manage your Origin Groups
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Origin
-            url: concept-origin.md
-          - text: Health probes
-            url: concept-health-probes.md
-      - linkListType: how-to-guide
-        links:
-          - text: Configure an Origin Group
-            url: how-to-create-origin.md
-
-  # Card
-  - title: Configure a Rules Set
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: What is Rule Set?
-            url: concept-rule-set.md
-          - text: Rule Set Match Condition
-            url: concept-rule-set-match-condition.md
-          - text: Rule Set Action
-            url: concept-rule-action.md
-      - linkListType: how-to-guide
-        links:
-          - text: Configure a Rule Set
-            url: how-to-configure-rule-set.md
-
-  # Card
-  - title: Reports, Metrics and Logs
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Reports
-            url: concept-reports.md
-          - text: Monitoring Metrics and Alerts
-            url: how-to-monitor-metrics.md
-          - text: Logging
-            url: how-to-logging.md
-
-    # Card
-  - title: Caching and Optimization
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Caching
-            url: concept-caching.md
-      - linkListType: how-to-guide
-        links:
-          - text: Cache purge
-            url: how-to-cache-purge.md
-          - text: Compression
-            url: how-to-compression.md
             
-  # Card
-  - title: Troubleshoot Azure Front Door
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Common routing issues
-            url: troubleshoot-routing.md
-          - text: Allowed certificate authorities
-            url: troubleshoot-allowed-ca.md

@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door Endpoint Manager
+title: 'Azure Front Door: Endpoint Manager'
 description: This article provides an overview of Azure Front Door Endpoint Manager.
 services: frontdoor
 author: duongau
@@ -12,12 +12,8 @@ ms.author: qixwang
 
 # What is Azure Front Door Standard/Premium (Preview) Endpoint Manager?
 
-> [!IMPORTANT]
+> [!NOTE]
 > * This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View **[here](../front-door-overview.md)**.
->
-> * Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Endpoint Manager provides an overview of endpoints you've configured for your Azure Front Door. An endpoint is a logical grouping of a domains and their associated configurations. Endpoint Manager helps you manage your collection of endpoints for CRUD (create, read, update, and delete) operation. You can manage the following elements for your endpoints through Endpoint Manager:
 
@@ -25,6 +21,12 @@ Endpoint Manager provides an overview of endpoints you've configured for your Az
 * Origin Groups
 * Routes
 * Security
+
+
+> [!IMPORTANT]
+> * Azure Front Door Standard/Premium (Preview) is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 :::image type="content" source="../media/concept-endpoint-manager/endpoint-manager-1.png" alt-text="Front Door EndpointManager1":::
 

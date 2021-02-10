@@ -1,6 +1,5 @@
 ---
-title: Secure your origin with private link
-titleSuffix: Azure Front Door Standard/Premium
+title: 'Azure Front Door: Secure your Origin with Private Link'
 description: This page provides information about how to secure connectivity to your origin using Private Link.
 services: frontdoor
 documentationcenter: ''
@@ -9,21 +8,22 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: tyao
+ms.custom: references_regions
 ---
 
-# Secure your origin with private link
+# Secure your Origin with Private Link
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
+
+## Overview
+
+[Azure Private Link](../../private-link/private-link-overview.md) enables you to access Azure PaaS Services and Azure hosted services over a Private Endpoint in your virtual network. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Overview
-
-[Azure Private Link](../../private-link/private-link-overview.md) enables you to access Azure PaaS Services and Azure hosted services over a Private Endpoint in your virtual network. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
 
 Azure Front Door Premium SKU can connect to your origin using the Private Link service. Your applications can be hosted in your private virtual network or behind a PaaS service, not accessible from public Internet.
 
@@ -37,9 +37,7 @@ Azure Front Door Premium supports various origin types. If your origin is hosted
 
 ## Limitations
 
-Azure Front Door private endpoints are deployed in below regions during public preview:
-
-List of Azure Front Door private endpoints regions includes: UK South, Japan East, East US, West 2 US, and South Central US.
+Azure Front Door private endpoints are available in the following regions during public preview: UK South, Japan East, East US, West 2 US, and South Central US.
 
 For the best latency, you should always pick an Azure region closest to your origin when choosing to enable Front Door private link endpoint.
 
