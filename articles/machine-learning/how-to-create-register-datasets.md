@@ -95,11 +95,9 @@ If your workspace is in a virtual network, you must configure the dataset to ski
 For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure Machine Learning datastores](how-to-access-data.md) or public web URLs. 
 
 > [!TIP] 
-> You can create datasets directly from storage urls if you have reader access to the storage container. This capability is an [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time. 
->
->```python
-> blob_ds = Dataset.File.from_files(‘https://myblob.blob.core.windows.net/may/keras-mnist-fashion/’)
-> ``` 
+> You can create datasets directly from storage urls with identity-based data access. Learn more at [Connect to storage with identity-based data access (preview)](how-to-identity-based-data-access.md)<br><br>
+This capability is an [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time. 
+
  
 To create datasets from a datastore with the Python SDK:
 

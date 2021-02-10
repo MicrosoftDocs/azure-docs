@@ -64,7 +64,7 @@ Supported cloud-based storage services in Azure that can be registered as datast
 + Azure Database for MySQL
 
 >[!TIP]
-> The generally available functionality for creating datastores requires key based authentication for accessing storage services, like a service principal or shared access signature (SAS) key. These credentials can be accessed by users who have *Reader* access to the workspace. If this is a concern,  [create a datastore that uses identity based data access to storage services (preview)](how-to-identity-based-data-access.md).  <br><br> This capability is an [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time.
+> The generally available functionality for creating datastores requires key based authentication for accessing storage services, like a service principal or shared access signature (SAS) key. These credentials can be accessed by users who have *Reader* access to the workspace. <br><br>If this is a concern,  [create a datastore that uses identity-based data access to storage services (preview)](how-to-identity-based-data-access.md). This capability is an [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time.
 
 <a name="datasets"></a>
 ## Reference data in storage with datasets

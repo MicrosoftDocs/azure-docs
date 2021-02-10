@@ -20,14 +20,14 @@ ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
 
 In this article, learn how to connect to data storage services on Azure with Azure Machine Learning datastores and the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
-Datastores securely connect to your storage service  on Azure without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace, so you can securely access your storage without having to hard code them in your scripts. You can create datastores that connect to [these Azure storage solutions](#matrix).
+Datastores securely connect to your storage service on Azure without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace, so you can securely access your storage without having to hard code them in your scripts. You can create datastores that connect to [these Azure storage solutions](#matrix).
 
 To understand where datastores fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
 For a low code experience, see how to use the [Azure Machine Learning studio to create and register datastores](how-to-connect-data-ui.md#create-datastores).
 
 >[!TIP]
-> This article assumes you want to connect to your storage service with key based authentication credentials, like a service principal or a shared access signature (SAS) token. Keep in mind, if credentials are registered with datastores, all users with workspace *Reader* role are able to retrieve these credentials. <br><br>If this is a concern, learn how to [Connect to storage services with identity based access](how-to-identity-based-data-access.md). <br><br>This capability is an [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time. 
+> This article assumes you want to connect to your storage service with key based authentication credentials, like a service principal or a shared access signature (SAS) token. Keep in mind, if credentials are registered with datastores, all users with workspace *Reader* role are able to retrieve these credentials. [Learn more about workspace *Reader* role.](how-to-assign-roles.md#default-roles) <br><br>If this is a concern, learn how to [Connect to storage services with identity based access](how-to-identity-based-data-access.md). <br><br>This capability is an [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview feature, and may change at any time. 
 
 ## Prerequisites
 
