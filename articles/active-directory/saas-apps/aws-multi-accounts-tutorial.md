@@ -30,7 +30,7 @@ This integration provides the following benefits:
 
 We recommend that you *not* connect one AWS app to all your AWS accounts, for the following reasons:
 
-* Use this approach only if you have a small number AWS accounts and roles, because this model isn't scalable as the number of AWS accounts and the roles within them increase. The approach doesn't use AWS role-import functionality with Azure AD user provisioning, so you have to manually add, update, or delete the roles. 
+* Use this approach only if you have a small number of AWS accounts and roles, because this model isn't scalable as the number of AWS accounts and the roles within them increase. The approach doesn't use AWS role-import functionality with Azure AD user provisioning, so you have to manually add, update, or delete the roles. 
 
 * You have to use the Microsoft Graph Explorer approach to patch all the roles to the app. We don’t recommend using the manifest file approach.
 
