@@ -30,7 +30,7 @@
     href: tutorial-add-identity-providers.md
   - name: 5 - Customize the UI
     href: tutorial-customize-ui.md
-  - name: Authenticate users
+  - name: 6 - Authenticate users
     items:
     - name: ASP.NET
       href: tutorial-web-app-dotnet.md
@@ -41,7 +41,7 @@
     - name: Python
       href: tutorial-web-app-python.md
       displayName: flask
-  - name: Grant API access
+  - name: 7 - Grant API access
     items:
     - name: ASP.NET
       href: tutorial-web-api-dotnet.md
