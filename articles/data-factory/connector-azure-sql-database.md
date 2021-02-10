@@ -384,6 +384,9 @@ To copy data to Azure SQL Database, the following properties are supported in th
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. An example is "00:30:00" (30 minutes). | No |
 | disableMetricsCollection | Data Factory collects metrics such as Azure SQL Database DTUs for copy performance optimization and recommendations, which introduces additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 
+> [!TIP]
+> To load data into an Identity column of a table in Azure SQL Database, ADF implicitly executes the `SET IDENTITY_INSERT ON` before starting the Copy activity and executes `SET IDENTITY_INSERT OFF` once the data is ingested.
+
 **Example 1: Append data**
 
 ```json
