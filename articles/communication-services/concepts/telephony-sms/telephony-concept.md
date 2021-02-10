@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 
 Azure Communication Services Calling client libraries can be used to add telephony and PSTN to your applications. 
 This page summarizes key telephony concepts and capabilities.
-See the [calling library](https://docs.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web) to learn more about specific client library languages and capabilities.
+See the [calling library](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web) to learn more about specific client library languages and capabilities.
 
 ## Overview of telephony
 Whenever your users interact with a traditional telephone number, calls are facilitated by PSTN (Public Switched Telephone Network) voice calling. 
