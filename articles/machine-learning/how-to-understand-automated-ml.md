@@ -229,10 +229,7 @@ In this example, note that the better model has a predicted vs. true line that i
 
 While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model used to make its predictions is essential when practicing responsible AI. That's why automated ML provides a model interpretability dashboard to measure and report the relative contributions of dataset features.
 
-![Feature importances](./media/how-to-understand-automated-ml/how-to-feature-importance.gif)
-
 To view the interpretability dashboard in the studio:
-
 1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace
 2. In the left menu, select **Experiments**
 3. Select your experiment from the list of experiments
@@ -241,10 +238,11 @@ To view the interpretability dashboard in the studio:
 6. In the **Explanations** tab, you may see an explanation was already created if the model was the best
 7. To create a new explanation, select **Explain model** and select the remote compute with which to compute explanations
 
+[Learn more about model explanations in automated ML](how-to-machine-learning-interpretability-automl.md).
+
 > [!NOTE]
 > The ForecastTCN model is not currently supported by automated ML explanations and other forecasting models may have limited access to interpretability tools.
 
 ## Next steps
 * Try the [automated machine learning model explanation sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
-* Learn more about [responsible AI offerings in automated ML](how-to-machine-learning-interpretability-automl.md).
 * For automated ML specific questions, reach out to askautomatedml@microsoft.com.
