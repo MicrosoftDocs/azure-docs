@@ -61,18 +61,18 @@ If there are no user permissions, select **Add Access Policy**, and specify the 
 
 Azure VMs using ADE can have the following variations and the permissions need to be set accordingly for relevant components.
 - Default option where the disk is encrypted using only secrets
-- Added security using (key encryption key)[https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-key-vault#set-up-a-key-encryption-key-kek]
+- Added security using (key encryption key)[../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek]
 
-### Source region Keyvault
+### Source region keyvault
 
 The below permissions need to be set for the user executing the script 
 
 **Component** | **Permission needed**
 --- | ---
 Secrets|  Get permission <br> </br> In **Secret permissions**>  **Secret Management Operations**, select **Get** 
-Keys <br> </br> If you are using Key encryption you need this permission in addition to secrets| Get and Decrypt permission <br> </br> In **Key Permissions** > **Key Management Operations**, select **Get**. In **Cryptographic Operations**, select **Decrypt**.
+Keys <br> </br> If you are using Key encryption key (KEK) you need this permission in addition to secrets| Get and Decrypt permission <br> </br> In **Key Permissions** > **Key Management Operations**, select **Get**. In **Cryptographic Operations**, select **Decrypt**.
 
-### Destination region Keyvault
+### Destination region keyvault
 
 In **Access policies**, make sure that **Azure Disk Encryption for volume encryption** is enabled. 
 
@@ -81,9 +81,9 @@ The below permissions need to be set for the user executing the script
 **Component** | **Permission needed**
 --- | ---
 Secrets|  Set permission <br> </br> In **Secret permissions**>  **Secret Management Operations**, select **Set** 
-Keys <br> </br> If you are using Key encryption you need this permission in addition to secrets| Get, Create and Encrypt permission <br> </br> In **Key Permissions** > **Key Management Operations**, select **Get** and **Create** . In **Cryptographic Operations**, select **Encrypt**.
+Keys <br> </br> If you are using Key encryption key (KEK) you need this permission in addition to secrets| Get, Create and Encrypt permission <br> </br> In **Key Permissions** > **Key Management Operations**, select **Get** and **Create** . In **Cryptographic Operations**, select **Encrypt**.
 
-In addition to the the above permissions, in the destination key vault you need to add permissions for the [Managed System Identity](./common-questions.md#how-is-managed-identity-used-in-resource-mover) that Resource Mover uses for accessing the Azure resource in your behalf. 
+In addition to the the above permissions, in the destination key vault you need to add permissions for the [Managed System Identity](./common-questions.md#how-is-managed-identity-used-in-resource-mover) that Resource Mover uses for accessing the Azure resources on your behalf. 
 
 1. Under **Settings**, select **Add Access policies**. 
 2. In **Select principal**, search for the MSI. The MSI name is ```movecollection-<sourceregion>-<target-region>-<metadata-region>```. 
@@ -92,7 +92,7 @@ In addition to the the above permissions, in the destination key vault you need 
 **Component** | **Permission needed**
 --- | ---
 Secrets|  Get and List permission <br> </br> In **Secret permissions**>  **Secret Management Operations**, select **Get** and **List** 
-Keys <br> </br> If you are using Key encryption you need this permission in addition to secrets| Get, List permission <br> </br> In **Key Permissions** > **Key Management Operations**, select **Get** and **List**
+Keys <br> </br> If you are using Key encryption key (KEK) you need this permission in addition to secrets| Get, List permission <br> </br> In **Key Permissions** > **Key Management Operations**, select **Get** and **List**
 
 
 
