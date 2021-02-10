@@ -27,19 +27,19 @@ This article provides information on each of the processes.
 
 ## Edit content through files, not visual editor
 
-In the [self-hosting tutorial](dev-portal-self-host-portal.md) we described the workflow of editing content and customizing the portal through the built-in visual editor. You can also use REST API to fetch the underlying data files, edit them directly in a text editor, and upload new versions through API calls.
+The [self-hosting tutorial](dev-portal-self-host-portal.md) described the workflow of editing content and customizing the portal through the built-in visual editor. You can also use REST API to fetch the underlying data files, edit them directly in a text editor, and upload new versions through API calls.
 
 ## Bring your own CMS
 
-By default, portal's content (e.g., pages) is retrieved from, saved to, and stored in an API Management service.
+By default, portal's content (for example, pages) is retrieved from, saved to, and stored in an API Management service.
 
-You can configure your portal deployment to use a different data source - for example, a headless CMS to manage your content. 
+You can set up your portal deployment to use a different data source - for example, a headless CMS to manage your content. 
 
 Examples on how to achieve that are coming soon.
 
 ## Build for production
 
-If you would like to host the development environment of the portal online for collaboration purposes, use production builds of the designer and the publisher. Production builds bundle the files, exclude source maps, etc.
+If you would like to host the development environment of the portal online for collaboration purposes, use production builds of the designer and the publisher. Production builds bundle the files, exclude source maps, and so on.
 
 Create a bundle in the `./dist/designer` directory by running the command:
 
@@ -47,7 +47,7 @@ Create a bundle in the `./dist/designer` directory by running the command:
 npm run build-designer
 ```
 
-The result is a single page application, so you can still deploy it to a static web host, e.g. Azure Blob Storage Static Website.
+The result is a single page application, so you can still deploy it to a static web host, for example Azure Blob Storage Static Website.
 
 Similarly, place a compiled and optimized publisher in the `./dist/publisher` folder:
 
@@ -61,7 +61,7 @@ npm run build-publisher
 
 Running the publishing step in the cloud is an alternative to executing it locally.
 
-To implement it with an Azure Function App, you will need to first:
+To implement it with an Azure Function App, first you'll need to:
 
 - [Create an Azure Function](../azure-functions/functions-create-first-azure-function.md). The Function needs to be a JavaScript language Function.
 - Install Azure Functions Core Tools:
@@ -69,9 +69,9 @@ To implement it with an Azure Function App, you will need to first:
     npm install –g azure-function-core-tools
     ```
 
-### Step 1: Configure output storage
+### Configure output storage
 
-You will be will be uploading the content directly to website hosting ("$web" container of output storage), instead of a local folder. You need to account for that in the `./src/config.publish.json` file:
+You'll be uploading the content directly to website hosting ("$web" container of output storage), instead of a local folder. Account for it in the `./src/config.publish.json` file:
 
 ```json
 {
@@ -82,15 +82,15 @@ You will be will be uploading the content directly to website hosting ("$web" co
 }
 ```
 
-### Step 2: Build and deploy the Function App
+### Build and deploy the Function App
 
-There is a sample HTTP Trigger Function in the `./examples` folder. To build it and place it in `./dist/function`, run the following command:
+There's a sample HTTP Trigger Function in the `./examples` folder. To build it and place it in `./dist/function`, run the following command:
 
 ```sh
 npm run build-function
 ```
 
-Then, login to Azure and deploy it:
+Then, sign in to Azure and deploy it:
 
 ```sh
 az login
@@ -98,7 +98,7 @@ cd ./dist/function
 func azure functionapp publish <function app name>
 ```
 
-Once it is deployed, you can invoke it with an HTTP call:
+Once it's deployed, you can invoke it with an HTTP call:
 
 ```sh
 curl -X POST https://<function app name>.azurewebsites.net/api/publish
