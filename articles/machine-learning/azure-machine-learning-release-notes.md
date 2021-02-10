@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 09/10/2020
+ms.date: 02/09/2021
 ---
 
 # Azure Machine Learning release notes
@@ -26,10 +26,10 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + Fixed a bug where classical forecasting models (e.g. AutoArima) could receive training data wherein rows with imputed target values were not present. This violated the data contract of these models. * Fixed various bugs with lag-by-occurrence behavior in the time-series lagging operator. Previously, the lag-by-occurrence operation did not mark all imputed rows correctly and so would not always generate the correct occurrence lag values. Also fixed some compatibility issues between the lag operator and the rolling window operator with lag-by-occurrence behavior. This previously resulted in the rolling window operator dropping some rows from the training data that it should otherwise use.
   + **azureml-core**
     + Adding support for Token Authentication by audience.
-    + Add `process_count` to [PyTorchConfiguration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py) to support multi-process multi-node PyTorch jobs.
+    + Add `process_count` to [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py) to support multi-process multi-node PyTorch jobs.
   + **azureml-pipeline-steps**
-    + [CommandStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.commandstep?view=azure-ml-py) now GA and no longer experimental.
-    + [ParallelRunConfig](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?view=azure-ml-py): add argument allowed_failed_count and allowed_failed_percent to check error threshold on mini batch level. Error threshold has 3 flavors now:
+    + [CommandStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.commandstep?view=azure-ml-py) now GA and no longer experimental.
+    + [ParallelRunConfig](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?view=azure-ml-py): add argument allowed_failed_count and allowed_failed_percent to check error threshold on mini batch level. Error threshold has 3 flavors now:
        + error_threshold - the number of allowed failed mini batch items; 
        + allowed_failed_count - the number of allowed failed mini batches; 
        + allowed_failed_percent- the percent of allowed failed mini batches. 
@@ -38,7 +38,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
     + Fixed whitespace handling in AutoMLStep name.
   + **azureml-train-core**
     + HyperDrive runs invoked from a ScriptRun will now be considered a child run.
-    + Add `process_count` to [PyTorchConfiguration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py) to support multi-process multi-node PyTorch jobs.
+    + Add `process_count` to [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py) to support multi-process multi-node PyTorch jobs.
   + **azureml-widgets**
     + Add widget ParallelRunStepDetails to visualize status of a ParallelRunStep.
     + Allows hyperdrive users to see an additional axis on the parallel coordinates chart that shows the metric value corresponding to each set of hyperparameters for each child run.
