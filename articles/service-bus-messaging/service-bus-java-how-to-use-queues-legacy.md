@@ -228,7 +228,7 @@ constant across delivery attempts.
 ## Next Steps
 You can find Java samples on GitHub in the [`azure-service-bus` repository](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-[Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
+[Azure SDK for Java]: /azure/developer/java/sdk/get-started
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
