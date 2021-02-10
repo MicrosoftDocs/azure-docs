@@ -58,6 +58,9 @@ Standard SKU public IP addresses:
 > [!NOTE]
 > Only Public IP addresses with basic SKU are available when using [instance metadata service IMDS](../virtual-machines/windows/instance-metadata-service.md). Standard SKU is not supported.
 
+> [!NOTE]
+> Diagnostic settings does not appear under the resouce blade when using a Standard SKU Public IP address. To enable logging on your Standard Public IP address resource  navigate to diagnostic settings under the Azure Monitor blade and select your IP address resource.
+
 ### Basic
 
 All public IP addresses created before the introduction of SKUs are Basic SKU public IP addresses. 

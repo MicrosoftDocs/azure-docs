@@ -22,7 +22,7 @@ ms.author: allensu
 ### How is traffic being sent when using Private Link?
 Traffic is sent privately using Microsoft backbone. It doesn’t traverse the internet. Azure Private Link doesn't store customer data.
  
-### What is the difference between a Service Endpoints and a Private Endpoints?
+### What is the difference between Service Endpoints and Private Endpoints?
 - Private Endpoints grant network access to specific resources behind a given service providing granular segmentation. Traffic can reach the service resource from on premises without using public endpoints.
 - A service endpoint remains a publicly routable IP address.  A private endpoint is a private IP in the address space of the virtual network where the private endpoint is configured.
 
@@ -30,6 +30,9 @@ Traffic is sent privately using Microsoft backbone. It doesn’t traverse the in
 Multiple private link resource types support access via Private Endpoint. Resources include Azure PaaS services and your own Private Link Service. It's a one-to-many relationship. 
 
 A Private Link service receives connections from multiple private endpoints. A private endpoint connects to one Private Link service.    
+
+### Do I need to disable network policies for Private Link
+Yes. Both Private endpoint and Private Link Service need to disable Network policies to function properly. They both have properties independent of one another.
 
 ## Private Endpoint 
  
