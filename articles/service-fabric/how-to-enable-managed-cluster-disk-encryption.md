@@ -95,7 +95,7 @@ The following step will walk you through the required template changes to enable
     "keyEncryptionKeyURL": { 
         "type": "string", 
         "metadata": { 
-            "description": "URL of the KeyEncryptionKey used to encrypt the volume encryption key. The Valut is assumed to be in keyVaultResourceGroup" 
+            "description": "URL of the KeyEncryptionKey used to encrypt the volume encryption key. The Value is assumed to be in keyVaultResourceGroup" 
         } 
     }, 
 
@@ -116,7 +116,7 @@ The following step will walk you through the required template changes to enable
 }, 
 ```
 
-1. Next, add the `AzureDiskEncryption` VM extension to the managed cluster node types in the template:
+2. Next, add the `AzureDiskEncryption` VM extension to the managed cluster node types in the template:
 
 ```json
 "properties": { 
@@ -141,7 +141,7 @@ The following step will walk you through the required template changes to enable
 } 
 ```
 
-1. Finally, update the parameters file, substituting your own subscription, resource group, and key vault name in *keyVaultResourceId*:
+3. Finally, update the parameters file, substituting your own subscription, resource group, and key vault name in *keyVaultResourceId*:
 
 ```json
 "parameters": { 
