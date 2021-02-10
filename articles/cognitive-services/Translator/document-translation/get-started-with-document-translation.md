@@ -44,7 +44,7 @@ The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is th
 
 :::image type="content" source="../media/instance-details-azure-portal.png" alt-text="Image of the Azure portal, create resource, instant details, name field.":::
 
-### Find your subscription key
+### Get your subscription key
 
 Requests to the Translator service require a read-only key for authenticating access.
 
@@ -52,6 +52,10 @@ Requests to the Translator service require a read-only key for authenticating ac
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 1. Copy and paste your subscription key in a convenient location, such as *Microsoft Notepad*.
 1. You'll paste it into the code below to authenticate your request to the Document Translation service.
+
+:::image type="content" source="../../media/cognitive-services-apis-create-account/get-cog-serv-keys.png" alt-text="Get key and endpoint.":::
+
+[get](../../media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 ## Create your Azure blob storage containers
 
