@@ -96,9 +96,7 @@ Use an [Azure Logic App](/azure/logic-apps/) to create a serverless, custom conn
     |**HTTP/S endpoint**     |  Recommended for streaming, and if the source system can initiate the data transfer. <br>For more information, see [Call service endpoints over HTTP or HTTPs](/azure/connectors/connectors-native-http).       |
     |     |         |
 
-1. **Use any of the Logic App connectors that read information to get your events**.
-
-    For example:
+1. **Use any of the Logic App connectors that read information to get your events**. For example:
 
     - [Connect to a REST API](/connectors/custom-connectors/)
     - [Connect to a SQL Server](/connectors/sql/)
