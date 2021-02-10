@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/04/2021
+ms.date: 02/10/2021
 ms.author: memildin
 
 ---
@@ -115,17 +115,95 @@ For example, you might want Security Center to email a specific user when a comp
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Using changes to regulatory compliance assessments to trigger a workflow automation" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
+
+
+
+## FAQ - Regulatory compliance dashboard
+
+- [What standards are supported in the compliance dashboard?](#what-standards-are-supported-in-the-compliance-dashboard)
+- [Why do some controls appear grayed out?](#why-do-some-controls-appear-grayed-out)
+- [How can I remove a built-in standard, like PCI-DSS, ISO 27001, or SOC2 TSP from the dashboard?](#how-can-i-remove-a-built-in-standard-like-pci-dss-iso-27001-or-soc2-tsp-from-the-dashboard)
+- [I made the suggested changed based on the recommendation, yet it isn't being reflected in the dashboard](#i-made-the-suggested-changed-based-on-the-recommendation-yet-it-isnt-being-reflected-in-the-dashboard)
+- [What permissions do I need to access the compliance dashboard?](#what-permissions-do-i-need-to-access-the-compliance-dashboard)
+- [The regulatory compliance dashboard isn't loading for me](#the-regulatory-compliance-dashboard-isnt-loading-for-me)
+- [How can I view a report of passing and failing controls per standard in my dashboard?](#how-can-i-view-a-report-of-passing-and-failing-controls-per-standard-in-my-dashboard)
+- [How can I download a report with compliance data in a format other than PDF?](#how-can-i-download-a-report-with-compliance-data-in-a-format-other-than-pdf)
+- [How can I create exceptions for some of the policies in the regulatory compliance dashboard?](#how-can-i-create-exceptions-for-some-of-the-policies-in-the-regulatory-compliance-dashboard)
+- [What Azure Defender plans or licenses do I need to use the regulatory compliance dashboard?](#what-azure-defender-plans-or-licenses-do-i-need-to-use-the-regulatory-compliance-dashboard)
+
+### What standards are supported in the compliance dashboard?
+By default, the regulatory compliance dashboard shows the Azure Security Benchmark. The Azure Security Benchmark is the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Learn more in the [Azure Security Benchmark introduction](../security/benchmarks/introduction.md).
+
+To track your compliance with any other standard requires you to explicitly add them to your dashboard.
+ 
+You can add standards such as Azure CIS 1.1.0 (new), NIST SP 800-53 R4, NIST SP 800-171 R2, SWIFT CSP CSCF-v2020, UK Official and UK NHS, HIPAA HITRUST, Canada Federal PBMM, ISO 27001, SOC2-TSP, and PCI-DSS 3.2.1.  
+ 
+Additional standards will be added to the dashboard and included in the information on [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+
+### Why do some controls appear grayed out?
+For each compliance standard in the dashboard, there's a list of the standard's controls. For the applicable controls, you can view the details of passing and failing assessments.
+
+Some controls are grayed out. These controls don't have any Security Center assessments associated with them. Some may be procedure or process-related, and therefore can't be verified by Security Center. Some don't have any automated policies or assessments implemented yet, but will have in the future. And some controls may be the platform responsibility as explained in [Shared responsibility in the cloud](../security/fundamentals/shared-responsibility.md). 
+
+### How can I remove a built-in standard, like PCI-DSS, ISO 27001, or SOC2 TSP from the dashboard? 
+If any of the displayed regulatory standards isn't relevant to your organization, it's a simple process to remove them from the UI. This lets you further customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you. To remove a standard, follow the instructions in [Remove a standard from your dashboard](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
+
+### I made the suggested changed based on the recommendation, yet it isn't being reflected in the dashboard
+After you take action to resolve recommendations, please wait 12 hours to see the impact on your compliance data. Assessments are run approximately every 12 hours, so you will see the impact on your compliance data only after the assessments run.
+ 
+### What permissions do I need to access the compliance dashboard?
+To view compliance data, you need to have at least **Reader** access to the policy compliance data as well; so Security Reader alone won’t suffice. If you're a global reader on the subscription, that'll be enough too.
+
+The minimum set of roles for accessing the dashboard and managing standards is **Resource Policy Contributor** and **Security Admin**.
+
+
+### The regulatory compliance dashboard isn't loading for me
+To use the regulatory compliance dashboard, Azure Security Center must have Azure Defender enabled at the subscription level. If the dashboard isn't loading correctly, try the following steps:
+
+1. Clear your browser's cache.
+1. Try a different browser.
+1. Try opening the dashboard from different network location.
+
+
+### How can I view a report of passing and failing controls per standard in my dashboard?
+On the main dashboard, you can see a report of passing and failing controls for (1) the 'top 4' lowest compliance standards in the dashboard. To see all the passing/failing controls status, select (2) **Show all *x*** (where x is the number of standards you are tracking). This opens a context plane with the compliance status for all your tracked standards.
+
+:::image type="content" source="media/security-center-compliance-dashboard/summaries-of-compliance-standards.png" alt-text="Summary section of the regulatory compliance dashboard":::
+
+
+### How can I download a report with compliance data in a format other than PDF?
+When you select **Download report**, select the standard and the format (PDF or CSV). The resulting report will reflect the current set of subscriptions you have selected in the portal's filter.
+
+- The PDF report shows a summary status for the standard you selected
+- The CSV report provides detailed results per resource, as it relates to policies associated with each control
+
+Currently, there is no support for downloading a report for a custom policy; only for the supplied regulatory standards.
+
+
+### How can I create exceptions for some of the policies in the regulatory compliance dashboard?
+For policies that are built-in to ASC and are included in the secure score, you can create exemptions for one or more resources directly in the portal experience as explained in [Exempting resources and recommendations from your secure score](exempt-resource.md).
+
+For other policies, you can create an exemption directly in the policy itself, by following the instructions in [Azure Policy exemption structure](../governance/policy/concepts/exemption-structure.md).
+
+
+### What Azure Defender plans or licenses do I need to use the regulatory compliance dashboard?
+If you have any of the Azure Defender packages enabled on any of your Azure resource types, you have access to the Regulatory Compliance Dashboard, with all of its data, in Security Center.
+
+
+
+
+
 ## Next steps
 
 In this tutorial, you learned about using Security Center’s regulatory compliance dashboard to:
 
-- View and monitor your compliance posture regarding the standards and regulations that are important to you.
-- Improve your compliance status by resolving relevant recommendations and watching the compliance score improve.
+> [!div class="checklist"]
+> * View and monitor your compliance posture regarding the standards and regulations that are important to you.
+> * Improve your compliance status by resolving relevant recommendations and watching the compliance score improve.
 
 The regulatory compliance dashboard can greatly simplify the compliance process, and significantly cut the time required for gathering compliance evidence for your Azure, hybrid, and multi-cloud environment.
 
 To learn more, see these related pages:
 
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md) - Learn how to select which standards appear in your regulatory compliance dashboard. 
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) - Learn how to use recommendations in Azure Security Center to help protect your Azure resources.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) - Learn how to use recommendations in Security Center to help protect your Azure resources.
