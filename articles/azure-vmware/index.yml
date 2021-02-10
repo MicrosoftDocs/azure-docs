@@ -66,6 +66,8 @@ landingContent:
             url: tutorial-expressroute-global-reach-private-cloud.md
           - text: Scale a private cloud 
             url: tutorial-scale-private-cloud.md
+          - text: Delete a private cloud
+            url: tutorial-delete-private-cloud.md
 
 # card 3
   - title: Extend Azure VMware Solution
