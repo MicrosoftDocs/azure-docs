@@ -23,6 +23,8 @@
   expanded: true
 - name: Concepts
   items: 
+  - name: Migration
+    href: in-place-migration-overview.md
   - name: Extensions
     href: extensions.md
   - name: Available VM sizes
@@ -55,10 +57,8 @@
     href: faq.md
 - name: How To
   items:
-  - name: Migration
-    items: 
-    - name: Migration Overview
-      href: in-place-migration-overview.md
+  - name: Migrate a Cloud Service - Portal
+    href: in-place-migration-portal.md
   - name: Apply Remote Desktop extension
     href: enable-rdp.md
   - name: Apply WAD extension
