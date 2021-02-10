@@ -170,6 +170,8 @@ In this scenario you could give users one of the four built-in roles, or create 
 
 This feature will allow you to, for example, not only give users permissions to the AKS resource across subscriptions but set up and give them the role and permissions that they will have inside each of those clusters that controls the access to the Kubernetes API. For example, you can grant the `Azure Kubernetes Service RBAC Viewer` role on the subscription scope and its recipient will be able to list and get all Kubernetes objects from all clusters, but not modify them.
 
+> [!IMPORTANT]
+> Please note that you need to enable Azure RBAC for Kubernetes authorization before using this feature. For more details and step by step guidance, [see here](manage-azure-rbac.md).
 
 #### Built-in roles
 
@@ -182,7 +184,6 @@ AKS provides the following four built-in roles. They are similar to the [Kuberne
 | Azure Kubernetes Service RBAC Admin  | Allows admin access, intended to be granted within a namespace. Allows read/write access to most resources in a namespace (or cluster scope), including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
 | Azure Kubernetes Service RBAC Cluster Admin  | Allows super-user access to perform any action on any resource. It gives full control over every resource in the cluster and in all namespaces. |
 
-**To learn how to enable Azure RBAC for Kubernetes authorization, [read here](manage-azure-rbac.md).**
 
 ## Summary
 
