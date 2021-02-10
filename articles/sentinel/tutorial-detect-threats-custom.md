@@ -70,9 +70,13 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
     ```
 
     > [!NOTE]
-    > - The query length should be between 1 and 10,000 characters and cannot contain “search \*” or “union \*”.
+    > #### Rule query best practices
+    > - The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or “`union *`”.
     >
     > - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
+    >
+    > - When using the **`bag_unpack`** function in a query, if you project the columns as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must project the column as follows:
+    >   - `project field1 = column_ifexists("field1","")`
 
 ### Alert enrichment
 
@@ -88,6 +92,8 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 - Use the **Custom details** configuration section to extract event data items from your query and surface them in the alerts produced by this rule, giving you immediate event content visibility in your alerts and incidents.
 
     Learn more about surfacing custom details in alerts, and see complete instructions, [here](surface-custom-details-in-alerts.md).
+
+- Use the **Alert properties** configuration section to customize the name, description, tactics, and severity of the alert based on the contents of the events in the query results. The original values of these properties (as specified in the **General** tab) will remain as default values, if they are not populated by values from the events.
   
 ### Query scheduling and alert threshold
 
