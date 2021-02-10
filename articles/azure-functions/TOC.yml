@@ -138,6 +138,23 @@
               href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Concepts
   items:
+    - name: Best practices
+      items:
+        - name: Performance and reliability
+          href: functions-best-practices.md
+          displayName: best practices
+        - name: Manage connections
+          href: manage-connections.md
+          displayName: best practices
+        - name: Storage considerations
+          href: storage-considerations.md
+          displayName: encryption, keys, mount, files
+        - name: Error handling and function retries
+          href: functions-bindings-error-pages.md
+          displayName: best practices
+        - name: Security
+          href: security-concepts.md
+          displayName: best practices
     - name: Compare runtime versions
       href: functions-versions.md
       displayName: migrate, migration, v3
@@ -212,12 +229,7 @@
       href: functions-diagnostics.md
     - name: Consumption plan costs
       href: functions-consumption-costs.md
-    - name: Performance considerations
-      href: functions-best-practices.md
       displayName: best practice
-    - name: Storage considerations
-      href: storage-considerations.md
-      displayName: encryption, keys, mount, files
     - name: Functions Proxies
       href: functions-proxies.md
     - name: Networking options
@@ -281,9 +293,10 @@
               href: functions-create-storage-queue-triggered-function.md
             - name: Timer trigger
               href: functions-create-scheduled-function.md
-        - name: Add bindings
+        - name: Connect to services
           items:
-            - name: How to add a binding
+            - name: How to connect to services
+              displayName: bindings,integrate
               href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -395,7 +408,7 @@
           href: configure-encrypt-at-rest-using-cmk.md
     - name: Integrate
       items:
-        - name: Add bindings
+        - name: Connect to services
           items:
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md

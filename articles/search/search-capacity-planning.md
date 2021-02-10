@@ -204,6 +204,14 @@ Service level agreements (SLA) for Azure Cognitive Search are targeted at query 
 
 Basic tier tops out at one partition and three replicas. If you want the flexibility to immediately respond to fluctuations in demand for both indexing and query throughput, consider one of the Standard tiers.  If you find your storage requirements are growing much more rapidly than your query throughput, consider one of the Storage Optimized tiers.
 
+## About queries per second (QPS)
+
+Due to the large number of factors that go into query performance, Microsoft doesn't publish expected QPS numbers. QPS estimates must be developed independently by every customer using the service tier, configuration, index, and query constructs that are valid for your application. Index size and complexity, query size and complexity, and the amount of traffic are primary determinants of QPS. There is no way to offer meaningful estimates when such factors are unknown.
+
+Estimates are more predictable when calculated on services running on dedicated resources (Basic and Standard tiers). You can estimate QPS more closely because you have control over more of the parameters. For guidance on how to approach estimation, see [Azure Cognitive Search performance and optimization](search-performance-optimization.md).
+
+For the Storage Optimized tiers (L1 and L2), you should expect a lower query throughput and higher latency than the Standard tiers.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

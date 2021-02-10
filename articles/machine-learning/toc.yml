@@ -172,6 +172,8 @@
           href: concept-enterprise-security.md
         - name: Security baseline
           href: security-baseline.md
+        - name: Security controls by Azure Policy
+          href: ./security-controls-policy.md
     - name: Responsible ML
       items: 
         - name: Responsible ML overview
@@ -276,8 +278,16 @@
         - name: Set up dev environments
           displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
           href: how-to-configure-environment.md
-        - name: Run Jupyter Notebooks
-          href: how-to-run-jupyter-notebooks.md
+        - name: Set up studio environment
+          items:
+            - name: Create and manage files
+              href: how-to-manage-files.md
+              displayName: Jupyter, notebooks, clone, samples
+            - name: Run Jupyter Notebooks
+              href: how-to-run-jupyter-notebooks.md
+            - name: Use a terminal
+              href: how-to-access-terminal.md
+              displayName: git, github, clone, kernel, package
         - name: Set up software environments
           displayName: pip, Conda, anaconda
           href: how-to-use-environments.md
@@ -609,6 +619,8 @@
       href: https://azure.microsoft.com/regions/services/
     - name: User forum
       href: /answers/topics/azure-machine-learning.html
+    - name: Microsoft Learn
+      href: /learn/browse/?expanded=azure&products=azure-machine-learning
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
     - name: Compare our ML products
