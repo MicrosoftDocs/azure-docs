@@ -33,7 +33,7 @@ While private endpoints are enabled for the vault, they're used for backup and r
 | **Azure  VM backup**                                         | VM backup doesn't require you to allow access to any IPs or FQDNs. So it doesn't require private endpoints for backup and restore  of disks.  <br><br>   However, file recovery from a vault containing private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br>    When using ACL’ed unmanaged disks, ensure the  storage account containing the disks allows access to **trusted Microsoft services** if it's ACL’ed. |
 | **Azure  Files backup**                                      | Azure Files backups are stored in the local  storage account. So it doesn't require private endpoints for backup and  restore. |
 
-## Getting started with creating private endpoints for Backup
+## Get started with creating private endpoints for Backup
 
 The following sections discuss the steps involved in creating and using private endpoints for Azure Backup inside your virtual networks.
 
@@ -67,7 +67,7 @@ To create the required private endpoints for Azure Backup, the vault (the Manage
 
 - The Resource Group that contains the target VNet
 - The Resource Group where the Private Endpoints are to be created
-- The Resource Group that contains the Private DNS zones, as discussed in detail [here](#creating-private-endpoints-for-azure-backup)
+- The Resource Group that contains the Private DNS zones, as discussed in detail [here](#create-private-endpoints-for-azure-backup)
 
 We recommend that you grant the **Contributor** role for those three resource groups to the vault (managed identity). The following steps describe how to do this for a particular resource group (this needs to be done for each of the three resource groups):
 
@@ -82,7 +82,7 @@ We recommend that you grant the **Contributor** role for those three resource gr
 
 To manage permissions at a more granular level, see [Create roles and permissions manually](#create-roles-and-permissions-manually).
 
-## Creating Private Endpoints for Azure Backup
+## Create Private Endpoints for Azure Backup
 
 This section explains how to create a private endpoint for your vault.
 
@@ -107,14 +107,14 @@ This section explains how to create a private endpoint for your vault.
           - Integrate your private endpoint with a private DNS zone: Select **Yes** if you wish to integrate.
           - Use your custom DNS server: Select **No** if you wish to use your own DNS server.
 
-        Managing DNS records for both these are [described later](#managing-dns-records).
+        Managing DNS records for both these are [described later](#manage-dns-records).
 
           ![Specify the virtual network and subnet](./media/private-endpoints/configuration-tab.png)
 
     1. Optionally, you can add **Tags** for your private endpoint.
     1. Continue to **Review + create** once done entering details. When the validation completes, select **Create** to create the private endpoint.
 
-## Approving Private Endpoints
+## Approve Private Endpoints
 
 If the user creating the private endpoint is also the owner of the Recovery Services vault, the private endpoint created above will be auto-approved. Otherwise, the owner of the vault must approve the private endpoint before being able to use it. This section discusses manual approval of private endpoints through the Azure portal.
 
@@ -126,7 +126,7 @@ See [Manual approval of private endpoints using the Azure Resource Manager Clien
 
     ![Approve private endpoints](./media/private-endpoints/approve-private-endpoints.png)
 
-## Managing DNS records
+## Manage DNS records
 
 As described previously, you need the required DNS records in your private DNS zones or servers in order to connect privately. You can either integrate your private endpoint directly with Azure private DNS zones or use your custom DNS servers to achieve this, based on your network preferences. This will need to be done for all three services: Backup, Blobs, and Queues.
 
@@ -136,7 +136,7 @@ If you choose to integrate your private endpoint with private DNS zones, Backup 
 
 ![DNS configuration in Azure private DNS zone](./media/private-endpoints/dns-configuration.png)
 
-#### Validating virtual network links in private DNS zones
+#### Validate virtual network links in private DNS zones
 
 For **each private DNS** zone listed above (for Backup, Blobs and Queues), do the following:
 
@@ -209,7 +209,7 @@ At this moment, we'll only create the zones for blobs and queues when using cust
 
 We'll perform these steps in the following sections.
 
-## Using Private Endpoints for Backup
+## Use Private Endpoints for Backup
 
 Once the private endpoints created for the vault in your VNet have been approved, you can start using them for performing your backups and restores.
 
@@ -223,14 +223,14 @@ Once the private endpoints created for the vault in your VNet have been approved
 >5. Approved the Private Endpoint (if not auto approved)
 >6. Ensured all DNS records are appropriately added (except blob and queue records for custom servers, which will be discussed in the following sections)
 
-### Checking VM connectivity
+### Check VM connectivity
 
 In the VM in the locked down network, ensure the following:
 
 1. The VM should have access to AAD.
 2. Execute **nslookup** on the backup URL (`xxxxxxxx.privatelink.<geo>.backup. windowsazure.com`) from your VM, to ensure connectivity. This should return the private IP assigned in your virtual network.
 
-### Configuring backup
+### Configure backup
 
 Once you ensure the above checklist and access to have been successfully completed, you can continue to configure backup of workloads to the vault. If you're using a custom DNS server, you'll need to add DNS entries for blobs and queues that are available after configuring the first backup.
 
@@ -272,7 +272,7 @@ After you run the first backup and you're using a custom DNS server (without con
 
     `<private ip><space><blob service privatelink FQDN>`
 
->[!NOTE
+>[!NOTE]
 >At this point, you should be able to run **nslookup** from the VM and resolve to private IP addresses when done on the vault’s Backup and Storage URLs.
 
 ### When using SQL Availability Groups
