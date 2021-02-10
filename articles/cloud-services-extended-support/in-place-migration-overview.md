@@ -22,9 +22,9 @@ The migration tool utilizes the same APIs and has the same experience as the Vir
 
 
 The platform supported migration provides following key benefits:
-1. The migration is fully orchestrated by the platform, moving the entire deployment and associated resources to Azure Resource Manager.
-2. No downtime migration.
-3. Easy and fast migration compared to other migration paths by minimizing manual tasks. 
+- The migration is fully orchestrated by the platform, moving the entire deployment and associated resources to Azure Resource Manager.
+- No downtime migration.
+- Easy and fast migration compared to other migration paths by minimizing manual tasks. 
 
 For additional benefits and why you should migrate, see [Cloud Services (extended support)](overview.md) and [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
