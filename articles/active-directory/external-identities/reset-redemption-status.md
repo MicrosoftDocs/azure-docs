@@ -25,7 +25,7 @@ After a guest user has redeemed your invitation for B2B collaboration, there mig
 - The user has moved to a different company, but they still need the same access to your resources
 - The user’s responsibilities have been passed along to another user
 
-To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while retaining the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the new email address becomes the user's UPN. The user can subsequently sign in using the new email or an email you've added to the `otherMails` property of the user object.
+To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while retaining the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the UPN of the user does not change but their sign in name changes to the new email. The user can subsequently sign in using the new email or an email you've added to the `otherMails` property of the user object.
 
 ## Use PowerShell to reset redemption status
 
