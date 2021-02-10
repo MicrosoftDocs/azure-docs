@@ -27,9 +27,13 @@ The following diagram illustrates how Azure Route Server works with an SDWAN NVA
 Azure Route Server simplifies configuration, management, and deployment of your NVA in your virtual network.  
 
 * You no longer need to manually update the routing table on your NVA whenever your virtual network addresses are updated. 
+
 * You no longer need to update [User-Defined Routes](../virtual-network/virtual-networks-udr-overview.md) manually whenever your NVA announces new routes or withdraw old ones. 
+
 * You no longer need to configure a load balancer in front of your NVA for resiliency or performance purposes. When you peer multiple instances of your NVA with Azure Route Server, you can configure the BGP attributes in your NVA. These BGP attributes will let Azure Route Server which NVA instance should be active or passive<link to a FAQ>. 
+
 * The interface between NVA and Azure Route Server is based on a common standard protocol. As long as your NVA supports BGP, you can peer it with Azure Route Server<link to a FAQ>. 
+
 * You can deploy Azure Route Server in any of your new or existing virtual network. 
 
 ## FAQ
