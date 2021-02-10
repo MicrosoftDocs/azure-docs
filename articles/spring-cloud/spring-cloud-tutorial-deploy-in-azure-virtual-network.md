@@ -4,7 +4,7 @@ description: Deploy Azure Spring Cloud in a virtual network (VNet injection).
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java
 ---
