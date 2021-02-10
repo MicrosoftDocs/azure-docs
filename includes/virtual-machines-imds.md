@@ -244,9 +244,10 @@ When you don't specify a version, you get an error with a list of the newest sup
 - 2020-07-15
 - 2020-09-01
 - 2020-10-01
+- 2020-12-01
 
 > [!NOTE]
-> Version 2020-10-01 is currently being rolled out and may not yet be available in every region.
+> Version 2020-12-01 is currently being rolled out and may not yet be available in every region.
 
 ### Swagger
 
@@ -332,6 +333,7 @@ Schema breakdown:
 |------|-------------|--------------------|
 | `azEnvironment` | Azure Environment where the VM is running in | 2018-10-01
 | `customData` | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
+| `evictionPolicy` | Sets how a [Spot VM](.../articles/virtual-machines/spot-vms.md) will be evicted. | 2020-12-01
 | `isHostCompatibilityLayerVm` | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
 | `licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs | 2020-09-01
 | `location` | Azure Region the VM is running in | 2017-04-02
@@ -345,6 +347,7 @@ Schema breakdown:
 | `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
 | `platformUpdateDomain` |  [Update domain](../articles/virtual-machines/manage-availability.md) the VM is running in | 2017-04-02
 | `platformFaultDomain` | [Fault domain](../articles/virtual-machines/manage-availability.md) the VM is running in | 2017-04-02
+| `priority` | Priority of the VM. See [Spot VM's](.../articles/virtual-machines/spot-vms.md) for more information | 2020-12-01
 | `provider` | Provider of the VM | 2018-10-01
 | `publicKeys` | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
 | `publisher` | Publisher of the VM image | 2017-04-02
