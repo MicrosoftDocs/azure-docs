@@ -109,7 +109,7 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
 
 1. To use the **Azure Defender** filter, select one or more options (Off, On, or Partial):
 
-    - **Off** - Resources that aren't protected by an Azure Defender plan. You can right click on any of these and upgrade them:
+    - **Off** - Resources that aren't protected by an Azure Defender plan. You can right-click on any of these and upgrade them:
 
         :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Upgrade a resource to Azure Defender from right click" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 

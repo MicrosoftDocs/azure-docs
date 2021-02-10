@@ -83,7 +83,7 @@ Security Center's asset inventory page has been improved in the following ways:
 
     :::image type="content" source="media/release-notes/unregistered-subscriptions.png" alt-text="Count of unregistered subscriptions in the summaries at the top of the asset inventory page":::
 
-- Filters have bee expanded and enhanced to include:
+- Filters have been expanded and enhanced to include:
     - **Counts** - Each filter presents the number of resources that meet the criteria of each category
 
         :::image type="content" source="media/release-notes/counts-in-inventory-filters.png" alt-text="Counts in the filters in the asset inventory page of Azure Security Center":::
