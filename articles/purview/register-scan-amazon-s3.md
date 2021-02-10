@@ -21,7 +21,7 @@ In this how-to guide, you'll learn about:
 - [Purview scope for Amazon S3](#purview-scope-for-amazon-s3)
 - [Prerequisites for adding AWS S3 buckets to Purview](#prerequisites)
 - [Add a single Amazon S3 bucket as a Purview resource](#add-a-single-amazon-s3-bucket-as-a-purview-resource)
-- [Add all of your Amazon S3 buckets in your Amazon account as Purview resources](#add-all-of-your-amazon-s3-buckets-in-your-amazon-account-as-purview-resources)
+- [Add all of your Amazon S3 buckets as Purview resources](#add-all-of-your-amazon-s3-buckets-as-purview-resources)
 - [Create a scan for your Amazon S3 bucket](#create-a-scan-for-your-amazon-s3-bucket)
 - [Explore Purview scanning results](#explore-purview-scanning-results)
 
@@ -306,7 +306,7 @@ Use this procedure if you only have a single S3 bucket that you want to register
 
 Continue with [Create a scan for your Amazon S3 bucket](#create-a-scan-for-your-amazon-s3-bucket).
 
-## Add all of your Amazon S3 buckets in your Amazon account as Purview resources
+## Add all of your Amazon S3 buckets as Purview resources
 
 Use this procedure if you have multiple S3 buckets in your Amazon account, and you want to register all of as Purview data sources.
 
