@@ -12,6 +12,9 @@ ms.date: 03/02/2021
 ---
 # Semantic search in Azure Cognitive Search
 
+> [!IMPORTANT]
+> Semantic search is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 TBD
 
 ## Next steps
