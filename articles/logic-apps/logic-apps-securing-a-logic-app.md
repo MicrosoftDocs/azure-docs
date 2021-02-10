@@ -317,7 +317,7 @@ To restrict the inbound IP addresses for your logic app, follow these steps for 
 
 #### [Portal](#tab/azure-portal)
 
-In the [Azure portal](https://portal.azure.com), this filter affects both triggers *and* actions, contrary to the description in the portal under **Allowed inbound IP addresses**. If you want to set this filter on triggers separately from actions, use the [`accessControl` object in your logic app's Azure Resource Manager template](#restrict-inbound-ip-template) or the [Logic Apps REST API: Workflow - Create Or Update operation](/rest/api/logic/workflows/createorupdate).
+In the [Azure portal](https://portal.azure.com), this filter affects both triggers *and* actions, contrary to the description in the portal under **Allowed inbound IP addresses**. To set up this filter separately for triggers and for actions, use the `accessControl` object in an Azure Resource Manager template for your logic app or the [Logic Apps REST API: Workflow - Create Or Update operation](/rest/api/logic/workflows/createorupdate).
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
@@ -614,8 +614,6 @@ In the underlying trigger or action definition, add or update the `runtimeConfig
 
 * `"inputs"`: Secures inputs in run history.
 * `"outputs"`: Secures outputs in run history.
-
-Here are some [considerations to review](#obfuscation-considerations) when you use these settings to help you secure this data.
 
 ```json
 "<trigger-or-action-name>": {
