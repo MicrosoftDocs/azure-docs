@@ -1,12 +1,12 @@
 ---
-title: Request hosts and enable the Microsoft.AVS resource provider
+title: Request host quota and enable Azure VMware Solution
 description: Learn how to request hosts (quota increase) and enable the Azure VMware Solution resource provider. You can also request more hosts in an existing Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
 ms.date: 02/17/2021
 ---
 
-# Request hosts and enable the Microsoft.AVS resource provider
+# Request host quota and enable Azure VMware Solution
 
 In this how-to, you'll learn how to request hosts (quota increase) and enable the [Azure VMware Solution](introduction.md) resource provider. Before you can enable your Azure VMware Solution resource, you'll need to submit a support ticket to have your hosts allocated. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
 

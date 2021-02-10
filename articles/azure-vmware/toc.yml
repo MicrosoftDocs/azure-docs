@@ -52,7 +52,7 @@
     href: concepts-upgrades.md
 - name: How-to guides
   items:
-  - name: Enable Azure VMware Solution
+  - name: Request host quota and enable Azure VMware Solution
     href: enable-azure-vmware-solution.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
