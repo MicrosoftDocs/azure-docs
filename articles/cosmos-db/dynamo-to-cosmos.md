@@ -90,6 +90,9 @@ The following JSON object represents the data format in Azure Cosmos DB
 
 There are various options available to migrate your data to Azure Cosmos DB. To learn more, see the [Options to migrate your on-premises or cloud data to Azure Cosmos DB](cosmosdb-migrationchoices.md) article.
 
+***Why my overall data size got increased?***
+In Azure Cosmos DB, overall size include Index Size & Data Size, you can go to Metrics and look for the split, refer [here](monitor-cosmos-db). It by default, index every field such that you can achieve schema flexibility and query capabilities on any data item. You can optimize the data size by excluding fields which are not supposed to be queried or switch off completely to use Azure Cosmos DB like key/value pair database, refer [here](index-policy.md) for the overview and refer [here](how-to-manage-indexing-policy.md) to detail out the customization options.
+
 ## Migrate your code
 
 This article is scoped to migrate an application's code to Azure Cosmos DB, which is the critical aspect of database migration. To help you reduce learning curve, the following sections include a side-by-side code comparison between Amazon DynamoDB and Azure Cosmos DB's equivalent code snippet.
