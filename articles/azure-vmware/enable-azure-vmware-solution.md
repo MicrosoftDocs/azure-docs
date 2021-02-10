@@ -1,6 +1,6 @@
 ---
 title: Request host quota and enable Azure VMware Solution
-description: Learn how to request hosts (quota increase) and enable the Azure VMware Solution resource provider. You can also request more hosts in an existing Azure VMware Solution private cloud.
+description: Learn how to request host quota/capacity and enable the Azure VMware Solution resource provider. You can also request more hosts in an existing Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
 ms.date: 02/17/2021
@@ -25,7 +25,7 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
 - A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 - A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
 
-## Request hosts for EA customers
+## Request host quota for EA customers
 
 1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
    - **Issue type:** Technical
@@ -49,7 +49,7 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
 1. Select **Review + Create** to submit the request.
 
 
-## Request hosts for CSP customers 
+## Request host quota for CSP customers 
 
 CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. This article uses [CSP Azure plan](/partner-center/azure-plan-lp) as an example to illustrate the purchase procedure for partners.
 
