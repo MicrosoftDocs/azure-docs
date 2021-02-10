@@ -19,7 +19,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------|---------------|---------------|
 | [Reset Documents (preview)](search-howto-run-reset-indexers.md) |  Reprocesses individually selected search documents in indexer workloads. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
-| Availability Zone support | Search services with two or more replicas in certain regions, as listed in [Scale for performance](search-performance-optimization.md), gain resiliency by having replicas in two or more distinct physical locations.  | The region and date of search service creation determine availability. See the performance tuning document for details. |
+| [Availability Zones](search-performance-optimization.md#availability-zones)| Search services with two or more replicas in certain regions, as listed in [this article](search-performance-optimization.md#availability-zones), gain resiliency by having replicas in two or more distinct physical locations.  | The region and date of search service creation determine availability. See the performance tuning document for details. |
 
 ## January 2021
 
@@ -31,7 +31,8 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 | Month | Feature | Description |
 |-------|---------|-------------|
-| November | [Customer-managed key encryption (extended)](search-security-manage-encryption-keys.md) | extends customer-managed encryption over the full range of assets created and managed by a search service. Generally available.|
+| November | [Customer-managed key encryption (extended)](search-security-manage-encryption-keys.md) | Extends customer-managed encryption over the full range of assets created and managed by a search service. Generally available.|
+| September | [Visual Studio Code extension for Azure Cognitive Search](search-get-started-vs-code.md) | Adds a workspace, navigation, intellisense, and templates for creating indexes, indexers, data sources, and skillsets. | Public preview |
 | September | [Managed service identity (indexers)](search-howto-managed-identities-data-sources.md) | Generally available.  |
 | September | [Outbound requests using a private link](search-indexer-howto-access-private.md) | Generally available.  |
 | September | [Management REST API (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | Generally available. |
