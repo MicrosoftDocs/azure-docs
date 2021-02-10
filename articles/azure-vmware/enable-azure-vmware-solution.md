@@ -2,6 +2,7 @@
 title: How to enable your Azure VMware Solution resource
 description: In this how-to, you'll learn how to request hosts (quota increase) and enable your Azure VMware Solution resource. You can also request more hosts in your existing Azure VMware Solution private cloud.
 ms.topic: how-to
+ms.custom: contperf-fy21q2
 ms.date: 02/10/2021
 ---
 
@@ -79,9 +80,9 @@ CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enabl
 
 1. Review and finish the general setup of the Azure plan subscription for your customer. For more information, see [Microsoft Partner Center documentation](/partner-center/azure-plan-manage).
 
-After configuring the Azure plan and the needed [Azure RBAC permissions](/partner-center/azure-plan-manage) are in place for the subscription, you'll engage Microsoft to enable the quota for an Azure plan subscription. Access Azure portal from [Microsoft Partner Center](https://partner.microsoft.com) using **Admin On Behalf Of** (AOBO) procedure.
+After configuring the Azure plan and the needed [Azure RBAC permissions](/partner-center/azure-plan-manage) are in place for the subscription, you'll engage Microsoft to enable the quota for an Azure plan subscription. 
 
-1. Sign in to [Partner Center](https://partner.microsoft.com).
+1. Access Azure portal from [Microsoft Partner Center](https://partner.microsoft.com) using **Admin On Behalf Of** (AOBO) procedure.
 
 1. Select **CSP** to access the **Customers** area.
 
