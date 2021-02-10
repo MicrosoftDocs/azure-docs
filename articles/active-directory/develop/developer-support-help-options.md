@@ -35,7 +35,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 ## Post a question to Microsoft Q&A
 
-For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure), Azure’s preferred destination for community support. 
+For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](https://docs.microsoft.com/answers/products/), Azure’s preferred destination for community support. 
 
 If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
 
@@ -51,8 +51,8 @@ If you can't find an answer to your problem using search, submit a new question 
 
 The following posts from [Microsoft Q&A](https://docs.microsoft.com/answers/products/) contain tips on how to ask questions and how to add source code. Follow these guidelines to increase the chances for community members to assess and respond to your question quickly:
 
-* [How do I ask a good question](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
-* [How to create a minimal, complete, and verifiable example](https://docs.microsoft.com/answers/articles/24907/how-to-write-a-quality-answer.html)
+- [How do I ask a good question](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
+- [How to create a minimal, complete, and verifiable example](https://docs.microsoft.com/answers/articles/24907/how-to-write-a-quality-answer.html)
 
 ## Post a question on Stack Overflow
 
@@ -62,18 +62,34 @@ The following posts from [Microsoft Q&A](https://docs.microsoft.com/answers/prod
 
 For answers on your developer questions from the largest community developer ecosystem, ask your question on Stack Overflow.
 
+If you do submit a new question to Stack Overflow, please use one or more of the following tags when you create the question:
+
+:::row:::
+    :::column:::
+        - [MSAL](https://stackoverflow.com/questions/tagged/msal)
+        - [OAuth](https://stackoverflow.com/questions/tagged/oauth)
+        - [Azure-Active-Directory-MSAL](https://stackoverflow.com/questions/tagged/azure-active-directory+msal)
+    :::column-end:::
+    :::column:::
+        - [SAML](https://stackoverflow.com/questions/tagged/saml)
+        - [Microsoft-Graph-API](https://stackoverflow.com/questions/tagged/microsoft-graph-api)
+        - [Identity](https://stackoverflow.com/questions/tagged/identity)
+    :::column-end:::
+:::row-end:::
+
 ## Submit feedback on Azure Feedback
 
 <div class='icon is-large'>
     <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
 </div>
 
-To request new features, post them on Azure Feedback. Share your ideas for making the Microsoft identity platform work better for the applications you develop:
+To request new features, post them on Azure Feedback. Share your ideas for making the Microsoft identity platform work better for the applications you develop.
 
 | Service                       | Azure Feedback URL |
 |-------------------------------|---------------|
 | Azure Active Directory | https://feedback.azure.com/forums/169401-azure-active-directory |
-| Azure IoT Central             | https://feedback.azure.com/forums/911455-azure-iot-central |
+| Azure Active Directory - Developer experiences             | https://feedback.azure.com/forums/169401-azure-active-directory?category_id=164757 |
+| Azure Active Directory - Authentication             | https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167256 |
 
 
 ## Stay informed of updates and new releases
@@ -84,7 +100,7 @@ To request new features, post them on Azure Feedback. Share your ideas for makin
 
 Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/en-us/updates/?category=identity).
 
-News and information about Azure IoT is shared at the [Azure blog](https://azure.microsoft.com/blog).
+News and information about Azure AD is shared at the [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity).
 
 Also, share your experiences, engage and learn from experts in the [Tech Community](https://techcommunity.microsoft.com/).
 
