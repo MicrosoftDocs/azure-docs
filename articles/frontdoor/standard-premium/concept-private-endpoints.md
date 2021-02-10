@@ -1,5 +1,6 @@
 ---
-title: Secure your origin with Private Link
+title: Secure your origin with private link
+titleSuffix: Azure Front Door Standard/Premium
 description: This page provides information about how to secure connectivity to your origin using Private Link.
 services: frontdoor
 documentationcenter: ''
@@ -30,17 +31,17 @@ Azure Front Door Premium SKU can connect to your origin using the Private Link s
 
 When you enable Private Link to your origin in Azure Front Door Premium configuration, Front Door creates a private endpoint on your behalf from Front Door's regional private network. This endpoint is managed by Azure Front Door. You'll receive an Azure Front Door private endpoint request for approval message at your origin. After you approve the request, a private IP address gets assigned from Front Door's virtual network, traffic between Azure Front Door and your origin traverses the established private link with Azure network backbone. Incoming traffic to your origin is now secured when coming from your Azure Front Door.
 
-:::image type="content" source="../media/concept-private-endpoints/enable-private-endpoint.png" alt-text="Enable Private Endpoints":::
+:::image type="content" source="../media/concept-private-endpoints/enable-private-endpoint.png" alt-text="Enable Private Endpoint":::
 
 Azure Front Door Premium supports various origin types. If your origin is hosted on a set of virtual machines in your private network, you need to first create an internal standard load balancer, enable private link service to the standard load balancer, and then select Custom origin type. For private link configuration, select "Microsoft.Network/PrivateLinkServices as resource Type. For PaaS services such as Azure Web App and Storage Account, you can enable Private Link Service from the corresponding services first and select Microsoft.Web/Sites for Web App and Microsoft.Storage/StorageAccounts for storage account private link service types.
 
 ## Limitations
 
-Azure Front Door private endpoints are deployed in below regions during public preview, we are adding more and will be in all regions before service is generally available.
+Azure Front Door private endpoints are deployed in below regions during public preview:
 
 List of Azure Front Door private endpoints regions includes: UK South, Japan East, East US, West 2 US, and South Central US.
 
-For optimal latency, you should always pick the Front Door private link endpoint to be in the same Azure Region as your origin.
+For the best latency, you should always pick an Azure region closest to your origin when choosing to enable Front Door private link endpoint.
 
 Azure Front Door private endpoints get managed by the platform and under the subscription of Azure Front Door. Azure Front Door allows private link connections to the same customer subscription that is used to create the Front Door profile.
 

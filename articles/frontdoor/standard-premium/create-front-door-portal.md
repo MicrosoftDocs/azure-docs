@@ -40,10 +40,7 @@ You can also *Choose SKU by scenario* and *Explore other offerings* to help you 
 
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create Front Door profile
-
----
-# [**Quick Create**](#tab/quick-create-portal)
+## Create Front Door profile - Quick Create
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 
@@ -80,9 +77,9 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. If you enabled Private Link, go to your origin (App service in this example). Select **Networking** > **Configure Private Link**. Then select the pending request from Azure Front Door, and click Approve. After a few seconds, your application will be accessible through Azure Front Door in a secure manner.
 
-# [**Custom Create**](#tab/custom-create-portal)
+## Create Front Door profile - Custom Create
 
-## Create a web app with two instances as the origin
+### Create a web app with two instances as the origin
 
 If you already have an origin or an origin group, go to Create a Front Door Standard/Premium (Preview) for your application.
 
@@ -240,7 +237,6 @@ To test instant global failover, we'll use the following steps:
 1. Refresh your browser. This time, you should see an error message.
 
     :::image type="content" source="../media/create-front-door-portal/web-app-stopped-message.png" alt-text="Both instances of the web app stopped":::
----
 
 ## Clean up resources
 

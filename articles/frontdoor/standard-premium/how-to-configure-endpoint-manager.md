@@ -17,7 +17,7 @@ This article shows you how to create an Azure Front Door (AFD) endpoint for an e
 
 Before you can create an Azure Front Door endpoint with Endpoint Manager, you must have created at least one Azure Front Door profile created. The profile has to have at least one or more Azure Front Door endpoints. To organize your AFD endpoints by internet domain, web application, or some other criteria, you can use multiple profiles. 
 
-To create an Azure Front Door profile, see [Create a new AFD profile](create-front-door-standard-premium-portal).
+To create an Azure Front Door profile, see [Create a new Azure Front Door profile](create-front-door-portal).
 
 ## Create a new AFD Endpoint
 
@@ -25,11 +25,11 @@ To create an Azure Front Door profile, see [Create a new AFD profile](create-fro
 
 1. Select **Endpoint Manager**. Then select **Add an Endpoint** to create a new Endpoint.
    
-    ![AFD select create endpoint](../media/how-to-configure-endpoint-manager/select-create-endpoint.png)
+    :::image type="content" source="../media/how-to-configure-endpoint-manager/select-create-endpoint.png" alt-text="Screenshot of add an endpoint through Endpoint Manager.":::
 
 1. On the **Add an endpoint** page, enter, and select the following settings.
     
-     ![Add endpoint page](../media/how-to-configure-endpoint-manager/create-endpoint-page.png)
+    :::image type="content" source="../media/how-to-configure-endpoint-manager/create-endpoint-page.png" alt-text="Screenshot of add an endpoint page.":::
 
     | Settings | Value |
     | -------- | ----- |
@@ -43,23 +43,23 @@ To create an Azure Front Door profile, see [Create a new AFD profile](create-fro
 
 1. On the **Edit Endpoint** page, select **+ Add** under Domains.
    
-    ![Select add domain](../media/how-to-configure-endpoint-manager/select-add-domain.png)
+    :::image type="content" source="../media/how-to-configure-endpoint-manager/select-add-domain.png" alt-text="Screenshot of select domain on Edit Endpoint page.":::
 
 ### Add Domain
 
 1. On the **Add Domain** page, choose to associate a domain *from your Azure Front Door profile* or *add a new domain*. For information about how to create a brand new domain, see [Create a new Azure Front Door custom domain]().
 
-    ![Add domain](../media/how-to-configure-endpoint-manager/add-domain-page.png)
+    :::image type="content" source="../media/how-to-configure-endpoint-manager/add-domain-page.png" alt-text="Screenshot of Add a domain page.":::
 
 1. Select **Add** to add the domain to current endpoint. The selected domain should appear within the Domain panel.
 
-    ![Domains in domain view](../media/how-to-configure-endpoint-manager/domain-in-domainview.png)
+    :::image type="content" source="../media/how-to-configure-endpoint-manager/domain-in-domainview.png" alt-text="Screenshot of domains in domain view.":::
 
 ### Add Origin Group
 
 1. Select **Add** at the Origin groups view. The **Add an origin group** page appears 
 
-    ![Origin group view](../media/how-to-configure-endpoint-manager/add-origin-group-view.png)
+    :::image type="content" source="../media/how-to-configure-endpoint-manager/add-origin-group-view.png" alt-text="Screenshot of add an origin group page":::
 
 1. For **Name**, enter a unique name for the new origin group
 
@@ -79,13 +79,13 @@ Front Door sends periodic HTTP/HTTPS probe requests to each of your origin. Prob
    
 * **Probe Method**: The HTTP method to be used for sending health probes. Options include GET or HEAD (default).
 
-> [!NOTE]
-> For lower load and cost on your origin, Front Door recommends using HEAD requests for health probes.
+    > [!NOTE]
+    > For lower load and cost on your origin, Front Door recommends using HEAD requests for health probes.
 
 * **Interval(in seconds)**: Defines the frequency of health probes to your origin, or the intervals in which each of the Front Door environments sends a probe.
    
->[!NOTE]
->For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your origin receive. For example, if the interval is set to 30 seconds with say, 100 Front Door POPs globally, each backend will receive about 200 probe requests per minute.
+    >[!NOTE]
+    >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your origin receive. For example, if the interval is set to 30 seconds with say, 100 Front Door POPs globally, each backend will receive about 200 probe requests per minute.
 
 #### Load balancing
 Load-balancing settings for the origin group define how we evaluate health probes. These settings determine if the backend is healthy or unhealthy. They also check how to load-balance traffic between different origins in the origin group. The following settings are available for load-balancing configuration:
@@ -98,7 +98,7 @@ Load-balancing settings for the origin group define how we evaluate health probe
 
 Select **Add** to add the origin group to current endpoint. The origin group should appear within the Origin group panel
 
-![Origins in origin group](../media/how-to-configure-endpoint-manager/orgin-in-origingroup.png)
+:::image type="content" source="../media/how-to-configure-endpoint-manager/orgin-in-origin-group.png" alt-text="Screenshot of origins in origin group.":::
 
 ### Add Route
 
@@ -108,13 +108,13 @@ Select **Add** at the Routes view, The **Add a route** page appears. For informa
 
 1. Select **Add** at the Security view, The **Add a WAF policy** page appears
  
-    ![Add WAF policy](../media/how-to-configure-endpoint-manager/Add-WAF-policy.png)
+    :::image type="content" source="../media/how-to-configure-endpoint-manager/add-waf-policy.png" alt-text="Screenshot of add a WAF policy page.":::
 
 1. **WAF Policy**: select a WAF policy you like apply for the selected domain within this endpoint. 
   
    Select **Create New** to create a brand new WAF policy.
 
-    ![Create new WAF policy](../media/how-to-configure-endpoint-manager/create-new-waf-policy.png)
+    :::image type="content" source="../media/how-to-configure-endpoint-manager/create-new-waf-policy.png" alt-text="Screenshot of create a new WAF policy.":::
    
     **Name**: enter a unique name for the new WAF policy. You could edit this policy with more configuration from the Web Application Firewall page.
 
@@ -122,10 +122,14 @@ Select **Add** at the Routes view, The **Add a route** page appears. For informa
 
 1. Select **Add** button. The WAF policy should appear within the Security panel
 
-![WAF in security view](../media/how-to-configure-endpoint-manager/waf-in-security-view.png)
+    :::image type="content" source="/media/folder-with-same-name-as-article-file/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
+
+    ![WAF in security view](../media/how-to-configure-endpoint-manager/waf-in-security-view.png)
 
 ## Clean up resources
 To delete an endpoint when it's no longer needed, select **Delete Endpoint** at the end of the endpoint row 
+
+:::image type="content" source="/media/folder-with-same-name-as-article-file/service-technology-image-description.png" alt-text="Alt text that describes the content of the image.":::
 
 ![AFD route](../media/how-to-configure-endpoint-manager/delete-endpoint.png)
 
