@@ -194,7 +194,7 @@ On the leg between the Cloud Media Processor and ACS SDK app either SILK or G.72
 
 ## Supported Session Border Controllers (SBCs)
 
-Certification is in progress. Meanwhile, customers can use [Teams Certifed Session Border Controlers](https://docs.microsoft.com/MicrosoftTeams/direct-routing-border-controllers). 
+Certification is in progress. Meanwhile, customers can use [Teams Certified Session Border Controllers](https://docs.microsoft.com/MicrosoftTeams/direct-routing-border-controllers). 
 
 ## Next steps
 
