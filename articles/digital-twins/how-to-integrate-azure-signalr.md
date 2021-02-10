@@ -133,11 +133,11 @@ In this section, you will see the result in action. First, configure the **sampl
 
 Collect the *negotiate* function's **HTTP endpoint URL**. To do this, go to the Azure portal's [Function apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) page and select your function app from the list. In the app menu, select *Functions* and choose the *negotiate* function.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Azure portal view of the function app, with 'Functions' highlighted in the menu. The list of functions is shown on the page, and the 'negotiate' function is also highlighted.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Azure portal view of the function app, with 'Functions' highlighted in the menu. The list of functions is shown on the page, and the 'negotiate' function is also highlighted.":::
 
 Hit *Get function URL* and copy the value **up through _/api_ (don't include the last _/negotiate?_)**. You will use this later.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure portal view of the 'negotiate' function. The 'Get function URL' button is highlighted, and the portion of the URL from the beginning through '/api'":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure portal view of the 'negotiate' function. The 'Get function URL' button is highlighted, and the portion of the URL from the beginning through '/api'":::
 
 Next, set up the **SignalR integration web app sample** with these steps:
 
