@@ -79,6 +79,9 @@ az storage container create \
     --auth-mode key
 ```
 
+> [!IMPORTANT]
+> When a storage account is locked with an Azure Resource Manager **ReadOnly** lock, the [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is not permitted for that storage account. **List Keys** is a POST operation, and all POST operations are prevented when a **ReadOnly** lock is configured for the account. For this reason, when the account is locked with a **ReadOnly** lock, users must access blob data with Azure AD credentials, and cannot access blob data with the account access keys.
+
 ## Authorize with a SAS token
 
 If you possess a SAS token, you can call data operations that are permitted by the SAS. The following example shows how to create a container using a SAS token:
