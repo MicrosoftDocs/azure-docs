@@ -13,18 +13,17 @@ In this how-to, you'll learn how to request hosts (quota increase) and enable th
 >[!IMPORTANT]
 >It can take a few days to allocate the hosts depending on the number requested.  So request what is needed for provisioning so you don't need to request a quota increase as often.
 
+
+The overall process is simple that includes two steps:
+- Request additional host quota/capacity for either [EA customers](#request-additional-quotacapacity-for-ea-customers) or [CSP customers](#request-additional-quotacapacity-for-csp-customers)
+- Enable the Microsoft.AVS resource provider
+
 ## Eligibility criteria
 
 You'll need an Azure account in an Azure subscription. The Azure subscription must follow with one of the following criteria:
 
 - A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 - A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
-
-
-## Overall process
-The overall process is simple that includes two steps:
-- Request additional host quota/capacity for either [EA customers](#request-additional-quotacapacity-for-ea-customers) or [CSP customers](#request-additional-quotacapacity-for-csp-customers)
-- Enable the Microsoft.AVS resource provider
 
 ## Request additional quota/capacity for EA customers
 
