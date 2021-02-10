@@ -19,14 +19,14 @@ Serverless is a compute tier for single databases in Azure SQL Database that aut
 
 ## Serverless compute tier
 
-The serverless compute tier for single databases in Azure SQL Database is parameterized by a compute autoscaling range and an autopause delay. The configuration of these parameters shapes the database performance experience and compute cost.
+The serverless compute tier for single databases in Azure SQL Database is parameterized by a compute autoscaling range and an auto-pause delay. The configuration of these parameters shapes the database performance experience and compute cost.
 
 ![serverless billing](./media/serverless-tier-overview/serverless-billing.png)
 
 ### Performance configuration
 
 - The **minimum vCores** and **maximum vCores** are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vCore range specified.  
-- The **autopause delay** is a configurable parameter that defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login or other activity occurs.  Alternatively, autopausing can be disabled.
+- The **auto-pause delay** is a configurable parameter that defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login or other activity occurs.  Alternatively, automatic pausing can be disabled.
 
 ### Cost
 
@@ -51,7 +51,7 @@ Serverless is price-performance optimized for single databases with intermittent
 ### Scenarios well-suited for provisioned compute
 
 - Single databases with more regular, predictable usage patterns and higher average compute utilization over time.
-- Databases that cannot tolerate performance trade-offs resulting from more frequent memory trimming or delay in autoresuming from a paused state.
+- Databases that cannot tolerate performance trade-offs resulting from more frequent memory trimming or delays in resuming from a paused state.
 - Multiple databases with intermittent, unpredictable usage patterns that can be consolidated into elastic pools for better price-performance optimization.
 
 ## Comparison with provisioned compute tier
@@ -97,32 +97,32 @@ Note that when CPU utilization is low, active cache utilization can remain high 
 
 The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned databases. When the database is busy, the cache is allowed to grow unconstrained up to the max memory limit.
 
-## Autopausing and autoresuming
+## Auto-pause and auto-resume
 
-### Autopausing
+### Auto-pause
 
-Autopausing is triggered if all of the following conditions are true for the duration of the autopause delay:
+Auto-pause is triggered if all of the following conditions are true for the duration of the auto-pause delay:
 
 - Number sessions = 0
 - CPU = 0 for user workload running in the user pool
 
-An option is provided to disable autopausing if desired.
+An option is provided to disable auto-pausing if desired.
 
-The following features do not support autopausing, but do support auto-scaling.  If any of the following features are used, then autopausing should be disabled and the database will remain online regardless of the duration of database inactivity:
+The following features do not support auto-pausing, but do support auto-scaling.  If any of the following features are used, then auto-pausing should be disabled and the database will remain online regardless of the duration of database inactivity:
 
 - Geo-replication (active geo-replication and auto-failover groups).
 - Long-term backup retention (LTR).
-- The sync database used in SQL data sync.  Unlike sync databases, hub and member databases support autopausing.
+- The sync database used in SQL data sync.  Unlike sync databases, hub and member databases support auto-pausing.
 - DNS aliasing
 - The job database used in Elastic Jobs (preview).
 
-Autopausing is temporarily prevented during the deployment of some service updates which require the database be online.  In such cases, autopausing becomes allowed again once the service update completes.
+Auto-pausing is temporarily prevented during the deployment of some service updates which require the database be online.  In such cases, auto-pausing becomes allowed again once the service update completes.
 
-### Autoresuming
+### Auto-resuming
 
-Autoresuming is triggered if any of the following conditions are true at any time:
+Auto-resuming is triggered if any of the following conditions are true at any time:
 
-|Feature|Autoresume trigger|
+|Feature|Auto-resume trigger|
 |---|---|
 |Authentication and authorization|Login|
 |Threat detection|Enabling/disabling threat detection settings at the database or server level.<br>Modifying threat detection settings at the database or server level.|
@@ -133,7 +133,7 @@ Autoresuming is triggered if any of the following conditions are true at any tim
 |Vulnerability assessment|Ad hoc scans and periodic scans if enabled|
 |Query (performance) data store|Modifying or viewing query store settings|
 |Performance recommendations|Viewing or applying performance recommendations|
-|Autotuning|Application and verification of autotuning recommendations such as auto-indexing|
+|Auto-tuning|Application and verification of auto-tuning recommendations such as auto-indexing|
 |Database copying|Create database as copy.<br>Export to a BACPAC file.|
 |SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
 |Modifying certain database metadata|Adding new database tags.<br>Changing max vCores, min vCores, or autopause delay.|
@@ -141,7 +141,7 @@ Autoresuming is triggered if any of the following conditions are true at any tim
 
 Monitoring, management, or other solutions performing any of the operations listed above will trigger auto-resuming.
 
-Autoresuming is also triggered during the deployment of some service updates which require the database be online.
+Auto-resuming is also triggered during the deployment of some service updates which require the database be online.
 
 ### Connectivity
 
@@ -149,7 +149,7 @@ If a serverless database is paused, then the first login will resume the databas
 
 ### Latency
 
-The latency to autoresume and autopause a serverless database is generally order of 1 minute to autoresume and 1-10 minutes to autopause.
+The latency to auto-resume and auto-pause a serverless database is generally order of 1 minute to auto-resume and 1-10 minutes to auto-pause.
 
 ### Customer managed transparent data encryption (BYOK)
 
@@ -228,7 +228,7 @@ az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### Use Transact-SQL (T-SQL)
 
-When using T-SQL, default values are applied for the min vcores and autopause delay.
+When using T-SQL, default values are applied for the min vcores and auto-pause delay.
 
 ```sql
 ALTER DATABASE testdb 
