@@ -96,7 +96,7 @@ For information on configuring these storage types, see [Configuring persistent 
 
 Azure Red Hat OpenShift 4 can build images from your source code, deploy them, and manage their lifecycle. To enable this, Azure Red Hat OpenShift provides 4 an [internal, integrated container image registry](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html) that can be deployed in your Azure Red Hat OpenShift environment to locally manage images.
 
-If you're using external registries such as [Azure Container Registry](../container-registry/index.yml), [Red Hat Quay registries](ttps://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-quay-overview_registry-options), or an [authentication enabled Red Hat registry](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options), follow steps to supply credentials to the cluster to allow the cluster to access the repositories.
+If you're using external registries such as [Azure Container Registry](../container-registry/index.yml), [Red Hat Quay registries](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-quay-overview_registry-options), or an [authentication enabled Red Hat registry](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options), follow steps to supply credentials to the cluster to allow the cluster to access the repositories.
 
 ### Monitoring
 
