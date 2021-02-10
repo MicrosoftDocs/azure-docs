@@ -1,4 +1,17 @@
-### Architectural flow for using GenerateAnswer and Train APIs from a bot
+---
+title: Implement Active Learning with Train API
+titleSuffix: Azure Cognitive Services
+description: QnA Maker lets you implement Active Learning at the client end using Train API
+services: cognitive-services
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: qna-maker
+ms.topic: how-to
+ms.date: 11/09/2020
+ms.custom: "devx-track-js, devx-track-csharp"
+---
+
+## Architectural flow for using GenerateAnswer and Train APIs from a bot
 
 A bot or other client application should use the following architectural flow to use active learning:
 
