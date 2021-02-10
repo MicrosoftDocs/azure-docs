@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/24/2020
+ms.date: 01/31/2021
 ms.author: bwren
 ms.subservice: 
 ---
@@ -61,11 +61,11 @@ If you're not yet using Azure Monitor Logs, you can use the [Azure Monitor prici
 
 If you're using Azure Monitor Logs now, it's easy to understand what the costs are likely be based on recent usage patterns. To do this, use  **Log Analytics Usage and Estimated Costs** to review and analyze data usage. This shows how much data is collected by each solution, how much data is being retained and an estimate of your costs based on the amount of data ingested and any additional retention beyond the included amount.
 
-![Usage and estimated costs](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)
+:::image type="content" source="media/manage-cost-storage/usage-estimated-cost-dashboard-01.png" alt-text="Usage and estimated costs":::
 
 To explore your data in more detail, click on the icon at the top right of either of the charts on the **Usage and Estimated Costs** page. Now you can work with this query to explore more details of your usage.  
 
-![Logs view](media/manage-cost-storage/logs.png)
+:::image type="content" source="media/manage-cost-storage/logs.png" alt-text="Logs view":::
 
 From the **Usage and Estimated Costs** page you can review your data volume for the month. This includes all the billable data received and retained in your Log Analytics workspace.  
  
@@ -86,8 +86,8 @@ To change the Log Analytics pricing tier of your workspace,
 
 2. Review the estimated costs for each of the pricing tiers. This estimate is based on the last 31 days of usage, so this cost estimate relies on the last 31 days being representative of your typical usage. In the example below you can see how, based on the data patterns from the last 31 days, this workspace would cost less in the Pay-As-You-Go tier (#1) compared to the 100 GB/day Capacity Reservation tier (#2).  
 
-    ![Pricing tiers](media/manage-cost-storage/pricing-tier-estimated-costs.png)
-
+:::image type="content" source="media/manage-cost-storage/pricing-tier-estimated-costs.png" alt-text="Pricing tiers":::
+    
 3. After reviewing the estimated costs based on the last 31 days of usage, if you decide to change the pricing tier, click **Select**.  
 
 You can also [set the pricing tier via Azure Resource Manager](../logs/resource-manager-workspace.md) using the `sku` parameter (`pricingTier` in the Azure Resource Manager template). 
@@ -128,7 +128,7 @@ None of the legacy pricing tiers has regional-based pricing.
 
 ## Change the data retention period
 
-The following steps describe how to configure how long log data is kept by in your workspace. Data retention at the workspace level can be configured from 30 to 730 days (2 years) for all workspaces unless they are using the legacy Free pricing tier.[Learn more](https://azure.microsoft.com/pricing/details/monitor/) about pricing for longer data retention. Retention for individual data types can be set as low as 4 days. 
+The following steps describe how to configure how long log data is kept by in your workspace. Data retention at the workspace level can be configured from 30 to 730 days (2 years) for all workspaces unless they are using the legacy Free pricing tier. Retention for individual data types can be set as low as 4 days. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about pricing for longer data retention.  To retain data longer than 730 days, consider using [Log Analytics workspace data export](logs-data-export.md).
 
 ### Workspace level default retention
 
@@ -138,11 +138,11 @@ To set the default retention for your workspace,
 2. On the **Usage and estimated costs** page, click **Data Retention** from the top of the page.
 3. On the pane, move the slider to increase or decrease the number of days and then click **OK**.  If you are on the *free* tier, you will not be able to modify the data retention period and you need to upgrade to the paid tier in order to control this setting.
 
-    ![Change workspace data retention setting](media/manage-cost-storage/manage-cost-change-retention-01.png)
+:::image type="content" source="media/manage-cost-storage/manage-cost-change-retention-01.png" alt-text="Change workspace data retention setting":::
 
 When the retention is lowered, there is a several day grace period before the data older than the new retention setting is removed. 
 
-The retention can also be [set via Azure Resource Manager](../logs/resource-manager-workspace.md) using the `retentionInDays` parameter. When you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter (eliminating the several day grace period). This may be useful for compliance-related scenarios where immediate data removal is imperative. This immediate purge functionality is only exposed via Azure Resource Manager. 
+The **Data Retention** page allows retention settings of 30, 31, 60, 90, 120, 180, 270, 365, 550 and 730 days. If another setting is required, that can be configured using [Azure Resource Manager](../logs/resource-manager-workspace.md) using the `retentionInDays` parameter. When you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter (eliminating the several day grace period). This may be useful for compliance-related scenarios where immediate data removal is imperative. This immediate purge functionality is only exposed via Azure Resource Manager. 
 
 Workspaces with 30 days retention may actually retain data for 31 days. If it is imperative that data be kept for only 30 days, use the Azure Resource Manager to set the retention to 30 days and with the `immediatePurgeDataOn30Days` parameter.  
 
@@ -226,7 +226,7 @@ The following steps describe how to configure a limit to manage the volume of da
 2. On the **Usage and estimated costs** page for the selected workspace, click **Data Cap** from the top of the page. 
 3. Daily cap is **OFF** by default ? click **ON** to enable it, and then set the data volume limit in GB/day.
 
-    ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
+:::image type="content" source="media/manage-cost-storage/set-daily-volume-cap-01.png" alt-text="Log Analytics configure data limit":::
 	
 The daily cap can be configured via ARM by setting the `dailyQuotaGb` parameter under `WorkspaceCapping` as described at [Workspaces - Create Or Update](/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
 
@@ -241,8 +241,10 @@ Usage
 | extend TimeGenerated=datetime_add("hour",-1*DailyCapResetHour,TimeGenerated)
 | where TimeGenerated > startofday(ago(31d))
 | where IsBillable
-| summarize IngestedGbBetweenDailyCapResets=sum(_BilledSize)/1000. by day=bin(TimeGenerated, 1d) | render areachart  
+| summarize IngestedGbBetweenDailyCapResets=sum(Quantity)/1000. by day=bin(TimeGenerated, 1d) | render areachart  
 ```
+
+(In the Usage data type, the units of `Quantity` are in MB.)
 
 ### Alert when Daily Cap reached
 
@@ -417,9 +419,10 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 For data from nodes hosted in Azure you can get the **size** of ingested data __per Azure subscription__, get use the `_SubscriptionId` property as:
 
 ```kusto
-find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable, _SubscriptionId
+find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
-| summarize BillableDataBytes = sum(_BilledSize) by _SubscriptionId | sort by BillableDataBytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
+| summarize BillableDataBytes = sum(BillableDataBytes) by _SubscriptionId | sort by BillableDataBytes nulls last
 ```
 
 To get data volume by resource group, you can parse `_ResourceId`:
@@ -482,6 +485,9 @@ Some suggestions for reducing the volume of logs collected include:
 | Syslog                     | Change [syslog configuration](../agents/data-sources-syslog.md) to: <br> - Reduce the number of facilities collected <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events |
 | AzureDiagnostics           | Change [resource log collection](../essentials/diagnostic-settings.md#create-in-azure-portal) to: <br> - Reduce the number of resources send logs to Log Analytics <br> - Collect only required logs |
 | Solution data from computers that don't need the solution | Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers. |
+| Application Insights | Review options for [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
+| [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Use [Set-AzSqlServerAudit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) to tune the auditing settings. |
+| Azure Sentinel | Review any [Sentinel data sources](https://docs.microsoft.com/azure/sentinel/connect-data-sources) which you recently enabled as sources of additional data volume. |
 
 ### Getting nodes as billed in the Per Node pricing tier
 

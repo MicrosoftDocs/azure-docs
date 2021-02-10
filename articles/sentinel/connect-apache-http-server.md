@@ -32,7 +32,7 @@ This article explains how to connect your Apache HTTP Server to Azure Sentinel. 
 
 ## Configure and integrate Apache HTTP Server logs via Log Analytics agent
 
-Configure Apache HTTP Server log files location to forward data to your Azure workspace via the Log Analytics agent.
+Configure Apache HTTP Server to send log files to your Azure workspace via the Log Analytics agent.
 Configure Log Analytics agent to read Apache HTTP Server log files.
 
 1. Follow instructions at https://httpd.apache.org/docs/2.4/logs.html to set up log files location in Apache HTTP Server.

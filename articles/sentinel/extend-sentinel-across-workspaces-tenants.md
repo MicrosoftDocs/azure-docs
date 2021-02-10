@@ -94,7 +94,7 @@ You can then write a query across both workspaces by beginning with `unionSecuri
 <!-- Bookmark added for backward compatibility with old heading -->
 Cross-workspace queries can now be included in scheduled analytics rules, subject to the following limitations:
 
-- Up to 15 workspaces can be included in a single query.
+- Up to 20 workspaces can be included in a single query.
 - Azure Sentinel must be deployed on every workspace referenced in the query.
 
 > [!NOTE] 

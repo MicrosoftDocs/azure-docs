@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/10/2021
 ms.subservice: alerts
 ---
 
@@ -19,7 +19,7 @@ You can also use newer metric alerts on popular log data stored in a Log Analyti
 Currently, you can create newer metric alerts only in the Azure portal, [REST API](/rest/api/monitor/metricalerts/), or [Resource Manager Templates](./alerts-metric-create-templates.md). Support for configuring newer alerts using PowerShell and Azure CLI versions 2.0 and higher is coming soon.
 
 ## Metrics and Dimensions Supported
-Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer](../platform/metrics-charts.md).
+Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer](../essentials/metrics-charts.md).
 
 Here's the full list of Azure Monitor metric sources supported by the newer alerts:
 
@@ -30,7 +30,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.AppConfiguration/configurationStores |Yes | No | [App Configuration](../platform/metrics-supported.md#microsoftappconfigurationconfigurationstores) |
 |Microsoft.AppPlatform/Spring | Yes | No | [Azure Spring Cloud](../platform/metrics-supported.md#microsoftappplatformspring) |
 |Microsoft.Automation/automationAccounts | Yes| No | [Automation Accounts](../platform/metrics-supported.md#microsoftautomationautomationaccounts) |
-|Microsoft.AVS/privateClouds | No | No | |
+|Microsoft.AVS/privateClouds | No | No | [Azure VMware Solution](../platform/metrics-supported.md#microsoftavsprivateclouds) |
 |Microsoft.Batch/batchAccounts | Yes | No | [Batch Accounts](../platform/metrics-supported.md#microsoftbatchbatchaccounts) |
 |Microsoft.Cache/Redis | Yes | Yes | [Azure Cache for Redis](../platform/metrics-supported.md#microsoftcacheredis) |
 |Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Classic Cloud Services](../platform/metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
@@ -49,7 +49,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.DataBoxEdge/dataBoxEdgeDevices | Yes | Yes | [Data Box](../platform/metrics-supported.md#microsoftdataboxedgedataboxedgedevices) |
 |Microsoft.DataFactory/datafactories| Yes| No | [Data Factories V1](../platform/metrics-supported.md#microsoftdatafactorydatafactories) |
 |Microsoft.DataFactory/factories |Yes | No | [Data Factories V2](../platform/metrics-supported.md#microsoftdatafactoryfactories) |
-|Microsoft.DataShare/accounts | Yes | No | |
+|Microsoft.DataShare/accounts | Yes | No | [Data Shares](../platform/metrics-supported.md#microsoftdatashareaccounts) |
 |Microsoft.DBforMariaDB/servers | No | No | [DB for MariaDB](../platform/metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servers | No | No |[DB for MySQL](../platform/metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers | No | No | [DB for PostgreSQL](../platform/metrics-supported.md#microsoftdbforpostgresqlservers)|
@@ -57,7 +57,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.DBforPostgreSQL/flexibleServers | Yes | No | [DB for PostgreSQL (flexible servers)](../platform/metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.Devices/IotHubs | Yes | No |[IoT Hub](../platform/metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft.Devices/provisioningServices| Yes | No | [Device Provisioning Services](../platform/metrics-supported.md#microsoftdevicesprovisioningservices) |
-|Microsoft.DigitalTwins/digitalTwinsInstances | Yes | No | |
+|Microsoft.DigitalTwins/digitalTwinsInstances | Yes | No | [Digital Twins](../platform/metrics-supported.md#microsoftdigitaltwinsdigitaltwinsinstances) |
 |Microsoft.DocumentDB/databaseAccounts | Yes | No | [Cosmos DB](../platform/metrics-supported.md#microsoftdocumentdbdatabaseaccounts) |
 |Microsoft.EventGrid/domains | Yes | No | [Event Grid Domains](../platform/metrics-supported.md#microsofteventgriddomains) |
 |Microsoft.EventGrid/systemTopics | Yes | No | [Event Grid System Topics](../platform/metrics-supported.md#microsofteventgridsystemtopics) |
@@ -82,10 +82,10 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Network/expressRouteCircuits | Yes | No |[ExpressRoute Circuits](../platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/expressRoutePorts | Yes | No |[ExpressRoute Direct](../platform/metrics-supported.md#microsoftnetworkexpressrouteports) |
 |Microsoft.Network/loadBalancers (only for Standard SKUs)| Yes| No | [Load Balancers](../platform/metrics-supported.md#microsoftnetworkloadbalancers) |
-|Microsoft.Network/natGateways| No | No | |
-|Microsoft.Network/privateEndpoints| No | No | |
-|Microsoft.Network/privateLinkServices| No | No |
-|Microsoft.Network/publicipaddresses | No | No |[Public IP Addresses](../platform/metrics-supported.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.Network/natGateways| No | No | [NAT Gateways](../platform/metrics-supported.md#microsoftnetworknatgateways) |
+|Microsoft.Network/privateEndpoints| No | No | [Private Endpoints](../platform/metrics-supported.md#microsoftnetworkprivateendpoints) |
+|Microsoft.Network/privateLinkServices| No | No | [Private Link Services](../platform/metrics-supported.md#microsoftnetworkprivatelinkservices) |
+|Microsoft.Network/publicipaddresses | No | No | [Public IP Addresses](../platform/metrics-supported.md#microsoftnetworkpublicipaddresses)|
 |Microsoft.Network/trafficManagerProfiles | Yes | No | [Traffic Manager Profiles](../platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft.OperationalInsights/workspaces| Yes | No | [Log Analytics workspaces](../platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 |Microsoft.Peering/peerings | Yes | No | [Peerings](../platform/metrics-supported.md#microsoftpeeringpeerings) |
@@ -102,7 +102,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Storage/storageAccounts/fileServices | Yes| No | [Storage Accounts - Files](../platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
 |Microsoft.Storage/storageAccounts/queueServices | Yes| No | [Storage Accounts - Queues](../platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) |
 |Microsoft.Storage/storageAccounts/tableServices | Yes| No | [Storage Accounts - Tables](../platform/metrics-supported.md#microsoftstoragestorageaccountstableservices) |
-|Microsoft.StorageCache/caches | Yes | No | |
+|Microsoft.StorageCache/caches | Yes | No | [HPC Caches](../platform/metrics-supported.md#microsoftstoragecachecaches) |
 |Microsoft.StorageSync/storageSyncServices | Yes | No | [Storage Sync Services](../platform/metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | Yes | No | [Stream Analytics](../platform/metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
 |Microsoft.Synapse/workspaces | Yes | No | [Synapse Analytics](../platform/metrics-supported.md#microsoftsynapseworkspaces) |
@@ -123,7 +123,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 > You can also use the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](./alerts-common-schema-definitions.md)​
 
 
-The POST operation contains the following JSON payload and schema for all near newer metric alerts when an appropriately configured [action group](../platform/action-groups.md) is used:
+The POST operation contains the following JSON payload and schema for all near newer metric alerts when an appropriately configured [action group](./action-groups.md) is used:
 
 ```json
 {

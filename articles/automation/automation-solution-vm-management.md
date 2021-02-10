@@ -1,9 +1,9 @@
 ---
 title: Azure Automation Start/Stop VMs during off-hours overview
-description: This article describes the Start/Stop VMs during off-hours feature, which starts or stops VMs on a schedule and proactively monitors them from Azure Monitor logs.
+description: This article describes the Start/Stop VMs during off-hours feature, which starts or stops VMs on a schedule and proactively monitor them from Azure Monitor Logs.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 02/04/2020
 ms.topic: conceptual
 ---
 
@@ -34,9 +34,9 @@ The following are limitations with the current feature:
 
 - The runbooks for the Start/Stop VMs during off hours feature work with an [Azure Run As account](./automation-security-overview.md#run-as-accounts). The Run As account is the preferred authentication method because it uses certificate authentication instead of a password that might expire or change frequently.
 
-- The linked Automation account and Log Analytics workspace need to be in the same resource group.
+- An [Azure Monitor Log Analytics workspace](../azure-monitor/platform/design-logs-deployment.md) that stores the runbook job logs and job stream results in a workspace to query and analyze. The Automation account can be linked to a new or existing Log Analytics workspace, and both resources need to be in the same resource group.
 
-- We recommend that you use a separate Automation account for working with VMs enabled for the Start/Stop VMs during off-hours feature. Azure module versions are frequently upgraded, and their parameters might change. The feature isn't upgraded on the same cadence and it might not work with newer versions of the cmdlets that it uses. You're recommended to test module updates in a test Automation account before importing them into your production Automation account(s).
+We recommend that you use a separate Automation account for working with VMs enabled for the Start/Stop VMs during off-hours feature. Azure module versions are frequently upgraded, and their parameters might change. The feature isn't upgraded on the same cadence and it might not work with newer versions of the cmdlets that it uses. Before importing the updated modules into your production Automation account(s), we recommend you import them into a test Automation account to verify there aren't any compatibility issues.
 
 ## Permissions
 
@@ -143,7 +143,7 @@ The following table lists the variables created in your Automation account. Only
 |Internal_ResourceGroupName | The Automation account resource group name.|
 
 >[!NOTE]
->For the variable `External_WaitTimeForVMRetryInSeconds`, the default value has been updated from 600 to 2100. 
+>For the variable `External_WaitTimeForVMRetryInSeconds`, the default value has been updated from 600 to 2100.
 
 Across all scenarios, the variables `External_Start_ResourceGroupNames`,  `External_Stop_ResourceGroupNames`, and `External_ExcludeVMNames` are necessary for targeting VMs, except for the comma-separated VM lists for the **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**, and **ScheduledStartStop_Parent** runbooks. That is, your VMs must belong to target resource groups for start and stop actions to occur. The logic works similar to Azure Policy, in that you can target the subscription or resource group and have actions inherited by newly created VMs. This approach avoids having to maintain a separate schedule for every VM and manage starts and stops in scale.
 
@@ -169,18 +169,14 @@ For use of the feature with classic VMs, you need a Classic Run As account, whic
 
 If you have more than 20 VMs per cloud service, here are some recommendations:
 
-* Create multiple schedules with the parent runbook **ScheduledStartStop_Parent** and specifying 20 VMs per schedule. 
-* In the schedule properties, use the `VMList` parameter to specify VM names as a comma-separated list (no whitespaces). 
+* Create multiple schedules with the parent runbook **ScheduledStartStop_Parent** and specifying 20 VMs per schedule.
+* In the schedule properties, use the `VMList` parameter to specify VM names as a comma-separated list (no whitespaces).
 
 Otherwise, if the Automation job for this feature runs more than three hours, it's temporarily unloaded or stopped per the [fair share](automation-runbook-execution.md#fair-share) limit.
 
 Azure CSP subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When the Start/Stop VMs during off-hours feature runs, you might receive errors since it has cmdlets to manage classic resources. To learn more about CSP, see [Available services in CSP subscriptions](/azure/cloud-solution-provider/overview/azure-csp-available-services). If you use a CSP subscription, you should set the [External_EnableClassicVMs](#variables) variable to False after deployment.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## Enable the feature
-
-To begin using the feature, follow the steps in [Enable Start/Stop VMs during off-hours](automation-solution-vm-management-enable.md).
 
 ## View the feature
 
@@ -190,7 +186,7 @@ Use one of the following mechanisms to access the enabled feature:
 
 * Navigate to the Log Analytics workspace linked to your Automation account. After after selecting the workspace, choose **Solutions** from the left pane. On the Solutions page, select **Start-Stop-VM[workspace]** from the list.  
 
-Selecting the feature displays the Start-Stop-VM[workspace] page. Here you can review important details, such as the information in the **StartStopVM** tile. As in your Log Analytics workspace, this tile displays a count and a graphical representation of the runbook jobs for the feature that have started and have finished successfully.
+Selecting the feature displays the **Start-Stop-VM[workspace]** page. Here you can review important details, such as the information in the **StartStopVM** tile. As in your Log Analytics workspace, this tile displays a count and a graphical representation of the runbook jobs for the feature that have started and have finished successfully.
 
 ![Automation Update Management page](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
@@ -198,37 +194,7 @@ You can perform further analysis of the job records by clicking the donut tile. 
 
 ## Update the feature
 
-If you've deployed a previous version of Start/Stop VMs during off-hours, delete it from your account before deploying an updated release. Follow the steps to [remove the feature](#remove-the-feature) and then follow the steps to [enable it](automation-solution-vm-management-enable.md).
-
-## Remove the feature
-
-If you no longer need to use the feature, you can delete it from the Automation account. Deleting the feature only removes the associated runbooks. It doesn't delete the schedules or variables that were created when the feature was added. 
-
-To delete Start/Stop VMs during off-hours:
-
-1. From your Automation account, select **Linked workspace** under **Related resources**.
-
-2. Select **Go to workspace**.
-
-3. Click **Solutions** under **General**. 
-
-4. On the Solutions page, select **Start-Stop-VM[Workspace]**. 
-
-5. On the VMManagementSolution[Workspace] page, select **Delete** from the menu.<br><br> ![Delete VM management feature](media/automation-solution-vm-management/vm-management-solution-delete.png)
-
-6. In the Delete Solution window, confirm that you want to delete the feature.
-
-7. While the information is verified and the feature is deleted, you can track the progress under **Notifications**, chosen from the menu. You're returned to the Solutions page after the removal process.
-
-8. The Automation account and Log Analytics workspace aren't deleted as part of this process. If you don't want to keep the Log Analytics workspace, you must manually delete it from the Azure portal:
-
-    1. Search for and select **Log Analytics workspaces**.
-
-    2. On the Log Analytics workspace page, select the workspace.
-
-    3. Select **Delete** from the menu.
-
-    4. If you don't want to keep the Azure Automation account [feature components](#components), you can manually delete each.
+If you've deployed a previous version of Start/Stop VMs during off-hours, delete it from your account before deploying an updated release. Follow the steps to [remove the feature](automation-solution-vm-management-remove.md#delete-the-feature) and then follow the steps to [enable it](automation-solution-vm-management-enable.md).
 
 ## Next steps
 
