@@ -276,7 +276,7 @@ The following is useful if Flux generates the keys.
 1. In the Azure Portal, navigate to the connected cluster resource.
 2. In the resource page, select "GitOps" and see the list of configurations for this cluster.
 3. Select the configuration that uses the private Git repository.
-4. In the context window that opens, at the bottom of the window, copy the *Repository public key*.
+4. In the context window that opens, at the bottom of the window, copy the **Repository public key**.
 
 #### Add public key using GitHub
 
@@ -284,32 +284,32 @@ Use one of the following options:
 
 1. Option 1: Add the public key to your user account (applies to all repos in your account):  
     1. Open GitHub and click on your profile icon at the top-right corner of the page.
-    2. Click on *Settings*.
-    3. Click on *SSH and GPG keys*.
-    4. Click on *New SSH key*.
+    2. Click on **Settings**.
+    3. Click on **SSH and GPG keys**.
+    4. Click on **New SSH key**.
     5. Supply a Title.
     6. Paste the public key without any surrounding quotes.
-    7. Click on *Add SSH key*.
+    7. Click on **Add SSH key**.
 
 1. Option 2: Add the public key as a deploy key to the Git repo (applies to only this repo):  
     1. Open GitHub and navigate to your repo.
-    1. Click on *Settings*.
-    1. Click on *Deploy keys*.
-    1. Click on *Add deploy key*.
+    1. Click on **Settings**.
+    1. Click on **Deploy keys**.
+    1. Click on **Add deploy key**.
     1. Supply a Title.
-    1. Check *Allow write access*.
+    1. Check **Allow write access**.
     1. Paste the public key without any surrounding quotes.
-    1. Click on *Add key*.
+    1. Click on **Add key**.
 
 #### Add public key using an Azure DevOps repository
 
 Use the following steps to add the key to your SSH keys:
 
-1. Under *User Settings* in the top right (next to the profile image), click *SSH public keys*.
-1. Select  *+ New Key*.
+1. Under **User Settings** in the top right (next to the profile image), click **SSH public keys**.
+1. Select  **+ New Key**.
 1. Supply a name.
 1. Paste the public key without any surrounding quotes.
-1. Click *Add*.
+1. Click **Add**.
 
 ## Validate the Kubernetes configuration
 
