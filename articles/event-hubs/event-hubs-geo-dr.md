@@ -70,12 +70,15 @@ The following section is an overview of the failover process, and explains how t
 You first create or use an existing primary namespace, and a new secondary namespace, then pair the two. This pairing gives you an alias that you can use to connect. Because you use an alias, you don't have to change connection strings. Only new namespaces can be added to your failover pairing. 
 
 1. Create the primary namespace.
-1. Create the secondary namespace in the subscription and the resource group that has the primary namespace. This step is optional. You can create the secondary namespace while creating the pairing in the next step. 
+1. Create the secondary namespace in the subscription and the resource group that has the primary namespace, but in a different region. This step is optional. You can create the secondary namespace while creating the pairing in the next step. 
 1. In the Azure portal, navigate to your primary namespace.
 1. Select **Geo-recovery** on the left menu, and select **Initiate pairing** on the toolbar. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Initiate pairing from the primary namespace":::    
-1. On the **Initiate pairing** page, select an existing secondary namespace or create one in the subscription and the resource group that has the primary namespace. Then, select **Create**. In the following example, an existing secondary namespace is selected. 
+1. On the **Initiate pairing** page, follow these steps:
+    1. Select an existing secondary namespace or create one in the subscription and the resource group that has the primary namespace. In this example, an existing namespace is selected.  
+    1. For **Alias**, enter an alias for the geo-dr pairing. 
+    1. Then, select **Create**. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Select the secondary namespace":::        
 1. Now, when you select **Geo-recovery** for the primary namespace, you should see the **Geo-DR Alias** page that looks like the following image:
