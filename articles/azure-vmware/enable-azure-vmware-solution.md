@@ -8,7 +8,7 @@ ms.date: 02/17/2021
 
 # Request host quota and enable Azure VMware Solution
 
-In this how-to, you'll learn how to request hosts (quota increase) and enable the [Azure VMware Solution](introduction.md) resource provider. Before you can enable your Azure VMware Solution resource, you'll need to submit a support ticket to have your hosts allocated. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
+In this how-to, you'll learn how to request host quota/capacity and enable the [Azure VMware Solution](introduction.md) resource provider, which enables the service. Before you can enable Azure VMware Solution, you'll need to submit a support ticket to have your hosts allocated. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
 
 >[!IMPORTANT]
 >It can take a few days to allocate the hosts depending on the number requested.  So request what is needed for provisioning so you don't need to request a quota increase as often.
