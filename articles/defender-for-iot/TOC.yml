@@ -20,21 +20,19 @@
       href: getting-started.md
   - name: Agent-based solution for device builders
     items: 
-    - name: Configure security module for Azure RTOS
-      displayName: supported devices
-      href: quickstart-azure-rtos-security-module.md
     - name: Onboard to Defender for IoT agent-based solution
       displayName: IoT Hub, existing, enable
       href: quickstart-onboard-iot-hub.md
-    - name: Create a Defender Iot micro agent module twin (Preview)
-      displayName: device twins, Security module twins, DefenderIotMicroAgent, module twin
-      href: quickstart-create-micro-agent-module-twin.md
     - name: Install Defender for IoT micro agent (Preview)
       displayName: package, authentication, methods, certificate, authenticate, version
       href: quickstart-standalone-agent-binary-installation.md
+    - name: Create a Defender IoT micro agent module twin (Preview)
+      href: quickstart-create-micro-agent-module-twin.md
     - name: Build the Defender for IoT micro agent from source code (Preview)
       displayName: baseline, configuration, customize, distribution
       href: quickstart-building-the-defender-micro-agent-from-source.md
+    - name: Configure security module for Azure RTOS
+      href: quickstart-azure-rtos-security-module.md
     - name: Add Azure resources to your IoT solution
       displayName: resources, monitored, resource
       href: quickstart-configure-your-solution.md
@@ -224,17 +222,6 @@
         href: integration-splunk.md
   - name: Agent-based solution for device builders
     items:
-    - name: Security Module for Azure RTOS
-      displayName: detect, malicious, network, behavior, security, protect, 
-      href: iot-security-azure-rtos.md
-      items: 
-      - name: Work with Security Module for Azure RTOS
-        href: how-to-azure-rtos-security-module.md
-      - name: Understand the Security Module for Azure RTOS
-        displayName: NetX, Duo
-        href: concept-rtos-security-module.md
-      - name: Security Module for Azure RTOS alerts and recommendations
-        href: concept-rtos-security-alerts-recommendations.md
     - name: Connect to Azure Sentinel
       displayName: log analytics, service notes
       href: how-to-configure-with-sentinel.md
@@ -249,6 +236,15 @@
     - name: Create custom alerts
       displayName: security group
       href: quickstart-create-custom-alerts.md
+    - name: Security Module for Azure RTOS
+      href: iot-security-azure-rtos.md
+      items: 
+      - name: Work with Security Module for Azure RTOS
+        href: how-to-azure-rtos-security-module.md
+      - name: Understand the Security Module for Azure RTOS
+        href: concept-rtos-security-module.md
+      - name: Security Module for Azure RTOS alerts and recommendations 
+        href: concept-rtos-security-alerts-recommendations.md
     - name: Classic
       items: 
       - name: Which agent should I deploy?
