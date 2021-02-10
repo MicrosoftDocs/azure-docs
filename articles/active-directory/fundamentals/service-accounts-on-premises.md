@@ -124,9 +124,9 @@ See the following articles on securing service accounts
 
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)
 
-* [Secure group managed service accounts](service-accounts-group-msa.md)
+* [Secure group managed service accounts](service-accounts-group-managed.md)
 
-* [Secure stand-alone managed service accounts](service-accounts-standalone-msa.md)
+* [Secure stand-alone managed service accounts](service-accounts-standalone-managed.md)
 
 * [Secure computer accounts](service-accounts-computer.md)
 

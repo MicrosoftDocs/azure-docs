@@ -61,6 +61,8 @@
         href: service-accounts-computer.md
       - name: Securing user-based service accounts
         href: service-accounts-user-on-premises.md
+      - name: Govern on-premises service accounts
+        href: service-accounts-govern-on-premises.md
     - name: Enable MFA
       href: concept-fundamentals-mfa-get-started.md
     - name: Security defaults

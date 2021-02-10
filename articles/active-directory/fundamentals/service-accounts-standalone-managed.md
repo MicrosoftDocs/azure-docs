@@ -46,7 +46,7 @@ sMSAs offer greater security than user accounts used as service accounts, while 
 sMSAs can simplify management and security tasks. Use sMSAs when you've one or more services deployed to a single server, and you cannot use a gMSA. 
 
 > [!NOTE] 
-While you can use sMSAs for more than one service, we recommend that each service have its own identity for auditing purposes. 
+> While you can use sMSAs for more than one service, we recommend that each service have its own identity for auditing purposes. 
 
 If the creator of the software can’t tell you if it can use an MSA, you must test your application. To do so, create a test environment and ensure it can access all required resources. See [create and install an sMSA](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) for step-by-step directions.
 
@@ -58,9 +58,9 @@ The following table shows how to mitigate potential security issues posed by sMS
 
 | Security Issues| Mitigations |
 | - | - |
-| sMSA is a member of privileged groups| * Remove the sMSA from elevated privileged groups (such as Domain Admins). <br> * Use the least privileged model and grant the sMSA only the rights and permissions it requires to run its service(s). <br> * If you're unsure of the required permissions, consult the service creator. |
-| sMSA has read/write access to sensitive resources.| * Audit access to sensitive resources. Archive audit logs to a SIEM (Azure Log Analytics or Azure Sentinel) for analysis. <br> * Remediate resource permissions if an undesirable level of access is detected. |
-| By default, sMSA password rollover frequency is 30 days| * Group policy can be used to tune the duration depending on enterprise security requirements. <br> * You can set the password expiration duration using the following path. <br>    * Computer Configuration\Policies\Windows Settings\Security Settings\Security Options\​Domain member: Maximum machine account password age |
+| sMSA is a member of privileged groups|Remove the sMSA from elevated privileged groups (such as Domain Admins). <br> Use the least privileged model and grant the sMSA only the rights and permissions it requires to run its service(s). <br> If you're unsure of the required permissions, consult the service creator. |
+| sMSA has read/write access to sensitive resources.|Audit access to sensitive resources. Archive audit logs to a SIEM (Azure Log Analytics or Azure Sentinel) for analysis. <br> Remediate resource permissions if an undesirable level of access is detected. |
+| By default, sMSA password rollover frequency is 30 days| Group policy can be used to tune the duration depending on enterprise security requirements. <br> *You can set the password expiration duration using the following path. <br>Computer Configuration\Policies\Windows Settings\Security Settings\Security Options\​Domain member: Maximum machine account password age |
 
 
 
@@ -81,29 +81,29 @@ On any domain controller, run DSA.msc and expand the Managed Service Accounts co
 
 The following PowerShell command returns all sMSAs and gMSAs in the Active Directory domain. 
 
-* Get-ADServiceAccount -Filter *
+`Get-ADServiceAccount -Filter *`
 
 The following command returns only sMSAs in the Active Directory domain.
 
-* Get-ADServiceAccount -Filter * | where { $_.objectClass -eq "msDS-ManagedServiceAccount" }
+`Get-ADServiceAccount -Filter * | where { $_.objectClass -eq "msDS-ManagedServiceAccount" }`
 
 ## Manage sMSAs
 
 You can use the following Active Directory PowerShell cmdlets for managing sMSAs:
 
-* Get-ADServiceAccount
+`Get-ADServiceAccount`
 
-* Install-ADServiceAccount
+` Install-ADServiceAccount`
 
-* New-ADServiceAccount
+` New-ADServiceAccount`
 
-* Remove-ADServiceAccount
+` Remove-ADServiceAccount`
 
-* Set-ADServiceAccount
+`Set-ADServiceAccount`
 
-* Test-ADServiceAccount
+`Test-ADServiceAccount`
 
-* Uninstall-ADServiceAccount
+`Ininstall-ADServiceAccount`
 
 ## Move to sMSAs
 
@@ -118,9 +118,9 @@ See the following articles on securing service accounts
 
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)
 
-* [Secure group managed service accounts](service-accounts-group-msa.md)
+* [Secure group managed service accounts](service-accounts-group-managed.md)
 
-* [Secure stand-alone managed service accounts](service-accounts-standalone-msa.md)
+* [Secure stand-alone managed service accounts](service-accounts-standalone-managed.md)
 
 * [Secure computer accounts](service-accounts-computer.md)
 

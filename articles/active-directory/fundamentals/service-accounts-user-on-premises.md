@@ -35,8 +35,8 @@ The following challenges are associated with the use of on-premises user account
 
 | Challenges| Mitigations |
 | - | - |
-| Password management is a manual process that may lead to weaker security and service downtime.| * Ensure that password complexity and password change are governed by a robust process that ensures regular updates with strong password. <br> * Coordinate password change with a password update on the service, which will result in service downtime. |
-| Identifying on-premises user accounts that are acting as service accounts can be difficult.| * Document and maintain records of service accounts deployed in your environment. <br> * Track the account name and the resources to which they're assigned access. <br> * Consider adding a prefix of svc_ to all user accounts used as service accounts. |
+| Password management is a manual process that may lead to weaker security and service downtime.| Ensure that password complexity and password change are governed by a robust process that ensures regular updates with strong password. <br> Coordinate password change with a password update on the service, which will result in service downtime. |
+| Identifying on-premises user accounts that are acting as service accounts can be difficult.| Document and maintain records of service accounts deployed in your environment. <br> Track the account name and the resources to which they're assigned access. <br> Consider adding a prefix of svc_ to all user accounts used as service accounts. |
 
 
 ## Find on-premises user accounts used as service accounts
@@ -118,9 +118,9 @@ See the following articles on securing service accounts
 
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)
 
-* [Secure group managed service accounts](service-accounts-group-msa.md)
+* [Secure group managed service accounts](service-accounts-group-managed.md)
 
-* [Secure stand-alone managed service accounts](service-accounts-standalone-msa.md)
+* [Secure stand-alone managed service accounts](service-accounts-standalone-managed.md)
 
 * [Secure computer accounts](service-accounts-computer.md)
 

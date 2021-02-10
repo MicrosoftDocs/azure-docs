@@ -47,20 +47,27 @@ Potential challenges and associated mitigations when using computer accounts.
 
 Use the following PowerShell cmdlet to find services running under LocalSystem context
 
+```powershell
+
 Get-WmiObject win32_service | select Name, StartName | Where-Object {($_.StartName -eq "LocalSystem")}
+```
 
 **Find Computers accounts that are members of a specific group**
 
 Use the following PowerShell cmdlet to find computer accounts that are member of a specific group.
 
-Get-ADComputer -Filter {Name -Like "*"} -Properties MemberOf | Where-Object {[STRING]$_.MemberOf -like "Your_Group_Name_here*"} | Select Name, MemberOf
+```powershell
+
+```Get-ADComputer -Filter {Name -Like "*"} -Properties MemberOf | Where-Object {[STRING]$_.MemberOf -like "Your_Group_Name_here*"} | Select Name, MemberOf
+```
 
 **Find Computers accounts that are members of privileged groups**
 
 Use the following PowerShell cmdlet to find computer accounts that are member of Identity Administrators groups (Domain Admins, Enterprise Admins, Administrators)
 
+```pOWERSHELL
 Get-ADGroupMember -Identity Administrators -Recursive | Where objectClass -eq "computer"
-
+```
 ## Move from computer accounts
 
 > [!IMPORTANT]
@@ -76,9 +83,9 @@ See the following articles on securing service accounts
 
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)
 
-* [Secure group managed service accounts](service-accounts-group-msa.md)
+* [Secure group managed service accounts](service-accounts-group-managed.md)
 
-* [Secure stand-alone managed service accounts](service-accounts-standalone-msa.md)
+* [Secure stand-alone managed service accounts](service-accounts-standalone-managed.md)
 
 * [Secure computer accounts](service-accounts-computer.md)
 

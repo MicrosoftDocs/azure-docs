@@ -44,11 +44,11 @@ Use the following criteria when creating a new service account.
 
 | Principles| Considerations | 
 | - |- | 
-| Service account mapping| Tie the service account to a single service, application, or script . |
+| Service account mapping| Tie the service account to a single service, application, or script. |
 | Ownership| Ensure that there's an owner who requests and assumes responsibility for the account. |
 | Scope| Define the scope clearly and anticipate usage duration for the service account. |
 | Purpose| Create service accounts for a single specific purpose. |
-| Privilege| Apply the principle of least privilege by: <br>* never assigning them to build-in groups like administrators.<br> * removing local machine privileges where appropriate.<br>* tailoring access and using Active Directory delegation for directory access.<br>* using granular access permissions.<br>* setting account expirations and location-based restrictions on user-based service accounts |
+| Privilege| Apply the principle of least privilege by: <br>Never assigning them to built-in groups like administrators.<br> Removing local machine privileges where appropriate.<br>Tailoring access and using Active Directory delegation for directory access.<br>Using granular access permissions.<br>Setting account expirations and location-based restrictions on user-based service accounts |
 | Monitor and audit use| Monitor sign-in data and ensure it matches the intended usage. Set alerts for anomalous usage. |
 
 ### Enforce least privilege for user accounts and limit account overuse
@@ -115,7 +115,7 @@ Consider a service account that is used to run a web site and has privileges to 
 | Purpose| Run the HR webpage and connect to HR-databases. Can impersonate end user when accessing databases. |
 | Permissions, Scopes| HR-WEBServer: log on locally, run web page<br>HR-SQL1: log on locally, Read on all HR* database<br>HR-SQL2: log on locally, READ on SALARY* database |
 | Cost Center| 883944 |
-| Risk Assessed| Medium; Business Impact: Medium; PII: Medium |
+| Risk Assessed| Medium; Business Impact: Medium; Personally identifiable information; Medium |
 | Account Restrictions| Log on to: only aforementioned servers; Cannot change password; MBI-Password Policy; |
 | Lifetime| unrestricted |
 | Review Cycle| Bi-annually (by owner, by security team, by privacy) |
@@ -197,9 +197,9 @@ See the following articles on securing service accounts
 
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)
 
-* [Secure group managed service accounts](service-accounts-group-msa.md)
+* [Secure group managed service accounts](service-accounts-group-managed.md)
 
-* [Secure stand-alone managed service accounts](service-accounts-standalone-msa.md)
+* [Secure stand-alone managed service accounts](service-accounts-standalone-managed.md)
 
 * [Secure computer accounts](service-accounts-computer.md)
 

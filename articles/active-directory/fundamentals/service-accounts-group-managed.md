@@ -51,7 +51,7 @@ The following table shows potential security issues and mitigations for using gM
 
 | Security Issues| Mitigations |
 | - | - |
-| gMSA is a member of privileged groups. | * Review your group memberships. To do so you can create a PowerShell script to enumerate all group memberships, and then filter a resultant CSV file by the names of your gMSA files. <br>* Remove the gMSA from privileged groups.<br> * Grant the gMSA only the rights and permissions it requires to run its service (consult with your service vendor). 
+| gMSA is a member of privileged groups. | Review your group memberships. To do so you can create a PowerShell script to enumerate all group memberships, and then filter a resultant CSV file by the names of your gMSA files. <br>Remove the gMSA from privileged groups.<br> Grant the gMSA only the rights and permissions it requires to run its service (consult with your service vendor). 
 | gMSA has read/write access to sensitive resources. | Audit access to sensitive resources. Archive audit logs to a SIEM, for example Azure Log Analytics or Azure Sentinel, for analysis. Remove unnecessary resource permissions if an undesirable level of access is detected. |
 
 
@@ -68,41 +68,42 @@ To find service MSAs that may not be there, see the following commands.
 
 **To find all service accounts, including gMSAs and sMSAs:**
 
-> [!NOTE] 
-> This PowerShell cmdlet will return all Managed Service Accounts (both gMSAs and sMSAs). An administrator can differentiate between the two by examining the ObjectClass attribute on returned accounts.
+
+```powershell
 
 Get-ADServiceAccount -Filter *
 
+# This PowerShell cmdlet will return all Managed Service Accounts (both gMSAs and sMSAs). An administrator can differentiate between the two by examining the ObjectClass attribute on returned accounts.
 
+# For gMSA accounts, ObjectClass = msDS-GroupManagedServiceAccount
 
-For gMSA accounts, ObjectClass = msDS-GroupManagedServiceAccount
+# For sMSA accounts, ObjectClass = msDS-ManagedServiceAccount
 
-For sMSA accounts, ObjectClass = msDS-ManagedServiceAccount
-
-**To filter results to only gMSAs**:
+# To filter results to only gMSAs:
 
 Get-ADServiceAccount –Filter * | where $_.ObjectClass -eq "msDS-GroupManagedServiceAccount”}
+```
 
 ## Manage gMSAs
 
 You can use the following Active Directory PowerShell cmdlets for managing gMSAs:
 
-Get-ADServiceAccount
+`Get-ADServiceAccount`
 
-Install-ADServiceAccount
+`Install-ADServiceAccount`
 
-New-ADServiceAccount
+`New-ADServiceAccount`
 
-Remove-ADServiceAccount
+`Remove-ADServiceAccount`
 
-Set-ADServiceAccount
+`Set-ADServiceAccount`
 
-Test-ADServiceAccount
+`Test-ADServiceAccount`
 
-Uninstall-ADServiceAccount
+`Uninstall-ADServiceAccount`
 
 > [!NOTE]
-Beginning with Windows Server 2012, the *-ADServiceAccount cmdlets work with gMSAs by default. For more information on usage of the above cmdlets, see [**Getting Started with Group Managed Service Accounts**](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
+> Beginning with Windows Server 2012, the *-ADServiceAccount cmdlets work with gMSAs by default. For more information on usage of the above cmdlets, see [**Getting Started with Group Managed Service Accounts**](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
 
 ## Move to a gMSA
 gMSAs are the most secure type of service account for on-premises needs. If you can move to one, you should. Additionally, consider moving your services to Azure and your service accounts to Azure Active directory.
@@ -129,9 +130,9 @@ See the following articles on securing service accounts
 
 * [Introduction to on-premises service accounts](service-accounts-on-premises.md)
 
-* [Secure group managed service accounts](service-accounts-group-msa.md)
+* [Secure group managed service accounts](service-accounts-group-managed.md)
 
-* [Secure stand-alone managed service accounts](service-accounts-standalone-msa.md)
+* [Secure stand-alone managed service accounts](service-accounts-standalone-managed.md)
 
 * [Secure computer accounts](service-accounts-computer.md)
 
