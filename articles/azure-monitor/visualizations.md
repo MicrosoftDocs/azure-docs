@@ -62,7 +62,7 @@ Here is a video walkthrough on creating dashboards.
 
 
 ## Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is particularly useful for creating business-centric dashboards and reports, as well as reports analyzing long-term KPI trends. You can [import the results of a log query](platform/powerbi.md) into a Power BI dataset so you can take advantage of its features such as combining data from different sources and sharing reports on the web and mobile devices.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is particularly useful for creating business-centric dashboards and reports, as well as reports analyzing long-term KPI trends. You can [import the results of a log query](visualizations/powerbi.md) into a Power BI dataset so you can take advantage of its features such as combining data from different sources and sharing reports on the web and mobile devices.
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -138,7 +138,7 @@ You can access data in log and metric data in Azure Monitor through their API us
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
 - Learn about [Metrics Explorer](essentials/metrics-getting-started.md)
 - Learn about [Workbooks](./visualizations/workbooks-overview.md).
-- Learn about [import log data into Power BI](./platform/powerbi.md).
+- Learn about [import log data into Power BI](./visualizations/powerbi.md).
 - Learn about the [Grafana Azure Monitor data source plugin](./platform/grafana-plugin.md).
 - Learn about [Views in Azure Monitor](visualizations/view-designer.md).
 

@@ -175,7 +175,7 @@ See [Overview of Azure Monitor agents](agents/agents-overview.md) for details on
 |:---|:---|:---|:---|
 | [Azure Monitor agent (preview)](agents/azure-monitor-agent-overview.md) | Yes | Yes |
 | [Log Analytics agent](agents/log-analytics-agent.md) | No | Yes|
-| [Diagnostic extension](essentials/diagnostics-extension-overview.md) | Yes | No |
+| [Diagnostic extension](agents/diagnostics-extension-overview.md) | Yes | No |
 | [Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md) | Yes | No |
 | [Dependency agent](vm/vminsights-enable-overview.md) | No | Yes |
 
@@ -211,7 +211,7 @@ Other solutions are available for monitoring different applications and services
 | [Activity log analytics](essentials/activity-log.md#activity-log-analytics-monitoring-solution) | View Activity Log entries. |
 | [DNS Analytics (preview)](insights/dns-analytics.md) | Collects, analyzes, and correlates Windows DNS analytic and audit logs and other related data from your DNS servers. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Collect, view, and analyze your Cloud Foundry system health and performance metrics, across multiple deployments. |
-| [Containers](insights/containers.md) | View and manage Docker and Windows container hosts. |
+| [Containers](containers/containers.md) | View and manage Docker and Windows container hosts. |
 | [On-Demand Assessments](/services-hub/health/getting_started_with_on_demand_assessments) | Assess and optimize the availability, security, and performance of your on-premises, hybrid, and cloud Microsoft technology environments. |
 | [SQL health check](insights/sql-assessment.md) | Assess the risk and health of your SQL Server environments.  |
 | [Wire Data](insights/wire-data.md) | Consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent. |

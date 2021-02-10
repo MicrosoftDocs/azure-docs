@@ -63024,6 +63024,86 @@
       "source_path_from_root": "/articles/azure-monitor/platform/security-controls-policy.md",
       "redirect_url": "/azure/azure-monitor//security-controls-policy",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-overview.md",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-schema-windows.md",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-schema-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-stream-event-hubs.md",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-stream-event-hubs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-to-application-insights.md",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-to-application-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-troubleshooting.md",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-troubleshooting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-versions.md",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-versions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/essentials/diagnostics-extension-windows-install.md",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-windows-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/containers.md",
+      "redirect_url": "/azure/azure-monitor/containers/containers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/diagnostics-extension-logs.md",
+      "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/powerbi.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/powerbi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/vmext-troubleshoot.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/vmext-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-action-groups.md",
+      "redirect_url": "/azure/azure-monitor/alerts/resource-manager-action-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-alerts-log.md",
+      "redirect_url": "/azure/azure-monitor/alerts/resource-manager-alerts-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-alerts-metric.md",
+      "redirect_url": "/azure/azure-monitor/alerts/resource-manager-alerts-metric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-container-insights.md",
+      "redirect_url": "/azure/azure-monitor/containers/resource-manager-container-insights",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-workbooks.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/resource-manager-workbooks",
+      "redirect_document_id": false
     }
   ]
 }
