@@ -54,9 +54,9 @@
       - name: Introduction to on-premises service accounts
         href: service-accounts-on-premises.md
       - name: Securing group MSAs
-        href: service-accounts-group-msa.md
+        href: service-accounts-group-managed.md
       - name: Securing stand-alone MSAs
-        href: service-accounts-standalone-msa.md
+        href: service-accounts-standalone-managed.md
       - name: Securing computer accounts
         href: service-accounts-computer.md
       - name: Securing user-based service accounts
