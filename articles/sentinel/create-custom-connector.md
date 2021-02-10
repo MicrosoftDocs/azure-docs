@@ -20,19 +20,15 @@ ms.author: bagol
 
 # Resources for creating Azure Sentinel custom connectors
 
-Azure Sentinel provides a wide range of [built-in connectors for Azure services and external solutions](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891), and also supports ingesting data from some sources without a dedicated connector.
+Azure Sentinel provides a wide range of [built-in connectors for Azure services and external solutions](connect-data-sources.md), and also supports ingesting data from some sources without a dedicated connector.
 
 If you are unable to connect your data source to Azure Sentinel using any of the existing solutions available, consider creating your own data source connector using the methods described in this article.
 
-> [!TIP]
-> For comparisons of using Logic Apps and Azure Functions for the same connector, see:
-> 
-> - [Ingest Fastly Web Application Firewall logs into Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-fastly-web-application-firewall-logs-into-azure-sentinel/ba-p/1238804)
-> - Office 365 (Azure Sentinel GitHub community): [Logic App connector](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Get-O365Data) | [Azure Function connector](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data)
-> 
+For a full list of supported connectors, see the [Azure Sentinel: The connectors grand (CEF, Syslog, Direct, Agent, Custom and more)](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891) blog post.
+
 ## Compare methods for creating custom connectors
 
-The following table compares essential details about each method for creating custom connectors described in this article. Follow the links for more details about each method.
+The following table compares essential details about each method for creating custom connectors described in this article. Select the links in the table for more details about each method.
 
 |Method description  |Capability | Serverless    |Complexity  |
 |---------|---------|---------|---------|
@@ -43,6 +39,13 @@ The following table compares essential details about each method for creating cu
 |**[Log Analytics API](#create-a-custom-connector-via-the-log-analytics-data-collector-api)** <br>Best for ISVs implementing integration, and for unique collection requirements   | Supports all capabilities available with the code.  | Depends on the implementation           |     High    |
 |**[Azure Functions](#use-azure-functions-to-create-your-custom-connector)** Best for high-volume cloud sources, and for unique collection requirements  | Supports all capabilities available with the code.  |  Yes             |     High; requires programming knowledge    |
 |     |         |                |
+
+> [!TIP]
+> For comparisons of using Logic Apps and Azure Functions for the same connector, see:
+> 
+> - [Ingest Fastly Web Application Firewall logs into Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-fastly-web-application-firewall-logs-into-azure-sentinel/ba-p/1238804)
+> - Office 365 (Azure Sentinel GitHub community): [Logic App connector](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Get-O365Data) | [Azure Function connector](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data)
+> 
 
 ## Use the Azure Monitor Log Analytics agent to create your connector
 
