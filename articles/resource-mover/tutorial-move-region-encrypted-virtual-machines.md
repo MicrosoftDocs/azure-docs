@@ -61,7 +61,7 @@ If there are no user permissions, select **Add Access Policy**, and specify the 
 
 Azure VMs using ADE can have the following variations and the permissions need to be set accordingly for relevant components.
 - Default option where the disk is encrypted using only secrets
-- Added security using (key encryption key)[../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek]
+- Added security using [key encryption key](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek)
 
 ### Source region keyvault
 
