@@ -7,9 +7,9 @@ ms.topic: conceptual
 
 # How to migrate Azure Arc enabled servers across regions
 
-To migrate an Azure Arc enabled server from one Azure region to another, you have to delete the resource in Azure and re-create it in the other region.
+There are scenarios in which you'd want to move your existing Azure Arc enabled server from one region to another. For example, you realized the machine was registered in the wrong region, to improve manageability, or to move for governance reasons.
 
-Before you perform these steps, it is necessary to remove the VM extensions.
+To migrate an Azure Arc enabled server from one Azure region to another, you have to delete the resource in Azure and re-create it in the other region. Before you perform these steps, it is necessary to remove the VM extensions.
 
 > [!NOTE]
 > While installed extensions continue to run and perform their normal operation after this procedure is complete, you won't be able to manage them. If you attempt to redeploy the extensions on the machine, you may experience unpredictable behavior.
