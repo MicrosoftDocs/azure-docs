@@ -133,7 +133,7 @@ ___
         1 - <a href="https://www.youtube.com/watch?v=fbSVgC8nGz4&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=1" target="_blank">Basics: The concepts of modern authentication <span class="docon docon-navigate-external x-hidden-focus"></span></a> (4:33)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=fbSVgC8nGz4" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-01.jpg" alt="Video thumbnail for a video about the concept of modern authentication." scrolling = "no"> </a>
+        <a href="https://www.youtube.com/watch?v=fbSVgC8nGz4" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-01.jpg" alt="Video thumbnail for a video about the concept of modern authentication." style="overflow:hidden"> </a>
     :::column-end:::
      :::column:::
         2 - <a href="https://www.youtube.com/watch?v=tCNcG1lcCHY&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=2" target="_blank">Modern authentication for web applications <span class="docon docon-navigate-external x-hidden-focus"></span></a> (6:02)
