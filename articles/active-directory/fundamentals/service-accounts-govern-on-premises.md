@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 
 There are four types of on-premises service accounts in Windows Active Directory:
 
-* [Group managed service accounts](service-accounts-group-msa.md) (gMSAs)
+* [Group managed service accounts](service-accounts-group-managed.md) (gMSAs)
 
-* [Stand-alone managed service accounts](service-accounts-standalone-msa.md) (sMSAs)
+* [Stand-alone managed service accounts](service-accounts-standalone-managed.md) (sMSAs)
 
 * [Computer accounts](service-accounts-computer.md)
 
