@@ -113,7 +113,7 @@ Create a new *code cell* in your notebook. Then copy the following code and past
 import joblib
 from sklearn.linear_model import Ridge
 
-model = Ridge().fit(X,y)
+model = Ridge().fit(X_df,y_df)
 joblib.dump(model, 'sklearn_regression_model.pkl')
 ```
 
