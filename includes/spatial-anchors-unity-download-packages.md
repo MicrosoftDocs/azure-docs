@@ -5,6 +5,8 @@ ms.topic: include
 ms.date: 2/3/21
 ms.author: parkerra
 ---
+To download the required packages, you will need to have <a href="https://www.npmjs.com/get-npm" target="_blank">NPM</a> installed.
+
 Run the following command replacing `<version_number>` with the version of Azure Spatial Anchors you want to download
 to the current folder:
 

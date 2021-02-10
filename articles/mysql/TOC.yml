@@ -1,6 +1,7 @@
 - name: Azure Database for MySQL Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure DB for MySQL?
     href: overview.md
@@ -12,7 +13,6 @@
     href: concepts-version-policy.md
     displayName: version policy
 - name: Single Server
-  expanded: true
   items:
   - name: Single Server documentation
     href: single-server/index.yml

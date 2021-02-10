@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/04/2021
 ---
 
 # What's new in Azure Sentinel
@@ -27,6 +27,7 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## January 2021
 
+- [Analytics rule wizard: Improved query editing experience (public preview)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [Az.SecurityInsights PowerShell module (Public preview)](#azsecurityinsights-powershell-module-public-preview)
 - [SQL database connector](#sql-database-connector)
 - [Improved incident comments](#improved-incident-comments)
@@ -35,6 +36,16 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 - [Improved rule tuning with the analytics rule preview graphs](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
+### Analytics rule wizard: Improved query editing experience (public preview)
+
+The Azure Sentinel Scheduled analytics rule wizard now provides the following enhancements for writing and editing queries:
+
+-	An expandable editing window, providing you with more screen space to view your query.
+-	Key word highlighting in your query code.
+-	Expanded auto-complete support.
+-	Real-time query validations. Errors in your query now show as a red block in the scroll bar, and as a red dot in the **Set rule logic** tab name. Additionally, a query with errors cannot be saved.
+
+For more information, see [Tutorial: Detect threats out-of-the-box](tutorial-detect-threats-built-in.md).
 ### Az.SecurityInsights PowerShell module (Public preview)
 
 Azure Sentinel now supports the new [Az.SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell module.

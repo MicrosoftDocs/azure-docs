@@ -63,7 +63,7 @@ If you plan to use an existing server admin (sa) user to scan your on-premises S
 If you would like to create a new login and user to be able to scan your SQL server, follow the steps below:
 
 > [!Note]
-    > All the steps below can be performed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql).
+   > All the steps below can be executed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)
 
 1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, right-click on login and create New login. Make sure to select SQL authentication.
 

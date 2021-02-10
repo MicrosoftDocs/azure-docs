@@ -49,7 +49,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure the application in the Azure portal
-> For the code sample for this quickstart to work, you need to add a redirect URI as **http://localhost:4200/** and enable ****Implicit grant**.
+> For the code sample in this quickstart to work, you need to add a redirect URI as **http://localhost:4200/** and enable **Implicit grant**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
