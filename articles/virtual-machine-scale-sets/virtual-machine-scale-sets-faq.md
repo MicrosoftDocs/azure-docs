@@ -110,7 +110,7 @@ The sample uses the host-level CPU metric and a message count metric.
 
 ### How do I set alert rules on a virtual machine scale set?
 
-You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quickstart samples](../azure-monitor//powershell-samples.md#create-metric-alerts) and [Azure Monitor cross-platform CLI quickstart samples](../azure-monitor//cli-samples.md#work-with-alerts).
+You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quickstart samples](../azure-monitor/powershell-samples.md#create-metric-alerts) and [Azure Monitor cross-platform CLI quickstart samples](../azure-monitor/cli-samples.md#work-with-alerts).
 
 The TargetResourceId of the virtual machine scale set looks like this:
 

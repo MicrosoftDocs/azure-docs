@@ -118,7 +118,7 @@ Diagnostic logs differ from the [Activity Log](../../azure-monitor/essentials/pl
 
 ### Metrics
 
-Azure Monitor provides telemetry that gives you visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the [metrics](../../azure-monitor//data-platform.md) (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
+Azure Monitor provides telemetry that gives you visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the [metrics](../../azure-monitor/data-platform.md) (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
 ### Azure Diagnostics
 

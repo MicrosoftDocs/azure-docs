@@ -178,7 +178,7 @@ You may need to wait up to five minutes before the event appears in the storage 
 
 ## See also
 
-* [Azure Monitor Metrics](../../azure-monitor//data-platform.md)
+* [Azure Monitor Metrics](../../azure-monitor/data-platform.md)
 * [Azure Monitor Diagnostic logs](../../azure-monitor/essentials/platform-logs-overview.md)
 * [How to collect and consume log data from your Azure resources](../../azure-monitor/essentials/platform-logs-overview.md)
 

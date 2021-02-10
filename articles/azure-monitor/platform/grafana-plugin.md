@@ -155,4 +155,4 @@ If you've setup a Grafana environment on Azure, you are charged when VMs are run
 2. On your resource group page, click **Delete**, type **Grafana** in the text box, and then click **Delete**.
 
 ## Next steps
-* [Overview of Azure Monitor Metrics](..//data-platform.md)
+* [Overview of Azure Monitor Metrics](../data-platform.md)

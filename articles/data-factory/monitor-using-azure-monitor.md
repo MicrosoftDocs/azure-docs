@@ -150,7 +150,7 @@ Here are some of the metrics emitted by Azure Data Factory version 2:
 | SSISPackageExecutionFailed           | Failed SSIS package execution metrics    | Count    | Total                | The total number of SSIS package executions that failed within a minute window. |
 | SSISPackageExecutionSucceeded        | Succeeded SSIS package execution metrics | Count    | Total                | The total number of SSIS package executions that succeeded within a minute window. |
 
-To access the metrics, complete the instructions in [Azure Monitor data platform](../azure-monitor//data-platform.md).
+To access the metrics, complete the instructions in [Azure Monitor data platform](../azure-monitor/data-platform.md).
 
 > [!NOTE]
 > Only events from completed, triggered activity and pipeline runs are emitted. In progress and debug runs are **not** emitted. On the other hand, events from **all** SSIS package executions are emitted, including those that are completed and in progress, regardless of their invocation methods. For example, you can invoke package executions on Azure-enabled SQL Server Data Tools (SSDT), via T-SQL on SSMS, SQL Server Agent, or other designated tools, and as triggered or debug runs of Execute SSIS Package activities in ADF pipelines.
@@ -847,7 +847,7 @@ To lift & shift your SSIS workloads, you can [provision SSIS IR in ADF](./tutori
 
 Once provisioned, you can [check SSIS IR operational status using Azure PowerShell or on the **Monitor** hub of ADF portal](./monitor-integration-runtime.md#azure-ssis-integration-runtime). With Project Deployment Model, SSIS package execution logs are stored in SSISDB internal tables or views, so you can query, analyze, and visually present them using designated tools like SSMS. With Package Deployment Model, SSIS package execution logs can be stored in file system or Azure Files as CSV files that you still need to parse and process using other designated tools before you can query, analyze, and visually present them.
 
-Now with [Azure Monitor](../azure-monitor//data-platform.md) integration, you can query, analyze, and visually present all metrics and logs generated from SSIS IR operations and SSIS package executions on Azure portal. Additionally, you can also raise alerts on them.
+Now with [Azure Monitor](../azure-monitor/data-platform.md) integration, you can query, analyze, and visually present all metrics and logs generated from SSIS IR operations and SSIS package executions on Azure portal. Additionally, you can also raise alerts on them.
 
 ### Configure diagnostic settings and workspace for SSIS operations
 

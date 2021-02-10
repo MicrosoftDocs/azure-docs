@@ -463,7 +463,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 - [Azure Monitor FAQ](faq.md) - Added section for Metrics.
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Various changes in preparation for general availability.
-- [Built-in policy definitions for Azure Monitor](.//policy-reference.md) - New article.
+- [Built-in policy definitions for Azure Monitor](./policy-reference.md) - New article.
 - [Customer-owned storage accounts for log ingestion](logs/private-storage.md) - New article.
 - [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Added cluster proportional billing.
 - [Use Azure Private Link to securely connect networks to Azure Monitor](logs/private-link-security.md) - New article.
