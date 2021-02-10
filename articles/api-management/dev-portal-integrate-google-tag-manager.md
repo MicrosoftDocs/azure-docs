@@ -13,14 +13,14 @@ ms.topic: how-to
 
 Google Tag Manager is a tag management system created by Google. You can use it to manage JavaScript and HTML tags used for tracking and analytics on websites. For example, you can use Google Tag Manager to integrate Google Analytics, heatmaps, or chatbots like LiveChat.
 
-## Add Application Insights to your portal
+## Add Google Tag Manager to your portal
 
 Follow the steps below to plug Google Tag Manager into your managed or self-hosted developer portal.
 
 > [!IMPORTANT]
 > Steps 1 and 2 are not required for managed portals. If you have a managed portal, skip to step 3.
 
-1. Install the **npm** package to add Google Tag Manager:
+1. Install the **npm** package to add [Paperbits for Google Tag Manager](https://github.com/paperbits/paperbits-gtm):
 
     ```sh
     npm install @paperbits/gtm --save
@@ -35,7 +35,7 @@ Follow the steps below to plug Google Tag Manager into your managed or self-host
     ```
 1. Retrieve the portal's configuration:
 
-    ```html
+    ```http
     GET /contentTypes/document/contentItems/configuration
     ```
 
@@ -55,9 +55,9 @@ Follow the steps below to plug Google Tag Manager into your managed or self-host
     }
     ```
 
-1. Extended the site configuration from the previous step with Google Tag Manager configuration:
+1. Extend the site configuration from the previous step with Google Tag Manager configuration:
 
-    ```html
+    ```http
     PUT /contentTypes/document/contentItems/configuration
     ```
 
