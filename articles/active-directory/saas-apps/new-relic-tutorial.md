@@ -119,7 +119,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. Click the **Security and authentication** tab, and then click the **Single sign on** tab.
    
-    ![Single Sign-On](./media/new-relic-tutorial/sso.png "Single Sign-On")
+    ![Single Sign-On](./media/new-relic-tutorial/single-sign-on-tab.png "Single Sign-On")
 
 4. On the SAML dialog page, perform the following steps:
    
