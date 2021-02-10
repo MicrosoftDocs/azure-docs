@@ -89,9 +89,12 @@ Use an [Azure Logic App](/azure/logic-apps/) to create a serverless, custom conn
 
 1. **Use one of the following triggers to start your Logic Apps**:
 
-    - **A recurring task**. For example, schedule your Logic App to retrieve data regularly from specific files, databases, or external APIs. For more information, see [Create, schedule, and run recurring tasks and workflows in Azure Logic Apps](/azure/connectors/connectors-native-recurrence).
-    - **On-demand triggering**. Run your Logic App on-demand for manual data collection and testing. For more information, see  [Call, trigger, or nest logic apps using HTTPS endpoints](/azure/logic-apps/logic-apps-http-endpoint).
-    - **HTTP/S endpoint**. Recommended for streaming, and if the source system can initiate the data transfer. For more information, see [Call service endpoints over HTTP or HTTPs](/azure/connectors/connectors-native-http).
+    |Trigger  |Description  |
+    |---------|---------|
+    |**A recurring task**     |   For example, schedule your Logic App to retrieve data regularly from specific files, databases, or external APIs. <br>For more information, see [Create, schedule, and run recurring tasks and workflows in Azure Logic Apps](/azure/connectors/connectors-native-recurrence).      |
+    |**On-demand triggering**     | Run your Logic App on-demand for manual data collection and testing. <br>For more information, see  [Call, trigger, or nest logic apps using HTTPS endpoints](/azure/logic-apps/logic-apps-http-endpoint).        |
+    |**HTTP/S endpoint**     |  Recommended for streaming, and if the source system can initiate the data transfer. <br>For more information, see [Call service endpoints over HTTP or HTTPs](/azure/connectors/connectors-native-http).       |
+    |     |         |
 
 1. **Use any of the Logic App connectors that read information to get your events**.
 
