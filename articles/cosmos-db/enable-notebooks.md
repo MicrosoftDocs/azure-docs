@@ -7,6 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 02/09/2021
 ms.author: dech
+ms.custom: references_regions
 
 ---
 
