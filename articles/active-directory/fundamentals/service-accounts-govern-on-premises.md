@@ -21,7 +21,7 @@ There are four types of on-premises service accounts in Windows Active Directory
 
 * [Group managed service accounts](service-accounts-group-managed.md) (gMSAs)
 
-* [Stand-alone managed service accounts](service-accounts-standalone-managed.md) (sMSAs)
+* [standalone managed service accounts](service-accounts-standalone-managed.md) (sMSAs)
 
 * [Computer accounts](service-accounts-computer.md)
 
@@ -199,7 +199,7 @@ See the following articles on securing service accounts
 
 * [Secure group managed service accounts](service-accounts-group-managed.md)
 
-* [Secure stand-alone managed service accounts](service-accounts-standalone-managed.md)
+* [Secure standalone managed service accounts](service-accounts-standalone-managed.md)
 
 * [Secure computer accounts](service-accounts-computer.md)
 

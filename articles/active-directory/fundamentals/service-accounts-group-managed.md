@@ -132,7 +132,7 @@ See the following articles on securing service accounts
 
 * [Secure group managed service accounts](service-accounts-group-managed.md)
 
-* [Secure stand-alone managed service accounts](service-accounts-standalone-managed.md)
+* [Secure standalone managed service accounts](service-accounts-standalone-managed.md)
 
 * [Secure computer accounts](service-accounts-computer.md)
 
