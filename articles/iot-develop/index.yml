@@ -37,5 +37,5 @@ landingContent:
         - text: Using CMAKE with embedded devices
           url: concepts-using-cmake.md
         - text: Common pitfalls with the Azure IoT Device SDKs
-          url: concepts-pitfalls-device-sdks.md
+          url: common-pitfalls-device-sdks.md
 
