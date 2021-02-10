@@ -134,6 +134,8 @@ landingContent:
             url: functions-best-practices.md
           - text: Manage connections
             url: manage-connections.md
+          - text: Storage considerations
+            url: storage-considerations.md
           - text: Error handling and function retries
             url: functions-bindings-error-pages.md
           - text: Security

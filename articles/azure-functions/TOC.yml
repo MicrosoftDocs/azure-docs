@@ -146,6 +146,9 @@
         - name: Manage connections
           href: manage-connections.md
           displayName: best practices
+        - name: Storage considerations
+          href: storage-considerations.md
+          displayName: encryption, keys, mount, files
         - name: Error handling and function retries
           href: functions-bindings-error-pages.md
           displayName: best practices
@@ -227,9 +230,6 @@
     - name: Consumption plan costs
       href: functions-consumption-costs.md
       displayName: best practice
-    - name: Storage considerations
-      href: storage-considerations.md
-      displayName: encryption, keys, mount, files
     - name: Functions Proxies
       href: functions-proxies.md
     - name: Networking options
