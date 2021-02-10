@@ -33,7 +33,7 @@ The NP-series virtual machines are powered by [Xilinx U250 ](https://www.xilinx.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-# Supported operating systems and drivers
+## Supported operating systems and drivers
 Visit [Xilinx Runtime (XRT) release notes](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2020_2/ug1451-xrt-release-notes.pdf) to get the full list of supported operating systems.
 
 During the preview program Microsoft Azure engineering teams will share specific instructions for driver installation.
