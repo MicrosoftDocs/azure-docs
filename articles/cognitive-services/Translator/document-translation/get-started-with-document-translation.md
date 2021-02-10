@@ -55,10 +55,6 @@ Requests to the Translator service require a read-only key for authenticating ac
 1. Copy and paste your subscription key in a convenient location, such as *Microsoft Notepad*.
 1. You'll paste it into the code below to authenticate your request to the Document Translation service.
 
-
-:::image type="content" source="../../media/cognitive-services-apis-create-account/get-cog-serv-keys.png" alt-text="Get key and endpoint.":::
-
-
 ## Create your Azure blob storage containers
 
 You'll need to  [create containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your storage account for source, target, and optional glossary files.
