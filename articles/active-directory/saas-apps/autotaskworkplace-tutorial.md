@@ -128,13 +128,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **Configuration** > **Single Sign-On** and perform the following steps:
 
-    ![Autotask Single Sign-on configuration](./media/autotaskworkplace-tutorial/config1.png)
+    ![Autotask Single Sign-on configuration](./media/autotaskworkplace-tutorial/configuration-1.png)
 
     a. Select the **XML Metadata File** option, and then upload the downloaded **Federation Metadata XML** from Azure portal.
 
     b. Click **ENABLE SSO**.
 
-    ![Autotask Single Sign-on approve configuration](./media/autotaskworkplace-tutorial/config2.png)
+    ![Autotask Single Sign-on approve configuration](./media/autotaskworkplace-tutorial/configuration-2.png)
 
     c. Select the **I confirm this information is correct and I trust this IdP** check box.
 
