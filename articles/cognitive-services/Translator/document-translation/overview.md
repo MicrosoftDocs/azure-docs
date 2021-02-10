@@ -14,21 +14,24 @@ Document Translation is a cloud-based feature of the [Azure Translator](../trans
 
 ## Document Translation key features
 
-1. **Translate large files**.  You can translate whole documents asynchronously.
-1. **Translate multiple files**. You can translate multiple files into multiple languages.
-1. **Preserve source file format**.  You can translate files while preserving the original layout and format.
-1. **Apply custom translation**. You can translate documents using general and [custom translation](../customization.md#custom-translator) models.
-1. **Use custom glossaries**. You can translate documents applying custom glossaries.
+| Feature | Description |
+| ---------| -------------|
+| **Translate large files**| Translate whole documents asynchronously.|
+|**Translate numerous files**|Translate multiple files to and from more than 70 languages.|
+|**Preserve source file presentation**| Translate files while preserving the original layout and format.|
+|**Apply custom translation**| Translate documents using general and [custom translation](../customization.md#custom-translator) models.|
+|**Apply custom glossaries**|Translate documents using custom glossaries.|
 
-## Document translation
+## How to get started?
 
-Document translation requires the following Azure portal resources:
+In our [how-to guide](get-started-with-document-translation.md), you'll learn how to quickly get started using Document Translator. To begin, you'll need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account)(https://azure.microsoft.com/free/).
 
-* [**Translator**](https://ms.portal.azure.com/#create/Microsoft). _See_  [Create a Translator Resource](../translator-how-to-signup.md).
-* [**Azure storage account**](/azure/storage/common/storage-account-create?tabs=azure-portal). All access to Azure Storage takes place through a storage account.
-* [**Azure blob storage containers**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). Each request requires a source container to upload your files, folders, or glossaries, and a target container to store your final translated documents.
+> [!div class="nextstepaction"]
+> [Get Started with Document Translation](get-started-with-document-translation.md)
 
-## Supported document file formats
+## Supported document formats
+
+The following document file types are supported by Document Translation:
 
 | File type| File extension|Description|
 |---|---|--|
@@ -43,7 +46,9 @@ Document translation requires the following Azure portal resources:
 |Text|.txt| An unformatted text document.|
 |Translation Memory Exchange|.tmx|An open XML standard used for exchanging translation memory (TM) data created by Computer Aided Translation (CAT) and localization applications.|
 
-## Supported glossary file formats
+## Supported glossary formats
+
+The following glossary file types are supported by Document Translation:
 
 | File type| File extension|Description|
 |---|---|--|
@@ -52,7 +57,4 @@ Document translation requires the following Azure portal resources:
 
 ### Next Step
 
-> [!div class="nextstepaction"]
-> [Get Started with Document Translation](get-started-with-document-translation.md)
->
->
+[**Get Started with Document Translation**](get-started-with-document-translation.md)
