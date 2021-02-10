@@ -16,7 +16,7 @@ ms.date: 02/09/2021
 In this article, learn about Azure Machine Learning releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) reference page.
 
 
-## 2021-02-08
+## 2021-02-09
 
 ### Azure Machine Learning SDK for Python v1.22.0
 + **Bug fixes and improvements**
