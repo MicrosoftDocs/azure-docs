@@ -25,27 +25,27 @@ Learn the key components and capabilities of the Microsoft identity platform.
 
 ___
 :::row:::
-  :::column:::
-        <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank">The basics of modern authentication - Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (12:28)
-    :::column-end:::
-    :::column:::
+:::column:::
         <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank"> <img src="./media/identity-videos/id-for-devs-07.jpg" alt="Video thumbnail for a video about the basics of modern authentication on the Microsoft identity platform."> </a>
     :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank">Modern authentication: how we got here – Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (15:47)
-    :::column-end:::
-    :::column:::
+:::column:::
         <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank"> <img src="./media/identity-videos/id-for-devs-08.jpg" alt="Video thumbnail for a video about modern authentication and the Microsoft identity platform." class="mx-imgBorder"> </a>
+    :::column-end:::
+:::column:::
+        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank"> <img src="./media/identity-videos/mobile-single-sign-on.jpg" alt="Video thumbnail for a video about implementing mobile single sign on using the Microsoft identity platform."></a> (20:30)
     :::column-end:::
 :::row-end:::
 :::row:::
-  :::column:::
+:::column:::
+        <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank">The basics of modern authentication - Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (12:28)
+    :::column-end:::
+:::column:::
+        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank">Modern authentication: how we got here – Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (15:47)
+    :::column-end:::
+:::column:::
         <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank">Overview: Implementing single sign-on in mobile applications - Microsoft Identity Platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (20:30)
     :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank"> <img src="./media/identity-videos/mobile-single-sign-on.jpg" alt="Video thumbnail for a video about implementing mobile single sign on using the Microsoft identity platform."></a> (20:30)
-    :::column-end:::
-  :::row-end:::
+:::row-end:::
 
 
 <!-- IMAGES -->
@@ -95,6 +95,10 @@ ___
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/id-for-devs-05.jpg" alt="Video thumbnail for a video about application roles and security groups on the Microsoft identity platform."> </a>
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
     :::column-end:::
 :::row-end:::
 
