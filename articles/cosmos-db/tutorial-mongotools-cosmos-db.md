@@ -133,11 +133,11 @@ The rest of this section will guide you through using the pair of tools you sele
     On Windows, the executable will be `mongorestore.exe`. *HOST*, *PORT*, *USERNAME*, and *PASSWORD* should be filled in based on the Azure Cosmos DB credentials you collected earlier. 
 4. **Monitor** the terminal output from *mongorestore*. You should see that it prints lines to the terminal updating on the migration status:
 
-    ![mongoimport call](media/tutorial-mongotools-cosmos-db/mongo-restore-output.png)    
+    ![mongorestore call](media/tutorial-mongotools-cosmos-db/mongo-restore-output.png)    
 
 4. Finally, examine Azure Cosmos DB to **validate** that migration was successful. Open the Azure Cosmos DB portal and navigate to Data Explorer. You should see (1) that an *edx* database with an *importedQuery* collection has been created, and (2) *importedQuery* should contain the *entire* dataset from the source collection:
 
-    ![review cosmos db](media/tutorial-mongotools-cosmos-db/mongo-review-cosmos-restore.png)    
+    ![review cosmos db restore](media/tutorial-mongotools-cosmos-db/mongo-review-cosmos-restore.png)    
 
 ## Post-migration optimization
 
