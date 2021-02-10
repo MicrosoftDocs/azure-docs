@@ -92,7 +92,13 @@ When you create your ISE, you can select the Developer SKU or Premium SKU. Here 
 
 * **Developer**
 
-  Provides a lower-cost ISE that you can use for experimentation, development, and testing, but not for production or performance testing. The Developer SKU includes built-in triggers and actions, Standard connectors, Enterprise connectors, and a single [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account for a fixed monthly price. However, this SKU doesn't include any service-level agreement (SLA), options for scaling up capacity, or redundancy during recycling, which means that you might experience delays or downtime.
+  Provides a lower-cost ISE that you can use for exploration, experiments, development, and testing, but not for production or performance testing. The Developer SKU includes built-in triggers and actions, Standard connectors, Enterprise connectors, and a single [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account for a fixed monthly price.
+
+  > [!IMPORTANT]
+  > This SKU doesn't have any published limits, service-level agreement (SLA), scale up capability, 
+  > and redundancy during recycling, which means that you might experience delays or downtime. 
+  > Backend updates might intermittently interrupt service. Make sure that you keep loads 
+  > on your ISE under 500 executions per minute.
 
 * **Premium**
 

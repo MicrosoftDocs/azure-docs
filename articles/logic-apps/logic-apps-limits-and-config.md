@@ -189,21 +189,16 @@ For more information about your logic app resource definition, see [Overview: Au
 
 ### Integration service environment (ISE)
 
-Here are the throughput limits for the [Premium ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
+* [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): Doesn't have published limits, scale up capability, service-level agreement (SLA), and redundancy during recycling, which means that you might experience delays or downtime. Backend updates might intermittently interrupt service. Use this SKU only for exploration, experiments, development, and testing, but not for production or performance testing. Make sure that you keep loads on your ISE under 500 executions per minute.
 
-| Name | Limit | Notes |
-|------|-------|-------|
-| Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month | |
-| Scale unit execution limit | System-throttled when infrastructure capacity reaches 80% | Each scale unit can provide ~2,000 additional action executions per minute, which is ~80 million more action executions per month | |
-| Maximum scale units that you can add | 10 | |
-||||
+* [Premium ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): The following table describes this SKU's throughput limits, but to exceed these limits in normal processing, or run load testing that might go above these limits, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
 
-To go above these limits in normal processing, or run load testing that might go above these limits, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
-
-> [!NOTE]
-> The [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
-> has no published limits, no capabilities for scaling up, and no service-level agreement (SLA). Use this SKU
-> only for experimenting, development, and testing, not production or performance testing.
+  | Name | Limit | Notes |
+  |------|-------|-------|
+  | Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month | |
+  | Scale unit execution limit | System-throttled when infrastructure capacity reaches 80% | Each scale unit can provide ~2,000 additional action executions per minute, which is ~80 million more action executions per month | |
+  | Maximum scale units that you can add | 10 | |
+  ||||
 
 <a name="gateway-limits"></a>
 
