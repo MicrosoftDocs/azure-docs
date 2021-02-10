@@ -18,8 +18,8 @@ Indexer execution can occur when you first create the [indexer](search-indexer-o
 You can clear the high water mark by resetting the indexer if you want to reprocess from scratch. Reset APIs are available at decreasing levels in the object hierarchy:
 
 + The entire search corpus (use [Reset Indexers](#reset-indexers))
-+ A specific document or list of documents (use [Reset Documents (preview)](#reset-docs))
-+ A specific skill or enrichment in a document (use [Reset Skills (preview)](#reset-skills))
++ A specific document or list of documents (use [Reset Documents - preview](#reset-docs))
++ A specific skill or enrichment in a document (use [Reset Skills - preview](#reset-skills))
 
 The Reset APIs are used to refresh cached content (applicable in [AI enrichment](cognitive-search-concept-intro.md) scenarios), or to clear the high water mark and rebuild the index.
 
