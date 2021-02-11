@@ -13,7 +13,7 @@ ms.custom: template-tutorial
 
 Azure Percept Studio enables you to build and deploy custom computer vision solutions, no coding required. In this article, you will:
 
-- create a vision project in [Azure Percept Studio]((https://go.microsoft.com/fwlink/?linkid=2135819))
+- create a vision project in [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)
 - collect training images with your devkit
 - label your training images in [Custom Vision](https://www.customvision.ai/)
 - train your custom object detection or classification model
