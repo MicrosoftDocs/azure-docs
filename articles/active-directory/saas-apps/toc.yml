@@ -812,6 +812,8 @@
         href: ibm-digital-business-automation-on-cloud-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
+      - name: IBMid production (current)
+        href: ibmid-production-current-tutorial.md
       - name: IBM OpenPages
         href: ibmopenpages-tutorial.md
       - name: ice Contact Center
