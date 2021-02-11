@@ -99,4 +99,4 @@ Classic Run As accounts are not created by default when you create an Azure Auto
 * To get started with PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
 * To get started with PowerShell Workflow runbooks, see [Tutorial: Create a PowerShell workflow runbook](learn/automation-tutorial-runbook-textual.md).
 * To get started with Python 3 runbooks, see [Tutorial: Create a Python 3 runbook](learn/automation-tutorial-runbook-textual-python-3.md).
-* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation&preserve-view=true#automation).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).

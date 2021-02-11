@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 02/04/2021
 ms.author: memildin
 
 ---
 
 # Prevent misconfigurations with Enforce/Deny recommendations
 
-Security misconfigurations are a major cause of security incidents. Security Center now has the ability to help *prevent* misconfigurations of new resources with regards to specific recommendations. 
+Security misconfigurations are a major cause of security incidents. Security Center now has the ability to help *prevent* misconfigurations of new resources with regard to specific recommendations. 
 
 This feature can help keep your workloads secure and stabilize your secure score.
 
@@ -58,34 +58,18 @@ This can be found at the top of the resource details page for selected security 
 
 These recommendations can be used with the **deny** option:
 
-- Virtual machines should be migrated to new Azure Resource Manager resources
-- Storage accounts should be migrated to new Azure Resource Manager resources
-- All authorization rules except RootManageSharedAccessKey should be removed from Event Hub
-namespace
-- All authorization rules except RootManageSharedAccessKey should be removed from Service Bus
-namespace
-- Secure transfer to storage accounts should be enabled
-- Only secure connections to your Redis Cache should be enabled
-- Automation account variables should be encrypted
-- Service Fabric clusters should only use Azure Active Directory for client authentication
-- Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign
-- Audit unrestricted network access to storage accounts
-
+[!INCLUDE [azure-security-center-recommendations-deny](../../includes/asc/recommendations-with-deny.md)]
 
 These recommendations can be used with the **enforce** option:
 
-- Diagnostic logs in Logic Apps should be enabled
-- Diagnostic logs in Data Lake Analytics should be enabled
-- Diagnostic logs in IoT Hub should be enabled
-- Diagnostic logs in Batch accounts should be enabled
-- Diagnostic logs in Azure Stream Analytics should be enabled
-- Diagnostic logs in Service Bus should be enabled
-- Diagnostic logs in Search services should be enabled
-- Diagnostic logs in Event Hub should be enabled
-- Diagnostic logs in Virtual Machine Scale Sets should be enabled
-- Diagnostic logs in Key Vault should be enabled
 - Auditing on SQL server should be enabled
-- Advanced data security should be enabled on your SQL servers
-
-
-
+- Azure Backup should be enabled for virtual machines
+- Azure Defender for SQL should be enabled on your SQL servers
+- Diagnostic logs in Azure Stream Analytics should be enabled
+- Diagnostic logs in Batch accounts should be enabled
+- Diagnostic logs in Data Lake Analytics should be enabled
+- Diagnostic logs in Event Hub should be enabled
+- Diagnostic logs in Key Vault should be enabled
+- Diagnostic logs in Logic Apps should be enabled
+- Diagnostic logs in Search services should be enabled
+- Diagnostic logs in Service Bus should be enabled

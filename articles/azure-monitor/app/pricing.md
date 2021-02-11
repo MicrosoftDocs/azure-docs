@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 5/7/2020
+ms.date: 2/7/2021
 
 ms.reviewer: mbullwin
 ---
@@ -182,7 +182,7 @@ The volume of data you send can be managed using the following techniques:
 
 * **Sampling**: You can use sampling to reduce the amount of telemetry that's sent from your server and client apps, with minimal distortion of metrics. Sampling is the primary tool you can use to tune the amount of data you send. Learn more about [sampling features](./sampling.md).
 
-* **Limit Ajax calls**: You can [limit the number of Ajax calls that can be reported](./javascript.md#configuration) in every page view, or switch off Ajax reporting.
+* **Limit Ajax calls**: You can [limit the number of Ajax calls that can be reported](./javascript.md#configuration) in every page view, or switch off Ajax reporting. Note that disabling Ajax calls will disable [JavaScript correlation](./javascript.md#enable-correlation).
 
 * **Disable unneeded modules**: [Edit ApplicationInsights.config](./configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data are inessential.
 
@@ -282,15 +282,18 @@ To disable the daily volume cap e-mails, under the **Configure** section of your
 
 For early adopters of Azure Application Insights, there are still two possible pricing tiers: Basic and Enterprise. The Basic pricing tier is the same as described above and is the default tier. It includes all Enterprise tier features, at no additional cost. The Basic tier bills primarily on the volume of data that's ingested.
 
-> [!NOTE]
-> These legacy pricing tiers have been renamed. The Enterprise pricing tier is now called **Per Node** and the Basic pricing tier is now called **Per GB**. These new names are used below and in the Azure portal.  
+These legacy pricing tiers have been renamed. The Enterprise pricing tier is now called **Per Node** and the Basic pricing tier is now called **Per GB**. These new names are used below and in the Azure portal.  
 
-The Per Node (formerly Enterprise) tier has a per-node charge, and each node receives a daily data allowance. In the Per Node pricing tier, you are charged for data ingested above the included allowance. If you are using Operations Management Suite, you should choose the Per Node tier.
+The Per Node (formerly Enterprise) tier has a per-node charge, and each node receives a daily data allowance. In the Per Node pricing tier, you are charged for data ingested above the included allowance. If you are using Operations Management Suite, you should choose the Per Node tier. In April 2018, we [introduced](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) a new pricing model for Azure monitoring. This model adopts a simple "pay-as-you-go" model across the complete portfolio of monitoring services. Learn more about the [new pricing model](../platform/usage-estimated-costs.md).
 
 For current prices in your currency and region, see [Application Insights pricing](https://azure.microsoft.com/pricing/details/application-insights/).
 
-> [!NOTE]
-> In April 2018, we [introduced](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) a new pricing model for Azure monitoring. This model adopts a simple "pay-as-you-go" model across the complete portfolio of monitoring services. Learn more about the [new pricing model](../platform/usage-estimated-costs.md), how to [assess the impact of moving to this model](../platform/usage-estimated-costs.md#understanding-your-azure-monitor-costs) based on your usage patterns, and [how to opt into the new model](../platform/usage-estimated-costs.md#azure-monitor-pricing-model)
+### Understanding billed usage on the legacy Enterprise (Per Node) tier 
+
+As described below in more detail, the legacy Enterprise (Per Node) tier combines usage from across all Application Insights resources in a subscription to calculate the number of nodes and the data overage. Due to this combination process, **usage for all Application Insights resources in a subscription are reported against just one of the resources**.  This makes reconciling your [billed usage](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) with the usage you observe for each Application Insights resources very complicated. 
+
+> [!WARNING]
+> Because of the complexity of tracking and understanding usage of Application Insights resources in the legacy Enterprise (Per Node) tier we strongly recommend using the current Pay-As-You-Go pricing tier. 
 
 ### Per Node tier and Operations Management Suite subscription entitlements
 
@@ -344,4 +347,3 @@ You can write a script to set the pricing tier by using Azure Resource Managemen
 [start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-

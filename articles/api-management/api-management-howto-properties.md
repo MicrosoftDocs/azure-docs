@@ -39,7 +39,7 @@ Using key vault secrets is recommended because it helps improve API Management s
 
 * Secrets stored in key vaults can be reused across services
 * Granular [access policies](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) can be applied to secrets
-* Secrets updated in the key vault are automatically rotated in API Management. After update in the key vault, a named value in API Management is updated within 4 hours. 
+* Secrets updated in the key vault are automatically rotated in API Management. After update in the key vault, a named value in API Management is updated within 4 hours. You can also manually refresh the secret using the Azure portal or via the management REST API.
 
 ### Prerequisites for key vault integration
 
@@ -54,25 +54,16 @@ Using key vault secrets is recommended because it helps improve API Management s
 
 To use the key vault secret, [add or edit a named value](#add-or-edit-a-named-value), and specify a type of **Key vault**. Select the secret from the key vault.
 
-> [!CAUTION]
-> When using a key vault secret in API Management, be careful not to delete the secret, key vault, or managed identity used to access the key vault.
-
-If [Key Vault firewall](../key-vault/general/network-security.md) is enabled on your key vault, the following are additional requirements for using key vault secrets:
-
-* You must use the API Management instance's **system-assigned** managed identity to access the key vault.
-* In Key Vault firewall, enable the **Allow Trusted Microsoft Services to bypass this firewall** option.
-
-If the API Management instance is deployed in a virtual network, also configure the following network settings:
-* Enable a [service endpoint](../key-vault/general/overview-vnet-service-endpoints.md) to Azure Key Vault on the API Management subnet.
-* Configure a network security group (NSG) rule to allow outbound traffic to the AzureKeyVault and AzureActiveDirectory [service tags](../virtual-network/service-tags-overview.md). 
-
-For details, see network configuration details in [Connect to a virtual network](api-management-using-with-vnet.md#-common-network-configuration-issues).
+[!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
 ## Add or edit a named value
 
 ### Add a key vault secret
 
 See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integration).
+
+> [!CAUTION]
+> When using a key vault secret in API Management, be careful not to delete the secret, key vault, or managed identity used to access the key vault.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **APIs**, select **Named values** > **+Add**.
