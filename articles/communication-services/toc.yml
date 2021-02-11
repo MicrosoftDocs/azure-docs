@@ -58,8 +58,6 @@
 - name: Concepts
   expanded: false
   items:
-  - name: Teams interoperability
-    href: concepts/teams-interop.md
   - name: Chat
     items:
       - name: Chat client library overview
@@ -86,6 +84,8 @@
         href: concepts/ui-framework/ui-sdk-overview.md
       - name: UI Framework capabilities
         href: concepts/ui-framework/ui-sdk-features.md
+  - name: Teams interoperability
+    href: concepts/teams-interop.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
   - name: Call flows
