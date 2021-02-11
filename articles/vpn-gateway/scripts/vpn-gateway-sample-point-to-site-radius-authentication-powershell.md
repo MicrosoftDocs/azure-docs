@@ -25,11 +25,12 @@ This script sample creates a route-based VPN gateway and adds point-to-site conf
   $VNetPrefix1 = "10.1.0.0/16"
   $FESubPrefix = "10.1.0.0/24"
   $GWSubPrefix = "10.1.255.0/27"
-  $VPNClientAddressPool = "192.168.0.0/24"
+  $VPNClientAddressPool = "172.16.201.0/24"
   $RG = "TestRG1"
   $Location = "East US"
   $GWName = "VNet1GW"
   $GWIPName = "VNet1GWIP"
+  $RSAddress = "10.51.0.15"
 
 # Create a resource group
 New-AzResourceGroup -Name $RG -Location $Location
@@ -52,7 +53,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix $GWSubPref
 # Set the subnet configuration for the virtual network
 $vnet | Set-AzVirtualNetwork
 # Request a public IP address
-$gwpip= New-AzPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location '$Location' `
+$gwpip= New-AzPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location `
  -AllocationMethod Dynamic
 # Create the gateway IP address configuration
 $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
@@ -60,7 +61,7 @@ $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 # Create the VPN gateway
 New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
- -Location '$Location' -IpConfigurations $gwipconfig -GatewayType Vpn `
+ -Location $Location -IpConfigurations $gwipconfig -GatewayType Vpn `
  -VpnType RouteBased -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 # Create a secure string for the RADIUS secret
 $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
@@ -68,8 +69,8 @@ $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
 # Add the VPN client address pool and the RADIUS server information
 $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
 Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
- -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol @( "SSTP", "IkeV2" ) `
- -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
+ -VpnClientAddressPool $VPNClientAddressPool -VpnClientProtocol @( "SSTP", "IkeV2" ) `
+ -RadiusServerAddress $RSAddress -RadiusServerSecret $Secure_Secret
 ```
 
 ## Clean up resources
