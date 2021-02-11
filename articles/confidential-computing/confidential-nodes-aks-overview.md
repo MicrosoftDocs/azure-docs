@@ -12,11 +12,11 @@
 
 # Confidential computing nodes on Azure Kubernetes Service
 
-[Azure confidential computing](overview.md) allows you to protect your sensitive data while it's in use. The underlying infrastructures protect this data from other applications, administrators, and cloud providers with a hardware backed trusted execution container environments.
+[Azure confidential computing](overview.md) allows you to protect your sensitive data while it's in use. The underlying confidential computing infrastructure protects this data from other applications, administrators, and cloud providers with a hardware backed trusted execution container environments.
 
 ## Overview
 
-Azure Kubernetes Service (AKS) supports adding [DCsv2 confidential computing nodes](confidential-computing-enclaves.md) powered by Intel SGX. These nodes run can run sensitive workloads within a hardware-based trusted execution environment (TEE) by allowing user-level code to allocate private regions of memory. These private memory regions are called enclaves. Enclaves are designed protect code and data from processes running at higher privilege. The SGX execution model removes the intermediate layers of Guest OS, Host OS and Hypervisor. The *hardware based per container isolated execution* model allows applications to directly execute with the CPU, while keeping the special block of memory encrypted. Confidential computing nodes help with the overall security posture of container applications on AKS and a great addition to defense-in-depth container strategy. 
+Azure Kubernetes Service (AKS) supports adding [DCsv2 confidential computing nodes](confidential-computing-enclaves.md) powered by Intel SGX. These nodes allow you to run sensitive workloads within a hardware-based trusted execution environment (TEE). TEE’s allow user-level code from containers to allocate private regions of memory to execute the code with CPU directly. These private memory regions that execute directly with CPU are called enclaves. Enclaves help you protect the memory data confidentiality, data integrity and code integrity from other processes running on the same node running at higher privileges. The SGX execution model also removes the intermediate layers of Guest OS, Host OS and Hypervisor thus reducing the attack surface area. The *hardware based per container isolated execution* model in a node allows applications to directly execute with the CPU, while keeping the special block of memory encrypted per container. Confidential computing nodes with confidential containers is a great addition to your zero trust security planning and defense-in-depth container strategy . 
 
 ![sgx node overview](./media/confidential-nodes-aks-overview/sgxaksnode.jpg)
 
@@ -24,7 +24,7 @@ Azure Kubernetes Service (AKS) supports adding [DCsv2 confidential computing nod
 
 - Hardware based and process level container isolation through SGX trusted execution environment (TEE) 
 - Heterogenous node pool clusters (mix confidential and non-confidential node pools)
-- Encrypted Page Cache (EPC) memory-based pod scheduling (required addon)
+- Encrypted Page Cache (EPC) memory-based pod scheduling (requires addon)
 - SGX DCAP driver pre-installed
 - CPU consumption based horizontal pod autoscaling and cluster autoscaling
 - Linux Containers support through Ubuntu 18.04 Gen 2 VM worker nodes
@@ -40,10 +40,10 @@ The SGX Device Plugin implements the Kubernetes device plugin interface for EPC 
 
 ### Confidential Containers
 
-[Confidential containers](confidential-containers.md) help you run existing unmodified container applications for most **common programming language** runtime (Python, Node, Java etc.) without any source-code modification or recompilation. This is the easiest model to confidentiality currently supported on AKS through Open Source Projects & Azure Partners. In this execution model all parts of the container/application is loaded in the trusted boundary (enclave)
-### Enclave aware containers
+[Confidential containers](confidential-containers.md) help you run existing unmodified container applications of most **common programming languages** runtimes (Python, Node, Java etc.) confidentially. This packaging model does not need any source-code modifications or recompilation. This is the fastest method to confidentiality that could be achieved by packaging your standard docker containers with Open-Source Projects or Azur Partner Solutions. In this packaging and execution model all parts of the container application are loaded in the trusted boundary (enclave). This model works well for off the shelf container applications available in the market or custom apps currently running on general purpose nodes.
 
-AKS supports applications that are programmed to run on confidential nodes and utilize **special instruction set** made available through the SDKs and frameworks. This application model provides most control to your applications with a lowest Trusted Computing Base (TCB). This programming model involves untrusted and trusted parts to the container application that are loaded individually. [Read more](enclave-aware-containers.md) on enclave aware containers.
+### Enclave aware containers
+Confidential computing nodes on AKS also supports containers that are programmed to run in an enclave to utilize **special instruction set** available from the CPU. This programming model allows tighter control of your execution flow and requires use of special SDKs and frameworks and provides most control of application flow with a lowest Trusted Computing Base (TCB). Enclave aware container development involves untrusted and trusted parts to the container application thus allowing you to manage the regular node memory and Encrypted Page Cache (EPC) memory where enclave is executed. [Read more](enclave-aware-containers.md) on enclave aware containers.
 
 ## Next Steps
 
