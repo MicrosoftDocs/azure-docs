@@ -61,9 +61,9 @@ For existing clusters, you will need to manually run a remediation task. This ta
 1. In the Azure portal, navigate to one of your `connectedCluster` resources.
 1. In the **Settings** section of the sidebar, select **Policies**. 
     * The AKS cluster UX is not implemented yet.
-1. In the policies list, you should see the policy assignment that you created earlier with the **Compliance state** set as *Compliant*.
+    * In the policies list, you should see the policy assignment that you created earlier with the **Compliance state** set as *Compliant*.
 1. In the **Settings** section of the sidebar, select **Configurations**.
-1. In the configurations list, you should see the `sourceControlConfiguration` that the policy assignment created.
+    * In the configurations list, you should see the `sourceControlConfiguration` that the policy assignment created.
 1. Use `kubectl` to interrogate the cluster. 
     * You should see the namespace and artifacts that were created by the `sourceControlConfiguration`.
     * Within 5 minutes, you should see in the cluster the artifacts that are described in the manifests in the configured Git repo.
