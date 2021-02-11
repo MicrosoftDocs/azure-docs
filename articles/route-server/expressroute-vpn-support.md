@@ -1,5 +1,5 @@
 ---
-title: 'About Azure Route Server supports for ExpressRoute and Azure VPN'
+title: 'About Azure Route Server support for ExpressRoute and Azure VPN'
 description: Learn about how Azure Route Server interacts with ExpressRoute and Azure VPN gateways.
 services: route-server
 author: duongau
@@ -9,13 +9,13 @@ ms.date: 02/23/2021
 ms.author: duau
 ---
 
-# About Azure Route Server supports for ExpressRoute and Azure VPN
+# About Azure Route Server support for ExpressRoute and Azure VPN
 
 Azure Route Server supports not only third-party network virtual appliances (NVA) running on Azure but also integrates seamlessly with ExpressRoute and Azure VPN gateways. You don’t need to configure or manage the BGP peering between the gateway and Azure Route Server. You can enable route exchange between the gateway and Azure Route Server with a simple [configuration change](quickstart-configure-route-server-portal.md).
 
 ## How does it work?
 
-When you deploy an Azure Route Server along with an ExpressRoute gateway, and an NVA in a virtual network. By default, Azure Route Server doesn’t propagate the routes it receives from the NVA and ExpressRoute gateway to each other. Once you enable the route exchange, ExpressRoute and the NVA will learn each other’s routes.
+When you deploy an Azure Route Server along with an ExpressRoute gateway and an NVA in a virtual network by default Azure Route Server doesn’t propagate the routes it receives from the NVA and ExpressRoute gateway between each other. Once you enable the route exchange, ExpressRoute and the NVA will learn each other’s routes.
 
 For example, in the following diagram:
 
