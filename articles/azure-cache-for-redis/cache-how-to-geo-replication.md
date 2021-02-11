@@ -110,7 +110,7 @@ After geo-replication is configured, the following restrictions apply to your li
 - [Why did the operation fail when I tried to delete my linked cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [What region should I use for my secondary linked cache?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [How does failing over to the secondary linked cache work?](#how-does-failing-over-to-the-secondary-linked-cache-work)
-- [Can i configure Firewall with geo-replication?](#can-i-configure-a-firewall-with-geo-replication)
+- [Can I configure Firewall with geo-replication?](#can-i-configure-a-firewall-with-geo-replication)
 
 ### Can I use geo-replication with a Standard or Basic tier cache?
 
