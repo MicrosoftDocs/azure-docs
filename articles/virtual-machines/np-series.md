@@ -23,11 +23,11 @@ VM Generation Support: Generation 1<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | FPGA | FPGA memory: GiB | Max data disks | Max NICs | 
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | FPGA | FPGA memory: GiB | Max data disks | Max NICs/Expected network bandwidth (MBps) | 
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_NP10s | 10 | 168 | 736  | 1 | 64  | 8 | 1 | 
-| Standard_NP20s | 20 | 336 | 1474 | 2 | 128 | 16 | 2 | 
-| Standard_NP40s | 40 | 672 | 2948 | 4 | 256 | 32 | 4 | 
+| Standard_NP10s | 10 | 168 | 736  | 1 | 64  | 8 | 1 / 7500 | 
+| Standard_NP20s | 20 | 336 | 1474 | 2 | 128 | 16 | 2 / 15000 | 
+| Standard_NP40s | 40 | 672 | 2948 | 4 | 256 | 32 | 4 / 30000 | 
 
 
 
