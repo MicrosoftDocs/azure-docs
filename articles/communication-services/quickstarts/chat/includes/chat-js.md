@@ -85,11 +85,9 @@ To create a chat client in your web app, you'll use the Communications Service *
 
 User access tokens enable you to build client applications that directly authenticate to Azure Communication Services.
 
-Skip to [Instructions](#Instructions)
-
 ##### Server vs. Client side
 
-It is recommended to generate access tokens server side and pass them to the client application. In this scenario the server side would be responsible for creating and managing users and issuing their tokens. The client side can then receive access tokens from the service and use them to authenticate the Azure Communication client libraries.
+We recommend generating access tokens using a server-side component that passes them to the client application. In this scenario the server side would be responsible for creating and managing users and issuing their tokens. The client side can then receive access tokens from the service and use them to authenticate the Azure Communication Services client libraries.
 
 Tokens can also be issued on the client side using the Azure Communication Administration library for Javascript. In this scenario the client side would need to be aware of users in order to issue their tokens.
 
