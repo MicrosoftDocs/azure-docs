@@ -1,11 +1,10 @@
 ---
 title: Troubleshoot assessment and dependency visualization in Azure Migrate
-description: Get help with troubleshooting assessment and dependency visualization in Azure Migrate.
-ms.service: azure-migrate
-ms.topic: troubleshooting
-author: musa-57
+description: Get help with assessment and dependency visualization in Azure Migrate.
+author: rashi-ms
+ms.author: rajosh
 ms.manager: abhemraj
-ms.author: hamusa
+ms.topic: troubleshooting
 ms.date: 01/02/2020
 ---
 

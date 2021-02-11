@@ -54,6 +54,6 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 
 ## Next steps
 
-- Learn more about [Intel Xeon SP architecture](https://bit.ly/2RCYkiE).
+- Learn more about [Intel Xeon SP architecture](https://software.intel.com/content/www/us/en/develop/articles/intel-xeon-processor-scalable-family-technical-overview.html).
 - Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

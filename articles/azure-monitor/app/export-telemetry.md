@@ -34,6 +34,9 @@ Continuous Export **does not support** the following Azure storage features/conf
 
 ## <a name="setup"></a> Create a Continuous Export
 
+> [!NOTE]
+> An application cannot export more than 3TB of data per day. If more than 3TB per day is exported, the export will be disabled. To export without a limit use [diagnostic settings based export](#diagnostic-settings-based-export).
+
 1. In the Application Insights resource for your app under configure on the left, open Continuous Export and choose **Add**:
 
 2. Choose the telemetry data types you want to export.
@@ -203,6 +206,19 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 * [Stream Analytics sample](export-stream-analytics.md)
 * [Export to SQL using Stream Analytics][exportasa]
 * [Detailed data model reference for the property types and values.](export-data-model.md)
+
+## Diagnostic settings based export
+
+Diagnostic settings based export uses a different schema than continuous export. It also supports features that continuous export does not like:
+
+* Azure storage accounts with vnet, firewalls, and private links.
+* Export to event hub.
+
+To migrate to diagnostic settings based export:
+
+1. Disable current continuous export.
+2. [Migrate application to workspace-based](convert-classic-resource.md).
+3. [Enable diagnostic settings export](create-workspace-resource.md#export-telemetry). Select **Diagnostic settings > add diagnostic setting** from within your Application Insights resource.
 
 <!--Link references-->
 

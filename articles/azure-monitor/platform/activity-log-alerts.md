@@ -14,7 +14,8 @@ ms.date: 09/17/2018
 Activity log alerts are alerts that activate when a new [activity log event](activity-log-schema.md) occurs that matches the conditions specified in the alert. Based on the order and volume of the events recorded in [Azure activity log](platform-logs-overview.md), the alert rule will fire. Activity log alert rules are Azure resources, so they can be created by using an Azure Resource Manager template. They also can be created, updated, or deleted in the Azure portal. This article introduces the concepts behind activity log alerts. For more information on creating or usage of activity log alert rules, see [Create and manage activity log alerts](alerts-activity-log.md).
 
 > [!NOTE]
-> Alerts **cannot** be created for events in Alert category of activity log.
+> * Alerts **cannot** be created for events in Alert category of activity log.
+> * Activity Log Alerts with the category of Security can be defined also in a [new upgraded flow](../../security-center/continuous-export.md?tabs=azure-portal) to [ServiceNow](../../security-center/export-to-siem.md)
 
 Typically, you create activity log alerts to receive notifications when:
 

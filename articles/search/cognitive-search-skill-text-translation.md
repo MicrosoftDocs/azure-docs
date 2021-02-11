@@ -34,7 +34,7 @@ The maximum size of a record should be 50,000 characters as measured by [`String
 
 Parameters are case-sensitive.
 
-| Inputs	            | Description |
+| Inputs | Description |
 |---------------------|-------------|
 | defaultToLanguageCode | (Required) The language code to translate documents into for documents that don't specify the to language explicitly. <br/> See [Full list of supported languages](../cognitive-services/translator/language-support.md). |
 | defaultFromLanguageCode | (Optional) The language code to translate documents from for documents that don't specify the from language explicitly.  If the defaultFromLanguageCode is not specified, the automatic language detection provided by the Translator Text API will be used to determine the from language. <br/> See [Full list of supported languages](../cognitive-services/translator/language-support.md). |

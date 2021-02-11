@@ -235,7 +235,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
                 "typeProperties": {
                     "source": {
                         "type": "RelationalSource",
-        				"query": "<SQL Query for HANA>"
+                        "query": "<SQL Query for HANA>"
                     },
                     "sink": {
                         "type": "BlobSink",

@@ -7,7 +7,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 12/07/2020
 ms.author: jingwang
 ---
 
@@ -170,6 +170,9 @@ source(
 	multiLineRow: true,
 	wildcardPaths:['*.csv']) ~> CSVSource
 ```
+
+> [!NOTE]
+> Data flow sources support a limited set of Linux globbing that is support by Hadoop file systems
 
 ### Sink properties
 

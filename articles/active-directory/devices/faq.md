@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ### Q: I registered the device recently. Why can't I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
 
 **A:** Windows 10 devices that are hybrid Azure AD joined don't show up under **USER devices**.
-Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
+Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice) cmdlet.
 
 Only the following devices are listed under **USER devices**:
 
@@ -140,6 +140,12 @@ See below on how these actions can be rectified.
 >* If a device is removed from a sync scope on Azure AD Connect and added back.
 >
 >In both cases, you must re-register the device manually on each of these devices. To review whether the device was previously registered, you can [troubleshoot devices using the dsregcmd command](troubleshoot-device-dsregcmd.md).
+
+---
+
+### Q: I cannot add more than 3 Azure AD user accounts under the same user session on a Windows 10 device, why?
+
+**A**: Azure AD added support for multiple Azure AD accounts in Windows 10 1803 release. However, Windows 10 restricts the number of Azure AD accounts on a device to 3 to limit the size of token requests and enable reliable single sign on (SSO). Once 3 accounts have been added, users will see an error for subsequent accounts. The Additional problem information on the error screen provides the following message indicating the reason - "Add account operation is blocked because accout limit is reached". 
 
 ---
 ## Azure AD join FAQ

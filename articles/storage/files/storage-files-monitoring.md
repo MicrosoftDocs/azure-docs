@@ -60,7 +60,7 @@ To get the list of SMB and REST operations that are logged, see [Storage logged 
 You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, or an Azure Resource Manager template.
 
 > [!NOTE]
-> Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues,and tables. This feature is available for all storage accounts that are created with the Azure Resource Manager deployment model. See [Storage account overview](../common/storage-account-overview.md).
+> Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues,and tables. This feature is available for all storage accounts that are created with the Azure Resource Manager deployment model. See [Storage account overview](../common/storage-account-overview.md).
 
 For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
@@ -91,6 +91,8 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 #### Archive logs to a storage account
 
+If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+
 1. Select the **Archive to a storage account** checkbox, and then click the **Configure** button.
 
    > [!div class="mx-imgBorder"]   
@@ -102,6 +104,8 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
    > Before you choose a storage account as the export destination, see [Archive Azure resource logs](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) to understand prerequisites on the storage account.
 
 #### Stream logs to Azure Event Hubs
+
+If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
 
 1. Select the **Stream to an event hub** checkbox, and then click the **Configure** button.
 
@@ -135,10 +139,12 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 #### Archive logs to a storage account
 
+If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet along with the `StorageAccountId` parameter.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the Azure File service. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
@@ -153,10 +159,12 @@ For a description of each parameter, see the [Archive Azure Resource logs via Az
 
 #### Stream logs to an event hub
 
+If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `EventHubAuthorizationRuleId` parameter.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 Here's an example:
@@ -170,7 +178,7 @@ For a description of each parameter, see the [Stream Data to Event Hubs via Powe
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `WorkspaceId` parameter.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 Here's an example:
@@ -193,6 +201,8 @@ For more information, see [Stream Azure Resource Logs to Log Analytics workspace
 
 #### Archive logs to a storage account
 
+If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
+
 Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli-interactive
@@ -210,6 +220,8 @@ Here's an example:
 For a description of each parameter, see the [Archive Resource logs via the Azure CLI](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### Stream logs to an event hub
+
+If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
 
 Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
@@ -454,7 +466,7 @@ You can access resource logs either as a blob in a storage account, as event dat
 To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
 > [!NOTE]
-> Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1, and general-purpose v2 storage accounts. Classic storage accounts aren't supported.
+> Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1, and general-purpose v2 storage accounts. Classic storage accounts aren't supported.
 
 Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its file endpoint but not in its table or queue endpoints, only logs that pertain to the Azure File service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
@@ -572,13 +584,13 @@ The following table lists some example scenarios to monitor and the proper metri
 
 3. Click **Edit resource**, select the **File resource type** and then click **Done**. 
 
-4. Click **Select condition** and provide the following information for the alert: 
+4. Click **Add condition** and provide the following information for the alert: 
 
 	- **Metric**
 	- **Dimension name**
 	- **Alert logic**
 
-5. Click **Select action group** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+5. Click **Add action groups** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 
 6. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 
@@ -592,16 +604,31 @@ The following table lists some example scenarios to monitor and the proper metri
 1. Go to your **storage account** in the **Azure portal**.
 2. In the **Monitoring** section, click **Alerts**, and then click **+ New alert rule**.
 3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is `contoso`, select the `contoso/file` resource.
-4. Click **Select Condition** to add a condition.
+4. Click **Add condition** to add a condition.
 5. You will see a list of signals supported for the storage account, select the **Transactions** metric.
 6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **Response type**.
-7. Click the **Dimension values** drop-down and select **SuccessWithThrottling** (for SMB) or **ClientThrottlingError** (for REST).
+7. Click the **Dimension values** drop-down and select the appropriate response types for your file share.
+
+    For standard file shares, select the following response types:
+
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    For premium file shares, select the following response types:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > If the SuccessWithThrottling or ClientThrottlingError dimension value is not listed, this means the resource has not been throttled. To add the dimension value, click **Add custom value** beside the **Dimension values** drop-down, type **SuccessWithThrottling** or **ClientThrottlingError**, click **OK** and then repeat step #7.
+   > If the response types are not listed in the **Dimension values** drop-down, this means the resource has not been throttled. To add the dimension values, next to the **Dimension values** drop-down list, select **Add custom value**, enter the respone type (for example, **SuccessWithThrottling**), select **OK**, and then repeat these steps to add all applicable response types for your file share.
 
 8. Click the **Dimension name** drop-down and select **File Share**.
 9. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+
 
    > [!NOTE]
    > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down will not list the file share(s) because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
@@ -611,8 +638,8 @@ The following table lists some example scenarios to monitor and the proper metri
     > [!TIP]
     > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
 
-11. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-12. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
+11. Click **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+12. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 13. Click **Create alert rule** to create the alert.
 
 ### How to create an alert if the Azure file share size is 80% of capacity
@@ -620,7 +647,7 @@ The following table lists some example scenarios to monitor and the proper metri
 1. Go to your **storage account** in the **Azure portal**.
 2. In the **Monitoring** section, click **Alerts** and then click **+ New alert rule**.
 3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is `contoso`, select the `contoso/file` resource.
-4. Click **Select Condition** to add a condition.
+4. Click **Add condition** to add a condition.
 5. You will see a list of signals supported for the storage account, select the **File Capacity** metric.
 6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **File Share**.
 7. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
@@ -630,8 +657,8 @@ The following table lists some example scenarios to monitor and the proper metri
 
 8. Enter the **Threshold value** in bytes. For example, if the file share size is 100 TiB and you want to receive an alert when the file share size is 80% of capacity, the threshold value in bytes is 87960930222080.
 9. Define the rest of the **alert parameters** (aggregation granularity and frequency of evaluation) and click **Done**.
-10. Click Select action group to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-11. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
+10. Click **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+11. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 12. Click **Create alert rule** to create the alert.
 
 ### How to create an alert if the Azure file share egress has exceeded 500 GiB in a day
@@ -639,7 +666,7 @@ The following table lists some example scenarios to monitor and the proper metri
 1. Go to your **storage account** in the **Azure portal**.
 2. In the Monitoring section, click **Alerts** and then click **+ New alert rule**.
 3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is contoso, select the contoso/file resource.
-4. Click **Select Condition** to add a condition.
+4. Click **Add condition** to add a condition.
 5. You will see a list of signals supported for the storage account, select the **Egress** metric.
 6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **File Share**.
 7. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
@@ -650,8 +677,8 @@ The following table lists some example scenarios to monitor and the proper metri
 8. Enter **536870912000** bytes for Threshold value. 
 9. Click the **Aggregation granularity** drop-down and select **24 hours**.
 10. Select the **Frequency of evaluation** and **click Done**.
-11. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-12. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
+11. Click **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+12. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 13. Click **Create alert rule** to create the alert.
 
 ## Next steps
@@ -660,6 +687,6 @@ The following table lists some example scenarios to monitor and the proper metri
 - [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Azure Storage metrics migration](../common/storage-metrics-migration.md)
 - [Planning for an Azure Files deployment](./storage-files-planning.md)
-- [How to deploy Azure Files](./storage-files-deployment-guide.md)
+- [How to deploy Azure Files](./storage-how-to-create-file-share.md)
 - [Troubleshoot Azure Files on Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 - [Troubleshoot Azure Files on Linux](./storage-troubleshoot-linux-file-connection-problems.md)

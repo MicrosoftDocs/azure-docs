@@ -1,7 +1,7 @@
 ---
 title: Remove access to a delegation
 description: Learn how to remove access to resources that had been delegated to a service provider for Azure Lighthouse.
-ms.date: 08/12/2020
+ms.date: 12/03/2020
 ms.topic: how-to
 ---
 
@@ -36,7 +36,7 @@ The example below shows an assignment granting the **Managed Services Registrati
     ] 
 ```
 
-This role can also be selected in an **Authorization** when [creating a Managed Service offer](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#authorization) to publish to Azure Marketplace.
+This role can also be selected in an **Authorization** when [creating a Managed Service offer](../../marketplace/plan-managed-service-offer.md) to publish to Azure Marketplace.
 
 A user with this permission can remove a delegation in one of the following ways.
 
@@ -94,3 +94,4 @@ az managedservices assignment delete --assignment <id or full resourceId>
 
 - Learn about [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
 - [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.
+- Learn how to [update a previous delegation](update-delegation.md).

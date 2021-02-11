@@ -21,7 +21,7 @@ This article provides guidance on how developers can use the Microsoft identity 
 
 ## Use Managed Identities for Azure Resources
 
-Developers building daemon apps on Microsoft Azure can use [Managed Identities for Azure Resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Managed Identities eliminate the need for developers to manage secrets and credentials. The feature improves resilience by avoiding mistakes around certificate expiry, rotation errors, or trust. It also has several built-in features meant specifically to increase resilience.
+Developers building daemon apps on Microsoft Azure can use [Managed Identities for Azure Resources](../managed-identities-azure-resources/overview.md). Managed Identities eliminate the need for developers to manage secrets and credentials. The feature improves resilience by avoiding mistakes around certificate expiry, rotation errors, or trust. It also has several built-in features meant specifically to increase resilience.
 
 Managed Identities use long lived access tokens and information from Microsoft Identity to proactively acquire new tokens within a large window of time before the existing token expires. Your app can continue to run while attempting to acquire a new token.
 
@@ -29,11 +29,11 @@ Managed Identities also use regional endpoints to improve performance and resili
 
 ## Use the Microsoft Authentication Library
 
-Developers of daemon apps who do not use Managed Identities can use the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview), which makes implementing authentication and authorization simple, and automatically uses best practices for resilience. MSAL will make the process of providing the required Client Credentials easier. For example, your application does not need to implement creating and signing JSON Web Token assertions when using certificate-based credentials.
+Developers of daemon apps who do not use Managed Identities can use the [Microsoft Authentication Library (MSAL)](../develop/msal-overview.md), which makes implementing authentication and authorization simple, and automatically uses best practices for resilience. MSAL will make the process of providing the required Client Credentials easier. For example, your application does not need to implement creating and signing JSON Web Token assertions when using certificate-based credentials.
 
 ### Use Microsoft.Identity.Web for .NET Developers
 
-Developers building daemon apps on ASP.NET Core can use the [Microsoft.Identity.Web](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web) library. This library is built on top of MSAL to make implementing authorization even easier for ASP.NET Core apps. It includes several [distributed token cache](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#distributed-token-cache) strategies for distributed apps that can run in multiple regions.
+Developers building daemon apps on ASP.NET Core can use the [Microsoft.Identity.Web](../develop/microsoft-identity-web.md) library. This library is built on top of MSAL to make implementing authorization even easier for ASP.NET Core apps. It includes several [distributed token cache](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#distributed-token-cache) strategies for distributed apps that can run in multiple regions.
 
 ## Cache and store tokens
 

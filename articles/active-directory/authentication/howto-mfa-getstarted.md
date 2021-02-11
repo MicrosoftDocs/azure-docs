@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
@@ -162,7 +162,7 @@ Using the following steps a Conditional Access policy can force users to registe
 2. Using Conditional Access, enforce multi-factor authentication for this group for access to all resources.
 3. Periodically, reevaluate the group membership, and remove users who have registered from the group.
 
-You may identify registered and non-registered Azure AD MFA users with PowerShell commands that rely on the [MSOnline PowerShell module](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+You may identify registered and non-registered Azure AD MFA users with PowerShell commands that rely on the [MSOnline PowerShell module](/powershell/azure/active-directory/install-msonlinev1).
 
 #### Identify registered users
 

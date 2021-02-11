@@ -1,19 +1,25 @@
 ---
 title: Azure Functions Overview 
-description: Learn how Azure Functions can help build scalable serverless apps.
+description: Learn how Azure Functions can help build robust serverless apps.
 author: craigshoemaker
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Introduction to Azure Functions
 
+Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running.
+
+You focus on the pieces of code that matter most to you, and Azure Functions handles the rest.<br /><br />
+
+> [!VIDEO https://www.youtube.com/embed/8-jz5f_JyEQ]
+
 We often build systems to react to a series of critical events. Whether you're building a web API, responding to database changes, processing  IoT data streams, or even managing message queues - every application needs a way to run some code as these events occur.
 
-To meet this need, Azure Functions provides "compute on-demand" - and in two significant ways.
+To meet this need, Azure Functions provides "compute on-demand" in two significant ways.
 
 First, Azure Functions allows you to implement your system's logic into readily available blocks of code. These code blocks are called "functions". Different functions can run anytime you need to respond to critical events.
 

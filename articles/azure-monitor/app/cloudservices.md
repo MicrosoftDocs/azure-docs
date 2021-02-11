@@ -106,15 +106,14 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
 
     b. Add [Application Insights for Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
-    ![Search for "Application Insights"](./media/cloudservices/04-ai-nuget.png)
-
 1. To configure the SDK to send data to the Application Insights resource:
 
     a. In a suitable startup function, set the instrumentation key from the configuration setting in the *.cscfg* file:
  
     ```csharp
-   
-     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+        TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+        configuration.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+        var telemetryClient = new TelemetryClient(configuration);
     ```
    
     b. Repeat "step a" for each role in your app. See the examples:

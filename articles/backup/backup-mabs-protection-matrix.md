@@ -52,7 +52,7 @@ The following sections details the protection support matrix for MABS:
 
 | **Workload** | **Version**                               | **Azure  Backup Server   installation**                      | **Supported  Azure Backup Server** | **Protection  and recovery**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | Linux  running as Hyper-V or VMware guest | Physical  server,    On-premises Hyper-V VM,    Windows VM in VMWare | V3 UR1                             | Hyper-V  must be running on Windows Server 2012 R2, Windows Server 2016 or Windows Server 2019. Protect:  Entire virtual machine   <br><br>   Recover: Entire virtual machine   <br><br>    Only file-consistent snapshots are supported.    <br><br>   For a complete list of supported Linux distributions and versions, see the  article, [Linux on   distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md). |
+| Linux        | Linux running as [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) or [VMware](backup-azure-backup-server-vmware.md) guest | Physical  server,    On-premises Hyper-V VM,    Windows VM in VMWare | V3 UR1                             | Hyper-V  must be running on Windows Server 2012 R2, Windows Server 2016 or Windows Server 2019. Protect:  Entire virtual machine   <br><br>   Recover: Entire virtual machine   <br><br>    Only file-consistent snapshots are supported.    <br><br>   For a complete list of supported Linux distributions and versions, see the  article, [Linux on distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md). |
 
 ## Azure ExpressRoute support
 
@@ -60,11 +60,17 @@ You can back up your data over Azure ExpressRoute with public peering (available
 
 With public peering: Ensure access to the following domains/addresses:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* IP addresses
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 With Microsoft peering, select the following services/regions and relevant community values:
 

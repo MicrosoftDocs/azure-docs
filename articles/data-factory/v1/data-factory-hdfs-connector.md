@@ -382,7 +382,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
     default realm = REALM.COM (external)
     REALM.com:
         kdc = <your_kdc_server_address>
-        ```
+    ```
 
 **In Azure Data Factory:**
 

@@ -272,4 +272,4 @@ If a contact covers more than one Country/Region, enter each of the two letter c
 
 ## Next steps
 
-- Learn about the [co-sell option in Partner Center](./commercial-marketplace-co-sell.md).
+- Learn about the [co-sell option in the commercial marketplace](./commercial-marketplace-co-sell.md).

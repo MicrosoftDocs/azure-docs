@@ -88,4 +88,4 @@ When you configure the redirect URI of your identity provider, enter `https://{t
 
 Examples:
 
-- [Add Twitter as an OAuth1 identity provider by using custom policies](identity-provider-twitter-custom.md)
+- [Add Twitter as an OAuth1 identity provider by using custom policies](identity-provider-twitter.md)

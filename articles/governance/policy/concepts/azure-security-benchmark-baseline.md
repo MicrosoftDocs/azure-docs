@@ -57,7 +57,7 @@ You can also enable a Just-In-Time / Just-Enough-Access solution by using [Azure
 
 **Guidance**: Use PAWs (privileged access workstations) with MFA configured to log into and configure Azure resources.
 
-* [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [How to enable MFA in Azure](../../../active-directory/authentication/howto-mfa-getstarted.md)
 

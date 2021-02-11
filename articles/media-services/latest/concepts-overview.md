@@ -1,7 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Media Services terminology and concepts
-titleSuffix: Azure Media Services
 description: Learn about terminology and concepts for Azure Media Services.
 services: media-servicesgit
 documentationcenter: ''
@@ -35,7 +34,7 @@ The fundamental concepts described in these topics should be reviewed before sta
 
 |Term|Description|
 |---|---|
-|Live Event|A **Live Event** represents a pipeline for ingesting, transcoding (optionally), and packaging live streams of video, audio, and real-time metadata.<br/><br/>For customers migrating from Media Services v2 APIs, the **Live Event** replaces the **Channel** entity in v2. For more information, see [Migrating from v2 to v3](migrate-from-v2-to-v3.md).|
+|Live Event|A **Live Event** represents a pipeline for ingesting, transcoding (optionally), and packaging live streams of video, audio, and real-time metadata.<br/><br/>For customers migrating from Media Services v2 APIs, the **Live Event** replaces the **Channel** entity in v2. For more information, see [Migrating from v2 to v3](migrate-v-2-v-3-migration-introduction.md).|
 |Streaming Endpoint/Packaging/Origin|A **Streaming Endpoint** represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application. It uses one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry-leading digital rights management systems (DRMs).<br/><br/>In the media streaming industry, this service is commonly referred to as a **Packager** or **Origin**.  Other common terms in the industry for this capability include JITP (just-in-time-packager) or JITE (just-in-time-encryption).
 
 ## Media Services v3 concepts

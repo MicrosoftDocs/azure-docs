@@ -2,14 +2,14 @@
 title: View and assign administrator role permissions - Azure AD | Microsoft Docs
 description: You can now see and manage members of an Azure AD administrator role in the portal. For those who frequently manage role assignments.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 

@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 12/14/2020
 ms.author: duau
 
 ---
@@ -14,6 +14,15 @@ ms.author: duau
 # How to configure ExpressRoute Direct
 
 ExpressRoute Direct gives you the ability to directly connect to Microsoft's global network through peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct](expressroute-erdirect-about.md).
+
+## Before you begin
+
+Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, send an Email to <ExpressRouteDirect@microsoft.com> with your subscription ID, including the following details:
+
+* Scenarios you're looking to accomplish with **ExpressRoute Direct**
+* Location preferences - see [Partners and peering locations](expressroute-locations-providers.md) for a complete list of all locations
+* Timeline for implementation
+* Any other questions
 
 ## <a name="resources"></a>Create the resource
 

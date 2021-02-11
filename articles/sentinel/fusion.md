@@ -82,6 +82,70 @@ This scenario is currently in **public preview**.
 
 - **Sign-in event from user with leaked credentials leading to multiple VM creation activities**
 
+## Credential harvesting (New threat classification)
+
+### Malicious credential theft tool execution following suspicious sign-in
+
+**MITRE ATT&CK tactics:** Initial Access, Credential Access
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), OS Credential Dumping (T1003)
+
+**Data connector sources:** Azure Active Directory Identity Protection, Microsoft Defender for Endpoint
+
+**Description:** Fusion incidents of this type indicate that a known credential theft tool was executed following a suspicious Azure AD sign-in. This provides a high-confidence indication that the user account noted in the alert description has been compromised and may have successfully used a tool like **Mimikatz** to harvest credentials such as keys, plaintext passwords and/or password hashes from the system. The harvested credentials may allow an attacker to access sensitive data, escalate privileges, and/or move laterally across the network. The permutations of suspicious Azure AD sign-in alerts with the malicious credential theft tool alert are:
+
+- **Impossible travel to atypical locations leading to malicious credential theft tool execution**
+
+- **Sign-in event from an unfamiliar location leading to malicious credential theft tool execution**
+
+- **Sign-in event from an infected device leading to malicious credential theft tool execution**
+
+- **Sign-in event from an anonymous IP address leading to malicious credential theft tool execution**
+
+- **Sign-in event from user with leaked credentials leading to malicious credential theft tool execution**
+
+### Suspected credential theft activity following suspicious sign-in
+
+**MITRE ATT&CK tactics:** Initial Access, Credential Access
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Credentials from Password Stores (T1555), OS Credential Dumping (T1003)
+
+**Data connector sources:** Azure Active Directory Identity Protection, Microsoft Defender for Endpoint
+
+**Description:** Fusion incidents of this type indicate that activity associated with patterns of credential theft occurred following a suspicious Azure AD sign-in. This provides a high-confidence indication that the user account noted in the alert description has been compromised and used to steal credentials such as keys, plain-text passwords, password hashes, and so on. The stolen credentials may allow an attacker to access sensitive data, escalate privileges, and/or move laterally across the network. The permutations of suspicious Azure AD sign-in alerts with the credential theft activity alert are:
+
+- **Impossible travel to atypical locations leading to suspected credential theft activity**
+
+- **Sign-in event from an unfamiliar location leading to suspected credential theft activity**
+
+- **Sign-in event from an infected device leading to suspected credential theft activity**
+
+- **Sign-in event from an anonymous IP address leading to suspected credential theft activity**
+
+- **Sign-in event from user with leaked credentials leading to suspected credential theft activity**
+
+## Crypto-mining (New threat classification)
+
+### Crypto-mining activity following suspicious sign-in
+
+**MITRE ATT&CK tactics:** Initial Access, Credential Access
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Resource Hijacking (T1496)
+
+**Data connector sources:** Azure Active Directory Identity Protection, Azure Defender (Azure Security Center)
+
+**Description:** Fusion incidents of this type indicate crypto-mining activity associated with a suspicious sign-in to an Azure AD account. This provides a high-confidence indication that the user account noted in the alert description has been compromised and was used to hijack resources in your environment to mine crypto-currency. This can starve your resources of computing power and/or result in significantly higher-than-expected cloud usage bills. The permutations of suspicious Azure AD sign-in alerts with the crypto-mining activity alert are:  
+
+- **Impossible travel to atypical locations leading to crypto-mining activity**
+
+- **Sign-in event from an unfamiliar location leading to crypto-mining activity**
+
+- **Sign-in event from an infected device leading to crypto-mining activity**
+
+- **Sign-in event from an anonymous IP address leading to crypto-mining activity**
+
+- **Sign-in event from user with leaked credentials leading to crypto-mining activity**
+
 ## Data exfiltration
 
 ### Office 365 mailbox exfiltration following a suspicious Azure AD sign-in
@@ -365,6 +429,26 @@ This scenario is currently in **public preview**.
 **Data connector sources:** Microsoft Defender for Endpoint (formerly MDATP), Palo Alto Networks 
 
 **Description:** Fusion incidents of this type indicate that Windows Management Interface (WMI) commands were remotely executed on a system, and following that, suspicious inbound activity was detected by the Palo Alto Networks Firewall. This provides an indication that an attacker may have gained access to your network and is attempting to move laterally, escalate privileges, and/or execute malicious payloads. As with all “living off the land” attacks, this activity could be a legitimate use of WMI. However, the remote WMI command execution followed by suspicious inbound Firewall activity increases the confidence that WMI is being used in a malicious manner and should be investigated further. In Palo Alto logs, Azure Sentinel focuses on [threat logs](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), and traffic is considered suspicious when threats are allowed (suspicious data, files, floods, packets, scans, spyware, URLs, viruses, vulnerabilities, wildfire-viruses, wildfires). Also reference the Palo Alto Threat Log corresponding to the [Threat/Content Type](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listed in the Fusion incident description for additional alert details.
+
+### Suspicious PowerShell command line following suspicious sign-in
+
+**MITRE ATT&CK tactics:** Initial Access, Execution
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Command and Scripting Interpreter (T1059)
+
+**Data connector sources:** Azure Active Directory Identity Protection, Microsoft Defender for Endpoint (formerly MDATP)
+
+**Description:** Fusion incidents of this type indicate that a user executed potentially malicious PowerShell commands following a suspicious sign-in to an Azure AD account. This provides a high-confidence indication that the account noted in the alert description has been compromised and further malicious actions were taken. Attackers often leverage PowerShell to execute malicious payloads in memory without leaving artifacts on the disk, in order to avoid detection by disk-based security mechanisms such as virus scanners. The permutations of suspicious Azure AD sign-in alerts with the suspicious PowerShell command alert are:
+
+- **Impossible travel to atypical locations leading to suspicious PowerShell command line**
+
+- **Sign-in event from an unfamiliar location leading to suspicious PowerShell command line**
+
+- **Sign-in event from an infected device leading to suspicious PowerShell command line**
+
+- **Sign-in event from an anonymous IP address leading to suspicious PowerShell command line**
+
+- **Sign-in event from user with leaked credentials leading to suspicious PowerShell command line**
 
 ## Malware C2 or download
 

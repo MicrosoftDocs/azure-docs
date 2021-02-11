@@ -192,7 +192,7 @@ Additionally, The PostgreSQL engine uses roles to control access to database obj
 
 **Guidance**: Use Privileged Access Workstations (PAWs) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -582,7 +582,7 @@ Also, Azure Resource Manager has the ability to export the template in JavaScrip
 
 **Guidance**: Azure Database for PostgreSQL - Hyperscale (Citus) currently does not directly support managed identities. While creating the Azure Database for PostgreSQL server, you must provide credentials for an administrator user. You can create additional user roles in the Azure portal interface.
 
-- [Create an Azure Database for PostgreSQL - Hyperscale (Citus)](./quickstart-create-hyperscale-portal.md#create-an-azure-database-for-postgresql---hyperscale-citus)
+- [Create an Azure Database for PostgreSQL - Hyperscale (Citus)](./quickstart-create-hyperscale-portal.md#create-a-hyperscale-citus-server-group)
 
 - [Create additional user roles](./howto-hyperscale-create-users.md#how-to-create-additional-user-roles)
 
@@ -716,7 +716,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel. 
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel. 
 
 - [How to configure continuous export](../security-center/continuous-export.md) 
 

@@ -34,7 +34,7 @@ To use Lab Services for your hackathon, ensure that both lab account and your la
 
 - **Decide whether to restrict lab access**. 
 
-    When adding users to the lab, there is a restrict access option that's enabled by default. This feature requires you to add all of your hackathon participants’ emails to the list before they can register and access the lab using the registration link. If you have a hackathon where you don’t know who the participants will be before the event, you can choose to disable the restrict access option, which allows anyone to register to the lab using the registration link. For more information, see the [how-to guide on adding users](how-to-configure-student-usage.md#add-users-to-a-lab).
+    When adding users to the lab, there is a restrict access option that's enabled by default. This feature requires you to add all of your hackathon participants’ emails to the list before they can register and access the lab using the registration link. If you have a hackathon where you don’t know who the participants will be before the event, you can choose to disable the restrict access option, which allows anyone to register to the lab using the registration link. For more information, see the [how-to guide on adding users](how-to-configure-student-usage.md).
 
 - **Verify schedule, quota, and autoshutdown settings**. 
 

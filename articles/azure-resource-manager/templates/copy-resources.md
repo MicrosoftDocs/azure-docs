@@ -1,20 +1,20 @@
 ---
 title: Deploy multiple instances of resources
-description: Use copy operation and arrays in an Azure Resource Manager template to deploy resource type many times.
+description: Use copy operation and arrays in an Azure Resource Manager template (ARM template) to deploy resource type many times.
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 12/21/2020
 ---
 # Resource iteration in ARM templates
 
-This article shows you how to create more than one instance of a resource in your Azure Resource Manager (ARM) template. By adding the **copy** element to the resources section of your template, you can dynamically set the number of resources to deploy. You also avoid having to repeat template syntax.
+This article shows you how to create more than one instance of a resource in your Azure Resource Manager template (ARM template). By adding the `copy` element to the resources section of your template, you can dynamically set the number of resources to deploy. You also avoid having to repeat template syntax.
 
-You can also use copy with [properties](copy-properties.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
+You can also use `copy` with [properties](copy-properties.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
 ## Syntax
 
-The copy element has the following general format:
+The `copy` element has the following general format:
 
 ```json
 "copy": {
@@ -25,9 +25,9 @@ The copy element has the following general format:
 }
 ```
 
-The **name** property is any value that identifies the loop. The **count** property specifies the number of iterations you want for the resource type.
+The `name` property is any value that identifies the loop. The `count` property specifies the number of iterations you want for the resource type.
 
-Use the **mode** and **batchSize** properties to specify if the resources are deployed in parallel or in sequence. These properties are described in [Serial or Parallel](#serial-or-parallel).
+Use the `mode` and `batchSize` properties to specify if the resources are deployed in parallel or in sequence. These properties are described in [Serial or Parallel](#serial-or-parallel).
 
 ## Copy limits
 
@@ -46,7 +46,7 @@ Be careful using [complete mode deployment](deployment-modes.md) with copy. If y
 
 ## Resource iteration
 
-The following example creates the number of storage accounts specified in the **storageCount** parameter.
+The following example creates the number of storage accounts specified in the `storageCount` parameter.
 
 ```json
 {
@@ -91,7 +91,7 @@ Creates these names:
 * storage1
 * storage2.
 
-To offset the index value, you can pass a value in the copyIndex() function. The number of iterations is still specified in the copy element, but the value of copyIndex is offset by the specified value. So, the following example:
+To offset the index value, you can pass a value in the `copyIndex()` function. The number of iterations is still specified in the copy element, but the value of `copyIndex` is offset by the specified value. So, the following example:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -181,44 +181,7 @@ For example, to serially deploy storage accounts two at a time, use:
 }
 ```
 
-The mode property also accepts **parallel**, which is the default value.
-
-## Depend on resources in a loop
-
-You specify that a resource is deployed after another resource by using the `dependsOn` element. To deploy a resource that depends on the collection of resources in a loop, provide the name of the copy loop in the dependsOn element. The following example shows how to deploy three storage accounts before deploying the virtual machine. The full virtual machine definition isn't shown. Notice that the copy element has name set to `storagecopy` and the dependsOn element for the virtual machine is also set to `storagecopy`.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "copy": {
-        "name": "storagecopy",
-        "count": 3
-      },
-      "properties": {}
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2015-06-15",
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
-      "dependsOn": ["storagecopy"],
-      ...
-    }
-  ],
-  "outputs": {}
-}
-```
+The `mode` property also accepts **parallel**, which is the default value.
 
 ## Iteration for a child resource
 
@@ -280,17 +243,14 @@ The following examples show common scenarios for creating more than one instance
 |[Copy storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Deploys more than one storage account with an index number in the name. |
 |[Serial copy storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Deploys several storage accounts one at time. The name includes the index number. |
 |[Copy storage with array](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Deploys several storage accounts. The name includes a value from an array. |
-|[VM deployment with a variable number of data disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Deploys several data disks with a virtual machine. |
-|[Multiple security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Deploys several security rules to a network security group. It constructs the security rules from a parameter. For the parameter, see [multiple NSG parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: create multiple resource instances using ARM templates](template-tutorial-create-multiple-instances.md).
+* To set dependencies on resources that are created in a copy loop, see [Define the order for deploying resources in ARM templates](define-resource-dependency.md).
+* To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
+* For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * For other uses of the copy element, see:
   * [Property iteration in ARM templates](copy-properties.md)
   * [Variable iteration in ARM templates](copy-variables.md)
   * [Output iteration in ARM templates](copy-outputs.md)
 * For information about using copy with nested templates, see [Using copy](linked-templates.md#using-copy).
-* If you want to learn about the sections of a template, see [Authoring ARM templates](template-syntax.md).
-* To learn how to deploy your template, see [Deploy an application with ARM template](deploy-powershell.md).
-

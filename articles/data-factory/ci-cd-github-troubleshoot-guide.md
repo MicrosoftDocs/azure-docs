@@ -67,20 +67,20 @@ CI/CD release pipeline failing with the following error:
 2020-07-06T09:50:50.8771655Z ##[error]Details:
 2020-07-06T09:50:50.8772837Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
 2020-07-06T09:50:50.8774148Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
-2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops#troubleshooting
+2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment#troubleshooting
 2020-07-06T09:50:50.8776801Z ##[error]Task failed while creating or updating the template deployment.
 `
 
 #### Cause
 
-This is due to an Integration Runtime with the same name in the target factory but with a different type. Integration Runtime needs to be of the same type when deploying.
+This is due to an integration runtime with the same name in the target factory but with a different type. Integration Runtime needs to be of the same type when deploying.
 
 #### Recommendation
 
 - Refer to this Best Practices for CI/CD below:
 
     https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
-- Integration runtimes don't change often and are similar across all stages in your CI/CD, so Data Factory expects you to have the same name and type of integration runtime across all stages of CI/CD. If the name and types & properties are different, make sure to match the source and target IR configuration and then deploy the release pipeline.
+- Integration runtimes don't change often and are similar across all stages in your CI/CD, so Data Factory expects you to have the same name and type of integration runtime across all stages of CI/CD. If the name and types & properties are different, make sure to match the source and target integration runtime configuration and then deploy the release pipeline.
 - If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
 
 ### Document creation or update failed because of invalid reference
@@ -114,21 +114,21 @@ You are unable to move Data Factory from one Resource Group to another, failing 
 
 `
 {
-	"code": "ResourceMoveProviderValidationFailed",
-	"message": "Resource move validation failed. Please see details. Diagnostic information: timestamp 'xxxxxxxxxxxxZ', subscription id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', tracking id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', request correlation id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.",
-	"details": [
-		{
-			"code": "BadRequest",
-			"target": "Microsoft.DataFactory/factories",
-			"message": "One of the resources contain integration runtimes that are either SSIS-IRs in starting/started/stopping state, or Self-Hosted IRs which are shared with other resources. Resource move is not supported for those resources."
-		}
-	]
+    "code": "ResourceMoveProviderValidationFailed",
+    "message": "Resource move validation failed. Please see details. Diagnostic information: timestamp 'xxxxxxxxxxxxZ', subscription id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', tracking id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', request correlation id 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.",
+    "details": [
+        {
+            "code": "BadRequest",
+            "target": "Microsoft.DataFactory/factories",
+            "message": "One of the resources contain integration runtimes that are either SSIS-IRs in starting/started/stopping state, or Self-Hosted IRs which are shared with other resources. Resource move is not supported for those resources."
+        }
+    ]
 }
 `
 
 #### Resolution
 
-You need to delete the SSIS-IR and Shared IRs to allow the move operation. If you do not want to delete the IRs, then the best way is to follow the copy and clone document to do the copy and after it's done, delete the old Data factory.
+You need to delete the SSIS-IR and Shared IRs to allow the move operation. If you do not want to delete the integration runtimes, then the best way is to follow the copy and clone document to do the copy and after it's done, delete the old Data Factory.
 
 ###  Unable to export and import ARM template
 
@@ -145,6 +145,34 @@ You have created a customer role as the user and it did not have the necessary p
 #### Resolution
 
 In order to resolve the issue, you need to add the following permission to your role: *Microsoft.DataFactory/factories/queryFeaturesValue/action*. This permission should be included by default in the "Data Factory Contributor" role.
+
+###  Automatic publishing for CI/CD without clicking Publish button  
+
+#### Issue
+
+Manual publishing with button click in ADF portal does not enable automatic CI/CD operation.
+
+#### Cause
+
+Until recently, only way to publish ADF pipeline for deployments was using ADF Portal button click. Now, you can make the process automatic. 
+
+#### Resolution
+
+CI/CD process has been enhanced. The **Automated publish** feature takes, validates and exports all  Azure Resource Manager (ARM) template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This gives  your CI/CD pipelines a **true** continuous integration experience. Please follow [ADF CI/CD Publishing Improvements](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) for details. 
+
+###  Cannot publish because of 4mb ARM template limit  
+
+#### Issue
+
+You can not deploy because you hit Azure Resource Manager limit of 4mb total template size. You need a solution to deploy after crossing the limit. 
+
+#### Cause
+
+Azure Resource Manager restricts template size to be 4mb. Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
+
+#### Resolution
+
+For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. Please follow best practice at [Using Linked and Nested Templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell).
 
 ## Next steps
 

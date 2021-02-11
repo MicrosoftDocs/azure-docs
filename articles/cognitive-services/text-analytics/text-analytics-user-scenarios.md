@@ -56,4 +56,4 @@ Group opinions related to specific aspects of a product or service in surveys, c
 ## Next steps
 
 * [What is the Text Analytics API?](overview.md)
-* [Send a request to the Text Analytics API using the client library](quickstarts/text-analytics-sdk.md)
+* [Send a request to the Text Analytics API using the client library](quickstarts/client-libraries-rest-api.md)

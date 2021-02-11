@@ -17,7 +17,7 @@ Azure Firewall service tags can be used in the network rules destination field. 
 
 ## Supported service tags
 
-See [Security groups](../virtual-network/network-security-groups-overview.md#service-tags) for a list of service tags that are available for use in Azure firewall network rules.
+See [Virtual network service tags](../virtual-network/service-tags-overview.md#available-service-tags) for a list of service tags that are available for use in Azure firewall network rules.
 
 ## Next steps
 

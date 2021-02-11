@@ -84,8 +84,6 @@ Ephemeral OS disks is not a specific Service Fabric feature, but rather a featur
 
 > [!NOTE]
 > User applications should not have any dependency/file/artifact on the OS disk, as the OS disk would be lost in the case of an OS upgrade.
-> Hence, it is not recommended to use [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) with ephemeral disks.
->
 
 > [!NOTE]
 > Existing non-ephemeral VMSS can't be upgraded in-place to use ephemeral disks.

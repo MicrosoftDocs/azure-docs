@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/28/2020
+ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -28,7 +28,13 @@ With Azure Active Directory (Azure AD) entitlement management, you can collabora
 
 ## What is a connected organization?
 
-A connected organization is an external Azure AD directory or domain that you have a relationship with.
+A connected organization is another organization that you have a relationship with.  In order for the users in that organization to be able to access your resources, such as your SharePoint Online sites or apps, you'll need a representation of that organization's users in that directory.  Because in most cases the users in that organization aren't already in your Azure AD directory, you can use entitlement management to bring them into your Azure AD directory as needed.  
+
+There are three ways that entitlement management lets you specify the users that form a connected organization.  It could be
+
+* users in another Azure AD directory,
+* users in another non-Azure AD directory that has been configured for direct federation, or
+* users in another non-Azure AD directory, whose email addresses all have the same domain name in common.
 
 For example, suppose you work at Woodgrove Bank and you want to collaborate with two external organizations. These two organizations have different configurations:
 
@@ -128,8 +134,6 @@ If you no longer have a relationship with an external Azure AD directory or doma
 1. In the left pane, select **Connected organizations**, and then select the connected organization to open it.
 
 1. In the connected organization's overview pane, select **Delete** to delete it.
-
-    Currently, you can delete a connected organization only if there are no connected users.
 
     ![The connected organization Delete button](./media/entitlement-management-organization/organization-delete.png)
 

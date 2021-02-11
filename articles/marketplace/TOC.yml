@@ -51,6 +51,8 @@
       href: marketplace-co-sell.md 
     - name: Co-sell option in Partner Center
       href: commercial-marketplace-co-sell.md 
+    - name: Migrate co-sell solutions from OCP GTM
+      href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
       href: cloud-solution-providers.md  
     - name: Connect Program onboarding guide  
@@ -73,7 +75,7 @@
       href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
     - name: Payout statements
       href: /partner-center/payout-statement?context=/azure/marketplace/context/context
-    - name: Payout policy details
+    - name: Payout schedules and processes
       href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
     - name: Tax details
       href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
@@ -203,8 +205,16 @@
       href: partner-center-portal/create-iot-edge-module-asset.md
   - name: Managed Service offers
     items:
+    - name: Plan a Managed Service offer
+      href: plan-managed-service-offer.md
     - name: Create a Managed Service offer
-      href: partner-center-portal/create-new-managed-service-offer.md
+      href: create-managed-service-offer.md
+    - name: Configure Managed Service listing
+      href: create-managed-service-offer-listing.md
+    - name: Add a preview audience
+      href: create-managed-service-offer-preview.md
+    - name: Create plans
+      href: create-managed-service-offer-plans.md
   - name: Power BI app offers
     items:
     - name: Plan a Power BI app offer
@@ -289,6 +299,8 @@
     href: partner-center-portal/downloads-dashboard.md
   - name: Ratings and reviews dashboard
     href: partner-center-portal/ratings-reviews.md
+  - name: Anomaly detection for metered billing 
+    href: anomaly-detection.md    
   - name: Analytics common questions 
     href: analytics-faq.md 
 - name: Policies and terms
@@ -299,8 +311,6 @@
     href: /legal/marketplace/certification-policies?context=/azure/marketplace/context/context
   - name: Commercial marketplace review policies
     href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
-  - name: Azure Marketplace participation policies
-    href: /legal/marketplace/participation-policy?context=/azure/marketplace/context/context
   - name: Azure Marketplace terms
     href: /legal/marketplace/terms?context=/azure/marketplace/context/context
 - name: Reference

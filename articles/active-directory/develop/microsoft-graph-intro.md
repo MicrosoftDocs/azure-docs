@@ -31,7 +31,7 @@ beta includes APIs that are currently in preview. Because we might introduce bre
 
 To start using the beta APIs, see [Microsoft Graph beta endpoint reference](/graph/api/overview?view=graph-rest-beta)
 
-To start using the v1.0 APIs, see [Microsoft Graph REST API v1.0 reference](/graph/api/overview?view=graph-rest-1.0)
+To start using the v1.0 APIs, see [Microsoft Graph REST API v1.0 reference](/graph/api/overview)
 
 ## Get started
 

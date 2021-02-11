@@ -7,6 +7,7 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 ---
 
 # Quickstart: Create SQL Server VM using an ARM template

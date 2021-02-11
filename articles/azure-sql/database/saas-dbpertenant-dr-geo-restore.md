@@ -158,7 +158,7 @@ The recovery process does the following:
 
 	* Tenant databases can be accessed by the application as soon as they're marked online in the catalog.
 
-	* A sum of rowversion values in the tenant database is stored in the catalog. This sum acts as a fingerprint that allows the repatriation process to determine if the database was updated in the recovery region.   	 
+	* A sum of rowversion values in the tenant database is stored in the catalog. This sum acts as a fingerprint that allows the repatriation process to determine if the database was updated in the recovery region.
 
 ## Run the recovery script
 

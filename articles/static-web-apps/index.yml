@@ -10,7 +10,7 @@ metadata:
   ms.service: static-web-apps
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 04/09/2020
+  ms.date: 12/08/2020
 
 landingContent:
   - title: About Static Web Apps
@@ -37,8 +37,10 @@ landingContent:
             url: ./getting-started.md?tabs=vanilla-javascript
       - linkListType: learn
         links:
-          - text: Publish an Angular, React, Svelte, or Vue JavaScript app and API
+          - text: Publish an Angular, React, Svelte, or Vue JavaScript app
             url: /learn/modules/publish-app-service-static-web-app-api
+          - text: Publish an API
+            url: /learn/modules/publish-static-web-app-api-preview-url
       - linkListType: video
         links:
           - text: Build and deploy a static web app
@@ -65,6 +67,8 @@ landingContent:
         links:
           - text: Publish a static web app with Gatsby
             url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+          - text: Publish a static web app with Blazor
+            url: /learn/modules/publish-app-service-static-web-app-api-dotnet
   - title: Key concepts
     linkLists:
       - linkListType: concept

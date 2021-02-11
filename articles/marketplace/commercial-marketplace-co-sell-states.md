@@ -110,4 +110,4 @@ This article lists the available state and province codes when providing contact
 
 ## Next steps
 
-- Learn about the [co-sell option in Partner Center](./commercial-marketplace-co-sell.md).
+- Learn about the [co-sell option in the commercial marketplace](./commercial-marketplace-co-sell.md).

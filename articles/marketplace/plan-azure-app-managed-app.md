@@ -85,7 +85,7 @@ Prices are set in USD (USD = United States Dollar) are converted into the local 
 JIT access enables you to request elevated access to a managed application's resources for troubleshooting or maintenance. You always have read-only access to the resources, but for a specific time period you can have greater access. For more information, see [Enable and request just-in-time access for Azure Managed Applications](../azure-resource-manager/managed-applications/request-just-in-time-access.md).
 
 > [!NOTE]
-> Information the user should notice even if skimmingBe sure to update your `createUiDefinition.json` file in order to support this feature.
+> Be sure to update your `createUiDefinition.json` file in order to support this feature.
 
 ## Deployment mode
 
