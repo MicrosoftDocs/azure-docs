@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 02/11/2021
 ms.author: memildin
 ---
 
@@ -114,9 +114,6 @@ To confirm your discount, contact Security Center's support team and provide the
 
 ### My subscription has Azure Defender for servers enabled, do I pay for not-running servers? 
 No. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, you won't be charged for any servers that are in the "deallocated" state while they're in that state.
-
-> [!TIP]
-> This also applies to the other resource types protected by Security Center. 
 
 :::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Azure Virtual Machines showing a deallocated machine":::
 
