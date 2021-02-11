@@ -1,0 +1,41 @@
+- name: Azure AD Verifiable Credentials documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What are Verifiable Credentials
+    href: overview.md
+- name: Tutorials
+  expanded: true
+  items:
+    - name: Tutorial 1
+      href: tutorial1.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: concepts1 (placeholder)
+    href: issuer-openid.md
+  - name: Section 2 Title
+    items:
+    - name: Article 1
+      href: article2.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Customizing claims in ID tokens
+    href: how-to-idp-claims.md
+- name: Resources
+  expanded: true
+  items:
+  - name: SDK
+    href: https://github.com/Azure-Samples/active-directory-verifiable-credentials
+  - name: Pointer to PowerShell content (example)
+    href: verifiable-credentials-troubleshooting.md
+- name: Resources
+  expanded: true
+  items:
+  - name: FAQ
+    href: verifiable-credentials-faq.md
+  - name: Troubleshooting
+    href: verifiable-credentials-troubleshooting.md
+

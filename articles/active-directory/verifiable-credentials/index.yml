@@ -1,0 +1,55 @@
+### YamlMime:Landing
+
+title: Azure Active Directory Verifiable Credentials documentation
+summary: Azure Active Directory (Azure AD) Verifiable Credentials helps you 
+
+metadata: 
+  author: barclayn
+  description: "Learn how to protect, monitor, and audit access to critical assets while ensuring employee productivity."
+  manager: daveba
+  ms.author: barclayn
+  ms.collection: na
+  ms.date: 01/28/2021
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent: 
+  # Card
+  - title: About Verifiable Credentials
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure AD Verifiable Credentials?
+            url: verifiable-credentials-overview.md
+      - linkListType: video
+        links:
+          - text: Govern access to your resources
+            url: https://www.youtube.com/watch?v=r20hCF9NbTo
+  
+  # Card
+  - title: Verifiable credentials put people in control of their personal information, enabling more trustworthy digital experiences while respecting people's privacy. 
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Verifiable Credentials?
+            url: verifiable-credentials-overview.md
+      - linkListType: tutorial
+        links:
+          - text: tutorial1
+            url: verifiable-credentials-tutorial1.md
+      - linkListType: concept
+        links:
+          - text: concept1
+            url: verifiable-credentials-concept1.md
+ 
+  # Card
+  - title: Place holder name for how-to
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Some more complex scenario
+            url: how-to1.md
