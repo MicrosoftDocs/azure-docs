@@ -122,7 +122,7 @@
     items:
     - name: Manage your resources with asset inventory
       href: asset-inventory.md
-    - name: Secure score
+    - name: Secure score and security controls
       href: secure-score-security-controls.md
     - name: Overview of security recommendations
       href: security-center-recommendations.md
@@ -156,7 +156,8 @@
         href: exempt-resource.md
     - name: Protect network resources
       href: security-center-network-recommendations.md
-    - name: Protect identity and access
+    - name: Setup multi-factor authentication (MFA)
+      displayName: identity
       href: security-center-identity-access.md
   - name: Learn about security alerts
     items:
