@@ -59,9 +59,8 @@ This article discusses the technical details regarding the migration tool as per
 ## Translation of Resource and its name after migration
 As part of migration, the resource names are changed, and few Cloud Services features are exposed as Azure Resource Manager resources. The table summarizes the changes specific to Cloud Services migration.
 
-|Cloud Services (classic) | | Cloud Services (extended support) | | 
+|Cloud Services (classic) <br><br> Resource name| Cloud Services (classic) <br><br> Syntax| Cloud Services (extended support) <br><br> Resource name| Cloud Services (extended support) <br><br> Syntax | 
 |---|---|---|---|
-| Resource Name	| Syntax | Resource Name | Syntax| 
 | Cloud Service | cloudservicename| - | - |
 | Deployment (portal created) <br><br> Deployment (non-portal created)  | deploymentname | Cloud Service (extended support) | deploymentname |  
 | Virtual Network | vnetname <br><br> Group resourcegroupname <br><br> vnetname |  Virtual Network (not portal created) <br><br> Virtual Network (portal created) <br><br> Virtual Networks (Default) | vnetname <br><br> group-resourcegroupname-vnetname <br><br> DefaultRdfevirtual networkvnetid|
