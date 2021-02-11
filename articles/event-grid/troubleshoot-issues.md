@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 02/11/2021
 ---
 
-# Troubleshoot Azure Event Grid errors
+# Troubleshoot Azure Event Grid issues
 
 ## Diagnostic logs
 Enable diagnostic settings for Event Grid topics or domains to capture and view publish and delivery failure logs. For more information, see [Diagnostic logs](enable-diagnostic-logs-topic.md).
