@@ -87,7 +87,7 @@ Before using Purview to scan your Amazon AWS buckets, ensure that you've perform
 When you're done with the prerequisites, continue with one of the following:
 
 - [**Add a single Amazon S3 bucket** as a Purview resource](#add-a-single-amazon-s3-bucket-as-a-purview-resource)
-- [**Add all of your Amazon S3 buckets** in your Amazon account as Purview resources](#add-all-of-your-amazon-s3-buckets-in-your-amazon-account-as-purview-resources)
+- [Add all of your Amazon S3 buckets as Purview resources](#add-all-of-your-amazon-s3-buckets-as-purview-resources)ckets-in-your-amazon-account-as-purview-resources)
 
 > [!TIP]
 > When adding your buckets as Purview resources, you'll need the values of your AWS ARN, bucket name, and sometimes your AWS account ID.
