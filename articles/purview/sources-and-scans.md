@@ -66,25 +66,26 @@ File sampling for resource sets by file types:
 - **Document file types** - Each file is L3 scanned. Resource set patterns don't apply to these file types.
 
 ## Scan regions
-The following is a list of all the Azure data source (data center) regions where the Purview scanner runs. If your Azure data source is in a region outside of this list, the scanner will run in the region of your Purview instance. 
-|**Purview scanner regions**|
-|---|
-|EastUs
-|EastUs2 
-|SouthCentralUS
-|WestUs
-|WestUs2
-|SoutheastAsia
-|WestEurope
-|NorthEurope
-|UkSouth
-|AustraliaEast
-|CanadaCentral
-|BrazilSouth
-|CentralIndia
-|JapanEast
-|SouthAfricaNorth
-|FranceCentral
+The following is a list of all the Azure data source (data center) regions where the Purview scanner runs. If your Azure data source is in a region outside of this list, the scanner will run in the region of your Purview instance.
+ 
+### Purview scanner regions
+
+- EastUs
+- EastUs2 
+- SouthCentralUS
+- WestUs
+- WestUs2
+- SoutheastAsia
+- WestEurope
+- NorthEurope
+- UkSouth
+- AustraliaEast
+- CanadaCentral
+- BrazilSouth
+- CentralIndia
+- JapanEast
+- SouthAfricaNorth
+- FranceCentral
 
 ## Classification
 
