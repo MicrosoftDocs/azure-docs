@@ -61,15 +61,15 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 
 | Cloud Services (classic) <br><br> Resource name | Cloud Services (classic) <br><br> Syntax| Cloud Services (extended support) <br><br> Resource name| Cloud Services (extended support) <br><br> Syntax | 
 |---|---|---|---|
-| Cloud Service | cloudservicename| Not associated| Not associated |
-| Deployment (portal created) <br><br> Deployment (non-portal created)  | deploymentname | Cloud Services (extended support) | deploymentname |  
-| Virtual Network | vnetname <br><br> Group resourcegroupname <br><br> vnetname |  Virtual Network (not portal created) <br><br> Virtual Network (portal created) <br><br> Virtual Networks (Default) | vnetname <br><br> group-resourcegroupname-vnetname <br><br> DefaultRdfevirtual networkvnetid|
-| Not associated | Not associated | Key Vault | csname | 
-| Not associated | Not associated | Resource Group for Cloud Service Deployments | csname-migrated | 
-| Not associated | Not associated | Resource Group for Virtual Network | vnetname-migrated <br><br> group-resourcegroupname-vnetname-migrated|
-| Not associated | Not associated | Public IP (Dynamic) | csnameContractContract | 
-| Reserved IP Name | reservedipname | Reserved IP (non-portal created) <br><br> Reserved IP (portal created) | reservedipname <br><br> group-resourcegroupname-reservedipname | 
-| Not associated| Not associated | Load Balancer | deploymentname-lb|
+| Cloud Service | `cloudservicename` | Not associated| Not associated |
+| Deployment (portal created) <br><br> Deployment (non-portal created)  | `deploymentname` | Cloud Services (extended support) | `deploymentname` |  
+| Virtual Network | `vnetname` <br><br> `Group resourcegroupname` <br><br> `vnetname` |  Virtual Network (not portal created) <br><br> Virtual Network (portal created) <br><br> Virtual Networks (Default) | `vnetname` <br><br> `group-resourcegroupname-vnetname` <br><br> `DefaultRdfevirtual networkvnetid`|
+| Not associated | Not associated | Key Vault | `csname` | 
+| Not associated | Not associated | Resource Group for Cloud Service Deployments | `csname-migrated` | 
+| Not associated | Not associated | Resource Group for Virtual Network | `vnetname-migrated` <br><br> `group-resourcegroupname-vnetname-migrated`|
+| Not associated | Not associated | Public IP (Dynamic) | `csnameContractContract` | 
+| Reserved IP Name | `reservedipname` | Reserved IP (non-portal created) <br><br> Reserved IP (portal created) | `reservedipname` <br><br> `group-resourcegroupname-reservedipname` | 
+| Not associated| Not associated | Load Balancer | `deploymentname`-lb|
 
 
 
