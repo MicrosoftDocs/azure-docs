@@ -131,9 +131,9 @@ Note the following considerations to keep in mind:
 
 1. By design, Event Hubs geo-disaster recovery does not replicate data, and therefore you cannot reuse the old offset value of your primary event hub on your secondary event hub. We recommend restarting your event receiver with one of the following methods:
 
-- *EventPosition.FromStart()* - If you wish read all data on your secondary event hub.
-- *EventPosition.FromEnd()* - If you wish to read all new data from the time of connection to your secondary event hub.
-- *EventPosition.FromEnqueuedTime(dateTime)* - If you wish to read all data received in your secondary event hub starting from a given date and time.
+   - *EventPosition.FromStart()* - If you wish read all data on your secondary event hub.
+   - *EventPosition.FromEnd()* - If you wish to read all new data from the time of connection to your secondary event hub.
+   - *EventPosition.FromEnqueuedTime(dateTime)* - If you wish to read all data received in your secondary event hub starting from a given date and time.
 
 2. In your failover planning, you should also consider the time factor. For example, if you lose connectivity for longer than 15 to 20 minutes, you might decide to initiate the failover. 
  
