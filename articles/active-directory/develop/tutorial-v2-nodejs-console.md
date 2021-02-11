@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Call Microsoft Graph in a Node.js console app | Azure"
 titleSuffix: Microsoft identity platform
-description: In this tutorial, you add support for calling Microsoft Graph to a Node.js console app.
+description: In this tutorial, you build a console app for calling Microsoft Graph to a Node.js console app.
 services: active-directory
 author: derisen
 manager: CelesteDG
@@ -9,15 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.workload: identity
 ms.date: 01/12/2021
 ms.author: v-doeris
 ---
 
-# Tutorial: Call Microsoft Graph API in a Node.js console app
+# Tutorial: Call the Microsoft Graph API in a Node.js console app
 
-
-In this tutorial, you build a console app that calls Microsoft Graph API using its own identity. The console app you build uses the [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node).
+In this tutorial, you build a console app that calls Microsoft Graph API using its own identity. The console app you build uses the [Microsoft Authentication Library (MSAL) for Node.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node).
 
 Follow the steps in this tutorial to:
 
@@ -59,48 +57,48 @@ Create a folder to host your application, for example *NodeConsoleApp*.
 2. Next, create a folder named *bin*. Then, inside this folder, create file named *index.js* and add the following code:
 
 ```JavaScript
-    #!/usr/bin/env node
-    
-    // read in env settings
-    require('dotenv').config();
-    
-    const yargs = require('yargs');
-    
-    const fetch = require('./fetch');
-    const auth = require('./auth');
-    
-    const options = yargs
-        .usage('Usage: --op <operation_name>')
-        .option('op', { alias: 'operation', describe: 'operation name', type: 'string', demandOption: true })
-        .argv;
-    
-    async function main() {
-        console.log(`You have selected: ${options.op}`);
-    
-        switch (yargs.argv['op']) {
-            case 'getUsers':
-    
-                try {
-                    // here we get an access token
-                    const authResponse = await auth.getToken(auth.tokenRequest);
+#!/usr/bin/env node
 
-                    // call the web API with the access token
-                    const users = await fetch.callApi(auth.apiConfig.uri, authResponse.accessToken);
+// read in env settings
+require('dotenv').config();
 
-                    // display result
-                    console.log(users);
-                } catch (error) {
-                    console.log(error);
-                }
-    
-                break;
-            default:
-                console.log('Select a Graph operation first');
-                break;
-        }
-    };
-    
-    main();
+const yargs = require('yargs');
+
+const fetch = require('./fetch');
+const auth = require('./auth');
+
+const options = yargs
+    .usage('Usage: --op <operation_name>')
+    .option('op', { alias: 'operation', describe: 'operation name', type: 'string', demandOption: true })
+    .argv;
+
+async function main() {
+    console.log(`You have selected: ${options.op}`);
+
+    switch (yargs.argv['op']) {
+        case 'getUsers':
+
+            try {
+                // here we get an access token
+                const authResponse = await auth.getToken(auth.tokenRequest);
+
+                // call the web API with the access token
+                const users = await fetch.callApi(auth.apiConfig.uri, authResponse.accessToken);
+
+                // display result
+                console.log(users);
+            } catch (error) {
+                console.log(error);
+            }
+
+            break;
+        default:
+            console.log('Select a Graph operation first');
+            break;
+    }
+};
+
+main();
 ```
 
 This file references two other node modules: *auth.js* which contains an implementation of MSAL Node for acquiring access tokens, and *fetch.js* which contains a method for making an HTTP request to Microsoft Graph API with an access token. After completing the rest of the tutorial, the file and folder structure of your project should look similar to the following:
@@ -120,53 +118,53 @@ NodeConsoleApp/
 Inside the *bin* folder, create another file named *auth.js* and add the following code for acquiring an access token to present when calling the Microsoft Graph API.
 
 ```JavaScript
-    const msal = require('@azure/msal-node');
-    
-    /**
-     * Configuration object to be passed to MSAL instance on creation. 
-     * For a full list of MSAL Node configuration parameters, visit:
-     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md 
-     */
-    const msalConfig = {
-    	auth: {
-    		clientId: process.env.CLIENT_ID,
-    		authority: process.env.AAD_ENDPOINT + process.env.TENANT_ID,
-    		clientSecret: process.env.CLIENT_SECRET,
-    	}
-    };
-    
-    /**
-     * With client credentials flows permissions need to be granted in the portal by a tenant administrator.
-     * The scope is always in the format '<resource>/.default'. For more, visit: 
-     * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow 
-     */
-    const tokenRequest = {
-    	scopes: [process.env.GRAPH_ENDPOINT + '.default'],
-    };
-    
-    const apiConfig = {
-    	uri: process.env.GRAPH_ENDPOINT + 'v1.0/users',
-    };
-    
-    /**
-     * Initialize a confidential client application. For more info, visit:
-     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md
-     */
-    const cca = new msal.ConfidentialClientApplication(msalConfig);
-    
-    /**
-     * Acquires token with client credentials.
-     * @param {object} tokenRequest 
-     */
-    async function getToken(tokenRequest) {
-    	return await cca.acquireTokenByClientCredential(tokenRequest);
+const msal = require('@azure/msal-node');
+
+/**
+ * Configuration object to be passed to MSAL instance on creation. 
+ * For a full list of MSAL Node configuration parameters, visit:
+ * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md 
+ */
+const msalConfig = {
+    auth: {
+        clientId: process.env.CLIENT_ID,
+        authority: process.env.AAD_ENDPOINT + process.env.TENANT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
     }
-    
-    module.exports = {
-    	apiConfig: apiConfig,
-    	tokenRequest: tokenRequest,
-    	getToken: getToken
-    };
+};
+
+/**
+ * With client credentials flows permissions need to be granted in the portal by a tenant administrator.
+ * The scope is always in the format '<resource>/.default'. For more, visit: 
+ * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow 
+ */
+const tokenRequest = {
+    scopes: [process.env.GRAPH_ENDPOINT + '.default'],
+};
+
+const apiConfig = {
+    uri: process.env.GRAPH_ENDPOINT + 'v1.0/users',
+};
+
+/**
+ * Initialize a confidential client application. For more info, visit:
+ * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md
+ */
+const cca = new msal.ConfidentialClientApplication(msalConfig);
+
+/**
+ * Acquires token with client credentials.
+ * @param {object} tokenRequest 
+ */
+async function getToken(tokenRequest) {
+    return await cca.acquireTokenByClientCredential(tokenRequest);
+}
+
+module.exports = {
+    apiConfig: apiConfig,
+    tokenRequest: tokenRequest,
+    getToken: getToken
+};
 ```
 
 In the code snippet above, we first create a configuration object (*msalConfig*) and pass it to initialize an MSAL [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md). Then we create a method for acquiring tokens via **client credentials** and finally expose this module to be accessed by *main.js*. The configuration parameters in this module are drawn from an environment file, which we will create in the next step.
@@ -175,16 +173,16 @@ In the code snippet above, we first create a configuration object (*msalConfig*)
 
 Create an environment file to store the app registration details that will be used when acquiring tokens. To do so, create a file named *.env* inside the root folder of the sample (*NodeConsoleApp*), and add the following code:
 
-    ```text
-    # Credentials
-    TENANT_ID=Enter_the_Tenant_Id_Here
-    CLIENT_ID=Enter_the_Application_Id_Here
-    CLIENT_SECRET=Enter_the_Client_Secret_Here
-    
-    # Endpoints
-    AAD_ENDPOINT=Enter_the_Cloud_Instance_Id_Here
-    GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here
-    ```
+```text
+# Credentials
+TENANT_ID=Enter_the_Tenant_Id_Here
+CLIENT_ID=Enter_the_Application_Id_Here
+CLIENT_SECRET=Enter_the_Client_Secret_Here
+
+# Endpoints
+AAD_ENDPOINT=Enter_the_Cloud_Instance_Id_Here
+GRAPH_ENDPOINT=Enter_the_Graph_Endpoint_Here
+```
 
 Fill in these details with the values you obtain from Azure app registration portal:
 
@@ -206,35 +204,35 @@ Fill in these details with the values you obtain from Azure app registration por
 Inside the *bin* folder, create another file named *fetch.js* and add the following code for making REST calls to the Microsoft Graph API:
 
 ```javascript
-    const axios = require('axios');
-    
-    /**
-     * Calls the endpoint with authorization bearer token.
-     * @param {string} endpoint 
-     * @param {string} accessToken 
-     */
-    async function callApi(endpoint, accessToken) {
-    
-        const options = {
-            headers: {
-                Authorization: `Bearer ${accessToken}`
-            }
-        };
-    
-        console.log('request made to web API at: ' + new Date().toString());
-    
-        try {
-            const response = await axios.default.get(endpoint, options);
-            return response.data;
-        } catch (error) {
-            console.log(error)
-            return error;
+const axios = require('axios');
+
+/**
+ * Calls the endpoint with authorization bearer token.
+ * @param {string} endpoint 
+ * @param {string} accessToken 
+ */
+async function callApi(endpoint, accessToken) {
+
+    const options = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`
         }
     };
-    
-    module.exports = {
-        callApi: callApi
-    };
+
+    console.log('request made to web API at: ' + new Date().toString());
+
+    try {
+        const response = await axios.default.get(endpoint, options);
+        return response.data;
+    } catch (error) {
+        console.log(error)
+        return error;
+    }
+};
+
+module.exports = {
+    callApi: callApi
+};
 ```
 
 Here, the `callApi` method is used to make an HTTP `GET` request against a protected resource that requires an access token. The request then returns the content to the caller. This method adds the acquired token in the *HTTP Authorization header*. The protected resource here is the Microsoft Graph API [users endpoint](https://docs.microsoft.com/graph/api/user-list) which displays the users in the tenant where this app is registered.
@@ -243,10 +241,10 @@ Here, the `callApi` method is used to make an HTTP `GET` request against a prote
 
 You've completed creation of the application and are now ready to test the app's functionality.
 
-1. Start the Node.js console app by running the following command from within the root of your project folder:
+Start the Node.js console app by running the following command from within the root of your project folder:
 
 ```console
-   node . --op getUsers
+node . --op getUsers
 ```
 
 This should result in some JSON response from Microsoft Graph API and you should see an array of user objects in the console.
