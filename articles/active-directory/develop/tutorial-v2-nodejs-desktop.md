@@ -218,7 +218,7 @@ ipcMain.on(IPC_MESSAGES.GET_MAIL, async() => {
 });
 ```
 
-In the code snippet above, we initialize an Electron main window object and create some event handlers for interactions with the Electron window. We also import configuration parameters, instantiate *authProvider* class for handling sign-in, sign-out and token acquisition, and call Microsoft Graph API.
+In the code snippet above, we initialize an Electron main window object and create some event handlers for interactions with the Electron window. We also import configuration parameters, instantiate *authProvider* class for handling sign-in, sign-out and token acquisition, and call the Microsoft Graph API.
 
 4. In the same folder (*App*), create another file named *renderer.js* and add the following code:
 
@@ -600,7 +600,7 @@ In the code snippet above, we first initialized MSAL Node `PublicClientApplicati
 
 ## Add a method to call a web API
 
-Create another file named *fetch.js*. This file will contain an Axios HTTP client for making REST calls to Microsoft Graph API.
+Create another file named *fetch.js*. This file will contain an Axios HTTP client for making REST calls to the Microsoft Graph API.
 
 ```JavaScript
 const axios = require('axios');
@@ -712,7 +712,7 @@ At this point, a PKCE-protected authorization code is sent to the CORS-protected
 
 The ID token contains basic information about the user, like their display name. The access token has a limited lifetime and expires after 24 hours. If you plan to use these tokens for accessing protected resource, your back-end server *must* validate it to guarantee the token was issued to a valid user for your application.
 
-The desktop app you've created in this tutorial makes a REST call to Microsoft Graph API using an access token as bearer token in request header ([RFC 6750](https://tools.ietf.org/html/rfc6750)).
+The desktop app you've created in this tutorial makes a REST call to the Microsoft Graph API using an access token as bearer token in request header ([RFC 6750](https://tools.ietf.org/html/rfc6750)).
 
 The Microsoft Graph API requires the *user.read* scope to read a user's profile. By default, this scope is automatically added in every application that's registered in the Azure portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the *Mail.Read* scope in order to list the user's email.
 
