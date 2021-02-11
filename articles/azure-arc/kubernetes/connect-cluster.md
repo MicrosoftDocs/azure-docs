@@ -165,8 +165,7 @@ Name           Location    ResourceGroup
 AzureArcTest1  eastus      AzureArcTest
 ```
 
-You can also view this resource on the [Azure portal](https://portal.azure.com/). Open the portal in your browser and navigate to the resource group and the Azure Arc enabled Kubernetes resource, based on the resource name and resource group name inputs used earlier in the `az connectedk8s connect` command.
- 
+You can also view this resource on the [Azure portal](https://portal.azure.com/). Open the portal in your browser and navigate to the resource group and the Azure Arc enabled Kubernetes resource, based on the resource name and resource group name inputs used earlier in the `az connectedk8s connect` command.  
 > [!NOTE]
 > After onboarding the cluster, it takes around 5 to 10 minutes for the cluster metadata (cluster version, agent version, number of nodes, etc.) to surface on the overview page of the Azure Arc enabled Kubernetes resource in Azure portal.
 
