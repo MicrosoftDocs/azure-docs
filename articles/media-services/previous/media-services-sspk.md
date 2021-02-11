@@ -124,7 +124,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * HKC Corporation Limited
 * Hong Kong Konka Ltd
 * Innolux Corporation
-* Innopia Technologies, Inc
 * Jinpin Electrical Company Ltd.Zhuhai.S.E.Z
 * K-Tronics (Suzhou) Technology Co., Ltd. 
 * Kaonmedia Co., Ltd.

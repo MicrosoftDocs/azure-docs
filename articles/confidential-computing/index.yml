@@ -99,7 +99,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Confidential nodes on AKS FAQ 
-            url: confidential-nodes-aks-overview.md
+            url: confidential-nodes-aks-faq.md
           - text: About Azure Kubernetes Service (AKS) 
             url: ../aks/intro-kubernetes.md
 
