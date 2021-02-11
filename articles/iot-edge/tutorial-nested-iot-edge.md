@@ -184,6 +184,8 @@ You can also child your hierarchy relationship's through querying your **top lay
     az iot hub device-identity children list --device-id {top_layer_device_id} --hub-name {hub_name}
     ```
 
+---
+
 Once you are satisfied your hierarchy is correctly structured, you are ready to proceed.
 
 ### Create certificates
