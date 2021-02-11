@@ -33,25 +33,25 @@ Azure Disk Encryption requires an Azure Key Vault to control and manage disk enc
 
 ### Create Key Vault with disk encryption enabled
 
-Run the following commands to create a new Key Vault for disk encryption.
+Run the following commands to create a new Key Vault for disk encryption. Make sure the region for your Key Vault is [supported for Service Fabric managed clusters](faq-managed-cluster.md#what-regions-are-supported-in-the-preview) and is in the same region as your cluster.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```powershell
-$resourceGroup = "<rg-name>" 
+$resourceGroupName = "<rg-name>" 
 $keyvaultName = "<kv-name>" 
 
-New-AzResourceGroup -Name $resourceGroupName -Location southcentralus 
-New-AzKeyVault -ResourceGroupName $resourceGroup -Name $keyvaultName -Location southcentralus -EnabledForDiskEncryption
+New-AzResourceGroup -Name $resourceGroupName -Location eastus2 
+New-AzKeyVault -ResourceGroupName $resourceGroupName -Name $keyvaultName -Location eastus2 -EnabledForDiskEncryption
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-$resourceGroup = "<rg-name>" 
+$resourceGroupName = "<rg-name>" 
 $keyvaultName = "<kv-name>" 
 
-az keyvault create --resource-group $resourceGroup --name $keyvaultName --enabled-for-disk-encryption
+az keyvault create --resource-group $resourceGroupName --name $keyvaultName --enabled-for-disk-encryption
 ```
 
 ---
@@ -80,7 +80,7 @@ az keyvault update --name keyvaultName --enabled-for-disk-encryption
 
 The following step will walk you through the required template changes to enable disk encryption on an [existing managed cluster](tutorial-managed-cluster-deploy.md). Alternately, you can deploy a new Service Fabric managed cluster with disk encryption enabled with this template: https://github.com/Azure-Samples/service-fabric-cluster-templates
 
-1. Add the following parameters to the template, substituting your own subscription, resource group name, and key vault name under `keyVaultResourceId`:
+1. Add the following parameters to the template, substituting your own subscription, resource group name, and vault name under `keyVaultResourceId`:
 
 ```json
 "parameters": { 
@@ -91,21 +91,7 @@ The following step will walk you through the required template changes to enable
         "metadata": { 
             "description": "Full resource id of the Key Vault used for disk encryption." 
         } 
-    }, 
-    "keyEncryptionKeyURL": { 
-        "type": "string", 
-        "metadata": { 
-            "description": "URL of the KeyEncryptionKey used to encrypt the volume encryption key. The Value is assumed to be in keyVaultResourceGroup" 
-        } 
-    }, 
-
-    "keyEncryptionAlgorithm": { 
-        "type": "string", 
-        "defaultValue": "RSA-OAEP", 
-        "metadata": { 
-            "description": "Key encryption algorithm used to wrap with KeyEncryptionKeyURL" 
-        }
-    }, 
+    },
     "volumeType": { 
         "type": "string", 
         "defaultValue": "All", 
@@ -132,7 +118,6 @@ The following step will walk you through the required template changes to enable
                     "EncryptionOperation": "EnableEncryption", 
                     "KeyVaultURL": "[reference(parameters('keyVaultResourceId'),'2016-10-01').vaultUri]", 
                     "KeyVaultResourceId": "[parameters('keyVaultResourceID')]",
-                    "KeyEncryptionAlgorithm": "[parameters('keyEncryptionAlgorithm')]", 
                     "VolumeType": "[parameters('volumeType')]" 
                 } 
             } 
@@ -148,9 +133,6 @@ The following step will walk you through the required template changes to enable
     … 
     "keyVaultResourceId": { 
         "value": "/subscriptions/########-####-####-####-############/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<kv-name>" 
-    }, 
-    "keyEncryptionKeyURL": { 
-        "value": "GEN-KEYVAULT-ENCRYPTION-KEY-URI" 
     }, 
     "keyEncryptionAlgorithm": { 
         "value": "RSA-OAEP" 
