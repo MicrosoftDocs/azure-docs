@@ -41,13 +41,13 @@ sections:
         answer: |
           During a maintenance update, databases are fully available and accessible but some of the maintenance updates require a failover as Azure takes SQL Databases offline for a short time to apply the maintenance updates (on average, eight seconds in duration). Planned maintenance updates occur once every 35 days on average, which means customer can expect approximately one planned maintenance event per month per Azure SQL Database and managed instance, and only during the maintenance window slots selected by the customer.
 
-      - question: In which regions is choosing a maintenance window Available?
+      - question: In which regions is choosing a maintenance window available?
         answer: | 
           For a list of available regions, see [Maintenance window availability](maintenance-window.md#availability).
       
       - question: I don’t see my region in the available regions list, what can I do? 
         answer: |
-          You can open a ticket to check if your region will be available soon. 
+          You can [open a ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) to check if your region will be available soon. 
       
       - question: What is the pricing for maintenance window? 
         answer: |
@@ -55,23 +55,23 @@ sections:
         
       - question: Would I receive a notification of the maintenance window?
         answer: |
-          Customers can expect to receive notification 24 hours prior to the maintenance event, immediately before maintenance starts, and when the maintenance window is completed. The Resource health center can be checked for more information. Notification email alerts can also be configured.
+          Customers can expect to receive notification 24 hours prior to the maintenance event, immediately before maintenance starts, and when the maintenance window is completed. The Resource health center can be checked for more information. To receive emails, advance notification must be configured, for more information see [Advance notifications](advance-notifications.md).
 
-      - question: Which service level objectives (SLOs) are supported for a configurable maintenance window? 
+      - question: In which service level objectives (SLOs) can I choose a maintenance window? 
         answer: |
-          Feature is available in most service tiers with some exceptions, see [maintenance window supported service level objectives](maintenance-window.md#supported-service-level-objectives).
+          Choosing a maintenance window is available in most SLOs with some exceptions, see [maintenance window supported service level objectives](maintenance-window.md#supported-service-level-objectives).
 
-      - question: If I have selected a maintenance window for a resource, and I downscale to a service tier where choosing a maintenance window is not supported, what happens to my database?
+      - question: If I have selected a maintenance window for a resource, and I downscale to a service level objective (SLO) where choosing a maintenance window is not supported, what happens to my database?
         answer: |
           In this case, the maintenance window would revert to the default option which is 5PM to 8AM local time.
       
       - question: Can I cancel or postpone a maintenance event using maintenance window?
         answer: |
-          No. Cancelling or postponing an upcoming maintenance window within 24 hours is not supported. 
+          No. Cancelling or postponing an upcoming maintenance window within 24 hours is not supported.
 
       - question: How long does it take to process a maintenance window schedule change?
         answer: |
-          Changes made to the maintenance window schedule may take up to 24 hours to take effect.
+          Customers can choose a different maintenance window at any time, but changes may take up to 24 hours to take effect. 
 
       - question: What happens when a maintenance event fails?
         answer: |
@@ -83,11 +83,11 @@ sections:
 
       - question: How do I validate that my databases are set up for maintenance window?
         answer: |
-          The managed database screen will show the current maintenance window schedule.
+          Under settings of the Azure resource, the maintenance tab allows you to review and change the current maintenance plan schedule. You can also review and set the maintenance window schedules for multiple resources via PowerShell, CLI, or Azure API.
 
-      - question: Can I configure a different maintenance window for each database in an elastic pool?
+      - question: Can I configure a different maintenance window for each Azure SQL database in an elastic pool?
         answer: |
-         If the database is part of an elastic pool, the maintenance window configuration of the elastic pool will be applied. Standalone databases can have their own maintenance window configuration.
+         If the database is part of an elastic pool, the maintenance window configuration of the elastic pool will be applied. Single databases outside of an elastic pool can have their own maintenance window configuration.
 
       - question: What are supported options to configure a maintenance window for an existing Azure SQL Database or SQL Managed Instance?
         answer: |
