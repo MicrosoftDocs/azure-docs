@@ -37,7 +37,7 @@ Following Sql Gateways in multiple regions are in the process of being deactivat
 - West Europe : 191.237.232.75
 - West US : 23.99.34.75
 
-No customer impact is anticipated since these Gateways ( running on older hardware) are not routing any customer traffic. The IP addresses for these Gateways shall be deactivated on 15th March 2021.
+No customer impact is anticipated since these Gateways (running on older hardware) are not routing any customer traffic. The IP addresses for these Gateways shall be deactivated on 15th March 2021.
 
 ## February 2021
 New SQL Gateways are being added to the following regions:
