@@ -9,7 +9,7 @@ ms.date: 02/18/2021
 ms.author: qixwang
 ---
 
-# Troubleshooting common routing problems
+# Troubleshooting common routing problems with Azure Front Door Standard/Premium
 
 This article describes how to troubleshoot common routing problems that you might face for your Azure Front Door configuration.
 

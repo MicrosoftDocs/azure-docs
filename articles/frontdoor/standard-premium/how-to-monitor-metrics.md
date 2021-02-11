@@ -28,7 +28,7 @@ Metrics can be displayed in charts or grid of your choice and are accessible via
 
 The default metrics are free of charge. You can enable extra metrics for an extra cost. 
 
-You can also set up alerts for metrics. You can configure a threshold for 4XXErrorRate or 5XXErrorRate. When the error rate exceeds the threshold, it will trigger alert as configured. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric). 
+You can also set up alerts for metrics. You can configure a threshold for 4XXErrorRate or 5XXErrorRate. When the error rate exceeds the threshold, it will trigger alert as configured. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md). 
 
 ## Metrics supported in Azure Front Door
 

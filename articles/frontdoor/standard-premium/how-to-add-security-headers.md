@@ -55,7 +55,7 @@ In this tutorial, you learn how to:
 In the preceding steps, you configured Content-Security-Policy header with Rule set. If you no longer want a rule, you can select the Rule Set name and then select Delete rule. 
 
 ### Deleting a Rule Set
-If you want to delete a Rule Set, make sure you disassociate it from all routes before deleting. For detailed guidance on deleting a rule set, refer to [Configure your rule set](configure-rule-set).
+If you want to delete a Rule Set, make sure you disassociate it from all routes before deleting. For detailed guidance on deleting a rule set, refer to [Configure your rule set](how-to-configure-rule-set.md).
 
 ## Next steps
 
