@@ -149,7 +149,7 @@ AzureDiagnostics
 ### Sample Kusto queries
 
 > [!IMPORTANT]
-> When you select **Logs** from the IoT hub menu, Log Analytics is opened with the query scope set to the current IoT hub. This means that log queries will only include data from that resource. If you want to run a query that includes data from other IoT hubs or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/log-query/scope.md) for details.
+> When you select **Logs** from the IoT hub menu, Log Analytics is opened with the query scope set to the current IoT hub. This means that log queries will only include data from that resource. If you want to run a query that includes data from other IoT hubs or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
 
 Following are queries that you can use to help you monitor your IoT hub.
 

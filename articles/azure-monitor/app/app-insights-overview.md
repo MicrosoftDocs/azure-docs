@@ -101,7 +101,7 @@ There are several ways to get started. Begin with whichever works best for you. 
   * [Python](./opencensus-python.md)
   * [Other platforms](./platforms.md)
 * **[Instrument your web pages](./javascript.md)** for page view, AJAX, and other client-side telemetry.
-* **[Analyze mobile app usage](../learn/mobile-center-quickstart.md)** by integrating with Visual Studio App Center.
+* **[Analyze mobile app usage](../app/mobile-center-quickstart.md)** by integrating with Visual Studio App Center.
 * **[Availability tests](./monitor-web-app-availability.md)** - ping your website regularly from our servers.
 
 ## Next steps
@@ -133,12 +133,12 @@ Get started at development time with:
 
 <!--Link references-->
 
-[android]: ../learn/mobile-center-quickstart.md
+[android]: ../app/mobile-center-quickstart.md
 [azure]: ../../insights-perf-analytics.md
 [client]: ./javascript.md
 [desktop]: ./windows-desktop.md
 [greenbrown]: ./asp-net.md
-[ios]: ../learn/mobile-center-quickstart.md
+[ios]: ../app/mobile-center-quickstart.md
 [java]: ./java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: ./platforms.md

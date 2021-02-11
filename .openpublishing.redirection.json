@@ -40220,7 +40220,7 @@
       "redirect_url": "/azure/vpn-gateway/point-to-site-about",
       "redirect_document_id": false
     },
-	 {
+    {
       "source_path_from_root": "/articles/vpn-gateway/create-vpn-azure-aws-managed-solutions.md",
       "redirect_url": "/azure/vpn-gateway/tutorial-site-to-site-portal",
       "redirect_document_id": false
@@ -63080,5 +63080,85 @@
       "redirect_url": "/azure/azure-monitor/visualizations/resource-manager-workbooks",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/resource-expression.md",
+      "redirect_url": "/azure/azure-monitor/logs/resource-expression",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/scope.md",
+      "redirect_url": "/azure/azure-monitor/logs/scope",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/unify-app-resource-data.md",
+      "redirect_url": "/azure/azure-monitor/logs/unify-app-resource-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/mobile-center-quickstart.md",
+      "redirect_url": "/azure/azure-monitor/app/mobile-center-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/nodejs-quick-start.md",
+      "redirect_url": "/azure/azure-monitor/app/nodejs-quick-start",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/tutorial-alert.md",
+      "redirect_url": "/azure/azure-monitor/alerts/tutorial-alert",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/tutorial-app-dashboards.md",
+      "redirect_url": "/azure/azure-monitor/app/tutorial-app-dashboards",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/tutorial-autoscale-performance-schedule.md",
+      "redirect_url": "/azure/azure-monitor/autoscale/tutorial-autoscale-performance-schedule",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/tutorial-logs-dashboards.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/tutorial-logs-dashboards",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/tutorial-performance.md",
+      "redirect_url": "/azure/azure-monitor/app/tutorial-performance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/tutorial-runtime-exceptions.md",
+      "redirect_url": "/azure/azure-monitor/app/tutorial-runtime-exceptions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/learn/tutorial-users.md",
+      "redirect_url": "/azure/azure-monitor/app/tutorial-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-app-resource.md",
+      "redirect_url": "/azure/azure-monitor/app/resource-manager-app-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-function-app.md",
+      "redirect_url": "/azure/azure-monitor/app/resource-manager-function-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-log-queries.md",
+      "redirect_url": "/azure/azure-monitor/logs/resource-manager-log-queries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-web-app.md",
+      "redirect_url": "/azure/azure-monitor/app/resource-manager-web-app",
+      "redirect_document_id": false
+    }
   ]
 }

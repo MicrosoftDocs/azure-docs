@@ -64,12 +64,12 @@ Built-in workbooks provide integrated data from your connected data sources to l
 
 You can customize the workbooks either by editing the main query ![query edit button](./media/qs-get-visibility/edit-query-button.png). You can click the button ![Log Analytics button](./media/qs-get-visibility/go-to-la-button.png) to go to [Log Analytics to edit the query there](../azure-monitor/logs/log-analytics-tutorial.md), and you can select the ellipsis (...) and select **Customize tile data**, which enables you to edit the main time filter, or remove the specific tiles from the workbook.
 
-For more information on working with queries, see [Tutorial: Visual data in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+For more information on working with queries, see [Tutorial: Visual data in Log Analytics](../azure-monitor/visualizations/tutorial-logs-dashboards.md)
 
 ### Add a new tile
 
 If you want to add a new tile, you can add it to an existing workbook, either one that you create or an Azure Sentinel built-in workbook. 
-1. In Log Analytics, create a tile using the instructions found in [Tutorial: Visual data in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
+1. In Log Analytics, create a tile using the instructions found in [Tutorial: Visual data in Log Analytics](../azure-monitor/visualizations/tutorial-logs-dashboards.md). 
 2. After the tile is created, under **Pin**, select the workbook in which you want the tile to appear.
 
 ## Create new workbooks

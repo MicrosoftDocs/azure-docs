@@ -166,9 +166,9 @@ Insights and solutions will include their own workbooks and views for analyzing 
 See [Azure Monitor Workbooks](visualizations/workbooks-overview.md) for details on creating custom workbooks.
 
 ### Create dashboards
-[Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure and allow you to combine Azure Monitor data with data from other services to provide a single pane of glass over your Azure infrastructure. See [Create and share dashboards of Log Analytics data](learn/tutorial-logs-dashboards.md) for details on creating a dashboard that includes data from Azure Monitor Logs. 
+[Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure and allow you to combine Azure Monitor data with data from other services to provide a single pane of glass over your Azure infrastructure. See [Create and share dashboards of Log Analytics data](visualizations/tutorial-logs-dashboards.md) for details on creating a dashboard that includes data from Azure Monitor Logs. 
 
-See [Create custom KPI dashboards using Azure Application Insights](learn/tutorial-app-dashboards.md) for details on creating a dashboard that includes data from Application Insights. 
+See [Create custom KPI dashboards using Azure Application Insights](app/tutorial-app-dashboards.md) for details on creating a dashboard that includes data from Application Insights. 
 
 ## Alerts
 Alerts in Azure Monitor proactively notify you of important data or patterns identified in your monitoring data. Some insights will generate alerts without configuration. For other scenarios, you need to create [alert rules](platform/alerts-overview.md) that include the data to analyze and the criteria for when to generate an alert, and action groups which define the action to take when an alert is generated. 

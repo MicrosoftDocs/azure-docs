@@ -295,6 +295,6 @@ While Azure SQL Analytics is free to use, consumption of diagnostics telemetry a
 ## Next steps
 
 - Use [log queries](../logs/log-query-overview.md) in Azure Monitor to view detailed Azure SQL data.
-- [Create your own dashboards](../learn/tutorial-logs-dashboards.md) showing Azure SQL data.
+- [Create your own dashboards](../visualizations/tutorial-logs-dashboards.md) showing Azure SQL data.
 - [Create alerts](../platform/alerts-overview.md) when specific Azure SQL events occur.
 

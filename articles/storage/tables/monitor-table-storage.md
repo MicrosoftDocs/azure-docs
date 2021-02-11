@@ -533,7 +533,7 @@ Data is stored in the **StorageTableLogs** table.
 Here are some queries that you can enter in the **Log search** bar to help you monitor your Table storage. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
 
 > [!IMPORTANT]
-> When you select **Logs** from the storage account resource group menu, Log Analytics is opened with the query scope set to the current resource group. This means that log queries will only include data from that resource group. If you want to run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../../azure-monitor/log-query/scope.md) for details.
+> When you select **Logs** from the storage account resource group menu, Log Analytics is opened with the query scope set to the current resource group. This means that log queries will only include data from that resource group. If you want to run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../../azure-monitor/logs/scope.md) for details.
 
 Use these queries to help you monitor your Azure Storage accounts:
 

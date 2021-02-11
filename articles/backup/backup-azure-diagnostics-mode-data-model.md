@@ -490,4 +490,4 @@ As the V1 schema is on a deprecation path, it's recommended to use only the V2 s
 
 ## Next steps
 
-Once you review the data model, you can start [creating custom queries](../azure-monitor/learn/tutorial-logs-dashboards.md) in Azure Monitor logs to build your own dashboard.
+Once you review the data model, you can start [creating custom queries](../azure-monitor/visualizations/tutorial-logs-dashboards.md) in Azure Monitor logs to build your own dashboard.
