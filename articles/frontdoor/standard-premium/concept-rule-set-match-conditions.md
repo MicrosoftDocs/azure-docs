@@ -1,10 +1,10 @@
 ---
-title: Configure Front Door Rule Set match conditions
+title: Configure Azure Front Door rule ret match conditions
 description: This article provides a list of the various match conditions available with Azure Front Door rule set. 
-services: front-door
+services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: yuajia
 ---
@@ -14,14 +14,12 @@ ms.author: yuajia
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
+This tutorial shows how to create a Rule Set and your first set of rules in both Azure portal.In Azure Front Door [Rule Set](concept-rule-set.md), a rule consists of zero or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in Azure Front Door rule set.
+
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This tutorial shows how to create a Rule Set and your first set of rules in both Azure portal.
-
-In Azure Front Door [Rule Set](concept-rule-set.md), a rule consists of zero or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in AFD Rule Set.
 
 The first part of a rule is a match condition or set of match conditions. A rule can consist of up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are done. If you use multiple match conditions, the match conditions are grouped together by using AND logic. For all match conditions that support multiple values (noted as "space-separated"), the "OR" operator is assumed.
 
@@ -53,7 +51,7 @@ Identifies requests based on arguments defined for the POST request method that'
 
 Argument name | Operator | Argument value | Case transform
 --------------|----------|----------------|---------------
-String | [Operator list](#Operator-list) | String, Int | Lowercase, Uppercase
+String | [Operator list](#operator-list) | String, Int | Lowercase, Uppercase
 
 ## Query string
 
@@ -63,7 +61,7 @@ Identifies requests that contain a specific query string parameter. This paramet
 
 Operator | Query string | Case Transform
 ---------|--------------|---------------
-[Operator list](#Operator-list) | String, Int | Lowercase, Uppercase
+[Operator list](#operator-list) | String, Int | Lowercase, Uppercase
 
 ## Remote address
 
@@ -96,7 +94,7 @@ Identifies requests based on specific text that appears in the body of the reque
 
 Operator | Request body | Case transform
 ---------|--------------|---------------
-[Operator list](#Operator-list) | String, Int | Lowercase, Uppercase
+[Operator list](#operator-list) | String, Int | Lowercase, Uppercase
 
 ## Request header
 
@@ -106,7 +104,7 @@ Identifies requests that use a specific header in the request.
 
 Header name | Operator | Header value | Case transform
 ------------|----------|--------------|---------------
-String | [Operator list](#Operator-list) | String, Int | Lowercase, Uppercase
+String | [Operator list](#operator-list) | String, Int | Lowercase, Uppercase
 
 ## Request method
 
@@ -140,7 +138,7 @@ Identifies requests that match the specified URL.
 
 Operator | Request URL | Case transform
 ---------|-------------|---------------
-[Operator list](#Operator-list) | String, Int | Lowercase, Uppercase
+[Operator list](#operator-list) | String, Int | Lowercase, Uppercase
 
 #### Key information
 
@@ -154,7 +152,7 @@ Identifies requests that include the specified file extension in the file name i
 
 Operator | Extension | Case transform
 ---------|-----------|---------------
-[Operator list](#Operator-list)  | String, Int | Lowercase, Uppercase
+[Operator list](#operator-list)  | String, Int | Lowercase, Uppercase
 
 #### Key information
 
@@ -168,7 +166,7 @@ Identifies requests that include the specified file name in the requesting URL.
 
 Operator | File name | Case transform
 ---------|-----------|---------------
-[Operator list](#Operator-list)| String, Int | Lowercase, Uppercase
+[Operator list](#operator-list)| String, Int | Lowercase, Uppercase
 
 ## Request path
 
@@ -178,9 +176,9 @@ Identifies requests that include the specified path in the requesting URL.
 
 Operator | Value | Case Transform
 ---------|-------|---------------
-[Operator list](#Operator-list) | String, Int | Lowercase, Uppercase
+[Operator list](#operator-list) | String, Int | Lowercase, Uppercase
 
-## Operator list
+## <a name = "operator-list"></a>Operator list
 
 For rules that accept values from the standard operator list, the following operators are valid:
 
@@ -222,7 +220,6 @@ Regex doesn't support the following operations:
 
 ## Next steps
 
-* Learn how to configure your first [Rules Set](how-to-configure-rule-set.md).
 * Learn more about [Azure Front Door Rule Set](concept-rule-set.md)
 * Learn more about [Rule Set actions](concept-rule-set-actions.md)
 

@@ -15,14 +15,14 @@ ms.author: duau
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
+Azure Front Door Standard/Premium Route defines how the traffic is handled when the incoming request arrives at the Azure Front Door environment. Through the Route settings, an association is defined between a domain and a backend origin group. By turning on the advance features such as Pattern to Mach, Rule set, more granular control over the traffic is achievable.
+
+A Front Door routing configuration is composed of two major parts: "left-hand side"  and "right-hand side". We match the incoming request to the left-hand side of the route and the right-hand side defines how we process the request.
+
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Front Door Standard/Premium Route defines how the traffic is handled when the incoming request arrives at the Azure Front Door environment. Through the Route settings, an association is defined between a domain and a backend origin group. By turning on the advance features such as Pattern to Mach, Rule set, more granular control over the traffic is achievable.
-
-A Front Door routing configuration is composed of two major parts: "left-hand side"  and "right-hand side". We match the incoming request to the left-hand side of the route and the right-hand side defines how we process the request.
 
 ### Incoming match (left-hand side)
 

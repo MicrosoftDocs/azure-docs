@@ -1,16 +1,16 @@
 ---
-title: Azure Front Door - Frequently Asked Questions
-description: This page provides answers to frequently asked questions about Azure Front Door
+title: 'Azure Front Door: Frequently asked questions'
+description: This page provides answers to frequently asked questions about Azure Front Door Standard/Premium.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
 ---
 
-# Frequently asked questions for Azure Front Door
+# Frequently asked questions for Azure Front Door Standard/Premium (Preview)
 
 This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
 
@@ -72,7 +72,7 @@ Azure Front Door is a global service and isn't tied to any specific Azure region
 
 ### What are the POP locations for Azure Front Door?
 
-Azure Front Door has the same list of POP (Point of Presence) locations as Azure CDN from Microsoft. For the complete list of our POPs, kindly refer [Azure CDN POP locations from Microsoft](../cdn/cdn-pop-locations.md).
+Azure Front Door has the same list of POP (Point of Presence) locations as Azure CDN from Microsoft. For the complete list of our POPs, kindly refer [Azure CDN POP locations from Microsoft](../../cdn/cdn-pop-locations.md).
 
 ### Is Azure Front Door a dedicated deployment for my application or is it shared across customers?
 
@@ -88,8 +88,8 @@ To lock down your application to only accept traffic from your specific Front Do
 
 * Configure IP ACLing for your backends to accept traffic from Azure Front Door's backend IP address space and Azure's infrastructure services only. Refer to the IP details below for ACLing your backend:
  
-    * Refer *AzureFrontDoor.Backend* section in [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for Front Door's IPv4 backend IP address range. You can also use the service tag *AzureFrontDoor.Backend* in your [network security groups](../virtual-network/network-security-groups-overview.md#security-rules).
-    * Azure's [basic infrastructure services](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) through virtualized host IP addresses: `168.63.129.16` and `169.254.169.254`.
+    * Refer *AzureFrontDoor.Backend* section in [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for Front Door's IPv4 backend IP address range. You can also use the service tag *AzureFrontDoor.Backend* in your [network security groups](../../virtual-network/network-security-groups-overview.md#security-rules).
+    * Azure's [basic infrastructure services](../../virtual-network/network-security-groups-overview.md#azure-platform-considerations) through virtualized host IP addresses: `168.63.129.16` and `169.254.169.254`.
 
     > [!WARNING]
     > Front Door's backend IP space may change later, however, we will ensure that before that happens, that we would have integrated with [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). We recommend that you subscribe to [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for any changes or updates.
@@ -148,7 +148,7 @@ Azure Front Door (AFD) requires a public IP or a publicly resolvable DNS name to
 
 ### What are the various timeouts and limits for Azure Front Door?
 
-Learn about all the documented [timeouts and limits for Azure Front Door](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits).
+Learn about all the documented [timeouts and limits for Azure Front Door](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits).
 
 ### How long does it take for a rule to take effect after being added to the Front Door Rules Engine?
 
@@ -235,16 +235,16 @@ Yes, Azure Front Door supports TLS/SSL offload and end to end TLS, which re-encr
 
 No, self-signed certificates aren't supported on Front Door and the restriction applies to both:
 
-1. **Backends**: You can't use self-signed certificates when you're forwarding the traffic as HTTPS or HTTPS health probes or filling the cache for from origin for routing rules with caching enabled.
-2. **Frontend**: You can't use self-signed certificates when using your own custom TLS/SSL certificate for enabling HTTPS on your custom domain.
+* **Backends**: You can't use self-signed certificates when you're forwarding the traffic as HTTPS or HTTPS health probes or filling the cache for from origin for routing rules with caching enabled.
+* **Frontend**: You can't use self-signed certificates when using your own custom TLS/SSL certificate for enabling HTTPS on your custom domain.
 
 ### Why is HTTPS traffic to my backend failing?
 
 For having successful HTTPS connections to your backend whether for health probes or for forwarding requests, there could be two reasons why HTTPS traffic might fail:
 
-1. **Certificate subject name mismatch**: For HTTPS connections, Front Door expects that your backend presents certificate from a valid CA with subject name(s) matching the backend hostname. As an example, if your backend hostname is set to `myapp-centralus.contosonews.net` and the certificate that your backend presents during the TLS handshake doesn't have `myapp-centralus.contosonews.net` or `*myapp-centralus*.contosonews.net` in the subject name. Then Front Door will refuse the connection and result in an error. 
-    1. **Solution**: It isn't recommended from a compliance standpoint but you can work around this error by disabling the certificate subject name check for your Front Door. You can find this option under Settings in Azure portal and under BackendPoolsSettings in the API.
-2. **Backend hosting certificate from invalid CA**: Only certificates from [valid CAs](./front-door-troubleshoot-allowed-ca.md) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates aren't allowed.
+* **Certificate subject name mismatch**: For HTTPS connections, Front Door expects that your backend presents certificate from a valid CA with subject name(s) matching the backend hostname. As an example, if your backend hostname is set to `myapp-centralus.contosonews.net` and the certificate that your backend presents during the TLS handshake doesn't have `myapp-centralus.contosonews.net` or `*myapp-centralus*.contosonews.net` in the subject name. Then Front Door will refuse the connection and result in an error. 
+    * **Solution**: It isn't recommended from a compliance standpoint but you can work around this error by disabling the certificate subject name check for your Front Door. You can find this option under Settings in Azure portal and under BackendPoolsSettings in the API.
+* **Backend hosting certificate from invalid CA**: Only certificates from valid CAs can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates aren't allowed.
 
 ### Can I use client/mutual authentication with Azure Front Door?
 
@@ -258,7 +258,7 @@ For information on logs and other diagnostic capabilities, see [Monitoring metri
 
 ### What is the retention policy on the diagnostics logs?
 
-Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Azure Monitor logs. For more information, see [Azure Front Door Logging](how-to-logging.md).
+Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Azure Monitor logs. 
 
 ### How do I get audit logs for Azure Front Door?
 
@@ -270,4 +270,4 @@ Yes, Azure Front Door does support alerts. Alerts are configured on metrics.
 
 ## Next steps
 
-Learn how to [create a Front Door](create-front-door-standard-premium-portal.md).
+Learn how to [create a Front Door](create-front-door-portal.md).
