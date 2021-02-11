@@ -72,7 +72,7 @@ You first create or use an existing primary namespace, and a new secondary names
 1. You should see the **Service Bus Geo-DR Alias** page as shown in the following image. You can also navigate to the **Geo-DR Alias** page from the primary namespace page by selecting the **Geo-recovery** on the left menu. 
 
     :::image type="content" source="./media/service-bus-geo-dr/service-bus-geo-dr-alias-page.png" alt-text="Service Bus Geo-DR Alias page":::
-1. On the **Geo-DR Alias** page, select **Shared access policies** to access the primary connection string for the alias. Use this connection string instead of using the connection string to the primary/secondary namespace directly. Initially, the alias points to the primary namespace.
+1. On the **Geo-DR Alias** page, select **Shared access policies** on the left menu to access the primary connection string for the alias. Use this connection string instead of using the connection string to the primary/secondary namespace directly. Initially, the alias points to the primary namespace.
 1. Switch to the **Overview** page. You can do the following actions: 
     1. Break the pairing between primary and secondary namespaces. Select **Break pairing** on the toolbar. 
     1. Manually fail over to the secondary namespace. 
@@ -80,13 +80,15 @@ You first create or use an existing primary namespace, and a new secondary names
         1. Confirm that you want to fail over to the secondary namespace by typing in your alias. 
         1. Turn ON the **Safe Failover** option to safely fail over to the secondary namespace. This feature makes sure that pending Geo-DR replications are completed before switching over to the secondary. 
         1. Then, select **Failover**. 
+        
+            :::image type="content" source="./media/service-bus-geo-dr/failover-page.png" alt-text="{alt-text}":::
     
             > [!IMPORTANT]
             > Failing over will activate the secondary namespace and remove the primary namespace from the Geo-Disaster Recovery pairing. Create another namespace to have a new geo-disaster recovery pair. 
 
 1. Finally, you should add some monitoring to detect if a failover is necessary. In most cases, the service is one part of a large ecosystem, thus automatic failovers are rarely possible, as often failovers must be performed in sync with the remaining subsystem or infrastructure.
 
-### Migration from Service Bus standard to premium
+### Service Bus standard to premium
 If you have [migrated your Azure Service Bus Standard namespace to Azure Service Bus Premium](service-bus-migrate-standard-premium.md), then you must use the pre-existing alias (that is, your Service Bus Standard namespace connection string) to create the disaster recovery configuration through the **PS/CLI** or **REST API**.
 
 It's because, during migration, your Azure Service Bus Standard namespace connection string/DNS name itself becomes an alias to your Azure Service Bus Premium namespace.

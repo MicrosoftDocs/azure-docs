@@ -81,16 +81,16 @@ You first create or use an existing primary namespace, and a new secondary names
     1. Then, select **Create**. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Select the secondary namespace":::        
-1. Now, when you select **Geo-recovery** for the primary namespace, you should see the **Geo-DR Alias** page that looks like the following image:
+1. You should see the **Geo-DR Alias** page. You can also navigate to this page from the primary namespace by selecting **Geo-recovery** on the left menu.
 
     :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Geo-DR alias page":::    
+1. On the **Geo-DR Alias** page, select **Shared access policies** on the left menu to access the primary connection string for the alias. Use this connection string instead of using the connection string to the primary/secondary namespace directly. 
 1. On this **Overview** page, you can do the following actions: 
     1. Break the pairing between primary and secondary namespaces. Select **Break pairing** on the toolbar. 
     1. Manually failover to the secondary namespace. Select **Failover** on the toolbar. 
     
         > [!WARNING]
         > Failing over will activate the secondary namespace and remove the primary namespace from the Geo-Disaster Recovery pairing. Create another namespace to have a new geo-disaster recovery pair. 
-1. On the **Geo-DR Alias** page, select **Shared access policies** to access the primary connection string for the alias. Use this connection string instead of using the connection string to the primary/secondary namespace directly. 
 
 Finally, you should add some monitoring to detect if a failover is necessary. In most cases, the service is one part of a large ecosystem, thus automatic failovers are rarely possible, as often failovers must be performed in sync with the remaining subsystem or infrastructure.
 
