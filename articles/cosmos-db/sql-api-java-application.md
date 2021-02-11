@@ -32,7 +32,7 @@ This Java application tutorial shows you how to create a web-based task-manageme
 :::image type="content" source="./media/sql-api-java-application/image1.png" alt-text="My ToDo List Java application":::
 
 > [!TIP]
-> This application development tutorial assumes that you have prior experience using Java. If you are new to Java or the [prerequisite tools](#Prerequisites), we recommend downloading the complete [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) project from GitHub and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.  
+> This application development tutorial assumes that you have prior experience using Java. If you are new to Java or the [prerequisite tools](#Prerequisites), we recommend downloading the complete [todo]https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) project from GitHub and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.  
 >
 
 ## <a id="Prerequisites"></a>Prerequisites for this Java web application tutorial
@@ -199,7 +199,7 @@ Azure Web Sites makes deploying Java applications as simple as exporting your ap
 
 ## <a id="GetProject"></a>Get the project from GitHub
 
-All the samples in this tutorial are included in the [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) project on GitHub. To import the todo project into Eclipse, ensure you have the software and resources listed in the [Prerequisites](#Prerequisites) section, then do the following:
+All the samples in this tutorial are included in the [todo](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) project on GitHub. To import the todo project into Eclipse, ensure you have the software and resources listed in the [Prerequisites](#Prerequisites) section, then do the following:
 
 1. Install [Project Lombok](https://projectlombok.org/). Lombok is used to generate constructors, getters, setters in the project. Once you have downloaded the lombok.jar file, double-click it to install it or install it from the command line.
 
@@ -211,7 +211,7 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 
 1. On the **Select Repository Source** screen, click **Clone URI**.
 
-1. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/documentdb-java-todo-app.git, and then click **Next**.
+1. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app, and then click **Next**.
 
 1. On the **Branch Selection** screen, ensure that **main** is selected, and then click **Next**.
 
