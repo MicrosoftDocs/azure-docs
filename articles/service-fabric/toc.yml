@@ -448,7 +448,7 @@
     - name: Add a virtual machine scale set extension to a managed cluster node type
       href: how-to-managed-cluster-vmss-extension.md
     - name: Configure your managed cluster
-      href: how-to-managed-cluster-configure.md
+      href: how-to-managed-cluster-configuration.md
     - name: Deploy managed cluster applications using ARM template
       href: how-to-managed-cluster-app-deployment-template.md
     - name: Configure a managed cluster with managed identity
