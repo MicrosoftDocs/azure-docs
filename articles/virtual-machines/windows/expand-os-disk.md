@@ -45,11 +45,11 @@ and click **Stop** to deallocate the VM.
 
  ![Click disk name](./media/expand-os-disk/disk-name.png)
 
-4. From the Settings menu on the left blade, click **Configuration**
+4. From the Settings menu on the left blade, click **Size + performance**
 
  ![Click configuration](./media/expand-os-disk/configuration.png)
 
-5. In the **Size (GiB)** text box, specify the desired disk size.
+5. Choose the desired disk size from the list.
    
    > [!WARNING]
    > The new size should be greater than the existing disk size. The maximum allowed is 2048 GB for OS disks. (It is possible to expand the VHD blob beyond that size, but the OS will only be able to work with the first 2048 GB of space.)
@@ -58,7 +58,7 @@ and click **Stop** to deallocate the VM.
  ![Specify disk size](./media/expand-os-disk/size.png)
 
   
-6. Click **Save** at the top of the page.
+6. Click **Resize** at the bottom of the page.
 
  ![Click save](./media/expand-os-disk/save.png)
 
