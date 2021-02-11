@@ -225,7 +225,7 @@ To mitigate this behavior, follow these steps:
          > Make sure that you make the request from a non-Unified Client Interface (UCI) page, for example, from the 
          > OData or API response page itself. Otherwise, logic in the app.js file might interfere with this operation.
 
-      1. To confirm that the callback registration no longer exists, check the callback registrations list.
+   1. To confirm that the callback registration no longer exists, check the callback registrations list.
 
 ## Next steps
 
