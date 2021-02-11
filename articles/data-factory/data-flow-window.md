@@ -3,7 +3,6 @@ title: Window transformation in mapping data flow
 description: Azure Data Factory mapping data flow Window Transformation
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
