@@ -4,16 +4,18 @@ titleSuffix: Azure API Management
 description: "Learn about these two portal architectural components: code and content."
 author: erikadoyle
 ms.author: apimpm
-ms.date: 11/30/2020
+ms.date: 02/10/2021
 ms.service: api-management
 ms.topic: how-to
 ---
 
 # Portal architectural concepts
 
-The portal components can be logically divided into two categories: *code* and *content*.
+The portal components can be logically divided into two categories: **Code** and **Content**.
 
-*Code* is maintained in [the GitHub repository][1] and includes:
+## Code concept
+
+**Code** is maintained in [the GitHub repository][1] and includes:
 
 - Widgets - which represent visual elements and combine HTML, JavaScript, styling ability, settings, and content mapping. Examples are an image, a text paragraph, a form, a list of APIs etc.
 - Styling definitions - which specify how widgets can be styled
