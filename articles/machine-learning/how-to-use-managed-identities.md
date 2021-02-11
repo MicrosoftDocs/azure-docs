@@ -227,19 +227,19 @@ Once you've configured ACR without admin user as described earlier, you can acce
 
 ## Create workspace with user-assigned managed identity
 
-When creating workspace, you have an option to specify user-assigned managed identity that will be used to access the associated resources: ACR, KeyVault, Storage and App Insights.
+When creating workspace, you can specify a user-assigned managed identity that will be used to access the associated resources: ACR, KeyVault, Storage, and App Insights.
 
-First [create an user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli]), and take note of the ARM resource ID of the managed identity.
+First [create a user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli]), and take note of the ARM resource ID of the managed identity.
 
-Then, use Azure CLI or Azure ML SDK to create the workspace
+Then, use Azure CLI or Python SDK to create the workspace. When using the CLI, specify the ID using the `--primary-user-assigned-identity` parameter. When using the SDK, use `primary_user_assigned_identity`. The following are examples of using the Azure CLI and Python to create a new workspace using these parameters:
 
-# [Azure CLI](#tab/azure-cli)
+__Azure CLI__
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> -g <resource group> --primary-user-assigned-identity <managed identity ARM ID>
 ```
 
-# [Python](#tab/python)
+__Python__
 
 ```python
 from azureml.core import Workspace
@@ -255,7 +255,7 @@ You can also use [an ARM template](https://github.com/Azure/azure-quickstart-tem
 > [!IMPORTANT]
 > If you bring your own associated resources, instead of having Azure Machine Learning service create them, you must grant the managed identity roles on those resources. Use the [role assignment ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) to make the assignments.
 
-For a workspace with (customer managed keys for encryption)[https://docs.microsoft.com/azure/machine-learning/concept-data-encryption], you can pass in an user-assigned managed identity to authenticate from storage to Key Vault. Use argument
+For a workspace with (customer-managed keys for encryption)[https://docs.microsoft.com/azure/machine-learning/concept-data-encryption], you can pass in a user-assigned managed identity to authenticate from storage to Key Vault. Use argument
  __user-assigned-identity-for-cmk-encryption__ (CLI) or __user_assigned_identity_for_cmk_encryption__ (SDK) to pass in the managed identity. This managed identity can be the same or different as the workspace primary user assigned managed identity.
 
 If you have an existing workspace, you can update it from system-assigned to user-assigned managed identity using ```az ml workspace update``` CLI command, or ```Workspace.update``` Python SDK method.
