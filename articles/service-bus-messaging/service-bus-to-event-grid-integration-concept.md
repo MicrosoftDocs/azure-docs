@@ -25,7 +25,7 @@ To enable the feature, you need the following items:
 ## Event Grid subscriptions for Service Bus namespaces
 You can create Event Grid subscriptions for Service Bus namespaces in three different ways:
 
-- Azure portal. See the following tutorials to learn how to use Azure portal to create Event Grid subscriptions for Service Bus events with Azure Logic Apps and Azure Fucntions as handlers. 
+- Azure portal. See the following tutorials to learn how to use Azure portal to create Event Grid subscriptions for Service Bus events with Azure Logic Apps and Azure Functions as handlers. 
     - [Azure Logic Apps](service-bus-to-event-grid-integration-example.md#receive-messages-by-using-logic-apps)
     - [Azure Functions](service-bus-to-event-grid-integration-function.md#connect-the-function-and-namespace-via-event-grid)
 * Azure CLI. The following CLI example shows how to create an Azure Functions subscription for a [system topic](../event-grid/system-topics.md) created by a Service Bus namespace.

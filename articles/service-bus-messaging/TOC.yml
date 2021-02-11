@@ -146,7 +146,7 @@
       href: network-security.md
   - name: Integration with other services
     items:
-    - name: Azure Service Bus and Azure Event Grid Integration
+    - name: Azure Service Bus and Azure Event Grid integration
       href: service-bus-to-event-grid-integration-concept.md
 - name: How-to guides
   items:
