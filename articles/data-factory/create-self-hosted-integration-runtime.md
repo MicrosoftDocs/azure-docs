@@ -385,11 +385,11 @@ For some cloud databases, such as Azure SQL Database and Azure Data Lake, you mi
 
 ### Get URL of Azure Relay
 
-One required domain and port that need to be put in the allow list of your firewall is for the communication to Azure Relay. Self-hosted integration runtime use it for interactive authoring such as test connection, browse folder list and table list, get schema, and preview data. If you don't want to allow **.servicebus.windows.net** and would like to have more specific URLs, then you can get all the FQDNs which is required by your self-hosted integration runtime from ADF portal.
+One required domain and port that need to be put in the allow list of your firewall is for the communication to Azure Relay. The self-hosted integration runtime uses it for interactive authoring such as test connection, browse folder list and table list, get schema, and preview data. If you don't want to allow **.servicebus.windows.net** and would like to have more specific URLs, then you can see all the FQDNs that are required by your self-hosted integration runtime from the ADF portal. Follow these steps:
 
 1. Go to ADF portal and select your self-hosted integration runtime.
 2. In Edit page, select **Nodes**.
-3. Click **View Service URLs** to get all FQDNs.
+3. Select **View Service URLs** to get all FQDNs.
 
    ![Azure Relay URLs](media/create-self-hosted-integration-runtime/Azure-relay-url.png)
 
@@ -413,7 +413,7 @@ You can install the self-hosted integration runtime by downloading a Managed Ide
 
 - Configure a power plan on the host machine for the self-hosted integration runtime so that the machine doesn't hibernate. If the host machine hibernates, the self-hosted integration runtime goes offline.
 - Regularly back up the credentials associated with the self-hosted integration runtime.
-- To automate self-hosted IR setup operations, please refer to [Set up an existing self hosted IR via PowerShell](#setting-up-a-self-hosted-integration-runtime).
+- To automate self-hosted IR setup operations, refer to [Set up an existing self hosted IR via PowerShell](#setting-up-a-self-hosted-integration-runtime).
 
 ## Next steps
 
