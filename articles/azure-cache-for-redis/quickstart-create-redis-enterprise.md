@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 02/08/2021
 #Customer intent: As a developer new to Azure Cache for Redis, I want to create an instance of Azure Cache for Redis Enterprise tier.
 ---
-# Quickstart: Create a Redis Enterprise cache
+# Quickstart: Create a Redis Enterprise cache (Preview)
 
 Azure Cache for Redis' Enterprise tiers provide fully integrated and managed [Redis Enterprise](https://redislabs.com/redis-enterprise/) on Azure. They're currently available as a preview. There are two new tiers in this preview:
 * Enterprise, which uses volatile memory (DRAM) on a virtual machine to store data
