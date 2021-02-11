@@ -21,23 +21,23 @@ This article discusses the technical details regarding the migration tool as per
 - Disabled extensions will not be migrated. 
 - Plugins are a legacy concept and should be removed before migration. They are supported for migration and but after migration, if extension needs to be enabled, plugin needs to be removed first before installing the extension. Remote desktop plugins and extensions are most impacted by this. 	
  
-### Certificate Migration
+### Certificate migration
 - In Cloud Services (extended support), certificates are stored in a Key Vault. As part of migration, we create a Key Vault for the customers having the Cloud Service name and transfer all certificates from Azure Service Manager to Key Vault. 
-- This information relationship between Cloud Service and key vault is specified in the Template or passed through PowerShell or Azure CLI. 
+- This information relationship between Cloud Service and Key Vault is specified in the Template or passed through PowerShell or Azure CLI. 
 
-### .cscfg and .csdef migration
+### Service Configuration and Service Definition files
 - The .cscfg and .csdef files needs to be updated for Cloud Services (extended support) with minor changes. 
 - The names of resources like virtual network and virtual network SKU are different. For more information, see [Available VM sizes](available-sizes.md)
 - Customers can retrieve their new deployments through PowerShell and Rest API  . 
 
-### Cloud Service (hosted service) and Deployments
+### Cloud Service (hosted service) and deployments
 - Cloud Services (extended support) do not support the concept of Cloud Services as a hosted service. Each deployment is an independent Cloud Service. 
-- If you have two slots in your Cloud Service (classic), you need to delete one slot (staging) and use the migration tool to move the other (production) slot to Azure Resource Manager. 
+- If you have two slots in your Cloud Services (classic), you need to delete one slot (staging) and use the migration tool to move the other (production) slot to Azure Resource Manager. 
 - The Public IP Address on the Cloud Service deployment remains the same after migration to Azure Resource Manager and is exposed as a Basic SKU IP (dynamic or static) resource in the customer’s subscription. 
 - The DNS name for the migrated Cloud Service uses the same name and DNS domain as used in RDFE (cloudapp.azure.net).
 
-### virtual network Migration
-- If a Cloud Service deployment is in a virtual network, then during migration all Cloud Services and associated virtual network resources are migrated together. 
+### Virtual network migration
+- If a Cloud Services deployment is in a virtual network, then during migration all Cloud Services and associated virtual network resources are migrated together. 
 - After migration, the virtual network is placed in a different resource group than the Cloud Service. 
 - For virtual networks with multiple Cloud Services, each Cloud Service is migrated one after the other. 
 
@@ -52,17 +52,17 @@ This article discusses the technical details regarding the migration tool as per
 - For a Cloud Service using a public endpoint, a platform created load balancer associated with the Cloud Service is exposed inside the customer’s subscription in Azure Resource Manager. The load balancer is a read-only resource, and updates are restricted only through the Service Configuration (.cscfg) and Service Definition (.csdef) files. 
 
 ### Key Vault
-- As part of migration, we automatically create a new key vault and migrate all the certificates to it. The tool does not allow you to use an existing key vault. 
-- Cloud Services (extended support) require a key vault located in the same region and subscription. This Key vault is auto created as part of the migration. 
+- As part of migration, we automatically create a new Key Vault and migrate all the certificates to it. The tool does not allow you to use an existing Key Vault. 
+- Cloud Services (extended support) require a Key Vault located in the same region and subscription. This Key Vault is auto created as part of the migration. 
 
 
-## Translation of Resource and its name after migration
+## Translation of resources and naming convention post migration
 As part of migration, the resource names are changed, and few Cloud Services features are exposed as Azure Resource Manager resources. The table summarizes the changes specific to Cloud Services migration.
 
 | Cloud Services (classic) <br><br> Resource name | Cloud Services (classic) <br><br> Syntax| Cloud Services (extended support) <br><br> Resource name| Cloud Services (extended support) <br><br> Syntax | 
 |---|---|---|---|
 | Cloud Service | cloudservicename| Not associated| Not associated |
-| Deployment (portal created) <br><br> Deployment (non-portal created)  | deploymentname | Cloud Service (extended support) | deploymentname |  
+| Deployment (portal created) <br><br> Deployment (non-portal created)  | deploymentname | Cloud Services (extended support) | deploymentname |  
 | Virtual Network | vnetname <br><br> Group resourcegroupname <br><br> vnetname |  Virtual Network (not portal created) <br><br> Virtual Network (portal created) <br><br> Virtual Networks (Default) | vnetname <br><br> group-resourcegroupname-vnetname <br><br> DefaultRdfevirtual networkvnetid|
 | Not associated | Not associated | Key Vault | csname | 
 | Not associated | Not associated | Resource Group for Cloud Service Deployments | csname-migrated | 
@@ -73,7 +73,7 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 
 
 
-## Migration Issues and how to handle them. 
+## Migration issues and how to handle them. 
 
 ### Migration stuck in an operation for a long time. 
 - Commit, prepare and abort can take a long time depending on the number of deployments. Operations will timeout after 24 hours.   
@@ -89,10 +89,8 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 ### Portal refreshed after Prepare. Experience restarted and Commit or Abort not visible anymore. 
 - Portal stores the migration information locally and therefore after refresh, it will start from validate phase even if the Cloud Service is in the prepare phase.  
 - Customers can use PowerShell or Rest API to abort or commit. 
-- You can use portal to go through the validate and prepare steps again and it will not cause any failures. (
+- You can use portal to go through the validate and prepare steps again and it will not cause any failures.
 
-
-## Frequently asked questions
 ### How much time can the operations take?<br>
 Validate is designed to be quick. Prepare is longest running and takes some time depending on total number of role instances being migrated. Abort and commit can also take time but will take less time compared to prepare. All operations will time out after 24 hrs. 
 

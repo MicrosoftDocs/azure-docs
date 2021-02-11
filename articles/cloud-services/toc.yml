@@ -133,9 +133,9 @@
       href: cloud-services-dotnet-diagnostics-trace-flow.md
   - name: Migrate
     items: 
-    - name: Migration Overview
+    - name: Migration overview
       href: ../cloud-services-extended-support/in-place-migration-overview.md?toc=/azure/cloud-services/toc.json
-    - name: Plan for Migration
+    - name: Plan for migration
       href: ../virtual-machines/migration-classic-resource-manager-plan.md?toc=/azure/cloud-services/toc.json
     - name: Migration technical details
       href: ../cloud-services-extended-support/in-place-migration-technical-details.md?toc=/azure/cloud-services/toc.json
