@@ -91,6 +91,9 @@ You can use the following combinations of authorization and Azure Storage types:
 
 When accessing storage that is protected with the firewall, you can use **User Identity** or **Managed Identity**.
 
+> [!NOTE]
+> The firewall feature on Storage is in public preview and is available in all public cloud regions. 
+
 #### User Identity
 
 To access storage that is protected with the firewall via User Identity, you can use PowerShell module Az.Storage.
@@ -151,12 +154,13 @@ Follow these steps to configure your storage account firewall and add an excepti
     ```powershell
         $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
         $rule.ResourceAccessRules | ForEach-Object { 
-        if ($_.ResourceId -cmatch "\/subscriptions\/(\w\-*)+\/resourcegroups\/(.)+") { 
-            Write-Host "Storage account network rule is successfully configured." -ForegroundColor Green
-            $rule.ResourceAccessRules
-        } else {
-            Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Red
-            $rule.ResourceAccessRules
+            if ($_.ResourceId -cmatch "\/subscriptions\/(\w\-*)+\/resourcegroups\/(.)+") { 
+                Write-Host "Storage account network rule is successfully configured." -ForegroundColor Green
+                $rule.ResourceAccessRules
+            } else {
+                Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Red
+                $rule.ResourceAccessRules
+            }
         }
     ```
 

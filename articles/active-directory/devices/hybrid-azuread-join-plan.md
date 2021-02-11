@@ -79,6 +79,8 @@ As a first planning step, you should review your environment and determine wheth
 
 - Server Core OS doesn't support any type of device registration.
 
+- User State Migration Tool (USMT) doesn't work with device registration.  
+
 ### OS imaging considerations
 - If you are relying on the System Preparation Tool (Sysprep) and if you are using a **pre-Windows 10 1809** image for installation, make sure that image is not from a device that is already registered with Azure AD as Hybrid Azure AD join.
 

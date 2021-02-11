@@ -126,20 +126,20 @@ The service runs the community version of MySQL. This allows full application co
 
 One of the advantage of running your workload in Azure is it's global reach. The flexible server for Azure Database for MySQL is available today in following Azure regions:
 
-| Region | High Availability | 
-| --- | --- |
-| West Europe | :heavy_check_mark: | 
-| North Europe | :heavy_check_mark: | 
-| UK South | :x: | 
-| East US 2 | :heavy_check_mark: | 
-| West US 2 | :heavy_check_mark: | 
-| Central US | :x: | 
-| East US | :heavy_check_mark: | 
-| Canada Central | :x: | 
-| Southeast Asia | :heavy_check_mark: | 
-| Korea Central | :x: | 
-| Japan East | :x: | 
-| Australia East | :heavy_check_mark: |
+| Region | Availability | Zone redundant HA | 
+| --- | --- | --- |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: |
+| UK South | :heavy_check_mark: | :x: | 
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Central US | :heavy_check_mark: | :x: | 
+| East US | :heavy_check_mark: | :heavy_check_mark: |
+| Canada Central | :heavy_check_mark: | :x: | 
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
+| Korea Central | :heavy_check_mark: | :x: | 
+| Japan East | :heavy_check_mark: | :x: | 
+| Australia East | :heavy_check_mark: | :heavy_check_mark: |
 
 We are working on adding new regions soon.
 

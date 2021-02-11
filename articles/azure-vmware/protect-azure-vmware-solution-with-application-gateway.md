@@ -2,7 +2,7 @@
 title: Use Azure Application Gateway to protect your web apps on Azure VMware Solution
 description: Configure Azure Application Gateway to securely expose your web apps running on Azure VMware Solution.
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/08/2021
 ---
 
 # Use Azure Application Gateway to protect your web apps on Azure VMware Solution
@@ -183,4 +183,8 @@ This procedure shows you how to define backend address pools using VMs running o
 
 ## Next Steps
 
-Review the [Azure Application Gateway documentation](../application-gateway/index.yml) for more configuration examples.
+Now that you've covered using Application Gateway to protect a web app running on Azure VMware Solution, you may want to learn about:
+
+- [Configuring Azure Application Gateway for different scenarios](../application-gateway/configuration-overview.md).
+- [Deploying Traffic Manager to balance Azure VMware Solution workloads](deploy-traffic-manager-balance-workloads.md).
+- [Integrating Azure NetApp Files with Azure VMware Solution-based workloads](netapp-files-with-azure-vmware-solution.md).

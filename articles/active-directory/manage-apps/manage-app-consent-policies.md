@@ -3,7 +3,7 @@ title: Manage app consent policies in Azure AD
 description: Learn how to manage built-in and custom app consent policies to control when consent can be granted.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

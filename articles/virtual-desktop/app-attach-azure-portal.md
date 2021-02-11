@@ -59,7 +59,7 @@ Next, you'll need to download and configure the the MSIX app attach management i
 
 To set up the management interface:
 
-1. [Open the preview portal](https://preview.portal.azure.com/?feature.msixapplications=true#home).
+1. [Open the Azure portal](https://portal.azure.com).
 2. If you get a prompt asking if you consider the extension trustworthy, select **Allow**.
 
       > [!div class="mx-imgBorder"]

@@ -63,6 +63,8 @@
     items:
     - name: Create a virtual machine scale set
       href: ./scripts/cli-sample-create-simple-scale-set.md
+    - name: Create and manage virtual machine scale set
+      href: ./scripts/cli-sample-manage-scale-set.md
     - name: Create a scale set from a custom VM image
       href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
     - name: Install applications to a scale set
@@ -327,9 +329,10 @@
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Use dedicated hosts (preview)
-      href: ../virtual-machines/dedicated-hosts.md
+    - name: Use dedicated hosts
       items:
+      - name: Overview
+        href: ../virtual-machines/dedicated-hosts.md
       - name: CLI
         href: ../virtual-machines/linux/dedicated-hosts-cli.md
       - name: PowerShell
