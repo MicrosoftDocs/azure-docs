@@ -23,13 +23,13 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 ### Alerts
 - [Troubleshooting Azure metric alerts](alerts/alerts-troubleshoot-metric.md) - Added troubleshooting for dynamic thresholds.
-- [IT Service Management Connector in Log Analytics](platform/itsmc-definition.md) - New article.
-- [IT Service Management Connector overview](platform/itsmc-overview.md) - Restructured troubleshooting information.
-- [Connect Cherwell with IT Service Management Connector](platform/itsmc-connections-cherwell.md) - New article.
-- [Connect Provance with IT Service Management Connector](platform/itsmc-connections-provance.md) - New article.
-- [Connect SCSM with IT Service Management Connector](platform/itsmc-connections-scsm.md) - New article.
-- [Connect ServiceNow with IT Service Management Connector](platform/itsmc-connections-servicenow.md) - New article.
-- [How to manually fix ServiceNow sync problems](platform/itsmc-resync-servicenow.md) - Restructured troubleshooting information.
+- [IT Service Management Connector in Log Analytics](alerts/itsmc-definition.md) - New article.
+- [IT Service Management Connector overview](alerts/itsmc-overview.md) - Restructured troubleshooting information.
+- [Connect Cherwell with IT Service Management Connector](alerts/itsmc-connections-cherwell.md) - New article.
+- [Connect Provance with IT Service Management Connector](alerts/itsmc-connections-provance.md) - New article.
+- [Connect SCSM with IT Service Management Connector](alerts/itsmc-connections-scsm.md) - New article.
+- [Connect ServiceNow with IT Service Management Connector](alerts/itsmc-connections-servicenow.md) - New article.
+- [How to manually fix ServiceNow sync problems](alerts/itsmc-resync-servicenow.md) - Restructured troubleshooting information.
 
 
 
@@ -557,7 +557,7 @@ New and updated articles from restructure and consolidation of platform log cont
 ### Alerts
 
 - [Action rules for Azure Monitor alerts](alerts/alerts-action-rules.md) - Added video.
-- [Overview of alerting and notification monitoring in Azure](platform/alerts-overview.md) - Added video.
+- [Overview of alerting and notification monitoring in Azure](alerts/alerts-overview.md) - Added video.
 
 ### Application Insights
 
@@ -574,7 +574,7 @@ New and updated articles from restructure and consolidation of platform log cont
 ### Containers
 
 - [Configure Azure Red Hat OpenShift v4.x with Azure Monitor for containers](containers/container-insights-azure-redhat4-setup.md) - New article.
-- [How to manually fix ServiceNow sync problems](platform/itsmc-resync-servicenow.md) - New article.
+- [How to manually fix ServiceNow sync problems](alerts/itsmc-resync-servicenow.md) - New article.
 - [How to stop monitoring your Azure and Red Hat OpenShift v4 cluster](containers/container-insights-optout-openshift-v4.md) - New article.
 - [How to stop monitoring your Azure Red Hat OpenShift v3 cluster](containers/container-insights-optout-openshift-v3.md) - New article.
 - [How to stop monitoring your hybrid Kubernetes cluster](containers/container-insights-optout-hybrid.md) - New article.
@@ -786,7 +786,7 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 - [Create a metric alert with a Resource Manager template](alerts/alerts-metric-create-templates.md) - Added example for custom metric.
 - [Creating Alerts with Dynamic Thresholds in Azure Monitor](alerts/alerts-dynamic-thresholds.md) - Added section on interpreting dynamic threshold charts.
-- [Overview of alerting and notification monitoring in Azure](platform/alerts-overview.md) - Updated Resource Graph query.
+- [Overview of alerting and notification monitoring in Azure](alerts/alerts-overview.md) - Updated Resource Graph query.
 - [Supported resources for metric alerts in Azure Monitor](alerts/alerts-metric-near-real-time.md) - Update to metrics and dimensions supported.
 - [Switch from legacy Log Analytics alerts API into new Azure Alerts API](alerts/alerts-log-api-switch.md) - Added note on modified alert name.
 - [Understand how metric alerts work in Azure Monitor.](alerts/alerts-metric-overview.md) - Added supported resource types for monitoring at scale.

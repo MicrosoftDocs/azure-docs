@@ -8,7 +8,7 @@ ms.custom: seodec18
 ---
 # Batch metrics, alerts, and logs for diagnostic evaluation and monitoring
 
-This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/essentials/data-platform-metrics.md) and [diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../azure-monitor/platform/alerts-overview.md) so you receive notifications when a metric reaches a specified value.
+This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/essentials/data-platform-metrics.md) and [diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../azure-monitor/alerts/alerts-overview.md) so you receive notifications when a metric reaches a specified value.
 
 ## Batch metrics
 
@@ -65,7 +65,7 @@ To configure a metric alert in the Azure portal:
 
 For more information about creating metric alerts, see [Understand how metric alerts work in Azure Monitor](../azure-monitor/alerts/alerts-metric-overview.md) and [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
-You can also configure a near real-time alert using the Azure Monitor [REST API](/rest/api/monitor/). For more information, see [Overview of Alerts in Microsoft Azure](../azure-monitor/platform/alerts-overview.md). To include job, task, or pool-specific information in your alerts, see the information on search queries in [Respond to events with Azure Monitor Alerts](../azure-monitor/alerts/tutorial-response.md).
+You can also configure a near real-time alert using the Azure Monitor [REST API](/rest/api/monitor/). For more information, see [Overview of Alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). To include job, task, or pool-specific information in your alerts, see the information on search queries in [Respond to events with Azure Monitor Alerts](../azure-monitor/alerts/tutorial-response.md).
 
 ## Batch diagnostics
 

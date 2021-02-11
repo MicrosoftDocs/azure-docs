@@ -42,7 +42,7 @@ The resource group insights page provides several other tools scoped to help you
 
    |         |          |
    | ---------------- |:-----|
-   | [**Alerts**](../platform/alerts-overview.md)      |  View, create, and manage your alerts. |
+   | [**Alerts**](../alerts/alerts-overview.md)      |  View, create, and manage your alerts. |
    | [**Metrics**](../data-platform.md) | Visualize and explore your metric based data.    |
    | [**Activity logs**](../essentials/platform-logs-overview.md) | Subscription level events that have occurred in Azure.  |
    | [**Application map**](../app/app-map.md) | Navigate your distributed application's topology to identify performance bottlenecks or failure hotspots. |
@@ -115,4 +115,4 @@ Azure Monitor for Resource Groups relies on the Azure Monitor Alerts Management 
 
 - [Azure Monitor Workbooks](../visualizations/workbooks-overview.md)
 - [Azure Resource Health](../../service-health/resource-health-overview.md)
-- [Azure Monitor Alerts](../platform/alerts-overview.md)
+- [Azure Monitor Alerts](../alerts/alerts-overview.md)

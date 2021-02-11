@@ -198,5 +198,5 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## Next steps
 
-- Get an [overview of activity log alerts](../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.
+- Get an [overview of activity log alerts](../azure-monitor/alerts/alerts-overview.md), and learn how to receive alerts.
 - Learn more about [action groups](../azure-monitor/alerts/action-groups.md).

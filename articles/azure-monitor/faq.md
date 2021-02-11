@@ -116,7 +116,7 @@ Alerts proactively notify you when important conditions are found in your monito
 - Web test - Results of availability test match defined criteria.
 
 
-See [Overview of alerts in Microsoft Azure](platform/alerts-overview.md).
+See [Overview of alerts in Microsoft Azure](alerts/alerts-overview.md).
 
 
 ### What is an action group?

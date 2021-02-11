@@ -180,7 +180,7 @@ To view the event schemas of the exported data types, visit the [Log Analytics t
 
 ##  View exported alerts and recommendations in Azure Monitor
 
-You might also choose to view exported Security Alerts and/or recommendations in [Azure Monitor](../azure-monitor/platform/alerts-overview.md). 
+You might also choose to view exported Security Alerts and/or recommendations in [Azure Monitor](../azure-monitor/alerts/alerts-overview.md). 
 
 Azure Monitor provides a unified alerting experience for a variety of Azure alerts including Diagnostic Log, Metric alerts, and custom alerts based on Log Analytics workspace queries.
 

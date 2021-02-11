@@ -42,7 +42,7 @@ After you've deployed your policies, data will be logged in the Log Analytics wo
 
 ## View alerts across customers
 
-You can view [alerts](../../azure-monitor/platform/alerts-overview.md) for the delegated subscriptions in customer tenants that your manage.
+You can view [alerts](../../azure-monitor/alerts/alerts-overview.md) for the delegated subscriptions in customer tenants that your manage.
 
 From your managing tenant, you can [create, view, and manage activity log alerts](../../azure-monitor/platform/alerts-activity-log.md) in the Azure portal or through APIs and management tools.
 

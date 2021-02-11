@@ -260,7 +260,7 @@ Select **New alert rule** for metrics listed in Metrics section:
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configure alerts for CDN endpoint." border="true":::
 
-Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../azure-monitor/platform/alerts-overview.md).
+Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md).
 
 ### Additional Metrics
 You can enable additional metrics using Azure Log Analytics and raw logs for an additional cost.
