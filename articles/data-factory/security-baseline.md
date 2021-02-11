@@ -278,7 +278,7 @@ Additionally, ensure that you enable diagnostic settings for services related to
 
 * [Alerts in Azure Data Factory](./monitor-visually.md#alerts)
 
-* [All supported metrics page](../azure-monitor/platform/metrics-supported.md)
+* [All supported metrics page](../azure-monitor/essentials/metrics-supported.md)
 
 * [How to configure alerts in Log Analytics Workspace](../azure-monitor/alerts/alerts-log.md)
 

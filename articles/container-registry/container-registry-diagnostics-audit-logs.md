@@ -33,7 +33,7 @@ Resource logs contain information emitted by Azure resources that describe their
 
 * **ContainerRegistryLoginEvents**  - Registry authentication events and status, including the incoming identity and IP address
 * **ContainerRegistryRepositoryEvents** - Operations such as push and pull for images and other artifacts in registry repositories
-* **AzureMetrics** - [Container registry metrics](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) such as aggregated push and pull counts.
+* **AzureMetrics** - [Container registry metrics](../azure-monitor/essentials/metrics-supported.md#microsoftcontainerregistryregistries) such as aggregated push and pull counts.
 
 For operations, log data includes:
   * Success or failure status

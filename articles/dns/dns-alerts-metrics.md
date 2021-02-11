@@ -27,7 +27,7 @@ Azure DNS provides the following metrics via Azure Monitor for your DNS zones:
 -	RecordSetCount
 -	RecordSetCapacityUtilization
 
-You can also see the [definition of these metrics](../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) on the Azure Monitor documentation page.
+You can also see the [definition of these metrics](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkdnszones) on the Azure Monitor documentation page.
 >[!NOTE]
 > At this time, these metrics are only available for Public DNS zones hosted in Azure DNS. If you have Private Zones hosted in Azure DNS, these metrics will not provide data for those zones. In addition, the metrics and alerting feature is only supported in Azure Public cloud. Support for sovereign clouds will follow at a later time. 
 

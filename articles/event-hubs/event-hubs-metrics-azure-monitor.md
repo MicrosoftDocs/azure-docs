@@ -42,7 +42,7 @@ The following metrics give you an overview of the health of your service.
 All metrics values are sent to Azure Monitor every minute. The time granularity defines the time interval for which metrics values are presented. The supported time interval for all Event Hubs metrics is 1 minute.
 
 ## Azure Event Hubs metrics
-For a list of metrics supported by the service, see [Azure Event Hubs](../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)
+For a list of metrics supported by the service, see [Azure Event Hubs](../azure-monitor/essentials/metrics-supported.md#microsofteventhubnamespaces)
 
 > [!NOTE]
 > When a user error occurs, Azure Event Hubs updates the **User Errors** metric, but doesn't log any other diagnostic information. Therefore, you need to capture details on user errors in your applications. Or, you can also convert the telemetry generated when messages are sent or received into application insights. For an example, see [Tracking with Application Insights](../service-bus-messaging/service-bus-end-to-end-tracing.md#tracking-with-azure-application-insights).

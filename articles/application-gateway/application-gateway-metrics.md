@@ -196,7 +196,7 @@ In the following image, you see an example with three metrics displayed for the 
 
 :::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="Metric view." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
 
-To see a current list of metrics, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+To see a current list of metrics, see [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ### Alert rules on metrics
 

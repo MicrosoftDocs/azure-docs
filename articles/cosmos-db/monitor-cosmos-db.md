@@ -88,7 +88,7 @@ All metrics for Azure Cosmos DB are in the namespace **Cosmos DB standard metric
 * Region
 * StatusCode
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ### View operation level metrics for Azure Cosmos DB
 

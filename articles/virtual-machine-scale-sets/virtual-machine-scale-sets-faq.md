@@ -71,7 +71,7 @@ For best practices for Autoscale, see [Best practices for autoscaling virtual ma
 
 ### Where do I find metric names for autoscaling that uses host-based metrics?
 
-For metric names for autoscaling that uses host-based metrics, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+For metric names for autoscaling that uses host-based metrics, see [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ### Are there any examples of autoscaling based on an Azure Service Bus topic and queue length?
 

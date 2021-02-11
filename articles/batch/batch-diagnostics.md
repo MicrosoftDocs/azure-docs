@@ -14,7 +14,7 @@ This article explains how to monitor a Batch account using features of [Azure Mo
 
 Metrics are Azure telemetry data (also called performance counters) that are emitted by your Azure resources and consumed by the Azure Monitor service. Examples of metrics in a Batch account are Pool Create Events, Low-Priority Node Count, and Task Complete Events.
 
-See the [list of supported Batch metrics](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
+See the [list of supported Batch metrics](../azure-monitor/essentials/metrics-supported.md#microsoftbatchbatchaccounts).
 
 Metrics are:
 
