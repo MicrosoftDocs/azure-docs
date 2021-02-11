@@ -85,15 +85,15 @@ To create a chat client in your web app, you'll use the Communications Service *
 
 User access tokens enable you to build client applications that directly authenticate to Azure Communication Services.
 
-##### Server vs. Client side
+##### Server vs. client side
 
 We recommend generating access tokens using a server-side component that passes them to the client application. In this scenario the server side would be responsible for creating and managing users and issuing their tokens. The client side can then receive access tokens from the service and use them to authenticate the Azure Communication Services client libraries.
 
-Tokens can also be issued on the client side using the Azure Communication Administration library for Javascript. In this scenario the client side would need to be aware of users in order to issue their tokens.
+Tokens can also be issued on the client side using the Azure Communication Administration library for JavaScript. In this scenario the client side would need to be aware of users in order to issue their tokens.
 
 See the following documentation for more detail [Client and Server Architecture](../../../concepts/client-and-server-architecture.md)
 
-In the diagram below the client side application receives an access token from a trusted service tier. TThe application then uses the token to authenticate Communication Services libraries. Once authenticated, the application can now use the Communication Services client side libraries to perform operations such as chatting with other users.
+In the diagram below the client side application receives an access token from a trusted service tier. The application then uses the token to authenticate Communication Services libraries. Once authenticated, the application can now use the Communication Services client side libraries to perform operations such as chatting with other users.
 
 :::image type="content" source="../../../media/scenarios/archdiagram-access.png" alt-text="Diagram showing user access token architecture.":::
 
@@ -154,7 +154,7 @@ Use the `createThread` method to create a chat thread.
 
 When resolved, `createChatThread` method returns a `CreateChatThreadResponse`. This model contains a `chatThread` property where you can access the `id` of the newly created thread. You can then use the `id` to get an instance of a `ChatThreadClient`. The `ChatThreadClient` can then be used to perform operation within the thread such as sending messages or listing participants.
 
-```Javascript
+```JavaScript
 async function createChatThread() {
     let createThreadRequest = {
         topic: 'Preparation for London conference',
@@ -184,7 +184,7 @@ createChatThread().then(async threadId => {
     });
 ```
 
-Replace **USER_ID_FOR_JACK** and **USER_ID_FOR_GEETA** with the user ids obtained from creating users and tokens ([User Access Tokens](../../access-tokens.md))
+Replace **USER_ID_FOR_JACK** and **USER_ID_FOR_GEETA** with the user IDs obtained from creating users and tokens ([User Access Tokens](../../access-tokens.md))
 
 When you refresh your browser tab you should see the following in the console:
 ```console
@@ -218,7 +218,7 @@ Use `sendMessage` method to send a chat message to the thread you just created, 
 - Use `priority` to specify the chat message priority level, such as 'Normal' or 'High'; this property can be used to have UI indicator for the recipient user in your app to bring attention to the message or execute custom business logic.   
 - Use `senderDisplayName` to specify the display name of the sender;
 
-The response `sendChatMessageResult` contains an "id", which is the unique ID of that message.
+The response `sendChatMessageResult` contains an ID, which is the unique ID of that message.
 
 ```JavaScript
 
@@ -317,7 +317,7 @@ let addParticipantsRequest =
 await chatThreadClient.addParticipants(addParticipantsRequest);
 
 ```
-Replace **NEW_PARTICIPANT_USER_ID** with a [new user Id](../../access-tokens.md)
+Replace **NEW_PARTICIPANT_USER_ID** with a [new user ID](../../access-tokens.md)
 Add this code in place of the `<ADD NEW PARTICIPANT TO THREAD>` comment in **client.js**
 
 ## List users in a chat thread
@@ -337,7 +337,7 @@ Add this code in place of the `<LIST PARTICIPANTS IN A THREAD>` comment in **cli
 
 ## Remove user from a chat thread
 
-Similar to adding a participant, you can remove participants from a chat thread. In order to remove, you'll need to track the ids of the participants you have added.
+Similar to adding a participant, you can remove participants from a chat thread. In order to remove, you'll need to track the IDs of the participants you have added.
 
 Use `removeParticipant` method where `participant` is the communication user to be removed from the thread.
 

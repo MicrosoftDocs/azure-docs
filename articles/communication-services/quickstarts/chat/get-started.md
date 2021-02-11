@@ -34,6 +34,10 @@ Get started with Azure Communication Services by using the Communication Service
 [!INCLUDE [Chat with C# client library](./includes/chat-csharp.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-swift"
+[!INCLUDE [Chat with iOS client library](./includes/chat-swift.md)]
+::: zone-end
+
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).

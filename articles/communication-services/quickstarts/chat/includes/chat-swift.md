@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 2/11/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -55,7 +55,7 @@ Install the dependencies, this will also create an Xcode workspace:
 
 Open the workspace file `ChatQuickstart.xcworkspace` in Xcode and then open `ViewController.swift`.
 
-For the purpose of this Quickstart we will be add our code to `viewController`, and viewing the output in the Xcode console. This quickstart does not address building a UI in iOS. 
+In this Quickstart, we will add our code to `viewController`, and view the output in the Xcode console. This quickstart does not address building a UI in iOS. 
 
 At the top of `viewController.swift` import the `AzureCommunication` and `AzureCommunicatonChat` libraries:
 
@@ -194,7 +194,7 @@ chatThreadClient.send(message: message) { result, _ in
 semaphore.wait()
 ```
 
-First we construct the `SendChatMessageRequest` which contains the content and senders display name (also optionally can contain the share history time). The response returned to the completion handler contains the id of the message that was sent.
+First we construct the `SendChatMessageRequest` which contains the content and senders display name (also optionally can contain the share history time). The response returned to the completion handler contains the ID of the message that was sent.
 
 ## Add a user as a participant to the chat thread
 
@@ -218,7 +218,7 @@ chatThreadClient.add(participants: [user]) { result, _ in
 semaphore.wait()
 ```
 
-Replace `<USER_ID>` with the ACS user id of the user to be added.
+Replace `<USER_ID>` with the ACS user ID of the user to be added.
 
 When adding a participant to a thread, the response returned the completion may contain errors. These errors represent failure to add particular participants.
 
@@ -265,6 +265,6 @@ Replace `<USER ID>` with the the Communication Services user ID of the participa
 
 ## Run the code
 
-In Xcode hit the Run button to build and run the project. In the console you can view the output from the code as well as the logger output from the ChatClient.
+In Xcode hit the Run button to build and run the project. In the console you can view the output from the code and the logger output from the ChatClient.
 
 
