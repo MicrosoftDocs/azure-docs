@@ -21,7 +21,15 @@ Azure Active Directory allows [FIDO2 security keys](https://docs.microsoft.com/e
 
 The following diagram shows which browsers and operating system combinations support passwordless authentication using FIDO2 authentication keys with Azure Active Directory. A full explanation of the diagram follows.
 
-![Table serving as a quick visual reference for the explanation below. It contains cells organized by platform, operating system, account type, and device.](./media/fido2-compatibility/fido2-compatibility-matrix.png)
+|  | Safari | | | Chrome |  |  | Edge |  |  | Firefox |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE |
+| **Windows**  | ![Safari does not support USB on Windows for AAD accounts.][n] | ![Safari does not support NFC on Windows for AAD accounts.][n] | ![Safari does not support BLE on Windows for AAD accounts.][n] | ![Chrome supports USB on Windows for AAD accounts.][y] | ![Chrome supports NFC on Windows for AAD accounts.][y] | ![Chrome supports BLE on Windows for AAD accounts.][y] | ![Edge supports USB on Windows for AAD accounts.][y] | ![Edge supports NFC on Windows for AAD accounts.][y] | ![Edge supports BLE on Windows for AAD accounts.][y] | ![Firefox supports USB on Windows for AAD accounts.][y] | [Firefox supports NFC on Windows for AAD accounts.][y] | [Firefox supports BLE on Windows for AAD accounts.][y] |
+| **macOS** |  |  |  |  |  |  |  |  |  |  |  |  |
+| **iOS** |  |  |  |  |  |  |  |  |  |  |  |  |
+| **ChromeOS** |  |  |  |  |  |  |  |  |  |  |  |  |
+| **Linux** |  |  |  |  |  |  |  |  |  |  |  |  |
+
 
 Support for authentication depends on the browser that is being used, the operating system it is running on, the account type, and type of authentication device. Account types include Azure Active Directory accounts created for work or school, labeled **AAD**, and Microsoft accounts created by consumers for services such as Xbox, Skype, or Outlook.com, labeled **MSA**. Device types include **USB**, near-field communication (**NFC**), and bluetooth low energy (**BLE**).
 
