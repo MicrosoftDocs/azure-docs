@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Front Door Standard/Premium configuration problems
-description: In this tutorial, you'll learn how to troubleshoot some of the common problems that you might face for your Azure Front Door instance.
+description: In this tutorial, you'll learn how to troubleshoot some of the common problems that you might face for your Azure Front Door Standard/Premium instance.
 services: frontdoor
 author: duongau
 ms.service: frontdoor

@@ -12,7 +12,7 @@ ms.author: duau
 # Azure Front Door Logging
 
 > [!Note]
-> This documentation refers to a new Standard/Premium SKU of Azure Front Door which is under public preview. Looking for information on how to create Azure Front Door? View [here](classic/quickstart-create-front-door.md).).
+> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
 Azure Front Door provides different logging to help you track, monitor, and debug your Front Door. 
 
@@ -20,6 +20,11 @@ Azure Front Door provides different logging to help you track, monitor, and debu
 * Activity logs provide visibility into the operations done on Azure resources.  
 * Health Probe logs provides the logs for every failed probe to your origin. 
 * Web Application Firewall (WAF) logs provide detailed information of requests that gets logged through either detection or prevention mode of an Azure Front Door endpoint. A custom domain that gets configured with WAF can also be viewed through these logs.
+
+> [!IMPORTANT]
+> Azure Front Door Standard/Premium (Preview) is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Access Logs, health probe logs and WAF logs aren't enabled by default. Use the steps below to enable logging. Activity log entries are collected by default, and you can view them in the Azure portal. Logs can have delays up to a few minutes. 
 
@@ -156,5 +161,5 @@ To view activity logs:
 
 ## Next steps
 
-- Learn about [Azure Front Door Standard/Premium (Preview) Reports](concept-reports.md).
-- Learn about [Azure Front Door Standard/Premium (Preview) real time monitoring metrics](how-to-monitoring-metrics.md).
+- Learn about [Azure Front Door Standard/Premium (Preview) Reports](how-to-reports.md).
+- Learn about [Azure Front Door Standard/Premium (Preview) real time monitoring metrics](how-to-monitor-metrics.md).

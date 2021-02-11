@@ -26,7 +26,6 @@ This article explains each of the settings used in creating an Azure Front Door 
 Before you can configure an Azure Front Door Route, you must have created at least one origin group and one custom domain within the current endpoint. 
 
 To set up an origin group, see [Create a new Azure Front Door Standard/Premium origin group](how-to-create-origin.md). 
-To set up a custom domain, see [Create a new Azure Front Door Standard/Premium custom domain](how-to-add-custom-domain.md)
 
 ## Create a new Azure Front Door Standard/Premium Route
 
@@ -40,9 +39,9 @@ To set up a custom domain, see [Create a new Azure Front Door Standard/Premium c
    
     :::image type="content" source="../media/how-to-configure-route/select-edit-endpoint.png" alt-text="Screenshot of selecting edit endpoint.":::
 
-1. The **Edit Point** page will appears. Select **+ Add** for Routes.
+1. The **Edit Endpoint** page will appears. Select **+ Add** for Routes.
     
-    :::image type="content" source="../media/how-to-configure-route/select-add-route.png" alt-text="Screenshot of add a route page.":::    
+    :::image type="content" source="../media/how-to-configure-route/select-add-route.png" alt-text="Screenshot of add a route on edit endpoint page.":::    
     
 1. On the **Add Route** page, enter, or select the following information.
 
@@ -69,7 +68,7 @@ To set up a custom domain, see [Create a new Azure Front Door Standard/Premium c
 
 To delete a route when you no longer need it, select the Route and then select **Delete**. 
 
-    :::image type="content" source="../media/how-to-configure-route/route-delete-page.png" alt-text="Screenshot of how to delete a route.":::  
+:::image type="content" source="../media/how-to-configure-route/route-delete-page.png" alt-text="Screenshot of how to delete a route.":::  
 
 ## Next steps
 To learn about custom domains, continue to the tutorial for adding a custom domain to your Azure Front Door endpoint.

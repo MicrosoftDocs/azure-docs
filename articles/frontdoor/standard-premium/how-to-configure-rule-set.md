@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Before you can complete the steps in this tutorial, you must first create an Azure Front Door Standard/Premium. For more information, see [Quickstart: Create an Azure Front Door Standard/Premium profile](create-front-door-standard-premium-portal.md).
+* Before you can complete the steps in this tutorial, you must first create an Azure Front Door Standard/Premium. For more information, see [Quickstart: Create an Azure Front Door Standard/Premium profile](create-front-door-portal.md).
 
 ## Configure Rule Set in Azure portal
 
@@ -130,4 +130,4 @@ In this tutorial, you learned how to:
 To learn how to add security headers with Rule Set, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Security headers with Rules Set](how-to-security-headers.md)
+> [Security headers with Rules Set]()

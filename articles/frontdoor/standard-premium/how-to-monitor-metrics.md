@@ -24,11 +24,11 @@ Azure Front Door Standard/Premium is integrated with Azure Monitor and publishes
 
 Azure Front Door Standard/Premium measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal.  
 
-Metrics can be displayed in charts or grid of your choice and are accessible via portal, PowerShell, CLI, and API. For more information, see [Azure Monitor metrics](../azure-monitor/platform/data-platform-metrics.md).  
+Metrics can be displayed in charts or grid of your choice and are accessible via portal, PowerShell, CLI, and API. For more information, see [Azure Monitor metrics](../../azure-monitor/platform/data-platform-metrics.md).  
 
 The default metrics are free of charge. You can enable extra metrics for an extra cost. 
 
-You can also set up alerts for metrics. You can configure a threshold for 4XXErrorRate or 5XXErrorRate. When the error rate exceeds the threshold, it will trigger alert as configured. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric). 
+You can also set up alerts for metrics. You can configure a threshold for 4XXErrorRate or 5XXErrorRate. When the error rate exceeds the threshold, it will trigger alert as configured. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric). 
 
 ## Metrics supported in Azure Front Door
 
@@ -72,9 +72,9 @@ You can also set up alerts for metrics. You can configure a threshold for 4XXErr
 
 1. Select **New alert rule** for metrics listed in Metrics section.
 
-Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../azure-monitor/platform/alerts-overview.md).
+Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../../azure-monitor/platform/alerts-overview.md).
 
 ## Next steps
 
-- Learn about [Azure Front Door Standard/Premium Reports](concept-reports.md).
-- Learn about [Azure Front Door Standard/Premium Logs](how-to-logging.md).
+- Learn about [Azure Front Door Standard/Premium Reports](how-to-reports.md).
+- Learn about [Azure Front Door Standard/Premium Logs](how-to-logs.md).

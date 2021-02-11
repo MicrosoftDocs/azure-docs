@@ -12,7 +12,7 @@ ms.author: yuajia
 # Improve performance by compressing files in Azure Front Door
 
 > [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](frontdoor/front-door-overview.md).
+> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
 File compression is an effective method to improve file transfer speed and increase page-load performance. The compression reduces the size of the file before it's sent by the server. File compression can reduce bandwidth costs and provide a better experience for your users.
 
@@ -49,7 +49,7 @@ You can enable compression in the following ways:
 
 1. Ensure **Enable Caching** is checked, then select the checkbox for **Enable compression**.
 
-   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Enable compression in endpoint manager":::   
+   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Enable compression in endpoint manager.":::   
 
 1. Click **Update**.
 
@@ -57,11 +57,11 @@ You can enable compression in the following ways:
 
 1. From the Azure Front Door profile page, go to the **Optimization**. Then select the route that has compression *Disabled*, click on the three dots, select *Configure route*.
 
-   :::image type="content" source="../media/how-to-compression/front-door-compression-optimization-1.png" alt-text="Enable compression in optimization" lightbox="../media/how-to-compression/front-door-compression-optimization-1-expanded.png"::: 
+   :::image type="content" source="../media/how-to-compression/front-door-compression-optimization-1.png" alt-text="Screen of enable compression on the optimization page." lightbox="../media/how-to-compression/front-door-compression-optimization-1-expanded.png"::: 
 
 1. Ensure **Enable Caching** is checked, then select the checkbox for **Enable compression**.
 
-     :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Enable compression in endpoint manager"::: 
+     :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Screen shot of enabling compression in endpoint manager."::: 
 
 1. Click **Update**.
 
@@ -73,17 +73,17 @@ You can modify the default list of MIME types in Optimization page.
 
 1. Select the three dots on the right, then select **View Compression file types**.
 
-   :::image type="content" source="../media/how-to-compression/front-door-compression-edit-content-type.png" alt-text="Edit compression content type" lightbox="../media/how-to-compression/front-door-compression-edit-content-type-expanded.png"::: 
+   :::image type="content" source="../media/how-to-compression/front-door-compression-edit-content-type.png" alt-text="Screenshot of optimization page." lightbox="../media/how-to-compression/front-door-compression-edit-content-type-expanded.png"::: 
 
 1. Delete default formats or select **Add** to add new content types.
 
-   :::image type="content" source="../media/how-to-compression/front-door-compression-edit-content-type-2.png" alt-text="Edit compression content type"::: 
+   :::image type="content" source="../media/how-to-compression/front-door-compression-edit-content-type-2.png" alt-text="Screenshot of customize file compression page."::: 
 
 1. Click **Save**.
 
 ## Disabling compression
 
-You can disable compression in the following ways-
+You can disable compression in the following ways:
 * Disable compression in Endpoint manager route.
 * Disable compression in Optimization page.
 
@@ -101,11 +101,11 @@ You can disable compression in the following ways-
 
 1. Select the three dots on the right, select *Configure route*.
 
-    :::image type="content" source="../media/how-to-compression/front-door-disable-compression-optimization.png" alt-text="Disable compression"::: 
+    :::image type="content" source="../media/how-to-compression/front-door-disable-compression-optimization.png" alt-text="Screenshot of disable compression in optimization page."::: 
 
 1. Uncheck the **Enable compression** box.
 
-    :::image type="content" source="../media/how-to-compression/front-door-disable-compression-optimization-2.png" alt-text="Disable compression"::: 
+    :::image type="content" source="../media/how-to-compression/front-door-disable-compression-optimization-2.png" alt-text="Screenshot of update route page for disabling compression."::: 
 
 1. Click **Update**.
 
@@ -128,6 +128,6 @@ If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to th
 
 ## Next steps
 
-- Learn how to configure your first [Rules Set](how-toconfigure-rule-set.md). 
+- Learn how to configure your first [Rules Set](how-to-configure-rule-set.md)
 - Learn more about [Rule Set Match Conditions](concept-rule-set-match-conditions.md)
 - Learn more about [Azure Front Door Rule Set](concept-rule-set.md)

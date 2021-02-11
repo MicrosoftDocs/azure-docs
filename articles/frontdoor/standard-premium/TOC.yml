@@ -64,7 +64,7 @@
   - name: Troubleshoot
     items:
     - name: Routing issues
-      href: troubleshoot-routing.md
+      href: troubleshoot-route-issue.md
     - name: Allowed certificate authorities
       href: troubleshoot-allowed-certificate-authority.md
     - name: Compression

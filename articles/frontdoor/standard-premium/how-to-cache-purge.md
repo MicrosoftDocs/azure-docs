@@ -54,4 +54,4 @@ Cache purges on the Front Door are case-insensitive. Additionally, they're query
 
 ## Next steps
 
-Learn how to [create a Front Door](quickstart-create-front-door.md).
+Learn how to [create a Front Door](create-front-door-portal.md).
