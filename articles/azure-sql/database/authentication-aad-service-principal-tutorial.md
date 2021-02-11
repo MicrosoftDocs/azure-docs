@@ -233,10 +233,10 @@ Once a service principal is created in Azure AD, create the user in SQL Database
     # Download latest  MSAL  - https://www.powershellgallery.com/packages/MSAL.PS
     Import-Module MSAL.PS
     
-    $tenantId = "<TenantId>"   #  tenantID (Azure Directory ID) were AppSP resides
-    $clientId = "<ClientId>"   #  AppID also ClientID for AppSP     
-    $clientSecret = "<ClientSecret>"   #  Client secret for AppSP 
-    $scopes = "https://database.windows.net/.default" #The end-point
+    $tenantId = "<TenantId>"   # tenantID (Azure Directory ID) were AppSP resides
+    $clientId = "<ClientId>"   # AppID also ClientID for AppSP     
+    $clientSecret = "<ClientSecret>"   # Client secret for AppSP 
+    $scopes = "https://database.windows.net/.default" # The end-point
     
     $result = Get-MsalToken -RedirectUri $uri -ClientId $clientId -ClientSecret (ConvertTo-SecureString $clientSecret -AsPlainText -Force) -TenantId $tenantId -Scopes $scopes
     
@@ -267,15 +267,6 @@ Once a service principal is created in Azure AD, create the user in SQL Database
 
     Alternatively, you can use the code sample in the blog, [Azure AD Service Principal authentication to SQL DB - Code Sample](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467). Modify the script to execute a DDL statement `CREATE USER [myapp] FROM EXTERNAL PROVIDER`. The same script can be used to create a regular Azure AD user a group in SQL Database.
 
-    > [!NOTE]
-    > If you need to install the module AzureRM.profile, you will need to open PowerShell as an administrator. You can use the following commands to automatically install the latest AzureRM.profile version, and set `$adalpath` for the above script:
-    > 
-    > ```powershell
-    > Install-Module AzureRM.profile -force
-    > Import-Module AzureRM.profile
-    > $version = (Get-Module -Name AzureRM.profile).Version.toString()
-    > $adalPath = "${env:ProgramFiles}\WindowsPowerShell\Modules\AzureRM.profile\${version}"
-    > ```
     
 2. Check if the user *myapp* exists in the database by executing the following command:
 
