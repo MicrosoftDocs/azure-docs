@@ -59,17 +59,17 @@ This article discusses the technical details regarding the migration tool as per
 ## Translation of Resource and its name after migration
 As part of migration, the resource names are changed, and few Cloud Services features are exposed as Azure Resource Manager resources. The table summarizes the changes specific to Cloud Services migration.
 
-|Cloud Services (classic) <br><br> Resource name| Cloud Services (classic) <br><br> Syntax| Cloud Services (extended support) <br><br> Resource name| Cloud Services (extended support) <br><br> Syntax | 
+| Cloud Services (classic) <br><br> Resource name | Cloud Services (classic) <br><br> Syntax| Cloud Services (extended support) <br><br> Resource name| Cloud Services (extended support) <br><br> Syntax | 
 |---|---|---|---|
-| Cloud Service | cloudservicename| - | - |
+| Cloud Service | cloudservicename| Not associated| Not associated |
 | Deployment (portal created) <br><br> Deployment (non-portal created)  | deploymentname | Cloud Service (extended support) | deploymentname |  
 | Virtual Network | vnetname <br><br> Group resourcegroupname <br><br> vnetname |  Virtual Network (not portal created) <br><br> Virtual Network (portal created) <br><br> Virtual Networks (Default) | vnetname <br><br> group-resourcegroupname-vnetname <br><br> DefaultRdfevirtual networkvnetid|
-| - | - | Key Vault | csname | 
-| - | - | Resource Group for Cloud Service Deployments | csname-migrated | 
-| - | - | Resource Group for Virtual Network | vnetname-migrated <br><br> group-resourcegroupname-vnetname-migrated|
-| - | - | Public IP (Dynamic) | csnameContractContract | 
+| Not associated | Not associated | Key Vault | csname | 
+| Not associated | Not associated | Resource Group for Cloud Service Deployments | csname-migrated | 
+| Not associated | Not associated | Resource Group for Virtual Network | vnetname-migrated <br><br> group-resourcegroupname-vnetname-migrated|
+| Not associated | Not associated | Public IP (Dynamic) | csnameContractContract | 
 | Reserved IP Name | reservedipname | Reserved IP (non-portal created) <br><br> Reserved IP (portal created) | reservedipname <br><br> group-resourcegroupname-reservedipname | 
-| - | - | Load Balancer | deploymentname-lb|
+| Not associated| Not associated | Load Balancer | deploymentname-lb|
 
 
 
