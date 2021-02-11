@@ -32,7 +32,7 @@ The portal components can be logically divided into two categories: **Code** and
 **Portal content** is specific to the portal and includes:
 
    > [!NOTE]
-   > **Portal content**, except for media content, is expressed as JSON documents.
+   > **Portal content**, except for content in media files, is expressed as JSON documents.
 
 - Pages - For example, landing page, API tutorials, blog posts.
 
