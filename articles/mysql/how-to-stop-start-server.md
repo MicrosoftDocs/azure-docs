@@ -11,7 +11,7 @@ ms.date: 09/21/2020
 # Stop/Start an Azure Database for MySQL
 
 > [!IMPORTANT]
-> Stop/Start functionality for Azure Database for MySQL is currently in public preview.
+> Stop/Start functionality for Azure Database for MySQL is now Generally Available.
 
 This article provides step-by-step procedure to perform Stop and Start of the single server.
 
