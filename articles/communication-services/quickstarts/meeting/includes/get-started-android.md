@@ -72,7 +72,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-common:1.0.0-beta.1'
+    implementation 'com.azure.android:azure-communication-common:1.0.0-beta.4'
     ...
 }
 ```
@@ -133,6 +133,19 @@ Create a button with an ID of `join_meeting`. Navigate to (`app/src/main/res/lay
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
+### Create application class
+
+Create new java class file named `MeetingSDKAndroidGettingStarted`. This will be the application class which must extend `TeamsSDKApplication`.
+
+```java
+package com.microsoft.MeetingSDKAndroidGettingStarted;
+
+import com.microsoft.teamssdk.app.TeamsSDKApplication;
+
+public class MeetingSDKAndroidGettingStarted extends TeamsSDKApplication {
+}
+```
+
 ### Create the main activity scaffolding and bindings
 
 With the layout created the bindings can be added as well as the basic scaffolding of the activity. The activity will handle requesting runtime permissions, creating the meeting client, and joining a meeting when the button is pressed. Each will be covered in its own section. The `onCreate` method will be overridden to invoke `getAllPermissions` and `createAgent` as well as add the bindings for the join meeting button. This will occur only once when the activity is created. For more information on `onCreate`, see the guide [Understand the Activity Lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
@@ -162,15 +175,14 @@ public class MainActivity extends AppCompatActivity {
     private final String displayName = "John Smith";
 
     private MeetingUIClient meetingUIClient;
-    private JoinOptions joinOptions;
+    private MeetingJoinOptions meetingJoinOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        joinOptions = new JoinOptions();
-        joinOptions.displayName = displayName;
+        meetingJoinOptions = new MeetingJoinOptions(displayName);
         
         getAllPermissions();
         createMeetingClient();
@@ -202,7 +214,7 @@ For Android 6.0 and higher (API level 23) and `targetSdkVersion` 23 or higher, p
  * Request each required permission if the app doesn't already have it.
  */
 private void getAllPermissions() {
-    String[] requiredPermissions = new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE};
+    String[] requiredPermissions = new String[]{Manifest.permission.RECORD_AUDIO};
     ArrayList<String> permissionsToAskFor = new ArrayList<>();
     for (String permission : requiredPermissions) {
         if (ActivityCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
@@ -210,7 +222,7 @@ private void getAllPermissions() {
         }
     }
     if (!permissionsToAskFor.isEmpty()) {
-        ActivityCompat.requestPermissions(this, permissionsToAskFor.toArray(new String[0]), 1);
+        ActivityCompat.requestPermissions(this, permissionsToAskFor.toArray(new String[0]), 202);
     }
 }
 ```
@@ -241,7 +253,7 @@ private void createMeetingClient() {
         CommunicationTokenCredential credential = new CommunicationTokenCredential("<User_Access_Token>");
         meetingUIClient = new MeetingUIClient(credential);
     } catch (Exception ex) {
-        Toast.makeText(getApplicationContext(), "Failed to create meeting client.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Failed to create meeting client: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 ```
@@ -262,9 +274,9 @@ Joining a meeting can be done via the MeetingClient, and just requires a meeting
  */
 private void joinMeeting() {
     try {
-        meetingUIClient.joinMeeting(meetingUrl, joinOptions);
-    } catch (Exception e) {
-        Toast.makeText(getApplicationContext(), "Failed to join meeting.", Toast.LENGTH_SHORT).show();
+        meetingUIClient.joinMeeting(meetingUrl, meetingJoinOptions);
+    } catch (Exception ex) {
+        Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 ```
