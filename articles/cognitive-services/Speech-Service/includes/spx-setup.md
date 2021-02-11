@@ -42,11 +42,6 @@ The following Linux distributions are currently supported for x64 architectures:
 * Red Hat Enterprise Linux (RHEL) 7/8
 * Ubuntu 16.04/18.04/20.04
 
-If you are running on ARM32 or ARM64 architectures, the following distributions are currently supported:
-
-* Debian 9/10
-* Ubuntu 16.04/18.04/20.04
-
 Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 
 1. Install [.NET Core 3.1](/dotnet/core/install/linux).
