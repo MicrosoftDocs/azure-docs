@@ -23,6 +23,22 @@ The most up-to-date information will be maintained in the [Azure SQL Database ga
 ## Status updates
 
 # [In progress](#tab/in-progress-ip)
+## March 2021
+Following Sql Gateways in multiple regions are in the process of being deactivated :
+
+- Brazil South : 104.41.11.5
+- East Asia : 191.234.2.139
+- East US : 191.238.6.43
+- Japan East : 191.237.240.43
+- Japan West : 191.238.68.11
+- North Europe : 191.235.193.75
+- South Central US : 23.98.162.75
+- Southeast Asia : 23.100.117.95
+- West Europe : 191.237.232.75
+- West US : 23.99.34.75
+
+No customer impact is anticipated since these Gateways ( running on older hardware) are not routing any customer traffic. The IP addresses for these Gateways shall be deactivated on 15th March 2021.
+
 ## February 2021
 New SQL Gateways are being added to the following regions:
 
