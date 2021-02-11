@@ -105,6 +105,8 @@
     items:
     - name: Transform data with mapping data flows
       items:
+      - name: Transform data in the lake with Delta Lake
+        href: tutorial-data-flow-delta-lake.md
       - name: Transform data with mapping data flows
         href: tutorial-data-flow.md
       - name: Mapping data flow video tutorials
