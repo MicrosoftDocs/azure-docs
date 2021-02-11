@@ -282,4 +282,4 @@ az group delete -n MyResourceGroup
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true
-[az-provider-register]: cli/azure/provider?view=azure-cli-latest#az_provider_register
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
