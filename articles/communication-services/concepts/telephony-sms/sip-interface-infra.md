@@ -16,15 +16,8 @@ ms.service: azure-communication-services
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
  
-Planning your deployment of SIP Interface is key to a successful implementation. This article describes infrastructure and licensing requirements and provides information about SBC connectivity: 
+This article describes infrastructure, licensing, and session border controller (SBC) connectivity details that you'll want to keep in mind as your plan your SIP Interface deployment.
 
-- [Infrastructure requirements](#infrastructure-requirements)
-- [SBC domain names](#sbc-domain-names)
-- [Public trusted certificate for the SBC](#public-trusted-certificate-for-the-sbc)
-- [SIP Signaling: FQDNs](#sip-signaling-fqdns)
-- [SIP Signaling: Ports](#sip-signaling-ports)
-- [Media traffic: IP and Port ranges](#media-traffic-ip-and-port-ranges)
-- [Supported Session Border Controllers (SBCs)](#supported-session-border-controllers-sbcs)
 
 ## Infrastructure requirements
 The infrastructure requirements for the supported SBCs, domains, and other network connectivity requirements to deploy SIP Interface are listed in the following table:  
@@ -34,7 +27,7 @@ The infrastructure requirements for the supported SBCs, domains, and other netwo
 |Session Border Controller (SBC)|A supported SBC. For more information, see [Supported SBCs](#supported-session-border-controllers-sbcs).|
 |Telephony trunks connected to the SBC|One or more telephony trunks connected to the SBC. On one end, the SBC connects to the Azure Communication Service via SIP Interface. The SBC can also connect to third-party telephony entities, such as PBXs, Analog Telephony Adapters, and so on. Any PSTN connectivity option connected to the SBC will work. (For configuration of the PSTN trunks to the SBC, please refer to the SBC vendors or trunk providers.)|
 |Azure subscription|An Azure subscription that you use to create ACS resource, and the configuration and connection to the SBC.|
-|ACS Access Token|To make calls, you need a valid Access Token with `voip` scope. See [Access Tokens](https://docs.microsoft.com/azure/communication-services/concepts/identity-model#access-tokens)|
+|Communication Services Access Token|To make calls, you need a valid Access Token with `voip` scope. See [Access Tokens](https://docs.microsoft.com/azure/communication-services/concepts/identity-model#access-tokens)|
 |Public IP address for the SBC|A public IP address that can be used to connect to the SBC. Based on the type of SBC, the SBC can use NAT.|
 |Fully Qualified Domain Name (FQDN) for the SBC|A FQDN for the SBC, where the domain portion of the FQDN does not match registered domains in your Microsoft 365 or Office 365 organization. For more information, see [SBC domain names](#sbc-domain-names).|
 |Public DNS entry for the SBC |A public DNS entry mapping the SBC FQDN to the public IP Address. |
@@ -46,7 +39,7 @@ The infrastructure requirements for the supported SBCs, domains, and other netwo
 
 Customers without Office 365 can use any domain name for which they can obtain a public certificate.
 
-The following table shows examples of DNS names registered for the tenant, whether the name can be used as an FQDN for the SBC, and examples of valid FQDN names:
+The following table shows examples of DNS names registered for the tenant, whether the name can be used as an fully qualified domain name (FQDN) for the SBC, and examples of valid FQDN names:
 
 |DNS name|Can be used for SBC FQDN|Examples of FQDN names|
 |:--- |:--- |:--- |
@@ -60,8 +53,7 @@ If you are an Office 365 customer, then the SBC domain name must not match regis
 **contoso.com** (second level domain)|**sbc.contoso.com** (name in the second level domain)|**sbc.acs.contoso.com** (name in the third level domain)<br/>**sbc.fabrikam.com** (any name within different domain)|
 |**o365.contoso.com** (third level domain)|**sbc.o365.contoso.com** (name in the third level domain)|**sbc.contoso.com** (name in the second level domain)<br/>**sbc.acs.o365.contoso.com** (name in the fourth level domain)<br/>**sbc.fabrikam.com** (any name within different domain)
 
-SBC pairing works on an ACS resource level, meaning you can pair many SBCs to a single ACS resource, but you cannot pair a single SBC to more than one ACS resource.  
-Unique SBC FQDNs are required for pairing to different resources.
+SBC pairing works on the Communication Services resource level, meaning you can pair many SBCs to a single Communication Services resource, but you cannot pair a single SBC to more than one Communication Services resource. Unique SBC FQDNs are required for pairing to different resources.
 
 ## Public trusted certificate for the SBC
 
@@ -72,8 +64,9 @@ Microsoft recommends that you request the certificate for the SBC by generating 
 
 The certificate needs to have the SBC FQDN as the common name (CN) or the subject alternative name (SAN) field. The certificate should be issued directly from a certification authority, not from an intermediate provider.
 
-Alternatively, ACS SIP Interface supports a wildcard in the CN and/or SAN, and the wildcard needs to conform to standard [RFC HTTP Over TLS](https://tools.ietf.org/html/rfc2818#section-3.1). 
-An example would be using \*.contoso.com which would match the SBC FQDN sbc.contoso.com, but wouldn't match with sbc.test.contoso.com.
+Alternatively, Communication Services SIP Interface supports a wildcard in the CN and/or SAN, and the wildcard needs to conform to standard [RFC HTTP Over TLS](https://tools.ietf.org/html/rfc2818#section-3.1). 
+
+An example would be using `\*.contoso.com` which would match the SBC FQDN `sbc.contoso.com`, but wouldn't match with `sbc.test.contoso.com`.
 
 The certificate needs to be generated by one of the following root certificate authorities:
 
@@ -106,7 +99,7 @@ Microsoft is working on adding additional certification authorities based on cus
 
 ## SIP Signaling: FQDNs 
 
-The connection points for ACS SIP Interface are the following three FQDNs:
+The connection points for Communication Services SIP Interface are the following three FQDNs:
 
 - **sip.pstnhub.microsoft.com** – Global FQDN – must be tried first. When the SBC sends a request to resolve this name, the Microsoft Azure DNS servers return an IP address pointing to the primary Azure datacenter assigned to the SBC. The assignment is based on performance metrics of the datacenters and geographical proximity to the SBC. The IP address returned corresponds to the primary FQDN.
 - **sip2.pstnhub.microsoft.com** – Secondary FQDN – geographically maps to the second priority region.
@@ -119,20 +112,20 @@ Placing these three FQDNs in order is required to:
 
 The FQDNs – sip.pstnhub.microsoft.com, sip2.pstnhub.microsoft.com and sip3.pstnhub.microsoft.com – will be resolved to one of the following IP addresses:
 
-- 52.114.148.0
-- 52.114.132.46 
-- 52.114.75.24 
-- 52.114.76.76 
-- 52.114.7.24 
-- 52.114.14.70
-- 52.114.16.74
-- 52.114.20.29
+- `52.114.148.0`
+- `52.114.132.46`
+- `52.114.75.24` 
+- `52.114.76.76` 
+- `52.114.7.24` 
+- `52.114.14.70`
+- `52.114.16.74`
+- `52.114.20.29`
 
-You need to open ports for all these IP addresses in your firewall to allow incoming and outgoing traffic to and from the addresses for signaling.  If your firewall supports DNS names, the FQDN **sip-all.pstnhub.microsoft.com** resolves to all these IP addresses. 
+You need to open ports for all these IP addresses in your firewall to allow incoming and outgoing traffic to and from the addresses for signaling. If your firewall supports DNS names, the FQDN `sip-all.pstnhub.microsoft.com` resolves to all these IP addresses. 
 
 ## SIP Signaling: Ports
 
-You must use the following ports for ACS SIP Interface:
+Use the following ports for Communication Services SIP Interface:
 
 |Traffic|From|To|Source port|Destination port|
 |:--- |:--- |:--- |:--- |:--- |
@@ -162,10 +155,7 @@ The port range of the Media Processors is shown in the following table:
 
 ## Media traffic: Media processors geography
 
-The media traffic flows via components called media processors. 
-Media processors are placed in the same datacenters as SIP proxies. Also, there are additional media processors to optimize media flow. For example, we do not have a SIP proxy component now in Australia (SIP flows via Singapore or Hong Kong) but we do have the media processor locally in Australia. The need for the media processors locally is dictated by the latency which we experience by sending traffic long-distance, for example from Australia to Singapore or Hong Kong. While latency in the example of traffic flowing from Australia to Hong Kong or Singapore is acceptable to preserve good call quality for SIP traffic, for real-time media traffic it is not.
-
-Location of the media processors:
+The media traffic flows via components called media processors. Media processors are placed in the same datacenters as SIP proxies. Also, there are additional media processors to optimize media flow. For example, we do not have a SIP proxy component now in Australia (SIP flows via Singapore or Hong Kong) but we do have the media processor locally in Australia. The need for the media processors locally is dictated by the latency which we experience by sending traffic long-distance, for example from Australia to Singapore or Hong Kong. While latency in the example of traffic flowing from Australia to Hong Kong or Singapore is acceptable to preserve good call quality for SIP traffic, for real-time media traffic it is not.
 
 Locations where both SIP proxy and media processor components deployed:
 - US (two in US West and US East datacenters)
