@@ -16,21 +16,29 @@ Use the Parse transformation to parse columns in your data that are in document 
 
 ## Configuration
 
-The flatten transformation contains the following configuration settings
+In the parse transformation configuration panel, you will first pick the type of data contained in the columns that you wish to parse inline. The parse transformation also contains the following configuration settings.
 
-### Unroll by
+![Parse settings](media/data-flow/data-flow-parse-1.png "Parse")
 
-Select an array to unroll. The output data will have one row per item in each array. If the unroll by array in the input row is null or empty, there will be one output row with unrolled values as null.
+### Column
 
-### Unroll root
+Similar to derived columns and aggregates, this is where you will either modify an exiting column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the parsed source data in this column.
 
-By default, the flatten transformation unrolls an array to the top of the hierarchy it exists in. You can optionally select an array as your unroll root. The unroll root must be an array of complex objects that either is or contains the unroll by array. If an unroll root is selected, the output data will contain at least one row per items in the unroll root. If the input row doesn't have any items in the unroll root, it will be dropped from the output data. Choosing an unroll root will always output a less than or equal number of rows than the default behavior.
+### Expression
 
-### Flatten mapping
+Use the expression builder to set the source for your parsing. This can be as simple as just selecting the source column with the self-contained data that you wish to parse, or you can create complex expressions to parse.
 
-Similar to the select transformation, choose the projection of the new structure from incoming fields and the denormalized array. If a denormalized array is mapped, the output column will be the same data type as the array. If the unroll by array is an array of complex objects that contains subarrays, mapping an item of that subarry will output an array.
+### Output column type
 
-Refer to the inspect tab and data preview to verify your mapping output.
+Here is where you will configure the targer output schema from the parsing that will be written into a single column.
+
+![Parse example](media/data-flow/data-flow-parse-2.png "Parse example")
+
+In this example, we have defined parsing of the incoming field "jsonString" which is plain text, but formatted as a JSON structure. We're going to store the parsed results as JSON in a new column called "json" with this schema:
+
+```(trade as boolean, customers as string[])```
+
+Refer to the inspect tab and data preview to verify your output is mapped properly.
 
 ## Examples
 
