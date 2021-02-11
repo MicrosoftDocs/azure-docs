@@ -1,5 +1,5 @@
 ---
-title: Azure VM sizes - FPGA | Microsoft Docs
+title: Azure virtual machine sizes for field-programmable gate arrays (FPGA)
 description: Lists the different FPGA optimized sizes available for virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 author: vikancha-MSFT
 ms.service: virtual-machines
@@ -16,10 +16,6 @@ FPGA optimized VM sizes are specialized virtual machines available with single o
 
 - The [NP-series](np-series.md) sizes are optimized for workloads including machine learning inference, video transcoding, and database search & analytics. The NP-series are powered by Xilinx U250 accelerators.
 
-
-## Supported operating systems and drivers
-
-We will update this section before the first NP-series enters general availability.
 
 ## Deployment considerations
 
