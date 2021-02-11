@@ -12,6 +12,7 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 
 # Tutorial: Customize the interface of user experiences in Azure Active Directory B2C

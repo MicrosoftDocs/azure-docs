@@ -13,6 +13,7 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 
 # Tutorial: Add identity providers to your applications in Azure Active Directory B2C
@@ -179,4 +180,4 @@ In this article, you learned how to:
 Next, learn how to customize the UI of the pages shown to users as part of their identity experience in your applications:
 
 > [!div class="nextstepaction"]
-> [Customize the user interface of your applications in Azure Active Directory B2C](tutorial-customize-ui.md)
+> [Customize the user interface of your applications in Azure Active Directory B2C](customize-ui.md)

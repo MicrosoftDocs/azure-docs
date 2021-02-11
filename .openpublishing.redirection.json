@@ -1242,6 +1242,15 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-add-identity-providers.md",
+      "redirect_url": "/azure/active-directory-b2c/add-identity-provider",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-customize-ui.md",
+      "redirect_url": "/azure/active-directory-b2c/customize-ui",
+      "redirect_document_id": false
+    },    {
       "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md",
       "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps",
       "redirect_document_id": false

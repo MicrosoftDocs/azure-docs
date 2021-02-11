@@ -132,4 +132,4 @@ In this article, you learned how to:
 Next, learn about adding identity providers to your applications to enable user sign-in with providers like Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft, or Twitter.
 
 > [!div class="nextstepaction"]
-> [Add identity providers to your applications >](tutorial-add-identity-providers.md)
+> [Add identity providers to your applications >](add-identity-provider.md)
