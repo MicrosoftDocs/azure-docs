@@ -114,7 +114,7 @@ Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 
 
 ### Step 5.1: Option 1 - Migrate a Cloud Service not in a virtual network
-Get the list of cloud services by using the following command. Then pick the cloud service that you want to migrate. If the VMs in the cloud service are in a virtual network or if they have web or worker roles, the command returns an error message.
+Get the list of cloud services by using the following command. Then pick the cloud service that you want to migrate.
 
 ```powershell
 Get-AzureService | ft Servicename
