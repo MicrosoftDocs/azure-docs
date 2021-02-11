@@ -53,7 +53,9 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 When setting the maintenance window, each region has its own maintenance window options that correspond to the timezone for the region the database or pool is located. 
 
-The following example returns the available maintenance windows for the *eastus2* region using the [Get-AzMaintenancePublicConfiguration](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet.
+### Discover SQL Database and elastic pool maintenance windows 
+
+The following example returns the available maintenance windows for the *eastus2* region using the [Get-AzMaintenancePublicConfiguration](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet. For databases and elastic pools, set `MaintenanceScope` to `SQLDB`.
 
    ```powershell-interactive
    $location = "eastus2"
@@ -61,6 +63,18 @@ The following example returns the available maintenance windows for the *eastus2
    Write-Host "Available maintenance schedules in ${location}:"
    $configurations = Get-AzMaintenancePublicConfiguration
    $configurations | ?{ $_.Location -eq $location -and $_.MaintenanceScope -eq "SQLDB"}
+   ```
+
+### Discover SQL Managed Instance maintenance windows 
+
+The following example returns the available maintenance windows for the *eastus2* region using the [Get-AzMaintenancePublicConfiguration](/powershell/module/az.maintenance/get-azmaintenancepublicconfiguration) cmdlet. For managed instances, set `MaintenanceScope` to `SQLManagedInstance`.
+
+   ```powershell-interactive
+   $location = "eastus2"
+
+   Write-Host "Available maintenance schedules in ${location}:"
+   $configurations = Get-AzMaintenancePublicConfiguration
+   $configurations | ?{ $_.Location -eq $location -and $_.MaintenanceScope -eq "SQLManagedInstance"}
    ```
 
 
