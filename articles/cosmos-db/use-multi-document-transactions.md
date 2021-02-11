@@ -27,7 +27,7 @@ Multi-document transactions follow **ACID** semantics:
 
 ## Requirements
 
-Multi-document transactions are supported within a fixed collection in 4.0. Multi-document transactions are not supported across collections or in sharded collections.
+Multi-document transactions are supported within a unsharded collection in 4.0. Multi-document transactions are not supported across collections or in sharded collections.
 
 Clients are required to use one of the following driver versions:
 
