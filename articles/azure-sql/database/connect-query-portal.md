@@ -154,7 +154,7 @@ Run the following [DELETE](/sql/t-sql/statements/delete-transact-sql/) T-SQL sta
 2. Select **Run** to delete the specified row in the `Product` table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
 
-## Query editor troubleshooting and considerations
+## Troubleshooting and considerations
 
 There are a few things to know when working with the query editor.
 
