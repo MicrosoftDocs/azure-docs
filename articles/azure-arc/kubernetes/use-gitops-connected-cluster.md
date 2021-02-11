@@ -17,7 +17,7 @@ In relation to Kubernetes, GitOps is the practice of declaring the desired state
 
 This article covers the setup of GitOps workflows on Azure Arc enabled Kubernetes clusters.
 
-The connection between your cluster and a Git repository is created as a `Microsoft.KubernetesConfiguration/sourceControlConfigurations` extension resource in Azure Resource Manager (ARM). The `sourceControlConfiguration` resource properties represent where and how Kubernetes resources should flow from Git to your cluster. The `sourceControlConfiguration` data is stored encrypted, at rest in an Azure Cosmos DB database to ensure data confidentiality.
+The connection between your cluster and a Git repository is created as a `Microsoft.KubernetesConfiguration/sourceControlConfigurations` extension resource in Azure Resource Manager. The `sourceControlConfiguration` resource properties represent where and how Kubernetes resources should flow from Git to your cluster. The `sourceControlConfiguration` data is stored encrypted, at rest in an Azure Cosmos DB database to ensure data confidentiality.
 
 The `config-agent` running in your cluster is responsible for:
 * Tracking new or updated `sourceControlConfiguration` extension resources on the Azure Arc enabled Kubernetes resource.
@@ -182,7 +182,7 @@ If you don't want Flux to write to the repo and `--git-user` or `--git-email` ar
 For more information, see the [Flux documentation](https://aka.ms/FluxcdReadme).
 
 > [!TIP]
-> You can create a `sourceControlConfiguration` in the Azure Portal in the **GitOps** tab of the Azure Arc enabled Kubernetes resource.
+> You can create a `sourceControlConfiguration` in the Azure portal in the **GitOps** tab of the Azure Arc enabled Kubernetes resource.
 
 ## Validate the sourceControlConfiguration
 
@@ -237,7 +237,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 When a `sourceControlConfiguration` is created or updated, a few things happen under the hood:
 
-1. The Azure Arc `config-agent` monitors ARM for new or updated configurations (`Microsoft.KubernetesConfiguration/sourceControlConfigurations`) and notices the new `Pending` configuration.
+1. The Azure Arc `config-agent` monitors Azure Resource Manager for new or updated configurations (`Microsoft.KubernetesConfiguration/sourceControlConfigurations`) and notices the new `Pending` configuration.
 1. The `config-agent` reads the configuration properties and creates the destination namespace.
 1. The Azure Arc `controller-manager` prepares a Kubernetes Service Account with the appropriate permission (`cluster` or `namespace` scope) and then deploys an instance of `flux`.
 1. If using the option of SSH with Flux-generated keys, `flux` generates an SSH key and logs the public key.
@@ -245,7 +245,7 @@ When a `sourceControlConfiguration` is created or updated, a few things happen u
 
 While the provisioning process happens, the `sourceControlConfiguration` will move through a few state changes. Monitor progress with the `az k8sconfiguration show ...` command above:
 
-| Stage Change | Description |
+| Stage change | Description |
 | ------------- | ------------- |
 | `complianceStatus`-> `Pending` | Represents the initial and in-progress states. |
 | `complianceStatus` -> `Installed`  | `config-agent` was able to successfully configure the cluster and deploy `flux` without error. |
@@ -269,11 +269,11 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAREDACTED"
 ```
 
-#### Get the public key from the Azure Portal
+#### Get the public key from the Azure portal
 
 The following is useful if Flux generates the keys.
 
-1. In the Azure Portal, navigate to the connected cluster resource.
+1. In the Azure portal, navigate to the connected cluster resource.
 2. In the resource page, select "GitOps" and see the list of configurations for this cluster.
 3. Select the configuration that uses the private Git repository.
 4. In the context window that opens, at the bottom of the window, copy the **Repository public key**.
@@ -282,7 +282,7 @@ The following is useful if Flux generates the keys.
 
 Use one of the following options:
 
-1. Option 1: Add the public key to your user account (applies to all repos in your account):  
+* Option 1: Add the public key to your user account (applies to all repos in your account):  
     1. Open GitHub and click on your profile icon at the top-right corner of the page.
     2. Click on **Settings**.
     3. Click on **SSH and GPG keys**.
@@ -291,7 +291,7 @@ Use one of the following options:
     6. Paste the public key without any surrounding quotes.
     7. Click on **Add SSH key**.
 
-1. Option 2: Add the public key as a deploy key to the Git repo (applies to only this repo):  
+* Option 2: Add the public key as a deploy key to the Git repo (applies to only this repo):  
     1. Open GitHub and navigate to your repo.
     1. Click on **Settings**.
     1. Click on **Deploy keys**.
@@ -361,7 +361,7 @@ kubectl -n itops get all
 
 ## Delete a configuration
 
-Delete a `sourceControlConfiguration` using the Azure CLI or Azure Portal.  After you initiate the delete command, the `sourceControlConfiguration` resource will be deleted immediately in Azure. Full deletion of the associated objects from the cluster should happen within 10 minutes. If the `sourceControlConfiguration` is in a failed state when removed, the full deletion of associated objects can take up to an hour.
+Delete a `sourceControlConfiguration` using the Azure CLI or Azure portal.  After you initiate the delete command, the `sourceControlConfiguration` resource will be deleted immediately in Azure. Full deletion of the associated objects from the cluster should happen within 10 minutes. If the `sourceControlConfiguration` is in a failed state when removed, the full deletion of associated objects can take up to an hour.
 
 > [!NOTE]
 > After a `sourceControlConfiguration` with `namespace` scope is created, users with `edit` role binding on the namespace can deploy workloads on this namespace. When this `sourceControlConfiguration` with namespace scope gets deleted, the namespace is left intact and will not be deleted to avoid breaking these other workloads. If needed, you can delete this namespace manually with `kubectl`.  
