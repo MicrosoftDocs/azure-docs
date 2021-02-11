@@ -131,6 +131,16 @@
       href: diagnostics-extension-to-storage.md
     - name: Trace Cloud Service with Diagnostics
       href: cloud-services-dotnet-diagnostics-trace-flow.md
+  - name: Migrate
+    items: 
+    - name: Migration Overview
+      href: ../cloud-services-extended-support/in-place-migration-overview.md?toc=/azure/cloud-services/toc.json
+    - name: Plan for Migration
+      href: ../virtual-machines/migration-classic-resource-manager-plan.md?toc=/azure/cloud-services/toc.json
+    - name: Migrate using the Azure portal
+      href: ../cloud-services-extended-support/in-place-migration-portal.md?toc=/azure/cloud-services/toc.json
+    -name: Migrate using PowerShell
+     href: ../cloud-services-extended-support/in-place-migration-powershell.md?toc=/azure/cloud-services/toc.json
   - name: Troubleshoot
     items:
     - name: Debug
