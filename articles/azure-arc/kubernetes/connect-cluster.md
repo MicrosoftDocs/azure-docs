@@ -14,7 +14,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Connect an Azure Arc enabled Kubernetes cluster (Preview)
 
-This article covers the process of connecting any Cloud Native Computing Foundation (CNCF) certified Kubernetes cluster, such as AKS-engine on Azure, AKS-engine on Azure Stack Hub, GKE, EKS, and VMware vSphere cluster to Azure Arc.
+This article provides a walk-through on connecting any existing Kubernetes cluster to Azure Arc.
 
 ## Before you begin
 
@@ -25,9 +25,9 @@ Verify you have prepared the following prerequisites:
   * Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes).
 * A kubeconfig file to access the cluster and cluster-admin role on the cluster for deployment of Arc enabled Kubernetes agents.
 * The user or service principal used with `az login` and `az connectedk8s connect` commands must have the 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedclusters' resource type. The "Kubernetes Cluster - Azure Arc Onboarding" role has these permissions and can be used for role assignments on the user or service principal.
-* Helm 3 for onboarding the cluster using a connectedk8s extension. [Install the latest release of Helm 3](https://helm.sh/docs/intro/install) to meet this requirement.
+* Helm 3 for onboarding the cluster using a `connectedk8s` extension. [Install the latest release of Helm 3](https://helm.sh/docs/intro/install) to meet this requirement.
 * Azure CLI version 2.15+ for installing the Azure Arc enabled Kubernetes CLI extensions. [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) or update to the latest version.
-* Install the Arc enabled Kubernetes CLI extensions:
+* Install the Azure Arc enabled Kubernetes CLI extensions:
   
   * Install the `connectedk8s` extension, which helps you connect Kubernetes clusters to Azure:
   
@@ -179,7 +179,7 @@ You can also view this resource on the [Azure portal](https://portal.azure.com/)
 
 ## Connect using an outbound proxy server
 
-If your cluster is behind an outbound proxy server, Azure CLI and the Arc enabled Kubernetes agents need to route their requests via the outbound proxy server:
+If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc enabled Kubernetes agents need to route their requests via the outbound proxy server:
 
 1. Check the version of `connectedk8s` extension installed on your machine:
 
@@ -216,7 +216,7 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Arc enable
 > [!NOTE]
 > * Specifying `excludedCIDR` under `--proxy-skip-range` is important to ensure in-cluster communication is not broken for the agents.
 > * While `--proxy-http`, `--proxy-https`, and `--proxy-skip-range` are expected for most outbound proxy environments, `--proxy-cert` is only required if trusted certificates from proxy need to be injected into trusted certificate store of agent pods.
-> * The above proxy specification is currently applied only for Arc agents and not for the flux pods used in sourceControlConfiguration. The Arc enabled Kubernetes team is actively working on this feature and it will be available soon.
+> * The above proxy specification is currently applied only for Arc agents and not for the flux pods used in sourceControlConfiguration. The Azure Arc enabled Kubernetes team is actively working on this feature and it will be available soon.
 
 ## Azure Arc agents for Kubernetes
 
