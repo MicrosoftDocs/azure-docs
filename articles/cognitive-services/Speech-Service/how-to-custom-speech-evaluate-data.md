@@ -114,7 +114,7 @@ Consider these details:
 * It can take several days for a training operation to complete. To improve the speed of training, make sure to create your Speech service subscription in a [region with dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
 
 > [!NOTE]
-> Not all base models support training with audio. If a base model does not support it, the Speech service will only use the text from the transcripts and ignore the audio.
+> Not all base models support training with audio. If a base model does not support it, the Speech service will only use the text from the transcripts and ignore the audio. See [Language and voice support for the Speech service](language-support.md#speech-to-text) for a list of base models that support training with audio data.
 
 ### Add new words with pronunciation
 
