@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 ---
 
 # Self-diagnose running Azure Spring Cloud in VNET
-Azure Spring Cloud diagnostics supports interactive troubleshooting apps running in virtual networks without configuration. When you find issues, Azure Spring Cloud diagnostics identifies what’s wrong and guides you to information that helps troubleshoot and resolve issues.
+Azure Spring Cloud diagnostics supports interactive troubleshooting apps running in virtual networks without configuration. Azure Spring Cloud diagnostics identifies problems and guides you to information that helps troubleshoot and resolve them.
 
 ## Navigate to the diagnostics page
 The following procedure starts diagnostics for networked applications.
@@ -30,12 +30,12 @@ Find your target issue, and click it to view the diagnostic report. A summary of
 
 If your Azure Spring Cloud resource has been deleted, you will see **Resource has been removed.**
 
-If your Azure Spring Cloud resource is not deployed in your own virtual network, you will see **Resource is not deployed in your own virtual network**.
+If your Azure Spring Cloud resource is not deployed, you will see **Resource is not deployed in your own virtual network**.
 
 Different subnets will display the results separately.
 
 ## DNS Resolution 
-Healthy applications show results such as the following:
+Healthy applications show results such as:
 
    ![DNS healthy](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-healthy.png)
 
@@ -49,10 +49,10 @@ If you misconfigured your Private DNS Zone record set, you will get a critical r
 In the drop-down **DNS Resolution Table Renderings** you will find the detail message info from which you can check your config.
 
 ## Required Outbound Traffic 
-Healthy applications show results such as the following:
+Healthy applications show results such as:
     ![Endpoint healthy](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-healthy.png)
 
-If any of your subnet is blocked by NSG or firewall rules, you will find the following failures if you have not blocked the log. You can check whether you overlooked any [Customer Responsibilities](spring-cloud-vnet-customer-responsibilities.md).
+If any subnet is blocked by NSG or firewall rules, you will find the following failures if you have not blocked the log. You can check whether you overlooked any [Customer Responsibilities](spring-cloud-vnet-customer-responsibilities.md).
     
    ![Endpoint failed](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-failed.png)
 
