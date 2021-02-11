@@ -122,6 +122,10 @@ Fill in these details with the values you obtain from Azure app registration por
 - `Enter_the_Cloud_Instance_Id_Here`: The Azure cloud instance in which your application is registered.
   - For the main (or *global*) Azure cloud, enter `https://login.microsoftonline.com`.
   - For **national** clouds (for example, China), you can find appropriate values in [National clouds](authentication-national-cloud.md).
+- `Enter_the_Client_secret`: Replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal.
+
+> [!WARNING]
+> Any plaintext secret in source code poses an increased security risk. This article uses a plaintext client secret for simplicity only. Use [certificate credentials](active-directory-certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
 
 ## Add code for user login
 
@@ -174,7 +178,7 @@ You've completed creation of the application and are now ready to test the app's
 
 :::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/signin_screen.png" alt-text="Azure AD sign-in screen displaying":::
 
-3. Once you enter your credentials, you should face a consent screen asking you to approve the permissions for the app.
+3. Once you enter your credentials, you should see a consent screen asking you to approve the permissions for the app.
 
 :::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/consent_screen.png" alt-text="Azure AD consent screen displaying":::
 
@@ -187,4 +191,4 @@ In this tutorial, you initialized an MSAL Node [ConfidentialClientApplication](h
 If you'd like to dive deeper into Node.js & Express web application development on the Microsoft identity platform, see our multi-part scenario series:
 
 > [!div class="nextstepaction"]
-> [Scenario: Daemon application](scenario-daemon-overview.md)
+> [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)
