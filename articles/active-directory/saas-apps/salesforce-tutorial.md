@@ -76,26 +76,28 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign-on URL** textbox, type the value using the following pattern:
+	a. In the **Identifier** textbox, type the value using the following pattern:
+
+    Enterprise account: `https://<subdomain>.my.salesforce.com`
+
+    Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
+
+      b. In the **Reply URL** textbox, type the value using the following pattern:
+
+    Enterprise account: `https://<subdomain>.my.salesforce.com`
+
+    Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
+	
+	c. In the **Sign-on URL** textbox, type the value using the following pattern:
 
     Enterprise account: `https://<subdomain>.my.salesforce.com`
 
     Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
     
-    b. In the **Identifier** textbox, type the value using the following pattern:
-
-    Enterprise account: `https://<subdomain>.my.salesforce.com`
-
-    Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
-
-    c. In the **Reply URL** textbox, type the value using the following pattern:
-
-    Enterprise account: `https://<subdomain>.my.salesforce.com`
-
-    Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
+    
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [Salesforce Client support team](https://help.salesforce.com/support) to get these values.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Salesforce Client support team](https://help.salesforce.com/support) to get these values.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
