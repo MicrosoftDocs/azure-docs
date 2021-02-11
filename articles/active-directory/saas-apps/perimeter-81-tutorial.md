@@ -155,6 +155,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     > [!NOTE]
     > Alternatively you can click on **Upload PEM/CERT File** to upload the **Certificate (Base64)** which you downloaded from Azure portal.
+    
+    d. Click **Done**.
 
 ### Create Perimeter 81 test user
 
