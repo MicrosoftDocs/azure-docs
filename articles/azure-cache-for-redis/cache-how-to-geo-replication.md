@@ -1,15 +1,16 @@
 ---
-title: Configure geo-replication for a Premium Azure Cache for Redis instance
+title: Configure geo-replication for Premium Azure Cache for Redis instances
 description: Learn how to replicate your Azure Cache for Redis Premium instances across Azure regions
 author: yegu-ms
+
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
 ---
-# Configure geo-replication for a Premium Azure Cache for Redis instance
+# Configure geo-replication for Premium Azure Cache for Redis instances
 
-In this article, you'll learn how to configure a geo-replicated Azure Cache instance using the Azure portal.
+In this article, you'll learn how to configure a geo-replicated Azure Cache using the Azure portal.
 
 Geo-replication links together two Premium Azure Cache for Redis instances and creates a data replication relationship. These cache instances are usually located in different Azure regions, though they aren't required to. One instance acts as the primary, and the other as the secondary. The primary handles read and write requests and propagates changes to the secondary. This process continues until the link between the two instances is removed.
 
@@ -109,7 +110,7 @@ After geo-replication is configured, the following restrictions apply to your li
 - [Why did the operation fail when I tried to delete my linked cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [What region should I use for my secondary linked cache?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [How does failing over to the secondary linked cache work?](#how-does-failing-over-to-the-secondary-linked-cache-work)
-- [Can I configure Firewall with geo-replication?](#can-i-configure-a-firewall-with-geo-replication)
+- [Can i configure Firewall with geo-replication?](#can-i-configure-a-firewall-with-geo-replication)
 
 ### Can I use geo-replication with a Standard or Basic tier cache?
 
