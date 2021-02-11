@@ -55,13 +55,15 @@ Requests to the Translator service require a read-only key for authenticating ac
 1. Copy and paste your subscription key in a convenient location, such as *Microsoft Notepad*.
 1. You'll paste it into the code below to authenticate your request to the Document Translation service.
 
+:::image type="content" source="../media/translator-keys.png" alt-text="Image of the get your subscription key field in Azure portal.":::
+
 ## Create your Azure blob storage containers
 
-You'll need to  [create containers](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your storage account for source, target, and optional glossary files.
+You'll need to  [**create containers**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source, target, and optional glossary files.
 
-1. **A source container**. This container is where you upload your files for translation (required).
-1. **A target container**. This container is where your translated files will be stored (required).  
-1. **A glossary container**. This container is where you upload your glossary files (optional).  
+1. **Source container**. This container is where you upload your files for translation (required).
+1. **Target container**. This container is where your translated files will be stored (required).  
+1. **Glossary container**. This container is where you upload your glossary files (optional).  
 
 *See* **Create SAS access tokens for Document Translation**
 
@@ -148,7 +150,7 @@ gradle init --type basic
   ```
 
 * Create a Java file in the **java** directory and copy/paste the code from the provided sample. Don't forget to add your subscription key and endpoint.
-*Build and run the sample from the root directory:
+**Build and run the sample from the root directory**:
 
 ```powershell
 gradle build
@@ -214,8 +216,7 @@ The following headers are included with each Document Translator API request:
 <!-- markdownlint-disable MD024 -->
 ### POST request body without optional glossaryURL
 
-```http
-
+```json
 {
     "inputs": [
         {
@@ -243,39 +244,37 @@ The following headers are included with each Document Translator API request:
 
 ### POST request body with optional glossaryURL
 
-```http
-
-{​​​​​​​​
-"inputs": [
-        {​​​​​​​​
-"source": {​​​​​​​​
-"sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-"storageSource": "AzureBlob",
-"filter": {​​​​​​​​
-"prefix": "simple",
-"suffix": ".docx"
-                }​​​​​​​​,
-"language": "en"
-            }​​​​​​​​,
-"targets": [
-                {​​​​​​​​
-"targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-"storageSource": "AzureBlob",
-"category": "general",
-"language": "ta",
-"glossaries": [
-                        {​​​​​​​​
-"glossaryUrl": "<https://YOUR-GLOSSARY-URL-WITH-READ-LIST-ACCESS-SAS>",
-"format": "xliff",
-"version": "1.2"
-                        }​​​​​​​​
-                    ]
-                }​​​​​​​​
-            ]
-        }​​​​​​​​
-    ]
-}​​​​​​​​
-
+```json
+{
+  "inputs":[
+    {
+      "source":{
+        "sourceUrl":"<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
+        "storageSource":"AzureBlob",
+        "filter":{
+          "prefix":"News",
+          "suffix":".txt"
+        },
+        "language":"en"
+      },
+      "targets":[
+        {
+          "targetUrl":"<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
+          "storageSource":"AzureBlob",
+          "category":"general",
+          "language":"de",
+          "glossaries":[
+            {
+              "glossaryUrl":"<https://YOUR-GLOSSARY-URL-WITH-READ-LIST-ACCESS-SAS>",
+              "format":"xliff",
+              "version":"1.2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ## _POST Document Translation_ request code samples
