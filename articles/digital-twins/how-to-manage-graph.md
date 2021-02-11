@@ -121,6 +121,9 @@ You can now call this function in your main method like this:
 
 Relationships are updated using the `UpdateRelationship` method. 
 
+>[!NOTE]
+>This method is for updating the **properties** of a relationship. If you need to change the source twin or target twin of the relationship, you'll need to [delete the relationship](#delete-relationships) and [re-create one](#create-relationships) using the new twins.
+
 The required parameters are the ID of the source twin (the twin where the relationship originates), the ID of the relationship to update, and a [JSON Patch](http://jsonpatch.com/) document containing the properties and new values you'd like to update.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod":::
