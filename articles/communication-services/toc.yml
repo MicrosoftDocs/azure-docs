@@ -76,7 +76,6 @@
         href: concepts/telephony-sms/plan-solution.md
       - name: SIP Interface infrastructure requirements 
         href: concepts/telephony-sms/sip-interface-infrastructure.md
-
   - name: Voice and video calling
     items:
       - name: Calling client library overview
