@@ -31,8 +31,7 @@ There is currently no charge for semantic search while it's in public preview, b
 
 ## What's a semantic query?
 
-In Cognitive Search, a query is a parameterized specification of a round-trip **`search`** operation, and a semantic query adds parameters that invoke the semantic query subsystems.
-
+In Cognitive Search, a query is a parameterized specification of a round trip **`search`** operation, and a semantic query adds parameters that invoke the semantic query subsystems.
 
 The following request is representative of a semantic query.
 
@@ -55,11 +54,7 @@ Internally, a semantic query is compatible with the simple query type. The opera
 
 **`queryLanguage`** must be `"en-us"` at this time.
 
-speller 
-
-Set to “lexicon” if you would like spell correction to occur on the query terms. Otherwise set to “none”. 
-
-**`answers**` governs the semantic response. Valid values are "extractive" if you want the search engine to extract and present a semantic answer as a distinct component of a result, or "none" if you want the default results.
+**`answers`** determines the shape of the semantic response. Valid values are "extractive" if you want the search engine to extract and present a semantic answer as a distinct component of a result, or "none" if you want the default results.
 
 ## Understanding a semantic response
 
@@ -110,8 +105,8 @@ The following table lists other query features and provides usage recommendation
 | [Orderby expressions](search-query-odata-orderby.md) | Avoid. Explicit rankings will override semantic ranking |
 | Autocomplete | Avoid|
 | Suggestions | Avoid |
-| [Scoring profiles]() | Compatible. Recall that semantic responses are built over an initial result set. Any logic that improves the quality of the top responses will carry over to semantic search. |
-| top, skip parameters | The default result set is 50 matches. You can experiment with a larger result set, up to 1000, to see if semantic ranking performs better over a larger base of results. |
+| [Scoring profiles](index-add-scoring-profiles.md) | Compatible. Recall that semantic ranking and responses are built over an initial result set. Any logic that improves the quality of the initial results will carry over to semantic search. |
+| top, skip parameters | The default result set is 50 matches. You can experiment with a larger result set, up to 1000 matches, to see if semantic ranking performs better over a larger base. |
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Semantic search
 titleSuffix: Azure Cognitive Search
-description: Learn how Cognitive Search is using deep learning semantic search models from Bing to humanize the search experience in the query engine.
+description: Learn how Cognitive Search is using deep learning semantic search models from Bing to make search results more intuitive.
 
 manager: nitinme
 author: HeidiSteen
@@ -13,11 +13,18 @@ ms.date: 03/02/2021
 # Semantic search in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-TBD
+Semantic search is a collection of query-side features that bring Bing's deep neural network learning models to the query pipeline. Results from the full text search engine can be ranked, analyzed, and structured using Bing's AI to produce more intuitive results. Bing integration is built-into the search infrastructure. To use it, you'll need small modifications to query syntax, but otherwise no configuration is required to use it. Semantic search consists of these features:
+
++ Semantic ranking
++ Semantic captions
++ Semantic answers
+
+All new parameters can be specified at query time, on existing indexes.
 
 ## Next steps
 
 + [Add spell check to query inputs](speller-howto-add.md)
-+ [Create a semantic query](semantic-howto-create-query.md)
++ [Create a semantic query](semantic-howto-query-request.md)
++ [Structure a semantic response](semantic-howto-query-response)
