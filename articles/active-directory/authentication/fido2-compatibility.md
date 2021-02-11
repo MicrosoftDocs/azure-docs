@@ -49,8 +49,6 @@ The information in the tables above was tested for the following operating syste
 | --- | --- |
 | Windows | Windows 10 20H2 1904 |
 | macOS | OS X 11 Big Sur |
-| iOS | 14.2.1 |
-| ChromeOS | Version 86.0 |
 | Linux | Fedora 32 Workstation |
 
 ## Next steps
