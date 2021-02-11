@@ -1,13 +1,9 @@
 ---
 title: Copy and transform data in Azure Database for PostgreSQL
 description: Learn how to copy and transform data in Azure Database for PostgreSQL by using Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/01/2021

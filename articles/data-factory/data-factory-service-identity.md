@@ -1,14 +1,8 @@
 ---
 title: Managed identity for Data Factory 
 description: Learn about managed identity for Azure Data Factory. 
-services: data-factory
 author: linda33wj
-manager: shwang
-editor: ''
-
 ms.service: data-factory
-ms.workload: data-services
-
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
@@ -126,8 +120,8 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
         "type": "Microsoft.DataFactory/factories",
         "location": "<region>",
         "identity": {
-			"type": "SystemAssigned"
-		}
+            "type": "SystemAssigned"
+        }
     }]
 }
 ```
