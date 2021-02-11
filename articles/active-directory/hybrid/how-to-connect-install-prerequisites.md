@@ -68,8 +68,7 @@ To read more about securing your Active Directory environment, see [Best practic
     - You must configure TLS/SSL certificates. For more information, see [Managing SSL/TLS protocols and cipher suites for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) and [Managing SSL certificates in AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - You must configure name resolution. 
 - If your global administrators have MFA enabled, the URL https://secure.aadcdn.microsoftonline-p.com *must* be in the trusted sites list. You're prompted to add this site to the trusted sites list when you're prompted for an MFA challenge and it hasn't been added before. You can use Internet Explorer to add it to your trusted sites.
-- If you plan to use AAD Connect Health for Sync, ensure that the prerequisites for AAD Connect Health are also met. For more information see: https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-health-agent-install
-
+- If you plan to use Azure AD Connect Health for Sync, ensure that the prerequisites for Azure AD Connect Health are also met. For more information see: https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-health-agent-install
 
 #### Harden your Azure AD Connect server 
 We recommend that you harden your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment. Following these recommendations will help to mitigate some security risks to your organization.
