@@ -28,11 +28,20 @@ The ability to change to a different maintenance window is not available for eve
 
 # [Portal](#tab/azure-portal)
 
-To configure the maintenance window when you create a database, set the desired **Maintenance window** on the **Additional settings** page. 
+To configure the maintenance window when you create a database, elastic pool, or managed instance, set the desired **Maintenance window** on the **Additional settings** page. 
 
-For step-by-step information on creating a new SQL database and setting the maintenance window, see [Create an Azure SQL Database single database](single-database-create-quickstart.md).
+## Set the maintenance window while creating a single database or elastic pool
+
+For step-by-step information on creating a new database or pool, see [Create an Azure SQL Database single database](single-database-create-quickstart.md).
 
    :::image type="content" source="media/maintenance-window-configure/additional-settings.png" alt-text="Create database additional settings tab":::
+
+
+## Set the maintenance window while creating a managed instance
+
+For step-by-step information on creating a new managed instance, see [Create an Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
+
+   :::image type="content" source="media/maintenance-window-configure/additional-settings-mi.png" alt-text="Create managed instance additional settings tab":::
 
 
 
@@ -169,16 +178,29 @@ The following example creates a new managed instance and sets the maintenance wi
 
 -----
 
-## Set the maintenance window for an existing database 
+## Set the maintenance window for an existing database, elastic pool, or managed instance
 
 # [Portal](#tab/azure-portal)
 
-The following steps set the maintenance window on an existing database using the Azure portal:
+The following steps set the maintenance window on an existing database, elastic pool, or managed instance using the Azure portal:
 
-1. Navigate to the SQL database, elastic pool, or managed instance you want to set the maintenance window for.
+
+## Set the maintenance window for a database or elastic pool
+
+1. Navigate to the SQL database or elastic pool you want to set the maintenance window for.
 1. In the **Settings** menu select **Maintenance**, then select the desired maintenance window.
 
    :::image type="content" source="media/maintenance-window-configure/maintenance.png" alt-text="SQL database Maintenance page":::
+
+
+## Set the maintenance window for a managed instance
+
+1. Navigate to the managed instance you want to set the maintenance window for.
+1. In the **Settings** menu select **Maintenance**, then select the desired maintenance window.
+
+   :::image type="content" source="media/maintenance-window-configure/maintenance.png" alt-text="SQL database Maintenance page":::
+
+
 
 
 
