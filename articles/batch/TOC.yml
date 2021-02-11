@@ -172,6 +172,8 @@
     - name: Create a pool without public IP addresses
       displayName: private
       href: batch-pool-no-public-ip-address.md
+    - name: Use extensions with pools
+      href: create-pool-extensions.md
     - name: Mount a virtual file system
       href: virtual-file-mount.md
     - name: Mount an Azure file share
