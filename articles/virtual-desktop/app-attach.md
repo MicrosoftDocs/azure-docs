@@ -205,6 +205,10 @@ Each of these automatic scripts runs one phase of the app attach scripts:
 - The logoff script runs the deregister script.
 - The shutdown script runs the destage script.
 
+>[!TIP]
+>You can choose using the task scheduler to run the stage script.
+>In this case, You should set that task trigger is "When the computers starts", and turn on of "Run with highest privileges".
+
 ## Use packages offline
 
 If you're using packages from the [Microsoft Store for Business](https://businessstore.microsoft.com/) or the [Microsoft Store for Education](https://educationstore.microsoft.com/) within your network or on devices that aren't connected to the internet, you need to get the package licenses from the Microsoft Store and install them on your device to successfully run the app. If your device is online and can connect to the Microsoft Store for Business, the required licenses should download automatically, but if you're offline, you'll need to set up the licenses manually.
