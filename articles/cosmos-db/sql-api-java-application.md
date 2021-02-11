@@ -189,13 +189,13 @@ Azure Web Sites makes deploying Java applications as simple as exporting your ap
 
 1. In the **WAR Export** window, do the following:
    
-   * In the Web project box, enter azure-documentdb-java-sample.
+   * In the Web project box, enter azure-cosmos-java-sample.
    * In the Destination box, choose a destination to save the WAR file.
    * Click **Finish**.
 
 1. Now that you have a WAR file in hand, you can simply upload it to your Azure Web Site's **webapps** directory. For instructions on uploading the file, see [Add a Java application to Azure App Service Web Apps](../app-service/quickstart-java.md). After the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
 
-1. To view your finished product, navigate to `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` and start adding your tasks!
+1. To view your finished product, navigate to `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-cosmos-java-sample/` and start adding your tasks!
 
 ## <a id="GetProject"></a>Get the project from GitHub
 
@@ -221,9 +221,9 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 
 1. On the **Import Projects** screen, unselect the **DocumentDB** project, and then click **Finish**. The DocumentDB project contains the Azure Cosmos DB Java SDK, which we will add as a dependency instead.
 
-1. In **Project Explorer**, navigate to azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java and replace the HOST and MASTER_KEY values with the URI and PRIMARY KEY for your Azure Cosmos DB account, and then save the file. For more information, see [Step 1. Create an Azure Cosmos database account](#CreateDB).
+1. In **Project Explorer**, navigate to azure-cosmos-java-sample\src\com.microsoft.azure.cosmos.sample.dao\DocumentClientFactory.java and replace the HOST and MASTER_KEY values with the URI and PRIMARY KEY for your Azure Cosmos DB account, and then save the file. For more information, see [Step 1. Create an Azure Cosmos database account](#CreateDB).
 
-1. In **Project Explorer**, right-click the **azure-documentdb-java-sample**, click **Build Path**, and then click **Configure Build Path**.
+1. In **Project Explorer**, right-click the **azure-cosmos-java-sample**, click **Build Path**, and then click **Configure Build Path**.
 
 1. On the **Java Build Path** screen, in the right pane, select the **Libraries** tab, and then click **Add External JARs**. Navigate to the location of the lombok.jar file, and click **Open**, and then click **OK**.
 
@@ -237,11 +237,11 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 
 1. On the **Servers** tab at the bottom of the screen, right-click **Tomcat v7.0 Server at localhost** and then click **Add and Remove**.
 
-1. On the **Add and Remove** window, move **azure-documentdb-java-sample** to the **Configured** box, and then click **Finish**.
+1. On the **Add and Remove** window, move **azure-cosmos-java-sample** to the **Configured** box, and then click **Finish**.
 
 1. In the **Servers** tab, right-click **Tomcat v7.0 Server at localhost**, and then click **Restart**.
 
-1. In a browser, navigate to `http://localhost:8080/azure-documentdb-java-sample/` and start adding to your task list. Note that if you changed your default port values, change 8080 to the value you selected.
+1. In a browser, navigate to `http://localhost:8080/azure-cosmos-java-sample/` and start adding to your task list. Note that if you changed your default port values, change 8080 to the value you selected.
 
 1. To deploy your project to an Azure web site, see [Step 6. Deploy your application to Azure Web Sites](#Deploy).
 
