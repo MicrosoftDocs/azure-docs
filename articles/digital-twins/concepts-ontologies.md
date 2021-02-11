@@ -59,13 +59,13 @@ An industry ontology is a great way to jumpstart building your IoT solution. How
 
 For more about on this process, see [*Concepts: Extending industry ontologies*](concepts-extending-ontologies.md).
 
-## Tools for ontologies
+## Converting 
 
-In addition to the [tools for models](concepts-models.md#tools-for-models) available to make it easier to deal with models and ontologies in general, you can also use a tool designed specifically for ontologies. This is also located in the  [Tools for Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools) repository.
+If you already have existing models represented in another standard industry format such as RDF or OWL, you can convert them to DTDL to use them with Azure Digital Twins. For more information on this process, see [Convert existing models to DTDL](how-to-integrate-models.md#convert-existing-models-to-dtdl).
 
 ### OWL2DTDL Converter 
 
-_**For converting an existing OWL-based model to DTDL**_
+**For converting an existing OWL-based model to DTDL**_
 
 The [**OWL2DTDL Converter**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL) is a sample that translates an OWL ontology into a set of DTDL interface declarations, which can be used with the Azure Digital Twins service. It also works for ontology networks, made of one root ontology reusing other ontologies through `owl:imports` declarations.
 
