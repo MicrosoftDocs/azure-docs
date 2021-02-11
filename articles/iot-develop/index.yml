@@ -22,20 +22,19 @@ landingContent:
           url: about-iot-develop.md
         - text: Which SDK should I use? 
           url: about-iot-sdks.md
-  - title: Getting started
+  - title: Get started with device application development
     linkLists:
     - linkListType: quickstart
       links:
-        - text: Send telemetry from a device to an IoT hub (Python)
+        - text: Send device telemetry to IoT Central (Python)
           url: quickstart-send-telemetry-python.md
-        - text: Getting started with Azure IoT embedded device development
-          url: quickstart-device-development.md
-  - title: Understand embedded development
+        - text: Send device telemetry to IoT Hub (Python)
+          url: quickstart-send-telemetry-cli-python.md
+        - text: Send device telemetry to IoT Hub (Node.js)
+          url: quickstart-send-telemetry-cli-node.md
+  - title: Get started with embedded device development
     linkLists:
-    - linkListType: concept
+    - linkListType: quickstart
       links:
-        - text: Using CMAKE with embedded devices
-          url: concepts-using-cmake.md
-        - text: Common pitfalls with the Azure IoT Device SDKs
-          url: common-pitfalls-device-sdks.md
-
+        - text: Get started with embedded device development
+          url: quickstart-device-development.md
