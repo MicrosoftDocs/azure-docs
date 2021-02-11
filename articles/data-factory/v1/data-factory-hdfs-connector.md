@@ -360,8 +360,8 @@ There are two options to set up the on-premises environment so as to use Kerbero
    The machine must be configured as a member of a workgroup since a Kerberos realm is different from a Windows domain. This can be achieved by setting the Kerberos realm and adding a KDC server as follows. Replace *REALM.COM* with your own respective realm as needed.
 
    ```cmd
-   C:> Ksetup /setdomain REALM.COM
-   C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   Ksetup /setdomain REALM.COM
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
    ```
 
    **Restart** the machine after executing these 2 commands.
@@ -369,7 +369,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 2. Verify the configuration with **Ksetup** command. The output should be like:
 
    ```cmd
-   C:> Ksetup
+   Ksetup
    default realm = REALM.COM (external)
    REALM.com:
       kdc = <your_kdc_server_address>
@@ -445,14 +445,14 @@ There are two options to set up the on-premises environment so as to use Kerbero
 1. Run the following **Ksetup** commands to add a realm entry:
 
    ```cmd
-   C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-   C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
    ```
 
 2. Establish trust from Windows Domain to Kerberos Realm. [password] is the password for the principal **krbtgt/REALM.COM\@AD.COM**.
 
    ```cmd
-   C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
+   netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
    ```
 
 3. Select encryption algorithm used in Kerberos.
@@ -468,7 +468,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
    4. Use **Ksetup** command to specify the encryption algorithm to be used on the specific REALM.
 
       ```cmd
-      C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+      ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
       ```
 
 4. Create the mapping between the domain account and Kerberos principal, in order to use Kerberos principal in Windows Domain.
@@ -488,8 +488,8 @@ There are two options to set up the on-premises environment so as to use Kerbero
 * Run the following **Ksetup** commands to add a realm entry.
 
    ```cmd
-   C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-   C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
    ```
 
 **In Azure Data Factory:**
