@@ -19,6 +19,7 @@ ms.author: sivethe
 ## Wire protocol compatibility
 
 Azure Cosmos DB implements the wire protocol for MongoDB. This implementation allows transparent compatibility with native MongoDB client SDKs, drivers, and tools. Azure Cosmos DB does host the MongoDB database engine. The details of the supported features by MongoDB can be found here: 
+- [Azure Cosmos DB's API for Mongo DB engine version 4.0](mongodb-feature-support-40.md)
 - [Azure Cosmos DB's API for Mongo DB engine version 3.6](mongodb-feature-support-36.md)
 - [Azure Cosmos DB's API for Mongo DB engine version 3.2](mongodb-feature-support.md)
 

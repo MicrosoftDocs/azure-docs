@@ -1085,7 +1085,7 @@
           href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Post-migration guide
           href: mongodb-post-migration.md
-      - name: Upgrade from MongoDB 3.2 to 3.6
+      - name: Upgrade to MongoDB 3.6 or 4.0
         href: mongodb-version-upgrade.md
       - name: Get the connection string
         href: connect-mongodb-account.md

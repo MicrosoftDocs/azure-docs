@@ -16,6 +16,9 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Cosmos DB provides: [global distribution](distribute-data-globally.md), [automatic sharding](partitioning-overview.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
+> [!NOTE]
+> This article is for Azure Cosmos DB's API for MongoDB 3.6. For MongoDB 4.0 version, see [MongoDB 4.0 supported features and syntax](mongodb-feature-support-40.md).
+
 ## Protocol Support
 
 The Azure Cosmos DB's API for MongoDB is compatible with MongoDB server version **3.6** by default for new accounts. The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. Note that when using Azure Cosmos DB's API for MongoDB accounts, the 3.6 version of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts have the endpoint in the format `*.documents.azure.com`.

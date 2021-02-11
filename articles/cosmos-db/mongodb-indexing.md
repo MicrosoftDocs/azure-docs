@@ -15,9 +15,9 @@ ms.custom: devx-track-js
 
 Azure Cosmos DB's API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](index-overview.md) that's relevant across all APIs.
 
-## Indexing for MongoDB server version 3.6
+## Indexing for MongoDB server version 3.6 and 4.0
 
-Azure Cosmos DB's API for MongoDB server version 3.6 automatically indexes the `_id` field, which can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key. In Azure Cosmos DB's API for MongoDB, sharding and indexing are separate concepts. You don't have to index your shard key. However, as with any other property in your document, if this property is a common filter in your queries, we recommend indexing the shard key.
+Azure Cosmos DB's API for MongoDB server version 3.6 and 4.0 automatically indexes the `_id` field, which can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key. In Azure Cosmos DB's API for MongoDB, sharding and indexing are separate concepts. You don't have to index your shard key. However, as with any other property in your document, if this property is a common filter in your queries, we recommend indexing the shard key.
 
 To index additional fields, you apply the MongoDB index-management commands. As in MongoDB, Azure Cosmos DB's API for MongoDB automatically indexes the `_id` field only. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
 
@@ -33,9 +33,9 @@ You can create indexes on any single field. The sort order of the single field i
 
 One query uses multiple single field indexes where available. You can create up to 500 single field indexes per container.
 
-### Compound indexes (MongoDB server version 3.6)
+### Compound indexes (MongoDB server version 3.6 and 4.0)
 
-Azure Cosmos DB's API for MongoDB supports compound indexes for accounts that use the version 3.6 wire protocol. You can include up to eight fields in a compound index. Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a single compound index. 
+Azure Cosmos DB's API for MongoDB supports compound indexes for accounts that use the version 3.6 and 4.0 wire protocol. You can include up to eight fields in a compound index. Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a single compound index. 
 
 > [!NOTE]
 > You can't create compound indexes on nested properties or arrays.
@@ -172,7 +172,7 @@ As an alternative, you could create multiple wildcard indexes.
 
 ## Index properties
 
-The following operations are common for accounts serving wire protocol version 3.6 and accounts serving earlier versions. You can learn more about [supported indexes and indexed properties](mongodb-feature-support-36.md#indexes-and-index-properties).
+The following operations are common for accounts serving wire protocol version 4.0 and accounts serving earlier versions. You can learn more about [supported indexes and indexed properties](mongodb-feature-support-36.md#indexes-and-index-properties).
 
 ### Unique indexes
 
@@ -236,7 +236,7 @@ The preceding command deletes any documents in the ```db.coll``` collection that
 
 ## Track index progress
 
-Version 3.6 of Azure Cosmos DB's API for MongoDB supports the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about in-progress operations on a database instance. You use the `currentOp` command to track all in-progress operations in native MongoDB. In Azure Cosmos DB's API for MongoDB, this command only supports tracking the index operation.
+Version 3.6 and 4.0 of Azure Cosmos DB's API for MongoDB supports the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about in-progress operations on a database instance. You use the `currentOp` command to track all in-progress operations in native MongoDB. In Azure Cosmos DB's API for MongoDB, this command only supports tracking the index operation.
 
 Here are some examples that show how to use the `currentOp` command to track index progress:
 
@@ -383,26 +383,26 @@ Currently, you can only create unique indexes when the collection contains no do
 
 Available indexing features and defaults are different for Azure Cosmos accounts that are compatible with version 3.2 of the MongoDB wire protocol. You can [check your account's version](mongodb-feature-support-36.md#protocol-support) and [upgrade to version 3.6](mongodb-version-upgrade.md).
 
-If you're using version 3.2, this section outlines key differences with version 3.6.
+If you're using version 3.2, this section outlines key differences with versions 3.6 and 4.0.
 
 ### Dropping default indexes (version 3.2)
 
-Unlike the 3.6 version of Azure Cosmos DB's API for MongoDB, version 3.2 indexes every property by default. You can use the following command to drop these default indexes for a collection (```coll```):
+Unlike the 3.6 and 4.0 versions of Azure Cosmos DB's API for MongoDB, version 3.2 indexes every property by default. You can use the following command to drop these default indexes for a collection (```coll```):
 
 ```JavaScript
 > db.coll.dropIndexes()
 { "_t" : "DropIndexesResponse", "ok" : 1, "nIndexesWas" : 3 }
 ```
 
-After dropping the default indexes, you can add more indexes as you would in version 3.6.
+After dropping the default indexes, you can add more indexes as you would in version 3.6 and 4.0.
 
 ### Compound indexes (version 3.2)
 
-Compound indexes hold references to multiple fields of a document. If you want to create a compound index, [upgrade to version 3.6](mongodb-version-upgrade.md).
+Compound indexes hold references to multiple fields of a document. If you want to create a compound index, [upgrade to version 3.6 or 4.0](mongodb-version-upgrade.md).
 
 ### Wildcard indexes (version 3.2)
 
-If you want to create a wildcard index, [upgrade to version 3.6](mongodb-version-upgrade.md).
+If you want to create a wildcard index, [upgrade to version 3.6 or 4.0](mongodb-version-upgrade.md).
 
 ## Next steps
 
