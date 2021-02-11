@@ -22,7 +22,7 @@ The *System default* maintenance window is 5PM to 8AM daily (local time of the A
 
 The ability to change to a different maintenance window is not available for every service level or in every region. For details on availability, see [Maintenance window availability](maintenance-window.md#availability).
 
-Also, changing a maintenance window often requires moving the database to a new area within the data center that results in a failover. The change typically takes place immediately, so consider this when configuring a maintenance window. 
+Changing a maintenance window often requires moving the database to a new area within the data center that results in a failover. The change typically takes place immediately, so consider this when configuring a maintenance window. 
 
 
 ## Configure maintenance window during database creation 
@@ -133,7 +133,25 @@ The following example creates a new managed instance and sets the maintenance wi
      -AsJob
    ```
 
+# [CLI](#tab/azure-cli)
 
+The following examples show how to configure the maintenance window using Azure CLI. You can [install the Azure CLI](/cli/azure/install-azure-cli), or use the Azure Cloud Shell. 
+
+Configuring the maintenance window with the Azure CLI is only available for SQL Managed Instance.
+
+## Launch Azure Cloud Shell
+
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
+
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/cli](https://shell.azure.com/cli). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
+
+## Set the maintenance window while creating a managed instance
+
+The following example creates a new managed instance and sets the maintenance window using [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create). The maintenance window is set on the instance, so all databases in the instance have the instance's maintenance window schedule. For `-MaintenanceConfigurationId`, the *MaintenanceConfigName* must be a valid value for your instance's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
+
+   ```azurecli
+   az sql mi create -g mygroup -n myinstance -l mylocation -i -u myusername -p mypassword --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/   Microsoft.Network/virtualNetworks/{VNETName}/subnets/{SubnetName} -m /subscriptions/{SubID}/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_   {Region}_{MaintenanceConfigName}
+   ```
 
 
 -----
@@ -213,6 +231,19 @@ Be sure to delete unneeded resources after you're finished with them to avoid un
 
    ```powershell-interactive
     Remove-AzResourceGroup -Name $resourceGroupName 
+   ```
+
+# [CLI](#tab/azure-cli)
+
+The following examples show how to configure the maintenance window using Azure CLI. You can [install the Azure CLI](/cli/azure/install-azure-cli), or use the Azure Cloud Shell.
+
+
+## Set the maintenance window on an existing managed instance
+
+The following example sets the maintenance window using [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update). The maintenance window is set on the instance, so all databases in the instance have the instance's maintenance window schedule. For `-MaintenanceConfigurationId`, the *MaintenanceConfigName* must be a valid value for your instance's region. To get valid values for your region, see [Discover available maintenance windows](#discover-available-maintenance-windows).
+
+   ```azurecli
+   az sql mi update -g mygroup  -n myinstance -m /subscriptions/{SubID}/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_{Region}_{MainteanceConfigName}
    ```
 
 
