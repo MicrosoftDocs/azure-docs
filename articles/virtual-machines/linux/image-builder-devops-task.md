@@ -3,7 +3,7 @@ title: Azure Image Builder Service DevOps Task
 description: Azure DevOps task to inject build artifacts into a VM image so you can install and configure your application and OS.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/10/2020
+ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -66,10 +66,10 @@ Use the resource group where the temporary image template artifact will be store
  
 ### Location
 
-The location is the region where the Image Builder will run. Only a set number of [regions](../windows/image-builder-overview.md#regions) are supported. The source images must be present in this location. For example, if you are using Shared Image Gallery, a replica must exist in that region.
+The location is the region where the Image Builder will run. Only a set number of [regions](../image-builder-overview.md#regions) are supported. The source images must be present in this location. For example, if you are using Shared Image Gallery, a replica must exist in that region.
 
 ### Managed Identity (Required)
-Image Builder requires a Managed Identity, which it uses to read source custom images, connect to Azure Storage, and create custom images. See [here](./image-builder-overview.md#permissions) for more details.
+Image Builder requires a Managed Identity, which it uses to read source custom images, connect to Azure Storage, and create custom images. See [here](../image-builder-overview.md#permissions) for more details.
 
 ### VNET Support
 
@@ -150,6 +150,12 @@ The following example explains how this works:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
+   You can reference multiple scripts, or add more commands, for example:
+
+    ```PowerShell
+    & 'c:\buildArtifacts\webapp\webconfig.ps1'
+    & 'c:\buildArtifacts\webapp\installAgent.ps1'
+    ```
 * Linux - On Linux systems the build artifacts are put into the `/tmp` directory. However, on many Linux OSs, on a reboot, the /tmp directory contents are deleted. If you want the artifacts to exist in the image, you must create another directory and copy them over.  For example:
 
     ```bash
@@ -331,4 +337,4 @@ The Image Template resource artifact is in the resource group specified initiall
 
 ## Next steps
 
-For more information, see [Azure Image Builder overview](image-builder-overview.md).
+For more information, see [Azure Image Builder overview](../image-builder-overview.md).

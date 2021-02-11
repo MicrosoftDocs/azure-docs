@@ -1,21 +1,17 @@
 ---
 
-title: Get started integrating Azure AD with apps | Microsoft Docs
+title: Get started integrating Azure AD with apps
 description: This article is a getting started guide for integrating Azure Active Directory (AD) with on-premises applications, and cloud applications.
 services: active-directory
-documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
-ms.subservice: app-mgmt
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
-ms.collection: M365-identity-device-management
 ---
 
 # Integrating Azure Active Directory with applications getting started guide
@@ -74,9 +70,7 @@ Each of your applications may have different authentication requirements. With A
 With Microsoft Azure AD Application Proxy, you can provide access to applications located inside your private network securely, from anywhere and on any device. After you have installed an application proxy connector within your environment, it can be easily configured with Azure AD.
 
 ### Integrating custom applications
-If you are writing a new application and want to assist developers in leveraging the power of Azure AD, see [Guiding developers](./developer-guidance-for-integrating-applications.md).
-
-If you want to add your custom application to the Azure Application Gallery, see [“Bring your own app” with Azure AD Self-Service SAML configuration](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
+If you want to add your custom application to the Azure Application Gallery, see [Publish your app to the Azure AD app gallery](../develop/v2-howto-app-gallery-listing.md).
 
 ## Managing access to applications
 The following articles describe ways you can manage access to applications once they have been integrated with Azure AD using Azure AD Connectors and Azure AD.

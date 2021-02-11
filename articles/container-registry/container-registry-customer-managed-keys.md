@@ -561,21 +561,31 @@ After completing the preceding steps, rotate the key to a new key in the key vau
 
 ## Troubleshoot
 
-### Removing user-assigned identity
+### Removing managed identity
 
-If you try to remove a user-assigned identity from a registry that is used for encryption, you might see an error message similar to:
+
+If you try to remove a user-assigned or system-assigned managed identity from a registry that is used to configure encryption, you might see an error message similar to:
  
 ```
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-You will also be unable to change (rotate) the encryption key. If this issue occurs, first reassign the identity using the GUID displayed in the error message. For example:
+You will also be unable to change (rotate) the encryption key. The resolution steps depend on the type of identity used for encryption.
+
+**User-assigned identity**
+
+If this issue occurs with a user-assigned identity, first reassign the identity using the GUID displayed in the error message. For example:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
         
 Then, after changing the key and assigning a different identity, you can remove the original user-assigned identity.
+
+**System-assigned identity**
+
+If this issue occurs with a system-assigned identity, please [create an Azure support ticket](https://azure.microsoft.com/support/create-ticket/) for assistance to restore the identity.
+
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Variables in templates
 description: Describes how to define variables in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 01/26/2021
 ---
 
 # Variables in ARM template
@@ -11,9 +11,11 @@ This article describes how to define and use variables in your Azure Resource Ma
 
 Resource Manager resolves variables before starting the deployment operations. Wherever the variable is used in the template, Resource Manager replaces it with the resolved value.
 
-The format of each variable must match one of the [data types](template-syntax.md#data-types).
-
 ## Define variable
+
+When defining a variable, provide a value or template expression that resolves to a [data type](template-syntax.md#data-types). You can use the value from a parameter or another variable when constructing the variable.
+
+You can use [template functions](template-functions.md) in the variable declaration, but you can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions. These functions get the runtime state of a resource, and can't be executed before deployment when variables are resolved.
 
 The following example shows a variable definition. It creates a string value for a storage account name. It uses several template functions to get a parameter value, and concatenates it to a unique string.
 
@@ -22,8 +24,6 @@ The following example shows a variable definition. It creates a string value for
   "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 },
 ```
-
-You can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions in the `variables` section. These functions get the runtime state of a resource, and can't be executed before deployment when variables are resolved.
 
 ## Use variable
 
@@ -39,56 +39,20 @@ In the template, you reference the value for the parameter by using the [variabl
 ]
 ```
 
+## Example template
+
+The following template doesn't deploy any resources. It just shows some ways of declaring variables.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variables.json":::
+
 ## Configuration variables
 
-You can define variables that hold related values for configuring an environment. You define the variable as an object with the values. The following example shows an object that holds values for two environments - **test** and **prod**.
+You can define variables that hold related values for configuring an environment. You define the variable as an object with the values. The following example shows an object that holds values for two environments - **test** and **prod**. You pass in one of these values during deployment.
 
-```json
-"variables": {
-  "environmentSettings": {
-    "test": {
-      "instanceSize": "Small",
-      "instanceCount": 1
-    },
-    "prod": {
-      "instanceSize": "Large",
-      "instanceCount": 4
-    }
-  }
-},
-```
-
-In `parameters`, you create a value that indicates which configuration values to use.
-
-```json
-"parameters": {
-  "environmentName": {
-    "type": "string",
-    "allowedValues": [
-      "test",
-      "prod"
-    ]
-  }
-},
-```
-
-To retrieve settings for the specified environment, use the variable and parameter together.
-
-```json
-"[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
-```
-
-## Example templates
-
-The following examples demonstrate scenarios for using variables.
-
-|Template  |Description  |
-|---------|---------|
-| [variable definitions](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Demonstrates the different types of variables. The template doesn't deploy any resources. It constructs variable values and returns those values. |
-| [configuration variable](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstrates the use of a variable that defines configuration values. The template doesn't deploy any resources. It constructs variable values and returns those values. |
-| [network security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) and [parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Constructs an array in the correct format for assigning security rules to a network security group. |
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variablesconfigurations.json":::
 
 ## Next steps
 
 * To learn about the available properties for variables, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 * For recommendations about creating variables, see [Best practices - variables](template-best-practices.md#variables).
+* For an example template that assigns security rules to a network security group, see [network security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) and [parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json).

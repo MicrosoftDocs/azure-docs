@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 01/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -52,9 +52,9 @@ To use the new feature, follow the steps below.
 
 1.  In the Azure portal, select **Azure Active Directory**.
 2.  Select **Azure AD Connect**.
-3.  Select **Manage provisioning**.
+3.  Select **Manage cloud sync**.
 
-    ![Manage provisioning](media/how-to-configure/manage-1.png)
+    ![Manage provisioning](media/how-to-install/install-6.png)
 
 4. Under **Configuration**, select your configuration.
 5. Select **Click to edit mappings**.  This will open the attribute mapping screen.

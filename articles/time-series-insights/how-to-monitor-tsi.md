@@ -22,9 +22,9 @@ The **Overview** page in the Azure portal for each Time Series Insights environm
 
 ## What is Azure Monitor
 
-Time Series Insights creates monitoring data using [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
+Time Series Insights creates monitoring data using [Azure Monitor](../azure-monitor/overview.md), which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
 
-Start with the article [Monitoring Azure resources with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource), which describes the following concepts:
+Start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md), which describes the following concepts:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -58,7 +58,7 @@ You can collect logs from the following categories for Azure Time Series Insight
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure Time Series Insights, along with metrics from other Azure services, by opening Metrics from the Azure Monitor menu. See [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
+You can analyze metrics for Azure Time Series Insights, along with metrics from other Azure services, by opening Metrics from the Azure Monitor menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) for details on using this tool.
 
 For a list of the platform metrics collected, see [Monitoring Azure Time Series Insights data reference](how-to-monitor-tsi-reference.md#metrics)
 
@@ -83,7 +83,7 @@ Azure Time Series Insights stores data in the following tables.
 |:---|:---|
 | TSIIngress | The table that stores data from the Ingress category. The Ingress category tracks errors that occur in the ingress pipeline. This category includes errors that occur when receiving events (such as failures to connect to an Event Source) and processing events (such as errors when parsing an event payload).
 
-To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see [Collection and routing](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub#collection-and-routing).
+To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see [Collection and routing](../iot-hub/monitor-iot-hub.md#collection-and-routing).
 
 ## Sample Queries
 
@@ -110,7 +110,7 @@ Following are queries that you can use to help you monitor your Azure Time Serie
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview), [logs](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks.
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/platform/alerts-metric-overview.md), [logs](../azure-monitor/platform/alerts-unified-log.md), and the [activity log](../azure-monitor/platform/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
 
 When creating an alert rule based on platform metrics, be aware that for Time Series Insights platform metrics that are collected in units of count, some aggregations may not be available or usable.
 

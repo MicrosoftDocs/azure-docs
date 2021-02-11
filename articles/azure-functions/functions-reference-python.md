@@ -364,7 +364,7 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python<sup>*</sup> versions |
 | ----- | ----- |
-| 3.x | 3.8<br/>3.7<br/>3.6 |
+| 3.x | 3.9 (Preview) <br/> 3.8<br/>3.7<br/>3.6 |
 | 2.x | 3.7<br/>3.6 |
 
 <sup>*</sup>Official CPython distributions
@@ -586,6 +586,7 @@ To view the full details of the list of these libraries, please visit the links 
 * [Python 3.6 Standard Library](https://docs.python.org/3.6/library/)
 * [Python 3.7 Standard Library](https://docs.python.org/3.7/library/)
 * [Python 3.8 Standard Library](https://docs.python.org/3.8/library/)
+* [Python 3.9 Standard Library](https://docs.python.org/3.9/library/)
 
 ### Azure Functions Python worker dependencies
 
@@ -613,7 +614,7 @@ For a list of preinstalled system libraries in Python worker Docker images, plea
 |  Functions runtime  | Debian version | Python versions |
 |------------|------------|------------|
 | Version 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
-| Version 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
+| Version 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
 
 ## Cross-origin resource sharing
 

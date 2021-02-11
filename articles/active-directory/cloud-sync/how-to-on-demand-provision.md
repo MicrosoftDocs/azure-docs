@@ -27,9 +27,9 @@ To use the new feature, follow the steps below.
 
 1.  In the Azure portal, select **Azure Active Directory**.
 2.  Select **Azure AD Connect**.
-3.  Select **Manage provisioning**.
+3.  Select **Manage cloud sync**.
 
-    ![Manage provisioning](media/how-to-configure/manage-1.png)
+    ![Manage provisioning](media/how-to-install/install-6.png)
 4. Under **Configuration**, select your configuration.
 5. Under **Validate** click the **Provision a user** button. 
 

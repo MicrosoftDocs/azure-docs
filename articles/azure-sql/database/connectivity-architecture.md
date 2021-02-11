@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
-ms.date: 06/26/2020
+ms.date: 01/25/2021
 ---
 # Azure SQL Database and Azure Synapse Analytics connectivity architecture
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -60,7 +60,7 @@ If you are connecting from outside Azure, your connections have a connection pol
 ![Diagram that shows how the TCP session is established via the Azure SQL Database gateway and all subsequent packets flow via the gateway.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Additionally open TCP ports 1434 and 14000-14999 to enable [Connecting with DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> Additionally open TCP ports 1434 and 14000-14999 to enable [Connecting with DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators#connecting-with-dac)
 
 ## Gateway IP addresses
 
@@ -77,7 +77,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | Brazil South         | 104.41.11.5, 191.233.200.14, 191.234.144.16, 191.234.152.3 |
 | Canada Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Canada East          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
-| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
+| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
 | China East           | 139.219.130.35     |
 | China East 2         | 40.73.82.1         |
 | China North          | 139.219.15.17      |
@@ -86,7 +86,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | East US 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0,  191.239.224.107, 104.208.150.3 |
 | France Central       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 |
-| France South         | 40.79.177.10 ,40.79.177.12 |
+| France South         | 40.79.177.0, 40.79.177.10 ,40.79.177.12 |
 | Germany Central      | 51.4.144.100       |
 | Germany North East   | 51.5.144.179       |
 | Germany West Central | 51.116.240.0, 51.116.248.0, 51.116.152.0 |

@@ -46,7 +46,7 @@ The default parameters in the parameters.json file are from the settings in your
       "value": null
     },
 ```
-Learn more about how to [deploy with a Resource Manager template file and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Learn more about how to [use an object as a parameter in a Resource Manager template](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Learn more about how to [deploy with a Resource Manager template file and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Learn more about how to [use an object as a parameter in a Resource Manager template](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).
 
 To use Managed Identity for Azure Data Lake Store Gen1 as output sink, you need to provide Access to the service principal using PowerShell before deploying to Azure. Learn more about how to [deploy ADLS Gen1 with Managed Identity with Resource Manager template](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 

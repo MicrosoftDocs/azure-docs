@@ -166,7 +166,7 @@ For more information about NSG, see [Network Security Groups](../virtual-network
 
 ## <a name="setupmonitor"></a>Step 4: Discover peering connections
 
-1. Navigate to the Network Performance Monitor overview tile by going to the **All Resources** page, then click on the whitelisted NPM Workspace.
+1. Navigate to the Network Performance Monitor overview tile by going to the **All Resources** page, then click on the allowlisted NPM Workspace.
 
    ![npm workspace](./media/how-to-npm/npm.png)
 2. Click the **Network Performance Monitor** overview tile to bring up the dashboard. The dashboard contains an ExpressRoute page, which shows that ExpressRoute is in an 'unconfigured state'. Click **Feature Setup** to open the Network Performance Monitor configuration page.

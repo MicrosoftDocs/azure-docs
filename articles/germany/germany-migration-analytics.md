@@ -65,7 +65,7 @@ To migrate Azure Stream Analytics services from Azure Germany to global Azure, m
 
 For more information:
 
-- Refresh your knowledge by completing the [Stream Analytics tutorials](../stream-analytics/stream-analytics-manage-job.md).
+- Refresh your knowledge by completing the [Stream Analytics tutorials](../stream-analytics/stream-analytics-real-time-fraud-detection.md).
 - Review the [Stream Analytics overview](../stream-analytics/stream-analytics-introduction.md).
 - Learn how to [create a Stream Analytics job by using PowerShell](../stream-analytics/stream-analytics-quick-create-powershell.md).
 

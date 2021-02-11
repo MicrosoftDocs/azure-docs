@@ -85,7 +85,7 @@ Create a new cluster, and don't use Uptime SLA:
 az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
 ```
 
-Use the [`az aks update`][az-aks-nodepool-update] command to update the existing cluster:
+Use the [`az aks update`][az-aks-update] command to update the existing cluster:
 
 ```azurecli-interactive
 # Update an existing cluster to use Uptime SLA
@@ -130,6 +130,6 @@ Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
+[az-aks-update]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_update
 [az-group-delete]: /cli/azure/group#az-group-delete
 [private-clusters]: private-clusters.md

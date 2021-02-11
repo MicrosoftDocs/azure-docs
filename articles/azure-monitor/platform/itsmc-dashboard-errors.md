@@ -1,6 +1,6 @@
 ---
-title: Common errors
-description: This document contain information about common errors that exists in the dashboard 
+title: Connector status errors in the ITSMC dashboard
+description: Learn about common errors that exist in the IT Service Management Connector dashboard. 
 ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
@@ -9,59 +9,77 @@ ms.date: 01/18/2021
 
 ---
 
-# Errors in the connector status
+# Connector status errors in the ITSMC dashboard
 
-In the connector status list you can find errors that can help you to fix issues in your ITSM connector.
+The IT Service Management Connector (ITSMC) dashboard presents errors that can help you to fix problems in your connector.
 
-## Status Common Errors
+The following sections describe common errors that appear in the connector status section of the dashboard and how you can resolve them.
 
-in this section you can find the common errors that presented in the connector status section and how you should resolve it:
+## Unexpected response
 
-* **Error**: "Unexpected response from ServiceNow along with success status code. Response: { "import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "result": [ { "transform_map": "OMS Incident", "table": "incident", "status": "error", "error_message": "{Target record not found|Invalid table|Invalid staging table" }"
+**Error**: "Unexpected response from ServiceNow along with success status code. Response: { "import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "result": [ { "transform_map": "OMS Incident", "table": "incident", "status": "error", "error_message": "{Target record not found|Invalid table|Invalid staging table" }"
 
-    **Cause**: Such error is returned from ServiceNow when:
-  * A custom script deployed in ServiceNow instance causes incidents to be ignored.
-  * "OMS Integrator App" code itself was modified on ServiceNow side, e.g. the onBefore script.
+**Cause**: ServiceNow returns this error when:
 
-    **Resolution**: Disable all custom scripts or code modifications of the data import path.
+* A custom script deployed in a ServiceNow instance causes incidents to be ignored.
+* "OMS Integrator app" code was modified on the ServiceNow side (for example, through the `onBefore` script).
 
-* **Error**: "{"error":{"message":"Operation Failed","detail":"ACL Exception Update Failed due to security constraints"}"
+**Resolution**: Disable all custom scripts or code modifications.
 
-    **Cause**: ServiceNow permissions misconfiguration
+## Exception update failure
 
-    **Resolution**: Check that all the roles have been properly assigned as [specified](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role).
+**Error**: "{"error":{"message":"Operation Failed","detail":"ACL Exception Update Failed due to security constraints"}"
 
-* **Error**: "An error occurred while sending the request."
+**Cause**: ServiceNow permissions are misconfigured.
 
-    **Cause**: "ServiceNow Instance unavailable"
+**Resolution**: Check that all the roles are properly assigned as [specified](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role).
 
-    **Resolution**: Check your instance in ServiceNow it might be deleted or unavailable.
+## Problem sending a request
 
-* **Error**: "ServiceDeskHttpBadRequestException: StatusCode=429"
+**Error**: "An error occurred while sending the request."
 
-    **Cause**: ServiceNow rate limits are too high/low.
+**Cause**: A ServiceNow instance is unavailable.
 
-    **Resolution**: Increase or cancel the rate limits in ServiceNow instance as explained [here](https://docs.servicenow.com/bundle/london-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html).
+**Resolution**: Check your instance in ServiceNow. It might be deleted or unavailable.
 
-* **Error**: "AccessToken and RefreshToken invalid. User needs to authenticate again."
+## ServiceNow rate problem
 
-    **Cause**: Refresh token is expired.
+**Error**: "ServiceDeskHttpBadRequestException: StatusCode=429"
 
-    **Resolution**: Sync the ITSM Connector to generate a new refresh token as explained [here](./itsmc-resync-servicenow.md).
+**Cause**: ServiceNow rate limits are too high or too low.
 
-* **Error**: "Could not create/update work item for alert {alertName}. ITSM Connector {connectionIdentifier} does not exist or was deleted."
+**Resolution**: Increase or cancel the rate limits in the ServiceNow instance, as explained in the [ServiceNow documentation](https://docs.servicenow.com/bundle/london-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html).
 
-    **Cause**: ITSM Connector was deleted.
+## Invalid refresh token
 
-    **Resolution**: The ITSM Connector was deleted but there are still ITSM action groups defined associated to it. There are 2 options to solve this issue:
-  * Find and disable or delete such action
-  * [Reconfigure the action group](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) to use an existing ITSM Connector.
-  * [Create a new ITSM connector](./itsmc-definition.md#create-an-itsm-connection) and [reconfigure the action group to use it](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
+**Error**: "AccessToken and RefreshToken invalid. User needs to authenticate again."
 
-## UI Common Errors
+**Cause**: A refresh token is expired.
 
-* **Error**:"Something went wrong. Could not get connection details." This error presented when the customer defines ITSM action group.
+**Resolution**: Sync ITSMC to generate a new refresh token, as explained in [How to manually fix sync problems](./itsmc-resync-servicenow.md).
 
-    **Cause**: Newly created ITSM Connector has yet to finish the initial Sync.
+## Missing connector
 
-    **Resolution**: When a new ITSM connector is created, ITSM Connector starts syncing information from ITSM system, such as work item templates and work items. Sync the ITSM Connector to generate a new refresh token as explained [here](./itsmc-resync-servicenow.md).
+**Error**: "Could not create/update work item for alert {alertName}. ITSM Connector {connectionIdentifier} does not exist or was deleted."
+
+**Cause**: ITSMC was deleted.
+
+**Resolution**: ITSMC was deleted, but defined IT Service Management (ITSM) action groups are still associated with it. There are three options to solve this problem:
+
+* Find and disable or delete such action groups.
+* [Reconfigure the action groups](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) to use an existing ITSMC instance.
+* [Create a new ITSMC instance](./itsmc-definition.md#create-an-itsm-connection) and [reconfigure the action groups to use it](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
+
+## Lack of connection details
+
+**Error**:"Something went wrong. Could not get connection details." This error appears when you define an ITSM action group.
+
+**Cause**: Such an error appears in either of these situations:
+
+* A newly created ITSM Connector instance has yet to finish the initial sync.
+* The connector was not defined correctly.
+
+**Resolution**: 
+
+* When a new ITSMC instance is created, it starts syncing information from the ITSM system, such as work item templates and work items. [Sync ITSMC to generate a new refresh token](./itsmc-resync-servicenow.md).
+* [Review your connection details in ITSMC](./itsmc-connections-servicenow.md#create-a-connection) and check that ITSMC can successfully [sync](./itsmc-resync-servicenow.md).
