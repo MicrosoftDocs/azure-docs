@@ -215,12 +215,17 @@ The Audit policy definitions available for Guest Configuration include the
 [Azure Arc for servers](../../../azure-arc/servers/overview.md) that are in the scope of the policy
 assignment are automatically included.
 
+## Troubleshooting guest configuration
+
+For more information about troubleshooting Guest Configuration, see
+[Azure Policy troubleshooting](../troubleshoot/general.md).
+
 ### Multiple assignments
 
 Guest Configuration policy definitions currently only support assigning the same Guest Assignment
 once per machine, even if the Policy assignment uses different parameters.
 
-## Client log files
+### Client log files
 
 The Guest Configuration extension writes log files to the following locations:
 
@@ -260,6 +265,15 @@ linesToIncludeAfterMatch=10
 logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
 egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
+
+### Client files
+
+The Guest Configuration client downloads content packages to a machine and extracts the contents.
+To verify what content has been downloaded and stored, view the folder locations given below.
+
+Windows: `c:\programdata\guestconfig\configurations`
+
+Linux: `/var/lib/guestconfig/configurations`
 
 ## Guest Configuration samples
 
