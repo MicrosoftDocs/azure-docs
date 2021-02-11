@@ -13,18 +13,18 @@ In order to deploy an update to devices from Device Update for IoT Hub, you firs
 
 ## Import manifest
 
-An import manifest is a JSON file following a specific schema which you will use to define important information about the update that you are importing into Device Update for IoT Hub. You will submit both your import manifest and associated update file or files (such as a firmware update package) as part of the import process. The metadata defined in the import manifest is used to ingest the content and also at deployment time (for example, to validate if an update was successfully installed).
+An import manifest is a JSON file that uses a specific schema to define important information about the update that you are importing into Device Update for IoT Hub. You will submit both your import manifest and associated update file or files (such as a firmware update package) as part of the import process. The metadata defined in the import manifest is used to ingest the content and also at deployment time (for example, to validate if an update was installed correctly).
 
-The import manifest contains several items which are important concepts to understand about Device Update for IoT Hub, which are outlined below.
+The import manifest contains several items that are important concepts to understand about Device Update for IoT Hub, which are outlined below.
 
-### Update identity (Update Id)
+### Update identity (Update ID)
 
-The update identity defines important properties about an update which is being imported into Device Update for IoT Hub. These properties are used to determine if a device is compliant, meaning it is on the latest available update that is compatible with that device.
+The update identity defines important properties about an update that is being imported into Device Update for IoT Hub. These properties are used to determine if a device is compliant, meaning it is on the latest available update that is compatible with that device.
 
 The update identity is comprised of three parts:
 * Provider: this is the entity who is creating or directly responsible for the update. It will often be a company name.
 * Name: this is the most specific indicator of the target of the update. It will often be a device or model name.
-* Version: this is a version number distinguishing this update from others which have the same Provider and Name. This version is used by the Device Update for IoT Hub service, and may or may not match a version of an individual software component on the device. 
+* Version: this is a version number distinguishing this update from others that have the same Provider and Name. This version is used by the Device Update for IoT Hub service, and may or may not match a version of an individual software component on the device. 
 
 ### Compatibility
 
