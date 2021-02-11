@@ -29,7 +29,7 @@ Bypassing [home-realm discovery](https://docs.microsoft.com/azure/active-directo
 
 **Requiring specific kinds of credentials**
 
-Applications that use SAML can specify the type of authentication that they want to use by [using the RequestedAuthnContext element](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#requestauthncontext). However, this will prevent passwordless authentication from working if you require a password.
+Applications that use SAML can specify the type of authentication that they want to use by [using the RequestedAuthnContext element](single-sign-on-saml-protocol.md#requestauthncontext). However, this will prevent passwordless authentication from working if you require a password.
 
 The RequestedAuthnContext element is optional, so to resolve this you can remove it from your SAML authentication requests. This is a general best practice, as using this element can also prevent other authentication options like multi-factor authentication from working correctly.
 
