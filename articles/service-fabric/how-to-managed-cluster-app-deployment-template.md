@@ -1,3 +1,11 @@
+---
+title: Deploy a Service Fabric managed cluster (preview) application using ARM template
+description: Deploy an application to a Azure Service Fabric managed cluster (preview) using an Azure Resource Manager template.
+ms.topic: how-to
+ms.date: 02/15/2021
+---
+# Deploy a Service Fabric managed cluster (preview) application using ARM template
+
 You have multiple options for deploying Azure Service Fabric applications on your Service Fabric managed cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources).
 
 Managing your applications as resources in Resource Manager can help you gain improvements in these areas:
@@ -153,13 +161,13 @@ You might upgrade an application that's already deployed to a Service Fabric clu
 
 To delete an application that was deployed by using the application resource model in Resource Manager:
 
-1. Use the [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) cmdlet to get the resource ID for the application:
+1. Use the [Get-AzResource](/powershell/module/az.resources/get-azresource) cmdlet to get the resource ID for the application:
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) cmdlet to delete the application resources:
+1. Use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource) cmdlet to delete the application resources:
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
