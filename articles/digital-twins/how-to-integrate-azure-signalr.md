@@ -143,7 +143,7 @@ Next, set up the **SignalR integration web app sample** with these steps:
 
 1. Using Visual Studio or any code editor of your choice, open the unzipped _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ folder that you downloaded in the [*Download the sample applications*](#download-the-sample-applications) section.
 
-1. Open the *src/App.js* file, and replace the URL in `HubConnectionBuilder` with the HTTP endpoint URL of the **negotiate** function that you saved earlier:
+1. Open the *src/App.js* file, and replace the Function URL in `HubConnectionBuilder` with the HTTP endpoint URL of the **negotiate** function that you saved earlier:
 
     ```javascript
         const hubConnection = new HubConnectionBuilder()
