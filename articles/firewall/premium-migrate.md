@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 02/11/2021
 ms.author: victorh
 ---
 
@@ -32,7 +32,7 @@ Usage example:
 
 ```azurepowershell
 <#
-    .SYNOPSIS
+.SYNOPSIS
         Given an Azure firewall policy id the script will transform it to a Premium Azure firewall policy. 
         The script will first pull the policy, transform/add various parameters and then upload a new premium policy. 
         The created policy will be named <previous_policy_name>_premium if no new name provided else new policy will be named as the parameter passed.  
@@ -131,7 +131,7 @@ function ValidateAzNetworkModuleExists {
         Write-Host "Please install Az.Network module version 4.5.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
         exit(1)
     }
-    Import-Module Az.Network
+    Import-Module Az.Network -MinimumVersion 4.5.0
 }
 
 ValidateAzNetworkModuleExists

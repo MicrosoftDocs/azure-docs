@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 02/11/2021
 ms.author: victorh
 ---
 
@@ -25,7 +25,7 @@ ms.author: victorh
 
 For more information, see [Azure Firewall Premium features](premium-features.md).
 
-You'll deploy a test environment that has a central VNet (10.0.0.0/16) with three subnets:
+You'll use a template to deploy a test environment that has a central VNet (10.0.0.0/16) with three subnets:
 - a worker subnet (10.0.10.0/24)
 - an Azure Bastion subnet (10.0.20.0/24)
 - a firewall subnet (10.0.100.0/24)
@@ -42,7 +42,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Deploy the infrastructure
 
-Use an [Azure Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-premium) to deploy the test infrastructure.
+The template deploys a complete testing environment for Azure Firewall Premium enabled with IDPS, TLS Inspection, URL Filtering and Web Categories:
+
+- a new Azure Firewall Premium and Firewall Policy with predefined settings to allow easy validation of its core capabilities (IDPS, TLS Inspection, URL Filtering and Web Categories)
+- deploys all dependencies including Key Vault and a Managed Identity. In a production environment these resources may already be created and not needed in the same template.
+- generates self signed Root CA and deploys it on the generated Key Vault
+-  generates a derived Intermediate CA and deploys it on a Windows test virtual machine (WorkerVM)
+- a Bastion Host (BastionHost) is also deployed and can be used to connect to the Windows testing machine (WorkerVM)
+
+
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-premium%2Fazuredeploy.json)
 
 ## Test the firewall
 

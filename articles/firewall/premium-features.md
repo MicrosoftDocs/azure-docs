@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 02/11/2021
 ms.author: victorh
 ---
 
@@ -40,6 +40,9 @@ Azure Firewall Premium Preview includes the following features:
 ### TLS inspection
 
 Azure Firewall Premium terminates outbound and east-west TLS connections. Inbound TLS inspection is supported with [Azure Application Gateway](../web-application-firewall/ag/ag-overview.md) allowing end-to-end encryption. Azure Firewall does the required value-added security functions and re-encrypts the traffic that is sent to the original destination.
+
+> [!TIP]
+> TLS 1.0 and 1.1 are being deprecated and won’t be supported. TLS 1.0 and 1.1 versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable, and while they still currently work to allow backwards compatibility, they aren't recommended. Migrate to TLS 1.2 as soon as possible.
 
 To learn more about Azure Firewall Premium Preview Intermediate CA certificate requirements, see [Azure Firewall Premium Preview certificates](premium-certificates.md).
 
@@ -81,11 +84,7 @@ Azure Firewall Premium Preview has the following known issues:
 
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|
-|TLS Inspection supported only on HTTPS standard port|TLS Inspection supports HTTPS/443 only|None.<br>Other ports/protocols to be added by GA|
-|ESNI support for FQDN resolution in HTTPS|Encrypted SNI isn't supported in HTTPS handshake|Today only Firefox supports ESNI through custom configuration. Suggested mitigation is to use another browser.|
-|TLS 1.0 & 1.1|TLS 1.0 & 1.1 are being deprecated and won’t be supported. TLS 1.0 & 1.1 versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they aren't recommended.|Shift to TLS 1.2|
-|PaaS Inbound Traffic|The TLS inspection can't generate valid certificates because Internet clients don't trust the customer's CA.|None|
-|Untrusted Certificates|Users may connect from time to time to servers with untrusted certificates. Azure Firewall will drop the connection as if the server terminated the connection.|None
+|ESNI support for FQDN resolution in HTTPS|Encrypted SNI isn't supported in HTTPS handshake|Today only Firefox supports ESNI through custom configuration. Suggested workaround is to disable this feature.|
 |Client Certificates (TLS)|Client certificates are used to build a mutual identity trust between the client and the server. Client certificates are used during a TLS negotiation. Azure firewall renegotiates a connection with the server and has no access to the private key of the client certificates.|None|
 |QUIC/HTTP3|QUIC is the new major version of HTTP. It's a UDP-based protocol over 80 (PLAN) and 443 (SSL). FQDN/URL/TLS inspection won't be supported.|Configure passing UDP 80/443 as network rules.|
 |Secure Hub and forced tunneling not supported in Premium|Currently the Firewall Premium SKU isn't supported in Secure Hub deployments and forced tunnel configurations.|Fix scheduled for GA.|
