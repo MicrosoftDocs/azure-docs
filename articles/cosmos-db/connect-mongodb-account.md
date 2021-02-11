@@ -70,6 +70,16 @@ For example, consider the account shown in the **Connection String** blade. A va
 
 `mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true`
 
+## Driver Requirements
+
+Client drivers must support the SNI TLS extension and/or the appName connection string option. 
+
+> [!Note]
+> Review your client driver documentation to check for SNI support, however all drivers that support wire protocol 3.4 or greater will have support.
+
+> [!Note]
+> If appName is provided, it must be included as found in the connection string as in the Portal.
+
 ## Next steps
 
 - Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
