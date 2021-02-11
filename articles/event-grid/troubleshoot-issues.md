@@ -1,11 +1,12 @@
 ---
-title: Azure Event Grid - Troubleshoot issues
+title: Troubleshoot Event Grid issues
 description: This article provides different ways of troubleshooting Azure Event Grid issues
 ms.topic: conceptual
 ms.date: 02/11/2021
 ---
 
 # Troubleshoot Azure Event Grid issues
+This article provides information that helps you with troubleshooting Azure Event Grid issues. 
 
 ## Diagnostic logs
 Enable diagnostic settings for Event Grid topics or domains to capture and view publish and delivery failure logs. For more information, see [Diagnostic logs](enable-diagnostic-logs-topic.md).
