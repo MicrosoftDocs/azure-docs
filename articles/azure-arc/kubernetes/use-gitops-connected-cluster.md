@@ -13,7 +13,7 @@ keywords: "GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, c
 
 # Deploy configurations using GitOps on Arc enabled Kubernetes cluster (Preview)
 
-This getting started guide will walk you through applying a set of configurations on an Azure Arc enabled Kubernetes cluster.
+This getting started guide will walk you through applying configurations on an Azure Arc enabled Kubernetes cluster.
 
 ## Before you begin
 
@@ -24,7 +24,6 @@ Also checkout the [conceptual doc](./conceptual-configurations.md) on configurat
 ## Create a configuration
 
 The [example repository](https://github.com/Azure/arc-k8s-demo) used in this article is structured around the persona of a cluster operator who would like to provision a few namespaces, deploy a common workload, and provide some team-specific configuration. Using this repository creates the following resources on your cluster:
-
 
 * **Namespaces:** `cluster-config`, `team-a`, `team-b`
 * **Deployment:** `cluster-config/azure-vote`
