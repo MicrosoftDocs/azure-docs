@@ -5,7 +5,7 @@ manager: evansma
 author: rayne-wiselman 
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 02/10/2021
 ms.author: raynew
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
@@ -51,26 +51,49 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 **Target region charges** | Verify pricing and charges associated with the target region to which you're moving VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help you.
 
 
-## Verify key vault permissions (Azure Disk Encryption)
+## Verify user permissions on key vault for VMS using Azure Disk Encryption (ADE)
 
-If you're moving VMs that have Azure disk encryption enabled, in the key vaults in the source and destination regions, verify/set permissions to ensure that moving encrypted VMs will work as expected. 
+If you're moving VMs that have Azure disk encryption enabled, you need to run a script as mentioned [below](#copy-the-keys-to-the-destination-key-vault) for which the user executing the script should have appropriate permissions. Please refer to below table to know about permissions needed. The options to change the permissions can be found by navigating to the key vault in the Azure portal, Under **Settings**, select **Access policies**.
 
-1. In the Azure portal, open the key vault in the source region.
-2. Under **Settings**, select **Access policies**.
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Button to open key vault access policies." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Button to open key vault access policies." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
+If there are no user permissions, select **Add Access Policy**, and specify the permissions. If the user account already has a policy, under **User**, set the permissions as per the table below.
 
-3. If there are no user permissions, select **Add Access Policy**, and specify the permissions. If the user account already has a policy, under **User**, set the permissions.
+Azure VMs using ADE can have the following variations and the permissions need to be set accordingly for relevant components.
+- Default option where the disk is encrypted using only secrets
+- Added security using [key encryption key](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek)
 
-    - If VMs you want to move are enabled with Azure disk encryption (ADE), In **Key Permissions** > **Key Management Operations**, select **Get** and **List** if they're not selected.
-    - If you're using customer-managed keys (CMKs) to encrypt disk encryption keys used for encryption-at-rest (server-side encryption), in **Key Permissions** > **Key Management Operations**, select **Get** and **List**. Additionally, in **Cryptographic Operations**, select **Decrypt** and **Encrypt**
- 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png" alt-text="Dropdown list to select key vault permissions." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png":::
+### Source region keyvault
 
-4. In **Secret permissions**,  **Secret Management Operations**, select **Get**, **List**, and **Set**. 
-5. If you're assigning permissions to a new user account, in **Select principal**, select the user to whom you're assigning permissions.
-6. In **Access policies**, make sure that **Azure Disk Encryption for volume encryption** is enabled.
-7. Repeat the procedure for the key vault in the destination region.
+The below permissions need to be set for the user executing the script 
+
+**Component** | **Permission needed**
+--- | ---
+Secrets|  Get permission <br> </br> In **Secret permissions**>  **Secret Management Operations**, select **Get** 
+Keys <br> </br> If you are using Key encryption key (KEK) you need this permission in addition to secrets| Get and Decrypt permission <br> </br> In **Key Permissions** > **Key Management Operations**, select **Get**. In **Cryptographic Operations**, select **Decrypt**.
+
+### Destination region keyvault
+
+In **Access policies**, make sure that **Azure Disk Encryption for volume encryption** is enabled. 
+
+The below permissions need to be set for the user executing the script 
+
+**Component** | **Permission needed**
+--- | ---
+Secrets|  Set permission <br> </br> In **Secret permissions**>  **Secret Management Operations**, select **Set** 
+Keys <br> </br> If you are using Key encryption key (KEK) you need this permission in addition to secrets| Get, Create and Encrypt permission <br> </br> In **Key Permissions** > **Key Management Operations**, select **Get** and **Create** . In **Cryptographic Operations**, select **Encrypt**.
+
+In addition to the the above permissions, in the destination key vault you need to add permissions for the [Managed System Identity](./common-questions.md#how-is-managed-identity-used-in-resource-mover) that Resource Mover uses for accessing the Azure resources on your behalf. 
+
+1. Under **Settings**, select **Add Access policies**. 
+2. In **Select principal**, search for the MSI. The MSI name is ```movecollection-<sourceregion>-<target-region>-<metadata-region>```. 
+3. Add the below permissions for the MSI
+
+**Component** | **Permission needed**
+--- | ---
+Secrets|  Get and List permission <br> </br> In **Secret permissions**>  **Secret Management Operations**, select **Get** and **List** 
+Keys <br> </br> If you are using Key encryption key (KEK) you need this permission in addition to secrets| Get, List permission <br> </br> In **Key Permissions** > **Key Management Operations**, select **Get** and **List**
+
 
 
 ### Copy the keys to the destination key vault
