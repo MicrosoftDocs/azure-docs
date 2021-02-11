@@ -30,6 +30,16 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
 
 3.	Create the Text Analytics resource and go to the “keys and endpoint blade” in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
 
+## Change your pricing tier 
+
+If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you can update it to use the Standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/):
+
+1. Navigate to your Text Analytics resource in the [Azure portal](https://portal.azure.com/).
+2. Select **Pricing tier** in the left navigation menu. It will be below **RESOURCE MANAGEMENT**. 
+3. Choose the Standard (S) pricing tier. Then click **Select**.
+
+You can also create a new Text Analytics resource with the Standard (S) pricing tier, and migrate your applications to use the credentials for the new resource. 
+
 ## Using the API synchronously
 
 You can call Text Analytics synchronously (for low latency scenarios). You have to call each API (feature) separately when using synchronous API. If you need to call multiple features then check out below section on how to call Text Analytics asynchronously. 

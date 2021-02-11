@@ -508,7 +508,7 @@ If you can't send IDoc packets from SAP to your logic app's trigger, see the Tra
   * To have these segments released by SAP, contact the ABAP engineer for your SAP system.
 ### Asynchronous request-reply for triggers
 
-The SAP connector supports Azure's [asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply.md) for Logic Apps triggers. You can use this pattern to create successful requests that would have otherwise failed with the default synchronous request-reply pattern. 
+The SAP connector supports Azure's [asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply) for Logic Apps triggers. You can use this pattern to create successful requests that would have otherwise failed with the default synchronous request-reply pattern. 
 
 > [!TIP]
 > In logic apps with multiple response actions, all response actions must use the same request-reply pattern. For example, if your logic app uses a switch control with multiple possible response actions, you must configure all the response actions to use the same request-reply pattern, either synchronous or asynchronous. 

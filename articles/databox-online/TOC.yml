@@ -180,6 +180,10 @@
         href: azure-stack-edge-gpu-deploy-sample-module.md 
       - name: GPU module via Marketplace
         href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md 
+      - name: Modules from FPGA devices
+        href: azure-stack-edge-gpu-modify-fpga-modules-gpu.md
+      - name: Module via Azure portal 
+        href: azure-stack-edge-gpu-deploy-compute-module-simple.md
     - name: Deploy Kubernetes workloads
       items:
       - name: Via kubectl
@@ -205,7 +209,9 @@
         - name: Enable Arc on Kubernetes cluster
           href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md 
         - name: Deploy stateless app via GitOps
-          href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md              
+          href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md   
+        - name: Deploy Azure Arc Data Controller
+          href: azure-stack-edge-gpu-deploy-arc-data-controller.md           
     - name: Configure Azure Resource Manager (Preview)
       items:
       - name: Connect via Azure PowerShell
@@ -282,6 +288,8 @@
       items:
       - name: Using metric charts
         href: azure-stack-edge-monitor.md 
+      - name: Manage device event alerts
+        href: azure-stack-edge-gpu-manage-device-event-alert-notifications.md 
       - name: Using Kubernetes dashboard
         href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md 
       - name: Using Azure Monitor
@@ -382,7 +390,9 @@
     - name: Return device
       href: azure-stack-edge-return-device.md
     - name: Replace device
-      href: azure-stack-edge-replace-device.md   
+      href: azure-stack-edge-replace-device.md 
+    - name: Migrate to GPU device
+      href: azure-stack-edge-migrate-fpga-gpu.md  
   - name: Release notes
     items:
       - name: 2101 - Current

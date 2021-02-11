@@ -1,13 +1,11 @@
 ---
 title: Troubleshoot security and access control issues
 description: Learn how to troubleshoot security and access control issues in Azure Data Factory. 
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 02/04/2021
 ms.author: lle
-ms.reviewer: craigg
 ---
 
 # Troubleshoot Azure Data Factory security and access control issues
@@ -83,9 +81,10 @@ To verify whether the Data Factory fully qualified domain name (FQDN) is resolve
 #### Resolution
 
 To resolve the issue, do the following:
-- Refer to the [Azure Private Link for Azure Data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints) article. The instruction is for configuring the private DNS zone or server to resolve the Data Factory FQDN to a private IP address.
 
-- We recommend using a custom DNS as the long-term solution. However, if you don't want to configure the private DNS zone or server, try the following temporary solution:
+- As option, we would like to suggest you to manually add a "Virtual Network link" under the Data Factory "Private link DNS Zone". For details, refer to the [Azure Private Link for Azure Data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints) article. The instruction is for configuring the private DNS zone or custom DNS server to resolve the Data Factory FQDN to a private IP address. 
+
+- However, if you don't want to configure the private DNS zone or custom DNS server, try the following temporary solution:
 
   1. Change the host file in Windows, and map the private IP (the Azure Data Factory private endpoint) to the Azure Data Factory FQDN.
   
