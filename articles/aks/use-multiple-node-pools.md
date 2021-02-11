@@ -3,7 +3,7 @@ title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/08/2020
+ms.date: 02/11/2021
 
 ---
 
@@ -710,33 +710,14 @@ az deployment group create \
 
 It may take a few minutes to update your AKS cluster depending on the node pool settings and operations you define in your Resource Manager template.
 
-## Assign a public IP per node for your node pools (preview)
+## Assign a public IP per node for your node pools
 
 > [!WARNING]
-> You must install the CLI preview extension 0.4.43 or greater to use the public IP per node feature.
+> You must install the CLI version <x.x.x> or greater to use the public IP per node feature.
 
-AKS nodes do not require their own public IP addresses for communication. However, scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved on AKS by registering for a preview feature, Node Public IP (preview).
+AKS nodes do not require their own public IP addresses for communication. However, scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved on AKS by using Node Public IP.
 
-To install and update the latest aks-preview extension, use the following Azure CLI commands:
-
-```azurecli
-az extension add --name aks-preview
-az extension update --name aks-preview
-az extension list
-```
-
-Register for the Node Public IP feature with the following Azure CLI command:
-
-```azurecli-interactive
-az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
-```
-It may take several minutes for the feature to register.  You can check the status with the following command:
-
-```azurecli-interactive
- az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodePublicIPPreview')].{Name:name,State:properties.state}"
-```
-
-After successful registration, create a new resource group.
+First, create a new resource group.
 
 ```azurecli-interactive
 az group create --name myResourceGroup2 --location eastus
@@ -754,13 +735,11 @@ For existing AKS clusters, you can also add a new node pool, and attach a public
 az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
 ```
 
-> [!Important]
-> During preview, the Azure Instance Metadata Service doesn't currently support retrieval of public IP addresses for the standard tier VM SKU. Due to this limitation, you can't use kubectl commands to display the public IPs assigned to the nodes. However, the IPs are assigned and function as intended. The public IPs for your nodes are attached to the instances in your Virtual Machine Scale Set.
-
 You can locate the public IPs for your nodes in various ways:
 
-* Use the Azure CLI command [az vmss list-instance-public-ips][az-list-ips]
+* Use the Azure CLI command [az vmss list-instance-public-ips][az-list-ips].
 * Use [PowerShell or Bash commands][vmss-commands]. 
+* Use kubectl to display the public IPs assigned to the nodes.
 * You can also view the public IPs in the Azure portal by viewing the instances in the Virtual Machine Scale Set.
 
 > [!Important]
