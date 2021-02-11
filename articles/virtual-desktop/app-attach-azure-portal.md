@@ -167,6 +167,9 @@ To publish the apps:
 
 After assigning MSIX apps to an app group, you'll need to grant users access to them. You can assign access by adding users or user groups to an app group with published MSIX applications. Follow the instructions in [Manage app groups with the Azure portal](manage-app-groups.md) to assign your users to an app group.
 
+[!Note] MSIX app attach Remote Apps may disappear from the feed during public preview while you're testing remote apps. The apps disappear from the feed because host pools in the evaluation environment may get served by an RD Broker in a production environment, which is done to improve end-user experience. Because the RD Broker in the production environment doesn't register the presence of the MSIX app attach Remote Apps, it won't display them.
+
+
 ## Change MSIX package state
 
 Next, you'll need to change the MSIX package state to either **Active** or **Inactive**, depending on what you want to do with the package. Active packages are packages your users can interact with once they're published. Inactive packages are ignored by Windows Virtual Desktop, so your users can't interact with the apps inside.
