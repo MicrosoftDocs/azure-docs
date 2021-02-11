@@ -85,11 +85,13 @@ Next, you'll add your own code to the Python script to call the Form Recognizer 
 In VSCode, navigate to the function's *requirements.txt* file. This defines the dependencies for your script. Add the following Python packages to the file:
 
 ```
+cryptography
 azure-functions
 azure-storage-blob
+azure-identity
 requests
-numpy
 pandas
+numpy
 ```
 
 Then, open the *\_\_init\_\_.py* script. Add the following `import` statements:
@@ -124,7 +126,7 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
 
 ```Python
 # This is the call to the Form Recognizer endpoint
-    endpoint = "Your Form Recognizer Endpoint"
+    endpoint = r"Your Form Recognizer Endpoint"
     apim_key = "Your Form Recognizer Key"
     post_url = endpoint + "/formrecognizer/v2.0/Layout/analyze"
     source = myblob.read()
@@ -143,7 +145,7 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
 
 ```Python
 # This is the call to the Form Recognizer endpoint
-    endpoint = "Your Form Recognizer Endpoint"
+    endpoint = r"Your Form Recognizer Endpoint"
     apim_key = "Your Form Recognizer Key"
     post_url = endpoint + "/formrecognizer/v2.1-preview.2/Layout/analyze"
     source = myblob.read()
@@ -226,7 +228,7 @@ The following code parses the returned Form Recognizer response, constructs a .c
                 res.append(cell)
                 res_table.append(y)
             y=y+1
-
+    
         res_table=pd.DataFrame(res_table)
         res=pd.DataFrame(res)
         res["table_num"]=res_table[0]
