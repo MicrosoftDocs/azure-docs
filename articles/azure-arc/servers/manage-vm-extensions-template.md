@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension using Azure Resource Manager template
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments using an Azure Resource Manager template.
-ms.date: 02/03/2021
+ms.date: 02/10/2021
 ms.topic: conceptual
 ---
 
@@ -631,7 +631,7 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
       "apiVersion": "2019-07-01",
       "location": "<location>",
       "dependsOn": [
-          "[concat('Microsoft.HybridCompute/machines/extensions/', <machineName>)]"
+          "[concat('Microsoft.HybridCompute/machines/', <machineName>)]"
       ],
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
@@ -644,9 +644,13 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
           "certificateStoreName": <ingnored on linux>,
           "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+          },
+          "authenticationSettings": {
+                "msiEndpoint":  <Optional MSI endpoint e.g.: "http://localhost:40342/metadata/identity">,
+                "msiClientId":  <Optional MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
           }
-      }
-     }
+       }
+    }
 }
 ```
 
@@ -655,11 +659,11 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
 ```json
 {
       "type": "Microsoft.HybridCompute/machines/extensions",
-      "name": "KVVMExtensionForWindows",
+      "name": "KeyVaultExtensionForWindows",
       "apiVersion": "2019-07-01",
       "location": "<location>",
       "dependsOn": [
-          "[concat('Microsoft.HybridCompute/machines/extensions/', <machineName>)]"
+          "[concat('Microsoft.HybridCompute/machines/', <machineName>)]"
       ],
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
@@ -676,20 +680,25 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
         },
         "authenticationSettings": {
-                "msiEndpoint":  <Optional MSI endpoint e.g.: "http://169.254.169.254/metadata/identity">,
+                "msiEndpoint":  <Optional MSI endpoint e.g.: "http://localhost:40342/metadata/identity">,
                 "msiClientId":  <Optional MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
         }
-      }
      }
+   }
 }
 ```
 
 > [!NOTE]
 > Your observed certificates URLs should be of the form `https://myVaultName.vault.azure.net/secrets/myCertName`.
-> 
+>
 > This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path does not. More information about certificates can be found here: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
 
-Save the template file to disk. You can then install the extension on all the connected machines within a resource group with the following command.
+### Template deployment
+
+Save the template file to disk. You can then deploy the extension to the connected machine with the following command.
+
+> [!NOTE]
+> The VM extension would require system or user managed identity to be assigned to authenticate to Key vault. See [How to authenticate to Key Vault and assign a Key Vault access policy](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) for Windows and [How to authenticate to Key Vault and assign a Key Vault access policy](../../active-directory/managed-identities-azure-resources/qs-configure-portal-linux-vm.md) for Linux.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
@@ -773,7 +782,9 @@ To use the Azure Defender integrated scanner extension, the following sample is 
 }
 ```
 
-Save the template file to disk. You can then install the extension on all the connected machines within a resource group with the following command.
+### Template deployment
+
+Save the template file to disk. You can then deploy the extension to the connected machine with the following command.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\AzureDefenderScanner.json"
