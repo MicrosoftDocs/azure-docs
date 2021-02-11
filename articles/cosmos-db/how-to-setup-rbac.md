@@ -23,19 +23,19 @@ Azure Cosmos DB exposes a built-in role-based access control (RBAC) system that 
 
 The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found in other RBAC systems like [Azure RBAC](../role-based-access-control/overview.md):
 
-- The permission model is composed of a set of **[actions](#actions)**; each of these actions maps to one or multiple database operations.
+- The [permission model](#permission-model) is composed of a set of **actions**; each of these actions maps to one or multiple database operations.
 - Azure Cosmos DB users create **[role definitions](#role-definitions)** containing a list of allowed actions.
 - Role definitions get assigned to specific AAD identities through **[role assignments](#role-assignments)**. A role assignment also defines the scope that the role definition applies to; three scopes are currently supported:
     - An Azure Cosmos DB account,
     - An Azure Cosmos DB database,
     - An Azure Cosmos DB container.
 
-:::image type="content" source="./media/how-to-setup-rbac/concepts.png" alt-text="RBAC concepts":::
+  :::image type="content" source="./media/how-to-setup-rbac/concepts.png" alt-text="RBAC concepts":::
 
 > [!NOTE]
-> The Azure Cosmos DB RBAC does not currently expose any built-in roles. Built-in roles will be added before the feature becomes generally available.
+> The Azure Cosmos DB RBAC does not currently expose any built-in role definitions. Built-in role definitions will be added before the feature becomes generally available.
 
-## <a id="actions"></a> Actions
+## <a id="permission-model"></a> Permission model
 
 The table below lists all the actions exposed by the permission model.
 
@@ -45,12 +45,12 @@ The table below lists all the actions exposed by the permission model.
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create` | Creating a new item |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read` | Reading an individual item by its ID and partition key (point-read) |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/replace` | Replacing an existing item |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/upsert` | "Upserting" an item (i.e., creating it if it doesn't exist, or replacing it if it exists) |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/upsert` | "Upserting" an item (that is, creating it if it doesn't exist, or replacing it if it exists) |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/delete` | Deleting an item |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery` | Executing a [SQL query](sql-query-getting-started.md) |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` | Reading from the container's [change feed](read-change-feed.md) |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeStoredProcedure` | Executing a [stored procedure](stored-procedures-triggers-udfs.md) |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/manageConflicts` | Managing [conflicts](conflict-resolution-policies.md) for multi-write region accounts (i.e., listing and deleting items from the conflict feed) |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/manageConflicts` | Managing [conflicts](conflict-resolution-policies.md) for multi-write region accounts (that is, listing and deleting items from the conflict feed) |
 
 Wildcards are supported at both *containers* and *items* levels:
 
@@ -64,7 +64,7 @@ Wildcards are supported at both *containers* and *items* levels:
 
 When using Azure Cosmos DB SDKs, these SDKs issue read-only metadata requests during initialization and to serve specific data requests. These metadata requests fetch various configuration details, like the global configuration of your account (which Azure regions the account is available in), the partition key of your containers or their indexing policy. They do *not* fetch any of the data that you've stored in your account.
 
-To ensure the best transparency of our permission model, these metadata requests are covered by an explicit action (`Microsoft.DocumentDB/databaseAccounts/readMetadata`). This action should be allowed in every situation where your Azure Cosmos DB account is accessed through one of the Azure Cosmos DB SDKs. It can be assigned (through a role assignment) at any level of the Cosmos DB hierarchy (i.e., account, database, or container).
+To ensure the best transparency of our permission model, these metadata requests are covered by an explicit action (`Microsoft.DocumentDB/databaseAccounts/readMetadata`). This action should be allowed in every situation where your Azure Cosmos DB account is accessed through one of the Azure Cosmos DB SDKs. It can be assigned (through a role assignment) at any level of the Cosmos DB hierarchy (that is, account, database, or container).
 
 The actual metadata requests allowed by the `Microsoft.DocumentDB/databaseAccounts/readMetadata` action depend on the scope that the action is assigned to:
 
@@ -109,7 +109,7 @@ New-AzCosmosDBSqlRoleDefinition -AccountName $accountName `
     -AssignableScope "/"
 ```
 
-List the role definitions you've just created to fetch their IDs:
+List the role definitions you've created to fetch their IDs:
 
 ```powershell
 Get-AzCosmosDBSqlRoleDefinition -AccountName $accountName `
@@ -137,7 +137,7 @@ Create a role named "MyReadOnlyRole" that only contains read actions:
 }
 ```
 
-```azurecli-interactive
+```azurecli
 resourceGroupName='myResourceGroup'
 accountName='myCosmosAccount'
 az cosmosdb sql role definition create -a $accountName -g $resourceGroupName -b @role-definition-ro.json
@@ -161,13 +161,13 @@ Create a role named "MyReadWriteRole" that contains all actions:
 }
 ```
 
-```azurecli-interactive
+```azurecli
 az cosmosdb sql role definition create -a $accountName -g $resourceGroupName -b @role-definition-rw.json
 ```
 
-List the role definitions you've just created to fetch their IDs:
+List the role definitions you've created to fetch their IDs:
 
-```azurecli-interactive
+```azurecli
 az cosmosdb sql role definition list -a $accountName -g $resourceGroupName
 ```
 
@@ -198,7 +198,7 @@ New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
 
 Assign the role 'MyReadOnlyRole' to an identity:
 
-```azurecli-interactive
+```azurecli
 resourceGroupName='myResourceGroup'
 accountName='myCosmosAccount'
 readOnlyRoleDefinitionId = 'roleDefinitionId' // as fetched above
@@ -241,6 +241,15 @@ CosmosAsyncClient Client = new CosmosClientBuilder()
     .credential(ServicePrincipal)
     .build();
 ```
+
+## Auditing data requests
+
+When using the Azure Cosmos DB RBAC, [diagnostic logs](cosmosdb-monitor-resource-logs.md) get augmented with identity and authorization information for each data operation. This lets you perform detailed auditing and retrieve the AAD identity used for every data request sent to your Azure Cosmos DB account.
+
+This additional information flows in the **DataPlaneRequests** log category and consists of 2 additional columns:
+
+- `aadPrincipalId_g` shows the principal ID of the AAD identity that was used to issue the request.
+- `aadAppliedRoleAssignmentId_g` shows the [role assignment](#role-assignments) that was honored when authorizing the request.
 
 ## Frequently asked questions
 
