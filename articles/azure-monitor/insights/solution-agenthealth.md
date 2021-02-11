@@ -106,5 +106,5 @@ The following table provides sample log searches for records collected by this s
 
 ## Next steps
 
-* Learn about [Alerts in Azure Monitor](../platform/alerts-overview.md) for details on generating alerts from log queries. 
+* Learn about [Alerts in Azure Monitor](../alerts/alerts-overview.md) for details on generating alerts from log queries. 
 

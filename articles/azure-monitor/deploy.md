@@ -18,7 +18,7 @@ Enabling Azure Monitor to monitor of all your Azure resources is a combination o
 ## Configuration goals
 The goal of a complete implementation of Azure Monitor is to collect all available data from all of your cloud resources and applications and enable as many features in Azure Monitor as possible based on that data.
 
-Data collected by Azure Monitor is sent to either [Azure Monitor Metrics](essentials/data-platform-metrics.md) or [Azure Monitor Logs](logs/data-platform-logs.md). Each stores different kinds of data and enables different kinds of analysis and alerting. See [Compare Azure Monitor Metrics and Logs](/data-platform.md) for a comparison of the two and [Overview of alerts in Microsoft Azure](platform/alerts-overview.md) for a description of different alert types. 
+Data collected by Azure Monitor is sent to either [Azure Monitor Metrics](essentials/data-platform-metrics.md) or [Azure Monitor Logs](logs/data-platform-logs.md). Each stores different kinds of data and enables different kinds of analysis and alerting. See [Compare Azure Monitor Metrics and Logs](/data-platform.md) for a comparison of the two and [Overview of alerts in Microsoft Azure](alerts/alerts-overview.md) for a description of different alert types. 
 
 Some data can be sent to both Metrics and Logs in order to leverage it using different features. In these cases, you may need to configure each separately. For example, metric data is automatically sent by Azure resources to Metrics, which supports metrics explorer and metric alerts. You have to create a diagnostic setting for each resource to send that same metric data to Logs, which allows you to analyze performance trends with other log data using Log Analytics. The sections below identify where data is sent and includes each step required to send data to all possible locations.
 
@@ -171,7 +171,7 @@ See [Azure Monitor Workbooks](visualizations/workbooks-overview.md) for details 
 See [Create custom KPI dashboards using Azure Application Insights](app/tutorial-app-dashboards.md) for details on creating a dashboard that includes data from Application Insights. 
 
 ## Alerts
-Alerts in Azure Monitor proactively notify you of important data or patterns identified in your monitoring data. Some insights will generate alerts without configuration. For other scenarios, you need to create [alert rules](platform/alerts-overview.md) that include the data to analyze and the criteria for when to generate an alert, and action groups which define the action to take when an alert is generated. 
+Alerts in Azure Monitor proactively notify you of important data or patterns identified in your monitoring data. Some insights will generate alerts without configuration. For other scenarios, you need to create [alert rules](alerts/alerts-overview.md) that include the data to analyze and the criteria for when to generate an alert, and action groups which define the action to take when an alert is generated. 
 
 
 ### Create action groups

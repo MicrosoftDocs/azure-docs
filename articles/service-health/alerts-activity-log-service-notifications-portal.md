@@ -78,5 +78,5 @@ Learn how to [Configure webhook notifications for existing problem management sy
 - Learn about [service health notifications](service-notifications.md).
 - Learn about [notification rate limiting](../azure-monitor/alerts/alerts-rate-limiting.md).
 - Review the [activity log alert webhook schema](../azure-monitor/alerts/activity-log-alerts-webhook.md).
-- Get an [overview of activity log alerts](../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.
+- Get an [overview of activity log alerts](../azure-monitor/alerts/alerts-overview.md), and learn how to receive alerts.
 - Learn more about [action groups](../azure-monitor/alerts/action-groups.md).

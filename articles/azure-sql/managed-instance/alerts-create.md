@@ -137,7 +137,7 @@ To view, suspend, activate, modify and delete existing alerts:
 
 ## Next steps
 
-* Learn about Azure Monitor alerting system, see [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
+* Learn about Azure Monitor alerting system, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md)
 * Learn more about metric alerts, see [Understand how metric alerts work in Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md)
 * Learn about configuring a webhook in alerts, see [Call a webhook with a classic metric alert](../../azure-monitor/alerts/alerts-webhooks.md)
 * Learn about configuring and managing alerts using PowerShell, see [Action rules](/powershell/module/az.monitor/add-azmetricalertrulev2)

@@ -104,4 +104,4 @@ Azure Monitor is a comprehensive solution for collecting, analyzing, and acting 
     - [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
     - [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md).
     - [Action rules](../azure-monitor/alerts/alerts-action-rules.md) to set automated actions and notifications.
-    - [Connect Azure to ITSM tools using IT Service Management Connector](../azure-monitor/platform/itsmc-overview.md).
+    - [Connect Azure to ITSM tools using IT Service Management Connector](../azure-monitor/alerts/itsmc-overview.md).

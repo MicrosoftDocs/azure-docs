@@ -220,7 +220,7 @@ Other solutions are available for monitoring different applications and services
 
 | Solution | Description |
 |:---|:---|
-| [ITSM](platform/itsmc-overview.md) | The IT Service Management Connector (ITSMC) allows you to connect Azure and a supported IT Service Management (ITSM) product/service.  |
+| [ITSM](alerts/itsmc-overview.md) | The IT Service Management Connector (ITSMC) allows you to connect Azure and a supported IT Service Management (ITSM) product/service.  |
 
 
 ## Resources outside of Azure

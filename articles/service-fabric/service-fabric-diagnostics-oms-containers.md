@@ -45,4 +45,4 @@ The agent enables the collection of several container-specific logs that can be 
 * Learn more about [Azure Monitor logs Containers solution](../azure-monitor/containers/containers.md).
 * Read more about container orchestration on Service Fabric - [Service Fabric and containers](service-fabric-containers-overview.md)
 * Get familiarized with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs
-* Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/platform/alerts-overview.md) rules to aid in detecting and diagnostics
+* Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/alerts/alerts-overview.md) rules to aid in detecting and diagnostics

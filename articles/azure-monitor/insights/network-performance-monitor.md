@@ -266,7 +266,7 @@ All data that is exposed graphically through the Network Performance Monitor das
 
 ## Alerts
 
-Network Performance Monitor uses the alerting capabilities of [Azure Monitor](../platform/alerts-overview.md).
+Network Performance Monitor uses the alerting capabilities of [Azure Monitor](../alerts/alerts-overview.md).
 
 This means that all notifications are managed using [action groups](../alerts/action-groups.md).  
 

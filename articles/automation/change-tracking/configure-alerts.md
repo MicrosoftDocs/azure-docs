@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 Alerts in Azure proactively notify you of results from runbook jobs, service health issues, or other scenarios related to your Automation account. Azure Automation does not include pre-configured alert rules, but you can create your own based on data that it generates. This article provides guidance on creating alert rules based on changes identified by Change Tracking and Inventory.
 
-If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../../azure-monitor/alerts/alerts-unified-log.md).
+If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../../azure-monitor/alerts/alerts-unified-log.md).
 
 ## Create alert
 
@@ -33,7 +33,7 @@ Let's use this example to discuss the steps for creating alerts on a change.
 
 5. After the alert logic is set, assign action groups to perform actions in response to triggering of the alert. In this case, we're setting up emails to be sent and an IT Service Management (ITSM) ticket to be created.
 
-Follow the steps below to set up alerts to let you know the status of an update deployment. If you are new to Azure alerts, see [Azure Alerts overview](../../azure-monitor/platform/alerts-overview.md).
+Follow the steps below to set up alerts to let you know the status of an update deployment. If you are new to Azure alerts, see [Azure Alerts overview](../../azure-monitor/alerts/alerts-overview.md).
 
 ## Configure action groups for your alerts
 
@@ -61,7 +61,7 @@ Once you have your alerts configured, you can set up an action group, which is a
 
 ## Next steps
 
-* Learn more about [alerts in Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
+* Learn more about [alerts in Azure Monitor](../../azure-monitor/alerts/alerts-overview.md).
 
 * Learn about [log queries](../../azure-monitor/logs/log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
 

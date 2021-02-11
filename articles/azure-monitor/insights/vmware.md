@@ -152,7 +152,7 @@ Saving log queries is a standard feature in Azure Monitor and can help you keep 
 ![Screenshot shows part of a custom dashboard labeled Log Search with icons for Undo, Export, Alert, Save, Favorites, and History.](./media/vmware/dockerdashboardview.png)
 
 #### Create alerts from queries
-After you’ve created your queries, you might want to use the queries to alert you when specific events occur. See [Alerts in Log Analytics](../platform/alerts-overview.md) for information about how to create alerts. For examples of alerting queries and other query examples, see the [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) blog post.
+After you’ve created your queries, you might want to use the queries to alert you when specific events occur. See [Alerts in Log Analytics](../alerts/alerts-overview.md) for information about how to create alerts. For examples of alerting queries and other query examples, see the [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) blog post.
 
 ## Frequently asked questions
 ### What do I need to do on the ESXi host setting? What impact will it have on my current environment?
@@ -195,5 +195,5 @@ There can be multiple reasons:
 ## Next steps
 * Use [log queries](../logs/log-query-overview.md) in Log Analytics to view detailed VMware host data.
 * [Create your own dashboards](../visualizations/tutorial-logs-dashboards.md) showing VMware host data.
-* [Create alerts](../platform/alerts-overview.md) when specific VMware host events occur.
+* [Create alerts](../alerts/alerts-overview.md) when specific VMware host events occur.
 

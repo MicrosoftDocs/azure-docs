@@ -29,7 +29,7 @@ When used for alerts, both metrics support dimensions that carry additional info
 
 ## Create alert
 
-Follow the steps below to set up alerts to let you know the status of an update deployment. If you are new to Azure alerts, see [Azure Alerts overview](../../azure-monitor/platform/alerts-overview.md).
+Follow the steps below to set up alerts to let you know the status of an update deployment. If you are new to Azure alerts, see [Azure Alerts overview](../../azure-monitor/alerts/alerts-overview.md).
 
 1. In your Automation account, select **Alerts** under **Monitoring**, and then select **New alert rule**.
 
@@ -81,7 +81,7 @@ Once you have your alerts configured, you can set up an action group, which is a
 
 ## Next steps
 
-* Learn more about [alerts in Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
+* Learn more about [alerts in Azure Monitor](../../azure-monitor/alerts/alerts-overview.md).
 
 * Learn about [log queries](../../azure-monitor/logs/log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
 

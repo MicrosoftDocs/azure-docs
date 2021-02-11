@@ -63229,6 +63229,86 @@
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-map-visualizations.md",
       "redirect_url": "/azure/azure-monitor/visualizations/workbooks-map-visualizations",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-overview.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-cherwell.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-cherwell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-provance.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-provance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-scsm.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-scsm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-servicenow.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-servicenow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-dashboard.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-dashboard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-dashboard-errors.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-dashboard-errors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-definition.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-definition",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsm-connector-secure-webhook-connections-azure-configuration.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsm-connector-secure-webhook-connections-azure-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-overview.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-resync-servicenow.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-resync-servicenow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-secure-webhook-connections-bmc.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-secure-webhook-connections-bmc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-secure-webhook-connections-servicenow.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-secure-webhook-connections-servicenow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-service-manager-script.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-service-manager-script",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-synced-data.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-synced-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-troubleshoot-overview.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-troubleshoot-overview",
+      "redirect_document_id": false
     }
   ]
 }

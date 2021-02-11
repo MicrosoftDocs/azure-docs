@@ -180,7 +180,7 @@ Alerts use action groups, which are collections of actions that are triggered by
 
     ![Add action group page](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 
-    You can use this action group in the [activity log alerts](../azure-monitor/alerts/activity-log-alerts.md) and [near real-time alerts](../azure-monitor/platform/alerts-overview.md) that you create.
+    You can use this action group in the [activity log alerts](../azure-monitor/alerts/activity-log-alerts.md) and [near real-time alerts](../azure-monitor/alerts/alerts-overview.md) that you create.
 
 1. Under **Alert Details**, add an alert rule name and description and click **Create alert rule**.
 
