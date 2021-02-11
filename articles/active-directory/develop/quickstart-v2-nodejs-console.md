@@ -126,8 +126,8 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> Where:
->> * `<Enter_the_Tenant_Id_Here>` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
->> * `<Enter_the_Application_Id_Here>` - is the **Application (client) ID** for the application you registered.
+>> * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+>> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 4: Run the application
