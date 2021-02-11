@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 12/08/2020
+ms.date: 02/11/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -25,7 +25,7 @@ This article describes how to create one or more access reviews for privileged A
 
 ## Prerequisites
 
-[Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator)
+You must be assigned to the [Owner or User Access Administrator](../../role-based-access-control/built-in-roles.md) Azure roles to create access reviews.
 
 ## Open access reviews
 
