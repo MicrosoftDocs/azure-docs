@@ -304,7 +304,7 @@ To copy data from Azure Synapse Analytics, set the **type** property in the Copy
 ]
 ```
 
-**Example: using stored procedure**
+#### Example: using stored procedure
 
 ```json
 "activities":[
@@ -340,7 +340,7 @@ To copy data from Azure Synapse Analytics, set the **type** property in the Copy
 ]
 ```
 
-**Sample stored procedure:**
+#### Sample stored procedure:
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -675,7 +675,7 @@ If you receive the following error, ensure that you are using managed identity a
 Job failed due to reason: at Sink '[SinkName]': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: External file access failed due to internal error: 'Error occurred while accessing HDFS: Java exception raised on call to HdfsBridge_IsDirExist. Java exception message:\r\nHdfsBridge::isDirExist 
 ```
 
-For more information, see [Grant permissions to managed identity after workspace creation](../synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions.md#grant-permissions-to-managed-identity-after-workspace-creation)
+For more information, see [Grant permissions to managed identity after workspace creation](../synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions.md#grant-permissions-to-managed-identity-after-workspace-creation).
 
 ## <a name="use-copy-statement"></a> Use COPY statement to load data into Azure Synapse Analytics
 
