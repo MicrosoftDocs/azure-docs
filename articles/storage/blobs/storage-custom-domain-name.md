@@ -64,6 +64,9 @@ The host name is the storage endpoint URL without the protocol identifier and th
   
    Set this value aside for later.
 
+   > [!NOTE]
+   > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
+
 <a id="create-cname-record"></a>
 
 #### Step 2: Create a canonical name (CNAME) record with your domain provider
@@ -166,8 +169,8 @@ The host name is the storage endpoint URL without the protocol identifier and th
   
    Set this value aside for later.
 
-> [!NOTE]
-> The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
+   > [!NOTE]
+   > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
 
 #### Step 2: Create a intermediary canonical name (CNAME) record with your domain provider
 

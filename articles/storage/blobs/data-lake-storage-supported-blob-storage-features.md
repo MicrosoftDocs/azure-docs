@@ -51,7 +51,7 @@ The following table shows how each Blob storage feature is supported with Data L
 |Blob versioning|Not yet supported|Not yet supported|[Enable and manage blob versioning](versioning-enable.md)|
 
 <div id="preview-form"><sup>1</sup>To use snapshots, immutable storage, or static websites with Data Lake Storage Gen2, you need to enroll in the preview by completing this <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>form</a>.  </div>
-<div id="preview-form-2"><sup>2</sup>A custom domain name can map only to the blob service or static website endpoint. The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).</a>.  </div>
+<div id="preview-form-2"><sup>2</sup>A custom domain name can map only to the blob service or static website endpoint. The Data Lake storage endpoint is not supported.</a>.  </div>
 
 ## See also
 
