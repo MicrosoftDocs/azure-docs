@@ -2,7 +2,7 @@
 title: 'Tutorial: Configure network in an Azure FXT Edge Filer cluster'
 description: How to customize network settings after creating the Azure FXT Edge Filer cluster 
 author: ekpgh
-ms.author: rohogue 
+ms.author: v-erkel 
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019

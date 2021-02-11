@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: how-to
 ms.date: 06/20/2019
-ms.author: rohogue
+ms.author: v-erkel
 ---
 
 # Monitor Azure FXT Edge Filer hardware status

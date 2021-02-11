@@ -10,25 +10,31 @@ ms.date: 02/08/2021
 
 # Required network ports
 
-This list shows TCP/UDP ports required by FXT cluster environments. For more information, contact Microsoft Service and Support.
+This list shows TCP/UDP ports required by FXT cluster environments. Configure any firewalls you use to make sure these ports are accessible.
+
+Your system's specific requirements will vary depending on what kind of back-end storage you use.
+
+For more information, contact Microsoft Service and Support.
 
 ## API ports
 
 | Direction | Type | Port number | Protocol |
 |-----------|------|-------------|----------|
 | Inbound   | TCP  | 22          | SSH      |
-| Inbound   | TCP  | 443         | HTTPS    |
 | Outbound  | TCP  | 80          | HTTP     |
-| Outbound  | TCP  | 443         | HTTPS    |
+| Inbound & outbound  | TCP  | 443         | HTTPS    |
 
 ## NFS ports
 
 These ports are used for traffic from the FXT cluster to network attached storage:
 
-| Type    | Port number | Protocol |
+| Type    | Port number | Service  |
 |---------|-------------|----------|
 | TCP/UDP | 111         | RPCBIND  |
 | TCP/UDP | 2049        | NFS      |
+| TCP/UDP | 4045        | NLOCKMGR |
+| TCP/UDP | 4046        | MOUNTD   |
+| TCP/UDP | 4047        | STATUS   |
 
 Outbound NFS traffic from FXT nodes uses ephemeral ports. Outbound FXT traffic above well-known ports should not be restricted at the transport level.
 
@@ -36,20 +42,30 @@ Outbound NFS traffic from FXT nodes uses ephemeral ports. Outbound FXT traffic a
 
 | Direction | Type | Port number | Protocol |
 |-----------|------|-------------|----------|
-| Inbound   | TCP  | 445         | SMB      |
-| Inbound   | TCP  | 139         | SMB      |
-| Inbound   | UDP  | 137         | NetBIOS  |
+| Inbound & outbound  | UDP  | 137         | NetBIOS  |
 | Inbound   | UDP  | 138         | NetBIOS  |
-| Outbound  | TCP  | 445         | SMB      |
+| Inbound & outbound  | TCP  | 139         | SMB      |
+| Inbound & outbound  | TCP  | 445         | SMB      |
+
+<!--| Outbound  | UDP  | 137         | NetBIOS  | 
 | Outbound  | TCP  | 139         | SMB      |
-| Outbound  | UDP  | 137         | NetBIOS  |
+| Outbound  | TCP  | 445         | SMB      |
+-->
 
 ## General Traffic Ports
 
 | Direction | Type    | Port number | Protocol |
 |-----------|---------|-------------|----------|
 | Outbound  | TCP/UDP | 53          | DNS      |
-| Outbound  | TCP/UDP | 389         | LDAP     |
-| Outbound  | TCP     | 686         | LDAPS    |
 | Outbound  | TCP/UDP | 88          | Kerberos |
 | Outbound  | UDP     | 123         | NTP      |
+| Outbound  | TCP/UDP | 389         | LDAP     |
+| Outbound  | TCP     | 686         | LDAPS    |
+
+## Additional Port Requirements
+
+Your core filers might require access on additional ports. This requirement varies depending on the type of storage used.
+
+You can use the `rcpinfo` command to learn which ports are used by a particular server. Issue this command from a client system that is not firewalled:
+
+`rpcinfo -p <server_IP_address>`
