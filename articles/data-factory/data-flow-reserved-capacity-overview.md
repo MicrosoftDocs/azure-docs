@@ -13,7 +13,7 @@ Save money with Azure Data Factory data flow costs by committing to a reservatio
 
 You do not need to assign the reservation to a specific factory or integration runtime. Existing factories or newly deployed factories automatically get the benefit. By purchasing a reservation, you commit to usage for the data flow compute costs for a period of one or three years. As soon as you buy a reservation, the compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. 
 
-You can buy [reserved capacity](https://portal.azure.com) by choosing reservations [up front or with monthly payments](https://docs.microsoft.com/azure/cost-management-billing/reservations/prepare-buy-reservation.md). To buy reserved capacity:
+You can buy [reserved capacity](https://portal.azure.com) by choosing reservations [up front or with monthly payments](/azure/cost-management-billing/reservations/prepare-buy-reservation). To buy reserved capacity:
 
 - You must be in the owner role for at least one Enterprise or individual subscription with pay-as-you-go rates.
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription. Reserved capacity.
