@@ -9,7 +9,7 @@ ms.date: 02/15/2021
 In addition to selecting the [Service Fabric managed cluster SKU](overview-managed-cluster.md#service-fabric-managed-cluster-skus) when creating your cluster, there are a number of other ways to configure it. In the current preview, you can:
 
 * Add a [virtual machine scale set extension](how-to-managed-cluster-vmss-extension.md) to a node type
-* Enable [automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-upgrades) for your nodes
+* Enable [automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) for your nodes
 * Enable [OS and data disk encryption](how-to-enable-managed-cluster-disk-encryption.md) on your nodes
 * Apply [NSG rules](how-to-managed-cluster-configuration.md#apply-nsg-rules) to your cluster
 * Configure [managed identity](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) on your node types
