@@ -14,7 +14,7 @@ ms.author: v-doeris
 #Customer intent: As an application developer, I want to learn how my Node.js Electron desktop application can get an access token and call an API that's protected by a Microsoft identity platform endpoint.
 ---
 
-# Quickstart: Acquire an access token and call Microsoft Graph API from an Electron desktop app
+# Quickstart: Acquire an access token and call the Microsoft Graph API from an Electron desktop app
 
 In this quickstart, you download and run a code sample that demonstrates how an Electron desktop application can sign in users and acquire access tokens to call the Microsoft Graph API.
 
@@ -115,7 +115,7 @@ You should see application's UI with a **Sign in** button.
 
 ## About the code
 
-Below, some of the important aspects of the sample application is discussed.
+Below, some of the important aspects of the sample application are discussed.
 
 ### MSAL Node
 
@@ -242,11 +242,11 @@ async function listenForAuthCode(navigateUrl, authWindow) {
 > |Where:| Description |
 > |---------|---------|
 > | `authWindow` | Current Electron window in process. |
-> | `tokenRequest` | Contains the scopes being requested, such as `{ "User.Read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
+> | `tokenRequest` | Contains the scopes being requested, such as `"User.Read"` for Microsoft Graph or `"api://<Application ID>/access_as_user"` for custom web APIs. |
 
 ## Next steps
 
-To learn more about Electron desktop app development with MSAL Node , see the tutorial:
+To learn more about Electron desktop app development with MSAL Node, see the tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Sign in users and call the Microsoft Graph API in an Electron desktop app](tutorial-v2-nodejs-desktop.md)
