@@ -1,0 +1,39 @@
+- name: Front Door Standard/Premium (Preview) documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Front Door Standard/Premium (Preview)?
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an Front Door Standard/Premium - Portal
+    href: create-front-door-portal.md
+- name: Concepts
+  items:
+  - name: Endpoint Manager
+    href: concept-endpoint-manager.md
+  - name: Private Endpoints
+    href: concept-private-endpoints.md
+- name: How-to guides
+  items:
+  - name: Configure Endpoint Manager
+    href: how-to-configure-endpoint-manager.md
+  - name: Reports
+    href: how-to-reports.md
+- name: Reference
+  items:
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.cdn
+  - name: REST API
+    href: /rest/api/cdn/
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/frontdoor/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=frontdoor
