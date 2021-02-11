@@ -1,9 +1,6 @@
 ---
 title: 'Quickstart: Create ML Services cluster using template - Azure HDInsight'
 description: This quickstart shows how to use Resource Manager template to create an ML Services cluster in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs

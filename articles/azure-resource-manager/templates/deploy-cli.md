@@ -2,7 +2,7 @@
 title: Deploy resources with Azure CLI and template
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 01/26/2021
 ---
 
 # Deploy resources with ARM templates and Azure CLI
@@ -98,6 +98,18 @@ az deployment group create \
 ```
 
 The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you want to manage access to the template, consider using [template specs](#deploy-template-spec).
+
+To deploy remote linked templates with relative path that are stored in a storage account, use `query-string` to specify the SAS token:
+
+```azurecli-interactive
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
+  --query-string $sasToken
+```
+
+For more information, see [Use relative path for linked templates](./linked-templates.md#linked-template).
 
 ## Deployment name
 

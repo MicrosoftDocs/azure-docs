@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 01/18/2021
+ms.date: 02/03/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -132,8 +132,8 @@ The following Language Understanding **features are not currently available** in
 ### [Speech Service](../cognitive-services/speech-service/overview.md)
 The following Speech Service **features are not currently available** in Azure Government:
 - Custom Voice
-- Neural voices for Text-to-Speech
-See details of supported locales by features in [Language and region support for the Speech Services](../cognitive-services/speech-service/language-support.md).
+
+See details of supported locales by features in [Language and region support for the Speech Services](../cognitive-services/speech-service/language-support.md). See additonal endpoint information [here](../cognitive-services/Speech-Service/sovereign-clouds.md).
 
 ### [Translator](../cognitive-services/translator/translator-info-overview.md)
 The following Translator **features are not currently available** in Azure Government:
@@ -329,6 +329,9 @@ For information on how to connect to Media Services v2, see [Access the Azure Me
 - Analyzing – the Azure Media Indexer 2 Preview Azure Media Analytics media processor is not available in Azure Government.
 - CDN integration – there is no CDN integration with streaming endpoints in Azure Government data centers.
 
+### Media Services Video Indexer
+
+For more information, see [Create a Video Indexer account](../media-services/video-indexer/connect-to-azure.md#video-indexer-in-azure-government).
 
 ## Migration
 This section outlines variations and considerations when using Migration services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration,cost-management,azure-migrate,site-recovery&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
@@ -337,7 +340,6 @@ This section outlines variations and considerations when using Migration service
 The following Azure Migrate **features are not currently available** in Azure Government:
 - Dependency visualization functionality as Azure Migrate depends on Service Map for dependency visualization which is currently unavailable in Azure Government.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
-
 
 ## Networking
 This section outlines variations and considerations when using Networking services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-bastion,frontdoor,virtual-wan,dns,ddos-protection,cdn,azure-firewall,network-watcher,load-balancer,vpn-gateway,expressroute,application-gateway,virtual-network&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
@@ -413,7 +415,7 @@ The following features have known limitations in Azure Government:
 - Limitations with Azure AD Join:
     - Enterprise state roaming for Windows 10 devices is not available
     
-- Limitaitons with Azure AD SSPR:
+- Limitations with Azure AD SSPR:
     - Azure AD SSPR from Windows 10 login screen is not available
 
 
@@ -425,31 +427,36 @@ Azure Information Protection Premium is part of the [Enterprise Mobility + Secur
 The following Azure Security Center **features are not currently available** in Azure Government:
 
 - **1st and 3rd party integrations**
-    - The Qualys Vulnerability Assessment agent.
+    - [Connect AWS account](../security-center/quickstart-onboard-aws.md)
+    - [Connect GCP account](../security-center/quickstart-onboard-gcp.md)
+    - [Integrated vulnerability assessment for machines (powered by Qualys)](../security-center/deploy-vulnerability-assessment-vm.md).
 
     >[!NOTE]
     >Security Center internal assessments are provided to discover security misconfigurations, based on Common Configuration Enumeration such as password policy, windows FW rules, local machine audit and security policy, and additional OS hardening settings.
 
 - **Threat detection**
-    - *Specific detections*: Detections based on VM log periodic batches, Azure core router network logs, threat intelligence reports, and detections for App Service.
+    - [Azure Defender for App Service](../security-center/defender-for-app-service-introduction.md).
+    - [Azure Defender for Key Vault](../security-center/defender-for-key-vault-introduction.md)
+    - *Specific detections*: Detections based on VM log periodic batches, Azure core router network logs, and threat intelligence reports.
+
     >[!NOTE]
     >Near real-time alerts generated based on security events and raw data collected from the VMs are captured and displayed.
 
-    - *Security incidents*: The aggregation of alerts for a resource, known as a security incident.
-    - *Threat intelligence enrichment*: Geo-enrichment and the threat intelligence option.
-    - *UEBA for Azure resources*: Integration with Microsoft Cloud App Security for user and entity behavior analytics on Azure resources.
-    - *Advanced threat detection*: Azure Security Center standard tier in Azure Government does not support threat detection for App Service.
+- **Environment hardening**
+    - [Adaptive network hardening](../security-center/security-center-adaptive-network-hardening.md)
 
-- **Server protection**
-    - *OS Security Configuration*: Vulnerability specific metadata, such as the potential impact and countermeasures for OS security configuration vulnerabilities.
+- **Preview features**
+    - [Recommendation exemption rules](../security-center/exempt-resource.md)
+    - [Azure Defender for Resource Manager](../security-center/defender-for-resource-manager-introduction.md)
+    - [Azure Defender for DNS](../security-center/defender-for-dns-introduction.md)
+
 
 **Azure Security Center FAQ**
 
-For Azure Security Center FAQ, see [Azure Security Center frequently asked questions public documentation](../security-center/faq-general.md).
-Additional FAQ for Azure Security Center in Azure Government are listed below.
+For Azure Security Center FAQ, see [Azure Security Center frequently asked questions public documentation](../security-center/faq-general.md). Additional FAQ for Azure Security Center in Azure Government are listed below.
 
 **What will customers be charged for Azure Security Center in Azure Government?**
-The standard tier of Azure Security Center is free for the first 30 days. Should you choose to continue to use public preview or generally available standard features beyond 30 days, we automatically start to charge for the service.
+Azure Security Center's integrated cloud workload protection platform (CWPP), Azure Defender, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Azure Defender is free for the first 30 days. Should you choose to continue to use public preview or generally available features of Azure Defender beyond 30 days, we automatically start to charge for the service.
 
 **Is Azure Security Center available for DoD customers?**
 Azure Security Center is deployed on Azure Government regions but not DoD regions. Azure resources created in DoD regions can still utilize Security Center capabilities. However, using it will result in Security Center collected data being moved out from DoD regions and stored in Azure Government regions. By default, all Security Center features which collect and store data are disabled for resources hosted in DoD regions. The type of data collected and stored varies depending on the selected feature. Customers who want to enable Azure Security Center features for DoD resources are recommended to consider data residency before doing so.
@@ -457,7 +464,8 @@ Azure Security Center is deployed on Azure Government regions but not DoD region
 ### [Azure Sentinel](../sentinel/overview.md)
 The following **features have known limitations** in Azure Government:
 - Office 365 data connector
-    - The Office 365 data connector can be used only for [Office 365 GCC](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc), [Office 365 GCC High](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod), and [Office 365 DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod).
+    - The Office 365 data connector can be used only for [Office 365 GCC High and Office 365 DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod). Office 365 GCC can be accessed only from global (commercial) Azure.
+
 - AWS CloudTrail data connector
     - The AWS CloudTrail data connector can be used only for [AWS in the Public Sector](https://aws.amazon.com/government-education/).
 

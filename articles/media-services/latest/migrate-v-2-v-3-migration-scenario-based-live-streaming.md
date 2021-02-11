@@ -1,10 +1,9 @@
 ---
-title: Media Services v2 to v3 migration scenario based guidance for live streaming | Microsoft Docs
+title: Media Services live streaming migration guidance
 description: This article is gives you live streaming scenario based guidance that will assist you min migrating from Azure Media Services v2 to v3.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
-
 ms.service: media-services
 ms.devlang: multiple
 ms.topic: conceptual

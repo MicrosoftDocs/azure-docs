@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 12/01/2020
+ms.date: 02/11/2021
 tags: azure-synapse
 ---
 # Data Discovery & Classification
@@ -177,6 +177,13 @@ You can use the REST API to programmatically manage classifications and recommen
 - [Get](/rest/api/sql/sensitivitylabels/get): Gets the sensitivity label of the specified column.
 - [List Current By Database](/rest/api/sql/sensitivitylabels/listcurrentbydatabase): Gets the current sensitivity labels of the specified database.
 - [List Recommended By Database](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Gets the recommended sensitivity labels of the specified database.
+
+
+## FAQ - Advanced classification capabilities
+
+**Question**: Will [Azure Purview](https://docs.microsoft.com/azure/purview/overview) replace SQL Data Discovery & Classification or will SQL Data Discovery & Classification be retired soon?
+**Answer**: We continue to support SQL Data Discovery & Classification and encourage you to adopt [Azure Purview](https://docs.microsoft.com/azure/purview/overview) which has richer capabilities to drive advanced classification capabilities and data governance. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies here.
+
 
 ## <a id="next-steps"></a>Next steps
 

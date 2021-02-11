@@ -1,9 +1,6 @@
 ---
 title: Connect Azure HDInsight to your on-premises network
 description: Learn how to create an HDInsight cluster in an Azure Virtual Network, and then connect it to your on-premises network. Learn how to configure name resolution between HDInsight and your on-premises network by using a custom DNS server.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -47,7 +44,7 @@ In the following diagram, green lines are requests for resources that end in the
 
 Use the following documents to learn how to create an Azure Virtual Network that is connected to your on-premises network:
 
-* [Using Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Using Azure portal](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [Using Azure PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Using Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 

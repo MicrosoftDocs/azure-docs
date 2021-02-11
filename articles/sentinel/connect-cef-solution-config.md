@@ -26,6 +26,7 @@ In this step you will perform the necessary configuration changes on your securi
 If your security solution already has an existing connector, use the connector-specific instructions as follows:
 
 - [AI Vectra Detect](connect-ai-vectra-detect.md)
+- [Akamai Security Events](connect-akamai-security-events.md)
 - [Check Point](connect-checkpoint.md)
 - [Cisco ASA](connect-cisco.md)
 - [Citrix WAF](connect-citrix-waf.md)
@@ -35,6 +36,7 @@ If your security solution already has an existing connector, use the connector-s
 - [Forcepoint products](connect-forcepoint-casb-ngfw.md)
 - [Fortinet](connect-fortinet.md)
 - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
+- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
 - [Thycotic Secret Server](connect-thycotic-secret-server.md)

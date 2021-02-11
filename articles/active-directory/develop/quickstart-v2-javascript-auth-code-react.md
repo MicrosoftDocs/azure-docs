@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-#Customer intent: As an app developer, I want to learn how to login, logout, conditionally render components to authenticated users, and acquire an access token for a protected resource such as Microsoft Graph by using the Microsoft identity platform endpoint so that my JavaScript React app can sign in users of personal accounts, work accounts, and school accounts.
+#Customer intent: As an app developer, I want to learn how to login, logout, conditionally render components to authenticated users, and acquire an access token for a protected resource such as Microsoft Graph by using the Microsoft identity platform so that my JavaScript React app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
 # Quickstart: Sign in and get an access token in a React SPA using the auth code flow
@@ -37,9 +37,7 @@ This quickstart uses MSAL React with the authorization code flow. For a similar 
 >
 > ### Option 1 (Express): Register and auto configure your app and then download your code sample
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
-> 1. If your account gives you access to more than one tenant, select your account at the top right, and then set your portal session to the Azure AD tenant you want to use.
-> 1. Select [App registrations](https://aka.ms/AAatrux).
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**.
@@ -49,24 +47,23 @@ This quickstart uses MSAL React with the authorization code flow. For a similar 
 >
 > #### Step 1: Register your application
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
-> 1. If your account gives you access to more than one tenant, select your account at the top right, and then set your portal session to the Azure AD tenant you want to use.
-> 1. Select [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Select **New registration**.
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Search for and select **Azure Active Directory**.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. When the **Register an application** page appears, enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
-> 1. In the left pane of the registered application, select **Authentication**.
-> 1. Under **Platform configurations**, select `Add a platform`.
-> 1. In the resulting window, select **Single-page application**.
+> 1. Under **Manage**, select **Authentication**.
+> 1. Under **Platform configurations**, select **Add a platform**. In the pane that opens select **Single-page application**.
 > 1. Set the **Redirect URIs** value to `http://localhost:3000/`. This is the default port NodeJS will listen on your local machine. We’ll return the authentication response to this URI after successfully authenticating the user. 
-> 1. Click the **Configure** button to apply the changes.
+> 1. Select **Configure** to apply the changes.
 > 1. Under **Platform Configurations** expand **Single-page application**.
-> 1. Confirm that under **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png)Your Redirect URI is eligible for the Authorization Code Flow with PKCE.
+> 1. Confirm that under **Grant types** ![Already configured](media/quickstart-v2-javascript/green-check.png) Your Redirect URI is eligible for the Authorization Code Flow with PKCE.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
-> To make the code sample in this quickstart work, you need to add a `redirectUri` as `http://localhost:3000/`.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `http://localhost:3000/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
@@ -176,7 +173,7 @@ Run the project with a web server by using Node.js:
 
 ### msal.js
 
-The MSAL.js library signs in users and requests the tokens that are used to access an API that's protected by Microsoft identity platform.
+The MSAL.js library signs in users and requests the tokens that are used to access an API that's protected by the Microsoft identity platform.
 
 If you have Node.js installed, you can download the latest version by using the Node.js Package Manager (npm):
 

@@ -257,7 +257,7 @@ You might see slow performance when you try to transfer files to the Azure File 
 -	If you know the final size of a file that you are extending with writes, and your software doesn't have compatibility problems when the unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
 -	Use the right copy method:
     -	Use [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
-    -	Use [Robocopy](./storage-files-deployment-guide.md#robocopy) between file shares on an on-premises computer.
+    -	Use [Robocopy](./storage-how-to-create-file-share.md) between file shares on an on-premises computer.
 
 ### Considerations for Windows 8.1 or Windows Server 2012 R2
 
@@ -400,8 +400,8 @@ The cmdlet performs these checks below in sequence and provides guidance for fai
 5. CheckSidHasAadUser: Check that the logged on AD user is synced to Azure AD. If you want to look up whether a specific AD user is synchronized to Azure AD, you can specify the -UserName and -Domain in the input parameters. 
 6. CheckGetKerberosTicket: Attempt to get a Kerberos ticket to connect to the storage account. If there isn't a valid Kerberos token, run the klist get cifs/storage-account-name.file.core.windows.net cmdlet and examine the error code to root-cause the ticket retrieval failure.
 7. CheckStorageAccountDomainJoined: Check if the AD authentication has been enabled and the account's AD properties are populated. If not, refer to the instruction [here](./storage-files-identity-ad-ds-enable.md) to enable AD DS authentication on Azure Files. 
-8. CheckUserRbacAssignment: Check if the AD user has the proper RBAC role assignment to provide share level permission to access Azure Files. If not, refer to the instruction [here](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions) to configure the share level permission. (Supported on AzFilesHybrid v0.2.3+ version)
-9. CheckUserFileAccess: Check if the AD user has the proper directory/file permission (Windows ACLs) to access Azure Files. If not, refer to the instruction [here](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-configure-permissions) to configure the directory/file level permission. (Supported on AzFilesHybrid v0.2.3+ version)
+8. CheckUserRbacAssignment: Check if the AD user has the proper RBAC role assignment to provide share level permission to access Azure Files. If not, refer to the instruction [here](./storage-files-identity-ad-ds-assign-permissions.md) to configure the share level permission. (Supported on AzFilesHybrid v0.2.3+ version)
+9. CheckUserFileAccess: Check if the AD user has the proper directory/file permission (Windows ACLs) to access Azure Files. If not, refer to the instruction [here](./storage-files-identity-ad-ds-configure-permissions.md) to configure the directory/file level permission. (Supported on AzFilesHybrid v0.2.3+ version)
 
 ## Unable to configure directory/file level permissions (Windows ACLs) with Windows File Explorer
 

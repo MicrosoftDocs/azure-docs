@@ -3,7 +3,7 @@ title: 'Tutorial: Design a server - Azure PowerShell - Azure Database for MariaD
 description: This tutorial explains how to create and manage Azure Database for MariaDB server and database using PowerShell.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 05/26/2020

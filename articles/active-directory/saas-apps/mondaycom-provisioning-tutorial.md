@@ -108,6 +108,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |Attribute|Type|Supported for filtering|
    |---|---|---|
    |userName|String|&check;|
+   |userType|String|
    |displayName|String|
    |title|String|
    |emails[type eq "work"].value|String|
@@ -145,6 +146,12 @@ Once you've configured provisioning, use the following resources to monitor your
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## Connector Limitations
+* monday.com only supports the userType "admin" , "guest", "member" and "viewer". The userType  "User" is not supported and will be removed in the future.
+
+## Change log
+* 1/21/2021 - Added support for core attribute "userType" for users.
 
 ## Additional resources
 

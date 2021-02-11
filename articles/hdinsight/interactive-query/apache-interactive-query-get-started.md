@@ -1,9 +1,6 @@
 ---
 title: What is Interactive Query in Azure HDInsight?
 description: An introduction to Interactive Query, also called Apache Hive LLAP, In Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive

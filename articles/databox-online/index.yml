@@ -41,8 +41,8 @@ landingContent:
             url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
       - linkListType: whats-new
         links:
-          - text: 2012 release notes
-            url: azure-stack-edge-gpu-2012-release-notes.md
+          - text: 2101 release notes
+            url: azure-stack-edge-gpu-2101-release-notes.md
 
   # Card
   - title: "Requirements and limits"
