@@ -53,7 +53,7 @@ You can add an administrative unit by using either the Azure portal or PowerShel
 
 ### Use PowerShell
 
-Install Azure AD PowerShell (preview) before you try to run the following commands:
+Install [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) before you try to run the following commands:
 
 ```powershell
 Connect-AzureAD
