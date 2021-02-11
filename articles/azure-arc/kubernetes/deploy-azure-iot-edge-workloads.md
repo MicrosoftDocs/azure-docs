@@ -34,13 +34,13 @@ The diagram below illustrates Azure Arc and Azure IoT Edge's relationship:
 
 * Download the [*values.yaml*](https://github.com/Azure/iotedge/blob/preview/iiot/kubernetes/charts/edge-kubernetes/values.yaml) file for IoT Edge Helm chart and replace the `deviceConnectionString` placeholder at the end of the file with the connection string you noted earlier. Set any other supported chart installation options as needed. Create a namespace for the IoT Edge workload and generate a secret in it:
 
-    ```
-    $ kubectl create ns iotedge
+  ```
+  $ kubectl create ns iotedge
 
-    $ kubectl create secret generic dcs --from-file=fully-qualified-path-to-values.yaml --namespace iotedge
-    ```
+  $ kubectl create secret generic dcs --from-file=fully-qualified-path-to-values.yaml --namespace iotedge
+  ```
 
-    You can also set up remotely using the [cluster config example](./use-gitops-connected-cluster.md).
+  You can also set up remotely using the [cluster config example](./use-gitops-connected-cluster.md).
 
 ## Connect a cluster
 
@@ -56,9 +56,9 @@ The [example Git repo](https://github.com/veyalla/edgearc) points to the IoT Edg
 
 Use the `az` Azure CLI `k8sconfiguration` extension to create a configuration that links the connected cluster to the Git repo:
 
-    ```
-    az k8sconfiguration create --name iotedge --cluster-name AzureArcIotEdge --resource-group AzureArcTest --operator-instance-name iotedge --operator-namespace azure-arc-iot-edge --enable-helm-operator --helm-operator-chart-version 0.6.0 --helm-operator-chart-values "--set helm.versions=v3" --repository-url "git://github.com/veyalla/edgearc.git" --cluster-scoped
-    ```
+  ```
+  az k8sconfiguration create --name iotedge --cluster-name AzureArcIotEdge --resource-group AzureArcTest --operator-instance-name iotedge --operator-namespace azure-arc-iot-edge --enable-helm-operator --helm-operator-chart-version 0.6.0 --helm-operator-chart-values "--set helm.versions=v3" --repository-url "git://github.com/veyalla/edgearc.git" --cluster-scoped
+  ```
 
 In a few minutes, you should see the IoT Edge workload modules deployed into your cluster's `iotedge` namespace. 
 
