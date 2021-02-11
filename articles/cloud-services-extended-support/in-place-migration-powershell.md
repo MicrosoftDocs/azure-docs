@@ -15,15 +15,10 @@ ms.author: tagore
 These steps show you how to use Azure PowerShell commands to migrate from Cloud Services (classic) to Cloud Services (extended support).
 
 ## Step 1: Plan for migration
-Here are a few best practices that we recommend as you evaluate whether to migrate to Cloud Services (extended support):
+Planning is the most important step for a successful migration experience. Review the below articles prior to beginning your migration journey. 
 
-* Read through the [Cloud Services (extended support) overview](overview.md). 
-* If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
-
-> [!IMPORTANT]
-> Application gateways aren't currently supported for migration from classic to Resource Manager. To migrate a virtual network with an application gateway, remove the gateway before you run a Prepare operation to move the network. After you complete the migration, reconnect the gateway in Azure Resource Manager.
->
-> Azure ExpressRoute gateways that connect to ExpressRoute circuits in another subscription can't be migrated automatically. In such cases, remove the ExpressRoute gateway, migrate the virtual network, and re-create the gateway. For more information, see [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../expressroute/expressroute-migration-classic-resource-manager.md).
+* Read through the [Cloud Services (extended support) overview](overview.md) to see a list of supported and unsupported scenarios for migration. 
+* Read through [Planning for migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-plan.md?context=/azure/cloud-services-extended-support/context/context)
 
 ## Step 2: Install the latest version of PowerShell
 There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
@@ -120,7 +115,7 @@ Get the list of cloud services by using the following command. Then pick the clo
 Get-AzureService | ft Servicename
 ```
 
-Get the deployment name for the cloud service. In this example, the service name is **My Service**. Replace the example service name with your own service name.
+Get the deployment name for the Cloud Service. In this example, the service name is **My Service**. Replace the example service name with your own service name.
 
 ```powershell
 $serviceName = "My Service"
@@ -128,7 +123,7 @@ $deployment = Get-AzureDeployment -ServiceName $serviceName
 $deploymentName = $deployment.DeploymentName
 ```
 
-First, validate that you can migrate the cloud service by using the following commands:
+First, validate that you can migrate the Cloud Service by using the following commands:
 
 ```powershell
 $validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
