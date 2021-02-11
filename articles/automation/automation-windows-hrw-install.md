@@ -32,8 +32,8 @@ The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monit
 
 The Hybrid Runbook Worker feature supports the following operating systems:
 
-* Windows Server 2019
-* Windows Server 2016, version 1709 and 1803
+* Windows Server 2019 (including Server Core)
+* Windows Server 2016, version 1709 and 1803 (excluding Server Core)
 * Windows Server 2012, 2012 R2
 * Windows Server 2008 SP2 (x64), 2008 R2
 * Windows 10 Enterprise (including multi-session) and Pro

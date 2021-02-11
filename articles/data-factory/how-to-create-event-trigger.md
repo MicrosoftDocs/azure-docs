@@ -1,13 +1,9 @@
 ---
 title: Create event-based triggers in Azure Data Factory 
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline in response to an event.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 author: chez-charlie
 ms.author: chez
-manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
