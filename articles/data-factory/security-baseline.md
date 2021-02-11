@@ -9,7 +9,6 @@ ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
-
 ---
 
 # Azure security baseline for Azure Data Factory
