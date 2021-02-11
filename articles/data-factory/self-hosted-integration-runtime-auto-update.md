@@ -2,11 +2,9 @@
 title: Self-hosted integration runtime auto-update and expire notification
 description: Learn about self-hosted integration runtime auto-update and expire notification
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
 ---
