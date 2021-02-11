@@ -32,7 +32,7 @@ Usage example:
 
 ```azurepowershell
 <#
-.SYNOPSIS
+    .SYNOPSIS
         Given an Azure firewall policy id the script will transform it to a Premium Azure firewall policy. 
         The script will first pull the policy, transform/add various parameters and then upload a new premium policy. 
         The created policy will be named <previous_policy_name>_premium if no new name provided else new policy will be named as the parameter passed.  
@@ -120,7 +120,17 @@ function TransformPolicyToPremium {
     foreach ($ruleCollectionGroup in $Policy.RuleCollectionGroups) {
         $ruleResource = Get-AzResource -ResourceId $ruleCollectionGroup.Id
         $ruleToTransfom = Get-AzFirewallPolicyRuleCollectionGroup -AzureFirewallPolicy $Policy -Name $ruleResource.Name
-        Set-AzFirewallPolicyRuleCollectionGroup -FirewallPolicyObject $premiumPolicy -RuleCollection $ruleToTransfom.Properties.RuleCollection -Priority $ruleToTransfom.Properties.Priority -Name $ruleToTransfom.Name
+        $ruleCollectionGroup = @{
+            FirewallPolicyObject = $premiumPolicy
+            Priority = $ruleToTransfom.Properties.Priority
+            Name = $ruleToTransfom.Name
+        }
+
+        if ($ruleToTransfom.Properties.RuleCollection.Count) {
+            $ruleCollectionGroup["RuleCollection"] = $ruleToTransfom.Properties.RuleCollection
+        }
+
+        Set-AzFirewallPolicyRuleCollectionGroup @ruleCollectionGroup
     }
 }
 
