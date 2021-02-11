@@ -76,7 +76,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links: 
-          - text: Azure Kubernetes Service (AKS) Confidential Computing Nodes (preview)
+          - text: Azure Kubernetes Service (AKS) Confidential Computing Nodes
             url: confidential-nodes-aks-overview.md
       - linkListType: concept
         links:
