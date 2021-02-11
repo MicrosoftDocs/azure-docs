@@ -58,4 +58,4 @@ The following table shows common certificate errors and detailed information abo
 
 ## Next steps
 
-[Certificate requirements](azure-stack-edge-j-series-certificate-requirements.md)
+[Certificate requirements](azure-stack-edge-gpu-certificate-requirements.md)
