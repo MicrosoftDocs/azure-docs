@@ -345,7 +345,7 @@ ___
         <a href="https://www.youtube.com/watch?v=q-TDszj2O-4" target="_blank">Advantages of MSAL over ADAL</a>
     :::column-end:::
     :::column:::
-        >[!Video "https://www.youtube.com/embed/q-TDszj2O-4]
+        >[!Video https://www.youtube.com/embed/q-TDszj2O-4]
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=aBMUxC4evhU" target="_blank">What are the differences between v1 and v2 authentication?</a>
