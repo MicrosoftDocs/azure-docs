@@ -2,7 +2,7 @@
 title: Geo-disaster recovery - Azure Event Hubs| Microsoft Docs
 description: How to use geographical regions to fail over and perform disaster recovery in Azure Event Hubs
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 02/10/2021
 ---
 
 # Azure Event Hubs - Geo-disaster recovery 
@@ -151,6 +151,8 @@ The Event Hubs Standard SKU supports [Availability Zones](../availability-zones/
 > The Availability Zones support for Azure Event Hubs Standard is only available in [Azure regions](../availability-zones/az-region.md) where availability zones are present.
 
 You can enable Availability Zones on new namespaces only, using the Azure portal. Event Hubs doesn't support migration of existing namespaces. You can't disable zone redundancy after enabling it on your namespace.
+
+When you use availability zones, both metadata and data (events) are replicated across data centers in the availability zone. 
 
 ![3][]
 

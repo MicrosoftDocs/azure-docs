@@ -2,7 +2,7 @@
 title: Azure Service Bus Geo-disaster recovery | Microsoft Docs
 description: How to use geographical regions to fail over and disaster recovery in Azure Service Bus
 ms.topic: article
-ms.date: 01/04/2021
+ms.date: 02/10/2021
 ---
 
 # Azure Service Bus Geo-disaster recovery
@@ -155,14 +155,16 @@ Note the following considerations to keep in mind with this release:
 
 4. Synchronizing entities can take some time, approximately 50-100 entities per minute. Subscriptions and rules also count as entities.
 
-## Availability Zones
+### Availability Zones
 
-The Service Bus Premium SKU also supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region.
+The Service Bus Premium SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Service Bus manages three copies of messaging store (1 primary and 2 secondary). Service Bus keeps all the three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. If the applications see transient disconnects from Service Bus, the retry logic in the SDK will automatically reconnect to Service Bus. 
+
+When you use availability zones, both metadata and data (messages) are replicated across data centers in the availability zone. 
 
 > [!NOTE]
 > The Availability Zones support for Azure Service Bus Premium is only available in [Azure regions](../availability-zones/az-region.md) where availability zones are present.
 
-You can enable Availability Zones on new namespaces only, using the Azure portal. Service Bus doesn't support migration of existing namespaces. You can't disable zone redundancy after enabling it on your namespace.
+You can enable Availability Zones on new namespaces only, using the Azure portal. Service Bus does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
 
 ![3][]
 
