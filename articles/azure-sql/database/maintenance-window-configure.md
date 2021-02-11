@@ -16,13 +16,12 @@ ms.date: 02/09/2021
 
 Configure the [maintenance window (Preview)](maintenance-window.md) for an Azure SQL database, elastic pool, or Azure SQL Managed Instance database during database creation, or anytime after a database is created. 
 
+Databases remain available during maintenance window changes, but in some cases a failover is required as the change occurs. The change typically takes place immediately, but consider this when configuring a maintenance window. 
 
 
 The *System default* maintenance window is 5PM to 8AM daily (local time of the Azure region the database is located) to avoid peak business hours interruptions. If the *System default* maintenance window is not the best time, select one of the other available maintenance windows.
 
 The ability to change to a different maintenance window is not available for every service level or in every region. For details on availability, see [Maintenance window availability](maintenance-window.md#availability).
-
-Changing a maintenance window often requires moving the database to a new area within the data center that results in a failover. The change typically takes place immediately, so consider this when configuring a maintenance window. 
 
 
 ## Configure maintenance window during database creation 
