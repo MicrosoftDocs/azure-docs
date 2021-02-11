@@ -17,55 +17,51 @@ ms.collection: M365-identity-device-management
 ---
 # Availability of FIDO2 passwordless authentication based on browser and operating system
 
-Azure Active Directory allows [FIDO2 security keys](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) to be used as a passwordless device. The availability of FIDO2 authentication for Microsoft accounts was [announced in 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910), and, as discussed in the announcement, certain optional features and extensions to the FIDO2 CTAP specification must be implemented to support secure authentication with Microsoft and Azure Active Directory accounts.
+Azure Active Directory allows [FIDO2 security keys](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) to be used as a passwordless device. The availability of FIDO2 authentication for Microsoft accounts was [announced in 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910), and, as discussed in the announcement, certain optional features and extensions to the FIDO2 CTAP specification must be implemented to support secure authentication with Microsoft and Azure Active Directory accounts.
 
-The following diagram shows which browsers and operating system combinations support passwordless authentication using FIDO2 authentication keys with Azure Active Directory. A full explanation of the diagram follows.
+The following diagram shows which browsers and operating system combinations support passwordless authentication using FIDO2 authentication keys with Azure Active Directory. 
+
+## Azure Active Directory (AAD) accounts
+
+ This table shows support for authenticating Azure Active Directory (AAD) accounts. Supported device types include **USB**, near-field communication (**NFC**), and bluetooth low energy (**BLE**).
 
 |  | Safari | | | Chrome |  |  | Edge |  |  | Firefox |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |  | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE |
-| **Windows**  | ![Safari does not support USB on Windows for AAD accounts.][n] | ![Safari does not support NFC on Windows for AAD accounts.][n] | ![Safari does not support BLE on Windows for AAD accounts.][n] | ![Chrome supports USB on Windows for AAD accounts.][y] | ![Chrome supports NFC on Windows for AAD accounts.][y] | ![Chrome supports BLE on Windows for AAD accounts.][y] | ![Edge supports USB on Windows for AAD accounts.][y] | ![Edge supports NFC on Windows for AAD accounts.][y] | ![Edge supports BLE on Windows for AAD accounts.][y] | ![Firefox supports USB on Windows for AAD accounts.][y] | [Firefox supports NFC on Windows for AAD accounts.][y] | [Firefox supports BLE on Windows for AAD accounts.][y] |
-| **macOS** |  |  |  |  |  |  |  |  |  |  |  |  |
-| **iOS** |  |  |  |  |  |  |  |  |  |  |  |  |
-| **ChromeOS** |  |  |  |  |  |  |  |  |  |  |  |  |
-| **Linux** |  |  |  |  |  |  |  |  |  |  |  |  |
+| **Windows**  | ![Safari does not support USB on Windows for AAD accounts.][n] | ![Safari does not support NFC on Windows for AAD accounts.][n] | ![Safari does not support BLE on Windows for AAD accounts.][n] | ![Chrome supports USB on Windows for AAD accounts.][y] | ![Chrome supports NFC on Windows for AAD accounts.][y] | ![Chrome supports BLE on Windows for AAD accounts.][y] | ![Edge supports USB on Windows for AAD accounts.][y] | ![Edge supports NFC on Windows for AAD accounts.][y] | ![Edge supports BLE on Windows for AAD accounts.][y] | ![Firefox supports USB on Windows for AAD accounts.][y] | ![Firefox supports NFC on Windows for AAD accounts.][y] | ![Firefox supports BLE on Windows for AAD accounts.][y] |
+| **macOS**  | ![Safari supports USB on macOS for AAD accounts.][y] | ![Safari does not support NFC on macOS for AAD accounts.][n] | ![Safari does not support BLE on macOS for AAD accounts.][n] | ![Chrome supports USB on macOS for AAD accounts.][y] | ![Chrome does not support NFC on macOS for AAD accounts.][n] | ![Chrome does not support BLE on macOS for AAD accounts.][n] | ![Edge supports USB on macOS for AAD accounts.][y] | ![Edge does not support NFC on macOS for AAD accounts.][n] | ![Edge does not support BLE on macOS for AAD accounts.][n] | ![Firefox does not support USB on macOS for AAD accounts.][n] | ![Firefox does not support NFC on macOS for AAD accounts.][n] | ![Firefox does not support BLE on macOS for AAD accounts.][n] |
+| **iOS**  | ![Safari supports USB on iOS for AAD accounts.][y] | ![Safari supports NFC on iOS for AAD accounts.][y] | ![Safari does not support BLE on iOS for AAD accounts.][n] | ![Chrome does not support USB on iOS for AAD accounts.][n] | ![Chrome does not support NFC on iOS for AAD accounts.][n] | ![Chrome does not support BLE on iOS for AAD accounts.][n] | ![Edge does not support USB on iOS for AAD accounts.][n] | ![Edge does not support NFC on iOS for AAD accounts.][n] | ![Edge does not support BLE on iOS for AAD accounts.][n] | ![Firefox does not support USB on iOS for AAD accounts.][n] | ![Firefox does not support NFC on iOS for AAD accounts.][n] | ![Firefox does not support BLE on iOS for AAD accounts.][n] |
+| **ChromeOS**  | ![Safari does not support USB on ChromeOS for AAD accounts.][n] | ![Safari does not support NFC on ChromeOS for AAD accounts.][n] | ![Safari does not support BLE on ChromeOS for AAD accounts.][n] | ![Chrome supports USB on ChromeOS for AAD accounts.][y] | ![Chrome does not support NFC on ChromeOS for AAD accounts.][n] | ![Chrome does not support BLE on ChromeOS for AAD accounts.][n] | ![Edge does not support USB on ChromeOS for AAD accounts.][n] | ![Edge does not support NFC on ChromeOS for AAD accounts.][n] | ![Edge does not support BLE on ChromeOS for AAD accounts.][n] | ![Firefox does not support USB on ChromeOS for AAD accounts.][n] | ![Firefox does not support NFC on ChromeOS for AAD accounts.][n] | ![Firefox does not support BLE on ChromeOS for AAD accounts.][n] |
+| **Linux**  | ![Safari does not support USB on Linux for AAD accounts.][n] | ![Safari does not support NFC on Linux for AAD accounts.][n] | ![Safari does not support BLE on Linux for AAD accounts.][n] | ![Chrome supports USB on Linux for AAD accounts.][y] | ![Chrome does not support NFC on Linux for AAD accounts.][n] | ![Chrome does not support BLE on Linux for AAD accounts.][n] | ![Edge does not support USB on Linux for AAD accounts.][n] | ![Edge does not support NFC on Linux for AAD accounts.][n] | ![Edge does not support BLE on Linux for AAD accounts.][n] | ![Firefox does not support USB on Linux for AAD accounts.][n] | ![Firefox does not support NFC on Linux for AAD accounts.][n] | ![Firefox does not support BLE on Linux for AAD accounts.][n] |
 
+## Microsoft Accounts (MSA)
 
-Support for authentication depends on the browser that is being used, the operating system it is running on, the account type, and type of authentication device. Account types include Azure Active Directory accounts created for work or school, labeled **AAD**, and Microsoft accounts created by consumers for services such as Xbox, Skype, or Outlook.com, labeled **MSA**. Device types include **USB**, near-field communication (**NFC**), and bluetooth low energy (**BLE**).
+ This table shows support for authenticating Microsoft Accounts (MSA). Microsoft accounts are created by consumers for services such as Xbox, Skype, or Outlook.com. Supported device types include **USB**, near-field communication (**NFC**), and bluetooth low energy (**BLE**).
 
-**Windows**
-All devices are supported for both AAD and MSA accounts on Chrome, Edge, and Firefox.
+|  | Safari | | | Chrome |  |  | Edge |  |  | Firefox |  |  |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|  | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE |
+| **Windows**  | ![Safari does not support USB on Windows for AAD accounts.][n] | ![Safari does not support NFC on Windows for AAD accounts.][n] | ![Safari does not support BLE on Windows for AAD accounts.][n] | ![Chrome supports USB on Windows for AAD accounts.][y] | ![Chrome supports NFC on Windows for AAD accounts.][y] | ![Chrome supports BLE on Windows for AAD accounts.][y] | ![Edge supports USB on Windows for AAD accounts.][y] | ![Edge supports NFC on Windows for AAD accounts.][y] | ![Edge supports BLE on Windows for AAD accounts.][y] | ![Firefox supports USB on Windows for AAD accounts.][y] | ![Firefox supports NFC on Windows for AAD accounts.][y] | ![Firefox supports BLE on Windows for AAD accounts.][y] |
+| **macOS**  | ![Safari does not support USB on macOS for AAD accounts.][n] | ![Safari does not support NFC on macOS for AAD accounts.][n] | ![Safari does not support BLE on macOS for AAD accounts.][n] | ![Chrome supports USB on macOS for AAD accounts.][y] | ![Chrome does not support NFC on macOS for AAD accounts.][n] | ![Chrome does not support BLE on macOS for AAD accounts.][n] | ![Edge supports USB on macOS for AAD accounts.][y] | ![Edge does not support NFC on macOS for AAD accounts.][n] | ![Edge does not support BLE on macOS for AAD accounts.][n] | ![Firefox does not support USB on macOS for AAD accounts.][n] | ![Firefox does not support NFC on macOS for AAD accounts.][n] | ![Firefox does not support BLE on macOS for AAD accounts.][n] |
+| **iOS**  | ![Safari does not supports USB on iOS for MSA accounts.][n] | ![Safari does not support NFC on iOS for MSA accounts.][n] | ![Safari does not support BLE on iOS for MSA accounts.][n] | ![Chrome does not support USB on iOS for MSA accounts.][n] | ![Chrome does not support NFC on iOS for MSA accounts.][n] | ![Chrome does not support BLE on iOS for MSA accounts.][n] | ![Edge does not support USB on iOS for MSA accounts.][n] | ![Edge does not support NFC on iOS for MSA accounts.][n] | ![Edge does not support BLE on iOS for MSA accounts.][n] | ![Firefox does not support USB on iOS for MSA accounts.][n] | ![Firefox does not support NFC on iOS for MSA accounts.][n] | ![Firefox does not support BLE on iOS for MSA accounts.][n] |
+| **ChromeOS**  | ![Safari does not support USB on ChromeOS for MSA accounts.][n] | ![Safari does not support NFC on ChromeOS for MSA accounts.][n] | ![Safari does not support BLE on ChromeOS for MSA accounts.][n] | ![Chrome does not support USB on ChromeOS for MSA accounts.][n] | ![Chrome does not support NFC on ChromeOS for MSA accounts.][n] | ![Chrome does not support BLE on ChromeOS for MSA accounts.][n] | ![Edge does not support USB on ChromeOS for MSA accounts.][n] | ![Edge does not support NFC on ChromeOS for MSA accounts.][n] | ![Edge does not support BLE on ChromeOS for MSA accounts.][n] | ![Firefox does not support USB on ChromeOS for MSA accounts.][n] | ![Firefox does not support NFC on ChromeOS for MSA accounts.][n] | ![Firefox does not support BLE on ChromeOS for MSA accounts.][n] |
+| **Linux**  | ![Safari does not support USB on Linux for MSA accounts.][n] | ![Safari does not support NFC on Linux for MSA accounts.][n] | ![Safari does not support BLE on Linux for MSA accounts.][n] | ![Chrome supports USB on Linux for MSA accounts.][y] | ![Chrome does not support NFC on Linux for MSA accounts.][n] | ![Chrome does not support BLE on Linux for MSA accounts.][n] | ![Edge does not support USB on Linux for MSA accounts.][n] | ![Edge does not support NFC on Linux for MSA accounts.][n] | ![Edge does not support BLE on Linux for MSA accounts.][n] | ![Firefox does not support USB on Linux for MSA accounts.][n] | ![Firefox does not support NFC on Linux for MSA accounts.][n] | ![Firefox does not support BLE on Linux for MSA accounts.][n] |
 
-*OS version tested:*
+## Operating system versions tested
 
-**iOS**
-FIDO2 authentication is supported in the following scenarios:
-- Azure AD accounts using a USB and NFC device in the Safari browser
-- Azure AD accounts using a USB device in the Brave browser
+The information in the tables above was tested for the following operating system versions.
 
-*OS version tested:*
+| Operating system | Latest tested version |
+| --- | --- |
+| Windows | Windows 10 20H2 1904 |
+| macOS | OS X 11 Big Sur |
+| iOS | 14.2.1 |
+| ChromeOS | Version 86.0 |
+| Linux | Fedora 32 Workstation |
 
-**MacOS**
-FIDO2 authentication is supported in the following scenarios:
-- Azure AD accounts using a USB device in the Safari browser
-- Azure AD and MSA accounts using a USB device in the Chrome browser
-- Azure AD and MSA accounts using a USB device in the Edge browser
+## Next steps
+[Enable passwordless security key sign-in (preview)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key)
 
-*OS version tested:*
-
-**ChromeOS**
-FIDO2 authentication is supported in the following scenarios:
-- Azure AD accounts using a USB device in the Chrome browser
-
-*OS version tested:*
-
-**Android**
-FIDO2 authentication is not supported.
-
-*OS version tested:*
-
-**Linux**
-FIDO2 authentication is supported in the following scenarios:
-- Azure AD and MSA accounts using a USB device in the Chrome browser
-
-*OS version tested:*
+<!--Image references-->
+[y]: ./media/fido2-compatibility/yes.png
+[n]: ./media/fido2-compatibility/no.png
