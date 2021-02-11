@@ -115,7 +115,8 @@ You will generate two data flows in this tutorial. The fist data flow is a simpl
    
 1. Here we are using the Delta Lake sink to your ADLS Gen2 data lake and allowing inserts, updates, deletes. 
 1. Note that the Key Columns is a composite key made up of the Movie primary key column and year column. This is because we created fake 2021 movies by duplicating the 1960 rows. This avoids collisions when looking up the existing rows by providing uniqueness.
- 
+
+### Download completed sample
 [Here is a sample solution for the Delta pipeline with a data flow for update/delete rows in the lake:](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/DeltaPipeline.zip)
 
 ## Next steps
