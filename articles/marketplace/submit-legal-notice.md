@@ -49,4 +49,4 @@ As stated in the Microsoft Publisher Agreement for the commercial marketplace, a
 ## Next steps
 
 - A support agent will contact you if we have questions.
-- Review the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560) (PDF)
+- Review the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560) (PDF).
