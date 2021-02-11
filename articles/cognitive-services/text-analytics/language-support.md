@@ -77,6 +77,21 @@ ms.author: aahi
 | Swedish               |     `sv`      |     ✓*      |               2019-10-01        |                    |
 | Turkish               |     `tr`      |     ✓*      |               2019-10-01        |                    |
 
+#### [Personally Identifiable Information (PII)](#tab/pii)
+
+| Language               | Language code | v3 support | Starting with v3 model version: |       Notes        |
+|:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
+| Chinese-Simplified     |   `zh-hans`   |     ✓      |               2021-01-15        | `zh` also accepted |
+| English                |     `en`      |     ✓      |               2020-07-01        |                    |
+| French                 |     `fr`      |     ✓      |               2021-01-15        |                    |
+| German                 |     `de`      |     ✓      |               2021-01-15        |                    |
+| Italian               |     `it`      |     ✓       |               2021-01-15        |                    |
+| Japanese              |     `ja`      |     ✓       |               2021-01-15        |                    |
+| Korean                |     `ko`      |     ✓       |               2021-01-15        |                    |
+| Portuguese (Brazil)   |    `pt-BR`    |     ✓       |               2021-01-15        |                    |
+| Portuguese (Portugal) |    `pt-PT`    |     ✓       |               2021-01-15        | `pt` also accepted |
+| Spanish               |     `es`      |     ✓       |               2020-04-01        |                    |
+
 #### [Key phrase extraction](#tab/key-phrase-extraction)
 
 | Language              | Language code | v2 support | v3 support | Available starting with v3 model version: |       Notes        |
