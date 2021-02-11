@@ -78,11 +78,11 @@ The [Privileged authentication administrator](#privileged-authentication-adminis
 
 The [Authentication policy administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
 
-|Role|Manage user's auth methods|Manage per-user MFA|Manage MFA settings|Manage auth method policy|Manage password protection policy|
-|-------------|--------|-----------|--------|-------------|
-|Authentication administrator|Yes for some users (see above)|Yes for some users (see above)|No|No|No|
-|Privileged authentication administrator|Yes for all users|Yes for all users|No|No|No|
-|Authentication policy administrator|No|No|Yes|Yes|Yes|
+| Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy |  
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| Authentication administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No | 
+| Privileged authentication administrator| Yes for all users | Yes for all users  |No | No  |No | 
+| Authentication policy administrator | No  |No | Yes | Yes | Yes | 
 
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -102,11 +102,11 @@ Users with this role can configure the authentication methods policy, tenant-wid
 
 The [Authentication administrator](#authentication-administrator) and [Privileged authentication administrator](#privileged-authentication-administrator) roles have permission to manage registered authentication methods on users and can force re-registration and multi-factor authentication for all users. 
 
-|Role|Manage user's auth methods|Manage per-user MFA|Manage MFA settings|Manage auth method policy|Manage password protection policy|
-|-------------|--------|-----------|--------|-------------|
-|Authentication administrator|Yes for some users (see above)|Yes for some users (see above)|No|No|No|
-|Privileged authentication administrator|Yes for all users|Yes for all users|No|No|No|
-|Authentication policy administrator|No|No|Yes|Yes|Yes|
+| Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy |  
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| Authentication administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No | 
+| Privileged authentication administrator| Yes for all users | Yes for all users  |No | No  |No | 
+| Authentication policy administrator | No  |No | Yes | Yes | Yes | 
 
 > [!IMPORTANT]
 > This role is not currently capable of managing MFA settings in the legacy MFA management portal.
@@ -384,11 +384,11 @@ The [Authentication administrator](#authentication-administrator) role has permi
 
 The [Authentication policy administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
 
-|Role|Manage user's auth methods|Manage per-user MFA|Manage MFA settings|Manage auth method policy|Manage password protection policy|
-|-------------|--------|-----------|--------|-------------|
-|Authentication administrator|Yes for some users (see above)|Yes for some users (see above)|No|No|No|
-|Privileged authentication administrator|Yes for all users|Yes for all users|No|No|No|
-|Authentication policy administrator|No|No|Yes|Yes|Yes|
+| Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy |  
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| Authentication administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No | 
+| Privileged authentication administrator| Yes for all users | Yes for all users  |No | No  |No | 
+| Authentication policy administrator | No  |No | Yes | Yes | Yes | 
 
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
