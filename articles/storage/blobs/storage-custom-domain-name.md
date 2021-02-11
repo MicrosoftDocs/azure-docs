@@ -5,7 +5,7 @@ description: Map a custom domain to a Blob Storage or web endpoint in an Azure s
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 02/11/2021
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
@@ -57,15 +57,15 @@ The host name is the storage endpoint URL without the protocol identifier and th
 
 4. Remove the protocol identifier (*e.g.*, HTTPS) and the trailing slash from that string. The following table contains examples.
 
+   > [!NOTE]
+   > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
+
    | Type of endpoint |  endpoint | host name |
    |------------|-----------------|-------------------|
    |blob service  | `https://mystorageaccount.blob.core.windows.net/` | `mystorageaccount.blob.core.windows.net` |
    |static website  | `https://mystorageaccount.z5.web.core.windows.net/` | `mystorageaccount.z5.web.core.windows.net` |
   
    Set this value aside for later.
-
-   > [!NOTE]
-   > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
 
 <a id="create-cname-record"></a>
 
@@ -95,7 +95,10 @@ Create a CNAME record to point to your host name. A CNAME record is a type of DN
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Blob Service**, select **Custom domain**.  
+2. In the menu pane, under **Blob Service**, select **Custom domain**.
+
+   > [!NOTE]
+   > This option does not appear in accounts that have the hierarchical namespace feature enabled. For those accounts, use either PowerShell or the Azure CLI to complete this step.
 
    ![custom domain option](./media/storage-custom-domain-name/custom-domain-button.png "custom domain")
 
@@ -114,12 +117,40 @@ Create a CNAME record to point to your host name. A CNAME record is a type of DN
 Run the following PowerShell command
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName {resourceGroupName} -Name {storageAccountName} -CustomDomainName {customDomainName (including the subdomain) -UseSubDomain $false
+Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name> -CustomDomainName <custom-domain-name> -UseSubDomain $false
 ```
+
+- Replace the `<resource-group-name>` placeholder with the name of the resource group.
+
+- Replace the `<storage-account-name>` placeholder with the name of the storage account.
+
+- Replace the `<custom-domain-name>` placeholder with the name of your custom domain, including the subdomain.
+
+  For example, if your domain is *contoso.com* and your subdomain alias is *www*, enter `www.contoso.com`. If your subdomain is *photos*, enter `photos.contoso.com`.
+
+After the CNAME record has propagated through the Domain Name Servers (DNS), and if your users have the appropriate permissions, they can view blob data by using the custom domain.
 
 ##### [Azure CLI](#tab/azure-cli)
 
-Put command here.
+Run the following PowerShell command
+
+```azurecli
+az storage account update \
+   --resource-group <resource-group-name> \ 
+   --name <storage-account-name> \
+   --custom-domain <custom-domain-name> \
+   --use-subdomain false
+  ```
+
+- Replace the `<resource-group-name>` placeholder with the name of the resource group.
+
+- Replace the `<storage-account-name>` placeholder with the name of the storage account.
+
+- Replace the `<custom-domain-name>` placeholder with the name of your custom domain, including the subdomain.
+
+  For example, if your domain is *contoso.com* and your subdomain alias is *www*, enter `www.contoso.com`. If your subdomain is *photos*, enter `photos.contoso.com`.
+
+After the CNAME record has propagated through the Domain Name Servers (DNS), and if your users have the appropriate permissions, they can view blob data by using the custom domain.
 
 ---
 
@@ -134,7 +165,7 @@ For example, to access a web form in the *myforms* container in the *photos.cont
 ### Map a custom domain with zero downtime
 
 > [!NOTE]
-> If you are unconcerned that the domain is briefly unavailable to your users, then consider following the steps in the [Map a custom domain](#map-a-domain) section of this article. It's a simpler approach with fewer steps.  
+> If you are unconcerned that the domain is briefly unavailable to your users, then consider using the steps in the [Map a custom domain](#map-a-domain) section of this article. It's a simpler approach with fewer steps.  
 
 If your domain currently supports an application with a service-level agreement (SLA) that requires zero downtime, then follow these steps to ensure that users can access your domain while the DNS mapping takes place. 
 
@@ -162,15 +193,15 @@ The host name is the storage endpoint URL without the protocol identifier and th
 
 4. Remove the protocol identifier (*e.g.*, HTTPS) and the trailing slash from that string. The following table contains examples.
 
+   > [!NOTE]
+   > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
+
    | Type of endpoint |  endpoint | host name |
    |------------|-----------------|-------------------|
    |blob service  | `https://mystorageaccount.blob.core.windows.net/` | `mystorageaccount.blob.core.windows.net` |
    |static website  | `https://mystorageaccount.z5.web.core.windows.net/` | `mystorageaccount.z5.web.core.windows.net` |
   
    Set this value aside for later.
-
-   > [!NOTE]
-   > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
 
 #### Step 2: Create a intermediary canonical name (CNAME) record with your domain provider
 
@@ -206,7 +237,10 @@ When you pre-register your custom domain with Azure, you permit Azure to recogni
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. In the menu pane, under **Blob Service**, select **Custom domain**.  
+2. In the menu pane, under **Blob Service**, select **Custom domain**.
+
+   > [!NOTE]
+   > This option does not appear in accounts that have the hierarchical namespace feature enabled. For those accounts, use either PowerShell or the Azure CLI to complete this step.
 
    ![custom domain option](./media/storage-custom-domain-name/custom-domain-button.png "custom domain")
 
@@ -227,12 +261,40 @@ When you pre-register your custom domain with Azure, you permit Azure to recogni
 Run the following PowerShell command
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName {resourceGroupName} -Name {storageAccountName} -CustomDomainName {customDomainName (including the subdomain) -UseSubDomain $false
+Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name> -CustomDomainName <custom-domain-name> -UseSubDomain $false
 ```
+
+- Replace the `<resource-group-name>` placeholder with the name of the resource group.
+
+- Replace the `<storage-account-name>` placeholder with the name of the storage account.
+
+- Replace the `<custom-domain-name>` placeholder with the name of your custom domain, including the subdomain.
+
+  For example, if your domain is *contoso.com* and your subdomain alias is *www*, enter `www.contoso.com`. If your subdomain is *photos*, enter `photos.contoso.com`.
+
+After the CNAME record has propagated through the Domain Name Servers (DNS), and if your users have the appropriate permissions, they can view blob data by using the custom domain.
 
 ##### [Azure CLI](#tab/azure-cli)
 
-Put command here.
+Run the following PowerShell command
+
+```azurecli
+az storage account update \
+   --resource-group <resource-group-name> \ 
+   --name <storage-account-name> \
+   --custom-domain <custom-domain-name> \
+   --use-subdomain false
+  ```
+
+- Replace the `<resource-group-name>` placeholder with the name of the resource group.
+
+- Replace the `<storage-account-name>` placeholder with the name of the storage account.
+
+- Replace the `<custom-domain-name>` placeholder with the name of your custom domain, including the subdomain.
+
+  For example, if your domain is *contoso.com* and your subdomain alias is *www*, enter `www.contoso.com`. If your subdomain is *photos*, enter `photos.contoso.com`.
+
+After the CNAME record has propagated through the Domain Name Servers (DNS), and if your users have the appropriate permissions, they can view blob data by using the custom domain.
 
 ---
 
