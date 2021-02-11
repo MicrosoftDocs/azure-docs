@@ -11,6 +11,30 @@
     href: create-front-door-portal.md
 - name: Concepts
   items:
+  - name: Front Door FAQ
+    href: faq.md
+  - name: Endpoint Manager
+    href: concept-endpoint-manager.md
+  - name: Origin
+    href: concept-origin.md
+  - name: Route
+    href: concept-route.md
+  - name: Rule Set
+    href: concept-rule-set.md
+  - name: Rule Set Match Condition
+    href: concept-rule-set-match-conditions.md
+  - name: Rule Set Action
+    href: concept-rule-set-actions.md
+  - name: URL redirect and URL rewrite
+    href: concept-rule-set-url-redirect-and-rewrite.md
+  - name: Health Probe
+    href: concept-health-probes.md
+  - name: Private Endpoints
+    href: concept-private-endpoints.md
+  - name: Caching
+    href: concept-caching.md
+  - name: DDoS
+    href: concept-ddos.md
   - name: Endpoint Manager
     href: concept-endpoint-manager.md
   - name: Private Endpoints
