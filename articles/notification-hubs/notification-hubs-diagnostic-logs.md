@@ -33,7 +33,7 @@ Diagnostic log JSON strings include the elements listed in the following table:
 | resultType | Status of the management operation. Valid values: `Succeeded` or `Failed` |
 | resultDescription | Description of the management operation |
 | correlationId | Correlation ID of the management operation (if specified) |
-| callerIpAddress | The caller IP address. Empty for calls that originated from the Azure Portal |
+| callerIpAddress | The caller IP address. Empty for calls that originated from the Azure portal |
 
 Here's an example of an operational log JSON string:
 
