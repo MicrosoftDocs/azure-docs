@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 02/09/2021
+ms.date: 02/11/2021
 ---
 
 # Maintenance window (Preview)
@@ -25,11 +25,11 @@ Azure performs planned maintenance updates on Azure SQL Database and SQL Managed
 
 The maintenance window is intended for business workloads that are sensitive to the potential connectivity interruptions that can result from planned maintenance events during the default window.  
 
-The maintenance window can be configured using the Azure portal PowerShell, or CLI on creation, or for existing Azure SQL Database and SQL managed instances.
+The maintenance window can be configured using the Azure portal, PowerShell, CLI, or Azure API. It can be configured on creation or for existing SQL databases and SQL managed instances.
 
 ### Gain more predictability with maintenance window
 
-By default, all Azure SQL Databases and managed instance databases are updated only during 5PM to 8AM local times daily to avoid peak business hours interruptions. Local time is determined by the Azure region that hosts the resource. You can further adjust the maintenance updates to a time suitable to your database by choosing from two additional maintenance window slots:
+By default, all Azure SQL Databases and managed instance databases are updated only during 5PM to 8AM local times daily to avoid peak business hours interruptions. Local time is determined by the [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) that hosts the resource. You can further adjust the maintenance updates to a time suitable to your database by choosing from two additional maintenance window slots:
 
 * **Default** window, 5PM to 8AM local time Mon-Sunday 
 * Weekday window, 10PM to 6AM local time Monday – Thursday: **Requires customer opt-in** 
