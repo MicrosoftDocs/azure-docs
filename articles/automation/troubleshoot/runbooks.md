@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 02/10/2021
+ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
 ---
@@ -240,13 +240,13 @@ The subscription context might be lost when a runbook invokes multiple runbooks.
    Disable-AzContextAutosave –Scope Process
    ```
 
-* The Azure PowerShell cmdlets support the `-DefaultProfile` parameter. This was added to all Az and AzureRm cmdlets to support running multiple PowerShell scripts in the same process, allowing you to specify the context and which subscription to use for each cmdlet. With your runbooks, you should save the context object in your runbook when the runbook is created (that is, when an account signs in) and every time it's changed, and reference it for every Az/AzureRm cmdlet that you specify.
+* The Azure PowerShell cmdlets support the `-DefaultProfile` parameter. This was added to all Az and AzureRm cmdlets to support running multiple PowerShell scripts in the same process, allowing you to specify the context and which subscription to use for each cmdlet. With your runbooks, you should save the context object in your runbook when the runbook is created (that is, when an account signs in) and every time it's changed, and reference the context when you specify an Az cmdlet.
 
    > [!NOTE]
-   > You should pass in a context object even when manipulating the context directly using cmdlets such as `Set-AzContext` or `Select-AzSubscription`.
+   > You should pass in a context object even when manipulating the context directly using cmdlets such as [Set-AzContext](/powershell/module/az.accounts/Set-AzContext) or [Select-AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription).
 
    ```azurepowershell-interactive
-   $servicePrincipalConnection=Get-AutomationConnection -Name    $connectionName         
+   $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName 
    $context = Add-AzAccount `
              -ServicePrincipal `
              -TenantId $servicePrincipalConnection.TenantId `
@@ -257,31 +257,7 @@ The subscription context might be lost when a runbook invokes multiple runbooks.
        -DefaultProfile $context
    Get-AzVm -DefaultProfile $context
    ```
-
-* To ensure that the subscription context is passed to the runbooks, have the client runbook pass the context to the `Start-AzureRmAutomationRunbook` cmdlet in the `AzureRmContext` parameter. Use the `Disable-AzureRmContextAutosave` cmdlet with the `Scope` parameter set to `Process` to ensure that the specified credentials are only used for the current runbook. For more information, see [Subscriptions](../automation-runbook-execution.md#subscriptions).
-
-    ```azurepowershell-interactive
-    # Connect to Azure with Run As account
-    $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
-    
-    Connect-AzAccount `
-        -ServicePrincipal `
-        -Tenant $ServicePrincipalConnection.TenantId `
-        -ApplicationId $ServicePrincipalConnection.ApplicationId `
-        -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
-    
-    $AzContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
-    
-    $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-    
-    Start-AzAutomationRunbook `
-        –AutomationAccountName 'MyAutomationAccount' `
-        –Name 'Test-ChildRunbook' `
-        -ResourceGroupName 'LabRG' `
-        -AzContext $AzContext `
-        –Parameters $params –wait
-    ```
-    
+  
 ## <a name="auth-failed-mfa"></a>Scenario: Authentication to Azure fails because multifactor authentication is enabled
 
 ### Issue

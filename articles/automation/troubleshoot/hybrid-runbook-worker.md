@@ -5,7 +5,7 @@ services: automation
 ms.subservice:
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/04/2021
+ms.date: 02/11/2021
 ms.topic: troubleshooting
 ---
 
@@ -289,9 +289,10 @@ Your Hybrid Runbook Worker machine is running, but you don't see heartbeat data 
 
 The following example query shows the machines in a workspace and their last heartbeat:
 
-`// Last heartbeat of each computer`  
-`Heartbeat`  
-`| summarize arg_max(TimeGenerated, *) by Computer`  
+```kusto
+Heartbeat
+| summarize arg_max(TimeGenerated, *) by Computer
+```
 
 #### Cause
 
