@@ -1,6 +1,6 @@
 ---
-title: Migrate to Cloud Services (extended support) using PowerShell 
-description: How to migrate from Cloud Services (classic) to Cloud Services (extended support) using PowerShell
+title: Migrate to Azure Cloud Services (extended support) using PowerShell 
+description: How to migrate from Azure Cloud Services (classic) to Azure Cloud Services (extended support) using PowerShell
 author: tanmaygore
 ms.service: cloud-services-extended-support
 ms.reviwer: mimckitt
