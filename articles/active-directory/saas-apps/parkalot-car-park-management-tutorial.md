@@ -92,9 +92,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://<CustomerName>.parkalot.io/__/auth/handler` |
     |
 
-    c. In the **Sign on URL** text box, type a URL using one of the following patterns:
+    c. In the **Sign-on URL** text box, type a URL using one of the following patterns:
 
-    | Sign on URL |
+    | Sign-on URL |
     | -------------- |
     | `https://<CUSTOMERNAME>.parkalot.io/#/login` |
     | `https://parkalot-saml.firebaseapp.com/#/login` |
@@ -150,9 +150,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. In the **Display Name** textbox, give a valid name to it.
 
-    b. In the **IdP Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+    b. In the **IdP Entity ID** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
 
-    c. In the **SSO url** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    c. In the **SSO url** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
     d. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox.
 
