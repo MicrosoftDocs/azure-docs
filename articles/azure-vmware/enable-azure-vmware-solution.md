@@ -15,7 +15,7 @@ In this how-to, you'll learn how to request host quota/capacity and enable the [
 
 
 The overall process is simple that includes two steps:
-- Request additional host quota/capacity for either [EA customers](#request-hosts-for-ea-customers) or [CSP customers](#request-hosts-for-csp-customers)
+- Request additional host quota/capacity for either [EA customers](#request-host-for-ea-customers) or [CSP customers](#request-host-for-csp-customers) 
 - Enable the Microsoft.AVS resource provider
 
 ## Eligibility criteria
