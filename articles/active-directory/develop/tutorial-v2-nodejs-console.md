@@ -173,7 +173,7 @@ In the code snippet above, we first create a configuration object (*msalConfig*)
 
 Create an environment file to store the app registration details that will be used when acquiring tokens. To do so, create a file named *.env* inside the root folder of the sample (*NodeConsoleApp*), and add the following code:
 
-```text
+```
 # Credentials
 TENANT_ID=Enter_the_Tenant_Id_Here
 CLIENT_ID=Enter_the_Application_Id_Here
