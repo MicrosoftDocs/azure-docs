@@ -475,6 +475,10 @@
       href: reference-third-party-cookies-spas.md
     - name: Handle SameSite cookie changes in Chrome
       href: howto-handle-samesite-cookie-changes-chrome-browser.md
+  - name: Support passwordless authentication
+    items:
+    - name: Support FIDO2 authentication
+      href: support-fido2-authentication.md
   - name: Authenticate apps and services
     items:
     - name: Create a service principal using Azure PowerShell
@@ -616,8 +620,6 @@
     href: reference-aadsts-error-codes.md
   - name: Breaking changes
     href: reference-breaking-changes.md
-  - name: Support FIDO2 passwordless auth
-    href: support-fido2-authentication.md
   - name: Mobile single sign-on (SSO)
     href: mobile-sso-support-overview.md
     displayName: android, ios
