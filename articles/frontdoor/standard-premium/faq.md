@@ -254,7 +254,7 @@ No. Although Azure Front Door supports TLS 1.2, which introduced client/mutual a
 
 ### What types of metrics and logs are available with Azure Front Door?
 
-For information on logs and other diagnostic capabilities, see [Monitoring metrics and logs for Front Door](front-door-diagnostics.md).
+For information on logs and other diagnostic capabilities, see Monitoring metrics and logs for Front Door.
 
 ### What is the retention policy on the diagnostics logs?
 

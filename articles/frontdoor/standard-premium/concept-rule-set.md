@@ -61,7 +61,7 @@ For more quota limit, refer to [Azure subscription and service limits, quotas an
 
 * *Match Condition*: There are many match conditions that can be utilized to parse your incoming requests. A rule can contain up to 10 match conditions. Match conditions are evaluated with an **AND** operator. *Regular expression is supported in conditions*. A full list of match conditions can  be found in [Rule Set Condition](concept-rule-set-match-conditions.md).
 
-* *Action*: Actions dictate how AFD handles the incoming requests based on the matching conditions. You can modify caching behaviors, modify request headers/response headers, do URL rewrite and URL redirection. *Server variables are supported on Action*. A rule can contain up to 10 match conditions. A full list of actions can be found [Rule Set Actions](concept-rules-set-actions.md).
+* *Action*: Actions dictate how AFD handles the incoming requests based on the matching conditions. You can modify caching behaviors, modify request headers/response headers, do URL rewrite and URL redirection. *Server variables are supported on Action*. A rule can contain up to 10 match conditions. A full list of actions can be found [Rule Set Actions](concept-rule-set-actions.md).
 
 ## Next steps
 
