@@ -5,7 +5,7 @@ description: Identifier map to manage Azure Active Directory licensing in the Az
 services: active-directory
 keywords: Azure Active Directory licensing service plans
 documentationcenter: ''
-author: nicholak
+author: Nicholak-MS
 manager: mtillman
 editor: ''
 
