@@ -14,12 +14,12 @@ ms.author: qixwang
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
+This article explains each of the settings used in creating an Azure Front Door (AFD) Route for an existing endpoint. After you've added a custom domain and origin to your existing Azure Front Door endpoint, you need to configure route to define the association between domains and origins to route the traffic between them.
+
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This article explains each of the settings used in creating an Azure Front Door (AFD) Route for an existing endpoint. After you've added a custom domain and origin to your existing Azure Front Door endpoint, you need to configure route to define the association between domains and origins to route the traffic between them.
 
 ## Prerequisites
 
@@ -42,12 +42,11 @@ To set up a custom domain, see [Create a new Azure Front Door Standard/Premium c
 
 1. The **Edit Point** page will appears. Select **+ Add** for Routes.
     
-    ![Add route page](../media/how-to-configure-route/select-add-route.png)
-    
+    :::image type="content" source="../media/how-to-configure-route/select-add-route.png" alt-text="Screenshot of add a route page.":::    
     
 1. On the **Add Route** page, enter, or select the following information.
 
-    ![Add route page](../media/how-to-configure-route/add-route-page.png)
+    :::image type="content" source="../media/how-to-configure-route/add-route-page.png" alt-text="Screenshot of add a route page." lightbox="../media/how-to-configure-route/add-route-page-expanded.png"::: 
 
     | Setting | Value |
     | --- | --- |
@@ -64,13 +63,13 @@ To set up a custom domain, see [Create a new Azure Front Door Standard/Premium c
 
 1. Select **Add** to create the new Route. The Route will appear in the list of Routes for the endpoint.
     
-    ![AFD route](../media/how-to-configure-route/route-list-page.png)
+    :::image type="content" source="../media/how-to-configure-route/route-list-page.png" alt-text="Screenshot of routes list.":::  
     
 ## Clean up resources
 
 To delete a route when you no longer need it, select the Route and then select **Delete**. 
 
-  ![AFD route](../media/how-to-configure-route/route-delete-page.png)
+    :::image type="content" source="../media/how-to-configure-route/route-delete-page.png" alt-text="Screenshot of how to delete a route.":::  
 
 ## Next steps
 To learn about custom domains, continue to the tutorial for adding a custom domain to your Azure Front Door endpoint.

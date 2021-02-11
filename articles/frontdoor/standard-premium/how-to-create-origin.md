@@ -31,17 +31,15 @@ Before you can create an Azure Front Door Standard/Premium origin, you must have
 
 1. Select **Origin Group**. Then select **+ Add** to create a new origin group.
    
-    ![AFD select create endpoint](../media/how-to-create-origin/select-add-origin.png)
+    :::image type="content" source="../media/how-to-create-origin/select-add-origin.png" alt-text="Screenshot of origin group landing page.":::
 
 1. The **Add an origin group** page appears.
-    
-    ![Add endpoint page](../media/how-to-create-origin/add-origin-group-view.png)
 
 1. For **Name**,  enter a unique name for the new Azure Front Door origin group
 
 1. Select **Add an Origin** to add a new origin to current group. 
 
-    ![Add origin page](../media/how-to-create-origin/add-origin-view.png). 
+    :::image type="content" source="../media/how-to-create-origin/add-origin-view.png" alt-text="Screenshot of add an origin page.":::
   
     | Setting | Value |
     | --- | --- |
@@ -56,31 +54,27 @@ Before you can create an Azure Front Door Standard/Premium origin, you must have
     | Status | Select this option to enable origin. |
     | Rule | Select Rule Sets that will be applied to this Route. For more information about how to configure Rules, see [Configure a Rule Set for Azure Front Door](how-to-configure-rule-set.md) | 
 
-  > [!IMPORTANT]
-  > During configuration, APIs don't validate if the origin is inaccessible from Front Door environments. Make sure that Front Door can reach your origin.
+    > [!IMPORTANT]
+    > During configuration, APIs don't validate if the origin is inaccessible from Front Door environments. Make sure that Front Door can reach your origin.
 
-  Select **Add** to create the new origin. The created origin should appear in the origin list with the group
+1. Select **Add** to create the new origin. The created origin should appear in the origin list with the group
   
-   ![List origin page](../media/how-to-create-origin/origin-list-view.png). 
+    :::image type="content" source="../media/how-to-create-origin/add-origin-view.png" alt-text="Screenshot of add an origin page.":::
 
 1. Select **Add** to add the origin group to current endpoint. The origin group should appear within the Origin group panel.
-
- ![AFD select edit endpoint](./media/front-door-endpoint-manager-how-to/origin-in-origin-group.png)
-
 
 ## Clean up resources
 To delete an Origin group when you no longer needed it, click the **...** and then select **Delete** from the drop-down.
 
-  ![List origin page](../media/how-to-create-origin/delete-origin-group.png). 
+:::image type="content" source="../media/how-to-create-origin/add-origin-view.png" alt-text="Screenshot of how to delete an origin group.":::
 
 To delete an origin when you no longer need it, click the **...** and then select **Delete** from the drop-down. 
 
-  ![List origin page](../media/how-to-create-origin/delete-origin-view.png). 
-
+:::image type="content" source="../media/how-to-create-origin/delete-origin-view.png" alt-text="Screenshot of how to delete an origin.":::
 
 ## Next steps
-To learn about custom domains, continue to the tutorial for adding a custom domain to your AFD endpoint.
+
+To learn about custom domains, continue to the tutorial for adding a custom domain to your Azure Front Door endpoint.
 
 > [!div class="nextstepaction"]
 > [Add a custom domain]()
-

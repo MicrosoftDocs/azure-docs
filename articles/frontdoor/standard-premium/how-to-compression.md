@@ -39,7 +39,7 @@ You can enable compression in the following ways:
 * In Endpoint Manager route.
 * On the Optimization page.
 
-### Enable compression in Endpoint manager.
+### Enable compression in Endpoint manager
 
 1. From the Azure Front Door profile page, go to the **Endpoint Manager** and select the endpoint you want to enable compression.
 
@@ -53,7 +53,7 @@ You can enable compression in the following ways:
 
 1. Click **Update**.
 
-### Enable compression in Optimization.
+### Enable compression in Optimization
 
 1. From the Azure Front Door profile page, go to the **Optimization**. Then select the route that has compression *Disabled*, click on the three dots, select *Configure route*.
 
@@ -87,7 +87,7 @@ You can disable compression in the following ways-
 * Disable compression in Endpoint manager route.
 * Disable compression in Optimization page.
 
-### Disable compression in Endpoint manager.
+### Disable compression in Endpoint manager
 
 1. From the Azure Front Door profile page, go to **Endpoint manager** and select the endpoint you want to disable compression.
 
@@ -128,6 +128,6 @@ If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to th
 
 ## Next steps
 
-- Learn how to configure your first [Rules Set](front-door-configure-rule-set.md). 
-- Learn more about [Rule Set Match Conditions](front-door-rule-set-match-conditions.md)
-- Learn more about [Azure Front Door Rule Set](front-door-rule-set.md)
+- Learn how to configure your first [Rules Set](how-toconfigure-rule-set.md). 
+- Learn more about [Rule Set Match Conditions](concept-rule-set-match-conditions.md)
+- Learn more about [Azure Front Door Rule Set](concept-rule-set.md)

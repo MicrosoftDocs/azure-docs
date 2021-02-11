@@ -30,20 +30,18 @@ You have three options for storing your logs:
 * **Azure Log Analytics:** Azure Log Analytics in Azure Monitor is best used for general real-time monitoring and analysis of Azure Front Door performance.
 
 ## Configure Logs
----
-# [**Portal**](#tab/configure-logs-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Search for Front Door and select the Azure Front Door profile.
+1. Search for Azure Front Door Standard/Premium and select the Azure Front Door profile.
 
 1. In the profile, go to **Monitoring**, select **Diagnostic Setting**. Select **Add diagnostic setting**.
 
-   :::image type="content" source="../media/how-to-logging/front-door-logging-1.png" alt-text="Create a web app in the Azure portal":::
+   :::image type="content" source="../media/how-to-logging/front-door-logging-1.png" alt-text="Screenshot of diagnostic settings landing page.":::
 
 1. Under **Diagnostic settings**, enter a name for **Diagnostic settings name**.
 
-1. Select the **log** from **FrontDoorAccessLog**, **FrontDoorHealthProbeLog, and **FrontDoorWebApplicationFirewallLog**.
+1. Select the **log** from **FrontDoorAccessLog**, **FrontDoorHealthProbeLog**, and **FrontDoorWebApplicationFirewallLog**.
 
 1. Select the **Destination details**. Destination options are: 
 
@@ -54,7 +52,8 @@ You have three options for storing your logs:
     * **Stream to an event hub**
         * Select the *Subscription, Event hub namespace, Event hub name (optional)*, and *Event hub policy name*. 
 
-     :::image type="content" source="../media/how-to-logging/front-door-logging-2.png" alt-text="Create a web app in the Azure portal":::
+     :::image type="content" source="../media/how-to-logging/front-door-logging-2.png" alt-text="Screenshot of diagnostic settings page.":::
+
 1. Click on **Save**.
 
 ## Access Log

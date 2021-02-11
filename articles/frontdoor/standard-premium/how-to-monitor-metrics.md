@@ -54,15 +54,15 @@ You can also set up alerts for metrics. You can configure a threshold for 4XXErr
 
 3. In **Metrics**, select the metric to add:
 
-   :::image type="content" source="../media/how-to-monitoring-metrics/front-door-metrics-1.png" alt-text="Create a web app in the Azure portal":::
+   :::image type="content" source="../media/how-to-monitoring-metrics/front-door-metrics-1.png" alt-text="Screenshot of metrics page." lightbox="../media/how-to-monitoring-metrics/front-door-metrics-1-expanded.png":::
 
 4. Select **Add filter** to add a filter:
 
-    :::image type="content" source="../media/how-to-monitoring-metrics/front-door-metrics-2.png" alt-text="Create a web app in the Azure portal":::
+    :::image type="content" source="../media/how-to-monitoring-metrics/front-door-metrics-2.png" alt-text="Screenshot of adding filters to metrics." lightbox="../media/how-to-monitoring-metrics/front-door-metrics-2-expanded.png":::
     
 5. Select **Apply splitting** to split data by different dimensions:
 
-   :::image type="content" source="../media/how-to-monitoring-metrics/front-door-metrics-4.png" alt-text="Create a web app in the Azure portal":::
+   :::image type="content" source="../media/how-to-monitoring-metrics/front-door-metrics-4.png" alt-text="Screenshot of adding dimensions to metrics." lightbox="../media/how-to-monitoring-metrics/front-door-metrics-4-expanded.png":::
 
 6. Select **New chart** to add a new chart:
 

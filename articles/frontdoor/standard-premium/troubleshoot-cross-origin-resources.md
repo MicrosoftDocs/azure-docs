@@ -1,5 +1,5 @@
 ---
-title: Using Azure Front Door with Cross-Origin Resource Sharing
+title: Using Azure Front Door Standard/Premium with Cross-Origin Resource Sharing
 description: Learn how to use the Azure Front Door (AFD) to with Cross-Origin Resource Sharing (CORS).
 services: frontdoor
 author: duongau
@@ -66,8 +66,12 @@ If you need to allow a specific list of origins to be allowed for CORS, things g
 
 On Azure Front Door, you can create a rule in the Azure Front Door [Rules Set](concept-rules-set.md) to check the **Origin** header on the request. If it's a valid origin, your rule will set the **Access-Control-Allow-Origin** header with the correct value. In this case, the **Access-Control-Allow-Origin** header from the file's origin server is ignored and the AFD's rules engine completely manages the allowed CORS origins.
 
-![Rules example with standard rules engine](../media/troubleshooting-cross-origin-resource-sharing/cors.png)
+![Rules example with standard rules engine](../media/troubleshooting-cross-origin-resource-sharing/cross-origin-resource.png)
 
 > [!TIP]
 > You can add additional actions to your rule to modify additional response headers, such as **Access-Control-Allow-Methods**.
 > 
+
+## Next steps
+
+* Learn how to [create a Front Door](create-front-door-portal.md).

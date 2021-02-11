@@ -14,14 +14,14 @@ ms.author: qixwang
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
+This article helps you troubleshoot issues with Azure Front Door file compression.
+
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). You can also file an Azure support incident by going to the [Azure Support site](https://azure.microsoft.com/support/options/) and click **Get Support**.
+
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This article helps you troubleshoot issues with Azure Front Door file compression.
-
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). You can also file an Azure support incident by going to the [Azure Support site](https://azure.microsoft.com/support/options/) and click **Get Support**.
 
 ## Symptom
 
