@@ -1,0 +1,26 @@
+- name: Azure Percept documentation
+  href: index.yml
+- name: Overview
+  items:
+
+- name: Tutorials
+  items:
+
+- name: Concepts
+  items:
+
+- name: How-to guides   
+  items:
+    - name: Connect your DevKit
+      items:
+        - name: Connect to DevKit over serial
+          href: how-to-connect-to-percept-dk-over-serial.md
+        - name: Connect to DevKit over SSH
+          href: how-to-ssh-into-percept-dk.md
+
+- name: Reference
+  items:
+
+- name: Resources
+  items:
+
