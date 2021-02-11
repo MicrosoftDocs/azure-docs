@@ -21,12 +21,10 @@ ms.author: atsenthi
 # Patch the Windows operating system in your Service Fabric cluster
 
 > [!IMPORTANT]
-> As of April 30, 2019, Patch Orchestration Application version 1.2.* is no longer supported. Be sure to upgrade to the latest version.
-VM upgrades where "Windows Update" applies operating system patches without replacing the OS disk are not supported. 
+> As of April 30, 2019, Patch Orchestration Application version 1.2.* is no longer supported. Be sure to upgrade to the latest version. VM upgrades where "Windows Update" applies operating system patches without replacing the OS disk are not supported. 
 
 > [!NOTE]
 > Getting [automatic OS image upgrades on your virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is the best practice for keeping your operating system patched in Azure. Virtual Machine Scale Set based automatic OS image upgrades will require silver or greater durability on a scale set.
->
 
  Patch Orchestration Application (POA) is a wrapper around the Azure Service Fabric Repair Manager service, which enables configuration-based OS patch scheduling for non-Azure hosted clusters. POA isn't required for non-Azure hosted clusters, but scheduling patch installation by update domain is required to patch Service Fabric cluster hosts without incurring downtime.
 
