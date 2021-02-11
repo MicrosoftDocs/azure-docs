@@ -52,7 +52,7 @@ Here's an example of an operational log JSON string:
 
 The `callerIdentity` field can be empty, or a JSON string with one of the following formats.
 
-For calls originating from the Azure Portal the `identity` field is empty. The log can be correlated to activity logs to determine the logged in user.
+For calls originating from the Azure portal the `identity` field is empty. The log can be correlated to activity logs to determine the logged in user.
 ```json
 {
     "identityType": "Portal",
@@ -60,7 +60,7 @@ For calls originating from the Azure Portal the `identity` field is empty. The l
 }
 ```
 
-For calls from an ARM client (or to the ARM management endpoint) the `identity` field will contain the username of the logged in user.
+For calls made through Azure Resource Manager the `identity` field will contain the username of the logged in user.
 ```json
 {
    "identityType": "Username",
@@ -110,11 +110,11 @@ Operational logs are disabled by default. To enable logs, do the following:
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure Notification Hubs namespace and then, under **Monitoring**, select  **Diagnostic settings**.
 
-   ![The "Diagnostic settings" link](./media/notification-hubs-diagnostic-logs/image1.png)
+   ![The "Diagnostic settings" link](./media/notification-hubs-diagnostic-logs/image-1.png)
 
 1. In the **Diagnostics settings** pane, select **Add diagnostic setting**.  
 
-   ![The "Add diagnostic setting" link](./media/notification-hubs-diagnostic-logs/image2.png)
+   ![The "Add diagnostic setting" link](./media/notification-hubs-diagnostic-logs/image-2.png)
 
 1. Configure the diagnostics settings by doing the following:
 
@@ -127,10 +127,17 @@ Operational logs are disabled by default. To enable logs, do the following:
 
    c. Select the **OperationalLogs** check box.
 
-    ![The "Diagnostics settings" pane](./media/notification-hubs-diagnostic-logs/image3.png)
+    ![The "Diagnostics settings" pane](./media/notification-hubs-diagnostic-logs/image-3.png)
 
 1. Select **Save**.
 
 The new settings take effect in about 10 minutes. The logs are displayed in the configured archival target, in the **Diagnostics logs** pane.
 
-For more information about configuring diagnostics settings, see the [overview of Azure diagnostics logs](../azure-monitor/platform/platform-logs-overview.md).
+## Next steps
+
+To learn more about configuring diagnostics settings, see:
+* [Overview of Azure diagnostics logs](../azure-monitor/platform/platform-logs-overview.md).
+
+To learn more about Azure Notification Hubs, see:
+* [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md)
+
