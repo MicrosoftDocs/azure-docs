@@ -78,6 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `<servername>.jfrog.io`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+    
     - For Artifactory 6.x: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
     - For Artifactory 7.x: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
@@ -108,12 +109,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. In the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  locate the **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase.png)
+	![The Certificate download link](./media/jfrog-artifactory-tutorial/certificate-base.png)
 
 6. Configure the Artifactory (SAML Service Provider Name) with the 'Identifier' field (see step 4). In the **Set up JFrog Artifactory** section, copy the appropriate URL(s) based on your requirement.
 
-- For Artifactory 6.x: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse` 
-- For Artifactory 7.x: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
+   - For Artifactory 6.x: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse` 
+   - For Artifactory 7.x: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
