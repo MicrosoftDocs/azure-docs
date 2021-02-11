@@ -21,7 +21,7 @@ Language support varies by Speech service functionality. The following tables su
 
 Both the Microsoft Speech SDK and the REST API support the following languages (locales). 
 
-To improve accuracy, customization is offered for a subset of the languages through uploading **Audio + Human-labeled Transcripts** or **Related Text: Sentences**. Even if a language supports customization of the acoustic model with **Audio + Human-labeled Transcripts**, not all base models might support it. See in the list below the base models that have for support for it. Other base models and languages will just use the text of the transcripts to train just like with **Related Text: Sentences**. To learn more about customization, see [Get started with Custom Speech](./custom-speech-overview.md).
+To improve accuracy, customization is offered for a subset of the languages through uploading **Audio + Human-labeled Transcripts** or **Related Text: Sentences**. Support for customization of the acoustic model with **Audio + Human-labeled Transcripts** is limited to the specific base models listed below. Other base models and languages will only use the text of the transcripts to train custom models just like with **Related Text: Sentences**. To learn more about customization, see [Get started with Custom Speech](./custom-speech-overview.md).
 
 <!--
 To get the AM and ML bits:

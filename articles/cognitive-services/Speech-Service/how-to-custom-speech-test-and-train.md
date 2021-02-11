@@ -138,7 +138,7 @@ After you've gathered your audio files and corresponding transcriptions, package
 
 See [Set up your Azure account](custom-speech-overview.md#set-up-your-azure-account) for a list of recommended regions for your Speech service subscriptions. Setting up the Speech subscriptions in one of these regions will reduce the time it takes to train the model. In these regions, training can process about 10 hours of audio per day compared to just 1 hour per day in other regions. If model training cannot be completed within a week, the model will be marked as failed.
 
-Not all base models support training with audio data. If the base model does not support it, the service will ignore the audio and just train with the text of the transcriptions. In this case, training will be the same as training with related text. See [Language and voice support for the Speech service](language-support.md#speech-to-text) for a list of base models that support training with audio data.
+Not all base models support training with audio data. If the base model does not support it, the service will ignore the audio and just train with the text of the transcriptions. In this case, training will be the same as training with related text. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data.
 
 ## Related text data for training
 
