@@ -14,13 +14,12 @@ ms.author: yuajia
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](frontdoor/front-door-overview.md).
 
+File compression is an effective method to improve file transfer speed and increase page-load performance. The compression reduces the size of the file before it's sent by the server. File compression can reduce bandwidth costs and provide a better experience for your users.
+
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-File compression is an effective method to improve file transfer speed and increase page-load performance. The compression reduces the size of the file before it's sent by the server. File compression can reduce bandwidth costs and provide a better experience for your users.
-
 There are two ways to enable file compression:
 
 - Enabling compression on your origin server. Azure Front Door passes along the compressed files and delivers them to clients that request them.
@@ -46,7 +45,7 @@ You can enable compression in the following ways:
 
 1. Select Edit Endpoint, then select the route you want to enable compression. 
 
-   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-1.png" alt-text="Enable compression in endpoint manager":::   
+   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-1.png" alt-text="Screenshot of Endpoint Manager landing page.":::   
 
 1. Ensure **Enable Caching** is checked, then select the checkbox for **Enable compression**.
 

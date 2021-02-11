@@ -32,40 +32,17 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a Front Door Standard/Premium profile
-            url: quickstart-create-front-door-portal.md
+            url: create-front-door-portal.md
 
   # Card
-  - title: Reports, Metrics and Logs
+  - title: Configure Endpoint Manager
     linkLists:
       - linkListType: concept
         links:
-          - text: Reports
-            url: concept-reports.md
-          - text: Monitoring Metrics and Alerts
-            url: how-to-monitor-metrics.md
-
-  # Card
-  - title: Configure a Rules Set
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Configure a Rule Set
-            url: how-to-configure-rule-set.md
-          
-  # Card
-  - title: Manage your Origin Groups
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Caching with Azure Front Door
-            url: concept-caching.md
-
-  # Card
-  - title: Troubleshoot Azure Front Door
-    linkLists:
+          - text: Endpoint Manager
+            url: concept-endpoint-manager.md
       - linkListType: concept
         links:
-          - text: Common routing issues
-            url: troubleshoot-routing.md
-          - text: Allowed certificate authorities
-            url: troubleshoot-allowed-ca.md
+          - text: Endpoint Manager
+            url: concept-endpoint-manager.md
+            
