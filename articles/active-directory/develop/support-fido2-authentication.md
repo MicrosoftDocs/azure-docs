@@ -28,7 +28,7 @@ Don't use a domain hint to bypass [home-realm discovery](azure/active-directory/
 
 **Requiring specific kinds of credentials**
 
-If you are using SAML, do not specify that a password is required [using the RequestedAuthnContext element](https://docs.microsoft.com/en-us/azure/active-directory/develop/single-sign-on-saml-protocol#requestauthncontext).
+If you are using SAML, do not specify that a password is required [using the RequestedAuthnContext element](single-sign-on-saml-protocol.md#requestauthncontext).
 
 The RequestedAuthnContext element is optional, so to resolve this you can remove it from your SAML authentication requests. This is a general best practice, as susing this element can also prevent other authentication options like multi-factor authentication from working correctly.
 
