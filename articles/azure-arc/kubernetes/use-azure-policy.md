@@ -20,8 +20,8 @@ You can use Azure Policy to enforce either of the following resources to have sp
 * GitOps-enabled `Microsoft.ContainerService/managedClusters` resource. 
 
 To use Azure Policy, select an existing policy definition and create a policy assignment. When creating the policy assignment:
-1. Set the scope for the assignment.  
-    1. The scope will be an Azure resource group or subscription. 
+1. Set the scope for the assignment.
+    * The scope will be an Azure resource group or subscription. 
 2. Set the parameters for the `sourceControlConfiguration` that will be created. 
 
 Once the assignment is created, the Azure Policy engine identifies all `connectedCluster` or `managedCluster` resources located within the scope and applies the `sourceControlConfiguration` to each one.
@@ -34,12 +34,12 @@ Verify you have `Microsoft.Authorization/policyAssignments/write` permissions on
 
 ## Create a policy assignment
 
-1. In the Azure Portal, navigate to **Policy**.
+1. In the Azure portal, navigate to **Policy**.
 1. In the **Authoring** section of the sidebar, select **Definitions**.
 1. In the "Kubernetes" category, choose the "Deploy GitOps to Kubernetes cluster" built-in policy. 
 1. Click on **Assign**.
 1. Set the **Scope** to the management group, subscription, or resource group to which the policy assignment will apply.
-    1. If you want to exclude any resources from the policy scope, set **Exclusions**.
+    * If you want to exclude any resources from the policy scope, set **Exclusions**.
 1. Give the policy assignment an easily identifiable **Name** and **Description**.
 1. Ensure **Policy enforcement** is set to **Enabled**.
 1. Select **Next**.
@@ -47,7 +47,7 @@ Verify you have `Microsoft.Authorization/policyAssignments/write` permissions on
 1. Select **Next**.
 1. Enable **Create a remediation task**.
 1. Verify **Create a managed identity** is checked, and that the identity will have **Contributor** permissions. 
-    1. For more information, see the [Create a policy assignment quickstart](../../governance/policy/assign-policy-portal.md) and the [Remediate non-compliant resources with Azure Policy article](../../governance/policy/how-to/remediate-resources.md).
+    * For more information, see the [Create a policy assignment quickstart](../../governance/policy/assign-policy-portal.md) and the [Remediate non-compliant resources with Azure Policy article](../../governance/policy/how-to/remediate-resources.md).
 1. Select **Review + create**.
 
 After creating the policy assignment, the `sourceControlConfiguration` will be applied for any of the following resources located within the scope of the assignment:
@@ -58,15 +58,15 @@ For existing clusters, you will need to manually run a remediation task. This ta
 
 ## Verify a policy assignment
 
-1. In the Azure Portal, navigate to one of your `connectedCluster` resources.
+1. In the Azure portal, navigate to one of your `connectedCluster` resources.
 1. In the **Settings** section of the sidebar, select **Policies**. 
-    1. The AKS cluster UX is not implemented yet.
+    * The AKS cluster UX is not implemented yet.
 1. In the policies list, you should see the policy assignment that you created earlier with the **Compliance state** set as *Compliant*.
 1. In the **Settings** section of the sidebar, select **Configurations**.
 1. In the configurations list, you should see the `sourceControlConfiguration` that the policy assignment created.
 1. Use `kubectl` to interrogate the cluster. 
-    1. You should see the namespace and artifacts that were created by the `sourceControlConfiguration`.
-    1. Within 5 minutes, you should see in the cluster the artifacts that are described in the manifests in the configured Git repo.
+    * You should see the namespace and artifacts that were created by the `sourceControlConfiguration`.
+    * Within 5 minutes, you should see in the cluster the artifacts that are described in the manifests in the configured Git repo.
 
 ## Next steps
 
