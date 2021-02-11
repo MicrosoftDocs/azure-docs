@@ -72,18 +72,44 @@ Users in this role can create and manage all aspects of attack simulation creati
 
 ### [Authentication Administrator](#authentication-administrator-permissions)
 
-Users with this role can set or reset non-password credentials for some users and can update passwords for all users. Authentication administrators can require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in. Whether an Authentication Administrator can reset a user's password depends on the role the user is assigned. For a list of the roles that an Authentication Administrator can reset passwords for, see [Password reset permissions](#password-reset-permissions).
+Users with this role can set or reset any authentication method (including passwords) for non-administrators and some roles. Authentication administrators can require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in. For a list of the roles that an Authentication Administrator can read or update authentcation methods, see [Password reset permissions](#password-reset-permissions).
 
-The [Privileged Authentication Administrator](#privileged-authentication-administrator) role has permission can force re-registration and multi-factor authentication for all users.
+The [Privileged authentication administrator](#privileged-authentication-administrator) role has permission to force re-registration and multi-factor authentication for all users.
+
+The [Authentication policy administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
+
+| Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy |  
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| Authentication administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No | 
+| Privileged authentication administrator| Yes for all users | Yes for all users  |No | No  |No | 
+| Authentication policy administrator | No  |No | Yes | Yes | Yes | 
 
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
 >
->* Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Authentication Administrators. Through this path an Authentication Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
+>* Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Authentication Administrators. Through this path an Authentication Administrator can assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
 >* Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
 >* Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
 >* Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
 >* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
+
+> [!IMPORTANT]
+> This role is not currently capable of managing per-user MFA in the legacy MFA management portal. The same functions can be accomplished using the [Set-MsolUser](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) commandlet Azure AD Powershell module.
+
+### [Authentication Policy Administrator](#authentication-policy-administrator-permissions)
+
+Users with this role can configure the authentication methods policy, tenant-wide MFA settings, and password protection policy. This role grants permission to manage Password Protection settings: smart lockout configurations and updating the custom banned passwords list. 
+
+The [Authentication administrator](#authentication-administrator) and [Privileged authentication administrator](#privileged-authentication-administrator) roles have permission to manage registered authentication methods on users and can force re-registration and multi-factor authentication for all users. 
+
+| Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy |  
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| Authentication administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No | 
+| Privileged authentication administrator| Yes for all users | Yes for all users  |No | No  |No | 
+| Authentication policy administrator | No  |No | Yes | Yes | Yes | 
+
+> [!IMPORTANT]
+> This role is not currently capable of managing MFA settings in the legacy MFA management portal.
 
 ### [Azure AD Joined Device Local Administrator](#azure-ad-joined-device-local-administrator-permissions)/Device Administrators
 
@@ -179,6 +205,10 @@ Do not use. This role is automatically assigned to the Azure AD Connect service,
 
 ### [Directory Writers](#directory-writers-permissions)
 Users in this role can read and update basic information of users, groups, and service principals. Assign this role only to applications that don’t support the [Consent Framework](../develop/quickstart-register-app.md). It should not be assigned to any users.
+
+### [Domain Name Administrator](#domain-name-administrator-permissions)
+
+Users with this role can manage (read, add, verify, update, and delete) domain names. They can also read directory information about users, groups, and applications, as these objects possess domain dependencies. For on-premises environments, users with this role can configure domain names for federation so that associated users are always authenticated on-premises. These users can then sign into Azure AD-based services with their on-premises passwords via single sign-on. Federation settings need to be synced via Azure AD Connect, so users also have permissions to manage Azure AD Connect.
 
 ### [Dynamics 365 administrator / CRM Administrator](#crm-service-administrator-permissions)
 
@@ -348,7 +378,30 @@ Users with this role can register printers and manage printer status in the Micr
 
 ### [Privileged Authentication Administrator](#privileged-authentication-administrator-permissions)
 
-Users with this role can set or reset non-password credentials for all users, including Global Administrators, and can update passwords for all users. Privileged Authentication Administrators can force users to re-register against existing non-password credential (such as MFA or FIDO) and revoke 'remember MFA on the device', prompting for MFA on the next sign-in of all users.
+Users with this role can set or reset any authentication method (including passwords) for any user, including Global Administrators. Privileged Authentication Administrators can force users to re-register against existing non-password credential (such as MFA or FIDO) and revoke 'remember MFA on the device', prompting for MFA on the next sign-in of all users. 
+
+The [Authentication administrator](#authentication-administrator) role has permission to force re-registration and multi-factor authentication for standard users and users with some admin roles.
+
+The [Authentication policy administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
+
+| Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy |  
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| Authentication administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No | 
+| Privileged authentication administrator| Yes for all users | Yes for all users  |No | No  |No | 
+| Authentication policy administrator | No  |No | Yes | Yes | Yes | 
+
+> [!IMPORTANT]
+> Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
+>
+>* Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Authentication Administrators. Through this path an Authentication Administrator can assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
+>* Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
+>* Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
+>* Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
+>* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
+
+
+> [!IMPORTANT]
+> This role is not currently capable of managing per-user MFA in the legacy MFA management portal. The same functions can be accomplished using the [Set-MsolUser](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) commandlet Azure AD Powershell module.
 
 ### [Privileged Role Administrator](#privileged-role-administrator-permissions)
 
@@ -596,6 +649,23 @@ Allowed to view, set and reset authentication method information for any non-adm
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 > | microsoft.directory/users/password/update | Update passwords for all users in the Microsoft 365 organization. See online documentation for more detail. |
+
+### Authentication Policy Administrator permissions
+
+Allowed to view and set authentication methods policy, password protection policy, and tenant-wide MFA settings.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/organization/strongAuthentication/update | Update strong auth properties of an organization in Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/create | Create credential policies for users in Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/delete | Delete credential policies for users in Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/standard/read | Read standard properties of credential policies for users in Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/owners/read | Read owners of credential policies for users in Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/policyAppliedTo/read | Read policy.appliesTo navigation link in Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/basic/update | Update basic policies for users in Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/owners/update | Update owners of credential policies for users in Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/tenantDefault/update | Update policy.isOrganizationDefault property in Azure Active Directory. |
 
 ### Azure AD Joined Device Local Administrator permissions
 
@@ -962,6 +1032,16 @@ Can read & write basic directory information. For granting access to application
 > | microsoft.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
 > | microsoft.directory/users/reprocessLicenseAssignment | Reprocess license assignments for a user in Azure Active Directory. |
 > | microsoft.directory/users/userPrincipalName /update | Update the users.userPrincipalName property in Azure Active Directory. |
+
+### Domain Name Administrator permissions
+
+Can manage domain names in cloud and on-premises.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties in Azure Active Directory. |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Exchange Service Administrator permissions
 
@@ -1960,6 +2040,7 @@ Graph displayName | Azure portal display name | directoryRoleTemplateId
 Application Administrator | Application administrator | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Application Developer | Application developer | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Authentication Administrator | Authentication administrator | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Authentication Policy Administrator | Authentication policy administrator | 0526716b-113d-4c15-b2c8-68e3c22b9f80
 Attack Payload Author | Attack payload author | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f
 Attack Simulation Administrator | Attack simulation administrator | c430b396-e693-46cc-96f3-db01bf8bb62a
 Azure AD Joined Device Local Administrator | Azure AD joined device local administrator | 9f06204d-73c1-4d4c-880a-6edb90606fd8
@@ -1981,6 +2062,7 @@ Device Users | Deprecated | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Directory Readers | Directory readers | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Directory Synchronization Accounts | Not shown because it shouldn't be used | d29b2b05-8046-44ba-8758-1e26182fcf32
 Directory Writers | Directory Writers | 9360feb5-f418-4baa-8175-e2a00bac4301
+Domain Name Administrator | Domain name administrator | 8329153b-31d0-4727-b945-745eb3bc5f31
 Dynamics 365 Administrator | Dynamics 365 administrator | 44367163-eba1-44c3-98af-f5787879f96a
 Exchange Administrator | Exchange administrator | 29232cdf-9323-42fd-ade2-1d097af3e4de
 External Id User flow Administrator | External Id User flow Administrator | 6e591065-9bad-43ed-90f3-e9424366d2f0
