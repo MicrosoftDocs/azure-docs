@@ -7,8 +7,6 @@ author: barclayn
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 02/11/2021

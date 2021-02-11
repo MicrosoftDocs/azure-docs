@@ -2,6 +2,8 @@
 title: 'Quickstart: Issue verifiable credentials using a sample app'
 description: Issue Verifiable Credentials using a sample app
 services: active-directory
+ms.service: active-directory
+ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
 ms.topic: quickstart

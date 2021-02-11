@@ -4,7 +4,8 @@ description:
 services: active-directory
 author: barclayn
 manager: davba
-ms.service: verifiable-credentials
+ms.service: active-directory
+ms.subservice: verifiable-credentials
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

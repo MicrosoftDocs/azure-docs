@@ -4,10 +4,9 @@ description: Find answers to common questions about Verifiable Credentials
 services: active-directory
 author: barclayn
 manager: davba
-ms.service: verifiable-credentials
+ms.service: active-directory
+ms.subservice: verifiable-credentials
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: barclayn
