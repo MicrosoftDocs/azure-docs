@@ -112,5 +112,5 @@ For more information, see the [Databricks documentation](/azure/databricks/dev-t
 
 4. Use Databricks CLI [(installation steps)](/azure/databricks/dev-tools/cli/#install-the-cli)
 
-As an example, to copy a JAR to dbfs:
-`dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar`
+   As an example, to copy a JAR to dbfs:
+   `dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar`
