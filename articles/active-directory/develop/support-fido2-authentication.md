@@ -62,4 +62,4 @@ The availability of FIDO2 passwordless authentication for applications that run 
 
 ## Next steps
 
-[Passwordless authentication options for Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)
+[Passwordless authentication options for Azure Active Directory](../../active-directory/authentication/concept-authentication-passwordless.md)
