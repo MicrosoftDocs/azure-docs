@@ -18,7 +18,7 @@ This article describes how to upgrade the wire protocol version of your Azure Co
 >[!Note]
 > At this moment, only qualifying accounts using the server version 3.2 can be upgraded to version 3.6 or 4.0. If your account doesn't show the upgrade option, please [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## Upgrading from version 3.2 to 3.6 or 4.0
+## Upgrading from version 3.2 to (4.0 or 3.6)
 
 ### Benefits of upgrading to version 3.6
 
@@ -48,20 +48,20 @@ The following are the new features included in version 4.0:
 
 ### Action required
 
-For the upgrade to version 3.6 or 4.0, the database account endpoint suffix will be updated to the following format:
+For upgrades to version 4.0 or 3.6, the database account endpoint suffix will be updated to the following format:
 
 ```
 <your_database_account_name>.mongo.cosmos.azure.com
 ```
 
-If you are upgrading from version 3.2, you will need to replace the existing endpoint in your applications and drivers that connect with this database account. **Only connections that are using the new endpoint will have access to the features in the MongoDB version 3.6**. The previous endpoint should have the suffix `.documents.azure.com`.
+If you are upgrading from version 3.2, you will need to replace the existing endpoint in your applications and drivers that connect with this database account. **Only connections that are using the new endpoint will have access to the features in the new server version**. The previous endpoint should have the suffix `.documents.azure.com`.
 
 >[!Note]
 > This endpoint might have slight differences if your account was created in a Sovereign, Government or Restricted Azure Cloud.
 
 ### How to upgrade
 
-1. First, go to the Azure portal and navigate to your Azure Cosmos DB API for MongoDB account overview blade. Verify your current server version is `3.2` or `3.6`.
+1. First, go to the Azure portal and navigate to your Azure Cosmos DB API for MongoDB account overview blade. Verify your current server version is what you expect.
 
     :::image type="content" source="./media/mongodb-version-upgrade/1.png" alt-text="Azure portal with MongoDB account overview" border="false":::
 
@@ -90,7 +90,7 @@ If you are upgrading from version 3.2, you will need to replace the existing end
     :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="New overview blade." border="false":::
 
 >[!Note]
-> You may also downgrade your account from 4.0 to 3.6 via these same steps. If you upgraded from 3.2 to 3.6 or 4.0 and wish to downgrade back to 3.2, you may just switch back to your previous connection string with the host `accountname.documents.azure.com` which remains active post-upgrade.
+> You may also downgrade your account from 4.0 to 3.6 via these same steps. If you upgraded from 3.2 to (4.0 or 3.6) and wish to downgrade back to 3.2, you may just switch back to your previous connection string with the host `accountname.documents.azure.com` which remains active post-upgrade.
 
 
 ## Next steps

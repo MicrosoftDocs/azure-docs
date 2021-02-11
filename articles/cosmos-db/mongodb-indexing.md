@@ -190,7 +190,7 @@ As an alternative, you could create multiple wildcard indexes.
 
 ## Index properties
 
-The following operations are common for accounts serving wire protocol version 4.0 and accounts serving earlier versions. You can learn more about [supported indexes and indexed properties](mongodb-feature-support-36.md#indexes-and-index-properties).
+The following operations are common for accounts serving wire protocol version 4.0 and accounts serving earlier versions. You can learn more about [supported indexes and indexed properties](mongodb-feature-support-40.md#indexes-and-index-properties).
 
 ### Unique indexes
 
@@ -254,7 +254,7 @@ The preceding command deletes any documents in the ```db.coll``` collection that
 
 ## Track index progress
 
-Version 3.6 and 4.0 of Azure Cosmos DB's API for MongoDB supports the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about in-progress operations on a database instance. You use the `currentOp` command to track all in-progress operations in native MongoDB. In Azure Cosmos DB's API for MongoDB, this command only supports tracking the index operation.
+Version 3.6+ of Azure Cosmos DB's API for MongoDB support the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about in-progress operations on a database instance. You use the `currentOp` command to track all in-progress operations in native MongoDB. In Azure Cosmos DB's API for MongoDB, this command only supports tracking the index operation.
 
 Here are some examples that show how to use the `currentOp` command to track index progress:
 
@@ -401,18 +401,18 @@ Currently, you can only create unique indexes when the collection contains no do
 
 Available indexing features and defaults are different for Azure Cosmos accounts that are compatible with version 3.2 of the MongoDB wire protocol. You can [check your account's version](mongodb-feature-support-36.md#protocol-support) and [upgrade to version 3.6](mongodb-version-upgrade.md).
 
-If you're using version 3.2, this section outlines key differences with versions 3.6 and 4.0.
+If you're using version 3.2, this section outlines key differences with versions 3.6+.
 
 ### Dropping default indexes (version 3.2)
 
-Unlike the 3.6 and 4.0 versions of Azure Cosmos DB's API for MongoDB, version 3.2 indexes every property by default. You can use the following command to drop these default indexes for a collection (```coll```):
+Unlike the 3.6+ versions of Azure Cosmos DB's API for MongoDB, version 3.2 indexes every property by default. You can use the following command to drop these default indexes for a collection (```coll```):
 
 ```JavaScript
 > db.coll.dropIndexes()
 { "_t" : "DropIndexesResponse", "ok" : 1, "nIndexesWas" : 3 }
 ```
 
-After dropping the default indexes, you can add more indexes as you would in version 3.6 and 4.0.
+After dropping the default indexes, you can add more indexes as you would in version 3.6+.
 
 ### Compound indexes (version 3.2)
 
@@ -420,7 +420,7 @@ Compound indexes hold references to multiple fields of a document. If you want t
 
 ### Wildcard indexes (version 3.2)
 
-If you want to create a wildcard index, [upgrade to version 3.6 or 4.0](mongodb-version-upgrade.md).
+If you want to create a wildcard index, [upgrade to version 4.0 or 3.6](mongodb-version-upgrade.md).
 
 ## Next steps
 
