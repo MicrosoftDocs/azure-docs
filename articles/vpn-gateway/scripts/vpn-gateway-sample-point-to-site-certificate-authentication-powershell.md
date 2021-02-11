@@ -12,7 +12,7 @@ ms.author: alzam
 
 ---
 
-# Configure a point-to-site VPN using native Azure certificate authentication - PowerShell script sample
+# Configure a point-to-site VPN - certificate authentication - PowerShell script sample
 
 This script creates a route-based VPN gateway and adds point-to-site configuration using native Azure certificate authentication.
 
