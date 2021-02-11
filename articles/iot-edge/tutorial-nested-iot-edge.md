@@ -72,7 +72,7 @@ To create a hierarchy of IoT Edge devices, you will need:
 >[!TIP]
 >If you would like an automated look at setting up a hierarchy of IoT Edge devices, you can follow the scripted [Azure IoT Edge for Industrial IoT sample](https://aka.ms/iotedge-nested-sample). This scripted scenario deploys Azure virtual machines as preconfigured devices to simulate a factory environment.
 >
->If you would like to proceed though the creation a sample hierarchy step-by-step, continue with the tutorial steps below.
+>If you would like to proceed though the creation of the sample hierarchy step-by-step, continue with the tutorial steps below.
 
 ## Configure your IoT Edge device hierarchy
 
