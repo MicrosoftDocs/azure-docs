@@ -28,7 +28,7 @@ This article discusses the technical details regarding the migration tool as per
 ### Service Configuration and Service Definition files
 - The .cscfg and .csdef files needs to be updated for Cloud Services (extended support) with minor changes. 
 - The names of resources like virtual network and virtual network SKU are different. For more information, see [Available VM sizes](available-sizes.md)
-- Customers can retrieve their new deployments through PowerShell and Rest API  . 
+- Customers can retrieve their new deployments through PowerShell and Rest API. 
 
 ### Cloud Service (hosted service) and deployments
 - Cloud Services (extended support) do not support the concept of Cloud Services as a hosted service. Each deployment is an independent Cloud Service. 
@@ -45,7 +45,7 @@ This article discusses the technical details regarding the migration tool as per
 - In 2017, Azure started automatically creating new deployments (without customer specified virtual network) into a platform created “default” virtual network. These default virtual networks are hidden from customers.   
 - As part of the migration, this default virtual network will be exposed to customers once in Azure Resource Manager. To manage or update the deployment in Azure Resource Manager, customers need to add this virtual network information in the NetworkConfiguration section of the .cscfg file.    
 - The default virtual network, when migrated to Azure Resource Manager, is placed in the same resource group as the Cloud Service.
-- Cloud Services created before this time will not be in any virtual network and cannot be migrated using the tool. Consider re-deploying these Cloud Services directly in Azure Resource Manager. 
+- Cloud Services created before this time will not be in any virtual network and cannot be migrated using the tool. Consider redeploying these Cloud Services directly in Azure Resource Manager. 
 - To check if a deployment is eligible to migrate, run the validate API on the deployment. The result of Validate API will contain error message explicitly mentioning if this deployment is eligible to migrate.     
 
 ### Load Balancer   
@@ -76,15 +76,15 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 ## Migration issues and how to handle them. 
 
 ### Migration stuck in an operation for a long time. 
-- Commit, prepare and abort can take a long time depending on the number of deployments. Operations will timeout after 24 hours.   
-- Commit, prepare and abort operations are idempotent. Most issues are fixable by retrying. There could be transient errors which can go away in few minutes, we recommend retrying after a gap. If migrating using the Azure portal and the operation is stuck in an "in-progress state",  use PowerShell to retry the operation. 
+- Commit, prepare, and abort can take a long time depending on the number of deployments. Operations will time out after 24 hours.   
+- Commit, prepare, and abort operations are idempotent. Most issues are fixable by retrying. There could be transient errors, which can go away in few minutes, we recommend retrying after a gap. If migrating using the Azure portal and the operation is stuck in an "in-progress state",  use PowerShell to retry the operation. 
 - Contact support to help migrate or roll back the deployment from the backend. 
 
 ### Migration failed in an operation. 
-- If validate failed, it is because the deployment or virtual network contains an unsupported scenario/feature/resource. Use the list of unsupported scenarios to find the work around in the documents.  
-- Prepare operation also does validation include some expensive validations (not covered in validate). Prepare failure could be due to an unsupported scenario. Find the scenario and the work around in the public documents. Abort needs to be called to go back to the original state. 
+- If validate failed, it is because the deployment or virtual network contains an unsupported scenario/feature/resource. Use the list of unsupported scenarios to find the work-around in the documents.  
+- Prepare operation also does validation include some expensive validations (not covered in validate). Prepare failure could be due to an unsupported scenario. Find the scenario and the work-around in the public documents. Abort needs to be called to go back to the original state. 
 - If abort failed, retry the operation. If retries fail, then contact support.
-- If commit failed, retry the operation. If retry fail, then contact support. Even in commit failure, there should no data plane issue to your deployment.Your deployment should be handle customer traffic without any issue. 
+- If commit failed, retry the operation. If retry fail, then contact support. Even in commit failure, there should no data plane issue to your deployment. Your deployment should be handle customer traffic without any issue. 
 
 ### Portal refreshed after Prepare. Experience restarted and Commit or Abort not visible anymore. 
 - Portal stores the migration information locally and therefore after refresh, it will start from validate phase even if the Cloud Service is in the prepare phase.  
