@@ -12,26 +12,31 @@ ms.date: 02/04/2020
 
 # Troubleshoot ConstrainedAllocationFailed when deploying a cloud service to Azure
 
-In this article, you will troubleshoot allocation failures where constraints such as an affinity group, a virtual network, or an existing deployment prevent allocation when deploying an Azure Cloud Service.
+In this article, you'll troubleshoot allocation failures where Azure Cloud Services can't deploy because of constraints.
 
-When you're upgrading, adding new web or worker role instances, or deploying instances to a cloud service, Microsoft Azure allocates compute resources. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limit.
+Microsoft Azure allocates when you are:
+- Upgrading cloud services instances
+- Adding new web or worker role instances
+- Deploying instances to a cloud service
+
+You may occasionally receive errors during these operations even before you reach the Azure subscription limit.
 
 > [!TIP]
 > The information may also be useful when you plan the deployment of your services.
 
 ## Symptom
 
-In Azure Portal, navigate to your cloud service and in the sidebar select *Operation logs (classic)* to view the logs.
+In Azure portal, navigate to your cloud service and in the sidebar select *Operation logs (classic)* to view the logs.
 
-When inspecting the logs of your cloud service, you will see the the following exception:
+When you're inspecting the logs of your cloud service, you'll see the following exception:
 
 |Exception Type  |Error Message  |
 |---------|---------|
-|ConstrainedAllocationFailed     |Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region.|
+|ConstrainedAllocationFailed     |Azure operation '`{Operation ID}`' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region.|
 
 ## Cause
 
-There is a capacity issue with the region or cluster that the you're deploying to. It occurs when the resource SKU you have selected is not available for the location you have selected.
+There's a capacity issue with the region or cluster that you're deploying to. It occurs when the resource SKU you've selected isn't available for the location you've selected.
 
 > [!NOTE]
 > When the first node of a cloud service is deployed, it is *pinned* to a resource pool. A resource pool may be a single cluster, or a group of clusters.
@@ -40,15 +45,15 @@ There is a capacity issue with the region or cluster that the you're deploying t
 
 ## Solution
 
-In this scenario, you should select a different region or SKU to deploy your cloud service to. Before deploying or upgrading your cloud service, you can determine which SKUs are available in a region or availability zone using [Azure CLI](#list-skus-in-region-using-azure-cli), [PowerShell](#list-skus-in-region-using-powershell), or [REST API](#list-skus-in-region-using-rest-api).
+In this scenario, you should select a different region or SKU to deploy your cloud service to. Before deploying or upgrading your cloud service, you can determine which SKUs are available in a region or availability zone. Follow the [Azure CLI](#list-skus-in-region-using-azure-cli), [PowerShell](#list-skus-in-region-using-powershell), or [REST API](#list-skus-in-region-using-rest-api) processes below.
 
 #### List SKUs in region using Azure CLI
 
 You can use the [az vm list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) command.
 
-- Use the `--location` parameter to filter output to location you are using.
+- Use the `--location` parameter to filter output to location you're using.
 - Use the `--size` parameter to search by a partial size name.
-- For more details, see the [Resolve error for SKU not available](../azure-resource-manager/templates/error-sku-not-available.md#solution-2---azure-cli) guide.
+- For more information, see the [Resolve error for SKU not available](../azure-resource-manager/templates/error-sku-not-available.md#solution-2---azure-cli) guide.
  
     **For example:**
     ```azurecli
@@ -63,7 +68,7 @@ You can use the [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell
 
 - Filter the results by location.
 - You must have the latest version of PowerShell for this command.
-- For more details, see the [Resolve error for SKU not available](../azure-resource-manager/templates/error-sku-not-available.md#solution-1---powershell) guide.
+- For more information, see the [Resolve error for SKU not available](../azure-resource-manager/templates/error-sku-not-available.md#solution-1---powershell) guide.
 
 **For example:**
 
@@ -71,7 +76,7 @@ You can use the [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell
 Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
  
-**Some additional commands:**
+**Some other useful commands:**
 
 Filter out the locations that contain size (Standard_DS14_v2):
 
@@ -121,7 +126,7 @@ You can use the [Resource Skus - List](https://docs.microsoft.com/rest/api/compu
 
 ## Next steps
 
-For additional allocation failure solutions and to better understand how they are generated:
+For more allocation failure solutions and to better understand how they're generated:
 
 > [!div class="nextstepaction"]
 > [Allocation failures (cloud services)](cloud-services-allocation-failures.md)
