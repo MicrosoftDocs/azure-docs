@@ -25,7 +25,7 @@ This article describes how to create one or more access reviews for privileged A
 
 ## Prerequisites
 
-You must be assigned to the [Owner or User Access Administrator](../../role-based-access-control/built-in-roles.md) Azure roles to create access reviews.
+You must be assigned to the [Owner](../../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) Azure roles to create access reviews.
 
 ## Open access reviews
 
