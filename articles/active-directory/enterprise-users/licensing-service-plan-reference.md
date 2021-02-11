@@ -14,8 +14,8 @@ ms.subservice: enterprise-users
 ms.topic: reference
 ms.workload: identity
 ms.date: 12/02/2020
-ms.author: nicholak
-ms.reviewer: nicholak
+ms.author: Nicholak-MS
+ms.reviewer: Nicholak-MS
 ms.custom: "it-pro;seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 #Nick Kramer is minding this reference until it can be automated
