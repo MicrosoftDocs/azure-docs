@@ -63231,11 +63231,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-monitor/platform/alerts-overview.md",
-      "redirect_url": "/azure/azure-monitor/alerts/alerts-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-cherwell.md",
       "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-cherwell",
       "redirect_document_id": false
