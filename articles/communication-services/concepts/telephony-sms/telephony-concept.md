@@ -69,7 +69,7 @@ This option requires the following:
 ### Conceptual documentation
 
 - [Phone number types in Azure Communication Services](./plan-solution.md)
-- [Plan for SIP Interface](./sip-interface-infra.md)
+- [Plan for SIP Interface](./sip-interface-infrastructure.md)
 - [Pricing](../pricing.md)
 
 ### Quickstarts
