@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 02/11/2021
 tags: connectors
 ---
 
@@ -170,11 +170,9 @@ For technical information based on the connector's Swagger description, such as 
 
 ### Calls from multiple environments
 
-Both connectors, Common Data Service and Common Data Service (current environment), store information about the logic app workflows that need notification about entity changes by using the `callbackregistration` entity in your Microsoft Dataverse. Deleting this entity prevents your logic app workflows from getting these notifications.
+Both connectors, Common Data Service and Common Data Service (current environment), store information about the logic app workflows that need and get notifications about entity changes by using the `callbackregistrations` entity in your Microsoft Dataverse. If you copy a Dataverse organization, any webhooks are copied too. If you copy your organization before you disable workflows that are mapped to your organization, any copied webhooks also point at the same logic apps, which then get notifications from multiple organizations.
 
-When you copy a Dataverse organization, any webhooks are copied too. So, if you copy your organization before you disable workflows that are mapped to your organization, any copied webhooks end up pointing at the same logic apps, which then get notifications from multiple organizations.
-
-To mitigate this behavior, follow these steps:
+To stop unwanted notifications, delete the callback registration from the organization that sends those notifications by following these steps:
 
 1. Identify the Dataverse organization from where you want to remove notifications, and sign in to that organization.
 
