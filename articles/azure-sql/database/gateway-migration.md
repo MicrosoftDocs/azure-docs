@@ -24,7 +24,7 @@ The most up-to-date information will be maintained in the [Azure SQL Database ga
 
 # [In progress](#tab/in-progress-ip)
 ## March 2021
-Following Sql Gateways in multiple regions are in the process of being deactivated :
+The following SQL Gateways in multiple regions are in the process of being deactivated :
 
 - Brazil South : 104.41.11.5
 - East Asia : 191.234.2.139
