@@ -44,6 +44,8 @@ Indexers crawl data stores on Azure.
 + [SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [SQL Server on Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
+Indexer connections to remote data sources can be made using standard Internet connections (public) or encrypted private connections when you use Azure virtual networks for client apps. You can also set up connections to authenticate using a trusted service identity. For more information about secure connections, see [Granting access via private endpoints](search-indexer-securing-resources.md#granting-access-via-private-endpoints) and [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
+
 ## Stages of indexing
 
 On an initial run, when the index is empty, an indexer will read in all of the data provided in the table or container. On subsequent runs, the indexer can usually detect and retrieve just the data that has changed. For blob data, change detection is automatic. For other data sources like Azure SQL or Cosmos DB, change detection must be enabled.
@@ -112,6 +114,7 @@ You can monitor the indexer status in the portal or through [Get Indexer Status 
 Now that you've been introduced, a next step is to review indexer properties and parameters, scheduling, and indexer monitoring. Alternatively, you could return to the list of [supported data sources](#supported-data-sources) for more information about a specific source.
 
 + [Create indexers](search-howto-create-indexers.md)
++ [Reset and run indexers](search-howto-run-reset-indexers.md)
 + [Schedule indexers](search-howto-schedule-indexers.md)
 + [Define field mappings](search-indexer-field-mappings.md)
 + [Monitor indexer status](search-howto-monitor-indexers.md)

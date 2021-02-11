@@ -278,8 +278,16 @@
         - name: Set up dev environments
           displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
           href: how-to-configure-environment.md
-        - name: Run Jupyter Notebooks
-          href: how-to-run-jupyter-notebooks.md
+        - name: Set up studio environment
+          items:
+            - name: Create and manage files
+              href: how-to-manage-files.md
+              displayName: Jupyter, notebooks, clone, samples
+            - name: Run Jupyter Notebooks
+              href: how-to-run-jupyter-notebooks.md
+            - name: Use a terminal
+              href: how-to-access-terminal.md
+              displayName: git, github, clone, kernel, package
         - name: Set up software environments
           displayName: pip, Conda, anaconda
           href: how-to-use-environments.md
