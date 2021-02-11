@@ -39,7 +39,7 @@ As stated in the Microsoft Publisher Agreement for the commercial marketplace, a
     - **Publisher ID**
     - **Seller ID**
     - **Details** of the notice.
-    - The **Start date** of your notice (if your notice has an effective date later than today)
+    - The **Start date** of your notice (if it has an effective date later than today)
     - Your **Contact information** and preferences
 
     This support request page also provides guidance on how to find your Publisher ID and Seller ID.
