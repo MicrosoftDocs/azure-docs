@@ -31,24 +31,9 @@ You might want to consider using LRS cloud service in some of the following case
 > [!NOTE]
 > Recommended automated way to migrate databases from SQL Server to SQL Managed Instance is using DMS tool. This tool is using the same LRS cloud service at the back end with log shipping enabled in no-recovery mode. You should consider manually using LRS only in cases when DMS tool does not fully support your migration scenario.
 
-## Requirements
+# How does it work
 
-The following is required at the SQL Server side:
--	Ovde
-
-> [!NOTE]
-> It is highly recommended that you have ran [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) to ensure your databases will have no issues being migrated to SQL Managed Instance. 
-
-The following is required at the Azure side:
-
--	PowerShell Az.SQL module version 2.16.0, or above ([install](https://www.powershellgallery.com/packages/Az.Sql/), or use Azure [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/))
--	CLI version 2.19.0, or above ([install](https://docs.microsoft.com/cli/azure/install-azure-cli))
--	Azure Blob Storage
--	SAS security token with read only and list permissions
-
-# Orchestration steps
-
-Building a custom solution using LRS to migrate a database to the cloud requires several orchestration steps shown in the diagram and outlined in the table below.
+Building a custom solution using LRS to migrate a database to the cloud requires several orchestration steps shown in the diagram and outlined in the table below. The migration 
 
   ![Log Replay Service orchestration steps explained for SQL Managed Instance](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
 
@@ -60,9 +45,33 @@ Building a custom solution using LRS to migrate a database to the cloud requires
 | **2.2. Stop\abort the operation if needed**. | - In case that migration process needs to be aborted, the operation can be stopped with a choice of API call, or cmdlets: <br /> PowerShell [stop-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_stop](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop) cmdlets. <br /><br />- This will result in deletion of the being database restored on SQL Managed Instance. <br />- Once stopped, LRS cannot be continued for a database. Migration process needs to be restarted from scratch. |
 | **3. Cutover to the cloud when ready**. | - Once all backups have been restored to SQL Managed Instance, complete the cutover by initiating LRS complete operation with a choice of API call, or cmdlets: <br />PowerShell [complete-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_complete](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete) cmdlets. <br /><br />- This will cause LRS service to be stopped and database on Managed Instance will be recovered. <br />-	Repoint the application connection string from SQL Server to SQL Managed Instance. <br />- On operation completion database is available for R/W operations in the cloud. |
 
+# Requirements for getting started
+
+## The following is required at the SQL Server side:
+- Full backup of databases (one or multiple files)
+- Differential backup (one or multiple files)
+- Log backup (not split for transaction log file)
+- **Checkum must be enabled** as mandatory
+
+## The following is required at the Azure side:
+-	PowerShell Az.SQL module version 2.16.0, or above ([install](https://www.powershellgallery.com/packages/Az.Sql/), or use Azure [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/))
+-	CLI version 2.19.0, or above ([install](https://docs.microsoft.com/cli/azure/install-azure-cli))
+-	Azure Blob Storage provisioned
+-	SAS security token with read only and list permissions generated for the blob storage
+
+## Best practices
+
+The following are highly recommended as best practices:
+- Run [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) to validate your databases will have no issues being migrated to SQL Managed Instance. 
+- Split full and differential backups into multiple files, instead of a single file
+- Enable backup compression
+- Use Cloud Shell to execute scripts as it will always be updated to the latest cmdlets released
+
 > [!IMPORTANT]
 > - Database being restored using LRS cannot be used until the migration process has been completed. This is because underlying technology for LRS is log shipping in no recovery mode.
-> - Log shipping standby mode is not\cannot be supported by LRS due to the version differences between SQL Managed Instance and in-market SQL Server version.
+> - Standby mode for log shipping is not supported by LRS due to the version differences between SQL Managed Instance and in-market SQL Server version.
+
+# Steps to execute
 
 ## Copy backups from SQL Server to Azure Blob storage
 
@@ -70,14 +79,12 @@ The following two approaches can be utilized to copy the backups to the blob sto
 -	Using SQL Server native BACKUP TO URL feature 
 -	Copying the backups to Blob Container. 
 
-
-
 ## Generate SAS authentication token
 
 > [!IMPORTANT]
 > Permissions for the SAS token for Azure Blob storage need to be read only and list. In case of any other permissions, LRS cloud service will fail to start. These security requirements are by design.
 
-## Start the service
+## Start the migration
 
 PS, CLI
 
@@ -99,7 +106,10 @@ Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName $resourceGroupName -Inst
 -StorageContainerSasToken $testStorageContainerSasToken `
 ```
 
-## Monitor the migration status
+> [!IMPORTANT]
+> Once LRS has been started, any system managed software patches will be halted for the next 47 hours. Upon passing of this window, the next automated software patch will automatically stop the ongoing LRS. In such case, migration needs to be resterted from scratch as resume is not supported.
+
+## Monitor the migration progress
 
 PS, CLI
 
@@ -120,8 +130,9 @@ PS, CLI
 
 Complete je da podignes (recovery) bazu
 
-## Using API
+# Using API
 
+For development of cutom migration applications based on LRS, the following APIs can be used
 
 
 ## Next steps
