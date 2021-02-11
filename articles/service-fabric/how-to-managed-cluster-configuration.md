@@ -87,7 +87,7 @@ To enable automatic OS upgrades:
 
 * Use the `2021-01-01-preview` (or later) version of *Microsoft.ServiceFabric/managedclusters* and *Microsoft.ServiceFabric/managedclusters/nodetypes* resources
 * Set the cluster's property `enableAutoOSUpgrade` to *true*
-* Set the cluster nodetypes' resource property `vmImageVersion` to *latest*
+* Set the cluster nodeTypes' resource property `vmImageVersion` to *latest*
 
 For example:
 
