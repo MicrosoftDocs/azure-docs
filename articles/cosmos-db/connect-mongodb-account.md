@@ -11,7 +11,7 @@ ms.reviewer: sngun
 adobe-target: true
 adobe-target-activity: DocsExp-A/B-384740-MongoDB-2.8.2021
 adobe-target-experience: Experience B
-adobe-target-content: connect-mongodb-account-experimental.md
+adobe-target-content: ./connect-mongodb-account-experimental
 
 ---
 # Connect a MongoDB application to Azure Cosmos DB
