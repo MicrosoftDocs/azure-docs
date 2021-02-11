@@ -1,6 +1,6 @@
 ---
-title: 'Azure Front Door: URL redirect and URL rewrite'
-description: This article helps you understand how Azure Front Door supports URL redirection and URL rewrite using Azure Front Door Rule Set. 
+title: Azure Front Door - URL Redirect and URL rewrite
+description: This article helps you understand how Azure Front Door supports URL redirection and URL rewrite using Azure Front Door rule set. 
 services: front-door
 author: duongau
 ms.service: frontdoor
@@ -14,8 +14,6 @@ ms.author: yuajia
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-This article helps you understand how Azure Front Door Standard/Premium supports URL redirect and URL rewrite used in a Rule Set.
-
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -27,22 +25,22 @@ Azure Front Door can redirect traffic at each of the following levels: protocol,
 
 You can configure URL redirect via Rule Set.
 
-:::image type="content" source="../media/concept-url-redirect-and-rewrite/front-door-url-redirect.png" alt-text="Screenshot of creating url redirect with Rule Set.":::
+:::image type="content" source="../media/concept-url-redirect-and-rewrite/front-door-url-redirect.png" alt-text="Create a web app in the Azure portal":::
 
 ### Redirection types
 A redirect type sets the response status code for the clients to understand the purpose of the redirect. The following types of redirection are supported:
 
-* **301 (Moved permanently)**: Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource will use one of the enclosed URIs. Use 301 status code for HTTP to HTTPS redirection.
-* **302 (Found)**: Indicates that the target resource is temporarily under a different URI. Since the redirection can change on occasion, the client should continue to use the effective request URI for future requests.
-* **307 (Temporary redirect)**: Indicates that the target resource is temporarily under a different URI. The user agent MUST NOT change the request method if it does an automatic redirection to that URI. Since the redirection can change over time, the client ought to continue using the original effective request URI for future requests.
-* **308 (Permanent redirect)**: Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource should use one of the enclosed URIs.
+- **301 (Moved permanently)**: Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource will use one of the enclosed URIs. Use 301 status code for HTTP to HTTPS redirection.
+- **302 (Found)**: Indicates that the target resource is temporarily under a different URI. Since the redirection can change on occasion, the client should continue to use the effective request URI for future requests.
+- **307 (Temporary redirect)**: Indicates that the target resource is temporarily under a different URI. The user agent MUST NOT change the request method if it does an automatic redirection to that URI. Since the redirection can change over time, the client ought to continue using the original effective request URI for future requests.
+- **308 (Permanent redirect)**: Indicates that the target resource has been assigned a new permanent URI. Any future references to this resource should use one of the enclosed URIs.
 
 ### Redirection protocol
 You can set the protocol that will be used for redirection. The most common use cases of the redirect feature, is to set HTTP to HTTPS redirection.
 
-* **HTTPS only**: Set the protocol to HTTPS only, if you're looking to redirect the traffic from HTTP to HTTPS. Azure Front Door recommends that you should always set the redirection to HTTPS only.
-* **HTTP only**: Redirects the incoming request to HTTP. Use this value only if you want to keep your traffic HTTP that is, non-encrypted.
-* **Match request**: This option keeps the protocol used by the incoming request. So, an HTTP request remains HTTP and an HTTPS request remains HTTPS post redirection.
+- **HTTPS only**: Set the protocol to HTTPS only, if you're looking to redirect the traffic from HTTP to HTTPS. Azure Front Door recommends that you should always set the redirection to HTTPS only.
+- **HTTP only**: Redirects the incoming request to HTTP. Use this value only if you want to keep your traffic HTTP that is, non-encrypted.
+- **Match request**: This option keeps the protocol used by the incoming request. So, an HTTP request remains HTTP and an HTTPS request remains HTTPS post redirection.
 
 ### Destination host
 As part of configuring a redirect routing, you can also change the hostname or domain for the redirect request. You can set this field to change the hostname in the URL for the redirection or otherwise preserve the hostname from the incoming request. So, using this field you can redirect all requests sent on `https://www.contoso.com/*` to `https://www.fabrikam.com/*`.
@@ -58,13 +56,13 @@ The destination fragment is the portion of URL after '#', which is used by the b
 
 ## URL rewrite
 
-Azure Front Door supports URL rewrite to rewrite the path of a request that's en route to your origin. URL rewrite allows you to add conditions to ensure that the URL or the specified headers get rewritten only when certain conditions get met. These conditions are based on the request and response information.
+Azure Front Door supports URL rewrite to rewrite the path of a request that's en route to your origin. URL rewrite also allows you to add conditions to ensure that the URL or the specified headers get rewritten only when certain conditions get met. These conditions are based on the request and response information.
 
 With this feature, you can redirect users to different origins based on scenario, device type, and requested file type.
 
 You can configure URL redirect via Rule Set.
 
-:::image type="content" source="../media/concept-url-redirect-and-rewrite/front-door-url-rewrite.png" alt-text="Screenshot of creating url rewrite with Rule Set.":::
+:::image type="content" source="../media/concept-url-redirect-and-rewrite/front-door-url-rewrite.png" alt-text="Create a web app in the Azure portal":::
 
 ### Source pattern
 
@@ -79,13 +77,14 @@ You can define the destination path to use in the rewrite. The destination path 
 Preserve unmatched path allows you to append the remaining path after the source pattern to the new path.
 
 For example, if I set **Preserve unmatched path to Yes**.
-* If the incoming request is `www.contoso.com/sub/1.jpg`, the source pattern gets set to `/`, the destination get set to `/foo/`, and the content get served from `/foo/sub/1`.jpg from the origin.
+- If the incoming request is `www.contoso.com/sub/1.jpg`, the source pattern gets set to `/`, the destination get set to `/foo/`, and the content get served from `/foo/sub/1`.jpg from the origin.
 
-* If the incoming request is `www.contoso.com/sub/image/1.jpg`, the source pattern gets set to `/sub/`, the destination get set to `/foo/`, the content get served from `/foo/image/1.jpg` from the origin.
+- If the incoming request is `www.contoso.com/sub/image/1.jpg`, the source pattern gets set to `/sub/`, the destination get set to `/foo/`, the content get served from `/foo/image/1.jpg` from the origin.
 
 For example, if I set **Preserve unmatched path to No**.
-* If the incoming request is `www.contoso.com/sub/image/1.jpg`, the source pattern gets set to `/sub/`, the destination get set to `/foo/2.jpg`, the content will always be served from `/foo/2.jpg` from the origin no matter what paths followed in `wwww.contoso.com/sub/`.
+- If the incoming request is `www.contoso.com/sub/image/1.jpg`, the source pattern gets set to `/sub/`, the destination get set to `/foo/2.jpg`, the content will always be served from `/foo/2.jpg` from the origin no matter what paths followed in `wwww.contoso.com/sub/`.
 
 ## Next steps
 
-* Learn more about [Azure Front Door Rule Set](concept-rule-set.md)
+- Learn how to configure your first [Rules Set](how-to-configure-rule-set.md).
+- Learn more about [Azure Front Door Rule Set](concetp-rule-set.md)

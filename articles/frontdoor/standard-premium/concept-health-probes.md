@@ -1,5 +1,5 @@
 ---
-title: 'Azure Front Door: Backend health monitoring'
+title: Azure Front Door - Backend health monitoring
 description: This article helps you understand how Azure Front Door monitors the health of your backend.
 services: frontdoor
 author: duongau
@@ -10,10 +10,7 @@ ms.date: 02/18/2020
 ms.author: duau
 ---
 
-# ​​Health probe monitoring
-
-> [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
+# ​​Health probes
 
 Azure Front Door periodically sends an HTTP or HTTPS request to each of your backend. These requests allow Azure Front Door to determine the health of each endpoint in the backend pool. Front Door then uses these responses from the probe to determine the "best" backend resources to route your client requests. 
 

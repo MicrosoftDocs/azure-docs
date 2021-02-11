@@ -1,7 +1,7 @@
 ---
-title: Configure Azure Front Door rule set actions
+title: Configure Front Door Rule Set actions
 description: This article provides a list of the various actions you can do with Azure Front Door rule set. 
-services: frontdoor
+services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
@@ -14,12 +14,16 @@ ms.author: yuajia
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-An Azure Front Door [Rule Set](concept-rule-set.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of the actions you can use in a Rule Set. The action defines the behavior that gets applied to a request type that a match condition(s) identifies. In an Azure Front Door Rule Set, a rule can contain up to five actions. Server variable is supported on all actions.
-
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+An Azure Front Door [Rule Set](concept-rule-set.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of the actions you can use in a Rule Set.
+
+An action defines the behavior that gets applied to a request type that a match condition(s) identifies. In an Azure Front Door Rule Set, a rule can contain up to five actions.
+
+Server variable is supported on all actions.
 
 The following actions are available to use in Azure Front Door rule set.  
 
