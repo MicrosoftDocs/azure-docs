@@ -17,9 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Availability of FIDO2 passwordless authentication based on browser and operating system
 
-Azure Active Directory allows [FIDO2 security keys](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) to be used as a passwordless device. The availability of FIDO2 authentication for Microsoft accounts was [announced in 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910), and, as discussed in the announcement, certain optional features and extensions to the FIDO2 CTAP specification must be implemented to support secure authentication with Microsoft and Azure Active Directory accounts.
-
-The following diagram shows which browsers and operating system combinations support passwordless authentication using FIDO2 authentication keys with Azure Active Directory. 
+Azure Active Directory allows [FIDO2 security keys](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) to be used as a passwordless device. The availability of FIDO2 authentication for Microsoft accounts was [announced in 2018](https://techcommunity.microsoft.com/t5/identity-standards-blog/all-about-fido2-ctap2-and-webauthn/ba-p/288910). As discussed in the announcement, certain optional features and extensions to the FIDO2 CTAP specification must be implemented to support secure authentication with Microsoft and Azure Active Directory accounts. The following diagram shows which browsers and operating system combinations support passwordless authentication using FIDO2 authentication keys with Azure Active Directory.
 
 ## Azure Active Directory (AAD) accounts
 
