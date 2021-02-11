@@ -109,14 +109,14 @@ eastus      AzureArcTest
 Next, we will connect our Kubernetes cluster to Azure using `az connectedk8s connect`:
 
 1. Verify connectivity to your Kubernetes cluster via one of the following:
-   1. `KUBECONFIG`
-   1. `~/.kube/config`
-   1. `--kube-config`
+   * `KUBECONFIG`
+   * `~/.kube/config`
+   * `--kube-config`
 1. Deploy Azure Arc agents for Kubernetes using Helm 3 into the `azure-arc` namespace:
 
-```console
-az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
-```
+    ```console
+    az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
+    ```
 
 **Output:**
 
@@ -206,9 +206,9 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Arc enable
     ```
 
 > [!NOTE]
-> 1. Specifying `excludedCIDR` under `--proxy-skip-range` is important to ensure in-cluster communication is not broken for the agents.
-> 2. While `--proxy-http`, `--proxy-https`, and `--proxy-skip-range` are expected for most outbound proxy environments, `--proxy-cert` is only required if trusted certificates from proxy need to be injected into trusted certificate store of agent pods.
-> 3. The above proxy specification is currently applied only for Arc agents and not for the flux pods used in sourceControlConfiguration. The Arc enabled Kubernetes team is actively working on this feature and it will be available soon.
+> * Specifying `excludedCIDR` under `--proxy-skip-range` is important to ensure in-cluster communication is not broken for the agents.
+> * While `--proxy-http`, `--proxy-https`, and `--proxy-skip-range` are expected for most outbound proxy environments, `--proxy-cert` is only required if trusted certificates from proxy need to be injected into trusted certificate store of agent pods.
+> * The above proxy specification is currently applied only for Arc agents and not for the flux pods used in sourceControlConfiguration. The Arc enabled Kubernetes team is actively working on this feature and it will be available soon.
 
 ## Azure Arc agents for Kubernetes
 
