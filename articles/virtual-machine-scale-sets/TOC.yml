@@ -329,9 +329,10 @@
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Use dedicated hosts (preview)
-      href: ../virtual-machines/dedicated-hosts.md
+    - name: Use dedicated hosts
       items:
+      - name: Overview
+        href: ../virtual-machines/dedicated-hosts.md
       - name: CLI
         href: ../virtual-machines/linux/dedicated-hosts-cli.md
       - name: PowerShell

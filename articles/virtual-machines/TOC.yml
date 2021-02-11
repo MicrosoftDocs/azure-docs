@@ -101,34 +101,12 @@
     href: ./workloads/oracle/oracle-database-quick-create.md
   - name: Elasticsearch
     href: ./linux/tutorial-elasticsearch.md
-  - name: FreeBSD Packet Filter
-    href: ./linux/freebsd-pf-nat.md
   - name: Mainframe rehosting
     href: ./workloads/mainframe-rehosting/overview.md
-  - name: Databases
-    items:
-    - name: MySQL on SUSE
-      href: ./linux/mysql-on-opensuse.md
-    - name: MongoDB
-      items:
-      - name: Linux
-        href: ./linux/install-mongodb.md
-      - name: Windows
-        href: ./windows/install-mongodb.md
-    - name: PostgreSQL
-      href: ./linux/postgresql-install.md
-    - name: MS SQL on Linux
-      href: /sql/linux/sql-server-linux-azure-virtual-machine
+  - name: SQL on Virtual Machines
+    href: https://docs.microsoft.com/azure/azure-sql/virtual-machines/
   - name: High Performance Computing (HPC)
     href: /azure/architecture/topics/high-performance-computing/
-  - name: Containers
-    items:
-    - name: Use Docker Machine
-      href: ./linux/docker-machine.md
-    - name: Use Docker Compose
-      href: ./linux/docker-compose-quickstart.md
-  - name: Visual Studio
-    href: ./windows/using-visual-studio-vm.md
 - name: Instances
   items:
   - name: Sizes
@@ -232,6 +210,12 @@
           href: ./windows/n-series-driver-setup.md
       - name: Setup AMD GPU drivers
         href: ./windows/n-series-amd-driver-setup.md
+    - name: FPGA - accelerated compute
+      items:
+      - name: Overview
+        href: sizes-gpu.md?context=/azure/virtual-machines/context/context
+      - name: NP-series
+        href: np-series.md
     - name: High performance compute
       displayName: H-series
       items:
@@ -343,7 +327,8 @@
       href: ./linux/tutorial-build-deploy-azure-pipelines.md
     - name: Create LAMP stack
       href: ./linux/tutorial-lamp-stack.md
-    - name: Secure web server with SSL
+    - name: Secure web server with TLS\SSL
+      displayname: SSL TLS
       items:
       - name: Linux
         href: ./linux/tutorial-secure-web-server.md
@@ -606,6 +591,8 @@
         href: ./linux/flatcar-create-upload-vhd.md
       - name: FreeBSD
         href: ./linux/freebsd-intro-on-azure.md
+      - name: FreeBSD Packet Filter
+        href: ./linux/freebsd-pf-nat.md
       - name: Oracle Linux
         href: ./linux/oracle-create-upload-vhd.md
       - name: OpenBSD
@@ -650,6 +637,8 @@
       href: ./windows/capture-image-resource.md
     - name: Create a VM from a managed image
       href: ./windows/create-vm-generalized-managed.md
+    - name: Visual Studio
+      href: ./windows/using-visual-studio-vm.md
   - name: Shared Image Galleries
     items:
     - name: Overview
@@ -979,10 +968,18 @@
     href: disks-scalability-targets.md
   - name: Backup and data protection
     items:
-    - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Enable incremental snapshots
       href: disks-incremental-snapshots.md
+    - name: Azure Disk Backup
+      items:
+      - name: Overview
+        href: ../backup/disk-backup-overview.md?context=/azure/virtual-machines/context/context
+      - name: Configure Azure Disk Backup
+        href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
+      - name: Restore disks with Azure Disk Backup
+        href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
+    - name: Backup and disaster recovery for disks
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Snapshot a disk - CLI
       href: ./linux/snapshot-copy-managed-disk.md
     - name: Snapshot a disk - PowerShell
@@ -1281,8 +1278,6 @@
     href: ../azure-monitor/insights/monitor-vm-azure.md?context=/azure/virtual-machines/context/context
   - name: Monitoring VMs
     items:
-    - name: Linux
-      href: ./linux/tutorial-monitor.md
     - name: Windows
       href: ./windows/tutorial-monitor.md
   - name: Agents
@@ -1297,8 +1292,10 @@
         href: ../azure-monitor/platform/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
       - name: Linux diagnostics extension
         items:
-        - name: Overview
+        - name: Version 4.0
           href: ../virtual-machines/extensions/diagnostics-linux.md?context=/azure/virtual-machines/context/context
+        - name: Version 3.0
+          href: ../virtual-machines/extensions/diagnostics-linux-v3.md?context=/azure/virtual-machines/context/context
         - name: Collect metrics with Telegraf
           href: ../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md?context=/azure/virtual-machines/context/context
           displayname: diagnostics extension
