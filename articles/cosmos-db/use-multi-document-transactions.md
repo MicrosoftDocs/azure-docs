@@ -1,6 +1,6 @@
 ---
 title: 'Use Multi-Document Transactions'
-description: 
+description: Create a sample mongo shell app that can execute a multi-document transaction on a fixed collection in Azure Cosmos DB API for MongoDB 4.0
 author: gahl-levy
 ms.service: cosmos-db
 ms.subservice: 
@@ -29,15 +29,9 @@ Multi-document transactions follow **ACID** semantics:
 
 Multi-document transactions are supported within a unsharded collection in 4.0. Multi-document transactions are not supported across collections or in sharded collections.
 
-Clients are required to use one of the following driver versions:
+All drivers that support wire protocol version 4.0 or greater will support Azure Cosmos DB API for MongoDB multi-document transactions.
 
-    Java 3.8.0          Python 3.7.0         C 1.11.0
-    C# 2.7              Node 3.1.0           Ruby 2.6.0
-    Perl 2.0.0          PHP (PHPC) 1.5.0     Scala 2.4.0
-    Mongo shell 4.0
-
-## Sample Multi-Document Transaction
-Let's add a mongo shell example below
+## Multi-Document Transaction in Mongo Shell
 
 1. Open a command prompt, go to directory of mongo shell (version 4.0+)
 
@@ -45,7 +39,7 @@ Let's add a mongo shell example below
     cd <path_to_mongo_shell_>
     ```
 
-2. Create a mongo shell script connect_friends.js and add the following content. 
+2. Create a mongo shell script connect_friends.js and add the following content
 
     ```javascript
     // insert data into friends collection
@@ -72,7 +66,7 @@ Let's add a mongo shell example below
 
     ```
 
-3. Run the following command to execute the multi-document transaction. This command creates a friend link between the two friends.
+3. Run the following command to execute the multi-document transaction. This command creates a friend link between the two friends
 
     ```powershell
     mongo "<HOST>:<PORT>" -u "<USER>" -p "KEY" --ssl connect_friends.js
