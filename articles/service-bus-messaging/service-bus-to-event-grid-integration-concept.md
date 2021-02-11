@@ -22,17 +22,7 @@ To enable the feature, you need the following items:
 
 [!INCLUDE [event-grid-service-bus.md](../../includes/event-grid-service-bus.md)]
 
-### How many events are emitted, and how often?
-
-If you have multiple queues and topics or subscriptions in the namespace, you get at least one event per queue and one per subscription. The events are emitted immediately if there are no messages in the Service Bus entity and a new message arrives. Or the events are emitted every two minutes unless Service Bus detects an active receiver. Message browsing does not interrupt the events.
-
-By default, Service Bus emits events for all entities in the namespace. If you want to get events for specific entities only, see the next section.
-
-### Use filters to limit where you get events from
-
-If you want to get events only from, for example, one queue or one subscription within your namespace, you can use the *Begins with* or *Ends with* filters that are provided by Event Grid. In some interfaces, the filters are called *Pre* and *Suffix* filters. If you want to get events for multiple, but not all, queues and subscriptions, you can create multiple Event Grid subscriptions and provide a filter for each.
-
-## Create Event Grid subscriptions for Service Bus namespaces
+## Event Grid subscriptions for Service Bus namespaces
 You can create Event Grid subscriptions for Service Bus namespaces in three different ways:
 
 - Azure portal. See the following tutorials to learn how to use Azure portal to create Event Grid subscriptions for Service Bus events with Azure Logic Apps and Azure Fucntions as handlers. 
@@ -51,6 +41,15 @@ You can create Event Grid subscriptions for Service Bus namespaces in three diff
     
     New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTION NAME>" -ResourceId $namespaceID -Endpoint "<YOUR ENDPOINT URL>” -SubjectEndsWith "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
     ```
+### How many events are emitted, and how often?
+
+If you have multiple queues and topics or subscriptions in the namespace, you get at least one event per queue and one per subscription. The events are emitted immediately if there are no messages in the Service Bus entity and a new message arrives. Or the events are emitted every two minutes unless Service Bus detects an active receiver. Message browsing does not interrupt the events.
+
+By default, Service Bus emits events for all entities in the namespace. If you want to get events for specific entities only, see the next section.
+
+### Use filters to limit where you get events from
+
+If you want to get events only from, for example, one queue or one subscription within your namespace, you can use the *Begins with* or *Ends with* filters that are provided by Event Grid. In some interfaces, the filters are called *Pre* and *Suffix* filters. If you want to get events for multiple, but not all, queues and subscriptions, you can create multiple Event Grid subscriptions and provide a filter for each.
 
 ## Next steps
 See the following tutorials: 
