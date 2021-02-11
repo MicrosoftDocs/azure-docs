@@ -45,7 +45,7 @@ Key features included with Azure Front Door Standard/Premium (Preview):
 
 * Accelerated application performance by using split TCP-based anycast protocol.
 
-* Intelligent **[health probe](concept-health-probes.md)** monitoring and load balancing among **[origins](concept-origin)**.
+* Intelligent **health probe** monitoring and load balancing among **origins**.
 
 * Define your own custom domain with flexible domain validation.
 
@@ -53,17 +53,17 @@ Key features included with Azure Front Door Standard/Premium (Preview):
 
 * SSL offload and integrated certificate management.
 
-* Secure your origins with **[Private Link](../../private-link/private-link-overview.md)**.  
+* Secure your origins with **Private Link**.  
 
-* Customizable traffic routing and optimizations via **[Rule Set](concept-rule-set)**.
+* Customizable traffic routing and optimizations via **Rule Set**.
 
-* **[Built-in reports](concept-reports.md)** with all-in-one dashboard for both Front Door and security patterns.
+* **Built-in reports** with all-in-one dashboard for both Front Door and security patterns.
 
-* **[Real-time monitoring](how-to-monitoring-metrics)** and alerts that integrate with Azure Monitoring.
+* **Real-time monitoring** and alerts that integrate with Azure Monitoring.
 
-* **[Logging](how-to-logging.md)** for each Front Door request and failed health probes.
+* **Logging** for each Front Door request and failed health probes.
 
-* Native support of end-to-end IPv6 connectivity and **[HTTP/2 protocol](../front-door-http2.md)**.
+* Native support of end-to-end IPv6 connectivity and **HTTP/2 protocol**.
 
 ## Pricing
 

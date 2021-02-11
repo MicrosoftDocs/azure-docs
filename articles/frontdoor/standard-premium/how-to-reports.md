@@ -47,7 +47,7 @@ Reports support any selected date range from the previous 90 days. With data poi
 
 1. In the navigation pane, select **Reports or Security** under *Analytics*.
 
-   :::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Reports landing page":::
+   :::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Screenshot of Reports landing page":::
 
 1. There are seven tabs for different dimensions, select the dimension of interest.
    * Traffic by domain
@@ -80,22 +80,22 @@ Reports support any selected date range from the previous 90 days. With data poi
 
     1. **Location** - Select single or multiple client locations by country. Countries are grouped into six regions: North America, Asia, Europe, Africa, Oceania, and South America. Refer to [region/country mapping](https://en.wikipedia.org/wiki/Subregion). By default, all countries are selected.
     
-        :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-locations.png" alt-text="Report for location dimension":::
+        :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-locations.png" alt-text="Screenshot of Reports for location dimension":::
    
     1. **Protocol** - Select either HTTP or HTTPS to view traffic data.
  
-        :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-protocol.png" alt-text="Report for protocol dimension":::
+        :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-protocol.png" alt-text="Screenshot of Reports for protocol dimension":::
     
     1. **Domains** - Select single or multi Endpoints or Custom Domains. By default, all endpoints and custom domains are selected. 
     
         * If you delete an endpoint or a custom domain in one profile and then recreate the same endpoint or domain in another profile. The endpoint will be considered a second endpoint.  
         * If you're viewing reports by custom domain - when you delete one custom domain and bind it to a different endpoint. They'll be treated as one custom domain. If view by endpoint - they'll be treated as separate items. 
     
-        :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-domain.png" alt-text="Report for domain dimension":::
+        :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-domain.png" alt-text="Screenshot of Reports for domain dimension":::
 
 1. If you want to export the data to a CSV file, select the *Download CSV* link on the selected tab.
 
-    :::image type="content" source="../media/how-to-reports/front-door-reports-download-csv.png" alt-text="Download csv file for reports":::
+    :::image type="content" source="../media/how-to-reports/front-door-reports-download-csv.png" alt-text="Screenshot of download csv file for Reports":::
 
 ### Key metrics for all reports
 
@@ -121,13 +121,13 @@ You can go to other tabs to investigate further or view access log for more info
 
 For definition of cache hit ratio, refer to Caching. 
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Landing page for reports":::
+:::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Screenshot of landing page for reports":::
 
 ## Traffic by Location
 
 This report displays the top 50 locations by the country of the visitors that access your asset the most. The report also provides a breakdown of metrics by country and gives you an overall view of countries where the most traffic gets generated. Lastly you can see which country is having higher cache hit ratio or 4XX/5XX error codes.
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-by-location.png" alt-text="Reports by locations" lightbox="front-door-reports-by-location-expanded.png":::
+:::image type="content" source="../media/how-to-reports/front-door-reports-by-location.png" alt-text="Screenshot of Reports by locations" lightbox="front-door-reports-by-location-expanded.png":::
 
 The following are included in the reports:
 
@@ -157,7 +157,7 @@ This report shows the trends of traffic and response status code by different di
 
 * Number of requests from the edge to clients by HTTP status code. Percentage of requests by HTTP status code among all requests in grid. 
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-usage.png" alt-text="Report by usage" lightbox="front-door-reports-usage-expanded.png":::
+:::image type="content" source="../media/how-to-reports/front-door-reports-usage.png" alt-text="Screenshot of Reports by usage" lightbox="front-door-reports-usage-expanded.png":::
 
 ## Caching
 

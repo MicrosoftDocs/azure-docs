@@ -9,10 +9,10 @@ ms.date: 02/18/2021
 ms.author: qixwang
 ---
 
+# Configure an Azure Front Door Standard/Premium (Preview) Endpoint with Endpoint Manager
+
 > [!NOTE]
 > * This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View **[here](../front-door-overview.md)**.
-
-# Configure an Azure Front Door Standard/Premium (Preview) Endpoint with Endpoint Manager
 
 This article shows you how to create an Azure Front Door (AFD) endpoint for an existing Azure Front Door profile with Endpoint Manager.
 
@@ -25,7 +25,7 @@ This article shows you how to create an Azure Front Door (AFD) endpoint for an e
 
 Before you can create an Azure Front Door endpoint with Endpoint Manager, you must have created at least one Azure Front Door profile created. The profile has to have at least one or more Azure Front Door endpoints. To organize your AFD endpoints by internet domain, web application, or some other criteria, you can use multiple profiles. 
 
-To create an Azure Front Door profile, see [Create a new Azure Front Door profile](create-front-door-portal).
+To create an Azure Front Door profile, see [Create a new Azure Front Door profile](create-front-door-portal.md).
 
 ## Create a new AFD Endpoint
 
@@ -71,7 +71,7 @@ To create an Azure Front Door profile, see [Create a new Azure Front Door profil
 
 1. For **Name**, enter a unique name for the new origin group
 
-1. Select **Add an Origin** to add a new origin to current group. For information about how to create a new origin, please see [Create a new Azure Front Door origin](how-to-create-origin.md).
+1. Select **Add an Origin** to add a new origin to current group.
  
 #### Health Probes
 Front Door sends periodic HTTP/HTTPS probe requests to each of your origin. Probe requests determine the proximity and health of each origin to load balance your end-user requests. Health probe settings for an origin group define how we poll the health status of app origin. The following settings are available for load-balancing configuration:
@@ -110,7 +110,7 @@ Select **Add** to add the origin group to current endpoint. The origin group sho
 
 ### Add Route
 
-Select **Add** at the Routes view, The **Add a route** page appears. For information how to associate the domain and origin group, see [Create a new Azure Front Door route](how-to-configure-route.md)
+Select **Add** at the Routes view, The **Add a route** page appears.
 
 ### Add Security
 

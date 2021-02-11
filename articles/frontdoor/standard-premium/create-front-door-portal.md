@@ -46,18 +46,18 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. From the home page or the Azure menu, select **Create a resource**. Search for **Front Door Standard/Premium (Preview)**. On the **Compare offerings** page, select **Quick Create**.
 
-   :::image type="content" source="../media/create-front-door-portal/front-door-quick-create.png" alt-text="Create a web app in the Azure portal":::
+   :::image type="content" source="../media/create-front-door-portal/front-door-quick-create.png" alt-text="Screenshot of compare offerings.":::
 
 1. On the **Create a front door profile** page, enter or select the following settings.
 
-    :::image type="content" source="../media/create-front-door-portal/front-door-quick-create-2.png" alt-text="Quick create front door premium SKU in the Azure portal":::    
+    :::image type="content" source="../media/create-front-door-portal/front-door-quick-create-2.png" alt-text="Screenshot of Front Door quick create page.":::    
 
     | Settings | Value |
     | --- | --- |
     | **Subscription**  | Select your subscription. |
     | **Resource group**  | Select **Create new** and enter *contoso-appservice* in the text box.|
     | **Name** | Give your profile a name. This example uses **contoso-afd-quickcreate**. |
-    | **Tier** | Select either Standard or Premium SKU. Standard SKU is content delivery optimized. Premium SKU builds on Standard SKU and is focused on security. Please refer to [Tier Comparison](overview-tier-comparison.md) for details |
+    | **Tier** | Select either Standard or Premium SKU. Standard SKU is content delivery optimized. Premium SKU builds on Standard SKU and is focused on security.  |
     | **Endpoint name** | Enter a globally unique name for your endpoint. |
     | **Origin type** | Select the type of resource for your origin. In this example, we select an App service as the origin that has Private Link enabled. |
     | **Origin host name** | Enter the hostname for your origin. |
@@ -141,7 +141,7 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
 1. *Optional*: **Secrets**. If you plan to use managed certificates, this step is optional. If you have an existing Key Vault in Azure that you plan to use to Bring Your Own Certificate for custom domain, then select **Add a certificate**. You can also add certificate in the management experience after creation.
 
     >[!NOTE]
-    >You need to have the right permission to add the certificate from Azure Key Vault as a user. Please refer to [Configure HTTPS on a custom domain](custom-domain-ssl).
+    >You need to have the right permission to add the certificate from Azure Key Vault as a user. 
     > 
 
     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-secret.png" alt-text="Add a secret in custom create":::
@@ -154,9 +154,9 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
 
 1. Next, add an Origin Group that contains your two web apps. Select **+** to open **Add an origin group**. For Name, enter *myOrignGroup*, then select **Add an origin**.
  
-     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group.png" alt-text="Add an origin group":::
+     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group.png" alt-text="Screenshot of add an origin group page.":::
 
-1. In the **Add an origin** page, follow information below.
+1. In the **Add an origin** page, enter or select the information below. Then select **Add**.
 
     | Setting | Value |
     | --- | --- |
@@ -166,18 +166,16 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
     | **Origin host header** | Select `WebAppContoso-001.azurewebsites.net` |
     | **Other fields** | Leave all other fields as default. |
 
-   Select **Add**.
-
     > [!NOTE]
     > When creating a Front Door profile, you must select an origin from the same subscription the Front Door is created in.
    
-   :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-1.png" alt-text="Add another origin":::
+   :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-1.png" alt-text="Screenshot of add more origins.":::
 
 1. Repeat step 8 to add the second origin webapp002 by selecting `webappcontoso-002.azurewebsite.net` as the **Origin host name** and **Origin host header**.
 
 1. On the **Add an origin group** page, you will see two origins added, leave all other fields default.
   
-   :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group-2.png" alt-text="Add an origin group":::
+   :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group-2.png" alt-text="Screenshot of add an origin group page.":::
 
 1. Next, add a Route to map your frontend endpoint to the Origin group. This route forwards requests from the endpoint to myOriginGroup. Select **+ Add** on Route to configure a Route.  
 
@@ -259,4 +257,4 @@ Repeat the procedure for the other two groups.
 
 Advance to the next article to learn how to add a custom domain to your Front Door.
 > [!div class="nextstepaction"]
-> [Add a custom domain](how-to-add-custom-domain.md)
+> [Add a custom domain]()
