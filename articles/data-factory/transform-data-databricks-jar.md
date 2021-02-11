@@ -102,19 +102,23 @@ For more information, see the [Databricks documentation](/azure/databricks/dev-t
 
 ## How to upload a library in Databricks
 
+### You can use the Workspace UI:
+
 1. [Use the Databricks workspace UI](/azure/databricks/libraries/#create-a-library)
 
 2. To obtain the dbfs path of the library added using UI, you can use [Databricks CLI](/azure/databricks/dev-tools/cli/#install-the-cli).
 
    Typically the Jar libraries are stored under dbfs:/FileStore/jars while using the UI. You can list all through the CLI: *databricks fs ls dbfs:/FileStore/job-jars*
 
-3. [Copy the library using Databricks CLI](/azure/databricks/dev-tools/cli/#copy-a-file-to-dbfs)
+### Or you can use the Databricks CLI:
 
-4. Use Databricks CLI [(installation steps)](/azure/databricks/dev-tools/cli/#install-the-cli)
+1. Follow [Copy the library using Databricks CLI](/azure/databricks/dev-tools/cli/#copy-a-file-to-dbfs)
+
+2. Use Databricks CLI [(installation steps)](/azure/databricks/dev-tools/cli/#install-the-cli)
 
    As an example, to copy a JAR to dbfs:
    `dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar`
-   
+
 ## Next steps
 
 For an eleven-minute introduction and demonstration of this feature, watch the [video](https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player).
