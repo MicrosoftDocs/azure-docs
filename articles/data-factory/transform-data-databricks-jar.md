@@ -1,7 +1,6 @@
 ---
 title: Transform data with Databricks Jar
 description: Learn how to process or transform data by running a Databricks Jar within an Azure Data Factory pipeline.
-services: data-factory
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: abnarain
