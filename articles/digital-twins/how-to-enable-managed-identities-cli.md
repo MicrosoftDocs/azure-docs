@@ -91,7 +91,7 @@ For more about endpoints, routes, and the types of destinations supported for ro
 >[!NOTE]
 > This section must be completed by an Azure user with permissions to manage user access to Azure resources (including granting and delegating permissions). Common roles that meet this requirement are *Owner*, *Account admin*, or the combination of *User Access Administrator* and *Contributor*. For more information about permission requirements for Azure Digital Twins roles, see [*How-to: Set up instance and authentication*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
 
-You can add the `--scopes` parameter onto the `az dt create` command in order to assign the identity to one or more scopes with a specified role. 
+You can add the `--scopes` parameter onto the `az dt create` command in order to assign the identity to one or more scopes with a specified role. This can be used when first creating the instance, or later by passing in the name of an instance that already exists.
 
 Here is an example that creates an instance with a system managed identity, and assigns that identity a custom role called `MyCustomRole` in an event hub.
 
@@ -100,6 +100,8 @@ az dt create -n {instance_name} -g {resource_group} --assign-identity --scopes "
 ```
 
 For more examples of role assignments with this command, see the [**az dt create** reference documentation](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create).
+
+Alternatively, you can also use the [**az role assignment**](/cli/azure/role/assignment?view=azure-cli-latest) command group to create and manage roles. This can be used to support additional scenarios where you don't want to group role assignment with the create command.
 
 ## Create an endpoint with identity-based authorization
 
