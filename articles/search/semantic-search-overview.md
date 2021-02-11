@@ -23,8 +23,12 @@ Semantic search is a collection of query-side features that bring Bing's deep ne
 
 All new parameters can be specified at query time, on existing indexes.
 
+## Sign up for access
+
+Sign up for the semantic search preview by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). You will receive a confirmation email once you have been accepted into the preview.
+
 ## Next steps
 
 + [Add spell check to query inputs](speller-howto-add.md)
-+ [Create a semantic query](semantic-howto-query-request.md)
-+ [Structure a semantic response](semantic-howto-query-response.md)
++ [Create a semantic query](semantic-how-to-query-request.md)
++ [Structure a semantic response](semantic-how-to-query-response.md)

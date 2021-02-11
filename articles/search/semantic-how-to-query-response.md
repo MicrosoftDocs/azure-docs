@@ -64,5 +64,5 @@ The following example is representative of a semantic response.
 
 + [Semantic search overview](semantic-search-overview.md)
 + [Similarity algorithm](index-ranking-similarity.md)
-+ [Create a semantic query](semantic-howto-query-request.md)
++ [Create a semantic query](semantic-how-to-query-request.md)
 + [Create a basic query](search-query-create.md)

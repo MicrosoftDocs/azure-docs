@@ -120,7 +120,7 @@ The first few results are as follows.
 },
 ```
 
-### with queryType (default)
+### With queryType (default)
 
 For comparison, run the same query as above, removing `&queryType=semantic&queryLanguage=english&searchFields=Description,Tags`. Notice that there is no `"@search.semanticScore"` in these results.
 
@@ -164,7 +164,7 @@ For comparison, run the same query as above, removing `&queryType=semantic&query
 
 + [Semantic search overview](semantic-search-overview.md)
 + [Add spell check to query inputs](speller-howto-add.md)
-+ [Structure a semantic response](semantic-howto-query-response.md)
++ [Structure a semantic response](semantic-how-to-query-response.md)
 + [Create a basic query](search-query-create.md)
 + [Use full Lucene query syntax](query-Lucene-syntax.md)
 + [Use simple query syntax](query-simple-syntax.md)

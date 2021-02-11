@@ -24,7 +24,7 @@ You can improve recall by spell-correcting individual search query terms before 
 
 ## Example request
 
-The speller parameter is included in a query request, defined as [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents). This example is for a [semantic query](semantic-howto-query-request.md) but you can add **`speller`** and **`queryLanguage`** to simple and full syntax queries as well.
+The speller parameter is included in a query request, defined as [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents). This example is for a [semantic query](semantic-how-to-query-request.md) but you can add **`speller`** and **`queryLanguage`** to simple and full syntax queries as well.
 
 ```http
 POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=2020-06-30     
@@ -46,7 +46,7 @@ The speller applies to query terms the same way for all fields in the index, reg
 
 ## Next steps
 
-+ [Create a semantic query](semantic-howto-query-request.md)
++ [Create a semantic query](semantic-how-to-query-request.md)
 + [Create a basic query](search-query-create.md)
 + [Use full Lucene query syntax](query-Lucene-syntax.md)
 + [Use simple query syntax](query-simple-syntax.md)

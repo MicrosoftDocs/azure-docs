@@ -309,7 +309,7 @@
     - name: Create a basic query
       href: search-query-create.md
     - name: Create a semantic query
-      href: semantic-howto-query-request.md
+      href: semantic-how-to-query-request.md
     - name: Add spell check to queries
       href: speller-howto-add.md
     - name: Query types and composition
@@ -355,7 +355,7 @@
     - name: Work with results
       href: search-pagination-page-layout.md
     - name: Structure a semantic response
-      href: semantic-howto-query-response.md
+      href: semantic-how-to-query-response.md
     - name: Scoring profiles 
       href: index-add-scoring-profiles.md
     - name: Similarity algorithm
