@@ -25,6 +25,8 @@
     href: concept-rule-set-match-conditions.md
   - name: Rule Set Action
     href: concept-rule-set-actions.md
+  - name: URL redirect and URL rewrite
+    href: concept-rule-set-url-redirect-and-rewrite.md
   - name: Health Probe
     href: concept-health-probes.md
   - name: Private Endpoints

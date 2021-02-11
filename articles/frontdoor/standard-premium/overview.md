@@ -14,10 +14,6 @@ ms.author: duau
 
 > [!IMPORTANT]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
->
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Front Door Standard/Premium is a fast, reliable, and secure modern cloud CDN that uses the Microsoft global edge network and integrates with intelligent threat protection. It combines the capabilities of Azure CDN Standard from Microsoft, Azure Front Door, Azure Web Application Firewall (WAF) into a single service.
 
@@ -36,6 +32,11 @@ Front Door works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split
 >
 > Your end-to-end scenarios may benefit from combining these solutions as needed.
 > For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
+
+> [!IMPORTANT]
+> Azure Front Door Standard/Premium (Preview) is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Why use Azure Front Door Standard/Premium (Preview)?
 
