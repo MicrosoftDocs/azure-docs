@@ -82,7 +82,7 @@ Find a project as follows:
 3. Select the appropriate subscription and Azure Migrate project.
 
 
-### Find a legacy project
+### Find a classic Azure Migrate project
 
 If you created the project in the [previous version](migrate-services-overview.md#azure-migrate-versions) of Azure Migrate, find it as follows:
 

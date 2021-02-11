@@ -210,6 +210,12 @@
           href: ./windows/n-series-driver-setup.md
       - name: Setup AMD GPU drivers
         href: ./windows/n-series-amd-driver-setup.md
+    - name: FPGA - accelerated compute
+      items:
+      - name: Overview
+        href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
+      - name: NP-series
+        href: np-series.md
     - name: High performance compute
       displayName: H-series
       items:
@@ -321,7 +327,8 @@
       href: ./linux/tutorial-build-deploy-azure-pipelines.md
     - name: Create LAMP stack
       href: ./linux/tutorial-lamp-stack.md
-    - name: Secure web server with SSL
+    - name: Secure web server with TLS\SSL
+      displayname: SSL TLS
       items:
       - name: Linux
         href: ./linux/tutorial-secure-web-server.md
