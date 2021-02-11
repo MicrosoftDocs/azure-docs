@@ -45,7 +45,7 @@ You can enable compression in the following ways:
 
 1. Select Edit Endpoint, then select the route you want to enable compression. 
 
-   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-1.png" alt-text="Screenshot of Endpoint Manager landing page.":::   
+   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-1.png" alt-text="Screenshot of Endpoint Manager landing page." lightbox="../media/how-to-compression/front-door-compression-endpoint-manager-1-expanded.png":::   
 
 1. Ensure **Enable Caching** is checked, then select the checkbox for **Enable compression**.
 
@@ -57,7 +57,7 @@ You can enable compression in the following ways:
 
 1. From the Azure Front Door profile page, go to the **Optimization**. Then select the route that has compression *Disabled*, click on the three dots, select *Configure route*.
 
-   :::image type="content" source="../media/how-to-compression/front-door-compression-optimization-1.png" alt-text="Enable compression in optimization"::: 
+   :::image type="content" source="../media/how-to-compression/front-door-compression-optimization-1.png" alt-text="Enable compression in optimization" lightbox="../media/how-to-compression/front-door-compression-optimization-1-expanded.png"::: 
 
 1. Ensure **Enable Caching** is checked, then select the checkbox for **Enable compression**.
 
@@ -73,9 +73,10 @@ You can modify the default list of MIME types in Optimization page.
 
 1. Select the three dots on the right, then select **View Compression file types**.
 
-   :::image type="content" source="../media/how-to-compression/front-door-compression-edit-content-type.png" alt-text="Edit compression content type"::: 
+   :::image type="content" source="../media/how-to-compression/front-door-compression-edit-content-type.png" alt-text="Edit compression content type" lightbox="../media/how-to-compression/front-door-compression-edit-content-type-expanded.png"::: 
 
 1. Delete default formats or select **Add** to add new content types.
+
    :::image type="content" source="../media/how-to-compression/front-door-compression-edit-content-type-2.png" alt-text="Edit compression content type"::: 
 
 1. Click **Save**.

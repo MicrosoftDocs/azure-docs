@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Before you can complete the steps in this tutorial, you must first create an Auzre Front Door Standard/Premium. For more information, see [Quickstart: Create an Azure Front Door Standard/Premium profile](create-front-door-standard-premium-portal.md).
+* Before you can complete the steps in this tutorial, you must first create an Azure Front Door Standard/Premium. For more information, see [Quickstart: Create an Azure Front Door Standard/Premium profile](create-front-door-standard-premium-portal.md).
 
 ## Configure Rule Set in Azure portal
 
