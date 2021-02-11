@@ -1,5 +1,5 @@
 ---
-title: Understand Device Update for Azure IoT Hub Device Groups | Microsoft Docs
+title: Understand Device Update for Azure IoT Hub device groups | Microsoft Docs
 description: Understand how device groups are used.
 author: aysancag
 ms.author: aysancag
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
-# Device Groups
+# Device groups
 
 A device group is a collection of devices. Device groups provide a way to scale deployments to many devices. Each device belongs to exactly one device group at a time.
 You may choose to create multiple device groups to organize your devices. For example, Contoso might use the "Flighting" group for the devices in its test laboratory and 
@@ -17,11 +17,11 @@ their geographic regions, so that they can update devices on a schedule that ali
 
 
 
-## Using Device Twin tag for Device Group creation
+## Using device twin tag for device group creation
 
 Device twin tags are used to group devices. Devices need to have a ADUGroup key and a value in their device twin to belong to a group.
 
-### Device Twin tag format
+### Device twin tag format
 
 ```markdown
 "tags": {
@@ -30,7 +30,7 @@ Device twin tags are used to group devices. Devices need to have a ADUGroup key 
 ```
 
 
-## Uncategorized Group
+## Uncategorized group
 
 Uncategorized is a reserved word that is used to group devices that:
 - Don't have ADUGroup device twin tag.
