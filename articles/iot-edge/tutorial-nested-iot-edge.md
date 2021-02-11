@@ -47,11 +47,11 @@ This tutorial uses a two device hierarchy for simplicity, pictured below. One de
 To create a hierarchy of IoT Edge devices, you will need:
 
 * A computer (Windows or Linux) with internet connectivity.
-* An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin. s
+* An Azure account with a valid subscription. If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * Azure CLI v2.3.1 with the Azure IoT extension v0.10.6 or higher installed. This tutorial uses the [Azure Cloud Shell](../cloud-shell/overview.md). If you're unfamiliar with the Azure Cloud Shell, [check out a quickstart for details](./quickstart-linux.md#prerequisites).
   * To see your current versions of the Azure CLI modules and extensions, run [az version](/cli/azure/reference-index?#az_version).
-* A Linux device to configure as an IoT Edge device for each device in your hierarchy. This tutorial uses two devices. If you don't have devices available, you can create two Azure virtual machines by replacing the placeholder text in the following command and running it for each device in your hierarchy:
+* A Linux device to configure as an IoT Edge device for each device in your hierarchy. This tutorial uses two devices. If you don't have devices available, you can create Azure virtual machines for each device in your hierarchy by replacing the placeholder text in the following command and running it:
 
    ```azurecli-interactive
    az vm create \
@@ -90,7 +90,7 @@ To create your IoT Edge devices, you can use the Azure portal or Azure CLI.
 
 1. Select **+ Add an IoT Edge device**. This device will be the top layer device, so enter an appropriate unique device ID. Select **Save**.
 
-1. Select **+ Add an IoT Edge device** again. This device will be the lower layer device, so enter an appropriate unique device ID.
+1. Select **+ Add an IoT Edge device** again. This device will be a lower layer device, so enter an appropriate unique device ID.
 
 1. Choose **Set a parent device**, choose your top layer device from the list of devices, and select **Ok**. Select **Save**.
 
@@ -120,20 +120,7 @@ To create your IoT Edge devices, you can use the Azure portal or Azure CLI.
    az iot hub device-identity parent set --device-id {lower_layer_device_id} --parent-device-id {top_layer_device_id} --hub-name {hub_name}
    ```
 
-   You can verify that any of your child devices successfully established their relationship with the parent device by getting the identity of the child device's acknowledged parent device:
-
-   ```azurecli-interactive
-   az iot hub device-identity parent show --device-id {lower_layer_device_id} --hub-name {hub_name}
-   ```
-
-   This will output the JSON configuration of the parent device, pictured above.
-
-   Or by checking the list of child devices the parent device knows:
-
-    ```azurecli-interactive
-    az iot hub device-identity children list --device-id {top_layer_device_id} --hub-name {hub_name}
-
-   This will output a list of known child devices.
+   This command does not have explicit output.
 
 ---
 
@@ -159,7 +146,45 @@ Next, make note of each IoT Edge device's connection string. They will be used l
 
 ---
 
-If you completed the above steps correctly, you saw a successful device creation output JSON for each device in your hierarchy. Additionally, while the `parent set` command does not have explicit output, you can verify your relationships established correctly using `parent show` or `children list`, detailed above. Finally, you recorded the device connection strings of each of the devices in your hierarchy for later use. If so, you are ready to proceed.
+If you completed the above steps correctly, you can check that your parent-child relationships are correct in the Azure portal or Azure CLI.
+
+# [Portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://ms.portal.azure.com/), navigate to the **IoT Edge** section of your IoT Hub.
+
+1. Click on the device ID of a **lower layer device** in the list of devices.
+
+1. On the device's details page, you should see your **top layer device**'s identity listed beside the **Parent device** field.
+
+   [Parent device acknowledged by child device](./media/tutorial-nested-iot-edge/lower-layer-device-parent.png)
+
+You can also child your hierarchy relationship's through your **top layer device**.
+
+1. Click on the device ID of a **top layer device** in the list of devices.
+
+1. Select the **Manage child devices** tab at the top.
+
+1. Under the list of devices, you should see your **lower layer device**.
+
+   [Child device acknowledged by parent device](./media/tutorial-nested-iot-edge/top-layer-device-child.png)
+
+# [Azure CLI](#tab/azure-cli)
+
+1. In the [Azure Cloud Shell](https://shell.azure.com/) you can verify that any of your child devices successfully established their relationship with the parent device by getting the identity of the child device's acknowledged parent device. This will output the JSON configuration of the parent device, pictured above:
+
+   ```azurecli-interactive
+   az iot hub device-identity parent show --device-id {lower_layer_device_id} --hub-name {hub_name}
+   ```
+
+You can also child your hierarchy relationship's through querying your **top layer device**.
+
+1. List the child devices the parent device knows:
+
+    ```azurecli-interactive
+    az iot hub device-identity children list --device-id {top_layer_device_id} --hub-name {hub_name}
+    ```
+
+Once you are satisfied your hierarchy is correctly structured, you are ready to proceed.
 
 ### Create certificates
 
@@ -215,7 +240,27 @@ Each device needs a copy of the root CA certificate and a copy of its own device
 
    This command should output that one certificate has been added in `/etc/ssl/certs`.
 
-If you completed the above steps correctly, you saw the certificate generation output for the root CA certificate as well as a certificate generation output for each device in your hierarchy. Additionally, each device has a copy of its corresponding CA certificate and private key pair, accessible in a directory of your choice. Finally, you updated the CA certificates for each device, which showed you that one certificate was added in `/etc/ssl/certs`. If so, you are ready to proceed.
+   [Successful certificate installation message](./media/tutorial-nested-iot-edge/certificates-success-output.png)
+
+If you completed the above steps correctly, you can check that your certificates are installed in `/etc/ssl/certs` by navigating to that directory and searching for your installed certs.
+
+1. Navigate to `/etc/ssl/certs`:
+
+   ```bash
+   cd /etc/ssl/certs
+   ```
+
+1. List the installed certs and `grep` for `azure`:
+
+   ```bash
+   ll | grep azure
+   ```
+
+   You should see a certificate hash linked to your root CA Certificate and your root CA certificate linked to the copy in your `usr/local/share` directory.
+
+   [Results of search for azure certificates](./media/tutorial-nested-iot-edge/certificate-list-results.png)
+
+Once you are satisfied your certificates are installed on each device, you are ready to proceed.
 
 ### Install IoT Edge on the devices
 
@@ -382,7 +427,23 @@ Complete these steps and restart the IoT Edge service to configure your devices.
 
 Before you continue, make sure that you have updated the configuration file of each device in the hierarchy. Depending on your hierarchy structure, you configured one **top layer device** and one or more **lower layer device(s)**.
 
-If you completed the above steps correctly, each device's configuration file will have values for its device connection string and certificates. The **top layer device** will have its hostname field updated with its FQDN or IP, and its IoT Edge agent image will point to version 1.2. The **lower layer devices** will have the parent_hostname field uncommented and populated with the **top layer device**'s FQDN or IP, and each lower layer device's IoT Edge agent image will point to the parent hostname and the 1.2 image. If so, you are ready to continue.
+If you completed the above steps correctly, you can check your devices are configured correctly.
+
+1. Run the configuration and connectivity checks on your devices:
+
+   ```bash
+   sudo iotedge check
+   ```
+
+On your **top layer device**, expect to see an output with several passing evaluations and at least one warning. The check for the `latest security daemon` will warn you that another IoT Edge version is the latest stable version, because IoT Edge version 1.2 is in public preview. You may see additional warnings about logs policies and, depending on your network, DNS policies.
+
+On a **lower layer device**, expect to see an output similar to the top layer device, but with an additional warning indicating the EdgeAgent module cannot be pulled from upstream. This is acceptable, as the IoT Edge API Proxy module and Docker Container Registry module, which lower layer devices will pull images through, are not yet deployed to the **top layer device**.
+
+A sample output of `iotedge check` is shown below:
+
+[Sample configuration and connectivity results](./media/tutorial-nested-iot-edge/configuration-and-connectivity-check-results.png)
+
+Once you are satisfied your configurations are correct on each device, you are ready to proceed.
 
 ## Deploy modules to the top layer device
 
