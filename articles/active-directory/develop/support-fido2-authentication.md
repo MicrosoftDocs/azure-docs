@@ -18,13 +18,13 @@ ms.custom: aaddev
 
 # Support passwordless authentication with FIDO2 keys in apps you develop
 
-To ensure that the [FIDO2 passwordless authentication](../active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) is available to users of your applications, use these app and platform configurations.
+To ensure that the [FIDO2 passwordless authentication](../../active-directory/authentication/concept-authentication-passwordless#fido2-security-keys.md) is available to users of your applications, use these app and platform configurations.
 
 ## General app configuration
 
 **Home-realm discovery and domain hints**
 
-Don't use a domain hint to bypass [home-realm discovery](../active-directory/manage-apps/configure-authentication-for-federated-users-portal#home-realm-discovery). This feature is meant to make sign-ins more streamlined, but the federated identity provider may not support passwordless authentication.
+Don't use a domain hint to bypass [home-realm discovery](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal#home-realm-discovery.md). This feature is meant to make sign-ins more streamlined, but the federated identity provider may not support passwordless authentication.
 
 **Requiring specific kinds of credentials**
 
