@@ -30,7 +30,7 @@ Use the expression builder to set the source for your parsing. This can be as si
 
 ### Output column type
 
-Here is where you will configure the targer output schema from the parsing that will be written into a single column.
+Here is where you will configure the target output schema from the parsing that will be written into a single column.
 
 ![Parse example](media/data-flow/data-flow-parse-2.png "Parse example")
 
