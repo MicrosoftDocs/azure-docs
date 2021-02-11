@@ -10,6 +10,9 @@ ms.date: 02/9/2021
 
 __INTRO_TODO__
 
+---
+
+
 ## View and update the current runtime version
 
 _This section doesn't apply when running your function app [on Linux](#manual-version-updates-on-linux)._
