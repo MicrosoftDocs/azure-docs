@@ -32,8 +32,22 @@ When an allocation request is pinned to a cluster, there's a higher chance of fa
 ![Pinned Allocation Failure](./media/cloud-services-allocation-failure/Allocation2.png)
 
 ## Troubleshooting allocation failure for cloud services
+
 ### Error Message
-You may see the following error message:
+
+In Azure Portal, navigate to your cloud service and in the sidebar select *Operation logs (classic)* to view the logs.
+
+See further solutions for the exceptions below:
+
+|Exception Type  |Error Message  |Solution  |
+|---------|---------|---------|
+|FabricInternalServerError     |Operation failed with error code 'InternalError' and errorMessage 'The server encountered an internal error. Please retry the request.'.|[Troubleshoot FabricInternalServerError](cloud-services-troubleshoot-fabric-internal-server-error.md)|
+|ServiceAllocationFailure     |Operation failed with error code 'InternalError' and errorMessage 'The server encountered an internal error. Please retry the request.'.|[Troubleshoot ServiceAllocationFailure](cloud-services-troubleshoot-fabric-internal-server-error.md)|
+|LocationNotFoundForRoleSize     |The operation '`{operation id}`' failed: 'The requested VM tier is currently not available in Region (`{region id}`) for this subscription. Please try another tier or deploy to a different location.'.|[Troubleshoot LocationNotFoundForRoleSize](cloud-services-troubleshoot-location-not-found-for-role-size.md)|
+|ConstrainedAllocationFailed     |Azure operation '`{operation id}`' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region.|[Troubleshoot ConstrainedAllocationFailed](cloud-services-troubleshoot-constrained-allocation-failed.md)|
+|OverconstrainedAllocationRequest     |The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints. If possible, try relaxing constraints such as virtual network bindings, deploying to a hosted service with no other deployment in it and to a different affinity group or with no affinity group, or try deploying to a different region.|[Troubleshoot OverconstrainedAllocationRequest](cloud-services-troubleshoot-overconstrained-allocation-request.md)|
+
+Example error message:
 
 > "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
 
