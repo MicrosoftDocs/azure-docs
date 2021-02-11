@@ -12,7 +12,7 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: sstein
-ms.date: 01/12/2021
+ms.date: 02/20/2021
 ---
 # Quickstart: Use the Azure portal's query editor (preview) to query an Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ This process is optional, you can instead use SQL authentication to connect to t
 
 > [!NOTE]
 > * Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as Azure AD admins. Make sure to choose a user created either natively in the Azure AD or federated into the Azure AD.
-> * Azure AD admin sign in doesn't work with accounts that have 2-factor authentication enabled.
+> * Azure AD admin sign in works with accounts that have 2-factor authentication enabled, but the query editor does not support 2-factor authentication.
 
 1. In the Azure portal, navigate to your SQL database server.
 
@@ -59,11 +59,11 @@ This process is optional, you can instead use SQL authentication to connect to t
 
     ![find query editor](./media/connect-query-portal/find-query-editor.PNG)
 
-## Establish a connection to the database
+### Establish a connection to the database
 
 Even though you're signed into the portal, you still need to provide credentials to access the database. You can connect using SQL authentication or Azure Active Directory to connect to your database.
 
-### Connect using SQL Authentication
+#### Connect using SQL Authentication
 
 1. In the **Login** page, under **SQL server authentication**, enter a **Login** and **Password** for a user that has access to the database. If you're not sure, use the login and password for the Server admin of the database's server.
 
@@ -71,15 +71,15 @@ Even though you're signed into the portal, you still need to provide credentials
 
 2. Select **OK**.
 
-### Connect using Azure Active Directory
+#### Connect using Azure Active Directory
 
 In the **Query editor (preview)**, look at the **Login** page at the **Active Directory authentication** section. Authentication will happen automatically, so if you are an Azure AD admin to the database you will see a message appear saying you have been signed in. Then select the **Continue as** *\<your user or group ID>* button. If the page indicates that you have not successfully logged in, you may need to refresh the page.
 
-## Query a database in SQL Database
+### Query a database in SQL Database
 
 The following example queries should run successfully against the AdventureWorksLT sample database.
 
-### Run a SELECT query
+#### Run a SELECT query
 
 1. Paste the following query into the query editor:
 
@@ -96,7 +96,7 @@ The following example queries should run successfully against the AdventureWorks
 
 3. Optionally, you can save the query as a .sql file, or export the returned data as a .json, .csv, or .xml file.
 
-### Run an INSERT query
+#### Run an INSERT query
 
 Run the following [INSERT](/sql/t-sql/statements/insert-transact-sql/) T-SQL statement to add a new product in the `SalesLT.Product` table.
 
@@ -126,7 +126,7 @@ Run the following [INSERT](/sql/t-sql/statements/insert-transact-sql/) T-SQL sta
 2. Select **Run**  to insert a new row in the `Product` table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
 
-### Run an UPDATE query
+#### Run an UPDATE query
 
 Run the following [UPDATE](/sql/t-sql/queries/update-transact-sql/) T-SQL statement to modify your new product.
 
@@ -140,7 +140,7 @@ Run the following [UPDATE](/sql/t-sql/queries/update-transact-sql/) T-SQL statem
 
 2. Select **Run** to update the specified row in the `Product` table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
-### Run a DELETE query
+#### Run a DELETE query
 
 Run the following [DELETE](/sql/t-sql/statements/delete-transact-sql/) T-SQL statement to remove your new product.
 
@@ -158,7 +158,7 @@ Run the following [DELETE](/sql/t-sql/statements/delete-transact-sql/) T-SQL sta
 
 There are a few things to know when working with the query editor.
 
-### Configure network settings
+### Configure local network settings
 
 If you get one of the following errors in the query editor:
  - *Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings*
@@ -178,36 +178,51 @@ In the **New outbound rule wizard** follow these steps:
 1. Select **port** as the type of rule you want to create. Select **Next**
 2. Select **TCP**
 3. Select **Specific remote ports** and enter "443, 1443". Then select **Next**
-4. (Which action should be selected? "allow the connection" or "allow if secure"?)
-5. (Which should be selected among "Domain", "Private", and "Public")
-6. Give the rule a name and optionally a description. Then select **Finish**
+4. Select "Allow the connection if it is secure"
+5. Select **Next** then select **Next** again
+5. Keep "Domain", "Private", and "Public" all selected
+6. Give the rule a name, for example "Access Azure SQL query editor" and optionally a description. Then select **Finish**
 
 #### Steps for Mac
-
+1. Open **System Preferences** (Apple menu > System Preferences).
+2. Click **Security & Privacy**.
+3. Click **Firewall**.
+4. Click **Firewall Options**.
+5. In the **Security & Privacy** window select this option: "Automatically allow signed software to receive incoming connections."
 
 #### Steps for Linux
+Run these commands to update iptables
+  ```
+  iptables -A INPUT -p tcp -dport 443 -j ACCEPT
+  iptables -A INPUT -p tcp -dport 1443 -j ACCEPT
+  ```
 
-
-
-### Other considerations
+### Connection considerations
 
 * For public connections to query editor, you  need to [add your outbound IP address to the server's allowed firewall rules](firewall-create-server-level-portal-quickstart.md) to access your databases and data warehouses.
 
 * If  you have a Private Link connection set up on the server and you are connecting to query editor from an IP in the private Virtual Network, the Query Editor works without needing to add the Client IP address into the SQL database server firewall rules.
 
-* Pressing **F5** refreshes the query editor page and any query being worked on is lost.
+* The most basic RBAC permissions needed to use query editor are Read access to the server and database. Anyone with this level of access can access the query editor feature. To limit access to particular users, you must prevent them from being able to sign in to the query editor with Azure Active Directory or SQL authentication credentials. If they cannot assign themselves as the AAD admin for the server or access/add a SQL administrator account, they should not be able to use query editor.
 
 * Query editor doesn't support connecting to the `master` database.
 
 * Query editor cannot connect to a replica database with `ApplicationIntent=ReadOnly`
+
+* If you saw this error message "The X-CSRF-Signature header could not be validated", take the following action to resolve the issue:
+
+    * Make sure your computer's clock is set to the right time and time zone or try matching your computer's time zone with Azure by searching for the time zone for the location of your instance (i.e. East US, etc)
+    * If you are on a proxy network, make sure that the request header “X-CSRF-Signature” is not being modified or dropped.
+
+### Other considerations
+
+* Pressing **F5** refreshes the query editor page and any query being worked on is lost.
 
 * There's a 5-minute timeout for query execution.
 
 * The query editor only supports cylindrical projection for geography data types.
 
 * There's no support for IntelliSense for database tables and views, but the editor does support autocomplete on names that have already been typed.
-
-* (What are the most basic RBAC permissions needed to use query editor?)
 
 ## Next steps
 
