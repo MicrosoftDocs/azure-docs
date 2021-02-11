@@ -101,7 +101,7 @@ az dt create -n {instance_name} -g {resource_group} --assign-identity --scopes "
 
 For more examples of role assignments with this command, see the [**az dt create** reference documentation](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create).
 
-Alternatively, you can also use the [**az role assignment**](/cli/azure/role/assignment?view=azure-cli-latest) command group to create and manage roles. This can be used to support additional scenarios where you don't want to group role assignment with the create command.
+Alternatively, you can also use the [**az role assignment**](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true) command group to create and manage roles. This can be used to support additional scenarios where you don't want to group role assignment with the create command.
 
 ## Create an endpoint with identity-based authorization
 
