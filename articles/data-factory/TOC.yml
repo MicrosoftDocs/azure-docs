@@ -806,6 +806,8 @@
     href: /azure/templates/microsoft.datafactory/allversions
   - name: Python
     href: /python/api/overview/azure/datafactory
+  - name: Azure Policy built-ins
+    href: policy-reference.md
 - name: Resources
   items:
   - name: Whitepapers
