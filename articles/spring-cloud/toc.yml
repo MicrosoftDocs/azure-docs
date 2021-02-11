@@ -124,7 +124,7 @@
         - name: Create roles and permissions
           href: spring-cloud-howto-permissions.md
         - name: Access data plane with AAD RBAC
-          href: howto-access-data-plane-aad-rbac.md
+          href: spring-cloud-howto-access-data-plane-aad-rbac.md
     - name: Integrate
       items:
         - name: Bind an app to Azure CosmosDB

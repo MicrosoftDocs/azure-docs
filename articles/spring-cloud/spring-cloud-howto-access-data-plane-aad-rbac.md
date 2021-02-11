@@ -47,7 +47,7 @@ Various root endpoints are shown below according to different cloud types.
 | Public         | svc.azuremicroservices.io  |
 | Mooncake/China | svc.microservices.azure.cn |
 
-If the response is *401 Unauthorized*, check to see if role is successfully assigned.  It will take several minutes for the role take effect. Or verify the access token has not expired.
+If the response is *401 Unauthorized*, check to see if role is successfully assigned.  It will take several minutes for the role take effect or verify the access token has not expired.
 
 ## See also
 * [Create roles and permissions](spring-cloud-howto-permissions.md)
