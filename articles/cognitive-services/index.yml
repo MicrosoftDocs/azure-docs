@@ -144,7 +144,7 @@ conceptualContent:
         - url: ./containers/docker-compose-recipe.md
           itemType: get-started
           text: Use Docker Compose to deploy multiple containers
-        - url: ./containers/container-faq.md
+        - url: ./containers/container-faq.yml
           itemType: reference
           text: Cognitive Services containers FAQ
     - title: Cognitive Services for Big Data

@@ -90,7 +90,7 @@ Example:
 az backup policy create --resource-group saphanaResourceGroup --vault-name saphanaVault --name sappolicy --backup-management-type AzureWorkload --policy sappolicy.json --workload-type SAPHana
 ```
 
-Sample JSON (sappolicy.json) output:
+Sample JSON (sappolicy.json):
 
 ```json
   "eTag": null,
