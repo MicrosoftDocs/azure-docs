@@ -3,7 +3,6 @@ title: Parse datae transformation in mapping data flow
 description: Denormalize hierarchical data using the flatten transformation
 author: kromerm
 ms.author: makromer
-ms.review: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/08/2021
@@ -13,7 +12,7 @@ ms.date: 02/08/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Use the flatten transformation to take array values inside hierarchical structures such as JSON and unroll them into individual rows. This process is known as denormalization.
+Use the Parse transformation to parse columns in your data that are in document form. The current supported types of embedded documents that can be parsed are JSON and delimited text.
 
 ## Configuration
 
@@ -35,131 +34,73 @@ Refer to the inspect tab and data preview to verify your mapping output.
 
 ## Examples
 
-Refer to the following JSON object for the below examples of the flatten transformation
-
-``` json
-{
-  "name":"MSFT","location":"Redmond", "satellites": ["Bay Area", "Shanghai"],
-  "goods": {
-    "trade":true, "customers":["government", "distributer", "retail"],
-    "orders":[
-        {"orderId":1,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":2}]}},
-        {"orderId":2,"orderTotal":323.34,"shipped":{"orderItems":[{"itemName":"Mice","itemQty":2},{"itemName":"Keyboard","itemQty":1}]}}
-    ]}}
-{"name":"Company1","location":"Seattle", "satellites": ["New York"],
-  "goods":{"trade":false, "customers":["store1", "store2"],
-  "orders":[
-      {"orderId":4,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":3}]}},
-      {"orderId":5,"orderTotal":343.24,"shipped":{"orderItems":[{"itemName":"Chair","itemQty":4},{"itemName":"Lamp","itemQty":2}]}}
-    ]}}
-{"name": "Company2", "location": "Bellevue",
-  "goods": {"trade": true, "customers":["Bank"], "orders": [{"orderId": 4, "orderTotal": 123.34}]}}
-{"name": "Company3", "location": "Kirkland"}
 ```
-
-### No unroll root with string array
-
-| Unroll by | Unroll root | Projection |
-| --------- | ----------- | ---------- |
-| goods.customers | None | name <br> customer = goods.customer |
-
-#### Output
-
-```
-{ 'MSFT', 'government'}
-{ 'MSFT', 'distributer'}
-{ 'MSFT', 'retail'}
-{ 'Company1', 'store'}
-{ 'Company1', 'store2'}
-{ 'Company2', 'Bank'}
-{ 'Company3', null}
-```
-
-### No unroll root with complex array
-
-| Unroll by | Unroll root | Projection |
-| --------- | ----------- | ---------- |
-| goods.orders.shipped.orderItems | None | name <br> orderId = goods.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> location = location |
-
-#### Output
-
-```
-{ 'MSFT', 1, 'Laptop', 20, 'Redmond'}
-{ 'MSFT', 1, 'Charger', 2, 'Redmond'}
-{ 'MSFT', 2, 'Mice', 2, 'Redmond'}
-{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'}
-{ 'Company1', 4, 'Laptop', 20, 'Seattle'}
-{ 'Company1', 4, 'Charger', 3, 'Seattle'}
-{ 'Company1', 5, 'Chair', 4, 'Seattle'}
-{ 'Company1', 5, 'Lamp', 2, 'Seattle'}
-{ 'Company2', 4, null, null, 'Bellevue'}
-{ 'Company3', null, null, null, 'Kirkland'}
-```
-
-### Same root as unroll array
-
-| Unroll by | Unroll root | Projection |
-| --------- | ----------- | ---------- |
-| goods.orders | goods.orders | name <br> goods.orders.shipped.orderItems.itemName <br> goods.customers <br> location |
-
-#### Output
-
-```
-{ 'MSFT', ['Laptop','Charger'], ['government','distributer','retail'], 'Redmond'}
-{ 'MSFT', ['Mice', 'Keyboard'], ['government','distributer','retail'], 'Redmond'}
-{ 'Company1', ['Laptop','Charger'], ['store', 'store2'], 'Seattle'}
-{ 'Company1', ['Chair', 'Lamp'], ['store', 'store2'], 'Seattle'}
-{ 'Company2', null, ['Bank'], 'Bellevue'}
-```
-
-### Unroll root with complex array
-
-| Unroll by | Unroll root | Projection |
-| --------- | ----------- | ---------- |
-| goods.orders.shipped.orderItem | goods.orders |name <br> orderId = goods.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> location = location |
-
-#### Output
-
-```
-{ 'MSFT', 1, 'Laptop', 20, 'Redmond'}
-{ 'MSFT', 1, 'Charger', 2, 'Redmond'}
-{ 'MSFT', 2, 'Mice', 2, 'Redmond'}
-{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'}
-{ 'Company1', 4, 'Laptop', 20, 'Seattle'}
-{ 'Company1', 4, 'Charger', 3, 'Seattle'}
-{ 'Company1', 5, 'Chair', 4, 'Seattle'}
-{ 'Company1', 5, 'Lamp', 2, 'Seattle'}
-{ 'Company2', 4, null, null, 'Bellevue'}
+source(output(
+		name as string,
+		location as string,
+		satellites as string[],
+		goods as (trade as boolean, customers as string[], orders as (orderId as string, orderTotal as double, shipped as (orderItems as (itemName as string, itemQty as string)[]))[])
+	),
+	allowSchemaDrift: true,
+	validateSchema: false,
+	ignoreNoFilesFound: false,
+	documentForm: 'documentPerLine') ~> JsonSource
+source(output(
+		movieId as string,
+		title as string,
+		genres as string
+	),
+	allowSchemaDrift: true,
+	validateSchema: false,
+	ignoreNoFilesFound: false) ~> CsvSource
+JsonSource derive(jsonString = toString(goods)) ~> StringifyJson
+StringifyJson parse(json = jsonString ? (trade as boolean,
+		customers as string[]),
+	format: 'json',
+	documentForm: 'arrayOfDocuments') ~> ParseJson
+CsvSource derive(csvString = 'Id|name|year\n\'1\'|\'test1\'|\'1999\'') ~> CsvString
+CsvString parse(csv = csvString ? (id as integer,
+		name as string,
+		year as string),
+	format: 'delimited',
+	columnNamesAsHeader: true,
+	columnDelimiter: '|',
+	nullValue: '',
+	documentForm: 'documentPerLine') ~> ParseCsv
+ParseJson select(mapColumn(
+		jsonString,
+		json
+	),
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> KeepStringAndParsedJson
+ParseCsv select(mapColumn(
+		csvString,
+		csv
+	),
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> KeepStringAndParsedCsv
 ```
 
 ## Data flow script
 
 ### Syntax
 
-```
-<incomingStream>
-foldDown(unroll(<unroll cols>),
-    mapColumn(
-        name,
-        each(<array>(type == '<arrayDataType>')),
-        each(<array>, match(true())),
-        location
-    )) ~> <transformationName>
-```
-
-### Example
+### Examples
 
 ```
-source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
-    mapColumn(
-        name,
-        orderId = goods.orders.orderId,
-        itemName = goods.orders.shipped.orderItems.itemName,
-        itemQty = goods.orders.shipped.orderItems.itemQty,
-        location = location
-    ),
-    skipDuplicateMapInputs: false,
-    skipDuplicateMapOutputs: false) 
+parse(json = jsonString ? (trade as boolean,
+                                customers as string[]),
+                format: 'json',
+                documentForm: 'singleDocument') ~> ParseJson
+
+parse(csv = csvString ? (id as integer,
+                                name as string,
+                                year as string),
+                format: 'delimited',
+                columnNamesAsHeader: true,
+                columnDelimiter: '|',
+                nullValue: '',
+                documentForm: 'documentPerLine') ~> ParseCsv
 ```    
 
 ## Next steps
