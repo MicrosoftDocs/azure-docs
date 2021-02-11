@@ -62,4 +62,4 @@ alertsmanagementresources
 
 - Try out the [Activity Logs by Domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) workbook on Github.
 - Explore this [MVP-built sample workbook](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), which tracks patch compliance reporting by [querying Update Management logs](../../automation/update-management/query-logs.md) across multiple Log Analytics workspaces. 
-- Learn about additional [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
+- Learn about other [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
