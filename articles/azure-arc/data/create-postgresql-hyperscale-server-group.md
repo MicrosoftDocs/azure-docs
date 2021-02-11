@@ -82,7 +82,7 @@ azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2>
 
 > [!NOTE]
 > - **There are other command-line parameters available.  See the complete list of options by running `azdata arc postgres server create --help`.**
-
+>
 > - The unit accepted by the --volume-size-* parameters is a Kubernetes resource quantity (an integer followed by one of these SI suffices (T, G, M, K, m) or their power-of-two equivalents (Ti, Gi, Mi, Ki)).
 > - Names must be 12 characters or fewer in length and conform to DNS naming conventions.
 > - You will be prompted to enter the password for the _postgres_ standard administrative user.  You can skip the interactive prompt by setting the `AZDATA_PASSWORD` session environment variable before you run the create command.
