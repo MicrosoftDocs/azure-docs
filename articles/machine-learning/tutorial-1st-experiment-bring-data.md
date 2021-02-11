@@ -76,23 +76,10 @@ optimizer = optim.SGD(
 ## <a name="test-locally"></a> Test the script locally
 
 Your script now accepts _data path_ as an argument. To start with, test it
-locally. Add to your tutorial directory structure a folder called `data`. Your directory structure should look like:
+locally. Add to your tutorial directory structure a folder called `data`. Your directory structure should look like
 
-```txt
-tutorial
-└──.azureml
-|  └──config.json
-|  └──pytorch-env.yml
-└──data
-└──src
-|  └──hello.py
-|  └──model.py
-|  └──train.py
-└──01-create-workspace.py
-└──02-create-compute.py
-└──03-run-hello.py
-└──04-run-pytorch.py
-```
+::::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="Directory structure shows .azureml, data, and src sub-directories":::
+
 
 If you didn't run `train.py` locally in the previous tutorial, you won't have the `data/` directory. In this case, run the `torchvision.datasets.CIFAR10` method locally with `download=True` in your `train.py` script.
 
