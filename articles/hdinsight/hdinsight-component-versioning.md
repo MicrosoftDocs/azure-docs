@@ -39,3 +39,9 @@ This table lists the versions of HDInsight that are available in the Azure porta
 ## Release notes
 
 For additional release notes on the latest versions of HDInsight, see [HDInsight release notes](hdinsight-release-notes.md).
+
+## Next steps
+
+- [Cluster setup for Apache Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Enterprise Security Package](./enterprise-security-package.md)
+- [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)

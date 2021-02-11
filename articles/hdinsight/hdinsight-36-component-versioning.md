@@ -48,3 +48,9 @@ The OSS component versions associated with HDInsight 3.6 are listed in the follo
 | Apache Ambari          | 2.6.0                       |
 | Apache Zeppelin        | 0.7.3                       |
 | Mono                   | 4.2.1                       |
+
+## Next steps
+
+- [Cluster setup for Apache Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Enterprise Security Package](./enterprise-security-package.md)
+- [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)

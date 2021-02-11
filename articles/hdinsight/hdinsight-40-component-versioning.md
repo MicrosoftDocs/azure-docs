@@ -37,3 +37,9 @@ This table lists certain HDInsight 4.0 cluster types that have retired.
 |---------------------------------|-------------------|------------------------------|-----------------|
 | HDInsight 4.0 Spark             | 2.3               | June 30, 2020                | June 30, 2020   |
 | HDInsight 4.0 Kafka             | 1.1               | Dec 31, 2020                 | Dec 31, 2020    |
+
+## Next steps
+
+- [Cluster setup for Apache Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Enterprise Security Package](./enterprise-security-package.md)
+- [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)

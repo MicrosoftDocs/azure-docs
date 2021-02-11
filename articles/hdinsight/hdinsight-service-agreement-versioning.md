@@ -1,6 +1,6 @@
 ---
-title: Service-level agreement 
-description: Learn about Service-level agreement.
+title: Azure HDInsight service-level agreement 
+description: Learn about Service-level agreement for Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: deshriva
@@ -20,8 +20,15 @@ The following tables list the versions of HDInsight. The support expiration and 
 > [!NOTE]
 > Once a cluster is deployed with an image, that cluster is not automatically upgraded to newer image version. When creating new clusters, most recent image version will be deployed.
 
+> [!NOTE]
 > Customers should test and validate that applications run properly when using new HDInsight version.
 
+> [!NOTE]
 > HDInsight reserves the right to change the default version without prior notice. If you have a version dependency, specify the HDInsight version when you create your clusters.
 
+> [!NOTE]
 > HDInsight may retire an OSS component version before retiring the HDInsight version.
+
+## Next steps
+
+- [Apache components and versions in HDInsight](./hdinsight-component-versioning.md)
