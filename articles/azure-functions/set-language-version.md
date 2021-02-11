@@ -34,6 +34,9 @@ __TODO__
 __TODO__
 
 
+
+
+
 ## Updating language version on Linux
 
 To set a Linux function app to a specific language version, you specify the language as well as the version of the language in 'LinuxFxVersion' field in site config. For example: if we want to pin a node 10 function app with latest runtime version
@@ -97,8 +100,6 @@ Similarly, the function app restarts after the change is made to the site config
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Target the 2.0 runtime in your local development environment](functions-run-local.md)
 
 > [!div class="nextstepaction"]
-> [See Release notes for runtime versions](https://github.com/Azure/azure-webjobs-sdk-script/releases)
+> [See Supported Languages in Azure Functions](./supported-languages.md)
