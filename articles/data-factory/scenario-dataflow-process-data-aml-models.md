@@ -67,18 +67,18 @@ Let's suppose to remove row count less than 2.
 
 1. Use Aggregate activity to get count number of rows: **Group by** based on Col2 and **Aggregates** with count(1) for row count. 
 
-    ![using Aggregate Activity to add Row Count](./media/scenario-dataflow-to-process-data-for-aml-models/aggregate-activity-addrowcount.png)
+    ![using Aggregate Activity to add Row Count](./media/scenario-dataflow-process-data-aml-models/aggregate-activity-addrowcount.png)
 
 1. Use Sink activity, choose **Sink type** as Cache in **Sink** tab, then choose desired column from **key columns** dropdown list in **Settings** tab. 
 
-    ![using CacheSink Activity to add Row Count](./media/scenario-dataflow-to-process-data-for-aml-models/cachesink-activity-addrowcount.png)
+    ![using CacheSink Activity to add Row Count](./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png)
 
 1. Use derived column activity to add row count column in  in master source stream. In **Derived column's settings** tab, use CacheSink#lookup expression getting row count from SinkCache.
     ![using DerivedColumn Activity to get count number of rows in S1](./media/scenario-dataflow-to-process-data-for-AML-models/derived-column-activity-rowcount-source1.png)
 
 1. Use Conditional split activity to remove unqualified data. In this example,  row count based on Col2 column, and the condition is to remove row count less than 2, so two rows (ID=2 and ID=7) will be removed. You would save unqualified data to a blob storage for data management. 
 
-    ![using Conditional Split to get greater or equal than 2](./media/scenario-dataflow-to-process-data-for-aml-models/conditionalsplit-greater-or-equal-than-2.png)
+    ![using Conditional Split to get greater or equal than 2](./media/scenario-dataflow-process-data-aml-models/conditionalsplit-greater-or-equal-than-2.png)
 
 > [!NOTE]
 >    *    Create a new source for getting count number of rows which will be used in original source in later steps. 
@@ -89,19 +89,19 @@ Let's suppose to remove row count less than 2.
 1. We want to split training data and test data for each partition. In this example, for the same value of Col2, get top 2 rows as test data and the rest rows as training data. 
 
     Use Window activity to add one column row number for each partition. In **Over** tab choose column for partition(in this tutorial, will partition for Col2), give order in **Sort** tab(in this tutorial, will based on ID to order), and in **Window columns** tab to add one column as row number for each partition. 
-    ![using Window Activity to add Row Number](./media/scenario-dataflow-to-process-data-for-aml-models/window-activity-add-row-number.png)
+    ![using Window Activity to add Row Number](./media/scenario-dataflow-process-data-aml-models/window-activity-add-row-number.png)
 
 1. Use conditional split activity to split each partition top 2 rows to test dataset, and the rest rows to training dataset. In **Conditional split settings** tab, use expression lesserOrEqual(RowNum,2) as condition. 
 
-    ![To Split Training Dataset and Test Dataset](./media/scenario-dataflow-to-process-data-for-aml-models/split-training-dataset-test-dataset.png)
+    ![To Split Training Dataset and Test Dataset](./media/scenario-dataflow-process-data-aml-models/split-training-dataset-test-dataset.png)
 
 ## Partition training dataset and test dataset with parquet format
 
 1. Use Sink activity, in **Optimize** tab, using **Unique value per partition** to set a column as a column key for partition. 
-    ![Partition Training Dataset Sink](./media/scenario-dataflow-to-process-data-for-aml-models/partition-training-dataset-sink.png)
+    ![Partition Training Dataset Sink](./media/scenario-dataflow-process-data-aml-models/partition-training-dataset-sink.png)
 
 Looks back the entire pipeline logic: 
-    ![Look back entire Pipeline](./media/scenario-dataflow-to-process-data-for-aml-models/entire-pipeline.png)
+    ![Look back entire Pipeline](./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png)
 
 
 ## Next steps
