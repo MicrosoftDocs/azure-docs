@@ -92,6 +92,8 @@ Security Center's asset inventory page has been improved in the following ways:
 
         :::image type="content" source="media/release-notes/adding-contains-exemption-filter.gif" alt-text="Adding the filter 'contains exemption' in Azure Security Center's asset inventory page":::
 
+Learn more about how to [Explore and manage your resources with asset inventory](asset-inventory.md).
+
 ## January 2021
 
 Updates in January include:

@@ -61641,6 +61641,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/files/storage-how-to-create-premium-fileshare.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/data-factory/wrangling-data-flow-overview.md",
       "redirect_url": "/azure/data-factory/wrangling-overview",
       "redirect_document_id": false
