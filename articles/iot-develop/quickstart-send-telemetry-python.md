@@ -17,11 +17,11 @@ ms.date: 01/11/2021
 In this quickstart, you learn a basic IoT development workflow for securely connecting a device to the cloud, and sending telemetry. First you use Azure IoT Central to create a cloud application. Then you use the Azure IoT Python SDK to build a simulated device, connect to IoT Central, and send device-to-cloud telemetry. 
 
 ## Prerequisites
-- [Python 3.7 or later](https://www.python.org/downloads/). For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
-    - To check your version, run `python --version`. If you have both Python 2 and Python 3 installed, and are using a Python 3 environment for this SDK, use `pip3` to install all libraries. This ensures that the libraries are installed to your Python 3 runtime. 
-        > [!IMPORTANT]
-        > In the Python installer, select the option to **Add Python to PATH**. If you already have Python 3.7 or higher installed, confirm that you've added the Python installation folder to the `PATH` environment variable. 
-- Port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot-hub/iot-hub-mqtt-support.md).
+- [Python 3.7+](https://www.python.org/downloads/). For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
+    
+    To ensure that your Python version is up to date, run `python --version`. If you have both Python 2 and Python 3 installed, and are using a Python 3 environment, install all libraries using `pip3`. This ensures that the libraries are installed to your Python 3 runtime.
+    > [!IMPORTANT]
+    > In the Python installer, select the option to **Add Python to PATH**. If you already have Python 3.7 or higher installed, confirm that you've added the Python installation folder to the `PATH` environment variable.
 
 ## Create an application
 In this section you create an IoT Central application. IoT Central is a portal-based IoT application platform that helps reduce the complexity and cost of developing and managing IoT solutions.
@@ -94,12 +94,15 @@ In this section, you will use the Python SDK to build a simulated device and sen
     ```console
     pip install azure-iot-device
     ```
-1. Set the Device Connection String as an environment variable called `IOTHUB_DEVICE_CONNECTION_STRING`. This is the string you obtained in the previous section after creating your simulated Python device. 
+1. Set the environment variables. These values are from the *Device connection* dialog you made a note of earlier. 
 
     **Windows (cmd)**
 
     ```console
-    set IOTHUB_DEVICE_CONNECTION_STRING=<your connection string here>
+    set PROVISIONING_HOST=global.azure-devices-provisioning.net
+    set ID_SCOPE=<your ID scope>
+    set DEVICE_ID=<your device ID>
+    set DEVICE_KEY=<your device's primary key>
     ```
 
     > [!NOTE]
@@ -108,72 +111,120 @@ In this section, you will use the Python SDK to build a simulated device and sen
     **Linux (bash)**
 
     ```bash
-    export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
+    export PROVISIONING_HOST="global.azure-devices-provisioning.net"
+    export ID_SCOPE="<your ID scope>"
+    export DEVICE_ID="<your device ID>"
+    export DEVICE_KEY="<your device's primary key>"
     ```
 
-1. In your open CLI shell, run the [az iot hub monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events&preserve-view=true) command to begin monitoring for events on your simulated IoT device.  Event messages will be printed in the terminal as they arrive.
-
-    ```azurecli
-    az iot hub monitor-events --output table --hub-name {YourIoTHubName}
-    ```
-
-1. In your Python terminal, run the code for the installed sample file *simple_send_message.py* . This code accesses the simulated IoT device and sends a message to the IoT hub.
+1. In your Python terminal, run the code for the sample file *send_temperature.py* . This code accesses the simulated IoT device and sends a message to the IoT hub.
 
     To run the Python sample from the terminal:
     ```console
-    python ./simple_send_message.py
+    python ./send_temperature.py
     ```
 
     Optionally, you can run the Python code from the sample in your Python IDE:
     ```python
-    import os
     import asyncio
+    import os
+    from azure.iot.device.aio import ProvisioningDeviceClient
     from azure.iot.device.aio import IoTHubDeviceClient
+    from azure.iot.device import Message
+    import uuid
+    import json
+    import random
 
+    # ensure environment variables are set for your device and IoT Central application credentials
+    provisioning_host = os.getenv("PROVISIONING_HOST")
+    id_scope = os.getenv("ID_SCOPE")
+    registration_id = os.getenv("DEVICE_ID")
+    symmetric_key = os.getenv("DEVICE_KEY")
+
+    # allows the user to quit the program from the terminal
+    def stdin_listener():
+        """
+        Listener for quitting the sample
+        """
+        while True:
+            selection = input("Press Q to quit\n")
+            if selection == "Q" or selection == "q":
+                print("Quitting...")
+                break
 
     async def main():
-        # Fetch the connection string from an environment variable
-        conn_str = os.getenv("IOTHUB_DEVICE_CONNECTION_STRING")
 
-        # Create instance of the device client using the authentication provider
-        device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
+        # provisions the device to IoT Central-- this uses the Device Provisioning Service behind the scenes
+        provisioning_device_client = ProvisioningDeviceClient.create_from_symmetric_key(
+            provisioning_host=provisioning_host,
+            registration_id=registration_id,
+            id_scope=id_scope,
+            symmetric_key=symmetric_key,
+        )
 
-        # Connect the device client.
-        await device_client.connect()
+        registration_result = await provisioning_device_client.register()
 
-        # Send a single message
-        print("Sending message...")
-        await device_client.send_message("This is a message that is being sent")
-        print("Message successfully sent!")
+        print("The complete registration result is")
+        print(registration_result.registration_state)
 
-        # finally, disconnect
+        if registration_result.status == "assigned":
+            print("Your device has been provisioned. It will now begin sending telemetry.")
+            device_client = IoTHubDeviceClient.create_from_symmetric_key(
+                symmetric_key=symmetric_key,
+                hostname=registration_result.registration_state.assigned_hub,
+                device_id=registration_result.registration_state.device_id,
+            )
+
+            # Connect the client.
+            await device_client.connect()
+
+        # Send the current temperature as a telemetry message
+        async def send_telemetry():
+            print("Sending telemetry for temperature")
+
+            while True:
+                current_temp = random.randrange(10, 50)  # Current temperature in Celsius (randomly generated)
+                # Send a single temperature report message
+                temperature_msg = {"temperature": current_temp}
+
+                msg = Message(json.dumps(temperature_msg))
+                msg.content_encoding = "utf-8"
+                msg.content_type = "application/json"
+                print("Sent message")
+                await device_client.send_message(msg)
+                await asyncio.sleep(8)
+
+        send_telemetry_task = asyncio.create_task(send_telemetry())
+
+        # Run the stdin listener in the event loop
+        loop = asyncio.get_running_loop()
+        user_finished = loop.run_in_executor(None, stdin_listener)
+        # Wait for user to indicate they are done listening for method calls
+        await user_finished
+
+        send_telemetry_task.cancel()
+        # Finally, shut down the client
         await device_client.disconnect()
-
 
     if __name__ == "__main__":
         asyncio.run(main())
+
+        # If using Python 3.6 or below, use the following code instead of asyncio.run(main()):
+        # loop = asyncio.get_event_loop()
+        # loop.run_until_complete(main())
+        # loop.close()
     ```
 
-As the Python code sends a message from your device to the IoT hub, the message appears in your CLI shell that is monitoring events:
+As the Python code sends a message from your device to your IoT Central application, you will be able to see the messages appearing under the **Raw data** tab of your device:
 
-```output
-Starting event monitor, use ctrl-c to stop...
-event:
-origin: <your Device name>
-payload: This is a message that is being sent
-```
+   :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-telemetry-output.png" alt-text="IoT Central raw data output":::
 
-Your device is securely connected and sending telemetry to Azure IoT Hub.
+Your device is now securely connected and sending telemetry to Azure IoT.
 
 ## Clean up resources
 If you no longer need the IoT Central resources created in this tutorial, you can delete them from the IoT Central portal. Optionally, if you plan to continue following the documentation in this guide, you can keep the resources you've already created and reuse them.
 
-To keep the Azure IoT Central sample application but remove only specific devices:
-1. In the left pane select **Devices**.
-1. Select a specific device or devices to delete from the **All devices** list.
-1. Select **Delete**.
-
-To remove the entire Azure IoT Central sample application and all its devices and resources:
+To remove the Azure IoT Central sample application and all its devices and resources:
 1. Select **Administration** > **Your application**.
 1. Select **Delete**.
 
