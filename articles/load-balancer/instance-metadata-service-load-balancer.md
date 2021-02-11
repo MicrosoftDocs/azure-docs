@@ -34,7 +34,7 @@ For more information on common error codes and their mitigation methods, see [Tr
 
 If you're unable to retrieve a metadata response after multiple attempts, create a support issue in the Azure portal.
 
-## Next Steps
+## Next steps
 Learn more about [Azure Instance Metadata Service](/virtual-machines/windows/instance-metadata-service)
 
 [Deploy a standard load balancer](quickstart-load-balancer-standard-public-portal.md)

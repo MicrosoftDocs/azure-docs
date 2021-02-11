@@ -34,7 +34,7 @@ This article describes common deployment errors and how to resolve those errors 
 | 503 | Internal service unavailable. Please retry later  | The error code indicates the API is temporarily unavailable. Try your request later. |
 |  |  |
 
-## Next Steps
+## Next steps
 
 Learn more about [Azure Instance Metadata Service](/virtual-machines/windows/instance-metadata-service.md)
 

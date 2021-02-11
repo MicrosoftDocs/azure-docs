@@ -32,7 +32,7 @@ curl -H "Metadata:true" --noproxy "*" "http://169.254.169.254:80/metadata/loadba
 ```
 
 ---
-### Sample Response
+### Sample response
 
 ```json
 {
@@ -74,7 +74,7 @@ curl -H "Metadata:true" --noproxy "*" "http://169.254.169.254:80/metadata/loadba
 
 ```
 
-## Next Steps
+## Next steps
 [Common error codes and troubleshooting steps](troubleshoot-load-balancer-imds.md)
 
 Learn more about [Azure Instance Metadata Service](/virtual-machines/windows/instance-metadata-service)
