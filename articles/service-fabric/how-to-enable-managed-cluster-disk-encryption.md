@@ -153,7 +153,9 @@ $clusterName = "<clustername>"
 New-AzResourceGroupDeployment -Name $resourceGroupName -ResourceGroupName $resourceGroupName -TemplateFile .\template_diskEncryption.json -TemplateParameterFile \.parameters_diskEncryption.json -Debug -Verbose 
 ```
 
-You can check disk encryption status on a node type's underlying scale set using the `Get-AzVmssDiskEncryption` command. First, find the name of the supporting resource group for your Service Fabric managed cluster. In Azure portal, open the **Resource groups** blade for your subscription, and note the resource group name in the form of `SFC_########-####-####-####-############` (its resources include the virtual network, load balancer, public IP, NSG, scale set(s) and storage accounts associated with your managed cluster). You can also find your cluster's node type names by checking the scale set names in the *SFC_* * resource group.
+You can check disk encryption status on a node type's underlying scale set using the `Get-AzVmssDiskEncryption` command.
+
+First, find the name of the supporting resource group for your Service Fabric managed cluster. In Azure portal, open the **Resource groups** blade for your subscription, and note the resource group name in the form of `SFC_########-####-####-####-############` (its resources include the virtual network, load balancer, public IP, NSG, scale set(s) and storage accounts associated with your managed cluster). You can also find your cluster's node type names by checking the scale set names in the *SFC_* * resource group.
 
 Once you have the resource group and node type (scale set) names you wish to check, run the command:
 
@@ -161,6 +163,15 @@ Once you have the resource group and node type (scale set) names you wish to che
 $VmssName = "NT1"
 $resourceGroupName = "SFC_6b6be0bd-9fec-4059-8d18-aaed3886e917"
 Get-AzVmssDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName
+```
+
+The output should appear similar to this:
+
+```console
+ResourceGroupName            : SFC_6b6be0bd-9fec-4059-8d18-aaed3886e917
+VmScaleSetName               : NT1
+EncryptionEnabled            : True
+EncryptionExtensionInstalled : True
 ```
 
 ## Next steps
