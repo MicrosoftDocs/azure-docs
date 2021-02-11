@@ -232,10 +232,7 @@ The **Schedule updates** blade allows you to designate a maintenance window for 
 
 To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. The maintenance window time is in UTC.
 
-> [!IMPORTANT]
-> The **Schedule updates** functionality is only available for Premium tier caches. For more information and instructions, see [Azure Cache for Redis administration - Schedule updates](cache-administration.md#schedule-updates).
->
->
+For more information and instructions, see [Azure Cache for Redis administration - Schedule updates](cache-administration.md#schedule-updates)
 
 ### Geo-replication
 
