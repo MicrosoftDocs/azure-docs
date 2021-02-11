@@ -13,6 +13,8 @@
     href: partner-center-portal/company-work-accounts.md  
   - name: Account migration from CPP to Partner Center
     href: partner-center-portal/account-migration-from-cpp-to-pc.md 
+  - name: Notifying Microsoft regarding the Publisher Agreement
+    href: submit-legal-notice.md 
 - name: Concepts
   items: 
   - name: Listing options
