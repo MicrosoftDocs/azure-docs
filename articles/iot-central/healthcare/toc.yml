@@ -10,7 +10,7 @@
     - name: Create a continuous patient monitoring app
       href: tutorial-continuous-patient-monitoring.md
     - name: Create a health data triage dashboard  
-      href: howto-health-data-triage.md 
+      href: tutorial-health-data-triage.md 
           
 - name: Concepts
   items:
