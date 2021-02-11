@@ -1,6 +1,6 @@
 ---
-title: SIP Interface infrastructure requirements
-description: Infrastructure requirements for ACS SIP Interface configuration.
+title: SIP Interface infrastructure requirements - Azure Communication Services
+description: Familiarize yourself with the infrastructure requirements for Azure Communication Services SIP Interface configuration
 author: boris-bazilevskiy
 manager: nmurav
 services: azure-communication-services
