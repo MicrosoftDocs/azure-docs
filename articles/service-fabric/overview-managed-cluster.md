@@ -62,9 +62,9 @@ Service Fabric managed clusters are available in both Basic and Standard SKUs.
 The latest features for Service Fabric managed clusters preview include support for:
 
 * [Deploying applications using ARM templates](how-to-managed-cluster-app-deployment-template.md)
-* [Automatic OS upgrades](how-to-managed-cluster-auto-os-upgrades.md)
+* [Automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-upgrades)
 * [Disk encryption](how-to-enable-managed-cluster-disk-encryption.md)
-* Updating NSG rules
+* [Applying NSG rules](how-to-managed-cluster-configuration.md#apply-nsg-rules)
 
 Features to be added in upcoming releases include:
 

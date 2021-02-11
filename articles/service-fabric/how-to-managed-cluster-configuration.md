@@ -1,0 +1,102 @@
+---
+title: Configure your Service Fabric managed cluster (preview)
+description: Learn how to configure your Service Fabric managed cluster for automatic OS upgrades, NSG rules, and more.
+ms.topic: how-to
+ms.date: 02/15/2021
+---
+# Service Fabric managed cluster (preview) configuration options
+
+In addition to selecting the [Service Fabric managed cluster SKU](overview-managed-cluster.md#service-fabric-managed-cluster-skus) when creating your cluster, there are a number of other ways to configure it. In the current preview, you can:
+
+* Add a [virtual machine scale set extension](how-to-managed-cluster-vmss-extension.md) to a node type
+* Enable [automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-upgrades) for your nodes
+* Enable [OS and data disk encryption](how-to-enable-managed-cluster-disk-encryption.md) on your nodes
+* Apply [NSG rules](how-to-managed-cluster-configuration.md#apply-nsg-rules) to your cluster
+* Configure [managed identity](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) on your node types
+
+## Apply NSG rules
+
+With classic (non-managed) Service Fabric clusters, you must declare and manage a separate *Microsoft.Network/networkSecurityGroups* resource in order to [apply Network Security Group (NSG) rules to your cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-nsg-cluster-65-node-3-nodetype). Service Fabric managed clusters enable you to assign NSG rules directly within the cluster resource of your deployment template.
+
+Use the [networkSecurityRules](../templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) property of your *Microsoft.ServiceFabric/managedclusters* resource to assign NSG rules. For example:
+
+```json
+            "apiVersion": "[variables('sfApiVersion')]",
+            "type": "Microsoft.ServiceFabric/managedclusters",
+            ...
+            "properties": {
+                ...
+                "networkSecurityRules" : [
+                    {
+                        "name": "AllowCustomers",
+                        "protocol": "*",
+                        "sourcePortRange": "*",
+                        "sourceAddressPrefix": "Internet",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "33000-33499",
+                        "access": "Allow",
+                        "priority": 2001,
+                        "direction": "Inbound" 
+                    },
+                    {
+                        "name": "AllowARM",
+                        "protocol": "*",
+                        "sourcePortRange": "*",
+                        "sourceAddressPrefix": "AzureResourceManager",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "33500-33699",
+                        "access": "Allow",
+                        "priority": 2002,
+                        "direction": "Inbound" 
+                    },
+                    {
+                        "name": "DenyCustomers",
+                        "protocol": "*",
+                        "sourcePortRange": "*",
+                        "sourceAddressPrefix": "Internet",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "33700-33799",
+                        "access": "Deny",
+                        "priority": 2003,
+                        "direction": "Outbound"
+                    },
+                    {
+                        "name": "DenyRDP",
+                        "protocol": "*",
+                        "sourcePortRange": "*",
+                        "sourceAddressPrefix": "*",
+                        "destinationAddressPrefix": "VirtualNetwork",
+                        "destinationPortRange": "3389",
+                        "access": "Deny",
+                        "priority": 2004,
+                        "direction": "Inbound",
+                        "description": "Override for optional SFMC_AllowRdpPort rule. This is required in tests to avoid Sev2 incident for security policy violation."
+                    }
+                ],
+                "fabricSettings": [
+                ...
+                ]
+            }
+```
+
+## Enable automatic OS upgrades
+
+You can choose to enable automatic OS upgrades to the virtual machines running your managed cluster nodes. Although the virtual machine scale set resources are managed on your behalf with Service Fabric managed clusters, it's your choice to enable automatic OS upgrades for your cluster nodes. As with [classic Service Fabric](service-fabric-best-practices-infrastructure-as-code.md#azure-virtual-machine-operating-system-automatic-upgrade-configuration) clusters, managed cluster nodes are not upgraded by default, in order to prevent unintended disruptions to your cluster.
+
+To enable automatic OS upgrades, set the `EnableAutoOSUpgrade` property to *true* in your cluster template:
+
+```json
+TBD
+```
+
+Once enabled, Service Fabric will begin querying and tracking OS image versions in the managed cluster. If a new OS version is available, the cluster node types (virtual machine scale sets) will be upgraded, one at a time.
+
+If a node upgrade fails, Service Fabric will retry after 24 hours, for a maximum of three retries. Similar to classic Service Fabric upgrades, unhealthy apps or nodes may block the upgrade.
+
+Service Fabric runtime upgrades are only performed after confirming no cluster node OS upgrades are in progress.
+
+## Next steps
+
+[Link to sample template]
+
+[Managed cluster overview]
