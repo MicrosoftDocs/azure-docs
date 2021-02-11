@@ -81,7 +81,7 @@ Now, start Visual Studio (or another code editor of your choice), and open the c
 
 Next, publish your function to Azure, using the steps described in the [*Publish the app* section](tutorial-end-to-end.md#publish-the-app) of the *Connect an end-to-end solution* tutorial. You can publish it to the same app service/function app that you used in the end-to-end tutorial [prerequisite](#prerequisites), or create a new one—but you may want to use the same one to minimize duplication. 
 
-First, go to the browser where the Azure portal is opened, and complete the following steps to get the **connection string** for the SignalR instance you've set up. You will need it to configure the functions.
+Now, go to the browser where the Azure portal is opened, and complete the following steps to get the **connection string** for the SignalR instance you've set up. You will need it to configure the functions.
 1. Confirm the SignalR Service instance you deployed earlier was successfully created. You can do this by searching for its name in the search box at the top of the portal. Select the instance to open it.
 
 1. Select **Keys** from the instance menu to view the connection strings for the SignalR service instance.
