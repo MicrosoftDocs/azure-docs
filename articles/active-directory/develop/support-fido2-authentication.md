@@ -18,13 +18,13 @@ ms.custom: aaddev
 
 # Support passwordless authentication with FIDO2 keys in apps you develop
 
-To ensure that the [FIDO2 passwordless authentication]((https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys)) is available to users of your applications, use these app and platform configurations.
+To ensure that the [FIDO2 passwordless authentication](../active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) is available to users of your applications, use these app and platform configurations.
 
 ## General app configuration
 
 **Home-realm discovery and domain hints**
 
-Don't use a domain hint to bypass [home-realm discovery](azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal#home-realm-discovery). This feature is meant to make sign-ins more streamlined, but the federated identity provider may not support passwordless authentication.
+Don't use a domain hint to bypass [home-realm discovery](../active-directory/manage-apps/configure-authentication-for-federated-users-portal#home-realm-discovery). This feature is meant to make sign-ins more streamlined, but the federated identity provider may not support passwordless authentication.
 
 **Requiring specific kinds of credentials**
 
@@ -45,7 +45,7 @@ The sign in method that was most recently used by a user will be presented to th
 The recommended options for implementing authentication are, in order:
 
 - .NET desktop applications that are using the Microsoft Authentication Library (MSAL) should use the Windows Authentication Manager (WAM). This integration and its benefits are [documented on GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/wam).
-- Use [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) to support FIDO2 in an embedded browser.
+- Use [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/) to support FIDO2 in an embedded browser.
 - Use the system browser. The MSAL libraries for desktop platforms use this method by default. You can consult our page on FIDO2 browser compatibility to ensure the browser you use supports FIDO2 authentication.
 
 **Mobile best practices**
