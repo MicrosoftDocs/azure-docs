@@ -35,7 +35,7 @@ If you output to a file, a text editor like Notepad or a web browser like Micros
 
 #### [Linux Install](#tab/linuxinstall)
 
-The following Linux distributions are supported for x64 architectures:
+The following Linux distributions are supported for x64 architectures using the Speech CLI:
 
 * CentOS 7/8
 * Debian 9/10 
@@ -43,7 +43,7 @@ The following Linux distributions are supported for x64 architectures:
 * Ubuntu 16.04/18.04/20.04
 
 > [!NOTE]
-> Additional architectures are supported by the Speech SDK. For more information, see [About the Speech SDK](../speech-sdk.md).
+> Additional architectures are supported by the Speech SDK (not the Speech CLI). For more information, see [About the Speech SDK](../speech-sdk.md).
 
 Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 
