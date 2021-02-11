@@ -176,6 +176,7 @@
       href: create-pool-extensions.md
     - name: Configure managed identities
       displayName: user-assigned
+      href: managed-identity-pools.md
     - name: Mount a virtual file system
       href: virtual-file-mount.md
     - name: Mount an Azure file share

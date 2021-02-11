@@ -54,7 +54,7 @@ var poolParameters = new Pool(name: "yourPoolName")
             Type = PoolIdentityType.UserAssigned,
             UserAssignedIdentities = new Dictionary<string, BatchPoolIdentityUserAssignedIdentitiesValue>
             {
-                ["Your Identity ARM Resource Id"] =
+                ["Your Identity Resource Id"] =
                     new BatchPoolIdentityUserAssignedIdentitiesValue()
             }
         }
@@ -69,7 +69,7 @@ var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
 ```
 
 > [!NOTE]
-> Creating pools with managed identities is not currently supported with the [Batch .NET client library(/dotnet/api/overview/azure/batch#client-library).
+> Creating pools with managed identities is not currently supported with the [Batch .NET client library](/dotnet/api/overview/azure/batch#client-library).
 
 ## Use user-assigned managed identities in Batch nodes
 
@@ -77,7 +77,7 @@ After you've created your pools, your user-assigned managed identities can acces
 
 Within the Batch nodes, you can get managed identity tokens and use them to authenticate through Azure AD authentication via the [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md).
 
-For Windows, the Powershell script to get an access token to authenticate is:
+For Windows, the PowerShell script to get an access token to authenticate is:
 
 ```powershell
 $Response = Invoke-RestMethod -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource={Resource App Id Url}' -Method GET -Headers @{Metadata="true"} 
@@ -89,7 +89,7 @@ For Linux, the Bash script is:
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource={Resource App Id Url}' -H Metadata:true
 ```
 
-For more information, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
+For more information, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 ## Next steps
 
