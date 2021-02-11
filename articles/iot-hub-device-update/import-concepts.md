@@ -35,7 +35,7 @@ Device Update for IoT Hub simplifies the deployment experience for updates and r
 The InstalledCriteria property is specified at import time and is used once the update has been installed on the device to determine if the update was successful.
 
 
-# Next steps
+## Next steps
 
 If you're ready, try out the [Import How-To guide](./import-update.md), which will walk you through the import process step by step.
 
