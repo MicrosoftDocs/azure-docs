@@ -34,7 +34,7 @@ To perform this migration, you must be added as a coadministrator for the subscr
 
 If you're not able to add a co-administrator, contact a service administrator or co-administrator for the subscription to get yourself added.
 
-## 4) Connect to Azure subscription
+## 4) Register the classic provider
 First, start a PowerShell prompt. For migration, set up your environment for both classic and Resource Manager.
 
 Sign in to your account for the Resource Manager model.
@@ -100,9 +100,9 @@ Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 ```
 
 
-## 5) Migrate your Cloud Services (classic) resources
-* [Migrate a Cloud Service not in a virtual network](#step-51-option-1---migrate-a-cloud-service-not-in-a-virtual-network)
-* [Migrate a Cloud Service in a virtual network](#step-51-option-2---migrate-a-cloud-service-in-a-virtual-network)
+## 5) Migrate your Cloud Services 
+* [Migrate a Cloud Service not in a virtual network](#51-option-1---migrate-a-cloud-service-not-in-a-virtual-network)
+* [Migrate a Cloud Service in a virtual network](#51-option-2---migrate-a-cloud-service-in-a-virtual-network)
 
 > [!NOTE]
 > All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform then tries the action again.
