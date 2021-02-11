@@ -49,7 +49,7 @@ gMSAs are inherently more secure than standard user accounts, which require ongo
 
 The following table shows potential security issues and mitigations for using gMSAs.
 
-| Security Issues| Mitigations |
+| Security issues| Mitigations |
 | - | - |
 | gMSA is a member of privileged groups. | Review your group memberships. To do so you can create a PowerShell script to enumerate all group memberships, and then filter a resultant CSV file by the names of your gMSA files. <br>Remove the gMSA from privileged groups.<br> Grant the gMSA only the rights and permissions it requires to run its service (consult with your service vendor). 
 | gMSA has read/write access to sensitive resources. | Audit access to sensitive resources. Archive audit logs to a SIEM, for example Azure Log Analytics or Azure Sentinel, for analysis. Remove unnecessary resource permissions if an undesirable level of access is detected. |

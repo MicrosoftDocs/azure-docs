@@ -109,7 +109,7 @@ Store the collected information in a CMDB-type application. In addition to the b
 
 Consider a service account that is used to run a web site and has privileges to connect to one or more SQL databases. Information stored in your CMDB for this service account could be:
 
-|Data | tesDetailst|
+|Data | Details|
 | - | - |
 | Owner, Deputy| John Bloom, Anna Mayers |
 | Purpose| Run the HR webpage and connect to HR-databases. Can impersonate end user when accessing databases. |

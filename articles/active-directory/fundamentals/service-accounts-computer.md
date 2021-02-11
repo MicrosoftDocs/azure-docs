@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Securing Computer Accounts
+# Securing computer accounts
 
 The computer account, or LocalSystem account, is a built-in, highly privileged account with access to virtually all resources on the local computer. This account is not associated with any signed-on user account. Services running as LocalSystem access network resources by presenting the computer's credentials to remote servers. It presents credentials in the form <domain_name>\<computer_name>$. A computer account’s pre-defined name is NT AUTHORITY\SYSTEM. It can be used to start a service and provide security context for that service.
 

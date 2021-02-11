@@ -100,7 +100,7 @@ Assess the security of your on-premises user accounts being used as service acco
 
 The following table shows potential security issues and corresponding mitigations for on-premises user accounts.
 
-| Security Issues| Mitigations |
+| Security issues| Mitigations |
 | - | - |
 | Password management|* Ensure that password complexity and password change are governed by a robust process that ensures regular updates with strong password requirements. <br> * Coordinate password change with a password update to minimize service downtime. |
 | Account is a member of privileged groups.| Review group memberships. Remove the account from privileged groups. Grant the account only the rights and permissions it requires to run its service (consult with service vendor). For example, you may be able to deny sign-in locally or deny interactive sign-in. |

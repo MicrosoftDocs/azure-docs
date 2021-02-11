@@ -25,7 +25,7 @@ In Active Directory, sMSAs are tied to a specific server that runs a service. Yo
 
 Managed Service Accounts were introduced with Windows Server 2008R2 Active Directory Schema and require a minimum OS level of Windows Server 2008R2​. 
 
-##  Benefits of using sMSAs
+## Benefits of using sMSAs
 
 sMSAs offer greater security than user accounts used as service accounts, while reducing administrative overhead by:
 
@@ -56,7 +56,7 @@ sMSAs are inherently more secure than standard user accounts, which require ongo
 
 The following table shows how to mitigate potential security issues posed by sMSAs.
 
-| Security Issues| Mitigations |
+| Security issues| Mitigations |
 | - | - |
 | sMSA is a member of privileged groups|Remove the sMSA from elevated privileged groups (such as Domain Admins). <br> Use the least privileged model and grant the sMSA only the rights and permissions it requires to run its service(s). <br> If you're unsure of the required permissions, consult the service creator. |
 | sMSA has read/write access to sensitive resources.|Audit access to sensitive resources. Archive audit logs to a SIEM (Azure Log Analytics or Azure Sentinel) for analysis. <br> Remediate resource permissions if an undesirable level of access is detected. |
