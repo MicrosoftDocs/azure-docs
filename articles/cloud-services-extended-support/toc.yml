@@ -23,8 +23,6 @@
   expanded: true
 - name: Concepts
   items: 
-  - name: Migration
-    href: in-place-migration-overview.md
   - name: Extensions
     href: extensions.md
   - name: Available VM sizes
@@ -57,8 +55,16 @@
     href: faq.md
 - name: How To
   items:
-  - name: Migrate a Cloud Service - Portal
-    href: in-place-migration-portal.md
+  - name: Migrate to Cloud Service (extended support)
+    items:
+    - name: Migration Overview
+      href: in-place-migration-overview.md
+    - name: Plan for Migration
+      href: ../virtual-machines/migration-classic-resource-manager-plan.md?context=/azure/cloud-services-extended-support/context/context
+    - name: Migrate using the Azure portal
+      href: in-place-migration-portal.md
+    - name: Migrate using PowerShell
+      href: in-place-migration-powershell.md
   - name: Apply Remote Desktop extension
     href: enable-rdp.md
   - name: Apply WAD extension
