@@ -1,14 +1,14 @@
 ---
-title:  Analyze live video by using Intel OpenVINO™ DL Toolkit – Video Analytics Serving (VAS) with gRPC 
+title:  Analyze live video by using Intel OpenVINO™ DL Streamer – Edge AI Extension via gRPC 
 description: In this tutorial, you'll use an AI model server provided by Intel to analyze the live video feed from a (simulated) IP camera. 
 ms.topic: tutorial
 ms.date: 02/04/2021
 titleSuffix: Azure
 
 ---
-# Tutorial: Analyze live video by using Intel OpenVINO™ DL Toolkit – Video Analytics Serving (VAS) with gRPC 
+# Tutorial: Analyze live video by using Intel OpenVINO™ DL Streamer – Edge AI Extension 
 
-This tutorial shows you how to use the Intel OpenVINO™ DL Toolkit – Video Analytics Serving Extension from Intel to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server gives you access to different models for detecting objects (a person, a vehicle, or a bike), object classification (vehicle attributions) and a model for object tracking (person, vehicle and bike). The integration with the gRPC module allows you to create images at video framte rate and feed into the AI inference server and the results are sent to IoT Edge Hub.
+This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server gives you access to different models for detecting objects (a person, a vehicle, or a bike), object classification (vehicle attributions) and a model for object tracking (person, vehicle and bike). The integration with the gRPC module allows you to create images at video frame rate and feed into the AI inference server and the results are sent to IoT Edge Hub. When you run this inference service on the same device as Live Video Analytics you benefit from the shared memory between the modules so you can analyze the video at source frame rate. 
 
 This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart.
 
@@ -46,30 +46,39 @@ In this quickstart, you'll use Live Video Analytics on IoT Edge along with the O
 
 This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [gRPC extension processor](media-graph-concept.md#grpc-extension-processor) node. 
 
-The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](terminology.md#grpc) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the content into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports jpeg, png, or bmp formats. Learn more about the processor [here](media-graph-extension-concept.md#grpc-extension-processor).
+The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](terminology.md#grpc) endpoint exposed by a gRPC Server. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the content into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports jpeg, png, or bmp formats. Learn more about the processor [here](media-graph-extension-concept.md#grpc-extension-processor).
 
 In this tutorial, you will:
 
-1. Create and deploy the media graph, modifying it.
+1. Deploy the media graph.
 1. Interpret the results.
 1. Clean up resources.
 
-## About OpenVINO™ Model Server – AI Extension from Intel
+## About Intel OpenVINO™ DL Streamer – Edge AI Extension
 
 The Intel® Distribution of [OpenVINO™ toolkit](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html) (open visual inference and neural network optimization) is a free software kit that helps developers and data scientists speed up computer vision workloads, streamline deep learning inference and deployments, and enable easy, heterogeneous execution across Intel® platforms from edge to cloud. It includes the Intel® Deep Learning Deployment Toolkit with model optimizer and inference
 engine, and the [Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo) repository that includes more than 40 optimized pre-trained models.
 
-In order to build complex, high-performance live video analytics solutions, the Live Video Analytics on IoT Edge module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the [OpenVINO™ Model Server – AI Extension from Intel](https://aka.ms/lva-intel-ovms), an Edge module that has been designed to work with Live Video Analytics on IoT Edge. This inference server module contains the OpenVINO™ Model Server (OVMS), an inference server powered by the OpenVINO™ toolkit, that is highly optimized for computer vision workloads and developed for Intel® architectures. An extension has been added to OVMS for easy exchange of video frames and inference results between the inference server and the Live Video Analytics on IoT Edge module, thus empowering you to run any OpenVINO™ toolkit supported model (you can customize the inference server module by modifying the [code](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper)). You can further select from the wide variety of acceleration mechanisms provided by Intel® hardware. These include CPUs (Atom, Core, Xeon), FPGAs, VPUs.
+In order to build complex, high-performance live video analytics solutions, the Live Video Analytics on IoT Edge module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the [Intel OpenVINO™ DL Streamer – Edge AI Extension](https://aka.ms/lva-intel-ovms), an Edge module that has been designed to work with Live Video Analytics on IoT Edge. This inference server module contains the OpenVINO™ Model Server (OVMS), an inference server powered by the OpenVINO™ toolkit, that is highly optimized for computer vision workloads and developed for Intel® architectures. An extension has been added to OVMS for easy exchange of video frames and inference results between the inference server and the Live Video Analytics on IoT Edge module, thus empowering you to run any OpenVINO™ toolkit supported model (you can customize the inference server module by modifying the [code](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper)). You can further select from the wide variety of acceleration mechanisms provided by Intel® hardware. These include CPUs (Atom, Core, Xeon), FPGAs, VPUs.
 
 In the initial release of this inference server, you have access to the following [models](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options):
 
 - object_detection for person_vehicle_bike_detection
+![object-detection](./media/use-intel-openvino-tutorial/object-detection.png)
+
 - object_classification for vehicle_attributes_recognition
+![object-classification](./media/use-intel-openvino-tutorial/object-classification.png)
+
 - object_tracking for person_vehicle_bike_tracking
+![object-tracking](./media/use-intel-openvino-tutorial/object-tracking.png)
+
+It uses Pre-loaded Object Detection, Object Classification and Object Tracking pipelines to get started quickly. In addition it comes with Pre-loaded [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/description/person-vehicle-bike-detection-crossroad-0078.md) and [vehicle-attributes-recognition-barrier-0039 models](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/description/vehicle-attributes-recognition-barrier-0039.md).
 
 > [!NOTE]
 > By downloading and using the Edge module: OpenVINO™ Model Server – AI Extension from Intel, and the included software, you agree to the terms and conditions under the [License Agreement](https://www.intel.com/content/www/us/en/legal/terms-of-use.html).
 > Intel is committed to respecting human rights and avoiding complicity in human rights abuses. See [Intel’s Global Human Rights Principles](https://www.intel.com/content/www/us/en/policy/policy-human-rights.html). Intel’s products and software are intended only to be used in applications that do not cause or contribute to a violation of an internationally recognized human right.
+
+You can use the flexibility of the different pipelines for your specific use case by simply changing the pipeline environment variables in your deployment template. This enables you to quickly change the pipeline model and when combined with Live Video Analytics it is a matter of seconds to change the media pipeline and inference model.  
 
 ## Create and deploy the media graph
 
@@ -100,11 +109,11 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
     * Under `GraphInstanceSet`, edit the name of the graph topology to match the value in the preceding link:
 
-      `"topologyName" : "InferencingWithOpenVINO"`
+      `"topologyName" : "InferencingWithOpenVINOgRPC"`
 
     * Under `GraphTopologyDelete`, edit the name:
 
-      `"name": "InferencingWithOpenVINO"`
+      `"name": "InferencingWithOpenVINOgRPC"`
 
 ### Generate and deploy the IoT Edge deployment manifest
 
@@ -137,7 +146,7 @@ We also included a *deployment.openvino.grpc.gpu.template.json* template that en
 
     * The Live Video Analytics module, named **lvaEdge**
     * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed
-    * The **openvino** module, which is the OpenVINO™ Model Server – AI Extension module from Intel 
+    * The **openvino** module, which is the Intel OpenVINO™ DL Streamer – Edge AI Extension 
 
 ### Prepare to monitor events
 
@@ -145,8 +154,8 @@ Right-click the Live Video Analytics device and select **Start Monitoring Built-
 
 ![Start monitoring](./media/quickstarts/start-monitoring-iothub-events.png) 
 
-### Run the sample program to detect vehicles
-If you open the [graph topology](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtensionOpenVINO/topology.json) for this tutorial in a browser, you will see that the value of `inferencingUrl` has been set to `http://openvino:4000/vehicleDetection`, which means the inference server will return results after detecting vehicles, if any, in the live video.
+### Run the sample program to detect vehicles, persons or bike
+If you open the [graph topology](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json) for this tutorial in a browser, you will see that the value of `grpcExtensionAddress` has been set to `tcp://lvaExtension:5001`, compared to the httpExtensionOpenVINO sample you do not need to change the url to the gRPC Server. Instead you instruct the module to run a specific pipeline by the environment variables as mentioned before. In the default template we've set this to: "object_detection" for "person_vehicle_bike_detection". You can experiment with other supported pipelines. 
 
 1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
 1. Right click and select **Extension Settings**.
@@ -170,7 +179,7 @@ If you open the [graph topology](https://raw.githubusercontent.com/Azure/live-vi
            "@apiVersion": "2.0",
            "name": "Sample-Graph-1",
            "properties": {
-             "topologyName": "InferencingWithOpenVINO",
+             "topologyName": "InferencingWithOpenVINOgRPC",
              "description": "Sample graph description",
              "parameters": [
                {
@@ -229,7 +238,7 @@ In this message, notice these details:
 
 ### Inference event
 
-The gRPC extension processor node receives inference results from the OpenVINO™ Model Server – AI Extension module. It then emits the results through the IoT Hub sink node as inference events. 
+The gRPC extension processor node receives inference results from the Intel OpenVINO™ DL Streamer – Edge AI Extension. It then emits the results through the IoT Hub sink node as inference events. 
 
 In these events, the type is set to `entity` to indicate it's an entity, such as a car or truck. The `eventTime` value is the UTC time when the object was detected. 
 
@@ -285,10 +294,11 @@ To use a different model you will need to change the deployment template. To tog
 ```
 "Env":[
 "PIPELINE_NAME=object_classification",
-"PIPELINE_VERSION=vehicle_attributes_recognition",
-"LOG_LEVEL=DEBUG"
+"PIPELINE_VERSION=vehicle_attributes_recognition"
 ],
 ```
+[!NOTE] Copy a template and store it under a new name for each possible pipeline. This way you can switch between models by a simple deployment based on one these templates.
+
 Once you have changed the variables you can deploy the template again to the device. You can now repeat the steps above to run the sample program again, with the new model. The inference results will be similar (in schema) but show more or less information depending on the pipeline model you chose.
 
 ## Clean up resources
