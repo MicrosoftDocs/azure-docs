@@ -15,6 +15,8 @@ services: iot-pnp
 
 Before you can complete any of the IoT Plug and Play quickstarts and tutorials, you need to configure an IoT hub and the Device Provisioning Service (DPS) in your Azure subscription. You'll also need local copies of the model files used by the sample applications and the Azure IoT explorer tool.
 
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 To avoid the requirement to install the Azure CLI locally, you can use the Azure Cloud Shell to set up the cloud services.
@@ -127,7 +129,7 @@ Configure the tool to use the model files you downloaded previously. From the ho
 
 To learn more, see [Install and use Azure IoT explorer](howto-use-iot-explorer.md).
 
-## Remove the resources
+## Clean up resources
 
 You can use the IoT hub and DPS instance for all the IoT Plug and Play quickstarts and tutorials, so you only need to complete the steps in this article once. When you're finished, you can remove them from your subscription with the following command:
 

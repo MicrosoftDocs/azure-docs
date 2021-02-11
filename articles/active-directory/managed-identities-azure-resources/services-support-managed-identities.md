@@ -351,6 +351,17 @@ Refer to the following list to configure managed identity for Azure SignalR Serv
 
 - [Azure Resource Manager template](../../azure-signalr/howto-use-managed-identity.md)
 
+### Azure Resource Mover
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | Available in the regions where Azure Resource Mover service is available | Not available | Not available | Not available |
+| User assigned | Not available | Not available | Not available | Not available |
+
+Refer to the following document to use Azure Resource Mover:
+
+- [Azure Resource Mover](../../resource-mover/overview.md)
+
 ## Azure services that support Azure AD authentication
 
 The following services support Azure AD authentication, and have been tested with client services that use managed identities for Azure resources.
