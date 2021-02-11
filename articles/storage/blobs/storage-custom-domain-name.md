@@ -230,6 +230,7 @@ Set-AzStorageAccount -ResourceGroupName {resourceGroupName} -Name {storageAccoun
 ##### [Azure CLI](#tab/azure-cli)
 
 Put command here.
+
 ---
 
 #### Step 4: Create a CNAME record with your domain provider
