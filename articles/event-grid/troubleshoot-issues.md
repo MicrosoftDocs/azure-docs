@@ -14,7 +14,7 @@ Enable diagnostic settings for Event Grid topics or domains to capture and view 
 You can view metrics for Event Grid topics and subscriptions, and create alerts on them. For more information, see [Event Grid metrics](monitor-event-delivery.md).
 
 ## Alerts
-You can create alerts on Azure Event Grid metrics and activity log operations. For more information, see [Alerts on Event Grid metrics and activity logs](set-alerts.md).
+Create alerts on Azure Event Grid metrics and activity log operations. For more information, see [Alerts on Event Grid metrics and activity logs](set-alerts.md).
 
 ## Subscription validation issues
 During event subscription creation, you may receive an error message that says the validation of the provided endpoint failed. For troubleshooting subscription validation issues, see [Troubleshoot Event Grid subscription validations](troubleshoot-subscription-validation.md). 
