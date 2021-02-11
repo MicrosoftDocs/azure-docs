@@ -4,7 +4,7 @@ description: Discover what's new in IoT Edge with information about new features
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/04/2021
+ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -30,7 +30,7 @@ This table provides recent version history for IoT Edge package releases, and hi
 
 | Release notes and assets | Type | Date | Highlights |
 | ------------------------ | ---- | ---- | ---------- |
-| [1.1](https://github.com/Azure/azure-iotedge/releases/tag/1.1.0) | Long-term support (LTS) | January 2021 | [Long-term support plan and supported systems updates](support.md) |
+| [1.1](https://github.com/Azure/azure-iotedge/releases/tag/1.1.0) | Long-term support (LTS) | February 2021 | [Long-term support plan and supported systems updates](support.md) |
 | [1.2-rc1](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1) | Preview | November 2020 | [IoT Edge devices behind gateways](how-to-connect-downstream-iot-edge-device.md?view=iotedge-2020-11&preserve-view=true)<br>[IoT Edge MQTT broker](how-to-publish-subscribe.md?view=iotedge-2020-11&preserve-view=true) |
 | [1.0.10](https://github.com/Azure/azure-iotedge/releases/tag/1.0.10) | Stable | October 2020 | [UploadSupportBundle direct method](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics)<br>[Upload runtime metrics](how-to-access-built-in-metrics.md)<br>[Route priority and time-to-live](module-composition.md#priority-and-time-to-live)<br>[Module startup order](module-composition.md#configure-modules)<br>[X.509 manual provisioning](how-to-register-device.md) |
 | [1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) | Stable | March 2020 | [X.509 auto-provisioning with DPS](how-to-auto-provision-x509-certs.md)<br>[RestartModule direct method](how-to-edgeagent-direct-method.md#restart-module)<br>[support-bundle command](troubleshoot.md#gather-debug-information-with-support-bundle-command) |
