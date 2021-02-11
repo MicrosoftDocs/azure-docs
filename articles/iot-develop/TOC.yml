@@ -27,8 +27,6 @@
   items:
   - name: Using CMAKE
     href: concepts-using-cmake.md
-  - name: Avoid common pitfalls with device sdks
-    href: common-pitfalls-device-sdks.md
 - name: Reference
   items:
     - name: Azure CLI
