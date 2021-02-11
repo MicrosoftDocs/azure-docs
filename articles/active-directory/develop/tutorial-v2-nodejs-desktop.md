@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Sign in users and call the Microsoft Graph API in an Electron desktop app | Azure"
 titleSuffix: Microsoft identity platform
-description: In this tutorial, you create an Electron desktop app that can sign in users and use the auth code flow to obtain an access token from the Microsoft identity platform and call the Microsoft Graph API.
+description: In this tutorial, you build an Electron desktop app that can sign in users and use the auth code flow to obtain an access token from the Microsoft identity platform and call the Microsoft Graph API.
 services: active-directory
 author: derisen
 manager: CelesteDG
@@ -52,10 +52,11 @@ Create a folder to host your application, for example *ElectronDesktopApp*.
 
 ```console
 npm init -y
-npm install --save dotenv yargs axios @azure/msal-node
+npm install --save @azure/msal-node axios bootstrap dotenv jquery popper.js
+npm install --save-dev babel electron@10.1.6 webpack
 ```
 
-2. Then, create a folder named *App*. Inside this folder, create a file named *index.js* that will serve as UI. Add the following code there:
+2. Then, create a folder named *App*. Inside this folder, create a file named *index.html* that will serve as UI. Add the following code there:
 
 ```html
 <!DOCTYPE html>
@@ -661,10 +662,10 @@ Fill in these details with the values you obtain from Azure app registration por
   - To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
 - `Enter_the_Application_Id_Here`: The **Application (client) ID** of the application you registered.
 - `Enter_the_Cloud_Instance_Id_Here`: The Azure cloud instance in which your application is registered.
-  - For the main (or *global*) Azure cloud, enter `https://login.microsoftonline.com`.
+  - For the main (or *global*) Azure cloud, enter `https://login.microsoftonline.com/`.
   - For **national** clouds (for example, China), you can find appropriate values in [National clouds](authentication-national-cloud.md).
 - `Enter_the_Graph_Endpoint_Here` is the instance of the Microsoft Graph API the application should communicate with.
-  - For the **global** Microsoft Graph API endpoint, replace both instances of this string with `https://graph.microsoft.com`.
+  - For the **global** Microsoft Graph API endpoint, replace both instances of this string with `https://graph.microsoft.com/`.
   - For endpoints in **national** cloud deployments, see [National cloud deployments](/graph/deployments) in the Microsoft Graph documentation.
 
 ## Test the app
@@ -674,7 +675,7 @@ You've completed creation of the application and are now ready to launch the Ele
 1. Start the app by running the following command from within the root of your project folder:
 
 ```console
-npm start
+electron App/main.js
 ```
 
 2. In application main window, you should see the contents of your *index.html* file and the **Sign In** button.
