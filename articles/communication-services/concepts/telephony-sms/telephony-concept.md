@@ -1,6 +1,6 @@
 ---
-title: PSTN Telephony integration concepts
-description: Learn how to integrate PSTN calling capabilities in your ACS application.
+title: PSTN Telephony integration concepts for Azure Communication Services
+description: Learn how to integrate PSTN calling capabilities in your Azure Communication Services application.
 author: boris-bazilevskiy
 manager: nmurav
 services: azure-communication-services
