@@ -11,7 +11,7 @@ ms.date: 01/18/2021
 
 ### What are the benefits Azure Managed Instance for Apache Cassandra?
 
-The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it a great platform for mission-critical data. Azure Managed Instance for Apache Cassandra is a service for managing instances of open-source Apache Cassandra datacenters deployed in Azure, whether entirely in the cloud, or part of a hybrid cloud/on-premises cluster. This service is a great choice when you want all of the fine-grained configurability and control you have in open-source Apache Cassandra, with none of the maintenance headaches, and automated deployment with on-demand scale-up/scale down capability.
+The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. Linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure make it a great platform for mission-critical data. Azure Managed Instance for Apache Cassandra is a service for managing instances of open-source Apache Cassandra datacenters deployed in Azure. It can be used whether entirely in the cloud, or part of a hybrid cloud and on-premises cluster. This service is a great choice when you want all of the fine-grained configurability and control you have in open-source Apache Cassandra, with none of the maintenance headaches.
 
 ### Why would I use this service instead of Azure Cosmos DB Cassandra API?
 
@@ -23,7 +23,7 @@ No. Apart from sharing the same resource provider namespace for deployment opera
 
 ### Can I deploy Azure Managed Instance for Apache Cassandra in any region?
 
-The service will be available in a limited number of regions during preview, but our plan will be to make the service available across all regions in Azure. 
+The service will be available in a limited number of regions during preview. Our plan will be to make the service available across all regions in Azure. 
 
 ### What are the storage and throughput limits of Azure Managed Instance for Apache Cassandra?
 
@@ -31,7 +31,7 @@ These limits will be dictated by the Virtual Machine SKUs chosen.
 
 ### How much does Azure Managed Instance for Apache Cassandra cost?
 
-For details, refer to the [Azure Managed Instance for Apache Cassandra pricing details](https://azure.microsoft.com/pricing/details/cassandra-managed-instance/) page. Azure Managed Instance for Apache Cassandra charges are based on the underlying VM cost, with a small markup.
+For details, refer to the [Azure Managed Intance for Apache Cassandra pricing details](https://azure.microsoft.com/pricing/details/cassandra-managed-instance/) page. Azure Managed Instance for Apache Cassandra charges are based on the underlying VM cost, with a small markup.
 
 ### Can I use YAML file settings to configure behavior?
 
@@ -39,7 +39,7 @@ Yes, we allow you to embed YAML file configurations as part of an ARM template d
 
 ### Will the Azure Managed Instance for Apache Cassandra support node addition, cluster status, and node status commands?
 
-We expose all the "read only" nodetool commands (such as status) through Azure CLI, but not operations such as node addition. This is because we manage the health of nodes in Azure Managed Instance for Apache Cassandra. In Hybrid mode, customers can connect to the cluster with nodetool. However, note this is not recommended, as it could destabilize the cluster, and could invalidate any production support SLA relating to the health of the Azure Managed Instance datacenters in the cluster.
+We expose all the "read only" Nodetool commands (such as status) through Azure CLI, but not operations such as node addition, because we manage the health of nodes in Azure Managed Instance for Apache Cassandra. In Hybrid mode, customers can connect to the cluster with Nodetool. However, this is not recommended, as it could destabilize the cluster. It may also invalidate any production support SLA relating to the health of the Azure Managed Instance datacenters in the cluster.
 
 ### What happens with various settings for table metadata (bloom filter, caching, read repair chance, gc_grace, and compression memtable_flush_period)?
 
@@ -47,7 +47,7 @@ This is fully supported as with any self-hosted Apache Cassandra environment.
 
 ### How can I monitor infrastructure along with throughput?
 
-We host a [Prometheus](https://prometheus.io/docs/introduction/overview/) server to monitor activity across your cluster, and expose an endpoint. This maintains 10 minutes or 10GB of data (whichever threshold is reached first). You will need to setup a [federation](https://prometheus.io/docs/prometheus/latest/federation/) and appropriate dashboard tool (for example, Grafana).
+We host a [Prometheus](https://prometheus.io/docs/introduction/overview/) server to monitor activity across your cluster, and expose an endpoint. This maintains 10 minutes or 10GB of data (whichever threshold is reached first). You will need to set up a [federation](https://prometheus.io/docs/prometheus/latest/federation/) and appropriate dashboard tool (for example, Grafana).
 
 ### Does Azure Managed Instance for Apache Cassandra provide full backups?
 
@@ -59,7 +59,7 @@ Azure Managed Instance for Apache Cassandra supports all of the capabilities bak
 
 ### Can I pair an on-premises Apache Cassandra cluster with the Azure Managed Instance for Apache Cassandra?
 
-Yes! You can configure a hybrid cluster with VNET injected data-centers deployed by the service communicating with on-premise data-centers within the same cluster ring. Consult our article [here] for further guidance. 
+Yes, you can configure a hybrid cluster with VNET injected data-centers deployed by the service. These can communicate with on-premise data-centers within the same cluster ring. Consult our article [here] for further guidance. 
 
 ### Where can I give feedback on Azure Managed Instance for Apache Cassandra features?
 
