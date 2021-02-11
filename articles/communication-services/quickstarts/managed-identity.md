@@ -54,7 +54,7 @@ To assign roles and permissions using PowerShell, see [Add or remove Azure role 
 ### Install the client library packages
 
 ```console
-dotnet add package Azure.Communication.Administration
+dotnet add package Azure.Communication.Identity
 dotnet add package Azure.Communication.Configuration
 dotnet add package Azure.Communication.Sms
 dotnet add package Azure.Identity
@@ -66,7 +66,7 @@ Add the following `using` directives to your code to use the Azure Identity and 
 
 ```csharp
 using Azure.Identity;
-using Azure.Communication.Administration;
+using Azure.Communication.Identity;
 using Azure.Communication.Configuration;
 using Azure.Communication.Sms;
 ```
@@ -78,11 +78,11 @@ The examples below are using the [DefaultAzureCredential](https://docs.microsoft
 The following code example shows how to create a service client object with Azure Active Directory tokens, then use the client to issue a token for a new user:
 
 ```csharp
-     public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(string resourceEdnpoint) 
+     public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(Uri resourceEdnpoint) 
      {
           TokenCredential credential = new DefaultAzureCredential();
      
-          var client = new CommunicationIdentityClient(credential, resourceEndpoint);
+          var client = new CommunicationIdentityClient(resourceEndpoint, credential);
           var identityResponse = await client.CreateUserAsync();
      
           var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
@@ -97,11 +97,11 @@ The following code example shows how to create a service client object with Azur
 
 ```csharp
 
-     public async Task SendSmsAsync(string resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
+     public async Task SendSmsAsync(Uri resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
      {
           TokenCredential credential = new DefaultAzureCredential();
      
-          SmsClient smsClient = new SmsClient(credential, resourceEndpoint);
+          SmsClient smsClient = new SmsClient(resourceEndpoint, credential);
           smsClient.Send(
                from: from,
                to: to,
