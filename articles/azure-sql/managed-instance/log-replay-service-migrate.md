@@ -46,7 +46,7 @@ The following is required at the Azure side:
 -	Azure Blob Storage
 -	SAS security token with read only and list permissions
 
-#Orchestration steps
+# Orchestration steps
 
 Building a custom solution using LRS to migrate a database to the cloud requires several orchestration steps shown in the diagram and outlined in the table below.
 
