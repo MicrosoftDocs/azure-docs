@@ -35,7 +35,7 @@ If you output to a file, a text editor like Notepad or a web browser like Micros
 
 #### [Linux Install](#tab/linuxinstall)
 
-The following Linux distributions are currently supported for x64 architectures:
+The following Linux distributions are supported for x64 architectures:
 
 * CentOS 7/8
 * Debian 9/10 
