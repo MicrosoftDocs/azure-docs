@@ -15,26 +15,36 @@ The portal components can be logically divided into two categories: **Code** and
 
 ## Code concept
 
-**Code** is maintained in [the GitHub repository][1] and includes:
+**Code** is maintained in the GitHub repository and includes:
 
-- Widgets - which represent visual elements and combine HTML, JavaScript, styling ability, settings, and content mapping. Examples are an image, a text paragraph, a form, a list of APIs etc.
-- Styling definitions - which specify how widgets can be styled
-- Engine - which generates static webpages from portal content and is written in JavaScript
-- Visual editor - which allows for in-browser customization and authoring experience
+- Widgets - Represent visual elements and combine HTML, JavaScript, styling ability, settings, and content mapping. Examples include an image, a text paragraph, a form, a list of APIs, and so on.
 
-*Content* is divided into two subcategories: *portal content* and *API Management content*.
+- Styling definitions - Specify how widgets can be styled.
 
-*Portal content* is specific to the portal and includes:
+- Engine - Generates static webpages from portal content and is written in JavaScript.
 
-- Pages - for example, landing page, API tutorials, blog posts
-- Media - images, animations, and other file-based content
-- Layouts - templates, which are matched against a URL and define how pages are displayed
-- Styles - values for styling definitions, e.g. fonts, colors, borders
-- Settings - configuration, e.g. favicon, website metadata
+- Visual editor - Allows for in-browser customization and authoring experience.
 
-*Portal content*, except for media, is expressed as JSON documents.
+## Content concept
 
-*API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
+**Content** is divided into two subcategories: **Portal content** and **API Management content**.
+
+**Portal content** is specific to the portal and includes:
+
+   > [!NOTE]
+   > **Portal content**, except for media content, is expressed as JSON documents.
+
+- Pages - For example, landing page, API tutorials, blog posts.
+
+- Media - Images, animations, and other file-based content.
+
+- Layouts - Templates that are matched against a URL and define how pages are displayed.
+
+- Styles - Values for styling definitions like fonts, colors, and borders.
+
+- Settings - Configuration settings. For example, favicon, website metadata, and so on.
+
+**API Management content** includes entities such as APIs, Operations, Products, Subscriptions.
 
 ## Next steps
 
