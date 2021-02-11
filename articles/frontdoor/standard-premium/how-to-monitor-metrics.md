@@ -68,7 +68,7 @@ You can also set up alerts for metrics. You can configure a threshold for 4XXErr
 
 ## Configure Alerts in Azure portal
 
-1. Set up alerts on Azure Front Door Standard/Premium (Previe) by selecting **Monitoring** >> **Alerts**.
+1. Set up alerts on Azure Front Door Standard/Premium (Preview) by selecting **Monitoring** >> **Alerts**.
 
 1. Select **New alert rule** for metrics listed in Metrics section.
 

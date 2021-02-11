@@ -4,8 +4,6 @@
   items:
   - name: What is Azure Front Door Standard/Premium (Preview)?
     href: overview.md
-  - name: Tier comparison
-    href: tier-comparison.md
 - name: Quickstarts
   expanded: true
   items:
@@ -35,6 +33,10 @@
     href: concept-caching.md
   - name: DDoS
     href: concept-ddos.md
+  - name: Endpoint Manager
+    href: concept-endpoint-manager.md
+  - name: Private Endpoints
+    href: concept-private-endpoints.md
 - name: How-to guides
   items:
   - name: Configure Endpoint Manager
@@ -67,6 +69,8 @@
       href: troubleshoot-compression.md
     - name: Cross origin resource sharing
       href: troubleshoot-cross-origin-resources.md
+  - name: Reports
+    href: how-to-reports.md
 - name: Reference
   items:
   - name: .NET

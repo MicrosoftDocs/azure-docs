@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: duongau
   ms.author: duau
-  ms.date: 02/18/2020
+  ms.date: 02/19/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -41,8 +41,8 @@ landingContent:
         links:
           - text: Endpoint Manager
             url: concept-endpoint-manager.md
-      - linkListType: concept
+      - linkListType: how-to-guide
         links:
-          - text: Endpoint Manager
-            url: concept-endpoint-manager.md
+          - text: Configure Endpoint Manager
+            url: how-to-configure-endpoint-manager.md
             

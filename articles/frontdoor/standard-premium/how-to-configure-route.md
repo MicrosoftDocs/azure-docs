@@ -34,11 +34,11 @@ To set up a custom domain, see [Create a new Azure Front Door Standard/Premium c
 
 1. Select **Endpoint Manager** under **Settings**.
    
-    ![AFD select endpoint manager](../media/how-to-configure-route/select-endpoint-manager.png)
+    :::image type="content" source="../media/how-to-configure-route/select-endpoint-manager.png" alt-text="Screenshot of Front Door Endpoint Manager settings." lightbox="../media/how-to-configure-route/select-endpoint-manager-expanded.png":::
 
 1. Then select **Edit Endpoint** for the endpoint you want to configure the Route.
    
-    ![AFD select edit endpoint](../media/how-to-configure-route/select-edit-endpoint.png)
+    :::image type="content" source="../media/how-to-configure-route/select-edit-endpoint.png" alt-text="Screenshot of selecting edit endpoint.":::
 
 1. The **Edit Point** page will appears. Select **+ Add** for Routes.
     
