@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: What is Azure File Sync?
-    href: storage-file-sync-introduction.md
+    href: file-sync-introduction.md
 - name: Tutorials
   items:
   - name: Extend Windows file servers with Azure File Sync
@@ -15,10 +15,8 @@
     href: file-sync-planning.md
   - name: Networking considerations for hybrid access
     href: file-sync-networking-overview.md
-  - name: Optimize Azure file shares
-    href: ../files/optimize-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
   - name: About cloud tiering
-    href: file-sync-tiering.md
+    href: file-sync-cloud-tiering.md
   - name: Performance and scale
     items:
     - name: SMB Multichannel performance
@@ -182,7 +180,7 @@
     - name: Troubleshoot Azure file shares performance
       href: ../files/storage-troubleshooting-files-performance.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Troubleshoot Azure File Sync
-      href: ../files/storage-sync-files-troubleshoot.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
+      href: file-sync-troubleshoot.md
     - name: Troubleshoot deleting Azure file shares
       href: ../files/storage-troubleshoot-cannot-delete-files-azure-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json
     - name: Troubleshoot backing up file shares
