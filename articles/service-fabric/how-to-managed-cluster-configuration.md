@@ -18,10 +18,10 @@ In addition to selecting the [Service Fabric managed cluster SKU](overview-manag
 
 With classic (non-managed) Service Fabric clusters, you must declare and manage a separate *Microsoft.Network/networkSecurityGroups* resource in order to [apply Network Security Group (NSG) rules to your cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-nsg-cluster-65-node-3-nodetype). Service Fabric managed clusters enable you to assign NSG rules directly within the cluster resource of your deployment template.
 
-Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) property of your *Microsoft.ServiceFabric/managedclusters* resource to assign NSG rules. For example:
+Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) property of your *Microsoft.ServiceFabric/managedclusters* resource (version `2021-01-01-preview` or later) to assign NSG rules. For example:
 
 ```json
-            "apiVersion": "2020-01-01-preview",
+            "apiVersion": "2021-01-01-preview",
             "type": "Microsoft.ServiceFabric/managedclusters",
             ...
             "properties": {
@@ -79,21 +79,47 @@ Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedc
             }
 ```
 
-## Enable automatic OS upgrades
+## Enable automatic OS image upgrades
 
-You can choose to enable automatic OS upgrades to the virtual machines running your managed cluster nodes. Although the virtual machine scale set resources are managed on your behalf with Service Fabric managed clusters, it's your choice to enable automatic OS upgrades for your cluster nodes. As with [classic Service Fabric](service-fabric-best-practices-infrastructure-as-code.md#azure-virtual-machine-operating-system-automatic-upgrade-configuration) clusters, managed cluster nodes are not upgraded by default, in order to prevent unintended disruptions to your cluster.
+You can choose to enable automatic OS image upgrades to the virtual machines running your managed cluster nodes. Although the virtual machine scale set resources are managed on your behalf with Service Fabric managed clusters, it's your choice to enable automatic OS image upgrades for your cluster nodes. As with [classic Service Fabric](service-fabric-best-practices-infrastructure-as-code.md#azure-virtual-machine-operating-system-automatic-upgrade-configuration) clusters, managed cluster nodes are not upgraded by default, in order to prevent unintended disruptions to your cluster.
 
-To enable automatic OS upgrades, set the `EnableAutoOSUpgrade` property to *true* in your cluster template:
+To enable automatic OS upgrades:
+
+* Use the `2021-01-01-preview` (or later) version of *Microsoft.ServiceFabric/managedclusters* and *Microsoft.ServiceFabric/managedclusters/nodetypes* resources
+* Set the cluster's property `enableAutoOSUpgrade` to *true*
+* Set the cluster nodetypes' resource property `vmImageVersion` to *latest*
+
+For example:
 
 ```json
-TBD
+    {
+      "apiVersion": "2021-01-01-preview",
+      "type": "Microsoft.ServiceFabric/managedclusters",
+      ...
+      "properties": {
+        ...
+        "enableAutoOSUpgrade": true
+      },
+    },
+    {
+      "apiVersion": "2021-01-01-preview",
+      "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+       ...
+      "properties": {
+        ...
+        "vmImageVersion": "latest",
+        ...
+      }
+    }
+}
+
 ```
 
-Once enabled, Service Fabric will begin querying and tracking OS image versions in the managed cluster. If a new OS version is available, the cluster node types (virtual machine scale sets) will be upgraded, one at a time.
+Once enabled, Service Fabric will begin querying and tracking OS image versions in the managed cluster. If a new OS version is available, the cluster node types (virtual machine scale sets) will be upgraded, one at a time. Service Fabric runtime upgrades are performed only after confirming no cluster node OS image upgrades are in progress.
 
-If a node upgrade fails, Service Fabric will retry after 24 hours, for a maximum of three retries. Similar to classic Service Fabric upgrades, unhealthy apps or nodes may block the upgrade.
+If an upgrade fails, Service Fabric will retry after 24 hours, for a maximum of three retries. Similar to classic (unmanaged) Service Fabric upgrades, unhealthy apps or nodes may block the OS image upgrade.
 
-Service Fabric runtime upgrades are only performed after confirming no cluster node OS upgrades are in progress.
+For more on image upgrades, see [Automatic OS image upgrades with Azure virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
 ## Next steps
 
