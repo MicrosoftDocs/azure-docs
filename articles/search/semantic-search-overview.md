@@ -27,4 +27,4 @@ All new parameters can be specified at query time, on existing indexes.
 
 + [Add spell check to query inputs](speller-howto-add.md)
 + [Create a semantic query](semantic-howto-query-request.md)
-+ [Structure a semantic response](semantic-howto-query-response)
++ [Structure a semantic response](semantic-howto-query-response.md)
