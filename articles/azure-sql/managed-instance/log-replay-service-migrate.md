@@ -33,7 +33,7 @@ You might want to consider using LRS cloud service in some of the following case
 
 # How does it work
 
-Building a custom solution using LRS to migrate a database to the cloud requires several orchestration steps shown in the diagram and outlined in the table below. The migration entails backuping a backup of databases on SQL Server and moving those backups to Azur Blob storage. Use LRS service to restore backups copied to Azure Blob storage to SQL Managed Instance. LRS will monitor Azure Blob storage for any new backups added after being started and will automatically restore them. The migration is completed by initiating a cutover to the cloud when ready. The LRS can also be monitored for progress, or aborted if needed. 
+Building a custom solution using LRS to migrate a database to the cloud requires several orchestration steps shown in the diagram and outlined in the table below. The migration entails backing up databases on SQL Server and moving those backups to Azur Blob storage. Use LRS service to restore backups copied to Azure Blob storage to SQL Managed Instance. LRS will monitor Azure Blob storage for any new backups added after being started and will automatically restore them. Databases being restored during the migration process will be in restoring mode and cannot be used at this time. The migration is completed by initiating a cutover to the LRS service when ready. This final step will make restored databases available for R/W use on SQL Managed Instance. The LRS can also be monitored for progress and the process can be aborted if needed. 
 
   ![Log Replay Service orchestration steps explained for SQL Managed Instance](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
 
