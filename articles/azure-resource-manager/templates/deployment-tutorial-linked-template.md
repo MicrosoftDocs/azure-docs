@@ -50,11 +50,14 @@ $resourceGroupName = $projectName + "rg"
 $storageAccountName = $projectName + "store"
 $containerName = "templates" # The name of the Blob container to be created.
 
+$mainTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json"
 $linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json" # A completed linked template used in this tutorial.
-$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+$mainFileName = "azuredeploy.json" # A file name used for downloading and uploading the main template.Add-PSSnapin
+$linkedFileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
-# Download the template
-Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
+# Download the templates
+Invoke-WebRequest -Uri $mainTemplateURL -OutFile "$home/$mainFileName"
+Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$linkedFileName"
 
 # Create a resource group
 New-AzResourceGroup -Name $resourceGroupName -Location $location
@@ -71,11 +74,17 @@ $context = $storageAccount.Context
 # Create a container
 New-AzStorageContainer -Name $containerName -Context $context -Permission Container
 
-# Upload the template
+# Upload the templates
 Set-AzStorageBlobContent `
     -Container $containerName `
-    -File "$home/$fileName" `
-    -Blob $fileName `
+    -File "$home/$mainFileName" `
+    -Blob $mainFileName `
+    -Context $context
+
+Set-AzStorageBlobContent `
+    -Container $containerName `
+    -File "$home/$linkedFileName" `
+    -Blob $linkedFileName `
     -Context $context
 
 Write-Host "Press [ENTER] to continue ..."
@@ -100,7 +109,7 @@ $templateFile = Read-Host -Prompt "Enter the main template file and path"
 $resourceGroupName="${projectName}rg"
 $storageAccountName="${projectName}store"
 $containerName = "templates"
-$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+$linkedFileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 $key = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
 $context = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
@@ -109,7 +118,7 @@ $context = New-AzStorageContext -StorageAccountName $storageAccountName -Storage
 $linkedTemplateUri = New-AzStorageBlobSASToken `
     -Context $context `
     -Container $containerName `
-    -Blob $fileName `
+    -Blob $linkedFileName `
     -Permission r `
     -ExpiryTime (Get-Date).AddHours(2.0) `
     -FullUri
@@ -136,7 +145,7 @@ read templateFile
 resourceGroupName="${projectName}rg"
 storageAccountName="${projectName}store"
 containerName="templates"
-fileName="linkedStorageAccount.json"
+linkedFileName="linkedStorageAccount.json"
 
 key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv)
 
@@ -144,7 +153,7 @@ linkedTemplateUri=$(az storage blob generate-sas \
   --account-name $storageAccountName \
   --account-key $key \
   --container-name $containerName \
-  --name $fileName \
+  --name $linkedFileName \
   --permissions r \
   --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'` \
   --full-uri)
