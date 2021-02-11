@@ -127,7 +127,7 @@ For definition of cache hit ratio, refer to Caching.
 
 This report displays the top 50 locations by the country of the visitors that access your asset the most. The report also provides a breakdown of metrics by country and gives you an overall view of countries where the most traffic gets generated. Lastly you can see which country is having higher cache hit ratio or 4XX/5XX error codes.
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-by-location.png" alt-text="Screenshot of Reports by locations" lightbox="front-door-reports-by-location-expanded.png":::
+:::image type="content" source="../media/how-to-reports/front-door-reports-by-location.png" alt-text="Screenshot of Reports by locations" lightbox="../media/how-to-reports/front-door-reports-by-location-expanded.png":::
 
 The following are included in the reports:
 
@@ -157,7 +157,7 @@ This report shows the trends of traffic and response status code by different di
 
 * Number of requests from the edge to clients by HTTP status code. Percentage of requests by HTTP status code among all requests in grid. 
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-usage.png" alt-text="Screenshot of Reports by usage" lightbox="front-door-reports-usage-expanded.png":::
+:::image type="content" source="../media/how-to-reports/front-door-reports-usage.png" alt-text="Screenshot of Reports by usage" lightbox="../media/how-to-reports/front-door-reports-usage-expanded.png":::
 
 ## Caching
 
@@ -360,4 +360,4 @@ The seven tables are for time, rule ID, country, IP address, URL, hostname, user
 
 ## Next steps
 
-Learn about [Azure Front Door Standard/Premium (Preview) real time monitoring metrics](how-to-monitoring-metrics.md).
+Learn about [Azure Front Door Standard/Premium (Preview) real time monitoring metrics]().

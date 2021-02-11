@@ -23,7 +23,7 @@ Azure Front Door Standard/Premium is a fast, reliable, and secure modern cloud C
 
 With Azure Front Door Standard/Premium, you can transform your global consumer and enterprise applications into secure and high-performing personalized modern applications with contents that reach a global audience with low latency.
 
-   :::image type="content" source="../media/overview/front-door-overview.png" alt-text="Azure Front Door Standard/Premium architecture" lightbox="front-door-overview-expanded.png":::
+   :::image type="content" source="../media/overview/front-door-overview.png" alt-text="Azure Front Door Standard/Premium architecture" lightbox="../media/overview/front-door-overview-expanded.png":::
 
 Front Door works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split TCP and Microsoft's global network to improve global connectivity. Based on your routing method you can ensure that Front Door will route your client requests to the fastest and most available origin. An application backend is any Internet-facing service hosted inside or outside of Azure. Front Door provides a range of traffic-routing methods and origin health monitoring options to suit different application needs and automatic failover scenarios. Similar to Traffic Manager, Front Door is resilient to failures, including failures to an entire Azure region.
 

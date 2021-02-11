@@ -134,7 +134,7 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
     | **Resource group** | Select **Create new** and enter *FrontDoorQS_rg0* in the text box. |
     | **Resource group location** | Select **East US** |
     | **Profile Name** | Enter a unique name in this subscription **Webapp-Contoso-AFD** |
-    | **Tier** | Select **Premium**. For more information, see, [Tier Comparison](overview-tier-comparison.md). |
+    | **Tier** | Select **Premium**. |
     
     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-2.png" alt-text="Create Front Door profile":::
 
@@ -144,17 +144,17 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
     >You need to have the right permission to add the certificate from Azure Key Vault as a user. 
     > 
 
-    :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-secret.png" alt-text="Add a secret in custom create":::
+    :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-secret.png" alt-text="Screenshot of add a secret in custom create.":::
 
 1. In **Endpoint** tab, click **Add an Endpoint** and give your endpoint a globally unique name. You can create multiple endpoints in your Front Door profile after you finish the create experience. This example uses *contoso-frontend*. Leave Origin response timeout (in seconds) and Status to default values. Select **Add**.
     
-    :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-endpoint.png" alt-text="Add an endpoint":::
+    :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-endpoint.png" alt-text="Screenshot of add an endpoint.":::
 
 1. Add a custom domain in  management experience.
 
 1. Next, add an Origin Group that contains your two web apps. Select **+** to open **Add an origin group**. For Name, enter *myOrignGroup*, then select **Add an origin**.
  
-     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group.png" alt-text="Screenshot of add an origin group page.":::
+     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group.png" alt-text="Screenshot of add an origin group.":::
 
 1. In the **Add an origin** page, enter or select the information below. Then select **Add**.
 
