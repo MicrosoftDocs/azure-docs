@@ -42,8 +42,11 @@ As stated in the Microsoft Publisher Agreement for the commercial marketplace, a
     - The **Start date** of your notice (if your notice has an effective date later than today)
     - Your **Contact information** and preferences
 
-1. When you've provided all the required information, select **Submit** to create your support ticket and send the notice to Microsoft. A support agent will contact you if we have questions.
+    This support request page also provides guidance on how to find your Publisher ID and Seller ID.
+
+1. When you've provided all the required information, select **Submit** to create your support ticket and send the notice to Microsoft.
 
 ## Next steps
 
-- [What is the Microsoft commercial marketplace?](overview.md)
+- A support agent will contact you if we have questions.
+- Review the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560) (PDF)
