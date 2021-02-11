@@ -78,5 +78,5 @@ The following are examples of cases where you will incur a charge for your alert
 ## Next steps
 
 * Learn about the [new unified Azure Monitor](../overview.md).
-* Learn more about the new [Azure Alerts](./alerts-overview.md).
+* Learn more about the new [Azure Alerts](../platform/alerts-overview.md).
 

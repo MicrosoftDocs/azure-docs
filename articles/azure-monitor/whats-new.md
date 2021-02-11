@@ -55,7 +55,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 ### Metrics
 - [Advanced features of Azure Metrics Explorer](essentials/metrics-charts.md) - Added information on resource scope picker.
-- [Viewing multiple resources in Metrics Explorer](platform/metrics-dynamic-scope.md) - New article.
+- [Viewing multiple resources in Metrics Explorer](essentials/metrics-dynamic-scope.md) - New article.
 
 ### Networks
 - [Azure Networking Analytics solution in Azure Monitor](insights/azure-networking-analytics.md) - Added information on Network Insights workbook.
@@ -65,8 +65,8 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 
 ### Visualizations
-- [Azure Monitor workbook map visualizations](platform/workbooks-map-visualizations.md) - New article.
-- [Azure Monitor Workbooks bring your own storage](platform/workbooks-bring-your-own-storage.md) - New article.
+- [Azure Monitor workbook map visualizations](visualizations/workbooks-map-visualizations.md) - New article.
+- [Azure Monitor Workbooks bring your own storage](visualizations/workbooks-bring-your-own-storage.md) - New article.
 
 
 ## November 2020
@@ -170,7 +170,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 ### Logs
 - [Archive data from Log Analytics workspace to Azure storage using Logic App](logs/logs-export-logic-app.md) - New article.
 - [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md) - Added sample body for REST request for event hub.
-- [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Added information on relation between Azure Monitor Logs and Azure Security Center billing. Added query for node counts if using the Per Node pricing tier. 
+- [Manage usage and costs for Azure Monitor Logs](logs/manage-cost-storage.md) - Added information on relation between Azure Monitor Logs and Azure Security Center billing. Added query for node counts if using the Per Node pricing tier. 
 - [Monitor health of Log Analytics workspace in Azure Monitor](logs/monitor-workspace.md) - New article.
 - [Query data in Azure Monitor using Azure Data Explorer (preview)](logs/azure-data-explorer-monitor-proxy.md) - New article.
 - [Query exported data from Azure Monitor using Azure Data Explorer (preview)](logs/azure-data-explorer-query-storage.md) - New article.
@@ -304,7 +304,7 @@ New articles for Azure Monitor for VMs guest health (preview)
 ### Logs
 - [Azure Monitor FAQ](faq.md) - Added entry for deleting data from a workspace. Added entry on 502 and 503 responses.
   - [Designing your Azure Monitor Logs deployment](logs/design-logs-deployment.md) - Updates to Ingestion volume rate limit section.
-- [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Updated usage queries to more efficient query format.
+- [Manage usage and costs for Azure Monitor Logs](logs/manage-cost-storage.md) - Updated usage queries to more efficient query format.
 - [Optimize log queries in Azure Monitor](logs/query-optimization.md) - Added specific values to performance indicators.
 - [Resource Manager template samples for diagnostic settings](essentials/resource-manager-diagnostic-settings.md) - Added sample for log query audit logs.
 
@@ -413,7 +413,7 @@ New and updated articles from restructure of Azure Monitor for VMs content
 ### Logs
 - [Delete and recover Azure Log Analytics workspace](logs/delete-workspace.md) - Added PowerShell command. Updated troubleshooting.
 - [Manage Log Analytics workspaces in Azure Monitor](logs/manage-access.md) - Added example for unallowed tables in Azure RBAC section.
-- [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Additional detail on calculation of data size. Updated configuring data volume alerts. Details about security data collected by Azure Sentinel. Clarification on data cap.
+- [Manage usage and costs for Azure Monitor Logs](logs/manage-cost-storage.md) - Additional detail on calculation of data size. Updated configuring data volume alerts. Details about security data collected by Azure Sentinel. Clarification on data cap.
 - [Use Azure Monitor Logs with Azure Logic Apps and Power Automate](logs/logicapp-flow-connector.md) - Added connector limits.
 
 ### Metrics
@@ -465,7 +465,7 @@ New and updated articles from restructure and consolidation of platform log cont
 - [Azure Monitor customer-managed key](logs/customer-managed-keys.md) - Various changes in preparation for general availability.
 - [Built-in policy definitions for Azure Monitor](./policy-reference.md) - New article.
 - [Customer-owned storage accounts for log ingestion](logs/private-storage.md) - New article.
-- [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Added cluster proportional billing.
+- [Manage usage and costs for Azure Monitor Logs](logs/manage-cost-storage.md) - Added cluster proportional billing.
 - [Use Azure Private Link to securely connect networks to Azure Monitor](logs/private-link-security.md) - New article.
 
 
@@ -586,7 +586,7 @@ New and updated articles from restructure and consolidation of platform log cont
 ### Logs
 
 - [Azure Monitor service limits](service-limits.md) - Added user query throttling.
-- [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Added billing for Logs clusters. Added Kusto query to enable customers with legacy Per Node pricing tier to determine whether they should move to a Per GB or Capacity Reservation tier.
+- [Manage usage and costs for Azure Monitor Logs](logs/manage-cost-storage.md) - Added billing for Logs clusters. Added Kusto query to enable customers with legacy Per Node pricing tier to determine whether they should move to a Per GB or Capacity Reservation tier.
 
 ### Metrics
 
@@ -701,7 +701,7 @@ Multiple updates as part of rewrite of diagnostics extension content.
 ### Logs
 
 - [Optimize log queries in Azure Monitor](logs/query-optimization.md) - New article.
-- [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Improved sample queries to help understand your usage.
+- [Manage usage and costs for Azure Monitor Logs](logs/manage-cost-storage.md) - Improved sample queries to help understand your usage.
 
 ### Metrics
 
@@ -768,7 +768,7 @@ Multiple New articles for view designer to workbooks conversion guide.
 ### Logs
 
 - [Manage Log Analytics workspaces in Azure Monitor](logs/manage-access.md) - Updates to Not actions.
-- [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Added clarification on calculation of data volume in the Pricing Model section.
+- [Manage usage and costs for Azure Monitor Logs](logs/manage-cost-storage.md) - Added clarification on calculation of data volume in the Pricing Model section.
 - [Use Azure Resource Manager templates to Create and Configure a Log Analytics Workspace](./logs/resource-manager-workspace.md) - Updated template with new pricing tiers.
 
 ### Platform logs

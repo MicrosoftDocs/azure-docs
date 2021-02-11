@@ -26,7 +26,7 @@ This article provides background information and steps to configure a customer-m
 >
 > - Access to this capability is controlled by Azure feature registration. You can request access by contacting azuresentinelCMK@microsoft.com. Pending requests will be approved according to the available capacity.
 >
-> - The CMK capability is only available to customers sending 1TB per day or more. You will receive information about additional pricing when you apply to Microsoft to provision CMK on your Azure subscription. Learn more about [Log Analytics pricing](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+> - The CMK capability is only available to customers sending 1TB per day or more. You will receive information about additional pricing when you apply to Microsoft to provision CMK on your Azure subscription. Learn more about [Log Analytics pricing](../azure-monitor/logs/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 ## How CMK works 
 

@@ -444,7 +444,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing logs created by your managed application resources has the log retention period set according to your organization's compliance regulations.
 In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake or Log Analytics workspace accounts for long-term and archival storage.
 
-- [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/platform/manage-cost-storage.md)
+- [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/logs/manage-cost-storage.md)
 
 - [Storing resource logs in an Azure Storage Account](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 

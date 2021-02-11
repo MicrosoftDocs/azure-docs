@@ -252,7 +252,7 @@ When using the Hybrid Runbook Worker feature, Azure Security Center provides Sec
 
 **Guidance**: Within Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-* [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 * [Data retention details for Automation Accounts](./automation-managing-data.md#data-retention)
 

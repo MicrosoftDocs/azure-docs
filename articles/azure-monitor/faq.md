@@ -79,7 +79,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 All data is retrieved from a Log Analytics workspace using a log query written using Kusto Query Language (KQL). You can write your own queries or use solutions and insights that include log queries for a particular application or service. See [Overview of log queries in Azure Monitor](logs/log-query-overview.md).
  p
 ### Can I delete data from a Log Analytics workspace?
-Data is removed from a workspace according to its [retention period](platform/manage-cost-storage.md#change-the-data-retention-period). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
+Data is removed from a workspace according to its [retention period](logs/manage-cost-storage.md#change-the-data-retention-period). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
 
 ### Is Log Analytics storage immutable?
 Data in database storage cannot be altered once ingested but can be deleted via [*purge* API path for deleting private data](platform/personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](platform/logs-data-export.md) to a storage account that is configured as [immutable storage](../storage/blobs/storage-blob-immutability-policies-manage.md).
@@ -152,7 +152,7 @@ The amount of data sent per agent depends on:
 * The number of logs and performance counters being collected
 * The volume of data in the logs
 
-See [Manage usage and costs with Azure Monitor Logs](platform/manage-cost-storage.md) for details.
+See [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md) for details.
 
 For computers that are able to run the WireData agent, use the following query to see how much data is being sent:
 
@@ -680,7 +680,7 @@ Azure Monitor for containers supports monitoring container workloads deployed to
 
 ### Why don't I see data in my Log Analytics workspace?
 
-If you are unable to see any data in the Log Analytics workspace at a certain time everyday, you may have reached the default 500 MB limit or the daily cap specified to control the amount of data to collect daily. When the limit is met for the day, data collection stops and resumes only on the next day. To review your data usage and update to a different pricing tier based on your anticipated usage patterns, see [Log data usage and cost](platform/manage-cost-storage.md). 
+If you are unable to see any data in the Log Analytics workspace at a certain time everyday, you may have reached the default 500 MB limit or the daily cap specified to control the amount of data to collect daily. When the limit is met for the day, data collection stops and resumes only on the next day. To review your data usage and update to a different pricing tier based on your anticipated usage patterns, see [Log data usage and cost](logs/manage-cost-storage.md). 
 
 ### What are the container states specified in the ContainerInventory table?
 

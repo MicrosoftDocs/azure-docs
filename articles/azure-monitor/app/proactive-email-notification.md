@@ -23,7 +23,7 @@ This change will affect all Smart Detection rules, excluding the following ones:
 
 * Smart Detection rules marked as preview. These Smart Detection rules don’t support email notifications today.
 
-* Failure Anomalies rule. This rule will start targeting the new default roles once it’s migrated from a classic alert to the unified alerts platform (more information is available [here](../platform/monitoring-classic-retirement.md).)
+* Failure Anomalies rule. This rule will start targeting the new default roles once it’s migrated from a classic alert to the unified alerts platform (more information is available [here](../alerts/monitoring-classic-retirement.md).)
 
 ## How to prepare for this change?
 

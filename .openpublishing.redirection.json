@@ -63159,6 +63159,71 @@
       "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-web-app.md",
       "redirect_url": "/azure/azure-monitor/app/resource-manager-web-app",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alert-management-solution.md",
+      "redirect_url": "/azure/azure-monitor/insights/alert-management-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/monitoring-classic-retirement.md",
+      "redirect_url": "/azure/azure-monitor/alerts/monitoring-classic-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/manage-cost-storage.md",
+      "redirect_url": "/azure/azure-monitor/logs/manage-cost-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/service-providers.md",
+      "redirect_url": "/azure/azure-monitor/logs/service-providers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/usage-estimated-costs.md",
+      "redirect_url": "/azure/azure-monitor//usage-estimated-costs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/classic-api-retirement-metrics-autoscale.md",
+      "redirect_url": "/azure/azure-monitor/essentials/classic-api-retirement-metrics-autoscale",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/data-sources-event-tracing-windows.md",
+      "redirect_url": "/azure/azure-monitor/agents/data-sources-event-tracing-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/grafana-plugin.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/grafana-plugin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/metrics-aggregation-explained.md",
+      "redirect_url": "/azure/azure-monitor/essentials/metrics-aggregation-explained",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/metrics-dynamic-scope.md",
+      "redirect_url": "/azure/azure-monitor/essentials/metrics-dynamic-scope",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-bring-your-own-storage.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-bring-your-own-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-link-actions.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-link-actions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/workbooks-map-visualizations.md",
+      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-map-visualizations",
+      "redirect_document_id": false
     }
   ]
 }

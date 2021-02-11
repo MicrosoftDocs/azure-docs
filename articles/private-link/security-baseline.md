@@ -78,7 +78,7 @@ Also, enable and on-board data to Azure Sentinel or a third-party SIEM, based on
 
 **Guidance**: For logs related to Private Link, set your Log Analytics workspace retention period according to your organization's compliance regulations within Azure Monitor. Use Azure Storage Accounts for any long-term/archival storage of logs.
 
-- [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
 

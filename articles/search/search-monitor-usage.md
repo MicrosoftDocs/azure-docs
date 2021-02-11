@@ -87,7 +87,7 @@ Azure Monitor provides several storage options, and your choice determines how y
 * Choose Azure Blob storage if you want to [visualize log data](search-monitor-logs-powerbi.md) in a Power BI report.
 * Choose Log Analytics if you want to explore data through Kusto queries.
 
-Azure Monitor has its own billing structure and the diagnostic logs referenced in this section have an associated cost. For more information, see [Usage and estimated costs in Azure Monitor](../azure-monitor/platform/usage-estimated-costs.md).
+Azure Monitor has its own billing structure and the diagnostic logs referenced in this section have an associated cost. For more information, see [Usage and estimated costs in Azure Monitor](../azure-monitor//usage-estimated-costs.md).
 
 ## Monitor user access
 

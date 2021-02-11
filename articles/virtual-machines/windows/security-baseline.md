@@ -252,7 +252,7 @@ If your organization would like to retain the security event log data from the v
 
 * [How to monitor virtual machines in Azure](../../azure-monitor/vm/monitor-vm-azure.md)
 
-* [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/platform/manage-cost-storage.md)
+* [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center monitoring**: Not Available
 

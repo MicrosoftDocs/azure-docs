@@ -238,7 +238,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 * [How to deploy the Log Analytics agent onto your nodes](./service-fabric-diagnostics-oms-agent.md)
 
-* [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
+* [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -254,7 +254,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 * [How to deploy the Log Analytics agent onto your nodes](./service-fabric-diagnostics-oms-agent.md)
 
-* [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
+* [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center monitoring**: Currently not available
 

@@ -245,7 +245,7 @@ If your organization would like to retain the security event log data, it can be
 
 * [How to enable diagnostic logs in Azure Data Factory](./monitor-using-azure-monitor.md)
 
-* [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 

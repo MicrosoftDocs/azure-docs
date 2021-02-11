@@ -72,7 +72,7 @@ Instead, you can enable and on-board data to Azure Sentinel or a third-party SIE
 
 **Guidance**: Use Azure Monitor to set log retention period for the Log Analytics workspaces associated with Public IP instances per your organization's compliance obligations.
 
-- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 

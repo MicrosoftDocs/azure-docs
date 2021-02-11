@@ -138,7 +138,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: In Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for any long-term/archival storage of your logs.
 
-- [Change the data retention period in Log Analytics](platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
 

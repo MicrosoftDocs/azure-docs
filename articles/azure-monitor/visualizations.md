@@ -82,7 +82,7 @@ Here is a video walkthrough on creating dashboards.
 
 
 ## Grafana
-[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's particularly useful for detecting and isolating and triaging operational incidents. You can add [Grafana Azure Monitor data source plugin](platform/grafana-plugin.md) to your Azure subscription to have it visualize your Azure metrics data.
+[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's particularly useful for detecting and isolating and triaging operational incidents. You can add [Grafana Azure Monitor data source plugin](visualizations/grafana-plugin.md) to your Azure subscription to have it visualize your Azure metrics data.
 
 ![Screenshot shows Grafana visualizations.](media/visualizations/grafana.png)
 
@@ -139,6 +139,6 @@ You can access data in log and metric data in Azure Monitor through their API us
 - Learn about [Metrics Explorer](essentials/metrics-getting-started.md)
 - Learn about [Workbooks](./visualizations/workbooks-overview.md).
 - Learn about [import log data into Power BI](./visualizations/powerbi.md).
-- Learn about the [Grafana Azure Monitor data source plugin](./platform/grafana-plugin.md).
+- Learn about the [Grafana Azure Monitor data source plugin](./visualizations/grafana-plugin.md).
 - Learn about [Views in Azure Monitor](visualizations/view-designer.md).
 

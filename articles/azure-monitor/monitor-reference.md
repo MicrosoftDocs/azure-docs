@@ -39,7 +39,7 @@ Solutions are based on log queries and views customized for a particular applica
 | Solution | Description |
 |:---|:---|
 | [Agent health](insights/solution-agenthealth.md) | Analyze the health and configuration of Log Analytics agents. |
-| [Alert management](platform/alert-management-solution.md) | Analyze alerts collected from System Center Operations Manager, Nagios, or Zabbix. |
+| [Alert management](insights/alert-management-solution.md) | Analyze alerts collected from System Center Operations Manager, Nagios, or Zabbix. |
 | [Service Map](vm/service-map.md) | Automatically discovers application components on Windows and Linux systems and maps the communication between services. |
 
 

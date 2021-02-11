@@ -282,7 +282,7 @@ In Azure Monitor, set log retention period for logs associated with your Azure L
 
 - [How to monitor run status, review trigger history, and set up alerts for Azure Logic Apps](monitor-logic-apps.md)
 
-- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Yes
 

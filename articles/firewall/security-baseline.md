@@ -172,7 +172,7 @@ Azure Monitor logs is best used for general real-time monitoring of your applica
 
 - [Azure Firewall logs and metrics](logs-and-metrics.md)
 
-- [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 - [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
 

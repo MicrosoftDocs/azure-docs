@@ -255,7 +255,7 @@ In addition, enable and onboard data to Azure Sentinel or a third-party SIEM. Ma
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing Azure Advisor logs has the log retention period set according to your organization's compliance regulations.
 In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake or Log Analytics workspace accounts for long-term and archival storage.
 
-- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md) 
+- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md) 
 
 - [Storing resource logs in an Azure Storage Account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 

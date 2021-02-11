@@ -203,7 +203,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: In Azure Monitor, set the log retention period for Log Analytics workspaces associated with your Azure IoT Hub instances according to your organization's compliance regulations.
 
-- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not Applicable
 

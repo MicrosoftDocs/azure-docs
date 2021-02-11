@@ -59,7 +59,7 @@ For more information, see the following articles:
 ### 2.5: Configure security log storage retention
 ***Guidance:** In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure DevTest Labs instances according to your organization's compliance regulations.
 
-For more information, see the following article: [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+For more information, see the following article: [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring:** Not applicable
 
