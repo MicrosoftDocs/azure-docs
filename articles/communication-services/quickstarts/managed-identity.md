@@ -47,7 +47,7 @@ Managed identities should be enabled on the Azure resources that you're authoriz
 
 #### Assign Azure roles with PowerShell
 
-To assign roles and permissions using PowerShell, see [Add or remove Azure role assignments using Azure PowerShell](../../articles/role-based-access-control/role-assignments-powershell.md)
+To assign roles and permissions using PowerShell, see [Add or remove Azure role assignments using Azure PowerShell](../../../articles/role-based-access-control/role-assignments-powershell.md)
 
 ## Add managed identity to your Communication Services solution
 
@@ -118,8 +118,8 @@ The following code example shows how to create a service client object with Azur
 
 You may also want to:
 
-- [Learn more about Azure role-based access control](../../articles/role-based-access-control/index.yml)
+- [Learn more about Azure role-based access control](../../../articles/role-based-access-control/index.yml)
 - [Learn more about Azure identity library for .net](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
 - [Creating user access tokens](../quickstarts/access-tokens.md)
 - [Send an SMS message](../quickstarts/telephony-sms/send.md)
-- [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
+- [Learn more about SMS](../concepts/telephony-sms/concepts.md)
