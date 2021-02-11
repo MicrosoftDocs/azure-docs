@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 01/27/2021
 ---
 
 # Blob storage and Azure Data Lake Gen2 output from Azure Stream Analytics
@@ -39,7 +39,7 @@ The following table lists the property names and their descriptions for creating
 When you're using Blob storage as output, a new file is created in the blob in the following cases:
 
 * If the file exceeds the maximum number of allowed blocks (currently 50,000). You might reach the maximum allowed number of blocks without reaching the maximum allowed blob size. For example, if the output rate is high, you can see more bytes per block, and the file size is larger. If the output rate is low, each block has less data, and the file size is smaller.
-* If there's a schema change in the output, and the output format requires fixed schema (CSV and Avro).
+* If there's a schema change in the output, and the output format requires fixed schema (CSV, Avro, Parquet).
 * If a job is restarted, either externally by a user stopping it and starting it, or internally for system maintenance or error recovery.
 * If the query is fully partitioned, and a new file is created for each output partition.
 * If the user deletes a file or a container of the storage account.

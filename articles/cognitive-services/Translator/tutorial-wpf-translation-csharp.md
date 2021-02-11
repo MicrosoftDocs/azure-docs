@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Create a translation app with WPF
 
-In this tutorial, you'll build a [Windows Presentation Foundation (WPF)](/visualstudio/designers/getting-started-with-wpf?view=vs-2019) app that uses Azure Cognitive Services for text translation, language detection, and spell checking with a single subscription key. Specifically, your app will call APIs from the Translator and [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+In this tutorial, you'll build a [Windows Presentation Foundation (WPF)](/visualstudio/designers/getting-started-with-wpf) app that uses Azure Cognitive Services for text translation, language detection, and spell checking with a single subscription key. Specifically, your app will call APIs from the Translator and [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 What is WPF? It's a UI framework that creates desktop client apps. The WPF development platform supports a broad set of app development features, including an app model, resources, controls, graphics, layout, data binding, documents, and security. It's a subset of the .NET Framework, so if you have previously built apps with the .NET Framework using ASP.NET or Windows Forms, the programming experience should be familiar. WPF uses the Extensible app Markup Language (XAML) to provide a declarative model for app programming, which we'll review in the coming sections.
 
@@ -85,7 +85,7 @@ Let's add assemblies to our project to serialize and deserialize objects, and to
 1. After you've added these references to your project, you can click **OK** to close **Reference Manager**.
 
 > [!NOTE]
-> If you'd like to learn more about assembly references, see [How to: Add or remove reference using the Reference Manager](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
+> If you'd like to learn more about assembly references, see [How to: Add or remove reference using the Reference Manager](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager).
 
 ### Install NewtonSoft.Json
 

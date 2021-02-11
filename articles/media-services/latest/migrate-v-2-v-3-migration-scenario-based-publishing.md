@@ -1,10 +1,9 @@
 ---
-title: Packaging and delivery scenario-based migration guidance | Microsoft Docs
+title: Packaging and delivery migration guidance
 description: This article is gives you scenario based guidance for packaging and delivery that will assist you in migrating from Azure Media Services v2 to v3.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
-
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media

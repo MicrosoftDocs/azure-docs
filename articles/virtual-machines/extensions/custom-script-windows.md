@@ -2,15 +2,15 @@
 title: Azure Custom Script Extension for Windows 
 description: Automate Windows VM configuration tasks by using the Custom Script extension
 services: virtual-machines-windows
-manager: carmonm
-author: bobbytreed
+manager: gwallace
+author: amjads1
 ms.service: virtual-machines-windows
 ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
-ms.author: robreed
+ms.author: amjads
 
 ---
 # Custom Script Extension for Windows
@@ -27,6 +27,7 @@ This document details how to use the Custom Script Extension using the Azure Pow
 ### Operating System
 
 The Custom Script Extension for Windows will run on the extension supported extension OSs;
+
 ### Windows
 
 * Windows Server 2008 R2
@@ -243,8 +244,8 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
     -TypeHandlerVersion "1.10" `
-    -Settings $settings    `
-    -ProtectedSettings $protectedSettings `
+    -Settings $settings `
+    -ProtectedSettings $protectedSettings;
 ```
 
 ### Running scripts from a local share

@@ -116,6 +116,7 @@ To find more tutorials, use the table of contents on the left.
 | ![logo-Teamphoria](./media/tutorial-list/active-directory-saas-teamphoria-tutorial.png)| [Teamphoria](teamphoria-tutorial.md)|
 | ![logo-Terraform Cloud](./media/tutorial-list/active-directory-saas-terraform-cloud-tutorial.png)| [Terraform Cloud](terraform-cloud-tutorial.md)|
 | ![logo-TextMagic](./media/tutorial-list/active-directory-saas-textmagic-tutorial.png)| [TextMagic](textmagic-tutorial.md)|
+| ![logo-Timeclock 365 SAML](./media/tutorial-list/active-directory-saas-timeclock-365-saml-tutorial.png)| [Timeclock 365 SAML](timeclock-365-saml-tutorial.md)|
 | ![logo-Upshotly](./media/tutorial-list/active-directory-saas-upshotly-tutorial.png)| [Upshotly](upshotly-tutorial.md)|
 | ![logo-Velpic SAML](./media/tutorial-list/active-directory-saas-velpicsaml-tutorial.png)| [Velpic SAML](velpicsaml-tutorial.md)|
 | ![logo-Wandera](./media/tutorial-list/active-directory-saas-wandera-tutorial.png)| [Wandera](wandera-tutorial.md)|

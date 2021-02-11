@@ -17,7 +17,7 @@ ms.author: blehr
 
 This article shows you how to create a public IP address resource using the Azure portal. For more information on which resources this can be associated to, the difference between Basic and Standard SKU, and other related information, please see [Public IP addresses](./public-ip-addresses.md).  For this example, we will focus on IPv4 addresses only; for more information on IPv6 addresses, see [IPv6 for Azure VNet](./ipv6-overview.md).
 
-# [**Standard SKU - Using zones**](#tab/option-create-public-ip-standard-zones)
+# [**Standard SKU**](#tab/option-create-public-ip-standard-zones)
 
 Use the following steps to create a standard zone-redundant public IP address named **myStandardZRPublicIP**.
 
@@ -39,9 +39,9 @@ Use the following steps to create a standard zone-redundant public IP address na
     | Subscription            | Select your subscription.   |
     | Resource group          | Select **Create new** , enter myResourceGroup, then select **OK** |
     | Location                | Select **East US 2**      |
-    | Availability Zone       | Select **Zone-Redundant** or pick specific Zone (see note below) |
+    | Availability Zone       | Select **Zone-Redundant**, No Zone, or pick specific Zone (see note below) |
 
-Note that these are only valid selections in regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  (You can also select a specific zone in these regions, though it will not be resilient to zonal failure.)
+Note that these are only valid selections in regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  (You can also select a specific zone in these regions, though it will not be resilient to zonal failure.)  For more information on availability zones, see [Availability zones overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 \* = Tier relates to the [Cross-Region Load Balancer](../load-balancer/cross-region-overview.md) functionality, currently in Preview.
 

@@ -62,6 +62,7 @@
         "agentless",
         "auditd",
         "covid",
+        "movere",
         "onboarded"
     ],
     "git.ignoreLimitWarning": true

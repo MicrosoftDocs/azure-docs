@@ -67,8 +67,8 @@ The following table shows which types of storage accounts support ZRS in which r
 | Storage account type | Supported regions | Supported services |
 |--|--|--|
 | General-purpose v2<sup>1</sup> | Asia Southeast<br /> Australia East<br /> Europe North<br />  Europe West<br /> France Central<br /> Japan East<br /> South Africa North<br /> UK South<br /> US Central<br /> US East<br /> US East 2<br /> US West 2 | Block blobs<br /> Page blobs<sup>2</sup><br /> File shares (standard)<br /> Tables<br /> Queues<br /> |
-| BlockBlobStorage<sup>1</sup> | Asia Southeast<br /> Australia East<br /> Europe North<br /> Europe West<br /> Japan East<br /> US East <br /> US East 2 <br /> US West 2| Premium block blobs only |
-| FileStorage | Asia Southeast<br /> Australia East<br /> Europe North<br /> Europe West<br /> Japan East<br /> US East <br /> US East 2 <br /> US West 2 | Premium files shares only |
+| BlockBlobStorage<sup>1</sup> | Asia Southeast<br /> Australia East<br /> Europe North<br /> Europe West<br /> France Central <br /> Japan East<br /> UK South <br /> US East <br /> US East 2 <br /> US West 2| Premium block blobs only |
+| FileStorage | Asia Southeast<br /> Australia East<br /> Europe North<br /> Europe West<br /> France Central <br /> Japan East<br /> UK South <br /> US East <br /> US East 2 <br /> US West 2 | Premium files shares only |
 
 <sup>1</sup> The archive tier is not currently supported for ZRS accounts.<br />
 <sup>2</sup> Storage accounts that contain Azure managed disks for virtual machines always use LRS. Azure unmanaged disks should also use LRS. It is possible to create a storage account for Azure unmanaged disks that uses GRS, but it is not recommended due to potential issues with consistency over asynchronous geo-replication. Neither managed nor unmanaged disks support ZRS or GZRS. For more information on managed disks, see [Pricing for Azure managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -181,6 +181,14 @@ The following table indicates whether your data is durable and available in a gi
 | Read access to the secondary region is available if the primary region becomes unavailable | No | No | Yes (with RA-GRS) | Yes (with RA-GZRS) |
 
 <sup>1</sup> Account failover is required to restore write availability if the primary region becomes unavailable. For more information, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
+
+### Supported Azure Storage services
+
+The following table shows which redundancy options are supported by each Azure Storage service.
+
+| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br />Azure managed disks | Blob storage<br />Queue storage<br />Table storage<br />Azure Files | Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br /> | Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br /> |
 
 ### Supported storage account types
 

@@ -63,4 +63,4 @@ Logger.getInstance().setEnableLogcatLog(true);
 
 ## Next steps
 
-For more code samples, refer to [Microsoft identity platform code samples)](sample-v2-code.md).
+For more code samples, refer to [Microsoft identity platform code samples](sample-v2-code.md).

@@ -27,9 +27,6 @@ Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for eff
 
 Log Analytics Dedicated Clusters use a Capacity Reservation [pricing model](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) starting at 1000 GB/day.
 
-> [!IMPORTANT]
-> Due to temporary capacity constraints, we require you pre-register to before creating a cluster. Use your contacts into Microsoft, or open support request to register your subscriptions IDs.
-
 ## How Customer-managed key works in Azure Monitor
 
 Azure Monitor uses managed identity to grant access to your Azure Key Vault. The identity of the Log Analytics cluster is supported at the cluster level. To allow Customer-managed key protection on multiple workspaces, a new Log Analytics *Cluster* resource performs as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. The cluster's storage uses the managed identity that\'s associated with the *Cluster* resource to authenticate to your Azure Key Vault via Azure Active Directory. 
@@ -64,7 +61,6 @@ The following rules apply:
 
 ### Customer-Managed key provisioning steps
 
-1. Registering your subscription to allow cluster creation
 1. Creating Azure Key Vault and storing key
 1. Creating cluster
 1. Granting permissions to your Key Vault
@@ -103,10 +99,6 @@ Authorization: Bearer <token>
 ```
 
 ---
-
-### Allowing subscription
-
-Use your contacts into Microsoft or open support request in Log Analytics to provide your subscriptions IDs.
 
 ## Storing encryption key (KEK)
 

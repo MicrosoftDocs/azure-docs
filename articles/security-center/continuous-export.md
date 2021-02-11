@@ -21,6 +21,8 @@ Azure Security Center generates detailed security alerts and recommendations. Yo
 - Specific recommendations are delivered to an Event Hub or Log Analytics workspace whenever they're generated 
 - The secure score for a subscription is sent to a Log Analytics workspace whenever the score for a control changes by 0.01 or more 
 
+Even though the feature is called *continuous*, there's also an option to export weekly snapshots of secure score or regulatory compliance data.
+
 This article describes how to configure continuous export to Log Analytics workspaces or Azure Event Hubs.
 
 > [!NOTE]
@@ -34,7 +36,7 @@ This article describes how to configure continuous export to Log Analytics works
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|General Availability (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies</li></ul>|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov, Other Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (to Event Hub)|
@@ -73,6 +75,10 @@ The steps below are necessary whether you're setting up a continuous export to L
     Here you see the export options. There's a tab for each available export target. 
 
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
+1. Select the appropriate export frequency:
+    - **Streaming** – assessments will be sent in real-time when a resource’s health state is updated (if no updates occur, no data will be sent).
+    - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent every week (this is a preview feature for weekly snapshots of secure scores and regulatory compliance data).
+
 1. Optionally, if your selection includes one of these recommendations, you can include the vulnerability assessment findings together with them:
     - Vulnerability Assessment findings on your SQL databases should be remediated
     - Vulnerability Assessment findings on your SQL servers on machines should be remediated (Preview)

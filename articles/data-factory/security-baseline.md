@@ -9,7 +9,6 @@ ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
-
 ---
 
 # Azure security baseline for Azure Data Factory
@@ -958,7 +957,7 @@ Note that this only applies if your Integration Runtime is running in an Azure V
 
 For most scenarios, the Microsoft base VM templates combined with the Azure Automation Desired State Configuration can assist in meeting and maintaining the security requirements.
 
-* [Information on how to download the VM template](../virtual-machines/windows/download-template.md)
+* [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Information on creating Azure Resource Manager templates](../virtual-machines/windows/ps-template.md)
 
@@ -1232,7 +1231,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
 * [How to configure continuous export](../security-center/continuous-export.md)
 

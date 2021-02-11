@@ -149,7 +149,7 @@
 
 - name: Monitoring, auditing, and operations
   items:
-  - name: Advanced threat protection
+  - name: Threat protection
     href: threat-detection.md
   - name: Azure logging and auditing
     href: log-audit.md

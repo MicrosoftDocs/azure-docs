@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 01/28/2021
 ms.author: jeedes
 
 ---
@@ -66,7 +66,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Timeclock 365 SAML** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -106,7 +106,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Timeclock 365 SAML SSO
 
-1. Open a new tab in your browser, and sign in to your Timeclock 365 SAML company site as an administrator.
+1. To automate the configuration within Timeclock 365 SAML, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Set up Timeclock 365 SAML** will direct you to the Timeclock 365 SAML application. From there, provide the admin credentials to sign into Timeclock 365 SAML. The browser extension will automatically configure the application for you and automate steps 3-4.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to set up Timeclock 365 SAML manually, in a different web browser window, sign in to your Timeclock 365 SAML company site as an administrator.
 
 1. Perform the below mentioned steps.
 

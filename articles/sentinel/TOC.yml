@@ -2,6 +2,8 @@
   href: index.yml
 - name: Overview
   href: overview.md
+- name: What's new in Azure Sentinel?
+  href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -94,8 +96,14 @@
         href: connect-windows-security-events.md  
     - name: Connect external solutions
       items:
+      - name: Agari Phishing Defense and Brand Protection
+        href: connect-agari-phishing-defense.md
       - name: Alcide kAudit
         href: connect-alcide-kaudit.md
+      - name: Alsid for Active Directory
+        href: connect-alsid-active-directory.md
+      - name: Apache HTTP Server
+        href: connect-apache-http-server.md
       - name: Barracuda WAF
         href: connect-barracuda.md 
       - name: Barracuda CloudGen Firewall
@@ -104,6 +112,8 @@
         href: connect-better-mtd.md
       - name: Beyond Security beSECURE
         href: connect-besecure.md
+      - name: Cisco Umbrella
+        href: connect-cisco-umbrella.md
       - name: Cisco Unified Computing System
         href: connect-cisco-ucs.md
       - name: Citrix Analytics (Security)
@@ -162,6 +172,8 @@
           items:  
           - name: AI Vectra Detect
             href: connect-ai-vectra-detect.md
+          - name: Akamai Security Events
+            href: connect-akamai-security-events.md
           - name: Check Point
             href: connect-checkpoint.md
           - name: Cisco ASA
@@ -180,6 +192,8 @@
             href: connect-fortinet.md
           - name: Illusive Networks AMS
             href: connect-illusive-attack-management-system.md
+          - name: Imperva WAF Gateway
+            href: connect-imperva-waf-gateway.md
           - name: One Identity Safeguard
             href: connect-one-identity.md
           - name: Palo Alto Networks
@@ -196,6 +210,8 @@
             href: connect-zscaler.md   
         - name: STEP 3 Validate connectivity 
           href: connect-cef-verify.md
+    - name: Create custom connectors
+      href: create-custom-connector.md
     - name: Connect threat intelligence
       href: connect-threat-intelligence.md  
     - name: Connect Azure Stack VMs
@@ -225,7 +241,7 @@
       href: livestream.md
   - name: Remove Azure Sentinel
     href: offboard.md
-- name: Reference (New!)
+- name: Reference
   items:
   - name: Azure RBAC roles
     items:
@@ -245,14 +261,20 @@
     href: /connectors/azuresentinel/
   - name: Network normalization schema
     href: normalization-schema.md
+  - name: Data source schema reference
+    href: data-source-schema-reference.md
+  - name: Kusto Query Language
+    items:
+    - name: Kusto query overview
+      href: /azure/data-explorer/kusto/query/
+    - name: Kusto Query Language quick reference
+      href: /azure/data-explorer/kql-quick-reference
   - name: UEBA enrichments
     href: ueba-enrichments.md
 - name: Resources
   items:
   - name: Useful resources
     href: resources.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel
   - name: Azure Security, Privacy, & Compliance blog
     href: /archive/blogs/azuresecurity/
   - name: Regional availability
