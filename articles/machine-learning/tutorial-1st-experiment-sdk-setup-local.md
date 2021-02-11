@@ -11,6 +11,7 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
+adobe-target: true
 ---
 
 # Tutorial: Get started with Azure Machine Learning in your development environment (part 1 of 4)
