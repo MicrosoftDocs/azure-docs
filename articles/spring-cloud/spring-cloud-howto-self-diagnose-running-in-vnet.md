@@ -19,25 +19,25 @@ The following procedure starts diagnostics for networked applications.
 1. Open **Diagnose and solve problems** in the menu on the left navigation pane.
 1. Select the third category, **Networking**.
 
-    ![Self diagnostic title](media/spring-cloud-self-diagnose-vnet/self-diagostic-title.png)
+   ![Self diagnostic title](media/spring-cloud-self-diagnose-vnet/self-diagostic-title.png)
 
 ## View a diagnostic report
 After you click the **Networking** category, you can view two issues related to Networking specific to your VNet injected Azure Spring Cloud: **DNS Resolution** and **Required Outbound Traffic**.
 
-    ![Self diagnostic options](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-req-outbound-options.png)
+   ![Self diagnostic options](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-req-outbound-options.png)
 
 Find your target issue, and click it to view the diagnostic report. A summary of diagnostics will be displayed. Some results contain related documentation.
 
 If your Azure Spring Cloud resource has been deleted, you will see **Resource has been removed.**
-    ![Self diagnostic removed resource](media/spring-cloud-self-diagnose-vnet/self-diagostic-resource-removed.png)
+   ![Self diagnostic removed resource](media/spring-cloud-self-diagnose-vnet/self-diagostic-resource-removed.png)
 
 If your Azure Spring Cloud resource is not deployed in your own virtual network, you will see the following result.
-    ![Self diagnostic not VNET](media/spring-cloud-self-diagnose-vnet/self-diagostic-resource-is-not-vnet.png)
+   ![Self diagnostic not VNET](media/spring-cloud-self-diagnose-vnet/self-diagostic-resource-is-not-vnet.png)
 
 Different subnets will display the results separately.
 ### DNS Resolution 
 Healthy applications show results such as the following:
-    ![DNS healthy](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-healthy.png)
+   ![DNS healthy](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-healthy.png)
 
 The following diagnostic report example assumes the context end time is **2021-01-21T11:22:00Z**. The latest TIMESTAMP in the **DNS Resolution Table Renderings** was the previous day, more than **30 minutes** from the context end time, so the health status will be unknown. The health check log may not have been sent out because of the blocked network. 
 
@@ -53,11 +53,13 @@ Healthy applications show results such as the following:
     ![Endpoint healthy](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-healthy.png)
 
 If any of your subnet is blocked by NSG or firewall rules, you will find the following failures if you have not blocked the log. You can check whether you overlooked any [Customer Responsibilities](spring-cloud-vnet-customer-responsibilities.md).
-    ![Endpoint failed](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-failed.png)
+    
+   ![Endpoint failed](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-failed.png)
 
 If there are no data in `Required Outbound Traffic Table Renderings` within 30 minutes, the result will be `health status unknown`. 
 Maybe your network is blocked or the Log service is down.
-    ![Diagnostic endpoint unknown](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-unknown.png)
+
+   ![Diagnostic endpoint unknown](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-unknown.png)
 
 ## See also
 * [How to self diagnose Azure Spring Cloud](spring-cloud-howto-self-diagnose-solve.md)
