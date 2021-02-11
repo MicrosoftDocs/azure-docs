@@ -54,18 +54,8 @@ Create a `train.py` script in the `src` subdirectory:
 
 You now have the following directory structure:
 
-```txt
-tutorial
-└──.azureml
-|  └──config.json
-└──src
-|  └──hello.py
-|  └──model.py
-|  └──train.py
-└──01-create-workspace.py
-└──02-create-compute.py
-└──03-run-hello.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="Directory structure shows train.py in src subdirectory":::
+
 
 > [!div class="nextstepaction"]
 > [I created the training scripts](?success=create-scripts#environment) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=create-scripts)

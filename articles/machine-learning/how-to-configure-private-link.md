@@ -69,6 +69,19 @@ The [Azure CLI extension for machine learning](reference-azure-machine-learning-
 * `--pe-vnet-name`: The existing virtual network to create the private endpoint in.
 * `--pe-subnet-name`: The name of the subnet to create the private endpoint in. The default value is `default`.
 
+These parameters are in addition to other required parameters for the create command. For example, the following command creates a new workspace in the West US region, using an existing resource group and VNet:
+
+```azurecli
+az ml workspace create -r myresourcegroup \
+    -l westus \
+    -n myworkspace \
+    --pe-name myprivateendpoint \
+    --pe-auto-approval \
+    --pe-resource-group myresourcegroup \
+    --pe-vnet-name myvnet \
+    --pe-subnet-name mysubnet
+```
+
 # [Portal](#tab/azure-portal)
 
 The __Networking__ tab in Azure Machine Learning studio allows you to configure a private endpoint. However, it requires an existing virtual network. For more information, see [Create workspaces in the portal](how-to-manage-workspace.md).

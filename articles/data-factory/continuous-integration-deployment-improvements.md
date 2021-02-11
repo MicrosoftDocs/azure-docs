@@ -1,14 +1,10 @@
 ---
 title: Automated publishing for continuous integration and delivery
 description: Learn how to publish for continuous integration and delivery automatically.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: maghan
-manager: weetok
 ms.topic: conceptual
 ms.date: 02/02/2021
 ---
