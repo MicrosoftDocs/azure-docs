@@ -3,7 +3,7 @@ title: Plan Azure Active Directory My Apps configuration
 description: Planning guide to effectively use My Apps in your organization.
 services: active-directory
 author: barbaraselden
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -16,7 +16,7 @@ ms.reviewer: baselden
 # Plan Azure Active Directory My Apps configuration
 
 > [!NOTE]
-> This article is designed for IT professionals who need to plan the configuration of their organization’s My Apps portal. For information for the end user about how to use My Apps and collections, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+> This article is designed for IT professionals who need to plan the configuration of their organization’s My Apps portal. 
 >
 > **For end user documentation, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md)**.
 

@@ -3,7 +3,7 @@ title: Understand password-based single sign-on (SSO) for apps in Azure Active D
 description: Understand password-based single sign-on (SSO) for apps in Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

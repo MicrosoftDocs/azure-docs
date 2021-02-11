@@ -1,0 +1,23 @@
+### YamlMime:Landing
+
+title: Device Update for IoT Hub documentation
+summary: Device Update for IoT Hub is a service that enables you to deploy over-the-air updates (OTA) for your IoT devices.
+
+metadata:
+  title: Device Update for IoT Hub documentation
+  description: Device Update for IoT Hub is a service that enables you to deploy over-the-air updates (OTA) for your IoT devices.
+  services: iot-hub
+  ms.service: iot-hub
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  manager: philmea
+  ms.date: 1/29/2021
+
+landingContent:
+  - title: About Device Update
+    linkLists:
+    - linkListType: overview
+      links:
+        - text: What is Device Update for IoT Hub?
+          url: understand-device-update.md

@@ -3,7 +3,6 @@ title: Mapping data flow transformation overview
 description: An overview of the different transformations available in mapping data flow
 author: dcstwh
 ms.author: weetok
-manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020

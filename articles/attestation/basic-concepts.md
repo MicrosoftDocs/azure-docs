@@ -7,6 +7,7 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
+ms.custom: references_regions
 ---
 
 # Basic Concepts
@@ -25,9 +26,9 @@ Below are some basic concepts related to Microsoft Azure Attestation.
 
 Attestation provider belongs to Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](../azure-resource-manager/management/overview.md). Each attestation provider honors a specific, discoverable policy. Attestation providers get created with a default policy for each attestation type (note that VBS enclave has no default policy). See [examples of an attestation policy](policy-examples.md) for more details on the default policy for SGX.
 
-### Regional default provider
+### Regional shared provider
 
-Azure Attestation provides a default provider in each region. Customers can choose to use the default provider for attestation, or create their own providers with custom policies. The default providers are accessible by any Azure AD user and the policy associated with a default provider cannot be altered.
+Azure Attestation provides a regional shared provider in every available region. Customers can choose to use the regional shared provider for attestation, or create their own providers with custom policies. The shared providers are accessible by any Azure AD user and the policy associated with it cannot be altered.
 
 | Region | Attest Uri | 
 |--|--|

@@ -14,7 +14,7 @@ ms.author: v-demjoh
 Follow these steps to install the Speech CLI on Windows:
 
 1. On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Installing this for the first time may require a restart.
-1. Install [.NET Core 3.1](/dotnet/core/install/linux.md).
+1. Install [.NET Core 3.1](/dotnet/core/install/linux).
 2. Install the Speech CLI using NuGet by entering this command:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
@@ -25,14 +25,6 @@ Type `spx` to see help for the Speech CLI.
 > As an alternative to NuGet, you can download and extract the Speech CLI [zip archive](https://aka.ms/speech/spx-zips.zip), 
 > find and extract your platform from the `spx-zips` directory, and add the `spx` path to your system **PATH** variable.
 
-### Run the Speech CLI
-
-1. Open the command prompt or PowerShell, then navigate to the directory where you extracted the Speech CLI.  
-2. Type `spx` to see help commands for the Speech CLI.
-
-> [!NOTE]
-> Powershell does not check the local directory when looking for a command. In Powershell, change directory to the location of `spx` and call the tool by entering `.\spx`.
-> If you add this directory to your path, Powershell and the Windows command prompt will find `spx` from any directory without including the `.\` prefix.
 
 ### Font limitations
 
@@ -45,7 +37,7 @@ If you output to a file, a text editor like Notepad or a web browser like Micros
 
 Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 
-1. Install [.NET Core 3.1](/dotnet/core/install/linux.md).
+1. Install [.NET Core 3.1](/dotnet/core/install/linux).
 2. Install the Speech CLI using NuGet by entering this command:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`

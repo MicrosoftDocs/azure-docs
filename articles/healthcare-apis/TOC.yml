@@ -127,6 +127,10 @@
       href: iot-data-flow.md
     - name: Azure IoT Connector for FHIR (preview) mapping templates
       href: iot-mapping-templates.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      href: ./security-controls-policy.md
 - name: Resources
   items:
   - name: FAQ

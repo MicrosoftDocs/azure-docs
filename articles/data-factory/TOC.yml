@@ -209,7 +209,7 @@
     href: naming-rules.md
   - name: Data redundancy
     href: concepts-data-redundancy.md
-- name: How-to guides
+- name: How-to guides 
   items:
   - name: Author
     items:
@@ -223,6 +223,8 @@
       href: source-control.md
     - name: Continuous integration and delivery
       href: continuous-integration-deployment.md
+    - name: Automated publish
+      href: continuous-integration-deployment-improvements.md
   - name: Connectors
     items:
     - name: Connector overview
@@ -716,6 +718,10 @@
         href: data-migration-guidance-hdfs-azure-storage.md
       - name: Migrate data from on-premises Netezza server to Azure
         href: data-migration-guidance-netezza-azure-sqldw.md
+    - name: Azure Machine Learning
+      items:
+      - name: Data ingestion
+        href: ../machine-learning/how-to-data-ingest-adf.md?toc=/azure/data-factory/toc.json&bc=/azure/data-factory/breadcrumb/toc.json
     - name: Transformation using mapping data flow
       items:
       - name: Process fixed-width text files
@@ -754,6 +760,10 @@
       href: solution-template-databricks-notebook.md
   - name: Understanding pricing
     items:
+    - name: Data flow reserved capacity overview
+      href: data-flow-reserved-capacity-overview.md
+    - name: Data flow understand reservation charges
+      href: data-flow-understand-reservation-charges.md
     - name: Plan and manage costs     
       href: plan-manage-costs.md 
     - name: Pricing examples     
@@ -796,6 +806,8 @@
     href: /azure/templates/microsoft.datafactory/allversions
   - name: Python
     href: /python/api/overview/azure/datafactory
+  - name: Azure Policy built-ins
+    href: policy-reference.md
 - name: Resources
   items:
   - name: Whitepapers
