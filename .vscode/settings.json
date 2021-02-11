@@ -64,5 +64,9 @@
         "covid",
         "onboarded"
     ],
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "cSpell.ignoreWords": [
+        "callbackregistrations",
+        "preprod"
+    ]
 }
