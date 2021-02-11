@@ -17,7 +17,7 @@ ms.author: duau
 # Quickstart: Create an Azure Front Door Standard/Premium profile - Azure portal
 
 > [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
+> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
 
 Get started with Azure Front Door by using the Azure portal to configure a secure and high availability web application. When you can create an Azure Front Door profile, you can select either the *Quick Create* or *Custom Create* experience.
 

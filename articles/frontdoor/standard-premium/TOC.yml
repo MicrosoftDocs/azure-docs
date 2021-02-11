@@ -14,7 +14,7 @@
   - name: Endpoint Manager
     href: concept-endpoint-manager.md
   - name: Private Endpoints
-    hred: concept-private-endpoints.md
+    href: concept-private-endpoints.md
 - name: How-to guides
   items:
   - name: Configure Endpoint Manager

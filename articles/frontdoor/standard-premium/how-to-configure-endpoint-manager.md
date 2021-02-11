@@ -12,7 +12,7 @@ ms.author: qixwang
 # Configure an Azure Front Door Standard/Premium (Preview) Endpoint with Endpoint Manager
 
 > [!NOTE]
-> * This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View **[here](../front-door-overview.md)**.
+> * This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View **[Azure Front Door Docs](../front-door-overview.md)**.
 
 This article shows you how to create an Azure Front Door (AFD) endpoint for an existing Azure Front Door profile with Endpoint Manager.
 
@@ -106,7 +106,7 @@ Load-balancing settings for the origin group define how we evaluate health probe
 
 Select **Add** to add the origin group to current endpoint. The origin group should appear within the Origin group panel
 
-:::image type="content" source="../media/how-to-configure-endpoint-manager/orgin-in-origin-group.png" alt-text="Screenshot of origins in origin group.":::
+:::image type="content" source="../media/how-to-configure-endpoint-manager/origin-in-origin-group.png" alt-text="Screenshot of origins in origin group.":::
 
 ### Add Route
 

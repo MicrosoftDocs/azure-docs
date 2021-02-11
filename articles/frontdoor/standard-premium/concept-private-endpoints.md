@@ -1,5 +1,5 @@
 ---
-title: 'Azure Front Door: Secure your Origin with Private Link'
+title: 'Azure Front Door: Secure your origin with private link'
 description: This page provides information about how to secure connectivity to your origin using Private Link.
 services: frontdoor
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.custom: references_regions
 # Secure your Origin with Private Link
 
 > [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
+> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
 
 ## Overview
 
