@@ -14,7 +14,9 @@ This document describes encryption standards needed for Azure FXT Edge Filer. Th
 
 These standards apply to [Avere vFXT for Azure](../avere-vfxt/index.yml) as well as to Azure FXT Edge Filer.
 
-Any administrative or infrastructure system that connects to the Azure FXT Edge Filer cache or to individual nodes must meet these standards. Client machines that mount the cache don't need to meet all of these requirements, but you should use reasonable efforts to ensure their security.
+Any administrative or infrastructure system that connects to the Azure FXT Edge Filer cache or to individual nodes must meet these standards.
+
+(Client machines mount the cache using NFS, so these encryption requirements don't apply. Use other reasonable measures to ensure their security.)
 
 ## TLS standard
 

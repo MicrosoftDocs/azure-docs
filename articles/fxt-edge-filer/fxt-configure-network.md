@@ -74,6 +74,8 @@ If you need to upload certificates to the cluster, use the **Cluster** > **Certi
 
 To encrypt cluster management communication, use the **Cluster** > **General Setup** settings page to select which certificate to use for administrative TLS.
 
+Make sure your administrative machines meet the cluster's [encryption standards](fxt-supported-ciphers.md).
+
 > [!Note]
 > Cloud service access keys are stored by using the **Cloud Credentials** configuration page. The [Add a core filer](fxt-add-storage.md#add-a-core-filer) section above shows an example; read the Cluster Configuration Guide [Cloud Credentials](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) section for details.
 
@@ -101,7 +103,7 @@ For optimal performance, configure your DNS server to handle client-facing clust
 
 A cluster vserver is shown on the left, and IP addresses appear in the center and on the right. Configure each client access point with A records and pointers as illustrated.
 
-![Cluster round-robin DNS diagram - detailed alt text link follows image](media/fxt-cluster-config/fxt-rrdns-diagram.png) 
+![Cluster round-robin DNS diagram - detailed alt text link follows image](media/fxt-cluster-config/fxt-rrdns-diagram.png)
 [detailed text description](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
 
 Each client-facing IP address must have a unique name for internal use by the cluster. (In this diagram, the client IPs are named vs1-client-IP-* for clarity, but in production you should probably use something more concise, like client*.)
