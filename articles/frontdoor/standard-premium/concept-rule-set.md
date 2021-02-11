@@ -53,7 +53,7 @@ In the following diagram, WAF policies get executed first. A Rule Set gets confi
 
 With Azure Front Door Rule Set, you can create a combination of Rules Set configuration, each composed of a set of rules. The following out lines some helpful terminologies you'll come across when configuring your Rule Set.
 
-For more quota limit, refer to [Azure subscription and service limits, quotas and constraints](../../azure-resource-manager/management/azure-subscription-service-limits).
+For more quota limit, refer to [Azure subscription and service limits, quotas and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 * *Rules set*: A set of rules that gets associated to one or multiple [Routes](concept-route.md). Each configuration is limited to 25 rules. You can create up to 10 configurations.
 

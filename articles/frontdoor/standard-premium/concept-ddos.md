@@ -43,7 +43,7 @@ Front Door is a massively scaled, globally distributed service. We have many cus
 [Front Door's Web Application Firewall (WAF)](../../web-application-firewall/afds/afds-overview.md) can be used to mitigate many different types of attacks:
 
 * Using the managed rule set provides protection against many common attacks.
-* Traffic from outside a defined geographic region, or within a defined region, can be blocked or redirected to a static webpage. For more information, see [Geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md).
+* Traffic from outside a defined geographic region, or within a defined region, can be blocked or redirected to a static webpage. For more information, see [Geo-filtering](../../web-application-firewall/afds/waf-front-door-geo-filtering.md).
 * IP addresses and ranges that you identify as malicious can be blocked.
 * Rate limiting can be applied to prevent IP addresses from calling your service too frequently.
 * You can create [custom WAF rules](../../web-application-firewall/afds/waf-front-door-custom-rules.md) to automatically block and rate limit HTTP or HTTPS attacks that have known signatures.

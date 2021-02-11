@@ -147,6 +147,5 @@ Preserve unmatched path | If set to **Yes**, the remaining path after the source
 
 ## Next steps
 
-* Learn how to configure your first [Rules Set](how-to-configure-rule-set.md). 
 * Learn more about [Azure Front Door Rule Set](concept-rule-set.md)
 * Learn more about [Rule Set Match Conditions](concept-rule-set-match-conditions.md)
