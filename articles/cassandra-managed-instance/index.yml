@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Managed Instance for Apache Cassandra documentation # < 60 chars
-summary: Go beyond lift and shift in Apache Cassandra with flexible and secure database management, instance-based pricing and no licensing fees. # < 160 chars
+summary: Go beyond lift and shift in Apache Cassandra with flexible and secure database management, instance-based pricing, and no licensing fees. # < 160 chars
 
 metadata:
   title: Azure Managed Instance for Apache Cassandra # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Go beyond lift and shift in Apache Cassandra with flexible and secure database management, instance-based pricing and no licensing fees. # Required; article description that is displayed in search results. < 160 chars.
+  description: Go beyond lift and shift in Apache Cassandra with flexible and secure database management, instance-based pricing, and no licensing fees. # Required; article description that is displayed in search results. < 160 chars.
   services: service
   ms.service: cassandra-managed-instance #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
