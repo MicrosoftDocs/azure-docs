@@ -154,13 +154,9 @@ To enable your global Azure subscription, create a support request in the Azure 
 
    :::image type="content" source="media/germany-migration-databases/support-request-solutions.png" alt-text="required support request information":::
 
-4. On the details page, provide the following required information:
-   1. For **Description**, enter the source (Azure Germany) and target (global Azure) subscription IDs for the migration:
-      |ID|Subscription ID (Azure Germany)|Subscription ID (global Azure)|
-      |:--|:--|:--|
-      |1 |sub ID for the source subscription|sub ID for the target subscription|
-      |2 | To migrate to multiple subscriptions, add more global Azure sub IDs|sub ID for the target subscription|
+4. On the details page, provide the following:
 
+   1. In the Description box, enter your global Azure subscription ID to migrate to. To migrate to multiple subscriptions, add a comma separated list of global Azure IDs.
    1. Provide contact information: name, company name, email or phone number.
    1. Complete the form, then select **Next: Review + create**.
 
