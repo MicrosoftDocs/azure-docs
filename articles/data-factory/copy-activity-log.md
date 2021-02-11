@@ -99,8 +99,9 @@ After the copy activity runs completely, you can see the path of log files from 
         }
 
 ```
+
 > [!NOTE]
-> When the 'enableCopyActivityLog' property is set to Enabled, the log file names are system generated.
+> When the `enableCopyActivityLog` property is set to `Enabled`, the log file names are system generated.
 
 ### The schema of the log file
 
