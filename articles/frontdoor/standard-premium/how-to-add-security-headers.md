@@ -62,4 +62,4 @@ If you want to delete a Rule Set, make sure you disassociate it from all routes 
 To learn how to configure a Web Application Firewall for your Front Door, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Web Application Firewall and Front Door](../../web-application-firewall/afds/afds-overview)
+> [Web Application Firewall and Front Door](../../web-application-firewall/afds/afds-overview.md)
