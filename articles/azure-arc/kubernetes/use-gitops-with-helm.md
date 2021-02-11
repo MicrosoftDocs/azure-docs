@@ -1,5 +1,5 @@
 ---
-title: "Deploy Helm Charts using GitOps on Arc-enabled Kubernetes cluster(Preview)"
+title: "Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster(Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
@@ -7,21 +7,21 @@ ms.date: 02/09/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: "Use GitOps with Helm for an Azure Arc-enabled cluster configuration (Preview)"
+description: "Use GitOps with Helm for an Azure Arc enabled cluster configuration (Preview)"
 keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers"
 ---
 
-# Deploy Helm Charts using GitOps on Arc-enabled Kubernetes cluster (Preview)
+# Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster (Preview)
 
 Helm is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers like APT and Yum, Helm is used to manage Kubernetes charts, which are packages of pre-configured Kubernetes resources.
 
-This article shows you how to configure and use Helm with Azure Arc-enabled Kubernetes.
+This article shows you how to configure and use Helm with Azure Arc enabled Kubernetes.
 
 ## Before you begin
 
-Verify you have an existing Azure Arc-enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc-enabled Kubernetes cluster quickstart](./connect-cluster.md).
+Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./connect-cluster.md).
 
-## Overview of using GitOps and Helm with Azure Arc-enabled Kubernetes
+## Overview of using GitOps and Helm with Azure Arc enabled Kubernetes
 
  The Helm operator provides an extension to Flux that automates Helm Chart releases. A Helm Chart release is described via a Kubernetes custom resource named HelmRelease. Flux synchronizes these resources from Git to the cluster, while the Helm operator makes sure Helm Charts are released as specified in the resources.
 
