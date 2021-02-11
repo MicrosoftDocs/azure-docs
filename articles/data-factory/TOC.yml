@@ -558,6 +558,8 @@
       href: data-flow-lookup.md
     - name: New branch
       href: data-flow-new-branch.md
+    - name: Parse
+      href: data-flow-parse.md
     - name: Pivot
       href: data-flow-pivot.md
     - name: Rank
