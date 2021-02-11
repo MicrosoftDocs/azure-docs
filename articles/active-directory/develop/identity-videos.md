@@ -22,37 +22,36 @@ Learn the basics of modern authentication, the Microsoft identity platform, and 
 ## Microsoft identity platform for developers
 
 Learn the key components and capabilities of the Microsoft identity platform.
+
 ___
+
 :::row:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank"> <img src="./media/identity-videos/id-for-devs-07.jpg" alt="Video thumbnail for a video about the basics of modern authentication on the Microsoft identity platform."> </a>
+  :::column:::
+        <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank">The basics of modern authentication - Microsoft identity platform</a>(12:28)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank"> <img src="./media/identity-videos/id-for-devs-08.jpg" alt="Video thumbnail for a video about modern authentication and the Microsoft identity platform." class="mx-imgBorder"> </a>
+        <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank"> <img src="./media/identity-videos/id-for-devs-07.jpg" alt="Video thumbnail for a video about the basics of modern authentication on the Microsoft identity platform."></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank">Modern authentication: how we got here – Microsoft identity platform</a>(15:47)
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank"> <img src="./media/identity-videos/id-for-devs-08.jpg" alt="Video thumbnail for a video about modern authentication and the Microsoft identity platform." class="mx-imgBorder"></a>
     :::column-end:::
 :::row-end:::
 :::row:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank">The basics of modern authentication - Microsoft identity platform </a> (12:28)
+  :::column:::
+        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank">Overview: Implementing single sign-on in mobile applications - Microsoft Identity Platform</a> (20:30)
     :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank">Modern authentication: how we got here – Microsoft identity platform </a> (15:47)
-    :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank"> <img src="./media/identity-videos/mobile-single-sign-on.jpg" alt="Video thumbnail for a video about implementing mobile single sign on using the Microsoft identity platform."></a> (20:30)
     :::column-end:::
     :::column:::
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=JpeMeTjQJ04" target="_blank">Overview: Implementing single sign-on in mobile applications - Microsoft Identity Platform </a> (20:30)
     :::column-end:::
-            :::column:::
-:::column-end:::
 :::row-end:::
+
 
 <!-- IMAGES -->
 [id-plat-06-img]: ./media/identity-videos/id-for-devs-07.jpg
