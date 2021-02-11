@@ -216,8 +216,8 @@
         href: azure-to-azure-how-to-reprotect.md
       - name: Set up disaster recovery for Azure VMs after migration to Azure
         href: azure-to-azure-replicate-after-migration.md
-  - name: Zone to Zone disaster recovery
-    href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
+      - name: Zone to Zone disaster recovery
+        href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
     - name: Manage
       items:
       - name: Update the Mobility Service for Azure VMs
