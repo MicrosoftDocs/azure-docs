@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: nibaccam
 author: aniththa
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
+ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
 ---
@@ -86,7 +86,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
         Select **Next**.
 1. Select your newly created dataset once it appears. You are also able to view a preview of the dataset and sample statistics. 
 
-1. On the **Configure run** form, enter a unique experiment name.
+1. On the **Configure run** form, select **Create new** and enter **Tutorial-automl-deploy** for the experiment name.
 
 1. Select a target column; this is the column that you would like to do predictions on.
 
@@ -159,7 +159,7 @@ Impute with| Select what value to impute missing values with in your data.
 Select **Finish** to run your experiment. The experiment preparing process can take up to 10 minutes. Training jobs can take an additional 2-3 minutes more for each pipeline to finish running.
 
 > [!NOTE]
-> The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended models final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
+> The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended model's final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
 
 ### View experiment details
 
@@ -167,7 +167,7 @@ The **Run Detail** screen opens to the **Details** tab. This screen shows you a 
 
 The **Models** tab contains a list of the models created ordered by the metric score. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they are added to the list. Use this to get a quick comparison of the metrics for the models produced so far.
 
-[![Run details dashboard](media/how-to-use-automated-ml-for-ml-models/run-details.png)](media/how-to-use-automated-ml-for-ml-models/run-details-expanded.png#lightbox)
+![Run detail](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
 
 ### View training run details
 
@@ -211,10 +211,10 @@ Automated ML helps you with deploying the model without writing code:
 1. Select **Deploy**. Deployment can take about 20 minutes to complete.
     Once deployment begins, the **Model summary** tab appears. See the deployment progress under the **Deploy status** section. 
 
-Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI's built in Azure Machine Learning support](how-to-consume-web-service.md#consume-the-service-from-power-bi).
+Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI's built in Azure Machine Learning support](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context).
 
 ## Next steps
 
-* [Learn how to consume a web service](./how-to-consume-web-service.md).
+* [Learn how to consume a web service](how-to-consume-web-service.md).
 * [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.

@@ -127,7 +127,7 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
-For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md#hosting-plans-comparison).
+For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md).
 
 ## Azure Kubernetes Service limits
 
@@ -170,6 +170,14 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 ## Azure Policy limits
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
+
+## Azure Quantum limits
+
+[!INCLUDE [quantum-limits](../../../includes/azure-quantum-limits.md)]
+
+## Azure role-based access control limits
+
+[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control/limits.md)]
 
 ## Azure SignalR Service limits
 
@@ -335,10 +343,6 @@ The latest values for Azure Purview quotas can be found in the [Azure Purview qu
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
-## Azure role-based access control limits
-
-[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
-
 ## Service Bus limits
 
 [!INCLUDE [azure-servicebus-limits](../../../includes/service-bus-quotas-table.md)]
@@ -355,6 +359,9 @@ For SQL Database limits, see [SQL Database resource limits for single databases]
 
 For Azure Synapse Analytics limits, see [Azure Synapse resource limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
+## Azure Files and Azure File Sync
+To learn more about the limits for Azure Files and File Sync, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).
+
 ## Storage limits
 
 <!--like # storage accts -->
@@ -369,16 +376,6 @@ For more information on limits for standard storage accounts, see [Scalability t
 ### Azure Blob storage limits
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
-
-### Azure Files limits
-
-For more information on Azure Files limits, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).
-
-[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
-
-### Azure File Sync limits
-
-[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### Azure Queue storage limits
 
@@ -397,7 +394,7 @@ For more information, see [Virtual machine sizes](../../virtual-machines/sizes.m
 
 #### Disk encryption sets
 
-There's a limitation of 50 disk encryption sets per region, per subscription. For more
+There's a limitation of 1000 disk encryption sets per region, per subscription. For more
 information, see the encryption documentation for
 [Linux](../../virtual-machines/disk-encryption.md#restrictions) or
 [Windows](../../virtual-machines/disk-encryption.md#restrictions) virtual machines. If you

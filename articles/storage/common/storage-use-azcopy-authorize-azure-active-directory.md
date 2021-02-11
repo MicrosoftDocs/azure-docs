@@ -4,7 +4,7 @@ description: You can provide authorization credentials for AzCopy operations by 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 12/17/2020
 ms.author: normesta
 ms.subservice: common
 ---
@@ -180,7 +180,9 @@ Replace the `<path-to-certificate-file>` placeholder with the relative or fully 
 
 ## Authorize without a secret store
 
-If your operating system doesn't have a secret store such as a Linux *keyring*, the `azcopy login` command won't work. Instead, you can set in-memory environment variables prior to running each operation. 
+The `azcopy login` command retrieves an OAuth token and then places that token into a secret store on your system. If your operating system doesn't have a secret store such as a Linux *keyring*, the `azcopy login` command won't work because there is nowhere to place the token. 
+
+Instead of using the `azcopy login` command, you can set in-memory environment variables. Then run any AzCopy command. AzCopy will retrieve the Auth token required to complete the operation. After the operation completes, the token disappears from memory. 
 
 ### Authorize a user identity
 
@@ -243,8 +245,6 @@ Replace the `<resource-id>` placeholder with the resource ID of the user-assigne
 After you set these variables, you can run any azcopy command (For example: `azcopy list https://contoso.blob.core.windows.net`).
 
 ### Authorize a service principal
-
-Before you run a script, you have to sign in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information.
 
 You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration.
 

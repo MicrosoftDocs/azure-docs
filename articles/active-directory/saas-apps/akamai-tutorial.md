@@ -48,7 +48,7 @@ Microsoft and Akamai EAA partnership allows the flexibility to meet your busines
 
 #### Integration Scenario 1
 
-Akamai EAA is configured as a single application on the Azure AD. Admin can configure the CA Policy on the Application and once the conditions are satisfied users can gain access to the Akamai EAA Portal.
+Akamai EAA is configured as a single application on the Azure AD. Admin can configure the Conditional Access policy on the Application and once the conditions are satisfied users can gain access to the Akamai EAA Portal.
 
 **Pros**:
 
@@ -58,13 +58,13 @@ Akamai EAA is configured as a single application on the Azure AD. Admin can conf
 
 * Users end up having two applications portals
 
-* Single Common CA Policy coverage for all Applications.
+* Single Common Conditional Access policy coverage for all Applications.
 
 ![Integration Scenario 1](./media/header-akamai-tutorial/scenario1.png)
 
 #### Integration Scenario 2
 
-Akamai EAA Application is set up individually on the Azure AD Portal. Admin can configure Individual he CA Policy on the Application(s) and once the conditions are satisfied users can directly be redirected to the specific application.
+Akamai EAA Application is set up individually on the Azure AD Portal. Admin can configure Individual he Conditional Access policy on the Application(s) and once the conditions are satisfied users can directly be redirected to the specific application.
 
 **Pros**:
 

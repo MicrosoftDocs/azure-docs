@@ -12,14 +12,6 @@ ms.service: azure-communication-services
 - A working [Communication Services calling app](../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
 
-## Enable Teams Interoperability
-
-The Teams interoperability feature is currently in private preview. To enable this feature for your Communication Services resource, please email [acsfeedback@microsoft.com](mailto:acsfeedback@microsoft.com) with:
-
-1. The Subscription ID of the Azure subscription that contains your Communication Services resource.
-2. Your Teams tenant ID. The easiest way to obtain this is to [obtain and share a link to the Team](https://support.microsoft.com/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f).
-
-You must be a member of the owning organization of both entities to use this feature.
 
 ## Add the Teams UI controls
 
@@ -70,7 +62,7 @@ const callStateElement = document.getElementById('call-state');
 async function init() {
     const callClient = new CallClient();
     const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
-    callAgent = await callClient.createCallAgent(tokenCredential);
+    callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'ACS user'});
     teamsMeetingJoinButton.disabled = false;
 }
 init();
@@ -85,11 +77,7 @@ hangUpButton.addEventListener("click", async () => {
     callStateElement.innerText = '-';
   });
 
-teamsMeetingJoinButton.addEventListener("click", () => {
-    
-    // set display name in the meeting
-    callAgent.updateDisplayName('ACS user');
-    
+teamsMeetingJoinButton.addEventListener("click", () => {    
     // join with meeting link
     call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
     

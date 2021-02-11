@@ -6,7 +6,7 @@ author: radwiv
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: radwiv
 ---
 
@@ -27,6 +27,7 @@ The following examples of JSON and a JSON schema provide explanations of each pr
 - You can't run multiple gateway-wide packet captures at the same time.
 - You can't run multiple packet captures on a single connection at the same time. You can run multiple packet captures on different connections at the same time.
 - A maximum of five packet captures can be run in parallel per gateway. These packet captures can be a combination of gateway-wide packet captures and per-connection packet captures.
+- The unit for MaxPacketBufferSize is bytes and MaxFileSize is megabytes
 
 ### Example JSON
 ```JSON-interactive

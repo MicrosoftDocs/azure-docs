@@ -30,7 +30,7 @@ landingContent:
           - text: Azure Firewall rule processing logic
             url: rule-processing.md
           - text: Frequently asked questions
-            url: firewall-faq.md
+            url: firewall-faq.yml
       - linkListType: whats-new
         links:
           - text: What's new

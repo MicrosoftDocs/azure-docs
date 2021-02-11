@@ -48,19 +48,10 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v
 
 reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Debug /v ContentDeliveryAllowedOverride /t REG_DWORD /d 0x2 /f
 
-rem Disable Windows Update:
-
-sc config wuauserv start=disabled
-```
-
-After you've disabled automatic updates, you must enable Hyper-V because you'll be using the `Mount-VHD` command to stage and and Dismount-VHD to destage.
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 
 >[!NOTE]
->This change will require that you restart the virtual machine.
+>We recommend that you restart the virtual machine after enabling Hyper-V.
 
 ## Configure the MSIX app attach management interface
 
@@ -68,7 +59,7 @@ Next, you'll need to download and configure the the MSIX app attach management i
 
 To set up the management interface:
 
-1. [Open the preview portal](https://preview.portal.azure.com/?feature.msixapplications=true#home).
+1. [Open the Azure portal](https://portal.azure.com).
 2. If you get a prompt asking if you consider the extension trustworthy, select **Allow**.
 
       > [!div class="mx-imgBorder"]

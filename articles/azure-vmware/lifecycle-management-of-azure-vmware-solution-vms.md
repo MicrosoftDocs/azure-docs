@@ -2,7 +2,7 @@
 title: Lifecycle management of Azure VMware Solution VMs
 description: Learn to manage all aspects of the lifecycle of your Azure VMware Solution VMs with Microsoft Azure native tools.
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 02/08/2021
 ---
 
 # Lifecycle management of Azure VMware Solution VMs
@@ -76,13 +76,13 @@ Azure Security Center does not require deployment. For more information, see a l
 
 Azure Arc extends Azure management to any infrastructure, including Azure VMware Solution, on-premises, or other cloud platforms.
 
-- See [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md) to enable Azure Arc enabled servers for multiple Windows or Linux VMs.
+- For information on enabling Azure Arc enabled servers for multiple Windows or Linux VMs, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md).
 
 ### Onboard hybrid Kubernetes clusters with Arc enabled Kubernetes
 
 You can attach a Kubernetes cluster hosted in your Azure VMware Solution environment using Azure Arc enabled Kubernetes. 
 
-- See [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
+- For more information, see [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
 ### Deploy the Log Analytics agent
 
@@ -105,3 +105,11 @@ Azure Monitor is a comprehensive solution for collecting, analyzing, and acting 
     - [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/platform/alerts-log.md).
     - [Action rules](../azure-monitor/platform/alerts-action-rules.md) to set automated actions and notifications.
     - [Connect Azure to ITSM tools using IT Service Management Connector](../azure-monitor/platform/itsmc-overview.md).
+    
+ ## Next steps
+
+Now that you've covered using Azure's native tools to manage your Azure VMware Solution VMs throughout their lifecycle, you may want to learn about:
+
+- [Protecting your Azure VMware Solution VMs with Azure Security Center](azure-security-integration.md).
+- [Setting up Azure Backup Server for Azure VMware Solution](set-up-backup-server-for-azure-vmware-solution.md).
+- [Integrating Azure VMware Solution in a hub and spoke architecture](concepts-hub-and-spoke.md).

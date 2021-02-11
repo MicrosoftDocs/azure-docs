@@ -232,10 +232,7 @@ The **Schedule updates** blade allows you to designate a maintenance window for 
 
 To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. The maintenance window time is in UTC.
 
-> [!IMPORTANT]
-> The **Schedule updates** functionality is only available for Premium tier caches. For more information and instructions, see [Azure Cache for Redis administration - Schedule updates](cache-administration.md#schedule-updates).
->
->
+For more information and instructions, see [Azure Cache for Redis administration - Schedule updates](cache-administration.md#schedule-updates)
 
 ### Geo-replication
 
@@ -359,7 +356,7 @@ The settings in the **Support + troubleshooting** section provide you with optio
 **Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](../service-health/resource-health-overview.md).
 
 > [!NOTE]
-> Resource health is currently unable to report on the health of Azure Cache for Redis instances hosted in a virtual network. For more information, see [Do all cache features work when hosting a cache in a VNET?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
+> Resource health is currently unable to report on the health of Azure Cache for Redis instances hosted in a virtual network. For more information, see [Do all cache features work when hosting a cache in a VNET?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-a-cache-is-hosted-in-a-virtual-network)
 >
 >
 

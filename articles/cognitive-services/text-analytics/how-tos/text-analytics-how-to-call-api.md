@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
 ---
@@ -29,6 +29,16 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
 2.	Select the region you want to use for your endpoint.  Please note the `/analyze` and `/health` endpoints are only available in the following regions: West US 2, East US 2, Central US, North Europe and West Europe.
 
 3.	Create the Text Analytics resource and go to the “keys and endpoint blade” in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
+
+## Change your pricing tier 
+
+If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you can update it to use the Standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/):
+
+1. Navigate to your Text Analytics resource in the [Azure portal](https://portal.azure.com/).
+2. Select **Pricing tier** in the left navigation menu. It will be below **RESOURCE MANAGEMENT**. 
+3. Choose the Standard (S) pricing tier. Then click **Select**.
+
+You can also create a new Text Analytics resource with the Standard (S) pricing tier, and migrate your applications to use the credentials for the new resource. 
 
 ## Using the API synchronously
 
@@ -58,9 +68,6 @@ See the table below to see which features can be used asynchronously. Note that 
 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
-
 
 <a name="json-schema"></a>
 

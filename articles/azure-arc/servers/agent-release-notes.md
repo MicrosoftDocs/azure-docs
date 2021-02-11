@@ -1,8 +1,8 @@
 ---
 title: What's new with Azure Arc enabled servers agent
-description: This article has release notes for Azure Arc enabled servers agent. For many of the summarized issues, there are links to additional details.
+description: This article has release notes for Azure Arc enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 12/21/2020
 ---
 
 # What's new with Azure Arc enabled servers agent
@@ -15,6 +15,8 @@ The Azure Arc enabled servers Connected Machine agent receives improvements on a
 
 ## December 2020
 
+Version: 1.3
+
 ### New feature
 
 Added support for Windows Server 2008 R2
@@ -25,11 +27,15 @@ Resolved issue preventing the Custom Script Extension on Linux from installing s
 
 ## November 2020
 
+Version: 1.2
+
 ### Fixed
 
 Resolved issue where proxy configuration could be lost after upgrade on RPM-based distributions.
 
 ## October 2020
+
+Version: 1.1
 
 ### Fixed
 
@@ -56,7 +62,7 @@ Version: 1.0 (General Availability)
 - Added `azcmagent show --json` option to output agent state in easily parseable format.
 - Added flag in `azcmagent show` output to indicate if server is on a virtual machine hosted in Azure.
 - Added `azcmagent disconnect --force-local-only` option to allow reset of local agent state when Azure service cannot be reached.
-- Added `azcmagent connect --cloud` option to support additional clouds. In this release, only Azure is supported by service at time of agent release.
+- Added `azcmagent connect --cloud` option to support other clouds. In this release, only Azure is supported by service at time of agent release.
 - Agent has been localized into Azure-supported languages.
 
 ### Fixed

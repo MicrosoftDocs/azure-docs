@@ -24,12 +24,15 @@
   - name: Managed Service offers in Azure Marketplace
     displayName: azure marketplace, marketplace, managed service, private, plan
     href: ./concepts/managed-services-offers.md
-  - name: Cloud Solution Provider program considerations
+  - name: Cloud Solution Provider program
     displayName: csp, aobo, partner
     href: ./concepts/cloud-solution-provider.md
-  - name: Azure Lighthouse in enterprise scenarios
+  - name: Enterprise scenarios
     displayName: corporation, IT, consolidate
     href: ./concepts/enterprise.md
+  - name: ISV scenarios
+    displayName: independent, software, vendor, saas
+    href: ./concepts/isv-scenarios.md
   - name: Azure Lighthouse and Azure managed applications 
     displayName: managed apps, ama
     href: ./concepts/managed-applications.md
@@ -42,6 +45,14 @@
       href: security-baseline.md
 - name: How-to guides
   items:
+  - name: Customer actions
+    items:
+    - name: View and manage service providers 
+      displayName: customer, update, visibility, control
+      href: ./how-to/view-manage-service-providers.md
+    - name: View service provider activity
+      displayName: monitor, log, customer, visibility, transparency, control
+      href: ./how-to/view-service-provider-activity.md
   - name: Onboard a customer to Azure Lighthouse
     displayName: resource management
     href: ./how-to/onboard-customer.md
@@ -84,14 +95,6 @@
       href: ./how-to/deploy-policy-remediation.md
   - name: Azure Sentinel integration
     href: ./how-to/manage-sentinel-workspaces.md
-  - name: Customer actions
-    items:
-    - name: View and manage service providers 
-      displayName: customer, update
-      href: ./how-to/view-manage-service-providers.md
-    - name: View service provider activity
-      displayName: monitor, log
-      href: ./how-to/view-service-provider-activity.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -113,6 +116,8 @@
     href: ./samples/policy-reference.md
   - name: Terraform
     href: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
+  - name: Ansible
+    href: https://docs.ansible.com/ansible/latest/collections/azure/azcollection/index.html#plugins-in-azure-azcollection
 - name: Resources
   items:
   - name: Microsoft Q&A for Azure Lighthouse

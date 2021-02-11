@@ -95,7 +95,7 @@ Create a container in your storage account by using any of these tools or SDKs:
 |Tools|SDKs|
 |---|---|
 |[Azure portal](https://portal.azure.com)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
-|[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
+|[AzCopy](../common/storage-use-azcopy-v10.md#transfer-data)|[Java](data-lake-storage-directory-file-acl-java.md)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
 ||[REST](/rest/api/storageservices/create-container)|
@@ -129,7 +129,7 @@ Create a directory on your Windows or Linux system, and then mount a container i
 
    ![Client for Network File System feature](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
 
-2. Mount a container by using the [mount](/windows-server/administration/windows-commands/mount) command.
+2. Open a **Command Prompt** window (cmd.exe). Then, mount a container by using the [mount](/windows-server/administration/windows-commands/mount) command.
 
    ```
    mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *

@@ -70,10 +70,6 @@
         - name: Label image data
           displayName: tag, tagging, images
           href: tutorial-labeling.md
-    - name: R SDK
-      items: 
-        - name: Create first ML experiment (R)
-          href: tutorial-1st-r-experiment.md
     - name: CLI
       items: 
         - name: Train & deploy with CLI
@@ -110,7 +106,7 @@
     - name: End-to-end MLOps examples
       href: https://github.com/microsoft/MLOps
     - name: Open Datasets (public)
-      href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
+      href: ../open-datasets/samples.md?context=azure%2fmachine-learning%2fcontext%2fml-context
 - name: Concepts
   items: 
     - name: Plan and manage costs
@@ -165,6 +161,8 @@
       href: concept-model-management-and-deployment.md
     - name: Model portability (ONNX)
       href: concept-onnx.md
+    - name: Open source integrations
+      href: concept-open-source.md      
     - name: ML pipelines
       href: concept-ml-pipelines.md
     - name: Security
@@ -174,6 +172,8 @@
           href: concept-enterprise-security.md
         - name: Security baseline
           href: security-baseline.md
+        - name: Security controls by Azure Policy
+          href: ./security-controls-policy.md
     - name: Responsible ML
       items: 
         - name: Responsible ML overview
@@ -278,8 +278,16 @@
         - name: Set up dev environments
           displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
           href: how-to-configure-environment.md
-        - name: Run Jupyter Notebooks
-          href: how-to-run-jupyter-notebooks.md
+        - name: Set up studio environment
+          items:
+            - name: Create and manage files
+              href: how-to-manage-files.md
+              displayName: Jupyter, notebooks, clone, samples
+            - name: Run Jupyter Notebooks
+              href: how-to-run-jupyter-notebooks.md
+            - name: Use a terminal
+              href: how-to-access-terminal.md
+              displayName: git, github, clone, kernel, package
         - name: Set up software environments
           displayName: pip, Conda, anaconda
           href: how-to-use-environments.md
@@ -295,6 +303,9 @@
         - name: Git integration
           displayName: github gitlab
           href: concept-train-model-git-integration.md
+        - name: How to troubleshoot environments
+          displayName: troubleshoot, envrionment, debug, image
+          href: how-to-troubleshoot-environments.md          
     - name: Work with data
       items: 
         - name: Label data
@@ -352,14 +363,6 @@
         - name: Tune hyperparameters
           displayName: parameter, hyperparameter, hyperdrive
           href: how-to-tune-hyperparameters.md
-        - name: Work with MLflow
-          items: 
-            - name: Track experiments with MLflow
-              displayName: log, monitor, deploy, metrics,  model registry, register
-              href: how-to-use-mlflow.md
-            - name: Track Azure Databricks runs with MLflow
-              displayName: log, monitor, deploy, metrics, databricks
-              href: how-to-use-mlflow-azure-databricks.md              
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -402,6 +405,17 @@
           href: how-to-use-secrets-in-runs.md
         - name: Reinforcement learning
           href: how-to-use-reinforcement-learning.md
+    - name: Work with MLflow
+      items: 
+        - name: Track experiments with MLflow
+          displayName: log, monitor, metrics, model registry, register
+          href: how-to-use-mlflow.md
+        - name: Track Azure Databricks runs with MLflow
+          displayName: log, monitor, deploy, metrics, databricks
+          href: how-to-use-mlflow-azure-databricks.md              
+        - name: Deploy MLflow models
+          displayName: log, monitor, deploy, metrics, databricks, aci, aks
+          href: how-to-deploy-mlflow-models.md              
     - name: Automated machine learning
       displayName: automl, auto ml
       items: 
@@ -463,12 +477,12 @@
         - name: Use custom Docker image
           href: how-to-deploy-custom-docker-image.md
         - name: IoT Edge
-          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+          href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context
         - name: FPGA inference
           href: how-to-deploy-fpga-web-service.md
-      - name: Troubleshoot & debug
+      - name: Troubleshooting deployment
         href: how-to-troubleshoot-deployment.md
-      - name: Troubleshoot & debug (local)
+      - name: Troubleshooting deployment (local)
         href: how-to-troubleshoot-deployment-local.md
       - name: Consume web service
         displayName: create client consume request response synchronous
@@ -534,12 +548,12 @@
             - name: Execute Python code
               displayName: feature extraction, feature engineering
               href: how-to-designer-python.md
-        - name: Debug & troubleshoot pipelines
+        - name: Troubleshooting pipelines
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Log pipeline data to Application Insights
           href: how-to-log-pipelines-application-insights.md
-        - name: Debug & troubleshoot parallel run step
+        - name: Troubleshooting the ParallelRunStep
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
     - name: Azure Pipelines for CI/CD
@@ -566,7 +580,7 @@
   items: 
     - name: Python SDK
       displayName: api, core, package, python, class
-      href: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
+      href: /python/api/overview/azure/ml/intro?view=azure-ml-py
     - name: R SDK
       displayName: api, core, package, R, class
       href: https://azure.github.io/azureml-sdk-for-r/reference/index.html
@@ -574,7 +588,7 @@
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
     - name: REST API
-      href: https://docs.microsoft.com/rest/api/azureml/
+      href: /rest/api/azureml/
     - name: Designer module reference
       displayName: module, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
@@ -599,13 +613,14 @@
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/machine-learning-services/
+    - name: Service limits
+      href: resource-limits-quotas-capacity.md      
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
-    - name: Known issues
-      displayName: bugs, errors, troubleshoot
-      href: resource-known-issues.md
     - name: User forum
-      href: https://docs.microsoft.com/answers/topics/azure-machine-learning.html
+      href: /answers/topics/azure-machine-learning.html
+    - name: Microsoft Learn
+      href: /learn/browse/?expanded=azure&products=azure-machine-learning
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
     - name: Compare our ML products
@@ -615,4 +630,4 @@
       href: overview-what-happened-to-workbench.md
     - name: Designer accessibility features
       displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
-      href: designer-accessibility.md   
+      href: designer-accessibility.md

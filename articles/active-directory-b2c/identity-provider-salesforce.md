@@ -1,7 +1,7 @@
 ---
-title: Set up sign-in with a Salesforce SAML provider by using custom policies
+title: Set up sign-up and sign-in with a Salesforce account
 titleSuffix: Azure AD B2C
-description: Set up sign-in with a Salesforce SAML provider by using custom policies in Azure Active Directory B2C.
+description: Provide sign-up and sign-in to customers with Salesforce accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -9,225 +9,189 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Set up sign-in with a Salesforce SAML provider by using custom policies in Azure Active Directory B2C
+# Set up sign-up and sign-in with a Salesforce account using Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
-
-::: zone pivot="b2c-user-flow"
-[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
-
-::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for users from a Salesforce organization using [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C). You enable sign-in by adding a [SAML identity provider technical profile](saml-identity-provider-technical-profile.md) to a custom policy.
+::: zone-end
 
 ## Prerequisites
 
-- Complete the steps in [Get started with custom policies in Azure Active Directory B2C](custom-policy-get-started.md).
-- If you haven't already done so, sign up for a [free Developer Edition account](https://developer.salesforce.com/signup). This article uses the [Salesforce Lightning Experience](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
-- [Set up a My Domain](https://help.salesforce.com/articleView?id=domain_name_setup.htm&language=en_US&type=0) for your Salesforce organization.
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
-### Set up Salesforce as an identity provider
+
+## Create a Salesforce application
+
+To enable sign-in for users with a Salesforce account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your Salesforce [App Manager](https://login.salesforce.com/). For more information, see [Configure Basic Connected App Settings](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm), and [Enable OAuth Settings for API Integration](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
 
 1. [Sign in to Salesforce](https://login.salesforce.com/).
-2. On the left menu, under **Settings**, expand **Identity**, and then select **Identity Provider**.
-3. Select **Enable Identity Provider**.
-4. Under **Select the certificate**, select the certificate you want Salesforce to use to communicate with Azure AD B2C. You can use the default certificate.
-5. Click **Save**.
+1. From the menu, select **Setup**.
+1.  Expand **Apps**, and then select **App Manager**.
+1. Select **New Connected App**.
+1. Under the **Basic Information**, enter:
+    1. **Connected App Name** - The connected app name is displayed in the App Manager and on its App Launcher tile. The name must be unique within your org. 
+    1. **API Name** 
+    1. **Contact Email** - The contact email for Salesforce
+1. Under **API (Enable OAuth Settings)**, select **Enable OAuth Settings**
+    1. In **Callback URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
+    1. In the **Selected OAuth Scopes**, select **Access your basic information (id, profile, email, address, phone)**, and **Allow access to your unique identifier (openid)**.
+    1. Select **Require Secret for Web Server Flow**.
+1. Select **Configure ID Token** 
+    1. Set the **Token Valid for** 5 minutes.
+    1. Select **Include Standard Claims**.
+1. Click **Save**.
+1. Copy the values of **Consumer Key** and **Consumer Secret**. You will need both of them to configure Salesforce as an identity provider in your tenant. **Client secret** is an important security credential.
 
-### Create a connected app in Salesforce
+::: zone pivot="b2c-user-flow"
 
-1. On the **Identity Provider** page, select **Service Providers are now created via Connected Apps. Click here.**
-2. Under **Basic Information**,  enter the required values for your connected app.
-3. Under **Web App Settings**, check the **Enable SAML** box.
-4. In the **Entity ID** field, enter the following URL. Make sure that you replace the value for `your-tenant` with the name of your Azure AD B2C tenant.
+## Configure Salesforce as an identity provider
 
-      ```
-      https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
-      ```
+1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **Identity providers**, and then select **New OpenID Connect provider**.
+1. Enter a **Name**. For example, enter *Salesforce*.
+1. For **Metadata url**, enter the URL of the [Salesforce OpenID Connect Configuration document](https://help.salesforce.com/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm). For a sandbox, login.salesforce.com is replaced with test.salesforce.com. For a community, login.salesforce.com is replaced with the community URL, such as username.force.com/.well-known/openid-configuration. The URL must be HTTPS.
 
-6. In the **ACS URL** field, enter the following URL. Make sure that you replace the value for `your-tenant` with the name of your Azure AD B2C tenant.
+    ```
+    https://login.salesforce.com/.well-known/openid-configuration
+    ```
 
-      ```
-      https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
-      ```
-7. Scroll to the bottom of the list, and then click **Save**.
+1. For **Client ID**, enter the application ID that you previously recorded.
+1. For **Client secret**, enter the client secret that you previously recorded.
+1. For the **Scope**, enter the `openid id profile email`.
+1. Leave the default values for **Response type**, and **Response mode**.
+1. (Optional) For the **Domain hint**, enter `contoso.com`. For more information, see [Set up direct sign-in using Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
+1. Under **Identity provider claims mapping**, select the following claims:
 
-### Get the metadata URL
+    - **User ID**: *sub*
+    - **Display name**: *name*
+    - **Given name**: *given_name*
+    - **Surname**: *family_name*
+    - **Email**: *email*
 
-1. On the overview page of your connected app, click **Manage**.
-2. Copy the value for **Metadata Discovery Endpoint**, and then save it. You'll use it later in this article.
+1. Select **Save**.
 
-### Set up Salesforce users to federate
+## Add Salesforce identity provider to a user flow 
 
-1. On the **Manage** page of your connected app, click **Manage Profiles**.
-2. Select the profiles (or groups of users) that you want to federate with Azure AD B2C. As a system administrator, select the **System Administrator** check box, so that you can federate by using your Salesforce account.
+1. In your Azure AD B2C tenant, select **User flows**.
+1. Click the user flow that you want to add the Salesforce identity provider.
+1. Under the **Social identity providers**, select **Salesforce**.
+1. Select **Save**.
+1. To test your policy, select **Run user flow**.
+1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. Click **Run user flow**
 
-## Generate a signing certificate
+::: zone-end
 
-Requests sent to Salesforce need to be signed by Azure AD B2C. To generate a signing certificate, open Azure PowerShell, and then run the following commands.
-
-> [!NOTE]
-> Make sure that you update the tenant name and password in the top two lines.
-
-```powershell
-$tenantName = "<YOUR TENANT NAME>.onmicrosoft.com"
-$pwdText = "<YOUR PASSWORD HERE>"
-
-$Cert = New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName "SamlIdp.$tenantName" -Subject "B2C SAML Signing Cert" -HashAlgorithm SHA256 -KeySpec Signature -KeyLength 2048
-
-$pwd = ConvertTo-SecureString -String $pwdText -Force -AsPlainText
-
-Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
-```
+::: zone pivot="b2c-custom-policy"
 
 ## Create a policy key
 
-You need to store the certificate that you created in your Azure AD B2C tenant.
+You need to store the client secret that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. On the Overview page, select **Identity Experience Framework**.
 5. Select **Policy Keys** and then select **Add**.
-6. For **Options**, choose `Upload`.
-7. Enter a **Name** for the policy. For example, SAMLSigningCert. The prefix `B2C_1A_` is automatically added to the name of your key.
-8. Browse to and select the B2CSigningCert.pfx certificate that you created.
-9. Enter the **Password** for the certificate.
-3. Click **Create**.
+6. For **Options**, choose `Manual`.
+7. Enter a **Name** for the policy key. For example, `SalesforceSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
+8. In **Secret**, enter your client secret that you previously recorded.
+9. For **Key usage**, select `Signature`.
+10. Click **Create**.
 
-## Add a claims provider
+## Configure Salesforce as an identity provider
 
-If you want users to sign in using a Salesforce account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
+To enable users to sign in using a Salesforce account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
-You can define a Salesforce account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy. For more information, see [define a SAML identity provider technical profile](saml-identity-provider-technical-profile.md).
+You can define a Salesforce account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
 
 1. Open the *TrustFrameworkExtensions.xml*.
-1. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
-1. Add a new **ClaimsProvider** as follows:
+2. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
+3. Add a new **ClaimsProvider** as follows:
 
     ```xml
     <ClaimsProvider>
-      <Domain>salesforce</Domain>
+      <Domain>salesforce.com</Domain>
       <DisplayName>Salesforce</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="salesforce">
+        <TechnicalProfile Id="Salesforce-OpenIdConnect">
           <DisplayName>Salesforce</DisplayName>
-          <Description>Login with your Salesforce account</Description>
-          <Protocol Name="SAML2"/>
+          <Protocol Name="OpenIdConnect" />
           <Metadata>
-            <Item Key="WantsEncryptedAssertions">false</Item>
-            <Item Key="WantsSignedAssertions">false</Item>
-            <Item Key="PartnerEntity">https://contoso-dev-ed.my.salesforce.com/.well-known/samlidp.xml</Item>
+            <Item Key="METADATA">https://login.salesforce.com/.well-known/openid-configuration</Item>
+            <Item Key="response_types">code</Item>
+            <Item Key="response_mode">form_post</Item>
+            <Item Key="scope">openid id profile email</Item>
+            <Item Key="HttpBinding">POST</Item>
+            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <!-- Update the Client ID below to the Application ID -->
+            <Item Key="client_id">Your Salesforce application ID</Item>
           </Metadata>
           <CryptographicKeys>
-            <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SAMLSigningCert"/>
+            <Key Id="client_secret" StorageReferenceId="B2C_1A_SalesforceSecret"/>
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="userId"/>
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
-            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
-            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
-            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="username"/>
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication"/>
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAMLIdp" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name" />
+            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="salesforce.com" AlwaysUseDefaultValue="true" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
           </OutputClaims>
           <OutputClaimsTransformations>
-            <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
-            <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
-            <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
-            <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
+            <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
+            <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
+            <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
           </OutputClaimsTransformations>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-idp"/>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
-1. Update the value of **PartnerEntity** with the Salesforce metadata URL you copied earlier.
-1. Update the value of both instances of **StorageReferenceId** to the name of the key of your signing certificate. For example, B2C_1A_SAMLSigningCert.
-1. Locate the `<ClaimsProviders>` section and add the following XML snippet. If your policy already contains the `SM-Saml-idp` technical profile, skip to the next step. For more information, see [single sign-on session management](custom-policy-reference-sso.md).
+4. The **METADATA** is set to the URL of the [Salesforce OpenID Connect Configuration document](https://help.salesforce.com/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm). For a sandbox, login.salesforce.com is replaced with test.salesforce.com. For a community, login.salesforce.com is replaced with the community URL, such as username.force.com/.well-known/openid-configuration. The URL must be HTTPS.
+5. Set **client_id** to the application ID from the application registration.
+6. Save the file.
 
-    ```xml
-    <ClaimsProvider>
-      <DisplayName>Session Management</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="SM-Saml-idp">
-          <DisplayName>Session Management Provider</DisplayName>
-          <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-          <Metadata>
-            <Item Key="IncludeSessionIndex">false</Item>
-            <Item Key="RegisterServiceProviders">false</Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
-    ```
-1. Save the file.
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-### Upload the extension file for verification
 
-By now, you have configured your policy so that Azure AD B2C knows how to communicate with your Salesforce account. Try uploading the extension file of your policy just to confirm that it doesn't have any issues so far.
-
-1. On the **Custom Policies** page in your Azure AD B2C tenant, select **Upload Policy**.
-2. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
-3. Click **Upload**.
-
-## Register the claims provider
-
-At this point, the identity provider has been set up, but it’s not available in any of the sign-up or sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the Salesforce identity provider.
-
-1. Open the *TrustFrameworkBase.xml* file from the starter pack.
-2. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
-3. Open the *TrustFrameworkExtensions.xml* and find the **UserJourneys** element. If the element doesn't exist, add one.
-4. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
-5. Rename the ID of the user journey. For example, `SignUpSignInSalesforce`.
-
-### Display the button
-
-The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up or sign-in screen. If you add a **ClaimsProviderSelection** element for a LinkedIn account, a new button shows up when a user lands on the page.
-
-1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you just created.
-2. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `SalesforceExchange`:
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="SalesforceExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### Link the button to an action
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="Salesforce-OpenIdConnect" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with a Salesforce account to receive a token.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
-2. Add the following **ClaimsExchange** element making sure that you use the same value for **ID** that you used for **TargetClaimsExchangeId**:
-
-    ```xml
-    <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
-    ```
-
-    Update the value of **TechnicalProfileReferenceId** to the **ID** of the technical profile you created earlier. For example, `salesforce` or `LinkedIn-OAUTH`.
-
-3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
-
-## Update and test the relying party file
-
-Update the relying party (RP) file that initiates the user journey that you just created:
-
-1. Make a copy of *SignUpOrSignIn.xml* in your working directory, and rename it. For example, rename it to *SignUpSignInSalesforce.xml*.
-2. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInSalesforce`.
-3. Update the value of **PublicPolicyUri** with the URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_salesforce`
-4. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the new user journey that you created (SignUpSignInSalesforce).
-5. Save your changes, upload the file, and then select the new policy in the list.
-6. Make sure that Azure AD B2C application that you created is selected in the **Select application** field, and then test it by clicking **Run now**.
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
 ::: zone-end
+
+## Next steps
+
+Learn how to [pass Salesforce token to your application](idp-pass-through-user-flow.md).

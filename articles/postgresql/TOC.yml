@@ -14,7 +14,7 @@
   items:
   - name: Database deployment
     items:
-    - name: Github Actions    
+    - name: GitHub actions
       href: how-to-deploy-github-action.md
   - name: Migration
     items:
@@ -30,6 +30,9 @@
   - name: Versioning policy
     href: concepts-version-policy.md
     displayName: version, postgresql
+  - name: Known issues & limitations
+    href: concepts-known-issues-limitations.md
+    displayName: issues, limitations, postgresql 
 - name: Single Server
   expanded: true
   items:
@@ -420,11 +423,15 @@
       items:
         - name: Python
           href: flexible-server/connect-python.md
+        - name: Java
+          href: flexible-server/connect-java.md
+        - name: .NET
+          href: flexible-server/connect-csharp.md
   - name: Tutorials
     items:
     - name: Build with AKS
       items:
-      - name: Deploy Python App on Kubernetes 
+      - name: Deploy Python App on Kubernetes
         href: flexible-server/tutorial-django-aks-database.md
     - name: Build with App Services
       items:
@@ -607,6 +614,8 @@
       items:
       - name: Monitor and tune
         href: concepts-hyperscale-monitoring.md
+      - name: Audit logs
+        href: concepts-hyperscale-audit.md
     - name: Configuration options
       href: concepts-hyperscale-configuration-options.md
     - name: Prepay for reserved capacity
@@ -640,6 +649,8 @@
       href: howto-hyperscale-create-users.md
     - name: Distributed data
       items:
+      - name: Determine table size
+        href: howto-hyperscale-table-size.md
       - name: Distribute and modify tables
         href: howto-hyperscale-modify-distributed-tables.md
     - name: High availability
@@ -657,6 +668,8 @@
       - name: Troubleshoot connection errors
         href: howto-hyperscale-troubleshoot-common-connection-issues.md
         displayName: connection errors, hyperscale
+      - name: Useful diagnostic queries
+        href: howto-hyperscale-useful-diagnostic-queries.md
 - name: Reference
   items:
    - name: Azure CLI

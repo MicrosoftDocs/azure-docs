@@ -20,8 +20,6 @@ The AI models used by the API are provided by the service, you just have to send
 
 ## Sentiment Analysis versions and features
 
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
-
 | Feature                                   | Sentiment Analysis v3 | Sentiment Analysis v3.1 (Preview) |
 |-------------------------------------------|-----------------------|-----------------------------------|
 | Methods for single, and batch requests    | X                     | X                                 |
@@ -42,7 +40,7 @@ The labels are *positive*, *negative*, and *neutral*. At the document level, the
 | At least one `negative` sentence and at least one `positive` sentence are in the document.    | `mixed`                 |
 | All sentences in the document are `neutral`.                                                  | `neutral`               |
 
-Confidence scores range from 1 to 0. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. For each document or each sentence, the predicted scores associated with the labels (positive, negative and neutral) add up to 1.
+Confidence scores range from 1 to 0. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. For each document or each sentence, the predicted scores associated with the labels (positive, negative and neutral) add up to 1. For more information, see the [Text Analytics transparency note](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## Opinion Mining
 

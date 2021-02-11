@@ -143,4 +143,4 @@ Verify the setup of your secured hub.
 ## Next steps
 
 * For more information about Virtual WAN, see the [Virtual WAN FAQ](virtual-wan-faq.md).
-* For more information about Azure Firewall, see the [Azure Firewall FAQ](../firewall/firewall-faq.md).
+* For more information about Azure Firewall, see the [Azure Firewall FAQ](../firewall/firewall-faq.yml).

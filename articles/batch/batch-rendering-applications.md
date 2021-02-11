@@ -1,11 +1,11 @@
 ---
 title: Rendering applications
 description: It's possible to use any rendering applications with Azure Batch. However, Azure Marketplace VM images are available with common applications pre-installed.
-ms.date: 09/19/2019
+ms.date: 02/01/2021
 ms.topic: how-to
 ---
 
-# Pre-installed applications on rendering VM images
+# Pre-installed applications on Batch rendering VM images
 
 It's possible to use any rendering applications with Azure Batch. However, Azure Marketplace VM images are available with common applications pre-installed.
 
@@ -13,7 +13,7 @@ Where applicable, pay-per-use licensing is available for the pre-installed rende
 
 Some applications only support Windows, but most are supported on both Windows and Linux.
 
-## Applications on CentOS 7 rendering images
+## Applications on CentOS 7 rendering image
 
 The following list applies to CentOS 7.6, version 1.1.6 rendering images.
 
@@ -28,7 +28,26 @@ The following list applies to CentOS 7.6, version 1.1.6 rendering images.
 * Blender (2.68)
 * Blender (2.8)
 
-## Applications on latest Windows Server 2016 rendering images
+## Applications on latest Windows Server rendering image
+
+The following list applies to the Windows Server rendering image, version 1.5.0.
+
+* Autodesk Maya I/O 2020 Update 4.4
+* Autodesk 3ds Max I/O 2021 Update 3
+* Autodesk Arnold for Maya 2020 (Arnold version 6.1.0.1) MtoA-4.1.1.1-2020
+* Autodesk Arnold for 3ds Max 2021 (Arnold version 6.1.0.1) MAXtoA-4.2.2.20-2021
+* Chaos Group V-Ray for Maya 2020 (version 5.00.21)
+* Chaos Group V-Ray for 3ds Max 2021 (version 5.00.05)
+* Blender (2.79)
+* Blender (2.80)
+* AZ 10
+
+> [!IMPORTANT]
+> To run V-Ray with Maya outside of the [Azure Batch extension templates](https://github.com/Azure/batch-extension-templates), start `vrayses.exe` before running the render. To start the vrayses.exe outside of the templates you can use the following command `%MAYA_2020%\vray\bin\vrayses.exe"`.
+>
+> For an example, see the start task of the [Maya and V-Ray template](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) on GitHub.
+
+## Applications on previous Windows Server rendering images
 
 The following list applies to Windows Server 2016, version 1.3.8 rendering images.
 
@@ -54,13 +73,6 @@ The following list applies to Windows Server 2016, version 1.3.8 rendering image
 * Blender (2.80)
 * AZ 10
 
-> [!IMPORTANT]
-> To run V-Ray with Maya outside of the [Azure Batch extension templates](https://github.com/Azure/batch-extension-templates), start `vrayses.exe` before running the render. To start the vrayses.exe outside of the templates you can use the following command `%MAYA_2017%\vray\bin\vrayses.exe"`.
->
-> For an example, see the start task of the [Maya and V-Ray template](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) on GitHub.
-
-## Applications on previous Windows Server 2016 rendering images
-
 The following list applies to Windows Server 2016, version 1.3.7 rendering images.
 
 * Autodesk Maya I/O 2017 Update 5 (version 17.4.5459)
@@ -82,4 +94,4 @@ The following list applies to Windows Server 2016, version 1.3.7 rendering image
 
 ## Next steps
 
-To use the rendering VM images, they need to be specified in the pool configuration when a pool is created; see the [Batch pool capabilities for rendering](./batch-rendering-functionality.md#batch-pools).
+To use the rendering VM images, they need to be specified in the pool configuration when a pool is created; see the [Batch pool capabilities for rendering](./batch-rendering-functionality.md).

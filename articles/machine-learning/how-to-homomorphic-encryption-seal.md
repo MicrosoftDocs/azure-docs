@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
+ms.custom: how-to, devx-track-python, deploy, responsible-ml
 #intent: As a data scientist, I want to deploy a service that uses homomorphic encryption to make predictions on encrypted data
 ---
 

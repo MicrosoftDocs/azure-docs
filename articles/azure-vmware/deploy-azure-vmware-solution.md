@@ -2,12 +2,15 @@
 title: Deploy and configure Azure VMware Solution
 description: Learn how to use the information gathered in the planning stage to deploy the Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 12/24/2020
 ---
 
 # Deploy and configure Azure VMware Solution
 
-In this article, you'll use the information from the [planning section](production-ready-deployment-steps.md) to deploy Azure VMware Solution. If you haven't defined the information, go back to the [planning section](production-ready-deployment-steps.md) before continuing.
+In this article, you'll use the information from the [planning section](production-ready-deployment-steps.md) to deploy Azure VMware Solution. 
+
+>[!IMPORTANT]
+>If you haven't defined the information yet, go back to the [planning section](production-ready-deployment-steps.md) before continuing.
 
 ## Register the resource provider
 
@@ -31,25 +34,26 @@ Use the information you gathered in the [Planning the Azure VMware Solution depl
 >[!IMPORTANT]
 >If you left the **Virtual Network** option blank during the initial provisioning step on the **Create a Private Cloud** screen, complete the [Configure networking for your VMware private cloud](tutorial-configure-networking.md) tutorial **before** you proceed with this section.  
 
-After deploying Azure VMware Solution, you'll create the virtual network's jump box that connects to vCenter and NSX. Once you've configured ExpressRoute circuits and ExpressRoute Global Reach, the jump box isn't needed.  But it's handy to reach vCenter and NSX in your Azure VMware Solution.  
+After you deploy Azure VMware Solution, you'll create the virtual network's jump box that connects to vCenter and NSX. Once you've configured ExpressRoute circuits and ExpressRoute Global Reach, the jump box isn't needed.  But it's handy to reach vCenter and NSX in your Azure VMware Solution.  
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Create the Azure VMware Solution jump box" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-To create a virtual machine (VM) in the virtual network you [identified or created as part of the deployment process](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution), follow these instructions: 
+To create a virtual machine (VM) in the virtual network that you [identified or created as part of the deployment process](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution), follow these instructions: 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
 ## Connect to a virtual network with ExpressRoute
 
-If you didn't define a virtual network in the deployment step and your intent is to connect the Azure VMware Solution's ExpressRoute to an existing ExpressRoute Gateway, follow the steps below.
+>[!IMPORTANT]
+>If you've already defined a virtual network in the deployment screen in Azure, then skip to the next section.
 
-If you've already defined a virtual network in the deployment screen in Azure, then skip to the next section.
+If you didn't define a virtual network in the deployment step and your intent is to connect the Azure VMware Solution's ExpressRoute to an existing ExpressRoute Gateway, follow these steps.
 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
 ## Verify network routes advertised
 
-The jump box is in the virtual network where Azure VMware Solution connects via its ExpressRoute circuit.  In Azure, go to the jump box's network interface and [view the effective routes](../virtual-network/manage-route-table.md#view-effective-routes).
+The jump box is in the virtual network where Azure VMware Solution connects through its ExpressRoute circuit.  In Azure, go to the jump box's network interface and [view the effective routes](../virtual-network/manage-route-table.md#view-effective-routes).
 
 In the effective routes list, you should see the networks created as part of the Azure VMware Solution deployment. You'll see multiple networks that were derived from the [`/22` network you defined](production-ready-deployment-steps.md#ip-address-segment) during the [deployment step](#deploy-azure-vmware-solution) earlier in this article.
 
@@ -65,7 +69,7 @@ You can identify the vCenter, and NSX-T admin console's IP addresses and credent
 
 ## Create a network segment on Azure VMware Solution
 
-You use NSX-T to create new network segments in your Azure VMware Solution environment.  You defined the network(s) you want to create in the [planning section](production-ready-deployment-steps.md).  If you haven't defined them, go back to the [planning section](production-ready-deployment-steps.md) before proceeding.
+You use NSX-T to create new network segments in your Azure VMware Solution environment.  You defined the networks you want to create in the [planning section](production-ready-deployment-steps.md).  If you haven't defined them, go back to the [planning section](production-ready-deployment-steps.md) before proceeding.
 
 >[!IMPORTANT]
 >Make sure the CIDR network address block you defined doesn't overlap with anything in your Azure or on-premises environments.  
@@ -74,9 +78,9 @@ Follow the [Create an NSX-T network segment in Azure VMware Solution](tutorial-n
 
 ## Verify advertised NSX-T segment
 
-Go back to the [Verify network routes advertised](#verify-network-routes-advertised) step. You'll see an additional route(s) in the list representing the network segment(s) you created in the previous step.  
+Go back to the [Verify network routes advertised](#verify-network-routes-advertised) step. You'll see other routes in the list representing the network segments you created in the previous step.  
 
-For virtual machines, you'll assign the segment(s) you created in the [Create a network segment on Azure VMware Solution](#create-a-network-segment-on-azure-vmware-solution) step.  
+For virtual machines, you'll assign the segments you created in the [Create a network segment on Azure VMware Solution](#create-a-network-segment-on-azure-vmware-solution) step.  
 
 Because DNS is required, identify what DNS server you want to use.  
 
@@ -89,7 +93,7 @@ Because DNS is required, identify what DNS server you want to use.
 
 ## (Optional) Provide DHCP services to NSX-T network segment
 
-If you plan to use DHCP on your NSX-T segment(s), continue with this section. Otherwise, skip to the [Add a VM on the NSX-T network segment](#add-a-vm-on-the-nsx-t-network-segment) section.  
+If you plan to use DHCP on your NSX-T segments, continue with this section. Otherwise, skip to the [Add a VM on the NSX-T network segment](#add-a-vm-on-the-nsx-t-network-segment) section.  
 
 Now that you've created your NSX-T network segment, you can create and manage DHCP in Azure VMware Solution in two ways:
 
@@ -99,13 +103,13 @@ Now that you've created your NSX-T network segment, you can create and manage DH
 
 ## Add a VM on the NSX-T network segment
 
-In your Azure VMware Solution vCenter, deploy a VM and use it to verify connectivity from your Azure VMware Solution network(s) to:
+In your Azure VMware Solution vCenter, deploy a VM and use it to verify connectivity from your Azure VMware Solution networks to:
 
 - The internet
 - Azure Virtual Networks
 - On-premises.  
 
-Deploy the VM as you would in any vSphere environment.  Attach the VM to one of the network segment(s) you previously created in NSX-T.  
+Deploy the VM as you would in any vSphere environment.  Attach the VM to one of the network segments you previously created in NSX-T.  
 
 >[!NOTE]
 >If you set up a DHCP server, you get your network configuration for the VM from it (don't forget to set up the scope).  If you are going to configure statically, then configure as you normally would.
@@ -114,15 +118,14 @@ Deploy the VM as you would in any vSphere environment.  Attach the VM to one of 
 
 Log into the VM created in the previous step and verify connectivity;
 
-1. Ping an IP on the Internet.
-2. Go to an Internet site via a web browser.
+1. Ping an IP on the internet.
+2. In a web browser, go to an internet site.
 3. Ping the jump box that sits on the Azure Virtual Network.
 
->[!IMPORTANT]
->At this point, Azure VMware Solution is up and running, and you've successfully established connectivity to and from Azure Virtual Network and the internet.
+Azure VMware Solution is now up and running, and you've successfully established connectivity to and from Azure Virtual Network and the internet.
 
 ## Next steps
 
-In the next section, you'll connect Azure VMware Solution to your on-premises network via ExpressRoute.
+In the next section, you'll connect Azure VMware Solution to your on-premises network through ExpressRoute.
 > [!div class="nextstepaction"]
 > [Connect Azure VMware Solution to your on-premises environment](azure-vmware-solution-on-premises.md)

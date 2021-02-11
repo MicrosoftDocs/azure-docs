@@ -44,6 +44,23 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-cusvis
+# Owner: pafarley
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-two
 # Owner: erhopf
   title: Programming languages
@@ -164,6 +181,21 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-formre
+# Owner: pafarley
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-set-eleven
 # Owner: aahill
   title: Programming languages
@@ -838,6 +870,24 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
+- id: acs-web-ios-android
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-ios
+    title: iOS
+  - id: platform-android
+    title: Android
+- id: acs-web-ios
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-ios
+    title: iOS
 - id: acs-js-csharp-ios-android-python
   title: Programming languages
   prompt: Choose a programming language
@@ -900,6 +950,8 @@ groups:
   pivots:
   - id: platform-azp
     title: Azure portal
+  - id: platform-azcli
+    title: Azure CLI
   - id: platform-net
     title: .NET
 - id: acs-plat-azp-arm-net-python-go-powershell
@@ -938,15 +990,6 @@ groups:
     title: Windows command shell
   - id: client-operating-system-powershell
     title: PowerShell
-# Owner: heidist
-- id: URL-test-interface-rest-apis
-  title: URL Test tool for REST APIs
-  prompt: Choose one of the following
-  pivots:
-  - id: url-test-tool-rest-postman
-    title: Postman
-  - id: url-test-tool-rest-vscode-ext
-    title: Visual Studio Code
 # Owner: erhopf
 - id: ad-quickstart-one
   title: Programming languages
@@ -977,3 +1020,35 @@ groups:
     title: User flow
   - id: b2c-custom-policy
     title: Custom policy    
+# Owner: mbullwin
+- id: anomaly-detector-quickstart
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
+# Owner: mbullwin
+- id: qnamaker-quickstart
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-ruby
+    title: Ruby
+  - id: rest
+    title: Rest

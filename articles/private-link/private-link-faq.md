@@ -22,7 +22,7 @@ ms.author: allensu
 ### How is traffic being sent when using Private Link?
 Traffic is sent privately using Microsoft backbone. It doesn’t traverse the internet. Azure Private Link doesn't store customer data.
  
-### What is the difference between a Service Endpoints and a Private Endpoints?
+### What is the difference between Service Endpoints and Private Endpoints?
 - Private Endpoints grant network access to specific resources behind a given service providing granular segmentation. Traffic can reach the service resource from on premises without using public endpoints.
 - A service endpoint remains a publicly routable IP address.  A private endpoint is a private IP in the address space of the virtual network where the private endpoint is configured.
 
@@ -30,6 +30,9 @@ Traffic is sent privately using Microsoft backbone. It doesn’t traverse the in
 Multiple private link resource types support access via Private Endpoint. Resources include Azure PaaS services and your own Private Link Service. It's a one-to-many relationship. 
 
 A Private Link service receives connections from multiple private endpoints. A private endpoint connects to one Private Link service.    
+
+### Do I need to disable network policies for Private Link
+Yes. Both Private endpoint and Private Link Service need to disable Network policies to function properly. They both have properties independent of one another.
 
 ## Private Endpoint 
  
@@ -39,8 +42,8 @@ Yes. You can have multiple private endpoints in same VNet or subnet. They can co
 ### Do I require a dedicated subnet for private endpoints? 
 No. You don't require a dedicated subnet for private endpoints. You can choose a private endpoint IP from any subnet from the VNet where your service is deployed.  
  
-### Can Private Endpoint connect to Private Link service across Azure Active Directory Tenants? 
-Yes. Private endpoints can connect to Private Link services or Azure PaaS across AD tenants.  
+### Can a private endpoint connect to Private Link services across Azure Active Directory tenants? 
+Yes. Private endpoints can connect to Private Link services or to an Azure PaaS across Azure Active Directory tenants. Private endpoints that connect across tenants require a manual request approval. 
  
 ### Can private endpoint connect to Azure PaaS resources across Azure regions?
 Yes. Private endpoints can connect to Azure PaaS resources across Azure regions.

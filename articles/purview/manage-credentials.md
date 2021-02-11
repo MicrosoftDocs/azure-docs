@@ -68,7 +68,7 @@ Credential type supported in Purview today:
 * SQL authentication : You will add the **password** as a secret in key vault
 * Account Key : You will add the **account key** as a secret in key vault
 
-Here is more information on how to add secrets to a key vault: (Insert key vault article)
+For more information, see [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 
 After storing your secrets in your key vault, Create your new Credential by selecting +New from the Credentials command bar. Provide the required information, including selecting the Authentication method and a Key Vault instance from which to select a secret from. Once all the details have been filled in, click on create.
 

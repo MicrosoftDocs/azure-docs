@@ -22,9 +22,7 @@ This article demonstrates to how to use the animated character detection with th
 
 ## Use the animated character detection with portal 
 
-This section describes the steps you need to take to start using the animated character detection model. 
-
-Since in  the trial accounts the Custom Vision integration is managed by Video Indexer, you can start creating and using the animated characters model and skip the following section ("Connect your Custom Vision account").
+In the trial accounts the Custom Vision integration is managed by Video Indexer, you can start creating and using the animated characters model. If using the trial account, you can skip the following ("Connect your Custom Vision account") section.
 
 ### Connect your Custom Vision account (paid accounts only)
 
@@ -33,20 +31,23 @@ If you own a Video Indexer paid account, you need to connect a Custom Vision acc
 > [!NOTE]
 > Both accounts need to be in the same region. The Custom Vision integration is currently not supported in the Japan region.
 
+Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). 
+
+Note that the training of the model should be done only via Video Indexer, and not via the Custom Vision website. 
+
 #### Connect a Custom Vision account with API 
 
 Follow these steps to connect you Custom Vision account to Video Indexer, or to change the Custom Vision account that is currently connected to Video Indexer:
 
 1. Browse to [www.customvision.ai](https://www.customvision.ai) and login.
-1. Copy the following keys: 
+1. Copy the keys for the Training and Prediction resources:
 
-    * Training key (for the training resource)
-    * Prediction key (for the prediction resource)
-    * Endpoint 
-    * Prediction resource ID
-    
     > [!NOTE]
     > To provide all the keys you need to have two separate resources in Custom Vision, one for training and one for prediction.
+1. Provide other information:
+
+    * Endpoint 
+    * Prediction resource ID
 1. Browse and sign in to the [Video Indexer](https://vi.microsoft.com/).
 1. Click on the question mark on the top-right corner of the page and choose **API Reference**.
 1. Make sure you are subscribed to API Management by clicking **Products** tab. If you have an API connected you can continue to the next step, otherwise, subscribe. 
@@ -59,7 +60,7 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 1. To verify your connection by browse to the [Video Indexer](https://vi.microsoft.com/)) portal:
 1. Click on the **Content model customization** button in the top-right corner.
 1. Go to the **Animated characters** tab.
-1. Once you click on Manage models in Custom Vision”**, you will be transferred to the Custom Vision account you just connected.
+1. Once you click on Manage models in Custom Vision, you will be transferred to the Custom Vision account you just connected.
 
 > [!NOTE]
 > Currently, only models that were created via Video Indexer are supported. Models that are created through Custom Vision will not be available. In addition, the best practice is to edit models that were created through Video Indexer only through the Video Indexer platform, since changes made through Custom Vision may cause unintended results.
@@ -67,9 +68,10 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 ### Create an animated characters model
 
 1. Browse to the [Video Indexer](https://vi.microsoft.com/) website and sign in.
-1. Click on the content model customization button on the top-right corner of the page.
+1. To customize a model in your account, select the **Content model customization** button on the left of the page.
 
-    ![Screenshot that shows the "Video Indexer" page with the "content model customization" button selected in the top-right corner.](./media/animated-characters-recognition/content-model-customization.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Customize content model in Video Indexer":::
 1. Go to the **Animated characters** tab in the model customization section.
 1. Click on **Add model**.
 1. Name you model and click enter to save the name.
@@ -79,7 +81,9 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 
 ### Index a video with an animated model
 
-1. Click on the **Upload** button from the top menu.
+For the initial training, upload at least two videos. Each should be preferably longer than 15 minutes, before expecting good recognition model. If you have shorter episodes, we recommend uploading at least 30 minutes of video content before training. This will allow you to merge groups that belong to the same character from different scenes and backgrounds, and therefore increase the chance it will detect the character in the following episodes you index. To train a model on multiple videos (episodes) you need to index them all with the same animation model. 
+
+1. Click on the **Upload** button.
 1. Choose a video to upload (from a file or a URL).
 1. Click on **Advanced options**.
 1. Under **People / Animated characters** choose **Animation models**.
@@ -87,27 +91,40 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 1. Click on upload.
 1. Once the video is indexed, you will see the detected characters in the **Animated characters** section in the **Insights** pane.
 
-> [!NOTE] 
-> Before tagging and training the model, all animated characters will be named “Unknown #X”. After you train the model they will also be recognized.
+Before tagging and training the model, all animated characters will be named “Unknown #X”. After you train the model they will also be recognized.
 
 ### Customize the animated characters models
 
-1. Tag and train the model.
+1. Name the characters in Video Indexer.
 
-    1. Tag the detected character by editing its name. Once a character is trained into the model, it will be recognized it the next video indexed with that model. 
-    1. To tag an animated character in your video, go to the **Insights** tab and click on the **Edit** button on the top-right corner of the window.
-    1. In the **Insights** pane, click on any of the detected animated characters and change their names from "Unknown #X" (or the name that was previously assigned to the character).
-    1. After typing in the new name, click on the check icon next to the new name. This saves the new name in the model in Video Indexer.
-    1. After you finished editing all names you want, you need to train the model.
+    1. After the model created character group, it is recommended to review these groups in Custom Vision. 
+    1. To tag an animated character in your video, go to the **Insights** tab and click on the **Edit** button on the top-right corner of the window. 
+    1. In the **Insights** pane, click on any of the detected animated characters and change their names from "Unknown #X" to a temporary name (or the name that was previously assigned to the character). 
+    1. After typing in the new name, click on the check icon next to the new name. This saves the new name in the model in Video Indexer. 
+1. Paid accounts only: Review the groups in Custom Vision 
 
-        Open the customization page and click on the **Animated characters** tab and then click on the **Train** button to train your model.
-         
-        If you have a paid account, you can click the **Manage models in Customer Vision** link (as shown below). You will then be forwarded to the model's page in **Custom Vision**.
- 
-        ![Content model customization](./media/animated-characters-recognition/content-model-customization-tab.png)
+    > [!NOTE]
+    > Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). It’s important to note that training of the model should be done only via Video Indexer (as described in this topid), and not via the Custom Vision website. 
 
-     1. Once trained, any video that will be indexed or reindexed with that model will recognize the trained characters. 
-    Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md).
+    1. Go to the **Custom Models** page in Video Indexer and choose the **Animated characters** tab. 
+    1. Click on the Edit button for the model you are working on to manage it in Custom Vision. 
+    1. Review each character group: 
+
+        * If the group contains unrelated images it is recommended to delete these in the Custom Vision website. 
+        * If there are images that belong to a different character, change the tag on these specific images by click on the image, adding the right tag and deleting the wrong tag. 
+        * If the group is not correct, meaning it contains mainly non-character images or images from multiple characters, you can delete in in Custom Vision website or in Video Indexer insights. 
+        * The grouping algorithm will sometimes split your characters to different groups. It is therefore recommended to give all the groups that belong to the same character the same name (in Video Indexer Insights), which will immediately cause all these groups to appear as on in Custom Vision website. 
+    1. Once the group is refined, make sure the initial name you tagged it with reflects the character in the group. 
+1. Train the model 
+
+    1. After you finished editing all names you want, you need to train the model. 
+    1. Once a character is trained into the model, it will be recognized it the next video indexed with that model. 
+    1. Open the customization page and click on the **Animated characters** tab and then click on the **Train** button to train your model. In order to keep the connection between Video 
+    
+Indexer and the model, don't train the model in the Custom Vision website (paid accounts have access to Custom Vision website), only in Video Indexer. 
+Once trained, any video that will be indexed or reindexed with that model will recognize the trained characters. 
+
+## Delete an animated character and the model
 
 1. Delete an animated character.
 
@@ -116,7 +133,6 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 
     > [!NOTE]
     > This will delete the insight from this video but will not affect the model.
-
 1. Delete a model.
 
     1. Click on the **Content model customization** button on the top menu and go to the **Animated characters** tab.

@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Deploy a linked template
 description: Learn how to deploy a linked template
-ms.date: 03/13/2020
+ms.date: 02/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
