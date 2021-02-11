@@ -1,6 +1,6 @@
 ---
-title: Parse datae transformation in mapping data flow
-description: Denormalize hierarchical data using the flatten transformation
+title: Parse data transformation in mapping data flow
+description: Parse embedded column documents
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
