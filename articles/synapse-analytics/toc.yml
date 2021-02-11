@@ -119,6 +119,8 @@
           href: ./security/workspace-data-exfiltration-protection.md
         - name: Synapse workspace with private link hubs
           href: ./security/synapse-private-link-hubs.md
+        - name: Connect to a secured storage account
+          href: ./security/connect-to-a-secure-storage-account.md
       - name: Authentication and pass-through
         items:
         - name: Azure Active Directory
