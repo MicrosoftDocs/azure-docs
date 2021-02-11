@@ -172,7 +172,7 @@ Network Watcher should be enabled
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with Azure Network Watcher according to your organization's compliance regulations.
 
-* [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 

@@ -13,14 +13,14 @@ ms.date: 01/19/2018
 
 ![Alert Management icon](media/alert-management-solution/icon.png)
 
-The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those sources [created by Log Analytics](./alerts-overview.md) or [imported from Nagios or Zabbix](../vm/quick-collect-linux-computer.md). The solution also imports alerts from any [connected System Center Operations Manager management groups](./om-agents.md).
+The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those sources [created by Log Analytics](../platform/alerts-overview.md) or [imported from Nagios or Zabbix](../vm/quick-collect-linux-computer.md). The solution also imports alerts from any [connected System Center Operations Manager management groups](../agents/om-agents.md).
 
 ## Prerequisites
 The solution works with any records in the Log Analytics repository with a type of **Alert**, so you must perform whatever configuration is required to collect these records.
 
-- For Log Analytics alerts, [create alert rules](./alerts-overview.md) to create alert records directly in the repository.
+- For Log Analytics alerts, [create alert rules](../platform/alerts-overview.md) to create alert records directly in the repository.
 - For Nagios and Zabbix alerts, [configure those servers](../vm/quick-collect-linux-computer.md) to send alerts to Log Analytics.
-- For System Center Operations Manager alerts, [connect your Operations Manager management group to your Log Analytics workspace](./om-agents.md).  Any alerts created in System Center Operations Manager are imported into Log Analytics.  
+- For System Center Operations Manager alerts, [connect your Operations Manager management group to your Log Analytics workspace](../agents/om-agents.md).  Any alerts created in System Center Operations Manager are imported into Log Analytics.  
 
 ## Configuration
 Add the Alert Management solution to your Log Analytics workspace using the process described in [Add solutions](../insights/solutions.md). There is no further configuration required.
@@ -30,7 +30,7 @@ If your System Center Operations Manager management group is connected to your L
 
 * Microsoft System Center Advisor Alert Management (Microsoft.IntelligencePacks.AlertManagement)
 
-For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](./om-agents.md).
+For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../agents/om-agents.md).
 
 ## Data collection
 ### Agents
@@ -40,7 +40,7 @@ The following table describes the connected sources that are supported by this s
 |:--- |:--- |:--- |
 | [Windows agents](../agents/agent-windows.md) | No |Direct Windows agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Windows agents. |
 | [Linux agents](../vm/quick-collect-linux-computer.md) | No |Direct Linux agents do not generate alerts.  Log Analytics alerts can be created from events and performance data collected from Linux agents.  Nagios and Zabbix alerts are collected from those servers that require the Linux agent. |
-| [System Center Operations Manager management group](./om-agents.md) |Yes |Alerts that are generated on Operations Manager agents are delivered to the management group and then forwarded to Log Analytics.<br><br>A direct connection from  Operations Manager agents to Log Analytics is not required. Alert data is forwarded from the management group to the Log Analytics repository. |
+| [System Center Operations Manager management group](../agents/om-agents.md) |Yes |Alerts that are generated on Operations Manager agents are delivered to the management group and then forwarded to Log Analytics.<br><br>A direct connection from  Operations Manager agents to Log Analytics is not required. Alert data is forwarded from the management group to the Log Analytics repository. |
 
 
 ### Collection frequency
@@ -110,4 +110,4 @@ The following table provides sample log searches for alert records collected by 
 
 
 ## Next steps
-* Learn about [Alerts in Log Analytics](./alerts-overview.md) for details on generating alerts from Log Analytics.
+* Learn about [Alerts in Log Analytics](../platform/alerts-overview.md) for details on generating alerts from Log Analytics.

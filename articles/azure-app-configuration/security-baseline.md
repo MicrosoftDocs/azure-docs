@@ -631,7 +631,7 @@ In addition, enable and onboard data to Azure Sentinel or a third-party SIEM. Ma
 
 In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations.
 
-- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
+- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
 - [Storing resource logs in an Azure Storage Account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 

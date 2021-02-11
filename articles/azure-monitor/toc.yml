@@ -176,11 +176,11 @@
     - name: Usage and cost
       items:
       - name: Usage and estimated costs
-        href: platform/usage-estimated-costs.md
+        href: /usage-estimated-costs.md
       - name: Application usage and costs
         href: app/pricing.md
       - name: Log data usage and costs
-        href: platform/manage-cost-storage.md
+        href: logs/manage-cost-storage.md
   - name: Azure Monitor Metrics
     items:
     - name: Overview
@@ -193,13 +193,13 @@
       - name: Advanced features of Metrics Explorer
         href: essentials/metrics-charts.md
       - name: Viewing multiple resources in Metric Explorer
-        href: platform/metrics-dynamic-scope.md
+        href: essentials/metrics-dynamic-scope.md
       - name: Examples of metric charts
         href: essentials/metric-chart-samples.md
       - name: Troubleshooting metric charts
         href: essentials/metrics-troubleshoot.md
       - name: Understanding metrics aggregation 
-        href: platform/metrics-aggregation-explained.md
+        href: essentials/metrics-aggregation-explained.md
   - name: Azure Monitor Logs
     items:
     - name: Overview
@@ -227,7 +227,7 @@
       - name: Move a workspace
         href: logs/move-workspace.md
       - name: Design for service providers
-        href: platform/service-providers.md
+        href: logs/service-providers.md
       - name: Dedicated clusters
         href: logs/logs-dedicated-clusters.md
     - name: Log Analytics
@@ -330,7 +330,7 @@
       - name: IIS logs
         href: agents/data-sources-iis-logs.md
       - name: Event Tracing for Windows data
-        href: platform/data-sources-event-tracing-windows.md
+        href: agents/data-sources-event-tracing-windows.md
       - name: Custom logs
         href: agents/data-sources-custom-logs.md
       - name: Custom fields
@@ -1185,7 +1185,7 @@
         - name: Wire Data solution
           href: insights/wire-data.md
         - name: Alert Management solution
-          href: platform/alert-management-solution.md
+          href: insights/alert-management-solution.md
   - name: Workbooks
     items:
     - name: Overview
@@ -1206,7 +1206,7 @@
       - name: Graph
         href: visualizations/workbooks-graph-visualizations.md
       - name: Map
-        href: platform/workbooks-map-visualizations.md
+        href: visualizations/workbooks-map-visualizations.md
       - name: Honey comb
         href: visualizations/workbooks-honey-comb.md
       - name: Composite bar
@@ -1236,7 +1236,7 @@
       - name: Groups
         href: visualizations/workbooks-groups.md
       - name: Bring your own storage
-        href: platform/workbooks-bring-your-own-storage.md
+        href: visualizations/workbooks-bring-your-own-storage.md
       - name: Transform JSON data with JSONPath
         href: visualizations/workbooks-jsonpath.md
       - name: Move Workbooks to another region
@@ -1246,7 +1246,7 @@
     - name: Links
       items:
       - name: Link actions
-        href: platform/workbooks-link-actions.md
+        href: visualizations/workbooks-link-actions.md
     - name: Convert views to workbooks
       items:
       - name: Conversion overview
@@ -1278,7 +1278,7 @@
       - name: Upgrading Log Analytics Dashboards
         href: logs/dashboard-upgrade.md
     - name: Send data to Grafana
-      href: platform/grafana-plugin.md
+      href: visualizations/grafana-plugin.md
   - name: System Center integration
     items:
     - name: Connect Operations Manager
@@ -1399,9 +1399,9 @@
     - name: OperationalInsights API
       href: logs/operationalinsights-api-retirement.md
     - name: Classic autoscale & metrics API
-      href: ./platform/classic-api-retirement-metrics-autoscale.md 
+      href: ./essentials/classic-api-retirement-metrics-autoscale.md 
     - name: Classic alerting & monitoring 
-      href: platform/monitoring-classic-retirement.md
+      href: alerts/monitoring-classic-retirement.md
     - name: Switch to current log alert API
       href: alerts/alerts-log-api-switch.md
     - name: Web App Analytics solution
@@ -1444,6 +1444,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

@@ -235,7 +235,7 @@ Auditing can be enabled both on the database or server level, and is suggested t
 
 * [Manage the Azure Blob storage lifecycle](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
-* [How to set log retention parameters in a Log Analytics workspace](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [How to set log retention parameters in a Log Analytics workspace](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 * [Capture streaming events in Event Hubs](../event-hubs/event-hubs-capture-overview.md)
 

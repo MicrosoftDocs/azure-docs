@@ -67,7 +67,7 @@ Enable diagnostic logs for Azure Data Share, specifically the diagnostic logs fo
 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing Azure Data Share logs has the log retention period set according to your organization's compliance regulations.
 
-- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
+- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
 - [Storing resource logs in an Azure Storage Account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 

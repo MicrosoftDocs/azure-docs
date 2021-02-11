@@ -296,7 +296,7 @@ Enable and on-board data to Azure Sentinel or a third-party SIEM based on your b
 
 - [View activity logs to monitor actions on resources article](../azure-resource-manager/management/view-activity-logs.md)
 
-- [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
 

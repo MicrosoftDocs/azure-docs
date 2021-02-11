@@ -207,7 +207,7 @@ If required, you maybe connect to your individual pool nodes via Secured Shell (
 
 - [How to configure Azure Batch monitoring and logging](monitoring-overview.md)
 
-- [How to configure Azure Log Analytics workspace retention period](../azure-monitor/platform/manage-cost-storage.md)
+- [How to configure Azure Log Analytics workspace retention period](../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center monitoring**: Currently not available
 
