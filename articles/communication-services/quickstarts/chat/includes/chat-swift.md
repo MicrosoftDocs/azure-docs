@@ -35,7 +35,7 @@ Click next and choose the directory where you want the project to be created.
 
 ### Install the libraries
 
-We will use Cocoapods to install the necessary ACS dependencies.
+We'll use Cocoapods to install the necessary Communication Services dependencies.
 
 From the command line navigate inside the root directory of the `ChatQuickstart` iOS project.
 
@@ -94,8 +94,7 @@ override func viewDidLoad() {
     }
 ```
 
-We will use a semaphore to synchronize our code for demonstrative purposes.
-In following steps we will replace the placeholders with sample code using the Azure Communication Services Chat library.
+We'll use a semaphore to synchronize our code for demonstration purposes. In following steps, we'll replace the placeholders with sample code using the Azure Communication Services Chat library.
 
 
 ### Create a chat client
@@ -159,13 +158,13 @@ chatClient.create(thread: request) { result, _ in
 semaphore.wait()
 ```
 
-Replace `<<USER_ID>>` with a valid ACS user id.
+Replace `<<USER_ID>>` with a valid Communication Services user ID.
 
-We are using a semaphore here to wait for the completion handler before continuing. We will use the threadId from the response returned to the completion handler in later steps.
+We're using a semaphore here to wait for the completion handler before continuing. We will use the `threadId` from the response returned to the completion handler in later steps.
 
 ## Get a chat thread client
 
-Now that we have created a Chat thread we will obtain a `ChatThreadClient` to perform operations within the thread.
+Now that we have created a Chat thread we'll obtain a `ChatThreadClient` to perform operations within the thread.
 
 Replace the comment `<CREATE A CHAT THREAD CLIENT>` with the following code:
 
@@ -195,7 +194,7 @@ chatThreadClient.send(message: message) { result, _ in
 semaphore.wait()
 ```
 
-First we construct the SendChatMessageRequest which contains the content and senders display name (also optionally can contain the share history time). The response returned to the completion handler contains the id of the message that was sent.
+First we construct the `SendChatMessageRequest` which contains the content and senders display name (also optionally can contain the share history time). The response returned to the completion handler contains the id of the message that was sent.
 
 ## Add a user as a participant to the chat thread
 
@@ -262,7 +261,7 @@ chatThreadClient
     }
 ```
 
-Replace `<USER ID>` with the the ACS user id of the participant being removed.
+Replace `<USER ID>` with the the Communication Services user ID of the participant being removed.
 
 ## Run the code
 
