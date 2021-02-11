@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Call Microsoft Graph from a Node.js console app"
+title: "Quickstart: Call Microsoft Graph from a Node.js console app | Azure"
 titleSuffix: Microsoft identity platform
 description: In this quickstart, you learn how a Node.js console application can get an access token and call an API protected by a Microsoft identity platform endpoint, using the app's own identity
 services: active-directory
@@ -9,8 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
-ms.workload: identity
-ms.date: 01/19/2019
+ms.date: 02/11/2021
 ms.author: v-doeris
 #Customer intent: As an application developer, I want to learn how my Node.js app can get an access token and call an API that is protected by an Microsoft identity platform endpoint using client credentials flow.
 ---
@@ -19,12 +18,12 @@ ms.author: v-doeris
 
 In this quickstart, you download and run a code sample that demonstrates how a Node.js console application can get an access token using the app's identity to call the Microsoft Graph API and display a [list of users](/graph/api/user-list) in the directory. The code sample demonstrates how an unattended job or Windows service can run with an application identity, instead of a user's identity.
 
-This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) with the [client credentials grant](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).
+This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) with the [client credentials grant](v2-oauth2-client-creds-grant-flow).
 
 ## Prerequisites
 
 * [Node.js](https://nodejs.org/en/download/)
-* [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
+* [Visual Studio Code](https://code.visualstudio.com/download) or another code editor
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart application
@@ -86,18 +85,18 @@ This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Nod
 > 1. Extract the zip file to a local folder close to the root of the disk, for example, *C:/Azure-Samples*.
 > 1. Edit *.env* and replace the values of the fields `TENANT_ID`, `CLIENT_ID`, and `CLIENT_SECRET` with the following snippet:
 >
->    ```json
+>    ```
 >    "TENANT_ID": "Enter_the_Tenant_Id_Here",
 >    "CLIENT_ID": "Enter_the_Application_Id_Here",
 >    "CLIENT_SECRET": "Enter_the_Client_Secret_Here"
 >    ```
 >    Where:
->    - `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
->    - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
->    - `Enter_the_Client_Secret_Here` - replace this value with the client secret created on step 1.
+>    - `Enter_the_Application_Id_Here` - is the **Application (client) ID** of the application you registered earlier. Find this ID on the app registration's **Overview** pane in the Azure portal.
+>    - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant ID** or **Tenant name** (for example, contoso.microsoft.com).  Find these values on the app registration's **Overview** pane in the Azure portal.
+>    - `Enter_the_Client_Secret_Here` - replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal.
 >
-> > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal. To generate a new key, go to **Certificates & secrets** page.
+> > [!WARNING]
+> > Any plaintext secret in source code poses an increased security risk. This article uses a plaintext client secret for simplicity only. Use [certificate credentials](active-directory-certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Admin consent
@@ -110,7 +109,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 ##### Global tenant administrator
 
 > [!div renderon="docs"]
-> If you are a global tenant administrator, go to **API Permissions** page in the Azure Portal's Application Registration (Preview) and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
+> If you are a global tenant administrator, go to **API Permissions** page in the Azure portal's Application Registration and select **Grant admin consent for {Tenant Name}** (where {Tenant Name} is the name of your directory).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**
@@ -139,25 +138,24 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 You'll need to install the dependencies of this sample once:
 
 ```console
-    npm install
+npm install
 ```
 
 Then, run the application via command prompt or console:
 
 ```console
-    node . --op getUsers
+node . --op getUsers
 ```
 
 You should see on the console output some JSON fragment representing a list of users in your Azure AD directory.
 
-> [!IMPORTANT]
-> This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application.
+## About the code
 
-## More information
+Below, some of the important aspects of the sample application is discussed.
 
 ### MSAL Node
 
-[MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. As described, this quickstart requests tokens by application permissions (using the application's own identity) instead of delegated permissions. The authentication flow used in this case is known as *[OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md)*. For more information on how to use MSAL Node with daemon apps, see [this article](scenario-daemon-overview.md).
+[MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. As described, this quickstart requests tokens by application permissions (using the application's own identity) instead of delegated permissions. The authentication flow used in this case is known as [OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md). For more information on how to use MSAL Node with daemon apps, see [Scenario: Daemon application](scenario-daemon-overview.md).
 
  You can install MSAL Node by running the following npm command.
 
@@ -218,8 +216,3 @@ To learn more about daemon/console app development with MSAL Node, see the tutor
 
 > [!div class="nextstepaction"]
 > [Daemon application that calls web APIs](tutorial-v2-nodejs-console.md)
-
-To learn more about daemon applications in general, see the scenario landing page:
-
-> [!div class="nextstepaction"]
-> [Daemon application that calls web APIs](scenario-daemon-overview.md)
