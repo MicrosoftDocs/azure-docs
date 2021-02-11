@@ -21,7 +21,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 * The `2021-01-15` model version for the PII endpoint in [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.1-preview.x, which provides 
   * Expanded support for 9 new languages and, 
-  * Improved AI quality of general entity categories for all supported languages. 
+  * Improved AI quality of named entity categories for all supported languages. 
 
 
 ## January 2021
