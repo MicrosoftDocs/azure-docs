@@ -18,7 +18,7 @@ Preview features that transition to general availability are removed from this l
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
-| [**Semantic search**](semantic-search.md) | Relevance (scoring) | A semantic ranking algorithm, query type, and query response. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/) |
+| [**Semantic search**](semantic-search-overview.md) | Relevance (scoring) | A semantic ranking algorithm, query type, and query response. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/) |
 | [**speller**](cognitive-search-aml-skill.md) | Query | Optional spelling correction on query term inputs for simple, full, and semantic queries. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/) |
 | SharePoint Online Indexer | Indexer data source | New data source for indexer-based indexing of SharePoint content. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/) |
 | [**Azure Machine Learning (AML) skill**](cognitive-search-aml-skill.md) | AI enrichment| A new skill type to integrate an inferencing endpoint from Azure Machine Learning. Get started with [this tutorial](cognitive-search-tutorial-aml-custom-skill.md). | Use [Search REST API 2020-06-30-Preview](/rest/api/searchservice/) or 2019-05-06-Preview. Also available in the portal, in skillset design, assuming Cognitive Search and Azure ML services are deployed in the same subscription. |
