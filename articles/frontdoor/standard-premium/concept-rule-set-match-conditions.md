@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Front Door rule ret match conditions
+title: Configure Azure Front Door rule set match conditions
 description: This article provides a list of the various match conditions available with Azure Front Door rule set. 
 services: frontdoor
 author: duongau
@@ -222,4 +222,3 @@ Regex doesn't support the following operations:
 
 * Learn more about [Azure Front Door Rule Set](concept-rule-set.md)
 * Learn more about [Rule Set actions](concept-rule-set-actions.md)
-
