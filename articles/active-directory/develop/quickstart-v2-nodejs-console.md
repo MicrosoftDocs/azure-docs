@@ -126,8 +126,8 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> Where:
->> * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
->> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
+>> * `<Enter_the_Tenant_Id_Here>` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+>> * `<Enter_the_Application_Id_Here>` - is the **Application (client) ID** for the application you registered.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 4: Run the application
@@ -151,7 +151,7 @@ You should see on the console output some JSON fragment representing a list of u
 
 ## About the code
 
-Below, some of the important aspects of the sample application is discussed.
+Below, some of the important aspects of the sample application are discussed.
 
 ### MSAL Node
 
@@ -201,12 +201,13 @@ const tokenRequest = {
     scopes: [ 'https://graph.microsoft.com/.default' ],
 };
 
-const tokeResponse = await cca.acquireTokenByClientCredential(tokenRequest);
+const tokenResponse = await cca.acquireTokenByClientCredential(tokenRequest);
 ```
 
 > |Where:| Description |
 > |---------|---------|
 > | `tokenRequest` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration. |
+> | `tokenResponse` | The response contains an access token for the scopes requested. |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
