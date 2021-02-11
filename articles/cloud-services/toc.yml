@@ -20,8 +20,6 @@
       href: security-baseline.md
 - name: How To
   items:
-  - name: Migrate to Cloud Services (extended support) 
-    href: ../cloud-services-extended-support/in-place-migration-overview.md
   - name: Plan
     items:
     - name: Virtual machine sizes
