@@ -33,7 +33,6 @@ This Java application tutorial shows you how to create a web-based task-manageme
 
 > [!TIP]
 > This application development tutorial assumes that you have prior experience using Java. If you are new to Java or the [prerequisite tools](#Prerequisites), we recommend downloading the complete [todo](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) project from GitHub and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.  
->
 
 ## <a id="Prerequisites"></a>Prerequisites for this Java web application tutorial
 

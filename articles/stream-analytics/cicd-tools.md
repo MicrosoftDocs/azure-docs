@@ -154,7 +154,7 @@ If you want the test validation to ignore a certain output, set the **Required**
       "ExpectedOutputs": [
         {
           "OutputAlias": [Output alias string],
-          "FilePath": "Required",
+          "FilePath": [Required],
           "Required": true
         }
       ]

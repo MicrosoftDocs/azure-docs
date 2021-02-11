@@ -77,7 +77,7 @@ Create a separate API key for each of your Azure Pipelines release templates.
 
 Now, whenever you use the release template to deploy a new release, an annotation is sent to Application Insights. The annotations can be viewed in the following locations:
 
-The usage pane where you also have the ability to manually create release annotations:
+The **Usage** pane where you also have the ability to manually create release annotations:
 
 ![Screenshot of bar chart with number of user visits displayed over a period of hours. Release annotations appear as green checkmarks above the chart indicating the moment in time that a release occurred](./media/annotations/usage-pane.png)
 
