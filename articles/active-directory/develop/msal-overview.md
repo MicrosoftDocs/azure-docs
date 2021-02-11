@@ -53,6 +53,7 @@ MSAL can be used in many application scenarios, including the following:
 | [MSAL for iOS and macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS and macOS|
 | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Windows, macOS, Linux|
 | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)|Windows, macOS, Linux|
+| [MSAL Go (Preview)](https://github.com/AzureAD/microsoft-authentication-library-for-go)|Windows, macOS, Linux|
 
 ## Differences between ADAL and MSAL
 
