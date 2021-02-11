@@ -95,7 +95,7 @@ Tokens can also be issued on the client side using the Azure Communication Admin
 
 See the following documentation for more detail [Client and Server Architecture](../../../concepts/client-and-server-architecture.md)
 
-In the diagram below the client side application receives an access token from a trusted service tier. TThe application then uses the token to authenticate ACS libraries. Once authenticated, the application can now use the ACS client side libraries to perform operations such as chatting with other users.
+In the diagram below the client side application receives an access token from a trusted service tier. TThe application then uses the token to authenticate Communication Services libraries. Once authenticated, the application can now use the Communication Services client side libraries to perform operations such as chatting with other users.
 
 :::image type="content" source="../../../media/scenarios/archdiagram-access.png" alt-text="Diagram showing user access token architecture.":::
 
@@ -119,7 +119,7 @@ let userAccessToken = '<USER_ACCESS_TOKEN>';
 let chatClient = new ChatClient(endpointUrl, new AzureCommunicationUserCredential(userAccessToken));
 console.log('Azure Communication Chat client created!');
 ```
-- Replace **endpointUrl** with the ACS resource endpoint, see [Create an Azure Communication Resource](../../create-communication-resource.md) if you have not already done so.
+- Replace **endpointUrl** with the Communication Services resource endpoint, see [Create an Azure Communication Resource](../../create-communication-resource.md) if you have not already done so.
 - Replace **userAccessToken** with the token that you issued.
 
 
