@@ -12,13 +12,32 @@ ms.custom:
 
 # Migrate to Cloud Services (extended support) using the Azure portal
 
+This article shows you how to use the Azure portal to migrate from [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Cloud Services (extended support)](overview.md).
+
+> [!IMPORTANT]
+> Migrating from Cloud Services (classic) to Cloud Services (extended support) using the migration tool is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Before you begin
 
-Review the [Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)](in-place-migration-overview.md) overview document and complete the prerequisites required before beginning any migration steps. 
+**Ensure you are an administrator for the subscription.**
+
+To perform this migration, you must be added as a coadministrator for the subscription in the [Azure portal](https://portal.azure.com).
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the **Hub** menu, select **Subscription**. If you don't see it, select **All services**.
+3. Find the appropriate subscription entry, and then look at the **MY ROLE** field. For a coadministrator, the value should be *Account admin*.
+
+If you're not able to add a co-administrator, contact a service administrator or co-administrator for the subscription to get yourself added.
+
+**Sign up for Migration resource provider**
+
+1. Register with the migration resource provider using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). 
+1. Wait five minutes for the registration to complete then check the status of the approval. 
 
 ## Migrate your Cloud Service resources
 
-1. Go to Cloud Services (classic) portal blade. 
+1. Go to [Cloud Services (classic) portal blade](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.classicCompute%2FdomainNames). 
 2. Select the Cloud Service you want to migrate.
 3. Select the **Migrate to ARM** blade.
 
