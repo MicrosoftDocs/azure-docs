@@ -14,7 +14,7 @@ The Azure IoT device SDKs are a set of device client libraries, developer guides
 
 :::image type="content" source="media/about-iot-sdks/iot-sdk-diagram.png" alt-text="IoT SDKs explanation":::
 
-As the above graphic shows, Azure IoT Device SDKs enable you to easily connect your devices to the cloud. Various SDKs are available to fit your device and programming language needs, further described [below](#which-sdk-should-i-use). Additionally, Azure IoT offers Service SDKs--these SDKs allow your cloud-based application to connect with Azure IoT services on the backend. This article will focus on device SDKs, but you can learn more about Service SDKs by following the links below.
+As the above graphic shows, Azure IoT Device SDKs enable you to easily connect your devices to the cloud. Various SDKs are available to fit your device and programming language needs, further described [below](#which-sdk-should-i-use). Additionally, Azure IoT offers Service SDKs--these SDKs allow your cloud-based application to connect with Azure IoT services on the backend. This article will focus on device SDKs, but you can learn more about [Azure IoT's Service SDKs below](#service-sdks).
 
 ## Why should I use the Azure IoT Device SDKs?
 
