@@ -74,11 +74,12 @@ From the HoloLens, launch the **AoaSampleApp** app (if it was already open, clos
 
 Figure: a detected chair rendered with its bounding box (pink), point cloud (yellow), and a search area (large yellow box).
 
-You can define a search space for the object in the app by finger clicking in the air with either your right or left hand. The search space will switch among a sphere of 2-meters radius, a 4 m^3 bounding box and a view frustum. Each time when the search area changes, the app will remove instances currently being tracked, and then try to find them from scratch in the new search area.
+You can define a search space for the object in the app by finger clicking in the air with either your right or left hand. The search space will switch among a sphere of 2-meters radius, a 4 m^3 bounding box and a view frustum. For larger objects such as cars, the best choice will typically be to use the view frustum selection while standing facing a corner of the object at about a 2-meter distance.
+Each time the search area changes, the app will remove instances currently being tracked, and then try to find them again in the new search area.
 
-This app can track multiple objects at one time. To do that, upload multiple models to the **LocalState** folder and set a search area that covers both objects. It may take longer to detect and track multiple objects.
+This app can track multiple objects at one time. To do that, upload multiple models to the **LocalState** folder and set a search area that covers all the target objects. It may take longer to detect and track multiple objects.
 
-The app detects objects at coarse pose with a rough 2+ cm error. A user can air tap using their left hand to turn on the high precision tracking mode, which can compute a more accurate pose. This is still an experimental feature, which consumes more system resources, and could result in higher jitter in the estimated pose. Air tap again with the left hand to switch back to the normal tracking mode.
+The app aligns a 3D model to its physical counterpart within approximately 2+ cm error. A user can air tap using their left hand to turn on the high precision tracking mode, which computes a more accurate pose. This is still an experimental feature, which consumes more system resources, and could result in higher jitter in the estimated pose. Air tap again with the left hand to switch back to the normal tracking mode.
 
 ## Capture diagnostics from the application
 
