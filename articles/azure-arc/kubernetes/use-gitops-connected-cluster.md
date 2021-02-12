@@ -17,9 +17,9 @@ This getting started guide will walk you through applying configurations on an A
 
 ## Before you begin
 
-Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./connect-cluster.md).
+* Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./connect-cluster.md).
 
-Also checkout the [conceptual doc](./conceptual-configurations.md) on configurations and GitOps to get an understanding of the benefits and overview architecture of this feature.
+* Review the [Configurations and GitOps with Arc for Kubernetes article](./conceptual-configurations.md) to understand the benefits and architecture of this feature.
 
 ## Create a configuration
 

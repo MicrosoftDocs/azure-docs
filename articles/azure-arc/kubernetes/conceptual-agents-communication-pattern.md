@@ -22,17 +22,19 @@ Azure Arc enabled Kubernetes meets this need by enabling [Azure Resource Manager
 
 ## Deployment of agents on cluster
 
-Most on-premise data centers have strict network rules in place that doesn't allow for enabling inbound communication on the firewall used at the network boundary. Azure Arc enabled Kubernetes addresses this constraint by only requiring enablement of selective egress endpoints for outbound communication and does not require any inbound ports to be enabled on the firewall. The outbound communication initiation is done by Azure Arc enabled Kubernetes agents deployed on the customer managed Kubernetes cluster.
+Most on-prem datacenters enforce strict network rules that prevent inbound communication on the firewall used at the network boundary. Azure Arc enabled Kubernetes works with these restrictions by only enabling selective egress endpoints for outbound communication and not any inbound ports on the firewall. Azure Arc enabled Kubernetes agents deployed on the customer-managed Kubernetes cluster initiate this outbound communication. 
 
 ![Architectural overview](./media/architectural-overview.png)
 
-Here's the sequence of steps involved in this process of connecting a cluster to Azure Arc:
+Connect a cluster to Azure Arc using the following steps:
 
-1. Customer spins up a Kubernetes cluster on their choice of infrastructure (vSphere, AWS, GCP,...). Currently Azure Arc enabled Kubernetes only supports attaching existing Kubernetes clusters to Azure Arc. At this moment, lifecycle management of the Kubernetes cluster itself needs to be done by the customer separately. Having said that, Arc based cluster provisioning and lifecycle management are being prioritized by Azure Arc team.
-1. Customer uses Azure CLI on a machine having line of sight to this Kubernetes cluster to initiate registration of this cluster with Azure Arc. 
-1. The Azure CLI internally uses Helm to deploy the agent Helm chart on the cluster
-1. The images needed to spin up these agents are all pulled from Microsoft Container Registry. The image pull process is initiated by an outbound communication to the container registry initiated by the nodes of the cluster.
-1. The following agents get created in the `azure-arc` namespace during this process:
+1. Spin up a Kubernetes cluster on your choice of infrastructure (vSphere, AWS, GCP, etc.). 
+> [!NOTE]
+> Customers are required to handle the lifecycle management of their Kubernetes cluster separately, as Azure Arc enabled Kubernetes currently only supports attaching existing Kubernetes clusters to Azure Arc.  
+> The Azure Arc team is prioritizing Arc-based cluster provisioning and lifecycle management.
+1. Initiate the Azure Arc registration for your spun up cluster using Azure CLI.
+   * Azure CLI internally uses Helm to deploy the agent Helm chart on the cluster.
+   * The cluster nodes initiate an outbound communication to the Microsoft Container Registry and pull the images needed to create the following agents in the `azure-arc` namespace:
     * `deployment.apps/clusteridentityoperator`: Azure Arc enabled Kubernetes currently supports system assigned identity. clusteridentityoperator makes the first outbound communication needed to fetch the managed service identity (MSI) certificate used by other agents for communication with Azure.
     * `deployment.apps/config-agent`: watches the connected cluster for source control configuration resources applied on the cluster and updates compliance state
     * `deployment.apps/controller-manager`: is an operator of operators and orchestrates interactions between Azure Arc components
@@ -40,9 +42,9 @@ Here's the sequence of steps involved in this process of connecting a cluster to
     * `deployment.apps/cluster-metadata-operator`: gathers cluster metadata - cluster version, node count, and Azure Arc agent version
     * `deployment.apps/resource-sync-agent`: syncs the above mentioned cluster metadata to Azure
     * `deployment.apps/flux-logs-agent`: collects logs from the flux operators deployed as a part of source control configuration
-1. At this stage, once all the Azure Arc enabled Kubernetes agents are up and running, the following events indicate the successful connection of cluster to Azure Arc:
-    1. Azure Arc enabled Kubernetes resource in Azure Resource Manager. This is a tracked resource in Azure acting as a projection of the customer managed Kubernetes cluster and is not the actual Kubernetes cluster itself.
-    1. Cluster metadata like Kubernetes version, agent version, and number of nodes visible on the Arc enabled Kubernetes resource as metadata.
+1. Once all the Azure Arc enabled Kubernetes agents are up and running, determine whether your cluster successfully connected to Azure Arc. You should see:
+    * An Azure Arc enabled Kubernetes resource in Azure Resource Manager. This is a tracked resource in Azure acting as a projection of the customer-managed Kubernetes cluster. This is not the actual Kubernetes cluster itself.
+    * Cluster metadata, like Kubernetes version, agent version, and number of nodes, appears on the Azure Arc enabled Kubernetes resource as metadata.
 
 ## Data exchange between cluster environment and Azure
 
@@ -68,10 +70,10 @@ Here's the sequence of steps involved in this process of connecting a cluster to
 
 | Status | Description |
 | ------ | ----------- |
-| Connecting | Azure Arc enabled Kubernetes resource created in ARM, but service hasn't received agent heartbeat yet |
-| Connected | Azure Arc enabled Kubernetes service has received agent heartbeat in the previous 15 minutes |
-| Offline | Azure Arc enabled Kubernetes resource was connected at some point of time in the past, but the service hasn't received any agent heartbeat in the previous 15 minutes |
-| Expired | Managed service identity (MSI) certificate has expired. `az connectedk8s delete` needs to be run to delete Azure Arc enabled Kubernetes resource and agents on the cluster, following which `az connectedk8s connect` needs to be run again to create the Azure Arc enabled Kubernetes resource and to deploy agents on the cluster. Note that `az connectedk8s delete` will also lead to deletion of configurations on top of the cluster. So after running `az connectedk8s connect`, the configurations need to be created again on the cluster - either manually by you or by Azure Policy |
+| Connecting | Azure Arc enabled Kubernetes resource created in Azure Resource Manager, but service hasn't received agent heartbeat yet. |
+| Connected | Azure Arc enabled Kubernetes service received agent heartbeat sometime within the previous 15 minutes. |
+| Offline | Azure Arc enabled Kubernetes resource was previously connected, but the service hasn't received any agent heartbeat for 15 minutes. |
+| Expired | Managed service identity (MSI) certificate has expired. First, run `az connectedk8s delete` to delete Azure Arc enabled Kubernetes resource and agents on the cluster. Then run `az connectedk8s connect` again to create the Azure Arc enabled Kubernetes resource and deploy agents on the cluster. Note that `az connectedk8s delete` will also delete configurations on top of the cluster. After running `az connectedk8s connect`, create the configurations on the cluster again, either manually by you or by Azure Policy. |
 
 ## Connectivity pattern - Fully connected, semi-connected, and disconnected clusters
 
