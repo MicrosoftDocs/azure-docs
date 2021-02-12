@@ -41,12 +41,12 @@ Follow these steps to create a new resource using the Azure portal:
 3. Next, select **Web App**. 
 
    > [!div class="mx-imgBorder"]
-   > ![Select web app](./media/quickstarts/formre-create-web-app.png)
+   > ![Select web app](./media/quickstarts/create-web-app.png)
    
 4. First, make sure that the **Basics** tab is selected. Now, you're going to need to provide some information: 
 
    > [!div class="mx-imgBorder"]
-   > ![Select Basics](./media/quickstarts/formre-select-basics.png)
+   > ![Select Basics](./media/quickstarts/select-basics.png)
    * Subscription - Select an existing Azure subscription
    * Resource Group - You can reuse an existing resource group or create a new one for this project. Creating a new resource group is recommended.
    * Name - Give your web app a name. 
@@ -56,12 +56,12 @@ Follow these steps to create a new resource using the Azure portal:
    * Linux Plan - Select a pricing tier/plan for your app service. 
 
    > [!div class="mx-imgBorder"]
-   > ![Configure your web app](./media/quickstarts/formre-select-docker-linux.png)
+   > ![Configure your web app](./media/quickstarts/select-docker-linux.png)
 
 5. Next, select the **Docker** tab. 
 
    > [!div class="mx-imgBorder"]
-   > ![Select Docker](./media/quickstarts/formre-select-docker.png)
+   > ![Select Docker](./media/quickstarts/select-docker.png)
 
 6. Now let's configure your Docker container. All fields are required unless otherwise noted:
 
@@ -88,7 +88,7 @@ Follow these steps to create a new resource using the Azure portal:
     ---
 
    > [!div class="mx-imgBorder"]
-   > ![Configure Docker](./media/quickstarts/formre-configure-docker.png)
+   > ![Configure Docker](./media/quickstarts/configure-docker.png)
 
 7. That's it. Next, select **Review + Create**, then **Create** to deploy your web app. When complete, you can access your web app at the URL provided in the **Overview** for your resource.
 
