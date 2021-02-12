@@ -33,19 +33,19 @@ In a typical scenario, you may have your virtual machines running in a proximity
 
 You can choose to enable replication for a virtual machine through the VM disaster recovery page or by going to a pre-created vault and navigating to the Site Recovery section and then enabling replication. Let’s look at how Site Recovery can be set up for VMs inside a PPG through both approaches:
 
-1. How to select PPG in the DR region while enabling replication through the IaaS VM DR blade:
-    a. Go to the virtual machine. On the left hand side blade, under ‘Operations’, select ‘Disaster Recovery’
-    b. In the ‘Basics’ tab, choose the DR region that you would like to replicate the VM to. Go to ‘Advanced Settings’
-    c. Here, you can see the Proximity Placement Group of your VM and the option to select a PPG in the DR region. Site Recovery also gives you the option of using a new Proximity Placement Group that it creates for you if you choose to use this default option. You are free to choose the Proximity Placement Group you want and then go to ‘Review + Start replication’ and then finally enable replication.
+- How to select PPG in the DR region while enabling replication through the IaaS VM DR blade:
+  1. Go to the virtual machine. On the left hand side blade, under ‘Operations’, select ‘Disaster Recovery’
+  2. In the ‘Basics’ tab, choose the DR region that you would like to replicate the VM to. Go to ‘Advanced Settings’
+  3. Here, you can see the Proximity Placement Group of your VM and the option to select a PPG in the DR region. Site Recovery also gives you the option of using a new Proximity Placement Group that it creates for you if you choose to use this default option. You are free to choose the Proximity Placement Group you want and then go to ‘Review + Start replication’ and then finally enable replication.
 
    :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-1.png" alt-text="Enable replication.":::
 
-2. How to select PPG in the DR region while enabling replication through the vault blade:
-    a. Go to your Recovery Services Vault and go to the Site Recovery tab
-    b. Click on ‘+ Enable Site Recovery’ and then select ‘1: Enable Replication’ under Azure virtual machines (as you are looking to replicate an Azure VM)
-    c. Fill in the required fields in the ‘Source’ tab and click ‘Next’
-    d. Select the list of VMs you want to enable replication for in the ‘Virtual machines’ tab and click ‘Next’
-    e. Here, you can see the option to select a PPG in the DR region. Site Recovery also gives you the option of using a new PPG that it creates for you if you choose to use this default option. You are free to choose the PPG you want and then proceed to enabling replication.
+- How to select PPG in the DR region while enabling replication through the vault blade:
+  1. Go to your Recovery Services Vault and go to the Site Recovery tab
+  2. Click on ‘+ Enable Site Recovery’ and then select ‘1: Enable Replication’ under Azure virtual machines (as you are looking to replicate an Azure VM)
+  3. Fill in the required fields in the ‘Source’ tab and click ‘Next’
+  4. Select the list of VMs you want to enable replication for in the ‘Virtual machines’ tab and click ‘Next’
+  5. Here, you can see the option to select a PPG in the DR region. Site Recovery also gives you the option of using a new PPG that it creates for you if you choose to use this default option. You are free to choose the PPG you want and then proceed to enabling replication.
 
    :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-2.png" alt-text="Enable replication via vault.":::
 
@@ -55,8 +55,6 @@ Note that you can easily update the PPG selection in the DR region after replica
 2. Go to the ‘Compute and Network’ blade and click on ‘Edit’ at the top of the page
 3. You can see the options to edit multiple target settings, including target PPG. Choose the PPG you would like the VM to failover into and click ‘Save’.
 
-   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-3.png" alt-text="Update PPG":::
-
 ### VMware to Azure via Portal
 
 Proximity placement group for the target VM can be set up after enabling replication for the VM. Please ensure you separately create the PPG in the target region according to your requirement. Subsequently, you can easily update the PPG selection in the DR region after replication has been enabled for the VM.
@@ -65,7 +63,7 @@ Proximity placement group for the target VM can be set up after enabling replica
 2. Go to the ‘Compute and Network’ blade and click on ‘Edit’ at the top of the page
 3. You can see the options to edit multiple target settings, including target PPG. Choose the PPG you would like the VM to failover into and click ‘Save’.
 
-   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/PPG-update-v2a.png" alt-text="Update PPG V2A":::
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-v2a.png" alt-text="Update PPG V2A":::
 
 ### Hyper-V to Azure via Portal
 
@@ -75,7 +73,7 @@ Proximity placement group for the target VM can be set up after enabling replica
 2. Go to the ‘Compute and Network’ blade and click on ‘Edit’ at the top of the page
 3. You can see the options to edit multiple target settings, including target PPG. Choose the PPG you would like the VM to failover into and click ‘Save’.
 
-   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/PPG-update-h2a.png" alt-text="Update PPG H2A":::
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-h2a.png" alt-text="Update PPG H2A":::
 
 ## Set up Disaster Recovery for VMs in Proximity Placement Groups via PowerShell
 
