@@ -19,7 +19,10 @@ You can configure network [routing preference](../../virtual-network/routing-pre
 
 Configuring routing preference gives you the flexibility to optimize your traffic either for premium network performance or for cost. When you configure a routing preference, you specify how traffic will be directed to the public endpoint for your storage account by default. You can also publish route-specific endpoints for your storage account.
 
-## Microsoft global network versus internet routing
+> [!NOTE]
+> This feature is not supported in storage accounts that are configured to use the premium performance tier or Zone-redundant storage (ZRS).
+
+## Microsoft global network versus Internet routing
 
 By default, clients outside of the Azure environment access your storage account over the Microsoft global network. The Microsoft global network is optimized for low-latency path selection to deliver premium network performance with high reliability. Both inbound and outbound traffic are routed through the point of presence (POP) that is closest to the client. This default routing configuration ensures that traffic to and from your storage account traverses over the Microsoft global network for the bulk of its path, maximizing network performance.
 

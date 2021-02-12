@@ -44,7 +44,7 @@ This article describes how to provision an account with continuous backup and re
 
 ## <a id="provision-sql-api"></a>Provision a SQL API account with continuous backup
 
-To provision a SQL API account with continuous backup, an extra argument `--backup-policy-type Continuous` should be passed along with the regular provisioning command. The following command is an example of a single region write account named `pitracct2` with continuous backup policy created in the "West US" region under "myrg" resource group:
+To provision a SQL API account with continuous backup, an extra argument `--backup-policy-type Continuous` should be passed along with the regular provisioning command. The following command is an example of a single region write account named `pitracct2` with continuous backup policy created in the *West US* region under *myrg* resource group:
 
 ```azurecli-interactive
 
@@ -59,7 +59,7 @@ az cosmosdb create \
 
 ## <a id="provision-mongo-api"></a>Provision an Azure Cosmos DB API for MongoDB account with continuous backup
 
-The following command shows an example of a single region write account named `pitracct3` with continuous backup policy created the "West US" region under "myrg" resource group:
+The following command shows an example of a single region write account named `pitracct3` with continuous backup policy created the *West US* region under *myrg* resource group:
 
 ```azurecli-interactive
 
@@ -143,13 +143,13 @@ The response includes all the database accounts (both live and deleted) that can
   }
 ```
 
-Just like the "CreationTime" or "DeletionTime" for the account, there is a "CreationTime" or "DeletionTime" for the region too. These times allow you to choose the right region and a valid time range to restore into that region.
+Just like the `CreationTime` or `DeletionTime` for the account, there is a `CreationTime` or `DeletionTime` for the region too. These times allow you to choose the right region and a valid time range to restore into that region.
 
 **List all the versions of databases in a live database account**
 
 Listing all the versions of databases allows you to choose the right database in a scenario where the actual time of existence of database is unknown.
 
-Run the following CLI command to list all the versions of databases. This command only works with live accounts. The "instanceId" and the "location" parameters are obtained from the "name" and "location" properties in the response of `az cosmosdb restorable-database-account list` command. The instanceId attribute is also a property of source database account that is being restored:
+Run the following CLI command to list all the versions of databases. This command only works with live accounts. The `instanceId` and the `location` parameters are obtained from the `name` and `location` properties in the response of `az cosmosdb restorable-database-account list` command. The instanceId attribute is also a property of source database account that is being restored:
 
 ```azurecli-interactive
 az cosmosdb sql restorable-database list \
@@ -196,7 +196,7 @@ This command output now shows when a database was created and deleted.
 
 **List all the versions of SQL containers of a database in a live database account**
 
-Use the following command to list all the versions of SQL containers. This command only works with live accounts. The "databaseRid" parameter is the "ResourceId" of the database you want to restore. It is the value of "ownerResourceid" attribute found in the response of `az cosmosdb sql restorable-database list` command.
+Use the following command to list all the versions of SQL containers. This command only works with live accounts. The `databaseRid` parameter is the `ResourceId` of the database you want to restore. It is the value of `ownerResourceid` attribute found in the response of `az cosmosdb sql restorable-database list` command.
 
 ```azurecli-interactive
 az cosmosdb sql restorable-container list \
@@ -263,7 +263,7 @@ az cosmosdb sql restorable-resource list \
 
 ## <a id="enumerate-mongodb-api"></a>Enumerate restorable resources for MongoDB API account
 
-The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources. Like with SQL API, you can use the `az cosmosdb` command but with "mongodb" as parameter instead of "sql". These commands only work for live accounts.
+The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources. Like with SQL API, you can use the `az cosmosdb` command but with `mongodb` as parameter instead of `sql`. These commands only work for live accounts.
 
 **List all the versions of mongodb databases in a live database account**
 

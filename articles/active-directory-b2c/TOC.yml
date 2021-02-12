@@ -386,6 +386,8 @@
       href: partner-keyless.md
     - name: LexisNexis
       href: partner-lexisnexis.md
+    - name: Microsoft Dynamics 365 Fraud Protection
+      href: partner-dynamics-365-fraud-protection.md
     - name: N8 Identity
       href: partner-n8identity.md
     - name: Nevis
