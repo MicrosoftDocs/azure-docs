@@ -17,7 +17,7 @@ This article provides a reference of log and metric data collected to analyze th
 
 ## Metrics
 
-All the metrics corresponding to Azure Cosmos DB are stored in the namespace **Cosmos DB standard metrics**. For a list of all Azure Monitor support metrics (including Azure Cosmos DB), see [Azure Monitor supported metrics](../azure-monitor/platform/metrics-supported.md). This section lists all the automatically collected platform metrics collected for Azure Cosmos DB.  
+All the metrics corresponding to Azure Cosmos DB are stored in the namespace **Cosmos DB standard metrics**. For a list of all Azure Monitor support metrics (including Azure Cosmos DB), see [Azure Monitor supported metrics](../azure-monitor/essentials/metrics-supported.md). This section lists all the automatically collected platform metrics collected for Azure Cosmos DB.  
 
 ### Request metrics
 
@@ -66,7 +66,7 @@ All the metrics corresponding to Azure Cosmos DB are stored in the namespace **C
 | CassandraRequestCharges (Cassandra Request Charges) | Count (Sum, Min, Max, Avg) | Request units consumed by the Cassandra API | DatabaseName, CollectionName, Region, OperationType, ResourceType| All| Used to monitor RUs used per minute by a Cassandra API account.|
 | CassandraConnectionClosures (Cassandra Connection Closures) |Count (Count) |Number of Cassandra Connections closed| ClosureReason, Region| All | Used to monitor the connectivity between clients and the Azure Cosmos DB Cassandra API.|
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ## Resource logs
 

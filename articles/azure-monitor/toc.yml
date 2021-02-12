@@ -1298,7 +1298,7 @@
   - name: Supported metrics
     items:
     - name: Platform metrics
-      href: platform/metrics-supported.md
+      href: essentials/metrics-supported.md
     - name: Metrics in diagnostic settings
       href: essentials/metrics-supported-export-diagnostic-settings.md
     - name: Metrics in alerts
@@ -1444,6 +1444,7 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+
 
 
 

@@ -85,7 +85,7 @@ All metrics for Azure Machine Learning are in the namespace **Machine Learning S
 
 ![Metrics Explorer with Machine Learning Service Workspace selected](./media/monitor-azure-machine-learning/metrics.png)
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 > [!TIP]
 > Azure Monitor metrics data is available for 90 days. However, when creating charts only 30 days can be visualized. For example, if you want to visualize a 90 day period, you must break it into three charts of 30 days within the 90 day period.

@@ -63231,11 +63231,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-monitor/platform/alerts-overview.md",
-      "redirect_url": "/azure/azure-monitor/alerts/alerts-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-cherwell.md",
       "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-cherwell",
       "redirect_document_id": false
@@ -63308,6 +63303,21 @@
     {
       "source_path_from_root": "/articles/azure-monitor/platform/itsmc-troubleshoot-overview.md",
       "redirect_url": "/azure/azure-monitor/alerts/itsmc-troubleshoot-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/alerts-overview.md",
+      "redirect_url": "/azure/azure-monitor/alerts/alerts-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/metrics-supported.md",
+      "redirect_url": "/azure/azure-monitor/essentials/metrics-supported",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/scripts/powershell-sample-create-workspace.md",
+      "redirect_url": "/azure/azure-monitor/logs/powershell-sample-create-workspace",
       "redirect_document_id": false
     }
   ]

@@ -278,7 +278,7 @@ Metrics for Azure Queue Storage are in these namespaces:
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/queueServices
 
-For a list of all Azure Monitor support metrics, which includes Azure Queue Storage, see [Azure Monitor supported metrics](../../azure-monitor/platform/metrics-supported.md).
+For a list of all Azure Monitor support metrics, which includes Azure Queue Storage, see [Azure Monitor supported metrics](../../azure-monitor/essentials/metrics-supported.md).
 
 ### Accessing metrics
 

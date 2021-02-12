@@ -203,7 +203,7 @@ You can also programmatically access metrics. For more information, see the foll
 [Notification Hubs security model]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
 [Notification Hubs Secure Push tutorial]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
 [Notification Hubs troubleshooting]: ./notification-hubs-push-notification-fixer.md
-[Notification Hubs Metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Notification Hubs Metrics]: ../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Registrations Export/Import]: ./export-modify-registrations-bulk.md
 [Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

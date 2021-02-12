@@ -31,7 +31,7 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 #### Table storage
 
-This table shows [Table storage metrics](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices).
+This table shows [Table storage metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountstableservices).
 
 | Metric | Description |
 | ------------------- | ----------------- |

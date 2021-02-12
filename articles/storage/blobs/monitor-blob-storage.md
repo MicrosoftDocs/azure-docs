@@ -279,7 +279,7 @@ Metrics for Azure Blob Storage are in these namespaces:
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/blobServices
 
-For a list of all Azure Monitor support metrics, which includes Azure Blob Storage, see [Azure Monitor supported metrics](../../azure-monitor/platform/metrics-supported.md).
+For a list of all Azure Monitor support metrics, which includes Azure Blob Storage, see [Azure Monitor supported metrics](../../azure-monitor/essentials/metrics-supported.md).
 
 
 ### Accessing metrics

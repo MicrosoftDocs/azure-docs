@@ -119,7 +119,7 @@ The following table lists the properties for Azure Blockchain application logs.
 
 The following tables lists the platform metrics collected for Azure Blockchain Service. All metrics are stored in the namespace **Azure Blockchain Service** standard metrics.
 
-For a list of all Azure Monitor supported metrics (including Azure Blockchain Service), see [Azure Monitor supported metrics](../../azure-monitor/platform/metrics-supported.md).
+For a list of all Azure Monitor supported metrics (including Azure Blockchain Service), see [Azure Monitor supported metrics](../../azure-monitor/essentials/metrics-supported.md).
 
 ### Blockchain metrics
 

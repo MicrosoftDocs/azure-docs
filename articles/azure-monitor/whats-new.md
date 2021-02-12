@@ -417,7 +417,7 @@ New and updated articles from restructure of Azure Monitor for VMs content
 - [Use Azure Monitor Logs with Azure Logic Apps and Power Automate](logs/logicapp-flow-connector.md) - Added connector limits.
 
 ### Metrics
-- [Azure Monitor supported metrics by resource type](platform/metrics-supported.md) - Updated SQL Server metrics.
+- [Azure Monitor supported metrics by resource type](essentials/metrics-supported.md) - Updated SQL Server metrics.
 
 
 ### Platform logs
@@ -530,7 +530,7 @@ New and updated articles from restructure and consolidation of platform log cont
 
 
 ### Metrics
-- [Azure Monitor supported metrics by resource type](platform/metrics-supported.md) - Clarified guest metrics and metrics routing. 
+- [Azure Monitor supported metrics by resource type](essentials/metrics-supported.md) - Clarified guest metrics and metrics routing. 
 
 ### Solutions
 - [Optimize your Active Directory environment with Azure Monitor](insights/ad-assessment.md) - Added Windows Server 2019 to supported versions.
