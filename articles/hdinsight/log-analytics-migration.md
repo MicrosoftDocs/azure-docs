@@ -145,7 +145,7 @@ Please refer to the [mapping table](#appendix-1-table-mapping) between the old t
 
 #### Out-of-Box dashboards 
 
-We also created much improved out-of-box dashboards both at the cluster-level. There is a button on the top right of every graph that allows you to see the underlying query that produces the information, which is a great way to familiarize yourself with how the new tables can be queried effectively. You can access the out-of-box dashboards by following the instructions found in section **Insights** and **At-Scale Workbooks** under the **I am a New User-\&gt;Using the new tables** section.
+We also created much improved out-of-box dashboards both at the cluster-level. There is a button on the top right of every graph that allows you to see the underlying query that produces the information, which is a great way to familiarize yourself with how the new tables can be queried effectively. You can access the out-of-box dashboards by following the instructions found in the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections.
 
 ### I am using HDInsight workload-specific monitoring dashboard
 
@@ -158,7 +158,7 @@ You will see an HDInsight option in Azure Monitor.
 The HDInsight Monitor portal provides you the capability of monitoring multiple HDInsight clusters in one place. We organize the clusters based on the workload type, so you see types like Spark, HBase, and Hive. Instead of going to multiple dashboards, now you can monitor all your HDInsight clusters in this view.
 
 > [!NOTE]
-> This feature is planned to be released by <XX of 2021>. More details in <section **Insights** and **At-Scale Workbooks** under the **I am a New User > Using the new tables** section.>
+> This feature is planned to be released by <XX of 2021>. More details in the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations)
 
 ## Enable both integrations to accelerate the migration
 
