@@ -2147,6 +2147,8 @@
         href: helloid-provisioning-tutorial.md
       - name: Hootsuite
         href: hootsuite-provisioning-tutorial.md
+      - name: Hoxhunt
+        href: hoxhunt-provisioning-tutorial.md
       - name: Ideo
         href: ideo-provisioning-tutorial.md        
       - name: Infor CloudSuite
