@@ -19,7 +19,7 @@ When a user opens a tiered file, Azure File Sync seamlessly recalls the file dat
 ## How cloud tiering works
 
 ### Cloud tiering policies
-When you enable cloud tiering, there are two policies that you can set to inform Azure File Sync when to tier cool files back to the cloud: the **volume free space policy** and the **date policy**. 
+When you enable cloud tiering, there are two policies that you can set to inform Azure File Sync when to tier cool files: the **volume free space policy** and the **date policy**. 
 
 #### Volume free space policy
 The **volume free space policy** tells Azure File Sync to tier cool files to the cloud when a certain amount of space is taken up on your local disk. 
