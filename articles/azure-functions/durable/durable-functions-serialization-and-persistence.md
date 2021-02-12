@@ -152,6 +152,8 @@ For full customization of the serialization/deserialization pipeline, consider h
 
 ### Serialization and deserialization logic
 
-Serialization and deserialization for built-in Python types is handled automatically. For custom data types, Durable Functions has the default behavior of inspecting the type annotations of the data type to convert between JSON and the Python representation of the data. Alternatively, you may customize the JSON serialization and deserialization of a data type by exporting a static `to_json` and `from_json` method from your class.
+It is strongly recommended to use type annotations to ensure Durable Functions serializes and deserializes your data correctly. While many built-in types are handled automatically, some built-in data types require type annotations to preserve the type during deserialization.
+
+For custom data types, you must define the JSON serialization and deserialization of a data type by exporting a static `to_json` and `from_json` method from your class.
 
 ---
