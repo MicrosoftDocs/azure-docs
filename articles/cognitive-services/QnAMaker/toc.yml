@@ -70,7 +70,9 @@
     - name: Add follow-up prompts
       href: How-To/multiturn-conversation.md
       displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
-  - name: Query knowledge base
+    - name: Change default answer
+      href: How-To/change-default-answer.md
+ - name: Query knowledge base
     href: How-To/metadata-generateanswer-usage.md
     displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
   - name: Set up Active Learning to enhance Knowledge base
@@ -95,8 +97,6 @@
   - name: Add secured SharePoint files
     href: How-To/add-sharepoint-datasources.md
     displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
-  - name: Change default answer
-    href: How-To/change-default-answer.md
   - name: Service configuration
     href: reference-app-service.md
   - name: Content format guidelines
