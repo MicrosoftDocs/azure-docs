@@ -39,7 +39,7 @@ To deliver events to Service Bus queues or topics in your Service Bus namespace 
 To deliver events to Storage queues using managed identity, follow these steps:
 
 1. [Enable system-assigned identity for a topic or a domain](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity).
-1. Add the identity to the **Storage Queue Data Message Sender** role on the Service Bus namespace
+1. Add the identity to the [Storage Queue Data Message Sender](../storage/common/storage-auth-aad-rbac-portal.md) role on Azure Storage queue.
 1. [Configure the event subscription](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) that uses a Service Bus queue or topic as an endpoint to use the system-assigned identity.
 
 
