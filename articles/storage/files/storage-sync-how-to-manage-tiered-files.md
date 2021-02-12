@@ -60,7 +60,7 @@ To exclude applications from last access time tracking, add the process name to 
 Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNameExclusionList /t REG_MULTI_SZ /d "SampleApp.exe\0AnotherApp.exe" /f
 
 > [!NOTE]
-> Data Deduplication and File Server Resource Manager (FSRM) processes are excluded by default (hard coded) and the process exclusion list is refreshed every 5 minutes.
+> Data Deduplication and File Server Resource Manager (FSRM) processes are excluded by default. Changes to the process exclusion list are honored by the system every 5 minutes.
 
 ## How to access the heat store
 
@@ -130,4 +130,3 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCoun
 > To recall files that have been tiered, the network bandwidth should be at least 1 Mbps. If network bandwidth is less than 1 Mbps, files may fail to recall with a timeout error.
 
 For conceptual questions regarding cloud tiering, please see [Azure Files FAQ](storage-files-faq.md).
-
