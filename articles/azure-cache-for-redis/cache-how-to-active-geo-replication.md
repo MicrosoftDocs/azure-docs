@@ -40,3 +40,4 @@ Active geo-replication groups two or more Enterprise Azure Cache for Redis insta
 Learn more about Azure Cache for Redis features.
 
 * [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)
+* [High availability for Azure Cache for Redis](cache-high-availability.md)
