@@ -12,7 +12,7 @@ ms.author: tomfitz
 
 This document contains information about troubleshooting your solutions that use Datadog.
 
-## Unable to create a Datadog resource as not a subscription owner
+## Unable to create a Datadog resource
 
 To set up the Azure Datadog integration, you must have **Owner** access on the Azure subscription. Ensure you have the appropriate access before starting the setup.
 
