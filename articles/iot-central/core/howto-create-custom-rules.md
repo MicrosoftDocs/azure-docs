@@ -112,7 +112,7 @@ You can configure an IoT Central application to continuously export telemetry to
 1. In the Azure portal, navigate to your Event Hubs namespace and select **+ Event Hub**.
 1. Name your event hub **centralexport**, and select **Create**.
 
-Your Event Hubs namespace looks like the following screenshot:
+Your Event Hubs namespace looks like the following screenshot: 
 
 :::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
 
@@ -125,7 +125,7 @@ This solution uses an Azure Functions app to send an email notification when the
 1. Select **HTTP Trigger**.
 1. Select **Add**.
 
-:::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Image of the Default HTTP trigger function":::
+:::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Image of the Default HTTP trigger function"::: 
 
 ## Edit code for HTTP Trigger
 
