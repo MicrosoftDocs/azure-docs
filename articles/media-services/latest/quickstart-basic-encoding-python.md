@@ -69,6 +69,7 @@ RESOURCE = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
 ```
 
 ### ADAL Authentication
+Azure Active Directory Authentication Library (ADAL) authenticates your Media Services client.
 
 ```python
 context = adal.AuthenticationContext(LOGIN_ENDPOINT + '/' + TENANT_ID)
