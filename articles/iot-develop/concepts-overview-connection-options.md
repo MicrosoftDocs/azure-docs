@@ -9,21 +9,19 @@ ms.date: 02/11/2021
 ---
 
 # Overview: Connection options for Azure IoT device developers
-As a developer who works with devices, you have several options for connecting and managing Azure IoT devices. Each option has unique features and advantages that are relevant to helping you build IoT solutions. This article overviews the most commonly used options and tools to help you connect and manage  devices.
+As a developer who works with devices, you have several options for connecting and managing Azure IoT devices. This article overviews the most commonly used options and tools to help you connect and manage  devices.
 
 As you evaluate Azure IoT connection options for your devices, it's helpful to compare the following items:
 - Azure IoT device application platforms
 - Tools for connecting and managing devices
 
-## Device application platforms: IoT Central and IoT Hub
-Azure IoT contains two services that are application platforms for device-enabled cloud applications: Azure IoT Central, and Azure IoT Hub. Each service has some unique advantages and features, and you can use either one to host an IoT application and connect devices.
-
-IoT Central is designed to reduce the complexity and cost of working with IoT solutions. It's a software-as-a-service (SaaS) application that provides a complete platform for hosting IoT applications. You can use the IoT Central web UI to streamline the process of creating and managing IoT applications. The web UI simplifies the tasks of creating applications, and connecting and managing from a few up to millions of devices. In general, IoT Central provides reduced complexity and development effort, and simplified device management through the web UI. 
-
-IoT Hub acts as a central message hub for bi-directional communication between IoT applications and connected devices. It's a platform-as-a-service (PaaS) application that also provides a platform for hosting IoT applications. Like IoT Central, it can scale to support millions of devices. In general, IoT Hub offers greater control and customization over your application design, at the cost of some increase in development and management complexity.
+## Application platforms: IoT Central and IoT Hub
+Azure IoT contains two services that are platforms for device-enabled cloud applications: Azure IoT Central, and Azure IoT Hub. You can use either one to host an IoT application and connect devices.
+- [IoT Central](../iot-central/core/overview-iot-central.md) is designed to reduce the complexity and cost of working with IoT solutions. It's a software-as-a-service (SaaS) application that provides a complete platform for hosting IoT applications. You can use the IoT Central web UI to streamline the entire lifecycle of creating and managing IoT applications. The web UI simplifies the tasks of creating applications, and connecting and managing from a few up to millions of devices. In general, IoT Central provides reduced complexity and development effort, and simplified device management through the web UI.
+- [IoT Hub](../iot-hub/about-iot-hub.md) acts as a central message hub for bi-directional communication between IoT applications and connected devices. It's a platform-as-a-service (PaaS) application that also provides a platform for hosting IoT applications. Like IoT Central, it can scale to support millions of devices. In general, IoT Hub offers greater control and customization over your application design, and more developer tool options for working with the service, at the cost of some increase in development and management complexity.
 
 ## Tools to connect and manage devices
-After you select IoT Hub or IoT Central to host your IoT application, you have several options of developer tools. You can use these tools to connect to your selected IoT application platform, and to create and manage applications and devices. The following table summarizes common tool options. 
+After you select IoT Hub or IoT Central to host your IoT application, you have several options of developer tools. You can use these tools to connect to your selected IoT application platform, and to create and manage applications and devices. The following table summarizes common tool options. You'll note that most tool options are for IoT Hub. With IoT Central, you can manage all aspects of your application through the web UI.
 
 > [!NOTE]
 > In addition to the following tools, you can programmatically create and manage IoT applications by using REST API's, Azure SDKs, or Azure Resource Manager templates. You can learn more in the [IoT Hub](../iot-hub/about-iot-hub.md) and [IoT Central](../iot-central/core/overview-iot-central.md) service documentation.
@@ -32,10 +30,10 @@ After you select IoT Hub or IoT Central to host your IoT application, you have s
 |---------|---------|---------|---------|
 |Central web UI     | Central | [Central quickstart](../iot-central/core/quick-deploy-iot-central.md) | Browser-based portal for IoT Central. |
 |Azure portal     | Hub       | [Create an IoT hub with Azure portal](../iot-hub/iot-hub-create-through-portal.md) | Browser-based portal for IoT Hub and devices, and other Azure resources. |
-|Azure CLI     | Hub          | [Create an IoT hub with CLI](../iot-hub/iot-hub-create-using-cli.md) | Command-line interface for IoT Hub applications. Can also monitor IoT Central devices. |
+|Azure CLI     | Hub, Central          | [Create an IoT hub with CLI](../iot-hub/iot-hub-create-using-cli.md) | Command-line interface for IoT Hub applications. Can also monitor IoT Central devices. |
 |Azure PowerShell     | Hub   | [Create an IoT hub with PowerShell](../iot-hub/iot-hub-create-using-powershell.md) | PowerShell interface for IoT Hub applications |
 |Azure IoT Tools for VS Code  | Hub | [Create an IoT hub with Tools for VS Code](../iot-hub/iot-hub-create-use-iot-toolkit.md) | VS Code extension for IoT Hub applications. |
-|Azure IoT Explorer     | Hub | [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) | Cannot create IoT hubs. Connects to an existing IoT hub to manage devices. |
+|Azure IoT Explorer     | Hub | [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) | Cannot create IoT hubs. Connects to an existing IoT hub to manage devices. Often used with CLI or Portal.|
 
 ## Next steps
 To learn more about your options for connecting devices to Azure IoT, explore the following quickstarts:
