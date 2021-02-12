@@ -60,8 +60,7 @@ downloads and is used in our Raspberry Pi reference image, and all clients that 
 The Simulator Platform Layer implementation can be found in the
 `src/platform_layers/simulator_platform_layer` and can be used for
 testing and evaluating Device Update for IoT Hub.  Many of the actions in the
-"simulator" implementation are mocked so that you do not need to make any
-physical changes to experiment with Device Update for IoT Hub.  An end to end
+"simulator" implementation are mocked to reduce physical changes to experiment with Device Update for IoT Hub.  An end to end
 "simulated" update can be performed using this Platform Layer. [Learn
 More](how-to-run-agent.md) about running the simulator agent.
 
@@ -71,9 +70,9 @@ The Linux Platform Layer implementation can be found in the
 `src/platform_layers/linux_platform_layer` and it integrates with the [Delivery Optimization Client](https://github.com/Azure/doclient-private-preview/releases) for downloads and is used in our Raspberry Pi reference image, and all clients that run on Linux systems.
 
 This layer can integrate with different Update Handlers to implement the
-installer or content specific parts of the high-level update actions. For
+installer. For
 instance, the SWUpdate Update Handler invokes a shell script to call into the
-'SWUpdate' executable to perform an update.
+'SWUpdate' executable to do an update.
 
 ## Update Handlers
 
@@ -83,7 +82,7 @@ of the update. Update Handler implementations are in `src/content_handlers`.
 ### Simulator Update Handler
 
 The Simulator Update Handler is used by the Simulator Platform Layer and can
-also be used with the Linux Platform Layer to fake interactions with a Content
+be used with the Linux Platform Layer to fake interactions with a Content
 Handler. The Simulator Update Handler implements the Update Handler APIs with
 mostly no-ops. The implementation of the Simulator Update Handler is in
 src/content_handlers/simulator_content_handler. The InstalledCriteria field in
@@ -117,17 +116,17 @@ If you downloaded our Raspberry Pi reference image, click
 [here](../quickstarts/how-to-agent-eval-pi-quickstart.md) to learn how to get
 started.
 
-### [Build the agent](how-to-build-agent-code.md)
+### [Build the agent](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md)
 
 Follow the instructions to [build](how-to-build-agent-code.md) the Device Update Agent
 from source.
 
-### [Run the agent](how-to-run-agent.md)
+### [Run the agent](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md)
 
 Once the agent is successfully building, it's time [run](how-to-run-agent.md)
 the agent.
 
-### [Modifying the agent](how-to-modify-the-agent-code.md)
+### [Modifying the agent](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.md)
 
 At this point, you'll have an idea for how the Device Update Agent works.  Now, make the
 changes needed to incorporate the agent into your image.  Look at how to
