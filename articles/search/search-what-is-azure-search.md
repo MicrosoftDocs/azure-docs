@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 12/17/2020
+ms.date: 01/22/2021
 ms.custom: contperf-fy21q1
 ---
 # What is Azure Cognitive Search?
@@ -17,31 +17,35 @@ Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-serv
 
 A search service has the following components:
 
-+ Search engine for indexing and query execution
-+ Persistent storage of user-owned search indexes
-+ Query language for composing simple to complex queries
++ Search engine for full text search
++ Persistent storage of user-owned indexed content
++ APIs for indexing and querying
 + Optional [AI-based enrichments](cognitive-search-concept-intro.md), creating searchable content out of images, raw text, application files
 + Optional integration with other Azure services for data, machine learning/AI, and security
 
-Architecturally, a search service sits in between the external data stores that contain your un-indexed data, and a client app that sends query requests to a search index and handles the response.
+Architecturally, a search service sits in between the external data stores that contain your un-indexed data, and your client app that sends query requests to a search index and handles the response.
 
 ![Azure Cognitive Search architecture](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Cognitive Search architecture")
 
-Outwardly, search can integrate with other Azure services in the form of *indexers* that automate data ingestion/retrieval from Azure data sources, and *skillsets* that incorporate consumable AI from Cognitive Services, such as image and text analysis, or custom AI that you create in Azure Machine Learning or wrap inside Azure Functions.
+Externally, search can integrate with other Azure services in the form of *indexers* that automate data ingestion/retrieval from Azure data sources, and *skillsets* that incorporate consumable AI from Cognitive Services, such as image and text analysis, or custom AI that you create in Azure Machine Learning or wrap inside Azure Functions.
+
+## Inside a search service
 
 On the search service itself, the two primary workloads are *indexing* and *querying*. 
 
-+ Indexing ingests text into to your search service and makes it searchable. Internally, inbound text is processed into tokens and stored in inverted indexes for fast scans. You can upload any content that is in the form of JSON documents.
++ [Indexing](search-what-is-an-index.md) is an intake process that loads content into to your search service and makes it searchable. Internally, inbound text is processed into tokens and stored in inverted indexes for fast scans. You can upload any text that is in the form of JSON documents.
 
-  Within indexing, you have the option of adding *AI enrichment* through [cognitive skills](cognitive-search-working-with-skillsets.md), either predefined ones from Microsoft or custom skills that you create. The subsequent analysis and transformations can result in new information and structures that did not previously exist, providing high utility for many search and knowledge mining scenarios.
+  Additionally, if your content includes mixed files, you have the option of adding *AI enrichment* through [cognitive skills](cognitive-search-working-with-skillsets.md). AI enrichment can extract text embedded in application files, and also infer text and structure from non-text files by analyzing the content. 
 
-+ Once an index is populated with searchable data, your client app sends query requests to a search service and handles responses. All query execution is over a search index that you create, own, and store in your service. In your client app, the search experience is defined using APIs from Azure Cognitive Search, and can include relevance tuning, autocomplete, synonym matching, fuzzy matching, pattern matching, filter, and sort.
+  The skills providing the analysis are predefined ones from Microsoft, or custom skills that you create. The subsequent analysis and transformations can result in new information and structures that did not previously exist, providing high utility for many search and knowledge mining scenarios.
+
++ [Querying](search-query-overview.md) can happen once an index is populated with searchable text, when your client app sends query requests to a search service and handles responses. All query execution is over a search index that you create, own, and store in your service. In your client app, the search experience is defined using APIs from Azure Cognitive Search, and can include relevance tuning, autocomplete, synonym matching, fuzzy matching, pattern matching, filter, and sort.
 
 Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of information retrieval. You can also use the Azure portal for service administration and content management, with tools for prototyping and querying your indexes and skillsets. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
 
 ## Why use Cognitive Search
 
-Azure Cognitive Search is well-suited for the following application scenarios:
+Azure Cognitive Search is well suited for the following application scenarios:
 
 + Consolidate heterogeneous content into a private, user-defined search index.
 
@@ -68,7 +72,7 @@ An end-to-end exploration of core search features can be achieved in four steps:
 > [!TIP]
 > Minimize steps by starting with the [**Import data wizard**](search-get-started-portal.md) and an Azure data source to create, load, and query an index in minutes.
 
-## How it compares
+## Compare search options
 
 Customers often ask how Azure Cognitive Search compares with other search-related solutions. The following table summarizes key differences.
 

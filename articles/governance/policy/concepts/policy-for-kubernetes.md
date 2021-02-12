@@ -607,7 +607,7 @@ documentation.
 ## Troubleshooting the add-on
 
 For more information about troubleshooting the Add-on for Kubernetes, see the
-[Kubernetes section](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors)
+[Kubernetes section](../troubleshoot/general.md#add-on-for-kubernetes-general-errors)
 of the Azure Policy troubleshooting article.
 
 ## Remove the add-on

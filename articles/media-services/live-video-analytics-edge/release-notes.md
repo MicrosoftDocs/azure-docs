@@ -30,7 +30,7 @@ mcr.microsoft.com/media/live-video-analytics:2.0.1
 > In the quickstarts and tutorials, the deployment manifests use a tag of 2 (live-video-analytics:2). So simply redeploying such manifests should update the module on your edge > devices.
 ### Bug fixes 
 
-* The fields `ActivationSignalOffset`, `MinimumActivationTime` and `MaximumActivationTime` in Signal Gate processors were incorrectly set as required properties. They are now **optional** properties.
+* The fields `ActivationSignalOffset`, `MinimumActivationTime`, and `MaximumActivationTime` in Signal Gate processors were incorrectly set as required properties. They are now **optional** properties.
 * Fixed a Usage bug that causes the Live Video Analytics on IoT Edge module to crash when deployed in certain regions.
 
 <hr width=100%>
@@ -43,12 +43,15 @@ This release is the public preview refresh release of Live Video Analytics on Io
 ```
 ### Module updates
 * Added support for using more than one HTTP extension processor and gRPC extension processor per graph topology.
-* Added support for Disk space management for sink nodes.
+* Added support for [Disk space management for sink nodes](upgrading-lva-module.md#disk-space-management-with-sink-nodes).
 * `MediaGraphGrpcExtension` node now supports [extensionConfiguration](grpc-extension-protocol.md) property for using multiple AI models within a single gRPC server.
 * Added support of collecting Live Video Analytics module metrics in the [Prometheus format](https://prometheus.io/docs/practices/naming/). Learn more on how to [collect metrics and view in Azure Monitor.](monitoring-logging.md#azure-monitor-collection-via-telegraf) 
+* Added the ability to filter output selection. You can pass **audio-only** or **video-only** or **audio and video** both with the help of `outputSelectors` to any graph node. 
 * Frame Rate Filter processor is **deprecated**.  
     * Frame rate management is now available within the graph extension processor nodes itself.
 
+### Visual Studio Code extension
+* Released [Live Video Analytics on IoT Edge](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) - A Visual Studio Code extension to help you manage LVA media graphs. This extension works with **LVA 2.0 module** and offers editing and managing media graphs with a sleek and an easy-to-use graphical interface.
 ## September 22, 2020
 
 This release tag is for the September 2020 refresh of the module is:
@@ -68,7 +71,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 ### Documentation updates
 
 * [Instructions](deploy-azure-stack-edge-how-to.md) are available for using Live Video Analytics on IoT Edge on Azure Stack Edge devices.
-* New tutorial on developing scenario specific computer vision models using [Custom Vision service](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) and using it to [analyze live video](custom-vision-tutorial.md) in real time.
+* New tutorial on developing scenario-specific computer vision models using [Custom Vision service](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) and using it to [analyze live video](custom-vision-tutorial.md) in real time.
 
 <hr width=100%>
 
@@ -85,15 +88,15 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ### Module updates
 
-* You can now get high data content transfer performance between Live Video Analytics on IoT Edge and your custom extension using gRPC framework. See [this](analyze-live-video-use-your-grpc-model-quickstart.md) to get started.
+* You can now get high data content transfer performance between Live Video Analytics on IoT Edge and your custom extension using gRPC framework. See [the quickstart](analyze-live-video-use-your-grpc-model-quickstart.md) to get started.
 * Broader regional deployment of Live Video Analytics and only the cloud service has been updated.  
-* Live Video Analytics is now available in 25 additional regions across the globe. Here is the [list](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) of all available regions.  
+* Live Video Analytics is now available in 25 more regions across the globe. Here is the [list](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) of all available regions.  
 * The [set up](https://aka.ms/lva-edge/setup-resources-for-samples) for quick starts has been updated as well with new regions support.
     * There is no call to action for anyone who has already setup resources
 
 ### Bug fixes 
 
-* Remove the use of a deprecated Azure extension in the set up script
+* Remove the use of a deprecated Azure extension in the setup script
 
 <hr width=100%>
 
@@ -110,7 +113,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.2
 
 ### Module updates
 
-* You can now create graph topologies that have an asset sink node as well as a file sink node downstream of a signal gate processor node. See [this](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files) for an example.
+* You can now create graph topologies that have an asset sink node and a file sink node downstream of a signal gate processor node. See [the topology](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files) for an example.
 
 ### Bug fixes
 

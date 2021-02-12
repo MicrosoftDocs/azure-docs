@@ -3,9 +3,9 @@ title: Exchange messages with Azure Service Bus
 description: Create automated tasks and workflows that send and receive messages by using Azure Service Bus in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: logicappspm, azla
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 02/10/2021
 tags: connectors
 ---
 
@@ -174,7 +174,7 @@ When you create a logic app, you can select the **Correlated in-order delivery u
 
 ## Delays in updates to your logic app taking effect
 
-If a Service Bus trigger's polling interval is small, such as 10 seconds, updates to your logic app might not take effect for up to 10 minutes. To work around this problem, you can temporarily increase the polling interval to a larger value, such as 30 seconds or 1 minute, before you update your logic app. After you make the update, you can reset the polling interval to the original value. 
+If a Service Bus trigger's polling interval is small, such as 10 seconds, updates to your logic app might not take effect for up to 10 minutes. To work around this problem, you can disable the logic app, make the changes, and then enable the logic app again.
 
 <a name="connector-reference"></a>
 

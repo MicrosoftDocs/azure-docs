@@ -307,7 +307,7 @@ az storage blob list \
 
 ## Transfer blob (optional) 
 
-Use the AzCopy tool or other methods to [transfer blob data](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) from the source storage account to the target storage account.
+Use the AzCopy tool or other methods to [transfer blob data](../storage/common/storage-use-azcopy-v10.md#transfer-data) from the source storage account to the target storage account.
 
 For example, the following [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) command copies myblob from the *transfer* container in the source account to the *transfer* container in the target account. If the blob exists in the target account, it's overwritten. Authentication uses SAS tokens with appropriate permissions for the source and target containers. (Steps to create tokens are not shown.)
 

@@ -1,6 +1,6 @@
 ---
 title: Collaborate with others - QnA Maker
-description:
+description: Learn how to collaborate with other authors and editors using Azure role-based access control.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
@@ -18,6 +18,9 @@ All permissions are controlled by the permissions placed on the QnA Maker resour
 This Azure RBAC feature includes:
 * Azure Active Directory (AAD) is 100% backward compatible with key-based authentication for owners and contributors. Customers can use either key-based authentication or Azure RBAC-based authentication in their requests.
 * Quickly add authors and editors to all knowledge bases in the resource because control is at the resource level, not at the knowledge base level.
+
+> [!NOTE]
+> When you ar Make sure to add a custom subdomain for the resource. [Custom Subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) should be present by default, but if not, please add it
 
 ## Access is provided by a defined role
 
@@ -41,7 +44,7 @@ If you intend to call the [authoring APIs](../index.yml), learn more about how t
 
 ## Authenticate by QnA Maker portal
 
-If you author and collaborate using the QnA Maker portal, after you [add the appropriate role to the resource for a collaborator](../index.yml), the QnA Maker portal manages all the access permissions.
+If you author and collaborate using the QnA Maker portal, after you add the appropriate role to the resource for a collaborator, the QnA Maker portal manages all the access permissions.
 
 ## Authenticate by QnA Maker APIs and SDKs
 
@@ -49,4 +52,4 @@ If you author and collaborate using the APIs, either through REST or the SDKs, y
 
 ## Next step
 
-* Design a knowledge base for [languages](../index.yml) and for [client applications](../index.yml)
+* Design a knowledge base for languages and for client applications

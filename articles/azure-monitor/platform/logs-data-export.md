@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
-ms.date: 10/14/2020
+ms.date: 02/07/2021
 
 ---
 
@@ -14,7 +14,7 @@ ms.date: 10/14/2020
 Log Analytics workspace data export in Azure Monitor allows you to continuously export data from selected tables in your Log Analytics workspace to an Azure storage account or Azure Event Hubs as it's collected. This article provides details on this feature and steps to configure data export in your workspaces.
 
 ## Overview
-Once data export is configured for your Log Analytics workspace, any new data sent to the selected tables in the workspace is automatically exported to your storage account hourly or to your event hub in near-real-time.
+Once data export is configured for your Log Analytics workspace, any new data sent to the selected tables in the workspace is automatically exported to your storage account in hourly append blobs or to your event hub in near-real-time.
 
 ![Data export overview](media/logs-data-export/data-export-overview.png)
 
@@ -24,32 +24,25 @@ All data from included tables is exported without a filter. For example, when yo
 ## Other export options
 Log Analytics workspace data export continuously exports data from a Log Analytics workspace. Other options to export data for particular scenarios include the following:
 
-- Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. This method though is subject to [log query limits](../service-limits.md#log-analytics-workspaces)  See [Archive data from Log Analytics workspace to Azure storage using Logic App](logs-export-logic-app.md).
-- One time export using a Logic App. See [Azure Monitor Logs connector for Logic Apps and Power Automate](logicapp-flow-connector.md).
+- Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. This method though is subject to [log query limits](../service-limits.md#log-analytics-workspaces), see [Archive data from Log Analytics workspace to Azure storage using Logic App](logs-export-logic-app.md).
 - One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 
-## Current limitations
+## Limitations
 
-- Configuration can currently only be performed using CLI or REST requests. You cannot use the Azure portal or PowerShell.
+- Configuration can be performed using CLI or REST requests currently. Azure portal or PowerShell are not supported yet.
 - The ```--export-all-tables``` option in CLI and REST isn't supported and will be removed. You should provide the list of tables in export rules explicitly.
-- Supported tables are currently limited those specific in the [supported tables](#supported-tables) section below. If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table. If the data export rule includes a table that doesn't exist, it will fail with the error ```Table <tableName> does not exist in the workspace.```
+- Supported tables are currently limited those specific in the [supported tables](#supported-tables) section below. 
+- If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until table gets supported. 
+- If the data export rule includes a table that doesn't exist, it will fail with the error ```Table <tableName> does not exist in the workspace```.
 - Your Log Analytics workspace can be in any region except for the following:
   - Switzerland North
   - Switzerland West
   - Azure Government regions
+- You can create two export rules in a workspace -- in can be one rule to event hub and one rule to storage account.
 - The destination storage account or event hub must be in the same region as the Log Analytics workspace.
 - Names of tables to be exported can be no longer than 60 characters for a storage account and no more than 47 characters to an event hub. Tables with longer names will not be exported.
-
-> [!NOTE]
-> Log Analytics data export writes data as append blob which is currently in preview for Azure Data Lake Storage Gen2. You must open a support request before configuring export to this storage. Use the following details for this request.
-> - Issue type: Technical
-> - Subscription: Your subscription
-> - Service: Data Lake Storage Gen2
-> - Resource: Your resource name
-> - Summary: Requesting subscription registration to accept data from Log Analytics Data Export.
-> - Problem type: Connectivity
-> - Problem subtype: Connectivity issue
+- Append blob support for Azure Data Lake Storage is now in [limited public preview](https://azure.microsoft.com/updates/append-blob-support-for-azure-data-lake-storage-preview/)
 
 ## Data completeness
 Data export will continue to retry sending data for up to 30 minutes in the event that the destination is unavailable. If it's still unavailable after 30 minutes then data will be discarded until the destination becomes available.
@@ -60,7 +53,7 @@ There are currently no additional charges for the data export feature. Pricing f
 ## Export destinations
 
 ### Storage account
-Data is sent to storage accounts every hour. The data export configuration creates a container for each table in the storage account with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to a container named *am-SecurityEvent*.
+Data is sent to storage accounts as it reaches Azure Monitor and stored in hourly append blobs. The data export configuration creates a container for each table in the storage account with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to a container named *am-SecurityEvent*.
 
 The storage account blob path is *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=00/PT1H.json*. Since append blobs are limited to 50K writes in storage, the number of exported blobs may extend if the number of appends is high. The naming pattern for blobs in such a case would be PT1H_#.json, where # is the incremental blob count.
 
@@ -69,6 +62,9 @@ The storage account data format is [JSON lines](./resource-logs-blob-format.md).
 [![Storage sample data](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
 Log Analytics data export can write append blobs to immutable storage accounts when time-based retention policies have the *allowProtectedAppendWrites* setting enabled. This allows writing new blocks to an append blob, while maintaining immutability protection and compliance. See [Allow protected append blobs writes](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+
+> [!NOTE]
+> Append blob support for Azure Data Lake storage is now available in preview in all Azure regions. [Enroll to the limited public preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pURDk2NjMzUTVEVzU5UU1XUlRXSTlHSlkxQS4u) before you create an export rule to Azure Data Lake storage. Export will not operate without this enrollment.
 
 ### Event hub
 Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all data for defined tables to it.
@@ -111,7 +107,7 @@ If you have configured your Storage Account to allow access from selected networ
 
 
 ### Create or update data export rule
-A data export rule defines data to be exported for a set of tables to a single destination. You can create a rule for each destination.
+A data export rule defines data to be exported for a set of tables to a single destination. You can create a single rule for each destination.
 
 
 # [Azure portal](#tab/portal)

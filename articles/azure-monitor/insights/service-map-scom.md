@@ -137,7 +137,7 @@ The current design presents the following issues and limitations:
 For official Azure documentation about creating a service principal, see:
 
 * [Create a service principal by using PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Create a service principal by using Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Create a service principal by using Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli)
 * [Create a service principal by using the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### Suggestions

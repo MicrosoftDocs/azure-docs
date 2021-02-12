@@ -68,6 +68,8 @@
       href: quickstart-v2-netcore-daemon.md
     - name: Python console daemon
       href: quickstart-v2-python-daemon.md
+    - name: Java console daemon
+      href: quickstart-v2-java-daemon.md
 - name: Tutorials
   items:
   - name: Single-page app (SPA)
@@ -329,7 +331,7 @@
         href: msal-error-handling-dotnet.md
         displayName: handling, catch
       - name: Logging in MSAL.NET
-        href: msal-logging.md?tabs=dotnet
+        href: msal-logging-dotnet.md
       - name: Acquire a token from the cache
         href: msal-net-acquire-token-silently.md
       - name: Token cache serialization
@@ -371,7 +373,7 @@
         href: msal-error-handling-js.md
         displayName: handling, catch
       - name: Logging in MSAL.js
-        href: msal-logging.md?tabs=javascript
+        href: msal-logging-js.md
     - name: MSAL for iOS and macOS
       items:
       - name: MSAL for iOS and macOS differences
@@ -401,7 +403,7 @@
         href: msal-error-handling-ios.md
         displayName: handling, catch
       - name: Logging in MSAL for iOS/macOS
-        href: msal-logging.md?tabs=swift
+        href: msal-logging-ios.md
     - name: MSAL for Python
       items:
       - name: Custom token cache serialization
@@ -414,7 +416,7 @@
         href: msal-error-handling-python.md
         displayName: handling, catch
       - name: Logging in MSAL for Python
-        href: msal-logging.md?tabs=python
+        href: msal-logging-python.md
     - name: MSAL for Java
       items:
       - name: Custom token cache serialization
@@ -429,7 +431,7 @@
         href: msal-error-handling-java.md
         displayName: handling, catch
       - name: Logging in MSAL for Java
-        href: msal-logging.md?tabs=java
+        href: msal-logging-java.md
     - name: MSAL for Android
       items:
       - name: Accounts and tenant profiles
@@ -449,7 +451,7 @@
         href: msal-android-handling-exceptions.md
         displayName: android, mobile, handling, catch
       - name: Logging in MSAL for Android
-        href: msal-logging.md?tabs=android
+        href: msal-logging-android.md
   - name: Customize tokens and claims
     items:
     - name: Configure role claim
@@ -473,6 +475,10 @@
       href: reference-third-party-cookies-spas.md
     - name: Handle SameSite cookie changes in Chrome
       href: howto-handle-samesite-cookie-changes-chrome-browser.md
+  - name: Support passwordless authentication
+    items:
+    - name: Support FIDO2 authentication
+      href: support-fido2-authentication.md
   - name: Authenticate apps and services
     items:
     - name: Create a service principal using Azure PowerShell
@@ -637,7 +643,7 @@
     - name: Common provisioning scenarios
       href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Automate configuration using MS Graph
-      href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+      href: /graph/application-provisioning-configure-api?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
 - name: Resources
   items:
   - name: Videos

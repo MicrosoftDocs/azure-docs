@@ -39,6 +39,8 @@ Because models in Azure Digital Twins are represented in [Digital Twins Definiti
 
 ## Paths to integrating ontologies
 
+There are three possible paths to integrating industry-standard ontologies with DTDL. You can pick the one that works best for you depending on your needs:
+
 [!INCLUDE [Azure Digital Twins: industry model paths](../../includes/digital-twins-industry-model-paths.md)]
 
 Here are the steps you should follow for each path: 

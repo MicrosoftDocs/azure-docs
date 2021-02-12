@@ -56,7 +56,7 @@ These are the parameters required by each of these spatial analysis operations.
 |---------|---------|
 | Operation ID | The Operation Identifier from table above.|
 | enabled | Boolean: true or false|
-| VIDEO_URL| The RTSP url for the camera device (Example: `rtsp://username:password@url`). Spatial analysis supports H.264 encoded stream either through RTSP, http, or mp4. Video_URL can be provided as an obfuscated base64 string value using AES encryption, and if the video url is obfuscated then `KEY_ENV` and `IV_ENV` need to be provided as environment variables. Sample utility to generate keys and encryption can be found [here](https://docs.microsoft.com/dotnet/api/system.security.cryptography.aesmanaged?view=net-5.0&preserve-view=true). |
+| VIDEO_URL| The RTSP url for the camera device (Example: `rtsp://username:password@url`). Spatial analysis supports H.264 encoded stream either through RTSP, http, or mp4. Video_URL can be provided as an obfuscated base64 string value using AES encryption, and if the video url is obfuscated then `KEY_ENV` and `IV_ENV` need to be provided as environment variables. Sample utility to generate keys and encryption can be found [here](/dotnet/api/system.security.cryptography.aesmanaged). |
 | VIDEO_SOURCE_ID | A friendly name for the camera device or video stream. This will be returned with the event JSON output.|
 | VIDEO_IS_LIVE| True for camera devices; false for recorded videos.|
 | VIDEO_DECODE_GPU_INDEX| Which GPU to decode the video frame. By default it is 0. Should be the same as the `gpu_index` in other node config like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
@@ -64,6 +64,38 @@ These are the parameters required by each of these spatial analysis operations.
 | DETECTOR_NODE_CONFIG | JSON indicating which GPU to run the detector node on. Should be in the following format: `"{ \"gpu_index\": 0 }",`|
 | SPACEANALYTICS_CONFIG | JSON configuration for zone and line as outlined below.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` to enable detecting people wearing face masks in the video stream, `False` to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 `"INPUT_VIDEO_WIDTH": 1920`. The face mask attribute will not be returned if detected people are not facing the camera or are too far from it. Refer to [camera placement](spatial-analysis-camera-placement.md) guide for more information |
+
+This is an example of the DETECTOR_NODE_CONFIG parameters for all spatial analysis operations.
+
+```json
+{
+"gpu_index": 0,
+"do_calibration": true,
+"enable_recalibration": true,
+"calibration_quality_check_frequency_seconds":86400,
+"calibration_quality_check_sampling_num": 80,
+"calibration_quality_check_sampling_times": 5,
+"calibration_quality_check_sample_collect_frequency_seconds": 300,
+"calibration_quality_check_one_round_sample_collect_num":10,
+"calibration_quality_check_queue_max_size":1000,
+"recalibration_score": 75
+}
+```
+
+| Name | Type| Description|
+|---------|---------|---------|
+| `gpu_index` | string| The GPU index on which this operation will run.|
+| `do_calibration` | string | Indicates that calibration is turned on. `do_calibration` must be true for **cognitiveservices.vision.spatialanalysis-persondistance** to function properly. do_calibration is set by default to True. |
+| `enable_recalibration` | bool | Indicates whether automatic recalibration is turned on. Default is `true`.|
+| `calibration_quality_check_frequency_seconds` | int | Minimum number of seconds between each quality check to determine whether or not recalibration is needed. Default is `86400` (24 hours). Only used when `enable_recalibration=True`.|
+| `calibration_quality_check_sampling_num` | int | Number of randomly selected stored data samples to use per quality check error measurement. Default is `80`. Only used when `enable_recalibration=True`.|
+| `calibration_quality_check_sampling_times` | int | Number of times error measurements will be performed on different sets of randomly selected data samples per quality check. Default is `5`. Only used when `enable_recalibration=True`.|
+| `calibration_quality_check_sample_collect_frequency_seconds` | int | Minimum number of seconds between collecting new data samples for recalibration and quality checking. Default is `300` (5 minutes). Only used when `enable_recalibration=True`.|
+| `calibration_quality_check_one_round_sample_collect_num` | int | Minimum number of new data samples to collect per round of sample collection. Default is `10`. Only used when `enable_recalibration=True`.|
+| `calibration_quality_check_queue_max_size` | int | Maximum number of data samples to store when camera model is calibrated. Default is `1000`. Only used when `enable_recalibration=True`.|
+| `recalibration_score` | int | Maximum quality threshold to begin recalibration. Default is `75`. Only used when `enable_recalibration=True`. Calibration quality is calculated based on an inverse relationship with image target reprojection error. Given detected targets in 2D image frames, the targets are projected into 3D space and re-projected back to the 2D image frame using existing camera calibration parameters. The reprojection error is measured by the average distances between the detected targets and the re-projected targets.|
+| `enable_breakpad`| bool | Indicates whether you want to enable breakpad, which is used to generate crash dump for debug use. It is `false` by default. If you set it to `true`, you also need to add `"CapAdd": ["SYS_PTRACE"]` in the `HostConfig` part of container `createOptions`. By default, the crash dump is uploaded to the [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter app, if you want the crash dumps to be uploaded to your own AppCenter app, you can override the environment variable `RTPT_APPCENTER_APP_SECRET` with your app's app secret.
+
 
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcount
 
@@ -93,7 +125,7 @@ These are the parameters required by each of these spatial analysis operations.
 | `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. |
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcount** this should be `count`.|
 | `trigger` | string| The type of trigger for sending an event. Supported values are `event` for sending events when the count changes or `interval` for sending events periodically, irrespective of whether the count has changed or not.
-| `interval` | string| A time in seconds that the person count will be aggregated before an event is fired. The operation will continue to analyze the scene at a constant rate and returns the most common count over that interval. The aggregation interval is applicable to both `event` and `interval`.|
+| `output_frequency` | int | The rate at which events are egressed. When `output_frequency` = X, every X event is egressed, ex. `output_frequency` = 2 means every other event is output. The `output_frequency` is applicable to both `event` and `interval`. |
 | `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box).|
 
 ### Line configuration for cognitiveservices.vision.spatialanalysis-personcrossingline
@@ -137,10 +169,10 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 | `line` | list| The definition of the line. This is a directional line allowing you to understand "entry" vs. "exit".|
 | `start` | value pair| x, y coordinates for line's starting point. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. |
 | `end` | value pair| x, y coordinates for line's ending point. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. |
-| `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. |
+| `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. The default value is 16. This is the recommended value to achieve maximum accuracy. |
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcrossingline** this should be `linecrossing`.|
 |`trigger`|string|The type of trigger for sending an event.<br>Supported Values: "event": fire when someone crosses the line.|
-| `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box).|
+| `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box). The default value is footprint.|
 
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcrossingpolygon
 
@@ -181,10 +213,10 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 | `zones` | list| List of zones. |
 | `name` | string| Friendly name for this zone.|
 | `polygon` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
-| `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. |
+| `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy.  |
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcrossingpolygon** this should be `zonecrossing` or `zonedwelltime`.|
 | `trigger`|string|The type of trigger for sending an event<br>Supported Values: "event": fire when someone enters or exits the zone.|
-| `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box).|
+| `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box). The default value is footprint.|
 
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-persondistance
 
@@ -218,34 +250,10 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 | `threshold` | float| Events are egressed when the confidence of the AI models is greater or equal this value. |
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-persondistance** this should be `people_distance`.|
 | `trigger` | string| The type of trigger for sending an event. Supported values are `event` for sending events when the count changes or `interval` for sending events periodically, irrespective of whether the count has changed or not.
-| `interval` | string | A time in seconds that the violations will be aggregated before an event is fired. The aggregation interval is applicable to both `event` and `interval`.|
-| `output_frequency` | int | The rate at which events are egressed. When `output_frequency` = X, every X event is egressed, ex. `output_frequency` = 2 means every other event is output. The output_frequency is applicable to both `event` and `interval`.|
+| `output_frequency` | int | The rate at which events are egressed. When `output_frequency` = X, every X event is egressed, ex. `output_frequency` = 2 means every other event is output. The `output_frequency` is applicable to both `event` and `interval`.|
 | `minimum_distance_threshold` | float| A distance in feet that will trigger a "TooClose" event when people are less than that distance apart.|
 | `maximum_distance_threshold` | float| A distance in feet that will trigger a "TooFar" event when people are greater than that distance apart.|
 | `focus` | string| The point location within person's bounding box used to calculate events. Focus's value can be `footprint` (the footprint of person), `bottom_center` (the bottom center of person's bounding box), `center` (the center of person's bounding box).|
-
-This is an example of a JSON input for the DETECTOR_NODE_CONFIG parameter that configures a **cognitiveservices.vision.spatialanalysis-persondistance** zone.
-
-```json
-{ 
-"gpu_index": 0, 
-"do_calibration": true
-}
-```
-
-| Name | Type| Description|
-|---------|---------|---------|
-| `gpu_index` | string| The GPU index on which this operation will run.|
-| `do_calibration` | string | Indicates that calibration is turned on. `do_calibration` must be true for **cognitiveservices.vision.spatialanalysis-persondistance** to function properly.|
-| `enable_recalibration` | bool | Indicates whether automatic recalibration is turned on. Default is `true`.|
-| `calibration_quality_check_frequency_seconds` | int | Minimum number of seconds between each quality check to determine whether or not recalibration is needed. Default is `86400` (24 hours). Only used when `enable_recalibration=True`.|
-| `calibration_quality_check_sampling_num` | int | Number of randomly selected stored data samples to use per quality check error measurement. Default is `80`. Only used when `enable_recalibration=True`.|
-| `calibration_quality_check_sampling_times` | int | Number of times error measurements will be performed on different sets of randomly selected data samples per quality check. Default is `5`. Only used when `enable_recalibration=True`.|
-| `calibration_quality_check_sample_collect_frequency_seconds` | int | Minimum number of seconds between collecting new data samples for recalibration and quality checking. Default is `300` (5 minutes). Only used when `enable_recalibration=True`.|
-| `calibration_quality_check_one_round_sample_collect_num` | int | Minimum number of new data samples to collect per round of sample collection. Default is `10`. Only used when `enable_recalibration=True`.|
-| `calibration_quality_check_queue_max_size` | int | Maximum number of data samples to store when camera model is calibrated. Default is `1000`. Only used when `enable_recalibration=True`.|
-| `recalibration_score` | int | Maximum quality threshold to begin recalibration. Default is `75`. Only used when `enable_recalibration=True`. Calibration quality is calculated based on an inverse relationship with image target reprojection error. Given detected targets in 2D image frames, the targets are projected into 3D space and re-projected back to the 2D image frame using existing camera calibration parameters. The reprojection error is measured by the average distances between the detected targets and the re-projected targets.|
-| `enable_breakpad`| bool | Indicates whether you want to enable breakpad, which is used to generate crash dump for debug use. It is `false` by default. If you set it to `true`, you also need to add `"CapAdd": ["SYS_PTRACE"]` in the `HostConfig` part of container `createOptions`. By default, the crash dump is uploaded to the [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter app, if you want the crash dumps to be uploaded to your own AppCenter app, you can override the environment variable `RTPT_APPCENTER_APP_SECRET` with your app's app secret.
 
 See the [camera placement](spatial-analysis-camera-placement.md) guidelines to learn about zone and line configurations.
 
@@ -601,7 +609,7 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
 | `trackinId` | string| Unique identifier of the person detected|
 | `status` | string| Direction of polygon crossings, either 'Enter' or 'Exit'|
 | `side` | int| The number of the side of the polygon that the person crossed. Each side is a numbered edge between the two vertices of the polygon that represents your zone. The edge between the first two vertices of the polygon represent first side|
-| `durationMs` | int | The number of milliseconds that represent the time the person spent in the zone. This field is provided when the event type is _personZoneDwellTimeEvent_|
+| `durationMs` | float | The number of milliseconds that represent the time the person spent in the zone. This field is provided when the event type is _personZoneDwellTimeEvent_|
 | `zone` | string | The "name" field of the polygon that represents the zone that was crossed|
 
 | Detections Field Name | Type| Description|
@@ -952,7 +960,7 @@ In order to get the best performance and utilization of the GPUs, you can deploy
   ```
 | Name | Type| Description|
 |---------|---------|---------|
-| `batch_size` | int | Indicates the number of cameras that will be used in the operation. |
+| `batch_size` | int | If all of the cameras have the same resolution, set `batch_size` to the number of cameras that will be used in that operation, otherwise, set `batch_size` to 1 or leave it as default (1), which indicates no batch is supported. |
 
 ## Next steps
 

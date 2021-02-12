@@ -10,7 +10,7 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 01/15/2021
+ms.date: 01/22/2021
 ---
 # Resource limits for single databases using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -206,7 +206,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max log size (TB)|Unlimited |Unlimited |Unlimited |Unlimited |Unlimited |Unlimited |Unlimited |
 |TempDB max data size (GB)|512|576|640|768|1024|1280|2560|
 |Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |
-|Max local SSD IOPS *|64000 |72000 |80000 |96000 |160000 |192000 |204800 |
+|Max local SSD IOPS *|64000 |72000 |80000 |96000 |128000 |160000 |204800 |
 |Max log rate (MBps)|100 |100 |100 |100 |100 |100 |100 |
 |IO latency (approximate)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
 |Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|
@@ -405,7 +405,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |TempDB max data size (GB)|83.25|92.5|111|148|166.5|333|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Max data IOPS *|5760|6400|7680|10240|11520|23040|
+|Max data IOPS *|5760|6400|7680|10240|11520|12800|
 |Max log rate (MBps)|36|36|36|36|36|36|
 |Max concurrent workers (requests)|900|1000|1200|1600|1800|3600|
 |Max concurrent logins|1800|2000|2400|3200|3600|7200|

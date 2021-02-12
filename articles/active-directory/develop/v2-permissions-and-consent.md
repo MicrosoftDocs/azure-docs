@@ -15,9 +15,9 @@ ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
 ---
 
-# Permissions and consent in the Microsoft identity platform endpoint
+# Permissions and consent in the Microsoft identity platform
 
-Applications that integrate with Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. The implementation of the authorization model has been updated on the Microsoft identity platform endpoint. It changes how an app must interact with the Microsoft identity platform. This article covers the basic concepts of this authorization model, including scopes, permissions, and consent.
+Applications that integrate with the Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. The implementation of the authorization model has been updated on the Microsoft identity platform. It changes how an app must interact with the Microsoft identity platform. This article covers the basic concepts of this authorization model, including scopes, permissions, and consent.
 
 ## Scopes and permissions
 
@@ -49,7 +49,7 @@ An app most commonly requests these permissions by specifying the scopes in requ
 
 ## Permission types
 
-Microsoft identity platform supports two types of permissions: *delegated permissions* and *application permissions*.
+The Microsoft identity platform supports two types of permissions: *delegated permissions* and *application permissions*.
 
 * **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests. The app is delegated permission to act as the signed-in user when it makes calls to the target resource. 
 
@@ -124,7 +124,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 The `scope` parameter is a space-separated list of delegated permissions that the app is requesting. Each permission is indicated by appending the permission value to the resource's identifier (the application ID URI). In the request example, the app needs permission to read the user's calendar and send mail as the user.
 
-After the user enters their credentials, the Microsoft identity platform endpoint checks for a matching record of *user consent*. If the user hasn't consented to any of the requested permissions in the past, and if the administrator hasn't consented to these permissions on behalf of the entire organization, the Microsoft identity platform endpoint asks the user to grant the requested permissions.
+After the user enters their credentials, the Microsoft identity platform checks for a matching record of *user consent*. If the user hasn't consented to any of the requested permissions in the past, and if the administrator hasn't consented to these permissions on behalf of the entire organization, the Microsoft identity platform asks the user to grant the requested permissions.
 
 At this time, the `offline_access` ("Maintain access to data you have given it access to") permission and `user.read` ("Sign you in and read your profile") permission are automatically included in the initial consent to an application.  These permissions are generally required for proper app functionality. The `offline_access` permission gives the app access to refresh tokens that are critical for native apps and web apps. The `user.read` permission gives access to the `sub` claim. It allows the client or app to correctly identify the user over time and access rudimentary user information.
 
@@ -160,7 +160,7 @@ If the application requests application permissions and an administrator grants 
 
 After you use the admin consent endpoint to grant admin consent, you're finished. Users don't need to take any further action. After admin consent is granted, users can get an access token through a typical auth flow. The resulting access token has the consented permissions.
 
-When a company administrator uses your application and is directed to the authorize endpoint, Microsoft identity platform detects the user's role. It asks if the company administrator wants to consent on behalf of the entire tenant for the permissions you requested. You could instead use a dedicated admin consent endpoint to proactively request an administrator to grant permission on behalf of the entire tenant. This endpoint is also necessary for requesting application permissions. Application permissions can't be requested by using the authorize endpoint.
+When a Global Administrator uses your application and is directed to the authorize endpoint, the Microsoft identity platform detects the user's role. It asks if the Global Administrator wants to consent on behalf of the entire tenant for the permissions you requested. You could instead use a dedicated admin consent endpoint to proactively request an administrator to grant permission on behalf of the entire tenant. This endpoint is also necessary for requesting application permissions. Application permissions can't be requested by using the authorize endpoint.
 
 If you follow these steps, your app can request permissions for all users in a tenant, including admin-restricted scopes. This operation is high privilege. Use the operation only if necessary for your scenario.
 
@@ -177,7 +177,7 @@ In general, the permissions should be statically defined for a given application
 
 To configure the list of statically requested permissions for an application:
 
-1. Go to your application in the <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
+1. Go to your application in the <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Azure portal - App registrations</a> quickstart experience.
 1. Select an application, or [create an app](quickstart-register-app.md) if you haven't already.
 1. On the application's **Overview** page, under **Manage**, select **API Permissions** > **Add a permission**.
 1. Select **Microsoft Graph** from the list of available APIs. Then add the permissions that your app requires.
@@ -331,7 +331,7 @@ response_type=token            //Code or a hybrid flow is also possible here
 
 This code example produces a consent page for all registered permissions if the preceding descriptions of consent and `/.default` apply to the scenario. Then the code returns an `id_token`, rather than an access token.  
 
-This behavior accommodates some legacy clients that are moving from Azure AD Authentication Library (ADAL) to Microsoft Authentication Library (MSAL). This setup *shouldn't* be used by new clients that target the Microsoft identity platform endpoint.
+This behavior accommodates some legacy clients that are moving from Azure AD Authentication Library (ADAL) to the Microsoft Authentication Library (MSAL). This setup *shouldn't* be used by new clients that target the Microsoft identity platform.
 
 ### Client credentials grant flow and /.default  
 
@@ -353,5 +353,5 @@ For troubleshooting steps, see [Unexpected error when performing consent to an a
 
 ## Next steps
 
-* [ID tokens in Microsoft identity platform](id-tokens.md)
-* [Access tokens in Microsoft identity platform](access-tokens.md)
+* [ID tokens in the Microsoft identity platform](id-tokens.md)
+* [Access tokens in the Microsoft identity platform](access-tokens.md)

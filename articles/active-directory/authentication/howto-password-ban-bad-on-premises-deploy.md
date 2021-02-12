@@ -82,7 +82,8 @@ The following core requirements apply:
 * All machines, including domain controllers, that have Azure AD Password Protection components installed must have the Universal C Runtime installed.
     * You can get the runtime by making sure you have all updates from Windows Update. Or you can get it in an OS-specific update package. For more information, see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * You need an account that has Active Directory domain administrator privileges in the forest root domain to register the Windows Server Active Directory forest with Azure AD.
-* The Key Distribution Service must be enabled on all domain controllers in the domain that run Windows Server 2012. By default, this service is enabled via manual trigger start.
+* The Key Distribution Service must be enabled on all domain controllers in the domain that run Windows Server 2012 and later versions. By default, this service is enabled via manual trigger start.
+
 * Network connectivity must exist between at least one domain controller in each domain and at least one server that hosts the proxy service for Azure AD Password Protection. This connectivity must allow the domain controller to access RPC endpoint mapper port 135 and the RPC server port on the proxy service.
     * By default, the RPC server port is a dynamic RPC port, but it can be configured to [use a static port](#static).
 * All machines where the Azure AD Password Protection Proxy service will be installed must have network access to the following endpoints:

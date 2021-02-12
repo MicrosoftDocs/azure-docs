@@ -20,7 +20,6 @@ You must have the following resource installed:
 
 ## Limitations
 
-* During cluster **upgrade** operations, the managed identity is temporarily unavailable.
 * Tenants move / migrate of managed identity enabled clusters isn't supported.
 * If the cluster has `aad-pod-identity` enabled, Node-Managed Identity (NMI) pods modify the nodes'
   iptables to intercept calls to the Azure Instance Metadata endpoint. This configuration means any

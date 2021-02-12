@@ -202,7 +202,7 @@ After the effective utilization value is determined, the storage, network, and c
 
 If you use *as on-premises sizing*, Server Assessment doesn't consider the performance history of the VMs and disks. Instead, it allocates AVS nodes based on the size allocated on-premises. The default storage type is vSAN in AVS.
 
-[Learn more](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware-azure-vmware-solution#review-an-assessment) about how to review an Azure VMware Solution assessment.
+[Learn more](./tutorial-assess-vmware-azure-vmware-solution.md#review-an-assessment) about how to review an Azure VMware Solution assessment.
 
 ## Confidence ratings
 

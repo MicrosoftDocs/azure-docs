@@ -14,7 +14,6 @@ ms.author: vikdesai
 # Save costs with Azure Reserved VM Instances
 
 
-
 When you commit to an Azure reserved VM instance you can save money. The reservation discount is applied automatically to the number of running virtual machines that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. For Windows VMs, the usage meter is split into two separate meters. There's a compute meter, which is same as the Linux meter, and a Windows IP meter. The charges that you see when you make the purchase are only for the compute costs. Charges don't include Windows software costs. For more information about software costs, see [Software costs not included with Azure Reserved VM Instances](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
 
 ## Determine the right VM size before you buy
@@ -25,7 +24,7 @@ Before you buy a reservation, you should determine the size of the VM that you n
 
 You can use reservation recommendations to help determine the reservations you should purchase.
 
-- Purchase recommendations and recommended quantity are show when you purchase a VM reserved instance in the Azure portal.
+- Purchase recommendations and recommended quantities are shown when you purchase a VM reserved instance in the Azure portal.
 - Azure Advisor provides purchase recommendations for individual subscriptions.  
 - You can use the APIs to get purchase recommendations for both shared scope and single subscription scope. For more information, see [Reserved instance purchase recommendation APIs for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - For Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) customers, purchase recommendations for shared and single subscription scopes are available with the [Azure Consumption Insights Power BI content pack](/power-bi/service-connect-to-azure-consumption-insights).

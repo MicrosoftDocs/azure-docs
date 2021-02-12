@@ -25,46 +25,44 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | VM series  | Supported sizes |
 |------------|---------|
 | Basic A | All sizes *except* Basic_A0 (A0) |
-| A | All sizes *except* Standard_A0 |
+| A | All sizes *except* Standard_A0, Standard_A8, Standard_A9, Standard_A10, Standard_A11 |
 | Av2 | All sizes |
 | B | Not supported |
 | DC | Not supported |
 | Dv2, DSv2 | All sizes |
 | Dv3, Dsv3 | All sizes |
-| Dav4<sup>1</sup> | All sizes |
-| Dasv4<sup>1</sup> | All sizes |
+| Dav4 | All sizes |
+| Dasv4 | All sizes |
 | Ddv4, Ddsv4 |  All sizes |
 | Dv4, Dsv4 | Not supported |
 | Ev3, Esv3 | All sizes, except for E64is_v3 |
-| Eav4<sup>1</sup> | All sizes |
-| Easv4<sup>1</sup> | All sizes |
+| Eav4 | All sizes |
+| Easv4 | All sizes |
 | Edv4, Edsv4 |  All sizes |
 | Ev4, Esv4 | Not supported |
 | F, Fs | All sizes |
 | Fsv2 | All sizes |
 | G, Gs | All sizes |
 | H | All sizes |
-| HB<sup>1</sup> | All sizes |
-| HBv2<sup>1</sup> | All sizes |
-| HC<sup>1</sup> | All sizes |
+| HB | All sizes |
+| HBv2 | All sizes |
+| HC | All sizes |
 | Ls | All sizes |
-| Lsv2<sup>1</sup> | All sizes |
-| M<sup>1</sup> | All sizes |
-| Mv2<sup>1,2</sup> | All sizes |
+| Lsv2 | All sizes |
+| M | All sizes |
+| Mv2<sup>1</sup> | All sizes |
 | NC | All sizes |
-| NCv2<sup>1</sup> | All sizes |
-| NCv3<sup>1</sup> | All sizes |
+| NCv2 | All sizes |
+| NCv3 | All sizes |
 | NCasT4_v3 | None - not yet available |
-| ND<sup>1</sup> | All sizes |
-| NDv2<sup>1</sup> | None - not yet available |
+| ND | All sizes |
+| NDv2 | None - not yet available |
 | NV | All sizes |
-| NVv3<sup>1</sup> | All sizes |
-| NVv4<sup>1</sup> | All sizes |
+| NVv3 | All sizes |
+| NVv4 | All sizes |
 | SAP HANA | Not supported |
 
-<sup>1</sup> These VM series can be allocated in Batch pools in Virtual Machine configuration, but you must create a new Batch account and request a specific [quota increase](batch-quota-limit.md#increase-a-quota). This limitation will be removed once vCPU quota per VM series is fully supported for Batch accounts.
-
-<sup>2</sup> These VM series can only be used with generation 2 VM Images.
+<sup>1</sup> These VM series can only be used with generation 2 VM Images.
 
 ### Using Generation 2 VM Images
 

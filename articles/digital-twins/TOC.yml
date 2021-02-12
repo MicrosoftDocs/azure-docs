@@ -4,8 +4,6 @@
   items:
   - name: About Azure Digital Twins
     href: overview.md
-  - name: Differences from previous release
-    href: overview-differences.md
 - name: Quickstarts
   expanded: true
   items:
@@ -63,6 +61,12 @@
         href: how-to-set-up-instance-powershell.md
       - name: Scripted version
         href: how-to-set-up-instance-scripted.md
+    - name: Enable private access with Private Link
+      items:
+      - name: Portal version
+        href: how-to-enable-private-link-portal.md
+      - name: CLI version
+        href: how-to-enable-private-link-cli.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration
@@ -111,10 +115,16 @@
     items:
     - name: Manage endpoints and routes
       items:
-      - name: APIs and CLI version
-        href: how-to-manage-routes-apis-cli.md
       - name: Portal version
         href: how-to-manage-routes-portal.md
+      - name: APIs and CLI version
+        href: how-to-manage-routes-apis-cli.md
+    - name: Enable a managed identity for routing events
+      items:
+      - name: Portal version
+        href: how-to-enable-managed-identities-portal.md
+      - name: CLI version
+        href: how-to-enable-managed-identities-cli.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
     - name: Integrate with Azure Time Series Insights
@@ -161,6 +171,20 @@
     href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
 - name: Resources
   items:
+  - name: Digital Twins service limits
+    href: reference-service-limits.md
+  - name: Pricing and availability
+    items:
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/digital-twins
+    - name: SLA
+      href: https://azure.microsoft.com/support/legal/sla/digital-twins
+    - name: Regions and availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins
+  - name: Customer data requests
+    href: resources-customer-data-requests.md
+  - name: Differences from original release
+    href: resources-compare-original-release.md
   - name: APIs and SDKs
     items:
     - name: Control plane
@@ -172,9 +196,9 @@
       - name: .NET (C#) SDK - Source code
         href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins
       - name: Java SDK - Maven
-        href: https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar
+        href: https://search.maven.org/search?q=a:azure-mgmt-digitaltwins
       - name: Java SDK - Source code
-        href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31
+        href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins
       - name: JavaScript SDK - NPM
         href: https://www.npmjs.com/package/@azure/arm-digitaltwins
       - name: JavaScript SDK - Source code
@@ -211,6 +235,18 @@
     href: https://github.com/Azure/azure-iot-cli-extension/releases
   - name: Digital Twins Azure PowerShell module
     href: https://www.powershellgallery.com/packages/Az.DigitalTwins/
+  - name: Terraform modules
+    items:
+      - name: Digital Twins instance resource
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_instance
+      - name: Digital Twins instance data source
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/digital_twins_instance
+      - name: Event Hub endpoint resource
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventhub
+      - name: Event Grid endpoint resource
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventgrid
+      - name: Service Bus endpoint resource
+        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus
   - name: Tools and sample projects
     items:
       - name: Device simulator service
@@ -245,31 +281,19 @@
       href: /samples/azure-samples/dtdl-validator/dtdl-validator/
     - name: DTMI spec
       href: https://github.com/Azure/digital-twin-model-identifier
-    - name: Customer data requests
-    href: resources-customer-data-requests.md
-  - name: Pricing and availability
-    items:
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/digital-twins
-    - name: SLA
-      href: https://azure.microsoft.com/support/legal/sla/digital-twins
-    - name: Regions and availability
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins
-    - name: Digital Twins service limits
-      href: reference-service-limits.md
-  - name: Customer stories
-    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
+  - name: 'Learn: Develop with Azure Digital Twins'
+    href: /learn/paths/develop-azure-digital-twins/
   - name: Channel 9 videos
     href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22
+  - name: Customer stories
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Azure tools
     items:
     - name: Azure Cloud Shell
       href: https://shell.azure.com
     - name: Azure PowerShell
-      href: /powershell/module/az.iothub#iot
+      href: /powershell/azure/
     - name: Azure portal
       href: https://portal.azure.com
-  - name: Azure RBAC documentation
-    href: ../role-based-access-control/overview.md
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md

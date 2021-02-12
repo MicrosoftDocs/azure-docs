@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2020
+ms.date: 01/19/2021
 
 ---
 
@@ -49,10 +49,20 @@ For limits that apply to each data collection rule, see [Azure Monitor service l
 
 
 ## Create a DCR
-There are currently two available methods to create a DCR:
+You can currently use any of the following methods to create a DCR:
 
 - [Use the Azure portal](data-collection-rule-azure-monitor-agent.md) to create a data collection rule and have it associated with one or more virtual machines.
 - Directly edit the data collection rule in JSON and [submit using the REST API](/rest/api/monitor/datacollectionrules).
+- Create DCR and associations with [Azure CLI](https://github.com/Azure/azure-cli-extensions/blob/master/src/monitor-control-service/README.md).
+- Create DCR and associations with Azure PowerShell.
+  - [Get-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRule.md)
+  - [New-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRule.md)
+  - [Set-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Set-AzDataCollectionRule.md)
+  - [Update-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Update-AzDataCollectionRule.md)
+  - [Remove-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRule.md)
+  - [Get-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRuleAssociation.md)
+  - [New-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRuleAssociation.md)
+  - [Remove-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRuleAssociation.md)
 
 ## Sample data collection rule
 The sample data collection rule below is for virtual machines with Azure Management agent and has the following details:
@@ -105,7 +115,7 @@ The sample data collection rule below is for virtual machines with Azure Managem
           {
             "name": "cloudSecurityTeamEvents",
             "streams": [
-              "Microsoft-WindowsEvent"
+              "Microsoft-Event"
             ],
             "scheduledTransferPeriod": "PT1M",
             "xPathQueries": [
@@ -115,7 +125,7 @@ The sample data collection rule below is for virtual machines with Azure Managem
           {
             "name": "appTeam1AppEvents",
             "streams": [
-              "Microsoft-WindowsEvent"
+              "Microsoft-Event"
             ],
             "scheduledTransferPeriod": "PT5M",
             "xPathQueries": [
@@ -168,7 +178,7 @@ The sample data collection rule below is for virtual machines with Azure Managem
           "streams": [
             "Microsoft-Perf",
             "Microsoft-Syslog",
-            "Microsoft-WindowsEvent"
+            "Microsoft-Event"
           ],
           "destinations": [
             "centralWorkspace"

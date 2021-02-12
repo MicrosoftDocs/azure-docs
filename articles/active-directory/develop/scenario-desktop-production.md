@@ -1,5 +1,6 @@
 ---
-title: Move desktop app calling web APIs to production - Microsoft identity platform | Azure
+title: Move desktop app calling web APIs to production | Azure
+titleSuffix: Microsoft identity platform 
 description: Learn how to move a desktop app that calls web APIs to production
 services: active-directory
 author: jmprieur
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Desktop app that calls web APIs: Move to production
@@ -26,16 +27,16 @@ In the different flows, you've learned how to handle the errors for the silent f
 ## Have the user consent upfront for several resources
 
 > [!NOTE]
-> Getting consent for several resources works for Microsoft identity platform but not for Azure Active Directory (Azure AD) B2C. Azure AD B2C supports only admin consent, not user consent.
+> Getting consent for several resources works for the Microsoft identity platform but not for Azure Active Directory (Azure AD) B2C. Azure AD B2C supports only admin consent, not user consent.
 
-You can't get a token for several resources at once with the Microsoft identity platform (v2.0) endpoint. The `scopes` parameter can contain scopes for only a single resource. You can ensure that the user pre-consents to several resources by using the `extraScopesToConsent` parameter.
+You can't get a token for several resources at once with the Microsoft identity platform. The `scopes` parameter can contain scopes for only a single resource. You can ensure that the user pre-consents to several resources by using the `extraScopesToConsent` parameter.
 
 For instance, you might have two resources that have two scopes each:
 
 - `https://mytenant.onmicrosoft.com/customerapi` with the scopes `customer.read` and `customer.write`
 - `https://mytenant.onmicrosoft.com/vendorapi` with the scopes `vendor.read` and `vendor.write`
 
-In this example, use the `.WithAdditionalPromptToConsent` modifier that has the `extraScopesToConsent` parameter.
+In this example, use the `.WithExtraScopesToConsent` modifier that has the `extraScopesToConsent` parameter.
 
 For instance:
 
@@ -92,7 +93,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 This call gets you an access token for the first web API.
 
-When you need to call the second web API, call the `AcquireTokenSilent` API.
+When calling the second web API, call the `AcquireTokenSilent` API.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
@@ -102,6 +103,11 @@ AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync()
 
 For Microsoft personal account users, reprompting for consent on each native client (desktop or mobile app) call to authorize is the intended behavior. Native client identity is inherently insecure, which is contrary to confidential client application identity. Confidential client applications exchange a secret with the Microsoft Identity platform to prove their identity. The Microsoft identity platform chose to mitigate this insecurity for consumer services by prompting the user for consent each time the application is authorized.
 
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+
 ## Next steps
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+To try out additional samples, see [Desktop and mobile public client apps](sample-v2-code.md#desktop-and-mobile-public-client-apps).
+
+
+

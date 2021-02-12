@@ -46,7 +46,7 @@ Before you begin moving the resources associated with a Maintenance Control conf
     $adh | Dedicated host name | "myHost"
     $adhParentName | Parent resource name | "HostGroup"
     
-2. To retrieve the maintenance configurations using the PowerShell [Get-AZConfigurationAssignment](/powershell/module/az.maintenance/get-azconfigurationassignment?view=azps-3.5.0) command:
+2. To retrieve the maintenance configurations using the PowerShell [Get-AZConfigurationAssignment](/powershell/module/az.maintenance/get-azconfigurationassignment) command:
 
     - For Azure Dedicated Hosts, run:
         ```

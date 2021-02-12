@@ -115,7 +115,7 @@ Try it out:
 ![Select Import](./media/how-to-configure-environment/azure-db-screenshot.png)
 ![Import Panel](./media/how-to-configure-environment/azure-db-import.png)
 
-+ Learn how to [create a pipeline with Databricks as the training compute](how-to-create-your-first-pipeline.md).
++ Learn how to [create a pipeline with Databricks as the training compute](./how-to-create-machine-learning-pipelines.md).
 
 ## Troubleshooting
 
