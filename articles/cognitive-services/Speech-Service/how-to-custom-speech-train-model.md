@@ -40,6 +40,14 @@ The first step to train a model is to upload training data. See [Prepare and tes
 > [!NOTE]
 > When you train a new model, start with related text; training with audio + human-labeled transcription might take much longer **(up to [several days](how-to-custom-speech-evaluate-data.md#add-audio-with-human-labeled-transcripts)**).
 
+> [!NOTE]
+> Not all base models support training with audio. If a base model does not support it, the Speech service will only use the text from the transcripts and ignore the audio. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data.
+
+> [!NOTE]
+> In cases when you change the base model used for training, and you have audio in the training dataset, *always* check whether the new selected base model [supports training with audio data](language-support.md#speech-to-text). If the previously used base model did not support training with audio data, and the training dataset contains audio, training time with the new base model will **drastically** increase, and may easily go from several hours to several days and more. This is especially true if your Speech service subscription is **not** in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+>
+> If you face the issue described in the paragraph above, you can quickly decrease the training time by reducing the amount of audio in the dataset or removing it completely and leaving only the text. The latter option is highly recommended if your Speech service subscription is **not** in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+
 7. After training is complete, you can do accuracy testing on the newly trained model. This step is optional.
 8. Select **Create** to build your custom model.
 
