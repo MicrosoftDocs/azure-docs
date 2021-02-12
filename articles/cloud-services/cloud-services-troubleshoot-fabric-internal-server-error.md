@@ -2,7 +2,6 @@
 title: Troubleshoot FabricInternalServerError or ServiceAllocationFailure when deploying a cloud service to Azure | Microsoft Docs
 description: This article shows how to resolve a FabricInternalServerError or ServiceAllocationFailure exception when deploying a cloud service to Azure.
 services: cloud-services
-documentationcenter: ''
 author: mibufo
 ms.author: v-mibufo
 ms.service: cloud-services
@@ -12,18 +11,26 @@ ms.date: 02/04/2020
 
 # Troubleshoot FabricInternalServerError or ServiceAllocationFailure when deploying a cloud service to Azure
 
-In this article, you will troubleshoot allocation failures where the fabric controller cannot allocate when deploying an Azure Cloud Service.
+In this article, you'll troubleshoot allocation failures where the fabric controller cannot allocate when deploying an Azure Cloud Service.
 
-When you're upgrading, adding new web or worker role instances, or deploying instances to a cloud service, Microsoft Azure allocates compute resources. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limit.
+Microsoft Azure allocates when you are:
+
+- Upgrading cloud services instances
+
+- Adding new web or worker role instances
+
+- Deploying instances to a cloud service
+
+You may occasionally receive errors during these operations even before you reach the Azure subscription limit.
 
 > [!TIP]
 > The information may also be useful when you plan the deployment of your services.
 
 ## Symptom
 
-In Azure Portal, navigate to your cloud service and in the sidebar select *Operation logs (classic)* to view the logs.
+In Azure portal, navigate to your cloud service and in the sidebar select *Operation logs (classic)* to view the logs.
 
-When inspecting the logs of your cloud service, you will see the the following exception:
+When inspecting the logs of your cloud service, you'll see the following exception:
 
 |Exception  |Error Message  |
 |---------|---------|
@@ -32,10 +39,10 @@ FabricInternalServerError     |Operation failed with error code 'InternalError' 
 
 ## Cause
 
-The *FabricInternalServerError* and *ServiceAllocationFailure* errors occur when the Fabric controller fails to allocate nodes in the resource pool the cloud service is attempting to deploy to. The cause varies depending upon if the cloud service is **pinned** or **not pinned**.
+*FabricInternalServerError* and *ServiceAllocationFailure* are exceptions that can occur when the Fabric controller fails to allocate nodes in the resource pool. The root cause varies if the cloud service is **pinned** or **not pinned**.
 
 - **Not pinned**: When deploying a cloud service for the first time, the cloud service has specified an improper SKU or subscription. The SKU size may not be available in the region specified, or the subscription that's selected isn't enabled.
-- **Pinned:** When scaling or deploying a staging/production slot of an existing cloud service, Azure cannot locate any available resources to deploy to.
+- **Pinned:** When scaling or deploying an existing cloud service, Azure can't locate any available resources to deploy to.
 
 > [!NOTE]
 > When the first node of a cloud service is deployed, it is *pinned* to a resource pool. A resource pool may be a single cluster, or a group of clusters.
@@ -51,9 +58,12 @@ Follow the guidance for allocation failures in the following scenarios:
 
 ### Not pinned to a cluster
 
-If you are performing a first deployment of a cloud service, the cluster hasn't been selected yet, so the cloud service isn't *pinned*. Azure may encounter a deployment failure because you have selected a particular size that isn't available in the region, or if the combination of sizes that are needed across different roles isn't available in the region.
+The first time you deploy a cloud service, the cluster hasn't been selected yet, so the cloud service isn't *pinned*. Azure may have a deployment failure because:
 
-When you encounter an allocation error in this scenario, the recommended course of action is to check the available sizes in the region and change the size you previously specified.
+- You've selected a particular size that isn't available in the region.
+- The combination of sizes that are needed across different roles isn't available in the region.
+
+When you experience an allocation error in this scenario, the recommended course of action is to check the available sizes in the region and change the size you previously specified.
 
 1. You can check the sizes available in a region on the [Cloud Services Products](https://azure.microsoft.com/global-infrastructure/services/?products=cloud-services) page.
 
@@ -64,9 +74,9 @@ When you encounter an allocation error in this scenario, the recommended course 
 
 ### Pinned to a cluster
 
-Existing cloud services are *pinned* to a cluster, so if you deploy a staging or productions slot, or if you are scaling the cloud service, Azure may encounter an allocation failure.
+Existing cloud services are *pinned* to a cluster. If you trigger an allocation request, Azure may experience an allocation failure. Allocation requests occur when deploying a staging or productions slot, or if you're scaling the cloud service.
 
-When you encounter an allocation error in this scenario, the recommended course of action is to redeploy to a new cloud service (and update the *CNAME*).
+When you experience an allocation error in this scenario, the recommended course of action is to redeploy to a new cloud service (and update the *CNAME*).
 
 > [!TIP]
 > This solution is likely to be most successful as it allows the platform to choose from all clusters in that region.
@@ -86,9 +96,9 @@ When you encounter an allocation error in this scenario, the recommended course 
 
 ## Next steps
 
-For additional allocation failure solutions and to better understand how they are generated:
+For more allocation failure solutions and background information:
 
 > [!div class="nextstepaction"]
 > [Allocation failures (cloud services)](cloud-services-allocation-failures.md)
 
-If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You also can submit an Azure support request. To submit a support request, on the [Azure support](https://azure.microsoft.com/support/options/) page, select *Get support*.
+If your Azure issue isn't addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You also can submit an Azure support request. To submit a support request, on the [Azure support](https://azure.microsoft.com/support/options/) page, select *Get support*.
