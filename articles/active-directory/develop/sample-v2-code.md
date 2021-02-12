@@ -111,7 +111,7 @@ The following sample shows a public client application running on a device witho
 
 ## Multi-tenant SaaS applications
 
-The following samples show how to configure your application to accept sign-ins from any Azure Active Directory (Azure AD) tenant. Configuring your application to be *multi-tenant* means that you can offer a **Software as a Service** (SaaS) application to many organizations, allowing their users to be able to sign-in to your application after consenting to use their account.
+The following samples show how to configure your application to accept sign-ins from any Azure Active Directory (Azure AD) tenant. Configuring your application to be *multi-tenant* means that you can offer a **Software as a Service** (SaaS) application to many organizations, allowing their users to be able to sign-in to your application after providing consent.
 
 | Platform | Description | Link |
 | -------- | --------------------- | -------- |
