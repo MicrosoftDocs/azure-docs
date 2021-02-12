@@ -74,7 +74,7 @@ In this section, we create the self-signed certificates by using a Docker image 
 
 ## Upload certificates to Azure Key Vault
 
-To store our certificates securely and make them accessible from multiple devices, we'll upload the certificates into Azure Key Vault. As you can see from the preceding list, we have two types of certificate files: PFX and PEM. We'll treat the PFX file as Key Vault certificates to be uploaded to Key Vault. The PEM files are plain text, and we'll treat them as Key Vault secrets. We'll use the Key Vault associated with the Azure Machine Learning workspace we created by running the [Jupyter notebooks](tutorial-machine-learning-edge-04-train-model.md#run-jupyter-notebooks).
+To store our certificates securely and make them accessible from multiple devices, we'll upload the certificates into Azure Key Vault. As you can see from the preceding list, we have two types of certificate files: PFX and PEM. We'll treat the PFX file as Key Vault certificates to be uploaded to Key Vault. The PEM files are plain text, and we'll treat them as Key Vault secrets. We'll use the Key Vault associated with the Azure Machine Learning workspace we created by running the [Jupyter notebooks](tutorial-machine-learning-edge-04-train-model.md#run-the-jupyter-notebooks).
 
 1. From the [Azure portal](https://portal.azure.com), go to your Azure Machine Learning workspace.
 
