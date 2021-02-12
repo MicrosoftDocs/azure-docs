@@ -92,7 +92,7 @@ The track-level event types are:
 
 See [Schema examples](#event-schema-examples) that follow.
 
-## Example events
+## Event schema examples
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 

@@ -184,6 +184,7 @@ The data object contains the following properties:
 	"specversion": "1.0"
 }
 ```
+
 ---
 
 The data object contains the following properties:
@@ -317,7 +318,7 @@ The data object contains the following properties:
 }
 ```
 
---
+---
 
 The data object contains the following properties:
 
