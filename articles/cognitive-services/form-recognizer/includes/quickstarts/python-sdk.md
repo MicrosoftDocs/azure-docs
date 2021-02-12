@@ -2,13 +2,13 @@
 title: "Quickstart: Form Recognizer client library for Python"
 description: Use the Form Recognizer client library for Python to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
-ms.author: pafarley
+ms.author: lajanuar
 ---
 
 > [!IMPORTANT]
@@ -31,16 +31,7 @@ ms.author: pafarley
 
 After installing Python, you can install the latest version of the Form Recognizer client library with:
 
-#### [version 2.0](#tab/ga)
-
-```console
-pip install azure-ai-formrecognizer
-```
-
-> [!NOTE]
-> The latest Form Recognizer reflects API version 2.0
-
-#### [version 2.1 preview](#tab/preview)
+#### v2.1 preview](#tab/preview)
 
 ```console
 pip install azure-ai-formrecognizer --pre
@@ -48,6 +39,15 @@ pip install azure-ai-formrecognizer --pre
 
 > [!NOTE]
 > The Form Recognizer preview SDK reflects API version 2.1 preview
+
+#### [v2.0](#tab/ga)
+
+```console
+pip install azure-ai-formrecognizer
+```
+
+> [!NOTE]
+> The latest Form Recognizer reflects API v2.0
 
 ---
 
@@ -91,23 +91,24 @@ With Form Recognizer, you can create two different client types. The first, `for
 ## Code examples
 
 These code snippets show you how to do the following tasks with the Form Recognizer client library for Python:
-
-#### [version 2.0](#tab/ga)
-
-* [Authenticate the client](#authenticate-the-client)
-* [Analyze layout](#analyze-layout)
-* [Analyze receipts](#analyze-receipts)
-* [Train a custom model](#train-a-custom-model)
-* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
-* [Manage your custom models](#manage-your-custom-models)
-
-#### [version 2.1 preview](#tab/preview)
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+#### v2.1 preview](#tab/preview)
 
 * [Authenticate the client](#authenticate-the-client)
 * [Analyze layout](#analyze-layout)
 * [Analyze receipts](#analyze-receipts)
 * [Analyze business cards](#analyze-business-cards)
 * [Analyze invoices](#analyze-invoices)
+* [Train a custom model](#train-a-custom-model)
+* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
+* [Manage your custom models](#manage-your-custom-models)
+
+#### [v2.0](#tab/ga)
+
+* [Authenticate the client](#authenticate-the-client)
+* [Analyze layout](#analyze-layout)
+* [Analyze receipts](#analyze-receipts)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
@@ -166,15 +167,9 @@ Confidence score: 1.0
 
 ```
 
-
 ## Analyze invoices
 
-#### [version 2.0](#tab/ga)
-
-> [!IMPORTANT]
-> This feature isn't available in the selected API version.
-
-#### [version 2.1 preview](#tab/preview)
+#### v2.1 preview](#tab/preview)
 
 This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoices.md). To analyze invoices from a URL, use the `begin_recognize_invoices_from_url` method. 
 
@@ -182,6 +177,11 @@ This section demonstrates how to analyze and extract common fields from sales in
 
 > [!TIP]
 > You can also analyze local invoice images. See the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) methods, such as `begin_recognize_invoices`. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) for scenarios involving local images.
+
+#### [v2.0](#tab/ga)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
 
 ---
 
@@ -348,15 +348,9 @@ Tax: 104.4 has confidence 0.713
 Total: 1203.39 has confidence 0.774
 ```
 
-
 ## Analyze business cards
 
-#### [version 2.0](#tab/ga)
-
-> [!IMPORTANT]
-> This feature isn't available in the selected API version.
-
-#### [version 2.1 preview](#tab/preview)
+#### v2.1 preview](#tab/preview)
 
 This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md). To analyze business cards from a URL, use the `begin_recognize_business_cards_from_url` method. 
 
@@ -364,6 +358,11 @@ This section demonstrates how to analyze and extract common fields from English 
 
 > [!TIP]
 > You can also analyze local business card images. See the [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) methods, such as `begin_recognize_business_cards`. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) for scenarios involving local images.
+
+#### [v2.0](#tab/ga)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
 
 ---
 
