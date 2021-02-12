@@ -228,9 +228,12 @@ The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-
 Before you run the sample, do the following:
 1. Download the model file, place it in your project, and replace the `<path-to>` placeholder in the code below to tell your program where to find it.
 2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
-3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. You can use the links below to navigate to the packages on NuGet, where you can find the console commands (including for .NET CLI) to add the latest version of each to your project.
-    * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). This is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
-    * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). This library provides tools to help with authentication against Azure.
+3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), the second provides tools to help with authentication against Azure.
+
+      ```cmd/sh
+      dotnet add package Azure.DigitalTwins.Core
+      dotnet add package Azure.Identity
+      ```
 
 You'll also need to set up local credentials if you want to run the sample directly. The next section walks through this.
 [!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]

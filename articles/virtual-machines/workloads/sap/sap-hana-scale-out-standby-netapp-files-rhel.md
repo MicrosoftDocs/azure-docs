@@ -14,7 +14,7 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/05/2021
+ms.date: 02/01/2021
 ms.author: radeltch
 
 ---
@@ -88,7 +88,7 @@ Before you begin, refer to the following SAP notes and papers:
 * Azure-specific RHEL documentation:
   * [Install SAP HANA on Red Hat Enterprise Linux for Use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure)
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
-
+* [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 
 ## Overview
 
@@ -932,4 +932,5 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
+* [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 * To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha].

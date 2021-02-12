@@ -1,9 +1,9 @@
 ---
 title: Configure customer-managed keys for your Azure Batch account with Azure Key Vault and Managed Identity
-description: Learn how to encrypt Batch data using keys 
+description: Learn how to encrypt Batch data using customer-managed keys. 
 author: pkshultz
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 02/11/2021
 ms.author: peshultz
 
 ---
@@ -12,30 +12,33 @@ ms.author: peshultz
 
 By default Azure Batch uses platform-managed keys to encrypt all the customer data stored in the Azure Batch Service, like certificates, job/task metadata. Optionally, you can use your own keys, i.e., customer-managed keys, to encrypt data stored in Azure Batch.
 
-The keys you provide must be generated in [Azure Key Vault](../key-vault/general/basic-concepts.md), and the Batch accounts you want to configure with customer-managed keys have to be enabled with [Azure Managed Identity](../active-directory/managed-identities-azure-resources/overview.md).
+The keys you provide must be generated in [Azure Key Vault](../key-vault/general/basic-concepts.md), and they must be accessed with [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
-> [!IMPORTANT]
-> Support for customer-managed keys in Azure Batch is currently in public preview for the West Europe, North Europe, Switzerland North, Central US, South Central US, West Central US, East US, East US 2, West US 2, US Gov Virginia, and US Gov Arizona regions.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+There are two types of managed identities: [*system-assigned* and *user-assigned*](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
-## Create a Batch Account with system-assigned managed identity
+You can either create your Batch account with system-assigned managed identity, or create a separate user-assigned managed identity that will have access to the customer-managed keys. Review the [comparison table](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) to understand the differences and consider which option works best for your solution. For example, if you want to use the same managed identity to access multiple Azure resources, a user-assigned managed identity will be needed. If not, a system-assigned managed identity associated with your Batch account may be sufficient. Using a user-assigned managed identity also gives you the option to enforce customer-managed keys at Batch account creation, as shown [in the example below](#create-a-batch-account-with-user-assigned-managed-identity-and-customer-managed-keys).
+
+## Create a Batch account with system-assigned managed identity
+
+If you don't need a separate user-assigned managed identity, you can enable system-assigned managed identity when you create your Batch account.
 
 ### Azure portal
 
 In the [Azure portal](https://portal.azure.com/), when you create Batch accounts, pick **System assigned** in the identity type under the **Advanced** tab.
 
-![New Batch account with system assigned identity type](./media/batch-customer-managed-key/create-batch-account.png)
+![Screenshot of a new Batch account with system assigned identity type.](./media/batch-customer-managed-key/create-batch-account.png)
 
-After the account is created, you can find a unique GUID in the **Identity principal id** field under the **Property** section. The **Identity Type** will show `SystemAssigned`.
+After the account is created, you can find a unique GUID in the **Identity principal Id** field under the **Properties** section. The **Identity Type** will show `System assigned`.
 
-![Unique GUID in Identity principal id field](./media/batch-customer-managed-key/linked-batch-principal.png)
- 
+![Screenshot showing a unique GUID in the Identity principal Id field.](./media/batch-customer-managed-key/linked-batch-principal.png)
+
+You will need this value in order to grant this Batch account access to the Key Vault.
+
 ### Azure CLI
 
 When you create a new Batch account, specify `SystemAssigned` for the `--identity` parameter.
 
-```powershell
+```azurecli
 resourceGroupName='myResourceGroup'
 accountName='mybatchaccount'
 
@@ -46,9 +49,9 @@ az batch account create \
     --identity 'SystemAssigned'
 ```
 
-After the account is created, you can verify that system-assigned managed identity has been enabled on this account. Be sure to note the `PrincipalId`, as this value will be needed to grant this batch account access to the Key Vault.
+After the account is created, you can verify that system-assigned managed identity has been enabled on this account. Be sure to note the `PrincipalId`, as this value will be needed to grant this Batch account access to the Key Vault.
 
-```powershell
+```azurecli
 az batch account show \
     -n $accountName \
     -g $resourceGroupName \
@@ -56,25 +59,36 @@ az batch account show \
 ```
 
 > [!NOTE]
-> The system-assigned managed identity created in a Batch account is only used for retrieving customer-managed keys from the Key Vault. This identity is not available on Batch pools.
+> The system-assigned managed identity created in a Batch account is only used for retrieving customer-managed keys from the Key Vault. This identity is not available on Batch pools. To use a user-assigned managed identity in a pool, see [Configure managed identities in Batch pools](managed-identity-pools.md).
+
+## Create a user-assigned managed identity
+
+If you prefer, you can [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) which can be used to access your customer-managed keys.
+
+You will need the **Client ID** value of this identity in order for it to access the Key Vault.
 
 ## Configure your Azure Key Vault instance
 
+The Azure Key Vault in which your keys will be generated must be created in the same tenant as your Batch account. It does not need to be in the same resource group or even in the same subscription.
+
 ### Create an Azure Key Vault
 
-When creating an Azure Key Vault instance with customer-managed keys for Azure Batch, make sure that **Soft Delete** and **Purge Protection** are both enabled.
+When [creating an Azure Key Vault instance](../key-vault/general/quick-create-portal.md) with customer-managed keys for Azure Batch, make sure that **Soft Delete** and **Purge Protection** are both enabled.
 
-![Key Vault creation screen](./media/batch-customer-managed-key/create-key-vault.png)
+![Screenshot of the Key Vault creation screen.](./media/batch-customer-managed-key/create-key-vault.png)
 
 ### Add an access policy to your Azure Key Vault instance
 
-In the Azure portal, after the Key Vault is created, In the **Access Policy** under **Setting**, add the Batch account access using managed identity. Under **Key Permissions**, select **Get**, **Wrap Key** and **Unwrap Key**. 
+In the Azure portal, after the Key Vault is created, In the **Access Policy** under **Setting**, add the Batch account access using managed identity. Under **Key Permissions**, select **Get**, **Wrap Key** and **Unwrap Key**.
 
-![Add access policy](./media/batch-customer-managed-key/key-permissions.png)
+![Screenshot showing the Add access policy screen.](./media/batch-customer-managed-key/key-permissions.png)
 
-In the **Select** field under **Principal**, fill in the `principalId` that you previously retrieved, or the name of the batch account.
+In the **Select** field under **Principal**, fill in one of the following:
 
-![Enter principalId](./media/batch-customer-managed-key/principal-id.png)
+- For system-assigned managed identity: Enter the `principalId` that you previously retrieved or the name of the Batch account.
+- For user-assigned managed identity: Enter the **Client ID** that you previously retrieved or the name of the user-assigned managed identity.
+
+![Screenshot of the Principal screen.](./media/batch-customer-managed-key/principal-id.png)
 
 ### Generate a key in Azure Key Vault
 
@@ -84,19 +98,21 @@ In the Azure portal, go to the Key Vault instance in the **key** section, select
 
 After the key is created, click on the newly created key and the current version, copy the **Key Identifier** under **properties** section.  Be sure sure that under **Permitted Operations**, **Wrap Key** and **Unwrap Key** are both checked.
 
-## Enable customer-managed keys on Azure Batch Account
+## Enable customer-managed keys on a Batch account
+
+Once you have followed the steps above, you can enable customer-managed keys on your Batch account.
 
 ### Azure portal
 
 In the [Azure portal](https://portal.azure.com/), go to the Batch account page. Under the **Encryption** section, enable **Customer-managed key**. You can directly use the Key Identifier, or you can select the key vault and then click **Select a key vault and key**.
 
-![Under Encryption, enable Customer-managed key](./media/batch-customer-managed-key/encryption-page.png)
+![Screenshot showing the Encryption section and option to enable customer-managed key](./media/batch-customer-managed-key/encryption-page.png)
 
 ### Azure CLI
 
 After the Batch account is created with system-assigned managed identity and the access to Key Vault is granted, update the Batch account with the `{Key Identifier}` URL under `keyVaultProperties` parameter. Also set **encryption_key_source** as `Microsoft.KeyVault`.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \
@@ -104,46 +120,82 @@ az batch account set \
     --encryption_key_identifier {YourKeyIdentifier} 
 ```
 
+## Create a Batch account with user-assigned managed identity and customer-managed keys
+
+Using the Batch management .NET client, you can create a Batch account that will have a user-assigned managed identity and customer-managed keys.
+
+```c#
+EncryptionProperties encryptionProperties = new EncryptionProperties()
+{
+    KeySource = KeySource.MicrosoftKeyVault,
+    KeyVaultProperties = new KeyVaultProperties()
+    {
+        KeyIdentifier = "Your Key Azure Resource Manager Resource ID"
+    }
+};
+
+BatchAccountIdentity identity = new BatchAccountIdentity()
+{
+    Type = ResourceIdentityType.UserAssigned,
+    UserAssignedIdentities = new Dictionary<string, BatchAccountIdentityUserAssignedIdentitiesValue>
+    {
+            ["Your Identity Azure Resource Manager ResourceId"] = new BatchAccountIdentityUserAssignedIdentitiesValue()
+    }
+};
+var parameters = new BatchAccountCreateParameters(TestConfiguration.ManagementRegion, encryption:encryptionProperties, identity: identity);
+
+var account = await batchManagementClient.Account.CreateAsync("MyResourceGroup",
+    "mynewaccount", parameters); 
+```
+
 ## Update the customer-managed key version
 
 When you create a new version of a key, update the Batch account to use the new version. Follow these steps:
 
 1. Navigate to your Batch account in Azure portal and display the Encryption settings.
-2. Enter the URI for the new key version. Alternately, you can select the key vault and the key again to update the version.
+2. Enter the URI for the new key version. Alternately, you can select the Key Vault and the key again to update the version.
 3. Save your changes.
 
 You can also use Azure CLI to update the version.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \
     --encryption_key_identifier {YourKeyIdentifierWithNewVersion} 
 ```
+
 ## Use a different key for Batch encryption
 
 To change the key used for Batch encryption, follow these steps:
 
 1. Navigate to your Batch account and display the Encryption settings.
-2. Enter the URI for the new key. Alternately, you can select the key vault and choose a new key.
+2. Enter the URI for the new key. Alternately, you can select the Key Vault and choose a new key.
 3. Save your changes.
 
-You can  also use Azure CLI to use a different key.
+You can also use Azure CLI to use a different key.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \
     --encryption_key_identifier {YourNewKeyIdentifier} 
 ```
+
 ## Frequently asked questions
-  * **Are customer-managed keys supported for existing Batch accounts?** No. Customer-managed keys are only supported for new Batch accounts.
-  * **Can I select RSA key sizes larger than 2048 bits?** Yes, RSA key sizes of `3072` and `4096` bits are also supported.
-  * **What operations are available after a customer-managed key is revoked?** The only operation allowed is account deletion if Batch loses access to the customer-managed key.
-  * **How should I restore access to my Batch account if I accidentally delete the Key Vault key?** Since purge protection and soft delete are enabled, you could restore the existing keys. For more information, see [Recover an Azure Key Vault](../key-vault/general/key-vault-recovery.md).
-  * **Can I disable customer-managed keys?** You can set the encryption type of the Batch Account back to "Microsoft managed key" at any time. After this, you are free to delete or change the key.
-  * **How can I rotate my keys?** Customer-managed keys are not automatically rotated. To rotate the key, update the Key Identifier that the account is associated with.
-  * **After I restore access how long will it take for the Batch account to work again?** It can take up to 10 minutes for the account to be accessible again once access is restored.
-  * **While the Batch Account is unavailable what happens to my resources?** Any pools that are running when Batch access to customer-managed keys is lost will continue to run. However, the nodes will transition into an unavailable state, and tasks will stop running (and be requeued). Once access is restored, nodes will become available again and tasks will be restarted.
-  * **Does this encryption mechanism apply to VM disks in a Batch pool?** No. For Cloud Service Configuration Pools, no encryption is applied for the OS and temporary disk. For Virtual Machine Configuration Pools, the OS and any specified data disks will be encrypted with a Microsoft platform managed key by default. Currently, you cannot specify your own key for these disks. To encrypt the temporary disk of VMs for a Batch pool with a Microsoft platform managed key, you must enable the [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) property in your [Virtual Machine Configuration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) Pool. For highly sensitive environments, we recommend enabling temporary disk encryption and avoiding storing sensitive data on OS and data disks. For more information, see [Create a pool with disk encryption enabled](./disk-encryption.md)
-  * **Is the system-assigned managed identity on the Batch account available on the compute nodes?** No. This managed identity is currently used only for accessing the Azure Key Vault for the customer-managed key.
+
+- **Are customer-managed keys supported for existing Batch accounts?** No. Customer-managed keys are only supported for new Batch accounts.
+- **Can I select RSA key sizes larger than 2048 bits?** Yes, RSA key sizes of `3072` and `4096` bits are also supported.
+- **What operations are available after a customer-managed key is revoked?** The only operation allowed is account deletion if Batch loses access to the customer-managed key.
+- **How should I restore access to my Batch account if I accidentally delete the Key Vault key?** Since purge protection and soft delete are enabled, you could restore the existing keys. For more information, see [Recover an Azure Key Vault](../key-vault/general/key-vault-recovery.md).
+- **Can I disable customer-managed keys?** You can set the encryption type of the Batch Account back to "Microsoft managed key" at any time. After this, you are free to delete or change the key.
+- **How can I rotate my keys?** Customer-managed keys are not automatically rotated. To rotate the key, update the Key Identifier that the account is associated with.
+- **After I restore access how long will it take for the Batch account to work again?** It can take up to 10 minutes for the account to be accessible again once access is restored.
+- **While the Batch Account is unavailable what happens to my resources?** Any pools that are running when Batch access to customer-managed keys is lost will continue to run. However, the nodes will transition into an unavailable state, and tasks will stop running (and be requeued). Once access is restored, nodes will become available again and tasks will be restarted.
+- **Does this encryption mechanism apply to VM disks in a Batch pool?** No. For Cloud Service Configuration Pools, no encryption is applied for the OS and temporary disk. For Virtual Machine Configuration Pools, the OS and any specified data disks will be encrypted with a Microsoft platform managed key by default. Currently, you cannot specify your own key for these disks. To encrypt the temporary disk of VMs for a Batch pool with a Microsoft platform managed key, you must enable the [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) property in your [Virtual Machine Configuration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) Pool. For highly sensitive environments, we recommend enabling temporary disk encryption and avoiding storing sensitive data on OS and data disks. For more information, see [Create a pool with disk encryption enabled](./disk-encryption.md)
+- **Is the system-assigned managed identity on the Batch account available on the compute nodes?** No. The system-assigned managed identity is currently used only for accessing the Azure Key Vault for the customer-managed key. To use a user-assigned managed identity on compute nodes, see [Configure managed identities in Batch pools](managed-identity-pools.md).
+
+## Next steps
+
+- Learn more about [security best practices in Azure Batch](security-best-practices.md).
+- Learn more about[Azure Key Vault](../key-vault/general/basic-concepts.md).

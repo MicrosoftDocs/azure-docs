@@ -222,4 +222,4 @@ This section lists common problems that you might encounter and steps for mitiga
 | "The action could not be completed because our records show that you have not successfully enabled Red Hat Cloud Access on your Azure subscription…." | To use the benefit with RHEL VMs, you must first [register your Azure subscriptions with Red Hat Cloud Access](https://access.redhat.com/management/cloud).
 
 ## Next steps
-* [Learn how to create and update VMs and add license types (RHEL_BYOS, SLES_BYOS) for Azure Hybrid Benefit by using the Azure CLI](/cli/azure/vm?preserve-view=true&view=azure-cli-latest)
+* [Learn how to create and update VMs and add license types (RHEL_BYOS, SLES_BYOS) for Azure Hybrid Benefit by using the Azure CLI](/cli/azure/vm)

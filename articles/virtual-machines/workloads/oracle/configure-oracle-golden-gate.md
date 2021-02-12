@@ -813,4 +813,4 @@ az group delete --name myResourceGroup
 
 [Create highly available virtual machines tutorial](../../linux/create-cli-complete.md)
 
-[Explore VM deployment CLI samples](../../linux/cli-samples.md)
+[Explore VM deployment CLI samples](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

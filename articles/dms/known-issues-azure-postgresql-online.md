@@ -116,3 +116,4 @@ When you try to perform an online migration from AWS RDS PostgreSQL to Azure Dat
 - Migration of multiple tables with the same name but a different case (e.g. table1, TABLE1, and Table1) may cause unpredictable behavior and is therefore not supported.
 - Change processing of [CREATE | ALTER | DROP | TRUNCATE] table DDLs isn't supported.
 - In Azure Database Migration Service, a single migration activity can only accommodate up to four databases.
+- Migration of the pg_largeobject table is not supported. 

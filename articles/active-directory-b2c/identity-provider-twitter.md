@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -31,7 +31,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create an application
 
-To enable sign-in for users with a Twitter account in Azure Active Directory B2C (Azure AD B2C) you need to create a Twitter application. If you don't already have a Twitter account, you can sign up at [https://twitter.com/signup](https://twitter.com/signup). You also need to [Apply for a developer account](https://developer.twitter.com/en/apply/user.html). For more information, see [Apply for access](https://developer.twitter.com/en/apply-for-access).
+To enable sign-in for users with a Twitter account in Azure AD B2C, you need to create a Twitter application. If you don't already have a Twitter account, you can sign up at [https://twitter.com/signup](https://twitter.com/signup). You also need to [Apply for a developer account](https://developer.twitter.com/en/apply/user.html). For more information, see [Apply for access](https://developer.twitter.com/en/apply-for-access).
 
 1. Sign in to the [Twitter Developer Portal](https://developer.twitter.com/portal/projects-and-apps) with your Twitter account credentials.
 1. Under **Standalone Apps**, select **+Create App**.
@@ -41,7 +41,7 @@ To enable sign-in for users with a Twitter account in Azure Active Directory B2C
 1. Under **Authentication settings**, select **Edit**
     1. Select **Enable 3-legged OAuth** checkbox.
     1. Select **Request email address from users** checkbox.
-    1. For the **Callback URLs**, enter `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Replace `your-tenant` with the name of your tenant name and `your-user-flow-Id` with the identifier of your user flow. For example, `b2c_1A_signup_signin_twitter`. You need to use all lowercase letters when entering your tenant name and user flow id even if they are defined with uppercase letters in Azure AD B2C.
+    1. For the **Callback URLs**, enter `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Replace `your-tenant` with the name of your tenant name and `your-user-flow-Id` with the identifier of your user flow. For example, `b2c_1a_signup_signin_twitter`. Use all lowercase letters when entering your tenant name and user flow id even if they are defined with uppercase letters in Azure AD B2C.
     1. For the **Website URL**, enter `https://your-tenant.b2clogin.com`. Replace `your-tenant` with the name of your tenant. For example, `https://contosob2c.b2clogin.com`.
     1. Enter a URL for the **Terms of service**, for example `http://www.contoso.com/tos`. The policy URL is a page you maintain to provide terms and conditions for your application.
     1. Enter a URL for the **Privacy policy**, for example `http://www.contoso.com/privacy`. The policy URL is a page you maintain to provide privacy information for your application.
@@ -49,7 +49,7 @@ To enable sign-in for users with a Twitter account in Azure Active Directory B2C
 
 ::: zone pivot="b2c-user-flow"
 
-## Configure Twitter as an identity provider in your tenant
+## Configure Twitter as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
@@ -89,9 +89,9 @@ You need to store the secret key that you previously recorded in your Azure AD B
 9. For **Key usage**, select `Encryption`.
 10. Click **Create**.
 
-## Add a claims provider
+## Configure Twitter as an identity provider
 
-If you want users to sign in using a Twitter account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
+To enable users to sign in using a Twitter account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
 You can define a Twitter account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
 
@@ -104,7 +104,7 @@ You can define a Twitter account as a claims provider by adding it to the **Clai
       <Domain>twitter.com</Domain>
       <DisplayName>Twitter</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="Twitter-OAUTH1">
+        <TechnicalProfile Id="Twitter-OAuth1">
           <DisplayName>Twitter</DisplayName>
           <Protocol Name="OAuth1" />
           <Metadata>
@@ -141,59 +141,29 @@ You can define a Twitter account as a claims provider by adding it to the **Clai
 4. Replace the value of **client_id** with the *API key secret* that you previously recorded.
 5. Save the file.
 
-### Upload the extension file for verification
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-By now, you have configured your policy so that Azure AD B2C knows how to communicate with your Twitter account. Try uploading the extension file of your policy just to confirm that it doesn't have any issues so far.
 
-1. On the **Custom Policies** page in your Azure AD B2C tenant, select **Upload Policy**.
-2. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
-3. Click **Upload**.
-
-## Register the claims provider
-
-At this point, the identity provider has been set up, but it’s not available in any of the sign-up or sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the Twitter identity provider.
-
-1. Open the *TrustFrameworkBase.xml* file from the starter pack.
-2. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
-3. Open the *TrustFrameworkExtensions.xml* and find the **UserJourneys** element. If the element doesn't exist, add one.
-4. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
-5. Rename the ID of the user journey. For example, `SignUpSignInTwitter`.
-
-### Display the button
-
-The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up or sign-in screen. If you add a **ClaimsProviderSelection** element for a Twitter account, a new button shows up when a user lands on the page.
-
-1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
-2. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `TwitterExchange`:
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="TwitterExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### Link the button to an action
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAuth1" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with a Twitter account to receive a token.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
-2. Add the following **ClaimsExchange** element making sure that you use the same value for the ID that you used for **TargetClaimsExchangeId**:
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
-    ```xml
-    <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
-    ```
-
-    Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier. For example, `Twitter-OAUTH1`.
-
-3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
-
-## Update and test the relying party file
-
-Update the relying party (RP) file that initiates the user journey that you created.
-
-1. Make a copy of *SignUpOrSignIn.xml* in your working directory, and rename it. For example, rename it to *SignUpSignInTwitter.xml*.
-1. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInTwitter`.
-1. Update the value of **PublicPolicyUri** with the URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_twitter`
-1. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the new user journey that you created (SignUpSignTwitter).
-1. Save your changes, upload the file, and then select the new policy in the list.
-1. Make sure that Azure AD B2C application that you created is selected in the **Select application** field, and then test it by clicking **Run now**.
 
 ::: zone-end

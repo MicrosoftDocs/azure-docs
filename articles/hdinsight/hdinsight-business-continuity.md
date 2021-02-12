@@ -1,9 +1,6 @@
 ---
 title: Azure HDInsight business continuity
 description: This article gives an overview of best practices, single region availability, and optimization options for Azure HDInsight business continuity planning.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual

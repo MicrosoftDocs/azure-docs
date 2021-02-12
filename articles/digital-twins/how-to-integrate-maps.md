@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to use Azure Functions to create a function that can use the twin graph and Azure Digital Twins notifications to update an Azure Maps indoor map.
 author: alexkarcher-msft
 ms.author: alkarche # Microsoft employees only
-ms.date: 6/3/2020
+ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -72,7 +72,7 @@ This pattern reads from the room twin directly, rather than the IoT device, whic
 
 ## Create a function to update maps
 
-You're going to create an *Event Grid-triggered function* inside your function app from the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
+You're going to create an **Event Grid-triggered function** inside your function app from the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room.
 
 See the following document for reference info: [*Azure Event Grid trigger for Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 

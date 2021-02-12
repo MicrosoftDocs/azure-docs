@@ -106,7 +106,7 @@ The `GcmService` object provides a `send` method that can be used to send push n
 - **Payload** - the message's JSON or raw string payload.
 - **Callback** - the callback function.
 
-For more information on the payload format, see the [Payload documentation](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
+For more information on the payload format, see the [Payload documentation](https://payload.readthedocs.io/en/latest/).
 
 The following code uses the `GcmService` instance exposed by the `NotificationHubService` to send a push notification to all registered clients.
 

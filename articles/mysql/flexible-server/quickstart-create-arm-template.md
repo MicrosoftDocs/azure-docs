@@ -92,7 +92,7 @@ Create a _mysql-flexible-server-template.json_ file and copy this JSON script in
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_D4ds_v4",
-        "tier": "[parameters('serverEdition')]"        
+        "tier": "[parameters('serverEdition')]"
       },
       "tags": "[parameters('tags')]",
       "properties": {

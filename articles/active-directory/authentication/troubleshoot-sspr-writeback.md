@@ -40,7 +40,7 @@ For Azure AD Connect version *1.1.443.0* and above, *outbound HTTPS* access is r
 * *\*.passwordreset.microsoftonline.com*
 * *\*.servicebus.windows.net*
 
-Azure [GOV endpoints](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers):
+Azure [GOV endpoints](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers):
 
 * *\*.passwordreset.microsoftonline.us*
 * *\*.servicebus.usgovcloudapi.net*

@@ -111,4 +111,4 @@ The information returned from all methods is the same; a list of the FQDN and pr
 
 For more information on using Azure Machine Learning with a virtual network, see the [virtual network overview](how-to-network-security-overview.md).
 
-For more information on integrating Private Endpoints into your DNS configuration, see [Azure Private Endpoint DNS configuration](https://docs.microsoft.com/azure/private-link/private-endpoint-dns).
+For more information on integrating Private Endpoints into your DNS configuration, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
