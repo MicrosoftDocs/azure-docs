@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Device Update for IoT Hub Resource Management
 
-To get started with Device Update you will need to create a Device Update account, instance and set access control roles. 
+To get started with Device Update you'll need to create a Device Update account, instance and set access control roles. 
 
 [Learn More](device-update-resources.md) about Device update account and instance.
 
