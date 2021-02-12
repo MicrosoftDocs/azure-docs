@@ -2,7 +2,7 @@
 title: Azure Cache for Redis as Event Grid source
 description: Describes the properties that are provided for Azure Cache for Redis events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.date: 02/11/2021
 author: curib
 ms.author: cauribeg
 ---
@@ -10,8 +10,6 @@ ms.author: cauribeg
 # Azure Cache for Redis as an Event Grid source
 
 This article provides the properties and schema for Azure Cache for Redis events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). 
-
-## Event Grid event schema
 
 ## Available event types
 These events are triggered when a client exports, imports, or scales by calling Azure Cache for Redis REST APIs. Patching event is triggered by Redis update.
@@ -173,7 +171,7 @@ When an event is triggered, the Event Grid service sends data about that event t
 
 ---
 
-### Event properties
+## Event properties
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
