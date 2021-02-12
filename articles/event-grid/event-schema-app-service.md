@@ -3,7 +3,7 @@ title: Azure App Service as Event Grid source
 description: This article describes how to use Azure App Service as an Event Grid event source. It provides the schema and links to tutorial and how-to articles. 
 author: jasonfreeberg
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 02/11/2021
 ms.author: jafreebe
 ---
 
@@ -11,9 +11,7 @@ ms.author: jafreebe
 
 This article provides the properties and schema for Azure App Service events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). It also gives you a list of quick starts and tutorials to use Azure App Service as an event source.
 
-## Event Grid event schema
-
-### Available event types
+## Available event types
 
 Azure App Service emits the following event types
 
