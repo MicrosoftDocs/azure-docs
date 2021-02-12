@@ -274,7 +274,7 @@ request made to web API at: Fri Jan 22 2021 09:31:52 GMT-0800 (Pacific Standard 
 
 ## How the application works
 
-This application uses [OAuth 2.0 client credentials grant](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. The credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. The type of applications supported with this authentication model are usually **deamons** or **service accounts**.
+This application uses [OAuth 2.0 client credentials grant](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. The credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. The type of applications supported with this authentication model are usually **daemons** or **service accounts**.
 
 The scope to request for a client credential flow is the name of the resource followed by `/.default`. This notation tells Azure Active Directory (Azure AD) to use the application-level permissions declared statically during application registration. Also, these API permissions must be granted by a **tenant administrator**.
 
