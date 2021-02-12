@@ -54,7 +54,7 @@ Files should be grouped by type into a dataset and uploaded as a .zip file. Each
 
 ## Upload data
 
-To upload your data, navigate to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. From the portal, click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
+To upload your data, navigate to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span></a>. From the portal, click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
 
 ![Screenshot that highlights the Audio upload option from the Speech Portal.](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -131,7 +131,7 @@ speech03.wav	the lazy dog was not amused
 
 The transcriptions are text-normalized so they can be processed by the system. However, there are some important normalizations that must be done before uploading the data to the Speech Studio. For the appropriate language to use when you prepare your transcriptions, see [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md)
 
-After you've gathered your audio files and corresponding transcriptions, package them as a single .zip file before uploading to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Below is an example dataset with three audio files and a human-labeled transcription file:
+After you've gathered your audio files and corresponding transcriptions, package them as a single .zip file before uploading to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Below is an example dataset with three audio files and a human-labeled transcription file:
 
 > [!div class="mx-imgBorder"]
 > ![Select audio from the Speech Portal](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
@@ -149,7 +149,7 @@ Product names or features that are unique, should include related text data for 
 | Sentences (utterances) | Improve accuracy when recognizing product names, or industry-specific vocabulary within the context of a sentence. |
 | Pronunciations | Improve pronunciation of uncommon terms, acronyms, or other words with undefined pronunciations. |
 
-Sentences can be provided as a single text file or multiple text files. To improve accuracy, use text data that is closer to the expected spoken utterances. Pronunciations should be provided as a single text file. Everything can be packaged as a single zip file and uploaded to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Sentences can be provided as a single text file or multiple text files. To improve accuracy, use text data that is closer to the expected spoken utterances. Pronunciations should be provided as a single text file. Everything can be packaged as a single zip file and uploaded to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 Training with related text usually completes within a few minutes.
 

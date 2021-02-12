@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
 ---
 
@@ -35,7 +35,11 @@ The first step to train a model is to upload training data. See [Prepare and tes
 3. Select **Train model**.
 4. Give your training a **Name** and **Description**.
 5. In the **Scenario and Baseline model** list, select the scenario that best fits your domain. If you're not sure which scenario to choose, select **General**. The baseline model is the starting point for training. The latest model is usually the best choice.
-6. On the **Select training data** page, choose one or more related text datasets or audio + human-labeled transcription datasets that you want to use for training. When you train a new model, start with related text; training with audio + human-labeled transcription might take much longer (up to [several days](how-to-custom-speech-evaluate-data.md#improve-model-recognition)).
+6. On the **Select training data** page, choose one or more related text datasets or audio + human-labeled transcription datasets that you want to use for training.
+
+> [!NOTE]
+> When you train a new model, start with related text; training with audio + human-labeled transcription might take much longer **(up to [several days](how-to-custom-speech-evaluate-data.md#add-audio-with-human-labeled-transcripts)**).
+
 7. After training is complete, you can do accuracy testing on the newly trained model. This step is optional.
 8. Select **Create** to build your custom model.
 
