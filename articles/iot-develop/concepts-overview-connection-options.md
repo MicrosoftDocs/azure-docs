@@ -26,7 +26,7 @@ After you select IoT Hub or IoT Central to host your IoT application, you have s
 > [!NOTE]
 > In addition to the following tools, you can programmatically create and manage IoT applications by using REST API's, Azure SDKs, or Azure Resource Manager templates. You can learn more in the [IoT Hub](../iot-hub/about-iot-hub.md) and [IoT Central](../iot-central/core/overview-iot-central.md) service documentation.
 
-|Tool  |Supports IoT platform  |Documentation  |Description  |
+|Tool  |Supports IoT platform &nbsp; &nbsp; &nbsp; &nbsp; |Documentation  |Description  |
 |---------|---------|---------|---------|
 |Central web UI     | Central | [Central quickstart](../iot-central/core/quick-deploy-iot-central.md) | Browser-based portal for IoT Central. |
 |Azure portal     | Hub, Central      | [Create an IoT hub with Azure portal](../iot-hub/iot-hub-create-through-portal.md), [Manage IoT Central from the Azure portal](../iot-central/core/howto-manage-iot-central-from-portal.md)| Browser-based portal for IoT Hub and devices. Also works with other Azure resources including IoT Central. |
