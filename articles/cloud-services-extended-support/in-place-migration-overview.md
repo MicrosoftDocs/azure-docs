@@ -9,7 +9,7 @@ ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: 
 ---
-
+ 
 # Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)
 
 This article provides an overview on the platform-supported migration tool and how to use it to migrate [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Azure Cloud Services (extended support)](overview.md).
