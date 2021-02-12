@@ -40,7 +40,7 @@ The sign in method that was most recently used by a user will be presented to th
 
 ## Platform specific best practices
 
-### Desktop best practices
+### Desktop
 
 The recommended options for implementing authentication are, in order:
 
@@ -48,7 +48,7 @@ The recommended options for implementing authentication are, in order:
 - Use [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/) to support FIDO2 in an embedded browser.
 - Use the system browser. The MSAL libraries for desktop platforms use this method by default. You can consult our page on FIDO2 browser compatibility to ensure the browser you use supports FIDO2 authentication.
 
-### Mobile best practices
+### Mobile
 
 As of February 2020, FIDO2 is not currently supported for native iOS or Android apps, but it is in development.
 
@@ -56,7 +56,7 @@ To prepare applications for its availability, and as a general best practice, iO
 
 If you are not using MSAL, you should still use the system web browser for authentication. Features such as single sign-on and conditional access rely on a shared web surface provided by the system web browser. This means using [Chrome Custom Tabs](https://developer.chrome.com/docs/multidevice/android/customtabs/) (Android) or [Authenticating a User Through a Web Service | Apple Developer Documentation](https://developer.apple.com/documentation/authenticationservices/authenticating_a_user_through_a_web_service) (iOS).
 
-### Web App and SPA best practices
+### Web App and SPA
 
 The availability of FIDO2 passwordless authentication for applications that run in a web browser will depending on the combination of browser and platform. You can consult our [FIDO2 compatibility matrix](../authentication/fido2-compatibility.md) to check if the combination your users will encounter is supported.
 
