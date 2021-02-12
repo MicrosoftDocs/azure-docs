@@ -161,7 +161,7 @@ Which in the example above I have parameterized using the @concat string functio
 @concat('https://management.azure.com/subscriptions/',pipeline().parameters.Subscription,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.ServerName,'/sqlPools/',activity('CheckState').output.name,'/resume?api-version=2019-06-01-preview')
 ```
 
-Hello, In this case, we are using activity('CheckState').output.name (the name of the dedicated SQL pool from Step 3a) that was passed to this activity through the IF Condition loop. If you are using a single activity against a single database, you could embed the name of your dedicated SQL pool here, or use a parameter from the pipeline (for example, pipeline().parameters.DatabaseName using the example in Step 0).
+In this case, we are using activity('CheckState').output.name (the name of the dedicated SQL pool from Step 3a) that was passed to this activity through the IF Condition loop. If you are using a single activity against a single database, you could embed the name of your dedicated SQL pool here, or use a parameter from the pipeline (for example, pipeline().parameters.DatabaseName using the example in Step 0).
 
 ## Pipeline Run Output
 

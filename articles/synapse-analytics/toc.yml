@@ -440,7 +440,7 @@
       - name: Restore a Synapse SQL pool
         href: ./backuprestore/restore-sql-pool.md
       - name: Pause and resume using Synapse Pipelines
-        href: ./how-to-pause-resume-piplines.md
+        href: ./sql/how-to-pause-resume-piplines.md
     - name: Manage and monitor
       items:
       - name: SQL requests - Synapse Studio
