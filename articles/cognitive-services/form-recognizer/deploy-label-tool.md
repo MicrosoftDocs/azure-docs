@@ -85,7 +85,7 @@ Follow these steps to create a new resource using the Azure portal:
    * Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
    * Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
    * Startup command - Set this to `./run.sh eula=accept`
-    
+
     ---
 
    > [!div class="mx-imgBorder"]
@@ -94,7 +94,7 @@ Follow these steps to create a new resource using the Azure portal:
 7. That's it. Next, select **Review + Create**, then **Create** to deploy your web app. When complete, you can access your web app at the URL provided in the **Overview** for your resource.
 
 > [!NOTE]
-> When creating your web app, you can also configure authorization/authentication. This is not necessary to get started. 
+> When creating your web app, you can also configure authorization/authentication. This is not necessary to get started.
 
 > [!IMPORTANT]
 > You may need to enable TLS for your web app in order to view it at its `https` address. Follow the instructions in [Enable a TLS endpoint](../../container-instances/container-instances-container-group-ssl.md) to set up a sidecar container than enables TLS/SSL for your web app.
@@ -110,10 +110,9 @@ There's a few things you need know about this command:
 * You'll need to specify where you want to create the resource. Replace `<region name>` with your desired region for the web app. 
 * This command automatically accepts EULA.
 
-From the Azure CLI, run this command to create a web app resource for the sample labeling tool: 
+From the Azure CLI, run this command to create a web app resource for the sample labeling tool:
 
-
-# [v2.0](#tab/v2-0)   
+# [v2.0](#tab/v2-0)
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -127,7 +126,8 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
-``` 
+`
+
 # [v2.1 preview](#tab/v2-1)    
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
