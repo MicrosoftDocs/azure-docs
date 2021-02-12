@@ -15,7 +15,7 @@ You need to have a valid [account in Partner Center](../../marketplace/partner-c
 
 Per the [Managed Service offer certification requirements](/legal/marketplace/certification-policies#700-managed-services), you must have a [Silver or Gold Cloud Platform competency level](/partner-center/learn-about-competencies) or be an [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) in order to publish a Managed Service offer. You must also [enter a lead destination that will create a record in your CRM system](../../marketplace/plan-managed-service-offer.md#customer-leads) each time a customer deploys your offer.
 
-Your Microsoft Partner Network (MPN) ID will be [automatically associated](../../cost-management-billing/manage/link-partner-id.md) with the offers you publish to track your impact across customer engagements.
+You can [link your partner ID](partner-earned-credit.md) with the offers you publish to track your impact across customer engagements.
 
 If you don't want to publish an offer to Azure Marketplace, or don't meet all the requirements, you can onboard customers manually by using Azure Resource Manager templates. For more info, see [Onboard a customer to Azure Lighthouse](onboard-customer.md).
 
