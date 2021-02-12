@@ -244,7 +244,7 @@ For having successful HTTPS connections to your backend whether for health probe
 
 * **Certificate subject name mismatch**: For HTTPS connections, Front Door expects that your backend presents certificate from a valid CA with subject name(s) matching the backend hostname. As an example, if your backend hostname is set to `myapp-centralus.contosonews.net` and the certificate that your backend presents during the TLS handshake doesn't have `myapp-centralus.contosonews.net` or `*myapp-centralus*.contosonews.net` in the subject name. Then Front Door will refuse the connection and result in an error. 
     * **Solution**: It isn't recommended from a compliance standpoint but you can work around this error by disabling the certificate subject name check for your Front Door. You can find this option under Settings in Azure portal and under BackendPoolsSettings in the API.
-* **Backend hosting certificate from invalid CA**: Only certificates from valid CAs can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates aren't allowed.
+* **Backend hosting certificate from invalid CA**: Only certificates from [valid Certificate Authorities](troubleshoot-allowed-certificate-authority.md) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates aren't allowed.
 
 ### Can I use client/mutual authentication with Azure Front Door?
 
@@ -258,7 +258,7 @@ For information on logs and other diagnostic capabilities, see Monitoring metric
 
 ### What is the retention policy on the diagnostics logs?
 
-Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Azure Monitor logs. 
+Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Azure Monitor logs. For more information, see [Azure Front Door Logging](how-to-logs.md).
 
 ### How do I get audit logs for Azure Front Door?
 
