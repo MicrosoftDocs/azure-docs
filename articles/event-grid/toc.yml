@@ -274,6 +274,8 @@
       href: managed-service-identity.md
   - name: Troubleshoot
     items: 
+    - name: Troubleshoot Event Grid issues
+      href: troubleshoot-issues.md
     - name: Enable diagnostic logs
       href: enable-diagnostic-logs-topic.md
     - name: Troubleshoot errors

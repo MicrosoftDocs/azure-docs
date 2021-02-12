@@ -81,6 +81,10 @@ The following are multiple methods for deploying these agents.
 | [Manual install](../vm/vminsights-enable-hybrid.md) | Install the agents in the guest operating system on computers hosted outside of Azure including in your datacenter or other cloud environments. |
 
 
+## Network requirements
+
+- See [Network requirements](../platform/log-analytics-agent.md#network-requirements) for the network requirements for the Log Analytics agent.
+- The dependency agent requires a connection from the virtual machine to the address 169.254.169.254. This is the Azure metadata service endpoint. Ensure that firewall settings allow connections to this endpoint.
 
 
 ## Management packs
