@@ -2,7 +2,7 @@
 title: Azure Container Registry as Event Grid source
 description: Describes the properties that are provided for Container Registry events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 02/11/2021
 ---
 
 # Azure Container Registry as an Event Grid source
@@ -316,7 +316,7 @@ The target object has the following properties:
 | `length` | integer | The number of bytes of the content. Same as Size field. |
 | `repository` | string | The repository name. |
 | `tag` | string | The tag name. |
-| `name | string | The chart name. |
+| `name` | string | The chart name. |
 | `version` | string | The chart version. |
 
 The request object has the following properties:
