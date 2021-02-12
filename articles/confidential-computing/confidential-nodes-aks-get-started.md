@@ -37,7 +37,7 @@ This deployment instructions assumes:
 
 ## Installing the CLI pre-requisites (needed for the addon in preview)
 
-To install the aks-preview 0.4.62 extension or later, use the following Azure CLI commands:
+To install the aks-preview 0.5.0 extension or later, use the following Azure CLI commands:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -65,7 +65,7 @@ When the status shows as registered, refresh the registration of the Microsoft.C
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Creating an AKS cluster
+## Creating an AKS cluster with confidential computing nodes with addon
 
 If you already have an AKS cluster that meets the above requirements, [skip to the existing cluster section](#existing-cluster) to add a new confidential computing node pool.
 
@@ -81,9 +81,18 @@ Now create an AKS cluster using the az aks create command.
 # Create a new AKS cluster with system node pool with Confidential Computing addon enabled
 az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom
 ```
-The above creates a new AKS cluster with system node pool. Now proceed adding a user node of Confidential Computing Nodepool type on AKS (DCsv2)
+The above creates a new AKS cluster with system node pool with the addon enabled. Now proceed adding a user node of Confidential Computing Nodepool type on AKS (DCsv2)
 
-The below example adds a user nodepool with 3 nodes of `Standard_DC2s_v2` size. You can choose other supported list of DCsv2 SKUs and regions from [here](../virtual-machines/dcv2-series.md):
+> [!NOTE START]
+> The addon also provides SGX Quote Helper daemonset for applications doing remote attestation and wants to take a dependency on this service managed by the platform. To install this preview feature on the addon please modify the above command. Read more on the SGX Quote Helper and what modification would be needed to the container application [here]( confidential-nodes-out-of-proc-attestation.md).
+
+```azurecli-interactive
+# Create a new AKS cluster with system node pool with Confidential Computing addon enabled and SGX Quote Helper
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom --enable-sgxquotehelper
+```
+> [!NOTE END]
+
+The below example adds an user nodepool with 3 nodes of `Standard_DC2s_v2` size. You can choose other supported list of DCsv2 SKUs and regions from [here](../virtual-machines/dcv2-series.md):
 
 ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-vm-size Standard_DC2s_v2
