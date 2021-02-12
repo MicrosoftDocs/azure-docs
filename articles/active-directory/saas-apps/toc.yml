@@ -67,6 +67,8 @@
         href: airtable-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
+      - name: AKASHI
+        href: akashi-tutorial.md
       - name: Alcumus Info Exchange
         href: alcumus-info-tutorial.md
       - name: AlertMedia
@@ -792,6 +794,8 @@
         href: hr2day-tutorial.md
       - name: HRworks Single Sign-On
         href: hrworks-single-sign-on-tutorial.md
+      - name: HSB ThoughtSpot
+        href: hsb-thoughtspot-tutorial.md
       - name: Hub Planner
         href: hub-planner-tutorial.md
       - name: HubSpot SAML
