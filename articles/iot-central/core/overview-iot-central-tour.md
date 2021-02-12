@@ -57,7 +57,7 @@ Once you're inside your IoT application, use the left pane to access the differe
 
 :::row:::
   :::column span="":::
-      :::image type="content" source="media/overview-iot-central-tour/navigationbar.png" alt-text="left pane":::
+      :::image type="content" source="media/overview-iot-central-tour/navigation-bar.png" alt-text="left pane":::
 
   :::column-end:::
   :::column span="2":::
@@ -100,11 +100,11 @@ You can choose between a light theme or a dark theme for the UI:
 > [!NOTE]
 > The option to choose between light and dark themes isn't available if your administrator has configured a custom theme for the application.
 
-:::image type="content" source="media/overview-iot-central-tour/themes.png" alt-text="IoT Central Choose a Theme":::
+:::image type="content" source="media/overview-iot-central-tour/themes.png" alt-text="Screenshot of IoT Central Choose a Theme.":::
 
 ### Dashboard
 
-:::image type="content" source="Media/overview-iot-central-tour/dashboard.png" alt-text="IoT Central Dashboard":::
+:::image type="content" source="Media/overview-iot-central-tour/dashboard.png" alt-text="Screenshot of IoT Central Dashboard.":::
 
 * The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a *solution builder*, you can create and customize multiple global application dashboards for other users. Learn more about [adding tiles to your dashboard](howto-add-tiles-to-your-dashboard.md)
 
@@ -112,7 +112,7 @@ You can choose between a light theme or a dark theme for the UI:
 
 ### Devices
 
-:::image type="content" source="Media/overview-iot-central-tour/devices.png" alt-text="Devices Page":::
+:::image type="content" source="Media/overview-iot-central-tour/devices.png" alt-text="Screenshot of Devices Page.":::
 
 The explorer page shows the _devices_ in your Azure IoT Central application grouped by _device template_. 
 
@@ -128,13 +128,13 @@ To learn more, see the [Monitor your devices](./quick-monitor-devices.md) quicks
 Device group are a collection of related devices. A *solution builder* defines a query to identify the devices that are included in a device group. You use device groups to perform bulk operations in your application. To learn more, see the [Use device groups in your Azure IoT Central application](tutorial-use-device-groups.md) article.
 
 ### Rules
-:::image type="content" source="Media/overview-iot-central-tour/rules.png" alt-text="Rules Page":::
+:::image type="content" source="Media/overview-iot-central-tour/rules.png" alt-text="Screenshot of Rules Page.":::
 
 The rules page lets you define rules based on devices' telemetry, state, or events. When a rule fires, it can trigger one or more actions - such as sending an email, notify an external system via webhook alerts, etc. To learn, see the [Configuring rules](tutorial-create-telemetry-rules.md) tutorial. 
 
 ### Analytics
 
-:::image type="content" source="Media/overview-iot-central-tour/analytics.png" alt-text="Analytics page":::
+:::image type="content" source="Media/overview-iot-central-tour/analytics.png" alt-text="Screenshot of Analytics page.":::
 
 The analytics lets you create custom views on top of device data to derive insights from your application. To learn more, see the [Create analytics for your Azure IoT Central application](howto-create-analytics.md) article.
 
@@ -146,7 +146,7 @@ The jobs page lets you run bulk device management operations on your devices. Yo
 
 ### Device templates
 
-:::image type="content" source="Media/overview-iot-central-tour/templates.png" alt-text="Device Templates":::
+:::image type="content" source="Media/overview-iot-central-tour/templates.png" alt-text="Screenshot of Device Templates.:::
 
 The device templates page is where a builder creates and manages the device templates in the application. A device template specifies devices characteristics such as:
 
@@ -167,7 +167,7 @@ Data export enables you to set up streams of data, such as telemetry, from the a
 
 ### Administration
 
-:::image type="content" source="media/overview-iot-central-tour/administration.png" alt-text="IoT Administration":::
+:::image type="content" source="media/overview-iot-central-tour/administration.png" alt-text="Screenshot of IoT Administration.":::
 
 The administration page allows you to configure and customize your IoT Central application. Here you can change your application name, URL, theming, manage users and roles, create API tokens, and export your application. To learn more, see the [Administer your Azure IoT Central application](howto-administer.md) article.
 
