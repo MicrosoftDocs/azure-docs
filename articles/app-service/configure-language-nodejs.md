@@ -338,6 +338,17 @@ if (req.secure) {
 
 ::: zone-end
 
+
+::: zone pivot="platform-linux"
+
+## Monitor with Application Insights
+
+Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the App Insights agent, go to your web app in the Portal and click **Application Insights** under **Settings**, then click **Turn on Application Insights**. Next, select an existing App Insights resource or create a new one. Finally, click **Apply** at the bottom of the blade.
+
+This will attach the monitoring agent and add an app setting, `NODE_OPTIONS`, with information about the agent's location so that the Node process can read this information and attach the agent.
+
+::: zone-end
+
 ## Troubleshooting
 
 When a working Node.js app behaves differently in App Service or has errors, try the following:
