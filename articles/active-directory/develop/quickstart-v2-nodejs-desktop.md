@@ -27,20 +27,9 @@ This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Nod
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart application
->
-> You have two options to start your quickstart application: Express (Option 1 below), and Manual (Option 2)
->
-> * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
->
-> ### Option 1: Register and auto configure your app and then download your code sample
->
-> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/NodejsDesktopQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
-> 1. Enter a name for your application and select **Register**.
-> 1. Follow the instructions to download and automatically configure your new application with just one click.
->
-> ### Option 2: Register and manually configure your application and code sample
->
+> 
+> Follow the steps below to get started.
+> 
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
@@ -77,7 +66,7 @@ This quickstart uses the [Microsoft Authentication Library for Node.js (MSAL Nod
 > > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
-> #### Step 3: Configure your Visual Studio project
+> #### Step 3: Configure your Electron project
 >
 > 1. Extract the zip file to a local folder close to the root of the disk, for example, *C:/Azure-Samples*.
 > 1. Edit *.env* and replace the values of the fields `TENANT_ID` and `CLIENT_ID` with the following snippet:
