@@ -766,6 +766,8 @@
                   href: troubleshoot-not-found.md
                 - name: Troubleshoot unauthorized
                   href: troubleshoot-unauthorized.md
+                - name: Troubleshoot forbidden
+                  href: troubleshoot-forbidden.md
                 - name: Availability issues in multiregional environments
                   href: troubleshoot-sdk-availability.md
             - name: .NET
@@ -930,7 +932,7 @@
         - name: REST (Management plane)
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
@@ -1048,7 +1050,7 @@
         - name: REST resource provider
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
 - name: MongoDB API
@@ -1115,6 +1117,8 @@
           items:
             - name: Pre-migration guide
               href: mongodb-pre-migration.md
+            - name: MongoDB native tools (offline)
+              href: tutorial-mongotools-cosmos-db.md                            
             - name: Database Migration Service (online)
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Database Migration Service (offline)
@@ -1173,7 +1177,7 @@
         - name: REST resource provider
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
 - name: Gremlin API
@@ -1251,7 +1255,7 @@
         - name: Response Headers
           href: gremlin-headers.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: REST resource provider
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Resource Manager template
@@ -1337,7 +1341,7 @@
         - name: Python
           href: table-sdk-python.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Table storage REST APIs
           href: /rest/api/storageservices/table-service-rest-api
 - name: How-to guides
@@ -1417,7 +1421,7 @@
           href: monitor-cosmos-db.md
         - name: Use Azure monitor metrics
           items:
-            - name: Azure Monitor for Cosmos (preview)
+            - name: Azure Monitor for Cosmos DB
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Scenarios to monitor
               href: use-metrics.md

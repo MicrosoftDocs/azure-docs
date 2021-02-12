@@ -28,7 +28,8 @@ ITSMC supports connections with the following ITSM tools:
 -	Cherwell
 
    >[!NOTE]
-> We propose our Cherwell and Provance customers to use [Webhook action](./action-groups.md#webhook) to Cherwell and Provance endpoint as another solution to the integration.
+> As of 1-Oct-2020 Cherwell and Provance ITSM integrations with Azure Alert will no longer be enabled for new customers. New ITSM Connections will not be supported.
+> Existing ITSM connections will be supported.
 
 With ITSMC, you can:
 
