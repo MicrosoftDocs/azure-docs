@@ -128,7 +128,7 @@ See the following example of a successful JSON response:
 }
 ```
 
-## Natural reading order output
+## Natural reading order output (Latin only)
 With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example.
 
 :::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="OCR Reading order example":::
