@@ -101,7 +101,7 @@ If you don't have a Sendgrid account, create a [free account](https://app.sendgr
 1. Name the new API key **AzureFunctionAccess.**
 1. Click **Create & View**.
 
-:::image type="content" source="media/howto-create-custom-rules/sendgrid-api-keys.png" alt-text="Screenshot of the Create SendGrid API key.":::
+    :::image type="content" source="media/howto-create-custom-rules/sendgrid-api-keys.png" alt-text="Screenshot of the Create SendGrid API key.":::
 
 Afterwards, you will be given an API key. Save this string for later use.
 
@@ -114,7 +114,7 @@ You can configure an IoT Central application to continuously export telemetry to
 
 Your Event Hubs namespace looks like the following screenshot: 
 
-:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
+    :::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
 
 ## Define the function
 
@@ -125,13 +125,13 @@ This solution uses an Azure Functions app to send an email notification when the
 1. Select **HTTP Trigger**.
 1. Select **Add**.
 
-:::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Image of the Default HTTP trigger function"::: 
+    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Image of the Default HTTP trigger function"::: 
 
 ## Edit code for HTTP Trigger
 
 The portal creates a default function called **HttpTrigger1**:
 
-:::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
+    :::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
 
 1. Replace the C# code with the following code:
 
@@ -184,7 +184,7 @@ To add your SendGrid API Key, you need to add it to your **Function Keys** as fo
 1. Enter the *Name* and *Value* of the API Key you created before.
 1. Click **OK.**
 
-:::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Screenshot of Add Sangrid Key.":::
+    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Screenshot of Add Sangrid Key.":::
 
 
 ## Configure HttpTrigger function to use SendGrid
@@ -210,7 +210,7 @@ To send emails with SendGrid, you need to configure the bindings for your functi
 
 1. Select **OK**.
 
-:::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="Screenshot of Add SandGrid Output.":::
+    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="Screenshot of Add SandGrid Output.":::
 
 
 ### Test the function works
@@ -223,7 +223,7 @@ To test the function in the portal, first choose **Logs** at the bottom of the c
 
 The function log messages appear in the **Logs** panel:
 
-:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
+    :::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
 
 After a few minutes, the **To** email address receives an email with the following content:
 
@@ -304,14 +304,14 @@ This solution uses a Stream Analytics query to detect when a device stops sendin
 1. Select **Save**.
 1. To start the Stream Analytics job, choose **Overview**, then **Start**, then **Now**, and then **Start**:
 
-:::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Screenshot of Stream Analytics.":::
+    :::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Screenshot of Stream Analytics.":::
 
 ## Configure export in IoT Central
 
 On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created from the Contoso template. In this section, you configure the application to stream the telemetry from its simulated devices to your event hub. To configure the export:
 
 1. Navigate to the **Data Export** page, select **+ New**, and then **Azure Event Hubs**.
-1. Use the following settings to configure the export, then select **Save**:
+1. Use the following settings to configure the export, then select **Save**: 
 
     | Setting | Value |
     | ------- | ----- |
@@ -323,7 +323,7 @@ On the [Azure IoT Central application manager](https://aka.ms/iotcentral) websit
     | Devices | Off |
     | Device Templates | Off |
 
-:::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="Screenshot of Continuous data export configuration.":::
+    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="Screenshot of Continuous data export configuration.":::
 
 Wait until the export status is **Running** before you continue.
 
