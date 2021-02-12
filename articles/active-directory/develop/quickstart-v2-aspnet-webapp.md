@@ -20,11 +20,11 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 
 In this quickstart, you download and run a code sample that demonstrates how an ASP.NET web app can sign in users from any Azure Active Directory (Azure AD) organization. 
 
-The following diagram shows how the sample app works:
-
-![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
-
 > [!div renderon="docs"]
+>The following diagram shows how the sample app works:
+>
+>![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
+>
 > ## Prerequisites
 >
 > * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -113,6 +113,10 @@ The following diagram shows how the sample app works:
 ## More information
 
 This section gives an overview of the code required to sign in users. This overview can be useful to understand how the code works, what the main arguments are, and how to add sign-in to an existing ASP.NET application.
+
+### How the sample works
+
+![Diagram of the interaction between the web browser, the web app, and the Microsoft identity platform in the sample app.](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 
 ### OWIN middleware NuGet packages
 
