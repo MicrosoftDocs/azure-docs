@@ -49,7 +49,7 @@ There's currently no workaround for this issue.
 You receive the following error message:
 
 ```error
-Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
+Unable to Register Machine for Change Tracking and Inventory, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 
 ### Cause
