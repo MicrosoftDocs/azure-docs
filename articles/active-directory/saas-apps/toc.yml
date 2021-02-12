@@ -67,6 +67,8 @@
         href: airtable-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
+      - name: AKASHI
+        href: akashi-tutorial.md
       - name: Alcumus Info Exchange
         href: alcumus-info-tutorial.md
       - name: AlertMedia
@@ -792,6 +794,8 @@
         href: hr2day-tutorial.md
       - name: HRworks Single Sign-On
         href: hrworks-single-sign-on-tutorial.md
+      - name: HSB ThoughtSpot
+        href: hsb-thoughtspot-tutorial.md
       - name: Hub Planner
         href: hub-planner-tutorial.md
       - name: HubSpot SAML
@@ -1088,6 +1092,8 @@
         href: maptician-tutorial.md 
       - name: Marketo
         href: marketo-tutorial.md
+      - name: Maverics Identity Orchestrator SAML Connector
+        href: maverics-identity-orchestrator-saml-connector-tutorial.md
       - name: Maxient Conduct Manager Software
         href: maxient-conduct-manager-software-tutorial.md
       - name: MaxxPoint
@@ -1301,7 +1307,9 @@
       - name: Panorays
         href: panorays-tutorial.md
       - name: Pantheon
-        href: pantheon-tutorial.md        
+        href: pantheon-tutorial.md 
+      - name: Parkalot - Car park management
+        href: parkalot-car-park-management-tutorial.md       
       - name: PatentSQUARE
         href: patentsquare-tutorial.md
       - name: Pavaso Digital Close
@@ -1466,6 +1474,8 @@
         href: reviewsnap-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-tutorial.md
+      - name: Rewatch
+        href: rewatch-tutorial.md
       - name: RFPIO
         href: rfpio-tutorial.md
       - name: RightAnswers
@@ -1598,6 +1608,8 @@
         href: sharepoint-on-premises-tutorial.md
       - name: ShareVault
         href: sharevault-tutorial.md
+      - name: SharingCloud
+        href: sharingcloud-tutorial.md
       - name: Shibumi
         href: shibumi-tutorial.md
       - name: ShipHazmat
@@ -2022,6 +2034,8 @@
         href: zscaler-two-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-tutorial.md
+      - name: Zuddl
+        href: zuddl-tutorial.md
       - name: Zwayam
         href: zwayam-tutorial.md
   - name: User provisioning tutorials
@@ -2135,6 +2149,8 @@
         href: helloid-provisioning-tutorial.md
       - name: Hootsuite
         href: hootsuite-provisioning-tutorial.md
+      - name: Hoxhunt
+        href: hoxhunt-provisioning-tutorial.md
       - name: Ideo
         href: ideo-provisioning-tutorial.md        
       - name: Infor CloudSuite
