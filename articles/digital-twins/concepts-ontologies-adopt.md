@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Adopt industry-standard ontologies
+title: Adopting industry-standard ontologies
 titleSuffix: Azure Digital Twins
 description: Learn about existing industry ontologies that can be adopted for Azure Digital Twins
 author: baanders
@@ -15,15 +15,17 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-## Adopting an industry ontology
+# Adopting an industry ontology
 
-Because it can be easier to start with an open-source DTDL ontology than starting from a blank page, Microsoft is partnering with domain experts to publish ontologies which represent widely accepted industry conventions and empower the majority of customer use cases. The result is a set of open-source DTDL-based ontologies which learn from, build on, learn from, or directly use industry standards. These are designed to meet the needs of downstream developers, with the potential to be widely adopted and/or extended by the industry. This is illustrated in the diagram below.
+Because it can be easier to start with an open-source DTDL ontology than starting from a blank page, Microsoft is partnering with domain experts to publish ontologies which represent widely accepted industry conventions and empower the majority of customer use cases. 
+
+The result is a set of open-source DTDL-based ontologies which learn from, build on, learn from, or directly use industry standards. These are designed to meet the needs of downstream developers, with the potential to be widely adopted and/or extended by the industry. This is illustrated in the diagram below.
 
 :::image type="content" source="media/concepts-ontologies/industry-path.png" alt-text="Flow diagram illustrating stages of adoption for an industry ontology: Evaluate, Adapt, Validate, Evangelize." lightbox="media/concepts-ontologies/industry-path.png"::: 
 
 At this time, Microsoft has worked with real estate partners to develop an ontology for smart buildings, which provides common ground for modeling smart buildings while leveraging industry standards to prevent reinvention. 
 
-### Smart building ontology
+## RealEstateCore smart building ontology
 
 Microsoft has partnered with [RealEstateCore](https://www.realestatecore.io/), a Swedish consortium of real estate owners, software vendors, and research institutions, to deliver an open-source DTDL-based ontology for the real estate industry: the [**DTDL-based RealEstateCore ontology for smart buildings**](https://github.com/Azure/opendigitaltwins-building).
 

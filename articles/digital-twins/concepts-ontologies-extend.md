@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Extending industry ontologies
+title: Extending ontologies
 titleSuffix: Azure Digital Twins
-description: Learn about the reasons and strategies behind extending an industry ontology
+description: Learn about the reasons and strategies behind extending an ontology
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/12/2021
+ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -15,19 +15,23 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Extending industry ontologies 
+# Extending ontologies 
 
-An industry ontology, such as the [DTDL-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building), is a great way to jumpstart building your IoT solution. These industry ontologies provide a rich set of base interfaces that are designed for your domain and engineered to work out of the box in Azure IoT services, such as Azure Digital Twins. However, it is possibly the case that your solution has specific needs that are not completely covered by the industry ontology. For example, you may want to link your digital twins to 3D models stored in a separate system. In this case, you can extend one of these ontologies to add your own capabilities while retaining all the benefits of the original ontology.
+An industry-standard [ontology](concepts-ontologies.md), such as the [DTDL-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building), is a great way to start building your IoT solution. Industry ontologies provide a rich set of base interfaces that are designed for your domain and engineered to work out of the box in Azure IoT services, such as Azure Digital Twins. 
 
-In this article, we will look at extending a portion of the DTDL-based REC ontology with new DTDL Properties, but the techniques described here can be applied to any part of a DTDL-based ontology with any DTDL capability (Telemetry, Property, Relationship, Component, or Command). 
+However, it's possible that your solution may have specific needs that are not completely covered by the industry ontology. For example, you may want to link your digital twins to 3D models stored in a separate system. In this case, you can extend one of these ontologies to add your own capabilities while retaining all the benefits of the original ontology.
+
+This article uses the DTDL-based [RealEstateCore](https://www.realestatecore.io/) ontology as the basis for examples of extending ontologies with new DTDL properties. The techniques described here are general, however, and can be applied to any part of a DTDL-based ontology with any DTDL capability (Telemetry, Property, Relationship, Component, or Command). 
 
 ## RealEstateCore space hierarchy 
 
-In the DTDL-based REC ontology, the Space hierarchy is used to define various kinds of spaces: Rooms, Buildings, Zone, etc. The hierarchy extends from each of these models to define various kinds of Rooms, Buildings, and Zones. 
+In the DTDL-based RealEstateCore ontology, the Space hierarchy is used to define various kinds of spaces: Rooms, Buildings, Zone, etc. The hierarchy extends from each of these models to define various kinds of Rooms, Buildings, and Zones. 
 
 A portion of the hierarchy looks like the diagram below. 
 
 :::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-original.png" alt-text="Flow diagram illustrating part of the RealEstateCore space hierarchy. At the top level, there's an element called Space; it is connected by an 'extends' arrow down a level to Room; Room is connected by two 'extends' arrows down a level to ConferenceRoom and Office."::: 
+
+For more details about the RealEstateCore ontology, see [*Concepts: Adopting industry-standard ontologies*](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
 
 ## Extending the RealEstateCore space hierarchy 
 
@@ -40,7 +44,7 @@ In this article, we discuss two different cases where extending the ontology's h
 
 ### Add new interfaces for new concepts 
 
-In this case, you want to add interfaces for concepts needed for your solution but that are not present in the industry ontology. For example, if your solution has additional types of rooms not present in the DTDL-based REC ontology, then you may add them by extending directly from the REC interfaces. Here we imagine a solution that needs to represent "focus rooms" not present in the REC ontology. A focus room is a small space designed for people to focus on a task for a couple hours at a time. 
+In this case, you want to add interfaces for concepts needed for your solution but that are not present in the industry ontology. For example, if your solution has additional types of rooms not present in the DTDL-based RealEstateCore ontology, then you may add them by extending directly from the RealEstateCore interfaces. Here we imagine a solution that needs to represent "focus rooms" not present in the RealEstateCore ontology. A focus room is a small space designed for people to focus on a task for a couple hours at a time. 
 
 To extend the industry ontology with new concepts, you create your own interfaces that extend from the interfaces in the industry ontology. 
 
@@ -58,11 +62,11 @@ We will look at two examples:
 
 Both examples can be implemented with new properties: a "drawingId" property that associates the 3D drawing with the digital twin and an "online" property that indicates whether the conference room is online or not. 
 
-Typically, you don't want to modify the industry ontology directly because you'd like to be able to incorporate updates to it in your solution in the future (which would overwrite your additions). Instead, these kinds of additions can be made in your own interface hierarchy that extends from the DTDL-based REC ontology. Each interface you create uses multiple interface inheritance to extend its parent REC interface and its parent interface from your extended interface hierarchy. This approach enables you to make use of the industry ontology and your additions together. 
+Typically, you don't want to modify the industry ontology directly because you'd like to be able to incorporate updates to it in your solution in the future (which would overwrite your additions). Instead, these kinds of additions can be made in your own interface hierarchy that extends from the DTDL-based RealEstateCore ontology. Each interface you create uses multiple interface inheritance to extend its parent RealEstateCore interface and its parent interface from your extended interface hierarchy. This approach enables you to make use of the industry ontology and your additions together. 
 
 To extend the industry ontology, you create your own interfaces that extend from the interfaces in the industry ontology and add the new capabilities to your extended interfaces. For each interface that you want to extend, you create a new interface. The extended interfaces are written in DTDL (see the DTDL for Extended Interfaces section later in this document). 
 
-After extending the portion of the hierarchy shown above, the extended hierarchy looks like the diagram below. Here the extended Space interface adds the "drawingId" property that will contain an id that associates the digital twin with the 3D drawing. Additionally, the ConferenceRoom interface adds an "online" property that will contain the online status of the conference room. Through inheritance the ConferenceRoom interface contains all capabilities from the REC ConferenceRoom interface as well as all capabilities from the extended Space interface. 
+After extending the portion of the hierarchy shown above, the extended hierarchy looks like the diagram below. Here the extended Space interface adds the "drawingId" property that will contain an id that associates the digital twin with the 3D drawing. Additionally, the ConferenceRoom interface adds an "online" property that will contain the online status of the conference room. Through inheritance the ConferenceRoom interface contains all capabilities from the RealEstateCore ConferenceRoom interface as well as all capabilities from the extended Space interface. 
 
 :::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-extended-2.png" alt-text="Flow diagram illustrating the extended RealEstateCore space hierarchy from above, with more new additions. Room now shares its level with a Space element, which connects with an 'extends' arrow down a level to a new Room element next to ConferenceRoom and Office.  The new elements are connected to the existing ontology with additional 'extends' relationships."::: 
 

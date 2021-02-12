@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about DTDL industry ontologies for modeling in a certain domain
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/15/2021
+ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# What is an ontology? 
+# What are ontologies? 
 
 The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entity that exist in your environment.
 
@@ -41,7 +41,11 @@ Because models in Azure Digital Twins are represented in [Digital Twins Definiti
 
 There are three possible paths to integrating industry-standard ontologies with DTDL. You can pick the one that works best for you depending on your needs:
 
-[!INCLUDE [Azure Digital Twins: industry model paths](../../includes/digital-twins-industry-model-paths.md)]
+| Path | Description | Read more |
+| --- | --- | --- |
+| **Adopt** | You can start your solution with an open-source DTDL ontology that has been built on widely adopted industry standards. You can either use these model sets out-of-the-box, or extend them with your own additions for a customized solution. | [*Concepts:&nbsp;Adopting&nbsp;industry&nbsp;standard ontologies*](concepts-ontologies-adopt.md)<br><br>[*Concepts:&nbsp;Extending&nbsp;ontologies*](concepts-ontologies-extend.md) |
+| **Convert** | If you already have existing models represented in another standard format, you can convert them to DTDL to use them with Azure Digital Twins. | [*Concepts:&nbsp;Converting&nbsp;ontologies*](concepts-ontologies-convert.md)<br><br>[*Concepts:&nbsp;Extending&nbsp;ontologies*](concepts-ontologies-extend.md) |
+| **Author** | You can always develop your own custom DTDL models from scratch, using any applicable industry standards as inspiration. | [*How-to: Manage DTDL models*](how-to-manage-model.md) |
 
 Here are the steps you should follow for each path: 
 1.	Adopt: 
