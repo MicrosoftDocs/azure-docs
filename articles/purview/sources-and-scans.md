@@ -7,6 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
+ms.custom: references_regions 
 ---
 # Supported data sources and file types in Azure Purview
 
