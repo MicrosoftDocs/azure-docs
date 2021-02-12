@@ -99,7 +99,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Face API v1.0
+          - text: REST API
             url: https://docs.microsoft.com/rest/api/face/
           - text: .NET SDK
             url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
