@@ -72,13 +72,20 @@ You may see one of the following errors from the
 [LiveEventEncoderDisconnected](media-services-event-schemas.md\#liveeventencoderdisconnected)
 event.
 
-> [!div class="mx-tdCol2BreakAll,mz-tdCol3BreakAll"]
->| Result code | Description | Suggested solution |
->|--|--|--|
->|MPE_RTMP_SESSION_IDLE_TIMEOUT | RTMP session timed out after being idle for allowed time limit. | This typically happens when an encoder stops receiving the input feed so that the session becomes idle because there is no data to push out. You can check encoder or input feed status if it is healthy state. |
->|MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. | Deprecated. |
->|MPE_CAPACITY_LIMIT_REACHED | Encoder sending data too fast. | This happens when encoder bursts out a large set of fragments in a brief period.  This can theoretically happen when encoder can't push data for while due to network issue and burst out data when network is available. Customer should find out reason from encoder log or system log. |
->|Unknown error codes | These error codes can range from memory error to duplicate entries in hash map. |  |<!--empty-->  |
+> [!div class="mx-tdCol2BreakAll"]
+>| Error | Information |
+>|--|--|
+>|**MPE_RTMP_SESSION_IDLE_TIMEOUT** |
+>| Description|RTMP session timed out after being idle for allowed time limit. |
+>|Suggested solution|This typically happens when an encoder stops receiving the input feed so that the session becomes idle because there is no data to push out. Check if the encoder or input feed status is in a healthy state. |
+>|**MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID** |
+>|Description| The timestamp for the video or audio FLVTag is invalid from RTMP encoder. |
+>| Suggested solution| Deprecated. |
+>|**MPE_CAPACITY_LIMIT_REACHED** |
+>| Description|Encoder sending data too fast. |
+>| Suggested solution|This happens when the encoder bursts out a large set of fragments in a brief period.  This can theoretically happen when the encoder can't push data for while due to a network issue and the bursts out data when the network is available. Find the reason from encoder log or system log. |
+>|**Unknown error codes** |
+>| Description| These error codes can range from memory error to duplicate entries in hash map. |
 
 ## See also
 
