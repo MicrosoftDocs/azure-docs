@@ -34,7 +34,7 @@ With the **date policy**, cool files are tiered to the cloud if they haven't bee
 For more examples on how the date policy and volume free space policy work together, see [Choosing a cloud tiering policy](storage-sync-choosing-cloud-tiering-policies.md).
 
 ### Cloud tiering heatmap
-Azure File Sync monitors file access (read and write operations) over time and, based on how frequent and recent access is, assigns a heat score to every file. It uses these scores to build a "heatmap" of your namespace on each server endpoint. This heatmap is a list of all synching files in a location with cloud tiering enabled, ordered by their heat score. Frequently accessed files that were recently opened are considered hot, while files that were barely touched and haven't been accessed for some time are considered cool. 
+Azure File Sync monitors file access (read and write operations) over time and, based on how frequent and recent access is, assigns a heat score to every file. It uses these scores to build a "heatmap" of your namespace on each server endpoint. This heatmap is a list of all syncing files in a location with cloud tiering enabled, ordered by their heat score. Frequently accessed files that were recently opened are considered hot, while files that were barely touched and haven't been accessed for some time are considered cool. 
 
 To determine the relative position of an individual file in that heatmap, the system uses the maximum of its timestamps, in the following order: MAX(Last Access Time, Last Modified Time, Creation Time). 
 
