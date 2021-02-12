@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: error-reference
-ms.date: 02/11/2020
+ms.date: 02/12/2020
 ms.author: inhenkel
 
 ---
@@ -48,7 +48,7 @@ event.
 >| Description |The media description information was not received before the actual media data was delivered. |
 >| Suggested solution|The LiveEvent does not receive the stream description (header or FLV tag) from the encoder. This is a protocol violation. Contact encoder vendor. |
 >|**MPE_INGEST_MEDIA_QUALITIES_EXCEEDED** ||
->| Description|The count of qualities for audio or video type exceeded the maximum allowed limit. | 
+>| Description|The count of qualities for audio or video type exceeded the maximum allowed limit. |
 >| Suggested solution|When Live Event mode is Live Encoding, the encoder should push a single bitrate of video and audio.  Note that a redundant push from the same bitrate is allowed. Check the encoder preset or output settings to make sure it outputs a single bitrate stream. |
 >|**MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED** ||
 >| Description|The total incoming bitrate in a live event or channel service exceeded the maximum allowed limit. |
@@ -86,6 +86,30 @@ event.
 >| Suggested solution|This happens when the encoder bursts out a large set of fragments in a brief period.  This can theoretically happen when the encoder can't push data for while due to a network issue and the bursts out data when the network is available. Find the reason from encoder log or system log. |
 >|**Unknown error codes** |
 >| Description| These error codes can range from memory error to duplicate entries in hash map. |
+
+## Other error codes
+
+> [!div class="mx-tdCol2BreakAll"]
+>| Error | Information |Rejected/Disconnected Event|
+>|--|--|--|
+>|**ERROR_END_OF_MEDIA** ||Yes|
+>| Description|This is general error. ||
+>|Suggested solution| None.||
+>|**MPI_SYSTEM_MAINTENANCE** ||Yes|
+>| Description|The encoder disconnected due to service update or system maintenance. ||
+>|Suggested solution|Make sure encoder enables 'auto connect'. This is encoder feature to recover the unexpected session disconnection. ||
+>|**MPE_BAD_URL_SYNTAX** ||Yes|
+>| Description|The ingest URL is incorrectly formatted. ||
+>|Suggested solution|Make sure the ingest URL is correctly formatted. For RTMP, it should be `rtmp[s]://hostname:port/live/GUID_APPID/streamname` ||
+>|**MPE_CLIENT_TERMINATED_SESSION** ||Yes|
+>| Description|The encoder disconnected the session.  ||
+>|Suggested solution|This is not error. This is the case where encoder initiated disconnection, including graceful disconnection. If this is an unexpected disconnect, check the encoder log or system log. |
+>|**MPE_INGEST_BITRATE_NOT_MATCH** ||No|
+>| Description|The incoming data rate does not match with expected bitrate. ||
+>|Suggested solution|This is a warning which happens when incoming data rate is too slow or fast. Check encoder log or system log.||
+>|**MPE_INGEST_DISCONTINUITY** ||No|
+>| Description| There is discontinuty in incoming data.||
+>|Suggested solution| This is a warning that the encoder drops data due to a network issue or a system resource issue. Check the encoder log or system log. Monitor the system resource (CPU, memory or network) as well. If the system CPU is too high, try to lower the bitrate or use the H/W encoder option from the system graphics card.||
 
 ## See also
 
