@@ -386,6 +386,8 @@
       href: partner-keyless.md
     - name: LexisNexis
       href: partner-lexisnexis.md
+    - name: Microsoft Dynamics 365 Fraud Protection
+      href: partner-dynamics-365-fraud-protection.md
     - name: N8 Identity
       href: partner-n8identity.md
     - name: Nevis
@@ -432,6 +434,9 @@
   - name: Secure API Management API
     href: secure-api-management.md
     displayName: apim, api management, migrate, b2clogin.com
+  - name: Secure phone-based MFA
+    href: phone-based-mfa.md
+    displayName: multi-factor authentication, Azure Monitor, Log Analytics
   - name: Logs and monitoring
     items:
     - name: Audit logs
@@ -516,7 +521,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
   - name: Support
-    href: support-options.md
+    href: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     displayName: technical
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c

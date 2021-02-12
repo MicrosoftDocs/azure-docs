@@ -111,7 +111,7 @@ Each starter pack includes the following files:
 The inheritance model is as follows:
 
 - The child policy at any level can inherit from the parent policy and extend it by adding new elements.
-- For more complex scenarios, you can add more inheritance levels (up to 5 in total).
+- For more complex scenarios, you can add more inheritance levels (up to 10 in total).
 - You can add more relying party policies. For example, delete my account, change a phone number, SAML relying party policy and more.
 
 The following diagram shows the relationship between the policy files and the relying party applications.

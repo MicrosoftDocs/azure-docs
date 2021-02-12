@@ -2,7 +2,7 @@
 title: Concepts - Private clouds and clusters
 description: Learn about the key capabilities of Azure VMware Solution software-defined data centers and vSphere clusters. 
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 02/02/2021
 ---
 
 #  Azure VMware Solution private cloud and cluster concepts
@@ -61,7 +61,11 @@ Private cloud vCenter and NSX-T configurations are on an hourly backup schedule.
 
 ## Next steps
 
-The next step is to learn [networking and interconnectivity concepts](concepts-networking.md).
+Now that you've covered Azure VMware Solution private cloud concepts, you may want to learn about: 
+
+- [Azure VMware Solution networking and interconnectivity concepts](concepts-networking.md).
+- [Azure VMware Solution storage concepts](concepts-storage.md).
+- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
 
 <!-- LINKS - internal -->
 [concepts-networking]: ./concepts-networking.md

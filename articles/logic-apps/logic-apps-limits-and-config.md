@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 02/05/2021
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -189,21 +189,20 @@ For more information about your logic app resource definition, see [Overview: Au
 
 ### Integration service environment (ISE)
 
-Here are the throughput limits for the [Premium ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
+* [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): Provides up to 500 executions per minute, but note these considerations:
 
-| Name | Limit | Notes |
-|------|-------|-------|
-| Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month | |
-| Scale unit execution limit | System-throttled when infrastructure capacity reaches 80% | Each scale unit can provide ~2,000 additional action executions per minute, which is ~80 million more action executions per month | |
-| Maximum scale units that you can add | 10 | |
-||||
+  * Make sure that you use this SKU only for exploration, experiments, development, or testing - not for production or performance testing. This SKU has no service-level agreement (SLA), scale up capability, or redundancy during recycling, which means that you might experience delays or downtime.
 
-To go above these limits in normal processing, or run load testing that might go above these limits, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
+  * Backend updates might intermittently interrupt service.
 
-> [!NOTE]
-> The [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
-> has no published limits, no capabilities for scaling up, and no service-level agreement (SLA). Use this SKU
-> only for experimenting, development, and testing, not production or performance testing.
+* [Premium ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): The following table describes this SKU's throughput limits, but to exceed these limits in normal processing, or run load testing that might go above these limits, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
+
+  | Name | Limit | Notes |
+  |------|-------|-------|
+  | Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month | |
+  | Scale unit execution limit | System-throttled when infrastructure capacity reaches 80% | Each scale unit can provide ~2,000 additional action executions per minute, which is ~80 million more action executions per month | |
+  | Maximum scale units that you can add | 10 | |
+  ||||
 
 <a name="gateway-limits"></a>
 
@@ -433,6 +432,18 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 > inbound webhook callbacks to the Logic Apps service, rather than specify inbound managed 
 > connector IP address prefixes for each region. These tags work across the regions where 
 > the Logic Apps service is available.
+>
+> The following connectors make inbound webhook callbacks to the Logic Apps service:
+>
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, 
+> Azure Sentinel, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo, 
+> Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, 
+> Shifts for Microsoft Teams, Teamwork Projects, Typeform
+>
+> \* **SAP**: The return caller depends on whether the deployment environment is either 
+> multi-tenant Azure or ISE. In the multi-tenant environment, the on-premises data gateway 
+> makes the call back to the Logic Apps service. In an ISE, the SAP connector makes the 
+> call back to the Logic Apps service.
 
 <a name="multi-tenant-inbound"></a>
 

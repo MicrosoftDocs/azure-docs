@@ -21,7 +21,7 @@ Before starting, you should [enable diagnostic logging](firewall-diagnostics.md#
 
 ## Get started
 
-To deploy the workbook,  go to [Azure Monitor Workbook for Azure Firewall](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Azure%20Monitor%20Workbook) and following the instructions on the page. Azure Firewall Workbook is designed to work across multi-tenants, multi-subscriptions, and is filterable to multiple firewalls.
+To deploy the workbook,  go to [Azure Monitor Workbook for Azure Firewall](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Workbook%20-%20Azure%20Firewall%20Monitor%20Workbook) and following the instructions on the page. Azure Firewall Workbook is designed to work across multi-tenants, multi-subscriptions, and is filterable to multiple firewalls.
 
 ## Overview page
 

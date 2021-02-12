@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/28/2021
 ---
 
-# Create a search indexer
+# Creating indexers in Azure Cognitive Search
 
 A search indexer provides an automated workflow for transferring documents and content from an external data source, to a search index on your search service. As originally designed, it extracts text and metadata from an Azure data source, serializes documents into JSON, and passes off the resulting documents to a search engine for indexing. It's since been extended to support [AI enrichment](cognitive-search-concept-intro.md) for deep content processing. 
 
@@ -95,7 +95,7 @@ The following screenshot shows where you can find these features in the portal.
 
 ### Use a REST client
 
-Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as an indexer client. Using either tool, you can connect to your search service and send requests that create indexers and other objects. There are numerous tutorials and examples that demonstrate REST clients for creating objects. 
+Both Postman and Visual Studio Code (with an extension for Azure Cognitive Search) can function as an indexer client. Using either tool, you can connect to your search service and send [Create Indexer (REST)](/rest/api/searchservice/create-indexer) requests. There are numerous tutorials and examples that demonstrate REST clients for creating objects. 
 
 Start with either of these articles to learn about each client:
 
@@ -106,7 +106,7 @@ Refer to the [Indexer operations (REST)](/rest/api/searchservice/Indexer-operati
 
 ### Use an SDK
 
-For Cognitive Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create indexer-related objects. All of them implement a **SearchIndexerClient** that provides methods to creating indexers and related objects, including skillsets.
+For Cognitive Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to create indexer-related objects. All of them provide a **SearchIndexerClient** that has methods for creating indexers and related objects, including skillsets.
 
 | Azure SDK | Client | Examples |
 |-----------|--------|----------|
@@ -138,6 +138,20 @@ Scheduled processing usually coincides with a need for incremental indexing of c
 + [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 + [Azure Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+
+## Change detection and indexer state
+
+Indexers can detect changes in the underlying data and only process new or updated documents on each indexer run. For example, if indexer status says that a run was successful with `0/0` documents processed, it means that the indexer didn't find any new or changed rows or blobs in the underlying data source.
+
+How an indexer supports change detection varies by data source:
+
++ Azure Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. The various indexers use this information to determine which documents to update in the index. Built-in change detection means that an indexer can recognize new and updated documents, with no additional configuration required on your part.
+
++ Azure SQL and Cosmos DB provide change detection features in their platforms. You can specify the change detection policy in your data source definition.
+
+For large indexing loads, an indexer also keeps track of the last document it processed through an internal "high water mark". The marker is never exposed in the API, but internally the indexer keeps track of where it stopped. When indexing resumes, either through a scheduled run or an on-demand invocation, the indexer references the high water mark so that it can pick up where it left off.
+
+If you need to clear the high water mark to re-index in full, you can use [Reset Indexer](https://docs.microsoft.com/rest/api/searchservice/reset-indexer). For more selective re-indexing, use [Reset Skills](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) or [Reset Documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents). Through the reset APIs, you can clear internal state, and also flush the cache if you enabled [incremental enrichment](search-howto-incremental-index.md). For more background and comparison of each reset option, see [Run or reset indexers, skills, and documents](search-howto-run-reset-indexers.md).
 
 ## Know your data
 
