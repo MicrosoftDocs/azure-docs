@@ -17,7 +17,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 ## Workbooks
 [Workbooks](./visualize/workbooks-overview.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
 
-![Diagram shows screenshots of several pages from a workbook, including Analysis of Page Views, Usage, and Time Spent on Page.](media/visualize/workbook.png)
+![Diagram shows screenshots of several pages from a workbook, including Analysis of Page Views, Usage, and Time Spent on Page.](media/visualizations/workbook.png)
 
 ### Advantages
 - Supports both metrics and logs.
@@ -35,7 +35,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 ## Azure Dashboards
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure. They're particularly useful in providing single pane of glass over your Azure infrastructure and services allowing you to quickly identify important issues.
 
-![Screenshot shows an example of an Azure Dashboard with customizable information.](media/visualize/dashboard.png)
+![Screenshot shows an example of an Azure Dashboard with customizable information.](media/visualizations/dashboard.png)
 
 Here is a video walkthrough on creating dashboards.
 
@@ -64,7 +64,7 @@ Here is a video walkthrough on creating dashboards.
 ## Power BI
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is particularly useful for creating business-centric dashboards and reports, as well as reports analyzing long-term KPI trends. You can [import the results of a log query](visualize/powerbi.md) into a Power BI dataset so you can take advantage of its features such as combining data from different sources and sharing reports on the web and mobile devices.
 
-![Power BI](media/visualize/power-bi.png)
+![Power BI](media/visualizations/power-bi.png)
 
 ### Advantages
 - Rich visualizations.
@@ -84,7 +84,7 @@ Here is a video walkthrough on creating dashboards.
 ## Grafana
 [Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's particularly useful for detecting and isolating and triaging operational incidents. You can add [Grafana Azure Monitor data source plugin](visualize/grafana-plugin.md) to your Azure subscription to have it visualize your Azure metrics data.
 
-![Screenshot shows Grafana visualizations.](media/visualize/grafana.png)
+![Screenshot shows Grafana visualizations.](media/visualizations/grafana.png)
 
 ### Advantages
 - Rich visualizations.
@@ -116,7 +116,7 @@ You can access data in log and metric data in Azure Monitor through their API us
 [Views in Azure Monitor](visualize/view-designer.md)  allow you to create custom visualizations with log data. They are used by [monitoring solutions](insights/solutions.md) to present the data they collect.
 
 
-![Screenshot shows a Container Monitoring Solution tile and the detailed Azure Monitor View that opens when you select it.](media/visualize/view.png)
+![Screenshot shows a Container Monitoring Solution tile and the detailed Azure Monitor View that opens when you select it.](media/visualizations/view.png)
 
 ### Advantages
 - Rich visualizations for log data.

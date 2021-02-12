@@ -17,7 +17,7 @@ The map visualization aids in pin-pointing issues in specific regions and showin
 
 The screenshot below shows the total transactions and end-to-end latency for different storage accounts. Here the size is determined by the total number of transactions and the color metrics below the map show the end-to-end latency. Upon first observation, the number of transactions in the **West US** region are small compared to the **East US** region, but the end-to-end latency for the **West US** region is higher than the **East US** region. This provides initial insight that something is amiss for **West US**.
 
-![Screenshot of Azure location map](./media/workbooks-map-visualize/map-performance-example.png)
+![Screenshot of Azure location map](./media/workbooks-map-visualizations/map-performance-example.png)
 
 ## Adding a map
 
@@ -40,7 +40,7 @@ Map can be visualized if the underlying data/metrics has Latitude/Longitude info
 7. All the settings will be autopopulated. For custom settings, select the **Map Settings** button to open the settings pane.
 8. Below is a screenshot of the map visualization that shows storage accounts for each Azure region for the selected subscription.
 
-![Screenshot of Azure location map with the above query](./media/workbooks-map-visualize/map-azure-location-example.png)
+![Screenshot of Azure location map with the above query](./media/workbooks-map-visualizations/map-azure-location-example.png)
 
 ### Using Azure resource
 
@@ -53,13 +53,13 @@ Map can be visualized if the underlying data/metrics has Latitude/Longitude info
     2. Metric: `Transactions`
     3. Aggregation: `Sum`
     
-    ![Screenshot of transaction metric](./media/workbooks-map-visualize/map-transaction-metric.png)
+    ![Screenshot of transaction metric](./media/workbooks-map-visualizations/map-transaction-metric.png)
 1. Select **Add Metric** and add Success E2E Latency metric.
     1. Namespace: `Account`
     1. Metric: `Success E2E Latency`
     1. Aggregation: `Average`
     
-    ![Screenshot of success end-to-end latency metric](./media/workbooks-map-visualize/map-e2e-latency-metric.png)
+    ![Screenshot of success end-to-end latency metric](./media/workbooks-map-visualizations/map-e2e-latency-metric.png)
 1. Set *Size* to `Large`.
 1. Set *Visualization* size to `Map`.
 1. In **Map Settings** set the following settings:
@@ -109,7 +109,7 @@ Map can be visualized if the underlying data/metrics has Latitude/Longitude info
 
 The map visualization below shows users for each latitude and longitude location with the selected label for metrics.
 
-![Screenshot of a map visualization that shows users for each latitude and longitude location with the selected label for metrics](./media/workbooks-map-visualize/map-latitude-longitude-example.png)
+![Screenshot of a map visualization that shows users for each latitude and longitude location with the selected label for metrics](./media/workbooks-map-visualizations/map-latitude-longitude-example.png)
 
 ## Map settings
 
