@@ -79,7 +79,7 @@ After you create your *Cluster* resource, you can edit additional properties suc
 You can have up to 2 active clusters per subscription per region. If cluster is deleted, it is still reserved for 14 days. You can have up to 4 reserved clusters per subscription per region (active or recently deleted).
 
 > [!WARNING]
-> Cluster creation triggers resource allocation and provisioning. This operation can take up to an hour to complete. It is recommended to run it asynchronously.
+> Cluster creation triggers resource allocation and provisioning. This operation can take a few hours to complete. It is recommended to run it asynchronously.
 
 The user account that creates the clusters must have the standard Azure resource creation permission: `Microsoft.Resources/deployments/*` and cluster write permission `Microsoft.OperationalInsights/clusters/write` by having in their role assignments this specific action or `Microsoft.OperationalInsights/*` or `*/write`.
 

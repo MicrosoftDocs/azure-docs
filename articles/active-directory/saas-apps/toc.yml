@@ -814,6 +814,8 @@
         href: iamip-patent-platform-tutorial.md
       - name: IBM Digital Business Automation on Cloud
         href: ibm-digital-business-automation-on-cloud-tutorial.md
+      - name: IBMid
+        href: ibmid-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
@@ -1307,7 +1309,9 @@
       - name: Panorays
         href: panorays-tutorial.md
       - name: Pantheon
-        href: pantheon-tutorial.md        
+        href: pantheon-tutorial.md 
+      - name: Parkalot - Car park management
+        href: parkalot-car-park-management-tutorial.md       
       - name: PatentSQUARE
         href: patentsquare-tutorial.md
       - name: Pavaso Digital Close
@@ -1472,6 +1476,8 @@
         href: reviewsnap-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-tutorial.md
+      - name: Rewatch
+        href: rewatch-tutorial.md
       - name: RFPIO
         href: rfpio-tutorial.md
       - name: RightAnswers
@@ -2145,6 +2151,8 @@
         href: helloid-provisioning-tutorial.md
       - name: Hootsuite
         href: hootsuite-provisioning-tutorial.md
+      - name: Hoxhunt
+        href: hoxhunt-provisioning-tutorial.md
       - name: Ideo
         href: ideo-provisioning-tutorial.md        
       - name: Infor CloudSuite
