@@ -1,5 +1,5 @@
 ---
-title: Configure a Temporary Access Pass to register Passwordless authentication methods
+title: Configure a Temporary Access Pass in Azure AD to register Passwordless authentication methods
 description: Learn how to configure and enable users to to register Passwordless authentication methods by using a Temporary Access Pass (TAP)
 
 services: active-directory
@@ -16,7 +16,7 @@ ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
 ---
 
-# Configure Temporary Access Pass to register Passwordless authentication methods (Preview)
+# Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods (Preview)
 
 Passwordless authentication methods, such as FIDO2 and Passwordless Phone Sign-in through the Microsoft Authenticator app, enable users to sign in securely without a password. 
 Users can bootstrap Passwordless methods in one of two ways:
@@ -44,18 +44,20 @@ Global administrator and Authentication Method Policy administrator role holders
 To configure the TAP authentication method policy:
 
 1. Sign in to the Azure portal as a Global admin and click **Azure Active Directory** > **Security** > **Authentication methods** > **Temporary Access Pass**.
-1. Click **Yes** to enable the policy, select which users have the policy applied, and any **General** settings described in the following table.
+1. Click **Yes** to enable the policy, select which users have the policy applied, and any **General** settings.
+
+   ![Screenshot of how to enable the TAP authentication method policy](./media/how-to-authentication-temporary-access-pass/policy.png)
+
+   The default value and the range of allowed values are described in the following table.
 
 
-| Setting          | Default values | Allowed values               | Comments                                                                                                                                                                                                                                                                 |   |
-|------------------|----------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-| Minimum lifetime | 1 hour         | 10 – 43200 Minutes (30 days) | Minimum number of minutes that the TAP is valid.                                                                                                                                                                                                                         |   |
-| Maximum lifetime | 24 hours       | 10 – 43200 Minutes (30 days) | Maximum number of minutes that the TAP is valid.                                                                                                                                                                                                                         |   |
-| Default lifetime | 1 hour         | 10 – 43200 Minutes (30 days) | Default values can be override by the individual passes, within the minimum and maximum lifetime configured by the policy                                                                                                                                                |   |
-| One-time use     | False          | True / False                 | When the policy is set to false, passes in the tenant can be used either once or more than once during its validity (maximum lifetime). By enforcing one-time use in the TAP policy, all passes created in the tenant will be created as one-time use. |   |
-| Length           | 8              | 8-48 characters              | Defines the length of the passcode.                                                                                                                                                                                                                                      |   |
-
-![Screenshot of how to enable the TAP authentication method policy](./media/howto-authentication-temporary-access-pass/temporary-access-pass-policy.png)
+   | Setting          | Default values | Allowed values               | Comments                                                                                                                                                                                                                                                                 |   |
+   |------------------|----------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
+    Minimum lifetime | 1 hour         | 10 – 43200 Minutes (30 days) | Minimum number of minutes that the TAP is valid.                                                                                                                                                                                                                         |   |
+   | Maximum lifetime | 24 hours       | 10 – 43200 Minutes (30 days) | Maximum number of minutes that the TAP is valid.                                                                                                                                                                                                                         |   |
+   | Default lifetime | 1 hour         | 10 – 43200 Minutes (30 days) | Default values can be override by the individual passes, within the minimum and maximum lifetime configured by the policy                                                                                                                                                |   |
+   | One-time use     | False          | True / False                 | When the policy is set to false, passes in the tenant can be used either once or more than once during its validity (maximum lifetime). By enforcing one-time use in the TAP policy, all passes created in the tenant will be created as one-time use. |   |
+   | Length           | 8              | 8-48 characters              | Defines the length of the passcode.                                                                                                                                                                                                                                      |   |
 
 ## Create a TAP in the Azure AD Portal
 
@@ -76,11 +78,11 @@ To create a TAP:
 1. Below **Choose method**, click **Temporary Access Pass (Preview)**.
 1. Define a custom activation time or duration and click **Add**.
 
-   ![Screenshot of how to create a TAP](./media/howto-authentication-temporary-access-pass/create-temporary-access-pass.png)
+   ![Screenshot of how to create a TAP](./media/how-to-authentication-temporary-access-pass/create.png)
 
 1. Once added, the details of the TAP are shown. Make a note of the actual TAP value. You provide this value to the user. You can't view this value after you click **Ok**.
    
-   ![Screenshot of TAP details](./media/howto-authentication-temporary-access-pass/temporary-access-pass-details.png)
+   ![Screenshot of TAP details](./media/how-to-authentication-temporary-access-pass/details.png)
 
 ## Use a TAP
 
@@ -91,7 +93,7 @@ The most common use for a TAP is for a user to register authentication details d
 1. If the user is included in the TAP policy, they will see a screen to enter their TAP.
 1. Enter the TAP that was displayed in the Azure portal.
 
-   ![Screenshot of how to enter a TAP](./media/howto-authentication-temporary-access-pass/enter-temporary-access-pass.png)
+   ![Screenshot of how to enter a TAP](./media/how-to-authentication-temporary-access-pass/enter.png)
 
 >[!NOTE]
 >For federated domains, a TAP is preferred over federation. A user with a TAP will complete the authentication in Azure AD and will not get redirected to the federated Identity Provider (IdP).
@@ -101,7 +103,7 @@ Users who update their authentication methods due to losing their credentials or
 
 Users can also use their TAP to register for Passwordless phone sign-in directly from the Authenticator app. For more information, see [Add your work or school account to the Microsoft Authenticator app](../user-help/user-help-auth-app-add-work-school-account.md).
 
-![Screenshot of how to enter a TAP using work or school account](./media/howto-authentication-temporary-access-pass/enter-temporary-access-pass-work-school.png)
+![Screenshot of how to enter a TAP using work or school account](./media/how-to-authentication-temporary-access-pass/enter-work-school.png)
 
 ## Delete a TAP
 
@@ -129,7 +131,7 @@ Keep these limitations in mind:
 - TAP cannot be used with the Network Policy Server (NPS) extension and Active Directory Federation Services (AD FS) adapter.
 - When Seamless SSO is enabled on the tenant, the users are prompted to enter a password. The **Use your Temporary Access Pass instead** link will be available for the user to sign-in with TAP.
 
-![Screenshot of Use a TAP instead](./media/howto-authentication-temporary-access-pass/use-temporary-access-pass-instead.png)
+![Screenshot of Use a TAP instead](./media/how-to-authentication-temporary-access-pass/alternative.png)
 
 ## Troubleshooting    
 
@@ -142,5 +144,5 @@ Keep these limitations in mind:
 
 ## Next steps
 
-Link to APIs
+- [Plan a passwordless authentication deployment in Azure Active Directory](howto-authentication-passwordless-deployment.md)
 
