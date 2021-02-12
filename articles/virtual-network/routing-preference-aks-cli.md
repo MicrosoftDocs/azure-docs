@@ -33,7 +33,7 @@ Create a resource group with the [az group create](/cli/azure/group#az-group-cre
 ```
 ## Create a public IP address
 
-Create a Public IP Address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create).
+Create a Public IP Address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
 The following command creates a new public IP with **Internet** routing preference in the **East US** Azure region.
 
