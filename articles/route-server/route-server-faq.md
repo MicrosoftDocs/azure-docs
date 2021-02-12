@@ -40,7 +40,7 @@ Yes, only if the route has the same AS path length. When the VMs send traffic to
 
 Yes. If you peer a VNet hosting the Azure Route Server to another VNet and you enable Use Remote Gateway on that VNet. Azure Route Server will learn the address spaces of that VNet and send them to all the peered NVAs.
 
-## <a name = "limitations"></a>What are the limits of Azure Route Server?
+## <a name = "limitations"></a>Route Server Limits
 
 Azure Route Server has the following limits (per deployment).
 
@@ -52,5 +52,6 @@ Azure Route Server has the following limits (per deployment).
 
 For more information, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
 
+## Next steps
 
-[Learn how to configure Azure Route Server.](quickstart-configure-route-server-powershell.md)
+Learn how to [configure Azure Route Server](quickstart-configure-route-server-powershell.md).
