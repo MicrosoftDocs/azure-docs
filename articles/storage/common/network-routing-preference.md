@@ -36,6 +36,8 @@ For more information on routing preference in Azure, see [What is routing prefer
 
 ## Routing configuration
 
+For step-by-step guidance that shows you how to configure the routing preference and route-specific endpoints, see [Configure network routing preference for Azure Storage](configure-network-routing-preference.md).
+
 You can choose between the Microsoft global network and internet routing as the default routing preference for the public endpoint of your storage account. The default routing preference applies to all traffic from clients outside Azure and affects the endpoints for Azure Data Lake Storage Gen2, Blob storage, Azure Files, and static websites. Configuring routing preference is not supported for Azure Queues or Azure Tables.
 
 You can also publish route-specific endpoints for your storage account. When you publish route-specific endpoints, Azure Storage creates new public endpoints for your storage account that route traffic over the desired path. This flexibility enables you to direct traffic to your storage account over a specific route without changing your default routing preference.
@@ -106,6 +108,6 @@ For pricing and billing details, see the **Pricing** section in [What is routing
 ## Next steps
 
 - [What is routing preference?](../../virtual-network/routing-preference-overview.md)
-- [Configure network routing preference](configure-network-routing-preference)
+- [Configure network routing preference](configure-network-routing-preference.md)
 - [Configure Azure Storage firewalls and virtual networks](storage-network-security.md)
 - [Security recommendations for Blob storage](../blobs/security-recommendations.md)

@@ -30,7 +30,7 @@ To change your routing preference to Internet routing:
 2. Under **Settings**, choose **Networking**.
 
     > [!div class="mx-imgBorder"]
-    > ![internet routing option](./media/configure-network-routing-preference/networking-option.png)
+    > ![Networking menu option](./media/configure-network-routing-preference/networking-option.png)
 
 3.	In the **Firewalls and virtual networks** tab, under **Network Routing**, change the **Routing preference** setting to **Internet routing**.
 
@@ -52,7 +52,7 @@ You can also configure a route-specific endpoint. For example, you can set the r
     The following image shows the **Microsoft network routing** option selected.
 
     > [!div class="mx-imgBorder"]
-    > ![internet routing option](./media/configure-network-routing-preference/microsoft-network-routing-option.png)
+    > ![Microsoft network routing option](./media/configure-network-routing-preference/microsoft-network-routing-option.png)
 
 ## Find the endpoint name for a route-specific endpoint
 
@@ -61,12 +61,12 @@ If you configured a route-specific endpoint, you can find the endpoint in the pr
 1.	Under **Settings**, choose **Properties**.
 
     > [!div class="mx-imgBorder"]
-    > ![properties](./media/configure-network-routing-preference/properties.png)
+    > ![properties menu option](./media/configure-network-routing-preference/properties.png)
 
 2.	The **Microsoft network routing** endpoint is shown for each service that supports routing preferences. This image shows the endpoint for the blob and file services.
 
     > [!div class="mx-imgBorder"]
-    > ![properties](./media/configure-network-routing-preference/routing-url.png)
+    > ![Microsoft network routing option for route-specific endpoints](./media/configure-network-routing-preference/routing-url.png)
 
 
 ## See also
