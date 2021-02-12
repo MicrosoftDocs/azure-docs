@@ -23,7 +23,7 @@
     href: concepts-models.md
   - name: Ontologies
     items:
-    - name: What are ontologies?
+    - name: What is an ontology?
       href: concepts-ontologies.md
     - name: Adopting industry-standard ontologies
       href: concepts-ontologies-adopt.md

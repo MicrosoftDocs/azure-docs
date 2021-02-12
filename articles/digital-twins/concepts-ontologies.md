@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: What are ontologies?
+title: What is an ontology?
 titleSuffix: Azure Digital Twins
 description: Learn about DTDL industry ontologies for modeling in a certain domain
 author: baanders
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# What are ontologies? 
+# What is an ontology? 
 
 The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entity that exist in your environment.
 

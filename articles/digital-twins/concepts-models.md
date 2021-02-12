@@ -159,7 +159,7 @@ Once you have uploaded models into your Azure Digital Twins instance, you can vi
 
 ## Next steps
 
-* Learn about creating models based on industry-standard ontologies: [*Concepts: What are ontologies?*](concepts-ontologies.md)
+* Learn about creating models based on industry-standard ontologies: [*Concepts: What is an ontology?*](concepts-ontologies.md)
 
 * Dive deeper into managing models with API operations: [*How-to: Manage DTDL models*](how-to-manage-model.md)
 
