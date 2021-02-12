@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 02/12/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -192,7 +192,11 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**
+1. Select your relying party policy, for example `B2C_1A_signup_signin`.
+1. For **Application**, select a web application that you [previously registered](../articles/active-directory-b2c/troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run now** button.
 
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 ## Troubleshooting AD FS service  
 
 AD FS is configured to use the Windows application log. If you experience challenges setting up AD FS as a SAML identity provider using custom policies in Azure AD B2C, you may want to check the AD FS event log:
