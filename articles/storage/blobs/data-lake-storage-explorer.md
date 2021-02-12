@@ -5,21 +5,22 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 02/05/2021
 ms.author: normesta
 ms.reviewer: stewu
 ---
 
 # Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
 
-This article shows you how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled.
+This article shows you how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create and manage directories, files, and access control lists (ACLs) in storage accounts that have hierarchical namespace (HNS) enabled.
 
 ## Prerequisites
 
-> [!div class="checklist"]
-> * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
-> * Azure Storage Explorer installed on your local computer. To install Azure Storage Explorer for Windows, Macintosh, or Linux, see [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
+- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
+
+- Azure Storage Explorer installed on your local computer. To install Azure Storage Explorer for Windows, Macintosh, or Linux, see [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## Sign in to Storage Explorer
 
@@ -41,7 +42,7 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 
 ## Create a container
 
-A container holds directories and files. To create one, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click and select **Create Blob Container**. Enter the name for your container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming containers. When complete, press **Enter** to create the container. Once the container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
+A container holds directories and files. To create one, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click, and select **Create Blob Container**. Enter the name for your container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming containers. When complete, press **Enter** to create the container. Once the container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
 
 ![Microsoft Azure Storage Explorer - Creating a container](media/data-lake-storage-explorer/creating-a-filesystem.png)
 
@@ -53,7 +54,7 @@ To create a directory, select the container that you created in the proceeding s
 
 ## Upload blobs to the directory
 
-On the directory ribbon, chose the **Upload** button. This operation gives you the option to upload a folder or a file.
+On the directory ribbon, choose the **Upload** button. This operation gives you the option to upload a folder or a file.
 
 Choose the files or folder to upload.
 
@@ -71,39 +72,37 @@ In the **Azure Storage Explorer** application, select a directory under a storag
 
 To download files by using **Azure Storage Explorer**, with a file selected, select **Download** from the ribbon. A file dialog opens and provides you the ability to enter a file name. Select **Save** to start the download of a file to the local location.
 
-## Managing access
+<a id="managing-access"></a>
 
-You can set permissions at the root of your container. To do so, you must be logged into Azure Storage Explorer with your individual account with rights to do so (as opposed to with a connection string). Right-click your container and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
+## Manage ACLs
 
-![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
+Right-click the container, a directory, or a file, and then click **Manage Access Control Lists**.  The following screenshot shows the menu as it appears when you right-click a directory.
 
-The **Manage Permission** dialog box allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
+> [!div class="mx-imgBorder"]
+> ![Right-clicking a directory in Azure Storage Explorer](./media/data-lake-storage-explorer/manage-access-control-list-option.png)
 
-To add a new user or group to the access control list, select the **Add user or group** field.
+The **Manage Access** dialog box allows you to manage permissions for owner and the owners group. It also allows you to add new users and groups to the access control list for whom you can then manage permissions.
 
-Enter the corresponding Azure Active Directory (AAD) entry you wish to add to the list and then select **Add**.
+> [!div class="mx-imgBorder"]
+> ![Manage Access dialog box](./media/data-lake-storage-explorer/manage-access-dialog-box.png)
 
-The user or group will now appear in the **Users and groups:** field, allowing you to begin managing their permissions.
+To add a new user or group to the access control list, select the **Add** button. Then, enter the corresponding Azure Active Directory (AAD) entry you wish to add to the list and then select **Add**.  The user or group will now appear in the **Users and groups:** field, allowing you to begin managing their permissions.
 
 > [!NOTE]
-> It is a best practice, and recommended, to create a security group in AAD and maintain permissions on the group rather than individual users. For details on this recommendation, as well as other best practices, see [best practices for Data Lake Storage Gen2](data-lake-storage-best-practices.md).
+> It is a best practice, and recommended, to create a security group in AAD and maintain permissions on the group rather than individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
-There are two categories of permissions you can assign: access ACLs and default ACLs.
+Use the check box controls to set access and default ACLs. To learn more about the difference between these types of ACLs, see [Types of ACLs](data-lake-storage-access-control.md#types-of-acls).
 
-* **Access**: Access ACLs control access to an object. Files and directories both have access ACLs.
+<a id="apply-acls-recursively"></a>
 
-* **Default**: A template of ACLs associated with a directory that determines the access ACLs for any child items that are created under that directory. Files do not have default ACLs.
+## Apply ACLs recursively
 
-Within both of these categories, there are three permissions you can then assign on files or directories: **Read**, **Write**, and **Execute**.
+You can apply ACL entries recursively on the existing child items of a parent directory without having to make these changes individually for each child item.
 
->[!NOTE]
-> Making selections here will not set permissions on any currently existing item inside the directory. You must go to each individual item and set the permissions manually, if the file already exists.
+To apply ACL entries recursively, Right-click the container or a directory, and then click **Propagate Access Control Lists**.  The following screenshot shows the menu as it appears when you right-click a directory.
 
-You can manage permissions on individual directories, as well as individual files, which are what allows you fine grained access control. The process for managing permissions for both directories and files is the same as described above. Right-click the file or directory you wish to manage permissions on and follow the same process.
-
-## Private endpoints in Azure Data Lake Storage Gen2
-
-Storage Explorer makes use of both the Blob (blob) & Data Lake Storage Gen2 (dfs) [endpoints](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) when working with Azure Data Lake Storage Gen2. If access to Azure Data Lake Storage Gen2 is configured using private endpoints, ensure that two private endpoints are created for the storage account: one with the target sub-resource `blob` and the other with the target sub-resource `dfs`.
+> [!div class="mx-imgBorder"]
+> ![Right-clicking a directory and choosing the propagate access control setting](./media/data-lake-storage-explorer/propagate-access-control-list-option.png)
 
 ## Next steps
 
