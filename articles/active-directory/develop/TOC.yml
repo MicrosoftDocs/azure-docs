@@ -68,7 +68,7 @@
       href: quickstart-v2-netcore-daemon.md
     - name: Python console daemon
       href: quickstart-v2-python-daemon.md
-    - name: Node.js console app
+    - name: Node.js console daemon
       href: quickstart-v2-nodejs-console.md
     - name: Java console daemon
       href: quickstart-v2-java-daemon.md
