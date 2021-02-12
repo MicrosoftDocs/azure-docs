@@ -45,7 +45,7 @@ az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
 To update the credentials for the existing service principal, get the service principal ID of your cluster using the [az aks show][az-aks-show] command. The following example gets the ID for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. The service principal ID is set as a variable named *SP_ID* for use in additional command. These commands use Bash syntax.
 
 > [!WARNING]
-> When you reset your cluster credentials on an AKS cluster that uses Azure Virtual Machine Scale Sets, a node image upgrade is performed to update your nodes with the new credential information.
+> When you reset your cluster credentials on an AKS cluster that uses Azure Virtual Machine Scale Sets, a [node image upgrade][node-image-upgrade] is performed to update your nodes with the new credential information.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
