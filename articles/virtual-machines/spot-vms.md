@@ -54,7 +54,7 @@ Spot VMs can be deployed to any region, except Microsoft Azure China 21Vianet.
 The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
 
 -	Enterprise Agreement
--	Pay-as-you-go
+-	Pay-as-you-go offer code 003P
 -	Sponsored
 - For Cloud Service Provider (CSP), contact your partner
 
