@@ -17,7 +17,7 @@ Use the following process to link your partner ID (and enable partner earned cre
 
 For simplicity, we recommend creating a service principal account in your tenant, linking it to your **Associated MPN ID**, then granting it access to every customer you onboard with an [Azure built-in role that is eligible for PEC](/partner-center/azure-roles-perms-pec).
 
-1. [Create a user account](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) in your managing tenant. For this example, we'll use the name *Provider Automation Account* for this service principal account.
+1. [Create a service principal user account](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) in your managing tenant. For this example, we'll use the name *Provider Automation Account* for this service principal account.
 1. Using that service principal account, [link to your Associated MPN ID](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) in your managing tenant. You only need to do this one time.
 1. When you onboard a customer [using ARM templates](onboard-customer.md) or [Managed Service offers](publish-managed-services-offers.md), be sure to include an authorization which includes the Provider Automation Account as a user with an [Azure built-in role that is eligible for PEC](/partner-center/azure-roles-perms-pec).
 
