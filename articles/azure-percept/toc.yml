@@ -1,0 +1,30 @@
+- name: Azure Percept documentation
+  href: index.yml
+- name: Overview
+  items:
+
+- name: Tutorials
+  items:
+    - name: Start prototyping with your Azure Percept DK
+      items:
+        - name: Build and deploy a no-code vision solution
+          href: tutorial-nocode-vision.md
+          
+- name: Concepts
+  items:
+
+- name: How-to guides   
+  items:
+    - name: Connect to your Azure Percept DK
+      items:
+        - name: Connect over SSH
+          href: how-to-ssh-into-percept-dk.md
+        - name: Connect over serial
+          href: how-to-connect-to-percept-dk-over-serial.md
+          
+- name: Reference
+  items:
+
+- name: Resources
+  items:
+
