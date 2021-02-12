@@ -53,9 +53,9 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | Data encryption |✔|✔|✔|✔|✔|
 | [Network isolation](cache-how-to-premium-vnet.md) |✔|✔|✔|✔|✔|
 | [Scaling](cache-how-to-scale.md) |✔|✔|✔|-|-|
-| [OSS clustering](cache-how-to-premium-clustering.md) |-|-|✔|✔|✔|
+| [OSS cluster](cache-how-to-premium-clustering.md) |-|-|✔|✔|✔|
 | [Data persistence](cache-how-to-premium-persistence.md) |-|-|✔|-|-|
-| [Zone redundancy](cache-how-to-zone-redundancy.md) |-|-|Preview|✔|✔|
+| [Zone redundancy](cache-how-to-zone-redundancy.md) |-|-|Preview|Preview|Preview|
 | [Geo-replication](cache-how-to-geo-replication.md) |-|-|✔|-|-|
 | [Modules](https://redis.io/modules) |-|-|-|✔|✔|
 | [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|
@@ -76,7 +76,7 @@ You should consider the following when choosing an Azure Cache for Redis tier:
 
 You can scale your cache from the Basic tier up to Premium after it has been created. Scaling down to a lower tier is not supported currently. For step-by-step scaling instructions, see [How to Scale Azure Cache for Redis](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-### Enterprise tier requirements
+### Enterprise and Enterprise Flash tier requirements
 
 The Enterprise tiers rely on Redis Enterprise, a commercial variant of Redis from Redis Labs. Customers will obtain and pay for a license to this software through an Azure Marketplace offer. Azure Cache for Redis will facilitate the license acquisition so that you won't have to do it separately. To purchase in the Azure Marketplace, you must have the following prerequisites:
 * Your Azure subscription has a valid payment instrument. Azure credits or free MSDN subscriptions are not supported.
