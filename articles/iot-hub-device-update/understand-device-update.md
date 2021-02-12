@@ -10,13 +10,13 @@ ms.service: iot-hub-device-update
 
 # Device Update for IoT Hub Overview
 
-As organizations look to further enable productivity and operational efficiency, Internet of Things (IoT) solutions continue to be adopted at increasing rates. This makes it essential that the devices forming these solutions are not only built on a foundation of reliability and security but are also easy to connect and manage at scale. Device Update for IoT Hub is an end-to-end platform that customers can use to publish, distribute, and manage over-the-air updates for everything from tiny sensors to gateway-level devices. This platform is now available in preview in the Western US, Asia, and Europe to keep devices and applications secure and up to date.
+As organizations look to further enable productivity and operational efficiency, Internet of Things (IoT) solutions continue to be adopted at increasing rates. This makes it essential that the devices forming these solutions are built on a foundation of reliability and security and are easy to connect and manage at scale. Device Update for IoT Hub is an end-to-end platform that customers can use to publish, distribute, and manage over-the-air updates for everything from tiny sensors to gateway-level devices. This platform is now available in preview in the Western US, Asia, and Europe to keep devices and applications secure and up to date.
 
 To realize the full benefits of IoT-enabled digital transformation, customers need this ability to operate, maintain, and update devices at scale. Explore the benefits of implementing Device Update for IoT Hub, which include being able to rapidly respond to security threats and deploy new features to obtain business objectives without incurring the extra development and maintenance costs of building your own update platforms.
 
 ## Support for a wide range of IoT devices
 
-Device Update for IoT Hub is designed to offer optimized update deployment and streamlined operations through integration with [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/), which provides a cloud-hosted solution to connect virtually any device. It supports a broad range of IoT operating systems—including Linux and [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (real-time operating system)—and is extensible via open source. 
+Device Update for IoT Hub is designed to offer optimized update deployment and streamlined operations through integration with [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). This integration makes it very easy to adopt Device Update on any existing solution. It provides a cloud-hosted solution to connect virtually any device. Device Update supports a broad range of IoT operating systems—including Linux and [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (real-time operating system)—and is extensible via open source. 
 
 Both a Device Update Agent Simulator binary and Raspberry Pi reference Yocto images are provided.
 Device Update for IoT Hub also supports updating Azure IoT Edge devices. A Device Update Agent will be provided for Ubuntu Server 18.04 amd64
@@ -72,7 +72,7 @@ When an update failure happens, Device Update for IoT Hub also allows users to i
 
 Microsoft Azure supports more than one billion IoT devices around the world—a number that’s growing rapidly by the day. Device Update for IoT Hub builds upon this experience and the proven reliability demonstrated by the Windows Update platform, so devices can be seamlessly updated on a global scale.
 
-Device Update for IoT Hub uses comprehensive cloud-to-edge security developed for Microsoft Azure, so customers don’t need to spend time figuring out how to build it in themselves from the ground up. Security features include connectivity protected by encryption and certificate-based authentication, cloud security that includes privacy controls and compliance tools, and monitoring and scans for IoT devices and computing modules.
+Device Update for IoT Hub uses comprehensive cloud-to-edge security that is developed for Microsoft Azure, so customers don’t need to spend time figuring out how to build it in themselves from the ground up.
 
 
 ## Device Update workflows
