@@ -2,7 +2,7 @@
 title: Configure NSX network components in Azure VMware Solution 
 description: Learn how to use the Azure VMware Solution console to configure NSX-T network segments.
 ms.topic: how-to
-ms.date: 02/05/2021
+ms.date: 02/16S/2021
 ---
 
 # Configure NSX network components in Azure VMware Solution
