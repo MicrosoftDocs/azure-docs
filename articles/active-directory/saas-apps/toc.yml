@@ -1474,6 +1474,8 @@
         href: reviewsnap-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-tutorial.md
+      - name: Rewatch
+        href: rewatch-tutorial.md
       - name: RFPIO
         href: rfpio-tutorial.md
       - name: RightAnswers
