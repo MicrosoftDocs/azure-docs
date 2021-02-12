@@ -158,8 +158,10 @@
     items:
     - name: Request quota increases
       href: database/quota-increase-request.md
-    - name: Job automation
+    - name: Job automation with elastic jobs
       href: database/job-automation-overview.md
+    - name: Job automation with SQL Agent 
+      href: database/job-automation-managed-instances.md
 
     - name: Business continuity  
       items: 
