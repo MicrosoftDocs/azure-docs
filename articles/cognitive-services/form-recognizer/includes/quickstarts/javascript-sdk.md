@@ -76,15 +76,15 @@ With Form Recognizer, you can create two different client types. The first, `For
 ### FormRecognizerClient
 `FormRecognizerClient` provides operations for:
 
- * Recognizing form fields and content using custom models trained to recognize your custom forms. These values are returned in a collection of `RecognizedForm` objects.
+ * Recognizing form fields and content using custom models trained to analyze your custom forms. These values are returned in a collection of `RecognizedForm` objects.
  * Recognizing form content, including tables, lines and words, without the need to train a model. Form content is returned in a collection of `FormPage` objects.
  * Recognizing common fields from receipts, using a pre-trained receipt model on the Form Recognizer service. These fields and meta-data are returned in a collection of `RecognizedReceipt`.
 
 ### FormTrainingClient
 `FormTrainingClient` provides operations for:
 
-* Training custom models to recognize all fields and values found in your custom forms. A `CustomFormModel` is returned indicating the form types the model will recognize, and the fields it will extract for each form type. See the [service's documentation on unlabeled model training](#train-a-model-without-labels) for a more detailed explanation of creating a training data set.
-* Training custom models to recognize specific fields and values you specify by labeling your custom forms. A `CustomFormModel` is returned indicating the fields the model will extract, as well as the estimated accuracy for each field. See the [service's documentation on labeled model training](#train-a-model-with-labels) for a more detailed explanation of applying labels to a training data set.
+* Training custom models to analyze all fields and values found in your custom forms. A `CustomFormModel` is returned indicating the form types the model will analyze, and the fields it will extract for each form type. See the [service's documentation on unlabeled model training](#train-a-model-without-labels) for a more detailed explanation of creating a training data set.
+* Training custom models to analyze specific fields and values you specify by labeling your custom forms. A `CustomFormModel` is returned indicating the fields the model will extract, as well as the estimated accuracy for each field. See the [service's documentation on labeled model training](#train-a-model-with-labels) for a more detailed explanation of applying labels to a training data set.
 * Managing models created in your account.
 * Copying a custom model from one Form Recognizer resource to another.
 
@@ -123,13 +123,13 @@ You'll also need to add references to the URLs for your training and testing dat
 
 ## Analyze layout
 
-You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model. To recognize the content of a file at a given URI, use the `beginRecognizeContentFromUrl` method.
+You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. For more information about layout extraction see the [Layout conceptual guide](../../concept-layout.md). To analyze the content of a file at a given URI, use the `beginRecognizeContentFromUrl` method.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
 
 > [!TIP]
-> You can also get content from a local file. See the [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) methods, such as **beginRecognizeContent**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
+> You can also get content from a local file. See the [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeContent**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
 
 ### Output
 
@@ -147,31 +147,7 @@ cell [1,3] has text $56,651.49
 cell [1,5] has text PT
 ```
 
-## Analyze receipts
 
-This section demonstrates how to recognize and extract common fields from US receipts, using a pre-trained receipt model.
-
-To recognize receipts from a URI, use the `beginRecognizeReceiptsFromUrl` method. The following code processes a receipt at the given URI and prints the major fields and values to the console.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
-
-> [!TIP]
-> You can also recognize local receipt images. See the [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) methods, such as **beginRecognizeReceipts**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
-
-### Output
-
-```console
-status: notStarted
-status: running
-status: succeeded
-First receipt:
-  Receipt Type: 'Itemized', with confidence of 0.659
-  Merchant Name: 'Contoso Contoso', with confidence of 0.516
-  Transaction Date: 'Sun Jun 09 2019 17:00:00 GMT-0700 (Pacific Daylight Time)', with confidence of 0.985
-    Item Name: '8GB RAM (Black)', with confidence of 0.916
-    Item Name: 'SurfacePen', with confidence of 0.858
-  Total: '1203.39', with confidence of 0.774
-```
 
 ## Train a custom model
 
@@ -182,7 +158,7 @@ This section demonstrates how to train a model with your own data. A trained mod
 
 ### Train a model without labels
 
-Train custom models to recognize all the fields and values found in your custom forms without manually labeling the training documents.
+Train custom models to analyze all the fields and values found in your custom forms without manually labeling the training documents.
 
 The following function trains a model on a given set of documents and prints the model's status to the console. 
 
@@ -276,7 +252,7 @@ You'll use the `beginRecognizeCustomFormsFromUrl` method. The returned value is 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_analyze)]
 
 > [!TIP]
-> You can also analyze local files. See the [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) methods, such as **beginRecognizeCustomForms**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
+> You can also analyze local files. See the [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeCustomForms**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
 
 
 ### Output
@@ -315,6 +291,32 @@ Field Signature has value 'undefined' with a confidence score of undefined
 Field Subtotal has value 'undefined' with a confidence score of undefined
 Field Tax has value 'undefined' with a confidence score of undefined
 Field Total has value 'undefined' with a confidence score of undefined
+```
+
+## Analyze receipts
+
+This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipts.md).
+
+To analyze receipts from a URI, use the `beginRecognizeReceiptsFromUrl` method. The following code processes a receipt at the given URI and prints the major fields and values to the console.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
+
+> [!TIP]
+> You can also analyze local receipt images. See the [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) methods, such as **beginRecognizeReceipts**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
+
+### Output
+
+```console
+status: notStarted
+status: running
+status: succeeded
+First receipt:
+  Receipt Type: 'Itemized', with confidence of 0.659
+  Merchant Name: 'Contoso Contoso', with confidence of 0.516
+  Transaction Date: 'Sun Jun 09 2019 17:00:00 GMT-0700 (Pacific Daylight Time)', with confidence of 0.985
+    Item Name: '8GB RAM (Black)', with confidence of 0.916
+    Item Name: 'SurfacePen', with confidence of 0.858
+  Total: '1203.39', with confidence of 0.774
 ```
 
 ## Manage your custom models

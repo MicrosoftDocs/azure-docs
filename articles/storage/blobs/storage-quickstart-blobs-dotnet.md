@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Azure Blob storage library v12 - .NET"
-description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+title: "Quickstart: Azure Blob Storage library v12 - .NET"
+description: In this quickstart, you learn how to use the Azure Blob Storage client library version 12 for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ---
 
-# Quickstart: Azure Blob storage client library v12 for .NET
+# Quickstart: Azure Blob Storage client library v12 for .NET
 
-Get started with the Azure Blob storage client library v12 for .NET. Azure Blob storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
+Get started with the Azure Blob Storage client library v12 for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
-Use the Azure Blob storage client library v12 for .NET to:
+Use the Azure Blob Storage client library v12 for .NET to:
 
 * Create a container
 * Upload a blob to Azure Storage
@@ -40,7 +40,7 @@ Additional resources:
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Blob storage client library v12 for .NET.
+This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for .NET.
 
 ### Create the project
 
@@ -66,7 +66,7 @@ Create a .NET Core application named *BlobQuickstartV12*.
 
 ### Install the package
 
-While still in the application directory, install the Azure Blob storage client library for .NET package by using the `dotnet add package` command.
+While still in the application directory, install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
 
 ```console
 dotnet add package Azure.Storage.Blobs
@@ -105,7 +105,7 @@ namespace BlobQuickstartV12
 
 ## Object model
 
-Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
+Azure Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
 
 * The storage account
 * A container in the storage account
@@ -124,7 +124,7 @@ Use the following .NET classes to interact with these resources:
 
 ## Code examples
 
-These example code snippets show you how to perform the following with the Azure Blob storage client library for .NET:
+These example code snippets show you how to perform the following with the Azure Blob Storage client library for .NET:
 
 * [Get the connection string](#get-the-connection-string)
 * [Create a container](#create-a-container)
@@ -140,7 +140,7 @@ The code below retrieves the connection string for the storage account from the 
 Add this code inside the `Main` method:
 
 ```csharp
-Console.WriteLine("Azure Blob storage v12 - .NET quickstart sample\n");
+Console.WriteLine("Azure Blob Storage v12 - .NET quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
@@ -283,7 +283,7 @@ dotnet run
 The output of the app is similar to the following example:
 
 ```output
-Azure Blob storage v12 - .NET quickstart sample
+Azure Blob Storage v12 - .NET quickstart sample
 
 Uploading to Blob storage as blob:
          https://mystorageacct.blob.core.windows.net/quickstartblobs60c70d78-8d93-43ae-954d-8322058cfd64/quickstart2fe6c5b4-7918-46cb-96f4-8c4c5cb2fd31.txt
@@ -311,7 +311,7 @@ In this quickstart, you learned how to upload, download, and list blobs using .N
 To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure Blob storage SDK v12 .NET samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+> [Azure Blob Storage SDK v12 .NET samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
 
 * For tutorials, samples, quick starts and other documentation, visit [Azure for .NET and .NET Core developers](/dotnet/azure/).
 * To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).

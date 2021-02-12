@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -40,9 +40,13 @@ A phone number that can be used by a user to sign-in using [SMS or voice calls](
 - [Update](/graph/api/phoneauthenticationmethod-update)
 - [Delete](/graph/api/phoneauthenticationmethod-delete)
 
+Note, the [list](/graph/api/authentication-list-phonemethods) operation returns  only enabled phone numbers. The following phone number should be enabled to use with the list operations. 
+
+![Enable phone sign-in](./media/microsoft-graph-operations/enable-phone-sign-in.png)
+
 ## Self-service password reset email address (beta)
 
-An email address that can be used by a user to rest the password for [Username sign-in account](identity-provider-local.md#username-sign-in). For more information, see [Azure AD authentication methods API](/graph/api/resources/emailauthenticationmethod).
+An email address that can be used by a [username sign-in account](identity-provider-local.md#username-sign-in) to reset the password. For more information, see [Azure AD authentication methods API](/graph/api/resources/emailauthenticationmethod).
 
 - [Add](/graph/api/emailauthenticationmethod-post)
 - [List](/graph/api/emailauthenticationmethod-list)

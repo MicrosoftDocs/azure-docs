@@ -1,11 +1,12 @@
 ---
 title: Azure Services that support Availability Zones
 description: To create highly available and resilient applications in Azure, Availability Zones provide physically separate locations you can use to run your resources.
-author: cynthn
+author: prsandhu
 ms.service: azure
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2021
-ms.author: cynthn
+ms.author: prsandhu
+ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
 ---
 
@@ -41,16 +42,16 @@ To achieve comprehensive business continuity on Azure, build your application ar
 ## Azure regions with Availability Zones
 
 
-| Americas           | Europe         | Germany              | Africa              | Asia Pacific   |
-|--------------------|----------------|----------------------|---------------------|----------------|
-|                    |                |                      |                     |                |
-| Canada Central     | France Central | Germany West Central | South Africa North* | Japan East     |
-| Central US         | North Europe   |                      |                     | Southeast Asia |
-| East US            | UK South       |                      |                     | Australia East |
-| East US 2          | West Europe    |                      |                     |                |
-| South   Central US |                |                      |                     |                |
-| US   Gov Virginia* |                |                      |                     |                |
-| West   US 2        |                |                      |                     |                |
+| Americas           | Europe               | Africa              | Asia Pacific   |
+|--------------------|----------------------|---------------------|----------------|
+|                    |                      |                     |                |
+| Canada Central     | France Central       | South Africa North* | Japan East     |
+| Central US         | Germany West Central |                     | Southeast Asia |
+| East US            | North Europe         |                     | Australia East |
+| East US 2          | UK South             |                     |                |
+| South   Central US | West Europe          |                     |                |
+| US   Gov Virginia* |                      |                     |                |
+| West   US 2        |                      |                     |                |
 
 
 \* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).

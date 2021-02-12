@@ -44,8 +44,8 @@ You can use the billing and cost management APIs in several scenarios to answer 
 | Usage Details               |             X             |         X        |           X          |         X        |          X         |     X     |
 | Billing Periods             |             X             |         X        |           X          |         X        |                    |           |
 | Invoices                    |             X             |         X        |           X          |         X        |                    |           |
-| RateCard                    |             X             |                  |           X          |         X        |          X         |           |
-| Unrated Usage               |             X             |                  |           X          |                  |          X         |           |
+| Azure Retail Prices                    |             X             |                  |           X          |         X        |                    |           |
+
 
 > [!NOTE]
 > The scenario-to-API mapping doesn't include the Enterprise Consumption APIs. Where possible, use the general Consumption APIs for new development scenarios.
@@ -69,9 +69,7 @@ Web Direct and Enterprise customers can use all the following APIs, except where
 
 -    [Usage Details API](/rest/api/consumption/usagedetails): Get charge and usage information on all Azure resources from Microsoft. Information is in the form of usage detail records, which are currently emitted once per meter per day. You can use the information to add up the costs across all resources or investigate costs/usage on specific resources.
 
--    [RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)): Get meter rates if you're a Web Direct customer. You can then use the returned information with your resource usage information to manually calculate the expected bill.
-
--    [Unrated Usage API](/previous-versions/azure/reference/mt219003(v=azure.100)): Get raw usage information before Azure does any metering/charging.
+-    [Azure Retail Prices](/rest/api/cost-management/retail-prices/azure-retail-prices): Get meter rates with pay-as-you-go pricing. You can then use the returned information with your resource usage information to manually calculate the expected bill.
 
 ### Billing
 -    [Billing Periods API](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): Determine a billing period to analyze, along with the invoice IDs for that period. You can use invoice IDs with the Invoices API.
@@ -102,16 +100,6 @@ These APIs have a similar set of functionality and can answer the same broad set
 
 - Consumption APIs are available to all customers, with a few exceptions. For more information, see [Azure consumption API overview](consumption-api-overview.md) and the [Azure Consumption API reference](/rest/api/consumption/). We recommend the provided APIs as the solution for the latest development scenarios.
 
-### What's the difference between the Usage Details API and the Usage API?
-These APIs provide fundamentally different data:
-
-- The [Usage Details API](/rest/api/consumption/usagedetails) provides Azure usage and cost information per meter instance. The provided data has already passed through the cost metering system in Azure and had cost applied to it, along with other possible changes:
-
-   - Changes to account for the use of prepaid Azure Prepayment
-   - Changes to account for usage discrepancies discovered by Azure
-
-- The [Usage API](/previous-versions/azure/reference/mt219003(v=azure.100)) provides raw Azure usage information before it passes through the cost metering system in Azure. This data might not have any correlation with the usage or charge amount that's seen after the Azure charge metering system.
-
 ### What's the difference between the Invoice API and the Usage Details API?
 These APIs provide a different view of the same data:
 
@@ -124,7 +112,7 @@ These APIs provide similar sets of data but have different audiences:
 
 - The [Price Sheet API](/rest/api/consumption/pricesheet) provides the custom pricing that was negotiated for an Enterprise customer.
 
-- The [RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)) provides the public-facing pricing that applies to Web Direct customers.
+- The [Azure Retail Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) provides public-facing pay-as-you-go pricing that applies to Web Direct customers.
 
 ## Next steps
 

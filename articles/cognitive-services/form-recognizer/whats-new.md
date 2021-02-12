@@ -82,7 +82,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### New features
 
-* **v2.0 reference available** - View the [v2.0 API Reference](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) and the updated SDKs for [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python](/python/api/overview/azure/?view=azure-python), [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview), and [JavaScript](/javascript/api/overview/azure/?view=azure-node-latest).
+* **v2.0 reference available** - View the [v2.0 API Reference](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) and the updated SDKs for [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme), [Python](/python/api/overview/azure/), [Java](/java/api/overview/azure/ai-formrecognizer-readme), and [JavaScript](/javascript/api/overview/azure/).
 * **Table enhancements and Extraction enhancements** - includes accuracy improvements and table extractions enhancements, specifically, the capability to learn tables headers and structures in _custom train without labels_. 
 
 * **Currency support** - Detection and extraction of global currency symbols.
@@ -107,10 +107,10 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### New features
 * **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0 (preview) release. Use the links below to get started with your language of choice: 
-   * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
-   * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
-   * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
-   * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
+   * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
+   * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme)
+   * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
+   * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme)
 
   The new SDK supports all the features of the v2.0 REST API for Form Recognizer. For example, you can train a model with or without labels and extract text, key value pairs and tables from your forms, extract data from receipts with the pre-built receipts service and extract text and tables with the layout service from your documents. You can share your feedback on the SDKs through the [SDK Feedback form](https://aka.ms/FR_SDK_v1_feedback).
  
@@ -145,7 +145,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
   The following image is an example of how tables are recognized and extracted:
 
   > [!div class="mx-imgBorder"]
-  > ![Table visualization using the sample labeling tool](./media/whats-new/formre-table-viz.png)
+  > ![Table visualization using the sample labeling tool](./media/whats-new/table-viz.png)
 
     The extracted tables are available in the JSON output under `"pageResults"`.
 
@@ -206,7 +206,7 @@ The JSON responses for all API calls have new formats. Some keys and values have
 
 ## Next steps
 
-Complete a [quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the language of your choice.
+Complete a [quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.
 
 ## See also
 

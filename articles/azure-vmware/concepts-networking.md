@@ -2,7 +2,7 @@
 title: Concepts - Network interconnectivity
 description: Learn about key aspects and use cases of networking and interconnectivity in Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 02/02/2021
 ---
 
 # Azure VMware Solution networking and interconnectivity concepts
@@ -34,7 +34,7 @@ The use cases for Azure VMware Solution private clouds include:
 In the virtual network to private cloud implementation, you can manage your Azure VMware Solution private cloud, consume workloads in your private cloud, and access Azure services over the ExpressRoute connection. 
 
 The diagram below shows the basic network interconnectivity established at the time of a private cloud deployment. It shows the logical, ExpressRoute-based networking between a virtual network in Azure and a private cloud. The interconnectivity fulfills three of the primary use cases:
-* Inbound access to vCenter server and NSX-T manager that is accessible from VMs in your Azure subscription and not from your on-premises systems. 
+* Inbound access to vCenter server and NSX-T Manager that is accessible from VMs in your Azure subscription and not from your on-premises systems. 
 * Outbound access from VMs to Azure services. 
 * Inbound access and consumption of workloads running a private cloud.
 
@@ -50,16 +50,19 @@ The diagram below shows the on-premises to private cloud interconnectivity, whic
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Virtual network and on-premises full private cloud connectivity" border="false":::
 
-For full interconnectivity to your private cloud, enable ExpressRoute Global Reach and then request an authorization key and private peering ID for Global Reach in the Azure portal. The authorization key and peering ID are used to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your new private cloud. Once linked, the two ExpressRoute circuits route network traffic between your on-premises environments to your private cloud.  See the [tutorial for creating an ExpressRoute Global Reach peering to a private cloud](tutorial-expressroute-global-reach-private-cloud.md) for the procedures to request and use the authorization key and peering ID.
-
-
+For full interconnectivity to your private cloud, enable ExpressRoute Global Reach and then request an authorization key and private peering ID for Global Reach in the Azure portal. The authorization key and peering ID are used to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your new private cloud. Once linked, the two ExpressRoute circuits route network traffic between your on-premises environments to your private cloud.  For more information on the procedures to request and use the authorization key and peering ID, see the [tutorial for creating an ExpressRoute Global Reach peering to a private cloud](tutorial-expressroute-global-reach-private-cloud.md).
 
 ## Next steps 
-Learn about [private cloud storage concepts](concepts-storage.md).
 
+Now that you've covered Azure VMware Solution network and interconnectivity concepts, you may want to learn about:
+
+- [Azure VMware Solution storage concepts](concepts-storage.md).
+- [Azure VMware Solution identity concepts](concepts-identity.md).
+- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md
 
 <!-- LINKS - internal -->
-
+[concepts-upgrades]: ./concepts-upgrades.md
+[concepts-storage]: ./concepts-storage.md

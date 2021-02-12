@@ -239,7 +239,7 @@ The downloaded file for the agent is a self-contained installation package creat
 
 1. Sign on to the computer with an account that has administrative rights.
 
-2. To extract the agent installation files, from an elevated command prompt run `extract MMASetup-<platform>.exe` and it will prompt you for the path to extract files to. Alternatively, you can specify the path by passing the arguments `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. For more information on the command-line switches supported by IExpress, see [Command-line switches for IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) and then update the example to suit your needs.
+2. To extract the agent installation files, from an elevated command prompt run `extract MMASetup-<platform>.exe` and it will prompt you for the path to extract files to. Alternatively, you can specify the path by passing the arguments `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. For more information on the command-line switches supported by IExpress, see [Command-line switches for IExpress](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/197147) and then update the example to suit your needs.
 
 3. At the prompt, type `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.
 

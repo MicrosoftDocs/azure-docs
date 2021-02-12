@@ -10,7 +10,7 @@ ms.date: 08/05/2020
 ms.author: pafarley
 ---
 
-[Reference documentation](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices) | [Package (PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
+[Reference documentation](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices) | [Package (PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
 
 ## Python prerequisites
 
@@ -95,7 +95,7 @@ python <your-script-name>.py
 
 ## See also
 
-* [Azure Management SDK reference documentation](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python)
+* [Azure Management SDK reference documentation](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices)
 * [What are Azure Cognitive Services?](../../what-are-cognitive-services.md)
 * [Authenticate requests to Azure Cognitive Services](../../authentication.md)
 * [Create a new resource using the Azure portal](../../cognitive-services-apis-create-account.md)

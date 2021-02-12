@@ -48,7 +48,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public
     --resource-group myResourceGroup \
     --name myStandardZRPublicIP \
     --sku Standard
-    --zone 1,2,3
+    --zone 1 2 3
 ```
 > [!IMPORTANT]
 > For versions of the API older than 2020-08-01, run the command above without specifying a zone parameter to create a zone-redundant IP address. 

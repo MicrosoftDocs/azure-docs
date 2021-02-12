@@ -4,8 +4,6 @@
   items:
   - name: About Azure Digital Twins
     href: overview.md
-  - name: Differences from previous release
-    href: overview-differences.md
 - name: Quickstarts
   expanded: true
   items:
@@ -54,7 +52,11 @@
       - name: Scripted version
         href: how-to-set-up-instance-scripted.md
     - name: Enable private access with Private Link
-      href: how-to-enable-private-link.md
+      items:
+      - name: Portal version
+        href: how-to-enable-private-link-portal.md
+      - name: CLI version
+        href: how-to-enable-private-link-cli.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration
@@ -105,12 +107,16 @@
     items:
     - name: Manage endpoints and routes
       items:
-      - name: APIs and CLI version
-        href: how-to-manage-routes-apis-cli.md
       - name: Portal version
         href: how-to-manage-routes-portal.md
+      - name: APIs and CLI version
+        href: how-to-manage-routes-apis-cli.md
     - name: Enable a managed identity for routing events
-      href: how-to-enable-managed-identities.md
+      items:
+      - name: Portal version
+        href: how-to-enable-managed-identities-portal.md
+      - name: CLI version
+        href: how-to-enable-managed-identities-cli.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
     - name: Integrate with Azure Time Series Insights
@@ -169,6 +175,8 @@
       href: https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins
   - name: Customer data requests
     href: resources-customer-data-requests.md
+  - name: Differences from original release
+    href: resources-compare-original-release.md
   - name: APIs and SDKs
     items:
     - name: Control plane
@@ -259,6 +267,8 @@
       href: /samples/azure-samples/dtdl-validator/dtdl-validator/
     - name: DTMI spec
       href: https://github.com/Azure/digital-twin-model-identifier
+  - name: 'Learn: Develop with Azure Digital Twins'
+    href: /learn/paths/develop-azure-digital-twins/
   - name: Channel 9 videos
     href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22
   - name: Customer stories

@@ -714,8 +714,6 @@
           href: service-fabric-cluster-security-update-certs-azure.md      
         - name: Remote connect to cluster node VM
           href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-        - name: Upgrade cluster nodes to use managed disks
-          href: upgrade-managed-disks.md      
     - name: Standalone clusters
       items:
       - name: Create
@@ -820,7 +818,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.servicefabric/
   - name: PowerShell
-    href: /powershell/module/servicefabric/?view=azureservicefabricps
+    href: /powershell/module/ServiceFabric/New-ServiceFabricService?view=azureservicefabricps
   - name: Azure CLI (az sf)
     href: /cli/azure/sf
   - name: Service Fabric CLI (sfctl)

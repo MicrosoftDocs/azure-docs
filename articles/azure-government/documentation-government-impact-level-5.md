@@ -274,10 +274,6 @@ You can encrypt disks that support virtual machine scale sets by using Azure Dis
 
 - [Encrypt disks in virtual machine scale sets](../virtual-machine-scale-sets/disk-encryption-powershell.md)
 
-### [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
-
-Windows Virtual Desktop supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
 ## Containers
 
 For Containers services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=openshift,app-service-linux,container-registry,service-fabric,container-instances,kubernetes-service&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
