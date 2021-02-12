@@ -1,12 +1,9 @@
 ---
 title: Transform data using Hive in Azure Virtual Network using Azure portal
 description: This tutorial provides step-by-step instructions for transforming data by using Hive activity in Azure Data Factory.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
