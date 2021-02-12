@@ -30,6 +30,7 @@ This article summarizes support and prerequisites for disaster recovery of Azure
 **Replicate Azure VMs from one subscription to another for disaster recovery** | Supported within the same Azure Active Directory tenant.
 **Migrate VMs across regions within supported geographical clusters (within and across subscriptions)** | Supported within the same Azure Active Directory tenant.
 **Migrate VMs within the same region** | Not supported.
+**Azure Dedicated Hosts** | Not supported.
 
 ## Region support
 
@@ -70,7 +71,7 @@ Azure Storage firewalls for virtual networks  | Supported | If you are using fir
 
 ## Replicated machine operating systems
 
-Site Recovery supports replication of Azure VMs running the operating systems listed in this section. Please note that if an already replicating machine is subsequently upgraded (or downgraded) to a different major kernel, you need to disable replication and re-enable replication after the upgrade.
+Site Recovery supports replication of Azure VMs running the operating systems listed in this section. Note that if an already replicating machine is subsequently upgraded (or downgraded) to a different major kernel, you need to disable replication and re-enable replication after the upgrade.
 
 ### Windows
 
