@@ -69,7 +69,7 @@ After setting your policies, monitor egress and adjust both policies accordingly
 
 ## Adjusting your policies
 
-If your cloud tiering recall size is larger than you want, increase your local volume size if possible, and/or decrease your volume free space policy percentage in small increments. Higher churn requires more free space for recall before tiering kicks in, which is why you should increase your local volume size first. 
+If the amount of files constantly recalled from Azure is larger than you want, you may have more hot files than you have space to save them on the local server volume. Increase your local volume size if possible, and/or decrease your volume free space policy percentage in small increments. Decresing the volume free space percentage too much can also have negative consequences. Higher churn in your dataset requires more free space - for new files and recall of "cold" files. Tiering kicks in with a delay of up to one hour and then needs processing time, which is why you should always have ample free space on your volume.
 
 Keeping more data local means lower egress costs as fewer files will be recalled from Azure, but also requires a larger amount of on-premises storage which comes at its own cost. 
 
