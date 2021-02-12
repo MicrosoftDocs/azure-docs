@@ -9,7 +9,7 @@ ms.date: 02/18/2021
 ms.author: yuajia
 ---
 
-# What is a Rule Set for Azure Front Door Standard/Premium?
+# What is a Rule Set for Azure Front Door Standard/Premium (Preview)?
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
@@ -35,7 +35,7 @@ A Rule Set is a customized rule engine that groups a combination of rules into a
 
 * Add, modify, or remove request/response header to hide sensitive information or capture important information through headers.
 
-* Support server variables to dynamically change the request/response headers or URL rewrite paths/query strings, for example, when a new page load or when a form is posted. Server variable is currently supported on **[rule set actions](concept-rule-set-actions.md)** only.
+* Support server variables to dynamically change the request/response headers or URL rewrite paths/query strings, for example, when a new page load or when a form is posted. Server variable is currently supported on **[Rule Set actions](concept-rule-set-actions.md)** only.
 
 ## Architecture
 
@@ -66,3 +66,5 @@ For more quota limit, refer to [Azure subscription and service limits, quotas an
 ## Next steps
 
 * Learn how to [create a Front Door](create-front-door-portal.md).
+* Learn how to configure your first [Rule Set](how-to-configure-rule-set.md).
+ 
