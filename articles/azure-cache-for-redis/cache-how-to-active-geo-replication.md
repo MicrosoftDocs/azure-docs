@@ -35,6 +35,7 @@ Active geo-replication groups two or more Enterprise Azure Cache for Redis insta
 
 ## Delete a group
 
+
 ## Next steps
 
 Learn more about Azure Cache for Redis features.
