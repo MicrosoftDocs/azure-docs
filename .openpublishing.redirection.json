@@ -2,6 +2,41 @@
   "redirections": [
     
     {
+      "source_path": "articles/cognitive-services/Ink-Recognizer/concepts/send-ink-data.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/concepts/send-ink-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Ink-Recognizer/quickstarts/csharp.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/quickstarts/csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Ink-Recognizer/quickstarts/java.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/quickstarts/java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Ink-Recognizer/quickstarts/javascript.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/quickstarts/javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Ink-Recognizer/index.yml",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Ink-Recognizer/language-support.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Ink-Recognizer/overview.md",
+      "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/install-mongodb.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/install-mongodb",
       "redirect_document_id": false
@@ -18866,6 +18901,16 @@
       "source_path_from_root": "/articles/lab-services/use-paas-services.md",
       "redirect_url": "/azure/devtest-labs/use-paas-services",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-enable-private-link.md",
+      "redirect_url": "/azure/digital-twins/how-to-enable-private-link-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-enable-managed-identities.md",
+      "redirect_url": "/azure/digital-twins/how-to-enable-managed-identities-portal",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/digital-twins/overview-differences.md",
@@ -61638,8 +61683,13 @@
       "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries",
       "redirect_document_id": false
     },
-        {
+    {
       "source_path": "articles/storage/files/storage-files-deployment-guide.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/files/storage-how-to-create-premium-fileshare.md",
       "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
       "redirect_document_id": false
     },
