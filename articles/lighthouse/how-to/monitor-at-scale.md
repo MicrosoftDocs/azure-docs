@@ -1,7 +1,7 @@
 ---
 title: Monitor delegated resources at scale
 description: Learn how to effectively use Azure Monitor Logs in a scalable way across the customer tenants you're managing.
-ms.date: 02/02/2021
+ms.date: 02/11/2021
 ms.topic: how-to
 ---
 
@@ -60,7 +60,6 @@ alertsmanagementresources
 
 ## Next steps
 
+- Try out the [Activity Logs by Domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) workbook on GitHub.
 - Explore this [MVP-built sample workbook](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), which tracks patch compliance reporting by [querying Update Management logs](../../automation/update-management/query-logs.md) across multiple Log Analytics workspaces. 
-- Learn about [Azure Monitor](../../azure-monitor/index.yml).
-- Learn about [Azure Monitor Logs](../../azure-monitor/logs/data-platform-logs.md).
-- Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
+- Learn about other [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).

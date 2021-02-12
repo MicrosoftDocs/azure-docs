@@ -5,11 +5,55 @@ ms.subservice:
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 01/11/2021
+ms.date: 02/10/2021
 ---
 # What's new in Azure Monitor documentation?
 
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
+
+## January 2021 
+
+### General	
+- [Azure Monitor FAQ](faq.md) - Added entry on device information for Application Insights.
+### Agents	
+- [Collecting Event Tracing for Windows (ETW) Events for analysis Azure Monitor Logs](platform/data-sources-event-tracing-windows.md) - New article.
+- [Data Collection Rules in Azure Monitor (preview)](platform/data-collection-rule-overview.md) - Added links to PowerShell and CLI samples.
+
+### Alerts	
+- [Configure Azure to connect ITSM tools using Secure Export](platform/itsm-connector-secure-webhook-connections-azure-configuration.md) - New article.
+- [Connector status errors in the ITSMC dashboard](platform/itsmc-dashboard-errors.md) - New article.
+- [Investigate errors by using the ITSMC dashboard](platform/itsmc-dashboard.md) - New article.
+- [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added sections for dynamic thresholds.
+- [Troubleshoot problems in IT Service Management Connector](platform/itsmc-troubleshoot-overview.md) - New article.
+
+### Application Insights
+- [Azure Application Insights telemetry correlation](app/correlation.md) - Added trace correlation when one module calls another in OpenCensus Python.
+- [Application Insights for web pages](app/javascript.md) - New article.
+- [Click Analytics Auto-collection plugin for Application Insights JavaScript SDK](app/javascript-click-analytics-plugin.md) - New article.
+- [Monitor your apps without code changes - auto-instrumentation for Azure Monitor Application Insights](app/codeless-overview.md) - Added Python column.
+- [React plugin for Application Insights JavaScript SDK](app/javascript-react-plugin.md) - New article.
+- [Telemetry processors (preview) - Azure Monitor Application Insights for Java](app/java-standalone-telemetry-processors.md) - Rewritten.
+- [Usage analysis with Azure Application Insights](app/usage-overview.md) - New article.
+- [Use Application Change Analysis in Azure Monitor to find web-app issues](app/change-analysis.md) - Added error messges.
+
+
+### Insights	
+- [Azure Monitor for Azure Data Explorer (preview)](insights/data-explorer.md) - New article.
+
+### Logs	
+- [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Introduce user assigned managed identity.
+- [Azure Monitor Logs Dedicated Clusters](log-query/logs-dedicated-clusters.md) - Updated reponse code.
+- [Cross service query - Azure Monitor and Azure Data Explorer (Preview)](platform/azure-monitor-troubleshooting-logs.md) - New article.
+
+### Metrics
+- [Azure Monitor Metrics metrics aggregation and display explained](platform/metrics-aggregation-explained.md) - New article.
+
+### Platform Logs
+- [Azure Monitor Resource Logs supported services and categories](platform/resource-logs-categories.md) - New article.
+
+### Visualizations
+- [Azure Monitor workbooks data sources](platform/workbooks-data-sources.md) - Added merge and change analysis.
+
 
 ## December 2020
 
