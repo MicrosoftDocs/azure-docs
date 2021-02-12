@@ -127,8 +127,8 @@ Minor changes are made to customer’s Csdef & Cscfg to make the deployment file
 
 - Customers can use the Get API to get the latest copy of their deployment files. 
     - Get the template using [Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal), [Powershell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell#export-resource-groups-to-templates), [CLI](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli#export-resource-groups-to-templates), and [Rest API](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate) 
-    - Get the .csdef file using Portal, [Powershell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice), or [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
-    - Get the .cscfg file using Portal, [Powershell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice), or [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
+    - Get the .csdef file using Portal, [Powershell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true), or [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
+    - Get the .cscfg file using Portal, [Powershell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true), or [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
     
  
 

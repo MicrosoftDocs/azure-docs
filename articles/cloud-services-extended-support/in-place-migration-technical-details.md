@@ -28,7 +28,7 @@ This article discusses the technical details regarding the migration tool as per
 ### Service Configuration and Service Definition files
 - The .cscfg and .csdef files needs to be updated for Cloud Services (extended support) with minor changes. 
 - The names of resources like virtual network and virtual network SKU are different. For more information, see [Available VM sizes](available-sizes.md)
-- Customers can retrieve their new deployments through [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice) and [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
+- Customers can retrieve their new deployments through [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) and [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
 
 ### Cloud Service (hosted service) and deployments
 - Cloud Services (extended support) do not support the concept of a hosted service. Each deployment is an independent Cloud Service. 
