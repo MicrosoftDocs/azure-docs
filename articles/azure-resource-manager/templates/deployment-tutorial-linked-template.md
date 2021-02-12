@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Deploy a linked template
 description: Learn how to deploy a linked template
-ms.date: 02/11/2021
+ms.date: 02/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
@@ -29,16 +29,16 @@ You can separate the storage account resource into a linked template:
 
 The following template is the main template. The highlighted `Microsoft.Resources/deployments` object shows how to call a linked template. The linked template cannot be stored as a local file or a file that is only available on your local network. You can either provide a URI value of the linked template that includes either HTTP or HTTPS,  or use the _relativePath_ property to deploy a remote linked template at a location relative to the parent template. One option is to place both the main template and the linked template in a storage account.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy1.json" highlight="27-32,40-58":::
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy1.json" highlight="34-52":::
 
 ## Store the linked template
 
 Both of the main template and the linked template are stored in GitHub:
 
+The following PowerShell script creates a storage account, creates a container, and copies the two templates from a GitHub repository to the container. These two templates are:
+
 - The main template: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
 - The linked template: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
-
-The following PowerShell script creates a storage account, creates a container, and copies the templates from a GitHub repository to the container.
 
 Select **Try-it** to open the Cloud Shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
