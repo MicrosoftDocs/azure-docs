@@ -58,7 +58,7 @@ The machine has already been deployed to another workspace for Update Management
 
 ### Resolution
 
-Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this, see [Verify agent connectivity to Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
+Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this, see [Verify agent connectivity to Azure Monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
 
 Make sure that the machines show up in the Log Analytics workspace linked to your Automation account. Run the following query in the Log Analytics workspace.
 
@@ -83,7 +83,7 @@ If you get a ```Data collection stopped due to daily limit of free data reached.
 
 ![Troubleshooting overview](media/troubleshooting-onboarding.png)
 
-If your issue is still unresolved, follow the steps in [Deploy a Windows Hybrid Runbook Worker](automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows. For Linux, follow the steps in  [Deploy a Linux Hybrid Runbook Worker](automation-linux-hrw-install.md).
+If your issue is still unresolved, follow the steps in [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows. For Linux, follow the steps in  [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
 ### <a name="missing-write-permissions"></a>Scenario: Feature deployment fails with the message "The solution cannot be enabled"
 
