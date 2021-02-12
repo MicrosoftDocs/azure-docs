@@ -7,12 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/02/2021
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
 
-Learn what's new in the service. Bookmark this page to keep up to date with the service. Check out the [Preview feature list](search-api-preview.md) to view features in public preview.
+Learn what's new in the service. Bookmark this page to keep up to date with the service. Check out the [Preview feature list](search-api-preview.md) to view a comprehensive list of features that are not yet generally available.
+
+## March 2021 (Ignite)
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------|---------------|---------------|
+| [Semantic search](semantic-search-overview.md) | A collection of query features that realign query results to better reflect user intent. With small modifications to query syntax, you can try out these features on existing search indexes.</br></br>[Semantic ranking and responses](semantic-how-to-query-response.md) refer to a new search ranking algorithm that uses deep neural networks to re-rank results based on how closely the results match the intent of query.</br></br>**Semantic answers** uses AI from Bing to extract relevant passages from the top documents, and then promotes any matches that have a greater likelihood of answering the query.</br></br> **Semantic captions** is similar to semantic answers, but instead extracts and returns the most relevant section of each of the top documents. You can quickly skim results to find the content you care about. </br></br> | Public preview, REST api-version=2020-06-30-Preview and [Search explorer](search-explorer.md) in Azure portal |
+| [Spell check queries](speller-how-to-add.md) | Before a query string reaches the parser, you can check it for spelling errors. The `speller` option works with any query type (simple, full, or semantic). |  Public preview, REST only, api-version=2020-06-30-Preview|
+| SharePoint Online indexer | This indexer connects you to a SharePoint Online site so that you can index content from a document library. | Public preview, REST only, api-version=2020-06-30-Preview |
+| Azure Data Lake Storage Gen2 indexer | Indexer support for content stored in [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md). | Generally available in 2020-06-30 REST API (feature adoption in Azure SDKs is determined by each SDK team) |
 
 ## February 2021
 

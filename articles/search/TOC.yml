@@ -96,6 +96,8 @@
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
+  - name: Semantic search
+    href: semantic-search-overview.md
   - name: Relevance scoring
     href: index-similarity-and-scoring.md
   - name: Indexers
@@ -306,6 +308,10 @@
     items:
     - name: Create a basic query
       href: search-query-create.md
+    - name: Create a semantic query
+      href: semantic-how-to-query-request.md
+    - name: Add spell check to queries
+      href: speller-how-to-add.md
     - name: Query types and composition
       href: search-query-overview.md
     - name: Use simple syntax (examples)
@@ -348,6 +354,8 @@
     items:
     - name: Work with results
       href: search-pagination-page-layout.md
+    - name: Structure a semantic response
+      href: semantic-how-to-query-response.md
     - name: Scoring profiles 
       href: index-add-scoring-profiles.md
     - name: Similarity algorithm
