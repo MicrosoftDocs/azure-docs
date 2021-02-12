@@ -9,7 +9,7 @@ ms.custom:
 
 # Tutorial: Deploy a linked template
 
-In the [previous tutorials](./deployment-tutorial-local-template.md), you learned how to deploy a template that is stored in your local computer. To deploy complex solutions, you can break a template into many templates, and deploy these templates through a main template. In this tutorial, you learn how to deploy a main template that contains the reference to a linked template. When the main template gets deployed, it triggers the deployment of the linked template. You also learn how to store and secure the linked template by using SAS token. It takes about **12 minutes** to complete.
+In the [previous tutorials](./deployment-tutorial-local-template.md), you learned how to deploy a template that is stored in your local computer. To deploy complex solutions, you can break a template into many templates, and deploy these templates through a main template. In this tutorial, you learn how to deploy a main template that contains the reference to a linked template. When the main template gets deployed, it triggers the deployment of the linked template. You also learn how to store and secure the templates by using SAS token. It takes about **12 minutes** to complete.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ You can separate the storage account resource into a linked template:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-The following template is the main template. The highlighted `Microsoft.Resources/deployments` object shows how to call a linked template. The linked template cannot be stored as a local file or a file that is only available on your local network. You can either provide a URI value of the linked template that includes either HTTP or HTTPS,  or use the relativePath property to deploy a remote linked template at a location relative to the parent template. One option is to place both the main template and the linked template in a storage account.
+The following template is the main template. The highlighted `Microsoft.Resources/deployments` object shows how to call a linked template. The linked template cannot be stored as a local file or a file that is only available on your local network. You can either provide a URI value of the linked template that includes either HTTP or HTTPS,  or use the _relativePath_ property to deploy a remote linked template at a location relative to the parent template. One option is to place both the main template and the linked template in a storage account.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy1.json" highlight="27-32,40-58":::
 
@@ -96,7 +96,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## Deploy template
 
-To deploy templates in a storage account, generate a SAS token and supply it to the _-QueryString_ parameter. Set the expiry time to allow enough time to complete the deployment. The blobs containing the templates is accessible to only the account owner. However, when you create a SAS token for a blob, the blob is accessible to anyone with that SAS token. If another user intercepts the URI and the SAS token, that user is able to access the templates. A SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
+To deploy templates in a storage account, generate a SAS token and supply it to the _-QueryString_ parameter. Set the expiry time to allow enough time to complete the deployment. The blobs containing the templates are accessible to only the account owner. However, when you create a SAS token for a blob, the blob is accessible to anyone with that SAS token. If another user intercepts the URI and the SAS token, that user is able to access the template. A SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
 
 If you haven't created the resource group, see [Create resource group](./deployment-tutorial-local-template.md#create-resource-group).
 
@@ -105,7 +105,7 @@ If you haven't created the resource group, see [Create resource group](./deploym
 
 # [PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 
 $projectName = Read-Host -Prompt "Enter the same project name:"   # This name is used to generate names for Azure resources, such as storage account name.
 
@@ -136,35 +136,33 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
+echo "Enter a project name that is used to generate resource names:" &&
+read projectName &&
 
-echo "Enter a project name that is used to generate resource names:"
-read projectName
-echo "Enter the main template file:"
-read templateFile
+resourceGroupName="${projectName}rg" &&
+storageAccountName="${projectName}store" &&
+containerName="templates" &&
 
-resourceGroupName="${projectName}rg"
-storageAccountName="${projectName}store"
-containerName="templates"
-linkedFileName="linkedStorageAccount.json"
+key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv) &&
 
-key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv)
-
-linkedTemplateUri=$(az storage blob generate-sas \
+sasToken=$(az storage container generate-sas \
   --account-name $storageAccountName \
   --account-key $key \
-  --container-name $containerName \
-  --name $linkedFileName \
+  --name $containerName \
   --permissions r \
-  --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'` \
-  --full-uri)
+  --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'`) &&
+sasToken=$(echo $linkedTemplateUri | sed 's/"//g')&&
 
-linkedTemplateUri=$(echo $linkedTemplateUri | sed 's/"//g')
+blobUri=$(az storage account show -n $storageAccountName -g $resourceGroupName -o tsv --query primaryEndpoints.blob) &&
+templateUri="${blobUri}${containerName}/azuredeploy.json" &&
+
 az deployment group create \
   --name DeployLinkedTemplate \
   --resource-group $resourceGroupName \
-  --template-file $templateFile \
-  --parameters projectName=$projectName linkedTemplateUri=$linkedTemplateUri \
+  --template-uri $templateUri \
+  --parameters projectName=$projectName \
+  --query-string $sasToken \
   --verbose
 ```
 
