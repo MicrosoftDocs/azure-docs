@@ -3,7 +3,7 @@ title: Understand admin role delegation - Azure Active Directory | Microsoft Doc
 description: Delegation models, examples, and role security in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.subservice: roles
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 #As an Azure AD administrator, I want to know how to organize my approach to delegating roles

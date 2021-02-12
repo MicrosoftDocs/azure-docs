@@ -34,7 +34,7 @@ If you are an Azure AD Identity Protection customer, go to the [risky users](how
 
 ### Why was my sign-in blocked but Identity Protection didn't generate a risk detection?
 Sign-ins can be blocked for several reasons. It is important to note that Identity Protection only generates risk detections when correct credentials are used in the authentication request. If a user uses incorrect credentials, it will not be flagged by Identity Protection since there is not of risk of credential compromise unless a bad actor uses the correct credentials. Some reasons a user can be blocked from signing that will not generate an Identity Protection detection include:
-* The **IP can been blocked** due to malicious activity from the IP address. The IP blocked message does not differentiate whether the credentials were correct or not. If the IP is blocked and correct credentials are not used, it will not generate an Identity Protection detection
+* The **IP can be blocked** due to malicious activity from the IP address. The IP blocked message does not differentiate whether the credentials were correct or not. If the IP is blocked and correct credentials are not used, it will not generate an Identity Protection detection
 * **[Smart Lockout](../authentication/howto-password-smart-lockout.md)** can block the account from signing-in after multiple failed attempts
 * A **Conditional Access policy** can be enforced that uses conditions other than risk level to block an authentication request
 

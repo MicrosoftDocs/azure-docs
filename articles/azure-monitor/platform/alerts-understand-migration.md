@@ -9,7 +9,7 @@ ms.subservice: alerts
 ---
 # Understand migration options to newer alerts
 
-Classic alerts are [retired](./monitoring-classic-retirement.md), though still in limited use for resources that do not yet support the new alerts. A new date will be announced soon for remaining alerts migration, [Azure Government cloud](../../azure-government/documentation-government-welcome.md), and [Azure China 21Vianet](https://docs.azure.cn/).
+Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users, though still in limited use for resources that do not yet support the new alerts. A new date will be announced soon for remaining alerts migration, [Azure Government cloud](../../azure-government/documentation-government-welcome.md), and [Azure China 21Vianet](https://docs.azure.cn/).
 
 This article explains how the manual migration and voluntary migration tool work, which will be used to migrate remaining alert rules. It also describes remedies for some common problems.
 

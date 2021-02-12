@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/25/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
 ---
@@ -135,9 +135,9 @@ Your Windows client must meet the following prerequisites:
 
     Compare the **Major** version and ensure that it is 5.0 or later.
 
-    If you have an outdated version, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+    If you have an outdated version, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell).
 
-    If you don\'t have PowerShell 5.0, follow [Installing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
+    If you don\'t have PowerShell 5.0, follow [Installing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true).
 
     A sample output is shown below.
 
@@ -153,7 +153,7 @@ Your Windows client must meet the following prerequisites:
     
 2. You can access the PowerShell Gallery.
 
-    Run PowerShell as administrator. Verify if the PSGallery is registered as a repository.
+    Run PowerShell as administrator. Verify if the `PSGallery` is registered as a repository.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -172,7 +172,7 @@ Your Windows client must meet the following prerequisites:
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-If your repository is not trusted or you need more information, see [Validate the PowerShell Gallery accessibility](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
+If your repository is not trusted or you need more information, see [Validate the PowerShell Gallery accessibility](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908&preserve-view=true&preserve-view=true#2-validate-the-powershell-gallery-accessibility).
 
 ## Step 4: Set up Azure PowerShell on the client 
 
@@ -324,7 +324,7 @@ Set the Azure Resource Manager environment and verify that your device to client
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    For more information, go to [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+    For more information, go to [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0&preserve-view=true).
 
     - Define the environment inline for every cmdlet that you execute. This ensures that all the API calls are going through the correct environment. By default, the calls would go through the Azure public but you want these to go through the environment that you set for Azure Stack Edge Pro device.
 

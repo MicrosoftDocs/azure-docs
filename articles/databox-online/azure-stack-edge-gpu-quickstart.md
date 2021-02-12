@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
-ms.date: 09/17/2020
+ms.date: 01/27/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure. 
 ---
@@ -23,7 +23,7 @@ The total procedure should approximately take 1.5 hours to complete. For detaile
 Before you deploy, make sure that following prerequisites are in place:
 
 1. The Azure Stack Edge Pro GPU device is delivered to your site, [unpacked](azure-stack-edge-gpu-deploy-install.md#unpack-the-device) and [rack mounted](azure-stack-edge-gpu-deploy-install.md#rack-the-device). 
-1. Configure your network such that your device can reach the [listed URLs patterns and ports](azure-stack-edge-gpu-system-requirements.md#networking-port-requirements). 
+1. Configure your network such that your device can reach the [listed URL patterns and ports](azure-stack-edge-gpu-system-requirements.md#networking-port-requirements). 
 1. You have owner or contributor access to Azure subscription.
 1. In the Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**. Search for `Microsoft.DataBoxEdge` and register the resource provider. Repeat to register `Microsoft.Devices` if you'll create an IoT Hub resource to deploy compute workloads.
 1. Make sure you have a minimum of 2 free, static, contiguous IPs for Kubernetes nodes and at least 1 static IP for IoT Edge service. For each module or external service, you deploy, you will need 1 additional IP.

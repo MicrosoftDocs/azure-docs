@@ -16,7 +16,7 @@ ms.date: 01/03/2021
 
 # Tutorial: Migrate SQL Server to Azure SQL Database offline using DMS
 
-You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to [Azure SQL Database](/azure/sql-database/). In this tutorial, you migrate the [Adventureworks2016](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms#download-backup-files) database restored to an on-premises instance of SQL Server 2016 (or later) to a single database or pooled database in Azure SQL Database by using Azure Database Migration Service.
+You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to [Azure SQL Database](/azure/sql-database/). In this tutorial, you migrate the [Adventureworks2016](/sql/samples/adventureworks-install-configure?tabs=ssms&view=sql-server-ver15#download-backup-files) database restored to an on-premises instance of SQL Server 2016 (or later) to a single database or pooled database in Azure SQL Database by using Azure Database Migration Service.
 
 You will learn how to:
 > [!div class="checklist"]
@@ -232,6 +232,9 @@ After the service is created, locate it within the Azure portal, open it, and th
 1. On the **Select target** screen, specify the connection details for the target Azure SQL Database, which is the pre-provisioned Azure SQL Database to which the **Adventureworks2016** schema was deployed by using the Data Migration Assistant.
 
     ![Select Target](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
+    
+    > [!NOTE]
+    > Private endpoint connections to the target Azure SQL Database are supported by the Azure Database Migration Service except when using a custom DNS name. 
 
 2. Select **Next: Map to target databases** screen, map the source and the target database for migration.
 

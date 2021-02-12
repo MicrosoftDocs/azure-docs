@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 01/20/2021
 ms.author: jeedes
 ---
 
@@ -36,7 +36,6 @@ NetSuite supports:
 
 * IDP-initiated SSO.
 * JIT (just-in-time) user provisioning.
-* [Automated user provisioning](NetSuite-provisioning-tutorial.md).
 
 > [!NOTE]
 > Because the identifier of this application is a fixed string value, only one instance can be configured in one tenant.

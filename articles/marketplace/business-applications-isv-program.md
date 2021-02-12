@@ -75,6 +75,6 @@ Ask your Account Manager or contact [Microsoft Partner Support](https://aka.ms/m
 
 - [Business Applications for ISVs](https://partner.microsoft.com/solutions/business-applications/isv-overview) (online article)
 - [Overview of the New Program for Business Applications ISVs](https://aka.ms/BizAppsISVProgram) (PDF)
-- [Business Applications ISV Connect Program FAQ](https://assetsprod.microsoft.com/business-applications-partner-faq.pdf) (PDF)
+- [Business Applications ISV Connect Program FAQ](https://assetsprod.microsoft.com/faq-using-partner-center-isv-connect.pdf) (PDF)
 - [Upcoming program for Business Applications ISVs](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/) (blog post)
 - [ISV Connect Program Policies](https://aka.ms/bizappsisvpolicies) (PDF)

@@ -22,12 +22,12 @@ Application developers can use optional claims in their Azure AD applications to
 You can use optional claims to:
 
 - Select additional claims to include in tokens for your application.
-- Change the behavior of certain claims that Microsoft identity platform returns in tokens.
+- Change the behavior of certain claims that the Microsoft identity platform returns in tokens.
 - Add and access custom claims for your application.
 
 For the lists of standard claims, see the [access token](access-tokens.md) and [id_token](id-tokens.md) claims documentation.
 
-While optional claims are supported in both v1.0 and v2.0 format tokens, as well as SAML tokens, they provide most of their value when moving from v1.0 to v2.0. One of the goals of the [v2.0 Microsoft identity platform endpoint](./v2-overview.md) is smaller token sizes to ensure optimal performance by clients. As a result, several claims formerly included in the access and ID tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.
+While optional claims are supported in both v1.0 and v2.0 format tokens, as well as SAML tokens, they provide most of their value when moving from v1.0 to v2.0. One of the goals of the [Microsoft identity platform](./v2-overview.md) is smaller token sizes to ensure optimal performance by clients. As a result, several claims formerly included in the access and ID tokens are no longer present in v2.0 tokens and must be asked for specifically on a per-application basis.
 
 **Table 1: Applicability**
 
@@ -134,7 +134,7 @@ This OptionalClaims object causes the ID token returned to the client to include
 
 You can configure optional claims for your application through the UI or application manifest.
 
-1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>. 
+1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>. 
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
 1. Select the application you want to configure optional claims for in the list.
@@ -242,7 +242,7 @@ This section covers the configuration options under optional claims for changing
 
 **Configuring groups optional claims through the UI:**
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. After you've authenticated, choose your Azure AD tenant by selecting it from the top-right corner of the page.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**.
@@ -255,7 +255,7 @@ This section covers the configuration options under optional claims for changing
 
 **Configuring groups optional claims through the application manifest:**
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. After you've authenticated, choose your Azure AD tenant by selecting it from the top-right corner of the page.
 1. Search for and select **Azure Active Directory**.
 1. Select the application you want to configure optional claims for in the list.
@@ -384,7 +384,7 @@ In the example below, you will use the **Token configuration** UI and **Manifest
 
 **UI configuration:**
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. After you've authenticated, choose your Azure AD tenant by selecting it from the top-right corner of the page.
 
 1. Search for and select **Azure Active Directory**.
@@ -407,7 +407,7 @@ In the example below, you will use the **Token configuration** UI and **Manifest
 
 **Manifest configuration:**
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. After you've authenticated, choose your Azure AD tenant by selecting it from the top-right corner of the page.
 1. Search for and select **Azure Active Directory**.
 1. Find the application you want to configure optional claims for in the list and select it.

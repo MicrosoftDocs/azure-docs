@@ -134,7 +134,7 @@ Choose Azure PowerShell or Azure CLI to look-up or perform actions on resources 
 
 **Guidance**: Configure Azure Web Application Firewall (WAF) logs to be sent to a central security log management solution such as Azure Sentinel, or a third-party SIEM. These logs include Azure Activity, Diagnostic, and real-time WAF logs, these logs can then be viewed in different tools, such as Azure Monitor, Excel, and Power BI. Azure Web Application Firewall logs give insight to what data the Azure WAF is evaluating, matching, and blocking.
 
-Azure Sentinel has a built-in Azure WAF workbook, which provides an overview of the security events on the Azure WAF. This workbook includes events, matched and blocked rules, and everything else that gets logged in the firewall logs. This telemetry can be used to kick off playbook automation to notify or take remediation actions based on WAF events collected by Sentinel.
+Azure Sentinel has a built-in Azure WAF workbook, which provides an overview of the security events on the Azure WAF. This workbook includes events, matched and blocked rules, and everything else that gets logged in the firewall logs. This telemetry can be used to kick off playbook automation to notify or take remediation actions based on WAF events collected by Azure Sentinel.
 
 - [View Activity Logs](../azure-resource-manager/management/view-activity-logs.md)
 
@@ -406,7 +406,7 @@ Configure Azure Web Application Firewall (WAF) to run in Prevention mode after b
 
 The Azure WAF, in Prevention mode, blocks intrusions and attacks that are detected by the rules. The attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records such attacks in the WAF logs.
 
-- [Overview of integration between Application Gateway and Azure Security Center](../application-gateway/application-gateway-integration-security-center.md#overview)
+- [Overview of integration between Application Gateway and Azure Security Center](../security-center/security-center-partner-integration.md)
 
 - [WAF modes on Application Gateway](ag/ag-overview.md#waf-modes)
 

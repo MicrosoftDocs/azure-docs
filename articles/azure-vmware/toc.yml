@@ -32,11 +32,13 @@
     href: tutorial-deploy-vmware-hcx.md
   - name: 8 - Scale a private cloud
     href: tutorial-scale-private-cloud.md
+  - name: 9 - Delete a private cloud
+    href: tutorial-delete-private-cloud.md
 - name: Concepts
   items:
   - name: Private clouds and clusters
     href: concepts-private-clouds-clusters.md
-  - name: Private cloud networking and inter-connectivity
+  - name: Private cloud networking and interconnectivity
     href: concepts-networking.md
   - name: Storage in private clouds
     href: concepts-storage.md
@@ -84,6 +86,8 @@
         href: backup-azure-vmware-solution-virtual-machines.md
     - name: Lifecycle management of VMs
       href: lifecycle-management-of-azure-vmware-solution-vms.md
+    - name: Azure NetApp Files
+      href: netapp-files-with-azure-vmware-solution.md
     - name: Application Gateway
       href: protect-azure-vmware-solution-with-application-gateway.md
     - name: Traffic Manager
@@ -105,7 +109,7 @@
     - name: Open a support request for deployment failures
       href: fix-deployment-provisioning-failures.md
   - name: FAQ
-    href: faq.md
+    href: faq.yml
 - name: Reference
   items:
   - name: Azure CLI
