@@ -8,7 +8,7 @@ ms.author: radhsrin
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/19/2021
 ms.custom: dpalled
 ---
 

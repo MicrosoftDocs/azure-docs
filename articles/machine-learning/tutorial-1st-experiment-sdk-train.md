@@ -35,10 +35,8 @@ In this tutorial, you:
 
 ## Prerequisites
 
-* Completion of [part 2](tutorial-1st-experiment-hello-world.md) of the series.
-* Introductory knowledge of the Python language and machine learning workflows.
-* Local development environment, such as Visual Studio Code, Jupyter, or PyCharm.
-* Python (version 3.5 to 3.7).
+- [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://www.anaconda.com/download/) to manage Python virtual environments and install packages.
+- Completion of [part1](tutorial-1st-experiment-sdk-setup-local.md) and [part 2](tutorial-1st-experiment-hello-world.md) of the series.
 
 ## Create training scripts
 
@@ -48,8 +46,7 @@ The following code is taken from [this introductory example](https://pytorch.org
 
 :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/src/model.py":::
 
-Next you define the training script. This script downloads the CIFAR10 dataset by using PyTorch `torchvision.dataset` APIs, sets up the network defined in
-`model.py`, and trains it for two epochs by using standard SGD and cross-entropy loss.
+Next you define the training script. This script downloads the CIFAR10 dataset by using PyTorch `torchvision.dataset` APIs, sets up the network defined in `model.py`, and trains it for two epochs by using standard SGD and cross-entropy loss.
 
 Create a `train.py` script in the `src` subdirectory:
 
@@ -57,25 +54,13 @@ Create a `train.py` script in the `src` subdirectory:
 
 You now have the following directory structure:
 
-```txt
-tutorial
-└──.azureml
-|  └──config.json
-└──src
-|  └──hello.py
-|  └──model.py
-|  └──train.py
-└──01-create-workspace.py
-└──02-create-compute.py
-└──03-run-hello.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="Directory structure shows train.py in src subdirectory":::
+
 
 > [!div class="nextstepaction"]
 > [I created the training scripts](?success=create-scripts#environment) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=create-scripts)
 
-## <a name="environment"></a> Create a Python environment
-
-For demonstration purposes, we're going to use a Conda environment. (The steps for a pip virtual environment are almost identical.)
+## <a name="environment"></a> Create a new Python environment
 
 Create a file called `pytorch-env.yml` in the `.azureml` hidden directory:
 
@@ -88,18 +73,19 @@ This environment has all the dependencies that your model and training script re
 
 ## <a name="test-local"></a> Test locally
 
-Use the following code to test your script runs locally in this environment:
+In a terminal or Anaconda Prompt window, use the following code to test your script locally in the new environment.  
 
 ```bash
-conda env create -f .azureml/pytorch-env.yml    # create conda environment
-conda activate pytorch-env                      # activate conda environment
+conda deactivate                                # If you are still using the tutorial environment, exit it
+conda env create -f .azureml/pytorch-env.yml    # create the new Conda environment
+conda activate pytorch-env                      # activate new Conda environment
 python src/train.py                             # train model
 ```
 
 After you run this script, you'll see the data downloaded into a directory called `tutorial/data`.
 
 > [!div class="nextstepaction"]
-> [I created the environment file](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-local)
+> [I ran the code locally](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-local)
 
 ## <a name="create-local"></a> Create the control script
 
@@ -159,11 +145,11 @@ if __name__ == "__main__":
 
 ## <a name="submit"></a> Submit the run to Azure Machine Learning
 
-If you switched local environments, be sure to switch back to an environment that has the Azure Machine Learning SDK for Python installed.
-
-Then run:
+Switch back to the *tutorial* environment that has the Azure Machine Learning SDK for Python installed. Since the training code isn't running on your computer, you don't need to have PyTorch installed.  But you do need the `azureml-sdk`, which is in the *tutorial* environment.
 
 ```bash
+conda deactivate
+conda activate tutorial
 python 04-run-pytorch.py
 ```
 

@@ -39,6 +39,8 @@
     href: azure-netapp-files-cost-model.md
   - name: Guidelines for Azure NetApp Files network planning 
     href: azure-netapp-files-network-topologies.md
+  - name: How Azure NetApp Files snapshots work
+    href: snapshots-introduction.md
   - name: Manual QoS capacity pool
     href: manual-qos-capacity-pool-introduction.md
   - name: Cross-region replication
@@ -63,6 +65,8 @@
     href: azure-netapp-files-faqs.md
   - name: What is Azure Application Consistent Snapshot Tool
     href: azacsnap-introduction.md
+  - name: What changing to volume hard quota means
+    href: volume-hard-quota-guidelines.md
 - name: How-to guides
   items:
   - name: Register for Azure NetApp Files
@@ -123,8 +127,10 @@
       href: troubleshoot-capacity-pools.md
     - name: Troubleshoot cross-region replication
       href: troubleshoot-cross-region-replication.md
-    - name: Troubleshoot dual-protocol volumes
+    - name: Troubleshoot SMB or dual-protocol volumes
       href: troubleshoot-dual-protocol-volumes.md
+    - name: Troubleshoot NFSv4.1 Kerberos volumes
+      href: troubleshoot-nfsv41-kerberos-volumes.md
     - name: Troubleshoot snapshot policies
       href: troubleshoot-snapshot-policies.md
     - name: Troubleshoot Resource Provider errors

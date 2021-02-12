@@ -81,7 +81,7 @@ If you prefer log4net or NLog, use:
 ```
 
 ## Use EventSource events
-You can configure [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) events to be sent to Application Insights as traces. First, install the `Microsoft.ApplicationInsights.EventSourceListener` NuGet package. Then edit the `TelemetryModules` section of the [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) file.
+You can configure [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) events to be sent to Application Insights as traces. First, install the `Microsoft.ApplicationInsights.EventSourceListener` NuGet package. Then edit the `TelemetryModules` section of the [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) file.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -199,7 +199,7 @@ If you are using the Java SDK, use the [Java log adapters](./java-trace-logs.md)
 
 ### There's no log adapter option in the configuration tool
 * Install the logging framework first.
-* If you're using System.Diagnostics.Trace, make sure that you have it [configured in *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
+* If you're using System.Diagnostics.Trace, make sure that you have it [configured in *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener).
 * Make sure that you have the latest version of Application Insights. In Visual Studio, go to **Tools** > **Extensions and Updates**, and open the **Updates** tab. If **Developer Analytics Tools** is there, select it to update it.
 
 ### <a name="emptykey"></a>I get the "Instrumentation key cannot be empty" error message

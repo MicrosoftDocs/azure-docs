@@ -3,7 +3,7 @@ title: Azure Monitor Resource Logs supported services and categories
 description: Reference of Azure Monitor Understand the supported services and event schema for Azure resource logs.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 12/09/2020
+ms.date: 01/29/2021
 ---
 
 # Supported categories for Azure Resource Logs
@@ -13,12 +13,14 @@ ms.date: 12/09/2020
 
 [Azure Monitor resource logs](./platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
 
-A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. There is a common schema for all resource logs with service specific fields then added for different log categories. For more information,  see [Common and service specific schema for Azure Resource Logs]()
+A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. There is a common schema for all resource logs with service-specific fields then added for different log categories. For more information,  see [Common and service-specific schema for Azure Resource Logs]()
 
 
 ## Costs
 
-There are costs associated with sending and storing any data into into Log Analytics, Azure Storage and/or Event hub. You may pay for the cost to get the data into these locations and for keeping it there.  Resource logs are one type of data you can send to these locations. There is an additional [cost to export some categories of resource logs](https://azure.microsoft.com/pricing/details/monitor/) into these locations, while others are free of export costs. Export cost specifics are listed in the table below.
+There are costs associated with sending and storing any data into into Log Analytics, Azure Storage and/or Event hub. You may pay for the cost to get the data into these locations and for keeping it there.  Resource logs are one type of data you can send to these locations. 
+
+There is an additional cost to export some categories of resource logs into these locations. Those logs with export costs are listed in the table below. For more information on this pricing, see the Platform Logs section in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Supported log categories per resource type
 
@@ -26,859 +28,950 @@ Following is a list of the types of logs available for each resource type.
 
 Some categories may only be supported for specific types of resources. See the resource-specific documentation if you feel you are missing a resource. For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
-If you still something is missing, you can open a GitHub comment at the bottom of this article.
+If you think there is something is missing, you can open a GitHub comment at the bottom of this article.
+## Microsoft.AAD/domainServices
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AccountLogon|AccountLogon|No|
+|AccountManagement|AccountManagement|No|
+|DetailTracking|DetailTracking|No|
+|DirectoryServiceAccess|DirectoryServiceAccess|No|
+|LogonLogoff|LogonLogoff|No|
+|ObjectAccess|ObjectAccess|No|
+|PolicyChange|PolicyChange|No|
+|PrivilegeUse|PrivilegeUse|No|
+|SystemSecurity|SystemSecurity|No|
+
+
 ## Microsoft.AnalysisServices/servers
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|Engine|Engine|
-|Service|Service|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Engine|Engine|No|
+|Service|Service|No|
 
 
 ## Microsoft.ApiManagement/service
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|GatewayLogs|Logs related to ApiManagement Gateway|No|
 
-|Category |Category Display Name|
-|---|---|
-|GatewayLogs|Logs related to ApiManagement Gateway|
+
+## Microsoft.AppConfiguration/configurationStores
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|HttpRequest|HTTP Requests|Yes|
 
 
 ## Microsoft.AppPlatform/Spring
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ApplicationConsole|Application Console|No|
+|SystemLogs|System Logs|No|
 
-|Category |Category Display Name|
-|---|---|
-|ApplicationConsole|Application Console|
-|SystemLogs|System Logs|
+
+## Microsoft.Attestation/attestationProviders
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AuditEvent|AuditEvent message log category.|No|
+|ERR|Error message log category.|No|
+|INF|Informational message log category.|No|
+|WRN|Warning message log category.|No|
 
 
 ## Microsoft.Automation/automationAccounts
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|DscNodeStatus|Dsc Node Status|
-|JobLogs|Job Logs|
-|JobStreams|Job Streams|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DscNodeStatus|Dsc Node Status|No|
+|JobLogs|Job Logs|No|
+|JobStreams|Job Streams|No|
 
 
 ## Microsoft.Batch/batchAccounts
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|ServiceLog|Service Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ServiceLog|Service Logs|No|
 
 
 ## Microsoft.BatchAI/workspaces
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|BaiClusterEvent|BaiClusterEvent|
-|BaiClusterNodeEvent|BaiClusterNodeEvent|
-|BaiJobEvent|BaiJobEvent|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BaiClusterEvent|BaiClusterEvent|No|
+|BaiClusterNodeEvent|BaiClusterNodeEvent|No|
+|BaiJobEvent|BaiJobEvent|No|
 
 
 ## Microsoft.Blockchain/blockchainMembers
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|BlockchainApplication|Blockchain Application|
-|FabricOrderer|Fabric Orderer|
-|FabricPeer|Fabric Peer|
-|Proxy|Proxy|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BlockchainApplication|Blockchain Application|No|
+|FabricOrderer|Fabric Orderer|No|
+|FabricPeer|Fabric Peer|No|
+|Proxy|Proxy|No|
 
 
 ## Microsoft.Blockchain/cordaMembers
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BlockchainApplication|Blockchain Application|No|
 
-|Category |Category Display Name|
-|---|---|
-|BlockchainApplication|Blockchain Application|
+
+## microsoft.botservice/botservices
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BotRequest|Requests from the channels to the bot|No|
+|DependencyRequest|Requests to dependencies|No|
 
 
 ## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|WebApplicationFirewallLogs|Web Appliation Firewall Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|WebApplicationFirewallLogs|Web Appliation Firewall Logs|No|
 
 
 ## Microsoft.Cdn/profiles
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|AzureCdnAccessLog|Azure Cdn Access Log|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AzureCdnAccessLog|Azure Cdn Access Log|No|
+|FrontDoorAccessLog|FrontDoor Access Log|Yes|
+|FrontDoorHealthProbeLog|FrontDoor Health Probe Log|Yes|
+|FrontDoorWebApplicationFirewallLog|FrontDoor WebApplicationFirewall Log|Yes|
 
 
 ## Microsoft.Cdn/profiles/endpoints
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|No|
 
 
 ## Microsoft.ClassicNetwork/networksecuritygroups
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|Network Security Group Rule Flow Event|Network Security Group Rule Flow Event|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Network Security Group Rule Flow Event|Network Security Group Rule Flow Event|No|
 
 
 ## Microsoft.CognitiveServices/accounts
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Audit|Audit Logs|No|
+|RequestResponse|Request and Response Logs|No|
+|Trace|Trace Logs|No|
 
-|Category |Category Display Name|
-|---|---|
-|Audit|Audit Logs|
-|RequestResponse|Request and Response Logs|
-|Trace|Trace Logs|
+
+## Microsoft.Communication/CommunicationServices
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ChatOperational|Operational Chat Logs|No|
+|SMSOperational|Operational SMS Logs|No|
+|Usage|Usage Records|No|
 
 
 ## Microsoft.ContainerRegistry/registries
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|ContainerRegistryLoginEvents|Login Events|
-|ContainerRegistryRepositoryEvents|RepositoryEvent logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ContainerRegistryLoginEvents|Login Events|No|
+|ContainerRegistryRepositoryEvents|RepositoryEvent logs|No|
 
 
 ## Microsoft.ContainerService/managedClusters
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|cluster-autoscaler|Kubernetes Cluster Autoscaler|
-|kube-apiserver|Kubernetes API Server|
-|kube-audit|Kubernetes Audit|
-|kube-controller-manager|Kubernetes Controller Manager|
-|kube-scheduler|Kubernetes Scheduler|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|cluster-autoscaler|Kubernetes Cluster Autoscaler|No|
+|guard|guard|No|
+|kube-apiserver|Kubernetes API Server|No|
+|kube-audit|Kubernetes Audit|No|
+|kube-audit-admin|Kubernetes Audit Admin Logs|No|
+|kube-controller-manager|Kubernetes Controller Manager|No|
+|kube-scheduler|Kubernetes Scheduler|No|
 
 
 ## Microsoft.CustomProviders/resourceproviders
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AuditLogs|Audit logs for MiniRP calls|No|
 
-|Category |Category Display Name|
-|---|---|
-|AuditLogs|Audit logs for MiniRP calls|
+
+## Microsoft.D365CustomerInsights/instances
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Audit|Audit events|No|
+|Operational|Operational events|No|
 
 
 ## Microsoft.Databricks/workspaces
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|accounts|Databricks Accounts|No|
+|clusters|Databricks Clusters|No|
+|dbfs|Databricks File System|No|
+|instancePools|Instance Pools|No|
+|jobs|Databricks Jobs|No|
+|notebook|Databricks Notebook|No|
+|secrets|Databricks Secrets|No|
+|sqlPermissions|Databricks SQLPermissions|No|
+|ssh|Databricks SSH|No|
+|workspace|Databricks Workspace|No|
 
-|Category |Category Display Name|
-|---|---|
-|accounts|Databricks Accounts|
-|clusters|Databricks Clusters|
-|dbfs|Databricks File System|
-|instancePools|Instance Pools|
-|jobs|Databricks Jobs|
-|notebook|Databricks Notebook|
-|secrets|Databricks Secrets|
-|sqlPermissions|Databricks SQLPermissions|
-|ssh|Databricks SSH|
-|workspace|Databricks Workspace|
+
+## Microsoft.DataCollaboration/workspaces
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|CollaborationAudit|Collaboration Audit|Yes|
+|DataAssets|Data Assets|No|
+|Pipelines|Pipelines|No|
+|Proposals|Proposals|No|
+|Scripts|Scripts|No|
 
 
 ## Microsoft.DataFactory/factories
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ActivityRuns|Pipeline activity runs log|No|
+|PipelineRuns|Pipeline runs log|No|
+|SSISIntegrationRuntimeLogs|SSIS integration runtime logs|No|
+|SSISPackageEventMessageContext|SSIS package event message context|No|
+|SSISPackageEventMessages|SSIS package event messages|No|
+|SSISPackageExecutableStatistics|SSIS package executable statistics|No|
+|SSISPackageExecutionComponentPhases|SSIS package execution component phases|No|
+|SSISPackageExecutionDataStatistics|SSIS package exeution data statistics|No|
+|TriggerRuns|Trigger runs log|No|
 
-|Category |Category Display Name|
-|---|---|
-|ActivityRuns|Pipeline activity runs log|
-|PipelineRuns|Pipeline runs log|
-|TriggerRuns|Trigger runs log|
+
+## Microsoft.DataLakeAnalytics/accounts
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Audit|Audit Logs|No|
+|Requests|Request Logs|No|
 
 
 ## Microsoft.DataLakeStore/accounts
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|Audit|Audit Logs|
-|Requests|Request Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Audit|Audit Logs|No|
+|Requests|Request Logs|No|
 
 
 ## Microsoft.DataShare/accounts
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|ReceivedShareSnapshots|Received Share Snapshots|
-|SentShareSnapshots|Sent Share Snapshots|
-|Shares|Shares|
-|ShareSubscriptions|Share Subscriptions|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ReceivedShareSnapshots|Received Share Snapshots|No|
+|SentShareSnapshots|Sent Share Snapshots|No|
+|Shares|Shares|No|
+|ShareSubscriptions|Share Subscriptions|No|
 
 
 ## Microsoft.DBforMariaDB/servers
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|MySqlAuditLogs|MariaDB Audit Logs|
-|MySqlSlowLogs|MariaDB Server Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|MySqlAuditLogs|MariaDB Audit Logs|No|
+|MySqlSlowLogs|MariaDB Server Logs|No|
 
 
 ## Microsoft.DBforMySQL/flexibleServers
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|MySqlAuditLogs|MySQL Audit Logs|
-|MySqlSlowLogs|MySQL Slow Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|MySqlAuditLogs|MySQL Audit Logs|No|
+|MySqlSlowLogs|MySQL Slow Logs|No|
 
 
 ## Microsoft.DBforMySQL/servers
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|MySqlAuditLogs|MySQL Audit Logs|
-|MySqlSlowLogs|MySQL Server Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|MySqlAuditLogs|MySQL Audit Logs|No|
+|MySqlSlowLogs|MySQL Server Logs|No|
 
 
 ## Microsoft.DBforPostgreSQL/flexibleServers
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|PostgreSQLLogs|PostgreSQL Server Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|PostgreSQLLogs|PostgreSQL Server Logs|No|
 
 
 ## Microsoft.DBforPostgreSQL/servers
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|PostgreSQLLogs|PostgreSQL Server Logs|
-|QueryStoreRuntimeStatistics|PostgreSQL Query Store Runtime Statistics|
-|QueryStoreWaitStatistics|PostgreSQL Query Store Wait Statistics|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|PostgreSQLLogs|PostgreSQL Server Logs|No|
+|QueryStoreRuntimeStatistics|PostgreSQL Query Store Runtime Statistics|No|
+|QueryStoreWaitStatistics|PostgreSQL Query Store Wait Statistics|No|
 
 
 ## Microsoft.DBforPostgreSQL/serversv2
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|PostgreSQLLogs|PostgreSQL Server Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|PostgreSQLLogs|PostgreSQL Server Logs|No|
 
 
 ## Microsoft.DesktopVirtualization/applicationgroups
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|Checkpoint|Checkpoint|
-|Error|Error|
-|Management|Management|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Checkpoint|Checkpoint|No|
+|Error|Error|No|
+|Management|Management|No|
 
 
 ## Microsoft.DesktopVirtualization/hostpools
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|Checkpoint|Checkpoint|
-|Connection|Connection|
-|Error|Error|
-|HostRegistration|HostRegistration|
-|Management|Management|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AgentHealthStatus|AgentHealthStatus|No|
+|Checkpoint|Checkpoint|No|
+|Connection|Connection|No|
+|Error|Error|No|
+|HostRegistration|HostRegistration|No|
+|Management|Management|No|
 
 
 ## Microsoft.DesktopVirtualization/workspaces
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Checkpoint|Checkpoint|No|
+|Error|Error|No|
+|Feed|Feed|No|
+|Management|Management|No|
 
-|Category |Category Display Name|
-|---|---|
-|Checkpoint|Checkpoint|
-|Error|Error|
-|Feed|Feed|
-|Management|Management|
+
+## Microsoft.Devices/ElasticPools/IotHubTenants
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|C2DCommands|C2D Commands|No|
+|C2DTwinOperations|C2D Twin Operations|No|
+|Configurations|Configurations|No|
+|Connections|Connections|No|
+|D2CTwinOperations|D2CTwinOperations|No|
+|DeviceIdentityOperations|Device Identity Operations|No|
+|DeviceStreams|Device Streams (Preview)|No|
+|DeviceTelemetry|Device Telemetry|No|
+|DirectMethods|Direct Methods|No|
+|DistributedTracing|Distributed Tracing (Preview)|No|
+|FileUploadOperations|File Upload Operations|No|
+|JobsOperations|Jobs Operations|No|
+|Routes|Routes|No|
+|TwinQueries|Twin Queries|No|
 
 
 ## Microsoft.Devices/IotHubs
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|C2DCommands|C2D Commands|
-|C2DTwinOperations|C2D Twin Operations|
-|Configurations|Configurations|
-|Connections|Connections|
-|D2CTwinOperations|D2CTwinOperations|
-|DeviceIdentityOperations|Device Identity Operations|
-|DeviceStreams|Device Streams (Preview)|
-|DeviceTelemetry|Device Telemetry|
-|DirectMethods|Direct Methods|
-|DistributedTracing|Distributed Tracing (Preview)|
-|FileUploadOperations|File Upload Operations|
-|JobsOperations|Jobs Operations|
-|Routes|Routes|
-|TwinQueries|Twin Queries|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|C2DCommands|C2D Commands|No|
+|C2DTwinOperations|C2D Twin Operations|No|
+|Configurations|Configurations|No|
+|Connections|Connections|No|
+|D2CTwinOperations|D2CTwinOperations|No|
+|DeviceIdentityOperations|Device Identity Operations|No|
+|DeviceStreams|Device Streams (Preview)|No|
+|DeviceTelemetry|Device Telemetry|No|
+|DirectMethods|Direct Methods|No|
+|DistributedTracing|Distributed Tracing (Preview)|No|
+|FileUploadOperations|File Upload Operations|No|
+|JobsOperations|Jobs Operations|No|
+|Routes|Routes|No|
+|TwinQueries|Twin Queries|No|
 
 
 ## Microsoft.Devices/provisioningServices
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DeviceOperations|Device Operations|No|
+|ServiceOperations|Service Operations|No|
 
-|Category |Category Display Name|
-|---|---|
-|DeviceOperations|Device Operations|
-|ServiceOperations|Service Operations|
+
+## Microsoft.DigitalTwins/digitalTwinsInstances
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DigitalTwinsOperation|DigitalTwinsOperation|No|
+|EventRoutesOperation|EventRoutesOperation|No|
+|ModelsOperation|ModelsOperation|No|
+|QueryOperation|QueryOperation|No|
 
 
 ## Microsoft.DocumentDB/databaseAccounts
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|CassandraRequests|CassandraRequests|
-|ControlPlaneRequests|ControlPlaneRequests|
-|DataPlaneRequests|DataPlaneRequests|
-|GremlinRequests|GremlinRequests|
-|MongoRequests|MongoRequests|
-|PartitionKeyRUConsumption|PartitionKeyRUConsumption|
-|PartitionKeyStatistics|PartitionKeyStatistics|
-|QueryRuntimeStatistics|QueryRuntimeStatistics|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|CassandraRequests|CassandraRequests|No|
+|ControlPlaneRequests|ControlPlaneRequests|No|
+|DataPlaneRequests|DataPlaneRequests|No|
+|GremlinRequests|GremlinRequests|No|
+|MongoRequests|MongoRequests|No|
+|PartitionKeyRUConsumption|PartitionKeyRUConsumption|No|
+|PartitionKeyStatistics|PartitionKeyStatistics|No|
+|QueryRuntimeStatistics|QueryRuntimeStatistics|No|
 
 
 ## Microsoft.EventGrid/domains
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DeliveryFailures|Delivery Failure Logs|No|
+|PublishFailures|Publish Failure Logs|No|
 
-|Category |Category Display Name|
-|---|---|
-|DeliveryFailures|Delivery Failure Logs|
-|PublishFailures|Publish Failure Logs|
+
+## Microsoft.EventGrid/partnerNamespaces
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DeliveryFailures|Delivery Failure Logs|No|
+|PublishFailures|Publish Failure Logs|No|
+
+
+## Microsoft.EventGrid/partnerTopics
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DeliveryFailures|Delivery Failure Logs|No|
 
 
 ## Microsoft.EventGrid/systemTopics
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|DeliveryFailures|Delivery Failure Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DeliveryFailures|Delivery Failure Logs|No|
 
 
 ## Microsoft.EventGrid/topics
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|DeliveryFailures|Delivery Failure Logs|
-|PublishFailures|Publish Failure Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DeliveryFailures|Delivery Failure Logs|No|
+|PublishFailures|Publish Failure Logs|No|
 
 
 ## Microsoft.EventHub/namespaces
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ArchiveLogs|Archive Logs|No|
+|AutoScaleLogs|Auto Scale Logs|No|
+|CustomerManagedKeyUserLogs|Customer Managed Key Logs|No|
+|EventHubVNetConnectionEvent|VNet/IP Filtering Connection Logs|No|
+|KafkaCoordinatorLogs|Kafka Coordinator Logs|No|
+|KafkaUserErrorLogs|Kafka User Error Logs|No|
+|OperationalLogs|Operational Logs|No|
 
-|Category |Category Display Name|
-|---|---|
-|ArchiveLogs|Archive Logs|
-|AutoScaleLogs|Auto Scale Logs|
-|CustomerManagedKeyUserLogs|Customer Managed Key Logs|
-|EventHubVNetConnectionEvent|VNet/IP Filtering Connection Logs|
-|KafkaCoordinatorLogs|Kafka Coordinator Logs|
-|KafkaUserErrorLogs|Kafka User Error Logs|
-|OperationalLogs|Operational Logs|
+
+## microsoft.experimentation/experimentWorkspaces
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Request|Request|No|
 
 
 ## Microsoft.HealthcareApis/services
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|AuditLogs|Audit logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AuditLogs|Audit logs|No|
 
 
-## Microsoft.Insights/AutoscaleSettings
+## microsoft.insights/autoscalesettings
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|AutoscaleEvaluations|Autoscale Evaluations|
-|AutoscaleScaleActions|Autoscale Scale Actions|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AutoscaleEvaluations|Autoscale Evaluations|No|
+|AutoscaleScaleActions|Autoscale Scale Actions|No|
 
 
 ## Microsoft.Insights/Components
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AppAvailabilityResults|Availability results|No|
+|AppBrowserTimings|Browser timings|No|
+|AppDependencies|Dependencies|No|
+|AppEvents|Events|No|
+|AppExceptions|Exceptions|No|
+|AppMetrics|Metrics|No|
+|AppPageViews|Page views|No|
+|AppPerformanceCounters|Performance counters|No|
+|AppRequests|Requests|No|
+|AppSystemEvents|System events|No|
+|AppTraces|Traces|No|
 
-|Category |Category Display Name|
-|---|---|
-|AppAvailabilityResults|Availability results|
-|AppBrowserTimings|Browser timings|
-|AppDependencies|Dependencies|
-|AppEvents|Events|
-|AppExceptions|Exceptions|
-|AppMetrics|Metrics|
-|AppPageViews|Page views|
-|AppPerformanceCounters|Performance counters|
-|AppRequests|Requests|
-|AppSystemEvents|System events|
-|AppTraces|Traces|
+
+## Microsoft.IoTSpaces/Graph
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Audit|Audit|No|
+|Egress|Egress|No|
+|Ingress|Ingress|No|
+|Operational|Operational|No|
+|Trace|Trace|No|
+|UserDefinedFunction|UserDefinedFunction|No|
+
+
+## microsoft.keyvault/managedhsms
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AuditEvent|Audit Event|No|
 
 
 ## Microsoft.KeyVault/vaults
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|AuditEvent|Audit Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AuditEvent|Audit Logs|No|
 
 
 ## Microsoft.Kusto/Clusters
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|Command|Command|
-|FailedIngestion|Failed ingest operations|
-|IngestionBatching|Ingestion batching|
-|Query|Query|
-|SucceededIngestion|Successful ingest operations|
-|TableDetails|Table details|
-|TableUsageStatistics|Table usage statistics|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Command|Command|No|
+|FailedIngestion|Failed ingest operations|No|
+|IngestionBatching|Ingestion batching|No|
+|Query|Query|No|
+|SucceededIngestion|Successful ingest operations|No|
+|TableDetails|Table details|No|
+|TableUsageStatistics|Table usage statistics|No|
 
 
 ## Microsoft.Logic/integrationAccounts
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|IntegrationAccountTrackingEvents|Integration Account track events|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|IntegrationAccountTrackingEvents|Integration Account track events|No|
 
 
 ## Microsoft.Logic/workflows
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|WorkflowRuntime|Workflow runtime diagnostic events|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|WorkflowRuntime|Workflow runtime diagnostic events|No|
 
 
 ## Microsoft.MachineLearningServices/workspaces
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|AmlComputeClusterEvent|AmlComputeClusterEvent|
-|AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|
-|AmlComputeCpuGpuUtilization|AmlComputeCpuGpuUtilization|
-|AmlComputeJobEvent|AmlComputeJobEvent|
-|AmlRunStatusChangedEvent|AmlRunStatusChangedEvent|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AmlComputeClusterEvent|AmlComputeClusterEvent|No|
+|AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|No|
+|AmlComputeCpuGpuUtilization|AmlComputeCpuGpuUtilization|No|
+|AmlComputeJobEvent|AmlComputeJobEvent|No|
+|AmlRunStatusChangedEvent|AmlRunStatusChangedEvent|No|
 
 
 ## Microsoft.Media/mediaservices
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|KeyDeliveryRequests|Key Delivery Requests|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|KeyDeliveryRequests|Key Delivery Requests|No|
 
 
 ## Microsoft.Network/applicationGateways
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|ApplicationGatewayAccessLog|Application Gateway Access Log|
-|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
-|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ApplicationGatewayAccessLog|Application Gateway Access Log|No|
+|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|No|
+|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|No|
 
 
 ## Microsoft.Network/azurefirewalls
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|AzureFirewallApplicationRule|Azure Firewall Application Rule|
-|AzureFirewallNetworkRule|Azure Firewall Network Rule|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AzureFirewallApplicationRule|Azure Firewall Application Rule|No|
+|AzureFirewallDnsProxy|Azure Firewall DNS Proxy|No|
+|AzureFirewallNetworkRule|Azure Firewall Network Rule|No|
 
 
 ## Microsoft.Network/bastionHosts
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|BastionAuditLogs|Bastion Audit Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BastionAuditLogs|Bastion Audit Logs|No|
 
 
 ## Microsoft.Network/expressRouteCircuits
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|PeeringRouteLog|Peering Route Table Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|PeeringRouteLog|Peering Route Table Logs|No|
 
 
 ## Microsoft.Network/frontdoors
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|FrontdoorAccessLog|Frontdoor Access Log|
-|FrontdoorWebApplicationFirewallLog|Frontdoor Web Application Firewall Log|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|FrontdoorAccessLog|Frontdoor Access Log|No|
+|FrontdoorWebApplicationFirewallLog|Frontdoor Web Application Firewall Log|No|
 
 
 ## Microsoft.Network/loadBalancers
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|LoadBalancerAlertEvent|Load Balancer Alert Events|
-|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|LoadBalancerAlertEvent|Load Balancer Alert Events|No|
+|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|No|
 
 
 ## Microsoft.Network/networksecuritygroups
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|NetworkSecurityGroupEvent|Network Security Group Event|No|
+|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|No|
+|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|No|
 
-|Category |Category Display Name|
-|---|---|
-|NetworkSecurityGroupEvent|Network Security Group Event|
-|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
-|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|
+
+## Microsoft.Network/p2sVpnGateways
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|GatewayDiagnosticLog|Gateway Diagnostic Logs|No|
+|IKEDiagnosticLog|IKE Diagnostic Logs|No|
+|P2SDiagnosticLog|P2S Diagnostic Logs|No|
 
 
 ## Microsoft.Network/publicIPAddresses
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|DDoSMitigationFlowLogs|Flow logs of DDoS mitigation decisions|
-|DDoSMitigationReports|Reports of DDoS mitigations|
-|DDoSProtectionNotifications|DDoS protection notifications|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DDoSMitigationFlowLogs|Flow logs of DDoS mitigation decisions|No|
+|DDoSMitigationReports|Reports of DDoS mitigations|No|
+|DDoSProtectionNotifications|DDoS protection notifications|No|
 
 
 ## Microsoft.Network/trafficManagerProfiles
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|ProbeHealthStatusEvents|Traffic Manager Probe Health Results Event|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ProbeHealthStatusEvents|Traffic Manager Probe Health Results Event|No|
 
 
 ## Microsoft.Network/virtualNetworkGateways
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|GatewayDiagnosticLog|Gateway Diagnostic Logs|
-|IKEDiagnosticLog|IKE Diagnostic Logs|
-|P2SDiagnosticLog|P2S Diagnostic Logs|
-|RouteDiagnosticLog|Route Diagnostic Logs|
-|TunnelDiagnosticLog|Tunnel Diagnostic Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|GatewayDiagnosticLog|Gateway Diagnostic Logs|No|
+|IKEDiagnosticLog|IKE Diagnostic Logs|No|
+|P2SDiagnosticLog|P2S Diagnostic Logs|No|
+|RouteDiagnosticLog|Route Diagnostic Logs|No|
+|TunnelDiagnosticLog|Tunnel Diagnostic Logs|No|
 
 
 ## Microsoft.Network/virtualNetworks
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|VMProtectionAlerts|VM protection alerts|No|
 
-|Category |Category Display Name|
-|---|---|
-|VMProtectionAlerts|VM protection alerts|
+
+## Microsoft.Network/vpnGateways
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|GatewayDiagnosticLog|Gateway Diagnostic Logs|No|
+|IKEDiagnosticLog|IKE Diagnostic Logs|No|
+|RouteDiagnosticLog|Route Diagnostic Logs|No|
+|TunnelDiagnosticLog|Tunnel Diagnostic Logs|No|
+
+
+## Microsoft.NotificationHubs/namespaces
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|OperationalLogs|Operational Logs|No|
+
+
+## Microsoft.OperationalInsights/workspaces
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Audit|Audit Logs|No|
+
+
+## Microsoft.PowerBI/tenants
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Engine|Engine|No|
+
+
+## Microsoft.PowerBI/tenants/workspaces
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Engine|Engine|No|
 
 
 ## Microsoft.PowerBIDedicated/capacities
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Engine|Engine|No|
 
-|Category |Category Display Name|
-|---|---|
-|Engine|Engine|
+
+## Microsoft.ProjectBabylon/accounts
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ScanStatusLogEvent|ScanStatus|No|
+
+
+## microsoft.purview/accounts
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|ScanStatusLogEvent|ScanStatus|No|
 
 
 ## Microsoft.RecoveryServices/Vaults
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|AddonAzureBackupAlerts|Addon Azure Backup Alert Data|
-|AddonAzureBackupJobs|Addon Azure Backup Job Data|
-|AddonAzureBackupPolicy|Addon Azure Backup Policy Data|
-|AddonAzureBackupProtectedInstance|Addon Azure Backup Protected Instance Data|
-|AddonAzureBackupStorage|Addon Azure Backup Storage Data|
-|AzureBackupReport|Azure Backup Reporting Data|
-|AzureSiteRecoveryEvents|Azure Site Recovery Events|
-|AzureSiteRecoveryJobs|Azure Site Recovery Jobs|
-|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery Protected Disk Data Churn|
-|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery Recovery Points|
-|AzureSiteRecoveryReplicatedItems|Azure Site Recovery Replicated Items|
-|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery Replication Data Upload Rate|
-|AzureSiteRecoveryReplicationStats|Azure Site Recovery Replication Stats|
-|CoreAzureBackup|Core Azure Backup Data|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AddonAzureBackupAlerts|Addon Azure Backup Alert Data|No|
+|AddonAzureBackupJobs|Addon Azure Backup Job Data|No|
+|AddonAzureBackupPolicy|Addon Azure Backup Policy Data|No|
+|AddonAzureBackupProtectedInstance|Addon Azure Backup Protected Instance Data|No|
+|AddonAzureBackupStorage|Addon Azure Backup Storage Data|No|
+|AzureBackupReport|Azure Backup Reporting Data|No|
+|AzureSiteRecoveryEvents|Azure Site Recovery Events|No|
+|AzureSiteRecoveryJobs|Azure Site Recovery Jobs|No|
+|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery Protected Disk Data Churn|No|
+|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery Recovery Points|No|
+|AzureSiteRecoveryReplicatedItems|Azure Site Recovery Replicated Items|No|
+|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery Replication Data Upload Rate|No|
+|AzureSiteRecoveryReplicationStats|Azure Site Recovery Replication Stats|No|
+|CoreAzureBackup|Core Azure Backup Data|No|
 
 
 ## Microsoft.Relay/namespaces
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|HybridConnectionsEvent|HybridConnections Events|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|HybridConnectionsEvent|HybridConnections Events|No|
+|HybridConnectionsLogs|HybridConnectionsLogs|No|
 
 
 ## Microsoft.Search/searchServices
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|OperationLogs|Operation Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|OperationLogs|Operation Logs|No|
 
 
 ## Microsoft.ServiceBus/namespaces
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|OperationalLogs|Operational Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|OperationalLogs|Operational Logs|No|
 
 
 ## Microsoft.SignalRService/SignalR
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|AllLogs|Azure SignalR Service Logs.|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AllLogs|Azure SignalR Service Logs.|No|
 
 
 ## Microsoft.Sql/managedInstances
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|DevOpsOperationsAudit|Devops operations Audit Logs|
-|ResourceUsageStats|Resource Usage Statistics|
-|SQLSecurityAuditEvents|SQL Security Audit Event|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DevOpsOperationsAudit|Devops operations Audit Logs|No|
+|ResourceUsageStats|Resource Usage Statistics|No|
+|SQLSecurityAuditEvents|SQL Security Audit Event|No|
 
 
 ## Microsoft.Sql/managedInstances/databases
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|Errors|Errors|
-|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|
-|QueryStoreWaitStatistics|Query Store Wait Statistics|
-|SQLInsights|SQL Insights|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Errors|Errors|No|
+|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
+|QueryStoreWaitStatistics|Query Store Wait Statistics|No|
+|SQLInsights|SQL Insights|No|
 
 
 ## Microsoft.Sql/servers/databases
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|AutomaticTuning|Automatic tuning|
-|Blocks|Blocks|
-|DatabaseWaitStatistics|Database Wait Statistics|
-|Deadlocks|Deadlocks|
-|DevOpsOperationsAudit|Devops operations Audit Logs|
-|DmsWorkers|Dms Workers|
-|Errors|Errors|
-|ExecRequests|Exec Requests|
-|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|
-|QueryStoreWaitStatistics|Query Store Wait Statistics|
-|RequestSteps|Request Steps|
-|SQLInsights|SQL Insights|
-|SqlRequests|Sql Requests|
-|SQLSecurityAuditEvents|SQL Security Audit Event|
-|Timeouts|Timeouts|
-|Waits|Waits|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AutomaticTuning|Automatic tuning|No|
+|Blocks|Blocks|No|
+|DatabaseWaitStatistics|Database Wait Statistics|No|
+|Deadlocks|Deadlocks|No|
+|DevOpsOperationsAudit|Devops operations Audit Logs|No|
+|DmsWorkers|Dms Workers|No|
+|Errors|Errors|No|
+|ExecRequests|Exec Requests|No|
+|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
+|QueryStoreWaitStatistics|Query Store Wait Statistics|No|
+|RequestSteps|Request Steps|No|
+|SQLInsights|SQL Insights|No|
+|SqlRequests|Sql Requests|No|
+|SQLSecurityAuditEvents|SQL Security Audit Event|No|
+|Timeouts|Timeouts|No|
+|Waits|Waits|No|
 
 
 ## Microsoft.Storage/storageAccounts/blobServices
 
-Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
-
-|Category |Category Display Name|
-|---|---|
-|StorageDelete|StorageDelete|
-|StorageRead|StorageRead|
-|StorageWrite|StorageWrite|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|StorageDelete|StorageDelete|Yes|
+|StorageRead|StorageRead|Yes|
+|StorageWrite|StorageWrite|Yes|
 
 
 ## Microsoft.Storage/storageAccounts/fileServices
 
-Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
-
-|Category |Category Display Name|
-|---|---|
-|StorageDelete|StorageDelete|
-|StorageRead|StorageRead|
-|StorageWrite|StorageWrite|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|StorageDelete|StorageDelete|Yes|
+|StorageRead|StorageRead|Yes|
+|StorageWrite|StorageWrite|Yes|
 
 
 ## Microsoft.Storage/storageAccounts/queueServices
 
-Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
- 
-|Category |Category Display Name|
-|---|---|
-|StorageDelete|StorageDelete|
-|StorageRead|StorageRead|
-|StorageWrite|StorageWrite|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|StorageDelete|StorageDelete|Yes|
+|StorageRead|StorageRead|Yes|
+|StorageWrite|StorageWrite|Yes|
 
 
 ## Microsoft.Storage/storageAccounts/tableServices
 
-Cost: Paid as outlined in Platform Logs section of [Azure Monitor Pricing page.](https://azure.microsoft.com/pricing/details/monitor/) 
- 
-|Category |Category Display Name|
-|---|---|
-|StorageDelete|StorageDelete|
-|StorageRead|StorageRead|
-|StorageWrite|StorageWrite|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|StorageDelete|StorageDelete|Yes|
+|StorageRead|StorageRead|Yes|
+|StorageWrite|StorageWrite|Yes|
 
 
 ## Microsoft.StreamAnalytics/streamingjobs
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|Authoring|Authoring|
-|Execution|Execution|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Authoring|Authoring|No|
+|Execution|Execution|No|
 
 
 ## Microsoft.Synapse/workspaces
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|BuiltinSqlReqsEnded|Built-in Sql Pool Requests Ended|
-|GatewayApiRequests|Synapse Gateway Api Requests|
-|SQLSecurityAuditEvents|SQL Security Audit Event|
-|SynapseRbacOperations|Synapse RBAC Operations|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BuiltinSqlReqsEnded|Built-in Sql Pool Requests Ended|No|
+|GatewayApiRequests|Synapse Gateway Api Requests|No|
+|SQLSecurityAuditEvents|SQL Security Audit Event|No|
+|SynapseRbacOperations|Synapse RBAC Operations|No|
 
 
 ## Microsoft.Synapse/workspaces/bigDataPools
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|BigDataPoolAppsEnded|Big Data Pool Applications Ended|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BigDataPoolAppsEnded|Big Data Pool Applications Ended|No|
 
 
 ## Microsoft.Synapse/workspaces/sqlPools
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|DmsWorkers|Dms Workers|No|
+|ExecRequests|Exec Requests|No|
+|RequestSteps|Request Steps|No|
+|SqlRequests|Sql Requests|No|
+|SQLSecurityAuditEvents|Sql Security Audit Event|No|
+|Waits|Waits|No|
 
-|Category |Category Display Name|
-|---|---|
-|DmsWorkers|Dms Workers|
-|ExecRequests|Exec Requests|
-|RequestSteps|Request Steps|
-|SqlRequests|Sql Requests|
-|SQLSecurityAuditEvents|Sql Security Audit Event|
-|Waits|Waits|
+
+## Microsoft.TimeSeriesInsights/environments
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Ingress|Ingress|No|
+|Management|Management|No|
+
+
+## Microsoft.TimeSeriesInsights/environments/eventsources
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Ingress|Ingress|No|
+|Management|Management|No|
 
 
 ## microsoft.web/hostingenvironments
 
-Cost: Free 
-
-|Category |Category Display Name|
-|---|---|
-|AppServiceEnvironmentPlatformLogs|App Service Environment Platform Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AppServiceEnvironmentPlatformLogs|App Service Environment Platform Logs|No|
 
 
 ## microsoft.web/sites
 
-Cost: Free 
-
-
-|Category |Category Display Name|
-|---|---|
-|AppServiceAppLogs|App Service Application Logs|
-|AppServiceAuditLogs|Access Audit Logs|
-|AppServiceConsoleLogs|App Service Console Logs|
-|AppServiceFileAuditLogs|Site Content Change Audit Logs|
-|AppServiceHTTPLogs|HTTP logs|
-|FunctionAppLogs|Function Application Logs|
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AppServiceAntivirusScanAuditLogs|Report Antivirus Audit Logs|No|
+|AppServiceAppLogs|App Service Application Logs|No|
+|AppServiceAuditLogs|Access Audit Logs|No|
+|AppServiceConsoleLogs|App Service Console Logs|No|
+|AppServiceFileAuditLogs|Site Content Change Audit Logs|No|
+|AppServiceHTTPLogs|HTTP logs|No|
+|AppServiceIPSecAuditLogs|IPSecurity Audit logs|No|
+|AppServicePlatformLogs|App Service Platform logs|No|
+|FunctionAppLogs|Function Application Logs|No|
 
 
 ## microsoft.web/sites/slots
 
-Cost: Free 
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AppServiceAntivirusScanAuditLogs|Report Antivirus Audit Logs|No|
+|AppServiceAppLogs|App Service Application Logs|No|
+|AppServiceAuditLogs|Access Audit Logs|No|
+|AppServiceConsoleLogs|App Service Console Logs|No|
+|AppServiceFileAuditLogs|Site Content Change Audit Logs|No|
+|AppServiceHTTPLogs|HTTP logs|No|
+|AppServiceIPSecAuditLogs|IPSecurity Audit Logs|No|
+|AppServicePlatformLogs|App Service Platform logs|No|
+|FunctionAppLogs|Function Application Logs|No|
 
-
-|Category |Category Display Name|
-|---|---|
-|AppServiceAppLogs|App Service Application Logs|
-|AppServiceAuditLogs|Access Audit Logs|
-|AppServiceConsoleLogs|App Service Console Logs|
-|AppServiceFileAuditLogs|Site Content Change Audit Logs|
-|AppServiceHTTPLogs|HTTP logs|
-|FunctionAppLogs|Function Application Logs|
 
 
 ## Next Steps

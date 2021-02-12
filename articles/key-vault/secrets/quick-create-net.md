@@ -103,7 +103,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS or Linux
@@ -202,7 +202,7 @@ Modify the .NET Core console app to interact with the Key Vault by completing th
     
                 Console.WriteLine($"Retrieving your secret from {keyVaultName}.");
                 var secret = await client.GetSecretAsync(secretName);
-                Console.WriteLine($"Your secret is '{secret.Value}'.");
+                Console.WriteLine($"Your secret is '{secret.Value.Value}'.");
     
                 Console.Write($"Deleting your secret from {keyVaultName} ...");
                 DeleteSecretOperation operation = await client.StartDeleteSecretAsync(secretName);
@@ -248,4 +248,4 @@ To learn more about Key Vault and how to integrate it with your apps, see the fo
 - See an [Access Key Vault from App Service Application Tutorial](../general/tutorial-net-create-vault-azure-web-app.md)
 - See an [Access Key Vault from Virtual Machine Tutorial](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- Review the [Key Vault security overview](../general/security-overview.md)

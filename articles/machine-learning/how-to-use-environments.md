@@ -130,6 +130,8 @@ myenv.docker.base_image_registry="your_registry_location"
 
 You can also specify a custom Dockerfile. It's simplest to start from one of Azure Machine Learning base images using Docker ```FROM``` command, and then add your own custom steps. Use this approach if you need to install non-Python packages as dependencies. Remember to set the base image to None.
 
+Please note that Python is an implicit dependency in Azure Machine Learning so a custom dockerfile must have Python installed.
+
 ```python
 # Specify docker steps as a string. 
 dockerfile = r"""
@@ -394,7 +396,7 @@ service = Model.deploy(
 
 ## Notebooks
 
-This [article](./how-to-run-jupyter-notebooks.md#add-new-kernels) provides information about how to install a Conda environment as a kernel in a notebook.
+This [article](./how-to-access-terminal.md#add-new-kernels) provides information about how to install a Conda environment as a kernel in a notebook.
 
 [Deploy a model using a custom Docker base image](how-to-deploy-custom-docker-image.md) demonstrates how to deploy a model using a custom Docker base image.
 

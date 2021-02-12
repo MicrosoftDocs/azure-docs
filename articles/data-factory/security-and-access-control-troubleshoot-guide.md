@@ -1,13 +1,11 @@
 ---
 title: Troubleshoot security and access control issues
 description: Learn how to troubleshoot security and access control issues in Azure Data Factory. 
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 02/04/2021
 ms.author: lle
-ms.reviewer: craigg
 ---
 
 # Troubleshoot Azure Data Factory security and access control issues
@@ -44,13 +42,13 @@ The problem is usually caused by one of the following factors:
 
 * If you're using a **self-hosted IR**, check your proxy, firewall, and network settings, because connecting to the same datastore could succeed if you're using an Azure IR. To troubleshoot this scenario, see:
 
-   * [Self-hosted IR ports and firewalls](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#ports-and-firewalls)
-   * [Azure Data Lake Storage connector](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store)
+   * [Self-hosted IR ports and firewalls](./create-self-hosted-integration-runtime.md#ports-and-firewalls)
+   * [Azure Data Lake Storage connector](./connector-azure-data-lake-store.md)
   
 * If you're using an **Azure IR**, try to disable the firewall setting of the datastore. This approach can resolve the issues in the following two situations:
   
-   * [Azure IR IP addresses](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) are not in the allow list.
-   * The *Allow trusted Microsoft services to access this storage account* feature is turned off for [Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#supported-capabilities) and [Azure Data Lake Storage Gen 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#supported-capabilities).
+   * [Azure IR IP addresses](./azure-integration-runtime-ip-addresses.md) are not in the allow list.
+   * The *Allow trusted Microsoft services to access this storage account* feature is turned off for [Azure Blob Storage](./connector-azure-blob-storage.md#supported-capabilities) and [Azure Data Lake Storage Gen 2](./connector-azure-data-lake-storage.md#supported-capabilities).
    * The *Allow access to Azure services* setting isn't enabled for Azure Data Lake Storage Gen1.
 
 If none of the preceding methods works, contact Microsoft for help.
@@ -83,9 +81,10 @@ To verify whether the Data Factory fully qualified domain name (FQDN) is resolve
 #### Resolution
 
 To resolve the issue, do the following:
-- Refer to the [Azure Private Link for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints) article. The instruction is for configuring the private DNS zone or server to resolve the Data Factory FQDN to a private IP address.
 
-- We recommend using a custom DNS as the long-term solution. However, if you don't want to configure the private DNS zone or server, try the following temporary solution:
+- As option, we would like to suggest you to manually add a "Virtual Network link" under the Data Factory "Private link DNS Zone". For details, refer to the [Azure Private Link for Azure Data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints) article. The instruction is for configuring the private DNS zone or custom DNS server to resolve the Data Factory FQDN to a private IP address. 
+
+- However, if you don't want to configure the private DNS zone or custom DNS server, try the following temporary solution:
 
   1. Change the host file in Windows, and map the private IP (the Azure Data Factory private endpoint) to the Azure Data Factory FQDN.
   
@@ -115,7 +114,7 @@ The issue could be caused by the VM in which you're trying to install the self-h
  
 To resolve the issue, do the following:
 
-1. Go to the [Factories - Update](https://docs.microsoft.com/rest/api/datafactory/Factories/Update) page.
+1. Go to the [Factories - Update](/rest/api/datafactory/Factories/Update) page.
 
 1. At the upper right, select the **Try it** button.
 1. Under **Parameters**, complete the required information. 
@@ -141,21 +140,11 @@ To resolve the issue, do the following:
 
 **Solution 2**
 
-To resolve the issue, go to [Azure Private Link for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link).
+To resolve the issue, go to [Azure Private Link for Azure Data Factory](./data-factory-private-link.md).
 
 Try to enable public network access on the user interface, as shown in the following screenshot:
 
 ![Screenshot of the "Enabled" control for "Allow public network access" on the Networking pane.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
-
-### Pipeline runtime varies when basing on different IR
-
-#### Symptoms
-
-Simply toggling the Linked Service dropdown in the dataset performs the same pipeline activities, but has drastically different run-times. When the dataset is based on the Managed Virtual Network Integration Runtime, it takes more than 2 minutes on average to complete the run, but it takes approximately 20 seconds to complete when based on the Default Integration Runtime.
-
-#### Cause
-
-Checking the details of pipeline runs, you can see that the slow pipeline is running on Managed VNet (Virtual Network) IR while the normal one is running on Azure IR. By design, Managed VNet IR takes longer queue time than Azure IR as we are not reserving one compute node per data factory, so there is a warm up around 2 minutes for each copy activity to start, and it occurs primarily on VNet join rather than Azure IR.
 
 ## Next steps
 

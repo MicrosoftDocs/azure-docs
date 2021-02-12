@@ -26,7 +26,7 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 
 ## Create a new notebook
 
-The Azure Machine Learning and MLFlow SDK are preinstalled on the Data Science VM and can be accessed in the **azureml_py36_\*** conda environment. In Jupyterlab, click on the launcher and select the following kernel:
+The Azure Machine Learning and MLFlow SDK are preinstalled on the Data Science VM and can be accessed in the **azureml_py36_\*** conda environment. In JupyterLab, click on the launcher and select the following kernel:
 
 ![kernel selection](./media/how-to-track-experiments/experiment-tracking-1.png)
 

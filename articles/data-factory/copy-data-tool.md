@@ -1,18 +1,12 @@
 ---
 title: Copy Data tool Azure Data Factory 
 description: 'Provides information about the Copy Data tool in Azure Data Factory UI'
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: anandsub
-ms.reviewer: douglasl
 
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: yexu
-
 ---
 # Copy Data tool in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

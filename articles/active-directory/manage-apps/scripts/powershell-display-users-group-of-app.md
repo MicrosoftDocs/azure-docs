@@ -3,7 +3,7 @@ title: PowerShell sample - List users & groups for Application Proxy app
 description: PowerShell example that lists all the users and groups assigned to a specific Azure Active Directory (Azure AD) Application Proxy application.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

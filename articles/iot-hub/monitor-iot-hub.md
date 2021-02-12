@@ -5,7 +5,9 @@ author: robinsh
 ms.author: robinsh
 ms.topic: conceptual 
 ms.service: iot-hub
+ms.custom: subject-monitoring
 ms.date: 11/06/2020
+
 ---
 
 # Monitoring Azure IoT Hub
@@ -82,7 +84,7 @@ For a list of the platform metrics collected for Azure IoT Hub, see [Metrics in 
 
 For IoT Hub platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#supported-aggregations).
 
-Some IoT Hub metrics, like [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are multi-dimensional. For these metrics, you can apply [filters](../azure-monitor/platform/metrics-charts.md#apply-filters-to-charts) and [splitting](../azure-monitor/platform/metrics-charts.md#apply-splitting-to-a-chart) to your charts based on a dimension.
+Some IoT Hub metrics, like [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are multi-dimensional. For these metrics, you can apply [filters](../azure-monitor/platform/metrics-charts.md#filters) and [splitting](../azure-monitor/platform/metrics-charts.md#apply-splitting) to your charts based on a dimension.
 
 ## Analyzing logs
 

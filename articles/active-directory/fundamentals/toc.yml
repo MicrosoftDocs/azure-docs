@@ -25,7 +25,9 @@
   items:
   - name: Security
     items:
-    - name: Secure external access to resources
+    - name: Protect Microsoft 365 from on-premises attacks 
+      href: protect-m365-from-on-premises-attacks.md    
+    - name: Secure external collaboration
       items:
       - name: Secure external access overview 
         href: secure-external-access-resources.md 
@@ -47,6 +49,20 @@
         href: 8-secure-access-sensitivity-labels.md
       - name: 9 Secure access to Teams, SharePoint, and OneDrive
         href: 9-secure-access-teams-sharepoint.md
+    - name: Secure Service Accounts
+      items:
+      - name: Introduction to on-premises service accounts
+        href: service-accounts-on-premises.md
+      - name: Securing group MSAs
+        href: service-accounts-group-managed.md
+      - name: Securing standalone MSAs
+        href: service-accounts-standalone-managed.md
+      - name: Securing computer accounts
+        href: service-accounts-computer.md
+      - name: Securing user-based service accounts
+        href: service-accounts-user-on-premises.md
+      - name: Govern on-premises service accounts
+        href: service-accounts-govern-on-premises.md
     - name: Enable MFA
       href: concept-fundamentals-mfa-get-started.md
     - name: Security defaults
@@ -141,6 +157,8 @@
           href: resilience-client-app.md
         - name: Daemon applications
           href: resilience-daemon-app.md
+      - name: Monitor application health for resilience
+        href: monitor-sign-in-health-for-resilience.md
     - name: Certificate authorities used in Azure
       href: certificate-authorities.md
   - name: Deployment guide

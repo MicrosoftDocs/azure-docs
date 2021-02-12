@@ -34,6 +34,9 @@ A core file can't be created in the file system. The operating system is unable 
 
 ### Process overview
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 1. [Create and access a repair VM](#create-and-access-a-repair-vm).
 2. [Free up space on the hard disk](#free-up-space-on-the-hard-disk).
 3. [Recommended: Before rebuilding the VM, enable serial console and memory dump collection](#recommended-before-rebuilding-the-vm-enable-serial-console-and-memory-dump-collection).
@@ -51,7 +54,7 @@ A core file can't be created in the file system. The operating system is unable 
 
 If the disk isn't already 1 Tb, you must resize it. Once the disk is 1 TB, perform a disk cleanup and a defragmentation of the drive.
 
-1. Check if the disk is full. If the disk is below 1 Tb, [expand it to a maximum of 1 Tb using PowerShell](../windows/expand-os-disk.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
+1. Check if the disk is full. If the disk is below 1 Tb, [expand it to a maximum of 1 Tb using PowerShell](../windows/expand-os-disk.md).
 2. Once the disk is 1 Tb, perform a disk cleanup.
     - [Detach the data disk from the broken VM](../windows/detach-disk.md).
     - [Attach the data disk to a functioning VM](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).

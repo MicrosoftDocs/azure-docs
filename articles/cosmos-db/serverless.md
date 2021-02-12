@@ -5,14 +5,11 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/23/2020
+ms.date: 01/08/2021
 ---
 
 # Azure Cosmos DB serverless (Preview)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
-
-> [!IMPORTANT]
-> Azure Cosmos DB serverless is currently in preview. This preview version is provided without a Service Level Agreement and is not recommended for production workloads. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Cosmos DB serverless lets you use your Azure Cosmos account in a consumption-based fashion where you are only charged for the Request Units consumed by your database operations and the storage consumed by your data. Serverless containers can serve thousands of requests per second with no minimum charge and no capacity planning required.
 
@@ -26,16 +23,13 @@ When using Azure Cosmos DB, every database operation has a cost expressed in [Re
 
 ## Use-cases
 
-Azure Cosmos DB serverless best fits scenarios where you expect:
-
-- **Low, intermittent and unpredictable traffic**: Because provisioning capacity in such situations isn't required and may be cost-prohibitive
-- **Moderate performance**: Because serverless containers have [specific performance characteristics](#performance)
-
-For these reasons, Azure Cosmos DB serverless should be considered in the following situations:
+Azure Cosmos DB serverless best fits scenarios where you expect **intermittent and unpredictable traffic** with long idle times. Because provisioning capacity in such situations isn't required and may be cost-prohibitive, Azure Cosmos DB serverless should be considered in the following use-cases:
 
 - Getting started with Azure Cosmos DB
-- Development, testing and prototyping of new applications
-- Running small-to-medium applications with intermittent traffic that is hard to forecast
+- Running applications with
+    - bursty, intermittent traffic that is hard to forecast, or
+    - low (<10%) average-to-peak traffic ratio
+- Developing, testing, prototyping and running in production new applications where the traffic pattern is unknown
 - Integrating with serverless compute services like [Azure Functions](../azure-functions/functions-overview.md)
 
 See the [how to choose between provisioned throughput and serverless](throughput-serverless.md) article for more guidance on how to choose the offer that best fits your use-case.
@@ -69,14 +63,7 @@ You can find the same chart when using Azure Monitor, as described [here](monito
 
 ## <a id="performance"></a>Performance
 
-Serverless resources yield specific performance characteristics that are different from what provisioned throughput resources deliver:
-
-- **Availability**: After the serverless offer becomes generally available, the availability of serverless containers will be covered by a Service Level Agreement (SLA) of 99.9% when Availability Zones (zone redundancy) aren't used. The SLA is 99.99% when Availability Zones are used.
-- **Latency**: After the serverless offer becomes generally available, the latency of serverless containers will be covered by a Service Level Objective (SLO) of 10 milliseconds or less for point-reads and 30 milliseconds or less for writes. A point-read operation consists in fetching a single item by its ID and partition key value.
-- **Burstability**: After the serverless offer becomes generally available, the burstability of serverless containers will be covered by a Service Level Objective (SLO) of 95%. This means the maximum burstability can be attained at least 95% of the time.
-
-> [!NOTE]
-> As any Azure preview, Azure Cosmos DB serverless is excluded from Service Level Agreements (SLA). The performance characteristics mentioned above are provided as a preview of what this offer will deliver when generally available.
+Serverless resources yield specific performance characteristics that are different from what provisioned throughput resources deliver. After the serverless offer becomes generally available, the latency of serverless containers will be covered by a Service Level Objective (SLO) of 10 milliseconds or less for point-reads and 30 milliseconds or less for writes. A point-read operation consists in fetching a single item by its ID and partition key value.
 
 ## Next steps
 

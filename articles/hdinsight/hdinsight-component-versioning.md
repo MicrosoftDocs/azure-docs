@@ -1,9 +1,6 @@
 ---
 title: Apache Hadoop components and versions - Azure HDInsight 
 description: Learn about the Apache Hadoop components and versions in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
@@ -132,3 +129,5 @@ For more information on which virtual machine SKUs to select for your cluster, s
 - [Enterprise Security Package](./enterprise-security-package.md)
 - [Hortonworks release notes associated with Azure HDInsight versions](./hortonworks-release-notes.md)
 - [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)
+
+

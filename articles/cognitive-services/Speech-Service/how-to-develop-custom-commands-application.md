@@ -174,7 +174,7 @@ Start by editing the existing `TurnOn` command to turn on and turn off multiple 
    1. Select **Update**.
 
        > [!div class="mx-imgBorder"]
-       > ![Screenshot showing where to create a required parameter response.](media/custom-commands/add-required-on-off-parameter-response.png)
+       > ![Screenshot that shows the 'Add response for a required parameter' section with the 'Simple editor' tab selected.](media/custom-commands/add-required-on-off-parameter-response.png)
    
    1. Configure the parameter's properties by using the following table. For information about all of the configuration properties of a command, see [Custom Commands concepts and definitions](./custom-commands-references.md).
       

@@ -57,4 +57,4 @@ Metrics may differ from the numbers shown on your Azure IoT Central invoice. Thi
 
 ## Next steps
 
-Now that you've learned how to use application templates, the suggested next step is to learn how to [Manage IoT Central from the Azure portal](howto-manage-iot-central-from-portal.md)
+Now that you've learned how to use application templates, the suggested next step is to learn how to [Manage IoT Central from the Azure portal](howto-manage-iot-central-from-portal.md).

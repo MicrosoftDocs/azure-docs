@@ -79,7 +79,7 @@ When none of the options are selected, all the alerts are displayed.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-security.png" alt-text="Security on the alerts screen.":::
 
-## Alert window options
+## Alert page options
 
 Alert messages provide the following actions:
 
@@ -96,6 +96,8 @@ Alert messages provide the following actions:
 - Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: to learn and acknowledge all alerts.
 
 - Select :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: to export the alert list to a CSV file and select the export option. Choose **Alert Export** for the regular export-to-CSV option. Or choose **Extended Alert Export** for the possibility to add separate rows for additional information about an alert in the CSV file.
+
+## Alert pop-up window options
 
 - Select the :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-pdf.png" border="false"::: icon to download an alert report as a PDF file.
 

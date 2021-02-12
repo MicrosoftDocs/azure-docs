@@ -229,9 +229,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [Built-in roles for Azure Service Bus](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
 
-- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole) 
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center monitoring**: Yes
 
@@ -297,7 +297,7 @@ You may also construct custom policy definitions if the built-in definitions do 
 
 **Guidance**: Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Service Bus-enabled resources.
 
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -507,7 +507,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -605,7 +605,7 @@ Use Azure Policy aliases in the "Microsoft.ServiceBus" namespace to create custo
 
 - [Azure Built-in policies for Service Bus ](./policy-reference.md)
 
-- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -731,7 +731,7 @@ Ensure regular automated backups of your Key Vault Secrets with the following Po
 
 - [How to configure customer-managed keys for encrypting Azure Service Bus data at rest](configure-customer-managed-key.md)
 
-- [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Azure Security Center monitoring**: Not applicable
 

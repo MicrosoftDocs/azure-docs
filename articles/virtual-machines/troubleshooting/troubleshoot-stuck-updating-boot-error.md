@@ -34,6 +34,8 @@ This article helps resolve the issue when your Virtual Machine (VM) is stuck at 
 
 
 ## Solution
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
 
 Depending on the number of updates that are getting installed or rolled backing, the update process can take a while. Leave the VM in this state for 8 hours. If the VM is still in this state after that period, restart the VM from the Azure portal, and see if it can start normally. If this step doesn't work, try the following solution.
 

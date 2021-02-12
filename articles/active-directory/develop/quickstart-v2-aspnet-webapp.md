@@ -35,7 +35,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the new  [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) pane.
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application for you in one click.
 >
@@ -44,19 +44,20 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application, for example `ASPNET-Quickstart`. Users of your app might see this name, and you can change it later.
 > 1. Add `https://localhost:44368/` in **Redirect URI**, and select **Register**.
-> 1. From the left navigation pane under the Manage section, select **Authentication**
-> 1. Under the **Implicit Grant** sub-section, select **ID tokens**.
+> 1. Under **Manage**, select **Authentication**.
+> 1. In the **Implicit grant and hybrid flows** section, select **ID tokens**.
 > 1. Select **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
-> For the code sample for this quickstart to work, you need to add a reply URL as `https://localhost:44368/`.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `https://localhost:44368/`.
+
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -166,7 +167,7 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | Application ID from the application registered in the Azure portal |
 > | `Authority`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}/v2.0` for public cloud, where {tenant} is the name of your tenant, your tenant Id, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
-> | `RedirectUri`  | URL where users are sent after authentication against Microsoft identity platform endpoint |
+> | `RedirectUri`  | URL where users are sent after authentication against the Microsoft identity platform |
 > | `PostLogoutRedirectUri`     | URL where users are sent after signing-off |
 > | `Scope`     | The list of scopes being requested, separated by spaces |
 > | `ResponseType`     | Request that the response from authentication contains an ID token |
@@ -175,7 +176,7 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer.
+> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications, validate the issuer.
 > See the samples to understand how to do that.
 
 ### Initiate an authentication challenge

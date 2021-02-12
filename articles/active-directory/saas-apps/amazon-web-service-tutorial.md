@@ -115,7 +115,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| SessionDuration | "provide a value between 900 seconds (15 minutes) to 43200 seconds (12 hours)" |  `https://aws.amazon.com/SAML/Attributes` |
 
     > [!NOTE]
-    > AWS expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)
+    > AWS expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview)
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** (Step 3) dialog box, select **Add a certificate**.
 
@@ -383,7 +383,11 @@ You can also use Microsoft Access Panel to test the application in any mode. Whe
 * Roles must meet the following requirements to be eligible to be imported from AWS into Azure AD:
 
   * Roles must have exactly one saml-provider defined in AWS
-  * The combined length of the ARN(Amazon Resource Name) for the role and the ARN for the associated saml-provider must be less than 120 characters
+  * The combined length of the ARN(Amazon Resource Name) for the role and the ARN for the associated saml-provider must be less than 240 characters.
+
+## Change log
+
+* 01/12/2020 - Increased role length limit from 119 characters to 239 characters. 
 
 ## Next steps
 

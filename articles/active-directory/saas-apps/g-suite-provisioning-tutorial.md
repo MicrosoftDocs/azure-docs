@@ -20,16 +20,6 @@ This tutorial describes the steps you need to perform in both G Suite and Azure 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-> [!NOTE]
-> The G Suite connector was recently updated on October 2019. Changes made to the G Suite connector include:
->
-> * Added support for additional G Suite user and group attributes.
-> * Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
-> * Updated default attribute mappings.
-
-> [!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
-
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in G Suite
@@ -271,7 +261,13 @@ Once you've configured provisioning, use the following resources to monitor your
 
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## Change log
+
+* 10/17/2020 - Added support for additional G Suite user and group attributes.
+* 10/17/2020 - Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
+* 10/17/2020 - Updated default attribute mappings.
 
 ## Additional resources
 

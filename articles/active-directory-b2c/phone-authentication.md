@@ -35,12 +35,12 @@ With phone sign-up and sign-in, the user can sign up for the app using a phone n
 >
 > *&lt;insert: a link to your Privacy Statement&gt;*<br/>*&lt;insert: a link to your Terms of Service&gt;*
 
-To add your own consent information, customize the following sample and include it in the LocalizedResources for the ContentDefinition used by the self-asserted page with the display control (the Phone-Email-Base.xml file in the phone sign-up & sign-in starter pack):
+To add your own consent information, customize the following sample. Include it in the `LocalizedResources` for the ContentDefinition used by the self-asserted page with the display control (the *Phone_Email_Base.xml* file in the [phone sign-up and sign-in starter pack][starter-pack-phone]):
 
 ```xml
 <LocalizedResources Id="phoneSignUp.en">        
     <LocalizedStrings>
-    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard message and data rates may apply.</LocalizedString>          
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>                
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>          
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>             
@@ -60,7 +60,7 @@ A one-time verification code is sent to the user's phone number. The user enters
 
 ![User verifies code during phone sign-up](media/phone-authentication/phone-signup-verify-code.png)
 
- The user enters any other information requested on the sign-up page, for example, **Display Name**, **Given Name**, and **Surname** (Country and phone number remain populated). If the user wants to use a different phone number, they can choose **Change number** to restart sign-up. When finished, the user selects **Continue**.
+The user enters any other information requested on the sign-up page. For example, **Display Name**, **Given Name**, and **Surname** (Country and phone number remain populated). If the user wants to use a different phone number, they can choose **Change number** to restart sign-up. When finished, the user selects **Continue**.
 
 ![User provides additional info](media/phone-authentication/phone-signup-additional-info.png)
 
@@ -96,8 +96,6 @@ You need the following resources in place before setting up OTP.
 
 Start by updating the phone sign-up and sign-in custom policy files to work with your Azure AD B2C tenant.
 
-The following steps assume that you've completed the [prerequisites](#prerequisites) and have already cloned the [custom policy starter pack][starter-pack] repository to your local machine.
-
 1. Find the [phone sign-up and sign-in custom policy files][starter-pack-phone] in your local clone of the starter pack repo, or download them directly. The XML policy files are located in the following directory:
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
@@ -132,9 +130,9 @@ As you upload each file, Azure adds the prefix `B2C_1A_`.
 
 ## Get user account by phone number
 
-A user that signs up with a phone number but does not provide a recovery email address is recorded in your Azure AD B2C directory with their phone number as their sign-in name. If the user then wishes to change their phone number, your help desk or support team must first find their account, and then update their phone number.
+A user that signs up with a phone number, without a recovery email address is recorded in your Azure AD B2C directory with their phone number as their sign-in name. To change the phone number, your help desk or support team must first find their account, and then update their phone number.
 
-You can find a user by their phone number (sign-in name) by using [Microsoft Graph](manage-user-accounts-graph-api.md):
+You can find a user by their phone number (sign-in name) by using [Microsoft Graph](microsoft-graph-operations.md):
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')

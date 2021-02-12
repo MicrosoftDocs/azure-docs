@@ -46,7 +46,7 @@ The installation and configuration procedures are performed in four main stages:
 
 3. Install a on-premises management console secondary appliance. For more information see, [About the Defender for IoT Installation](how-to-install-software.md).
 
-4. Pair the primary and secondary on-premises management console appliances as described [here](/create-the-primary-and-secondary-pair.md). The primary on-premises management console must manage at least two sensors in order to carry out the setup.
+4. Pair the primary and secondary on-premises management console appliances as described [here](https://infrascale.secure.force.com/pkb/articles/Support_Article/How-to-access-your-Appliance-Management-Console). The primary on-premises management console must manage at least two sensors in order to carry out the setup.
 
 ## High availability requirements
 
@@ -111,7 +111,7 @@ This allows the connection between the primary and secondary appliances for back
 
 ### On the secondary
 
-1. Sign in to the CLI as an Defender for IoT user.
+1. Sign in to the CLI as a Defender for IoT user.
 
 2. Run the following command on the secondary. **Do not run with sudo**:
 

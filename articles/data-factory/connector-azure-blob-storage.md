@@ -3,10 +3,7 @@ title: Copy and transform data in Azure Blob storage
 description: Learn how to copy data to and from Blob storage, and transform data in Blob storage by using Data Factory.
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
@@ -428,6 +425,9 @@ The following properties are supported for Azure Blob storage under `storeSettin
     }
 ]
 ```
+
+> [!NOTE]
+> The `$logs` container, which is automatically created when Storage Analytics is enabled for a storage account, isn't shown when a container listing operation is performed via the Data Factory UI. The file path must be provided directly for Data Factory to consume files from the `$logs` container.
 
 ### Blob storage as a sink type
 

@@ -248,6 +248,8 @@ To begin, you will need to add the new resources to your existing Resource Manag
 
 Once the resources have finished deploying, you can begin to disable the nodes in the node type that you want to remove from the original cluster.
 
+>[!NOTE]
+> While using AutoScaling with Stateless nodetypes with Bronze Durability, after scale down operation, node state is not automatically cleaned up. In order to cleanup the NodeState of Down Nodes during AutoScale, using [Service Fabric AutoScale Helper](https://github.com/Azure/service-fabric-autoscale-helper) is advised.
 
 ## Next steps 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)

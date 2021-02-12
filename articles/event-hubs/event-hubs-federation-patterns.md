@@ -52,7 +52,7 @@ partition](event-hubs-features.md#partitions).
 >
 > In the EventProcessor, you set the position through the InitialOffsetProvider
 > on the EventProcessorOptions. With the other receiver APIs, the position is
-> passed through teh constructor. 
+> passed through the constructor. 
 
 
 The pre-built replication function helpers [provided as

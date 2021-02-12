@@ -31,9 +31,6 @@ In this tutorial, you will:
 ## Prerequisites
 
 - Completion of [part 1](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace.
-- Introductory knowledge of the Python language and machine learning workflows.
-- Local development environment, such as Visual Studio Code, Jupyter, or PyCharm.
-- Python (version 3.5 to 3.7).
 
 ## Create and run a Python script locally
 
@@ -46,20 +43,12 @@ print("Hello world!")
 
 Your project directory structure will now look like:
 
-```Bash
-tutorial
-└──.azureml
-|  └──config.json
-└──src
-|  └──hello.py
-└──01-create-workspace.py
-└──02-create-compute.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="Directory structure shows hello.py in src subdirectory":::
 
 
 ### <a name="test"></a>Test your script locally
 
-You can run your code locally, by using your favorite IDE or a terminal. Running code locally has the benefit of interactive debugging of code.
+You can run your code locally, by using your favorite IDE or a terminal. Running code locally has the benefit of interactive debugging of code.  In the window that has the activated *tutorial1* conda environment, run the Python file:
 
 ```bash
 cd <path/to/tutorial>
@@ -88,8 +77,6 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
-
-
 
 ### Understand the code
 
@@ -143,13 +130,6 @@ Here's a description of how the control script works:
 
 Run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
 
-The very first run will take 5-10 minutes to complete. This is because the following occurs:
-
-* A docker image is built in the cloud
-* The compute cluster is resized from 0 to 1 node
-* The docker image is downloaded to the compute. 
-
-Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute - you can test this by resubmitting the code below after the first run has completed.
 
 ```bash
 python 03-run-hello.py
@@ -163,11 +143,18 @@ python 03-run-hello.py
 
 ## <a name="monitor"></a>Monitor your code in the cloud by using the studio
 
-The output will contain a link to the studio that looks something like this:
+The output from your script will contain a link to the studio that looks something like this:
 `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
-Follow the link and go to the **Outputs + logs** tab. There you can see a 
-`70_driver_log.txt` file that looks like this:
+Follow the link.  At first, you'll see a status of **Preparing**.  The very first run will take 5-10 minutes to complete. This is because the following occurs:
+
+* A docker image is built in the cloud
+* The compute cluster is resized from 0 to 1 node
+* The docker image is downloaded to the compute. 
+
+Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first run has completed.
+
+Once the job completes, go to the **Outputs + logs** tab. There you can see a `70_driver_log.txt` file that looks like this:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.

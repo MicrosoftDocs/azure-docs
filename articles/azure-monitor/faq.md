@@ -77,10 +77,12 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 ### How do I retrieve log data?
 All data is retrieved from a Log Analytics workspace using a log query written using Kusto Query Language (KQL). You can write your own queries or use solutions and insights that include log queries for a particular application or service. See [Overview of log queries in Azure Monitor](log-query/log-query-overview.md).
- p
+
 ### Can I delete data from a Log Analytics workspace?
 Data is removed from a workspace according to its [retention period](platform/manage-cost-storage.md#change-the-data-retention-period). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
 
+### Is Log Analytics storage immutable?
+Data in database storage cannot be altered once ingested but can be deleted via [*purge* API path for deleting private data](platform/personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](platform/logs-data-export.md) to a storage account that is configured as [immutable storage](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 ### What is a Log Analytics workspace?
 All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from a variety of sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See [Designing your Azure Monitor Logs deployment](platform/design-logs-deployment.md).
@@ -341,7 +343,9 @@ This is possible if your code sends such data. It can also happen if variables i
 
 **All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
 
-### My Instrumentation Key is visible in my web page source. 
+The [Application Insights JavaScript SDK](app/javascript.md) does not include any personal data in its autocompletion by default. However, some personal data used in your application may be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](app/api-filtering-sampling.md#javascript-web-applications).
+
+### My Instrumentation Key is visible in my web page source.
 
 * This is common practice in monitoring solutions.
 * It can't be used to steal your data.
@@ -374,6 +378,12 @@ Use a single resource for all the components or roles in a single business syste
 * If there is no client-side script, you can [set cookies at the server](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
 * If one real user uses your site in different browsers, or using in-private/incognito browsing, or different machines, then they will be counted more than once.
 * To identify a logged-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
+
+### How does Application Insights generate device information (Browser, OS, Language, Model)?
+
+The browser passes the User Agent string in the HTTP header of the request, and the Application Insights ingestion service uses [UA Parser](https://github.com/ua-parser/uap-core) to generate the fields you see in the data tables and experiences. As a result, Application Insights users are unable to change these fields.
+
+Occasionally this data may be missing or inaccurate if the user or enterprise disables sending User Agent in Browser settings. Additionally, the [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) may not include all device information or Application Insights may not have adopted the latest updates.
 
 ### <a name="q17"></a> Have I enabled everything in Application Insights?
 | What you should see | How to get it | Why you want it |

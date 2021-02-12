@@ -34,6 +34,17 @@ If your app uses a certificate that isn't public-trusted or was self-signed, her
 7. When the select certificate store window appears, select **Trusted people**, then select **OK**.
 8. Select **Next** and **Finish**.
 
+## Enable Microsoft Hyper-V
+
+Microsoft Hyper-V must be enabled because the `Mount-VHD` command is needed to stage and `Dismount-VHD` is needed to destage.
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+
+>[!NOTE]
+>This change will require that you restart the virtual machine.
+
 ## Prepare PowerShell scripts for MSIX app attach
 
 MSIX app attach has four distinct phases that must be performed in the following order:

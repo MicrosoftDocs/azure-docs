@@ -2,12 +2,12 @@
 title: Migrate Microsoft Translator Hub workspace and projects? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: This article explains how to migrate your Hub workspace and projects to Azure Cognitive Services Custom Translator.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to migrate from Microsoft Translator Hub to Custom Translator.
 ---
