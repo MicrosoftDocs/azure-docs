@@ -30,20 +30,41 @@ live event, you may see one of the following errors from the
 [LiveEventConnectionRejected](media-services-event-schemas.md\#liveeventconnectionrejected)
 event.
 
-> [!div class="mx-tdCol2BreakAll,mz-tdCol3BreakAll"]
->| **Result code** | **Description** | **Suggested solution** |
->|--|--|--|
->|MPE_RTMP_APPID_AUTH_FAILURE | Incorrect ingest URL | APPID is a GUID token in RTMP ingest URL. Make sure it matches with Ingest URL from API. |
->|MPE_INGEST_ENCODER_CONNECTION_DENIED | Encoder IP isn't present in the configured IP allow list | Make sure the encoder's IP is in the IP Allow List. Use an online tool such as *whoismyip* or *CIDR calculator* to set the proper value.  Make sure the encoder can reach the server before the actual live event. |
->|MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED | The RTMP encoder did not send the `setDataFrame` command. | Most commercial encoders send stream metadata. For an encoder that pushes a single bitrate ingest, this may not be issue. The LiveEvent is able to calculate incoming bitrate when the stream metadata is missing.  For multi-bitrate ingest for a PassThru channel or double push scenario, you can try to append the query string with 'videodatarate' and 'audiodatarate' in the ingest URL. The approximate value may work. The unit is in Kbit. For example,  `rtmp://hostname:1935/live/GUID_APPID/streamname?videodatarate=5000&audiodatarate=192` |
->|MPE_INGEST_CODEC_NOT_SUPPORTED | The codec specified isn't supported. | The LiveEvent received unsupported codec. For example, an RTMP ingest, LiveEvent received non-AVC video codec.  Check encoder preset. |
->|MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED | The media description information was not received before the actual media data was delivered. | The LiveEvent does not receive the stream description (header or FLV tag) from the encoder. This is a protocol violation. Contact encoder vendor. |
->|MPE_INGEST_MEDIA_QUALITIES_EXCEEDED | The count of qualities for audio or video type exceeded the maximum allowed limit. | When Live Event mode is Live Encoding, the encoder should push a single bitrate of video and audio.  Note that a redundant push from the same bitrate is allowed. Check the encoder preset or output settings to make sure it outputs a single bitrate stream. |
->|MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | The total incoming bitrate in a live event or channel service exceeded the maximum allowed limit. | The encoder exceeded the maximum incoming bitrate. This limit aggregates all incoming data from the contributing encoder. Check encoder preset or output settings to reduce bitrate. |
->|MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from the RTMP encoder. | Deprecated. |
->|MPE_INGEST_FRAMERATE_EXCEEDED | The incoming encoder ingested streams with frame rates exceeded the maximum allowed 30 fps for encoding live events/channels. | Check encoder preset to lower frame rate to under 36 fps. |
->|MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | The incoming encoder ingested streams exceeded the following allowed resolutions: 1920x1088 for encoding live events/channels and 4096 x 2160 for pass-through live events/channels. | Check encoder preset to lower video resolution so it doen't exceed the limit. |
->|MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV | The live event has received a large amount of audio data at once, or a large amount of video data without any key frames. We have disconnected the encoder to give it a chance to retry with correct data. | Ensure that the encoder sends a key frame for every key frame interval(GOP).  Enable settings like "Constant bitrate(CBR)" or "Align Key Frames". Sometimes, resetting the contributing encoder may help. If it doesn't help, contact encoder vendor. |
+| Error | Information |
+|--|--|
+|**MPE_RTMP_APPID_AUTH_FAILURE** ||
+|Description | Incorrect ingest URL |
+|Suggested solution| APPID is a GUID token in RTMP ingest URL. Make sure it matches with Ingest URL from API. |
+|**MPE_INGEST_ENCODER_CONNECTION_DENIED** ||
+| Description |Encoder IP isn't present in the configured IP allow list |
+| Suggested solution| Make sure the encoder's IP is in the IP Allow List. Use an online tool such as *whoismyip* or *CIDR calculator* to set the proper value.  Make sure the encoder can reach the server before the actual live event. |
+|**MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED** ||
+| Description|The RTMP encoder did not send the `setDataFrame` command. |
+| Suggested solution|Most commercial encoders send stream metadata. For an encoder that pushes a single bitrate ingest, this may not be issue. The LiveEvent is able to calculate incoming bitrate when the stream metadata is missing.  For multi-bitrate ingest for a PassThru channel or double push scenario, you can try to append the query string with 'videodatarate' and 'audiodatarate' in the ingest URL. The approximate value may work. The unit is in Kbit. For example,  `rtmp://hostname:1935/live/GUID_APPID/streamname?videodatarate=5000&audiodatarate=192` |
+|**MPE_INGEST_CODEC_NOT_SUPPORTED** ||
+| Description|The codec specified isn't supported.|
+| Suggested solution| The LiveEvent received unsupported codec. For example, an RTMP ingest, LiveEvent received non-AVC video codec.  Check encoder preset. |
+|**MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED** ||
+| Description |The media description information was not received before the actual media data was delivered. |
+| Suggested solution|The LiveEvent does not receive the stream description (header or FLV tag) from the encoder. This is a protocol violation. Contact encoder vendor. |
+|**MPE_INGEST_MEDIA_QUALITIES_EXCEEDED** ||
+| Description|The count of qualities for audio or video type exceeded the maximum allowed limit. | 
+| Suggested solution|When Live Event mode is Live Encoding, the encoder should push a single bitrate of video and audio.  Note that a redundant push from the same bitrate is allowed. Check the encoder preset or output settings to make sure it outputs a single bitrate stream. |
+|**MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED** ||
+| Description|The total incoming bitrate in a live event or channel service exceeded the maximum allowed limit. |
+| Suggested solution|The encoder exceeded the maximum incoming bitrate. This limit aggregates all incoming data from the contributing encoder. Check encoder preset or output settings to reduce bitrate. |
+|**MPE_RTMP_FLV_TAG_TIME**STAMP_INVALID** ||
+| Description|The timestamp for video or audio FLVTag is invalid from the RTMP encoder. |
+| Suggested solution|Deprecated. |
+|**MPE_INGEST_FRAMERATE_EXCEEDED** ||
+| Description|The incoming encoder ingested streams with frame rates exceeded the maximum allowed 30 fps for encoding live events/channels. |
+| Suggested solution|Check encoder preset to lower frame rate to under 36 fps. |
+|**MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED** ||
+| Description|The incoming encoder ingested streams exceeded the following allowed resolutions: 1920x1088 for encoding live events/channels and 4096 x 2160 for pass-through live events/channels. |
+| Suggested solution|Check encoder preset to lower video resolution so it doesn't exceed the limit. |
+|**MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV** |
+| Description|The live event has received a large amount of audio data at once, or a large amount of video data without any key frames. We have disconnected the encoder to give it a chance to retry with correct data. |
+| Suggested solution|Ensure that the encoder sends a key frame for every key frame interval(GOP).  Enable settings like "Constant bitrate(CBR)" or "Align Key Frames". Sometimes, resetting the contributing encoder may help. If it doesn't help, contact encoder vendor. |
 
 ## LiveEventEncoderDisconnected
 
@@ -52,7 +73,7 @@ You may see one of the following errors from the
 event.
 
 > [!div class="mx-tdCol2BreakAll,mz-tdCol3BreakAll"]
->| **Result code** | **Description** | **Suggested solution** |
+>| Result code | Description | Suggested solution |
 >|--|--|--|
 >|MPE_RTMP_SESSION_IDLE_TIMEOUT | RTMP session timed out after being idle for allowed time limit. | This typically happens when an encoder stops receiving the input feed so that the session becomes idle because there is no data to push out. You can check encoder or input feed status if it is healthy state. |
 >|MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. | Deprecated. |
