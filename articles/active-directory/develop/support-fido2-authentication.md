@@ -36,7 +36,7 @@ The RequestedAuthnContext element is optional, so to resolve this you can remove
 
 The sign in method that was most recently used by a user will be presented to them first. This may cause confusion when users believe they must use the first option presented. However, they can choose another option by selecting "Other ways to sign in" as shown below.
 
-![Image of the user authentication experience highlighting the button that allows the user to change the authentication method.](./media/support-fido2-authentication/most-recently-used-method.png)
+:::image type="content" source="./media/support-fido2-authentication/most-recently-used-method.png" alt-text="Image of the user authentication experience highlighting the button that allows the user to change the authentication method.":::
 
 ## Platform specific best practices
 
