@@ -9,7 +9,7 @@ ms.topic: article
 
 # Use the session management REST API
 
-To use Azure Remote Rendering functionality, you need to create a *session*. Each session corresponds to a virtual machine (VM) being allocated in Azure to which a client device can connect. When a device connects, the VM renders the requested data and serves the result as a video stream. During session creation, you chose which [kind of server](../reference/vm-sizes.md) you want to run on, which determines pricing. Once the session is not needed anymore, it should be stopped. If not stopped manually, it will be shut down automatically when the session's *lease time* expires.
+To use Azure Remote Rendering functionality, you need to create a *session*. Each session corresponds to a server being allocated in Azure to which a client device can connect. When a device connects, the server renders the requested data and serves the result as a video stream. During session creation, you chose which [kind of server](../reference/vm-sizes.md) you want to run on, which determines pricing. Once the session isn't needed anymore, it should be stopped. If not stopped manually, it will be shut down automatically when the session's *lease time* expires.
 
 The REST API reference can be found [here](https://docs.microsoft.com/rest/api/mixedreality/2021-01-01preview/remoterendering) and the swagger definitions [here](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mixedreality/data-plane/Microsoft.MixedReality).
 We provide a PowerShell script in the [ARR samples repository](https://github.com/Azure/azure-remote-rendering) in the *Scripts* folder, called *RenderingSession.ps1*, which demonstrates the use of our service. The script and its configuration are described here: [Example PowerShell scripts](../samples/powershell-example-scripts.md).
@@ -20,3 +20,8 @@ We also provide SDKs for [.NET](https://github.com/Azure/azure-sdk-for-net/tree/
 
 > [!IMPORTANT]
 > An ARR runtime SDK is needed for a client device to connect to a rendering session. These SDKs are available in (.NET)[https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering?view=remoterendering] and (C++)[https://docs.microsoft.com/cpp/api/remote-rendering/]. Apart from connecting to the service, these SDKs can also be used to start and stop sessions.
+
+## Next steps
+
+* [Using the Azure Frontend APIs for authentication](frontend-apis.md)
+* [Example PowerShell scripts](../samples/powershell-example-scripts.md)
