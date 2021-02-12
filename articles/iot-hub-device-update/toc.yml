@@ -5,14 +5,22 @@
   - name: What is Device Update for IoT Hub?
     href: understand-device-update.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
 - name: Tutorials
   items:
+  - name: Use device update on Raspberry Pi
+    href: device-update-raspberry-pi.md
+  - name: Use device update on the simulator
+    href: device-update-simulator.md
+  - name: Use device update ubuntu agent
+    href: device-update-ubuntu-agent.md
 - name: Concepts
   items:
-  - name: Overview of device update
-    href: understand-device-update.md
+  - name: Device update account and instance
+    href: device-update-resources.md
+  - name: Device update user roles and access
+    href: device-update-control-access.md
   - name: Device update compliance
     href: device-update-compliance.md
   - name: Device update groups
@@ -21,24 +29,17 @@
     href: device-update-plug-and-play.md
   - name: Device update networking requirements
     href: device-update-networking.md
+
 - name: How-to guides
   items:
-  - name: Device update user roles and access
-    href: device-update-control-access.md
   - name: Create a device update account
     href: create-device-update-account.md
+  - name: Import an update
+    href: import-update.md
   - name: Create a device update group
     href: create-update-group.md
   - name: Deploy a device update
     href: deploy-update.md
-  - name: Use device update on Raspberry Pi
-    href: device-update-raspberry-pi.md
-  - name: Use device update on the simulator
-    href: device-update-simulator.md
-  - name: Use device update ubuntu agent
-    href: device-update-ubuntu-agent.md
-  - name: Import an update
-    href: import-update.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot device updates
