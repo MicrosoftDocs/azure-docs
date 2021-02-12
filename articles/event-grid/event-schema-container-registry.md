@@ -292,6 +292,7 @@ An event has the following top-level data:
 | `id` | string | Unique identifier for the event. |
 | `data` | object | Blob storage event data. |
 | `specversion` | string | CloudEvents schema specification version. |
+
 ---
 
 The data object has the following properties:
@@ -303,6 +304,7 @@ The data object has the following properties:
 | `action` | string | The action that encompasses the provided event. |
 | `target` | object | The target of the event. |
 | `request` | object | The request that generated the event. |
+
 
 The target object has the following properties:
 
