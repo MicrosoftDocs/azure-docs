@@ -23228,6 +23228,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-central/core/index.yml",
+      "redirect_url": "/azure/iot-central/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/energy/index.yml",
+      "redirect_url": "/azure/iot-central/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/government/index.yml",
+      "redirect_url": "/azure/iot-central/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/healthcare/index.yml",
+      "redirect_url": "/azure/iot-central/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/index.yml",
+      "redirect_url": "/azure/iot-central/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md",
       "redirect_url": "/azure/iot-hub/",
       "redirect_document_id": false
