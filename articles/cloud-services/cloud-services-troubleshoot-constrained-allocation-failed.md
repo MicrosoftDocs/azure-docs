@@ -64,7 +64,7 @@ You can use the [az vm list-skus](https://docs.microsoft.com/cli/azure/vm?view=a
     ```
 
     **Example results:**
-    ![Azure CLI output of running the 'az vm list-skus --location southcentralus --size Standard_F --output table' command, which shows the available SKUs.](./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-constrained-allocation-failed.png)
+    ![Azure CLI output of running the 'az vm list-skus --location southcentralus --size Standard_F --output table' command, which shows the available SKUs.](./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-constrained-allocation-failed-1.png)
 
 #### List SKUs in region using PowerShell
 
@@ -121,9 +121,9 @@ You can use the [Resource Skus - List](https://docs.microsoft.com/rest/api/compu
       ],
       "restrictions": []
     },
-    <Rest of your file is located here...>
-    <...>
-    <...>
+        The rest of your file is located here...
+        ...
+        ...
   ]
 }
     
