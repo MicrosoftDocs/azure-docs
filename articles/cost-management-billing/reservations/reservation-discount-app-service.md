@@ -36,10 +36,6 @@ The Azure reservation discount is applied to running Premium v3 instances on an 
 
 To understand and view the application of your Azure Reservations in billing usage reports, see [Understand reservation usage](understand-reserved-instance-usage-ea.md).
 
-### Discount can apply to different sizes
-
-When you buy a Reserved Premium v3 Instance and select **Optimized for instance size flexibility**, the discount coverage applies to the Premium v3 instance size you select. It can also apply to other instance sizes that are in the same series instance size flexibility group.
-
 ## How reservation discounts apply to Isolated Stamps
 
 After you buy App Service Isolated Stamp Fee reserved capacity, the reservation discount is automatically applied to the Stamp Fee in a region. The reservation discount applies to the usage emitted by the Isolated Stamp Fee meter. Workers, additional Front Ends, and any other resources associated with the stamp continue to get billed at the regular rate.
