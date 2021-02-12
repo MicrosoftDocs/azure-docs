@@ -1088,6 +1088,8 @@
         href: maptician-tutorial.md 
       - name: Marketo
         href: marketo-tutorial.md
+      - name: Maverics Identity Orchestrator SAML Connector
+        href: maverics-identity-orchestrator-saml-connector-tutorial.md
       - name: Maxient Conduct Manager Software
         href: maxient-conduct-manager-software-tutorial.md
       - name: MaxxPoint
@@ -1598,6 +1600,8 @@
         href: sharepoint-on-premises-tutorial.md
       - name: ShareVault
         href: sharevault-tutorial.md
+      - name: SharingCloud
+        href: sharingcloud-tutorial.md
       - name: Shibumi
         href: shibumi-tutorial.md
       - name: ShipHazmat
@@ -2022,6 +2026,8 @@
         href: zscaler-two-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-tutorial.md
+      - name: Zuddl
+        href: zuddl-tutorial.md
       - name: Zwayam
         href: zwayam-tutorial.md
   - name: User provisioning tutorials

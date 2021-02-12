@@ -186,12 +186,6 @@ Install IoT Edge by following these steps on both devices.
 
 1. Install the repository configuration that matches your device operating system.
 
-   * **Ubuntu Server 16.04**:
-
-     ```bash
-     curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
-     ```
-
    * **Ubuntu Server 18.04**:
 
      ```bash
