@@ -216,12 +216,13 @@ This device complies with part 15 of the FCC Rules and Industry Canada license-e
 
 
 CAN ICES-3(A)/NMB-3(A)
-Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
+Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA
 United States: (800) 426-9400
 Canada: (800) 933-4750
 
 EUROPEAN UNION:
-Request a copy of the EU Declaration of Conformity. Send email to [CSI_Compliance@microsoft.com](mailto=CSI_Compliance@microsoft.com).
+
+Request a copy of the EU Declaration of Conformity. Send email to [CSI_Compliance@microsoft.com](mailto:CSI_Compliance@microsoft.com).
 
 ![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
 
