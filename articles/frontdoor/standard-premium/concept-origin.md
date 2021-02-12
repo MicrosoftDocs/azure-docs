@@ -14,7 +14,7 @@ ms.author: duau
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-This article will cover concepts about how your web application deployment works with Azure Front Door. You'll also learn about what an *origin* and *origin group* is in the Azure Front Door configuration.
+This article will cover concepts about how your web application deployment works with Azure Front Door Standard/Premium. You'll also learn about what an *origin* and *origin group* is in the Azure Front Door Standard/Premium configuration.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
@@ -23,9 +23,7 @@ This article will cover concepts about how your web application deployment works
 
 ## Origin
 
-An origin refers to a web application deployment in a region. Front Door supports both Azure and non-Azure resources in the origin group. The application can also be hosted in your on-premises datacenter or with another cloud provider.
-
-Front Door origin refers to the host name or public IP of your application that serves your client requests. Origin shouldn't be confused with your database tier or storage tier. Origin should be viewed as the public endpoint for your application backend. When you add an origin to a Front Door origin group, you must also add the following information:
+Azure Front Door Standard/Premium origin refers to the host name or public IP of your application that serves your client requests. Azure Front Door Standard/Premium supports both Azure and non-Azure resources in an origin group. The application can also be hosted in your on-premises datacenter or with another cloud provider. Origin shouldn't be confused with your database tier or storage tier. Origin should be viewed as the public endpoint for your application backend. When you add an origin to an Azure Front Door Standard/Premium origin group, you must also add the following information:
 
 * **Origin type:** The type of resource you want to add. Front Door supports autodiscovery of your application backends from App Service, Cloud Service, or Storage. If you want a different resource in Azure or even a non-Azure backend, select **Custom host**.
 
@@ -62,13 +60,14 @@ To configure the **origin host header** field for an origin in the origin group 
 
 ## Origin group
 
-An origin group in Front Door refers to the set of origin that receives similar traffic for their app. In other words, it's a logical grouping of your app instances across the world that receive the same traffic and respond with expected behavior. These origins are deployed across different regions or within the same region. All origins can be in Active/Active deployment mode or what is defined as Active/Passive configuration.
+An origin group in Azure Front Door Standard/Premium refers to the set of origins that receives similar traffic for their application. In other words, it's a logical grouping of your application instances across the world that receive the same traffic and respond with an expected behavior. These origins can be deployed across different regions or within the same region. All origins can be in Active/Active deployment mode or what is defined as Active/Passive configuration.
 
-An origin group defines how the different origin should be evaluated via health probes. It also defines how load balancing occurs between them.
+An origin group defines how origins should be evaluated via health probes. It also defines how load balancing occurs between them.
 
 ### Health probes
 
-Front Door sends periodic HTTP/HTTPS probe requests to each of your configured origins. Probe requests determine the proximity and health of each origin to load balance your end-user requests. Health probe settings for an origin group define how we poll the health status of app backends. The following settings are available for load-balancing configuration:
+
+Azure Front Door Standard/Premium sends periodic HTTP/HTTPS probe requests to each of your configured origins. Probe requests determine the proximity and health of each origin to load balance your end-user requests. Health probe settings for an origin group define how we poll the health status of app backends. The following settings are available for load-balancing configuration:
 
 * **Path**: The URL used for probe requests for all the origins in the origin group. For example, if one of your origins is `contoso-westus.azurewebsites.net` and the path gets set to /probe/test.aspx, then Front Door environments, assuming the protocol is HTTP, will send health probe requests to `http://contoso-westus.azurewebsites.net/probe/test.aspx`.
 
@@ -99,15 +98,15 @@ For more information, see [Least latency based routing method](#latency).
 
 ## Front Door routing methods
 
-Azure Front Door supports different kinds of traffic-routing methods to determine how to route your HTTP/HTTPS traffic to different service endpoints. When your client requests reaching Front Door, the configured routing method gets applied to ensure the requests are forwarded to the best backend instance. 
+Azure Front Door Standard/Premium supports different kinds of traffic-routing methods to determine how to route your HTTP/HTTPS traffic to different service endpoints. When your client requests reaching Front Door, the configured routing method gets applied to ensure the requests are forwarded to the best backend instance. 
 
-There are four traffic routing methods available in Front Door:
+There are four traffic routing methods available in Azure Front Door Standard/Premium:
 
 * **[Latency](#latency):** The latency-based routing ensures that requests are sent to the lowest latency backends acceptable within a sensitivity range. Basically, your user requests are sent to the "closest" set of backends in respect to network latency.
 * **[Priority](#priority):** You can assign priorities to your backends when you want to configure a primary backend to service all traffic. The secondary backend can be a backup in case the primary backend becomes unavailable.
 * **[Weighted](#weighted):** You can assign weights to your backends when you want to distribute traffic across a set of backends. Whether you want to evenly distribute or according to the weight coefficients.
 
-All Front Door configurations include monitoring of backend health and automated instant global failover. For more information, see [Front Door Backend Monitoring](concept-health-probes.md). Your Front Door can work based off of a single routing method. But depending on your application needs, you can also combine multiple routing methods to build an optimal routing topology.
+All Azure Front Door Standard/Premium configurations include monitoring of backend health and automated instant global failover. For more information, see [Backend Monitoring](concept-health-probes.md). Your Front Door can work based off of a single routing method. But depending on your application needs, you can also combine multiple routing methods to build an optimal routing topology.
 
 ### <a name = "latency"></a>Lowest latencies based traffic-routing
 
