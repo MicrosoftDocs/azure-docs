@@ -257,6 +257,7 @@ html {
     font-family: sans-serif;
   }
 ```
+Do not forget to save files. The unsaved files indicatted by whte dots, next to file names and in the Explorer menu on the left. To save you can click "Ctrl + S"
 
  :::image type="content" source="./media/step-one-pic-14.png" alt-text="App.js file with JS code":::
 
