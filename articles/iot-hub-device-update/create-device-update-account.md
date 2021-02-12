@@ -11,15 +11,19 @@ ms.service: iot-hub-device-update
 # Device Update for IoT Hub Resource Management
 
 To get started with Device Update you will need to create a Device Update account, instance and set access control roles. 
-
+[Learn More](device-update-resources.md) about Device update account and instance.
+[Learn More](device-update-control-access) about Device update access control roles. 
 
 ## Create a Device Update Account
 
-1. Go to [Device Update Accounts](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DeviceUpdate%2FAccounts) in Azure Resource Marketplace 
-2. Click Add
-3. Specify the Azure Subscription to be associated with your Device Update Account and Resource Group
-4. Specify a Name and Location for your Device Update Account
-5. Review the details and then select "Create"
+1. Go to [Azure portal](https://portal.azure.com)
+2. Click Create a Resource and search for "Device Update for IoT Hub"
+![Device Update for IoT Hub resource](media/create-device-update-account/device-update-marketplace.PNG)
+3. Click Create -> Device Update for IoT Hub
+4. Specify the Azure Subscription to be associated with your Device Update Account and Resource Group
+5. Specify a Name and Location for your Device Update Account
+6. Click "Next: Review + create>"
+7. Review the details and then select "Create"
 
 ## Create a Device Update Instance 
 
