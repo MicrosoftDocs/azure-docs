@@ -116,8 +116,8 @@ Before training your model, add labels to your images.
 
     :::image type="content" source="./media/tutorial-nocode-vision/iteration.png" alt-text="Model training results.":::
 
-> [!NOTE]
-> If you elect to test your model on additional images in Custom Vision, please note that test image file size cannot exceed 4MB.
+    > [!NOTE]
+    > If you elect to test your model on additional images in Custom Vision, please note that test image file size cannot exceed 4MB.
 
 Once you are satisfied with the performance of your model, close Custom Vision by closing the browser tab.
 
