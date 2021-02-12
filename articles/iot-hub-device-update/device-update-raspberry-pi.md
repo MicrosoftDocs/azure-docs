@@ -48,7 +48,7 @@ device.
    sudo chmod a+rw /dev/<device>
    ```
 
-5. Optional. For faster flashing download the bmap file along with the image
+5. Optional. For faster flashing, download the bimap file along with the image
    file and place them in the same directory.
 
 6. Flash the SD card.
@@ -59,8 +59,8 @@ device.
 
 ## Create device in IoT Hub and get connection string
 
-Now, the device needs to be added to the Azure IoT Hub.  From within the Azure
-IoT Hub a connection string will be generated for the device.
+Now, the device needs to be added to the Azure IoT Hub.  From within Azure
+IoT Hub, a connection string will be generated for the device.
 
 1. From the Azure portal, launch the Device Update IoT Hub.
 2. Create a new device.
@@ -73,7 +73,7 @@ IoT Hub a connection string will be generated for the device.
 7. In the device view, select the 'Copy' icon next to 'Primary Connection
    String'.
 8. Paste the copied characters somewhere for later use in the steps below.
-   **This is your device connection string**.
+   **This copied string is your device connection string**.
 
 ## Provision connection string on SD card
 
@@ -99,8 +99,8 @@ IoT Hub a connection string will be generated for the device.
    cord, which is plugged into the device to turn on the device.
 
 Wait 1-2 mins to ensure the device is fully booted up.  If you have a
-monitor connected to the Raspberry Pi3, it will boot to a login screen.  This is
-normal.  The agent will be running in the background.  There is no need for you
+monitor connected to the Raspberry Pi3, it will boot to a login screen.  This behavior is
+expected.  The agent will be running in the background.  There is no need for you
 to log in.
 
 ## Connect to device in Device Update IoT Hub
