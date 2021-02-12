@@ -16,8 +16,8 @@ Azure Cache for Redis implements high availability by using multiple VMs, called
 | Option | Description | Availability | Standard | Premium | Enterprise |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
 | [Standard replication](#standard-replication)| Dual-node replicated configuration in a single datacenter with automatic failover | 99.9% |✔|✔|-|
-| [Zone redundancy](#zone-redundancy) | Multi-node replicated configuration across AZs, with automatic failover | 99.95% (Premium tier), 99.99% (Enterprise tiers) |-|Preview|✔|
-| [Geo-replication](#geo-replication) | Linked cache instances in two regions, with user-controlled failover | 99.99% (Premium tier) |-|✔|-|
+| [Zone redundancy](#zone-redundancy) | Multi-node replicated configuration across AZs, with automatic failover | 99.95% (Premium tier), 99.99% (Enterprise tiers) |-|Preview|Preview|
+| [Geo-replication](#geo-replication) | Linked cache instances in two regions, with user-controlled failover | 99.9% (Premium tier, single region) |-|✔|-|
 
 ## Standard replication
 
@@ -60,7 +60,7 @@ Azure Cache for Redis distributes nodes in a zone redundant cache in a round-rob
 
 A zone redundant cache provides automatic failover. When the current primary node is unavailable, one of the replicas will take over. Your application may experience higher cache response time if the new primary node is located in a different AZ. AZs are geographically separated. Switching from one AZ to another alters the physical distance between where your application and cache are hosted. This change impacts round-trip network latencies from your application to the cache. The extra latency is expected to fall within an acceptable range for most applications. We recommend that you test your application to ensure that it can perform well with a zone-redundant cache.
 
-### Enterprise tiers
+### Enterprise and Enterprise Flash tiers
 
 A cache in either Enterprise tier runs on a Redis Enterprise cluster. It requires an odd number of server nodes at all times to form a quorum. By default, it's comprised of three nodes, each hosted on a dedicated VM. An Enterprise cache has two same-sized *data nodes* and one smaller *quorum node*. An Enterprise Flash cache has three same-sized data nodes. The Enterprise cluster divides Redis data into partitions internally. Each partition has a *primary* and at least one *replica*. Each data node holds one or more partitions. The Enterprise cluster ensures that the primary and replica(s) of any partition are never colocated on the same data node. Partitions replicate data asynchronously from primaries to their corresponding replicas.
 

@@ -213,7 +213,7 @@
     - name: FPGA - accelerated compute
       items:
       - name: Overview
-        href: sizes-gpu.md?context=/azure/virtual-machines/context/context
+        href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
       - name: NP-series
         href: np-series.md
     - name: High performance compute
@@ -1228,6 +1228,8 @@
     href: maintenance-and-updates.md
   - name: Automatic VM guest patching (preview)
     href: ./windows/automatic-vm-guest-patching.md
+  - name: Automatic extension upgrade (preview)
+    href: ./automatic-extension-upgrade.md
   - name: Maintenance control
     items:
     - name: Maintenance notifications
