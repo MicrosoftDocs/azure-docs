@@ -7,8 +7,7 @@ The Device Update Agent consists of two conceptual layers:
 allowing for messaging to flow between the Device Update Agent and Device Update Services.
 * The Platform Layer is responsible for the high-level update actions of Download, Install, and Apply that may be platform, or device specific.
 
-![ADU Agent Implementations
-Implementations](images/client-agent-reference-implementations.png)
+:::image type="content" source="media/agent-overview/client-agent-reference-implementations.png" alt-text="Agent Implementations." lightbox="media/agent-overview/client-agent-reference-implementations.png":::
 
 ## The Interface Layer
 
