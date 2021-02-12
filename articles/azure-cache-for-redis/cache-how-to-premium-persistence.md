@@ -62,7 +62,8 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 
     The first backup is initiated once the backup frequency interval elapses.
     
-**NOTE : THE RDB files when backed up to storage are in form of Page Blobs**
+   > [!NOTE]
+   > When RDB files are backed up to storage, they are stored in the form of page blobs.
 
 9. To enable AOF persistence, click **AOF** and configure the settings. 
    
