@@ -46,7 +46,7 @@ In this section, the unit test will validate the logic of the following HTTP tri
 
 The unit test task will be to verify the value of the `Retry-After` header provided in the response payload. So the unit test will mock some of `IDurableClient` methods to ensure predictable behavior.
 
-First, we use a mocking framework ([moq](https://github.com/moq/moq4) in this case) to mock `IDurableionClient`.:
+First, we use a mocking framework ([moq](https://github.com/moq/moq4) in this case) to mock `IDurableClient`:
 
 ```csharp
     // Mock IDurableClient
