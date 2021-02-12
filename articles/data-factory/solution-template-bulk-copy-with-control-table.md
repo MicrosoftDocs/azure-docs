@@ -1,16 +1,12 @@
 ---
 title: Bulk copy from a database using control table
 description: Learn how to use a solution template to copy bulk data from a database by using an external control table to store a partition list of source tables by using Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/14/2018
+ms.date: 12/09/2020
 ---
 
 # Bulk copy from a database with a control table
@@ -40,7 +36,7 @@ The template defines following parameters:
 - *Data_Destination_Container* is the root folder path where the data is copied to in your destination store. 
 - *Data_Destination_Directory* is the directory path under the root where the data is copied into your destination store. 
 
-The last three parameters, which define the path in your destination store are only visible if the destination that you choose is file-based storage. If you choose "Azure Synapse Analytics (formerly SQL DW)" as the destination store, these parameters are not required. But the table names and the schema in Azure Synapse Analytics must be the same as the ones in the source database.
+The last three parameters, which define the path in your destination store are only visible if the destination that you choose is file-based storage. If you choose "Azure Synapse Analytics" as the destination store, these parameters are not required. But the table names and the schema in Azure Synapse Analytics must be the same as the ones in the source database.
 
 ## How to use this solution template
 
@@ -90,7 +86,7 @@ The last three parameters, which define the path in your destination store are o
 
     ![Review the result](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (Optional) If you chose "Azure Synapse Analytics (formerly SQL DW)" as the data destination, you must enter a connection to Azure Blob storage for staging, as required by Azure Synapse Analytics Polybase. The template will automatically generate a container path for your Blob storage. Check if the container has been created after the pipeline run.
+9. (Optional) If you chose "Azure Synapse Analytics" as the data destination, you must enter a connection to Azure Blob storage for staging, as required by Azure Synapse Analytics Polybase. The template will automatically generate a container path for your Blob storage. Check if the container has been created after the pipeline run.
 	
 	![Polybase setting](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
 	   

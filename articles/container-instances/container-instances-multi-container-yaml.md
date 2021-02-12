@@ -174,7 +174,6 @@ You can also specify a multi-container group using a [Resource Manager template]
 
 <!-- LINKS - External -->
 
-
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
 [az-container-create]: /cli/azure/container#az-container-create

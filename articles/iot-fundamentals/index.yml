@@ -80,12 +80,12 @@ conceptualContent:
         - url: ../iot-central/core/quick-deploy-iot-central.md
           itemType: quickstart
           text: Create an IoT Central application
-        - url: ../iot-central/core/tutorial-connect-device-nodejs.md
+        - url: ../iot-central/core/tutorial-connect-device.md
           itemType: tutorial
           text: Connect a device
       # footerLink
       footerLink:
-        url: ../iot-central/core/index.yml
+        url: ../iot-central/index.yml
         text: See more
     # Card
     - title: Run cloud intelligence on edge devices
@@ -189,9 +189,6 @@ conceptualContent:
         - url: ../iot-accelerators/about-iot-accelerators.md
           itemType: overview
           text: What are Azure IoT solution accelerators?
-        - url: ../iot-accelerators/quickstart-remote-monitoring-deploy.md
-          itemType: quickstart
-          text: Try a remote monitoring solution
         - url: ../iot-accelerators/quickstart-connected-factory-deploy.md
           itemType: quickstart
           text: Try a connected factory solution

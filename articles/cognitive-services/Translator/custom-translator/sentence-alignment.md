@@ -2,30 +2,25 @@
 title: Sentence pairing and alignment - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: During the training execution, sentences present in parallel documents are paired or aligned. Custom Translator learns translations one sentence at a time, by reading a sentence, the translation of this sentence. Then it aligns words and phrases in these two sentences to each other.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to know how sentence alignment works, so that I can have better understanding of underlying process of sentence extraction, pairing, filtering, aligning.
 ---
 
 # Sentence pairing and alignment in parallel documents
 
-During the training, sentences present in parallel documents are
+After documents are uploaded, sentences present in parallel documents are
 paired or aligned. Custom Translator reports the number of sentences it was
 able to pair as the Aligned Sentences in each of the data sets.
 
 ## Pairing and alignment process
 
-Custom Translator learns translations of sentences one sentence at a time. It readings a
-sentence from source, and then the translation of this sentence from target. Then it aligns words and phrases
-in these two sentences to each other. This process enables it to create a map of the
-words and phrases in one sentence to the equivalent words and phrases in the
-translation of this sentence. Alignment tries to ensure that the system trains
-on sentences that are translations of each other.
+Custom Translator learns translations of sentences one sentence at a time. It reads a sentence from the source text , and then the translation of this sentence from the target text. Then it aligns words and phrases in these two sentences to each other. This process enables it to create a map of the words and phrases in one sentence to the equivalent words and phrases in the translation of his sentence. Alignment tries to ensure that the system trains on sentences that are translations of each other.
 
 ## Pre-aligned documents
 

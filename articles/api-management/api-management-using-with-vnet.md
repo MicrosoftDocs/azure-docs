@@ -8,10 +8,9 @@ manager: erikre
 editor: ''
 
 ms.service: api-management
-ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/22/2020
+ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
 ---
@@ -48,7 +47,8 @@ To perform the steps described in this article, you must have:
 3. Select **Virtual network**.
 4. Configure the API Management instance to be deployed inside a Virtual network.
 
-    ![Virtual network menu of API Management][api-management-using-vnet-menu]
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Select virtual network in Azure portal.":::
+    
 5. Select the desired access type:
 
     * **Off**: This is the default. API Management is not deployed into a virtual network.
@@ -68,7 +68,7 @@ To perform the steps described in this article, you must have:
 
     Then select **Apply**. The **Virtual network** page of your API Management instance is updated with your new virtual network and subnet choices.
 
-    ![Select VPN][api-management-setup-vpn-select]
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Virtual network settings in the portal.":::
 
 7. In the top navigation bar, select **Save**, and then select **Apply network configuration**.
 
@@ -112,8 +112,9 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                      | External             |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Management endpoint for Azure portal and PowerShell         | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
-| * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) (where applicable)                   | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) and Azure KeyVault dependency                  | External & Internal  |
 | * / 1433                     | Outbound           | TCP                | VIRTUAL_NETWORK / SQL                 | **Access to Azure SQL endpoints**                           | External & Internal  |
+| * / 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureKeyVault                 | **Access to Azure KeyVault**                           | External & Internal  |
 | * / 5671, 5672, 443          | Outbound           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependency for [Log to Event Hub policy](api-management-howto-log-event-hubs.md) and monitoring agent | External & Internal  |
 | * / 445                      | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | Dependency on Azure File Share for [GIT](api-management-configuration-repository-git.md)                      | External & Internal  |
 | * / 443, 12000                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Health and Monitoring Extension         | External & Internal  |
@@ -142,6 +143,9 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
   > The change of clusters above with dns zone **.nsatc.net** to **.microsoftmetrics.com** is mostly a DNS Change. IP Address of cluster will not change.
 
 + **Regional Service Tags**: NSG rules allowing outbound connectivity to Storage, SQL, and Event Hubs service tags may use the regional versions of those tags corresponding to the region containing the API Management instance (for example, Storage.WestUS for an API Management instance in the West US region). In multi-region deployments, the NSG in each region should allow traffic to the service tags for that region and the primary region.
+
+    > [!IMPORTANT]
+    > To enable publishing the [developer portal](api-management-howto-developer-portal.md) for an API Management instance in a virtual network, ensure that you also allow outbound connectivity to blob storage in the West US region. For example, use the **Storage.WestUS** service tag in an NSG rule. Connectivity to blob storage in the West US region is currently required to publish the developer portal for any API Management instance.
 
 + **SMTP Relay**: Outbound network connectivity for the SMTP Relay, which resolves under the host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` and `ies.global.microsoft.com`
 
@@ -173,6 +177,15 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
   > [!IMPORTANT]
   > After you have validated the connectivity, make sure to remove all the resources deployed in the subnet, before deploying API Management into the subnet.
+
+* **Verify network connectivity status**: After deploying API Management into the subnet, use the portal to check the connectivity of your instance to dependencies such as Azure Storage. In the portal, in the left-hand menu, under **Deployment and infrastructure**, select **Network connectivity status**.
+
+   :::image type="content" source="media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Verify network connectivity status in the portal":::
+
+    * Select **Required** to review the connectivity to required Azure services for API Management. A failure indicates that the instance is unable to perform core operations to manage APIs.
+    * Select **Optional** to review the connectivity to optional services. Any failure indicates only that the specific functionality will not work (for example, SMTP). A failure may lead to degradation in the ability to use and monitor the API Management instance and provide the committed SLA.
+
+To address connectivity issues, review [Common network configuration issues](#network-configuration-issues) and fix required network settings.
 
 * **Incremental Updates**: When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2019-12-01/networkstatus), to verify that the API Management service has not lost access to any of the critical resources, which it depends upon. The connectivity status should be updated every 15 minutes.
 

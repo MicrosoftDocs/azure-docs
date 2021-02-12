@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Manage devices in your Azure IoT Central application

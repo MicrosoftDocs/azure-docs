@@ -5,10 +5,10 @@ author: roygara
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/21/2020
+ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
-ms.custom: contperfq1, devx-track-azurecli
+ms.custom: contperf-fy21q1, devx-track-azurecli
 ---
 
 # Enable Azure Active Directory Domain Services authentication on Azure Files
@@ -18,7 +18,7 @@ ms.custom: contperfq1, devx-track-azurecli
 If you are new to Azure file shares, we recommend reading our [planning guide](storage-files-planning.md) before reading the following series of articles.
 
 > [!NOTE]
-> Azure Files supports Kerberos authentication with Azure AD DS with RC4-HMAC encryption. AES Kerberos encryption is not yet supported.
+> Azure Files supports Kerberos authentication with Azure AD DS with RC4-HMAC only. AES Kerberos encryption is not yet supported.
 > Azure Files supports authentication for Azure AD DS with full synchronization with Azure AD. If you have enabled scoped synchronization in Azure AD DS which only sync a limited set of identities from Azure AD, authentication and authorization is not supported.
 
 ## Prerequisites
@@ -55,7 +55,7 @@ Before you enable Azure AD over SMB for Azure file shares, make sure you have co
 
 ## Regional availability
 
-Azure Files authentication with Azure AD DS is available in [all Azure Public and Gov regions](https://azure.microsoft.com/global-infrastructure/locations/).
+Azure Files authentication with Azure AD DS is available in [all Azure Public, Gov, and China regions](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## Overview of the workflow
 

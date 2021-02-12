@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 02/11/2021
 ms.topic: how-to
 ---
 
@@ -27,7 +27,7 @@ There are important topics you may want read before you proceed with creation:
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 
-If you prefer to try things out without provisioning an full environment yourself, get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
+If you prefer to try things out without provisioning an full environment yourself, get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
 
 ## Login to the Azure Arc data controller
@@ -73,9 +73,16 @@ azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2>
 #azdata arc postgres server create -n postgres01 --workers 2
 ```
 
+> [!IMPORTANT]
+> - The storage class used for backups (_--storage-class-backups -scb_) defaults to the data controller's data storage class if it is not provided.
+> - To restore a server group to a separate server group (like point in time restore) you must configure your server group to use PVCs with ReadWriteMany access mode. It is required to do so at the creation of the server group. It cannot be changed after creating it. For more details read:
+>    - [Create a server group that is ready for backups and restores](backup-restore-postgresql-hyperscale.md#create-a-server-group-that-is-ready-for-backups-and-restores)
+>    - [Limitations of Azure Arc enabled PostgreSQL Hyperscale](limitations-postgresql-hyperscale.md)
+
+
 > [!NOTE]
 > - **There are other command-line parameters available.  See the complete list of options by running `azdata arc postgres server create --help`.**
-> - The storage class used for backups (_--storage-class-backups -scb_) defaults to the data controller's data storage class if it is not provided.
+>
 > - The unit accepted by the --volume-size-* parameters is a Kubernetes resource quantity (an integer followed by one of these SI suffices (T, G, M, K, m) or their power-of-two equivalents (Ti, Gi, Mi, Ki)).
 > - Names must be 12 characters or fewer in length and conform to DNS naming conventions.
 > - You will be prompted to enter the password for the _postgres_ standard administrative user.  You can skip the interactive prompt by setting the `AZDATA_PASSWORD` session environment variable before you run the create command.

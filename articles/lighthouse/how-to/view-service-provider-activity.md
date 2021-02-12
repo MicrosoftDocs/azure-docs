@@ -1,7 +1,7 @@
 ---
 title: View service provider activity
 description: Customers can view logged activity to see actions performed by service providers through Azure delegated resource management.
-ms.date: 10/12/2020
+ms.date: 12/11/2020
 ms.topic: how-to
 ---
 
@@ -37,6 +37,12 @@ For more information, see [Create and manage activity log alerts](../../azure-mo
 You can create queries to analyze your logged activity or focus on specific items. For example, perhaps an audit requires you to report on all administrative-level actions performed on a subscription. You can create a query to filter on only these actions and sort the results by user, date, or another value.
 
 For more information, see [Overview of log queries in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+
+## View user activity across domains
+
+You can view activity from individual users across multiple domains by using the [Activity Logs by Domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) sample workbook.
+
+Results can be filtered by domain name. You can also apply additional filters such as category, level, or resource group.
 
 ## Next steps
 

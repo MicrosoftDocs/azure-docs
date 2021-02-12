@@ -174,25 +174,25 @@ To provision a user account:
 
 3. On the **Users** page, to add new user details, select **+**. 
 
-	![Add Users page](./media/sapboc-tutorial/user4.png)
+    ![Add Users page](./media/sapboc-tutorial/user4.png)
 
-	Then, complete the following steps:
+    Then, complete the following steps:
 
-	a. In the **USER ID** box, enter the user ID of the user, like **B**.
+    1. In the **USER ID** box, enter the user ID of the user, like **B**.
 
-	b. In the **FIRST NAME** box, enter the first name of the user, like **B**.
+    1. In the **FIRST NAME** box, enter the first name of the user, like **B**.
 
-	c. In the **LAST NAME** box, enter the last name of the user, like **Simon**.
+    1. In the **LAST NAME** box, enter the last name of the user, like **Simon**.
 
-	d. In the **DISPLAY NAME** box, enter the full name of the user, like **B.Simon**.
+    1. In the **DISPLAY NAME** box, enter the full name of the user, like **B.Simon**.
 
-	e. In the **E-MAIL** box, enter the email address of the user, like `b.simon@contoso.com`.
+    1. In the **E-MAIL** box, enter the email address of the user, like `b.simon@contoso.com`.
 
-	f. On the **Select Roles** page, select the appropriate role for the user, and then select **OK**.
+    1. On the **Select Roles** page, select the appropriate role for the user, and then select **OK**.
 
-	  ![Select role](./media/sapboc-tutorial/user3.png)
+        ![Select role](./media/sapboc-tutorial/user3.png)
 
-	g. Select the **Save** icon.
+    1. Select the **Save** icon.
 
 ### Test SSO 
 

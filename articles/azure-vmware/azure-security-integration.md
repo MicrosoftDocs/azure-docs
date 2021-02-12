@@ -2,7 +2,7 @@
 title: Protect your Azure VMware Solution VMs with Azure Security Center integration
 description: Learn how to protect your Azure VMware Solution VMs with Azure's native security tools from a single dashboard in Azure Security Center.
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 02/04/2021
 ---
 
 # Protect your Azure VMware Solution VMs with Azure Security Center integration
@@ -31,7 +31,12 @@ You can configure the Log Analytics workspace with Azure Sentinel for alert dete
 
 - Azure native services can be used for hybrid environment security in Azure, Azure VMware Solution, and on-premises services.
 - Using a Log Analytics workspace, you can collect the data or the logs to a single point and present the same data to different Azure native services.
-- Azure Security Center provides security features like file integrity monitoring, fileless attack detection, operating system patch assessment, security misconfigurations assessment, and endpoint protection assessment.
+- Azure Security Center offers a number of features, including:
+    - File integrity monitoring
+    - Fileless attack detection
+    - Operating system patch assessment 
+    - Security misconfigurations assessment
+    - Endpoint protection assessment
 - Azure Sentinel allows you to:
     - Collect data at cloud scale across all users, devices, applications, and infrastructure, both on premises and in multiple clouds.
     - Detect previously undetected threats.
@@ -40,7 +45,7 @@ You can configure the Log Analytics workspace with Azure Sentinel for alert dete
 
 ## Create a Log Analytics workspace
 
-You will need a Log Analytics workspace to collect data from various sources. See the steps in [Create a Log Analytics workspace from the Azure portal](../azure-monitor/learn/quick-create-workspace.md). 
+You will need a Log Analytics workspace to collect data from various sources. For more information, see [Create a Log Analytics workspace from the Azure portal](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## Deploy Security Center and configure Azure VMware Solution VMs
 
@@ -168,7 +173,7 @@ After connecting data sources to Azure Sentinel, you can create rules to generat
         |where count_ > 3
         ```
         
-    - Map entity
+    - Map entities
     - Query scheduling
     - Alert threshold
     - Event grouping
@@ -178,7 +183,7 @@ After connecting data sources to Azure Sentinel, you can create rules to generat
 
 6. On the **Incident settings** tab, enable **Create incidents from alerts triggered by this analytics rule** and select **Next: Automated response >**.
  
-    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Screenshot of the Analytic rule wizard for creating a new rule in Azure Sentinel showing Create incidents from alerts triggered by this analytics rule as enabled.":::
+    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Screenshot of the Analytic rule wizard for creating a new rule in Azure Sentinel. Shows Create incidents from alerts triggered by this rule as enabled.":::
 
 7. Select **Next: Review >**.
 
@@ -230,6 +235,8 @@ You can create queries or use the available pre-defined query in Azure Sentinel 
 
 ## Next steps
 
-- Learn to use the [Azure Defender dashboard](../security-center/azure-defender-dashboard.md).
-- Explore the full range of protection offered by [Azure Defender](../security-center/azure-defender.md).
-- Learn about [Advanced multistage attack detection in Azure Sentinel](../azure-monitor/learn/quick-create-workspace.md).
+Now that you've covered how to protect your Azure VMware Solution VMs, you may want to learn about:
+
+- Using the [Azure Defender dashboard](../security-center/azure-defender-dashboard.md).
+- [Advanced multistage attack detection in Azure Sentinel](../azure-monitor/learn/quick-create-workspace.md).
+- [Lifecycle management of Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).

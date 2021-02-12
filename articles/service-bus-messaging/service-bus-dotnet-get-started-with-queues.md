@@ -50,26 +50,9 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         static string queueName = "<QUEUE NAME>";
     ```
 
-    Enter your connection string for the namespace as the `ServiceBusConnectionString` variable. Enter your queue name.
+    Enter your connection string for the namespace as the `connectionString` variable. Enter your queue name.
 
-1. Replace the `Main()` method with the following **async** `Main` method. It calls the `SendMessagesAsync()` method that you will add in the next step to send messages to the queue. 
-
-    ```csharp
-    public static async Task Main(string[] args)
-    {    
-        const int numberOfMessages = 10;
-        
-        Console.WriteLine("======================================================");
-        Console.WriteLine("Press ENTER key to exit after sending all the messages.");
-        Console.WriteLine("======================================================");
-
-        // Send messages.
-        await SendMessagesAsync(numberOfMessages);
-
-        Console.ReadKey();
-    }
-    ```
-1. Directly after the `Main()` method, add the following `SendMessagesAsync()` method that does the work of sending the number of messages specified by `numberOfMessagesToSend` (currently set to 10):
+1. Directly after the `Main()` method, add the following `SendMessagesAsync()` method that does the work of sending a message:
 
     ```csharp
         static async Task SendMessageAsync()
@@ -96,9 +79,9 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         {
             // create a queue containing the messages and return it to the caller
             Queue<ServiceBusMessage> messages = new Queue<ServiceBusMessage>();
-            messages.Enqueue(new ServiceBusMessage("First message"));
-            messages.Enqueue(new ServiceBusMessage("Second message"));
-            messages.Enqueue(new ServiceBusMessage("Third message"));
+            messages.Enqueue(new ServiceBusMessage("First message in the batch"));
+            messages.Enqueue(new ServiceBusMessage("Second message in the batch"));
+            messages.Enqueue(new ServiceBusMessage("Third message in the batch"));
             return messages;
         }
     ```
@@ -284,4 +267,4 @@ See the following documentation and samples:
 
 - [Azure Service Bus client library for .NET - Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [.NET API reference](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)
+- [.NET API reference](/dotnet/api/azure.messaging.servicebus?preserve-view=true)

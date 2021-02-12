@@ -167,11 +167,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In a different web browser window, sign in to Wdesk as a Security Administrator.
 
-2. In the bottom left, click **Admin** and choose **Account Admin**:
+1. In the bottom left, click **Admin** and choose **Account Admin**:
  
-     ![Screenshot shows Account Admin selected from the Admin menu.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+    ![Screenshot shows Account Admin selected from the Admin menu.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
-3. In Wdesk Admin, navigate to **Security**, then **SAML** > **SAML Settings**:
+1. In Wdesk Admin, navigate to **Security**, then **SAML** > **SAML Settings**:
 
     ![Screenshot shows SAML Settings selected from the SAML tab.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
@@ -187,19 +187,19 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![Screenshot shows Service Provider Details where you can enter the values described.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
 
-	  a. Copy the **Login URL** and paste it in **Sign-on Url** textbox on Azure portal.
-   
-	  b. Copy the **Metadata Url** and paste it in **Identifier** textbox on Azure portal.
-	   
-	  c. Copy the **Consumer url** and paste it in **Reply Url** textbox on Azure portal.
-   
-	  d. Click **Save** on Azure portal to save the changes.      
+    1. Copy the **Login URL** and paste it in **Sign-on Url** textbox on Azure portal.
 
-6. Click **Configure IdP Settings** to open **Edit IdP Settings** dialog. Click **Choose File** to locate the **Metadata.xml** file you saved from Azure portal, then upload it.
+    1. Copy the **Metadata Url** and paste it in **Identifier** textbox on Azure portal.
+
+    1. Copy the **Consumer url** and paste it in **Reply Url** textbox on Azure portal.
+
+    1. Click **Save** on Azure portal to save the changes.      
+
+1. Click **Configure IdP Settings** to open **Edit IdP Settings** dialog. Click **Choose File** to locate the **Metadata.xml** file you saved from Azure portal, then upload it.
     
     ![Screenshot shows Edit I d P Settings where you can upload metadata.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
   
-7. Click **Save changes**.
+1. Click **Save changes**.
 
     ![Screenshot shows the Save changes button.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 

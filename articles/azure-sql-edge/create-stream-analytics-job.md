@@ -135,8 +135,8 @@ The following example creates an external stream object to the local database in
     Create EXTERNAL DATA SOURCE [KafkaInput] 
     With
     (
-	    LOCATION = N'kafka://<kafka_bootstrap_server_name_ip>:<port_number>'
-	)
+        LOCATION = N'kafka://<kafka_bootstrap_server_name_ip>:<port_number>'
+    )
     GO
     ```
 2. Create an external file format for the kafka input. The following example created a JSON file format with GZipped Compression. 
@@ -146,10 +146,10 @@ The following example creates an external stream object to the local database in
     WITH 
     (  
         FORMAT_TYPE = JSON , 
-	    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' 
+        DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' 
     )
    ```
-    
+
 3. Create the external stream object. The following example creates an external stream object pointing to Kafka topic `*TemperatureMeasurement*`.
 
     ```sql
@@ -157,8 +157,8 @@ The following example creates an external stream object to the local database in
     WITH 
     (  
         DATA_SOURCE = KafkaInput, 
-	    FILE_FORMAT = JsonGzipped,
-        LOCATION = 'TemperatureMeasurement',     
+        FILE_FORMAT = JsonGzipped,
+        LOCATION = 'TemperatureMeasurement',
         INPUT_OPTIONS = 'PARTITIONS: 10' 
     ); 
     ```

@@ -16,7 +16,7 @@ Data Protection covers control of data protection at rest, in transit, and via a
 
 ## DP-1: Discovery, classify and label sensitive data
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | DP-1 | 13.1, 14.5, 14.7 | SC-28 |
 
@@ -42,7 +42,7 @@ You can use Azure SQL Information Protection to assist in the classification and
 
 ## DP-2: Protect sensitive data
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | DP-2 | 13.2, 2.10 | SC-7, AC-4 |
 
@@ -68,7 +68,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 ## DP-3: Monitor for unauthorized transfer of sensitive data
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | DP-3 | 13.3 | AC-4, SI-4 |
 
@@ -96,7 +96,7 @@ If required for compliance of data loss prevention (DLP), you can use a host-bas
 
 ## DP-4: Encrypt sensitive information in transit
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | DP-4 | 14.4 | SC-8 |
 
@@ -126,7 +126,7 @@ By default, Azure provides encryption for data in transit between Azure data cen
 
 ## DP-5: Encrypt sensitive data at rest
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | DP-5 | 14.8 | SC-28, SC-12 |
 

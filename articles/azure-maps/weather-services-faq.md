@@ -1,18 +1,23 @@
 ---
-title: Microsoft Azure Maps Weather services frequently asked questions (FAQ) 
-description: Find answer to common questions about Azure Maps Weather services data and features.
+title: Microsoft Azure Maps Weather services (Preview) frequently asked questions (FAQ) 
+description: Find answer to common questions about Azure Maps Weather services (Preview) data and features.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/04/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Azure Maps Weather services frequently asked questions (FAQ)
+# Azure Maps Weather services (Preview) frequently asked questions (FAQ)
 
-This article answers to common questions about [Azure Maps Weather services](https://docs.microsoft.com/rest/api/maps/weather) data and features. The following topics are covered:
+> [!IMPORTANT]
+> Azure Maps Weather services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This article answers to common questions about Azure Maps [Weather services](/rest/api/maps/weather) data and features. The following topics are covered:
 
 * Data sources and data models
 * Weather services coverage and availability
@@ -46,11 +51,11 @@ These datasets are reviewed in real time for accuracy for the Digital Forecast S
 
 Numerous weather forecast guidance systems are utilized to formulate global forecasts. Over 150 numerical forecast models are used each day, both external and internal datasets. This includes government models such as the European Centre ECMWF and the U.S. Global Forecast System (GFS). Additionally, AccuWeather incorporates proprietary high-resolution models that downscale forecasts to specific locations and strategic regional domains to predict weather with further accuracy. AccuWeather’s unique blending and weighting algorithms   have been developed over the last several decades. These algorithms optimally leverage the numerous forecast inputs to provide highly accurate forecasts.
 
-## Weather services coverage and availability
+## Weather services (Preview) coverage and availability
 
 **What kind of coverage can I expect for different countries/regions?**
 
-Weather service coverage varies by country/region. All features are not available in every country/region. For more information, see [coverage documentation](https://docs.microsoft.com/azure/azure-maps/weather-coverage).
+Weather service coverage varies by country/region. All features are not available in every country/region. For more information, see [coverage documentation](./weather-coverage.md).
 
 ## Data update frequency
 
@@ -68,11 +73,11 @@ Azure Maps Forecast APIs are cached for up to 30 mins. To see when the cached re
 
 ## Developing with Azure Maps SDKs
 
-**Does Azure Maps  Web SDK  natively support Weather services integration?**
+**Does Azure Maps  Web SDK  natively support Weather services (Preview) integration?**
 
-The Azure Maps Web SDK provides a services module. The services module is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications. by using JavaScript or TypeScript. To get started, see our [documentation](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module).
+The Azure Maps Web SDK provides a services module. The services module is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications. by using JavaScript or TypeScript. To get started, see our [documentation](./how-to-use-services-module.md).
 
-**Does Azure Maps Android SDK natively support Weather services integration?**
+**Does Azure Maps Android SDK natively support Weather services (Preview) integration?**
 
 The Azure Maps Android SDKs supports Mercator tile layers, which can have x/y/zoom notation, quad key notation, or EPSG 3857 bounding box notation.
 
@@ -82,38 +87,38 @@ We plan to create a services module for Java/Android similar to the web SDK modu
 
 **Does Azure Maps Power BI Visual support Azure Maps weather tiles?**
 
-Yes. To learn how to migrate radar and infrared satellite tiles to the Microsoft Power BI visual, see [Add a tile layer to Power BI visual](https://docs.microsoft.com/azure/azure-maps/power-bi-visual-add-tile-layer). 
+Yes. To learn how to migrate radar and infrared satellite tiles to the Microsoft Power BI visual, see [Add a tile layer to Power BI visual](./power-bi-visual-add-tile-layer.md). 
 
 **How do I interpret colors used for radar and satellite tiles?**
 
-The Azure Maps [Weather concept article](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#radar-and-satellite-imagery-color-scale) includes a guide to help interpret colors used for radar and satellite tiles. The article covers color samples and HEX color codes.
+The Azure Maps [Weather concept article](./weather-services-concepts.md#radar-and-satellite-imagery-color-scale) includes a guide to help interpret colors used for radar and satellite tiles. The article covers color samples and HEX color codes.
  
 **Can I create radar and satellite tile animations?**
 
-Yes. In addition to real-time radar and satellite tiles, Azure Maps customers can request past and future tiles to enhance data visualizations with map overlays. This can be done by directly calling [Get Map Tile v2 API](https://aka.ms/AzureMapsWeatherTiles ) or by requesting tiles via Azure Maps web SDK. Radar tiles are provided for up to 1.5 hours in the past, and for up to 2 hours in the future. The tiles and are available in 5-minute intervals. Infrared tiles are provided for up to 3 hours in the past, and are available in 10-minute intervals. For more information, see the open-source Weather Tile Animation [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer).  
+Yes. In addition to real-time radar and satellite tiles, Azure Maps customers can request past and future tiles to enhance data visualizations with map overlays. This can be done by directly calling [Get Map Tile v2 API](/rest/api/maps/renderv2/getmaptilepreview) or by requesting tiles via Azure Maps web SDK. Radar tiles are provided for up to 1.5 hours in the past, and for up to 2 hours in the future. The tiles and are available in 5-minute intervals. Infrared tiles are provided for up to 3 hours in the past, and are available in 10-minute intervals. For more information, see the open-source Weather Tile Animation [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer).  
 
 **Do you offer icons for different weather conditions?**
 
-Yes. You can find icons and their respective codes [here](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons). Notice that only some of the Weather service APIs, such as  [Get Current Conditions API](https://aka.ms/azuremapsweathercurrentconditions), return the *iconCode* in the response. For more information, see the Current WeatherConditions open-source [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location).
+Yes. You can find icons and their respective codes [here](./weather-services-concepts.md#weather-icons). Notice that only some of the Weather service (Preview) APIs, such as  [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditionspreview), return the *iconCode* in the response. For more information, see the Current WeatherConditions open-source [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location).
 
 ## Next steps
 
 If this FAQ doesn’t answer your question, you can contact us through the following channels (in escalating order):
 
 * The comments section of this article.
-* [MSFT Q&A page for Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html).
+* [MSFT Q&A page for Azure Maps](/answers/topics/azure-maps.html).
 * Microsoft Support. To create a new support request, in the [Azure portal](https://portal.azure.com/), on the Help tab, select the **Help +** support button, and then select **New support request**.
 * [Azure Maps UserVoice](https://feedback.azure.com/forums/909172-azure-maps) to submit feature requests.
 
-Learn how to request real-time and forecasted weather data using Azure Maps Weather services:
+Learn how to request real-time and forecasted weather data using Azure Maps Weather services (Preview):
 > [!div class="nextstepaction"]
 > [Request Real-time weather data ](how-to-request-weather-data.md)
 
-Azure Maps Weather services concepts article:
+Azure Maps Weather services (Preview) concepts article:
 > [!div class="nextstepaction"]
 > [Weather services concepts](weather-coverage.md)
 
-Explore the Azure Maps Weather services API documentation:
+Explore the Azure Maps Weather services (Preview) API documentation:
 
 > [!div class="nextstepaction"]
 > [Azure Maps Weather services](/rest/api/maps/weather)

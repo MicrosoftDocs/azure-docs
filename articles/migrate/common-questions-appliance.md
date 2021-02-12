@@ -1,6 +1,9 @@
 ---
 title: Azure Migrate appliance FAQ
 description: Get answers to common questions about the Azure Migrate appliance.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
 ---

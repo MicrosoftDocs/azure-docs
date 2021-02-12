@@ -2,17 +2,13 @@
 title: Plan an Azure Active Directory Application Proxy Deployment
 description: An end-to-end guide for planning the deployment of Application proxy within your organization
 services: active-directory
-documentationcenter: 'azure'
 author: kenwith
-manager: celestedg
-ms.assetid:
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 12/31/2020
 ms.author: kenwith
 ---
 

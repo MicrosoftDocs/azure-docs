@@ -3,12 +3,12 @@ title: Understand Azure Cost Management data
 description: This article helps you better understand data that's included in Azure Cost Management and how frequently it's processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contentperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Understand Cost Management data
@@ -96,7 +96,7 @@ The following tables show data that's included or isn't in Cost Management. All 
 
 _<sup>**5**</sup> Azure service usage is based on reservation and negotiated prices._
 
-_<sup>**6**</sup> Marketplace purchases are not available for MSDN and Visual Studio offers at this time._
+_<sup>**6**</sup> Marketplace purchases aren't available for MSDN and Visual Studio offers at this time._
 
 _<sup>**7**</sup> Reservation purchases are only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts at this time._
 
@@ -104,20 +104,20 @@ _<sup>**7**</sup> Reservation purchases are only available for Enterprise Agreem
 
 Azure Cost Management receives tags as part of each usage record submitted by the individual services. The following constraints apply to these tags:
 
-- Tags must be applied directly to resources and are not implicitly inherited from the parent resource group.
+- Tags must be applied directly to resources and aren't implicitly inherited from the parent resource group.
 - Resource tags are only supported for resources deployed to resource groups.
 - Some deployed resources may not support tags or may not include tags in usage data.
-- Resource tags are only included in usage data while the tag is applied – tags are not applied to historical data.
+- Resource tags are only included in usage data while the tag is applied – tags aren't applied to historical data.
 - Resource tags are only available in Cost Management after the data is refreshed.
-- Resource tags are only available in Cost Management when the resource is active/running and producing usage records (e.g. not when a VM is deallocated).
+- Resource tags are only available in Cost Management when the resource is active/running and producing usage records. For example, when a VM is deallocated.
 - Managing tags requires contributor access to each resource.
 - Managing tag policies requires either owner or policy contributor access to a management group, subscription, or resource group.
     
-If you do not see a specific tag in Cost Management, consider the following:
+If you don't see a specific tag in Cost Management, consider the following questions:
 
 - Was the tag applied directly to the resource?
 - Was the tag applied more than 24 hours ago?
-- Does the resource type support tags? The following resource types do not support tags in usage data as of December 1, 2019. See [Tags support for Azure resources](../../azure-resource-manager/management/tag-support.md) for the full list of what is supported.
+- Does the resource type support tags? The following resource types don't support tags in usage data as of December 1, 2019. See [Tags support for Azure resources](../../azure-resource-manager/management/tag-support.md) for the full list of what is supported.
     - Azure Active Directory B2C Directories
     - Azure Bastion
     - Azure Firewalls
@@ -132,10 +132,9 @@ If you do not see a specific tag in Cost Management, consider the following:
     
 Here are a few tips for working with tags:
 
-- Plan ahead and define a tagging strategy that allows you to break costs down by organization, application, environment, etc.
+- Plan ahead and define a tagging strategy that allows you to break down costs by organization, application, environment, and so on.
 - Use Azure Policy to copy resource group tags to individual resources and enforce your tagging strategy.
-- Use the Tags API in conjunction with either Query or UsageDetails to get all cost based on the current tags.
-
+- Use the Tags API with either Query or UsageDetails to get all cost based on the current tags.
 
 ## Cost and usage data updates and retention
 
@@ -146,17 +145,18 @@ Cost and usage data is typically available in Cost Management + Billing in the A
 - Estimated charges for the current billing period can change as you incur more usage.
 - Each update is cumulative and includes all the line items and information from the previous update.
 - Azure finalizes or _closes_ the current billing period up to 72 hours (three calendar days) after the billing period ends.
+- During the open month (uninvoiced) period, cost management data should be considered an estimate only. In some cases, charges may be latent in arriving to the system after the usage actually occurred.
 
 The following examples illustrate how billing periods could end:
 
 * Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4.
 * Pay-as-you-go subscriptions – If the billing month ends on May 15, then the estimated charges might get updated up to 72 hours later. In this example, by midnight (UTC) May 19.
 
-Once cost and usage data becomes available in Cost Management + Billing, it will be retained for at least 7 years.
+Once cost and usage data becomes available in Cost Management + Billing, it will be retained for at least seven years.
 
 ### Rerated data
 
-Whether you use the Cost Management APIs, Power BI, or the Azure portal to retrieve data, expect the current billing period's charges to get rerated, and consequently change, until the invoice is closed.
+Whether you use the Cost Management APIs, Power BI, or the Azure portal to retrieve data, expect the current billing period's charges to get rerated, and as a consequence change, until the invoice is closed.
 
 ## Cost rounding
 
@@ -179,6 +179,6 @@ Historical data for credit-based and pay-in-advance offers might not match your 
 - MSDN (MS-AZR-0062P)
 - Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P, MS-AZR-0064P)
 
-## See also
+## Next steps
 
 - If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](./quick-acm-cost-analysis.md).

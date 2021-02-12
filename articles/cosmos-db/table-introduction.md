@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/25/2020
+ms.date: 01/08/2021
 ms.author: sngun
 
 ---
@@ -15,7 +15,7 @@ ms.author: sngun
 [Azure Cosmos DB](introduction.md) provides the Table API for applications that are written for Azure Table storage and that need premium capabilities like:
 
 * [Turnkey global distribution](distribute-data-globally.md).
-* [Dedicated throughput](partitioning-overview.md) worldwide.
+* [Dedicated throughput](partitioning-overview.md) worldwide (when using provisioned throughput).
 * Single-digit millisecond latencies at the 99th percentile.
 * Guaranteed high availability.
 * Automatic secondary indexing.
@@ -39,7 +39,7 @@ If you currently use Azure Table Storage, you gain the following benefits by mov
 | Indexing | Only primary index on PartitionKey and RowKey. No secondary indexes. | Automatic and complete indexing on all properties by default, with no index management. |
 | Query | Query execution uses index for primary key, and scans otherwise. | Queries can take advantage of automatic indexing on properties for fast query times. |
 | Consistency | Strong within primary region. Eventual within secondary region. | [Five well-defined consistency levels](consistency-levels.md) to trade off availability, latency, throughput, and consistency based on your application needs. |
-| Pricing | Storage-optimized. | Throughput-optimized. |
+| Pricing | Consumption-based. | Available in both [consumption-based](serverless.md) and [provisioned capacity](set-throughput.md) modes. |
 | SLAs | 99.9% to 99.99% availability, depending on the replication strategy. | 99.999% read availability, 99.99% write availability on a single-region account and 99.999% write availability on multi-region accounts. [Comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) covering availability, latency, throughput and consistency. |
 
 ## Get started

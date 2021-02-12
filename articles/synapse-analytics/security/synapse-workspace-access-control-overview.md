@@ -2,12 +2,12 @@
 title: Synapse workspace access control overview
 description: This article describes the mechanisms used to control access to a Synapse workspace and the resources and code artifacts it contains.
 services: synapse-analytics 
-author: billgib 
+author: RonyMSFT 
 ms.service: synapse-analytics 
 ms.topic: overview 
 ms.subservice: security 
 ms.date: 12/03/2020 
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 # Synapse access control 
@@ -24,27 +24,27 @@ Synapse provides a comprehensive and fine-grained access control system, that in
 
 Synapse roles provide sets of permissions that can be applied at different scopes. This granularity makes it easy to grant appropriate access to administrators, developers, security personnel, and operators to compute resources and data.
 
-Access control can be simplified by using security groups that are aligned with people's job roles.  You only need to add and remove users from appropriate security groups to manage access.
+Access control can be simplified by using security groups that are aligned with people's job roles. You only need to add and remove users from appropriate security groups to manage access.
 
 ## Access control elements
 
-### Creating and managing Synapse resources
+### Creating and managing Synapse compute resources
 
 Azure roles are used to control management of: 
 - Dedicated SQL pools, 
 - Apache Spark pools, and 
 - Integration runtimes. 
 
-To create these resources, you need to be an Azure Owner or Contributor on the resource group.  To manage them, you need to be an Azure Owner or Contributor on either the resource group or the individual resources. 
+To *create* these resources, you need to be an Azure Owner or Contributor on the resource group. To *manage* them once created, you need to be an Azure Owner or Contributor on either the resource group or the individual resources. 
 
 ### Developing and executing code in Synapse 
 
 Synapse supports two development models.
 
-- **Synapse live development**.  You develop and debug code in Synapse Studio and then **publish** it to save and execute.  The Synapse service is the source of truth for code editing and execution.  Any unpublished work is lost when you close Synapse Studio.  
-- **Git-enabled development**. You develop and debug code in Synapse Studio and **commit** changes to a working branch of a Git repo. Work from one or more branches is integrated into a collaboration branch, from where you **publish** it to the service.  The Git repo is the source of truth for code editing, while the service is the source of truth for execution. Changes must be committed to the Git repo or published to the service before closing Synapse Studio. [Learn more](https://go.microsoft.com/fwlink/?linkid=2150100) about using Synapse Analytics with Git.
+- **Synapse live development**. You develop and debug code in Synapse Studio and then **publish** it to save and execute.  The Synapse service is the source of truth for code editing and execution.  Any unpublished work is lost when you close Synapse Studio.  
+- **Git-enabled development**. You develop and debug code in Synapse Studio and **commit** changes to a working branch of a Git repo. Work from one or more branches is integrated into a collaboration branch, from where you **publish** it to the service. The Git repo is the source of truth for code editing, while the service is the source of truth for execution. Changes must be committed to the Git repo or published to the service before closing Synapse Studio. [Learn more](../cicd/continuous-integration-deployment.md) about using Synapse Analytics with Git.
 
-In both development models, any user with access to Synapse Studio can create code artifacts.  However, you need additional permissions to publish artifacts to the service, read published artifacts, to commit changes to Git, to execute code, and to access linked data protected by credentials.
+In both development models, any user with access to Synapse Studio can create code artifacts. However, you need additional permissions to publish artifacts to the service, read published artifacts, to commit changes to Git, to execute code, and to access linked data protected by credentials.
 
 ### Synapse roles
 
@@ -66,7 +66,7 @@ When using Git-enabled development in Git mode, your Git permissions control whe
 
 When working with dedicated and serverless SQL pools, data plane access is controlled using SQL permissions. 
 
-The creator of a workspace is assigned as the Active Directory Admin on the workspace.  After creation, this role can be assigned to a different user or to a security group in the Azure portal.
+The creator of a workspace is assigned as the Active Directory Admin on the workspace. After creation, this role can be assigned to a different user or to a security group in the Azure portal.
 
 **Serverless SQL pools**: Synapse Administrators are granted `db_owner` (`DBO`) permissions on the serverless SQL pool, 'Built-in'. To grant other users access to serverless SQL pools, Synapse administrators need to run SQL scripts on each serverless pool.  
 
@@ -76,7 +76,7 @@ See [How to set up Synapse Access Control](./how-to-set-up-access-control.md) fo
 
  ### Accessing system-managed data in storage
 
-Serverless SQL pools and Apache Spark tables store their data in an ADLS Gen2 container associated with the workspace.  Users and the workspace MSI must be granted Storage Blob Data Contributor access to this ADLS Gen2 storage container.  
+Serverless SQL pools and Apache Spark tables store their data in an ADLS Gen2 container associated with the workspace. User-installed Apache Spark libraries are also managed in the same storage account. To enable these use cases, users and the workspace MSI must be granted **Storage Blob Data Contributor** access to this workspace ADLS Gen2 storage container.  
 
 ## Using security groups as a best practice
 
@@ -91,9 +91,9 @@ Synapse Studio will behave differently based on your permissions and the current
 - **Synapse live mode:** Synapse Studio will prevent you from seeing published content, publishing content, or taking other actions if you don't have the required permission.  In some cases, you'll be prevented from creating code artifacts that you can't use or save. 
 - **Git-mode:** If you have Git permissions that let you commit changes to the current branch, then the commit action will be permitted even if you don't have permission to publish changes to the live service.  
 
-In some cases, you are allowed to create code artifacts even without permission to publish or commit.  This allows you to execute code (with the required execution permissions).[Learn more](./synapse-workspace-understand-what-role-you-need.md) about the roles required for common tasks. 
+In some cases, you are allowed to create code artifacts even without permission to publish or commit. This allows you to execute code (with the required execution permissions). [Learn more](./synapse-workspace-understand-what-role-you-need.md) about the roles required for common tasks. 
 
-If a feature is disabled in Synapse Studio, a tooltip will indicate the required permission.  Use the [Synapse RBAC roles guide](./synapse-workspace-synapse-rbac-roles.md#synapse-rbac-actions-and-the-roles-that-permit-them) to look up which role is required to provide the missing permission.
+If a feature is disabled in Synapse Studio, a tooltip will indicate the required permission. Use the [Synapse RBAC roles guide](./synapse-workspace-synapse-rbac-roles.md#synapse-rbac-actions-and-the-roles-that-permit-them) to look up which role is required to provide the missing permission.
 
 
 ## Next steps

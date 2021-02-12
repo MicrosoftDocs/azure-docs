@@ -1,8 +1,8 @@
 ---
 title: Register and scan a Power BI tenant (preview)
 description: Learn how to use the Azure Purview portal to register and scan a Power BI tenant. 
-author: viseshag
-ms.author: viseshag
+author: chanuengg
+ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
@@ -14,14 +14,14 @@ ms.date: 11/19/2020
 This article shows how to use Azure Purview portal to register and scan a Power BI tenant.
 
 > [!Note]
-> If the Purview instance and the Power BI tenant are in the same Azure tenant, you can only use managed identity (MSI) authentication to set up a scan of a Power BI tenant. If the Purview instance and Power BI tenant are in different Azure tenants, you must authenticate with delegated authentication, and you must use PowerShell to set up your scans. See [Use PowerShell to register and scan Power BI](powershell-register-scan-power-bi.md).
+> If the Purview instance and the Power BI tenant are in the same Azure tenant, you can only use managed identity (MSI) authentication to set up a scan of a Power BI tenant. 
 
 ## Create a security group for permissions
 
 To set up authentication, create a security group and add the catalog's managed identity to it.
 
 1. In the [Azure portal](https://portal.azure.com), search for **Azure Active Directory**.
-1. Create a new security group in your Azure Active Directory, by following [Create a basic group and add members using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+1. Create a new security group in your Azure Active Directory, by following [Create a basic group and add members using Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
     > [!Tip]
     > You can skip this step if you already have a security group you want to use.
@@ -44,16 +44,13 @@ To set up authentication, create a security group and add the catalog's managed 
 
 ## Associate the security group with the tenant
 
-1. Log into the [Power BI admin portal](https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1). Append this feature flag to the URI:  `allowServicePrincipalsUseReadAdminAPIsUI=1`. This flag enables the feature that allows you to associate your security group. For example,
-
-    ```http
-    https://app.powerbi.com/admin-portal/tenantSettings?allowServicePrincipalsUseReadAdminAPIsUI=1
-    ```
+1. Log into the [Power BI admin portal](https://app.powerbi.com/admin-portal/tenantSettings).
+1. Select the **Tenant settings** page.
 
     > [!Important]
     > You need to be a Power BI Admin to see the tenant settings page.
 
-1. Select **Developer settings** > **Allow service principals to use read-only Power BI APIs (Preview)**.
+1. Select **Admin API settings** > **Allow service principals to use read-only Power BI admin APIs (Preview)**.
 1. Select **Specific security groups**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Image showing how to allow service principals to get read-only Power BI admin API permissions":::
@@ -70,8 +67,6 @@ Now that you've given the catalog permissions to connect to the Admin API of you
 
 First, add a special feature flag to your Purview URL 
 
-1. Add the following string to the end of your Purview instance's uri: `?feature.ext.catalog={"pbi":"true"}`. This enables the Power BI registration option in your catalog.
-
 1. Select the **Management Center** icon.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="Management center icon.":::
@@ -84,7 +79,7 @@ First, add a special feature flag to your Purview URL
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Image showing the list of data sources available to choose":::
 
-1. Give your Power BI instance a friendly name.
+3. Give your Power BI instance a friendly name.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-friendly-name.png" alt-text="Image showing Power BI data source-friendly name":::
 
@@ -94,22 +89,25 @@ First, add a special feature flag to your Purview URL
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Power BI data source registered":::
 
-1. Give your scan a name. Notice that the only authentication method supported is **Managed Identity**.
+    > [!Note]
+    > For Power BI, data source registration and scan is allowed for only one instance.
+
+
+4. Give your scan a name. Notice that the only authentication method supported is **Managed Identity**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Image showing Power BI scan setup":::
 
     The scan name must be between 3-63 characters long and must contain only letters, numbers, underscores, and hyphens.  Spaces aren't allowed.
 
-1. Set up a scan trigger. Your options are **Once**, **Every 7 days**, and **Every 30 days**.
+5. Set up a scan trigger. Your options are **Once**, **Every 7 days**, and **Every 30 days**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Scan trigger image":::
 
-1. On **Review new scan**, select **Save and Run** to launch your scan.
+6. On **Review new scan**, select **Save and Run** to launch your scan.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Save and run Power BI screen image":::
 
 ## Next steps
 
-To learn how to use PowerShell cmdlets to register and scan a Power BI tenant, see:
-  
-- [Use PowerShell to register and scan Power BI](powershell-register-scan-power-bi.md)
+- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
+- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)

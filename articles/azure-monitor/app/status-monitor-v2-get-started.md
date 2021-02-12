@@ -4,7 +4,7 @@ description: A quickstart guide for Application Insights Agent. Monitor website 
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
-ms.date: 04/23/2019 
+ms.date: 01/22/2021 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -22,6 +22,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Download and install via PowerShell Gallery
 
 ### Install prerequisites
+
+> [!NOTE]
+> As of April 2020, PowerShell Gallery has deprecated TLS 1.1 and 1.0.
+>
+> For additionnal prerequisites that you might need, see [PowerShell Gallery TLS Support](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support).
+>
+
 Run PowerShell as Admin.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -41,7 +48,7 @@ Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 ### Enable monitoring
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -ConnectionString xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 	
 		
@@ -59,7 +66,7 @@ Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ```
 ### Enable monitoring
 ```powershell
-Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -ConnectionString xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 

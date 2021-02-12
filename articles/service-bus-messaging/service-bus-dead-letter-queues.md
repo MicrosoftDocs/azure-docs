@@ -25,7 +25,7 @@ It's not possible to obtain count of messages in the dead-letter queue at the to
 
 ![DLQ message count](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-You can also get the count of DLQ messages by using Azure CLI command: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show). 
+You can also get the count of DLQ messages by using Azure CLI command: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show). 
 
 ## Moving messages to the DLQ
 

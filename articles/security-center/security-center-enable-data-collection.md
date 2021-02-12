@@ -27,6 +27,17 @@ Data is collected using:
 :::image type="content" source="./media/security-center-enable-data-collection/auto-provisioning-options.png" alt-text="Security Center's auto provisioning settings page":::
 
 
+## Availability
+
+| Aspect                  | Details                                                                                                                                                                                                                      |
+|-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Release state:          | **Feature**: Auto provisioning is generally available (GA)<br>**Agent and extensions**: Log Analytics agent for Azure VMs is GA, Microsoft Dependency agent is in preview, Policy Add-on for Kubernetes is GA                |
+| Pricing:                | Free                                                                                                                                                                                                                         |
+| Supported destinations: | ![Yes](./media/icons/yes-icon.png) Azure machines<br>![No](./media/icons/no-icon.png) Azure Arc machines<br>![No](./media/icons/no-icon.png) Kubernetes nodes<br>![No](./media/icons/no-icon.png) Virtual Machine Scale Sets |
+| Clouds:                 | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov, China Gov, Other Gov                                                                                                      |
+|                         |                                                                                                                                                                                                                              |
+
+
 ## Why use auto provisioning?
 Any of the agents and extensions described on this page *can* be installed manually (see [Manual installation of the Log Analytics agent](#manual-agent)). However, **auto provisioning** reduces management overhead by installing all required agents and extensions on existing - and new - machines to ensure faster security coverage for all supported resources. 
 

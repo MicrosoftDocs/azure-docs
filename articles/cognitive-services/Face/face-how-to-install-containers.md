@@ -133,10 +133,6 @@ The Face service containers send billing information to Azure by using a Face re
 
 For more information about these options, see [Configure containers](./face-resource-container-config.md).
 
-<!--blogs/samples/video coures -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
-
 ## Summary
 
 In this article, you learned concepts and workflow for how to download, install, and run Face service containers. In summary:

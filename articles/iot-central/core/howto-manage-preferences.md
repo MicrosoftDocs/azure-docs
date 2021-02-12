@@ -3,13 +3,12 @@ title: Manage your personal preferences on IoT Central | Microsoft Docs
 description: How to manage your personal application preferences such as changing language and theme in your IoT Central application.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 07/10/2019
+ms.date: 12/23/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
 ---
-
 # Manage your personal application preferences
 
 *This article applies to operators, builders, and administrators.*

@@ -1,11 +1,11 @@
 ---
 title: Work with the previous version of Azure Migrate 
 description: Describes how to work with the previous version of Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: overview
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
+ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: mvc
 ---
 
@@ -18,7 +18,7 @@ This article provides information about working with the previous version of Azu
 There are two versions of the Azure Migrate service:
 
 - **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. [Learn more](whats-new.md) about what's new in this version.
-- **Previous version**: If you're using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. The previous version projects are referred to as Classic projects in this article. If you still need to use Azure Migrate projects created in the previous version, this is what you can and can't do:
+- **Previous version**: If you're using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. The previous version projects are referred to as Classic projects in this article. Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, classic version of Azure Migrate will no longer be supported and the inventory metadata in classic projects will be deleted. If you still need to use classic Azure Migrate projects, this is what you can and can't do:
     - You can no longer create migration projects.
     - We recommend that you don't perform new discoveries.
     - You can still access existing projects.

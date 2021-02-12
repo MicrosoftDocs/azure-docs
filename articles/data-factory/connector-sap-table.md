@@ -1,16 +1,12 @@
 ---
 title: Copy data from an SAP table
 description: Learn how to copy data from an SAP table to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/01/2020
+ms.date: 02/01/2021
 ---
 
 # Copy data from an SAP table by using Azure Data Factory
@@ -97,7 +93,7 @@ The following properties are supported for the SAP BW Open Hub linked service:
 | `sncQop` | The SNC Quality of Protection level to apply.<br/>Applies when `sncMode` is On. <br/>Allowed values are `1` (Authentication), `2` (Integrity), `3` (Privacy), `8` (Default), `9` (Maximum). | No |
 | `connectVia` | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. A self-hosted integration runtime is required, as mentioned earlier in [Prerequisites](#prerequisites). |Yes |
 
-**Example 1: Connect to an SAP application server**
+### Example 1: Connect to an SAP application server
 
 ```json
 {
@@ -289,6 +285,60 @@ In `rfcTableOptions`, you can use the following common SAP query operators to fi
     }
 ]
 ```
+
+## Join SAP tables
+
+Currently SAP Table connector only supports one single table with the default function module. To get the joined data of multiple tables, you can leverage the [customRfcReadTableFunctionModule](#copy-activity-properties) property in the SAP Table connector following steps below:
+
+- [Write a custom function module](#create-custom-function-module), which can take a query as OPTIONS and apply your own logic to retrieve the data.
+- For the "Custom function module", enter the name of your custom function module.
+- For the "RFC table options", specify the table join statement to feed into your function module as OPTIONS, such as "`<TABLE1>` INNER JOIN `<TABLE2>` ON COLUMN0".
+
+Below is an example:
+
+![Sap Table Join](./media/connector-sap-table/sap-table-join.png) 
+
+>[!TIP]
+>You can also consider having the joined data aggregated in the VIEW, which is supported by SAP Table connector.
+>You can also try to extract related tables to get onboard onto Azure (e.g. Azure Storage, Azure SQL Database), then use Data Flow to proceed with further join or filter.
+
+## Create custom function module
+
+For SAP table, currently we support [customRfcReadTableFunctionModule](#copy-activity-properties) property in the copy source, which allows you to leverage your own logic and process data.
+
+As a quick guidance, here are some requirements to get started with the "Custom function module":
+
+- Definition:
+
+    ![Definition](./media/connector-sap-table/custom-function-module-definition.png) 
+
+- Export data into one of the tables below:
+
+    ![Export table 1](./media/connector-sap-table/export-table-1.png) 
+
+    ![Export table 2](./media/connector-sap-table/export-table-2.png)
+ 
+Below are illustrations of how SAP table connector works with custom function module:
+
+1. Build connection with SAP server via SAP NCO.
+
+1. Invoke "Custom function module" with the parameters set as below:
+
+    - QUERY_TABLE: the table name you set in the ADF SAP Table dataset; 
+    - Delimiter: the delimiter you set in the ADF SAP Table Source; 
+    - ROWCOUNT/Option/Fields: the Rowcount/Aggregated Option/Fields you set in the ADF Table source.
+
+1. Get the result and parse the data in below ways:
+
+    1. Parse the value in the Fields table to get the schemas.
+
+        ![Parse values in Fields](./media/connector-sap-table/parse-values.png)
+
+    1. Get the values of the output table to see which table contains these values.
+
+        ![Get values in output table](./media/connector-sap-table/get-values.png)
+
+    1. Get the values in the OUT_TABLE, parse the data and then write it into the sink.
 
 ## Data type mappings for an SAP table
 

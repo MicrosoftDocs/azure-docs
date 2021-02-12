@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/06/2020
+ms.date: 12/16/2020
 ms.author: justinha
 
 ---
@@ -36,12 +36,14 @@ The following default inbound and outbound security rules are applied to the net
 
 | Priority | Name | Port | Protocol | Source | Destination | Action |
 |----------|------|------|----------|--------|-------------|--------|
-| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Any | Allow |
-| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Any | Allow |
 | 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Any | Allow |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Any | Deny<sup>1</sup> |
 | 65000    | AllVnetInBound | Any | Any | VirtualNetwork | VirtualNetwork | Allow |
 | 65001    | AllowAzureLoadBalancerInBound | Any | Any | AzureLoadBalancer | Any | Allow |
 | 65500    | DenyAllInBound | Any | Any | Any | Any | Deny |
+
+
+<sup>1</sup>Optional for debugging. Allow when required for advanced troubleshooting.
 
 > [!NOTE]
 > You may also have an additional rule that allows inbound traffic if you [configure secure LDAP][configure-ldaps]. This additional rule is required for the correct LDAPS communication.

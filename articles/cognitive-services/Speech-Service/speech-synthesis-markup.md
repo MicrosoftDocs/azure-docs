@@ -28,6 +28,11 @@ Choose from standard and neural voices, or create your own custom voice unique t
 
 To learn more about standard, neural, and custom voices, see [Text-to-speech overview](text-to-speech.md).
 
+
+> [!NOTE]
+> You can hear voices in different styles and pitches reading example text using [the Text to Speech page](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+
+
 ## Special characters
 
 While using SSML, keep in mind that special characters, such as quotation marks, apostrophes, and brackets must be escaped. For more information, see [Extensible Markup Language (XML) 1.0: Appendix D](https://www.w3.org/TR/xml/#sec-entexpand).
@@ -193,8 +198,10 @@ Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-AriaNeural`
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
+* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunyeNeural`
 * `zh-CN-YunxiNeural` (Preview)
 * `zh-CN-XiaohanNeural` (Preview)
 * `zh-CN-XiaomoNeural` (Preview)
@@ -251,6 +258,7 @@ Use this table to determine which speaking styles are supported for each neural 
 |                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
 |                         | `style="newscast"`        | Expresses a versatile and casual tone for general news delivery   |
 | `en-US-GuyNeural`       | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
+| `pt-BR-FranciscaNeural` | `style="calm"`            | Expresses a cool, collected, and composed attitude when speaking. Tone, pitch, prosody is much more uniform compared to other types of speech.                                |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
 |                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
@@ -266,7 +274,14 @@ Use this table to determine which speaking styles are supported for each neural 
 |                         | `style="gentle"`          | Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy         |   
 |                         | `style="lyrical"`         | Expresses emotions in a melodic and sentimental way         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  | 
-| `zh-CN-YunxiNeural`    | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
+| `zh-CN-YunyeNeural`     | `style="calm"`            | Expresses a cool, collected, and composed attitude when speaking. Tone, pitch, prosody is much more uniform compared to other types of speech.    | 
+|                         | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
+|                         | `style="sad"`             | Expresses a sorrowful tone, with higher pitch, less intensity, and lower vocal energy. Common indicators of this emotion would be whimpers or crying during speech.            |
+|                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
+|                         | `style="disgruntled"`     | Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.              |
+|                         | `style="serious"`         | Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.          |
+| `zh-CN-YunxiNeural`     | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
 |                         | `style="sad"`             | Expresses a sorrowful tone, with higher pitch, less intensity, and lower vocal energy. Common indicators of this emotion would be whimpers or crying during speech.            |
 |                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
 |                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |

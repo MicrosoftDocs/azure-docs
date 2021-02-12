@@ -7,7 +7,7 @@ ms.author: pepogors
 ---
 # Azure Service Fabric node types and virtual machine scale sets
 
-[Virtual machine scale sets](../virtual-machine-scale-sets/index.yml) are an Azure compute resource. You can use scale sets to deploy and manage a collection of virtual machines as a set. Each node type that you define in an Azure Service Fabric cluster sets up exactly one scale set: multiple node types cannot be backed by the same scale set and one node type should not (in most cases) be backed by multiple scale sets. An exception to this is in the rare situation of [vertical scaling](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) a node type, when you temporarily have two scale sets with the same `nodeTypeRef` value while replicas are migrated from the original to the upgraded scale set.
+[Virtual machine scale sets](../virtual-machine-scale-sets/index.yml) are an Azure compute resource. You can use scale sets to deploy and manage a collection of virtual machines as a set. Each node type that you define in an Azure Service Fabric cluster sets up exactly one scale set: multiple node types cannot be backed by the same scale set and one node type should not be backed by multiple scale sets.
 
 The Service Fabric runtime is installed on each virtual machine in the scale set by the *Microsoft.Azure.ServiceFabric* Virtual Machine extension. You can independently scale each node type up or down, change the OS SKU running on each cluster node, have different sets of ports open, and use different capacity metrics.
 

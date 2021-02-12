@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 02/03/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -22,8 +22,8 @@ Text Analytics for health is not intended or made available for use as a medical
 
 Text Analytics for health is a feature of the Text Analytics API service that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
 
-* The web-based API (asynchronous) 
-* A Docker container (synchronous)   
+* [The web-based API (asynchronous)](#structure-the-api-request-for-the-hosted-asynchronous-web-api)
+* [A Docker container (synchronous)](#hosted-asynchronous-web-api-response)   
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
@@ -64,7 +64,7 @@ The meaning of medical content is highly affected by modifiers such as negation,
 
 ---
 
-See the [entity categories](../named-entity-types.md?tabs=health) returned by Text Analytics for health for a full list of supported entities.
+See the [entity categories](../named-entity-types.md?tabs=health) returned by Text Analytics for health for a full list of supported entities. For information on confidence scores, see the [Text Analytics transparency note](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ### Supported languages and regions
 
@@ -109,6 +109,9 @@ Document size must be under 5,120 characters per document. For the maximum numbe
 ### Structure the API request for the hosted asynchronous web API
 
 For both the container and hosted web API, you must create a POST request. You can [use Postman](text-analytics-how-to-call-api.md), a cURL command or the **API testing console** in the [Text Analytics for health hosted API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) to quickly construct and send a POST request to the hosted web API in your desired region. 
+
+> [!NOTE]
+> Both the asynchronous `/analyze` and `/health` endpoints are only available in the following regions: West US 2, East US 2, Central US, North Europe and West Europe.  To make successful requests to these endpoints, please make sure your resource is created in one of these regions.
 
 Below is an example of a JSON file attached to the Text Analytics for health API request's POST body:
 

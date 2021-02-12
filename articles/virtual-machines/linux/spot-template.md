@@ -189,4 +189,4 @@ You can also create a Spot VM using [Azure PowerShell](../windows/spot-powershel
 
 Query current pricing information using the [Azure retail prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) for information about Spot pricing. The `meterName` and `skuName` will both contain `Spot`.
 
-If you encounter an error, see [Error codes](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you encounter an error, see [Error codes](../error-codes-spot.md).

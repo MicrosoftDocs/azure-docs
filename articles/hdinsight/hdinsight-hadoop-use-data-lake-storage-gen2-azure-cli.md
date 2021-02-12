@@ -3,7 +3,6 @@ title: Create Azure HDInsight - Azure Data Lake Storage Gen2 - Azure CLI
 description: Learn how to use Azure Data Lake Storage Gen2 with Azure HDInsight clusters using Azure CLI.
 author: guyhay
 ms.author: guyhay
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
@@ -72,7 +71,7 @@ Next, sign in to the portal. Add the new user-assigned managed identity to the *
  > Ensure that your storage account has the user-assigned identity with **Storage Blob Data Contributor** role permissions, otherwise cluster creation will fail.
 
 ```azurecli
-az group deployment create --name HDInsightADLSGen2Deployment \
+az deployment group create --name HDInsightADLSGen2Deployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json

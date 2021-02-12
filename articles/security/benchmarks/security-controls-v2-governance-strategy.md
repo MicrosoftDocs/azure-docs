@@ -16,7 +16,7 @@ Governance and Strategy provides guidance for ensuring a coherent security strat
 
 ## GS-1: Define asset management and data protection strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-1 | 2, 13 | SC, AC |
 
@@ -59,7 +59,7 @@ For more information, see the following references:
 
 ## GS-2: Define enterprise segmentation strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-2 | 4, 9, 16 | AC, CA, SC |
 
@@ -83,7 +83,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ## GS-3: Define security posture management strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-3 | 20, 3, 5 | RA, CM, SC |
 
@@ -99,7 +99,7 @@ Continuously measure and mitigate risks to your individual assets and the enviro
 
 ## GS-4: Align organization roles, responsibilities, and accountabilities
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-4 | N/A | PL, PM |
 
@@ -119,7 +119,7 @@ Ensure you document and communicate a clear strategy for roles and responsibilit
 
 ## GS-5: Define network security strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-5 | 9 | CA, SC |
 
@@ -157,7 +157,7 @@ For more information, see the following references:
 
 ## GS-6: Define identity and privileged access strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-6 | 16, 4 | AC, AU, SC |
 
@@ -193,7 +193,7 @@ For more information, see the following references:
 
 ## GS-7: Define logging and threat response strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-7 | 19 | IR, AU, RA, SC |
 
@@ -234,7 +234,7 @@ For more information, see the following references:
 
 ## GS-8: Define backup and recovery strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-8 | 10 | CP |
 

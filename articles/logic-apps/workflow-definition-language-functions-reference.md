@@ -3,9 +3,9 @@ title: Reference guide for functions in expressions
 description: Reference guide to functions in expressions for Azure Logic Apps and Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
-ms.topic: conceptual
-ms.date: 09/04/2020
+ms.reviewer: estfan, logicappspm, azla
+ms.topic: reference
+ms.date: 01/13/2021
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -601,10 +601,10 @@ addDays('<timestamp>', <days>, '<format>'?)
 This example adds 10 days to the specified timestamp:
 
 ```
-addDays('2018-03-15T13:00:00Z', 10)
+addDays('2018-03-15T00:00:00Z', 10)
 ```
 
-And returns this result: `"2018-03-25T00:00:0000000Z"`
+And returns this result: `"2018-03-25T00:00:00.0000000Z"`
 
 *Example 2*
 
@@ -614,7 +614,7 @@ This example subtracts five days from the specified timestamp:
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-And returns this result: `"2018-03-10T00:00:0000000Z"`
+And returns this result: `"2018-03-10T00:00:00.0000000Z"`
 
 <a name="addHours"></a>
 
@@ -646,7 +646,7 @@ This example adds 10 hours to the specified timestamp:
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-And returns this result: `"2018-03-15T10:00:0000000Z"`
+And returns this result: `"2018-03-15T10:00:00.0000000Z"
 
 *Example 2*
 
@@ -656,7 +656,7 @@ This example subtracts five hours from the specified timestamp:
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-And returns this result: `"2018-03-15T10:00:0000000Z"`
+And returns this result: `"2018-03-15T10:00:00.0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -1735,7 +1735,7 @@ decodeUriComponent('<value>')
 This example replaces the escape characters in this string with decoded versions:
 
 ```
-decodeUriComponent('http%3A%2F%2Fcontoso.com')
+decodeUriComponent('https%3A%2F%2Fcontoso.com')
 ```
 
 And returns this result: `"https://contoso.com"`
@@ -1758,7 +1758,7 @@ div(<dividend>, <divisor>)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer or Float | The result from dividing the first number by the second number. If either the dividend or divisor has Float type, the result has Float type. <p><p>**Note**: To convert the float result to an integer, try [creating and calling an Azure function](../logic-apps/logic-apps-azure-functions.md) from your logic app. |
+| <*quotient-result*> | Integer or Float | The result from dividing the first number by the second number. If either the dividend or divisor has Float type, the result has Float type. <p><p>**Note**: To convert the float result to an integer, try [creating and calling a function in Azure](../logic-apps/logic-apps-azure-functions.md) from your logic app. |
 ||||
 
 *Example 1*
@@ -1814,7 +1814,7 @@ This example creates a URI-encoded version for this string:
 encodeUriComponent('https://contoso.com')
 ```
 
-And returns this result: `"http%3A%2F%2Fcontoso.com"`
+And returns this result: `"https%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
@@ -2143,7 +2143,7 @@ formatNumber(1234567890, '0,0.00', 'is-is')
 Suppose that you want to format the number `17.35`. This example formats the number to the string "$17.35".
 
 ```
-formatNumber(17.36, 'C2')
+formatNumber(17.35, 'C2')
 ```
 
 *Example 4*
@@ -2151,7 +2151,7 @@ formatNumber(17.36, 'C2')
 Suppose that you want to format the number `17.35`. This example formats the number to the string "17,35 kr".
 
 ```
-formatNumber(17.36, 'C2', 'is-is')
+formatNumber(17.35, 'C2', 'is-is')
 ```
 
 <a name="getFutureTime"></a>
@@ -2339,7 +2339,7 @@ guid('<format>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | No | String | A single [format specifier](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_) for the returned GUID. By default, the format is "D", but you can use "N", "D", "B", "P", or "X". |
+| <*format*> | No | String | A single [format specifier](/dotnet/api/system.guid.tostring#system_guid_tostring_system_string_) for the returned GUID. By default, the format is "D", but you can use "N", "D", "B", "P", or "X". |
 |||||
 
 | Return value | Type | Description |
@@ -2614,12 +2614,19 @@ This example creates a counter variable and increments that variable by one duri
 
 ### json
 
-Return the JavaScript Object Notation (JSON)
-type value or object for a string or XML.
+Return the JavaScript Object Notation (JSON) type value, object, or array of objects for a string or XML.
 
 ```
 json('<value>')
+json(xml('value'))
 ```
+
+> [!IMPORTANT]
+> Without an XML schema that defines the output's structure, the function might return results 
+> where the structure greatly differs from the expected format, depending on the input.
+>  
+> This behavior makes this function unsuitable for scenarios where the output must conform 
+> to a well-defined contract, for example, in critical business systems or solutions.
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
@@ -2628,12 +2635,12 @@ json('<value>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*JSON-result*> | JSON native type or object | The JSON native type value or object for the specified string or XML. If the string is null, the function returns an empty object. |
+| <*JSON-result*> | JSON native type, object, or array | The JSON native type value, object, or array of objects from the input string or XML. <p><p>- If you pass in XML that has a single child element in the root element, the function returns a single JSON object for that child element. <p> - If you pass in XML that has multiple child elements in the root element, the function returns an array that contains JSON objects for those child elements. <p>- If the string is null, the function returns an empty object. |
 ||||
 
 *Example 1*
 
-This example converts this string to the JSON value:
+This example converts this string into a JSON value:
 
 ```
 json('[1, 2, 3]')
@@ -2643,7 +2650,7 @@ And returns this result: `[1, 2, 3]`
 
 *Example 2*
 
-This example converts this string to JSON:
+This example converts this string into JSON:
 
 ```
 json('{"fullName": "Sophia Owen"}')
@@ -2651,7 +2658,7 @@ json('{"fullName": "Sophia Owen"}')
 
 And returns this result:
 
-```
+```json
 {
   "fullName": "Sophia Owen"
 }
@@ -2659,23 +2666,53 @@ And returns this result:
 
 *Example 3*
 
-This example converts this XML to JSON:
+This example uses the `json()` and `xml()` functions to convert XML that has a single child element in the root element into a JSON object named `person` for that child element:
 
-```
-json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))
-```
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 And returns this result:
 
 ```json
 {
-   "?xml": { "@version": "1.0" },
+   "?xml": { 
+      "@version": "1.0" 
+   },
    "root": {
-      "person": [ {
+      "person": {
          "@id": "1",
          "name": "Sophia Owen",
          "occupation": "Engineer"
-      } ]
+      }
+   }
+}
+```
+
+*Example 4*
+
+This example uses the `json()` and `xml()` functions to convert XML that has multiple child elements in the root element into an array named `person` that contains JSON objects for those child elements:
+
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id='2'> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
+
+And returns this result:
+
+```json
+{
+   "?xml": {
+      "@version": "1.0"
+   },
+   "root": {
+      "person": [
+         {
+            "@id": "1",
+            "name": "Sophia Owen",
+            "occupation": "Engineer"
+         },
+         {
+            "@id": "2",
+            "name": "John Doe",
+            "occupation": "Engineer"
+         }
+      ]
    }
 }
 ```
@@ -2807,15 +2844,11 @@ lastIndexOf('<text>', '<searchText>')
 
 If the string or substring value is empty, the following behavior occurs:
 
-* If the string value is empty, `-1` is returned:
+* If only the string value is empty, the function returns `-1`.
 
-* If the string and substring values are both empty, `0` is returned.
+* If the string and substring values are both empty, the function returns `0`.
 
-* If only the substring value is empty, the greater of the following two values is returned:
-
-  * `0`
-
-  * The length of the string, minus 1.
+* If only the substring value is empty, the function returns the string length minus 1.
 
 *Examples*
 
@@ -4091,7 +4124,7 @@ This example subtracts one day from this timestamp:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-And returns this result: `"2018-01-01T00:00:00:0000000Z"`
+And returns this result: `"2018-01-01T00:00:00.0000000Z"`
 
 *Example 2*
 
@@ -4144,7 +4177,7 @@ And return these results:
 
 ### ticks
 
-Returns the number of ticks, which are 100-nanosecond intervals, since January 1, 0001 12:00:00 midnight (or DateTime.Ticks in C#) up to the specified timestamp. For more information, see this topic: [DateTime.Ticks Property (System)](/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks).
+Returns the number of ticks, which are 100-nanosecond intervals, since January 1, 0001 12:00:00 midnight (or DateTime.Ticks in C#) up to the specified timestamp. For more information, see this topic: [DateTime.Ticks Property (System)](/dotnet/api/system.datetime.ticks).
 
 ```
 ticks('<timestamp>')
@@ -4273,8 +4306,7 @@ triggerBody()
 
 ### triggerFormDataMultiValues
 
-Return an array with values that match a key name
-in a trigger's *form-data* or *form-encoded* output.
+Return an array with values that match a key name in a trigger's *form-data* or *form-encoded* output.
 
 ```
 triggerFormDataMultiValues('<key>')
@@ -4292,14 +4324,13 @@ triggerFormDataMultiValues('<key>')
 
 *Example*
 
-This example creates an array from the "feedUrl" key value in
-an RSS trigger's form-data or form-encoded output:
+This example creates an array from the "feedUrl" key value in an RSS trigger's form-data or form-encoded output:
 
 ```
 triggerFormDataMultiValues('feedUrl')
 ```
 
-And returns this array as an example result: `["http://feeds.reuters.com/reuters/topNews"]`
+And returns this array as an example result: `["https://feeds.a.dj.com/rss/RSSMarketsMain.xml"]`
 
 <a name="triggerFormDataValue"></a>
 
@@ -4333,7 +4364,7 @@ an RSS trigger's form-data or form-encoded output:
 triggerFormDataValue('feedUrl')
 ```
 
-And returns this string as an example result: `"http://feeds.reuters.com/reuters/topNews"`
+And returns this string as an example result: `"https://feeds.a.dj.com/rss/RSSMarketsMain.xml"`
 
 <a name="triggerMultipartBody"></a>
 
@@ -4471,7 +4502,7 @@ This example creates a URI-encoded version for this string:
 uriComponent('https://contoso.com')
 ```
 
-And returns this result: `"http%3A%2F%2Fcontoso.com"`
+And returns this result: `"https%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
@@ -4498,7 +4529,7 @@ uriComponentToBinary('<value>')
 This example creates the binary version for this URI-encoded string:
 
 ```
-uriComponentToBinary('http%3A%2F%2Fcontoso.com')
+uriComponentToBinary('https%3A%2F%2Fcontoso.com')
 ```
 
 And returns this result:
@@ -4534,7 +4565,7 @@ uriComponentToString('<value>')
 This example creates the decoded string version for this URI-encoded string:
 
 ```
-uriComponentToString('http%3A%2F%2Fcontoso.com')
+uriComponentToString('https%3A%2F%2Fcontoso.com')
 ```
 
 And returns this result: `"https://contoso.com"`
@@ -4594,7 +4625,7 @@ uriPath('<uri>')
 This example finds the `path` value for this URI:
 
 ```
-uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPath('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 And returns this result: `"/catalog/shownew.htm"`
@@ -4624,7 +4655,7 @@ uriPathAndQuery('<uri>')
 This example finds the `path` and `query` values for this URI:
 
 ```
-uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPathAndQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 And returns this result: `"/catalog/shownew.htm?date=today"`
@@ -4654,7 +4685,7 @@ uriPort('<uri>')
 This example returns the `port` value for this URI:
 
 ```
-uriPort('http://www.localhost:8080')
+uriPort('https://www.localhost:8080')
 ```
 
 And returns this result: `8080`
@@ -4684,7 +4715,7 @@ uriQuery('<uri>')
 This example returns the `query` value for this URI:
 
 ```
-uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 And returns this result: `"?date=today"`
@@ -4714,7 +4745,7 @@ uriScheme('<uri>')
 This example returns the `scheme` value for this URI:
 
 ```
-uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriScheme('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 And returns this result: `"http"`
@@ -5055,16 +5086,16 @@ Here is the result: `30`
 
 *Example 8*
 
-In this example, suppose you have this XML string, which includes the XML document namespace, `xmlns="http://contoso.com"`:
+In this example, suppose you have this XML string, which includes the XML document namespace, `xmlns="https://contoso.com"`:
 
 ```xml
-<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+<?xml version="1.0"?><file xmlns="https://contoso.com"><location>Paris</location></file>
 ```
 
-These expressions use either XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`, to find nodes that match the `<location></location>` node. These examples show the syntax that you use in either the Logic App Designer or in the expression editor:
+These expressions use either XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]`, to find nodes that match the `<location></location>` node. These examples show the syntax that you use in either the Logic App Designer or in the expression editor:
 
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]')`
 
 Here is the result node that matches the `<location></location>` node: 
 

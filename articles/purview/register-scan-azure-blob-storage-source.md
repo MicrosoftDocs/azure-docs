@@ -1,8 +1,8 @@
 ---
 title: 'How to scan Azure storage blob'
 description: Learn how to scan Azure blob storage in your Azure Purview data catalog. 
-author: hophan
-ms.author: hophan
+author: shsandeep123
+ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
@@ -40,7 +40,7 @@ When you choose **Managed Identity**, to set up the connection, you must first g
 1. Set the **Role** to **Storage Blob Data Reader** and enter your Azure Purview account name under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
 
 > [!Note]
-> For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)
+> For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/common/storage-auth-aad.md)
 
 ### Account Key
 

@@ -1,13 +1,13 @@
 ---
 title: Use Azure Spot VMs
 description: Learn how to use Azure Spot VMs to save on costs.
-author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
-ms.author: cynthn
-ms.reviewer: jagaveer
+ms.reviewer: cynthn
 ---
 
 
@@ -54,7 +54,7 @@ Spot VMs can be deployed to any region, except Microsoft Azure China 21Vianet.
 The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
 
 -	Enterprise Agreement
--	Pay-as-you-go
+-	Pay-as-you-go offer code 003P
 -	Sponsored
 - For Cloud Service Provider (CSP), contact your partner
 
@@ -107,9 +107,14 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 **A:** You can post and tag your question with `azure-spot` at [Q&A](/answers/topics/azure-spot.html). 
 
+
+**Q:** How can I change the max price for a spot VM?
+
+**A:** Before you can change the max price, you need to deallocate the VM. Then you can change the max price in the portal, from the **Configuration** section for the VM. 
+
 ## Next steps
 Use the [CLI](./linux/spot-cli.md), [portal](spot-portal.md), [ARM template](./linux/spot-template.md), or [PowerShell](./windows/spot-powershell.md) to deploy Spot VMs.
 
 You can also deploy a [scale set with Spot VM instances](../virtual-machine-scale-sets/use-spot.md).
 
-If you encounter an error, see [Error codes](./error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you encounter an error, see [Error codes](./error-codes-spot.md).

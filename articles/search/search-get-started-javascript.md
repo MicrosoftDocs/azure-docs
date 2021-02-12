@@ -9,7 +9,7 @@ ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/26/2020
+ms.date: 02/02/2021
 ms.custom: devx-track-js
 ---
 
@@ -82,7 +82,7 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
     npm install @azure/search-documents
     ```
 
-4. Install `dotenv`, which is used to import the environment variables such as our service name and api key.
+4. Install `dotenv`, which is used to import the environment variables such as our service name and API key.
     ```cmd
     npm install dotenv
     ```
@@ -165,7 +165,7 @@ With that in place, we're ready to create an index.
 
 ## 1 - Create index 
 
-Create a file **hotels_quickstart_index.json**.  This file defines how Azure Cognitive Search works with the documents you'll be loading in the next step. Each field will be identified by a `name` and have a specified `type`. Each field also has a series of index attributes that specify whether Azure Cognitive Search can search, filter, sort, and facet upon the field. Most of the fields are simple data types, but some, like `AddressType` are complex types that allow you to create rich data structures in your index.  You can read more about [supported data types](/rest/api/searchservice/supported-data-types) and [index attributes](./search-what-is-an-index.md#index-attributes). 
+Create a file **hotels_quickstart_index.json**.  This file defines how Azure Cognitive Search works with the documents you'll be loading in the next step. Each field will be identified by a `name` and have a specified `type`. Each field also has a series of index attributes that specify whether Azure Cognitive Search can search, filter, sort, and facet upon the field. Most of the fields are simple data types, but some, like `AddressType` are complex types that allow you to create rich data structures in your index.  You can read more about [supported data types](/rest/api/searchservice/supported-data-types) and index attributes described in [Create Index (REST)](/rest/api/searchservice/create-index). 
 
 Add the following to **hotels_quickstart_index.json** or [download the file](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels_quickstart_index.json). 
 

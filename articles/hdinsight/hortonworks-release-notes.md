@@ -1,9 +1,6 @@
 ---
 title: Hortonworks release notes associated with Azure HDInsight versions
 description: Learn the Apache Hadoop components and versions in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
