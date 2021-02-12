@@ -794,6 +794,8 @@
         href: hr2day-tutorial.md
       - name: HRworks Single Sign-On
         href: hrworks-single-sign-on-tutorial.md
+      - name: HSB ThoughtSpot
+        href: hsb-thoughtspot-tutorial.md
       - name: Hub Planner
         href: hub-planner-tutorial.md
       - name: HubSpot SAML
