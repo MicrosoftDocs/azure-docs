@@ -47,12 +47,12 @@ There are three possible strategies for integrating industry-standard ontologies
 | **Convert** | If you already have existing models represented in another standard format, you can convert them to DTDL to use them with Azure Digital Twins. | [*Concepts:&nbsp;Converting&nbsp;ontologies*](concepts-ontologies-convert.md)<br><br>[*Concepts:&nbsp;Extending&nbsp;ontologies*](concepts-ontologies-extend.md) |
 | **Author** | You can always develop your own custom DTDL models from scratch, using any applicable industry standards as inspiration. | [*How-to: Manage DTDL models*](how-to-manage-model.md) |
 
-### Using ontology strategies in a full model development path
+### Using ontology strategies in a model development path
 
 No matter which strategy you choose for integrating an ontology into Azure Digital Twins, you can follow the complete path below to guide you through creating and uploading your ontology as DTDL models.
 
 1. Start by reviewing and understand [DTDL modeling in Azure Digital Twins](concepts-models.md).
-1. Choose your ontology conversion strategy from above: [**Adopt**](concepts-ontologies-adopt.md), [**Convert**](concepts-ontologies-convert.md), or [**Author**](how-to-manage-model.md) your models based on your ontology.
+1. Proceed with your chosen ontology integration strategy from above: [**Adopt**](concepts-ontologies-adopt.md), [**Convert**](concepts-ontologies-convert.md), or [**Author**](how-to-manage-model.md) your models based on your ontology.
     1. If necessary, [extend](concepts-ontologies-extend.md) your ontology to customize it to your needs.
 1. [Validate](how-to-parse-models.md) your models to verify they are working DTDL documents.
 1. Upload your finished models to Azure Digital Twins, using the [APIs](how-to-manage-model.md#upload-models) or a sample like the [Azure Digital Twins model uploader](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader).
@@ -63,8 +63,8 @@ You can visualize them with samples like [Azure Digital Twins (ADT) Explorer](/s
 
 ## Next steps
 
-Read more about adopting, converting, and authoring ontologies:
-* [*Concepts: Adopting industry-standard ontologies*](concepts-ontologies.md)
+Read more about the strategies of adopting, converting, and authoring ontologies:
+* [*Concepts: Adopting industry-standard ontologies*](concepts-ontologies-adopt.md)
 * [*Concepts: Converting ontologies*](concepts-ontologies-convert.md)
 * [*How to: Manage DTDL models*](how-to-manage-model.md)
 

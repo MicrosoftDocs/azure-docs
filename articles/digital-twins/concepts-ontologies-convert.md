@@ -42,7 +42,7 @@ The following C# code snippet shows how an RDF model file is loaded into a graph
 
 ## Converter samples
 
-### RDF converter sample application 
+### RDF converter application 
 
 There is a sample application available that converts an RDF-based model file to [DTDL (version 2)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) for use by the Azure Digital Twins service. It has been validated for the [Brick](https://brickschema.org/ontology/) schema, and can be extended for other schemas in the building industry (such as [Building Topology Ontology (BOT)](https://w3c-lbd-cg.github.io/bot/), [Semantic Sensor Network](https://www.w3.org/TR/vocab-ssn/), or [buildingSmart Industry Foundation Classes (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/)).
 
@@ -62,8 +62,6 @@ This converter was used to translate the [Real Estate Core Ontology](https://doc
 
 ## Next steps 
 
-* Learn more about extending industry-standard ontologies to meet your exact needs: [*Concepts: Extending industry ontologies*](concepts-ontologies-extend.md).
+* Learn more about extending industry-standard ontologies to meet your specifications: [*Concepts: Extending industry ontologies*](concepts-ontologies-extend.md).
 
-* Dive deeper into managing models with API operations: [*How-to: Manage DTDL models*](how-to-manage-model.md)
-
-* Learn about how models are used to create digital twins: [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md)
+* Or, continue on the path for developing models based on ontologies: [*Using ontology strategies in a model development path*](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).

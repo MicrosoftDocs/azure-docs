@@ -35,8 +35,6 @@ You can also read more about the partnership with RealEstateCore and goals for t
 
 ## Next steps
 
-* Learn more about extending industry-standard ontologies to meet your exact needs: [*Concepts: Extending industry ontologies*](concepts-ontologies-extend.md).
+* Learn more about extending industry-standard ontologies to meet your specifications: [*Concepts: Extending industry ontologies*](concepts-ontologies-extend.md).
 
-* Dive deeper into managing models with API operations: [*How-to: Manage DTDL models*](how-to-manage-model.md)
-
-* Learn about how models are used to create digital twins: [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md)
+* Or, continue on the path for developing models based on ontologies: [*Using ontology strategies in a model development path*](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
