@@ -41,7 +41,7 @@ Use the `npm install` command to install the Azure Communication Services Admini
 
 ```console
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 ```
 
@@ -58,7 +58,7 @@ From the project directory:
 Use the following code to begin:
 
 ```javascript
-const { CommunicationIdentityClient } = require('@azure/communication-administration');
+const { CommunicationIdentityClient } = require('@azure/communication-identity');
 
 const main = async () => {
   console.log("Azure Communication Services - Access Tokens Quickstart")
