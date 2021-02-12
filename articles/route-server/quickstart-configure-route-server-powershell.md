@@ -101,7 +101,7 @@ RouteServerAsn : 65515
 RouteServerIps : {10.5.10.4, 10.5.10.5}
 ```
 
-## Configure route exchange
+## <a name = "route-exchange"></a>Configure route exchange
 
 If you have an ExpressRoute gateway and an Azure VPN gateway in the same VNet and you want them to exchange routes, you can enable route exchange on the Azure Route Server.
 

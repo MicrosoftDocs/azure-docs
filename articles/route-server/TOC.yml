@@ -19,7 +19,7 @@
     href: expressroute-vpn-support.md
 - name: How-to guides
   items:
-  - name: Troubleshooting
+  - name: Troubleshoot Route Server issues
     href: troubleshoot-route-server.md
 - name: Resources
   items:

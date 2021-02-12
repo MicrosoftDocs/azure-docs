@@ -47,5 +47,5 @@ For frequently asked questions about Azure Route Server, see [Azure Route Server
 
 ## Next steps
 
-- Learn how to [configure an Azure Route Server](quickstart-configure-route-server-portal.md)
+- Learn how to [configure an Azure Route Server](quickstart-configure-route-server-powershell.md)
 - Learn how [Azure Route Server works with Azure ExpressRoute and Azure VPN](expressroute-vpn-support.md)
