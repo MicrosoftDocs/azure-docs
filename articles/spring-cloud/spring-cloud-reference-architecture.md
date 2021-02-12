@@ -14,7 +14,7 @@ This reference architecture is a foundation using a typical enterprise hub and s
 
 For an implementation of this architecture, see the [Azure Spring Cloud Reference Architecture][10] repository on GitHub.
 
-Deployment options for this architecture include Azure Resource Manager (ARM), Terraform, and Azure CLI. The artifacts in this repo provide a foundation that you can customize for your environment. You can group resources such as Azure Firewall or Application Gateway into different resource groups or subscriptions. This grouping helps keep different functions separate, such as IT infrastructure, security, business application teams, and so on.
+Deployment options for this architecture include Azure Resource Manager (ARM), Terraform, and Azure CLI. The artifacts in this repository provide a foundation that you can customize for your environment. You can group resources such as Azure Firewall or Application Gateway into different resource groups or subscriptions. This grouping helps keep different functions separate, such as IT infrastructure, security, business application teams, and so on.
 
 ## Planning the address space
 
@@ -193,8 +193,8 @@ The following list shows the CCM controls that address network security in this 
 
 | CSA CCM Control ID | CSA CCM Control Domain |
 | :----------------- | :----------------------|
-| IPY-04 | Interoperability & Portability Standardized Network Protocols |
-| IVS-06 | Infrastructure & Virtualization SecurityNetwork Security |
+| IPY-04             | Network Protocols      |
+| IVS-06             | Network Security       |
 
 The network implementation is further secured by defining controls from the MAFB. The controls ensure that traffic into the environment is restricted from the public Internet.
 
@@ -207,10 +207,7 @@ The following list shows the CIS controls that address network security in this 
 | 6.5 | Ensure that Network Watcher is 'Enabled'. |
 | 6.6 | Ensure that ingress using UDP is restricted from the internet. |
 
-For Azure Spring Cloud to function when deployed in a secured environment, management traffic must egress. For the network and application rules that you must allow on Azure Firewall or equivalent Network Virtual Appliance (NVA), see the following sections of [Customer responsibilities for running Azure Spring Cloud in VNET](/azure/spring-cloud/spring-cloud-vnet-customer-responsibilities):
-
-* [Azure Spring Cloud network requirements][12]
-* [Azure Spring Cloud FQDN requirements / application rules][13]
+Azure Spring Cloud requires management traffic to egress from Azure when deployed in a secured environment. To accomplish this, you must allow the network and application rules listed in [Customer responsibilities for running Azure Spring Cloud in VNET](/azure/spring-cloud/spring-cloud-vnet-customer-responsibilities).
 
 #### Application security
 
