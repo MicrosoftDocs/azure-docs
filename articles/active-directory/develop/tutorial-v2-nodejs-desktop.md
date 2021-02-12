@@ -50,319 +50,319 @@ Create a folder to host your application, for example *ElectronDesktopApp*.
 
 1. First, change to your project directory in your terminal and then run the following `npm` commands:
 
-```console
-npm init -y
-npm install --save @azure/msal-node axios bootstrap dotenv jquery popper.js
-npm install --save-dev babel electron@10.1.6 webpack
-```
+    ```console
+    npm init -y
+    npm install --save @azure/msal-node axios bootstrap dotenv jquery popper.js
+    npm install --save-dev babel electron@10.1.6 webpack
+    ```
 
 2. Then, create a folder named *App*. Inside this folder, create a file named *index.html* that will serve as UI. Add the following code there:
 
-```html
-<!DOCTYPE html>
-<html lang="en">
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
-    <title>MSAL Node Electron Sample App</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+        <title>MSAL Node Electron Sample App</title>
 
-    <!-- adding Bootstrap 4 for UI components  -->
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    
-    <link rel="SHORTCUT ICON" href="https://c.s-microsoft.com/favicon.ico?v2" type="image/x-icon">
-</head>
+        <!-- adding Bootstrap 4 for UI components  -->
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand">Microsoft identity platform</a>
-        <div class="btn-group ml-auto dropleft">
-            <button type="button" id="signIn" class="btn btn-secondary" aria-expanded="false">
-                Sign in
-            </button>
-            <button type="button" id="signOut" class="btn btn-success" hidden aria-expanded="false">
-                Sign out
-            </button>
-        </div>
-    </nav>
-    <br>
-    <h5 class="card-header text-center">Electron sample app calling MS Graph API using MSAL Node</h5>
-    <br>
-    <div class="row" style="margin:auto">
-        <div id="cardDiv" class="col-md-3" style="display:none">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title" id="WelcomeMessage">Please sign-in to see your profile and read your mails
-                    </h5>
-                    <div id="profileDiv"></div>
-                    <br>
-                    <br>
-                    <button class="btn btn-primary" id="seeProfile">See Profile</button>
-                    <br>
-                    <br>
-                    <button class="btn btn-primary" id="readMail">Read Mails</button>
+        <link rel="SHORTCUT ICON" href="https://c.s-microsoft.com/favicon.ico?v2" type="image/x-icon">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand">Microsoft identity platform</a>
+            <div class="btn-group ml-auto dropleft">
+                <button type="button" id="signIn" class="btn btn-secondary" aria-expanded="false">
+                    Sign in
+                </button>
+                <button type="button" id="signOut" class="btn btn-success" hidden aria-expanded="false">
+                    Sign out
+                </button>
+            </div>
+        </nav>
+        <br>
+        <h5 class="card-header text-center">Electron sample app calling MS Graph API using MSAL Node</h5>
+        <br>
+        <div class="row" style="margin:auto">
+            <div id="cardDiv" class="col-md-3" style="display:none">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title" id="WelcomeMessage">Please sign-in to see your profile and read your mails
+                        </h5>
+                        <div id="profileDiv"></div>
+                        <br>
+                        <br>
+                        <button class="btn btn-primary" id="seeProfile">See Profile</button>
+                        <br>
+                        <br>
+                        <button class="btn btn-primary" id="readMail">Read Mails</button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="col-md-4">
+                <div class="list-group" id="list-tab" role="tablist">
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="tab-content" id="nav-tabContent">
                 </div>
             </div>
         </div>
         <br>
         <br>
-        <div class="col-md-4">
-            <div class="list-group" id="list-tab" role="tablist">
-            </div>
-        </div>
-        <div class="col-md-5">
-            <div class="tab-content" id="nav-tabContent">
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
 
-    <script>
-        window.jQuery = window.$ = require('jquery');
-        require("./renderer.js");
-    </script>
+        <script>
+            window.jQuery = window.$ = require('jquery');
+            require("./renderer.js");
+        </script>
 
-    <!-- importing bootstrap.js and supporting js libraries -->
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script src="../node_modules/popper.js/dist/umd/popper.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-</body>
+        <!-- importing bootstrap.js and supporting js libraries -->
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/popper.js/dist/umd/popper.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    </body>
 
-</html>
-```
+    </html>
+    ```
 
 3. Next, create file named *main.js* and add the following code:
 
-```JavaScript
-require('dotenv').config()
+    ```JavaScript
+    require('dotenv').config()
 
-const path = require('path');
-const { app, ipcMain, BrowserWindow } = require('electron');
-const { IPC_MESSAGES } = require('./constants');
+    const path = require('path');
+    const { app, ipcMain, BrowserWindow } = require('electron');
+    const { IPC_MESSAGES } = require('./constants');
 
-const { callEndpointWithToken } = require('./fetch');
-const AuthProvider = require('./AuthProvider');
+    const { callEndpointWithToken } = require('./fetch');
+    const AuthProvider = require('./AuthProvider');
 
-const authProvider = new AuthProvider();
-let mainWindow;
+    const authProvider = new AuthProvider();
+    let mainWindow;
 
-function createWindow () {
-    mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-        webPreferences: {
-        nodeIntegration: true
-        }
+    function createWindow () {
+        mainWindow = new BrowserWindow({
+            width: 800,
+            height: 600,
+            webPreferences: {
+            nodeIntegration: true
+            }
+        });
+
+        mainWindow.loadFile(path.join(__dirname, './index.html'));
+        };
+
+    app.on('ready', () => {
+        createWindow();
     });
-    
-    mainWindow.loadFile(path.join(__dirname, './index.html'));
-    };
 
-app.on('ready', () => {
-    createWindow();
-});
-
-app.on('window-all-closed', () => {
-    app.quit();
-});
+    app.on('window-all-closed', () => {
+        app.quit();
+    });
 
 
-// Event handlers
-ipcMain.on(IPC_MESSAGES.LOGIN, async() => {
-    const account = await authProvider.login(mainWindow);
+    // Event handlers
+    ipcMain.on(IPC_MESSAGES.LOGIN, async() => {
+        const account = await authProvider.login(mainWindow);
 
-    await mainWindow.loadFile(path.join(__dirname, './index.html'));
-    
-    mainWindow.webContents.send(IPC_MESSAGES.SHOW_WELCOME_MESSAGE, account);
-});
+        await mainWindow.loadFile(path.join(__dirname, './index.html'));
 
-ipcMain.on(IPC_MESSAGES.LOGOUT, async() => {
-    await authProvider.logout();
-    await mainWindow.loadFile(path.join(__dirname, './index.html'));
-});
+        mainWindow.webContents.send(IPC_MESSAGES.SHOW_WELCOME_MESSAGE, account);
+    });
 
-ipcMain.on(IPC_MESSAGES.GET_PROFILE, async() => {
-    
-    const tokenRequest = {
-        scopes: ['User.Read'],
-    };
+    ipcMain.on(IPC_MESSAGES.LOGOUT, async() => {
+        await authProvider.logout();
+        await mainWindow.loadFile(path.join(__dirname, './index.html'));
+    });
 
-    const token = await authProvider.getToken(mainWindow, tokenRequest);
-    const account = authProvider.account
+    ipcMain.on(IPC_MESSAGES.GET_PROFILE, async() => {
 
-    await mainWindow.loadFile(path.join(__dirname, './index.html'));
+        const tokenRequest = {
+            scopes: ['User.Read'],
+        };
 
-    const graphResponse = await callEndpointWithToken(`${process.env.GRAPH_ENDPOINT_HOST}${process.env.GRAPH_ME_ENDPOINT}`, token);
+        const token = await authProvider.getToken(mainWindow, tokenRequest);
+        const account = authProvider.account
 
-    mainWindow.webContents.send(IPC_MESSAGES.SHOW_WELCOME_MESSAGE, account);
-    mainWindow.webContents.send(IPC_MESSAGES.SET_PROFILE, graphResponse);
-});
+        await mainWindow.loadFile(path.join(__dirname, './index.html'));
 
-ipcMain.on(IPC_MESSAGES.GET_MAIL, async() => {
-    
-    const tokenRequest = {
-        scopes: ['Mail.Read'],
-    };
+        const graphResponse = await callEndpointWithToken(`${process.env.GRAPH_ENDPOINT_HOST}${process.env.GRAPH_ME_ENDPOINT}`, token);
 
-    const token = await authProvider.getToken(mainWindow, tokenRequest);
-    const account = authProvider.account;
-    
-    await mainWindow.loadFile(path.join(__dirname, './index.html'));
+        mainWindow.webContents.send(IPC_MESSAGES.SHOW_WELCOME_MESSAGE, account);
+        mainWindow.webContents.send(IPC_MESSAGES.SET_PROFILE, graphResponse);
+    });
 
-    const graphResponse = await callEndpointWithToken(`${process.env.GRAPH_ENDPOINT_HOST}${process.env.GRAPH_MAIL_ENDPOINT}`, token);
+    ipcMain.on(IPC_MESSAGES.GET_MAIL, async() => {
 
-    mainWindow.webContents.send(IPC_MESSAGES.SHOW_WELCOME_MESSAGE, account);
-    mainWindow.webContents.send(IPC_MESSAGES.SET_MAIL, graphResponse);
-});
-```
+        const tokenRequest = {
+            scopes: ['Mail.Read'],
+        };
+
+        const token = await authProvider.getToken(mainWindow, tokenRequest);
+        const account = authProvider.account;
+
+        await mainWindow.loadFile(path.join(__dirname, './index.html'));
+
+        const graphResponse = await callEndpointWithToken(`${process.env.GRAPH_ENDPOINT_HOST}${process.env.GRAPH_MAIL_ENDPOINT}`, token);
+
+        mainWindow.webContents.send(IPC_MESSAGES.SHOW_WELCOME_MESSAGE, account);
+        mainWindow.webContents.send(IPC_MESSAGES.SET_MAIL, graphResponse);
+    });
+    ```
 
 In the code snippet above, we initialize an Electron main window object and create some event handlers for interactions with the Electron window. We also import configuration parameters, instantiate *authProvider* class for handling sign-in, sign-out and token acquisition, and call the Microsoft Graph API.
 
 4. In the same folder (*App*), create another file named *renderer.js* and add the following code:
 
-```JavaScript
-const { ipcRenderer } = require('electron');
-const { IPC_MESSAGES } = require('./constants');
+    ```JavaScript
+    const { ipcRenderer } = require('electron');
+    const { IPC_MESSAGES } = require('./constants');
 
-// UI event handlers
-document.querySelector('#signIn').addEventListener('click', () => {
-    ipcRenderer.send(IPC_MESSAGES.LOGIN);
-});
+    // UI event handlers
+    document.querySelector('#signIn').addEventListener('click', () => {
+        ipcRenderer.send(IPC_MESSAGES.LOGIN);
+    });
 
-document.querySelector('#signOut').addEventListener('click', () => {
-    ipcRenderer.send(IPC_MESSAGES.LOGOUT);
-});
+    document.querySelector('#signOut').addEventListener('click', () => {
+        ipcRenderer.send(IPC_MESSAGES.LOGOUT);
+    });
 
-document.querySelector('#seeProfile').addEventListener('click', () => {
-    ipcRenderer.send(IPC_MESSAGES.GET_PROFILE);
-});
+    document.querySelector('#seeProfile').addEventListener('click', () => {
+        ipcRenderer.send(IPC_MESSAGES.GET_PROFILE);
+    });
 
-document.querySelector('#readMail').addEventListener('click', () => {
-    ipcRenderer.send(IPC_MESSAGES.GET_MAIL);
-});
+    document.querySelector('#readMail').addEventListener('click', () => {
+        ipcRenderer.send(IPC_MESSAGES.GET_MAIL);
+    });
 
-// Main process message subscribers
-ipcRenderer.on(IPC_MESSAGES.SHOW_WELCOME_MESSAGE, (event, account) => {
-    showWelcomeMessage(account);
-});
+    // Main process message subscribers
+    ipcRenderer.on(IPC_MESSAGES.SHOW_WELCOME_MESSAGE, (event, account) => {
+        showWelcomeMessage(account);
+    });
 
-ipcRenderer.on(IPC_MESSAGES.SET_PROFILE, (event, graphResponse) => {
-    updateUI(graphResponse, `${process.env.GRAPH_ENDPOINT_HOST}${process.env.GRAPH_ME_ENDPOINT}`);
-});
+    ipcRenderer.on(IPC_MESSAGES.SET_PROFILE, (event, graphResponse) => {
+        updateUI(graphResponse, `${process.env.GRAPH_ENDPOINT_HOST}${process.env.GRAPH_ME_ENDPOINT}`);
+    });
 
-ipcRenderer.on(IPC_MESSAGES.SET_MAIL, (event, graphResponse) => {
-    updateUI(graphResponse, `${process.env.GRAPH_ENDPOINT_HOST}${process.env.GRAPH_MAIL_ENDPOINT}`);
-});
+    ipcRenderer.on(IPC_MESSAGES.SET_MAIL, (event, graphResponse) => {
+        updateUI(graphResponse, `${process.env.GRAPH_ENDPOINT_HOST}${process.env.GRAPH_MAIL_ENDPOINT}`);
+    });
 
-// DOM elements to work with
-const welcomeDiv = document.getElementById("WelcomeMessage");
-const signInButton = document.getElementById("signIn");
-const signOutButton = document.getElementById("signOut");
-const cardDiv = document.getElementById("cardDiv");
-const profileDiv = document.getElementById("profileDiv");
-const tabList = document.getElementById("list-tab");
-const tabContent = document.getElementById("nav-tabContent");
+    // DOM elements to work with
+    const welcomeDiv = document.getElementById("WelcomeMessage");
+    const signInButton = document.getElementById("signIn");
+    const signOutButton = document.getElementById("signOut");
+    const cardDiv = document.getElementById("cardDiv");
+    const profileDiv = document.getElementById("profileDiv");
+    const tabList = document.getElementById("list-tab");
+    const tabContent = document.getElementById("nav-tabContent");
 
-function showWelcomeMessage(account) {
-    cardDiv.style.display = "initial";
-    welcomeDiv.innerHTML = `Welcome ${account.name}`;
-    signInButton.hidden = true;
-    signOutButton.hidden = false;
-}
-
-function clearTabs() {
-    tabList.innerHTML = "";
-    tabContent.innerHTML = "";
-}
-
-function updateUI(data, endpoint) {
-    
-    console.log(`Graph API responded at: ${new Date().toString()}`);
-
-    if (endpoint === `${process.env.GRAPH_ENDPOINT_HOST}${process.env.GRAPH_ME_ENDPOINT}`) {
-        setProfile(data);
-    } else if (endpoint === `${process.env.GRAPH_ENDPOINT_HOST}${process.env.GRAPH_MAIL_ENDPOINT}`) {
-        setMail(data);
+    function showWelcomeMessage(account) {
+        cardDiv.style.display = "initial";
+        welcomeDiv.innerHTML = `Welcome ${account.name}`;
+        signInButton.hidden = true;
+        signOutButton.hidden = false;
     }
-}
 
-function setProfile(data) {
-    profileDiv.innerHTML = ''
-    
-    const title = document.createElement('p');
-    const email = document.createElement('p');
-    const phone = document.createElement('p');
-    const address = document.createElement('p');
-
-    title.innerHTML = "<strong>Title: </strong>" + data.jobTitle;
-    email.innerHTML = "<strong>Mail: </strong>" + data.mail;
-    phone.innerHTML = "<strong>Phone: </strong>" + data.businessPhones[0];
-    address.innerHTML = "<strong>Location: </strong>" + data.officeLocation;
-    
-    profileDiv.appendChild(title);
-    profileDiv.appendChild(email);
-    profileDiv.appendChild(phone);
-    profileDiv.appendChild(address);
-}
-
-function setMail(data) {
-    const mailInfo = data;
-    if (mailInfo.value.length < 1) {
-        alert("Your mailbox is empty!")
-    } else {
-        clearTabs();
-        mailInfo.value.slice(0, 10).forEach((d, i) => {
-                createAndAppendListItem(d, i);
-                createAndAppendContentItem(d, i);
-        });
+    function clearTabs() {
+        tabList.innerHTML = "";
+        tabContent.innerHTML = "";
     }
-}
 
-function createAndAppendListItem(d, i) {
-    const listItem = document.createElement("a");
-    listItem.setAttribute("class", "list-group-item list-group-item-action")
-    listItem.setAttribute("id", "list" + i + "list")
-    listItem.setAttribute("data-toggle", "list")
-    listItem.setAttribute("href", "#list" + i)
-    listItem.setAttribute("role", "tab")
-    listItem.setAttribute("aria-controls", i)
-    listItem.innerHTML = d.subject;
-    tabList.appendChild(listItem);
-}
+    function updateUI(data, endpoint) {
 
-function createAndAppendContentItem(d, i) {
-    const contentItem = document.createElement("div");
-    contentItem.setAttribute("class", "tab-pane fade")
-    contentItem.setAttribute("id", "list" + i)
-    contentItem.setAttribute("role", "tabpanel")
-    contentItem.setAttribute("aria-labelledby", "list" + i + "list")
-    
-    if (d.from) {
-        contentItem.innerHTML = "<strong> from: " + d.from.emailAddress.address + "</strong><br><br>" + d.bodyPreview + "...";
-        tabContent.appendChild(contentItem);
+        console.log(`Graph API responded at: ${new Date().toString()}`);
+
+        if (endpoint === `${process.env.GRAPH_ENDPOINT_HOST}${process.env.GRAPH_ME_ENDPOINT}`) {
+            setProfile(data);
+        } else if (endpoint === `${process.env.GRAPH_ENDPOINT_HOST}${process.env.GRAPH_MAIL_ENDPOINT}`) {
+            setMail(data);
+        }
     }
-}
-```
+
+    function setProfile(data) {
+        profileDiv.innerHTML = ''
+
+        const title = document.createElement('p');
+        const email = document.createElement('p');
+        const phone = document.createElement('p');
+        const address = document.createElement('p');
+
+        title.innerHTML = "<strong>Title: </strong>" + data.jobTitle;
+        email.innerHTML = "<strong>Mail: </strong>" + data.mail;
+        phone.innerHTML = "<strong>Phone: </strong>" + data.businessPhones[0];
+        address.innerHTML = "<strong>Location: </strong>" + data.officeLocation;
+
+        profileDiv.appendChild(title);
+        profileDiv.appendChild(email);
+        profileDiv.appendChild(phone);
+        profileDiv.appendChild(address);
+    }
+
+    function setMail(data) {
+        const mailInfo = data;
+        if (mailInfo.value.length < 1) {
+            alert("Your mailbox is empty!")
+        } else {
+            clearTabs();
+            mailInfo.value.slice(0, 10).forEach((d, i) => {
+                    createAndAppendListItem(d, i);
+                    createAndAppendContentItem(d, i);
+            });
+        }
+    }
+
+    function createAndAppendListItem(d, i) {
+        const listItem = document.createElement("a");
+        listItem.setAttribute("class", "list-group-item list-group-item-action")
+        listItem.setAttribute("id", "list" + i + "list")
+        listItem.setAttribute("data-toggle", "list")
+        listItem.setAttribute("href", "#list" + i)
+        listItem.setAttribute("role", "tab")
+        listItem.setAttribute("aria-controls", i)
+        listItem.innerHTML = d.subject;
+        tabList.appendChild(listItem);
+    }
+
+    function createAndAppendContentItem(d, i) {
+        const contentItem = document.createElement("div");
+        contentItem.setAttribute("class", "tab-pane fade")
+        contentItem.setAttribute("id", "list" + i)
+        contentItem.setAttribute("role", "tabpanel")
+        contentItem.setAttribute("aria-labelledby", "list" + i + "list")
+
+        if (d.from) {
+            contentItem.innerHTML = "<strong> from: " + d.from.emailAddress.address + "</strong><br><br>" + d.bodyPreview + "...";
+            tabContent.appendChild(contentItem);
+        }
+    }
+    ```
 
 5. Finally, create a file named *constants.js* that will store the strings constants for describing the application **events**:
 
-```JavaScript
-const IPC_MESSAGES = {
-    SHOW_WELCOME_MESSAGE: 'SHOW_WELCOME_MESSAGE',
-    LOGIN: 'LOGIN',
-    LOGOUT: 'LOGOUT',
-    GET_PROFILE: 'GET_PROFILE',
-    SET_PROFILE: 'SET_PROFILE',
-    GET_MAIL: 'GET_MAIL',
-    SET_MAIL: 'SET_MAIL'
-}
+    ```JavaScript
+    const IPC_MESSAGES = {
+        SHOW_WELCOME_MESSAGE: 'SHOW_WELCOME_MESSAGE',
+        LOGIN: 'LOGIN',
+        LOGOUT: 'LOGOUT',
+        GET_PROFILE: 'GET_PROFILE',
+        SET_PROFILE: 'SET_PROFILE',
+        GET_MAIL: 'GET_MAIL',
+        SET_MAIL: 'SET_MAIL'
+    }
 
-module.exports = {
-    IPC_MESSAGES: IPC_MESSAGES,
-}
-```
+    module.exports = {
+        IPC_MESSAGES: IPC_MESSAGES,
+    }
+    ```
 
 You now have a simple GUI and interactions for your Electron app. After completing the rest of the tutorial, the file and folder structure of your project should look similar to the following:
 
