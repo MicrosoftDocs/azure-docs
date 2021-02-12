@@ -26,7 +26,7 @@ Learn how to deploy an update to an IoT device using Device Update for IoT Hub.
 2. Navigate to the Device Update blade your IoT Hub.
 ![IoT Hub](media/deploy-update/device-update-iot-hub.png)
 
-3. Select the Groups tab at the top of the page.
+3. Select the Groups tab at the top of the page. [Learn More](device-update-groups.md) about device groups. 
 ![Groups Tab](media/deploy-update/updated-view.png)
 
 4. View the update compliance chart and groups list. You should see a new update available for your device group, with a link to the update under Pending Updates (you may need to Refresh once). [Learn More](device-update-compliance.md) about update compliance.
