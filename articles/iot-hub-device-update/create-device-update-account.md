@@ -10,15 +10,10 @@ ms.service: iot-hub
 
 # Device Update for IoT Hub Resource Management
 
-To get started with Device Update you will need to create a Device Update account, instance and set access control roles. If you have already been participating in the Device Update Preview, you can skip ahead to the "Configure IoT hub" and "Configure access control roles" below.
+To get started with Device Update you will need to create a Device Update account, instance and set access control roles. 
 
-## Device Update Account and Instances
 
-A Device Update account is a resource that is created within your Azure subscription. At the Device Update account level, you can select the region where your Device Update account will be created and set permissions to authorize users that will have access to Device Update.
-
-After an account has been created, a Device Update instance must be created. An instance is a logical container that contains updates and deployments associated with a specific IoT hub. Device Update uses IoT hub as a device directory, and a communication channel with devices. A single Device update account can be created per subscription, and two device update instances can be created with an account.
-
-### Create a Device Update Account - New Preview Customers
+## Create a Device Update Account
 
 1. Go to [Device Update Accounts](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DeviceUpdate%2FAccounts) in Azure Resource Marketplace 
 2. Click Add
@@ -26,7 +21,7 @@ After an account has been created, a Device Update instance must be created. An 
 4. Specify a Name and Location for your Device Update Account
 5. Review the details and then select "Create"
 
-### Create a Device Update Instance - New Preview Customers
+## Create a Device Update Instance 
 
 An instance of Device Update is associated with a single IoT hub. Select the IoT hub that will be used with Device Update. We will create a new Shared Access policy during this step to ensure Device Update uses only the required permissions to work with IoT Hub (registry write and service connect) and access is only limited to Device Update.
 
@@ -36,7 +31,7 @@ To create a Device Update instance after an account has been created.
 2. Specify an instance name and select the IoT Hub
 3. Click "Create"
 
-### Configure IoT Hub - All Preview Customers
+### Configure IoT Hub 
 
 In order for Device Update to receive change notifications from IoT Hub, Device Update integrates with the "Built-In" Event Hub. Message routes will need to be configured if you are new to the preview or updated if you have been participating in the Device Update. We will also update the Shared Access policy if this is not configured correctly.
 
@@ -56,7 +51,7 @@ To configure IoT Hub
 |  DeviceUpdate.TelemetryModelInformation | iothub-interface-id = "urn:azureiot:ModelDiscovery:ModelInformation:1 | Listens for new devices types |
 |  DeviceUpdate.DeviceTwinEvents| (opType = 'updateTwin' OR opType = 'replaceTwin') AND IS_DEFINED($body.tags.ADUGroup) | Listens for new Device Update Groups |
 
-### Configure access control roles - All Preview Customers
+### Configure access control roles
 
 In order for other users to have access to Device Update, users must be granted access to this resource. Here are the roles that are supported by Device Update
 
