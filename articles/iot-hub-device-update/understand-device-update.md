@@ -12,7 +12,7 @@ ms.service: iot-hub-device-update
 
 As organizations look to further enable productivity and operational efficiency, Internet of Things (IoT) solutions continue to be adopted at increasing rates. This makes it essential that the devices forming these solutions are not only built on a foundation of reliability and security but are also easy to connect and manage at scale. Device Update for IoT Hub is a comprehensive platform that customers can use to publish, distribute, and manage over-the-air updates for everything from tiny sensors to gateway-level devices. This platform is now available in preview in the Western US, Asia, and Europe to keep devices and applications secure and up to date.
 
-To realize the full benefits of IoT-enabled digital transformation, customers need this ability to operate, maintain, and update devices at scale. Explore the benefits of implementing Device Update for IoT Hub, which include being able to rapidly respond to security threats as well as deploy new features to obtain business objectives without incurring the additional development and maintenance costs of building your own update platforms.
+To realize the full benefits of IoT-enabled digital transformation, customers need this ability to operate, maintain, and update devices at scale. Explore the benefits of implementing Device Update for IoT Hub, which include being able to rapidly respond to security threats and deploy new features to obtain business objectives without incurring the extra development and maintenance costs of building your own update platforms.
 
 ## Support for a wide range of IoT devices
 
@@ -21,7 +21,7 @@ Device Update for IoT Hub is designed to offer optimized update deployment and s
 Both a Device Update Agent Simulator binary and Raspberry Pi reference Yocto images are provided.
 Device Update for IoT Hub also supports updating Azure IoT Edge devices. A Device Update Agent will be provided for Ubuntu Server 18.04 amd64
 platform. Device Update for IoT Hub will also provide open-source code if you are not
-running one of the above platforms so you can port it to the distribution you
+running one of the above platforms. This allows you to port the agent to the distribution you
 are running.
 
 Device Update works with IoT Plug and Play (PnP) and can manage any device that supports
@@ -61,8 +61,9 @@ Device Update for IoT Hub features provide a powerful and flexible experience, i
 * Support for resilient device updates (A/B) to deliver seamless rollback
 * Subscription and role-based access controls available through the Azure.com portal
 * On-premise content cache and Nested Edge support to enable updating cloud disconnected devices
+* Detailed update management and reporting tools 
 
-Detailed update management and reporting tools With Device Update for IoT Hub management and deployment controls, users can maximize productivity and save valuable time. Functionality assisting with this includes the ability to group devices and specify
+With Device Update for IoT Hub management and deployment controls, users can maximize productivity and save valuable time. Device Update for IoT Hub includes the ability to group devices and specify
 to which devices an update should be deployed. Users also can view the status of update deployments and make sure each device successfully applies updates.
 
 When an update failure happens, Device Update for IoT Hub also allows users to identify the devices that failed to apply the update plus see related failure details. The ability to identify which devices failed to update means countless manual hours saved trying to pinpoint the source.
@@ -77,8 +78,7 @@ Device Update for IoT Hub uses comprehensive cloud-to-edge security developed fo
 ## Device Update workflows
 
 Device Update functionality can be broken down into three areas: Agent Integration,
-Importing, and Management. The following is a quick overview of the various areas of
-functionality.
+Importing, and Management.
 
 ### Device Update Agent
 
