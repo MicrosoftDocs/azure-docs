@@ -9,7 +9,7 @@ ms.date: 02/11/2021
 ---
 
 # Overview: Connection options for Azure IoT device developers
-As a developer who works with devices, you have several options for connecting and managing Azure IoT devices. Each option has unique features and advantages that might be relevant to the solutions you build, and to your development process. This article overview the most commonly used options and tools to help you connect and manage  devices.
+As a developer who works with devices, you have several options for connecting and managing Azure IoT devices. Each option has unique features and advantages that are relevant to helping you build IoT solutions. This article overviews the most commonly used options and tools to help you connect and manage  devices.
 
 As you evaluate Azure IoT connection options for your devices, it's helpful to compare the following items:
 - Azure IoT device application platforms
