@@ -257,6 +257,7 @@ All events contain the same top-level data:
 
 All events contain the same top-level data: 
 
+
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `id` | string | Unique identifier for the event. |
@@ -266,6 +267,7 @@ All events contain the same top-level data:
 | `time` | string | The time the event is generated based on the provider's UTC time. |
 | `data` | object | IoT Hub event data.  |
 | `specversion` | string | CloudEvents schema specification version. |
+
 --
 
 For all IoT Hub events, the data object contains the following properties:
