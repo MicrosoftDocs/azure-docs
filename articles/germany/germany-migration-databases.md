@@ -2,7 +2,7 @@
 title: Migrate Azure database resources, Azure Germany to global Azure
 description: This article provides information about migrating your Azure database resources from Azure Germany to global Azure
 ms.topic: article
-ms.date: 02/10/2021
+ms.date: 02/12/2021
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
@@ -42,7 +42,7 @@ For more information:
 For databases that are too large for BACPAC files, or to migrate from one cloud to another and remain online with minimum downtime, you can configure active geo-replication from Azure Germany to global Azure.
 
 > [!IMPORTANT]
-> Configuring active geo-replication to migrate databases to global Azure is only supported using Transact-SQL (T-SQL), and prior to migrating you must request enablement of your subscription to support migrating to global Azure. To submit a request, [open a support ticket in the Azure portal](#requesting-access). 
+> Configuring active geo-replication to migrate databases to global Azure is only supported using Transact-SQL (T-SQL), and prior to migrating you must request enablement of your subscription to support migrating to global Azure. To submit a request, you must use [this support request link](#requesting-access). 
 
 For details about active geo-replication costs, see the section titled **Active geo-replication** in [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
@@ -67,7 +67,7 @@ The command is executed on the master database on the Azure Germany server hosti
 - After the failover, once the secondary becomes a primary database in global Azure, you can stop the active geo-replication and remove the secondary database on the Azure Germany side at any time (see the table below and the steps present in the diagram). 
 - After failover, the secondary database in Azure Germany will continue to incur costs until deleted.
       
-- ALTER DATABASE command indicated above is the only user interface available to set up active geo-replication to migrate an Azure Germany database to global Azure. 
+- Using the `ALTER DATABASE` command is the only way to set up active geo-replication to migrate an Azure Germany database to global Azure. 
 - No Azure portal, Azure Resource Manager (ARM), PowerShell, or CLI is available to configure active geo-replication for this migration. 
 
 To migrate a database from Azure Germany to global Azure:   
@@ -132,22 +132,14 @@ For more information the following tables below indicates T-SQL commands for man
 
 ### Requesting access
 
-To migrate a database from Azure Germany to global Azure using geo-replication, your subscription *in global Azure* needs to be enabled to successfully configure the cross-cloud migration.
+To migrate a database from Azure Germany to global Azure using geo-replication, your subscription *in Azure Germany* needs to be enabled to successfully configure the cross-cloud migration.
 
-To enable your global Azure subscription, use the following link to create a support request:   
+To enable your Azure Germany subscription, you must use the following link to create a migration support request:   
 
-1. Open a new [support request](https://portal.microsoftazure.de/#create/Microsoft.Support/Parameters/%7B%0D%0A++++%22pesId%22%3A+%22f3dc5421-79ef-1efa-41a5-42bf3cbb52c6%22%2C%0D%0A++++%22supportTopicId%22%3A+%229fc72ed5-805f-3894-eb2b-b1f1f6557d2d%22%2C%0D%0A++++%22contextInfo%22%3A+%22Migration+from+cloud+Germany+to+Azure+global+cloud+%28Azure+SQL+Database%29%22%2C%0D%0A++++%22caller%22%3A+%22NoSupportPlanCloudGermanyMigration%22%2C%0D%0A++++%22severity%22%3A+%223%22%0D%0A%7D).
+1. Browse to the following [migration support request](https://portal.microsoftazure.de/#create/Microsoft.Support/Parameters/%7B%0D%0A++++%22pesId%22%3A+%22f3dc5421-79ef-1efa-41a5-42bf3cbb52c6%22%2C%0D%0A++++%22supportTopicId%22%3A+%229fc72ed5-805f-3894-eb2b-b1f1f6557d2d%22%2C%0D%0A++++%22contextInfo%22%3A+%22Migration+from+cloud+Germany+to+Azure+global+cloud+%28Azure+SQL+Database%29%22%2C%0D%0A++++%22caller%22%3A+%22NoSupportPlanCloudGermanyMigration%22%2C%0D%0A++++%22severity%22%3A+%223%22%0D%0A%7D).
 
 2. On the Basics tab, enter *Geo-DR migration* as the **Summary**, and then select **Next: Solutions**
  
-   |Field|Value|
-   |:---|:---|
-   |Issue type|Subscription management|
-   |Subscription|The global Azure subscription to migrate the database to|
-   |Summary|**Geo-DR migration**|
-   |Problem type|Migration and Move|
-   |Problem subtype|Migration from cloud Germany to global Azure (Azure SQL Database)|
-
    :::image type="content" source="media/germany-migration-databases/support-request-basics.png" alt-text="new support request form":::
 
 3. Review the **Recommended Steps**, then select **Next: Details**. 
@@ -156,7 +148,7 @@ To enable your global Azure subscription, use the following link to create a sup
 
 4. On the details page, provide the following:
 
-   1. In the Description box, enter your global Azure subscription ID to migrate to. To migrate to multiple subscriptions, add a comma separated list of global Azure IDs.
+   1. In the Description box, enter the global Azure subscription ID to migrate to. To migrate databases to more than one subscription, add a list of the global Azure IDs you want to migrate databases to.
    1. Provide contact information: name, company name, email or phone number.
    1. Complete the form, then select **Next: Review + create**.
 
@@ -166,7 +158,7 @@ To enable your global Azure subscription, use the following link to create a sup
 5. Review the support request, then select **Create**. 
 
 
-Confirmation will be sent to the contact email provided.
+You'll be contacted once the request is processed.
 
 
 
