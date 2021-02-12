@@ -46,10 +46,10 @@
     items:
     - name: Overview
       displayName: standards, azure, benchmark, foundation
-      href: ./samples/asb-foundation/index.md
+      href: ./samples/azure-security-benchmark-foundation/index.md
     - name: Steps to deploy
       displayName: standards, azure, benchmark, foundation, deploy
-      href: ./samples/asb-foundation/deploy.md
+      href: ./samples/azure-security-benchmark-foundation/deploy.md
   - name: Australian Government ISM PROTECTED
     items:
     - name: Overview
