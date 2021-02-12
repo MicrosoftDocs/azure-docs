@@ -35,6 +35,16 @@ If you output to a file, a text editor like Notepad or a web browser like Micros
 
 #### [Linux Install](#tab/linuxinstall)
 
+The following Linux distributions are supported for x64 architectures using the Speech CLI:
+
+* CentOS 7/8
+* Debian 9/10 
+* Red Hat Enterprise Linux (RHEL) 7/8
+* Ubuntu 16.04/18.04/20.04
+
+> [!NOTE]
+> Additional architectures are supported by the Speech SDK (not the Speech CLI). For more information, see [About the Speech SDK](../speech-sdk.md).
+
 Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 
 1. Install [.NET Core 3.1](/dotnet/core/install/linux).
@@ -47,7 +57,7 @@ Type `spx` to see help for the Speech CLI.
 > [!NOTE]
 > As an alternative to NuGet, 
 > you can download the binaries at [zip archive](https://aka.ms/speech/spx-zips.zip),
-> extract `spx-netcore-30-linux-x64` to a new `~/spx` directory, type `sudo chmod +r+x spx` on the binary,
+> extract `spx-netcore-30-linux-x64.zip` to a new `~/spx` directory, type `sudo chmod +r+x spx` on the binary,
 > and add the `~/spx` path to your PATH system variable.
 
 
