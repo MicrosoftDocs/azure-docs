@@ -133,9 +133,6 @@ The following step will walk you through the required template changes to enable
     … 
     "keyVaultResourceId": { 
         "value": "/subscriptions/########-####-####-####-############/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<kv-name>" 
-    }, 
-    "keyEncryptionAlgorithm": { 
-        "value": "RSA-OAEP" 
     },   
     "volumeType": { 
         "value": "All" 
@@ -153,22 +150,18 @@ $clusterName = "<clustername>"
 New-AzResourceGroupDeployment -Name $resourceGroupName -ResourceGroupName $resourceGroupName -TemplateFile .\template_diskEncryption.json -TemplateParameterFile \.parameters_diskEncryption.json -Debug -Verbose 
 ```
 
-You can check disk encryption status on a node type's underlying scale set using the `Get-AzVmssDiskEncryption` command.
-
-First, find the name of the supporting resource group for your Service Fabric managed cluster. In Azure portal, open the **Resource groups** blade for your subscription, and note the resource group name in the form of `SFC_########-####-####-####-############` (its resources include the virtual network, load balancer, public IP, NSG, scale set(s) and storage accounts associated with your managed cluster). You can also find your cluster's node type names by checking the scale set names in the *SFC_* * resource group.
-
-Once you have the resource group and node type (scale set) names you wish to check, run the command:
+You can check disk encryption status on a node type's underlying scale set using the `Get-AzVmssDiskEncryption` command. First you'll need to find the name of your managed cluster's supporting resource group (containing the underlying virtual network, load balancer, public IP, NSG, scale set(s) and storage accounts). Be sure to modify `VmssName` to whatever cluster node type name you wish to check (as specified in your deployment template).
 
 ```powershell
 $VmssName = "NT1"
-$resourceGroupName = "SFC_6b6be0bd-9fec-4059-8d18-aaed3886e917"
-Get-AzVmssDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName
+$supportResourceGroupName = "SFC_" + (Get-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroupName).ClusterId
+Get-AzVmssDiskEncryption -ResourceGroupName $supportResourceGroupName -VMScaleSetName $VmssName
 ```
 
 The output should appear similar to this:
 
 ```console
-ResourceGroupName            : SFC_6b6be0bd-9fec-4059-8d18-aaed3886e917
+ResourceGroupName            : SFC_########-####-####-####-############
 VmScaleSetName               : NT1
 EncryptionEnabled            : True
 EncryptionExtensionInstalled : True
