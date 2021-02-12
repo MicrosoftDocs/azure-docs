@@ -10,8 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.custom: contperf-fy21q2
-ms.custom: references_regions
+ms.custom: contperf-fy21q2; references_regions
 ---
 
 # What is Custom Speech?
