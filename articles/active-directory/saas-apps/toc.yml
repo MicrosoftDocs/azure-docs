@@ -67,6 +67,8 @@
         href: airtable-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
+      - name: AKASHI
+        href: akashi-tutorial.md
       - name: Alcumus Info Exchange
         href: alcumus-info-tutorial.md
       - name: AlertMedia
@@ -792,6 +794,8 @@
         href: hr2day-tutorial.md
       - name: HRworks Single Sign-On
         href: hrworks-single-sign-on-tutorial.md
+      - name: HSB ThoughtSpot
+        href: hsb-thoughtspot-tutorial.md
       - name: Hub Planner
         href: hub-planner-tutorial.md
       - name: HubSpot SAML
@@ -1303,7 +1307,9 @@
       - name: Panorays
         href: panorays-tutorial.md
       - name: Pantheon
-        href: pantheon-tutorial.md        
+        href: pantheon-tutorial.md 
+      - name: Parkalot - Car park management
+        href: parkalot-car-park-management-tutorial.md       
       - name: PatentSQUARE
         href: patentsquare-tutorial.md
       - name: Pavaso Digital Close
@@ -2141,6 +2147,8 @@
         href: helloid-provisioning-tutorial.md
       - name: Hootsuite
         href: hootsuite-provisioning-tutorial.md
+      - name: Hoxhunt
+        href: hoxhunt-provisioning-tutorial.md
       - name: Ideo
         href: ideo-provisioning-tutorial.md        
       - name: Infor CloudSuite
