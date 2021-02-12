@@ -14,7 +14,7 @@ As part of creating an AKS cluster, you may need to customize your cluster confi
 
 ## OS configuration
 
-AKS now supports Ubuntu 18.04 as the default node operating system (OS) in general availability (GA) for clusters in kubernetes versions higher than 1.18.8. For versions below 1.18.x, AKS Ubuntu 16.04 is still the default base image. From kubernetes v1.18.x and onward, the default base is AKS Ubuntu 18.04.
+AKS now supports Ubuntu 18.04 as the default node operating system (OS) in general availability (GA) for clusters in kubernetes versions higher than 1.18 For versions below 1.18, AKS Ubuntu 16.04 is still the default base image. From kubernetes v1.18 and higher, the default base is AKS Ubuntu 18.04.
 
 > [!IMPORTANT]
 > Node pools created on Kubernetes v1.18 or greater default to `AKS Ubuntu 18.04` node image. Node pools on a supported Kubernetes version less than 1.18 receive `AKS Ubuntu 16.04` as the node image, but will be updated to `AKS Ubuntu 18.04` once the node pool Kubernetes version is updated to v1.18 or greater.
@@ -88,53 +88,6 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 > 
 > It is highly recommended to test your workloads on AKS node pools with `containerD` prior to using clusters on 1.19 or greater.
 
-The following section will explain how you can use and test AKS with `containerD` on clusters that aren't yet using a Kubernetes version 1.19 or higher, or were created before this feature became generally available, by using the container runtime configuration preview.
-
-### Use `containerd` as your container runtime
-
-You must have the following pre-requisites:
-
-- [The Azure CLI][azure-cli-install], version 2.8.0 or later installed
-- The aks-preview extension version 0.4.53 or later
-- The `UseCustomizedContainerRuntime` feature flag registered
-- The `UseCustomizedUbuntuPreview` feature flag registered
-
-To install the aks-preview 0.4.53 extension or later, use the following Azure CLI commands:
-
-```azurecli
-az extension add --name aks-preview
-az extension list
-```
-
-Register the `UseCustomizedContainerRuntime` and `UseCustomizedUbuntuPreview` features:
-
-```azurecli
-az feature register --name UseCustomizedContainerRuntime --namespace Microsoft.ContainerService
-az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
-
-```
-
-It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature#az-feature-list) command:
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedContainerRuntime')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
-```
-
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider#az-provider-register) command:
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```  
-
-### Use `containerd` on existing clusters
-
-Configure a new node pool to use `containerd`. Use the `--aks-custom-headers` flag to set `containerd` as the runtime for that node pool.
-
-```azurecli
-az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804,ContainerRuntime=containerd
-```
-
 ### `Containerd` limitations/differences
 
 * To use `containerd` as the container runtime you must use AKS Ubuntu 18.04 as your base OS image.
@@ -156,25 +109,6 @@ Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-b
 Only specific SKUs and sizes support Gen2 VMs. Check the [list of supported sizes](../virtual-machines/generation-2.md#generation-2-vm-sizes), to see if your SKU supports or requires Gen2.
 
 Additionally not all VM images support Gen2, on AKS Gen2 VMs will use the new [AKS Ubuntu 18.04 image](#os-configuration). This image supports all Gen2 SKUs and sizes.
-
-### Use Gen2 VMs on new clusters
-Configure the cluster to use Gen2 VMs for the selected SKU when the cluster is created. Use the `--aks-custom-headers` flag to set Gen2 as the VM generation on a new cluster.
-
-```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
-```
-
-If you want to create a regular cluster using Generation 1 (Gen1) VMs, you can do so by omitting the custom `--aks-custom-headers` tag. You can also choose to add more Gen1 or Gen2 VMs as per below.
-
-### Use Gen2 VMs on existing clusters
-Configure a new node pool to use Gen2 VMs. Use the `--aks-custom-headers` flag to set Gen2 as the VM generation for that node pool.
-
-```azurecli
-az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
-```
-
-If you want to create regular Gen1 node pools, you can do so by omitting the custom `--aks-custom-headers` tag.
-
 
 ## Ephemeral OS
 
