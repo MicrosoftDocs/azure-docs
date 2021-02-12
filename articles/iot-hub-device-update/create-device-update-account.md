@@ -1,11 +1,11 @@
 ---
 title: Create a device update account | Microsoft Docs
-description: Create a device update account in Device Update for IoT Hub.
-author: philmea
-ms.author: philmea
-ms.date: 1/11/2021
+description: Create a device update account in Device Update for Azure IoT Hub.
+author: vimeht
+ms.author: vimeht
+ms.date: 2/11/2021
 ms.topic: conceptual
-ms.service: iot-hub
+ms.service: iot-hub-device-update
 ---
 
 # Device Update for IoT Hub Resource Management
@@ -70,21 +70,9 @@ A combination of roles can be used to provide the right level of access, for exa
 
 1. Go to Access control (IAM)
 2. Click "Add" within "Add a role assignment"
-3. For "Select a Role", select "Device Update Administrator"
+3. For "Select a Role", select a Device Update role such as Device Update Administrator, Device Update Reader, Device Update Content Administrator, Device Update Content Reader, Device Update Deployments Administrator, or  Device Update Deployments Reader
 4. Assign access to a user or Azure AD group
 5. Click Save
 6. You can now go to IoT Hub and go to Device Update
 
-## Ports used with Device Update for IoT Hub
-Device Update uses various network ports for different purposes.
 
-Purpose|Port Number |
----|---
-Download from Networks/CDNs  | 80 (HTTP Protocol)
-Download from MCC/CDNs | 80 (HTTP Protocol)
-Device Update Agent Connection to Azure IoT Hub  | 8883 (MQTT Protocol)
-
-> [!NOTE] 
-> The Device Update agent can be modified to use any of the supported Azure IoT Hub protocols.
-
-[Learn more](device-update-networking.md) about the current list of supported protocols.
