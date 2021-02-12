@@ -16,10 +16,7 @@ ms.author: yuajia
 
 This tutorial shows how to create a Rule Set and your first set of rules in both Azure portal.In Azure Front Door [Rule Set](concept-rule-set.md), a rule consists of zero or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in Azure Front Door rule set.
 
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 The first part of a rule is a match condition or set of match conditions. A rule can consist of up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are done. If you use multiple match conditions, the match conditions are grouped together by using AND logic. For all match conditions that support multiple values (noted as "space-separated"), the "OR" operator is assumed.
 
@@ -31,7 +28,12 @@ For example, you can use a match condition to:
 * Filter requests from request file name and file extension.
 * Filter requests from request URL, protocol, path, query string, post args, etc.
 
-The following match conditions are available to use in Azure Front Door Rules engine.  
+The following match conditions are available to use in Azure Front Door Rules engine.
+
+> [!IMPORTANT]
+> Azure Front Door Standard/Premium (Preview) is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Device type
 
