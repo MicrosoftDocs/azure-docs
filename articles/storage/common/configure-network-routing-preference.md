@@ -15,19 +15,25 @@ ms.subservice: common
 
 # Configure network routing preference for Azure Storage
 
-This article describes how you can configure the routing preference and route-specific endpoints for your storage account. The default routing preference for a storage account is via the Microsoft global network. Traffic between clients on the internet and your storage account will be routed via the ISP network when you choose **Internet** as your routing preference option. In addition, you can configure additional route-specific endpoints for your storage account.
+This article describes how you can configure the network routing preference and route-specific endpoints for your storage account. 
 
-## Change the routing preference for the default public endpoint
+The network routing preference specifies how network traffic is routed to your account from clients over the internet. Route-specific endpoints are new endpoints that Azure Storage creates for your storage account. These endpoints route traffic over a desired path without changing your default routing preference. To learn more, see [Network routing preference for Azure Storage](network-routing-preference.md).
 
-By default, the routing preference for the public endpoint of the storage account is set to Microsoft global network. To change this to Internet routing:
+## Configure the routing preference for the default public endpoint
 
-1.	Navigate to your storage account in the portal.
-2.	Under Settings in the left navigation pane, select **Networking**.
+By default, the routing preference for the public endpoint of the storage account is set to Microsoft global network. You can choose between the Microsoft global network and Internet routing as the default routing preference for the public endpoint of your storage account. To learn more about the difference between these two types of routing, see [Network routing preference for Azure Storage](network-routing-preference.md). 
+
+To change your routing preference to Internet routing:
+
+1. Navigate to your storage account in the portal.
+
+2. Under **Settings**, choose **Networking**.
 
     > [!div class="mx-imgBorder"]
     > ![internet routing option](./media/configure-network-routing-preference/networking-option.png)
 
 3.	In the **Firewalls and virtual networks** tab, under **Network Routing**, change the **Routing preference** setting to **Internet routing**.
+
 4.	Click **Save**.
 
     > [!div class="mx-imgBorder"]
@@ -35,24 +41,29 @@ By default, the routing preference for the public endpoint of the storage accoun
 
 ## Configure a route-specific endpoint
 
-In addition to changing the preference for the default public endpoint of the storage account, you can also configure a route-specific endpoint. For instance, you can set the routing preference for the default endpoint to *Internet routing*, and publish a route-specific endpoint that enables traffic between clients on the internet and your storage account to be routed via the Microsoft global network:
+You can also configure a route-specific endpoint. For example, you can set the routing preference for the default endpoint to *Internet routing*, and then publish a route-specific endpoint that enables traffic between clients on the internet and your storage account to be routed via the Microsoft global network.
 
 1.	Navigate to your storage account in the portal.
-2.	Under **Settings** in the left navigation pane, select **Networking**.
-3.	In the Firewalls and virtual networks tab, under Publish route-specific endpoints, select the **Microsoft network routing**.
-4.	Click **Save**.
+
+2.	Under **Settings**, choose **Networking**.
+
+3.	In the **Firewalls and virtual networks** tab, under **Publish route-specific endpoints**, choose the routing preference of your route-specific endpoint, and then click **Save**. This preference affects only the route-specific endpoint. This preference doesn't affect your default routing preference.  
+
+    The following image shows the **Microsoft network routing** option selected.
 
     > [!div class="mx-imgBorder"]
     > ![internet routing option](./media/configure-network-routing-preference/microsoft-network-routing-option.png)
 
-To access the endpoint name for the route-specific endpoint you’ve configured:
+## Find the endpoint name for a route-specific endpoint
 
-1.	Under **Settings** in the left navigation pane, select **Properties**.
+If you configured a route-specific endpoint, you can find the endpoint in the properties of you storage account.
+
+1.	Under **Settings**, choose **Properties**.
 
     > [!div class="mx-imgBorder"]
     > ![properties](./media/configure-network-routing-preference/properties.png)
 
-2.	The **Microsoft network routing** endpoint is shown for each service that supports routing preferences.
+2.	The **Microsoft network routing** endpoint is shown for each service that supports routing preferences. This image shows the endpoint for the blob and file services.
 
     > [!div class="mx-imgBorder"]
     > ![properties](./media/configure-network-routing-preference/routing-url.png)
