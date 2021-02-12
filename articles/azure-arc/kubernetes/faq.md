@@ -1,5 +1,5 @@
 ---
-title: "Frequently Asked Questions"
+title: "Azure Arc enabled Kuberneetes Frequently Asked Questions"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 02/08/2021
@@ -10,10 +10,9 @@ description: "This article contains a list of frequently asked questions related
 keywords: "Kubernetes, Arc, Azure, containers, configuration, GitOps, faq"
 ---
 
-# Frequently Asked Questions
+# Frequently Asked Questions - Azure Arc enabled Kubernetes
 
-## Azure Arc enabled Kubernetes or Azure Kubernetes Service? Which one to use?
-* What is the difference between Azure Arc enabled Kubernetes and Azure Kubernetes Service (AKS)?
+## What is the difference between Azure Arc enabled Kubernetes and Azure Kubernetes Service (AKS)?
 
 AKS is the managed Kubernetes offering by Azure. AKS simplifies deploying a managed Kubernetes cluster in Azure by offloading much of the complexity and operational overhead to Azure. Since the Kubernetes masters are managed by Azure, you only manage and maintain the agent nodes.
 

@@ -1,5 +1,5 @@
 ---
-title: "Configurations and GitOps"
+title: "Configurations and GitOps - Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 02/08/2021
@@ -10,7 +10,7 @@ description: "This article provides a conceptual overview of GitOps and configur
 keywords: "Kubernetes, Arc, Azure, containers, configuration, GitOps"
 ---
 
-# Configurations and GitOps
+# Configurations and GitOps with Azure Arc enabled Kubernetes
 
 ## GitOps
 

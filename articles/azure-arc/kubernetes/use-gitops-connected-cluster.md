@@ -13,7 +13,7 @@ keywords: "GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, c
 
 # Deploy configurations using GitOps on Arc enabled Kubernetes cluster (Preview)
 
-This getting started guide will walk you through applying configurations on an Azure Arc enabled Kubernetes cluster.
+This article demonstrates applying configurations on an Azure Arc enabled Kubernetes cluster. A conceptual overview of the same can be found [here](./conceptual-configurations.md).
 
 ## Before you begin
 

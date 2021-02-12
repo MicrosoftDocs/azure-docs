@@ -14,7 +14,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Connect an Azure Arc enabled Kubernetes cluster (Preview)
 
-This article provides a walk-through on connecting any existing Kubernetes cluster to Azure Arc.
+This article provides a walk-through on connecting any existing Kubernetes cluster to Azure Arc. A conceptual overview of the same can be found [here](./conceptual-agents-communication-pattern.md).
 
 ## Before you begin
 
@@ -68,7 +68,7 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 | `https://mcr.microsoft.com`                                                                            | Required to pull container images for Azure Arc agents.                                                                  |
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Required to pull system-assigned managed identity certificates.                                                                  |
 
-## Register the two providers for Azure Arc enabled Kubernetes:
+## Register the two providers for Azure Arc enabled Kubernetes
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
@@ -218,7 +218,7 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc 
 > * While `--proxy-http`, `--proxy-https`, and `--proxy-skip-range` are expected for most outbound proxy environments, `--proxy-cert` is only required if trusted certificates from proxy need to be injected into trusted certificate store of agent pods.
 > * The above proxy specification is currently applied only for Arc agents and not for the flux pods used in sourceControlConfiguration. The Azure Arc enabled Kubernetes team is actively working on this feature and it will be available soon.
 
-## Azure Arc agents for Kubernetes
+## Azure Arc enabled Kubernetes Agents
 
 Azure Arc enabled Kubernetes deploys a few operators into the `azure-arc` namespace. You can view these deployments and pods using:
 
