@@ -34,7 +34,7 @@ Select Minimum client library of "API 26: Android 8.0 (Oreo)" or greater.
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen 2.":::
 
 
-### Install the package
+### Install the Azure package
 
 Locate your project level build.gradle and make sure to add `mavenCentral()` to the list of repositories under `buildscript` and `allprojects`
 ```groovy
@@ -77,6 +77,12 @@ dependencies {
 }
 ```
 
+### Install the Meeting package
+
+Download the `MicrosoftTeamsSDK` package here 'Insert link once posted'.
+
+Then unzip the MicrosoftTeamsSDK folder into your projects app folder. Ex. `MeetingSDKAndroidGettingStarted/app/MicrosoftTeamsSDK`.
+
 ### Add permissions to application manifest
 
 In order to request permissions required to join a meeting, they must first be declared in the Application Manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following:
@@ -107,6 +113,12 @@ In order to request permissions required to join a meeting, they must first be d
 </manifest>
     
 ```
+
+### Update themes
+
+Set the style name to `AppTheme` in both your `theme.xml` and `theme.xml (night)` files.
+
+```xml<style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">```
 
 ### Set up the layout for the app
 
