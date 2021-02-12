@@ -113,13 +113,6 @@ An event has the following top-level data:
 | `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
-The data object has the following properties:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `key` | string | The key of the key-value that was modified or deleted. |
-| `label` | string | The label, if any, of the key-value that was modified or deleted. |
-| `etag` | string | For `KeyValueModified` the etag of the new key-value. For `KeyValueDeleted` the etag of the key-value that was deleted. |
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
@@ -135,6 +128,8 @@ An event has the following top-level data:
 | `data` | object | App Configuration event data. |
 | `specversion` | string | CloudEvents schema specification version. |
 
+---
+
 The data object has the following properties:
 
 | Property | Type | Description |
@@ -142,7 +137,6 @@ The data object has the following properties:
 | `key` | string | The key of the key-value that was modified or deleted. |
 | `label` | string | The label, if any, of the key-value that was modified or deleted. |
 | `etag` | string | For `KeyValueModified` the etag of the new key-value. For `KeyValueDeleted` the etag of the key-value that was deleted. |
----
 
 
 ## Tutorials and how-tos

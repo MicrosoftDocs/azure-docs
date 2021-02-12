@@ -100,7 +100,7 @@ When an event is triggered, the Event Grid service sends data about that event t
 ### Microsoft.Cache.PatchingCompleted event
 
 ```json
-{
+[{
 	"id": "9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
 	"type": "Microsoft.Cache.PatchingCompleted",
 	"source": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
@@ -112,13 +112,13 @@ When an event is triggered, the Event Grid service sends data about that event t
 	"subject": "PatchingCompleted",
 	"time": "2020-12-09T21:50:19.9995668+00:00",
     "specversion": "1.0"
-}
+}]
 ```
 
 ### Microsoft.Cache.ImportRDBCompleted event
 
 ```json
-{
+[{
 	"id": "9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
 	"type": "Microsoft.Cache.ImportRDBCompleted",
 	"source": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
@@ -130,13 +130,13 @@ When an event is triggered, the Event Grid service sends data about that event t
 	"subject": "ImportRDBCompleted",
 	"eventTime": "2020-12-09T21:50:19.9995668+00:00",
 	"specversion": "1.0"
-}
+}]
 ```
 
 ### Microsoft.Cache.ExportRDBCompleted event
 
 ```json
-{
+[{
 	"id": "9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
 	"type": "Microsoft.Cache.ExportRDBCompleted",
 	"source": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
@@ -148,13 +148,13 @@ When an event is triggered, the Event Grid service sends data about that event t
 	"subject": "ExportRDBCompleted",
 	"time": "2020-12-09T21:50:19.9995668+00:00",
 	"specversion": "1.0"
-}
+}]
 ```
 
 ### Microsoft.Cache.ScalingCompleted
 
 ```json
-{
+[{
 	"id": "9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
 	"type": "Microsoft.Cache.ScalingCompleted",
 	"source": "/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
@@ -166,7 +166,7 @@ When an event is triggered, the Event Grid service sends data about that event t
 	"subject": "ScalingCompleted",
 	"time": "2020-12-09T21:50:19.9995668+00:00",
 	"specversion": "1.0"
-}
+}]
 ```
 
 ---
@@ -188,13 +188,6 @@ An event has the following top-level data:
 | `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
-The data object has the following properties:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `timestamp` | string | The time at which the event occurred. |
-| `name` | string | The name of the event. |
-| `status` | string | The status of the event. Failed or succeeded. |
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
@@ -211,6 +204,9 @@ An event has the following top-level data:
 | `data` | object | Azure Cache for Redis event data. |
 | `specversion` | string | CloudEvents schema specification version. |
 
+---
+
+
 The data object has the following properties:
 
 | Property | Type | Description |
@@ -218,9 +214,6 @@ The data object has the following properties:
 | `timestamp` | string | The time at which the event occurred. |
 | `name` | string | The name of the event. |
 | `status` | string | The status of the event. Failed or succeeded. |
-
-
----
 
 ## Quickstarts
 
