@@ -1,11 +1,11 @@
 ---
 title: Getting Started Using Ubuntu (18.04 x64) Simulator Reference Agent | Microsoft Docs
 description: Getting Started Using Ubuntu (18.04 x64) Simulator Reference Agent.
-author: philmea
-ms.author: philmea
-ms.date: 1/11/2021
-ms.topic: conceptual
-ms.service: iot-hub
+author: vimeht
+ms.author: vimeht
+ms.date: 2/11/2021
+ms.topic: tutorial
+ms.service: iot-hub-device-update
 ---
 
 # Getting Started Using Ubuntu (18.04 x64) Simulator Reference Agent
@@ -117,5 +117,4 @@ or
 Agent running. [main]
 ```
 
-> [!div class="nextstepaction"]
-> [Import New Update](import-update.md)
+[Next steps: Import new update](import-update.md)
