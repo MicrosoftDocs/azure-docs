@@ -21,7 +21,7 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-The tables in this below list the [Live Event](live-events-outputs-concept.md) error codes.
+The following tables list the [Live Event](live-events-outputs-concept.md) error codes.
 
 ## LiveEventConnectionRejected
 
