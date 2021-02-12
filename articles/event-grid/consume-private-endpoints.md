@@ -42,4 +42,6 @@ To deliver events to Storage queues using managed identity, follow these steps:
 
 
 ## Next steps
-For details on #1 and #3 steps in above procedures, see [Event delivery using a managed identity](managed-service-identity.md). 
+
+- For details on #1 and #3 steps in above procedures, see [Event delivery using a managed identity](managed-service-identity.md). 
+- For an example of assigning a role to a managed identity, see [Add role assignment](../event-hubs/authenticate-managed-identity.md#to-assign-azure-roles-using-the-azure-portal).
