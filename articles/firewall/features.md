@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 02/12/2021
 ms.author: victorh
 ---
 
@@ -30,6 +30,7 @@ Azure Firewall includes the following features:
 - [Multiple public IP addresses](#multiple-public-ip-addresses)
 - [Azure Monitor logging](#azure-monitor-logging)
 - [Forced tunneling](#forced-tunneling)
+- [Web categories (preview)](#web-categories-preview)
 - [Certifications](#certifications)
 
 ## Built-in high availability
