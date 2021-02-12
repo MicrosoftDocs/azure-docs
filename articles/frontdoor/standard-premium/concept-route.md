@@ -10,7 +10,7 @@ ms.date: 02/18/2021
 ms.author: duau
 ---
 
-# ​​What is Azure Front Door Standard/Premium Route?
+# What is Azure Front Door Standard/Premium (Preview) Route?
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
@@ -128,8 +128,8 @@ Given that configuration, the following example matching table would result:
 
 ### Routing decision
 
-Once we've matched to a single Front Door routing rule, we then need to choose how to process the request. If for the matched routing rule, Front Door has a cached response available then the same gets served back to the client. The next thing that gets evaluated is whether you have Rule Set for the matched routing rule or not. If there isn't a Rule Set defined, then the request gets forwarded to the backend pool as is. Otherwise, the Rule Set are executed in the order as they're set up.
+Once Azure Front Door has matched to a single routing rule, it then needs to choose how to process the request. If Azure Front Door has a cached response available for the matched routing rule, then the request gets served back to the client. The next thing Azure Front Door evaluates is whether or not you have a Rule Set for the matched routing rule. If there isn't a Rule Set defined, then the request gets forwarded to the backend pool as is. Otherwise, the Rule Set are executed in the order as they're configured.
 
 ## Next steps
 
-* Learn how to [create a Front Door](create-front-door-portal.md).
+Learn how to [create a Front Door](create-front-door-portal.md).
