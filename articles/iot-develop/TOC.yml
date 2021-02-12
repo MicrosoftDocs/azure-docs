@@ -27,8 +27,6 @@
   items:
   - name: Connection options for device developers
     href: concepts-overview-connection-options.md
-  - name: Using CMAKE
-    href: concepts-using-cmake.md
 - name: Reference
   items:
     - name: Azure CLI
