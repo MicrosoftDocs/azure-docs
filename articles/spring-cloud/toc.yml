@@ -5,6 +5,10 @@
   items:
     - name: What is Azure Spring Cloud?
       href: spring-cloud-overview.md
+- name: Architecture
+  items:
+    - name: Reference Architecture
+      href: spring-cloud-reference-architecture.md
 - name: Quickstarts
   expanded: true 
   items:
