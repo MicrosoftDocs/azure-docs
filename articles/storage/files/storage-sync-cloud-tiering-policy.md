@@ -13,7 +13,9 @@ ms.subservice: files
 
 Cloud tiering has two policies that determine which files are tiered to the cloud: the **volume free space policy** and the **date policy**.
 
-The **volume free space policy** ensures that a specified percentage of the local drive the server endpoint is and will always be free. The **date policy** tiers files last accessed x days ago or later. The volume free space policy will always take precedence; when there isn't enough free space on the volume to store as many days worth of files as described by the date policy, Azure File Sync will continue tiering the coldest files until the volume free space percentage is met.
+The **volume free space policy** ensures that a specified percentage of the local volume the server endpoint is located on is always kept free. 
+
+The **date policy** tiers files last accessed x days ago or later. The volume free space policy will always take precedence; when there isn't enough free space on the volume to store as many days worth of files as described by the date policy, Azure File Sync will continue tiering the coldest files until the volume free space percentage is met.
 
 ## How both policies work together
 
