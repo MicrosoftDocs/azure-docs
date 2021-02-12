@@ -11,8 +11,7 @@ ms.service: iot-hub-device-update
 # Device Update Compliance
 
 In Device Update, compliance measures how many devices have installed the highest version compatible update. A device
-is considered compliant if it has installed the highest version update published to its instance of Device Update that is 
-compatible for that device. 
+is compliant if it has installed the highest-version available update that is compatible for it. 
 
 
 For example, consider an instance of Device Update with the following updates:
@@ -40,14 +39,14 @@ Now, consider the following devices, with their group memberships and installed 
 |Device3	|Model2	|1.0	|Group2	|On latest update|
 |Device4	|Model1	|1.0	|Group3	|Update in progress|
 
-Note that Device1 and Device4 are not compliant because they have version 1.0 installed even 
+Device1 and Device4 are not compliant because they have version 1.0 installed even 
 though there’s a higher version update compatible for their model in the Device Update instance (Update3). Device2 and
 Device3 are both compliant because they have the highest version updates compatible for their models installed.
 
 Compliance does not consider whether an update is deployed to a device’s group or not; it looks at any updates
 published to Device Update. So in the example above, Device1 is not compliant even though there is not a deployment for Update3 
 that targets that device’s group. So although Device1 has installed the highest version update that has been targeted to it, 
-it is still considered non-compliant. This can help you identify whether new deployments are needed.
+it is still considered non-compliant. The compliance status can help you identify whether new deployments are needed.
 
 As shown above, there are three compliance states in Device Update:
 
