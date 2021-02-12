@@ -101,20 +101,12 @@
     href: ./workloads/oracle/oracle-database-quick-create.md
   - name: Elasticsearch
     href: ./linux/tutorial-elasticsearch.md
-  - name: FreeBSD Packet Filter
-    href: ./linux/freebsd-pf-nat.md
   - name: Mainframe rehosting
     href: ./workloads/mainframe-rehosting/overview.md
-  - name: Databases
-    items:
-    - name: MongoDB
-    - name: MS SQL on Linux
-      href: /sql/linux/sql-server-linux-azure-virtual-machine
+  - name: SQL on Virtual Machines
+    href: https://docs.microsoft.com/azure/azure-sql/virtual-machines/
   - name: High Performance Computing (HPC)
     href: /azure/architecture/topics/high-performance-computing/
-  - name: Containers
-  - name: Visual Studio
-    href: ./windows/using-visual-studio-vm.md
 - name: Instances
   items:
   - name: Sizes
@@ -218,6 +210,12 @@
           href: ./windows/n-series-driver-setup.md
       - name: Setup AMD GPU drivers
         href: ./windows/n-series-amd-driver-setup.md
+    - name: FPGA - accelerated compute
+      items:
+      - name: Overview
+        href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
+      - name: NP-series
+        href: np-series.md
     - name: High performance compute
       displayName: H-series
       items:
@@ -329,7 +327,8 @@
       href: ./linux/tutorial-build-deploy-azure-pipelines.md
     - name: Create LAMP stack
       href: ./linux/tutorial-lamp-stack.md
-    - name: Secure web server with SSL
+    - name: Secure web server with TLS\SSL
+      displayname: SSL TLS
       items:
       - name: Linux
         href: ./linux/tutorial-secure-web-server.md
@@ -592,6 +591,8 @@
         href: ./linux/flatcar-create-upload-vhd.md
       - name: FreeBSD
         href: ./linux/freebsd-intro-on-azure.md
+      - name: FreeBSD Packet Filter
+        href: ./linux/freebsd-pf-nat.md
       - name: Oracle Linux
         href: ./linux/oracle-create-upload-vhd.md
       - name: OpenBSD
@@ -636,6 +637,8 @@
       href: ./windows/capture-image-resource.md
     - name: Create a VM from a managed image
       href: ./windows/create-vm-generalized-managed.md
+    - name: Visual Studio
+      href: ./windows/using-visual-studio-vm.md
   - name: Shared Image Galleries
     items:
     - name: Overview
@@ -1225,6 +1228,8 @@
     href: maintenance-and-updates.md
   - name: Automatic VM guest patching (preview)
     href: ./windows/automatic-vm-guest-patching.md
+  - name: Automatic extension upgrade (preview)
+    href: ./automatic-extension-upgrade.md
   - name: Maintenance control
     items:
     - name: Maintenance notifications

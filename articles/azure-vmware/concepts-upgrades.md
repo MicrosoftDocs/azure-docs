@@ -48,7 +48,7 @@ In addition to making updates, Azure VMware Solution takes a configuration backu
 
 At times of failure, Azure VMware Solution can restore these from the configuration backup. 
 
-For more information on VMware software versions, see the [private clouds and clusters concept article](concepts-private-clouds-clusters.md) and the [FAQ](faq.md).
+For more information on VMware software versions, see the [private clouds and clusters concept article](concepts-private-clouds-clusters.md) and the [FAQ](faq.yml).
 
 ## Next steps
 

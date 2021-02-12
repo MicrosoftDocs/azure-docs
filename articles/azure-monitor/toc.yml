@@ -426,8 +426,10 @@
       - name: Linux
         displayname: diagnostics extension
         items: 
-        - name: Overview
+        - name: Version 4.0
           href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+        - name: Version 3.0
+          href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
         - name: Collect metrics with Telegraf
           href: platform/collect-custom-metrics-linux-telegraf.md   
     - name: Troubleshoot
@@ -781,6 +783,8 @@
       - name: Availability alerts
         displayname: alerts, global, alerting
         href: app/availability-alerts.md
+      - name: SLA Report
+        href: app/sla-report.md
       - name: Troubleshooting
         displayname: availability, troubleshoot, troubleshoot availability
         href: app/troubleshoot-availability.md
@@ -794,6 +798,8 @@
     - name: Live Metric stream
       displayname: live, quickpulse, quick pulse, live metrics
       href: app/live-stream.md
+    - name: Work Item integration
+      href: app/work-item-integration.md
     - name: Metrics
       items:
       - name: Log-based & pre-aggregated metrics
@@ -1022,7 +1028,7 @@
         href: insights/vminsights-health-troubleshoot.md
     - name: Analyze data with log queries
       href: insights/vminsights-log-search.md
-    - name: Monitor performance
+    - name: Alerts
       href: insights/vminsights-alerts.md
     - name: Monitor changes
       href: insights/vminsights-change-analysis.md
