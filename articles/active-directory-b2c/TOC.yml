@@ -522,4 +522,4 @@
     href: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     displayName: technical
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
+    href: azure-ad-external-identities-videos.md
