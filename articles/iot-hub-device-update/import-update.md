@@ -28,7 +28,7 @@ Learn how to import a new update into Device Update for IoT Hub.
 
 1. Ensure that your update image file or APT Manifest file is located in a directory accessible from PowerShell.
 
-2. Clone [Device Update for IoT Hub repository](https://github.com/Azure/adu-private-preview), or download it as a .zip file to
+2. Clone [Device Update for IoT Hub repository](https://github.com/azure/iot-hub-device-update), or download it as a .zip file to
 a location accessible from PowerShell (Once the zip file is downloaded, right click for `Properties` > `General` tab > check `Unblock` in the `Security` section to avoid PowerShell security warning prompts).
 
 3. In PowerShell, navigate to `tools/AduCmdlets` directory and run:
