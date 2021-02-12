@@ -44,13 +44,13 @@ In this section, the unit test will validate the logic of the following HTTP tri
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-The unit test task will be to verify the value of the `Retry-After` header provided in the response payload. So the unit test will mock some of `IDurableOrchestrationClient` methods to ensure predictable behavior.
+The unit test task will be to verify the value of the `Retry-After` header provided in the response payload. So the unit test will mock some of `IDurableClient` methods to ensure predictable behavior.
 
-First, we use a mocking framework ([moq](https://github.com/moq/moq4) in this case) to mock `IDurableOrchestrationClient`.:
+First, we use a mocking framework ([moq](https://github.com/moq/moq4) in this case) to mock `IDurableionClient`.:
 
 ```csharp
-    // Mock IDurableOrchestrationClient
-    var durableOrchestrationClientMock = new Mock<IDurableOrchestrationClient>();
+    // Mock IDurableClient
+    var durableClientMock = new Mock<IDurableClient>();
 ```
 
 > [NOTE]
@@ -60,7 +60,7 @@ Then `StartNewAsync` method is mocked to return a well-known instance ID.
 
 ```csharp
     // Mock StartNewAsync method
-    durableOrchestrationClientMock.
+    durableClientMock.
         Setup(x => x.StartNewAsync(functionName, It.IsAny<object>())).
         ReturnsAsync(instanceId);
 ```
@@ -69,8 +69,8 @@ Next `CreateCheckStatusResponse` is mocked to always return an empty HTTP 200 re
 
 ```csharp
     // Mock CreateCheckStatusResponse method
-    durableOrchestrationClientMock
-        // Notice that even though the HttpStart function does not call IDurableOrchestrationClient.CreateCheckStatusResponse() 
+    durableClientMock
+        // Notice that even though the HttpStart function does not call IDurableClient.CreateCheckStatusResponse() 
         // with the optional parameter returnInternalServerErrorOnFailure, moq requires the method to be set up
         // with each of the optional parameters provided. Simply use It.IsAny<> for each optional parameter
         .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId, returnInternalServerErrorOnFailure: It.IsAny<bool>())
@@ -102,7 +102,7 @@ Now the `Run` method is called from the unit test:
             Content = new StringContent("{}", Encoding.UTF8, "application/json"),
             RequestUri = new Uri("http://localhost:7071/orchestrators/E1_HelloSequence"),
         },
-        durableOrchestrationClientMock.Object,
+        durableClientMock.Object,
         functionName,
         loggerMock.Object);
  ```
