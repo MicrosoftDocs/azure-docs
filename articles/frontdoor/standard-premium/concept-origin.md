@@ -1,7 +1,7 @@
 ---
-title: Origin and Origin group in Azure Front Door
-description: This article describes what origin and origin group are in Front Door configuration.
-services: front-door
+title: Origin and Origin group in Azure Front Door Standard/Premium
+description: This article describes what origin and origin group are in an Azure Front Door configuration.
+services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.date: 02/18/2021
 ms.author: duau
 ---
 
-# Origin and Origin group in Azure Front Door
+# Origin and Origin group in Azure Front Door Standard/Premium (Preview)
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
@@ -60,7 +60,7 @@ To configure the **origin host header** field for an origin in the origin group 
 
 3. Set the origin host header field to a custom value or leave it blank. The hostname for the incoming request will be used as the host header value.
 
-## Origin Group
+## Origin group
 
 An origin group in Front Door refers to the set of origin that receives similar traffic for their app. In other words, it's a logical grouping of your app instances across the world that receive the same traffic and respond with expected behavior. These origins are deployed across different regions or within the same region. All origins can be in Active/Active deployment mode or what is defined as Active/Passive configuration.
 
