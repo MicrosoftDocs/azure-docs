@@ -100,7 +100,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Face API v1.0
-            url: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
+            url: https://docs.microsoft.com/rest/api/face/
           - text: .NET SDK
             url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
           - text: Python SDK
