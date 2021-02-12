@@ -74,7 +74,7 @@ Let's suppose to remove row count less than 2.
     ![using CacheSink Activity to add Row Count](./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png)
 
 1. Use derived column activity to add row count column in  in master source stream. In **Derived column's settings** tab, use CacheSink#lookup expression getting row count from SinkCache.
-    ![using DerivedColumn Activity to get count number of rows in S1](./media/media/scenario-dataflow-process-data-aml-models/derived-column-activity-rowcount-source1.png)
+    ![using DerivedColumn Activity to get count number of rows in S1](./media/scenario-dataflow-process-data-aml-models/derived-column-activity-rowcount-source1.png)
 
 1. Use Conditional split activity to remove unqualified data. In this example,  row count based on Col2 column, and the condition is to remove row count less than 2, so two rows (ID=2 and ID=7) will be removed. You would save unqualified data to a blob storage for data management. 
 
