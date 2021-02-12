@@ -28,10 +28,10 @@ This article discusses the technical details regarding the migration tool as per
 ### Service Configuration and Service Definition files
 - The .cscfg and .csdef files needs to be updated for Cloud Services (extended support) with minor changes. 
 - The names of resources like virtual network and virtual network SKU are different. For more information, see [Available VM sizes](available-sizes.md)
-- Customers can retrieve their new deployments through PowerShell and Rest API. 
+- Customers can retrieve their new deployments through [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice) and [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
 
 ### Cloud Service (hosted service) and deployments
-- Cloud Services (extended support) do not support the concept of Cloud Services as a hosted service. Each deployment is an independent Cloud Service. 
+- Cloud Services (extended support) do not support the concept of a hosted service. Each deployment is an independent Cloud Service. 
 - If you have two slots in your Cloud Services (classic), you need to delete one slot (staging) and use the migration tool to move the other (production) slot to Azure Resource Manager. 
 - The Public IP Address on the Cloud Service deployment remains the same after migration to Azure Resource Manager and is exposed as a Basic SKU IP (dynamic or static) resource in the customer’s subscription. 
 - The DNS name for the migrated Cloud Service uses the same name and DNS domain as used in RDFE (cloudapp.azure.net).

@@ -12,7 +12,7 @@ ms.author: tagore
 
 # Migrate to Azure Cloud Services (extended support) using PowerShell
 
-These steps show you how to use Azure PowerShell commands to migrate from Cloud Services (classic) to Cloud Services (extended support).
+These steps show you how to use Azure PowerShell commands to migrate from [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Cloud Services (extended support)](overview.md).
 
 ## 1) Plan for migration
 Planning is the most important step for a successful migration experience. Review the below articles prior to beginning your migration journey. 
@@ -30,7 +30,7 @@ To perform this migration, you must be added as a coadministrator for the subscr
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the **Hub** menu, select **Subscription**. If you don't see it, select **All services**.
-3. Find the appropriate subscription entry, and then look at the **MY ROLE** field. For a coadministrator, the value should be _Account admin_.
+3. Find the appropriate subscription entry, and then look at the **MY ROLE** field. For a coadministrator, the value should be *Account admin*.
 
 If you're not able to add a co-administrator, contact a service administrator or co-administrator for the subscription to get yourself added.
 
