@@ -10,7 +10,7 @@
   items:
     - name: Launch your first app
       href: spring-cloud-quickstart.md
-    - name: Build and run Microservices
+    - name: Build and run microservices
       expanded: true
       items:
       - name: Introduction to the sample app
@@ -63,7 +63,7 @@
           href: spring-cloud-tutorial-prepare-app-deployment.md
         - name: Set up a Config Server
           href: spring-cloud-tutorial-config-server.md
-        - name: Enable Service Registration
+        - name: Enable service registration
           href: spring-cloud-service-registration.md
     - name: Deploy
       items:
@@ -161,7 +161,7 @@
   items:
     - name: Reference architecture
       href: spring-cloud-reference-architecture.md
-- name: DevOps Deployment
+- name: DevOps deployment
   items:
   - name: CI/CD with Azure DevOps
     href: spring-cloud-howto-cicd.md
