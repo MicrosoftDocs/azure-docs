@@ -4,7 +4,7 @@ description: Deploy an update using Device Update for IoT Hub.
 author: vimeht
 ms.author: vimeht
 ms.date: 2/11/2021
-ms.topic: how-to guides
+ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 
