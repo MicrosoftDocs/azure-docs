@@ -23,7 +23,7 @@ For information on setup and configuration details, see the [overview](functions
 
 # [C#](#tab/csharp)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that reads and logs the RabbitMQ message as a [RabbitMQ Event](https://csharp.hotexamples.com/examples/RabbitMQ.Client.Events/BasicDeliverEventArgs/-/php-basicdelivereventargs-class-examples.html):
+The following example shows a [C# function](functions-dotnet-class-library.md) that reads and logs the RabbitMQ message as a [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
 
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
@@ -225,7 +225,7 @@ The following table explains the binding configuration properties that you set i
 
 # [C#](#tab/csharp)
 
-The default message type is [RabbitMQ Event](https://csharp.hotexamples.com/examples/RabbitMQ.Client.Events/BasicDeliverEventArgs/-/php-basicdelivereventargs-class-examples.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
+The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
 
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
 * `string`
@@ -234,7 +234,7 @@ The default message type is [RabbitMQ Event](https://csharp.hotexamples.com/exam
 
 # [C# Script](#tab/csharp-script)
 
-The default message type is [RabbitMQ Event](https://csharp.hotexamples.com/examples/RabbitMQ.Client.Events/BasicDeliverEventArgs/-/php-basicdelivereventargs-class-examples.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
+The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
 
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
 * `string`
