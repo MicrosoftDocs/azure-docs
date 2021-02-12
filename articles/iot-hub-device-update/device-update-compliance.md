@@ -39,14 +39,12 @@ Now, consider the following devices, with their group memberships and installed 
 |Device3	|Model2	|1.0	|Group2	|On latest update|
 |Device4	|Model1	|1.0	|Group3	|Update in progress|
 
-Device1 and Device4 are not compliant because they have version 1.0 installed even 
-though there’s a higher version update compatible for their model in the Device Update instance (Update3). Device2 and
+Device1 and Device4 aren't compliant because they have version 1.0 installed even 
+though there’s a higher version update, Update3, compatible for their model in the Device Update instance. Device2 and
 Device3 are both compliant because they have the highest version updates compatible for their models installed.
 
-Compliance does not consider whether an update is deployed to a device’s group or not; it looks at any updates
-published to Device Update. So in the example above, Device1 is not compliant even though there is not a deployment for Update3 
-that targets that device’s group. So although Device1 has installed the highest version update that has been targeted to it, 
-it is still considered non-compliant. The compliance status can help you identify whether new deployments are needed.
+Compliance doesn't consider whether an update is deployed to a device’s group or not; it looks at any updates
+published to Device Update. So in the example above, even though Device1 has installed the update deployed to it, it is considered non-compliant. Device1 will continue being considered non-compliant till it successfully installs Update3. The compliance status can help you identify whether new deployments are needed. 
 
 As shown above, there are three compliance states in Device Update:
 
