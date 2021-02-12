@@ -77,7 +77,7 @@ You can learn more about the HelmRelease in the official [Helm Operator document
 Using the Azure CLI extension for `k8sconfiguration`, link your connected cluster to the example Git repository. Give this configuration the name `azure-arc-sample` and deploy the Flux operator in the `arc-k8s-demo` namespace.
 
 ```console
-az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='0.6.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
+az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
 ```
 
 ### Configuration Parameters
@@ -108,7 +108,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
   "enableHelmOperator": "True",
   "helmOperatorProperties": {
     "chartValues": "--set helm.versions=v3",
-    "chartVersion": "0.6.0"
+    "chartVersion": "1.2.0"
   },
   "id": "/subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/azure-arc-sample",
   "name": "azure-arc-sample",
