@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: iot-hub
 ---
 
-# Importing Updates into Device Update for IoT Hub
+# Importing updates into Device Update for IoT Hub
 In order to deploy an update to devices from Device Update for IoT Hub, you first have to _import_ that update into the Device Update service. Here is an overview of some important concepts to understand when it comes to importing updates.
 
 ## Import manifest
