@@ -34,7 +34,7 @@ The use cases for Azure VMware Solution private clouds include:
 In the virtual network to private cloud implementation, you can manage your Azure VMware Solution private cloud, consume workloads in your private cloud, and access Azure services over the ExpressRoute connection. 
 
 The diagram below shows the basic network interconnectivity established at the time of a private cloud deployment. It shows the logical, ExpressRoute-based networking between a virtual network in Azure and a private cloud. The interconnectivity fulfills three of the primary use cases:
-* Inbound access to vCenter server and NSX-T manager that is accessible from VMs in your Azure subscription and not from your on-premises systems. 
+* Inbound access to vCenter server and NSX-T Manager that is accessible from VMs in your Azure subscription and not from your on-premises systems. 
 * Outbound access from VMs to Azure services. 
 * Inbound access and consumption of workloads running a private cloud.
 
@@ -64,4 +64,5 @@ Now that you've covered Azure VMware Solution network and interconnectivity conc
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md
 
 <!-- LINKS - internal -->
-
+[concepts-upgrades]: ./concepts-upgrades.md
+[concepts-storage]: ./concepts-storage.md
