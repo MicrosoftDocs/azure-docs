@@ -37,11 +37,11 @@
       href: spring-cloud-tutorial-managed-identities-functions.md
 - name: Concepts
   items:
-    - name: Understand app and deployment
+    - name: App and deployment
       href: spring-cloud-concept-understand-app-and-deployment.md
-    - name: Understand quotas and limits
+    - name: Quotas and limits
       href: spring-cloud-quotas.md
-    - name: Understand metrics
+    - name: Metrics
       href: spring-cloud-concept-metrics.md
     - name: Azure Spring Boot Actuator
       href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md

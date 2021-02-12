@@ -1,6 +1,6 @@
 ---
-title:  "Understand app and deployment in Azure Spring Cloud"
-description: The distinction between application and deployment in Azure Spring Cloud.
+title:  "App and deployment in Azure Spring Cloud"
+description: This topic explains the distinction between application and deployment in Azure Spring Cloud.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
@@ -9,7 +9,7 @@ ms.date: 07/23/2020
 ms.custom: devx-track-java
 ---
 
-# Understand app and deployment in Azure Spring Cloud
+# App and deployment in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ✔️ C#
 

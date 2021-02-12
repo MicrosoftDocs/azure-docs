@@ -9,7 +9,7 @@ ms.date: 04/06/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Use Circuit Breaker Dashboard with Azure Spring Cloud
+# Tutorial: Use Circuit Breaker Dashboard with Azure Spring Cloud
 
 **This article applies to:** ✔️ Java
 
