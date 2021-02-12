@@ -47,7 +47,7 @@ linked_service = LinkedService.register(
     linked_service_config=synapse_link_config)
 ```
 
-First, `Workspace.from_config()` accesses your Azure Machine Learning workspace using the configuration in `config.json` (see [Tutorial: Get started with Azure Machine Learning in your development environment](tutorial-1st-experiment-sdk-setup-local)). Then, you link to your Synapse workspace by creating a `SynapseWorkspaceLinkedServiceConfiguration` object, passing your subscription id, the name of the resource group in which the Synapse workspace exists, and the name of the Synapse workspace. Finally, you link the two services by calling `LinkedService.register()`.
+First, `Workspace.from_config()` accesses your Azure Machine Learning workspace using the configuration in `config.json` (see [Tutorial: Get started with Azure Machine Learning in your development environment](tutorial-1st-experiment-sdk-setup-local)). Then, you link to your Synapse workspace by creating a `SynapseWorkspaceLinkedServiceConfiguration` object, passing your subscription ID, the name of the resource group in which the Synapse workspace exists, and the name of the Synapse workspace. Finally, you link the two services by calling `LinkedService.register()`.
 
 You only need to register the linked service once in your Azure Machine Learning workspace. To retrieve all the linked services in your workspace, you can call `LinkedService.list(ws)`, or to retrieve a specific one: 
 
@@ -101,7 +101,7 @@ titanic_file_dataset = Dataset.File.from_files(path=[(datastore, file_name)])
 step1_input2 = titanic_file_dataset.as_named_input("file_input").as_hdfs()
 ```
 
-The above code assumes that the file **Titanic.csv** is in blob storage. The code shows how to read the file as a `TabularDataset` and as a `FileDataset`. This code is for demonstration purposes only, as it would be very confusing to duplicate inputs or to interpret a single data source as both a table-containing resource and just as a file. 
+The above code assumes that the file **Titanic.csv** is in blob storage. The code shows how to read the file as a `TabularDataset` and as a `FileDataset`. This code is for demonstration purposes only, as it would be confusing to duplicate inputs or to interpret a single data source as both a table-containing resource and just as a file.
 
 When a step completes, you may choose to store output data using code similar to:
 
@@ -138,7 +138,7 @@ run_config.spark.configuration["spark.executor.instances"] = 1
 run_config.environment.python.conda_dependencies = conda
 ```
 
-{>> IMPORTANT: Is the `pip_indexurl` correct for public preview? Should I discuss it or does it go away. Also, the azureml-sdk<0.1.1 seems strange, since it seems like it's saying 'use an old version'. Should I address this in the article? <<}
+{>> IMPORTANT: Is the `pip_indexurl` correct for public preview? Should I discuss it or does it go away? Also, the azureml-sdk<0.1.1 seems strange, since it seems like it's saying 'use an old version'. Should I address this in the article? <<}
 
 The above code first creates a `CondaDependencies` object that specifies the dependencies upon which the Apache spark-based data preparation step relies (see [Use software environments](how-to-use-environments.md)). Then, the code creates a `RunConfiguration` object that is going to use the PySpark framework. 
 
@@ -173,11 +173,11 @@ step_1 = SynapseSparkStep(name = 'synapse-spark',
 
 The above code specifies a single step in the Azure machine learning pipeline. This step's `environment` specifies a specific `azureml-core` version and could add other dependencies as necessary. 
 
-The `SynapseSparkStep` will zip and upload from the local computer the sub-directory `./code`. That directory will be recreated on the compute server and the step will run the file **dataprep.py** from that directory. The `inputs` and `outputs` of that step are the `step1_input1`, `step1_input2`, and `step1_output` objects previously discussed. The easiest way to access those values within the **dataprep.py** script is to associate them with named `arguments`.
+The `SynapseSparkStep` will zip and upload from the local computer the subdirectory `./code`. That directory will be recreated on the compute server and the step will run the file **dataprep.py** from that directory. The `inputs` and `outputs` of that step are the `step1_input1`, `step1_input2`, and `step1_output` objects previously discussed. The easiest way to access those values within the **dataprep.py** script is to associate them with named `arguments`.
 
 The next set of arguments to the `SynapseSparkStep` constructor control Apache spark. The `compute_target` is the `'link1-spark01'` that we attached as a compute target previously. The other parameters specify the memory and cores we'd like to use.
 
-The sample notebook uses the following as its **dataprep.py** code:
+The sample notebook uses the following code for **dataprep.py**:
 
 ```python
 import os
@@ -213,13 +213,13 @@ sdf.coalesce(1).write\
 .csv(args.output_dir)
 ```
 
-This doesn't do any real data transformation, but illustrates how to retrieve data, convert it to a spark dataframe, and how to do some basic spark manipulation. You can find the output in Azure Machine Learning Studio by opening the child run, choosing the **Outputs + logs** tab, and opening the **logs/azureml/driver/stdout** file, as shown in the following figure.
+This 'data preparation' script doesn't do any real data transformation, but illustrates how to retrieve data, convert it to a spark dataframe, and how to do some basic spark manipulation. You can find the output in Azure Machine Learning Studio by opening the child run, choosing the **Outputs + logs** tab, and opening the **logs/azureml/driver/stdout** file, as shown in the following figure.
 
-:::image type="content" source="media/how-to-use-synapsesparkstep/synapesparkstep-stdout.png" alt-text="Screenshot of Studio showing stdout tab of child run":::
+:::image type="content" source="media/how-to-use-synapsesparkstep/synapsesparkstep-stdout.png" alt-text="Screenshot of Studio showing stdout tab of child run":::
 
 ## Use the `SynapseSparkStep` in a pipeline
 
-Other steps in the pipeline may have their own unique environments and run on different compute resources appropriate to the task at hand. To illustrate this, the sample notebook runs the "training step" on a small CPU cluster:
+Other steps in the pipeline may have their own unique environments and run on different compute resources appropriate to the task at hand. The sample notebook runs the "training step" on a small CPU cluster:
 
 ```python
 from azureml.core.compute import AmlCompute
