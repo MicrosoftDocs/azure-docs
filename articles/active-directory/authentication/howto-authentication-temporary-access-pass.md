@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 02/12/2021
 
 ms.author: inbarckms
 author: justinha
@@ -16,7 +16,7 @@ ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
 ---
 
-# Configure Temporary Access Pass to register Passwordless authentication methods 
+# Configure Temporary Access Pass to register Passwordless authentication methods (Preview)
 
 Passwordless authentication methods, such as FIDO2 and Passwordless Phone Sign-in through the Microsoft Authenticator app, enable users to sign in securely without a password. 
 Users can bootstrap Passwordless methods in one of two ways:
@@ -30,6 +30,9 @@ TAP also makes recovery easier when a user has lost or forgotten their strong au
 
 This article shows you how to enable and use a TAP in Azure AD using the Azure portal. 
 You can also perform these actions using the REST APIs. 
+
+>[!NOTE]
+>Temporary Access Pass is currently in public preview. Some features might not be supported or have limited capabilities. 
 
 ## Enable the TAP policy
 
