@@ -1,25 +1,30 @@
 ---
-title: 'What is Azure Route Server?'
+title: 'What is Azure Route Server (Preview)?'
 description: Learn how Azure Route Server can simplify routing between your network virtual appliance (NVA) and your virtual network.
 services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: overview
-ms.date: 2/23/2021
+ms.date: 03/02/2021
 ms.author: duau
 #Customer intent: As an IT administrator, I want to learn about Azure Route Server and what I can use it for.
 ---
 
-# What is Azure Route Server? 
+# What is Azure Route Server (Preview)? 
 
 Azure Route Server simplifies dynamic routing between your network virtual appliance (NVA) and your virtual network. When you establish a Border Gateway Protocol (BGP) peering between your NVA and Azure Router Server, you can advertise IP addresses from your NVA to your virtual network. Your NVA will also learn what IP addresses your virtual network has. Azure Route Server is a fully managed service and is configured with high availability.
+
+> [!IMPORTANT]
+> Azure Route Server (Preview) is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How does it work?
 
 The following diagram illustrates how Azure Route Server works with an SDWAN NVA and a security NVA in a virtual network. Once you’ve established the BGP peering, Azure Route Server will receive an on-premises route (10.250.0.0/16) from the SDWAN appliance and a default route (0.0.0.0/0) from the firewall. These routes are then configured on the VMs in the virtual network. As a result, all traffic destined to the on-premises network will be sent to the SDWAN appliance. While all Internet-bound traffic will be sent to the firewall. In the opposite direction, Azure Route Server will send the virtual network address (10.1.0.0/16) to both NVAs. The SDWAN appliance can propagate it further to the on-premises network.
 
 <p align="center">
-  <img src="./media/overview/route-server-overview.png" alt="Route Server diagram" width="600" title="Azure Route Server">
+  <img src="./media/overview/route-server-overview.png" alt="Diagram showing Route Server" width="600" title="Azure Route Server">
 </p>
 
 ## Key benefits 
@@ -30,9 +35,9 @@ Azure Route Server simplifies configuration, management, and deployment of your 
 
 * You no longer need to update [User-Defined Routes](../virtual-network/virtual-networks-udr-overview.md) manually whenever your NVA announces new routes or withdraw old ones. 
 
-* You no longer need to configure a load balancer in front of your NVA for resiliency or performance purposes. When you peer multiple instances of your NVA with Azure Route Server, you can configure the BGP attributes in your NVA. These BGP attributes will let Azure Route Server which NVA instance should be active or passive<link to a FAQ>. 
+* You no longer need to configure a load balancer in front of your NVA for resiliency or performance purposes. When you peer multiple instances of your NVA with Azure Route Server, you can configure the BGP attributes in your NVA. These BGP attributes will let Azure Route Server which NVA instance should be active or passive. 
 
-* The interface between NVA and Azure Route Server is based on a common standard protocol. As long as your NVA supports BGP, you can peer it with Azure Route Server<link to a FAQ>. 
+* The interface between NVA and Azure Route Server is based on a common standard protocol. As long as your NVA supports BGP, you can peer it with Azure Route Server. For more information, see [Route Server supported routing protocols](route-server-faq.md#protocol).
 
 * You can deploy Azure Route Server in any of your new or existing virtual network. 
 
@@ -42,5 +47,5 @@ For frequently asked questions about Azure Route Server, see [Azure Route Server
 
 ## Next steps
 
-- [Learn how to configure Azure Route Server.](quickstart-configure-route-server-portal.md)
-- [Learn how Azure Route Server works with Azure ExpressRoute and Azure VPN](expressroute-vpn-support.md)
+- Learn how to [configure an Azure Route Server](quickstart-configure-route-server-portal.md)
+- Learn how [Azure Route Server works with Azure ExpressRoute and Azure VPN](expressroute-vpn-support.md)

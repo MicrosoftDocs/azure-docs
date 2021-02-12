@@ -25,13 +25,17 @@ landingContent:
         links:
           - text: What is Azure Route Server?
             url: overview.md
+            
   # Card
   - title: Get started
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Create and configure a Route Server
-            url: quickstart-configure-route-server-portal.md
+          - text: Create and configure a Route Server - PowerShell
+            url: quickstart-configure-route-server-powershell.md
+          - text: Create and configure a Route Server - CLI
+            url: quickstart-configure-route-server-cli.md
+
   # Card
   - title: Planning
     linkLists:

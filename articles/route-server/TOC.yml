@@ -2,12 +2,14 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Route Server?
+  - name: What is Azure Route Server (Preview)?
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Configure a Route Server - Portal
-    href: quickstart-configure-route-server-portal.md
+  - name: Configure a Route Server - PowerShell
+    href: quickstart-configure-route-server-powershell.md
+  - name: Configure a Route Server - CLI
+    href: quickstart-configure-route-server-cli.md
   expanded: true
 - name: Concepts
   items:
@@ -15,6 +17,10 @@
     href: route-server-faq.md
   - name: ExpressRoute and Azure VPN support
     href: expressroute-vpn-support.md
+- name: How-to guides
+  items:
+  - name: Troubleshooting
+    href: troubleshoot-route-server.md
 - name: Resources
   items:
   - name: Azure Roadmap
