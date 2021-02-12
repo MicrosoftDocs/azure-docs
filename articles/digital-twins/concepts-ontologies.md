@@ -45,14 +45,14 @@ There are three possible strategies for integrating industry-standard ontologies
 | --- | --- | --- |
 | **Adopt** | You can start your solution with an open-source DTDL ontology that has been built on widely adopted industry standards. You can either use these model sets out-of-the-box, or extend them with your own additions for a customized solution. | [*Concepts:&nbsp;Adopting&nbsp;industry&nbsp;standard ontologies*](concepts-ontologies-adopt.md)<br><br>[*Concepts:&nbsp;Extending&nbsp;ontologies*](concepts-ontologies-extend.md) |
 | **Convert** | If you already have existing models represented in another standard format, you can convert them to DTDL to use them with Azure Digital Twins. | [*Concepts:&nbsp;Converting&nbsp;ontologies*](concepts-ontologies-convert.md)<br><br>[*Concepts:&nbsp;Extending&nbsp;ontologies*](concepts-ontologies-extend.md) |
-| **Author** | You can always develop your own custom DTDL models from scratch, using any applicable industry standards as inspiration. | [*How-to: Manage DTDL models*](how-to-manage-model.md) |
+| **Author** | You can always develop your own custom DTDL models from scratch, using any applicable industry standards as inspiration. | [*Concepts: DTDL models*](concepts-models.md) |
 
 ### Using ontology strategies in a model development path
 
 No matter which strategy you choose for integrating an ontology into Azure Digital Twins, you can follow the complete path below to guide you through creating and uploading your ontology as DTDL models.
 
 1. Start by reviewing and understand [DTDL modeling in Azure Digital Twins](concepts-models.md).
-1. Proceed with your chosen ontology integration strategy from above: [**Adopt**](concepts-ontologies-adopt.md), [**Convert**](concepts-ontologies-convert.md), or [**Author**](how-to-manage-model.md) your models based on your ontology.
+1. Proceed with your chosen ontology integration strategy from above: [**Adopt**](concepts-ontologies-adopt.md), [**Convert**](concepts-ontologies-convert.md), or [**Author**](concepts-models.md) your models based on your ontology.
     1. If necessary, [extend](concepts-ontologies-extend.md) your ontology to customize it to your needs.
 1. [Validate](how-to-parse-models.md) your models to verify they are working DTDL documents.
 1. Upload your finished models to Azure Digital Twins, using the [APIs](how-to-manage-model.md#upload-models) or a sample like the [Azure Digital Twins model uploader](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader).
