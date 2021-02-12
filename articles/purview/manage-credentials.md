@@ -50,7 +50,7 @@ Before you can create a Credential, you will first need to associate one or more
 
 ## Grant the Purview managed identity access to your Azure Key Vault
 
-Navigate to your key vault -> Access policies -> Add Access Policy. Grant at least **Get** and **List** permissions using the Secrets permissions dropdown, and Select Principal to be the Purview MSI. 
+Navigate to your key vault -> Access policies -> Add Access Policy. Grant at least **Get** and **List** permissions using the Secrets permissions dropdown, and Select Principal to be the Purview MSI. You can search for the Purview MSI using either the Purview instance name **or** managed identity application ID. We do not currently support compound identities (managed identity name + application ID).
 
 :::image type="content" source="media/manage-credentials/add-msi-to-akv.png" alt-text="Add Purview MSI to AKV":::
 
