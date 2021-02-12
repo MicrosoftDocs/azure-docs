@@ -53,20 +53,7 @@ To configure IoT Hub
 
 ### Configure access control roles
 
-In order for other users to have access to Device Update, users must be granted access to this resource. Here are the roles that are supported by Device Update
-
-|   Role Name   | Description  |
-| :--------- | :---- |
-|  Device Update Administrator | Has access to all device update resources  |
-|  Device Update Reader| Can view all updates and deployments |
-|  Device Update Content Administrator | Can view, import, and delete updates  |
-|  Device Update Content Reader | Can view updates  |
-|  Device Update Deployments Administrator | Can manage deployment of updates to devices|
-|  Device Update Deployments Reader| Can view deployments of updates to devices |
-
-A combination of roles can be used to provide the right level of access, for example a developer can import and manage updates using the Device Update Content Administrator role, but can view the progress of an update using the Device Update Deployments Reader role. Conversely, a solution operator can have the Device Update Reader role to view all updates, but can use the Device Update Deployments Administrator role to deploy a specific update to devices.
-
-#### To set the Access Control Policy
+In order for other users to have access to Device Update, users must be granted access to this resource. 
 
 1. Go to Access control (IAM)
 2. Click "Add" within "Add a role assignment"
