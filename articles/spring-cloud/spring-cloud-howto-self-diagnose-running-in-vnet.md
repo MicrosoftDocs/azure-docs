@@ -26,33 +26,36 @@ After you click the **Networking** category, you can view two issues related to 
 
    ![Self diagnostic options](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-req-outbound-options.png)
 
-Find your target issue, and click it to view the diagnostic report. A summary of diagnostics will be displayed. Some results contain related documentation.
+Find your target issue, and click it to view the diagnostic report. A summary of diagnostics will be displayed. 
 
-If your Azure Spring Cloud resource has been deleted, you will see **Resource has been removed.**
+* *Resource has been removed.*
+* *Resource is not deployed in your own virtual network*.
 
-If your Azure Spring Cloud resource is not deployed, you will see **Resource is not deployed in your own virtual network**.
-
-Different subnets will display the results separately.
+Some results contain related documentation. Different subnets will display the results separately.
 
 ## DNS Resolution 
 Healthy applications show results such as:
 
-   ![DNS healthy](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-healthy.png)
+* *DNS issues resolved with no issues in subnet 'subnet01'*.
+* *DNS issues resolved with no issues in subnet 'subnet02'*.
 
 The following diagnostic report example assumes the context end time is **2021-01-21T11:22:00Z**. The latest TIMESTAMP in the **DNS Resolution Table Renderings** was the previous day, more than **30 minutes** from the context end time, so the health status will be unknown. The health check log may not have been sent out because of the blocked network. 
 
 The unknown health status results contain related documentation.  You can click the left angle bracket to see the drop-down display.
-    ![DNS unknown](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-unknown.png)
+
+   ![DNS unknown](media/spring-cloud-self-diagnose-vnet/self-diagostic-dns-unknown.png)
 
 If you misconfigured your Private DNS Zone record set, you will get a critical result such as: `Failed to resolve the Private DNS in subnet xxx`. 
 
 In the drop-down **DNS Resolution Table Renderings** you will find the detail message info from which you can check your config.
 
 ## Required Outbound Traffic 
-Healthy applications show results such as:
-    ![Endpoint healthy](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-healthy.png)
 
-If any subnet is blocked by NSG or firewall rules, you will find the following failures if you have not blocked the log. You can check whether you overlooked any [Customer Responsibilities](spring-cloud-vnet-customer-responsibilities.md).
+Healthy applications show results such as:
+* *Required outbound traffic resolved with no issues in subnet 'subnet01'.
+* *Required outbound traffic resolved with no issues in subnet 'subnet02'.
+
+If any subnet is blocked by NSG or firewall rules, and if you have not blocked the log, you will find the following failures. You can check whether you overlooked any [Customer Responsibilities](spring-cloud-vnet-customer-responsibilities.md).
     
    ![Endpoint failed](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-failed.png)
 
