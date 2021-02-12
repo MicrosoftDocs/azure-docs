@@ -1,14 +1,14 @@
 ---
- title: Out-of-proc attestation support with Intel SGX quote helper DaemonSet on Azure
+ title: Out-of-proc attestation support with Intel SGX quote helper DaemonSet on Azure (preview)
  description: DaemonSet for generating the quote outside of the SGX application process. This article explains how the out-of-proc attestation facility is provided for confidential workloads running inside a container.
  ms.service: container-service
  author: agowdamsft
  ms.topic: overview
- ms.date: 9/22/2020
+ ms.date: 2/12/2021
  ms.author: amgowda
 ---
 
-# Platform Software Management with SGX quote helper daemon set
+# Platform Software Management with SGX quote helper daemon set(preview)
 
 [Enclave applications](confidential-computing-enclaves.md) that perform remote attestation requires a generated QUOTE. This QUOTE provides cryptographic proof of the identity and the state of the application, as well as the environment the enclave is running. The generation of the QUOTE requires trusted software components that are part of the Intel’s Platform Software Components (PSW).
 
