@@ -49,20 +49,20 @@ The unit test task will be to verify the value of the `Retry-After` header provi
 First, we use a mocking framework ([moq](https://github.com/moq/moq4) in this case) to mock `IDurableClient`:
 
 ```csharp
-    // Mock IDurableClient
+// Mock IDurableClient
     var durableClientMock = new Mock<IDurableClient>();
 ```
 
-> [NOTE]
+> [!NOTE]
 > While you can mock interfaces by directly implementing the interface as a class, mocking frameworks simplify the process in various ways. For instance, if a new method is added to the interface across minor releases, moq will not require any code changes unlike concrete implementations.
 
 Then `StartNewAsync` method is mocked to return a well-known instance ID.
 
 ```csharp
     // Mock StartNewAsync method
-    durableClientMock.
-        Setup(x => x.StartNewAsync(functionName, It.IsAny<object>())).
-        ReturnsAsync(instanceId);
+durableClientMock.
+    Setup(x => x.StartNewAsync(functionName, It.IsAny<object>())).
+    ReturnsAsync(instanceId);
 ```
 
 Next `CreateCheckStatusResponse` is mocked to always return an empty HTTP 200 response.
