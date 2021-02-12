@@ -20,7 +20,26 @@ ms.topic: conceptual
 
 ### New capabilities and features
 
-Azure Data CLI (`azdata`) version number: 20.3.0. Download at [https://aka.ms/azdata](https://aka.ms/azdata).
+Azure Data CLI (`azdata`) version number: 20.3.0. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata)
+
+- Localized portal available for 17 new languages
+- Minor changes to Kube-native .yaml files
+- New versions of Grafana and Kibana
+- Issues with Python environments when using azdata in notebooks in Azure Data Studio resolved
+- The pg_audit extension is now available for PostgreSQL Hyperscale
+- A backup ID is no longer required when doing a full restore of a PostgreSQL Hyperscale database
+- The status (health state) is reported for each of the PostgreSQL instances that constitute a sever group
+
+   In earlier releases, the status was aggregated at the server group level and not itemized at the PostgreSQL node level.
+
+- PostgreSQL deployments now honor the volume size parameters indicated in create commands
+- The engine version parameters is now honored when editing a server group
+- The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed
+
+    It is now in the form: `ServergroupName{c, w}-n`. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
+   - `Postgres01c-0` (coordinator node)
+   - `Postgres01w-0` (worker node)
+   - `Postgres01w-1` (worker node)
 
 ## December 2020
 
