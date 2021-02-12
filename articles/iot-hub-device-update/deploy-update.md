@@ -1,6 +1,6 @@
 ---
 title: How-to guides - Deploy an update | Microsoft Docs
-description: Deploy an update using Device Update for IoT Hub.
+description: Deploy an update using Device Update for Azure IoT Hub.
 author: vimeht
 ms.author: vimeht
 ms.date: 2/11/2021
