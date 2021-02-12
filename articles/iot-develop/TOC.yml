@@ -25,6 +25,8 @@
       href: https://docs.microsoft.com/learn/paths/securely-connect-iot-devices/
 - name: Concepts
   items:
+  - name: Connection options for device developers
+    href: concepts-overview-connection-options.md
   - name: Using CMAKE
     href: concepts-using-cmake.md
 - name: Reference
@@ -55,8 +57,10 @@
       href: /python/api/azure-iot-hub
     - name: Python (Management)
       href: /python/api/azure-mgmt-iothub
-    - name: C device SDK
+    - name: C (Device)
       href: /azure/iot-hub/iot-c-sdk-ref/
+    - name: Embedded C (Device)
+      href: https://azure.github.io/azure-sdk-for-c/
     - name: REST (Device)
       href: /rest/api/iothub/device
     - name: REST (Service)

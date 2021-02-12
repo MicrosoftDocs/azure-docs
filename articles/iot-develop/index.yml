@@ -30,8 +30,6 @@ landingContent:
           url: quickstart-send-telemetry-python.md
         - text: Send device telemetry to IoT Hub (Python)
           url: quickstart-send-telemetry-cli-python.md
-        - text: Send device telemetry to IoT Hub (Node.js)
-          url: quickstart-send-telemetry-cli-node.md
   - title: Get started with embedded device development
     linkLists:
     - linkListType: quickstart
