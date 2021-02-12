@@ -1,5 +1,5 @@
 ---
-title: Error codes for Azure Azure Spot Virtual Machines and scale sets instances 
+title: Error codes for Azure Azure Spot Virtual Machines and Scale Sets instances 
 description: Learn about error codes that you could possibly see when using Azure Spot Virtual Machines and scale set instances.
 author: cynthn
 ms.service: virtual-machines
@@ -10,14 +10,14 @@ ms.author: cynthn
 #pmcontact: jagaveer
 ---
 
-# Error messages for Azure Spot Virtual Machines and scale sets
+# Error messages for Azure Spot Virtual Machines and Scale Sets
 
-Here are some possible error codes you could receive when using Azure Spot Virtual Machines and scale sets.
+Here are some possible error codes you could receive when using Azure Spot Virtual Machines and Scale Sets.
 
 
 | Key | Message | Description |
 |-----|---------|-------------|
-| SkuNotAvailable | The requested tier for resource '\<resource\>' is currently not available in location '\<location\>' for subscription '\<subscriptionID\>'. Please try another tier or deploy to a different location. | There is not enough Azure Spot Virtual Machine capacity in this location to create your VM or scale set instance. |
+| SkuNotAvailable | The requested tier for resource '\<resource\>' is currently not available in location '\<location\>' for subscription '\<subscriptionID\>'. Please try another tier or deploy to a different location. | There is not enough Azure Spot Virtual Machine capacity in this location to create your VM or Scale Set instance. |
 | EvictionPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  Eviction policy can be set only on Azure Spot Virtual Machines. | This VM is not a Azure Spot Virtual Machine, so you can't set the eviction policy. |
 | AzureSpotVMNotSupportedInAvailabilitySet  |  Azure Spot Virtual Machine is not supported in Availability Set. | You need to choose to either use a Azure Spot Virtual Machine or use a VM in an availability set, you can't choose both. |
 | AzureSpotFeatureNotEnabledForSubscription  |  Subscription not enabled with Azure Spot Virtual Machine feature. | Use a subscription that supports Azure Spot Virtual Machines. |
@@ -30,7 +30,7 @@ Here are some possible error codes you could receive when using Azure Spot Virtu
 | AzureSpotIsNotSupportedForThisVMSize  |  Azure Spot Virtual Machine is not supported for this VM size {0}. | Select another VM size. For more information, see [Azure Spot Virtual Machines](./spot-vms.md). |
 | MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Max price is supported only for Azure Spot Virtual Machines. | For more information, see [Azure Spot Virtual Machines](./spot-vms.md). |
 | MoveResourcesWithAzureSpotVMNotSupported  |  The Move resources request contains an Azure Spot Virtual Machine. This is currently not supported. Please check the error details for virtual machine Ids. | You cannot move Azure Spot Virtual Machines. |
-| MoveResourcesWithAzureSpotVmssNotSupported  |  The Move resources request contains an Azure Spot virtual machine scale set. This is currently not supported. Please check the error details for virtual machine scale set Ids. | You cannot move Azure Spot Virtual Machine scale set instances. |
+| MoveResourcesWithAzureSpotVmssNotSupported  |  The Move resources request contains an Azure Spot Virtual Machine scale set. This is currently not supported. Please check the error details for virtual machine scale set Ids. | You cannot move Azure Spot Virtual Machine scale set instances. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Azure Spot Virtual Machine is not supported in Virtual Machine Scale Set with VM Orchestration mode. | Set the orchestration mode to virtual machine scale set in order to use Azure Spot Virtual Machine instances. |
 
 
