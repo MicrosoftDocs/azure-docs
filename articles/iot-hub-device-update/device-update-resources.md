@@ -14,7 +14,7 @@ ms.service: iot-hub-device-update
 ## Device update account
 
 A Device Update account is a resource that is created within your Azure subscription. At the Device Update account level,
-you can select the region where your Device Update account will be created and set permissions to authorize users that 
+you can select the region where your Device Update account will be created. You can also set permissions to authorize users that 
 will have access to Device Update.
 
 
