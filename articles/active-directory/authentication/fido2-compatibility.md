@@ -32,7 +32,7 @@ Azure Active Directory allows [FIDO2 security keys](https://docs.microsoft.com/a
 
 ## Operating system versions tested
 
-The information in the tables above was tested for the following operating system versions.
+The information in the table above was tested for the following operating system versions.
 
 | Operating system | Latest tested version |
 | --- | --- |
