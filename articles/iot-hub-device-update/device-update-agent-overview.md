@@ -1,3 +1,13 @@
+---
+title: Understand Device Update Agent| Microsoft Docs
+description: Understand Device Update Agent.
+author: ValOlson
+ms.author: valls
+ms.date: 2/12/2021
+ms.topic: conceptual
+ms.service: iot-hub-device-update
+---
+
 # Device Update for IoT Hub Agent Overview
 
 The Device Update Agent consists of two conceptual layers:
