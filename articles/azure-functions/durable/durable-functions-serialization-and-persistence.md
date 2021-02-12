@@ -3,7 +3,7 @@ title: Data persistence and serialization in Durable Functions - Azure
 description: Learn how the Durable Functions extension for Azure Functions persists data
 author: ConnorMcMahon
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 02/11/2021
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to understand what data is persisted to durable storage, how that data is serialized, and how
 #I can customize it when it doesn't work the way my app needs it to.
@@ -147,7 +147,6 @@ Azure Functions Node applications use [`JSON.stringify()` for serialization](htt
 
 For full customization of the serialization/deserialization pipeline, consider handling the serialization and deserialization with your own code and passing around data as strings.
 
----
 
 # [Python](#tab/python)
 
