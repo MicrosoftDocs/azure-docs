@@ -29,7 +29,7 @@ To get started with Device Update you'll need to create a Device Update account,
 
 ## Create a Device Update Instance 
 
-An instance of Device Update is associated with a single IoT hub. Select the IoT hub that will be used with Device Update. We will create a new Shared Access policy during this step to ensure Device Update uses only the required permissions to work with IoT Hub (registry write and service connect) and access is only limited to Device Update.
+An instance of Device Update is associated with a single IoT hub. Select the IoT hub that will be used with Device Update. We will create a new Shared Access policy during this step to ensure Device Update uses only the required permissions to work with IoT Hub (registry write and service connect). This policy ensures that access is only limited to Device Update.
 
 To create a Device Update instance after an account has been created.
 
@@ -39,7 +39,7 @@ To create a Device Update instance after an account has been created.
 
 ### Configure IoT Hub 
 
-In order for Device Update to receive change notifications from IoT Hub, Device Update integrates with the "Built-In" Event Hub. Message routes will need to be configured if you are new to the preview or updated if you have been participating in the Device Update. We will also update the Shared Access policy if this is not configured correctly.
+In order for Device Update to receive change notifications from IoT Hub, Device Update integrates with the "Built-In" Event Hub. Clicking the "Configure IoT Hub" button configures the required message routes and access policy required to communicate with IoT devices. 
 
 To configure IoT Hub
 
@@ -63,7 +63,13 @@ In order for other users to have access to Device Update, users must be granted 
 
 1. Go to Access control (IAM)
 2. Click "Add" within "Add a role assignment"
-3. For "Select a Role", select a Device Update role such as Device Update Administrator, Device Update Reader, Device Update Content Administrator, Device Update Content Reader, Device Update Deployments Administrator, or  Device Update Deployments Reader
+3. Under "Select a Role", select a Device Update role from the given options
+     - Device Update Administrator
+     - Device Update Reader
+     - Device Update Content Administrator
+     - Device Update Content Reader
+     - Device Update Deployments Administrator
+     - Device Update Deployments Reader
 4. Assign access to a user or Azure AD group
 5. Click Save
 6. You can now go to IoT Hub and go to Device Update
