@@ -22,14 +22,14 @@ Endpoint Manager provides an overview of endpoints you've configured for your Az
 * Routes
 * Security
 
+:::image type="content" source="../media/concept-endpoint-manager/endpoint-manager-1.png" alt-text="Front Door EndpointManager1":::
+
+Endpoint Manager list how many instances of each element are created within an endpoint. The association status for each element will also be displayed. For example, you may create multiple domains and origin groups, and assign the association between them with different routes.
+
 > [!IMPORTANT]
 > * Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-:::image type="content" source="../media/concept-endpoint-manager/endpoint-manager-1.png" alt-text="Front Door EndpointManager1":::
-
-Endpoint Manager list how many instances of each element are created within an endpoint. The association status for each element will also be displayed. For example, you may create multiple domains and origin groups, and assign the association between them with different routes.
 
 ## Linked view
 
