@@ -19,37 +19,9 @@ To prevent password rotation, during the onboarding of the Azure Storage account
 
 ```PowerShell
 # Update the password of the AD DS account registered for the storage account
-
-# Storage Account Variables
-
-$StorageAccountName = "<your-storage-account-name-here>"
-$StorageAccountResourceGroup = "<your-resource-group-name-here>"
-
-# Connect to your Azure AD Tenant & Subscription
-
-Clear-AzContext
-Get-AzContext
-
-# Connect with an account that has at least read permissions on the Azure Storage Account keys
-
-Connect-AzAccount
-$Subscriptions = Get-AzSubscription | Out-GridView -PassThru -Title "Please select the required subscription"
-$SubscriptionName = $Subscriptions.name
-Select-AzSubscription -Subscription $SubscriptionName
-
-# You may use either kerb1 or kerb2 
-
-# kerb2
+# You may use either kerb1 or kerb2
 Update-AzStorageAccountADObjectPassword `
-    -RotateToKerbKey kerb2 `
-    -ResourceGroupName $StorageAccountResourceGroup `
-    -StorageAccountName $StorageAccountName
-
-# kerb 1
-Update-AzStorageAccountADObjectPassword `
-    -RotateToKerbKey kerb1 `
-    -ResourceGroupName $StorageAccountResourceGroup `
-    -StorageAccountName $StorageAccountName
-
-
+        -RotateToKerbKey kerb2 `
+        -ResourceGroupName "<your-resource-group-name-here>" `
+        -StorageAccountName "<your-storage-account-name-here>"
 ```
