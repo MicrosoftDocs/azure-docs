@@ -39,7 +39,7 @@ These use cases are similar except for their security and network traffic rules.
 
 The following list describes the infrastructure requirements for private applications. These requirements are typical in highly regulated environments.
 
-* There is no direct egress to the public Internet except for control-plane traffic.
+* There's no direct egress to the public Internet except for control-plane traffic.
 * Egress traffic travels through a central Network Virtual Appliance (NVA) (for example, Azure Firewall).
 * Data at rest is encrypted.
 * Data in transit is encrypted.
@@ -49,8 +49,8 @@ The following list describes the infrastructure requirements for private applica
 * Name resolution of hosts on-premises and in the cloud are bidirectional.
 * Adherence to at least one security benchmark is enforced.
 * Azure service dependencies communicate through service endpoints or private link.
-* Resource groups managed by the Azure Spring Cloud deployment are not modified.
-* Subnets managed by the Azure Spring Cloud deployment are not modified.
+* Resource groups managed by the Azure Spring Cloud deployment aren't modified.
+* Subnets managed by the Azure Spring Cloud deployment aren't modified.
 * A subnet has only one instance of Azure Spring Cloud.
 * If Azure Spring Cloud Config Server is used to load config properties from a repository, the repository is private. For more information, see [Set up a Spring Cloud Config Server instance for your service][8].
 
@@ -89,7 +89,7 @@ The following list describes the infrastructure requirements for public applicat
 
 * Ingress traffic is managed by at least Application Gateway or Azure Front Door.
 * Azure DDoS Protection standard is enabled.
-* There is no direct egress to the public Internet except for control-plane traffic.
+* There's no direct egress to the public Internet except for control-plane traffic.
 * Egress traffic travels through a central Network Virtual Appliance (NVA) (for example, Azure Firewall).
 * Data at rest is encrypted.
 * Data in transit is encrypted.
@@ -100,8 +100,8 @@ The following list describes the infrastructure requirements for public applicat
 * Name resolution of hosts on-premises and in the Cloud are bidirectional.
 * Adherence to at least one security benchmark is enforced.
 * Azure service dependencies communicate through Service Endpoints or Private Link.
-* Resource groups managed by the Azure Spring Cloud deployment are not modified.
-* Subnets managed by the Azure Spring Cloud deployment are not modified.
+* Resource groups managed by the Azure Spring Cloud deployment aren't modified.
+* Subnets managed by the Azure Spring Cloud deployment aren't modified.
 * A subnet has only one instance of Azure Spring Cloud.
 
 The following list shows the components that make up the design:
@@ -165,7 +165,7 @@ Azure Spring Cloud addresses multiple aspects of operational excellence. You can
 
 ### Reliability
 
-Azure Spring Cloud is designed with AKS as a foundational component. While AKS provides a level of resiliency through clustering, this reference architecture incorporates services and architectural considerations to increase availability of the application if there is component failure.
+Azure Spring Cloud is designed with AKS as a foundational component. While AKS provides a level of resiliency through clustering, this reference architecture incorporates services and architectural considerations to increase availability of the application if there's component failure.
 
 By building on top of a well-defined hub and spoke design, the foundation of this architecture ensures that you can deploy it to multiple regions. For the private application use case, the architecture uses Azure Private DNS to ensure continued availability during a geographic failure. For the public application use case, Azure Front Door and Azure Application Gateway ensure availability.
 
@@ -212,7 +212,7 @@ For Azure Spring Cloud to function when deployed in a secured environment, manag
 
 #### Application security
 
-This design principal comprises the fundamental components, which are identity, data protection, key management, and application configuration. By design, an application deployed in Azure Spring Cloud runs with least privilege required to function. The set of authorization controls is directly related to data protection when using the service. Key management strengthens this layered application security approach.
+This design principal covers the fundamental components of identity, data protection, key management, and application configuration. By design, an application deployed in Azure Spring Cloud runs with least privilege required to function. The set of authorization controls is directly related to data protection when using the service. Key management strengthens this layered application security approach.
 
 The following list shows the CCM controls that address key management in this reference:
 
