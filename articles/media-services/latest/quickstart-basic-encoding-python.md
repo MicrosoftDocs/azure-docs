@@ -114,7 +114,7 @@ client = AzureMediaServices(credentials, SUBSCRIPTION_ID)
 
 ### Generate a random number
 
-This number is intended to be used only when you are running the script over and over while testing.  You can remove it when you are satisfied that your code is working. It creates a random number that is appended to entity names so you can associate them easily.
+This number is intended to be used only when you're running the script over and over while testing.  You can remove it when you're satisfied that your code is working. It creates a random number that is appended to entity names so you can associate them easily.
 
 ```python
 thisRandom = random.randint(0,9999)
@@ -172,7 +172,7 @@ sas_URLs = client.assets.list_container_sas(resource_group_name,account_name,out
 
 ### Use the Storage SDK to upload the video
 
-Here is where things get a little tricky. The container that the storage client is looking for is the Asset id we established earlier: `in_container = 'asset-' + inputAsset.asset_id`.
+The container that the storage client is looking for is the Asset ID we established earlier: `in_container = 'asset-' + inputAsset.asset_id`.
 
 ```python
 blob_service_client = BlobServiceClient(account_url=storage_blob_url, credential=storage_account_key)
@@ -187,7 +187,9 @@ print('Uploading file')
 
 ### Create a Transform
 
-The random number is being used here so you can see the transform as part of the set of things you are working with which will be helpful when you want to clean up the resources.  (Here, we have used an object for the transform_output instead of JSON.)
+The random number is being used here so you can see the transform as part of the set of things you are working with. It is be helpful for seeing the entities in the Azure portal.  
+
+Here, we've used an object for the transform_output instead of JSON.
 
 ```python
 transform_name='MyTransform' + str(thisRandom) 
@@ -220,11 +222,12 @@ job: Job = client.jobs.create(resource_group_name,account_name,transform_name,jo
 
 ## Clean up resources
 
-If you aren't planning to use the resources you just created, you can delete the resource group.
+If you aren't planning to use the resources you created during this quickstart and you don't want to continue to be billed for them, delete them.
 
 ```python
-delete_async_operation = client.resource_groups.delete('<your resource group name')
-delete_async_operation.wait()
+
+client.assets.delete(resource_group_name, account_name, asset_name)
+
 ```
 
 ## Next steps
