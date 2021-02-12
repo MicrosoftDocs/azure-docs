@@ -101,7 +101,7 @@ Because of the nature of push notifications (they are delivered by an external, 
 
 ### Where does Azure Notification Hubs store data?
 
-Azure Notification Hubs stores customer registration data in the region selected by the customer. Notification Hubs provides metadata disaster recovery coverage on our end (the Notification Hubs name, the connection string, and other critical information). For all regions except Brazil South and Southeast Asia, the metadata backup is hosted in a different region (usually the Azure paired region). For the Brazil South and Southeast Asia regions, backups are stored in the same region to accommodate data-residency requirements for these regions.
+Azure Notification Hubs stores customer registration data in the region selected by the customer. Notification Hubs provides metadata disaster recovery coverage (the Notification Hubs name, the connection string, and other critical information). For all regions except Brazil South and Southeast Asia, the metadata backup is hosted in a different region (usually the Azure paired region). For the Brazil South and Southeast Asia regions, backups are stored in the same region to accommodate data-residency requirements for these regions.
 
 ### What do I need to consider when designing a solution with namespaces and notification hubs?
 
