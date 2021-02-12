@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: duongau
   ms.author: duau
-  ms.date: 02/19/2020
+  ms.date: 02/18/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -41,8 +41,83 @@ landingContent:
         links:
           - text: Endpoint Manager
             url: concept-endpoint-manager.md
+          - text: Route
+            url: concept-route.md
       - linkListType: how-to-guide
         links:
           - text: Configure Endpoint Manager
             url: how-to-configure-endpoint-manager.md
+          
+  # Card
+  - title: Manage your Origin Groups
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Origin
+            url: concept-origin.md
+          - text: Health probes
+            url: concept-health-probes.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure an Origin Group
+            url: how-to-create-origin.md
+
+  # Card
+  - title: Configure a Rules Set
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Rule Set?
+            url: concept-rule-set.md
+          - text: Rule Set Match Condition
+            url: concept-rule-set-match-condition.md
+          - text: Rule Set Action
+            url: concept-rule-action.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure a Rule Set
+            url: how-to-configure-rule-set.md
+
+  # Card
+  - title: Reports, Metrics and Logs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Reports
+            url: concept-reports.md
+          - text: Monitoring Metrics and Alerts
+            url: how-to-monitor-metrics.md
+          - text: Logging
+            url: how-to-logs.md
+
+    # Card
+  - title: Caching and Optimization
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Caching
+            url: concept-caching.md
+      - linkListType: how-to-guide
+        links:
+          - text: Cache purge
+            url: how-to-cache-purge.md
+          - text: Compression
+            url: how-to-compression.md
             
+  # Card
+  - title: Troubleshoot Azure Front Door
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Common routing issues
+            url: troubleshoot-route-issues.md
+          - text: Allowed certificate authorities
+            url: troubleshoot-allowed-certificate-authority.md
+
+  # Card
+  - title: Learn about Azure Front Door
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Front Door?
+            url: ../front-door-overview.md
