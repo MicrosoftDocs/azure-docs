@@ -5,7 +5,7 @@ description: Map a custom domain to a Blob Storage or web endpoint in an Azure s
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 02/12/2021
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
@@ -225,10 +225,6 @@ Create a temporary CNAME record to point to your host name. A CNAME record is a 
 
      Add the subdomain `asverify` to the host name. For example: `asverify.mystorageaccount.blob.core.windows.net`.
 
-4. To register the custom domain, choose the **Save** button.
-
-   If the registration is successful, the portal notifies you that your storage account was successfully updated. Your custom domain has been verified by Azure, but traffic to your domain is not yet being routed to your storage account.
-
 #### Step 3: Pre-register your custom domain with Azure
 
 When you pre-register your custom domain with Azure, you permit Azure to recognize your custom domain without having to modify the DNS record for the domain. That way, when you do modify the DNS record for the domain, it will be mapped to the blob endpoint with no downtime.
@@ -254,14 +250,14 @@ When you pre-register your custom domain with Azure, you permit Azure to recogni
 
 5. To register the custom domain, choose the **Save** button.
   
-   After the CNAME record has propagated through the Domain Name Servers (DNS), and if your users have the appropriate permissions, they can view blob data by using the custom domain.
+   If the registration is successful, the portal notifies you that your storage account was successfully updated. Your custom domain has been verified by Azure, but traffic to your domain is not yet being routed to your storage account until you create a CNAME record with your domain provider. You'll do that in the next section.
 
 ##### [PowerShell](#tab/azure-powershell)
 
 Run the following PowerShell command
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name> -CustomDomainName <custom-domain-name> -UseSubDomain $false
+Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name> -CustomDomainName <custom-domain-name> -UseSubDomain $true
 ```
 
 - Replace the `<resource-group-name>` placeholder with the name of the resource group.
@@ -272,7 +268,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-acc
 
   For example, if your domain is *contoso.com* and your subdomain alias is *www*, enter `www.contoso.com`. If your subdomain is *photos*, enter `photos.contoso.com`.
 
-After the CNAME record has propagated through the Domain Name Servers (DNS), and if your users have the appropriate permissions, they can view blob data by using the custom domain.
+Traffic to your domain is not yet being routed to your storage account until you create a CNAME record with your domain provider. You'll do that in the next section.
 
 ##### [Azure CLI](#tab/azure-cli)
 
@@ -283,7 +279,7 @@ az storage account update \
    --resource-group <resource-group-name> \ 
    --name <storage-account-name> \
    --custom-domain <custom-domain-name> \
-   --use-subdomain false
+   --use-subdomain true
   ```
 
 - Replace the `<resource-group-name>` placeholder with the name of the resource group.
@@ -294,7 +290,7 @@ az storage account update \
 
   For example, if your domain is *contoso.com* and your subdomain alias is *www*, enter `www.contoso.com`. If your subdomain is *photos*, enter `photos.contoso.com`.
 
-After the CNAME record has propagated through the Domain Name Servers (DNS), and if your users have the appropriate permissions, they can view blob data by using the custom domain.
+Traffic to your domain is not yet being routed to your storage account until you create a CNAME record with your domain provider. You'll do that in the next section.
 
 ---
 
