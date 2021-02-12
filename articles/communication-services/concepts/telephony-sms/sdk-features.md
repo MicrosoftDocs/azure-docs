@@ -44,4 +44,4 @@ The following documents may be interesting to you:
 
 - Familiarize yourself with general [SMS concepts](../telephony-sms/concepts.md)
 - Get an SMS capable [phone number](../../quickstarts/telephony-sms/get-phone-number.md)
-- [Plan your SMS solution](../telephony-sms/plan-solution.md)
+- [Phone number types in Azure Communication Services](../telephony-sms/plan-solution.md)

@@ -36,7 +36,7 @@ The Read 3.2-preview OCR container provides:
 * Confidence scores.
 * Support for documents with both print and handwritten text.
 * Ability to extract text from only selected page(s) in a document.
-* Choose text line output order from default to a more natural reading order.
+* Choose text line output order from default to a more natural reading order for Latin languages only.
 * Text line classification as handwritten style or not for Latin languages only.
 
 If you're using Read 2.0 containers today, see the [migration guide](read-container-migration-guide.md) to learn about changes in the new versions.
