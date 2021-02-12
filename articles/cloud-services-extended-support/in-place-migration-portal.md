@@ -12,7 +12,14 @@ ms.custom:
 
 # Migrate to Cloud Services (extended support) using the Azure portal
 
+This article shows show you how to use the Azure portal to migrate from [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Cloud Services (extended support)](overview.md).
+
+> [!IMPORTANT]
+> Migrating from Cloud Services (classic) to Cloud Services (extended support) using the migration tool is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Before you begin
+Before starting the migration, reve
 
 ### Ensure you are an administrator for the subscription
 To perform this migration, you must be added as a coadministrator for the subscription in the [Azure portal](https://portal.azure.com).
