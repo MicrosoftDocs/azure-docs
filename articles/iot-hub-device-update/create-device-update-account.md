@@ -20,7 +20,7 @@ To get started with Device Update you'll need to create a Device Update account,
 
 1. Go to [Azure portal](https://portal.azure.com)
 2. Click Create a Resource and search for "Device Update for IoT Hub"
-![Device Update for IoT Hub resource](media/create-device-update-account/device-update-marketplace.PNG)
+[ ![Device Update for IoT Hub resource](media/create-device-update-account/device-update-marketplace.png) ](media/create-device-update-account/device-update-marketplace.png#lightbox)
 3. Click Create -> Device Update for IoT Hub
 4. Specify the Azure Subscription to be associated with your Device Update Account and Resource Group
 5. Specify a Name and Location for your Device Update Account
