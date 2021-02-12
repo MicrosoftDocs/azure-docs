@@ -2,7 +2,7 @@
 title: BareMetal Instance units in Azure
 description: Learn how to identify and interact with BareMetal Instance units through the Azure portal.
 ms.topic: how-to
-ms.date: 1/4/2021
+ms.date: 02/17/2021
 ---
 
 # Manage BareMetal Instances through the Azure portal
@@ -45,7 +45,7 @@ Sign in to the Azure subscription you use for the BareMetal Instance deployment 
 az provider register --namespace Microsoft.BareMetalInfrastructure
 ```
 
-You can use the [az provider list](/cli/azure/provider?view=azure-cli-latest#az_provider_list) command.
+You can use the [az provider list](/cli/azure/provider#az_provider_list) command to see all available providers.
 
 For more information about resource providers, see [Azure resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md).
 
