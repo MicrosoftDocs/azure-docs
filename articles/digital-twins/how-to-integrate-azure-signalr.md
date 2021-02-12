@@ -79,7 +79,7 @@ Start Visual Studio (or another code editor of your choice), and open the code s
 
     This should resolve any dependency issues in the class.
 
-1. Publish your function to Azure, using the steps described in the [*Publish the app* section](tutorial-end-to-end.md#publish-the-app) of the *Connect an end-to-end solution* tutorial. You can publish it to the same app service/function app that you used in the end-to-end tutorial [prerequisite](#prerequisites), or create a new one—but you may want to use the same one to minimize duplication. 
+1. Publish your function to Azure, using the steps described in the [*Publish the app* section](tutorial-end-to-end.md#publish-the-app) of the *Connect an end-to-end solu tion* tutorial. You can publish it to the same app service/function app that you used in the end-to-end tutorial [prerequisite](#prerequisites), or create a new one—but you may want to use the same one to minimize duplication. 
 
 Next, configure the functions to communicate with your Azure SignalR instance. You'll start by gathering the SignalR instance's **connection string**, and then add it to the functions app's settings.
 
@@ -122,7 +122,7 @@ Back on the *Create Event Subscription* page, hit **Create**.
 
 At this point, you should see two event subscriptions in the *Event Grid Topic* page.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/event-subscriptions.png" alt-text="Azure portal view of two event subscriptions in the Event grid topic page.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/view-event-subscriptions.png" alt-text="Azure portal view of two event subscriptions in the Event grid topic page.":::
 
 ## Configure and run the web app
 
@@ -136,7 +136,7 @@ Next, you'll configure the sample client web app. Start by gathering the **HTTP 
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Azure portal view of the function app, with 'Functions' highlighted in the menu. The list of functions is shown on the page, and the 'negotiate' function is also highlighted.":::
 
-1. Hit *Get function URL* and copy the value **up through _/api_ (don't include the last _/negotiate?_)**. You will use this later.
+2. Hit *Get function URL* and copy the value **up through _/api_ (don't include the last _/negotiate?_)**. You will use this later.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure portal view of the 'negotiate' function. The 'Get function URL' button is highlighted, and the portion of the URL from the beginning through '/api'":::
 
