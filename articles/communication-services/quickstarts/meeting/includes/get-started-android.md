@@ -118,6 +118,8 @@ In order to request permissions required to join a meeting, they must first be d
 
 Set the style name to `AppTheme` in both your `theme.xml` and `theme.xml (night)` files.
 
+:::image type="content" source="../media/android/theme-settings.png" alt-text="Screenshot showing the theme.xml files in Android Studio":::
+
 ```xml<style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">```
 
 ### Set up the layout for the app
@@ -148,6 +150,8 @@ Create a button with an ID of `join_meeting`. Navigate to (`app/src/main/res/lay
 ### Create application class
 
 Create new java class file named `MeetingSDKAndroidGettingStarted`. This will be the application class which must extend `TeamsSDKApplication`.
+
+:::image type="content" source="../media/android/application-class-location.png" alt-text="Screenshot showing where to create application class in Android Studio":::
 
 ```java
 package com.microsoft.MeetingSDKAndroidGettingStarted;
@@ -203,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
         joinMeeting.setOnClickListener(l -> joinMeeting());
     }
 
-    private createMeetingClient() {
+    private void createMeetingClient() {
         // See section on creating meeting client
     }
 
@@ -254,7 +258,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create a MeetingClient from the user access token
 
-With the user token an authenticated meeting client can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens check the [User Access Tokens](../../access-tokens.md) guide. For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
+With the user token an authenticated meeting client can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens check the [User Access Tokens](../../access-tokens.md) guide. For the quickstart, replace `<USER_ACCESS_TOKEN>` with a user access token generated for your Azure Communication Service resource.
 
 ```java
 /**
@@ -262,7 +266,7 @@ With the user token an authenticated meeting client can be instantiated. General
  */
 private void createMeetingClient() {
     try {
-        CommunicationTokenCredential credential = new CommunicationTokenCredential("<User_Access_Token>");
+        CommunicationTokenCredential credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");
         meetingUIClient = new MeetingUIClient(credential);
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to create meeting client: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
@@ -278,7 +282,7 @@ You can also get the required meeting information from the **Join Meeting** URL 
 
 ## Start a meeting using the meeting client
 
-Joining a meeting can be done via the MeetingClient, and just requires a meetingURL and the JoinOptions.
+Joining a meeting can be done via the MeetingClient, and just requires a meetingURL and the JoinOptions. Replace `<MEETING_URL>` with a teams meeting url.
 
 ```java
 /**
@@ -286,7 +290,7 @@ Joining a meeting can be done via the MeetingClient, and just requires a meeting
  */
 private void joinMeeting() {
     try {
-        meetingUIClient.joinMeeting(meetingUrl, meetingJoinOptions);
+        meetingUIClient.joinMeeting("<MEETING_URL>", meetingJoinOptions);
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to join meeting: " + ex.getMessage(), Toast.LENGTH_SHORT).show();
     }
