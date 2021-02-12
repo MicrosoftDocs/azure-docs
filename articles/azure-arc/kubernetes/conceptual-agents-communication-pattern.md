@@ -12,7 +12,13 @@ keywords: "Kubernetes, Arc, Azure, containers"
 
 # Agents and communication pattern
 
-[Kubernetes](https://kubernetes.io/) is an open-source container orchestration engine for automating deployment, scaling, and management of containerized applications. The emergence of Kubernetes as the go-to option for deploying containerized workloads across different hybrid and multi-cloud environments has led to the need for a centralized control plane to consistently handle management scenarios like policy, governance, monitoring, and security. Azure Arc enabled Kubernetes intends to solve this problem by allowing for customer managed Kubernetes clusters on any environment (on-prem or hybrid) to be brought into the fold of [Azure Resource Manager](../../azure-resource-manager/management/overview.md). This document provides an architectural overview of connecting a cluster to Azure Arc, the communication pattern followed by agents, and provides a tabulation of the data exchanged between cluster environment and Azure.
+[Kubernetes](https://kubernetes.io/) is an open-source container orchestration engine for automating the deployment, scaling, and management of containerized applications. Kubernetes has emerged as the go-to containerized workload deployment solution across hybrid and multi-cloud environments. Since Kubernetes’ rise in popularity, customers have an increasing need for a centralized control plane to consistently handle management scenarios like policy, governance, monitoring, and security. 
+
+Azure Arc enabled Kubernetes meets this need by enabling [Azure Resource Manager](../../azure-resource-manager/management/overview.md) to handle customer-managed Kubernetes clusters on any environment (on-prem or hybrid). This article provides:
+
+* An architectural overview of connecting a cluster to Azure Arc.
+* The connectivity pattern followed by agents.
+* A tabulation of the data exchanged between cluster environment and Azure.
 
 ## Deployment of agents on cluster
 
