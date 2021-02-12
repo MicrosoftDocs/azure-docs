@@ -35,6 +35,7 @@ Connect a cluster to Azure Arc using the following steps:
 1. Initiate the Azure Arc registration for your spun up cluster using Azure CLI.
     * Azure CLI internally uses Helm to deploy the agent Helm chart on the cluster.
     * The cluster nodes initiate an outbound communication to the Microsoft Container Registry and pull the images needed to create the following agents in the `azure-arc` namespace:
+
         | Agent | Description |
         | ----- | ----------- |
         | `deployment.apps/clusteridentityoperator` | Azure Arc enabled Kubernetes currently supports system assigned identity. clusteridentityoperator makes the first outbound communication needed to fetch the managed service identity (MSI) certificate used by other agents for communication with Azure. |
@@ -44,6 +45,7 @@ Connect a cluster to Azure Arc using the following steps:
         | `deployment.apps/cluster-metadata-operator` | Gathers cluster metadata - cluster version, node count, and Azure Arc agent version |
         | `deployment.apps/resource-sync-agent` | Syncs the above mentioned cluster metadata to Azure |
         | `deployment.apps/flux-logs-agent` | Collects logs from the flux operators deployed as a part of source control configuration |
+
 1. Once all the Azure Arc enabled Kubernetes agents are up and running, determine whether your cluster successfully connected to Azure Arc. You should see:
     * An Azure Arc enabled Kubernetes resource in Azure Resource Manager. This resource is tracked in Azure as a projection of the customer-managed Kubernetes cluster, not the actual Kubernetes cluster itself.
     * Cluster metadata, like Kubernetes version, agent version, and number of nodes, appears on the Azure Arc enabled Kubernetes resource as metadata.
