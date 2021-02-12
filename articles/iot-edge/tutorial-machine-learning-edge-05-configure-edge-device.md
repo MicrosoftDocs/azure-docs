@@ -30,7 +30,7 @@ This article is part of a series for a tutorial about using Azure Machine Learni
 
 ## Create certificates
 
-For a device to function as a gateway, it needs to securely connect to downstream devices. IoT Edge allows you to use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we're allowing a downstream IoT device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the IoT Edge device. For more information about how IoT Edge devices use certificates, see [Azure IoT Edge certificate usage details](iot-edge-certs.md).
+For a device to function as a gateway, it needs to securely connect to downstream devices. With IoT Edge, you can use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we're allowing a downstream IoT device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the IoT Edge device. For more information about how IoT Edge devices use certificates, see [Azure IoT Edge certificate usage details](iot-edge-certs.md).
 
 In this section, we create the self-signed certificates by using a Docker image that we then build and run. We chose to use a Docker image to complete this step because it reduces the number of steps needed to create the certificates on the Windows development machine. To understand what we automated with the Docker image, see [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md).
 
@@ -43,7 +43,7 @@ In this section, we create the self-signed certificates by using a Docker image 
 
 1. Select **File** > **Open Folder**, and then select **C:\\source\\IoTEdgeAndMlSample\\CreateCertificates**.
 
-1. In the Explorer pane, right-click **dockerfile** and select **Build Image**.
+1. In the **Explorer** pane, right-click **dockerfile** and select **Build Image**.
 
 1. In the dialog box, accept the default value for the image name and tag: **createcertificates: latest**.
 
@@ -74,35 +74,35 @@ In this section, we create the self-signed certificates by using a Docker image 
 
 ## Upload certificates to Azure Key Vault
 
-To store our certificates securely and to make them accessible from multiple devices, we'll upload the certificates into Azure Key Vault. As you can see from the preceding list, we have two types of certificate files: PFX and PEM. We'll treat the PFX as Key Vault certificates to be uploaded to Key Vault. The PEM files are plain text, and we'll treat them as Key Vault secrets. We'll use the Key Vault associated with the Azure Machine Learning workspace we created by running the [Jupyter notebooks](tutorial-machine-learning-edge-04-train-model.md#run-jupyter-notebooks).
+To store our certificates securely and make them accessible from multiple devices, we'll upload the certificates into Azure Key Vault. As you can see from the preceding list, we have two types of certificate files: PFX and PEM. We'll treat the PFX file as Key Vault certificates to be uploaded to Key Vault. The PEM files are plain text, and we'll treat them as Key Vault secrets. We'll use the Key Vault associated with the Azure Machine Learning workspace we created by running the [Jupyter notebooks](tutorial-machine-learning-edge-04-train-model.md#run-jupyter-notebooks).
 
 1. From the [Azure portal](https://portal.azure.com), go to your Azure Machine Learning workspace.
 
-2. From the overview page of the Machine Learning workspace, find the name of the **Key Vault**.
+1. From the overview page of the Machine Learning workspace, find the name of the **Key Vault**.
 
     ![Screenshot that shows copying the Key Vault name.](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
 
-3. On your development machine, upload the certificates to Key Vault. Replace **\<subscriptionId\>** and **\<keyvaultname\>** with your resource information.
+1. On your development machine, upload the certificates to Key Vault. Replace **\<subscriptionId\>** and **\<keyvaultname\>** with your resource information.
 
     ```powershell
     c:\source\IoTEdgeAndMlSample\CreateCertificates\upload-keyvaultcerts.ps1 -SubscriptionId <subscriptionId> -KeyVaultName <keyvaultname>
     ```
 
-4. If prompted, sign in to Azure.
+1. If prompted, sign in to Azure.
 
-5. The script will run for a few minutes with output that lists the new Key Vault entries.
+1. The script will run for a few minutes with output that lists the new Key Vault entries.
 
     ![Screenshot that shows Key Vault script output.](media/tutorial-machine-learning-edge-05-configure-edge-device/key-vault-entries-output.png)
 
 ## Create an IoT Edge device
 
-To connect an Azure IoT Edge device to an IoT hub, we first create an identity for the device in the hub. We take the connection string from the device identity in the cloud and use it to configure the runtime on our IoT Edge device. After a configured device connects to the hub, we can deploy modules and send messages. We can also change the configuration of the physical IoT Edge device by changing its corresponding device identity in IoT hub.
+To connect an Azure IoT Edge device to an IoT hub, we first create an identity for the device in the hub. We take the connection string from the device identity in the cloud and use it to configure the runtime on our IoT Edge device. After a configured device connects to the hub, we can deploy modules and send messages. We can also change the configuration of the physical IoT Edge device by changing its corresponding device identity in IoT Hub.
 
 For this tutorial, we create the new device identity by using Visual Studio Code. You can also complete these steps by using the Azure portal or the Azure CLI.
 
 1. On your development machine, open Visual Studio Code.
 
-1. Expand the **Azure IoT Hub** frame from the Visual Studio Code explorer view.
+1. Expand the **Azure IoT Hub** frame from the Visual Studio Code **Explorer** view.
 
 1. Select the ellipsis, and select **Create IoT Edge Device**.
 
@@ -110,9 +110,9 @@ For this tutorial, we create the new device identity by using Visual Studio Code
 
 1. The new device appears in the list of devices.
 
-    ![Screenshot that shows a view of aaTurbofanEdgeDevice in Visual Studio Code explorer.](media/tutorial-machine-learning-edge-05-configure-edge-device/iot-hub-devices-list.png)
+    ![Screenshot that shows a view of aaTurbofanEdgeDevice in Visual Studio Code Explorer.](media/tutorial-machine-learning-edge-05-configure-edge-device/iot-hub-devices-list.png)
 
-## Deploy Azure Virtual Machine
+## Deploy an Azure virtual machine
 
 We use the [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu?tab=Overview) image from Azure Marketplace to create our IoT Edge device for this tutorial. The Azure IoT Edge on Ubuntu image installs the latest IoT Edge runtime and its dependencies on startup. We deploy the VM by using:
 
@@ -136,7 +136,7 @@ To use the image from Azure Marketplace in a scripted deployment, we need to ena
 
 1. Select the **Enable** button, and then select **Save**.
 
-    ![Screenshot that shows enabling programmatic deployment for VM.](media/tutorial-machine-learning-edge-05-configure-edge-device/deploy-ubuntu-vm.png)
+    ![Screenshot that shows enabling programmatic deployment for a virtual machine.](media/tutorial-machine-learning-edge-05-configure-edge-device/deploy-ubuntu-vm.png)
 
 1. You'll see a success notification.
 
@@ -177,7 +177,7 @@ Next, run the script to create the virtual machine for your IoT Edge device.
 
 1. The script outputs the SSH connection string for connecting to the VM. Copy the connection string for the next step.
 
-    ![Screenshot that shows copying SSH connection string for VM.](media/tutorial-machine-learning-edge-05-configure-edge-device/vm-ssh-connection-string.png)
+    ![Screenshot that shows copying the SSH connection string for a virtual machine.](media/tutorial-machine-learning-edge-05-configure-edge-device/vm-ssh-connection-string.png)
 
 ## Connect to your IoT Edge device
 
@@ -207,7 +207,7 @@ We'll deal with the leaf device later in the tutorial. In this section, download
     az login
     ```
 
-1. You'll be prompted to open a browser to <https://microsoft.com/devicelogin> and provide a unique code. You can perform these steps on your local machine. Close the browser window when you're done authenticating.
+1. You'll be prompted to open a browser to a [Microsoft device sign-in](https://microsoft.com/devicelogin) and provide a unique code. You can perform these steps on your local machine. Close the browser window when you're done authenticating.
 
 1. When you successfully authenticate, the Linux VM will sign in and list your Azure subscriptions.
 
@@ -234,7 +234,7 @@ We'll deal with the leaf device later in the tutorial. In this section, download
 
 ## Update the IoT Edge device configuration
 
-The IoT Edge runtime uses the file `/etc/iotedge/config.yaml` to persist its configuration. We need to update three pieces of information in this file:
+The IoT Edge runtime uses the file /etc/iotedge/config.yaml to persist its configuration. We need to update three pieces of information in this file:
 
 * **Device connection string**: The connection string from this device's identity in IoT Hub
 * **Certificates:** The certificates to use for connections made with downstream devices
@@ -260,7 +260,7 @@ Next, we'll update the certificates and hostname by directly editing the config.
     sudo nano /etc/iotedge/config.yaml
     ```
 
-1. Update the certificates section of the config.yaml file by removing the leading `#` and setting the path so the file looks like the following example:
+1. Update the certificates section of the config.yaml file by removing the leading **#** and setting the path so the file looks like the following example:
 
     ```yaml
     certificates:
@@ -269,7 +269,7 @@ Next, we'll update the certificates and hostname by directly editing the config.
       trusted_ca_certs: "/edgeMlCertificates/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-    Make sure the **certificates:** line has no preceding whitespace and that each of the nested certificates is indented by two spaces.
+    Make sure the **certificates:** line has no preceding white space and that each of the nested certificates is indented by two spaces.
 
     Right-clicking in nano will paste the contents of your clipboard to the current cursor position. To replace the string, use your keyboard arrows to go to the string you want to replace, delete the string, and then right-click to paste from the buffer.
 

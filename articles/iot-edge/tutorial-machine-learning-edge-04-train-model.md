@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Train and deploy a model - Machine learning on IoT Edge'
+title: 'Tutorial: Train and deploy a model - Machine Learning on IoT Edge'
 description: 'In this tutorial, you'll train a machine learning model by using Azure Machine Learning and then package the model as a container image that can be deployed as an Azure IoT Edge module.'
 author: kgremban
 manager: philmea
@@ -34,11 +34,10 @@ This article is part of a series for a tutorial about using Machine Learning on 
 
 ## Set up Azure Machine Learning
 
-We use Machine Learning Studio to host the two Jupyter notebooks and supporting files. Here we create and configure a Machine Learning project. If you haven't used Jupyter or Machine Learning Studio, here are a couple of introductory documents:
+We use Machine Learning Studio to host the two Jupyter notebooks and supporting files. Here we create and configure a Machine Learning project. If you haven't used Jupyter or Machine Learning Studio, here are two introductory documents:
 
 * **Jupyter Notebook**: [Working with Jupyter notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
 * **Azure Machine Learning**: [Get started with Azure Machine Learning in Jupyter notebooks](../machine-learning/tutorial-1st-experiment-sdk-setup.md)
-
 
 > [!NOTE]
 > After the service is set up, Machine Learning can be accessed from any machine. During setup, you should use the development VM, which has all of the files that you'll need.
@@ -102,8 +101,8 @@ Let's review the files you uploaded into your Machine Learning workspace. The ac
 
 * **Test\_FD003.txt**: This file contains the data we'll use as our test set when we validate our trained classifier. We chose to use the test data, as provided for the original contest, as our test set for its simplicity.
 * **RUL\_FD003.txt**: This file contains the remaining useful life (RUL) for the last cycle of each device in the Test\_FD003.txt file. See the readme.txt and the Damage Propagation Modeling.pdf files in C:\\source\\IoTEdgeAndMlSample\\data\\Turbofan for a detailed explanation of the data.
-* Utils.py: Contains a set of Python utility functions for working with data. The first notebook contains a detailed explanation of the functions.
-* README.md: Readme describing the use of the notebooks.
+* **Utils.py**: This file contains a set of Python utility functions for working with data. The first notebook contains a detailed explanation of the functions.
+* **README.md**: This readme file describes the use of the notebooks.
 
 ## Run the Jupyter notebooks
 
@@ -113,11 +112,11 @@ Now that the workspace is created, you can run the notebooks.
 
     :::image type="content" source="media/tutorial-machine-learning-edge-04-train-model/select-turbofan-notebook.png" alt-text="Screenshot that shows selecting the first notebook to run.":::
 
-1. If the notebook is listed as **Not Trusted**, select the **Not Trusted** widget in the upper-right corner of the notebook. When the dialog box comes up, select **Trust**.
+1. If the notebook is listed as **Not Trusted**, select the **Not Trusted** widget in the upper-right corner of the notebook. When the dialog box appears, select **Trust**.
 
 1. For best results, read the documentation for each cell and run it individually. Select **Run** on the toolbar. Later on, you'll find it expedient to run multiple cells. You can disregard upgrade and deprecation warnings.
 
-    When a cell is running, it displays an asterisk between the square brackets ([\*]). When the cell's operation is complete, the asterisk is replaced with a number and relevant output might appear. The cells in a notebook build sequentially, and only one can be running at a time.
+    When a cell is running, it displays an asterisk between the square brackets ([\*]). When the cell's operation is complete, the asterisk is replaced with a number and relevant output might appear. The cells in a notebook build sequentially, and only one cell can run at a time.
 
     You can also use run options from the **Cell** menu. Select **Ctrl+Enter** to run a cell, and select **Shift+Enter** to run a cell and advance to the next cell.
 
@@ -152,7 +151,7 @@ Now that the workspace is created, you can run the notebooks.
 
 To verify that the notebooks have completed successfully, verify that a few items were created.
 
-1. On your Machine Learning notebooks**My files** tab, select **refresh**.
+1. On your Machine Learning notebooks **My files** tab, select **refresh**.
 
 1. Verify that the following files were created.
 
