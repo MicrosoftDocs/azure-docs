@@ -49,7 +49,7 @@ We recommend that you start by exploring the Github repositories of our Device S
 If your device is constrained, then we recommend you use the [Embedded C SDK](#embedded-c-sdk), or, if your device runs on Azure RTOS, you can develop with the [Azure RTOS middleware](#azure-rtos-middleware). If your device is not constrained, then you can [choose an SDK](#unconstrained-device-sdks) in a language of your choice. 
 
 ### Constrained Device SDKs
-These SDKs are specialized to run on devices with limited compute or memory resources. [Learn more about the types of IoT devices](concepts-iot-device-types.md). 
+These SDKs are specialized to run on devices with limited compute or memory resources. Learn more about the types of devices (add link to Ryan's article).
 
 #### Embedded C SDK
 * [Github Repository](https://github.com/Azure/azure-sdk-for-c/tree/1.0.0/sdk/docs/iot)
