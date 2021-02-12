@@ -1,6 +1,6 @@
 ---
-title: Deployment token management in Azure Static Web Apps
-description: Manage tokens in an Azure Static Web Apps site
+title: Reset deployment tokens in Azure Static Web Apps (Preview)
+description: Reset tokens in an Azure Static Web Apps site
 services: static-web-apps
 author: webmaxru
 ms.author: masalnik
@@ -9,7 +9,7 @@ ms.topic:  conceptual
 ms.date: 1/31/2021
 ---
 
-# Deployment token management in Azure Static Web Apps
+# Reset deployment tokens in Azure Static Web Apps (Preview)
 
 When you create a new Azure Static Web Apps site, Azure generates a token used to identify the application during deployment. During provisioning, this token is stored as a secret in the GitHub repository. This article explains how to use and manage this token.
 
@@ -56,4 +56,4 @@ To keep automated deployment running, after resetting a token you need to set th
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Setup local development](local-development.md)
+> [Publish from a static site generator](publish-gatsby.md)

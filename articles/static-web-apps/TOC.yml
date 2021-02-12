@@ -32,8 +32,6 @@
       href: custom-domain.md
     - name: Build and workflow configuration
       href: github-actions-workflow.md
-    - name: Deployment token management
-      href: deployment-token-management.md
 - name: How-to guides
   items:
     - name: Setup local development
@@ -44,6 +42,8 @@
       href: application-settings.md
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
+    - name: Reset deployment tokens
+      href: deployment-token-management.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator
