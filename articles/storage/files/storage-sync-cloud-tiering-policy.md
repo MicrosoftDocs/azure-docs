@@ -60,7 +60,7 @@ In this case, files 1, 2 and 5 would be locally cached and files 3 and 4 would b
 > [!NOTE] 
 > When customers change the volume free space policy to a smaller value, files are not automatically recalled.
 
-## Multiple server endpoints on local volume
+## Multiple server endpoints on a local volume
 
 Cloud tiering can be enabled for multiple server endpoints on a single local volume. For this configuration, you should set the volume free space to the same amount for all the server endpoints on the same volume. If you set different volume free spaces, the largest volume free space percentage will take precedence. This is called the **effective volume free space policy**. For example, if you have three server endpoints on the same local volume, one set to 15%, another set to 20%, and a third set to 30%, they will all begin to tier the coldest files when they have less than 30% free space available.
 
