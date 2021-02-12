@@ -24,7 +24,7 @@ When you enable cloud tiering, there are two policies that you can set to inform
 #### Volume free space policy
 The **volume free space policy** tells Azure File Sync to tier cool files to the cloud when a certain amount of space is taken up on your local disk. 
 
-For example, if your local disk capacity is 200 GB and you want at least 40 GB of your local disk capacity to always remain free, you should set the volume free space policy to 20%. In this case, up to 80% of the volume space will be occupied by the most recently accessed files, with any remaining files that don't fit into this space tiered up to Azure. Volume free space applies at the volume level rather than at the level of individual directories or sync groups. 
+For example, if your local disk capacity is 200 GB and you want at least 40 GB of your local disk capacity to always remain free, you should set the volume free space policy to 20%. In this case, up to 80% of the volume space will be occupied by the most recently accessed files, with any remaining files that don't fit into this space tiered up to Azure. Volume free space applies at the volume level rather than at the level of individual directories or server endpoints. 
 
 To learn how the volume free space policy affects files initially downloaded when a new server endpoint is added, (see the [Sync policies that affect cloud tiering](#sync-policies-that-affect-cloud-tiering)) section.
 
