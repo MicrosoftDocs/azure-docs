@@ -311,7 +311,7 @@
     - name: Create a semantic query
       href: semantic-how-to-query-request.md
     - name: Add spell check to queries
-      href: speller-howto-add.md
+      href: speller-how-to-add.md
     - name: Query types and composition
       href: search-query-overview.md
     - name: Use simple syntax (examples)

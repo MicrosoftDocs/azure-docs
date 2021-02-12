@@ -62,7 +62,7 @@ The following table lists other query features and provides usage recommendation
 | Feature | Recommendation |
 |---------|----------------|
 | [filter expressions](search-query-odata-filter.md) | Compatible |
-| [spell check](speller-howto-add.md) | Compatible |
+| [spell check](speller-how-to-add.md) | Compatible |
 | [Orderby expressions](search-query-odata-orderby.md) | Avoid. Explicit rankings will override semantic ranking |
 | Autocomplete | Avoid|
 | Suggestions | Avoid |
@@ -163,7 +163,7 @@ For comparison, run the same query as above, removing `&queryType=semantic&query
 ## Next steps
 
 + [Semantic search overview](semantic-search-overview.md)
-+ [Add spell check to query inputs](speller-howto-add.md)
++ [Add spell check to query inputs](speller-how-to-add.md)
 + [Structure a semantic response](semantic-how-to-query-response.md)
 + [Create a basic query](search-query-create.md)
 + [Use full Lucene query syntax](query-Lucene-syntax.md)

@@ -29,6 +29,6 @@ Sign up for the semantic search preview by filling out [this form](https://aka.m
 
 ## Next steps
 
-+ [Add spell check to query inputs](speller-howto-add.md)
++ [Add spell check to query inputs](speller-how-to-add.md)
 + [Create a semantic query](semantic-how-to-query-request.md)
 + [Structure a semantic response](semantic-how-to-query-response.md)
