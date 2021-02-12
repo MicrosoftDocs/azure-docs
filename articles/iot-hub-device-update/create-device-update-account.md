@@ -14,7 +14,7 @@ To get started with Device Update you'll need to create a Device Update account,
 
 [Learn More](device-update-resources.md) about Device update account and instance.
 
-[Learn More](device-update-control-access) about Device update access control roles. 
+[Learn More](device-update-control-access.md) about Device update access control roles. 
 
 ## Create a Device Update Account
 
