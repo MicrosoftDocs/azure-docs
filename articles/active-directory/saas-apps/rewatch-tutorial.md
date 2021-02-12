@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **IdP certificate** textbox.
 
-    c. check **Enable SAML login for this channel** and click on **Save**.
+    c. Check **Enable SAML login for this channel** and click on **Save**.
 
 ### Create Rewatch test user
 
