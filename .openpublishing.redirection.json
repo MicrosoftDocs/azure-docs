@@ -18652,13 +18652,18 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/how-to-integrate-models.md",
+      "redirect_url": "/azure/digital-twins/concepts-ontologies-convert",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/concepts-convert-models.md",
-      "redirect_url": "/azure/digital-twins/how-to-integrate-models",
+      "redirect_url": "/azure/digital-twins/concepts-ontologies-convert",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-convert-models.md",
-      "redirect_url": "/azure/digital-twins/how-to-integrate-models",
+      "redirect_url": "/azure/digital-twins/concepts-ontologies-convert",
       "redirect_document_id": false
     },
     {

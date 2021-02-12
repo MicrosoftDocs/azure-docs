@@ -2,11 +2,11 @@
 # Mandatory fields.
 title: Integrate industry-standard models
 titleSuffix: Azure Digital Twins
-description: Understand how to integrate industry-standard models into DTDL for Azure Digital Twins, either by using special DTDL ontologies or converting existing ontologies
+description: Understand the process of converting industry-standard models into DTDL for Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/04/2020
-ms.topic: how-to
+ms.date: 2/12/2020
+ms.topic: conceptual
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -15,21 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Integrate industry-standard models with DTDL for Azure Digital Twins
-
-[!INCLUDE [Azure Digital Twins: industry model paths](../../includes/digital-twins-industry-model-paths.md)]
-
-## Adopt an open-source DTDL ontology
-
-It is often easier to start with an open-source DTDL ontology than starting from a blank page. 
-
-For example, Smart Buildings solutions can leverage the open-source [**DTDL-based RealEstateCore ontology for smart buildings**](https://github.com/Azure/opendigitaltwins-building), which provides common ground for modeling smart buildings while leveraging industry standards to prevent reinvention. 
-
-These open-source DTDL ontologies also provide best practices for how to consume and properly extend the models.
-
-For more on using industry-standard ontologies with Azure Digital Twins, see [*Concepts: Industry-standard ontologies*](concepts-ontologies.md).
-
-## Convert existing models to DTDL
+# Convert industry-standard models to DTDL for Azure Digital Twins
 
 Most industry models (also referred to as **ontologies**) are based on semantic web standards such as [OWL](https://www.w3.org/OWL/), [RDF](https://www.w3.org/2001/sw/wiki/RDF), and [RDFS](https://www.w3.org/2001/sw/wiki/RDFS). 
 
@@ -37,7 +23,7 @@ To use a model with Azure Digital Twins, it must be in DTDL format. This section
 
 It also contains [**sample converter code** for an RDF converter](#sample-converter-application), which has been validated for the [Brick](https://brickschema.org/ontology/) schema and can be extended for other schemas in the building industry.
 
-### Conversion pattern
+## Conversion pattern
 
 There are several third-party libraries that can be used when converting RDF-based models to DTDL. Some of these libraries allow you to load your model file into a graph. You can loop through the graph looking for specific RDFS and OWL constructs, and convert these to DTDL.   
 
@@ -54,7 +40,9 @@ The following C# code snippet shows how an RDF model file is loaded into a graph
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/convertRDF.cs":::
 
-### Sample converter application 
+## Converter samples
+
+### RDF converter sample application 
 
 There is a sample application available that converts an RDF-based model file to [DTDL (version 2)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) for use by the Azure Digital Twins service. It has been validated for the [Brick](https://brickschema.org/ontology/) schema, and can be extended for other schemas in the building industry (such as [Building Topology Ontology (BOT)](https://w3c-lbd-cg.github.io/bot/), [Semantic Sensor Network](https://www.w3.org/TR/vocab-ssn/), or [buildingSmart Industry Foundation Classes (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/)).
 
@@ -66,11 +54,12 @@ To download the code to your machine, hit the *Download ZIP* button underneath t
 
 You can use this sample to see the conversion patterns in context, and to have as a building block for your own applications performing model conversions according to your own specific needs.
 
-## Validate and upload DTDL models
 
-[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
+## OWL2DTDL converter 
 
-Once a model is converted and validated, you can **upload it to your Azure Digital Twins instance**. For more information on this process, see the [*Upload models*](how-to-manage-model.md#upload-models) section of *How-to: Manage DTDL models*.
+The [**OWL2DTDL Converter**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL) is a sample that translates an OWL ontology into a set of DTDL interface declarations, which can be used with the Azure Digital Twins service. It also works for ontology networks, made of one root ontology reusing other ontologies through `owl:imports` declarations.
+
+This converter was used to translate the [Real Estate Core Ontology](https://doc.realestatecore.io/3.1/full.html) to DTDL and can be used for any OWL-based ontology.
 
 ## Next steps 
 

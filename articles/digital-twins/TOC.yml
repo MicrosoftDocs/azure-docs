@@ -23,12 +23,16 @@
   items:
   - name: DTDL models
     href: concepts-models.md
-  - name: Industry-standard ontologies
+  - name: Ontologies
     items:
     - name: What are ontologies?
       href: concepts-ontologies.md
-    - name: Extending industry ontologies
-      href: concepts-extending-ontologies.md
+    - name: Adopting industry-standard ontologies
+      href: concepts-ontologies-adopt.md
+    - name: Converting ontologies
+      href: concepts-ontologies-convert.md
+    - name: Extending ontologies
+      href: concepts-ontologies-extend.md      
   - name: Digital twins and the twin graph
     href: concepts-twins-graph.md
   - name: Query language
@@ -69,8 +73,6 @@
     items:
     - name: Manage DTDL models
       href: how-to-manage-model.md
-    - name: Integrate industry-standard models
-      href: how-to-integrate-models.md
     - name: Parse and validate models
       href: how-to-parse-models.md
     - name: Add tags
