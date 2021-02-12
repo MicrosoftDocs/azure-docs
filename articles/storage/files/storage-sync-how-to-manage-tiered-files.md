@@ -66,7 +66,7 @@ Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v He
 
 Cloud tiering uses the last access time and the access frequency of a file to determine which files should be tiered. The cloud tiering filter driver (storagesync.sys) tracks last access time and logs the information in the cloud tiering heat store. You can retrieve the heat store and save it into a CSV file by using a server-local PowerShell cmdlet.
 
-There is a single heat store for files on a volume/server endpoint/individual file. The heat store can get very large. If you only need to retrieve the "coolest" number of items, use -Limit and a number.
+There is a single heat store for all files on the same volume. The heat store can get very large. If you only need to retrieve the "coolest" number of items, use -Limit and a number and also consider filtering by a sub path vs. the volume root.
 
 - Import the PowerShell module:
     `Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'`
