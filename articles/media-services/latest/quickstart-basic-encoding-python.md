@@ -19,9 +19,9 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-# Introduction
+## Introduction
 
-This quickstart shows you how to do basic encoding with Python and Azure Media Services. It uses the 2020-05-01 Media Service v3 API. The Python SDK reference document is [here](https://docs.microsoft.com/python/api/overview/azure/mediaservices/management?view=azure-python).
+This quickstart shows you how to do basic encoding with Python and Azure Media Services. It uses the 2020-05-01 Media Service v3 API. The Python SDK reference document is [here](https://docs.microsoft.com/python/api/overview/azure/mediaservices/management?view=azure-python&preserve-view=true).
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ import random
 
 ## Establish authentication and AMS variables
 
-If you don't know where to find the below values, see [Find your tenant ID](how-to-set-azure-tenant.md) and [Find your Azure subscription](how-to-set-azure-subscription).
+If you don't know where to find the below values, see [Find your tenant ID](how-to-set-azure-tenant.md) and [Find your Azure subscription](how-to-set-azure-subscription.md).
 
 ```python
 RESOURCE = 'https://management.core.windows.net/'
