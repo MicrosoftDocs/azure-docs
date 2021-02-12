@@ -45,15 +45,13 @@
         - name: Versioning introduction
           href: ./hdinsight-overview-versioning.md
         - name: HDInsight versions
-          items:
-            - name: HDInsight version list
-              href: ./hdinsight-component-versioning.md
-            - name: HDInsight version 4.0
-              href: ./hdinsight-40-component-versioning.md
-            - name: HDInsight version 3.6
-              href: ./hdinsight-36-component-versioning.md
-        - name: Service-level agreement
-          href: ./hdinsight-service-agreement-versioning.md
+          href: ./hdinsight-component-versioning.md
+        - name: HDInsight version 4.0
+          href: ./hdinsight-40-component-versioning.md
+        - name: HDInsight version 3.6
+          href: ./hdinsight-36-component-versioning.md
+        - name: Retired HDInsight versions
+          href: ./hdinsight-retired-versions.md
     - name: Enterprise Security Package
       href: ./enterprise-security-package.md
     - name: Hortonworks release notes
