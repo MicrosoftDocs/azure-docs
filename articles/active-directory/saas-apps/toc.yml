@@ -1307,7 +1307,9 @@
       - name: Panorays
         href: panorays-tutorial.md
       - name: Pantheon
-        href: pantheon-tutorial.md        
+        href: pantheon-tutorial.md 
+      - name: Parkalot - Car park management
+        href: parkalot-car-park-management-tutorial.md       
       - name: PatentSQUARE
         href: patentsquare-tutorial.md
       - name: Pavaso Digital Close
