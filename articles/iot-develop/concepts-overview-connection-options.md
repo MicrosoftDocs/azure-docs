@@ -38,6 +38,6 @@ After you select IoT Hub or IoT Central to host your IoT application, you have s
 |Azure IoT Explorer     | Hub | [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) | Cannot create IoT hubs. Connects to an existing IoT hub to manage devices. |
 
 ## Next steps
-To learn more about your options for connecting device to Azure IoT, explore the following quickstarts:
+To learn more about your options for connecting devices to Azure IoT, explore the following quickstarts:
 - IoT Central: [Create an Azure IoT Central application](../iot-central/core/quick-deploy-iot-central.md)
 - IoT Hub: [Send telemetry from a device to an IoT hub and monitor it with the Azure CLI](../iot-hub/quickstart-send-telemetry-cli.md)
