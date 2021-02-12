@@ -72,7 +72,7 @@
       displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
     - name: Change default answer
       href: How-To/change-default-answer.md
- - name: Query knowledge base
+  - name: Query knowledge base
     href: How-To/metadata-generateanswer-usage.md
     displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
   - name: Set up Active Learning to enhance Knowledge base
