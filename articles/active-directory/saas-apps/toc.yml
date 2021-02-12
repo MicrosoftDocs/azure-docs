@@ -814,6 +814,8 @@
         href: iamip-patent-platform-tutorial.md
       - name: IBM Digital Business Automation on Cloud
         href: ibm-digital-business-automation-on-cloud-tutorial.md
+      - name: IBMid
+        href: ibmid-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages

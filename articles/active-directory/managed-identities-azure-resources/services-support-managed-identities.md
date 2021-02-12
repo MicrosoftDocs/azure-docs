@@ -208,7 +208,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 | User assigned | Not available | Not available | Not available | Not available |
 
-Refer to the following list to configure managed identity for Azure Data Factory V2 (in regions where available):
+Refer to the following list to configure managed identity for Azure IoT Hub (in regions where available):
 
 - [Azure portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
