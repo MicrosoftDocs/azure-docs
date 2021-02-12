@@ -32,13 +32,13 @@ Azure IoT Device SDKs are available popular programming languages including C, C
 
 ### Device capabilities
 
-When you are choosing an SDK, you'll need to consider the limits of the devices you're using. For instance, consider whether you're using a constrained device. A constrained device has a single micro-controller (MCU) and limited memory. In that case we recommend that you use the Embedded C SDK. This SDK is specifically designed to provide the bare minimum set of capabilities to connect to Azure IoT. You can also select components (MQTT client, TLS and socket libraries) that are most optimized for your embedded device. Similarly, if your device is running Azure RTOS, use the Azure RTOS middleware to connect to Azure IoT. The Azure RTOS middleware wraps the Embedded C SDK and adds extra features to it.
+When you are choosing an SDK, you will need to consider the limits of the devices you're using. If you are using a constrained device-- a device that has a single micro-controller (MCU) and limited memory--then we recommend that you use the [Embedded C SDK](#embedded-c-sdk). This SDK is specifically designed to provide the bare minimum set of capabilities to connect to Azure IoT. You can also select components (MQTT client, TLS and socket libraries) that are most optimized for your embedded device. Similarly, if your device is running Azure RTOS, you can use the Azure RTOS middleware to connect to Azure IoT. The Azure RTOS middleware wraps the Embedded C SDK with extra functionality to simplify connecting your Azure RTOS device to the cloud.
 
 If your device is not resource constrained—that is, it has a more robust CPU capable of running an operating system to support language runtimes such as .NET or Python—then your choice will predominantly come down to language familiarity.
 
 ### Your team’s familiarity with the programming language
 
-Azure IoT SDKs are implemented in multiple languages primarily to allow you to choose the language in which you feel the most comfortable. It also maximizes your ability to quickly integrate with other familiar, language-specific tools and optimizes for quality throughout the development cycle of research, prototyping, productization, and ongoing maintenance.
+Azure IoT SDKs are implemented in multiple languages so you can choose the language in which you feel the most comfortable. It also maximizes your ability to quickly integrate with other familiar, language-specific tools and optimizes for quality throughout the development cycle of research, prototyping, productization, and ongoing maintenance.
 
 Whenever possible, select an SDK that feels familiar to your development team. All Azure IoT SDKs are open source and have several samples available for your team to evaluate, learn their capabilities, and run proof of concepts before committing to a specific SDK.
 
@@ -46,9 +46,10 @@ Whenever possible, select an SDK that feels familiar to your development team. A
 
 We recommend that you start by exploring the Github repositories of our Device SDKs. You can also try a [quickstart](quickstart-send-telemetry-python.md) that will have you using an SDK to send telemetry to Azure IoT in minutes.
 
-If your device is constrained, we recommend you use the [Embedded C SDK](#embedded-c-sdk), or, if your device runs on Azure RTOS, you can develop with the [Azure RTOS middleware](#azure-rtos-middleware). If your device is not constrained, then you can [choose an SDK](#unconstrained-device-sdks) in a language of your choice. 
+If your device is constrained, then we recommend you use the [Embedded C SDK](#embedded-c-sdk), or, if your device runs on Azure RTOS, you can develop with the [Azure RTOS middleware](#azure-rtos-middleware). If your device is not constrained, then you can [choose an SDK](#unconstrained-device-sdks) in a language of your choice. 
 
 ### Constrained Device SDKs
+These SDKs are specialized to run on devices with limited compute or memory resources. [Learn more about the types of IoT devices](concepts-iot-device-types.md). 
 
 #### Embedded C SDK
 * [Github Repository](https://github.com/Azure/azure-sdk-for-c/tree/1.0.0/sdk/docs/iot)
@@ -64,6 +65,7 @@ If your device is constrained, we recommend you use the [Embedded C SDK](#embedd
 * [Reference Documentation](https://docs.microsoft.com/azure/rtos/threadx/)
 
 ### Unconstrained Device SDKs
+These SDKs can run on any device that can support higher order language runtimes-- devices such as PCs, Raspberry Pis, smartphones, etc. They are differentiated primarily by language so you can choose whichever library that best suits your team and scenario.
 
 #### C Device SDK
 * [Github Repository](https://github.com/Azure/azure-iot-sdk-c)
@@ -109,6 +111,7 @@ If your device is constrained, we recommend you use the [Embedded C SDK](#embedd
 * [Edge Module Reference Documentation](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python)
 
 ### Service SDKs
+Azure IoT offers service SDKs that enable you to build solution-side applications to manage devices, gain insights, visualize data, and more. These SDKs are specific to each Azure IoT service and are available in C#, Java, Javascript, and Python to simplify your development experience. 
 
 #### IoT Hub
 
@@ -120,7 +123,7 @@ The IoT Hub service SDKs allow you to build applications that easily interact wi
 
 **Java IoT Hub Service SDK**: [Github Repository](https://github.com/Azure/azure-iot-sdk-java/tree/master/service) | [Package](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples) | [Reference Documentation](/java/api/com.microsoft.azure.sdk.iot.service)
 
-**Node.js IoT Hub Service SDK**: [Github Repository](https://github.com/Azure/azure-iot-sdk-node/tree/master/service) | [Package](https://www.npmjs.com/package/azure-iothub) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | [Reference Documentation](/javascript/api/azure-iothub/?view=azure-iot-typescript-latest)
+**Javascript IoT Hub Service SDK**: [Github Repository](https://github.com/Azure/azure-iot-sdk-node/tree/master/service) | [Package](https://www.npmjs.com/package/azure-iothub) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | [Reference Documentation](/javascript/api/azure-iothub/?view=azure-iot-typescript-latest)
 
 **Python IoT Hub Service SDK**: [Github Repository](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub) | [Package](https://pypi.python.org/pypi/azure-iot-hub/) | [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub/samples) | [Reference Documentation](/python/api/azure-iot-hub)
 
