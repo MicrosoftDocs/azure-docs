@@ -9,11 +9,11 @@ ms.date: 02/11/2021
 
 This article provides the properties and schema for event hubs events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
-### Available event types
+## Available event types
 
 Event Hubs emits the **Microsoft.EventHub.CaptureFileCreated** event type when a capture file is created.
 
-### Example event
+## Example event
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 

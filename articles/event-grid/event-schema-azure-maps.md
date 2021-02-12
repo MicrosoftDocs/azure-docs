@@ -186,6 +186,7 @@ An event has the following top-level data:
 | `id` | string | Unique identifier for the event. |
 | `data` | object | Geofencing event data. |
 | `specversion` | string | CloudEvents schema specification version. |
+
 ---
 
 The data object has the following properties:

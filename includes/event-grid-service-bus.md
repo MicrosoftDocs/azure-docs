@@ -19,7 +19,7 @@ Service Bus emits the following event types:
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Raised when there are active messages in a Queue or Subscription and no receivers listening. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Raised when there are active messages in a Dead Letter Queue and no active listeners. |
 | Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications | Raised periodically if there are active messages in a Queue or Subscription, even if there are active listeners on that specific Queue or Subscription. |
-| Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications | Raised periodically if there are messages in the Deadletter entity of a Queue or Subscription, even if there are active listeners on the Deadletter entity of that specific Queue or Subscription. | 
+| Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications | Raised periodically if there are messages in the dead-letter entity of a Queue or Subscription, even if there are active listeners on the dead-letter entity of that specific Queue or Subscription. | 
 
 ## Example event
 
