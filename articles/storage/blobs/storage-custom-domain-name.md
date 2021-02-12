@@ -58,7 +58,7 @@ The host name is the storage endpoint URL without the protocol identifier and th
    > [!NOTE]
    > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
 
-4. Remove the protocol identifier (*e.g.*, HTTPS) and the trailing slash from that string. The following table contains examples.
+4. Remove the protocol identifier (For example: `HTTPS`) and the trailing slash from that string. The following table contains examples.
 
    | Type of endpoint |  endpoint | host name |
    |------------|-----------------|-------------------|
@@ -71,7 +71,7 @@ The host name is the storage endpoint URL without the protocol identifier and th
 
 #### Step 2: Create a canonical name (CNAME) record with your domain provider
 
-Create a CNAME record to point to your host name. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name.
+Create a CNAME record to point to your host name. A CNAME record is a type of Domain Name System (DNS) record that maps a source domain name to a destination domain name.
 
 1. Sign in to your domain registrar's website, and then go to the page for managing DNS setting.
 
@@ -158,7 +158,7 @@ After the CNAME record has propagated through the Domain Name Servers (DNS), and
 
 To confirm that your custom domain is mapped to your blob service endpoint, create a blob in a public container within your storage account. Then, in a web browser, access the blob by using a URI in the following format: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-For example, to access a web form in the *myforms* container in the *photos.contoso.com* custom subdomain, you might use the following URI: `http://photos.contoso.com/myforms/applicationform.htm`
+For example, to access a web form in the `myforms` container in the *photos.contoso.com* custom subdomain, you might use the following URI: `http://photos.contoso.com/myforms/applicationform.htm`
 
 <a id="zero-down-time"></a>
 
@@ -171,7 +171,7 @@ If your domain currently supports an application with a service-level agreement 
 
 :heavy_check_mark: Step 1: Get the host name of your storage endpoint.
 
-:heavy_check_mark: Step 2: Create a intermediary canonical name (CNAME) record with your domain provider.
+:heavy_check_mark: Step 2: Create an intermediary canonical name (CNAME) record with your domain provider.
 
 :heavy_check_mark: Step 3: Pre-register the custom domain with Azure.
 
@@ -194,7 +194,7 @@ The host name is the storage endpoint URL without the protocol identifier and th
    > [!NOTE]
    > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
 
-4. Remove the protocol identifier (*e.g.*, HTTPS) and the trailing slash from that string. The following table contains examples.
+4. Remove the protocol identifier (For example: `HTTPS`) and the trailing slash from that string. The following table contains examples.
 
    | Type of endpoint |  endpoint | host name |
    |------------|-----------------|-------------------|
@@ -203,7 +203,7 @@ The host name is the storage endpoint URL without the protocol identifier and th
   
    Set this value aside for later.
 
-#### Step 2: Create a intermediary canonical name (CNAME) record with your domain provider
+#### Step 2: Create an intermediary canonical name (CNAME) record with your domain provider
 
 Create a temporary CNAME record to point to your host name. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name.
 
@@ -316,15 +316,13 @@ Create a temporary CNAME record to point to your host name.
 
 To confirm that your custom domain is mapped to your blob service endpoint, create a blob in a public container within your storage account. Then, in a web browser, access the blob by using a URI in the following format: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-For example, to access a web form in the *myforms* container in the *photos.contoso.com* custom subdomain, you might use the following URI: `http://photos.contoso.com/myforms/applicationform.htm`
+For example, to access a web form in the `myforms` container in the *photos.contoso.com* custom subdomain, you might use the following URI: `http://photos.contoso.com/myforms/applicationform.htm`
 
 ### Remove a custom domain mapping
 
 To remove a custom domain mapping, deregister the custom domain. Use one of the following procedures.
 
 #### [Portal](#tab/azure-portal)
-
-To remove the custom domain setting, do the following:
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
@@ -391,8 +389,6 @@ To remove a custom domain registration, use the [az storage account update](/cli
 This approach involves more steps, but it enables HTTPS access. 
 
 If you don't need users to access your blob or web content by using HTTPS, then see the [Map a custom domain with only HTTP enabled](#enable-http) section of this article. 
-
-To map a custom domain and enable HTTPS access, do the following:
 
 1. Enable [Azure CDN](../../cdn/cdn-overview.md) on your blob or web endpoint. 
 
