@@ -105,7 +105,7 @@
     items:
     - name: ASP.NET daemon web app
       href: tutorial-v2-aspnet-daemon-web-app.md
-    - name: Node.js console app
+    - name: Node.js console daemon
       href: tutorial-v2-nodejs-console.md
 - name: Samples
   href: sample-v2-code.md
