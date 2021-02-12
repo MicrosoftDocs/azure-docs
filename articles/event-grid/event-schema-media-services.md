@@ -94,9 +94,9 @@ See [Schema examples](#event-schema-examples) that follow.
 
 ## Event schema examples
 
-# [Event Grid event schema](#tab/event-grid-event-schema)
-
 ### JobStateChange
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
 
 The following example shows the schema of the **JobStateChange** event: 
 
