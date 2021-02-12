@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ---
+
 # Tutorial: Train and deploy an Azure Machine Learning model
 
 In this article, we do the following tasks:
