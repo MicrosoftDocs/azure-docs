@@ -10,7 +10,7 @@ services: iot-central
 ms.custom: [mvc, device-developer]
 ---
 
-# IoT Central device development overview
+# What is IoT Central device development?
 
 *This article applies to device developers.*
 
