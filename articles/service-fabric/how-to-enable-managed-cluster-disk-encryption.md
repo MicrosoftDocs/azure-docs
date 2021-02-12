@@ -154,7 +154,7 @@ You can check disk encryption status on a node type's underlying scale set using
 
 ```powershell
 $VmssName = "NT1"
-$supportResourceGroupName = "SFC_" + (Get-AzServiceFabricManagedCluster -ResourceGroupName "ednsfmanagedtest").ClusterId
+$supportResourceGroupName = "SFC_" + (Get-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroupName).ClusterId
 Get-AzVmssDiskEncryption -ResourceGroupName $supportResourceGroupName -VMScaleSetName $VmssName
 ```
 
