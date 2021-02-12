@@ -87,7 +87,7 @@ Use the following troubleshooting information if you're having trouble transferr
 ### Original Azure subscription billing owner leaves your organization
 
 > [!Note]
->T his section specifically applies to a billing account for a Microsoft Customer Agreement. Check if you have access to a [Microsoft Customer Agreement](mca-request-billing-ownership.md#check-for-access).
+> This section specifically applies to a billing account for a Microsoft Customer Agreement. Check if you have access to a [Microsoft Customer Agreement](mca-request-billing-ownership.md#check-for-access).
 
 It's possible that the original billing account owner who created an Azure account and an Azure subscription leaves your organization. If that situation happens, then their user identity is no longer in the organization's Azure Active Directory. Then the Azure subscription doesn't have a billing owner. This situation prevents anyone from performing billing operations to the account, including viewing, and paying bills. The subscription could go into a past-due state. Eventually the subscription could get disabled because of non-payment. Ultimately, the subscription could get deleted and it would affect every service that runs on the subscription.
 
