@@ -69,6 +69,7 @@ RESOURCE = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
 ```
 
 ### ADAL Authentication
+
 ```python
 context = adal.AuthenticationContext(LOGIN_ENDPOINT + '/' + TENANT_ID)
 credentials = AdalAuthentication(
@@ -232,4 +233,4 @@ client.assets.delete(resource_group_name, account_name, asset_name)
 
 ## Next steps
 
-Get familiar with the [Media Services Python SDK]()
+Get familiar with the [Media Services Python SDK](https://docs.microsoft.com/en-us/python/api/azure-mgmt-media/?view=azure-python)
