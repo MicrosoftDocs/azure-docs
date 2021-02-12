@@ -167,4 +167,4 @@ If you want to configure LDAP over TLS for a volume, follow the steps described 
 
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
 * [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md)
-* [Troubleshoot dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)
+* [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)

@@ -326,5 +326,6 @@ You can set permissions for a file or folder by using the **Security** tab of th
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
 * [SMB FAQs](azure-netapp-files-faqs.md#smb-faqs)
+* [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

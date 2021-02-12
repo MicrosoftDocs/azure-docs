@@ -54,8 +54,12 @@
     href: ensure-tags-exists-on-new-virtual-machines.md
   - name: Email when IoT Hub device disconnects
     href: publish-iot-hub-events-to-logic-apps.md
-  - name: Respond to Service Bus events
-    href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - name: Handle Service Bus events via Event Grid
+    items:
+    - name: Azure Logic Apps
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json      
+    - name: Azure Functions
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-function.md?toc=%2fazure%2fevent-grid%2ftoc.json
   - name: Stream data from Event Hubs
     href: event-grid-event-hubs-integration.md
   - name: Route Media Services events
@@ -270,6 +274,8 @@
       href: managed-service-identity.md
   - name: Troubleshoot
     items: 
+    - name: Troubleshoot Event Grid issues
+      href: troubleshoot-issues.md
     - name: Enable diagnostic logs
       href: enable-diagnostic-logs-topic.md
     - name: Troubleshoot errors
