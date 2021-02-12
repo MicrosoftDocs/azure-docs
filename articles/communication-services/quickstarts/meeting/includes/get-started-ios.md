@@ -63,9 +63,19 @@ Download the framework from the latest release. Add the framework to the project
 
 < Add more here once we have private preview released >
 
+### Add a window reference to AppDelegate
+
+Open your project's **AppDelegate.swift** file and add a reference for 'window'.
+
+```swift
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+```
+
 ### Set up the app framework
 
-Open your project's **viewController.swift** file and add an `import` declaration to the top of the file to import the `AzureCommunication library` and the `MeetingUIClient`. 
+Open your project's **ViewController.swift** file and add an `import` declaration to the top of the file to import the `AzureCommunication library` and the `MeetingUIClient`. 
 
 ```swift
 import UIKit
@@ -114,14 +124,15 @@ Initialize a `MeetingClient` instance with a User Access Token which will enable
 
 ```swift
 do {
-    try communicationTokenCredential = CommunicationTokenCredential(token: <USER ACCESS TOKEN>)
-    meetingClient = MeetingClient(with: communicationTokenCredential!)}
+    try communicationTokenCredential = CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
+    meetingClient = MeetingUIClient(with: communicationTokenCredential!)
+}
 catch {
     print("Failed to create communication token credential")
 }
 ```
 
-You need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available.
+You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available.
 
 ## Get the Teams meeting link
 
@@ -135,13 +146,13 @@ The `joinMeeting` method is set as the action that will be performed when the *J
 
 ```swift
 private func joinMeeting() {
-        let joinOptions = JoinOptions(displayName: "John Smith")
+    let meetingJoinOptions = MeetingJoinOptions(displayName: "John Smith")
         
-        meetingClient?.joinMeeting(with: meetingURL, joinOptions: joinOptions, completionHandler: { (error: Error?) in
-            if (error != nil) {
-                print("Join meeting failed: \(error!)")
-            }
-        })
+    meetingClient?.join(meetingUrl: meetingURL, meetingJoinOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
+        if (error != nil) {
+            print("Join meeting failed: \(error!)")
+        }
+    })
 }
 ```
 
