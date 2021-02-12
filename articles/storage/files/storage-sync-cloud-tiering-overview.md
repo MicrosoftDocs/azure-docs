@@ -89,7 +89,7 @@ For tiered files, the size on disk is zero since the file content itself isn't b
 
 #### Locally cached file
 
-On the other hand, for a file stored in an on-premises file server, the size on disk is about equal to the logical size of the file since the entire file (namespace + file content) is stored locally.     
+On the other hand, for a file stored in an on-premises file server, the size on disk is about equal to the logical size of the file since the entire file (file attributes + file content) is stored locally.     
 
 ![A screenshot of a file's properties when it is not tiered - namespace + file content](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-1.png) 
 
