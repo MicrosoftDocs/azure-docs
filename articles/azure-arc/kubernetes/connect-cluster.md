@@ -218,7 +218,7 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc 
 > * While `--proxy-http`, `--proxy-https`, and `--proxy-skip-range` are expected for most outbound proxy environments, `--proxy-cert` is only required if trusted certificates from proxy need to be injected into trusted certificate store of agent pods.
 > * The above proxy specification is currently applied only for Arc agents and not for the flux pods used in sourceControlConfiguration. The Azure Arc enabled Kubernetes team is actively working on this feature and it will be available soon.
 
-## Azure Arc enabled Kubernetes Agents
+## Azure Arc Agents for Kubernetes
 
 Azure Arc enabled Kubernetes deploys a few operators into the `azure-arc` namespace. You can view these deployments and pods using:
 
