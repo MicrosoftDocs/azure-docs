@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Front Door Standard/Premium (Preview)?
     href: overview.md
+  - name: Tier comparison
+    href: tier-comparison.md
 - name: Quickstarts
   expanded: true
   items:
