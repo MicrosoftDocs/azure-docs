@@ -43,6 +43,34 @@
   items:
   - name: Configure Endpoint Manager
     href: how-to-configure-endpoint-manager.md
+  - name: Configure Origin Groups
+    href: how-to-create-origin.md
+  - name: Route Association
+    href: how-to-configure-route.md
+  - name: Configure security headers with Rule Set
+    href: how-to-add-security-headers.md
+  - name: Cache purge
+    href: how-to-cache-purge.md
+  - name: Compression
+    href: how-to-compression.md
+  - name: URL Rewrite
+    href: concept-rule-set-url-redirect-and-rewrite.md
+  - name: Logging
+    href: how-to-logs.md
+  - name: Monitoring and alerts
+    href: how-to-monitor-metrics.md
+  - name: Reports
+    href: how-to-reports.md
+  - name: Troubleshoot
+    items:
+    - name: Routing issues
+      href: troubleshoot-route-issues.md
+    - name: Allowed certificate authorities
+      href: troubleshoot-allowed-certificate-authority.md
+    - name: Compression
+      href: troubleshoot-compression.md
+    - name: Cross origin resource sharing
+      href: troubleshoot-cross-origin-resources.md
   - name: Reports
     href: how-to-reports.md
 - name: Reference
