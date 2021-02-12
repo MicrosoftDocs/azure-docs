@@ -176,11 +176,11 @@ You've completed creation of the application and are now ready to test the app's
 
 2. Open a browser window and navigate to `http://localhost:3000`. You should see a sign-in screen:
 
-:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/signin_screen.png" alt-text="Azure AD sign-in screen displaying":::
+:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/sign-in-screen.png" alt-text="Azure AD sign-in screen displaying":::
 
 3. Once you enter your credentials, you should see a consent screen asking you to approve the permissions for the app.
 
-:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/consent_screen.png" alt-text="Azure AD consent screen displaying":::
+:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/consent-screen.png" alt-text="Azure AD consent screen displaying":::
 
 ## How the application works
 
