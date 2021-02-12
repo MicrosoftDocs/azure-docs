@@ -23,6 +23,10 @@ By default, the routing preference for the public endpoint of the storage accoun
 
 1.	Navigate to your storage account in the portal.
 2.	Under Settings in the left navigation pane, select **Networking**.
+
+    > [!div class="mx-imgBorder"]
+    > ![internet routing option](./media/configure-network-routing-preference/networking-option.png)
+
 3.	In the **Firewalls and virtual networks** tab, under **Network Routing**, change the **Routing preference** setting to **Internet routing**.
 4.	Click **Save**.
 
@@ -44,10 +48,14 @@ In addition to changing the preference for the default public endpoint of the st
 To access the endpoint name for the route-specific endpoint you’ve configured:
 
 1.	Under **Settings** in the left navigation pane, select **Properties**.
-2.	The **Microsoft network routing** endpoint is shown for each service that supports routing preferences.
 
     > [!div class="mx-imgBorder"]
     > ![properties](./media/configure-network-routing-preference/properties.png)
+
+2.	The **Microsoft network routing** endpoint is shown for each service that supports routing preferences.
+
+    > [!div class="mx-imgBorder"]
+    > ![properties](./media/configure-network-routing-preference/routing-url.png)
 
 
 ## See also
