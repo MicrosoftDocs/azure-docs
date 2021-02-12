@@ -2,13 +2,13 @@
 title: How to deploy the Form Recognizer sample labeling tool
 titleSuffix: Azure Cognitive Services
 description: Learn the different ways you can deploy the Form Recognizer sample labeling tool to help with supervised learning.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 04/14/2020
-ms.author: pafarley
+ms.date: 02/11/2021
+ms.author: lajanuar
 ---
 
 # Deploy the sample labeling tool
@@ -27,7 +27,7 @@ The fastest way to start labeling data is to run the sample labeling tool locall
 
 ## Deploy with Azure Container Instances (ACI)
 
-Before we get started, it's important to note that there are two ways to deploy the sample labeling tool to an Azure Container Instance (ACI). Both options are used to run the sample labeling tool with ACI: 
+Before we get started, it's important to note that there are two ways to deploy the sample labeling tool to an Azure Container Instance (ACI). Both options are used to run the sample labeling tool with ACI:
 
 * [Using the Azure portal](#azure-portal)
 * [Using the Azure CLI](#azure-cli)
@@ -37,13 +37,13 @@ Before we get started, it's important to note that there are two ways to deploy 
 Follow these steps to create a new resource using the Azure portal: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/signin/index/).
-2. Select **Create a resource**. 
-3. Next, select **Web App**. 
+2. Select **Create a resource**.
+3. Next, select **Web App**.
 
    > [!div class="mx-imgBorder"]
    > ![Select web app](./media/quickstarts/create-web-app.png)
-   
-4. First, make sure that the **Basics** tab is selected. Now, you're going to need to provide some information: 
+
+4. First, make sure that the **Basics** tab is selected. Now, you're going to need to provide some information:
 
    > [!div class="mx-imgBorder"]
    > ![Select Basics](./media/quickstarts/select-basics.png)
@@ -65,7 +65,7 @@ Follow these steps to create a new resource using the Azure portal:
 
 6. Now let's configure your Docker container. All fields are required unless otherwise noted:
 
-    # [v2.0](#tab/v2-0)  
+    # [v2.0](#tab/v2-0)
 
    * Options - Select **Single Container**
    * Image Source - Select **Private Registry** 
