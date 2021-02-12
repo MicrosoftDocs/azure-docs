@@ -1,11 +1,11 @@
 ---
 title: Understand Device Update for IoT Hub authentication and authorization | Microsoft Docs
 description: Understand how Device Update for IoT Hub utilizes Azure RBAC to provide authentication and authorization for users and service APIs.
-author: philmea
-ms.author: philmea
-ms.date: 1/11/2021
+author: vimeht
+ms.author: vimeht
+ms.date: 2/11/2021
 ms.topic: conceptual
-ms.service: iot-hub
+ms.service: iot-hub-device-update
 ---
 
 # Azure Role-based access control (RBAC) and Device Update
@@ -27,14 +27,6 @@ In order for other users and applications to have access to Device Update, users
 
 A combination of roles can be used to provide the right level of access, for example a developer can import and manage updates using the Device Update Content Administrator role, but can view the progress of an update using the Device Update Deployments Reader role. Conversely, a solution operator can have the Device Update Reader role to view all updates, but can use the Device Update Deployments Administrator role to deploy a specific update to devices.
 
-### To set the Access Control Policy
-
-1. Go to Access control (IAM)
-2. Select "Add" within "Add a role assignment"
-3. For "Select a Role", select "Device Update Administrator"
-4. Assign access to a user or Azure AD group
-5. Select Save
-6. You can now go to IoT Hub and go to Device Update
 
 ## Authenticate to Device Update REST APIs for Publishing and Management
 
@@ -49,3 +41,4 @@ To integrate an application or service with Azure AD, [first register](https://d
   * Delegated permissions: 'user_impersonation'
   * **Optional**, grant admin consent
 
+[Next steps: Create device update resources and configure access control roles](./create-device-update-account.md)
