@@ -132,6 +132,8 @@ New-AzResourceGroupDeployment `
   -QueryString $newSas `
   -projectName $projectName `
   -verbose
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -152,7 +154,7 @@ sasToken=$(az storage container generate-sas \
   --name $containerName \
   --permissions r \
   --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'`) &&
-sasToken=$(echo $linkedTemplateUri | sed 's/"//g')&&
+sasToken=$(echo $sasToken | sed 's/"//g')&&
 
 blobUri=$(az storage account show -n $storageAccountName -g $resourceGroupName -o tsv --query primaryEndpoints.blob) &&
 templateUri="${blobUri}${containerName}/azuredeploy.json" &&
