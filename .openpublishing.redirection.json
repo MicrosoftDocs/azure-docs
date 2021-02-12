@@ -7802,13 +7802,23 @@
     },
     {
       "source_path_from_root": "/articles/log-analytics/query-language/splunk-cheatsheet.md",
-      "redirect_url": "/azure/azure-monitor/log-query/splunk-cheatsheet",
-      "redirect_document_id": true
+      "redirect_url": "/azure/data-explorer/kusto/query/splunk-cheat-sheet",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/log-analytics/query-language/sql-cheatsheet.md",
-      "redirect_url": "/azure/azure-monitor/log-query/sql-cheatsheet",
-      "redirect_document_id": true
+      "redirect_url": "/azure/data-explorer/kusto/query/sqlcheatsheet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/splunk-cheatsheet.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/splunk-cheat-sheet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/log-query/sql-cheatsheet.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/sqlcheatsheet",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/log-analytics/query-language/string-operations.md",
