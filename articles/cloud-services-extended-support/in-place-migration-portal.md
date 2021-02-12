@@ -19,9 +19,9 @@ This article shows show you how to use the Azure portal to migrate from [Cloud S
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Before you begin
-Before starting the migration, reve
 
-### Ensure you are an administrator for the subscription
+**Ensure you are an administrator for the subscription.**
+
 To perform this migration, you must be added as a coadministrator for the subscription in the [Azure portal](https://portal.azure.com).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -30,7 +30,8 @@ To perform this migration, you must be added as a coadministrator for the subscr
 
 If you're not able to add a co-administrator, contact a service administrator or co-administrator for the subscription to get yourself added.
 
-### Sign up for Migration
+**Sign up for Migration resource provider**
+
 1. Register with the migration resource provider using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). 
 1. Wait five minutes for the registration to complete then check the status of the approval. 
 
