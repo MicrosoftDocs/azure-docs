@@ -25,25 +25,25 @@ But the real power of workbooks is the ability to combine data from disparate so
 
 Workbooks are currently compatible with the following data sources:
 
-* [Logs](../visualizations/workbooks-data-sources.md#logs)
-* [Metrics](../visualizations/workbooks-data-sources.md#metrics)
-* [Azure Resource Graph](../visualizations/workbooks-data-sources.md#azure-resource-graph)
-* [Alerts (Preview)](../visualizations/workbooks-data-sources.md#alerts-preview)
-* [Workload Health](../visualizations/workbooks-data-sources.md#workload-health)
-* [Azure Resource Health](../visualizations/workbooks-data-sources.md#azure-resource-health)
-* [Azure Data Explorer](../visualizations/workbooks-data-sources.md#azure-data-explorer)
+* [Logs](../visualize/workbooks-data-sources.md#logs)
+* [Metrics](../visualize/workbooks-data-sources.md#metrics)
+* [Azure Resource Graph](../visualize/workbooks-data-sources.md#azure-resource-graph)
+* [Alerts (Preview)](../visualize/workbooks-data-sources.md#alerts-preview)
+* [Workload Health](../visualize/workbooks-data-sources.md#workload-health)
+* [Azure Resource Health](../visualize/workbooks-data-sources.md#azure-resource-health)
+* [Azure Data Explorer](../visualize/workbooks-data-sources.md#azure-data-explorer)
 
 ## Visualizations
 
 Workbooks provide a rich set of capabilities for visualizing your data. For detailed examples of each visualization type you can consult the example links below:
 
-* [Text](../visualizations/workbooks-text-visualizations.md)
-* [Charts](../visualizations/workbooks-chart-visualizations.md)
-* [Grids](../visualizations/workbooks-grid-visualizations.md)
-* [Tiles](../visualizations/workbooks-tile-visualizations.md)
-* [Trees](../visualizations/workbooks-tree-visualizations.md)
-* [Graphs](../visualizations/workbooks-graph-visualizations.md)
-* [Composite bar](../visualizations/workbooks-composite-bar.md)
+* [Text](../visualize/workbooks-text-visualizations.md)
+* [Charts](../visualize/workbooks-chart-visualizations.md)
+* [Grids](../visualize/workbooks-grid-visualizations.md)
+* [Tiles](../visualize/workbooks-tile-visualizations.md)
+* [Trees](../visualize/workbooks-tree-visualizations.md)
+* [Graphs](../visualize/workbooks-graph-visualizations.md)
+* [Composite bar](../visualize/workbooks-composite-bar.md)
 
 ![Example workbook visualizations](./media/workbooks-overview/visualizations.png)
 
@@ -67,7 +67,7 @@ You can see a _workbook_ in green and a number of _workbook templates_ in purple
 
 You can adjust the template-based workbook's parameters and perform analysis without fear of breaking the future reporting experience for colleagues. If you open a template, make some adjustments, and then select the save icon you will be saving the template as a workbook which would then show in green leaving the original template untouched. 
 
-Under the hood, templates also differ from saved workbooks. Saving a workbook creates an associated Azure Resource Manager resource, whereas the transient workbook created when just opening a template has no unique resource associated with it. To learn more about how access control is managed in workbooks consult the [workbooks access control article](../visualizations/workbooks-access-control.md).
+Under the hood, templates also differ from saved workbooks. Saving a workbook creates an associated Azure Resource Manager resource, whereas the transient workbook created when just opening a template has no unique resource associated with it. To learn more about how access control is managed in workbooks consult the [workbooks access control article](../visualize/workbooks-access-control.md).
 
 ### Exploring a workbook template
 
@@ -93,7 +93,7 @@ If we select the edit button immediately under the grid of request data we can s
 
 ![Screenshot of underlying Kusto query](./media/workbooks-overview/kusto.png)
 
-Clicking the other **Edit** buttons on the right will reveal a number of the core components that make up workbooks like markdown-based [text boxes](../visualizations/workbooks-text-visualizations.md), [parameter selection](../visualizations/workbooks-parameters.md) UI elements, and other [chart/visualization types](#visualizations). 
+Clicking the other **Edit** buttons on the right will reveal a number of the core components that make up workbooks like markdown-based [text boxes](../visualize/workbooks-text-visualizations.md), [parameter selection](../visualize/workbooks-parameters.md) UI elements, and other [chart/visualization types](#visualizations). 
 
 Exploring the pre-built templates in edit-mode and then modifying them to fit your needs and save your own custom workbook is an excellent way to start to learn about what is possible with Azure Monitor workbooks.
 
@@ -126,4 +126,4 @@ Once you start creating your own workbook templates you might want to share it w
 ## Next step
 
 * [Get started](#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](../visualizations/workbooks-access-control.md) and share access to your workbook resources.
+* [Control](../visualize/workbooks-access-control.md) and share access to your workbook resources.

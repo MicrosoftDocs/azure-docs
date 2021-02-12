@@ -146,8 +146,8 @@ The map visualization below shows users for each latitude and longitude location
 | `Metric Value` | This field specifies metric value to be shown below the map. |
 | `Create 'Others' group after` | This field specifies the limit before an "Others" group is created. |
 | `Aggregate 'Others' metrics by` | This field specifies the aggregation used for "Others" group if it is shown. |
-| `Custom formatting` | Use this field to  set units, style, and formatting options for number values. This is same as [grid's custom formatting](../visualizations/workbooks-grid-visualizations.md#custom-formatting).|
+| `Custom formatting` | Use this field to  set units, style, and formatting options for number values. This is same as [grid's custom formatting](../visualize/workbooks-grid-visualizations.md#custom-formatting).|
 
 ## Next steps
 
-- Learn how to create [honey comb visualizations in workbooks](../visualizations/workbooks-honey-comb.md).
+- Learn how to create [honey comb visualizations in workbooks](../visualize/workbooks-honey-comb.md).

@@ -14,7 +14,7 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-Workbooks can be complex, so a typical strategy is to create the workbook in the Azure portal and then generate a Resource Manager template. See details of this method in [Azure Resource Manager template for deploying workbooks](../visualizations/workbooks-automate.md).
+Workbooks can be complex, so a typical strategy is to create the workbook in the Azure portal and then generate a Resource Manager template. See details of this method in [Azure Resource Manager template for deploying workbooks](../visualize/workbooks-automate.md).
 
 ## Create a workbook
 The following sample creates a simple workbook.
@@ -105,4 +105,4 @@ The following sample creates a simple workbook.
 ## Next steps
 
 * [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
-* [Learn more about action groups](../visualizations/workbooks-overview.md).
+* [Learn more about action groups](../visualize/workbooks-overview.md).

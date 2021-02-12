@@ -48,4 +48,4 @@ There are times when you may have a query or some business logic that you want t
 ## Next steps
 
 - Learn how to create a [Map](workbooks-map-visualizations.md) visualization in workbooks.
-- Learn how to use [groups in workbooks](../visualizations/workbooks-groups.md).
+- Learn how to use [groups in workbooks](../visualize/workbooks-groups.md).

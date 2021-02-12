@@ -147,7 +147,7 @@ The solution includes other useful queries that can help you manage your ESXi ho
 
 
 #### Save queries
-Saving log queries is a standard feature in Azure Monitor and can help you keep any queries that you’ve found useful. After you create a query that you find useful, save it by clicking the **Favorites**. A saved query lets you easily reuse it later from the [My Dashboard](../visualizations/tutorial-logs-dashboards.md) page where you can create your own custom dashboards.
+Saving log queries is a standard feature in Azure Monitor and can help you keep any queries that you’ve found useful. After you create a query that you find useful, save it by clicking the **Favorites**. A saved query lets you easily reuse it later from the [My Dashboard](../visualize/tutorial-logs-dashboards.md) page where you can create your own custom dashboards.
 
 ![Screenshot shows part of a custom dashboard labeled Log Search with icons for Undo, Export, Alert, Save, Favorites, and History.](./media/vmware/dockerdashboardview.png)
 
@@ -194,6 +194,6 @@ There can be multiple reasons:
 
 ## Next steps
 * Use [log queries](../logs/log-query-overview.md) in Log Analytics to view detailed VMware host data.
-* [Create your own dashboards](../visualizations/tutorial-logs-dashboards.md) showing VMware host data.
+* [Create your own dashboards](../visualize/tutorial-logs-dashboards.md) showing VMware host data.
 * [Create alerts](../alerts/alerts-overview.md) when specific VMware host events occur.
 

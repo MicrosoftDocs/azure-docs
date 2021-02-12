@@ -43,13 +43,13 @@ including device platform, device state, client app, sign-in risk, location, and
 reports how many users were granted or denied access, as well as how many users bypassed 
 Conditional Access policies when accessing resources.
 
-- To help you to address these questions, Azure Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](../../azure-monitor/visualizations/workbooks-overview.md) combine text, analytics queries, metrics, and parameters into rich interactive reports.
+- To help you to address these questions, Azure Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md) combine text, analytics queries, metrics, and parameters into rich interactive reports.
 
 
 
 This article:
 
-- Assumes you're familiar with how to [Create interactive reports by using Monitor workbooks](../../azure-monitor/visualizations/workbooks-overview.md).
+- Assumes you're familiar with how to [Create interactive reports by using Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 
 - Explains how to use Monitor workbooks to understand the effect of your Conditional Access policies, to troubleshoot sign-in failures, and to identify legacy authentications.
  
@@ -300,4 +300,4 @@ To help you troubleshoot sign-ins, Azure Monitor gives you a breakdown by the fo
 
 ## Next steps
 
-[Create interactive reports by using Monitor workbooks](../../azure-monitor/visualizations/workbooks-overview.md).
+[Create interactive reports by using Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).

@@ -72,7 +72,7 @@ Azure services actually require Azure Monitor to collect telemetry, and it's ena
 [![Insight example](media/azure-monitor-operations-manager/insight.png)](media/azure-monitor-operations-manager/insight.png#lightbox)
 
 
-Insights are based on [workbooks](visualizations/workbooks-overview.md) in Azure Monitor, which combine metrics and log queries into rich interactive reports. Create your own workbooks to combine data from multiple services similar to how you might create custom views and reports in the Operations console.
+Insights are based on [workbooks](visualize/workbooks-overview.md) in Azure Monitor, which combine metrics and log queries into rich interactive reports. Create your own workbooks to combine data from multiple services similar to how you might create custom views and reports in the Operations console.
 
 ### Azure management pack
 The [Azure management pack](https://www.microsoft.com/download/details.aspx?id=50013) allows Operations Manager to discover Azure resources and monitor their health based on a particular set of monitoring scenarios. This management pack does require you to perform additional configuration for each resource in Azure, but it may be helpful to provide some visibility of your Azure resources in the Operations Console until you evolve your business processes to focus on Azure Monitor.

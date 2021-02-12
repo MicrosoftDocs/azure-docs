@@ -113,6 +113,6 @@ Azure Monitor for Resource Groups relies on the Azure Monitor Alerts Management 
 
 ## Next steps
 
-- [Azure Monitor Workbooks](../visualizations/workbooks-overview.md)
+- [Azure Monitor Workbooks](../visualize/workbooks-overview.md)
 - [Azure Resource Health](../../service-health/resource-health-overview.md)
 - [Azure Monitor Alerts](../alerts/alerts-overview.md)

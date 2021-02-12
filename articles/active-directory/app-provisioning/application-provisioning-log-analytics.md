@@ -42,7 +42,7 @@ The underlying data stream that Provisioning sends log viewers is almost identic
 
 ## Azure Monitor workbooks
 
-Azure Monitor workbooks provide a flexible canvas for data analysis. They also provide for the creation of rich visual reports within the Azure portal. To learn more, see [Azure Monitor Workbooks overview](../../azure-monitor/visualizations/workbooks-overview.md).
+Azure Monitor workbooks provide a flexible canvas for data analysis. They also provide for the creation of rich visual reports within the Azure portal. To learn more, see [Azure Monitor Workbooks overview](../../azure-monitor/visualize/workbooks-overview.md).
 
 Application provisioning comes with a set of pre-built workbooks. You can find them on the Workbooks page. To view the data, you'll need to ensure that all the filters (timeRange, jobID, appName) are populated. You'll also need to make sure you've provisioned an app, otherwise there won't be any data in the logs.
 
