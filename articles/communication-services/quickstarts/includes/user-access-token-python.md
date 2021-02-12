@@ -47,7 +47,7 @@ ms.author: tchladek
 While still in the application directory, install the Azure Communication Services Administration client library for Python package by using the `pip install` command.
 
 ```console
-pip install azure-communication-administration
+pip install azure-communication-identity
 ```
 
 ## Authenticate the client
