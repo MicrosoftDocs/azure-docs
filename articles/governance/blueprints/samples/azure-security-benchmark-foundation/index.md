@@ -30,8 +30,7 @@ with the hub virtual network. All external connectivity to the spoke virtual net
 subnet(s) is configured to route through the hub virtual network and, via firewall, gateway, and
 management jump boxes.
 
-:::image type="content" source="../../media/azure-security-benchmark-foundation/asbf-architecture.png" 
-alt-text="Azure Security Benchmark Foundation blueprint sample achitecture diagram" border="false":::
+:::image type="content" source="../../media/azure-security-benchmark-foundation/asbf-architecture.png" alt-text="Azure Security Benchmark Foundation blueprint sample achitecture diagram" border="false":::
 
 This blueprint deploys several Azure services to provide a secure, monitored, enterprise-ready
 foundation. This environment is composed of:
