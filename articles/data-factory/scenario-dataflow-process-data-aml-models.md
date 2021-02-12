@@ -100,7 +100,7 @@ Let's suppose to remove row count less than 2.
 1. Use Sink activity, in **Optimize** tab, using **Unique value per partition** to set a column as a column key for partition. 
     ![Partition Training Dataset Sink](./media/scenario-dataflow-process-data-aml-models/partition-training-dataset-sink.png)
 
-Looks back the entire pipeline logic: 
+    Let's look back the entire pipeline logic:  
     ![Look back entire Pipeline](./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png)
 
 
