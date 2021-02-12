@@ -24,35 +24,35 @@ The most up-to-date information will be maintained in the [Azure SQL Database ga
 
 # [In progress](#tab/in-progress-ip)
 ## March 2021
-The following SQL Gateways in multiple regions are in the process of being deactivated :
+The following SQL Gateways in multiple regions are in the process of being deactivated:
 
-- Brazil South : 104.41.11.5
-- East Asia : 191.234.2.139
-- East US : 191.238.6.43
-- Japan East : 191.237.240.43
-- Japan West : 191.238.68.11
-- North Europe : 191.235.193.75
-- South Central US : 23.98.162.75
-- Southeast Asia : 23.100.117.95
-- West Europe : 191.237.232.75
-- West US : 23.99.34.75
+- Brazil South: 104.41.11.5
+- East Asia: 191.234.2.139
+- East US: 191.238.6.43
+- Japan East: 191.237.240.43
+- Japan West: 191.238.68.11
+- North Europe: 191.235.193.75
+- South Central US: 23.98.162.75
+- Southeast Asia: 23.100.117.95
+- West Europe: 191.237.232.75
+- West US: 23.99.34.75
 
 No customer impact is anticipated since these Gateways (running on older hardware) are not routing any customer traffic. The IP addresses for these Gateways shall be deactivated on 15th March 2021.
 
 ## February 2021
 New SQL Gateways are being added to the following regions:
 
-- Central US : 13.89.169.20
+- Central US: 13.89.169.20
 
 These SQL Gateways shall start accepting customer traffic on 28 February 2021.
 
 ## January 2021
 New SQL Gateways are being added to the following regions:
 
-- Australia Central : 20.36.104.6 , 20.36.104.7 
-- Australia Central 2 :	20.36.112.6 
-- Brazil South : 191.234.144.16 ,191.234.152.3 
-- Canada East : 40.69.105.9 ,40.69.105.10
+- Australia Central: 20.36.104.6 , 20.36.104.7 
+- Australia Central 2:	20.36.112.6 
+- Brazil South: 191.234.144.16 ,191.234.152.3 
+- Canada East: 40.69.105.9 ,40.69.105.10
 - India Central : 104.211.86.30 , 104.211.86.31 
 - East Asia : 13.75.32.14 
 - France Central : 40.79.137.8, 40.79.145.12 
