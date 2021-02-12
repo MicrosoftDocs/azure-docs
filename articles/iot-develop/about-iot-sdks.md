@@ -46,7 +46,7 @@ Whenever possible, select an SDK that feels familiar to your development team. A
 
 We recommend that you start by exploring the Github repositories of our Device SDKs. You can also try a [quickstart](quickstart-send-telemetry-python.md) that will have you using an SDK to send telemetry to Azure IoT in minutes.
 
-If your device is constrained, we recommend you use the [Embedded C SDK](#embedded-c-sdk), or, if your device runs on Azure RTOS, you can develop with the [Azure RTOS middleware](#azure-rtos-middleware). If your device is not constrained, then you can [choose an SDK](#unconstrained-device-sdks) in a language of your choice. To learn more about the types of devices, see the [overview of Azure IoT device types](concepts-iot-device-types.md).
+If your device is constrained, we recommend you use the [Embedded C SDK](#embedded-c-sdk), or, if your device runs on Azure RTOS, you can develop with the [Azure RTOS middleware](#azure-rtos-middleware). If your device is not constrained, then you can [choose an SDK](#unconstrained-device-sdks) in a language of your choice. 
 
 ### Constrained Device SDKs
 
