@@ -55,7 +55,7 @@ Azure Cache for Redis supports zone redundant configurations in the Premium and 
 
 The following diagram illustrates the zone redundant configuration for the Premium tier:
 
-:::image type="content" source="media/cach+e-high-availability/zone-redundancy.png" alt-text="Zone redundancy setup":::
+:::image type="content" source="media/cache-high-availability/zone-redundancy.png" alt-text="Zone redundancy setup":::
    
 Azure Cache for Redis distributes nodes in a zone redundant cache in a round-robin manner over the AZs you've selected. It also determines which node will serve as the primary initially.
 
@@ -89,7 +89,7 @@ Geo-replication doesn't provide automatic failover due to concerns over added ne
 >
 >
 
-The Enterprise tiers support a more advanced form of geo-replication, called [active geo-replication]((cache-how-to-active-geo-replication.md)). Leveraging conflict-free replicated data types, the Redis Enterprise software supports writes to multiple cache instances and takes care of merging of changes and resolving conflicts if necessary. Two or more Enterprise tier cache instances in different Azure regions can be joined to form an active geo-replicated cache. An application using such a cache can read and write to the geo-distributed cache instances through corresponding endpoints. It should use what is the closest to each compute instance, which gives the lowest latency. The application also needs to monitor the cache instances and switch to another region if one of the instances becomes unavailable. For more information on how active geo-replication works, see [Active-Active Geo-Distriubtion (CRDTs-Based)](https://redislabs.com/redis-enterprise/technology/active-active-geo-distribution/).
+The Enterprise tiers support a more advanced form of geo-replication, called [active geo-replication](cache-how-to-active-geo-replication.md). Leveraging conflict-free replicated data types, the Redis Enterprise software supports writes to multiple cache instances and takes care of merging of changes and resolving conflicts if necessary. Two or more Enterprise tier cache instances in different Azure regions can be joined to form an active geo-replicated cache. An application using such a cache can read and write to the geo-distributed cache instances through corresponding endpoints. It should use what is the closest to each compute instance, which gives the lowest latency. The application also needs to monitor the cache instances and switch to another region if one of the instances becomes unavailable. For more information on how active geo-replication works, see [Active-Active Geo-Distriubtion (CRDTs-Based)](https://redislabs.com/redis-enterprise/technology/active-active-geo-distribution/).
 
 ## Next steps
 
