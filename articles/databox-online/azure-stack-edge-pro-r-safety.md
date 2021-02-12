@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 02/12/2021
 ms.author: alkohli
 ---
 
@@ -221,7 +221,7 @@ United States: (800) 426-9400
 Canada: (800) 933-4750
 
 EUROPEAN UNION:
-Request a copy of the EU Declaration of Conformity. 
+Request a copy of the EU Declaration of Conformity. Send email to [CSI_Compliance@microsoft.com](mailto=CSI_Compliance@microsoft.com).
 
 ![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
 

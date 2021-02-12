@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 02/12/2021
 ms.author: alkohli
 ---
 
@@ -201,7 +201,7 @@ A table with the Specific Absorption Rate (SAR) averaged over 1 g for each produ
 
 #### EUROPEAN UNION:
 
-Request a copy of the EU Declaration of Conformity for this equipment.
+Request a copy of the EU Declaration of Conformity for this equipment. Send email to [CSI_Compliance@microsoft.com](mailto=CSI_Compliance@microsoft.com).
 
 The  Netgear A6150 WiFi USB Adapter provided with this equipment is in compliance with Directive 2014/53/EU and can also be provided on request.
 
