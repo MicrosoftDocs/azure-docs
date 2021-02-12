@@ -2,7 +2,7 @@
 title: Variables in templates
 description: Describes how to define variables in an Azure Resource Manager template (ARM template) and Bicep file.
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 02/12/2021
 ---
 
 # Variables in ARM templates
@@ -13,19 +13,63 @@ Resource Manager resolves variables before starting the deployment operations. W
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
-## Allowed usage
+## Define variable
+
+When defining a variable, you don't specify a [data type](template-syntax.md#data-types) for the variable. Instead provide a value or template expression. The variable type is inferred from the resolved value. The following example sets a variable to a string.
+
+# [JSON](#tab/json)
+
+```json
+"variables": {
+  "stringVar": "example value"
+},
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+var stringVar = 'example value'
+```
+
+---
 
 You can use the value from a parameter or another variable when constructing the variable.
+
+# [JSON](#tab/json)
+
+```json
+"parameters": {
+  "inputValue": {
+    "defaultValue": "deployment parameter",
+    "type": "string"
+  }
+},
+"variables": {
+  "stringVar": "myVariable",
+  "concatToVar": "[concat(variables('stringVar'), '-addtovar') ]",
+  "concatToParam": "[concat(parameters('inputValue'), '-addtoparam')]"
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param inputValue string = 'deployment parameter'
+
+var stringVar = 'myVariable'
+var concatToVar =  '${stringVar}-addtovar'
+var concatToParam = '${inputValue}-addtoparam'
+```
+
+---
+
+You can use [template functions](template-functions.md) to construct the variable value.
 
 In JSON templates, you can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions in the variable declaration. These functions get the runtime state of a resource, and can't be executed before deployment when variables are resolved.
 
 The reference and list functions are valid when declaring a variable in a Bicep file.
 
-## Define variable
-
-When defining a variable, you don't specify a [data type](template-syntax.md#data-types) for the variable. Instead provide a value or template expression that resolves to a data type. The variable type is inferred from the value.
-
-The following example shows a variable definition. It creates a string value for a storage account name. It uses several template functions to get a parameter value, and concatenates it to a unique string.
+The following example creates a string value for a storage account name. It uses several template functions to get a parameter value, and concatenates it to a unique string.
 
 # [JSON](#tab/json)
 
