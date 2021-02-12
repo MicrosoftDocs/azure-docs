@@ -1,15 +1,9 @@
 ### YamlMime:FAQ
 metadata:
   title: Developer portal self-hosting FAQ
-  titleSuffix: Azure API Management
   description: Learn about questions that are frequently asked by people deploying the self-hosted version of the developer portal.
-  author: erikadoyle
-  ms.author: apimpm
-  ms.date: 02/11/2021
-  ms.service: api-management
-  ms.topic: how-to
     
-title: Self-hosting FAQ
+title: Common questions about self-hosting the developer portal
 summary: |
   This article addresses frequently asked questions about the self-hosted version of the developer portal.
   

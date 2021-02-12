@@ -197,8 +197,8 @@
                     href: dev-portal-alternative-processes-self-hosted-portal.md
                   - name: Architectural concepts
                     href: dev-portal-architectural-concepts.md
-                  - name: FAQ
-                    href: dev-portal-faq.md
+                  - name: Self-hosted FAQ
+                    href: dev-portal-faq.yml
                   - name: Single Sign-On (SSO) authentication
                     href: dev-portal-sso-authentication.md
                   - name: Configuring OAuth 2.0
