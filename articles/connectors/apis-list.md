@@ -467,7 +467,7 @@ If your organization doesn't permit connecting to specific resources by using th
 
 ## Known issues
 
-### Error: BadGateway. Client request id: '<GUID>'
+#### Error: BadGateway. Client request id: '{GUID}'
 
 This error results from updating the tags on a logic app where one or more connections don't support Azure Active Directory (Azure AD) OAuth authentication, such as SFTP ad SQL, breaking those connections. To prevent this behavior, avoid updating those tags.
 
