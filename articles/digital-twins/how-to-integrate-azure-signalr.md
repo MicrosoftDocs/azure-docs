@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 In this article, you'll learn how to integrate Azure Digital Twins with [Azure SignalR Service](../azure-signalr/signalr-overview.md).
 
-The solution described in this article allows you to push digital twin telemetry data to the connected clients, such as a single webpage or a mobile application. As a result, clients are updated with real-time metrics and status from IoT devices, without the need to poll the server or submit new HTTP requests for updates.
+The solution described in this article allows you to push digital twin telemetry data to connected clients, such as a single webpage or a mobile application. As a result, clients are updated with real-time metrics and status from IoT devices, without the need to poll the server or submit new HTTP requests for updates.
 
 ## Prerequisites
 
@@ -30,15 +30,15 @@ Here are the prerequisites you should complete before proceeding:
 * You'll need the following values from the tutorial:
   - Event grid topic
   - Resource group
-  - App service function app name
+  - App service/function app name
     
 * You'll need [**Node.js**](https://nodejs.org/) installed on your machine.
 
-You can also go ahead and sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
+You should also go ahead and sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
 ## Solution architecture
 
-You'll be attaching Azure SignalR service to Azure Digital Twins through the path below. Sections A, B, and C in the diagram are taken from the architecture diagram of the [end-to-end tutorial prerequisite](tutorial-end-to-end.md). In this how-to article, you will build section D on the existing architecture.
+You'll be attaching Azure SignalR Service to Azure Digital Twins through the path below. Sections A, B, and C in the diagram are taken from the architecture diagram of the [end-to-end tutorial prerequisite](tutorial-end-to-end.md). In this how-to article, you will build section D on the existing architecture.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="A view of Azure services in an end-to-end scenario. Depicts data flowing from a device into IoT Hub, through an Azure function (arrow B) to an Azure Digital Twins instance (section A), then out through Event Grid to another Azure function for processing (arrow C). Section D shows data flowing from the same Event Grid in arrow C out to an Azure Function labeled 'broadcast'. 'broadcast' communicates with another Azure function labeled 'negotiate', and both 'broadcast' and 'negotiate' communicate with computer devices." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
 
@@ -58,13 +58,13 @@ First, download the required sample apps. You will need both of the following:
 
 Leave the browser window open to the Azure portal, as you'll use it again in the next section.
 
-## Configure and run the Azure Functions app
+## Publish and configure the Azure Functions app
 
 In this section, you will set up two Azure functions:
 * **negotiate** - A HTTP trigger function. It uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
 * **broadcast** - An [Event Grid](../event-grid/overview.md) trigger function. It receives Azure Digital Twins telemetry data through the event grid, and uses the output binding of the *SignalR* instance you created in the previous step to broadcast the message to all connected client applications.
 
-Now, start Visual Studio (or another code editor of your choice), and open the code solution in the *digital-twins-samples-master > ADTSampleApp* folder. Then do the following steps to create the functions:
+Start Visual Studio (or another code editor of your choice), and open the code solution in the *digital-twins-samples-master > ADTSampleApp* folder. Then do the following steps to create the functions:
 
 1. In the *SampleFunctionsApp* project, create a new C# class called **SignalRFunctions.cs**.
 
@@ -79,30 +79,29 @@ Now, start Visual Studio (or another code editor of your choice), and open the c
 
     This should resolve any dependency issues in the class.
 
-Next, publish your function to Azure, using the steps described in the [*Publish the app* section](tutorial-end-to-end.md#publish-the-app) of the *Connect an end-to-end solution* tutorial. You can publish it to the same app service/function app that you used in the end-to-end tutorial [prerequisite](#prerequisites), or create a new one—but you may want to use the same one to minimize duplication. 
+1. Publish your function to Azure, using the steps described in the [*Publish the app* section](tutorial-end-to-end.md#publish-the-app) of the *Connect an end-to-end solution* tutorial. You can publish it to the same app service/function app that you used in the end-to-end tutorial [prerequisite](#prerequisites), or create a new one—but you may want to use the same one to minimize duplication. 
 
-Now, go to the browser where the Azure portal is opened, and complete the following steps to get the **connection string** for the SignalR instance you've set up. You will need it to configure the functions.
-1. Confirm the SignalR Service instance you deployed earlier was successfully created. You can do this by searching for its name in the search box at the top of the portal. Select the instance to open it.
+Next, configure the functions to communicate with your Azure SignalR instance. You'll start by gathering the SignalR instance's **connection string**, and then add it to the functions app's settings.
 
+1. Go to the [Azure portal](https://portal.azure.com/) and search for the name of your SignalR instance in the search bar at the top of the portal. Select the instance to open it.
 1. Select **Keys** from the instance menu to view the connection strings for the SignalR service instance.
-
-1. Select the *copy icon* to copy the primary connection string.
+1. Select the *Copy* icon to copy the primary connection string.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Screenshot of the Azure portal that shows the Keys page for the SignalR instance. The 'Copy to clipboard' icon next to the Primary CONNECTION STRING is highlighted." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-1. Finally, add your Azure SignalR **connection string** from earlier to the function's app settings, using the following Azure CLI command. Also, replace the placeholders with your resource group and app service function app values from the [tutorial](tutorial-end-to-end.md).The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
+1. Finally, add your Azure SignalR **connection string** to the function's app settings, using the following Azure CLI command. Also, replace the placeholders with your resource group and app service/function app name from the [tutorial prerequisite](how-to-integrate-azure-signalr.md#Prerequisites).The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
  
     ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
     ```
 
-    The output of this command prints all the app settings set up for your Azure function. Look for `AzureSignalRConnectionString` at the bottom of the list to verify it is added.
+    The output of this command prints all the app settings set up for your Azure function. Look for `AzureSignalRConnectionString` at the bottom of the list to verify it's been added.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="Excerpt of output in a command window, showing a list item called 'AzureSignalRConnectionString'":::
 
 #### Connect the function to Event Grid
 
-Subscribe the *broadcast* Azure function to the **event grid topic** you created during the [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md) prerequisites. This will allow telemetry data to flow from the thermostat67 twin through the event grid topic and to the function. From here, the function can broadcast the data to all the clients.
+Next, subscribe the *broadcast* Azure function to the **event grid topic** you created during the [tutorial prerequisite](how-to-integrate-azure-signalr.md#Prerequisites). This will allow telemetry data to flow from the thermostat67 twin through the event grid topic and to the function. From here, the function can broadcast the data to all the clients.
 
 To do this, you'll create an **Event subscription** from your event grid topic to your *broadcast* Azure function as an endpoint.
 
@@ -131,19 +130,21 @@ In this section, you will see the result in action. First, configure the **sampl
 
 ### Configure the sample client web app
 
-Collect the *negotiate* function's **HTTP endpoint URL**. To do this, go to the Azure portal's [Function apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) page and select your function app from the list. In the app menu, select *Functions* and choose the *negotiate* function.
+Next, you'll configure the sample client web app. Start by gathering the **HTTP endpoint URL** of the *negotiate* function. 
+
+1. Go to the Azure portal's [Function apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) page and select your function app from the list. In the app menu, select *Functions* and choose the *negotiate* function.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Azure portal view of the function app, with 'Functions' highlighted in the menu. The list of functions is shown on the page, and the 'negotiate' function is also highlighted.":::
 
-Hit *Get function URL* and copy the value **up through _/api_ (don't include the last _/negotiate?_)**. You will use this later.
+1. Hit *Get function URL* and copy the value **up through _/api_ (don't include the last _/negotiate?_)**. You will use this later.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure portal view of the 'negotiate' function. The 'Get function URL' button is highlighted, and the portion of the URL from the beginning through '/api'":::
 
-Next, set up the **SignalR integration web app sample** with these steps:
+1. Next, set up the **SignalR integration web app sample** with these steps:
 
 1. Using Visual Studio or any code editor of your choice, open the unzipped _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ folder that you downloaded in the [*Download the sample applications*](#download-the-sample-applications) section.
 
-1. Open the *src/App.js* file, and replace the Function URL in `HubConnectionBuilder` with the HTTP endpoint URL of the **negotiate** function that you saved earlier:
+1. Open the *src/App.js* file, and replace the function URL in `HubConnectionBuilder` with the HTTP endpoint URL of the **negotiate** function that you saved earlier:
 
     ```javascript
         const hubConnection = new HubConnectionBuilder()
