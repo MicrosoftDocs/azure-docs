@@ -22,3 +22,5 @@ will have access to Device Update.
 After an account has been created, a Device Update instance must be created. An instance is a logical container that contains
 updates and deployments associated with a specific IoT hub. Device Update uses IoT hub as a device directory, and a communication channel with devices. 
 A single Device update account can be created per subscription, and two device update instances can be created with an account.
+
+[Next steps: Create device update resources](./create-device-update-account.md)
