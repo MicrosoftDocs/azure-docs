@@ -46,7 +46,7 @@
   - name: Write log queries
     href: logs/get-started-queries.md
   - name: Create a dashboard from log query
-    href: visualizations/tutorial-logs-dashboards.md
+    href: visualize/tutorial-logs-dashboards.md
   - name: Create alert from log query
     href: alerts/tutorial-response.md
   - name: Autoscale on performance and schedule
@@ -96,7 +96,7 @@
     - name: Log queries
       href: logs/resource-manager-log-queries.md
     - name: Workbooks
-      href: visualizations/resource-manager-workbooks.md
+      href: visualize/resource-manager-workbooks.md
     - name: Azure Monitor for containers
       href: containers/resource-manager-container-insights.md
     - name: Azure Monitor for VMs
@@ -436,7 +436,7 @@
       items:
       - name: Log Analytics VM Extension
         displayname: troubleshoot, troubleshooting
-        href: visualizations/vmext-troubleshoot.md
+        href: visualize/vmext-troubleshoot.md
       - name: Log Analytics Windows agent
         displayname: troubleshoot, troubleshooting
         href: agents/agent-windows-troubleshoot.md
@@ -1190,95 +1190,95 @@
     items:
     - name: Overview
       displayname: Workbooks
-      href: visualizations/workbooks-overview.md
+      href: visualize/workbooks-overview.md
     - name: Visualizations
       items:
       - name: Text
-        href: visualizations/workbooks-text-visualizations.md
+        href: visualize/workbooks-text-visualizations.md
       - name: Chart 
-        href: visualizations/workbooks-chart-visualizations.md
+        href: visualize/workbooks-chart-visualizations.md
       - name: Grid
-        href: visualizations/workbooks-grid-visualizations.md
+        href: visualize/workbooks-grid-visualizations.md
       - name: Tile
-        href: visualizations/workbooks-tile-visualizations.md
+        href: visualize/workbooks-tile-visualizations.md
       - name: Tree
-        href: visualizations/workbooks-tree-visualizations.md
+        href: visualize/workbooks-tree-visualizations.md
       - name: Graph
-        href: visualizations/workbooks-graph-visualizations.md
+        href: visualize/workbooks-graph-visualizations.md
       - name: Map
-        href: visualizations/workbooks-map-visualizations.md
+        href: visualize/workbooks-map-visualizations.md
       - name: Honey comb
-        href: visualizations/workbooks-honey-comb.md
+        href: visualize/workbooks-honey-comb.md
       - name: Composite bar
-        href: visualizations/workbooks-composite-bar.md
+        href: visualize/workbooks-composite-bar.md
     - name: Data sources
-      href: visualizations/workbooks-data-sources.md
+      href: visualize/workbooks-data-sources.md
     - name: Parameters
       items:
       - name: Parameter summary
-        href: visualizations/workbooks-parameters.md
+        href: visualize/workbooks-parameters.md
       - name: Drop down parameters
-        href: visualizations/workbooks-dropdowns.md
+        href: visualize/workbooks-dropdowns.md
       - name: Interactive parameters
-        href: visualizations/workbooks-interactive.md
+        href: visualize/workbooks-interactive.md
       - name: Time parameters
-        href: visualizations/workbooks-time.md
+        href: visualize/workbooks-time.md
       - name: Text parameters
-        href: visualizations/workbooks-text.md
+        href: visualize/workbooks-text.md
       - name: Resource parameters
-        href: visualizations/workbooks-resources.md
+        href: visualize/workbooks-resources.md
     - name: Configuration
       items:
       - name: Access control
-        href: visualizations/workbooks-access-control.md
+        href: visualize/workbooks-access-control.md
       - name: Deploy with Azure Resource Manager
-        href: visualizations/workbooks-automate.md
+        href: visualize/workbooks-automate.md
       - name: Groups
-        href: visualizations/workbooks-groups.md
+        href: visualize/workbooks-groups.md
       - name: Bring your own storage
-        href: visualizations/workbooks-bring-your-own-storage.md
+        href: visualize/workbooks-bring-your-own-storage.md
       - name: Transform JSON data with JSONPath
-        href: visualizations/workbooks-jsonpath.md
+        href: visualize/workbooks-jsonpath.md
       - name: Move Workbooks to another region
-        href: visualizations/workbooks-move-region.md
+        href: visualize/workbooks-move-region.md
       - name: Move Workbook Templates to another region
-        href: visualizations/workbook-templates-move-region.md
+        href: visualize/workbook-templates-move-region.md
     - name: Links
       items:
       - name: Link actions
-        href: visualizations/workbooks-link-actions.md
+        href: visualize/workbooks-link-actions.md
     - name: Convert views to workbooks
       items:
       - name: Conversion overview
-        href: visualizations/view-designer-conversion-overview.md
+        href: visualize/view-designer-conversion-overview.md
       - name: Conversion options
-        href: visualizations/view-designer-conversion-options.md
+        href: visualize/view-designer-conversion-options.md
       - name: Overview and access
-        href: visualizations/view-designer-conversion-access.md
+        href: visualize/view-designer-conversion-access.md
       - name: Common tasks
-        href: visualizations/view-designer-conversion-tasks.md
+        href: visualize/view-designer-conversion-tasks.md
       - name: Tile conversions
-        href: visualizations/view-designer-conversion-tiles.md
+        href: visualize/view-designer-conversion-tiles.md
       - name: Examples
-        href: visualizations/view-designer-conversion-examples.md
+        href: visualize/view-designer-conversion-examples.md
   - name: Other visualizations
     items:
     - name: Power BI
       items:
       - name: Export log data
-        href: visualizations/powerbi.md
+        href: visualize/powerbi.md
       - name: Export application data
         href: app/export-power-bi.md 
     - name: Dashboards
       items:
       - name: Dashboard using log data
-        href: visualizations/tutorial-logs-dashboards.md
+        href: visualize/tutorial-logs-dashboards.md
       - name: Dashboard using application data
         href: app/tutorial-app-dashboards.md
       - name: Upgrading Log Analytics Dashboards
         href: logs/dashboard-upgrade.md
     - name: Send data to Grafana
-      href: visualizations/grafana-plugin.md
+      href: visualize/grafana-plugin.md
   - name: System Center integration
     items:
     - name: Connect Operations Manager
@@ -1425,13 +1425,13 @@
     - name: Views
       items:
       - name: View Designer
-        href: visualizations/view-designer.md
+        href: visualize/view-designer.md
       - name: Tile reference
-        href: visualizations/view-designer-tiles.md
+        href: visualize/view-designer-tiles.md
       - name: Visualization part reference
-        href: visualizations/view-designer-parts.md
+        href: visualize/view-designer-parts.md
       - name: Filters
-        href: visualizations/view-designer-filters.md
+        href: visualize/view-designer-filters.md
 - name: Resources
   items:
   - name: Azure Roadmap

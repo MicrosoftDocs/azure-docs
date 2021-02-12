@@ -14,17 +14,17 @@ ms.author: lagayhar
 
 Workbooks allow authors to include text blocks in their workbooks. The text can be human analysis of telemetry, information to help users interpret your data, section headings, etc.
 
-[![Screenshot of Apdex table of text](./media/workbooks-text-visualizations/apdex.png)](./media/workbooks-text-visualizations/apdex.png#lightbox)
+[![Screenshot of Apdex table of text](./media/workbooks-text-visualize/apdex.png)](./media/workbooks-text-visualize/apdex.png#lightbox)
 
 Text is added through a Markdown control, which provides full formatting control. These include different heading and font styles, hyperlinks, tables, etc.
 
 Edit Mode:
 
-![Screenshot of a text step in edit mode.](./media/workbooks-text-visualizations/text-edit-mode.png)
+![Screenshot of a text step in edit mode.](./media/workbooks-text-visualize/text-edit-mode.png)
 
 Preview Mode:
 
-![Screenshot of a text step in edit mode on the preview tab.](./media/workbooks-text-visualizations/text-edit-mode-preview.png)
+![Screenshot of a text step in edit mode on the preview tab.](./media/workbooks-text-visualize/text-edit-mode-preview.png)
 
 ## Add a text control
 
@@ -55,11 +55,11 @@ Instead of picking a specific style, you may also choose a text parameter as the
 
 Info style example:
 
-![Screenshot of what the info style looks like.](./media/workbooks-text-visualizations/text-preview-info-style.png)
+![Screenshot of what the info style looks like.](./media/workbooks-text-visualize/text-preview-info-style.png)
 
 Warning style example:
 
-![Screenshot of what the warning style looks like.](./media/workbooks-text-visualizations/text-warning-style.png)
+![Screenshot of what the warning style looks like.](./media/workbooks-text-visualize/text-warning-style.png)
 
 ## Next steps
 

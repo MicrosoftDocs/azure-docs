@@ -17,7 +17,7 @@ Workbooks support visualizing arbitrary graphs based on data from logs to show t
 
 The graph below show data flowing in/out of a computer via various ports to/from external computers. It is colored by type (computer vs. port vs. external IP) and the edge sizes correspond to the amount of data flowing in-between. The underlying data comes from KQL query targeting VM connections.
 
-[![Screenshot of tile summary view](./media/workbooks-graph-visualizations/graph.png)](./media/workbooks-graph-visualizations/graph.png#lightbox)
+[![Screenshot of tile summary view](./media/workbooks-graph-visualize/graph.png)](./media/workbooks-graph-visualize/graph.png#lightbox)
 
 ## Adding a graph
 1. Switch the workbook to edit mode by clicking on the _Edit_ toolbar item.
@@ -65,7 +65,7 @@ The graph below show data flowing in/out of a computer via various ports to/from
     * _Bottom Content_- Use Column: `Kind`, Column Renderer: `Text`
 9. Select the _Save and Close_ button at the bottom of the pane.
 
-[![Screenshot of tile summary view with the above query and settings.](./media/workbooks-graph-visualizations/graph-settings.png)](./media/workbooks-graph-visualizations/graph-settings.png#lightbox)
+[![Screenshot of tile summary view with the above query and settings.](./media/workbooks-graph-visualize/graph-settings.png)](./media/workbooks-graph-visualize/graph-settings.png#lightbox)
 
 ## Graph settings
 
@@ -143,7 +143,7 @@ Graphs authors can specify what content goes to the different parts of a node: t
         * Column renderer: `Text`.
 9. Select the **Save and Close button** at the bottom of the pane.
 
-[![Screenshot showing the creation of a graph visualization with field base node coloring.](./media/workbooks-graph-visualizations/graph-field-based.png)](./media/workbooks-graph-visualizations/graph-field-based.png#lightbox)
+[![Screenshot showing the creation of a graph visualization with field base node coloring.](./media/workbooks-graph-visualize/graph-field-based.png)](./media/workbooks-graph-visualize/graph-field-based.png#lightbox)
 
 ## Next steps
 

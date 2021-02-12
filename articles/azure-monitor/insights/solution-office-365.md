@@ -470,5 +470,5 @@ The following table provides sample log queries for update records collected by 
 ## Next steps
 
 * Use [log queries in Azure Monitor](../logs/log-query-overview.md) to view detailed update data.
-* [Create your own dashboards](../visualizations/tutorial-logs-dashboards.md) to display your favorite Office 365 search queries.
+* [Create your own dashboards](../visualize/tutorial-logs-dashboards.md) to display your favorite Office 365 search queries.
 * [Create alerts](../alerts/alerts-overview.md) to be proactively notified of important Office 365 activities.  

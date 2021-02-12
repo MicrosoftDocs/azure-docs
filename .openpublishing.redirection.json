@@ -62092,162 +62092,162 @@
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-access-control.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-access-control",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-access-control",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-automate.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-automate",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-automate",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-chart-visualizations.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-chart-visualizations",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-chart-visualizations",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-composite-bar.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-composite-bar",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-composite-bar",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-data-sources.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-data-sources",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-data-sources",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-dropdowns.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-dropdowns",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-dropdowns",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-graph-visualizations.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-graph-visualizations",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-graph-visualizations",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-grid-visualizations.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-grid-visualizations",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-grid-visualizations",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-groups.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-groups",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-groups",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-honey-comb.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-honey-comb",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-honey-comb",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-interactive.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-interactive",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-interactive",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-jsonpath.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-jsonpath",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-jsonpath",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-move-region.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-move-region",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-move-region",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-parameters.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-parameters",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-parameters",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-resources.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-resources",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-resources",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-text.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-text",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-text",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-text-visualizations.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-text-visualizations",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-text-visualizations",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-tile-visualizations.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-tile-visualizations",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-tile-visualizations",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-time.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-time",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-time",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-tree-visualizations.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-tree-visualizations",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-tree-visualizations",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbook-templates-move-region.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbook-templates-move-region",
+      "redirect_url": "/azure/azure-monitor/visualize/workbook-templates-move-region",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/view-designer.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/view-designer",
+      "redirect_url": "/azure/azure-monitor/visualize/view-designer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/view-designer-conversion-access.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-conversion-access",
+      "redirect_url": "/azure/azure-monitor/visualize/view-designer-conversion-access",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/view-designer-conversion-examples.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-conversion-examples",
+      "redirect_url": "/azure/azure-monitor/visualize/view-designer-conversion-examples",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/view-designer-conversion-options.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-conversion-options",
+      "redirect_url": "/azure/azure-monitor/visualize/view-designer-conversion-options",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/view-designer-conversion-overview.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-conversion-overview",
+      "redirect_url": "/azure/azure-monitor/visualize/view-designer-conversion-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/view-designer-conversion-tasks.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-conversion-tasks",
+      "redirect_url": "/azure/azure-monitor/visualize/view-designer-conversion-tasks",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/view-designer-conversion-tiles.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-conversion-tiles",
+      "redirect_url": "/azure/azure-monitor/visualize/view-designer-conversion-tiles",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/view-designer-filters.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-filters",
+      "redirect_url": "/azure/azure-monitor/visualize/view-designer-filters",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/view-designer-parts.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-parts",
+      "redirect_url": "/azure/azure-monitor/visualize/view-designer-parts",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/view-designer-tiles.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/view-designer-tiles",
+      "redirect_url": "/azure/azure-monitor/visualize/view-designer-tiles",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-overview.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-overview",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
       "redirect_document_id": false
     },
     {
@@ -63097,12 +63097,12 @@
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/powerbi.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/powerbi",
+      "redirect_url": "/azure/azure-monitor/visualize/powerbi",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/vmext-troubleshoot.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/vmext-troubleshoot",
+      "redirect_url": "/azure/azure-monitor/visualize/vmext-troubleshoot",
       "redirect_document_id": false
     },
     {
@@ -63127,7 +63127,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-monitor/samples/resource-manager-workbooks.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/resource-manager-workbooks",
+      "redirect_url": "/azure/azure-monitor/visualize/resource-manager-workbooks",
       "redirect_document_id": false
     },
     {
@@ -63172,7 +63172,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-monitor/learn/tutorial-logs-dashboards.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/tutorial-logs-dashboards",
+      "redirect_url": "/azure/azure-monitor/visualize/tutorial-logs-dashboards",
       "redirect_document_id": false
     },
     {
@@ -63247,7 +63247,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/grafana-plugin.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/grafana-plugin",
+      "redirect_url": "/azure/azure-monitor/visualize/grafana-plugin",
       "redirect_document_id": false
     },
     {
@@ -63262,17 +63262,17 @@
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-bring-your-own-storage.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-bring-your-own-storage",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-bring-your-own-storage",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-link-actions.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-link-actions",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-link-actions",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-map-visualizations.md",
-      "redirect_url": "/azure/azure-monitor/visualizations/workbooks-map-visualizations",
+      "redirect_url": "/azure/azure-monitor/visualize/workbooks-map-visualizations",
       "redirect_document_id": false
     },
     {

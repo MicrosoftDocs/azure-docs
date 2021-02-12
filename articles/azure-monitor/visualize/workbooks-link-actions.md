@@ -10,7 +10,7 @@ ms.author: lagayhar
 
 # Link actions
 
-Link actions can be accessed through Workbook link steps or through column settings of [grids](../visualizations/workbooks-grid-visualizations.md), [titles](../visualizations/workbooks-tile-visualizations.md), or [graphs](../visualizations/workbooks-graph-visualizations.md).
+Link actions can be accessed through Workbook link steps or through column settings of [grids](../visualize/workbooks-grid-visualizations.md), [titles](../visualize/workbooks-tile-visualizations.md), or [graphs](../visualize/workbooks-graph-visualizations.md).
 
 ## General link actions
 
@@ -89,7 +89,7 @@ This section configures what the users will see before they run the Azure Resour
 | Source | Explanation |
 |:------------- |:-------------|
 |`Title from` | Title used on the run view. Select from `Cell`, `Column`, `Parameter`, or `Static Value` in [link sources](#link-sources).|
-|`Description from` | This is the markdown text used to provide a helpful description to users when they want to deploy the template. Select from `Cell`, `Column`, `Parameter`, or `Static Value`  in [link sources](#link-sources). <br/><br/> **NOTE:** If `Static Value` is selected, a multi-line text box will appear. In this text box, you can resolve parameters using `{paramName}`. Also you can treat columns as parameters by appending `_column` after the column name like `{columnName_column}`. In the example image below, we can reference the column `VMName` by writing `{VMName_column}`. The value after the colon is the [parameter formatter](../visualizations/workbooks-parameters.md#parameter-options), in this case it is `value`.|
+|`Description from` | This is the markdown text used to provide a helpful description to users when they want to deploy the template. Select from `Cell`, `Column`, `Parameter`, or `Static Value`  in [link sources](#link-sources). <br/><br/> **NOTE:** If `Static Value` is selected, a multi-line text box will appear. In this text box, you can resolve parameters using `{paramName}`. Also you can treat columns as parameters by appending `_column` after the column name like `{columnName_column}`. In the example image below, we can reference the column `VMName` by writing `{VMName_column}`. The value after the colon is the [parameter formatter](../visualize/workbooks-parameters.md#parameter-options), in this case it is `value`.|
 |`Run button text from` | Label used on the run (execute) button to deploy the Azure Resource Manager template. This is what users will select to start deploying the Azure Resource Manager template.|
 
 ![Screenshot of Azure Resource Manager UX settings](./media/workbooks-link-actions/ux-settings.png)
@@ -173,5 +173,5 @@ When the workbook link is opened, the new workbook view will be passed all of th
 
 ## Next steps
 
-- [Control](../visualizations/workbooks-access-control.md) and share access to your workbook resources.
-- Learn how to use [groups in workbooks](../visualizations/workbooks-groups.md).
+- [Control](../visualize/workbooks-access-control.md) and share access to your workbook resources.
+- Learn how to use [groups in workbooks](../visualize/workbooks-groups.md).

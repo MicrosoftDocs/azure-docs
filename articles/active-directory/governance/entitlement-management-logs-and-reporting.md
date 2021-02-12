@@ -188,4 +188,4 @@ $bResponse.Results |ft
 ```
 
 ## Next steps:
-- [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/visualizations/workbooks-overview.md)
+- [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md)

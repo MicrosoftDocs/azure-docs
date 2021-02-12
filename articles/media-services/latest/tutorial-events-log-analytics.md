@@ -225,4 +225,4 @@ If you don't want to continue to use the resources you created during this tutor
 
 ## Next steps
 
-You can create different queries and save them. These can be added to [Azure Dashboard](../../azure-monitor/visualizations/tutorial-logs-dashboards.md).
+You can create different queries and save them. These can be added to [Azure Dashboard](../../azure-monitor/visualize/tutorial-logs-dashboards.md).

@@ -38,7 +38,7 @@ When you've determined which policies to deploy, you can [deploy them to your de
 
 ## Analyze the gathered data
 
-After you've deployed your policies, data will be logged in the Log Analytics workspaces you've created in each customer tenant. To gain insights across all managed customers, you can use tools such as [Azure Monitor Workbooks](../../azure-monitor/visualizations/workbooks-overview.md) to gather and analyze information from multiple data sources.
+After you've deployed your policies, data will be logged in the Log Analytics workspaces you've created in each customer tenant. To gain insights across all managed customers, you can use tools such as [Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md) to gather and analyze information from multiple data sources.
 
 ## View alerts across customers
 

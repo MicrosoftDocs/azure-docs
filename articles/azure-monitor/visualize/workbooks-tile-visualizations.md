@@ -15,7 +15,7 @@ ms.author: lagayhar
 
 Tiles are a useful way to present summary data in workbooks. The image below shows a common use case of tiles with app level summary on top of a detailed grid.
 
-[![Screenshot of tile summary view](./media/workbooks-tile-visualizations/tiles-summary.png)](./media/workbooks-tile-visualizations/tiles-summary.png#lightbox)
+[![Screenshot of tile summary view](./media/workbooks-tile-visualize/tiles-summary.png)](./media/workbooks-tile-visualize/tiles-summary.png#lightbox)
 
 Workbook tiles support showing a title, subtitle, large text, icons, metric based gradients, spark line/bars, footer, etc.
 
@@ -46,11 +46,11 @@ Workbook tiles support showing a title, subtitle, large text, icons, metric base
         * Use column: `appName`.
 8. Select the **Save and Close** button at the bottom of the pane.
 
-[![Screenshot of tile summary view with above query and  tile settings.](./media/workbooks-tile-visualizations/tile-settings.png)](./media/workbooks-tile-visualizations/tile-settings.png#lightbox)
+[![Screenshot of tile summary view with above query and  tile settings.](./media/workbooks-tile-visualize/tile-settings.png)](./media/workbooks-tile-visualize/tile-settings.png#lightbox)
 
 The tiles in read mode:
 
-[![Screenshot of tile summary view in read mode.](./media/workbooks-tile-visualizations/tiles-read-mode.png)](./media/workbooks-tile-visualizations/tiles-read-mode.png#lightbox)
+[![Screenshot of tile summary view in read mode.](./media/workbooks-tile-visualize/tiles-read-mode.png)](./media/workbooks-tile-visualize/tiles-read-mode.png#lightbox)
 
 ## Spark lines in tiles
 
@@ -96,7 +96,7 @@ The tiles in read mode:
         * Minimum value: `0`.
 10. Select **Save and Close** at the bottom of the pane.
 
-![Screenshot of tile visualization with a spark line](./media/workbooks-tile-visualizations/spark-line.png)
+![Screenshot of tile visualization with a spark line](./media/workbooks-tile-visualize/spark-line.png)
 
 ## Tile sizes
 
@@ -106,17 +106,17 @@ The author has an option to set the tile width in the tile settings.
 
     The default behavior of tiles is to be the same fixed width, approx. 160 pixels wide, plus the space around the tiles.
 
-    ![Screenshot displaying fixed width tiles](./media/workbooks-tile-visualizations/tiles-fixed.png)
+    ![Screenshot displaying fixed width tiles](./media/workbooks-tile-visualize/tiles-fixed.png)
 * `auto`
 
     Each title will shrink or grow to fit their contents however, the tiles are limited to the width of the tiles' view (no horizontal scrolling).
 
-    ![Screenshot displaying auto width tiles](./media/workbooks-tile-visualizations/tiles-auto.png)
+    ![Screenshot displaying auto width tiles](./media/workbooks-tile-visualize/tiles-auto.png)
 * `full size`
 
     Each title will always be the full width of the tiles' view, one title per line.
 
-     ![Screenshot displaying full size width tiles](./media/workbooks-tile-visualizations/tiles-full.png)
+     ![Screenshot displaying full size width tiles](./media/workbooks-tile-visualize/tiles-full.png)
 
 ## Next steps
 

@@ -158,4 +158,4 @@ Currently, diagnostic logs do not work retroactively, so the data will only star
 
 ## Next steps
 
-Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../visualizations/workbooks-overview.md).
+Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../visualize/workbooks-overview.md).

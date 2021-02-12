@@ -48,7 +48,7 @@ Familiarize yourself with these articles:
 
 - [KQL quick reference](/azure/data-explorer/kql-quick-reference)
 
-- [Azure Monitor Workbooks](../../azure-monitor/visualizations/workbooks-overview.md)
+- [Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md)
 
 
 

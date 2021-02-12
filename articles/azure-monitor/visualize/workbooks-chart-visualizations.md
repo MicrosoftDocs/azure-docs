@@ -32,7 +32,7 @@ The example below shows the trend of requests to an app over the previous days.
 5. Set the visualization to one of: **Area**, **Bar**, **Bar (categorical)**, **Line**, **Pie**, **Scatter**, or **Time**.
 6. Set other parameters if needed - like time range, visualization, size, color palette, and legend.
 
-[![Screenshot of log chart in edit mode](./media/workbooks-chart-visualizations/log-chart.png)](./media/workbooks-chart-visualizations/log-chart.png#lightbox)
+[![Screenshot of log chart in edit mode](./media/workbooks-chart-visualize/log-chart.png)](./media/workbooks-chart-visualize/log-chart.png#lightbox)
 
 ### Log chart parameters
 
@@ -61,7 +61,7 @@ requests
 | summarize Requests = count() by bin(timestamp, 1h)
 ```
 
-[![Screenshot of a simple time-series log line chart.](./media/workbooks-chart-visualizations/log-chart-line-simple.png)](./media/workbooks-chart-visualizations/log-chart-line-simple.png#lightbox)
+[![Screenshot of a simple time-series log line chart.](./media/workbooks-chart-visualize/log-chart-line-simple.png)](./media/workbooks-chart-visualize/log-chart-line-simple.png#lightbox)
 
 #### Time-series with multiple metrics
 
@@ -72,7 +72,7 @@ requests
 | summarize Requests = count(), Users = dcount(user_Id) by bin(timestamp, 1h)
 ```
 
-[![Screenshot of a time-series with multiple metrics log line chart.](./media/workbooks-chart-visualizations/log-chart-line-multi-metric.png)](./media/workbooks-chart-visualizations/log-chart-line-multi-metric.png#lightbox)
+[![Screenshot of a time-series with multiple metrics log line chart.](./media/workbooks-chart-visualize/log-chart-line-multi-metric.png)](./media/workbooks-chart-visualize/log-chart-line-multi-metric.png#lightbox)
 
 #### Segmented Time-series
 
@@ -83,7 +83,7 @@ requests
 | summarize Request = count() by bin(timestamp, 1h), RequestName = name
 ```
 
-[![Screenshot of a segmented time-series log line chart.](./media/workbooks-chart-visualizations/log-chart-line-segmented.png)](./media/workbooks-chart-visualizations/log-chart-line-segmented.png#lightbox)
+[![Screenshot of a segmented time-series log line chart.](./media/workbooks-chart-visualize/log-chart-line-segmented.png)](./media/workbooks-chart-visualize/log-chart-line-segmented.png#lightbox)
 
 ### Summarize vs. make-series
 
@@ -107,7 +107,7 @@ requests
 
 Even though the underlying result set is different. All a user has to do is set the visualization to area, line, bar, or time and Workbooks will take care of the rest.
 
-[![Screenshot of a log line chart made from a make-series query](./media/workbooks-chart-visualizations/log-chart-line-make-series.png)](./media/workbooks-chart-visualizations/log-chart-line-make-series.png#lightbox)
+[![Screenshot of a log line chart made from a make-series query](./media/workbooks-chart-visualize/log-chart-line-make-series.png)](./media/workbooks-chart-visualize/log-chart-line-make-series.png#lightbox)
 
 ### Categorical bar chart or histogram
 
@@ -121,7 +121,7 @@ requests
 
 The query returns two columns: *Requests* metric and *Result* category. Each value of the *Result* column will get its own bar in the chart with height proportional to the *Requests metric*.
 
-[![Screenshot of a categorical bar chart for requests by result code](./media/workbooks-chart-visualizations/log-chart-categorical-bar.png)](./media/workbooks-chart-visualizations/log-chart-categorical-bar.png#lightbox)
+[![Screenshot of a categorical bar chart for requests by result code](./media/workbooks-chart-visualize/log-chart-categorical-bar.png)](./media/workbooks-chart-visualize/log-chart-categorical-bar.png#lightbox)
 
 ### Pie charts
 
@@ -135,7 +135,7 @@ requests
 
 The query returns two columns: *Requests* metric and *Result* category. Each value of the *Result* column will get its own slice in the pie with size proportional to the *Requests* metric.
 
-[![Screenshot of a pie chart with slices representing result code](./media/workbooks-chart-visualizations/log-chart-pie-chart.png)](./media/workbooks-chart-visualizations/log-chart-pie-chart.png#lightbox)
+[![Screenshot of a pie chart with slices representing result code](./media/workbooks-chart-visualize/log-chart-pie-chart.png)](./media/workbooks-chart-visualize/log-chart-pie-chart.png#lightbox)
 
 ## Metric charts
 
@@ -150,7 +150,7 @@ The following example will show the number of transactions in a storage account 
 3. Select a resource type (for example, Storage Account), the resources to target, the metric namespace and name, and the aggregation to use.
 4. Set other parameters if needed - like time range, split-by, visualization, size, and color palette.
 
-[![Screenshot of metric chart in edit mode](./media/workbooks-chart-visualizations/metric-chart.png)](./media/workbooks-chart-visualizations/metric-chart.png#lightbox)
+[![Screenshot of metric chart in edit mode](./media/workbooks-chart-visualize/metric-chart.png)](./media/workbooks-chart-visualize/metric-chart.png#lightbox)
 
 ### Metric chart parameters
 
@@ -171,15 +171,15 @@ The following example will show the number of transactions in a storage account 
 
 Transactions split by API name as a line chart:
 
-[![Screenshot of a metric line chart for Storage transactions split by API name](./media/workbooks-chart-visualizations/metric-chart-storage-split-line.png)](./media/workbooks-chart-visualizations/metric-chart-storage-split-line.png#lightbox)
+[![Screenshot of a metric line chart for Storage transactions split by API name](./media/workbooks-chart-visualize/metric-chart-storage-split-line.png)](./media/workbooks-chart-visualize/metric-chart-storage-split-line.png#lightbox)
 
 Transactions split by response type as a large bar chart:
 
-[![Screenshot of a large metric bar chart for Storage transactions split by response type](./media/workbooks-chart-visualizations/metric-chart-storage-bar-large.png)](./media/workbooks-chart-visualizations/metric-chart-storage-bar-large.png#lightbox)
+[![Screenshot of a large metric bar chart for Storage transactions split by response type](./media/workbooks-chart-visualize/metric-chart-storage-bar-large.png)](./media/workbooks-chart-visualize/metric-chart-storage-bar-large.png#lightbox)
 
 Average latency as a scatter chart:
 
-[![Screenshot of a metric scatter chart for Storage latency](./media/workbooks-chart-visualizations/metric-chart-storage-scatter.png)](./media/workbooks-chart-visualizations/metric-chart-storage-scatter.png#lightbox)
+[![Screenshot of a metric scatter chart for Storage latency](./media/workbooks-chart-visualize/metric-chart-storage-scatter.png)](./media/workbooks-chart-visualize/metric-chart-storage-scatter.png#lightbox)
 
 ## Chart settings
 
@@ -193,7 +193,7 @@ The settings tab controls:
 - Grouping settings, including which field, the limits before an "Others" group is created.
 - Legend settings, including showing metrics (series name, colors, and numbers) at the bottom, and/or a legend (series names and colors).
 
-![Screenshot of chart settings.](./media/workbooks-chart-visualizations/chart-settings.png)
+![Screenshot of chart settings.](./media/workbooks-chart-visualize/chart-settings.png)
 
 #### Custom formatting
 
@@ -210,7 +210,7 @@ Number formatting options include:
 | `Minimum significant digits` | Minimum number of significant digits to use (default 1).                                               |
 | `Maximum significant digits` | Maximum number of significant digits to use.                                                           |
 
-![Screenshot of X axis settings.](./media/workbooks-chart-visualizations/number-format-settings.png)
+![Screenshot of X axis settings.](./media/workbooks-chart-visualize/number-format-settings.png)
 
 ### The series tab
 
@@ -219,7 +219,7 @@ The series setting tab lets you adjust the labels and colors shown for series in
 - The `Series name` field is used to match a series in the data and if matched, the display label and color will be displayed.
 - The `Comment` field is useful for template authors, as this comment may be used by translators to localize the display labels.
 
-![Screenshot of series settings.](./media/workbooks-chart-visualizations/series-settings.png)
+![Screenshot of series settings.](./media/workbooks-chart-visualize/series-settings.png)
 
 ## Next steps
 

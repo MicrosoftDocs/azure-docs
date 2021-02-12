@@ -17,7 +17,7 @@ Workbooks support hierarchical views via tree-grids. Trees allow some rows to be
 
 The example below shows container health metrics (working set size) visualized as a tree grid. The top-level nodes here are Azure Kubernetes Service (AKS) nodes, the next level are pods, and the final level are containers. Notice that you can still format your columns like in a grid (heatmap, icons, link). The underlying data source in this case is a Log Analytics workspace with AKS logs.
 
-[![Screenshot of tile summary view](./media/workbooks-tree-visualizations/trees.png)](./media/workbooks-tree-visualizations/trees.png#lightbox)
+[![Screenshot of tile summary view](./media/workbooks-tree-visualize/trees.png)](./media/workbooks-tree-visualize/trees.png#lightbox)
 
 ## Adding a tree grid
 1. Switch the workbook to edit mode by clicking on the _Edit_ toolbar item.
@@ -48,7 +48,7 @@ The example below shows container health metrics (working set size) visualized a
     * _Requests_ - Column Renderer: `Bar`, Color: `Blue`, Minimum Value: `0`
 9. Select the **Save and Close** button at the bottom of the pane.
 
-[![Screenshot of tile summary view with the above query and settings.](./media/workbooks-tree-visualizations/tree-settings.png)](./media/workbooks-tree-visualizations/tree-settings.png#lightbox)
+[![Screenshot of tile summary view with the above query and settings.](./media/workbooks-tree-visualize/tree-settings.png)](./media/workbooks-tree-visualize/tree-settings.png#lightbox)
 
 ## Tree settings
 
@@ -86,7 +86,7 @@ Grouping allows you to build hierarchical views similar to the ones above with s
     * *Requests* - Column Renderer: `Bar`, Color: `Blue`, Minimum Value: `0`
 5. Select the **Save and Close** button at the bottom of the pane.
 
-[![Screenshot showing the creation of a tree visualization in workbooks](./media/workbooks-tree-visualizations/tree-group-create.png)](./media/workbooks-tree-visualizations/tree-group-create.png#lightbox)
+[![Screenshot showing the creation of a tree visualization in workbooks](./media/workbooks-tree-visualize/tree-group-create.png)](./media/workbooks-tree-visualize/tree-group-create.png#lightbox)
 
 ## Next steps
 

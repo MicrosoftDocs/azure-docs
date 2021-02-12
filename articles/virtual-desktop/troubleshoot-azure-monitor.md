@@ -44,7 +44,7 @@ Finally, if you're not missing any information but your data still doesn't appea
 
 Azure Monitor for Windows Virtual Desktop uses Azure Monitor Workbooks. Workbooks lets you save a copy of the Windows Virtual Desktop workbook template and make your own customizations.
 
-Customized templates won't update when the product group updates the original template. This is by design in the workbooks tool, you will need to save a copy of the updated template and re-build your customizations to adopt updates. For more information, see [Troubleshooting workbook-based insights](../azure-monitor/insights/troubleshoot-workbooks.md) and the [Workbooks overview](../azure-monitor/visualizations/workbooks-overview.md).
+Customized templates won't update when the product group updates the original template. This is by design in the workbooks tool, you will need to save a copy of the updated template and re-build your customizations to adopt updates. For more information, see [Troubleshooting workbook-based insights](../azure-monitor/insights/troubleshoot-workbooks.md) and the [Workbooks overview](../azure-monitor/visualize/workbooks-overview.md).
 
 ## I can't interpret the data
 

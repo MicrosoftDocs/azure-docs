@@ -15,9 +15,9 @@ This article provides a summary of the available methods to visualize log and me
 Visualizations such as charts and graphs can help you analyze your monitoring data to drill-down on issues and identify patterns. Depending on the tool you use, you may also have the option to share visualizations with other users inside and outside of your organization.
 
 ## Workbooks
-[Workbooks](./visualizations/workbooks-overview.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
+[Workbooks](./visualize/workbooks-overview.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
 
-![Diagram shows screenshots of several pages from a workbook, including Analysis of Page Views, Usage, and Time Spent on Page.](media/visualizations/workbook.png)
+![Diagram shows screenshots of several pages from a workbook, including Analysis of Page Views, Usage, and Time Spent on Page.](media/visualize/workbook.png)
 
 ### Advantages
 - Supports both metrics and logs.
@@ -35,7 +35,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 ## Azure Dashboards
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure. They're particularly useful in providing single pane of glass over your Azure infrastructure and services allowing you to quickly identify important issues.
 
-![Screenshot shows an example of an Azure Dashboard with customizable information.](media/visualizations/dashboard.png)
+![Screenshot shows an example of an Azure Dashboard with customizable information.](media/visualize/dashboard.png)
 
 Here is a video walkthrough on creating dashboards.
 
@@ -62,9 +62,9 @@ Here is a video walkthrough on creating dashboards.
 
 
 ## Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is particularly useful for creating business-centric dashboards and reports, as well as reports analyzing long-term KPI trends. You can [import the results of a log query](visualizations/powerbi.md) into a Power BI dataset so you can take advantage of its features such as combining data from different sources and sharing reports on the web and mobile devices.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is particularly useful for creating business-centric dashboards and reports, as well as reports analyzing long-term KPI trends. You can [import the results of a log query](visualize/powerbi.md) into a Power BI dataset so you can take advantage of its features such as combining data from different sources and sharing reports on the web and mobile devices.
 
-![Power BI](media/visualizations/power-bi.png)
+![Power BI](media/visualize/power-bi.png)
 
 ### Advantages
 - Rich visualizations.
@@ -82,9 +82,9 @@ Here is a video walkthrough on creating dashboards.
 
 
 ## Grafana
-[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's particularly useful for detecting and isolating and triaging operational incidents. You can add [Grafana Azure Monitor data source plugin](visualizations/grafana-plugin.md) to your Azure subscription to have it visualize your Azure metrics data.
+[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's particularly useful for detecting and isolating and triaging operational incidents. You can add [Grafana Azure Monitor data source plugin](visualize/grafana-plugin.md) to your Azure subscription to have it visualize your Azure metrics data.
 
-![Screenshot shows Grafana visualizations.](media/visualizations/grafana.png)
+![Screenshot shows Grafana visualizations.](media/visualize/grafana.png)
 
 ### Advantages
 - Rich visualizations.
@@ -111,18 +111,18 @@ You can access data in log and metric data in Azure Monitor through their API us
 ## Azure Monitor Views
 
 > [!IMPORTANT]
-> Views are in the process of being deprecated. See [Azure Monitor view designer to workbooks transition guide](visualizations/view-designer-conversion-overview.md) for guidance on converting views to workbooks.
+> Views are in the process of being deprecated. See [Azure Monitor view designer to workbooks transition guide](visualize/view-designer-conversion-overview.md) for guidance on converting views to workbooks.
 
-[Views in Azure Monitor](visualizations/view-designer.md)  allow you to create custom visualizations with log data. They are used by [monitoring solutions](insights/solutions.md) to present the data they collect.
+[Views in Azure Monitor](visualize/view-designer.md)  allow you to create custom visualizations with log data. They are used by [monitoring solutions](insights/solutions.md) to present the data they collect.
 
 
-![Screenshot shows a Container Monitoring Solution tile and the detailed Azure Monitor View that opens when you select it.](media/visualizations/view.png)
+![Screenshot shows a Container Monitoring Solution tile and the detailed Azure Monitor View that opens when you select it.](media/visualize/view.png)
 
 ### Advantages
 - Rich visualizations for log data.
 - Export and import views to transfer them to other resource groups and subscriptions.
 - Integrates into Azure Monitor management model with workspaces and monitoring solutions.
-- [Filters](visualizations/view-designer-filters.md) for custom parameters.
+- [Filters](visualize/view-designer-filters.md) for custom parameters.
 - Interactive, supports multi-level drill-in (view that drills into another view)
 
 ### Limitations
@@ -137,8 +137,8 @@ You can access data in log and metric data in Azure Monitor through their API us
 - Learn about the [data collected by Azure Monitor](/data-platform.md).
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
 - Learn about [Metrics Explorer](essentials/metrics-getting-started.md)
-- Learn about [Workbooks](./visualizations/workbooks-overview.md).
-- Learn about [import log data into Power BI](./visualizations/powerbi.md).
-- Learn about the [Grafana Azure Monitor data source plugin](./visualizations/grafana-plugin.md).
-- Learn about [Views in Azure Monitor](visualizations/view-designer.md).
+- Learn about [Workbooks](./visualize/workbooks-overview.md).
+- Learn about [import log data into Power BI](./visualize/powerbi.md).
+- Learn about the [Grafana Azure Monitor data source plugin](./visualize/grafana-plugin.md).
+- Learn about [Views in Azure Monitor](visualize/view-designer.md).
 
