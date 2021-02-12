@@ -165,7 +165,7 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 
 ## Differences between RBAC and resource tokens
 
-| | RBAC | Resource tokens |
+| Subject | RBAC | Resource tokens |
 |--|--|--|
 | Authentication  | With Azure Active Directory (AAD). | Based on native Cosmos DB users<br>Integrating resource tokens with AAD requires extra work to bridge AAD identities and Azure Cosmos DB users. |
 | Authorization | Role-based: role definitions map allowed actions and can be assigned to multiple identities. | Permission-based: for each Azure Cosmos DB user, you need to assign data access permissions. |

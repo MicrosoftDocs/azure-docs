@@ -246,7 +246,7 @@ CosmosAsyncClient Client = new CosmosClientBuilder()
 
 When using the Azure Cosmos DB RBAC, [diagnostic logs](cosmosdb-monitor-resource-logs.md) get augmented with identity and authorization information for each data operation. This lets you perform detailed auditing and retrieve the AAD identity used for every data request sent to your Azure Cosmos DB account.
 
-This additional information flows in the **DataPlaneRequests** log category and consists of 2 additional columns:
+This additional information flows in the **DataPlaneRequests** log category and consists of two extra columns:
 
 - `aadPrincipalId_g` shows the principal ID of the AAD identity that was used to issue the request.
 - `aadAppliedRoleAssignmentId_g` shows the [role assignment](#role-assignments) that was honored when authorizing the request.
@@ -267,7 +267,7 @@ Yes.
 
 ### Is it possible to disable the usage of the account primary key when using RBAC?
 
-This is not currently possible, but will be offered before the feature becomes generally available
+Disabling the account primary key is not currently possible, but will be offered before the feature becomes generally available.
 
 ## Next steps
 
