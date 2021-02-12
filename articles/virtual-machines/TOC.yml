@@ -262,7 +262,7 @@
       href: dedicated-hosts-portal.md
     - name: PowerShell
       href: ./windows/dedicated-hosts-powershell.md
-  - name: Spot Virtual Machines
+  - name: Azure Spot Virtual Machines
     displayName: pre-empt, preempt, spot
     items:
     - name: Overview
