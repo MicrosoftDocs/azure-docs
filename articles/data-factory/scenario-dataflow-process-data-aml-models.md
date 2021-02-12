@@ -15,7 +15,7 @@ ms.co-author: Donnana
 ---
 
 
-# Use Dataflow to process data for automated machine learning(AutoML) models
+# Use Dataflow to process data for automated machine learning (AutoML) models
 
 Automated machine learning(AutoML) is adopted by machine learning projects to train, tune and gain best model automatically using target metric you specify for classification, regression and time-series forecasting. 
 
