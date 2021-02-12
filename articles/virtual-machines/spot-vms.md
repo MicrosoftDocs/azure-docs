@@ -1,6 +1,6 @@
 ---
-title: Use Azure Spot VMs
-description: Learn how to use Azure Spot VMs to save on costs.
+title: Use Azure Spot Virtual Machines 
+description: Learn how to use Azure Spot Virtual Machines to save on costs.
 author: JagVeerappan
 ms.author: jagaveer
 ms.service: virtual-machines
@@ -11,7 +11,7 @@ ms.reviewer: cynthn
 ---
 
 
-# Use Spot VMs in Azure
+# Use Azure Spot Virtual Machines 
 
 Using Spot VMs allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs. Therefore, Spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
