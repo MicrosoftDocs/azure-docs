@@ -59,32 +59,32 @@ The machine has already been deployed to another workspace for Update Management
 
 ### Resolution
 
-Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this, see [Verify agent connectivity to Azure Monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
+* Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this, see [Verify agent connectivity to Azure Monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
 
-Make sure that the machines show up in the Log Analytics workspace linked to your Automation account. Run the following query in the Log Analytics workspace.
+* Make sure that the machines show up in the Log Analytics workspace linked to your Automation account. Run the following query in the Log Analytics workspace.
 
-```kusto
-Heartbeat
-| summarize by Computer, Solutions
-```
+   ```kusto
+   Heartbeat
+   | summarize by Computer, Solutions
+   ```
 
-If you don't see your machine in the query results, it hasn't checked in recently. There's probably a local configuration issue. You should reinstall the agent.
+   If you don't see your machine in the query results, it hasn't checked in recently. There's probably a local configuration issue. You should reinstall the agent.
 
-If your machine is listed in the query results, verify under the Solutions property that **changeTracking** is listed. This verifies it is registered with Change Tracking and Inventory. If it is not, check for scope configuration problems. The scope configuration determines which machines are configured for Change Tracking and Inventory. To configure the scope configuration for the target machine, see **Enable machines in the workspace**.
+   If your machine is listed in the query results, verify under the Solutions property that **changeTracking** is listed. This verifies it is registered with Change Tracking and Inventory. If it is not, check for scope configuration problems. The scope configuration determines which machines are configured for Change Tracking and Inventory. To configure the scope configuration for the target machine, see **Enable machines in the workspace**.
 
-In your workspace, run this query.
+   In your workspace, run this query.
 
-```kusto
-Operation
-| where OperationCategory == 'Data Collection Status'
-| sort by TimeGenerated desc
-```
+   ```kusto
+   Operation
+   | where OperationCategory == 'Data Collection Status'
+   | sort by TimeGenerated desc
+   ```
 
-If you get a ```Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota``` result, the quota defined on your workspace has been reached, which has stopped data from being saved. In your workspace, go to **Usage and estimated costs**. Either select a new **Pricing tier** that allows you to use more datat, or click on **Daily cap**, and remove the cap.
+* If you get a ```Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota``` result, the quota defined on your workspace has been reached, which has stopped data from being saved. In your workspace, go to **Usage and estimated costs**. Either select a new **Pricing tier** that allows you to use more datat, or click on **Daily cap**, and remove the cap.
 
-![Troubleshooting overview](media/troubleshooting-onboarding.png)
+   ![Troubleshooting overview](media/troubleshooting-onboarding.png)
 
-If your issue is still unresolved, follow the steps in [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows. For Linux, follow the steps in  [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
+   If your issue is still unresolved, follow the steps in [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows. For Linux, follow the steps in  [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
 ### <a name="missing-write-permissions"></a>Scenario: Feature deployment fails with the message "The solution cannot be enabled"
 
