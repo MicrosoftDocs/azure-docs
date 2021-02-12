@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an Front Door Standard/Premium - Portal
+  - name: Create a Front Door Standard/Premium - Portal
     href: create-front-door-portal.md
 - name: Concepts
   items:
@@ -37,10 +37,6 @@
     href: concept-caching.md
   - name: DDoS
     href: concept-ddos.md
-  - name: Endpoint Manager
-    href: concept-endpoint-manager.md
-  - name: Private Endpoints
-    href: concept-private-endpoints.md
 - name: How-to guides
   items:
   - name: Configure Endpoint Manager
@@ -73,8 +69,6 @@
       href: troubleshoot-compression.md
     - name: Cross origin resource sharing
       href: troubleshoot-cross-origin-resources.md
-  - name: Reports
-    href: how-to-reports.md
 - name: Reference
   items:
   - name: .NET
