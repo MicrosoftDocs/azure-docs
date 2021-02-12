@@ -39,7 +39,7 @@ In the transparent gateway pattern, devices that theoretically could connect to 
 
 For more information about how the IoT Edge hub manages communication between downstream devices and the cloud, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-<!-- 1.0.10 -->
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 IoT Edge devices cannot be downstream of an IoT Edge gateway.
@@ -66,6 +66,11 @@ The parent/child relationship is established at three points in the gateway conf
 #### Cloud identities
 
 All devices in a transparent gateway scenario need cloud identities so they can authenticate to IoT Hub. When you create or update a device identity, you can set the device's parent or child devices. This configuration authorizes the parent gateway device to handle authentication for its child devices.
+
+>[!NOTE]
+>Setting the parent device in IoT Hub used to be an optional step for downstream devices that use symmetric key authentication. However, starting with version 1.1.0 every downstream device must be assigned to a parent device.
+>
+>You can configure the IoT Edge hub to go back to the previous behavior by setting the environment variable **AuthenticationMode** to the value **CloudAndScope**.
 
 Child devices can only have one parent. Each parent can have up to 100 children.
 
@@ -100,7 +105,7 @@ All IoT Hub primitives that work with IoT Edge's messaging pipeline also support
 
 Use the following table to see how different IoT Hub capabilities are supported for devices compared to devices behind gateways.
 
-<!-- 1.0.10 -->
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 | Capability | IoT device | IoT behind a gateway |
