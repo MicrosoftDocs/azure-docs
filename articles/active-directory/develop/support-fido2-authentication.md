@@ -34,11 +34,11 @@ The RequestedAuthnContext element is optional, so to resolve this you can remove
 
 ### Using the most recently used authentication method
 
-The sign in method that was most recently used by a user will be presented to them first. This may cause confusion when users believe they must use the first option presented. However, they can choose another option by selecting "Other ways to sign in" as shown below.
+The sign-in method that was most recently used by a user will be presented to them first. This may cause confusion when users believe they must use the first option presented. However, they can choose another option by selecting "Other ways to sign in" as shown below.
 
 :::image type="content" source="./media/support-fido2-authentication/most-recently-used-method.png" alt-text="Image of the user authentication experience highlighting the button that allows the user to change the authentication method.":::
 
-## Platform specific best practices
+## Platform-specific best practices
 
 ### Desktop
 
@@ -58,7 +58,7 @@ If you are not using MSAL, you should still use the system web browser for authe
 
 ### Web App and SPA
 
-The availability of FIDO2 passwordless authentication for applications that run in a web browser will depending on the combination of browser and platform. You can consult our [FIDO2 compatibility matrix](../authentication/fido2-compatibility.md) to check if the combination your users will encounter is supported.
+The availability of FIDO2 passwordless authentication for applications that run in a web browser will depend on the combination of browser and platform. You can consult our [FIDO2 compatibility matrix](../authentication/fido2-compatibility.md) to check if the combination your users will encounter is supported.
 
 ## Next steps
 
