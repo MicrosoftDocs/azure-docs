@@ -224,6 +224,9 @@ You are now signed in to the Windows Server 2019 Azure virtual machine with the 
 > [!NOTE]
 > You can save the .RDP file locally on your computer to launch future remote desktop connections to your virtual machine instead of having to navigate to virtual machine overview page in the Azure portal and using the connect option.
 
+> [!Tip]
+> To add an AAD User in the Remote Desktop User group, execute the command `net localgroup "remote desktop users" /add "AzureAd\UPn"` in **admin** mode via command prompt.
+
 ## Troubleshoot
 
 ### Troubleshoot deployment issues
