@@ -44,10 +44,10 @@ though there’s a higher version update, Update3, compatible for their model in
 Device3 are both compliant because they have the highest version updates compatible for their models installed.
 
 Compliance doesn't consider whether an update is deployed to a device’s group or not; it looks at any updates
-published to Device Update. So in the example above, even though Device1 has installed the update deployed to it, it is considered non-compliant. Device1 will continue being considered non-compliant till it successfully installs Update3. The compliance status can help you identify whether new deployments are needed. 
+published to Device Update. So in the example above, even though Device1 has installed the update deployed to it, it's considered non-compliant. Device1 will continue being considered non-compliant till it successfully installs Update3. The compliance status can help you identify whether new deployments are needed. 
 
 As shown above, there are three compliance states in Device Update:
 
 *	**On latest update** – the device has installed the highest version compatible update published to Device Update.
 *	**Update in progress** – an active deployment is in the process of delivering the highest version compatible update to the device.
-*	**New updates available** – a device has not yet installed the highest version compatible update and is not in an active deployment for that update.
+*	**New updates available** – a device hasn't yet installed the highest version compatible update and isn't in an active deployment for that update.
