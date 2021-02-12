@@ -9,7 +9,7 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 11/10/2020
+ms.date: 1/12/2021
 ms.custom: seoapril2019, sqldbrb=1
 ---
 
@@ -279,6 +279,7 @@ For more information, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-
 ### SQL Server Agent
 
 - Enabling and disabling SQL Server Agent is currently not supported in SQL Managed Instance. SQL Agent is always running.
+- Job schedule trigger based on an idle CPU is not supported.
 - SQL Server Agent settings are read only. The procedure `sp_set_agent_properties` isn't supported in SQL Managed Instance. 
 - Jobs
   - T-SQL job steps are supported.
@@ -300,14 +301,8 @@ For more information, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-
   - Alerts aren't yet supported.
   - Proxies aren't supported.
 - EventLog isn't supported.
-- User must be directly mapped to Azure AD server principal (login) to create, modify, or execute SQL Agent jobs. Users that are not directly mapped, for example, users that belong to an Azure AD group that has the rights to create, modify, or execute SQL Agent jobs, will not effectively be able to perform those actions. This is due to Managed Instance impersonation and [EXECUTE AS limitations](#logins-and-users).
-
-The following SQL Agent features currently aren't supported:
-
-- Proxies
-- Scheduling jobs on an idle CPU
-- Enabling or disabling an Agent
-- Alerts
+- User must be directly mapped to Azure AD server principal (login) to create, modify, or execute SQL Agent jobs. Users that are not directly mapped, for example, users that belong to an Azure AD group that has the rights to create, modify or execute SQL Agent jobs, will not effectively be able to perform those actions. This is due to Managed Instance impersonation and [EXECUTE AS limitations](#logins-and-users).
+- The Multi Server Administration feature for master/target (MSX/TSX) jobs are not supported.
 
 For information about SQL Server Agent, see [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
