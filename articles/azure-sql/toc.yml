@@ -152,7 +152,7 @@
     - name: Job automation with elastic jobs
       href: database/job-automation-overview.md
     - name: Job automation with SQL Agent 
-      href: database/job-automation-mi.md
+      href: database/job-automation-managed-instances.md
 
     - name: Business continuity  
       items: 

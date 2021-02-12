@@ -48,7 +48,7 @@ Consider the following job scheduling technologies on different platforms:
 
 Elastic Jobs can target [Azure SQL Databases](sql-database-paas-overview.md), [Azure SQL Database elastic pools](elastic-pool-overview.md), and Azure SQL Databases in [shard maps](elastic-scale-shard-map-management.md).
 
-For T-SQL script job automation in SQL Server and Azure SQL Managed Instance, consider [SQL Agent](job-automation-mi.md). 
+For T-SQL script job automation in SQL Server and Azure SQL Managed Instance, consider [SQL Agent](job-automation-managed-instances.md). 
 
 For T-SQL script job automation in Azure Synapse Analytics, consider [pipelines with recurring triggers](/azure/synapse-analytics/data-integration/concepts-data-factory-differences.md), which are [based on Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences).
 
