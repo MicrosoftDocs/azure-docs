@@ -29,11 +29,11 @@ With variable pricing, you have option to set a max price, in US dollars (USD), 
 
 ## Limitations
 
-The following VM sizes are not supported for Spot VMs:
+The following sizes are not supported for Azure Spot:
  - B-series
  - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
 
-Spot VMs can be deployed to any region, except Microsoft Azure China 21Vianet.
+Azure Spot can be deployed to any region, except Microsoft Azure China 21Vianet.
 
 <a name="channel"></a>
 
