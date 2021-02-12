@@ -59,12 +59,12 @@ The following samples illustrate web applications that sign in users. Some sampl
 | ![This image shows the ASP.NET Framework logo](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET Quickstart](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![This image shows the Java logo](media/sample-v2-code/logo_java.png)  |                   | [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
 | ![This image shows the Java logo](media/sample-v2-code/logo_java.png)  | [ms-identity-b2c-java-servlet-webapp-authentication](https://github.com/Azure-Samples/ms-identity-b2c-java-servlet-webapp-authentication)|  |
+| ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p>Node.js (MSAL Node) | [Express web app signs-in users tutorial](https://github.com/Azure-Samples/ms-identity-node) | |
 | ![This image shows the Python logo](media/sample-v2-code/logo_python.png)  | [ms-identity-python-flask-webapp-authentication](https://github.com/Azure-Samples/ms-identity-python-flask-webapp-authentication) | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
 | ![This image shows the Python logo](media/sample-v2-code/logo_python.png)  | [Python Flask web app](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) signs-in users tutorial                   | [Python Flask web app](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) signs-in users and calls Graph tutorial |
 | ![This image shows the Python logo](media/sample-v2-code/logo_python.png)  | [Python Flask web app](https://github.com/Azure-Samples/ms-identity-b2c-python-flask-webapp-authentication/blob/main/README.md) signs-in users with B2C                    |  |
 | ![This image shows the Ruby logo](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 | ![This image shows the Blazor logo](media/sample-v2-code/logo-blazor.png)</p>Blazor Server | [Blazor Server app signs-in users tutorial](https://github.com/Azure-Samples/ms-identity-blazor-server/tree/main/WebApp-OIDC) | [Blazor Server app calls Microsoft Graph](https://github.com/Azure-Samples/ms-identity-blazor-server/tree/main/WebApp-graph-user/Call-MSGraph)</p>Chapterwise Tutorial: [Blazor Server app to sign-in users and call APIs with Azure Active Directory](https://github.com/Azure-Samples/ms-identity-blazor-server) |
-| ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p> | [Express web app signs-in users tutorial](https://github.com/Azure-Samples/ms-identity-node) | |
 
 ## Desktop and mobile public client apps
 
@@ -80,7 +80,7 @@ The following samples show public client applications (desktop or mobile applica
 | Desktop (Console) with WAM  | ![This is the logo for .NET/C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | Interactive with [Web Account Manager](/windows/uwp/security/web-account-manager) (WAM) |[dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  |
 | Desktop (Console)   | ![This image shows the Java logo](media/sample-v2-code/logo_java.png) | [Username/Password](msal-authentication-flows.md#usernamepassword) |[ms-identity-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
 | Desktop (Console)   | ![This image shows the Python logo](media/sample-v2-code/logo_python.png) | [Username/Password](msal-authentication-flows.md#usernamepassword) |[ms-identity-python-desktop](https://github.com/Azure-Samples/ms-identity-python-desktop) |  |
-| Desktop (Electron)   | ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png) | [Authorization code (PKCE)](msal-authentication-flows.md#authorization-code) |[ms-identity-javascript-nodejs-desktop](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-desktop) |  |
+| Desktop (Electron)   | ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p>Node.js (MSAL Node) | [Authorization code (PKCE)](msal-authentication-flows.md#authorization-code) |[ms-identity-javascript-nodejs-desktop](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-desktop) |  |
 | Mobile (Android, iOS, UWP)   | ![This image shows the .NET/C# (Xamarin) logo](media/sample-v2-code/logo_xamarin.png) | [Authorization code](msal-authentication-flows.md#authorization-code) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
 | Mobile (iOS)       | ![This image shows iOS/Objective-C or Swift](media/sample-v2-code/logo_iOS.png) | [Authorization code](msal-authentication-flows.md#authorization-code) |[ios-swift-objc-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
 | Desktop (macOS)       | macOS | [Authorization code](msal-authentication-flows.md#authorization-code) |[macOS-swift-objc-native-v2](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) |  |
@@ -96,8 +96,8 @@ The following samples show an application that accesses the Microsoft Graph API 
 | Console | ![This image shows the .NET Core logo](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Client Credentials](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
 | Web app | ![Screenshot that shows the ASP.NET logo.](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Client Credentials](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
 | Console | ![This image shows the Java logo](media/sample-v2-code/logo_java.png) | [Client Credentials](msal-authentication-flows.md#client-credentials) | [ms-identity-java-daemon](https://github.com/Azure-Samples/ms-identity-java-daemon) |
+| Console | ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p>Node.js (MSAL Node)| [Client Credentials](msal-authentication-flows.md#client-credentials) | [ms-identity-javascript-nodejs-console](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console) |
 | Console | ![This image shows the Python logo](media/sample-v2-code/logo_python.png) | [Client Credentials](msal-authentication-flows.md#client-credentials) | [ms-identity-python-daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) |
-| Console | ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png) | [Client Credentials](msal-authentication-flows.md#client-credentials) | [ms-identity-javascript-nodejs-console](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console) |
 
 ## Headless applications
 
@@ -129,8 +129,8 @@ The following samples show how to protect a web API with the Microsoft identity 
 | ![This image shows the ASP.NET Core logo](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | ASP.NET Core web API (service) of [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![This image shows the ASP.NET logo](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API (service) of [ms-identity-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 | ![This image shows the Java logo](media/sample-v2-code/logo_java.png) | Web API (service) of [ms-identity-java-webapi](https://github.com/Azure-Samples/ms-identity-java-webapi) |
-| ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png) | Web API (service) of [active-directory-javascript-nodejs-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) |
-| ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png) | B2C Web API (service) of [active-directory-b2c-javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) |
+| ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p>Node.js (Passport.js)| Web API (service) of [active-directory-javascript-nodejs-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) |
+| ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p>Node.js (Passport.js)| B2C Web API (service) of [active-directory-b2c-javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) |
 
 ## Azure Functions as web APIs
 
@@ -140,8 +140,8 @@ The following samples show how to protect an Azure Function using HttpTrigger an
 | -------- | ------------------- |
 | ![This image shows the ASP.NET Core logo](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | ASP.NET Core web API (service) Azure Function of [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
 | ![This image shows the Python logo](media/sample-v2-code/logo_python.png)</p>Python | Web API (service) of [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
-| ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p>Node.js | Web API (service) of [Node.js and passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
-| ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p>Node.js | Web API (service) of [Node.js and passport-azure-ad using on behalf of](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
+| ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p>Node.js (Passport.js)| Web API (service) of [Node.js and passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
+| ![This image shows the Node.js logo](media/sample-v2-code/logo_nodejs.png)</p>Node.js (Passport.js)| Web API (service) of [Node.js and passport-azure-ad using on behalf of](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
 
 ## Other Microsoft Graph samples
 
