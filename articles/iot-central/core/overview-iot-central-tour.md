@@ -146,7 +146,7 @@ The jobs page lets you run bulk device management operations on your devices. Yo
 
 ### Device templates
 
-:::image type="content" source="Media/overview-iot-central-tour/templates.png" alt-text="Screenshot of Device Templates.:::
+:::image type="content" source="Media/overview-iot-central-tour/templates.png" alt-text="Screenshot of Device Templates.":::
 
 The device templates page is where a builder creates and manages the device templates in the application. A device template specifies devices characteristics such as:
 
