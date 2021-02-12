@@ -67,24 +67,25 @@ Follow these steps to create a new resource using the Azure portal:
 
     # [v2.0](#tab/v2-0)
 
-   * Options - Select **Single Container**
-   * Image Source - Select **Private Registry** 
-   * Server URL - Set this to `https://mcr.microsoft.com`
-   * Username (Optional) - Create a username. 
-   * Password (Optional) - Create a secure password that you'll remember.
-   * Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-   * Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
-   * Startup command - Set this to `./run.sh eula=accept`
+* Options - Select **Single Container**
+* Image Source - Select **Private Registry** 
+* Server URL - Set this to `https://mcr.microsoft.com`
+* Username (Optional) - Create a username. 
+* Password (Optional) - Create a secure password that you'll remember.
+* Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
+* Startup command - Set this to `./run.sh eula=accept`
 
     # [v2.1 preview](#tab/v2-1) 
-   * Options - Select **Single Container**
-   * Image Source - Select **Private Registry** 
-   * Server URL - Set this to `https://mcr.microsoft.com`
-   * Username (Optional) - Create a username. 
-   * Password (Optional) - Create a secure password that you'll remember.
-   * Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
-   * Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
-   * Startup command - Set this to `./run.sh eula=accept`
+
+* Options - Select **Single Container**
+* Image Source - Select **Private Registry** 
+* Server URL - Set this to `https://mcr.microsoft.com`
+* Username (Optional) - Create a username. 
+* Password (Optional) - Create a secure password that you'll remember.
+* Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
+* Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
+* Startup command - Set this to `./run.sh eula=accept`
 
     ---
 
@@ -113,6 +114,7 @@ There's a few things you need know about this command:
 From the Azure CLI, run this command to create a web app resource for the sample labeling tool:
 
 # [v2.0](#tab/v2-0)
+
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -128,7 +130,8 @@ az container create \
   --command-line "./run.sh eula=accept"
 `
 
-# [v2.1 preview](#tab/v2-1)    
+# [v2.1 preview](#tab/v2-1) 
+   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
