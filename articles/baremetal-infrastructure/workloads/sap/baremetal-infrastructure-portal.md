@@ -47,9 +47,9 @@ az provider register --namespace Microsoft.BareMetalInfrastructure
 
 You can use the [az provider list](/cli/azure/provider#az_provider_list) command to see all available providers.
 
-For more information about resource providers, see [Azure resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md).
-
 ---
+
+For more information about resource providers, see [Azure resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## BareMetal Instance units in the Azure portal
  
