@@ -1,7 +1,7 @@
 ---
 title: Azure Security Benchmark Foundation blueprint sample overview
 description: Overview and architecture of the Azure Security Benchmark Foundation blueprint sample.
-ms.date: 02/08/2020
+ms.date: 02/12/2020
 ms.topic: sample
 ---
 # Overview of the Azure Security Benchmark Foundation blueprint sample
@@ -19,7 +19,7 @@ monitoring, and other resources in alignment with the policies and other guardra
 The foundational environment created by this blueprint sample is based on the architecture
 principals of a
 [hub and spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
-The blueprint deploys a bub virtual network that contains common and shared resources, services, and
+The blueprint deploys a hub virtual network that contains common and shared resources, services, and
 artifacts such as Azure Bastion, gateway and firewall for connectivity, management and jump box
 subnets to host additional/optional management, maintenance, administration, and connectivity
 infrastructure. One or more spoke virtual networks are deployed to host application workloads such
@@ -27,10 +27,11 @@ as web and database services. Spoke virtual networks are connected to the hub vi
 Azure virtual network peering for seamless and secure connectivity. Additional spokes can be added
 by reassigning the sample blueprint or manually creating an Azure virtual network and peering it
 with the hub virtual network. All external connectivity to the spoke virtual network(s) and
-subnet(s) is configured to route through the bub virtual network and, via firewall, gateway, and
+subnet(s) is configured to route through the hub virtual network and, via firewall, gateway, and
 management jump boxes.
 
-:::image type="content" source="../../media/asb-foundation/asbf-architecture.png" alt-text="Azure Security Benchmark Foundation blueprint sample achitecture diagram" border="false":::
+:::image type="content" source="../../media/azure-security-benchmark-foundation/asbf-architecture.png" 
+alt-text="Azure Security Benchmark Foundation blueprint sample achitecture diagram" border="false":::
 
 This blueprint deploys several Azure services to provide a secure, monitored, enterprise-ready
 foundation. This environment is composed of:
