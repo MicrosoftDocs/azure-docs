@@ -97,9 +97,12 @@ storage_blob_url = 'https://<your storage account name>.blob.core.windows.net/'
 
 ## Basic encoding with a single file
 
-### The file path of file you want to upload
+### Create the file path
+
+In this case, the file would be in the same folder as your Python script.
 
 ```python
+#The path of file you want to upload
 source_file = "ignite.mp4"
 ```
 
