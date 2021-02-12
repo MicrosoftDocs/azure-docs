@@ -4,14 +4,7 @@ description: Learn how Azure Content Delivery Network can optimize delivery base
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-
-ms.assetid:
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
@@ -59,7 +52,11 @@ Microsoft recommends that you test performance variations between different prov
 
 ## Select and configure optimization types
 
-When you create a CDN endpoint, select an optimization type that best matches the scenario and type of content that you want the endpoint to deliver. **General web delivery** is the default selection. For existing **Azure CDN Standard from Akamai** endpoints only, you can update the optimization option at any time. This change doesn't interrupt delivery from Azure CDN. 
+When you create a CDN endpoint, select an optimization type that best matches the scenario and type of content that you want the endpoint to deliver. 
+
+**General web delivery** is the default selection. You can only update **Azure CDN Standard from Akamai** endpoints optimization at any time. 
+
+For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon**, you can't.
 
 1. In an **Azure CDN Standard from Akamai** profile, select an endpoint.
 
