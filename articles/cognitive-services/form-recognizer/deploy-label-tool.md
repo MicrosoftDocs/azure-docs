@@ -56,9 +56,9 @@ Follow these steps to create a new resource using the Azure portal:
    * Linux Plan - Select a pricing tier/plan for your app service. 
 
    > [!div class="mx-imgBorder"]
-   > ![Configure your web app](./media/quickstarts/select-docker-linux.png)
+   > ![Configure your web app](./media/quickstarts/select-docker.png)
 
-5. Next, select the **Docker** tab. 
+5. Next, select the **Docker** tab.
 
    > [!div class="mx-imgBorder"]
    > ![Select Docker](./media/quickstarts/select-docker.png)
@@ -66,6 +66,7 @@ Follow these steps to create a new resource using the Azure portal:
 6. Now let's configure your Docker container. All fields are required unless otherwise noted:
 
     # [v2.0](#tab/v2-0)  
+
    * Options - Select **Single Container**
    * Image Source - Select **Private Registry** 
    * Server URL - Set this to `https://mcr.microsoft.com`
