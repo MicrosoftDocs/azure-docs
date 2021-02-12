@@ -268,7 +268,7 @@ All events contain the same top-level data:
 | `data` | object | IoT Hub event data.  |
 | `specversion` | string | CloudEvents schema specification version. |
 
---
+---
 
 For all IoT Hub events, the data object contains the following properties:
 
