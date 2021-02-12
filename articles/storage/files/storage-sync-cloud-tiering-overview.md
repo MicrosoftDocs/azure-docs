@@ -79,7 +79,7 @@ For more details on both of these options, see [Deploy Azure File Sync](storage-
 
 ## Tiered vs. locally cached file behavior
 
-Cloud tiering is the separation between namespace and file content. 
+Cloud tiering is the separation between namespace (the file and folder hierarchy as well as file properties) and the file content. 
 
 #### Tiered file
 
