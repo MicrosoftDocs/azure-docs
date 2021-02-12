@@ -116,7 +116,7 @@ Select **Add** at the Routes view, The **Add a route** page appears.
 
 1. Select **Add** at the Security view, The **Add a WAF policy** page appears
  
-    :::image type="content" source="../media/how-to-configure-endpoint-manager/add-waf-policy.png" alt-text="Screenshot of add a WAF policy page.":::
+    :::image type="content" source="../media/how-to-configure-endpoint-manager/add-waf-policy-page.png" alt-text="Screenshot of add a WAF policy page.":::
 
 1. **WAF Policy**: select a WAF policy you like apply for the selected domain within this endpoint. 
   
