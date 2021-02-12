@@ -8,7 +8,7 @@ titleSuffix: Azure
 ---
 # Tutorial: Analyze live video by using Intel OpenVINO™ DL Streamer – Edge AI Extension 
 
-This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server gives you access to different models for detecting objects (a person, a vehicle, or a bike), object classification (vehicle attributions) and a model for object tracking (person, vehicle and bike). The integration with the gRPC module allows you to create images at video frame rate and feed into the AI inference server and the results are sent to IoT Edge Hub. When you run this inference service on the same device as Live Video Analytics you benefit from the shared memory between the modules so you can analyze the video at source frame rate. 
+This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server gives you access to different models for detecting objects (a person, a vehicle, or a bike), object classification (vehicle attributions) and a model for object tracking (person, vehicle and bike). The integration with the gRPC module lets you send video frames to the AI inference server. The results then sent to the IoT Edge Hub. When you run this inference service on the same compute node as Live Video Analytics, you can take advantage of sending video data via shared memory. This enables you to run inferencing at the frame rate of the live video feed (eg. 30 frames/sec). 
 
 This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart.
 
@@ -37,7 +37,7 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
 
-In this quickstart, you'll use Live Video Analytics on IoT Edge along with the OpenVINO™ Model Server – AI Extension from Intel to detect objects such as vehicles, or to classify them. You'll publish the resulting inference events to IoT Edge Hub.
+In this quickstart, you'll use Live Video Analytics on IoT Edge along with the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to detect objects such as vehicles, or to classify them. You'll publish the resulting inference events to IoT Edge Hub.
 
 ## Overview
 
@@ -72,7 +72,7 @@ In the initial release of this inference server, you have access to the followin
 - object_tracking for person_vehicle_bike_tracking
 ![object-tracking](./media/use-intel-openvino-tutorial/object-tracking.png)
 
-It uses Pre-loaded Object Detection, Object Classification and Object Tracking pipelines to get started quickly. In addition it comes with Pre-loaded [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/description/person-vehicle-bike-detection-crossroad-0078.md) and [vehicle-attributes-recognition-barrier-0039 models](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/description/vehicle-attributes-recognition-barrier-0039.md).
+It uses Pre-loaded Object Detection, Object Classification and Object Tracking pipelines to get started quickly. In addition it comes with pre-loaded [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/description/person-vehicle-bike-detection-crossroad-0078.md) and [vehicle-attributes-recognition-barrier-0039 models](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/description/vehicle-attributes-recognition-barrier-0039.md).
 
 > [!NOTE]
 > By downloading and using the Edge module: OpenVINO™ Model Server – AI Extension from Intel, and the included software, you agree to the terms and conditions under the [License Agreement](https://www.intel.com/content/www/us/en/legal/terms-of-use.html).
