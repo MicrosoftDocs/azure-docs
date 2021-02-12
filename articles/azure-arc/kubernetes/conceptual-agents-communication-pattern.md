@@ -45,7 +45,7 @@ Connect a cluster to Azure Arc using the following steps:
         | `deployment.apps/resource-sync-agent` | Syncs the above mentioned cluster metadata to Azure |
         | `deployment.apps/flux-logs-agent` | Collects logs from the flux operators deployed as a part of source control configuration |
 1. Once all the Azure Arc enabled Kubernetes agents are up and running, determine whether your cluster successfully connected to Azure Arc. You should see:
-    * An Azure Arc enabled Kubernetes resource in Azure Resource Manager. This is a tracked resource in Azure acting as a projection of the customer-managed Kubernetes cluster. This is not the actual Kubernetes cluster itself.
+    * An Azure Arc enabled Kubernetes resource in Azure Resource Manager. This resource is tracked in Azure as a projection of the customer-managed Kubernetes cluster, not the actual Kubernetes cluster itself.
     * Cluster metadata, like Kubernetes version, agent version, and number of nodes, appears on the Azure Arc enabled Kubernetes resource as metadata.
 
 ## Data exchange between cluster environment and Azure
@@ -75,12 +75,12 @@ Connect a cluster to Azure Arc using the following steps:
 | Connecting | Azure Arc enabled Kubernetes resource created in Azure Resource Manager, but service hasn't received agent heartbeat yet. |
 | Connected | Azure Arc enabled Kubernetes service received agent heartbeat sometime within the previous 15 minutes. |
 | Offline | Azure Arc enabled Kubernetes resource was previously connected, but the service hasn't received any agent heartbeat for 15 minutes. |
-| Expired | Managed service identity (MSI) certificate has expired. First, run `az connectedk8s delete` to delete Azure Arc enabled Kubernetes resource and agents on the cluster. Then run `az connectedk8s connect` again to create the Azure Arc enabled Kubernetes resource and deploy agents on the cluster. Note that `az connectedk8s delete` will also delete configurations on top of the cluster. After running `az connectedk8s connect`, create the configurations on the cluster again, either manually by you or by Azure Policy. |
+| Expired | Managed service identity (MSI) certificate has expired. First, run `az connectedk8s delete` to delete Azure Arc enabled Kubernetes resource and agents on the cluster. Then run `az connectedk8s connect` again to create the Azure Arc enabled Kubernetes resource and deploy agents on the cluster. `az connectedk8s delete` will also delete configurations on top of the cluster. After running `az connectedk8s connect`, create the configurations on the cluster again, either manually by you or by Azure Policy. |
 
 ## Understand connectivity modes
 
 | Connectivity mode | Description |
 | ----------------- | ----------- |
 | Fully connected | Azure Arc enabled Kubernetes works seamlessly for fully connected mode of deployment where agents are always able to reach out to Azure. |
-| Semi-connected | The managed service identity (MSI) certificate pulled down by the `clusteridentityoperator` is valid for 90 days maximum before the certificate expires. Once the certificate expires, the Azure Arc enabled Kubernetes resource stops working. Delete and recreate the Azure Arc enabled Kubernetes resource and agents to get all the Arc features to work on the cluster. During the 90 days, users are strongly recommended to connect the cluster at least once every 30 days. |
-| Disconnected | Kubernetes clusters in completely disconnected environments without any access to Azure are currently not supported by Azure Arc enabled Kubernetes. If this capability is of interest to you, submit or up-vote an idea on [Azure Arc's UserVoice forum](https://feedback.azure.com/forums/925690-azure-arc).
+| Semi-connected | The managed service identity (MSI) certificate pulled down by the `clusteridentityoperator` is valid for 90 days maximum before the certificate expires. Once the certificate expires, the Azure Arc enabled Kubernetes resource stops working. Delete and recreate the Azure Arc enabled Kubernetes resource and agents to get all the Arc features to work on the cluster. During the 90 days, users are recommended to connect the cluster at least once every 30 days. |
+| Disconnected | Kubernetes clusters in disconnected environments without any access to Azure are currently not supported by Azure Arc enabled Kubernetes. If this capability is of interest to you, submit or up-vote an idea on [Azure Arc's UserVoice forum](https://feedback.azure.com/forums/925690-azure-arc).

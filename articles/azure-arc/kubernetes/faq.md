@@ -29,13 +29,13 @@ Yes, connecting your AKS or Kubernetes clusters to Azure Arc provides clusters w
 
 ## If I am already using CI/CD pipelines like Azure Pipelines and GitHub Actions to deploy workloads to my Kubernetes cluster, can I still use Azure Arc enabled Kubernetes and configurations (GitOps)?
 
-Yes, you can still use configurations on a cluster receiving deployments via a CI/CD pipeline. Compared to traditional CI/CD pipelines, configurations feature 2 additional benefits:
+Yes, you can still use configurations on a cluster receiving deployments via a CI/CD pipeline. Compared to traditional CI/CD pipelines, configurations feature two extra benefits:
     
 **Drift reconciliation** 
 
-While CI/CD pipelines’ scope of deployment only extends to the duration of the pipeline run, the GitOps operator on the cluster continuously polls the Git repository to fetch the desired state of Kubernetes resources on the cluster. If the GitOps operator finds the desired state of resources to be different from the actual state of resources on the cluster, this drift is reconciled.
+The CI/CD pipeline scope of deployment only extends to the duration of the pipeline run. However, the GitOps operator on the cluster continuously polls the Git repository to fetch the desired state of Kubernetes resources on the cluster. If the GitOps operator finds the desired state of resources to be different from the actual state of resources on the cluster, this drift is reconciled.
 **At-scale enforcement** 
 
-CI/CD pipelines don't offer a convenient way to enforce configurations at-scale on your entire inventory of Kubernetes clusters. Meanwhile, with Azure Resource Manager representation of configurations as an extension resource to Azure Arc enabled Kubernetes resources, you can automate the application of the desired configuration on all Kubernetes clusters under a subscription or resource group using Azure Policy, even for Azure Arc enabled Kubernetes resources created after policy assignment.
+CI/CD pipelines don't offer a convenient way to enforce configurations at-scale on your entire inventory of Kubernetes clusters. But with Azure Resource Manager representation of configurations as an extension to Azure Arc enabled Kubernetes resources, you can automate the application of the desired configuration on all Kubernetes clusters under a subscription or resource group using Azure Policy. This capability applies even to Azure Arc enabled Kubernetes resources created after policy assignment.
 
 The configurations feature is ideal for declaring baseline configurations like network policies, role bindings, and pod security policies across the entire inventory of Kubernetes clusters for compliance and governance requirements.
