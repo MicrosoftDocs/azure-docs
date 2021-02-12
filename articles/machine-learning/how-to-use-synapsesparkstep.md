@@ -17,9 +17,11 @@ ms.custom: how-to
 
 # How to use Apache Spark in your machine learning pipeline
 
-In this article, you'll learn how to use Apache Spark pools backed by Synapse as the compute target for a data preparation step Azure Machine Learning pipeline. 
+In this article, you'll learn how to use Apache Spark pools backed by Synapse as the compute target for a data preparation step Azure Machine Learning pipeline. More intro tk. 
 
 ## Prerequisites
+
+tk
 
 ## Create or retrieve the link between your Synapse workspace and your Azure Machine Learning workspace
 
@@ -47,7 +49,7 @@ linked_service = LinkedService.register(
     linked_service_config=synapse_link_config)
 ```
 
-First, `Workspace.from_config()` accesses your Azure Machine Learning workspace using the configuration in `config.json` (see [Tutorial: Get started with Azure Machine Learning in your development environment](tutorial-1st-experiment-sdk-setup-local)). Then, you link to your Synapse workspace by creating a `SynapseWorkspaceLinkedServiceConfiguration` object, passing your subscription ID, the name of the resource group in which the Synapse workspace exists, and the name of the Synapse workspace. Finally, you link the two services by calling `LinkedService.register()`.
+First, `Workspace.from_config()` accesses your Azure Machine Learning workspace using the configuration in `config.json` (see [Tutorial: Get started with Azure Machine Learning in your development environment](tutorial-1st-experiment-sdk-setup-local.md)). Then, you link to your Synapse workspace by creating a `SynapseWorkspaceLinkedServiceConfiguration` object, passing your subscription ID, the name of the resource group in which the Synapse workspace exists, and the name of the Synapse workspace. Finally, you link the two services by calling `LinkedService.register()`.
 
 You only need to register the linked service once in your Azure Machine Learning workspace. To retrieve all the linked services in your workspace, you can call `LinkedService.list(ws)`, or to retrieve a specific one: 
 
@@ -114,7 +116,7 @@ In this case, the data would be stored in the `datastore` in a file called **tes
 
 {>> Although the following block seems helpful, I don't think the sample notebook uses `run_config` in the pipeline. The sample NB seems to do the whole Spark configuration in the call to SynapseSparkStep <<}
 
-In addition to data, a pipeline step may be configured to have per-step Python dependencies, use different compute resources, and so forth. This configuration is done using a `RunConfiguration` object, as shown in the following code:
+~~In addition to data, a pipeline step may be configured to have per-step Python dependencies, use different compute resources, and so forth. This configuration is done using a `RunConfiguration` object, as shown in the following code:~~
 
 ```python
 from azureml.core.environment import CondaDependencies
@@ -138,9 +140,9 @@ run_config.spark.configuration["spark.executor.instances"] = 1
 run_config.environment.python.conda_dependencies = conda
 ```
 
-{>> IMPORTANT: Is the `pip_indexurl` correct for public preview? Should I discuss it or does it go away? Also, the azureml-sdk<0.1.1 seems strange, since it seems like it's saying 'use an old version'. Should I address this in the article? <<}
+~~{>> IMPORTANT: Is the `pip_indexurl` correct for public preview? Should I discuss it or does it go away? Also, the azureml-sdk<0.1.1 seems strange, since it seems like it's saying 'use an old version'. Should I address this in the article? <<}~~
 
-The above code first creates a `CondaDependencies` object that specifies the dependencies upon which the Apache spark-based data preparation step relies (see [Use software environments](how-to-use-environments.md)). Then, the code creates a `RunConfiguration` object that is going to use the PySpark framework. 
+~~The above code first creates a `CondaDependencies` object that specifies the dependencies upon which the Apache spark-based data preparation step relies (see [Use software environments](how-to-use-environments.md)). Then, the code creates a `RunConfiguration` object that is going to use the PySpark framework. ~~
 
 {>> Cutting this short because, as mentioned above, I think this block is not used in the pipeline <<}
 
