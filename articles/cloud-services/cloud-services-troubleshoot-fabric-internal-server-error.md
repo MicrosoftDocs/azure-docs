@@ -47,7 +47,7 @@ FabricInternalServerError     |Operation failed with error code 'InternalError' 
 > [!NOTE]
 > When the first node of a cloud service is deployed, it is *pinned* to a resource pool. A resource pool may be a single cluster, or a group of clusters.
 >
-> Over time, the resources in this resource pool may become fully utilized. If a cloud service makes an allocation request for additional resources when insufficient resources are available in the pinned resource pool, the request will result in an [allocation failure](cloud-services-allocation-failure.md).
+> Over time, the resources in this resource pool may become fully utilized. If a cloud service makes an allocation request for additional resources when insufficient resources are available in the pinned resource pool, the request will result in an [allocation failure](cloud-services-allocation-failures.md).
 
 ## Solution
 
@@ -70,7 +70,7 @@ When you experience an allocation error in this scenario, the recommended course
     > [!NOTE]
     > The *Products* page won't show the available capacity. For any new allocation, Azure should be able to pick the optimal cluster in your region at that point in time.
 
-1. Update the service definition file for your cloud service to specify a different [product size](cloud-services-sizes-specs#configure-sizes-for-cloud-services) from your region.
+1. Update the service definition file for your cloud service to specify a different [product size](cloud-services-sizes-specs.md#configure-sizes-for-cloud-services) from your region.
 
 ### Pinned to a cluster
 

@@ -43,7 +43,7 @@ There's a capacity issue with the region or cluster that you're deploying to. It
 > [!NOTE]
 > When the first node of a cloud service is deployed, it is *pinned* to a resource pool. A resource pool may be a single cluster, or a group of clusters.
 >
-> Over time, the resources in this resource pool may become fully utilized. If a cloud service makes an allocation request for additional resources when insufficient resources are available in the pinned resource pool, the request will result in an [allocation failure](cloud-services-allocation-failure.md).
+> Over time, the resources in this resource pool may become fully utilized. If a cloud service makes an allocation request for additional resources when insufficient resources are available in the pinned resource pool, the request will result in an [allocation failure](cloud-services-allocation-failures.md).
 
 ## Solution
 
@@ -64,7 +64,7 @@ You can use the [az vm list-skus](https://docs.microsoft.com/cli/azure/vm?view=a
     ```
 
     **Example results:**
-    ![Azure CLI output of running the 'az vm list-skus --location southcentralus --size Standard_F --output table' command, which shows the available SKUs.](./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-constrained-allocation-failed-1.png)
+    ![Azure CLI output of running the 'az vm list-skus --location southcentralus --size Standard_F --output table' command, which shows the available SKUs.](./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-constrained-allocation-failed.png)
 
 #### List SKUs in region using PowerShell
 
