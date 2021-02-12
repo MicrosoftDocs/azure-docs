@@ -165,7 +165,7 @@ Azure Spring Cloud addresses multiple aspects of operational excellence. You can
 
 ### Reliability
 
-Azure Spring Cloud is designed with AKS as a foundational component. While AKS provides a level of resiliency through clustering, this reference architecture incorporates services and architectural considerations to increase availability of the application in case of component failure.
+Azure Spring Cloud is designed with AKS as a foundational component. While AKS provides a level of resiliency through clustering, this reference architecture incorporates services and architectural considerations to increase availability of the application if there is component failure.
 
 By building on top of a well-defined hub and spoke design, the foundation of this architecture ensures that you can deploy it to multiple regions. For the private application use case, the architecture uses Azure Private DNS to ensure continued availability during a geographic failure. For the public application use case, Azure Front Door and Azure Application Gateway ensure availability.
 
@@ -194,7 +194,7 @@ The following list shows the CCM controls that address network security in this 
 | IPY-04 | Interoperability & Portability Standardized Network Protocols |
 | IVS-06 | Infrastructure & Virtualization SecurityNetwork Security |
 
-The network implementation is further secured by defining controls from the MAFB. The controls ensure that traffic into the environment is restricted from the public Internet. For the network egress rules implemented in this reference architecture, see the [Appendix](#appendix).
+The network implementation is further secured by defining controls from the MAFB. The controls ensure that traffic into the environment is restricted from the public Internet.
 
 The following list shows the CIS controls that address network security in this reference:
 
@@ -204,6 +204,11 @@ The following list shows the CIS controls that address network security in this 
 | 6.3 | Ensure no SQL Databases allow ingress 0.0.0.0/0 (ANY IP). |
 | 6.5 | Ensure that Network Watcher is 'Enabled'. |
 | 6.6 | Ensure that ingress using UDP is restricted from the internet. |
+
+For Azure Spring Cloud to function when deployed in a secured environment, management traffic must egress. For the network and application rules that you must allow on Azure Firewall or equivalent Network Virtual Appliance (NVA), see the following sections of [Customer responsibilities for running Azure Spring Cloud in VNET](/azure/spring-cloud/spring-cloud-vnet-customer-responsibilities):
+
+* [Azure Spring Cloud network requirements][12]
+* [Azure Spring Cloud FQDN requirements / application rules][13]
 
 #### Application security
 
@@ -235,13 +240,6 @@ The aspects of application security set a foundation for the use of this referen
 ## Next steps
 
 Explore this reference architecture through the ARM, Terraform, and Azure CLI deployments available in the [Azure Spring Cloud Reference Architecture][10] repository.
-
-## Appendix
-
-For Azure Spring Cloud to function when deployed in a secured environment, management traffic must egress. For the network and application rules that you must allow on Azure Firewall or equivalent Network Virtual Appliance (NVA), see the following sections of [Customer responsibilities for running Azure Spring Cloud in VNET](/azure/spring-cloud/spring-cloud-vnet-customer-responsibilities).
-
-* [Azure Spring Cloud network requirements][12]
-* [Azure Spring Cloud FQDN requirements / application rules][13]
 
 <!-- Reference links in article -->
 [1]: /azure/spring-cloud/
