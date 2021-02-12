@@ -159,9 +159,9 @@ Once you have uploaded models into your Azure Digital Twins instance, you can vi
 
 ## Next steps
 
-See how to create and manage models with the DigitalTwinModels APIs:
-* [*How-to: Manage DTDL models*](how-to-manage-model.md)
+* Learn about creating models based on industry-standard ontologies: [*Concepts: What are ontologies?*](concepts-ontologies.md)
 
-Or, learn about how digital twins are created based on models:
-* [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md)
+* Dive deeper into managing models with API operations: [*How-to: Manage DTDL models*](how-to-manage-model.md)
+
+* Learn about how models are used to create digital twins: [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md)
 

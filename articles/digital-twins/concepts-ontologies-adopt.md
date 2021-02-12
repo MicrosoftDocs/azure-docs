@@ -35,6 +35,8 @@ You can also read more about the partnership with RealEstateCore and goals for t
 
 ## Next steps
 
-Read more about extending industry-standard ontologies in [*Concepts: Extending industry ontologies*](concepts-ontologies-extend.md).
+* Learn more about extending industry-standard ontologies to meet your exact needs: [*Concepts: Extending industry ontologies*](concepts-ontologies-extend.md).
 
-Or, learn how to manage models in your Azure Digital Twins instance, including update, retrieve, decommission, and delete, see [*How-to: Manage DTDL models*](how-to-manage-model.md).
+* Dive deeper into managing models with API operations: [*How-to: Manage DTDL models*](how-to-manage-model.md)
+
+* Learn about how models are used to create digital twins: [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md)

@@ -62,8 +62,8 @@ This converter was used to translate the [Real Estate Core Ontology](https://doc
 
 ## Next steps 
 
-Read more about designing and managing digital twin models:
- 
-* [*Concepts: Custom models*](concepts-models.md)
-* [*How-to: Manage DTDL models*](how-to-manage-model.md)
-* [*How-to: Parse and validate models*](how-to-parse-models.md)
+* Learn more about extending industry-standard ontologies to meet your exact needs: [*Concepts: Extending industry ontologies*](concepts-ontologies-extend.md).
+
+* Dive deeper into managing models with API operations: [*How-to: Manage DTDL models*](how-to-manage-model.md)
+
+* Learn about how models are used to create digital twins: [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md)

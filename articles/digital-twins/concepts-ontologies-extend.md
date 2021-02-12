@@ -161,5 +161,6 @@ The DTDL for the extended interfaces, limited to the portion discussed above, wo
 
 ## Next steps
 
-Once you are done writing your models, see how to upload them (and do other management operations) with the DigitalTwinsModels APIs:
-* [*How-to: Manage DTDL models*](how-to-manage-model.md)
+* Dive deeper into managing models with API operations: [*How-to: Manage DTDL models*](how-to-manage-model.md)
+
+* Learn about how models are used to create digital twins: [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md)
