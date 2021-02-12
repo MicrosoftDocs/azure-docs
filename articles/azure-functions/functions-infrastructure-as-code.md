@@ -469,7 +469,7 @@ Linux apps should also include a `linuxFxVersion` property under `siteConfig`. I
 |------------------|-------------------------------------------------------|
 | Python           | `python|3.7`      |
 | JavaScript       | `node|12`          |
-| .NET             | `dotnet|3.0` |
+| .NET             | `dotnet|3.1` |
 
 ```json
 {

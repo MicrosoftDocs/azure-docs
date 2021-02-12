@@ -366,10 +366,12 @@ In some cases, an application might depend on Azure resources that cannot be iso
 
 The types of operations that a resource instance can perform on storage account data is determined by the [Azure role assignments](storage-auth-aad.md#assign-azure-roles-for-access-rights) of the resource instance. Resource instances must be from the same tenant as your storage account, but they can belong to any subscription in the tenant.
 
-The list of supported Azure services appears in the [Trusted access based on system-assigned managed identity](#trusted-access-system-assigned-managed-identity) section of this article.
+> [!NOTE]
+> This feature is in public preview and is available in all public cloud regions.
 
 > [!NOTE]
-> This feature is in public preview and is available in all public cloud regions. 
+> Resource instance rules are currently only supported for Azure Synapse. Support for other Azure services listed in the [Trusted access based on system-assigned managed identity](#trusted-access-system-assigned-managed-identity) section of this article will be available in the coming weeks.
+
 
 ### [Portal](#tab/azure-portal)
 
