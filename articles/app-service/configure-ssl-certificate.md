@@ -284,6 +284,9 @@ When the operation completes, you see the certificate in the **Private Key Certi
 > To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
 >
 
+>[!NOTE]
+>If you're planning to secure multiple App Services in the same resource group make sure they're also in the same region, otherwise you will be unable to reuse the certificate.
+
 ## Upload a public certificate
 
 Public certificates are supported in the *.cer* format. 
