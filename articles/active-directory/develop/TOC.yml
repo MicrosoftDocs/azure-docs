@@ -101,6 +101,8 @@
       href: tutorial-v2-windows-desktop.md
     - name: Use shared-device mode in your Android app
       href: tutorial-v2-shared-device-mode.md
+    - name: Electron desktop app
+      href: tutorial-v2-nodejs-desktop.md
   - name: Daemon or back-end service
     items:
     - name: ASP.NET daemon web app
