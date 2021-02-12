@@ -1,5 +1,5 @@
 ---
-title: Query JSON files using serverless SQL pool (preview) 
+title: Query JSON files using serverless SQL pool 
 description: This section explains how to read JSON files using serverless SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
@@ -11,9 +11,9 @@ ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
 
-# Query JSON files using serverless SQL pool (preview) in Azure Synapse Analytics
+# Query JSON files using serverless SQL pool in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using serverless SQL pool (preview) in Azure Synapse Analytics. The query's objective is to read JSON files using [OPENROWSET](develop-openrowset.md). 
+In this article, you'll learn how to write a query using serverless SQL pool in Azure Synapse Analytics. The query's objective is to read JSON files using [OPENROWSET](develop-openrowset.md). 
 - Standard JSON files where multiple JSON documents are stored as a JSON array.
 - Line-delimited JSON files, where JSON documents are separated with new-line character. Common extensions for these types of files are `jsonl`, `ldjson`, and `ndjson`.
 
@@ -121,7 +121,7 @@ The query examples read *json* files containing documents with following structu
 
 ### Query JSON files using JSON_VALUE
 
-The query below shows you how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve scalar values (title, publisher) from a JSON documents:
+The query below shows you how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to retrieve scalar values (title, publisher) from a JSON documents:
 
 ```sql
 select
@@ -141,7 +141,7 @@ order by JSON_VALUE(doc, '$.geo_id') desc
 
 ### Query JSON files using OPENJSON
 
-The following query uses [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). It will retrieve COVID statistics reported in Serbia:
+The following query uses [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). It will retrieve COVID statistics reported in Serbia:
 
 ```sql
 select

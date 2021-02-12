@@ -49,7 +49,7 @@ You can import a number of data types into your experiment, depending on what me
 * SQL database table
 * OData values
 * SVMLight data (.svmlight) (see the [SVMLight definition](http://svmlight.joachims.org/) for format information)
-* Attribute Relation File Format (ARFF) data (.arff) (see the [ARFF definition](https://weka.wikispaces.com/ARFF) for format information)
+* Attribute Relation File Format (ARFF) data (.arff) (see the [ARFF definition](https://www.cs.waikato.ac.nz/ml/weka/arff.html) for format information)
 * Zip file (.zip)
 * R object or workspace file (.RData)
 

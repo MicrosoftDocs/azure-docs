@@ -108,11 +108,11 @@ The following table contains estimated costs per month for a basic event hub in 
 
 
 
-| Log category       | Number of users | Events per day | Events per month (30 days) | Cost per month in USD (est.) |
-| :--                | ---             | ---            | ---                        | --:                          |
-| Audit and Sign-ins | 100,000	       | 16,500,000     | 495,000,000	             |  $1093.00                       |
-| Audit	             | 100,000         | 1,500,000      | 45,000,000                 |  $246.66                     |
-| Sign-ins           | 100,000         | 15,000,000     | 450,000,000                |	$847.28                     |
+| Log category | Number of users | Events per day | Events per month (30 days) | Cost per month in USD (est.) |
+|:-|--|--|--|-:|
+| Audit and Sign-ins | 100,000 | 16,500,000 | 495,000,000 | $1093.00 |
+| Audit | 100,000 | 1,500,000 | 45,000,000 | $246.66 |
+| Sign-ins | 100,000 | 15,000,000 | 450,000,000 | $847.28 |
 
 
 

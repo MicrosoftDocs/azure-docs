@@ -102,7 +102,7 @@ To configure Azure AD single sign-on with Wikispaces, perform the following step
     `https://session.wikispaces.net/<instancename>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Wikispaces Client support team](https://www.wikispaces.com/site/help) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Wikispaces Client support team](https://wikispaces.psu.edu/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -120,7 +120,7 @@ To configure Azure AD single sign-on with Wikispaces, perform the following step
 
 ### Configure Wikispaces Single Sign-On
 
-To configure single sign-on on **Wikispaces** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Wikispaces support team](https://www.wikispaces.com/site/help). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Wikispaces** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Wikispaces support team](https://wikispaces.psu.edu/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 

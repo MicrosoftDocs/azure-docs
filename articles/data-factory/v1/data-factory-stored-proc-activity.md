@@ -1,17 +1,11 @@
 ---
 title: SQL Server Stored Procedure Activity
 description: Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database or Azure Synapse Analytics from a Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
-ms.workload: data-services
-
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 robots: noindex
 ---
 # SQL Server Stored Procedure Activity
@@ -36,7 +30,7 @@ You use data transformation activities in a Data Factory [pipeline](data-factory
 You can use the Stored Procedure Activity to invoke a stored procedure in one of the following data stores in your enterprise or on an Azure virtual machine (VM):
 
 - Azure SQL Database
-- Azure Synapse Analytics (formerly SQL Data Warehouse)
+- Azure Synapse Analytics
 - SQL Server Database. If you are using SQL Server, install Data Management Gateway on the same machine that hosts the database or on a separate machine that has access to the database. Data Management Gateway is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details.
 
 > [!IMPORTANT]
@@ -63,9 +57,9 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
     ```
     Id is the unique identified and the datetimestamp column is the date and time when the corresponding ID is generated.
     
-	![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
+    ![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
 
-	In this sample, the stored procedure is in an Azure SQL Database. If the stored procedure is in Azure Synapse Analytics and SQL Server Database, the approach is similar. For a SQL Server database, you must install a [Data Management Gateway](data-factory-data-management-gateway.md).
+    In this sample, the stored procedure is in an Azure SQL Database. If the stored procedure is in Azure Synapse Analytics and SQL Server Database, the approach is similar. For a SQL Server database, you must install a [Data Management Gateway](data-factory-data-management-gateway.md).
 2. Create the following **stored procedure** that inserts data in to the **sampletable**.
 
     ```SQL
@@ -220,50 +214,50 @@ For more information on chaining activities, see [multiple activities in a pipel
 
 ```json
 {
-	"name": "ADFTutorialPipeline",
-	"properties": {
-		"description": "Copy data from a blob to blob",
-		"activities": [
-			{
-				"type": "Copy",
-				"typeProperties": {
-					"source": {
-						"type": "BlobSource"
-					},
-					"sink": {
-						"type": "BlobSink",
-						"writeBatchSize": 0,
-						"writeBatchTimeout": "00:00:00"
-					}
-				},
-				"inputs": [ { "name": "InputDataset" } ],
-				"outputs": [ { "name": "OutputDataset" } ],
-				"policy": {
-					"timeout": "01:00:00",
-					"concurrency": 1,
-					"executionPriorityOrder": "NewestFirst"
-				},
-				"name": "CopyFromBlobToSQL"
-			},
-			{
-				"type": "SqlServerStoredProcedure",
-				"typeProperties": {
-					"storedProcedureName": "SPSproc"
-				},
-				"inputs": [ { "name": "OutputDataset" } ],
-				"outputs": [ { "name": "SQLOutputDataset" } ],
-				"policy": {
-					"timeout": "01:00:00",
-					"concurrency": 1,
-					"retry": 3
-				},
-				"name": "RunStoredProcedure"
-			}
-		],
-		"start": "2017-04-12T00:00:00Z",
-		"end": "2017-04-13T00:00:00Z",
-		"isPaused": false,
-	}
+    "name": "ADFTutorialPipeline",
+    "properties": {
+        "description": "Copy data from a blob to blob",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [ { "name": "InputDataset" } ],
+                "outputs": [ { "name": "OutputDataset" } ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst"
+                },
+                "name": "CopyFromBlobToSQL"
+            },
+            {
+                "type": "SqlServerStoredProcedure",
+                "typeProperties": {
+                    "storedProcedureName": "SPSproc"
+                },
+                "inputs": [ { "name": "OutputDataset" } ],
+                "outputs": [ { "name": "SQLOutputDataset" } ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1,
+                    "retry": 3
+                },
+                "name": "RunStoredProcedure"
+            }
+        ],
+        "start": "2017-04-12T00:00:00Z",
+        "end": "2017-04-13T00:00:00Z",
+        "isPaused": false,
+    }
 }
 ```
 
@@ -303,13 +297,13 @@ The following table describes these JSON properties:
 | name | Name of the activity |Yes |
 | description |Text describing what the activity is used for |No |
 | type | Must be set to: **SqlServerStoredProcedure** | Yes |
-| inputs | Optional. If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. |No |
+| inputs | Optional. If you do specify an input dataset, it must be available (in 'Ready' status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. |No |
 | outputs | You must specify an output dataset for a stored procedure activity. Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). <br/><br/>The output dataset must use a **linked service** that refers to an Azure SQL Database or Azure Synapse Analytics or a SQL Server Database in which you want the stored procedure to run. <br/><br/>The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. <br/><br/>In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity. |Yes |
 | storedProcedureName |Specify the name of the stored procedure in Azure SQL Database, Azure Synapse Analytics, or SQL Server that is represented by the linked service that the output table uses. |Yes |
 | storedProcedureParameters |Specify values for stored procedure parameters. If you need to pass null for a parameter, use the syntax: "param1": null (all lower case). See the following sample to learn about using this property. |No |
 
 ## Passing a static value
-Now, let’s consider adding another column named ‘Scenario’ in the table containing a static value called ‘Document sample’.
+Now, let's consider adding another column named 'Scenario' in the table containing a static value called 'Document sample'.
 
 ![Sample data 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
 

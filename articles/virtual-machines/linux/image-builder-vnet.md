@@ -19,7 +19,7 @@ This article shows you how you can use the Azure Image Builder to create a basic
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Register the features
 
@@ -312,4 +312,4 @@ If you created a VNET for this quickstart, you can delete the VNET if it's no lo
 
 ## Next steps
 
-Learn more about [Azure Shared Image Galleries](shared-image-galleries.md).
+Learn more about [Azure Shared Image Galleries](../shared-image-galleries.md).

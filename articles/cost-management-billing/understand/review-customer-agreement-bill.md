@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 12/02/2020
 ms.author: banders
 ---
 
@@ -15,7 +15,7 @@ ms.author: banders
 
 You can review the charges on your invoice by analyzing the individual transactions. In the billing account for a Microsoft Customer Agreement, an invoice is generated every month for each billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal and compare the charges to the usage detail file.
 
-This tutorial applies only to Azure customers with an Microsoft Customer Agreement.
+This tutorial applies only to Azure customers with a Microsoft Customer Agreement.
 
 In this tutorial, you learn how to:
 
@@ -49,6 +49,8 @@ If you have access to just one billing scope, select **Properties** from the lef
 ![Screenshot that shows Microsoft Customer Agreement in properties page](./media/review-customer-agreement-bill/billing-mca-property.png)
 
 If you have access to multiple billing scopes, check the type in the billing account column. You have access to a billing account for a Microsoft Customer Agreement if the billing account type for any of the scopes is **Microsoft Customer Agreement**.
+
+In the billing scopes page, select **Billing scopes** and then select the billing account, which would be used to pay for the subscriptions' usage. The billing account should be of type **Microsoft Customer Agreement**.
 
 ![Screenshot that shows Microsoft Customer Agreement in billing account list page](./media/review-customer-agreement-bill/billing-mca-in-the-list.png)
 
@@ -141,7 +143,7 @@ Use the Azure usage and charges CSV file to analyze your usage-based charges. Yo
 
 ### Download your invoice and usage details
 
-Depending on your access, you might need to select a billing account or billing profile in Cost Management + Billing. In the left menu, select **Invoices** under **Billing**. In the invoice grid, find the row of the invoice you want to download. Click the download symbol or ellipsis (...) at the end of the row. In the **Download** box, download the usage details file and invoice.
+Depending on your access, you might need to select a billing account or billing profile in Cost Management + Billing. In the left menu, select **Invoices** under **Billing**. In the invoice grid, find the row of the invoice you want to download. Select the download symbol or ellipsis (...) at the end of the row. In the **Download** box, download the usage details file and invoice.
 
 ### View detailed usage by invoice section
 

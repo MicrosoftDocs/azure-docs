@@ -1,18 +1,11 @@
 ---
 title: Load data from Office 365 by using Azure Data Factory 
 description: 'Use Azure Data Factory to copy data from Office 365'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-
 ---
 # Load data from Office 365 by using Azure Data Factory
 
@@ -143,7 +136,7 @@ Now go to the destination Azure Blob Storage and verify that Office 365 data has
 
 ## Next steps
 
-Advance to the following article to learn about Azure Synapse Analytics (formerly SQL Data Warehouse) support: 
+Advance to the following article to learn about Azure Synapse Analytics support: 
 
 > [!div class="nextstepaction"]
 >[Office 365 connector](connector-office-365.md)

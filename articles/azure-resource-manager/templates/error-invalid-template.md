@@ -124,7 +124,7 @@ Double check the allowed values in the template, and provide one during deployme
 
 ## Solution 4 - Too many target resource groups
 
-You may see this error in earlier deployments because you were limited to five target resource groups in a single deployment. In May 2020, that limit was increased to 800 resource groups. For more information, see [Deploy Azure resources to more than one subscription or resource group](cross-scope-deployment.md).
+You may see this error in earlier deployments because you were limited to five target resource groups in a single deployment. In May 2020, that limit was increased to 800 resource groups. For more information, see [Deploy Azure resources to more than one subscription or resource group](./deploy-to-resource-group.md).
 
 <a id="circular-dependency"></a>
 

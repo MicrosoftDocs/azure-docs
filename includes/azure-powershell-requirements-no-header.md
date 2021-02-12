@@ -15,5 +15,5 @@ ms.custom: devx-track-azurepowershell
   * Connect to your Azure account using the
     [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 * If you choose to use Azure Cloud Shell:
-  * See [Overview of Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) for
+  * See [Overview of Azure Cloud Shell](../articles/cloud-shell/overview.md) for
     more information.

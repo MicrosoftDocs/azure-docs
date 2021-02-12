@@ -4,7 +4,7 @@ description: This article describes how to code model refreshes for Azure Analys
 author: chrislound
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/01/2020
 ms.author: chlound
 
 ---
@@ -12,7 +12,7 @@ ms.author: chlound
 
 By using Azure Automation and PowerShell Runbooks, you can perform automated data refresh operations on your Azure Analysis tabular models.  
 
-The example in this article uses the [SqlServer PowerShell module](/powershell/module/sqlserver/?view=sqlserver-ps). A sample PowerShell Runbook, which demonstrates refreshing a model is provided later in this article.  
+The example in this article uses the [SqlServer PowerShell module](/powershell/module/sqlserver/?view=sqlserver-ps&preserve-view=true). A sample PowerShell Runbook, which demonstrates refreshing a model is provided later in this article.  
 
 ## Authentication
 

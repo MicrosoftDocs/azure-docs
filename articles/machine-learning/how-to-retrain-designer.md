@@ -1,7 +1,7 @@
 ---
-title: Retrain models by using Azure Machine Learning designer
+title: Use pipeline parameters to retrain models in the designer
 titleSuffix: Azure Machine Learning
-description: Learn how to retrain machine learning models with published pipelines in Azure Machine Learning designer.
+description: Retrain models with published pipelines and pipeline parameters in Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to, designer
 ---
 
-# Retrain models with Azure Machine Learning designer
+# Use pipeline parameters to retrain models in the designer
 
 
-In this how-to article, you learn how to use Azure Machine Learning designer to retrain a machine learning model. You will use published pipelines to automate your workflow and set parameters to train your model on new data. 
+In this how-to article, you learn how to use Azure Machine Learning designer to retrain a machine learning model using pipeline parameters. You will use published pipelines to automate your workflow and set parameters to train your model on new data. Pipeline parameters let you re-use existing pipelines for different jobs.  
 
 In this article, you learn how to:
 
@@ -42,7 +42,11 @@ The pipeline used in this article is an altered version of a sample pipeline [In
 
 ## Create a pipeline parameter
 
-Create pipeline parameters to dynamically set variables at runtime. For this example, you will change the training data path from a fixed value to a parameter, so that you can retrain your model on different data.
+Pipeline parameters are used to build versatile pipelines which can be resubmitted later with varying parameter values. Some common scenarios are updating datasets or some hyper-parameters for retraining. Create pipeline parameters to dynamically set variables at runtime. 
+
+Pipeline parameters can be added to data source or module parameters in a pipeline. When the pipeline is resubmitted, the values of these parameters can be specified.
+
+For this example, you will change the training data path from a fixed value to a parameter, so that you can retrain your model on different data. You can also add other module parameters as pipeline parameters according to your use case.
 
 1. Select the **Import Data** module.
 
@@ -55,31 +59,22 @@ Create pipeline parameters to dynamically set variables at runtime. For this exa
 
 1. Mouseover the **Path** field, and select the ellipses above the **Path** field that appear.
 
-    ![Screenshot that shows how to create a pipeline parameter](media/how-to-retrain-designer/add-pipeline-parameter.png)
-
 1. Select **Add to pipeline parameter**.
 
 1. Provide a parameter name and a default value.
 
-   > [!NOTE]
-   > You can inspect and edit your pipeline parameters by selecting the **Settings** gear icon next to the title of your pipeline draft. 
+   ![Screenshot that shows how to create a pipeline parameter](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
 1. Select **Save**.
 
+   > [!NOTE]
+   > You can also detach a module parameter from pipeline parameter in the module detail pane, similar to adding pipeline parameters.
+   >
+   > You can inspect and edit your pipeline parameters by selecting the **Settings** gear icon next to the title of your pipeline draft. 
+   >    - After detaching, you can delete the pipeline parameter in the **Setings** pane.
+   >    - You can also add a pipeline parameter in the **Settings** pane, and then apply it on some module parameter.
+
 1. Submit the pipeline run.
-
-## Find a trained model
-
-The designer saves all pipeline output, including trained models, to the default workspace storage account. You can also access trained models directly in the designer:
-
-1. Wait for the pipeline to finish running.
-1. Select the **Train Model** module.
-1. In the module details pane, to the right of the canvas, select **Outputs + logs**.
-1. You can find your model in **Other outputs** along with run logs.
-1. Alternatively, select the **View output** icon. From here, you can follow the instruction in the dialog to navigate directly to your datastore. 
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows how to download the trained model](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## Publish a training pipeline
 

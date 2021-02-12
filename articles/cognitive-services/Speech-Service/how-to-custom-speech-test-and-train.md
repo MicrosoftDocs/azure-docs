@@ -42,8 +42,10 @@ This table lists accepted data types, when each data type should be used, and th
 | Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/A |
-| [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-1,000 hours of audio |
+| [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
 | [Related text](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
+
+When you train a new model, start with [related text](#related-text-data-for-training). This data will already improve the recognition of special terms and phrases. Training with text is much faster than training with audio (minutes vs. days).
 
 Files should be grouped by type into a dataset and uploaded as a .zip file. Each dataset can only contain a single data type.
 
@@ -112,13 +114,16 @@ Audio files can have silence at the beginning and end of the recording. If possi
 > [!NOTE]
 > When uploading training and testing data, the .zip file size cannot exceed 2 GB. You can only test from a *single* dataset, be sure to keep it within the appropriate file size. Additionally, each training file cannot exceed 60 seconds otherwise it will error out.
 
-To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 1,000 hours of audio. The transcriptions for all WAV files should be contained in a single plain-text file. Each line of the transcription file should contain the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t).
+To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 20 hours of audio. The transcriptions for all WAV files should be contained in a single plain-text file. Each line of the transcription file should contain the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t).
 
-  For example:
-```
-  speech01.wav  speech recognition is awesome
-  speech02.wav  the quick brown fox jumped all over the place
-  speech03.wav  the lazy dog was not amused
+For example:
+
+<!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
+
+```input
+speech01.wav	speech recognition is awesome
+speech02.wav	the quick brown fox jumped all over the place
+speech03.wav	the lazy dog was not amused
 ```
 
 > [!IMPORTANT]
@@ -131,6 +136,10 @@ After you've gathered your audio files and corresponding transcriptions, package
 > [!div class="mx-imgBorder"]
 > ![Select audio from the Speech Portal](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
+See [Set up your Azure account](custom-speech-overview.md#set-up-your-azure-account) for a list of recommended regions for your Speech service subscriptions. Setting up the Speech subscriptions in one of these regions will reduce the time it takes to train the model. In these regions, training can process about 10 hours of audio per day compared to just 1 hour per day in other regions. If model training cannot be completed within a week, the model will be marked as failed.
+
+Not all base models support training with audio data. If the base model does not support it, the service will ignore the audio and just train with the text of the transcriptions. In this case, training will be the same as training with related text. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data.
+
 ## Related text data for training
 
 Product names or features that are unique, should include related text data for training. Related text helps ensure correct recognition. Two types of related text data can be provided to improve recognition:
@@ -141,6 +150,8 @@ Product names or features that are unique, should include related text data for 
 | Pronunciations | Improve pronunciation of uncommon terms, acronyms, or other words with undefined pronunciations. |
 
 Sentences can be provided as a single text file or multiple text files. To improve accuracy, use text data that is closer to the expected spoken utterances. Pronunciations should be provided as a single text file. Everything can be packaged as a single zip file and uploaded to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+Training with related text usually completes within a few minutes.
 
 ### Guidelines to create a sentences file
 
@@ -158,7 +169,7 @@ Use this table to ensure that your related data file for utterances is formatted
 
 Additionally, you'll want to account for the following restrictions:
 
-* Avoid repeating characters more than four times. For example: "aaaa" or "uuuu".
+* Avoid repeating characters, words, or groups of words more than three times. For example: "aaaa", "yeah yeah yeah yeah", or "that's it that's it that's it that's it". The Speech service might drop lines with too many repetitions.
 * Don't use special characters or UTF-8 characters above `U+00A1`.
 * URIs will be rejected.
 
@@ -199,4 +210,4 @@ Use the following table to ensure that your related data file for pronunciations
 * [Inspect your data](how-to-custom-speech-inspect-data.md)
 * [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 * [Train your model](how-to-custom-speech-train-model.md)
-* [Deploy your model](how-to-custom-speech-deploy-model.md)
+* [Deploy your model](./how-to-custom-speech-train-model.md)

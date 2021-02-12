@@ -9,7 +9,7 @@ ms.author: msmbaldwin
 
 ---
 
-This quickstart uses a pre-created Azure key vault. You can create a key vault by following the steps in the [Azure CLI quickstart](/azure/key-vault/general/quick-create-cli), [Azure PowerShell quickstart](/azure/key-vault/general/quick-create-powershell), or [Azure portal quickstart](/azure/key-vault/general/quick-create-portal). 
+This quickstart uses a pre-created Azure key vault. You can create a key vault by following the steps in the [Azure CLI quickstart](../articles/key-vault/general/quick-create-cli.md), [Azure PowerShell quickstart](../articles/key-vault/general/quick-create-powershell.md), or [Azure portal quickstart](../articles/key-vault/general/quick-create-portal.md). 
 
 Alternatively, you can simply run the Azure CLI or Azure PowerShell commands below.
 

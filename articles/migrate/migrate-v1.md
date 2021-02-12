@@ -1,11 +1,11 @@
 ---
 title: Work with the previous version of Azure Migrate 
 description: Describes how to work with the previous version of Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: overview
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
+ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: mvc
 ---
 
@@ -18,7 +18,7 @@ This article provides information about working with the previous version of Azu
 There are two versions of the Azure Migrate service:
 
 - **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. [Learn more](whats-new.md) about what's new in this version.
-- **Previous version**: If you're using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. The previous version projects are referred to as Classic projects in this article. If you still need to use Azure Migrate projects created in the previous version, this is what you can and can't do:
+- **Previous version**: If you're using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. The previous version projects are referred to as Classic projects in this article. Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, classic version of Azure Migrate will no longer be supported and the inventory metadata in classic projects will be deleted. If you still need to use classic Azure Migrate projects, this is what you can and can't do:
     - You can no longer create migration projects.
     - We recommend that you don't perform new discoveries.
     - You can still access existing projects.
@@ -27,7 +27,7 @@ There are two versions of the Azure Migrate service:
 
 ## Upgrade between versions
 
-You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](how-to-add-tool-first-time.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a Classic project, you can attach it to a project of current version after you delete the Classic project.
+You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](./create-manage-projects.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a Classic project, you can attach it to a project of current version after you delete the Classic project.
 
 ## Find projects from previous version
 
@@ -304,7 +304,7 @@ To run the Kusto queries:
 4. Write your query to gather dependency data using Azure Monitor logs. Find sample queries in the next section.
 5. Run your query by clicking on Run. 
 
-[Learn more](../azure-monitor/log-query/get-started-portal.md) about how to write Kusto queries. 
+[Learn more](../azure-monitor/log-query/log-analytics-tutorial.md) about how to write Kusto queries. 
 
 ### Sample Azure Monitor logs queries
 

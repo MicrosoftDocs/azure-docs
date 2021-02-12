@@ -55,15 +55,12 @@ In addition to using the SAP HANA backup in Azure that provides database level b
 
 The [Backint certified Azure SAP HANA backup solution](#backup-architecture) can be used for database backup and recovery.
 
-[Azure VM backup](backup-azure-vms-introduction.md) can be used to back up the OS and other non-database disks. The VM backup is taken once every day and it backups up all the disks (except **Write Accelerator (WA) disks** and **ultra disks**). Since the database is being backed up using the Azure SAP HANA backup solution, you can take a file-consistent backup of only the OS and non-database disks using the [Selective disk backup and restore for Azure VMs](selective-disk-backup-restore.md) feature.
-
->[!NOTE]
-> Using pre-post scripts with the Azure VM backup will allow app-consistent backups of the data volumes of the database. However, if the log area resides on WA disks, taking a snapshot of these disks may not guarantee a log area consistency. HANA has an explicit way of generating log backups for this exact reason. Enable the same in your SAP HANA, and they can be backed up using Azure SAP HANA backup.
+[Azure VM backup](backup-azure-vms-introduction.md) can be used to back up the OS and other non-database disks. The VM backup is taken once every day and it backups up all the disks (except **Write Accelerator (WA) OS disks** and **ultra disks**). Since the database is being backed up using the Azure SAP HANA backup solution, you can take a file-consistent backup of only the OS and non-database disks using the [Selective disk backup and restore for Azure VMs](selective-disk-backup-restore.md) feature.
 
 To restore a VM running SAP HANA, follow these steps:
 
 * [Restore a new VM from Azure VM backup](backup-azure-arm-restore-vms.md) from the latest recovery point. Or create a new empty VM and attach the disks from the latest recovery point.
-* Since WA disks aren't backed up, they aren't restored. Create empty WA disks and log area.
+* If WA disks are excluded, they aren’t restored. In this case, create empty WA disks and log area.
 * After all the other configurations (such as IP, system name, and so on) are set, the VM is set to receive DB data from Azure Backup.
 * Now restore the DB into the VM from the [Azure SAP HANA DB backup](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) to the desired point-in-time.
 

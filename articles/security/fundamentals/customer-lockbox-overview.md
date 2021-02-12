@@ -59,7 +59,7 @@ Customer Lockbox is currently enabled for remote desktop access requests to virt
 - Virtual machine scale set - Windows and Linux
 
 > [!NOTE]
-> IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+> IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 #### Detailed audit logs
 

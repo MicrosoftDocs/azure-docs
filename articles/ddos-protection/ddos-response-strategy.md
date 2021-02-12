@@ -39,9 +39,9 @@ It’s imperative to understand the scope of your risk from a DDoS attack on an 
 
 - Are my services active/active with failover across multiple regions?
 
-It is essential that you understand the normal behavior of an application and prepare to act if the application is not behaving as expected during a DDoS attack. Have monitors configured for your business-critical applications that mimic client behavior, and notify you when relevant anomalies are detected. Refer to [monitoring and diagnostics best practices](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) to gain insights on the health of your application.
+It is essential that you understand the normal behavior of an application and prepare to act if the application is not behaving as expected during a DDoS attack. Have monitors configured for your business-critical applications that mimic client behavior, and notify you when relevant anomalies are detected. Refer to [monitoring and diagnostics best practices](/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) to gain insights on the health of your application.
 
-[Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible application performance management (APM) service for web developers on multiple platforms. Use Application Insights to monitor your live web application. It automatically detects performance anomalies. It includes analytics tools to help you diagnose issues and to understand what users do with your app. It's designed to help you continuously improve performance and usability.
+[Azure Application Insights](../azure-monitor/app/app-insights-overview.md) is an extensible application performance management (APM) service for web developers on multiple platforms. Use Application Insights to monitor your live web application. It automatically detects performance anomalies. It includes analytics tools to help you diagnose issues and to understand what users do with your app. It's designed to help you continuously improve performance and usability.
 
 ## Customer DDoS response team
 
@@ -51,7 +51,7 @@ We recommend that you use simulation exercises as a normal part of your service 
 
 ## Alerts during an attack
 
-Azure DDoS Protection Standard identifies and mitigates DDoS attacks without any user intervention. To get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](telemetry-monitoring-alerting.md) on the metric **Under DDoS attack or not**. You can choose to create alerts for the other DDoS metrics to understand the scale of the attack, traffic being dropped, and other details.
+Azure DDoS Protection Standard identifies and mitigates DDoS attacks without any user intervention. To get notified when there’s an active mitigation for a protected public IP, you can [configure alerts](alerts.md).
 
 ### When to contact Microsoft support
 

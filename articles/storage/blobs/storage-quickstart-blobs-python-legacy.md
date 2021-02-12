@@ -132,7 +132,7 @@ First, you create the references to the objects used to access and manage Blob s
 Once you have the Cloud Blob container, instantiate the **CloudBlockBlob** object that points to the specific blob that you're interested in. You can then upload, download, and copy the blob as you need.
 
 > [!IMPORTANT]
-> Container names must be lowercase. For more information about container and blob names, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Container names must be lowercase. For more information about container and blob names, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ### Upload blobs to the container
 
@@ -211,7 +211,7 @@ For more about Python development with Blob storage, see these additional resour
 
 ### Client library reference and samples
 
-- For more about the Python client library, see the [Azure Storage libraries for Python](https://docs.microsoft.com/python/api/overview/azure/storage).
+- For more about the Python client library, see the [Azure Storage libraries for Python](/python/api/overview/azure/storage).
 - Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) written using the Python client library.
 
 ## Next steps

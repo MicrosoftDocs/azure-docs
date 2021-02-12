@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure Key Vault with Kubernetes
 description: In this tutorial, you access and retrieve secrets from your Azure key vault by using the Secrets Store Container Storage Interface (CSI) driver to mount into Kubernetes pods.
-author: ShaneBala-keyvault
-ms.author: sudbalas
+author: msmbaldwin
+ms.author: mbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
@@ -12,19 +12,19 @@ ms.date: 09/25/2020
 # Tutorial: Configure and run the Azure Key Vault provider for the Secrets Store CSI driver on Kubernetes
 
 > [!IMPORTANT]
-> CSI Driver is an open source project that is not supported by Azure technical support. Please report all feedback and issues related to CSI Driver Key Vault integration on the github link at the bottom of the page. This tool is provided for users to self-install into clusters and gather feedback from our community.
+> CSI Driver is an open source project that is not supported by Azure technical support. Please report all feedback and issues related to CSI Driver Key Vault integration on the github link [here](https://github.com/Azure/secrets-store-csi-driver-provider-azure/issues). This tool is provided for users to self-install into clusters and gather feedback from our community.
+
 
 In this tutorial, you access and retrieve secrets from your Azure key vault by using the Secrets Store Container Storage Interface (CSI) driver to mount the secrets into Kubernetes pods.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a service principal or use managed identities.
+> * Use managed identities.
 > * Deploy an Azure Kubernetes Service (AKS) cluster by using the Azure CLI.
 > * Install Helm and the Secrets Store CSI driver.
 > * Create an Azure key vault and set your secrets.
 > * Create your own SecretProviderClass object.
-> * Assign your service principal or use managed identities.
 > * Deploy your pod with mounted secrets from your key vault.
 
 ## Prerequisites
@@ -33,22 +33,9 @@ In this tutorial, you learn how to:
 
 * Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
-## Create a service principal or use managed identities
+This tutorial assumes you runnig Azure Kubernetes Service on Linux nodes.
 
-If you plan to use managed identities, you can move on to the next section.
-
-Create a service principal to control which resources can be accessed from your Azure key vault. This service principal's access is restricted by the roles assigned to it. This feature gives you control over how the service principal can manage your secrets. In the following example, the name of the service principal is *contosoServicePrincipal*.
-
-```azurecli
-az ad sp create-for-rbac --name contosoServicePrincipal --skip-assignment
-```
-This operation returns a series of key/value pairs:
-
-![Screenshot showing the appId and password for contosoServicePrincipal](../media/kubernetes-key-vault-1.png)
-
-Copy the **appId** and **password** credentials for later use.
-
-## Flow for using Managed Identity
+## Use managed identities
 
 This diagram illustrates the AKS–Key Vault integration flow for Managed Identity:
 
@@ -61,7 +48,7 @@ You don't need to use Azure Cloud Shell. Your command prompt (terminal) with the
 Complete the "Create a resource group," "Create AKS cluster," and "Connect to the cluster" sections in [Deploy an Azure Kubernetes Service cluster by using the Azure CLI](../../aks/kubernetes-walkthrough.md). 
 
 > [!NOTE] 
-> If you plan to use a pod identity instead of a service principal, be sure to enable it when you create the Kubernetes cluster, as shown in the following command:
+> If you plan to use a pod identity, be sure to enable it when you create the Kubernetes cluster, as shown in the following command:
 >
 > ```azurecli
 > az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 1.16.9 --node-count 1 --enable-managed-identity
@@ -76,7 +63,7 @@ Complete the "Create a resource group," "Create AKS cluster," and "Connect to th
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. To display the metadata of the AKS cluster that you've created, use the following command. Copy the **principalId**, **clientId**, **subscriptionId**, and **nodeResourceGroup** for later use. If the ASK cluster was not created with managed identities enabled, the **principalId** and **clientId** will be null. 
+1. To display the metadata of the AKS cluster that you've created, use the following command. Copy the **principalId**, **clientId**, **subscriptionId**, and **nodeResourceGroup** for later use. If the AKS cluster was not created with managed identities enabled, the **principalId** and **clientId** will be null. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -88,6 +75,8 @@ Complete the "Create a resource group," "Create AKS cluster," and "Connect to th
     ![Screenshot of the Azure CLI with subscriptionId and nodeResourceGroup values highlighted](../media/kubernetes-key-vault-3.png)
     
 ## Install Helm and the Secrets Store CSI driver
+> [!NOTE]
+> Below installation works only on AKS on Linux. For more information about Secrets Store CSI driver installation, see [Azure Key Vault Provider for Secrets Store CSI Driver](https://github.com/Azure/secrets-store-csi-driver-provider-azure) 
 
 To install the Secrets Store CSI driver, you first need to install [Helm](https://helm.sh/docs/intro/install/).
 
@@ -117,7 +106,7 @@ To create your own custom SecretProviderClass object with provider-specific para
 
 In the sample SecretProviderClass YAML file, fill in the missing parameters. The following parameters are required:
 
-* **userAssignedIdentityID**: # [REQUIRED] If you're using a service principal, use the client ID to specify which user-assigned managed identity to use. If you're using a user-assigned identity as the VM's managed identity, specify the identity's client ID. If the value is empty, it defaults to use the system-assigned identity on the VM 
+* **userAssignedIdentityID**: # [REQUIRED] If the value is empty, it defaults to use the system-assigned identity on the VM 
 * **keyvaultName**: The name of your key vault
 * **objects**: The container for all of the secret content you want to mount
     * **objectName**: The name of the secret content
@@ -143,9 +132,8 @@ spec:
   parameters:
     usePodIdentity: "false"                   # [REQUIRED] Set to "true" if using managed identities
     useVMManagedIdentity: "false"             # [OPTIONAL] if not provided, will default to "false"
-    userAssignedIdentityID: "servicePrincipalClientID"       # [REQUIRED] If you're using a service principal, use the client id to specify which user-assigned managed identity to use. If you're using a user-assigned identity as the VM's managed identity, specify the identity's client id. If the value is empty, it defaults to use the system-assigned identity on the VM
-                                                             #     az ad sp show --id http://contosoServicePrincipal --query appId -o tsv
-                                                             #     the preceding command will return the client ID of your service principal
+    userAssignedIdentityID: "servicePrincipalClientID"       # [REQUIRED]  If you're using a user-assigned identity as the VM's managed identity, specify the identity's client id. If the value is empty, it defaults to use the system-assigned identity on the VM
+                                                         
     keyvaultName: "contosoKeyVault5"          # [REQUIRED] the name of the key vault
                                               #     az keyvault show --name contosoKeyVault5
                                               #     the preceding command will display the key vault metadata, which includes the subscription ID, resource group name, key vault 
@@ -170,58 +158,18 @@ The following image shows the console output for **az keyvault show --name conto
 
 ![Screenshot showing the console output for "az keyvault show --name contosoKeyVault5"](../media/kubernetes-key-vault-4.png)
 
-## Assign your service principal or use managed identities
+## Assign managed identity
 
-### Assign a service principal
-
-If you're using a service principal, grant permissions for it to access your key vault and retrieve secrets. Assign the *Reader* role, and grant the service principal permissions to *get* secrets from your key vault by doing the following command:
-
-1. Assign your service principal to your existing key vault. The **$AZURE_CLIENT_ID** parameter is the **appId** that you copied after you created your service principal.
-    ```azurecli
-    az role assignment create --role Reader --assignee $AZURE_CLIENT_ID --scope /subscriptions/$SUBID/resourcegroups/$KEYVAULT_RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
-    ```
-
-    The output of the command is shown in the following image: 
-
-    ![Screenshot showing the principalId value](../media/kubernetes-key-vault-5.png)
-
-1. Grant the service principal permissions to get secrets:
-    ```azurecli
-    az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $AZURE_CLIENT_ID
-    az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $AZURE_CLIENT_ID
-    ```
-
-1. You've now configured your service principal with permissions to read secrets from your key vault. The **$AZURE_CLIENT_SECRET** is the password of your service principal. Add your service principal credentials as a Kubernetes secret that's accessible by the Secrets Store CSI driver:
-    ```azurecli
-    kubectl create secret generic secrets-store-creds --from-literal clientid=$AZURE_CLIENT_ID --from-literal clientsecret=$AZURE_CLIENT_SECRET
-    ```
-
-> [!NOTE] 
-> If you're deploying the Kubernetes pod and you receive an error about an invalid Client Secret ID, you might have an older Client Secret ID that was expired or reset. To resolve this issue, delete your *secrets-store-creds* secret and create a new one with the current Client Secret ID. To delete your *secrets-store-creds*, run the following command:
->
-> ```azurecli
-> kubectl delete secrets secrets-store-creds
-> ```
-
-If you forgot your service principal's Client Secret ID, you can reset it by using the following command:
-
-```azurecli
-az ad sp credential reset --name contosoServicePrincipal --credential-description "APClientSecret" --query password -o tsv
-```
-
-### Use managed identities
-
-If you're using managed identities, assign specific roles to the AKS cluster you've created. 
+Assign specific roles to the AKS cluster you've created. 
 
 1. To create, list, or read a user-assigned managed identity, your AKS cluster needs to be assigned the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role. Make sure that the **$clientId** is the Kubernetes cluster's clientId. For the scope, it will be under your Azure subscription service, specifically the node resource group that was made when the AKS cluster was created. This scope will ensure only resources within that group are affected by the roles assigned below. 
 
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
-    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
     
-    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
     
-    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
     ```
 
 1. Install the Azure Active Directory (Azure AD) identity into AKS.
@@ -238,7 +186,7 @@ If you're using managed identities, assign specific roles to the AKS cluster you
 
 1. Assign the *Reader* role to the Azure AD identity that you created in the preceding step for your key vault, and then grant the identity permissions to get secrets from your key vault. Use the **clientId** and **principalId** from the Azure AD identity.
     ```azurecli
-    az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
+    az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/<SUBID>/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
 
     az keyvault set-policy -n contosoKeyVault5 --secret-permissions get --spn $clientId
     az keyvault set-policy -n contosoKeyVault5 --key-permissions get --spn $clientId
@@ -249,16 +197,6 @@ If you're using managed identities, assign specific roles to the AKS cluster you
 To configure your SecretProviderClass object, run the following command:
 ```azurecli
 kubectl apply -f secretProviderClass.yaml
-```
-
-### Use a service principal
-
-If you're using a service principal, use the following command to deploy your Kubernetes pods with the SecretProviderClass and the secrets-store-creds that you configured earlier. Here are the deployment templates:
-* For [Linux](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/nginx-pod-inline-volume-service-principal.yaml)
-* For [Windows](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/windows-pod-secrets-store-inline-volume-secret-providerclass.yaml)
-
-```azurecli
-kubectl apply -f updateDeployment.yaml
 ```
 
 ### Use managed identities
@@ -314,8 +252,6 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
-        nodePublishSecretRef:           # Only required when using service principal mode
-          name: secrets-store-creds     # Only required when using service principal mode
 ```
 
 Run the following command to deploy your pod:
@@ -358,4 +294,4 @@ Verify that the contents of the secret are displayed.
 
 To help ensure that your key vault is recoverable, see:
 > [!div class="nextstepaction"]
-> [Turn on soft delete](./soft-delete-cli.md)
+> [Turn on soft delete](./key-vault-recovery.md)

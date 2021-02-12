@@ -18,7 +18,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 
 # Authentication flows and application scenarios
 
-The Microsoft identity platform (v2.0) endpoint supports authentication for different kinds of modern application architectures. All of the architectures are based on the industry-standard protocols [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md). By using the [authentication libraries for the Microsoft identity platform](reference-v2-libraries.md), applications authenticate identities and acquire tokens to access protected APIs.
+The Microsoft identity platform supports authentication for different kinds of modern application architectures. All of the architectures are based on the industry-standard protocols [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md). By using the [authentication libraries for the Microsoft identity platform](reference-v2-libraries.md), applications authenticate identities and acquire tokens to access protected APIs.
 
 This article describes authentication flows and the application scenarios that they're used in.
 
@@ -39,8 +39,8 @@ The following sections describe the categories of applications.
 
 Authentication scenarios involve two activities:
 
-- **Acquiring security tokens for a protected web API**: We recommend that you use [Microsoft-supported client libraries](reference-v2-libraries.md#microsoft-supported-client-libraries) to acquire tokens. In particular, we recommend the Microsoft Authentication Library (MSAL) family.
-- **Protecting a web API or a web app**: One challenge of protecting these resources is validating the security token. On some platforms, Microsoft offers [middleware libraries](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
+- **Acquiring security tokens for a protected web API**: We recommend that you use the [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md), developed and supported by Microsoft.
+- **Protecting a web API or a web app**: One challenge of protecting these resources is validating the security token. On some platforms, Microsoft offers [middleware libraries](reference-v2-libraries.md).
 
 ### With users or without users
 
@@ -62,7 +62,7 @@ Security tokens can be acquired by multiple types of applications. These applica
   - Desktop apps that call web APIs on behalf of signed-in users
   - Mobile apps
   - Apps running on devices that don't have a browser, like those running on IoT
-  
+
 - **Confidential client applications**: Apps in this category include:
   - Web apps that call a web API
   - Web APIs that call a web API
@@ -76,7 +76,7 @@ For more information, see [Supported account types](v2-supported-account-types.m
 
 ## Application scenarios
 
-The Microsoft identity platform endpoint supports authentication for these app architectures:
+The Microsoft identity platform supports authentication for these app architectures:
 
 - Single-page apps
 - Web apps
@@ -92,7 +92,7 @@ Applications use the different authentication flows to sign in users and get tok
 
 Many modern web apps are built as client-side single-page applications. These applications use JavaScript or a framework like Angular, Vue, and React. These applications run in a web browser.
 
-Single-page applications differ from traditional server-side web apps in terms of authentication characteristics. By using the Microsoft identity platform, single-page applications can sign in users and get tokens to access back-end services or web APIs. Microsoft identity platform offers two grant types for JavaScript applications: 
+Single-page applications differ from traditional server-side web apps in terms of authentication characteristics. By using the Microsoft identity platform, single-page applications can sign in users and get tokens to access back-end services or web APIs. The Microsoft identity platform offers two grant types for JavaScript applications:
 
 | MSAL.js (2.x) | MSAL.js (1.x) |
 |---|---|
@@ -159,7 +159,7 @@ For more information, see [Mobile app that calls web APIs](scenario-mobile-overv
 
 You can use the Microsoft identity platform endpoint to secure web services like your app's RESTful web API. A protected web API is called through an access token. The token helps secure the API's data and authenticate incoming requests. The caller of a web API appends an access token in the authorization header of an HTTP request.
 
-If you want to protect your ASP.NET or ASP.NET Core web API, you need to validate the access token. For this validation, you use the ASP.NET JWT middleware. The validation is done by the [IdentityModel extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) library and not by MSAL.NET.
+If you want to protect your ASP.NET or ASP.NET Core web API, validate the access token. For this validation, you use the ASP.NET JWT middleware. The validation is done by the [IdentityModel extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) library and not by MSAL.NET.
 
 For more information, see [Protected web API](scenario-protected-web-api-overview.md).
 
@@ -240,7 +240,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
   <tr>
    <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Device code</a></td>
-   <td>Work or school accounts</td>
+   <td>Work or school accounts, personal accounts, and Azure AD B2C</td>
  </tr>
 
  <tr>
@@ -306,7 +306,7 @@ In the Windows column of the following table, each time .NET Core is mentioned, 
 | [Daemon app](scenario-daemon-overview.md) <br/> [![Daemon app](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 | [Web API that calls web APIs](scenario-web-api-call-api-overview.md) <br/><br/> [![Web API that calls web APIs](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 
-For more information, see [Microsoft-supported libraries by OS/language](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language).
+For more information, see [Microsoft identity platform authentication libraries](reference-v2-libraries.md).
 
 ## Next steps
 

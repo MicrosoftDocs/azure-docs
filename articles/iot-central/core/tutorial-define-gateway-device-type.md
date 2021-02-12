@@ -140,7 +140,7 @@ To publish the gateway device template:
 
 3. In the **Publish a Device Template** dialog box, choose **Publish**.
 
-After a device template is published, it's visible on the **Devices** page and to the operator. In a published device template, you can't edit a device capability model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template. These updates don't cause a new version to be created. After making any changes, select **Publish**  to push those changes out to your operator.
+After a device template is published, it's visible on the **Devices** page and to the operator. In a published device template, you can't edit a device model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template. These updates don't cause a new version to be created. After making any changes, select **Publish**  to push those changes out to your operator.
 
 ## Create the simulated devices
 
@@ -196,6 +196,10 @@ Both your simulated downstream devices are now connected to your simulated gatew
 
 Select a gateway device template and gateway device instance, and select **Join**.
 
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## Next steps
 
 In this tutorial, you learned how to:
@@ -206,9 +210,6 @@ In this tutorial, you learned how to:
 * Define a visualization for the device telemetry.
 * Add relationships.
 * Publish your device template.
-
-> [!NOTE]
-> VS Code based code generation is currently not supported for gateway devices modeled in IoT Central.
 
 Next, as a device developer, you can learn how to:
 

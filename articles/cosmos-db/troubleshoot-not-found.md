@@ -21,6 +21,11 @@ There are many valid scenarios where an application expects a code 404 and corre
 ## A not found exception was returned for an item that should exist or does exist
 Here are the possible reasons for a status code 404 to be returned if the item should exist or does exist.
 
+### The read session is not available for the input session token
+
+#### Solution:
+1. Update your current SDK to the latest version available. The most common causes for this particular error have been fixed in the newest SDK versions.
+
 ### Race condition
 There are multiple SDK client instances and the read happened before the write.
 
@@ -92,7 +97,7 @@ Wait for the indexing to catch up or change the indexing policy.
 The database or container that the item exists in was deleted.
 
 #### Solution:
-1. [Restore](./online-backup-and-restore.md#request-data-restore-from-a-backup) the parent resource, or re-create the resources.
+1. [Restore](./configure-periodic-backup-restore.md#request-restore) the parent resource, or re-create the resources.
 1. Create a new resource to replace the deleted resource.
 
 ### 7. Container/Collection names are case-sensitive

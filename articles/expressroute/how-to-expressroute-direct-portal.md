@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 12/14/2020
 ms.author: duau
 
 ---
@@ -18,7 +18,14 @@ ExpressRoute Direct lets you connect directly into Microsoft’s global network 
 
 ## <a name="before"></a>Before you begin
 
-Verify that the **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
+Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, send an Email to <ExpressRouteDirect@microsoft.com> with your subscription ID, including the following details:
+
+* Scenarios you're looking to accomplish with **ExpressRoute Direct**
+* Location preferences - see [Partners and peering locations](expressroute-locations-providers.md) for a complete list of all locations
+* Timeline for implementation
+* Any other questions
+
+Once enrolled, verify that the **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
 
 1. Access your subscription settings as described in [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 1. In your subscription, for **Resource Providers**, verify that the **Microsoft.Network** provider shows a **Registered** status. If the Microsoft.Network resource provider is not present in the list of registered providers, add it.

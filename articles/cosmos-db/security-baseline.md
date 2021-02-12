@@ -357,7 +357,7 @@ How to monitor identity and access within Azure Security Center: https://docs.mi
 
 **Guidance**: Use Privileged Access Workstations (PAW) with Multi-Factor Authentication configured to log into and configure Azure resources.
 
-Learn about Privileged Access Workstations: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Learn about Privileged Access Workstations: https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
 How to enable MFA in Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -441,11 +441,11 @@ How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickst
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
-**Guidance**: Currently not available; Customer Lockbox not yet supported for Azure Database for Cosmos DB.
+**Guidance**: Customer Lockbox is not applicable for Cosmos DB.  Microsoft employees cannot access data resources even with customer permissions.
 
 List of Customer Lockbox supported services: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -1074,7 +1074,7 @@ How to set the Azure Security Center Security Contact: https://docs.microsoft.co
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
 How to configure continuous export: https://docs.microsoft.com/azure/security-center/continuous-export
 

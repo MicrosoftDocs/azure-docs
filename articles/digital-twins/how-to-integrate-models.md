@@ -57,54 +57,7 @@ The following table is an example of how RDFS and OWL constructs can be mapped t
 
 The following C# code snippet shows how an RDF model file is loaded into a graph and converted to DTDL, using the [**dotNetRDF**](https://www.dotnetrdf.org/) library. 
 
-```csharp
-using VDS.RDF.Ontology; 
-using VDS.RDF.Parsing; 
-using Microsoft.Azure.DigitalTwins.Parser; 
-
-//...
-
-Console.WriteLine("Reading file..."); 
-
-FileLoader.Load(_ontologyGraph, rdfFile.FullName); 
-
-// Start looping through for each owl:Class 
-foreach (OntologyClass owlClass in _ontologyGraph.OwlClasses) 
-{ 
-
-    // Generate a DTMI for the owl:Class 
-    string Id = GenerateDTMI(owlClass); 
-
-    if (!String.IsNullOrEmpty(Id)) 
-    { 
-
-        Console.WriteLine($"{owlClass.ToString()} -> {Id}"); 
-
-        // Create Interface
-        DtdlInterface dtdlInterface = new DtdlInterface 
-        { 
-            Id = Id, 
-            Type = "Interface", 
-            DisplayName = GetInterfaceDisplayName(owlClass), 
-            Comment = GetInterfaceComment(owlClass), 
-            Contents = new List<DtdlContents>() 
-        }; 
-
-        // Use DTDL 'extends' for super classes 
-        IEnumerable<OntologyClass> foundSuperClasses = owlClass.DirectSuperClasses; 
-
-        //... 
-     }
-
-     // Add interface to the list of interfaces 
-     _interfaceList.Add(dtdlInterface); 
-} 
-
-// Serialize to JSON 
-var json = JsonConvert.SerializeObject(_interfaceList); 
-
-//...
-``` 
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/convertRDF.cs":::
 
 ### Sample converter application 
 
@@ -112,7 +65,7 @@ There is a sample application available that converts an RDF-based model file to
 
 The sample is a .NET Core command-line application called **RdfToDtdlConverter**.
 
-You can get the sample here: [**RdfToDtdlConverter**](https://docs.microsoft.com/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
+You can get the sample here: [**RdfToDtdlConverter**](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
 
 To download the code to your machine, hit the *Download ZIP* button underneath the title on the sample landing page. This will download a *ZIP* file under the name *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip*, which you can then unzip and explore.
 

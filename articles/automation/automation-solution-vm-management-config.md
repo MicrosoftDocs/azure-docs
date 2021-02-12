@@ -43,7 +43,7 @@ You can enable either targeting the action against a subscription and resource g
 
 2. Add a comma-separated list of VMs (without spaces) in the **VMList** parameter field. An example list is `vm1,vm2,vm3`.
 
-3. Set the **WHATIF** parameter field to True.
+3. Set the **WHATIF** parameter field to True to preview your changes.
 
 4. Configure the `External_ExcludeVMNames` variable with a comma-separated list of VMs (VM1,VM2,VM3), without spaces between comma-separated values.
 
@@ -58,7 +58,7 @@ In an environment that includes two or more components on multiple VMs supportin
 
 ### Target the start and stop actions against a subscription and resource group
 
-1. Add a `sequencestart` and a `sequencestop` tag with positive integer values to VMs that are targeted in `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupNames` variables. The start and stop actions are performed in ascending order. To learn how to tag a VM, see [Tag a Windows virtual machine in Azure](../virtual-machines/windows/tag.md) and [Tag a Linux virtual machine in Azure](../virtual-machines/linux/tag.md).
+1. Add a `sequencestart` and a `sequencestop` tag with positive integer values to VMs that are targeted in `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupNames` variables. The start and stop actions are performed in ascending order. To learn how to tag a VM, see [Tag a Windows virtual machine in Azure](../virtual-machines/tag-portal.md) and [Tag a Linux virtual machine in Azure](../virtual-machines/tag-cli.md).
 
 2. Modify the schedules **Sequenced-StartVM** and **Sequenced-StopVM** to the date and time that meet your requirements and enable the schedule.
 
@@ -74,7 +74,7 @@ In an environment that includes two or more components on multiple VMs supportin
 
 3. Add a comma-separated list of VMs (without spaces) in the **VMList** parameter field. An example list is `vm1,vm2,vm3`.
 
-4. Set **WHATIF** to True. 
+4. Set **WHATIF** to True to preview your changes. 
 
 5. Configure the `External_ExcludeVMNames` variable with a comma-separated list of VMs, without spaces between comma-separated values.
 

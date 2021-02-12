@@ -98,4 +98,4 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 In this quickstart, you built and ran a real-time serverless application using Maven. Next, learn about how to create Java Azure Functions from scratch.
 
 > [!div class="nextstepaction"]
-> [Create your first function with Java and Maven](../azure-functions/functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java%252cprogramming-language-java)
+> [Create your first function with Java and Maven](../azure-functions/create-first-function-cli-csharp.md?pivots=programming-language-java%2cprogramming-language-java)

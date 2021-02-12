@@ -36,7 +36,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../b
 
 Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure Cache for Redis instances at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Azure DDoS Protection instances.
 
-- [How to configure alerts for DDoS protection metrics](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [View and configure DDoS diagnostic logging](../../ddos-protection/diagnostic-logging.md)
 
 - [How to enable Diagnostic Settings for Azure Activity Log](../../azure-monitor/platform/activity-log.md)
 
@@ -58,7 +58,7 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log data that may have been collected for Recovery Services vaults.
 
-- [Information on how to access telemetry, logs and attack analytics for DDoS Protection Standard service](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [Information on how to access telemetry, logs and attack analytics for DDoS Protection Standard service](../../ddos-protection/telemetry.md)
 
 - [How to enable diagnostic settings for Azure Activity Log](../../azure-monitor/platform/activity-log.md)
 
@@ -74,7 +74,7 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 Onboard a Log Analytics workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues. Additionally, you can create custom log alerts in your Log Analytics workspace using Azure Monitor.
 
-- [How configure alerts for DDoS metrics](https://azure.microsoft.com/blog/holiday-season-is-ddos-season/)
+- [How configure alerts for DDoS metrics](../../ddos-protection/alerts.md)
 
 - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
@@ -94,7 +94,7 @@ Onboard a Log Analytics workspace to Azure Sentinel as it provides a security or
 
 Additionally, Azure Active Directory (AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [Understand permissions in Azure DDoS protection](../../virtual-network/manage-ddos-protection.md#permissions-and-restrictions)
+- [Understand permissions in Azure DDoS protection](../../ddos-protection/manage-permissions.md)
 
 - [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -140,7 +140,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you c
 
 - [How to register your client application (service principal) with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-- [Azure DDos Protection API information](/rest/api/virtual-network/)
+- [Azure DDoS Protection API information](/rest/api/virtual-network/)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -162,7 +162,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you c
 
 **Guidance**: Use a secure, Azure-managed workstation with Azure AD Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Customer Lockbox requests.
 
-- [Deploy a secure, Azure-managed workstation](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Deploy a secure, Azure-managed workstation](/security/compass/privileged-access-deployment)
 
 - [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -264,7 +264,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: To work with Azure DDoS Protection plans, your account must be assigned to the network contributor role or to a custom role that is assigned specific actions.
 
-- [Manage Azure role-based access control (Azure RBAC) in Azure DDoS Protection](../../virtual-network/manage-ddos-protection.md)
+- [Manage Azure role-based access control (Azure RBAC) in Azure DDoS Protection](../../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -382,7 +382,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 ### 7.1: Establish secure configurations for all Azure resources
 
-**Guidance**: Define and implement standard security configurations for Azure DDos Protection with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the configuration of your Recovery Services vaults.
+**Guidance**: Define and implement standard security configurations for Azure DDoS Protection with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the configuration of your Recovery Services vaults.
 
 - [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -522,7 +522,7 @@ Test your assumptions about how your services will respond to an attack by gener
 
 Select any of the available DDoS protection metrics to alert you when there’s an active mitigation during an attack, using the Azure Monitor alert configuration. When the conditions are met, the address specified receives an alert email
 
-- [Configure alerts for DDoS protection metrics](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+- [Configure alerts for DDoS protection metrics](../../ddos-protection/alerts.md)
 
 - [How to configure continuous export](../../security-center/continuous-export.md)
 

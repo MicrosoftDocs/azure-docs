@@ -48,6 +48,10 @@ Running the pre-registration script sets the required permissions to allow Azure
 
 Refer to [this section](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid) of the troubleshooting guide.
 
+### What should be done while upgrading within the same version?
+
+Refer to [this section](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm) in the troubleshooting guide.
+
 ### Can Azure HANA Backup be set up against a virtual IP (load balancer) and not a virtual machine?
 
 Currently we don't have the capability to set up the solution against a virtual IP alone. We need a virtual machine to execute the solution.

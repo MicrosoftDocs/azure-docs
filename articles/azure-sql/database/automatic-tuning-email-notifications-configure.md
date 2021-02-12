@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 06/03/2019
 ---
 # Email notifications for automatic tuning

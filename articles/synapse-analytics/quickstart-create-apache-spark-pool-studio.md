@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a serverless Apache Spark pool (preview) using Synapse Studio'
+title: 'Quickstart: Create a serverless Apache Spark pool using Synapse Studio'
 description: Create a serverless Apache Spark pool using Synapse Studio by following the steps in this guide.  
 services: synapse-analytics 
 author: saveenr  
@@ -11,7 +11,7 @@ ms.author: saveenr
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Create a serverless Apache Spark pool (preview) using Synapse Studio
+# Quickstart: Create a serverless Apache Spark pool using Synapse Studio
 
 Azure Synapse Analytics offers various analytics engines to help you ingest, transform, model, analyze,  and serve your data. Apache Spark pool offers open-source big data compute capabilities. After creating an Apache Spark pool in your Synapse workspace, data can be loaded, modeled, processed, and served to obtain insights.  
 

@@ -1,6 +1,6 @@
 ---
-title: Table data types in dedicated SQL pool
-description: Recommendations for defining table data types in dedicated SQL pool. 
+title: Table data types in dedicated SQL pool (formerly  SQL DW)
+description: Recommendations for defining table data types for dedicated SQL pool (formerly  SQL DW) in Azure Synapse Analytics. 
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -13,13 +13,13 @@ ms.reviewer: jrasnick
 ms.custom: 
 ---
 
-# Table data types for dedicated SQL pool in Azure Synapse Analytics 
+# Table data types for dedicated SQL pool (formerly  SQL DW) in Azure Synapse Analytics 
 
 Included in this article are recommendations for defining table data types in dedicated SQL pool.
 
 ## Supported data types
 
-Dedicated SQL pool supports the most commonly used data types. For a list of the supported data types, see [data types](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#DataTypes) in the CREATE TABLE statement.
+Dedicated SQL pool (formerly  SQL DW) supports the most commonly used data types. For a list of the supported data types, see [data types](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#DataTypes) in the CREATE TABLE statement.
 
 ## Minimize row length
 
@@ -46,7 +46,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 
 ## <a name="unsupported-data-types"></a>Workarounds for unsupported data types
 
-The following list shows the data types that dedicated SQL pool doesn't support and gives useful alternatives for unsupported data types.
+The following list shows the data types that dedicated SQL pool (formerly  SQL DW) doesn't support and gives useful alternatives for unsupported data types.
 
 | Unsupported data type | Workaround |
 | --- | --- |

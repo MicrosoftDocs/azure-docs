@@ -97,7 +97,7 @@ In Azure for Students Starter, you have access to most of the features of the Az
 You've now finished creating a function app with a simple HTTP trigger function. Next, you can explore local tooling, more languages, monitoring, and integrations.
 
  * [Create your first function using Visual Studio](./functions-create-your-first-function-visual-studio.md)
- * [Create your first function using Visual Studio Code](./functions-create-first-function-vs-code.md)
+ * [Create your first function using Visual Studio Code](./create-first-function-vs-code-csharp.md)
  * [Azure Functions JavaScript developer guide](./functions-reference-node.md)
  * [Use Azure Functions to connect to an Azure SQL Database](./functions-scenario-database-table-cleanup.md)
  * [Learn more about Azure Functions HTTP bindings](./functions-bindings-http-webhook.md).

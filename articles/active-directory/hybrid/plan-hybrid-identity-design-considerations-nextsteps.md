@@ -27,7 +27,7 @@ Conceptual and procedural planning, deployment, and administration content are u
 
 * [Microsoft System Center](/previous-versions/system-center/developer/cc817313(v=msdn.10)) solutions can help you capture and aggregate knowledge about your infrastructure, policies, processes, and best practices so that your IT staff can build manageable systems and automate operations.
 * [Microsoft Intune](/mem/intune/) is a cloud-based device management service that helps you to manage your computers and mobile devices and to secure your company’s information.
-* [MDM for Microsoft 365](https://technet.microsoft.com/library/ms.o365.cc.devicepolicy.aspx) allows you to manage and secure mobile devices when they're connected to your Microsoft 365 organization. You can use MDM for Microsoft 365 to set device security policies and access rules, and to wipe mobile devices if they’re lost or stolen.
+* [MDM for Microsoft 365](/microsoft-365/admin/basic-mobility-security/overview) allows you to manage and secure mobile devices when they're connected to your Microsoft 365 organization. You can use MDM for Microsoft 365 to set device security policies and access rules, and to wipe mobile devices if they’re lost or stolen.
 
 ## Hybrid identity resources
 Monitoring the following resources often provides the latest news and updates on mobile device management solutions:

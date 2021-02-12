@@ -1,19 +1,16 @@
 ---
-title: 'Moving application authentication from AD FS to Azure Active Directory'
-description: This article is intended to help organizations understand how to move applications to Azure AD, with a focus on federated SaaS applications.
+title: Moving application authentication from AD FS to Azure Active Directory
+description: This article is intended to help organizations understand how to move applications to Azure Active Directory, with a focus on federated SaaS applications.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 04/01/2020
+ms.date: 02/10/2021
 ms.author: kenwith
 ms.reviewer: baselden
-ms.collection: M365-identity-device-management
 ---
 
 # Moving application authentication from Active Directory Federation Services to Azure Active Directory
@@ -21,7 +18,7 @@ ms.collection: M365-identity-device-management
 [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) offers a universal identity platform that provides your people, partners, and customers a single identity to access applications and collaborate from any platform and device. Azure AD has a [full suite of identity management capabilities](../fundamentals/active-directory-whatis.md). Standardizing your application (app) authentication and authorization to Azure AD enables the benefits these capabilities provide.
 
 > [!TIP]
-> This article is written for a developer audience. Project managers and administrators planning an application's move to Azure AD should consider reading our [Migrating application authentication to Azure AD](https://aka.ms/migrateapps/whitepaper) white paper (PDF).
+> This article is written for a developer audience. Project managers and administrators planning an application's move to Azure AD should consider reading our [Migrating application authentication to Azure AD](migrate-application-authentication-to-azure-active-directory.md) article.
 
 ## Introduction
 
@@ -289,7 +286,7 @@ In the [Azure portal](https://portal.azure.com/), you will first [create a user 
 
 Explicit user authorization in AD FS:
 
-![Screenshot shows the Edit Rule dialog box for the Allow domain admins Claim rule with an Incoming claim type of Primary S I D.](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
+![Screenshot shows the Edit Rule dialog box for the Allow a specific user Claim rule with an Incoming claim type of Primary S I D.](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
 
 This is how the rule maps to Azure AD:
 
@@ -316,7 +313,7 @@ The User/Groups selector is a rule that allows you to enforce MFA on a per-Group
 
 Specify MFA rules for a user or a group in Azure AD:
 
-1. Create a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Create a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 2. Select **Assignments**. Add the user(s) or group(s) you want to enforce MFA on.
 
@@ -330,7 +327,7 @@ Specify MFA rules for a user or a group in Azure AD:
 
 Specify MFA rules for unregistered devices in Azure AD:
 
-1. Create a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Create a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 2. Set the **Assignments** to **All users**.
 
@@ -346,7 +343,7 @@ When you set the For multiple controls option to Require one of the selected con
 
 Specify MFA rules based on a user's location in Azure AD:
 
-1. Create a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json).
+1. Create a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 1. Set the **Assignments** to **All users**.
 
@@ -384,7 +381,7 @@ AD FS 2016 has several built-in access control policies that you can choose from
 ![Azure AD built in access control](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-1.png)
 
 
-To implement built-in policies in Azure AD, you can use a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%252fazure%252factive-directory%252fconditional-access%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fconditional-access%252ftoc.json) and configure the access controls, or you can use the custom policy designer in AD FS 2016 to configure access control policies. The Rule Editor has an exhaustive list of Permit and Except options that can help you make all kinds of permutations.
+To implement built-in policies in Azure AD, you can use a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json) and configure the access controls, or you can use the custom policy designer in AD FS 2016 to configure access control policies. The Rule Editor has an exhaustive list of Permit and Except options that can help you make all kinds of permutations.
 
 ![Azure AD access control policies](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-2.png)
 

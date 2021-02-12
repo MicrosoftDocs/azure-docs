@@ -21,9 +21,9 @@ ms.custom: "devx-track-csharp, aaddev"
 
 # Use MSAL.NET to sign in users with social identities
 
-You can use MSAL.NET to sign in users with social identities by using [Azure Active Directory B2C (Azure AD B2C)](https://aka.ms/aadb2c). Azure AD B2C is built around the notion of policies. In MSAL.NET, specifying a policy translates to providing an authority.
+You can use MSAL.NET to sign in users with social identities by using [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/overview.md). Azure AD B2C is built around the notion of policies. In MSAL.NET, specifying a policy translates to providing an authority.
 
-- When you instantiate the public client application, you need to specify the policy as part of the authority.
+- When you instantiate the public client application, specify the policy as part of the authority.
 - When you want to apply a policy, call an override of `AcquireTokenInteractive` that accepts the `authority` parameter.
 
 This article applies to MSAL.NET 3.x. For MSAL.NET 2.x, see [Azure AD B2C specifics in MSAL 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x) in the MSAL.NET Wiki on GitHub.
@@ -133,7 +133,7 @@ By using username/password in an ROPC flow, you sacrifice several things:
 
 ### Configure the ROPC flow in Azure AD B2C
 
-In your Azure AD B2C tenant, create a new user flow and select **Sign in using ROPC** to enable ROPC for the user flow. For more information, see [Configure the resource owner password credentials flow](../../active-directory-b2c/configure-ropc.md).
+In your Azure AD B2C tenant, create a new user flow and select **Sign in using ROPC** to enable ROPC for the user flow. For more information, see [Configure the resource owner password credentials flow](../../active-directory-b2c/add-ropc-policy.md).
 
 `IPublicClientApplication` contains the `AcquireTokenByUsernamePassword` method:
 
@@ -164,7 +164,7 @@ We'll provide an update to this [issue](https://github.com/AzureAD/microsoft-aut
 
 ### Known issue with Azure AD B2C
 
-MSAL.NET supports a [token cache](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). The token caching key is based on the claims returned by the identity provider (IdP).
+MSAL.NET supports a [token cache](/dotnet/api/microsoft.identity.client.tokencache). The token caching key is based on the claims returned by the identity provider (IdP).
 
 Currently, MSAL.NET needs two claims to build a token cache key:
 

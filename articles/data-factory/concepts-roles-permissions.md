@@ -4,12 +4,8 @@ description: Describes the roles and permissions required to create Data Factori
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
-services: data-factory
-documentationcenter: ''
-ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
-manager: anandsub
+author: dcstwh
+ms.author: weetok
 ---
 
 # Roles and permissions for Azure Data Factory
@@ -49,8 +45,13 @@ The **Data Factory Contributor** role, at the resource group level or above, let
 
 Permissions on Azure Repos and GitHub are independent of Data Factory permissions. As a result, a user with repo permissions who is only a member of the Reader role can edit Data Factory child resources and commit changes to the repo, but can't publish these changes.
 
+
 > [!IMPORTANT]
 > Resource Manager template deployment with the **Data Factory Contributor** role does not elevate your permissions. For example, if you deploy a template that creates an Azure virtual machine, and you don't have permission to create virtual machines, the deployment fails with an authorization error.
+
+   In publish context, **Microsoft.DataFactory/factories/write** permission applies to following modes.
+- That permission is only required in Live mode when the customer modifies the global parameters.
+- That permission is always required in Git mode since every time after the customer publishes,the factory object with the last commit ID needs to be updated.
 
 ### Custom scenarios and custom roles
 
@@ -84,6 +85,7 @@ Here are a few examples that demonstrate what you can achieve with custom roles:
 - Let a user update a data factory from PowerShell or the SDK, but not in the Azure portal.
 
   Assign the built-in **contributor** role on the data factory resource for the user. This role lets the user see the resources in the Azure portal, but the user can't access the  **Publish** and **Publish All** buttons.
+
 
 ## Next steps
 

@@ -16,7 +16,7 @@ The fresnel effect gives affected objects a colored shine around their edges. In
 
 ## Enabling the fresnel effect
 
-To use the fresnel effect feature, it needs to be enabled on the materials in question. You can enable it by setting the FresnelEffect bit of the [PbrMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) on the [PBR material](../../overview/features/pbr-materials.md). The same pattern applies to the [ColorMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering) and the [Color material](../../overview/features/color-materials.md). See the code samples section for a usage demonstration.
+To use the fresnel effect feature, it needs to be enabled on the materials in question. You can enable it by setting the FresnelEffect bit of the [PbrMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) on the [PBR material](../../overview/features/pbr-materials.md). The same pattern applies to the [ColorMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering) and the [Color material](../../overview/features/color-materials.md). See the code samples section for a usage demonstration.
 
 After enabling, the fresnel effect will immediately be visible. By default the shine will be white (1, 1, 1, 1) and have an exponent of 1. You can customize these settings using the parameter setters below.
 
@@ -44,7 +44,7 @@ As shown, the objects on the diagonal are fully transparent, but fresnel shine r
 The following code samples show enabling and customizing the fresnel effect for both a [PBR material](../../overview/features/pbr-materials.md) and a [Color material](../../overview/features/color-materials.md):
 
 ```cs
-    void SetFresnelEffect(AzureSession session, Material material)
+    void SetFresnelEffect(RenderingSession session, Material material)
     {
         if (material.MaterialSubType == MaterialType.Pbr)
         {
@@ -64,7 +64,7 @@ The following code samples show enabling and customizing the fresnel effect for 
 ```
 
 ```cpp
-void SetFresnelEffect(ApiHandle<AzureSession> session, ApiHandle<Material> material)
+void SetFresnelEffect(ApiHandle<RenderingSession> session, ApiHandle<Material> material)
 {
     if (material->GetMaterialSubType() == MaterialType::Pbr)
     {
@@ -88,10 +88,10 @@ void SetFresnelEffect(ApiHandle<AzureSession> session, ApiHandle<Material> mater
 
 ## API documentation
 
-* [C# PbrMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures)
-* [C++ PbrMaterialFeatures](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterialfeatures)
-* [C# ColorMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterialfeatures)
-* [C++ ColorMaterialFeatures](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterialfeatures)
+* [C# PbrMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures)
+* [C++ PbrMaterialFeatures](/cpp/api/remote-rendering/pbrmaterialfeatures)
+* [C# ColorMaterialFeatures](/dotnet/api/microsoft.azure.remoterendering.colormaterialfeatures)
+* [C++ ColorMaterialFeatures](/cpp/api/remote-rendering/colormaterialfeatures)
 
 ## Next steps
 

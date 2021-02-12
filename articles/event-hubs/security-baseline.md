@@ -69,7 +69,7 @@ Understanding Network Security provided by Azure Security Center:
 
 **Guidance**: Enable DDoS Protection Standard on the virtual networks associated with your event hubs to guard against distributed denial-of-service (DDoS) attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.​
 
-How to configure DDoS protection:​ [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)
+How to configure DDoS protection:​ [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../ddos-protection/manage-ddos-protection.md)
 
 For more information about the Azure Security Center Integrated Threat Intelligence: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
@@ -290,9 +290,9 @@ How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickst
 
 **Guidance**: Azure Active Directory (AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups. 
 
-How to get a directory role in Azure AD with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+How to get a directory role in Azure AD with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
-How to get members of a directory role in Azure AD with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+How to get members of a directory role in Azure AD with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 **Azure Security Center monitoring**: Yes
 
@@ -358,7 +358,7 @@ How to monitor identity and access within Azure Security Center: https://docs.mi
 
 **Guidance**: Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Event Hub-enabled resources.
 
-Learn about Privileged Access Workstations: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Learn about Privileged Access Workstations: https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
 How to enable MFA in Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -630,7 +630,7 @@ How to create alerts for Azure Activity Log events: https://docs.microsoft.com/a
 
 How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -776,7 +776,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 Azure Built-in Policy for Event Hubs namespace:​ https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
-How to view available Azure Policy aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+How to view available Azure Policy aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -817,9 +817,9 @@ For more information about the Azure Policy Effects:  https://docs.microsoft.com
 
 **Guidance**: If using custom Azure Policy definitions for your Event Hubs or related resources, use Azure Repos to securely store and manage your code.
 
-How to store code in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+How to store code in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow
 
-Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -983,7 +983,7 @@ How to backup Key Vault Secrets: https://docs.microsoft.com/powershell/module/az
 
  
 
-How to restore key vault keys in Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+How to restore key vault keys in Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1051,7 +1051,7 @@ How to set the Azure Security Center Security Contact: https://docs.microsoft.co
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
 How to configure continuous export: https://docs.microsoft.com/azure/security-center/continuous-export
 

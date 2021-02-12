@@ -43,7 +43,7 @@ The following networking vendors offer pre-built solutions and detailed guidance
 
 - [Citrix Application Delivery Controller (ADC)](../saas-apps/citrix-netscaler-tutorial.md)
 
-- [F5 Big-IP APM](../saas-apps/headerf5-tutorial.md)
+- [F5 Big-IP APM](f5-aad-integration.md)
 
 - [Kemp](../saas-apps/kemp-tutorial.md)
 
@@ -59,7 +59,7 @@ The following VPN and SDP vendors offer pre-built solutions and detailed guidanc
 
 • [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
 
-• [F5 Big-IP APM](../saas-apps/headerf5-tutorial.md)
+• [F5 Big-IP APM](f5-aad-password-less-vpn.md)
 
 • [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)
 

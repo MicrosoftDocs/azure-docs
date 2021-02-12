@@ -367,7 +367,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
     * Confirm that there are no entries for `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly`, and `AppContainsAspNetTelemetryCorrelationAssembly`.
         * If any of these entries exist, remove the following packages from your application: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource`, and `Microsoft.AspNet.TelemetryCorrelation`.
-        * For ASP.NET Core apps only: in case your application refers to any Application Insights packages, for example if you have previously instrumented (or attempted to instrument) your app with the [ASP.NET Core SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), enabling the App Service integration may not take effect and the data may not appear in Application Insights. To fix the issue, in portal turn on "Interop with Application Insights SDK" and you will start seeing the data in Application Insights 
+        * For ASP.NET Core apps only: in case your application refers to any Application Insights packages, for example if you have previously instrumented (or attempted to instrument) your app with the [ASP.NET Core SDK](./asp-net-core.md), enabling the App Service integration may not take effect and the data may not appear in Application Insights. To fix the issue, in portal turn on "Interop with Application Insights SDK" and you will start seeing the data in Application Insights 
         > [!IMPORTANT]
         > This functionality is in preview 
 
@@ -427,4 +427,3 @@ For the latest updates and bug fixes [consult the release notes](./web-app-exten
 * [Receive alert notifications](../platform/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
 * Use [Application Insights for JavaScript apps and web pages](javascript.md) to get client telemetry from the browsers that visit a web page.
 * [Set up Availability web tests](monitor-web-app-availability.md) to be alerted if your site is down.
-

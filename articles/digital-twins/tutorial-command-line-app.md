@@ -48,31 +48,19 @@ In your Visual Studio window where the _**AdtE2ESample**_ project is open, use t
 
 Select *Room.json* to open it in the editing window, and change it in the following ways:
 
-* **Update the version number**, to indicate that you are providing a more-updated version of this model. Do this by changing the *1* at the end of the `@id` value to a *2*. Any number greater than the current version number will also work.
-* **Edit a property**. Change the name of the `Humidity` property to *HumidityLevel* (or something different if you'd like. If you use something different than *HumidityLevel*, remember what you used and continue using that instead of *HumidityLevel* throughout the tutorial).
-* **Add a property**. Underneath the `HumidityLevel` property that ends on line 15, paste the following code to add a `RoomName` property to the room:
+1. **Update the version number**, to indicate that you are providing a more-updated version of this model. Do this by changing the *1* at the end of the `@id` value to a *2*. Any number greater than the current version number will also work.
+1. **Edit a property**. Change the name of the `Humidity` property to *HumidityLevel* (or something different if you'd like. If you use something different than *HumidityLevel*, remember what you used and continue using that instead of *HumidityLevel* throughout the tutorial).
+1. **Add a property**. Underneath the `HumidityLevel` property that ends on line 15, paste the following code to add a `RoomName` property to the room:
 
-    ```json
-    ,
-    {
-      "@type": "Property",
-      "name": "RoomName",
-      "schema": "string"
-    }
-    ```
-* **Add a relationship**. Underneath the `RoomName` property that you just added, paste the following code to add the ability for this type of twin to form *contains* relationships with other twins:
+    :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="16-20":::
 
-    ```json
-    ,
-    {
-      "@type": "Relationship",
-      "name": "contains",
-    }
-    ```
+1. **Add a relationship**. Underneath the `RoomName` property that you just added, paste the following code to add the ability for this type of twin to form *contains* relationships with other twins:
 
-When you are finished, the updated model should look like this:
+    :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="21-24":::
 
-:::image type="content" source="media/tutorial-command-line-app/room-model.png" alt-text="Edited Room.json with updated version number, HumidityLevel and RoomName properties, and contains relationship" border="false":::
+When you are finished, the updated model should match this:
+
+:::code language="json" source="~/digital-twins-docs-samples/models/Room.json":::
 
 Make sure to save the file before moving on.
 
@@ -287,12 +275,15 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
 ## Clean up resources
 
-The project in this tutorial forms the basis for the next tutorial, [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md). If you plan to continue to the next tutorial, you can keep the resources you set up here to continue using this Azure Digital Twins instance and configured sample app.
-* In this case, you can use the sample app's `DeleteAllTwins` and `DeleteAllModels` commands to clear the twins and models in your instance, respectively. This will give you a clean slate for the next tutorial.
+After completing this tutorial, you can choose which resources you'd like to remove, depending on what you'd like to do next.
+
+* **If you plan to continue to the next tutorial**, you can keep the resources you set up here to continue using this Azure Digital Twins instance and configured sample app for the next tutorial
+
+* **If you'd like to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships**, you can use the sample app's `DeleteAllTwins` and `DeleteAllModels` commands to clear the twins and models in your instance, respectively. This will give you a clean slate for the next tutorial.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Finally, delete the project sample folder you downloaded to your local machine.
+You may also want to delete the project folder from your local machine.
 
 ## Next steps 
 

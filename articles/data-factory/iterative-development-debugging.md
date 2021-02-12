@@ -4,12 +4,8 @@ description: Learn how to develop and debug Data Factory pipelines iteratively i
 ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: data-factory
-services: data-factory
-documentationcenter: ''
-ms.workload: data-services
-author: djpmsft
-ms.author: daperlov
-
+author: dcstwh
+ms.author: weetok
 ---
 # Iterative development and debugging with Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

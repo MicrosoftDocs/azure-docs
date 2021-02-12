@@ -28,10 +28,6 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 - The images are unentitled. You must use Red Hat Subscription-Manager to register and subscribe the VMs to get updates from Red Hat directly.
 - It's possible to switch from pay-as-you-go images to BYOS using the [Azure Hybrid Benefit](../../linux/azure-hybrid-benefit-linux.md). However it's not possible to  switch from an initially deployed BYOS to pay-as-you-go billing models for Linux images. To switch the billing model from BYOS to pay-as-you-go, you must redeploy the VM from the respective image.
 
->[!NOTE]
-> Generation 2 RHEL BYOS images aren't currently available through the marketplace offer. If you require a
-Generation 2 RHEL BYOS image, visit the Cloud Access dashboard in Red Hat subscription management. For more information, see the [Red Hat documentation](https://access.redhat.com/articles/4847681).
-
 ## Requirements and conditions to access the Red Hat Gold Images
 
 1. Get familiar with the [Red Hat Cloud Access program](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) terms. Enable your Red Hat subscriptions for Cloud Access at [Red Hat Subscription-Manager](https://access.redhat.com/management/cloud). You need to have on hand the Azure subscriptions that are going to be registered for Cloud Access.
@@ -192,7 +188,7 @@ For steps to apply Azure Disk Encryption, see [Azure Disk Encryption scenarios o
 
     In this case, contact Microsoft or Red Hat to enable your subscription.
 
-- If you modify a snapshot from a RHEL BYOS image and attempt to publish that custom image to the [Shared Image Gallery](../../linux/shared-image-galleries.md), you must provide plan information that matches the original source of the snapshot. For example, the command might look like this:
+- If you modify a snapshot from a RHEL BYOS image and attempt to publish that custom image to the [Shared Image Gallery](../../shared-image-galleries.md), you must provide plan information that matches the original source of the snapshot. For example, the command might look like this:
 
     ```azurecli
     az vm create –image \
@@ -214,4 +210,4 @@ For steps to apply Azure Disk Encryption, see [Azure Disk Encryption scenarios o
 - To learn more about the Red Hat Update Infrastructure, see [Azure Red Hat Update Infrastructure](./redhat-rhui.md).
 - To learn more about all the Red Hat images in Azure, see the [documentation page](./redhat-images.md).
 - For information on Red Hat support policies for all versions of RHEL, see the [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata) page.
-- For additional documentation on the RHEL Gold Images, see the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).
+- For additional documentation on the RHEL Gold Images, see the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access).

@@ -98,7 +98,7 @@ In this section, you configure Azure AD single sign-on with Kontiki in the Azure
     ![Kontiki Domain and URLs single sign-on information](common/sp-signonurl.png)
 
    	> [!NOTE]
-	> Contact the [Kontiki Client support team](https://customersupport.kontiki.com/enterprise/contactsupport.html) to get the correct value to use. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> Contact the [Kontiki Client support team](https://kollective.com/support/) to get the correct value to use. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. In the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, select **Download** next to **Federation Metadata XML**. Select a download option based on your requirements. Save the certificate on your computer.
 
@@ -114,7 +114,7 @@ In this section, you configure Azure AD single sign-on with Kontiki in the Azure
 
 ### Configure Kontiki single sign-on
 
-To configure single sign-on on the Kontiki side, send the downloaded Federation Metadata XML file and the relevant URLs that you copied from the Azure portal to the [Kontiki support team](https://customersupport.kontiki.com/enterprise/contactsupport.html). The Kontiki support team uses the information you send them to ensure that the SAML single sign-on connection is set properly on both sides.
+To configure single sign-on on the Kontiki side, send the downloaded Federation Metadata XML file and the relevant URLs that you copied from the Azure portal to the [Kontiki support team](https://kollective.com/support/). The Kontiki support team uses the information you send them to ensure that the SAML single sign-on connection is set properly on both sides.
 
 ### Create an Azure AD test user 
 

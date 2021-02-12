@@ -1,12 +1,12 @@
 ---
 title: Assess large numbers of Hyper-V VMs for migration to Azure with Azure Migrate | Microsoft Docs
 description: Describes how to assess large numbers of Hyper-V VMs for migration to Azure using the Azure Migrate service.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
-ms.topic: conceptual
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.author: raynew
+
 ---
 
 # Assess large numbers of Hyper-V VMs for migration to Azure
@@ -70,7 +70,7 @@ In accordance with your planning requirements, do the following:
 1. Create an Azure Migrate projects.
 2. Add the Azure Migrate Server Assessment tool to the projects.
 
-[Learn more](how-to-add-tool-first-time.md)
+[Learn more](./create-manage-projects.md)
 
 ## Create and review an assessment
 

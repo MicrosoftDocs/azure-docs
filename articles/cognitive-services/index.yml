@@ -62,9 +62,6 @@ conceptualContent:
         - url: ./form-recognizer/index.yml
           itemType: overview
           text: Form Recognizer
-        - url: ./ink-recognizer/index.yml
-          itemType: overview
-          text: Ink Recognizer (Retiring)
         - url: ../media-services/video-indexer/index.yml
           itemType: overview
           text: Video Indexer
@@ -95,7 +92,7 @@ conceptualContent:
           text: Speech service
         - url: https://speech.microsoft.com/
           itemType: overview
-          text: " - Customize with Speech Studio"
+          text: "Customize with Speech Studio"
 #        - url: ./speech/home.md
 #          itemType: overview
 #          text: Bing Speech (Retiring)
@@ -144,7 +141,7 @@ conceptualContent:
         - url: ./containers/docker-compose-recipe.md
           itemType: get-started
           text: Use Docker Compose to deploy multiple containers
-        - url: ./containers/container-faq.md
+        - url: ./containers/container-faq.yml
           itemType: reference
           text: Cognitive Services containers FAQ
     - title: Cognitive Services for Big Data
@@ -155,7 +152,7 @@ conceptualContent:
           text: Cognitive Services for Big Data
         - url: ./big-data/getting-started.md
           itemType: get-started
-          text: Use Cognitive Services within Azure Databricks and Synapse Analytics
+          text: Use Cognitive Services within Azure Databricks and Azure Synapse Analytics
         - url: ./big-data/samples-python.md
           itemType: reference
           text: Python Samples   

@@ -113,7 +113,7 @@ Site Recovery:
 Learn more:
 
 * [What is Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
-* [How does Azure Site Recovery work?](/azure/security/fundamentals/azure-to-azure-architecture)
+* [How does Azure Site Recovery work?](../../site-recovery/azure-to-azure-architecture.md)
 * [What workloads are protected by Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 
 ## Virtual networking

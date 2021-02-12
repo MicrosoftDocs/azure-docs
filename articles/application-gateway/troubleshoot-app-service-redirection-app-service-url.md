@@ -88,7 +88,7 @@ The app service now does the redirection (if any) on the same original host head
 
 You must own a custom domain and follow this process:
 
-- Register the domain to the custom domain list of the app service. You must have a CNAME in your custom domain that points to the app service's FQDN. For more information, see [Map an existing custom DNS name to Azure App Service](/azure/app-service/app-service-web-tutorial-custom-domain).
+- Register the domain to the custom domain list of the app service. You must have a CNAME in your custom domain that points to the app service's FQDN. For more information, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md).
 
     ![App service custom domain list](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 

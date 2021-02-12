@@ -81,11 +81,11 @@ Follow these steps:
 
 5. Choose **Delete backup data** to permanently delete the backup data.
 
-   ![Choose Delete backup data](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Choose Delete backup data](./media/backup-azure-manage-vms/delete-backup-button.png)
 
 6. Type the name of the backup item to confirm that you want to delete the recovery points.
 
-   ![Type the name of the backup item](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Type the name of the backup item](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 7. To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
 

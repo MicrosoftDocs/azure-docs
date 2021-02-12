@@ -48,8 +48,8 @@ When an encryption scope is disabled, you are no longer billed for it. Disable a
 
 If your encryption scope is protected with customer-managed keys, then you can also delete the associated key in the key vault in order to disable the encryption scope. Keep in mind that customer-managed keys are protected by soft delete and purge protection in the key vault, and a deleted key is subject to the behavior defined for by those properties. For more information, see one of the following topics in the Azure Key Vault documentation:
 
-- [How to use soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md)
-- [How to use soft-delete with CLI](../../key-vault/general/soft-delete-cli.md)
+- [How to use soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md)
+- [How to use soft-delete with CLI](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > It is not possible to delete an encryption scope.

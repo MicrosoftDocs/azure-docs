@@ -162,5 +162,4 @@ Now that you are collecting operational and performance data from your on-premis
 To learn how to view and analyze the data, continue to the tutorial.
 
 > [!div class="nextstepaction"]
-> [View or analyze data in Log Analytics](../log-query/get-started-portal.md)
-
+> [View or analyze data in Log Analytics](../log-query/log-analytics-tutorial.md)

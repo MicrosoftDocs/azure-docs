@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.custom: seodec18
+ms.custom: seodec18,references_regions
 ---
 
 # Speech service supported regions
@@ -22,7 +22,7 @@ The Speech portal to perform custom configurations to your speech experience for
 Keep in mind the following points when considering regions:
 
 * If your application uses a [Speech SDK](speech-sdk.md), you provide the region identifier, such as `westus`, when creating a speech configuration.
-* If your application uses one of the Speech service's [REST APIs](rest-apis.md), the region is part of the endpoint URI you use when making requests.
+* If your application uses one of the Speech service's [REST APIs](./overview.md#reference-docs), the region is part of the endpoint URI you use when making requests.
 * Keys created for a region are valid only in that region. Attempting to use them with other regions will result in authentication errors.
 
 ## Speech SDK
@@ -39,6 +39,8 @@ The Speech service is available in these regions for **speech recognition**, **t
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
 If you use the [Speech SDK](speech-sdk.md), regions are specified by the **Region identifier** (for example, as a parameter to `SpeechConfig.FromSubscription`). Make sure the region is matching the region of your subscription.
+
+If you plan to train a custom model with audio data, use one of the [regions with dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for faster training. You can use the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to copy the fully trained model to another region later.
 
 ### Intent recognition
 
@@ -59,21 +61,25 @@ Available regions for **intent recognition** via the Speech SDK are the followin
 | North America | West US 2        | `westus2`            |
 | South America | Brazil South     | `brazilsouth`        |
 
-This is a subset of the publishing regions supported by the [Language Understanding service (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+This is a subset of the publishing regions supported by the [Language Understanding service (LUIS)](../luis/luis-reference-regions.md).
 
 ### Voice assistants
 
-The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in these regions:
+The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities through [Direct Line Speech](./direct-line-speech.md) in these regions:
 
-| Region         | Region identifier |
-| -------------- | -------------------- |
-| West US        | `westus`             |
-| West US 2      | `westus2`            |
-| East US        | `eastus`             |
-| East US 2      | `eastus2`            |
-| West Europe    | `westeurope`         |
-| North Europe   | `northeurope`        |
-| Southeast Asia | `southeastasia`      |
+| Global region | Region           | Region identifier    |
+| ------------- | ---------------- | -------------------- |
+| North America | West US          | `westus`             |
+| North America | West US 2        | `westus2`            |
+| North America | East US          | `eastus`             |
+| North America | East US 2        | `eastus2`            |
+| North America | West Central US  | `westcentralus`      |
+| North America | South Central US | `southcentralus`     |
+| Europe        | West Europe      | `westeurope`         |
+| Europe        | North Europe     | `northeurope`        |
+| Asia          | East Asia        | `eastasia`           |
+| Asia          | Southeast Asia   | `southeastasia`      |
+| India         | Central India    | `centralindia`       |
 
 ### Speaker Recognition
 

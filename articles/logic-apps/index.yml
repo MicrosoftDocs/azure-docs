@@ -33,6 +33,8 @@ landingContent:
             url: concepts-schedule-automated-recurring-tasks-workflows.md
           - text: B2B enterprise integration
             url: logic-apps-enterprise-integration-overview.md
+          - text: Resource health for logic apps
+            url: healthy-unhealthy-resource.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Logic Apps

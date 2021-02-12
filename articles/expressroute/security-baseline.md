@@ -54,9 +54,9 @@ For more information, see the [Azure security baselines overview](../security/be
 
 **Guidance**: Not applicable; each customer's ExpressRoutes are contained within their own routing domains and tunneled into their own virtual network. While ExpressRoutes are isolated, for extra protection of other resources sharing the same virtual network, you may enable DDoS Protection Standard to guard against DDoS attacks.
 
-* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
+* [Understand security controls for Azure ExpressRoute]()
 
-* [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -74,7 +74,7 @@ For more information, see the [Azure security baselines overview](../security/be
 
 **Guidance**: Not applicable; each customer's ExpressRoutes are contained within their own routing domains and tunneled into their own virtual network.
 
-* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
+* [Understand security controls for Azure ExpressRoute]()
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -299,7 +299,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Azure AD Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Sentinel-related resources.
 
-* [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -445,7 +445,7 @@ How to configure Site to Site IPSEC over ExpressRoute: https://docs.microsoft.co
 
 **Guidance**: Not applicable; Azure ExpressRoute does not store customer data.
 
-* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
+* [Understand security controls for Azure ExpressRoute]()
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -859,7 +859,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Not applicable; Azure ExpressRoute does not store customer data.
 
-* [Understand security controls for Azure ExpressRoute](./expressroute-security-controls.md)
+* [Understand security controls for Azure ExpressRoute]()
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -949,7 +949,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
 * [How to configure continuous export](../security-center/continuous-export.md)
 

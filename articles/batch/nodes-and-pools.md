@@ -2,7 +2,7 @@
 title: Nodes and pools in Azure Batch
 description: Learn about compute nodes and pools and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/20/2020
 
 ---
 # Nodes and pools in Azure Batch
@@ -35,7 +35,7 @@ Every node that is added to a pool is assigned a unique name and IP address. Whe
 
 A pool can be used only by the Batch account in which it was created. A Batch account can create multiple pools to meet the resource requirements of the applications it will run.
 
-The pool can be created manually, or automatically by the Batch service when you specify the work to be done. When you create a pool, you can specify the following attributes:
+The pool can be created manually, or [automatically by the Batch service](#autopools) when you specify the work to be done. When you create a pool, you can specify the following attributes:
 
 - [Node operating system and version](#operating-system-and-version)
 - [Node type and target number of nodes](#node-type-and-target)
@@ -58,6 +58,9 @@ When you create a Batch pool, you specify the Azure virtual machine configuratio
 ## Configurations
 
 There are two types of pool configurations available in Batch.
+
+> [!IMPORTANT]
+> Pools should be configured using 'Virtual Machine Configuration' and not 'Cloud Services Configuration'. All Batch features are supported by 'Virtual Machine Configuration' pools and new features are being added. 'Cloud Services Configuration' pools do not support all features and no new capabilities are planned.
 
 ### Virtual Machine Configuration
 
@@ -96,7 +99,7 @@ When you create a pool, you can specify which types of nodes you want and the ta
 - **Dedicated nodes.** Dedicated compute nodes are reserved for your workloads. They are more expensive than low-priority nodes, but they are guaranteed to never be preempted.
 - **Low-priority nodes.** Low-priority nodes take advantage of surplus capacity in Azure to run your Batch workloads. Low-priority nodes are less expensive per hour than dedicated nodes, and enable workloads requiring significant compute power. For more information, see [Use low-priority VMs with Batch](batch-low-pri-vms.md).
 
-Low-priority nodes may be preempted when Azure has insufficient surplus capacity. If a node is preempted while running tasks, the tasks are requeued and run again once a compute node becomes available again. Low-priority nodes are a good option for workloads where the job completion time is flexible and the work is distributed across many nodes. Before you decide to use low-priority nodes for your scenario, make sure that any work lost due to pre-emption will be minimal and easy to recreate.
+Low-priority nodes may be preempted when Azure has insufficient surplus capacity. If a node is preempted while running tasks, the tasks are requeued and run again once a compute node becomes available again. Low-priority nodes are a good option for workloads where the job completion time is flexible and the work is distributed across many nodes. Before you decide to use low-priority nodes for your scenario, make sure that any work lost due to preemption will be minimal and easy to recreate.
 
 You can have both low-priority and dedicated compute nodes in the same pool. Each type of node has its own target setting, for which you can specify the desired number of nodes.
 
@@ -106,7 +109,7 @@ For pricing information for both low-priority and dedicated nodes, see [Batch Pr
 
 ## Node size
 
-When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of VM sizes for different workloads, including specialized [HPC](../virtual-machines/sizes-hpc.md) or [GPU-enabled](../virtual-machines/sizes-gpu.md) VM sizes. 
+When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of VM sizes for different workloads, including specialized [HPC](../virtual-machines/sizes-hpc.md) or [GPU-enabled](../virtual-machines/sizes-gpu.md) VM sizes. Note that node sizes can only be chosen at the time a pool is created. In other words, once a pool is created, its node size cannot be changed.
 
 For more information, see [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md).
 
@@ -179,6 +182,10 @@ On one end of the spectrum, you can create a pool for each job that you submit, 
 At the other end of the spectrum, if having jobs start immediately is the highest priority, you can create a pool ahead of time and make its nodes available before jobs are submitted. In this scenario, tasks can start immediately, but nodes might sit idle while waiting for them to be assigned.
 
 A combined approach is typically used for handling a variable but ongoing load. You can have a pool in which multiple jobs are submitted, and can scale the number of nodes up or down according to the job load. You can do this reactively, based on current load, or proactively, if load can be predicted. For more information, see [Automatic scaling policy](#automatic-scaling-policy).
+
+## Autopools
+
+An [autopool](/rest/api/batchservice/job/add#autopoolspecification) is a pool that is created by the Batch service when a job is submitted, rather than being created prior to the jobs that will run in the pool. The Batch service will manage the lifetime of an autopool according to the characteristics that you specify. Most often, these pools are also set to delete automatically after their jobs have completed.
 
 ## Security with certificates
 

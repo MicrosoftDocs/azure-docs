@@ -100,7 +100,7 @@ When your tenant model instance is ready, deploy it by doing the following:
 
 Now that you've deployed your model, you can use it with the Speech SDK. In this section, you use sample code to call Speech Service by using Azure Active Directory (Azure AD) authentication.
 
-Let's look at the code you'll use to call the Speech SDK in C#. In this example, you perform speech recognition by using your tenant model. This guide presumes that your platform is already set up. If you need setup help, see [Quickstart: Recognize speech, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+Let's look at the code you'll use to call the Speech SDK in C#. In this example, you perform speech recognition by using your tenant model. This guide presumes that your platform is already set up. If you need setup help, see [Quickstart: Recognize speech, C# (.NET Core)](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore).
 
 Copy this code into your project:
 

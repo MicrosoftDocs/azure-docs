@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 05/29/2020
+ms.date: 02/01/2021
 ms.author: ambapat
 
 ---
@@ -35,11 +35,13 @@ Transferring HSM-protected keys to Key Vault is supported via two different meth
 |Fortanix|Manufacturer,<br/>HSM as a Service|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |Marvell|Manufacturer|All LiquidSecurity HSMs with<ul><li>Firmware version 2.0.4 or later</li><li>Firmware version 3.2 or newer</li></ul>|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |Cryptomathic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>See [Cryptomathic site for details](https://www.cryptomathic.com/azurebyok)|[Use new BYOK method](hsm-protected-keys-byok.md)|
-|Securosys SA|Manufacturer, HSM as a service|Primus HSM family, Securosys Clouds HSM|[Use new BYOK method](hsm-protected-keys-byok.md)|
+|Securosys SA|Manufacturer,<br/>HSM as a service|Primus HSM family, Securosys Clouds HSM|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |StorMagic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>See [StorMagic site for details](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[Use new BYOK method](hsm-protected-keys-byok.md)|
+|IBM|Manufacturer|IBM 476x, CryptoExpress|[Use new BYOK method](hsm-protected-keys-byok.md)|
+|Utimaco|Manufacturer,<br/>HSM as a service|u.trust Anchor, CryptoServer|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |||||
 
 ## Next steps
 
-* Follow [Key Vault Best Practices](../general/best-practices.md) to ensure security, durability and monitoring for your keys.
+* Review the [Key Vault security overview](../general/security-overview.md) to ensure security, durability and monitoring for your keys.
 * Refer to [BYOK specification](./byok-specification.md) for a complete description of the new BYOK method

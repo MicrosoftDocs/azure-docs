@@ -6,7 +6,7 @@ ms.date: 06/26/2020
 ---
 
 # Add lab creators to a lab account in Azure Lab Services
-This article shows you how to add users as lab creators to a lab account in Azure Lab Services. These uses then can create classroom labs in the lab account. 
+This article shows you how to add users as lab creators to a lab account in Azure Lab Services. These uses then can create labs in the lab account. 
 
 ## Add Microsoft user account to Lab Creator role
 To set up a classroom lab in a lab account, the user must be a member of the **Lab Creator** role in the lab account. The account you used to create the lab account is automatically added to this role. If you are planning to use the same user account to create a classroom lab, you can skip this step. To use another user account to create a classroom lab, do the following steps: 
@@ -61,4 +61,4 @@ See the following articles:
 - [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
 - [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
 - [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
-- [As a lab user, access classroom labs](how-to-use-classroom-lab.md)
+- [As a lab user, access labs](how-to-use-classroom-lab.md)

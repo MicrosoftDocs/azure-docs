@@ -42,4 +42,4 @@ The following functions allow you to easily manipulate DateTime, timestamp, and 
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduction to Azure Cosmos DB](introduction.md)
 - [User Defined Functions](sql-query-udfs.md)
-- [Aggregates](sql-query-aggregates.md)
+- [Aggregates](sql-query-aggregate-functions.md)

@@ -157,8 +157,8 @@ Synced users might be authored or mastered on premises. If the account is enable
 **Q: Why doesn't the userPrincipalName (UPN) attribute in Azure AD match the on-premises UPN?**  
 For information, see these articles:
 
-* [Usernames in Microsoft 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/kb/2523192)
-* [Changes aren't synced by the Azure Active Directory sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/kb/2669550)
+* [Usernames in Microsoft 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://mskb.pkisolutions.com/kb/2523192)
+* [Changes aren't synced by the Azure Active Directory sync tool after you change the UPN of a user account to use a different federated domain](https://mskb.pkisolutions.com/kb/2669550)
 
 You can also configure Azure AD to allow the sync engine to update the UPN, as described in [Azure AD Connect sync service features](how-to-connect-syncservice-features.md).
 

@@ -44,7 +44,7 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 
 1. To create a new keyword model, click **Train model**.
 
-1. Enter a **Name** for the model, an optional **Description**, and the **Keyword** of your choice, then click **Next**. See the [guidelines](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) on choosing an effective keyword.
+1. Enter a **Name** for the model, an optional **Description**, and the **Keyword** of your choice, then click **Next**. See the [guidelines](./custom-keyword-overview.md#choose-an-effective-keyword) on choosing an effective keyword.
 
     ![Enter your keyword](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -74,4 +74,4 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 
 ## Next steps
 
-Test your custom keyword with the [Speech Devices SDK Quickstart](https://aka.ms/sdsdk-quickstart).
+Test your custom keyword with the [Speech Devices SDK Quickstart](./speech-devices-sdk-quickstart.md?pivots=platform-android).

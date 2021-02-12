@@ -101,17 +101,7 @@ Whenever an error occurs in the SDK (including HTTP errors such as 404), the SDK
 
 Here is a code snippet that tries to add a twin and catches any errors in this process:
 
-```csharp
-try
-{
-    await client.DigitalTwins.AddAsync(id, initData);
-    Console.WriteLine($"Created a twin successfully: {id}");
-}
-catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}"); 
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_errorHandling":::
 
 ### Paging
 
@@ -119,62 +109,18 @@ AutoRest generates two types of paging patterns for the SDK:
 * One for all APIs except the Query API
 * One for the Query API
 
-In the non-query paging pattern, here is a code snippet showing how to retrieve a paged list of outgoing relationships from Azure Digital Twins:
+In the non-query paging pattern, here is a sample method showing how to retrieve a paged list of outgoing relationships from Azure Digital Twins:
 
-```csharp
- try 
- {
-     // List the relationships.
-    AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
-    Console.WriteLine($"Twin {srcId} is connected to:");
-    // Iterate through the relationships found.
-    int numberOfRelationships = 0;
-    await foreach (string rel in results)
-    {
-         ++numberOfRelationships;
-         // Do something with each relationship found
-         Console.WriteLine($"Found relationship-{rel.Name}->{rel.TargetId}");
-    }
-    Console.WriteLine($"Found {numberOfRelationships} relationships on {srcId}");
-} catch (RequestFailedException rex) {
-    Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
 The second pattern is only generated for the Query API. It uses a `continuationToken` explicitly.
 
+>[!TIP]
+> A main reason for getting pages is to calculate the [Query Unit charges](concepts-query-units.md) for a Query API call.
+
 Here is an example with this pattern:
 
-```csharp
-string query = "SELECT * FROM digitaltwins";
-string conToken = null; // continuation token from the query
-int page = 0;
-try
-{
-    // Repeat the query while there are pages
-    do
-    {
-        QuerySpecification spec = new QuerySpecification(query, conToken);
-        QueryResult qr = await client.Query.QueryTwinsAsync(spec);
-        page++;
-        Console.WriteLine($"== Query results page {page}:");
-        if (qr.Items != null)
-        {
-            // Query returns are JObjects
-            foreach(JObject o in qr.Items)
-            {
-                string twinId = o.Value<string>("$dtId");
-                Console.WriteLine($"  Found {twinId}");
-            }
-        }
-        Console.WriteLine($"== End query results page {page}");
-        conToken = qr.ContinuationToken;
-    } while (conToken != null);
-} catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error in twin query: ${e.Response.StatusCode}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="PagedQuery":::
 
 ## Next steps
 

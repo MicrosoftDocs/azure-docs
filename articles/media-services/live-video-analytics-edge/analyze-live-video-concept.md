@@ -30,9 +30,11 @@ The media graph shown below enables you to analyze a live video stream using a c
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/analyze-live-video/motion-detected-frames.svg" alt-text="Live Video Analytics based on an external inferencing module":::
 
-In this media graph, the frame rate filter processor node lowers the frame rate of the incoming live video stream before sending it to a [HTTP extension processor](media-graph-concept.md#http-extension-processor) node, which sends image frames (in JPEG, BMP, or PNG formats) to an external inference service over REST. The results from the external inference service are retrieved by the HTTP extension node, and relayed to the IoT Edge hub via IoT Hub message sink node. This type of media graph can be used to build solutions for a variety of scenarios, such as understanding the time-series distribution of vehicles at an intersection, understanding the consumer traffic pattern in a retail store, and so on.
+In this media graph, the video input from the RTSP source is sent to a [HTTP extension processor](media-graph-concept.md#http-extension-processor) node, which sends image frames (in JPEG, BMP, or PNG formats) to an external inference service over REST. The results from the external inference service are retrieved by the HTTP extension node, and relayed to the IoT Edge hub via IoT Hub message sink node. This type of media graph can be used to build solutions for a variety of scenarios, such as understanding the time-series distribution of vehicles at an intersection, understanding the consumer traffic pattern in a retail store, and so on.
+>[!TIP]
+> You can manage the frame rate within the HTTP extension processor node using the `samplingOptions` field before sending it downstream.
 
-An enhancement to this example is to use a motion detector processor ahead of the frame rate filter processor node. This will reduce the load on the inference service, since it is used only when there is motion activity in the video.
+An enhancement to this example is to use a motion detector processor ahead of the HTTP extension processor node. This will reduce the load on the inference service, since it is used only when there is motion activity in the video.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/analyze-live-video/custom-model.svg" alt-text="Live Video Analytics based on motion detected frames via external inferencing module":::

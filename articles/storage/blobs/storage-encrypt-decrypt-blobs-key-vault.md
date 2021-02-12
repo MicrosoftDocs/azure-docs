@@ -232,8 +232,8 @@ That's it. Enjoy!
 
 ## Next steps
 
-For more information about using Microsoft Azure Storage with C#, see [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+For more information about using Microsoft Azure Storage with C#, see [Microsoft Azure Storage Client Library for .NET](/previous-versions/azure/dn261237(v=azure.100)).
 
-For more information about the Blob REST API, see [Blob Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).
+For more information about the Blob REST API, see [Blob Service REST API](/rest/api/storageservices/Blob-Service-REST-API).
 
-For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](https://docs.microsoft.com/archive/blogs/windowsazurestorage/).
+For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](/archive/blogs/windowsazurestorage/).

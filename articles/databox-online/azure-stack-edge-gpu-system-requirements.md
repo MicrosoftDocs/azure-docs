@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 02/05/2021
 ms.author: alkohli
 ---
 # System requirements for Azure Stack Edge Pro with GPU 
@@ -78,7 +78,7 @@ Use the following table for port configuration for the servers hosting Azure IoT
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Out       | WAN        | Yes      | Outbound open for IoT Edge   provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS).|
 
-For complete information, go to [Firewall and port configuration rules for IoT Edge deployment](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+For complete information, go to [Firewall and port configuration rules for IoT Edge deployment](../iot-edge/troubleshoot.md).
 
 ## URL patterns for firewall rules
 

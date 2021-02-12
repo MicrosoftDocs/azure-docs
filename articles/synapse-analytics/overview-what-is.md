@@ -11,24 +11,21 @@ ms.author: saveenr
 ms.reviewer: jrasnick
 ---
 
-# What is Azure Synapse Analytics (workspaces preview)?
-
-[!INCLUDE [preview](includes/note-preview.md)]
+# What is Azure Synapse Analytics?
 
 Enterprise analytics must work at massive scale on any kind of data, whether raw, refined, or highly curated. This typically requires enterprises to stitch together big data and data warehousing technologies into complex data pipelines that work across data in relational stores and data lakes. These kinds of solutions are difficult to build, maintain, and secure. Their complexity delays delivering the insight enterprises need.
 
-**Azure Synapse** is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, and **Pipelines** for data integration and ETL/ELT. **Synapse Studio** provides a unified experience for management, monitoring, coding, and security. Synapse has deep integration with other Azure services such as **PowerBI**, **CosmosDB**, and **AzureML**.
+**Azure Synapse** is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, **Pipelines** for data integration and ETL/ELT, and deep integration with other Azure services such as **Power BI**, **CosmosDB**, and **AzureML**.
 
 ## Key features & benefits
 
 ### Industry-leading SQL
 
-* **Synapse SQL** is a distributed query system that enables enterprises to implement data warehousing and data virtualization 
-scenarios using standard and familiar T-SQL experiences. It also expands the capabilities of SQL to address streaming and machine learning scenarios.
-
+* **Synapse SQL** is a distributed query system for T-SQL that enables data warehousing and data virtualization 
+scenarios and extends T-SQL to address streaming and machine learning scenarios.
 * Synapse SQL offers both **serverless** and **dedicated** resource models, offering consumption and billing options to fit your needs. For predictable performance and cost, create dedicated SQL pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the always-available, serverless SQL endpoint.
 * Use built-in **streaming** capabilities to land data from cloud data sources into SQL tables
-* Integrate AI with SQL by using **machine learning** models to score data using the [T-SQL PREDICT function](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
+* Integrate AI with SQL by using **machine learning** models to score data using the [T-SQL PREDICT function](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
 ### Industry-standard Apache Spark
 
@@ -49,7 +46,7 @@ Azure Synapse removes the traditional technology barriers between using SQL and 
 
 ### Built-in data integration via pipelines
 
-Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Synapse Analytics.
+Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Azure Synapse Analytics.
 
 * Ingest data from 90+ data sources
 * Code-Free ETL with Data flow activities
@@ -74,7 +71,7 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 ## Engage with the Synapse engineering team
 
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): Ask development questions.
-- [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Ask technical questions.
+- [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html): Ask technical questions.
 
 ## Next steps
 

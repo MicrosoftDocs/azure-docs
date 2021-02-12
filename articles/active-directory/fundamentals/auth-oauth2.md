@@ -40,10 +40,9 @@ For rich client & modern app scenarios and RESTful Web API access.
 
 ## Implement OAuth 2.0 with Azure AD
 
-* [Integrating applications with Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Integrating applications with Azure AD](../saas-apps/tutorial-list.md) 
 
-* [OAuth 2.0 and OpenID Connect protocols on the Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) 
+* [OAuth 2.0 and OpenID Connect protocols on the Microsoft Identity Platform](../develop/active-directory-v2-protocols.md) 
 
-* [Application types and OAuth2](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) 
+* [Application types and OAuth2](../develop/v2-app-types.md) 
 
- 

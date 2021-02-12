@@ -17,7 +17,10 @@ ms.author: erhopf
 
 If you're looking to improve recognition accuracy, especially issues that are caused when words are deleted or incorrectly substituted, you'll want to use human-labeled transcriptions along with your audio data. What are human-labeled transcriptions? That's easy, they're word-by-word, verbatim transcriptions of an audio file.
 
-A large sample of transcription data is required to improve recognition, we suggest providing between 10 and 1,000 hours of transcription data. On this page, we'll review guidelines designed to help you create high-quality transcriptions. This guide is broken up by locale, with sections for US English, Mandarin Chinese, and German.
+A large sample of transcription data is required to improve recognition, we suggest providing between 10 and 20 hours of transcription data. On this page, we'll review guidelines designed to help you create high-quality transcriptions. This guide is broken up by locale, with sections for US English, Mandarin Chinese, and German.
+
+> [!NOTE]
+> Not all base models support customization with audio files. If a base model does not support it, training will just use the text of the transcriptions in the same way as related text is used. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data.
 
 ## US English (en-US)
 
@@ -40,6 +43,8 @@ Text normalization is the transformation of words into a consistent format used 
 - Non-alphabetic characters or mixed alphanumeric characters should be transcribed as pronounced.
 - Abbreviations that are pronounced as words shouldn't be edited (such as "radar", "laser", "RAM", or "NATO").
 - Write out abbreviations that are pronounced as separate letters with each letter separated by a space.
+- If you use audio, transcribe numbers as words that match the audio (for example, "101" could be pronounced as "one oh one" or "one hundred and one").
+- Avoid repeating characters, words, or groups of words more than three times, such as "yeah yeah yeah yeah". Lines with such repetitions might be dropped by the Speech service.
 
 Here are a few examples of normalization that you should perform on the transcription:
 
@@ -158,10 +163,14 @@ Here are a few examples of normalization automatically performed on the transcri
 | ¡Eine Frage!     | eine frage               |
 | wir, haben       | wir haben                |
 
+### Text normalization for Japanese
+
+In Japanese (ja-JP), there's a maximum length of 90 characters for each sentence. Lines with longer sentences will be discarded. To add longer text, insert a period in between.
+
 ## Next Steps
 
-- [Prepare and test your data](how-to-custom-speech-test-data.md)
+- [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
 - [Inspect your data](how-to-custom-speech-inspect-data.md)
 - [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 - [Train your model](how-to-custom-speech-train-model.md)
-- [Deploy your model](how-to-custom-speech-deploy-model.md)
+- [Deploy your model](./how-to-custom-speech-train-model.md)

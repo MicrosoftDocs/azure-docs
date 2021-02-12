@@ -56,12 +56,11 @@ There is a need to for an application or service to use LDAP authentication.
 
 ## Implement LDAP authentication with Azure AD
 
-* [Create and configure an Azure AD DS instance](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance) 
+* [Create and configure an Azure AD DS instance](../../active-directory-domain-services/tutorial-create-instance.md) 
 
-* [Configure virtual networking for an Azure AD DS instance](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-networking) 
+* [Configure virtual networking for an Azure AD DS instance](../../active-directory-domain-services/tutorial-configure-networking.md) 
 
-* [Configure Secure LDAP for an Azure AD DS managed domain](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps) 
+* [Configure Secure LDAP for an Azure AD DS managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md) 
 
-* [Create an outbound forest trust to an on-premises domain in Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-forest-trust)
+* [Create an outbound forest trust to an on-premises domain in Azure AD DS](../../active-directory-domain-services/tutorial-create-forest-trust.md)
 
- 

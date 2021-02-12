@@ -65,7 +65,7 @@ Azure AD currently provides these features:
 ## Next steps 
 
 - [What is provisioning?](what-is-provisioning.md)
-- [Govern access for external users in Azure AD entitlement management](/azure/active-directory/governance/entitlement-management-external-users)
+- [Govern access for external users in Azure AD entitlement management](./entitlement-management-external-users.md)
 - [What is HR driven provisioning?](what-is-hr-driven-provisioning.md)
 - [What is app provisioning?](what-is-app-provisioning.md)
 - [What is inter-directory provisioning?](what-is-inter-directory-provisioning.md)

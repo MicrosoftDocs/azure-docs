@@ -53,18 +53,47 @@ The following list presents the set of features which are currently available in
 |                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️            | ✔️   
 | General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   |  ✔️  | ✔️            | ✔️   
 
-## Calling client library browser support
+## JavaScript calling client library support by OS and browser
 
 The following table represents the set of supported browsers and versions which are currently available.
 
-|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    |
-| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
-| **Calling client library** | Chrome*, new Edge | Chrome*, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
+|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|
+| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
+| **Calling client library** | Chrome*, new Edge | Chrome*, Safari** | Chrome*  | Chrome* | Chrome* | Safari** | Safari** |
 
 
 *Note that the latest version of Chrome is supported in addition to the previous two releases.<br/>
 
-**Note that Safari versions 13.1+ are supported. Outgoing video for Safari macOS is not yet supported, but it is supported on iOS. Outgoing screen sharing is only supported on desktop iOS.
+**Note that Safari versions 13.1+ are supported. Outgoing video for Safari macOS is not yet supported, but it is supported on iOS. Outgoing screen sharing is only supported on desktop iOS. 1:1 and group calls currently are not available on Safari.
+
+## Calling client - browser security model
+
+### User WebRTC over HTTPS
+
+WebRTC APIs like `getUserMedia` require that the app that calls these APIs is served over HTTPS.
+
+For local development, you can use `http://localhost`.
+
+### Embed the Communication Services Calling SDK in an iframe
+
+A new [permissions policy (also called a feature policy)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) is being adopted by various browsers. This policy affects calling scenarios by controlling how applications can access a device's camera and microphone through a cross-origin iframe element.
+
+If you want to use an iframe to host part of the app from a different domain, you must add the `allow` attribute with the correct value to your iframe.
+
+For example, this iframe allows both camera and microphone access:
+
+```html
+<iframe allow="camera *; microphone *">
+```
+
+## Calling client library streaming support
+The Communication Services calling client library supports the following streaming configurations:
+
+|           |Web | Android/iOS|
+|-----------|----|------------|
+|**# of outgoing streams that can be sent simultaneously** |1 video + 1 screen sharing | 1 video |
+|**# of incoming streams that can be rendered simultaneously** |1 video + 1 screen sharing| 6 video + 1 screen sharing |
+
 
 ## Next steps
 

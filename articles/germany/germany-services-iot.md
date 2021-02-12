@@ -35,7 +35,7 @@ Both solutions can be deployed in two ways, via website or via PowerShell.
 
 ### Deploy via website
 
-Follow the instructions in the [tutorial for the preconfigured solutions](../iot-accelerators/iot-accelerators-remote-monitoring-explore.md) by using the home page mentioned earlier.
+Follow the instructions in the [tutorial for the preconfigured solutions](/previous-versions/azure/iot-accelerators/about-iot-accelerators) by using the home page mentioned earlier.
 
 ### Deploy via PowerShell
 
@@ -67,4 +67,4 @@ Here's how to do it:
 
 ## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
+[Azure Germany blog](/archive/blogs/azuregermany/).

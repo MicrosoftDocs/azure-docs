@@ -69,7 +69,7 @@ This resource library contains additional links and references that are relevant
 * [Hybrid Identity](../active-directory/hybrid/whatis-hybrid-identity.md)
 * [Azure Custom Roles](../role-based-access-control/custom-roles.md)
 * [Azure Built-in Roles](../role-based-access-control/built-in-roles.md)
-* [Securing Privileged Access in Hybrid Cloud Environments](../active-directory/users-groups-roles/directory-admin-roles-secure.md)
+* [Securing Privileged Access in Hybrid Cloud Environments](../active-directory/roles/security-planning.md)
 * [Azure Enterprise Scaffold](/azure/architecture/cloud-adoption/appendix/azure-scaffold)
 
 ## System monitoring for security

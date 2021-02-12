@@ -373,6 +373,17 @@ spec:
       [...]
 ```
 
+### Error "Cannot get connection details for Azure Dev Spaces Controller 'ABC' because it is in the 'Failed' state. Something wrong might have happened with your controller."
+
+To resolve this issue, try deleting the Azure Dev Spaces controller from the cluster and reinstalling it:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+Also, as Azure Dev Spaces is being retired, please consider [migrating to Bridge to Kubernetes](migrate-to-bridge-to-kubernetes.md) which provides a better experience.
+
 ## Common issues using Visual Studio and Visual Studio Code with Azure Dev Spaces
 
 ### Error "Required tools and configurations are missing"

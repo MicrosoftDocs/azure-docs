@@ -5,7 +5,7 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 01/08/2021
 ---
 
 # How to choose between provisioned throughput and serverless
@@ -20,35 +20,26 @@ Azure Cosmos DB is available in two different capacity modes: [provisioned throu
 | Criteria | Provisioned throughput | Serverless |
 | --- | --- | --- |
 | Status | Generally available | In preview |
-| Best suited for | Mission-critical workloads requiring predictable performance | Small-to-medium non-critical workloads with light traffic |
+| Best suited for | Workloads with sustained traffic requiring predictable performance | Workloads with intermittent or unpredictable traffic and low average-to-peak traffic ratio |
 | How it works | For each of your containers, you provision some amount of throughput expressed in [Request Units](request-units.md) per second. Every second, this amount of Request Units is available for your database operations. Provisioned throughput can be updated manually or adjusted automatically with [autoscale](provision-throughput-autoscale.md). | You run your database operations against your containers without having to provision any capacity. |
-| Limitations per account | Maximum number of Azure regions: unlimited | Maximum number of Azure regions: 1 |
-| Limitations per container | Maximum throughput: unlimited<br>Maximum storage: unlimited | Maximum throughput: 5,000 RU/s<br>Maximum storage: 50 GB |
-| Performance | 99.99% to 99.999% availability covered by SLA<br>< 10 ms latency for point-reads and writes covered by SLA<br>99.99% guaranteed throughput covered by SLA | 99.9% to 99.99% availability covered by SLA<br>< 10 ms latency for point-reads and < 30 ms for writes covered by SLO<br>95% burstability covered by SLO |
+| Geo-distribution | Available (unlimited number of Azure regions) | Unavailable (serverless accounts can only run in 1 Azure region) |
+| Maximum storage per container | Unlimited | 50 GB |
+| Performance | < 10 ms latency for point-reads and writes covered by SLA | < 10 ms latency for point-reads and < 30 ms for writes covered by SLO |
 | Billing model | Billing is done on a per-hour basis for the RU/s provisioned, regardless of how many RUs were consumed. | Billing is done on a per-hour basis for the amount of RUs consumed by your database operations. |
 
 > [!IMPORTANT]
 > Some of the serverless limitations may be eased or removed when serverless becomes generally available and **your feedback** will help us decide! Reach out and tell us more about your serverless experience: [azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com).
 
-## Burstability and expected consumption
+## Estimating your expected consumption
 
-In some situations, it may be unclear whether provisioned throughput or serverless should be chosen for a given workload. To help with this decision, you can estimate:
+In some situations, it may be unclear whether provisioned throughput or serverless should be chosen for a given workload. To help with this decision, you can estimate your overall **expected consumption**, that is what's the total number of RUs you may consume over a month (you can estimate this with the help of the table shown [here](plan-manage-costs.md#estimating-serverless-costs))
 
-- Your workload's **burstability** requirement, that is what's the maximum amount of RUs you may need to consume in one second
-- Your overall **expected consumption**, that is what's the total number of RUs you may consume over a month (you can estimate this with the help of the table shown [here](plan-manage-costs.md#estimating-serverless-costs))
-
-If your workload requires to burst above 5,000 RU per second, provisioned throughput should be chosen because serverless containers can't burst above this limit. If not, you can compare the cost of both modes based on your expected consumption.
-
-**Example 1**: a workload is expected to burst to a maximum of 10,000 RU/s and consume a total of 20,000,000 RUs over a month.
-
-- Only provisioned throughput mode can deliver a throughput of 10,000 RU/s
-
-**Example 2**: a workload is expected to burst to a maximum of 500 RU/s and consume a total of 20,000,000 RUs over a month.
+**Example 1**: a workload is expected to burst to a maximum of 500 RU/s and consume a total of 20,000,000 RUs over a month.
 
 - In provisioned throughput mode, you would provision a container with 500 RU/s for a monthly cost of: $0.008 * 5 * 730 = **$29.20**
 - In serverless mode, you would pay for the consumed RUs: $0.25 * 20 = **$5.00**
 
-**Example 3**: a workload is expected to burst to a maximum of 500 RU/s and consume a total of 250,000,000 RUs over a month.
+**Example 2**: a workload is expected to burst to a maximum of 500 RU/s and consume a total of 250,000,000 RUs over a month.
 
 - In provisioned throughput mode, you would provision a container with 500 RU/s for a monthly cost of: $0.008 * 5 * 730 = **$29.20**
 - In serverless mode, you would pay for the consumed RUs: $0.25 * 250 = **$62.50**

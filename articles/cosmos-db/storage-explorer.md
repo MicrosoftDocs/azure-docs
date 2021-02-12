@@ -16,7 +16,7 @@ You can use Azure Storage explorer to connect to Azure Cosmos DB. It lets you co
 Use the same tool to manage your different Azure entities in one place. You can manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like storage blobs and queues. Azure Storage Explorer supports Cosmos accounts configured for SQL, MongoDB, Graph, and Table APIs.
 
 > [!NOTE]
-> The Azure Cosmos DB integration with Storage Explorer has been deprecated. Any existing functionality will not be removed for a minimum of one year from this release. You should use the [Azure Portal](https://portal.azure.com/), [Azure Portal desktop app](https://portal.azure.com/App/Download) or the standalone [Azure Cosmos explorer](data-explorer.md) instead. The alternative options contain many new features that aren’t currently supported in Storage Explorer.
+> The Azure Cosmos DB integration with Storage Explorer has been deprecated. Any existing functionality will not be removed for a minimum of one year from this release. You should use the [Azure Portal](https://portal.azure.com/), [Azure Portal desktop app](https://portal.azure.com/App/Download) or the standalone [Azure Cosmos DB Explorer](data-explorer.md) instead. The alternative options contain many new features that aren’t currently supported in Storage Explorer.
 
 ## Prerequisites
 
@@ -65,6 +65,9 @@ You can use a connection string to connect to an Azure Cosmos DB. This method on
    1. Select **Connect** to connect the Azure Cosmos DB account.
 
       :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Screenshot of the Connect to Cosmos D B window, showing the API drop-down menu, the Connection String box and the Account label box.":::
+
+> [!NOTE]
+> If the Azure Storage Explorer shows that the Azure Cosmos DB connection string is in an invalid format, make sure that the connection string has a semicolon (`;`) at the end. An example of a valid Azure Cosmos DB connection string would be: `AccountEndpoint=https://accountname.documents.azure.com:443;AccountKey=accountkey==;`
 
 ## Use a local emulator to connect to Azure Cosmos DB
 

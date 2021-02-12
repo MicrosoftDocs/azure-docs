@@ -1,11 +1,11 @@
 ---
 title: Frequently asked questions
 description: FAQs about the Azure Spatial Anchors service.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 05/18/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
 #Customer intent: Address frequently asked questions regarding Azure Spatial Anchors.

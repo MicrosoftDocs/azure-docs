@@ -1,9 +1,8 @@
 ---
 title: Mapping data flow transformation overview
 description: An overview of the different transformations available in mapping data flow
-author: djpmsft
-ms.author: daperlov
-manager: anandsub
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020

@@ -17,5 +17,4 @@ ms.custom: include
 * [Language Understanding (LUIS)](../LUIS/whats-new.md)
 * [Personalizer](../personalizer/whats-new.md)
 * [QnA Maker](../QnAMaker/whats-new.md)
-* [Speech service](../Speech-Service/whats-new.md)
 * [Text Analytics](../text-analytics/whats-new.md)

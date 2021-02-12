@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to:
 > [!div class="checklist"]
 > * Create and configure service alerts.
 
-To learn more about Azure Service Health, see the [Azure Health Documentation](https://docs.microsoft.com/azure/service-health/).
+To learn more about Azure Service Health, see the [Azure Health Documentation](../../service-health/index.yml).
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ To configure service alerts:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **Service Health.**
-3. Use the instructions in [Create activity log alerts on service notifications](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) to set up your alerts and notifications.
+3. Use the instructions in [Create activity log alerts on service notifications](../../service-health/alerts-activity-log-service-notifications-portal.md?toc=%2fazure%2fservice-health%2ftoc.json) to set up your alerts and notifications.
 
 ## Next steps
 

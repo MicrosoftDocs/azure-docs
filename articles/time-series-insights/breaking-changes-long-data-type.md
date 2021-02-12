@@ -8,7 +8,7 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 12/07/2020
 ms.custom: dpalled
 ---
 
@@ -37,11 +37,11 @@ Depending on your IoT solution and constraints, you might not have visibility in
 - You can preemptively make the recommended changes for all numeric tags.
 - You can temporarily route a subset of events to storage to better understand and explore your schema.
 
-To store events, turn on [event capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) for Azure Event Hubs, or [route](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) from your IoT Hub to Azure Blob storage.
+To store events, turn on [event capture](../event-hubs/event-hubs-capture-overview.md) for Azure Event Hubs, or [route](../iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint) from your IoT Hub to Azure Blob storage.
 
-Data can also be observed through the [Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer), or by using the [Event Processor Host](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events).
+Data can also be observed through the [Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer), or by using the [Event Processor Host](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md#receive-events).
 
-If you use IoT Hub, go to [Read device-to-cloud messages from the built-in endpoint](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) for how to access the built-in endpoint.
+If you use IoT Hub, go to [Read device-to-cloud messages from the built-in endpoint](../iot-hub/iot-hub-devguide-messages-read-builtin.md) for how to access the built-in endpoint.
 
 > [!NOTE]
 > You might experience a disruption if you don't make the recommended changes. For example, the affected Time Series Insights variables that are accessed via the query APIs or Time Series Insights explorer will return **null** (that is, show no data in the explorer).
@@ -61,7 +61,7 @@ If you currently send integer telemetry data, your data will be divided into two
 
 Your integer data writes to **propertyValue_long**. Previously ingested (and future ingested) numeric data in **propertyValue_double** isn't copied over.
 
-If you want to query data across these two columns for the **propertyValue** property, you need to use the **coalesce()** scalar function in your TSX. The function accepts arguments of the same **DataType** and returns the first non-null value in the argument list. For more information, see [Azure Time Series Insights Gen2 data access concepts](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
+If you want to query data across these two columns for the **propertyValue** property, you need to use the **coalesce()** scalar function in your TSX. The function accepts arguments of the same **DataType** and returns the first non-null value in the argument list. For more information, see [Azure Time Series Insights Gen2 data access concepts](/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
 
 #### Variable definition in TSX - numeric
 
@@ -73,7 +73,7 @@ If you want to query data across these two columns for the **propertyValue** pro
 
 [![Screenshot shows the Add a new variable dialog box for the PropertyValue Variable with a custom value, numeric.](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-You can also use **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** as the custom [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+You can also use **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** as the custom [Time Series Expression](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 #### Inline variable definition using TSX query APIs - numeric
 
@@ -121,7 +121,7 @@ You can also use **coalesce($event.propertyValue.Double, toDouble($event.propert
 }
 ```
 
-You can also use **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** as the custom [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+You can also use **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** as the custom [Time Series Expression](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 > [!NOTE]
 > We recommend that you update these variables in all places they might be used. These places include Time Series Model, saved queries, and Power BI connector queries.
@@ -140,9 +140,9 @@ If you currently use categorical variables that map integer values to categories
 
 [![Screenshot shows the Add a new variable dialog box for the PropertyValue Variable with a custom value, categorical.](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
-You can also use **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** as the custom [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+You can also use **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** as the custom [Time Series Expression](/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
-Categorical variables still require the value to be of an integer type. The **DataType** of all the arguments in **coalesce()** must be of type **Long** in the custom [Time Series Expression.](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)
+Categorical variables still require the value to be of an integer type. The **DataType** of all the arguments in **coalesce()** must be of type **Long** in the custom [Time Series Expression.](/rest/api/time-series-insights/reference-time-series-expression-syntax)
 
 #### Inline variable definition using TSX query APIs - categorical
 
@@ -222,7 +222,7 @@ Categorical variables still require the value to be of an integer type. The **Da
 }
 ```
 
-Categorical variables still require the value to be of an integer type. The **DataType** of all the arguments in **coalesce()** must be of type **Long** in the custom [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Categorical variables still require the value to be of an integer type. The **DataType** of all the arguments in **coalesce()** must be of type **Long** in the custom [Time Series Expression](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 > [!NOTE]
 > We recommend that you update these variables in all places they might be used. These places include Time Series Model, saved queries, and Power BI connector queries.

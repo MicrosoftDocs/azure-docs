@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 08/31/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
@@ -69,7 +69,7 @@ The NPS extension is meant to work with your existing infrastructure. Make sure 
 
 ### Licenses
 
-The NPS Extension for Azure AD Multi-Factor Authentication is available to customers with [licenses for Azure AD Multi-Factor Authentication](multi-factor-authentication.md). Consumption-based licenses for Azure AD Multi-Factor Authentication, such as per user or per authentication licenses, aren't compatible with the NPS extension.
+The NPS Extension for Azure AD Multi-Factor Authentication is available to customers with [licenses for Azure AD Multi-Factor Authentication](./concept-mfa-howitworks.md). Consumption-based licenses for Azure AD Multi-Factor Authentication, such as per user or per authentication licenses, aren't compatible with the NPS extension.
 
 ### Software
 
@@ -113,6 +113,8 @@ Additionally, connectivity to the following URLs is required to complete the [se
 * *https:\//login.microsoftonline.com*
 * *https:\//provisioningapi.microsoftonline.com*
 * *https:\//aadcdn.msauth.net*
+* *https:\//www.powershellgallery.com*
+* *https:\//aadcdn.msftauthimages.net*
 
 ## Prepare your environment
 
@@ -221,6 +223,10 @@ To provide load-balancing capabilities or for redundancy, repeat these steps on 
    ```
 
 1. Run the PowerShell script created by the installer.
+
+   You might be required to first enable TLS 1.2 for PowerShell to be able to connect and download packages properly:
+   
+   `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
 
    > [!IMPORTANT]
    > For customers that use the Azure Government or Azure China 21Vianet clouds, first edit the `Connect-MsolService` cmdlets in the *AzureMfaNpsExtnConfigSetup.ps1* script to include the *AzureEnvironment* parameters for the required cloud. For example, specify *-AzureEnvironment USGovernment* or *-AzureEnvironment AzureChinaCloud*.

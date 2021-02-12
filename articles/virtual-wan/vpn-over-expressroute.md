@@ -91,7 +91,7 @@ The site resource is the same as the non-ExpressRoute VPN sites for a virtual WA
 
    If BGP is enabled, it will apply to all connections created for this site in Azure. Configuring BGP on a virtual WAN is equivalent to configuring BGP on an Azure VPN gateway. 
    
-   Your on-premises BGP peer address *must not* be the same as the IP address of your VPN to the device or the virtual network address space of the VPN site. Use a different IP address on the VPN device for your BGP peer IP. It can be an address assigned to the loopback interface on the device. However, it *can't* be an APIPA (169.254.*x*.*x*) address. Specify this address in the corresponding local network gateway that represents the location. For BGP prerequisites, see [About BGP with Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   Your on-premises BGP peer address *must not* be the same as the IP address of your VPN to the device or the virtual network address space of the VPN site. Use a different IP address on the VPN device for your BGP peer IP. It can be an address assigned to the loopback interface on the device. However, it *can't* be an APIPA (169.254.*x*.*x*) address. Specify this address in the corresponding VPN site that represents the location. For BGP prerequisites, see [About BGP with Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Select **Next: Review + create >** to check the setting values and create the VPN site. If you selected **Hubs** to connect, the connection will be established between the on-premises network and the hub VPN gateway.
 

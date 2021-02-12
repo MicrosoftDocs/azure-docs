@@ -388,5 +388,5 @@ In JavaScript the [MediaDevices.enumerateDevices()](https://developer.mozilla.or
 
 ## See also
 
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Customize acoustic models](./how-to-custom-speech-train-model.md)
+- [Customize language models](./how-to-custom-speech-train-model.md)

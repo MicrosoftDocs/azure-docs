@@ -53,7 +53,7 @@ The following table lists the default configuration for each monitor. This defau
 ## Overrides
 An *override* changes one ore more properties of a monitor. For example, an override could disable a monitor that's enabled by default, define warning criteria for the monitor, or modify the monitor's critical threshold. 
 
-Overrides are defined in a [Data Collection Rule (DCR)](../platform/data-collection-rule-overview.md). You can create multiple DCRs with different sets of overrides and apply them to multiple virtual machines. You apply a DCR to a virtual machine by creating an association as described in [Configure data collection for the Azure Monitor agent (preview)](../platform/data-collection-rule-azure-monitor-agent.md#dcr-associations).
+Overrides are defined in a [Data Collection Rule (DCR)](../platform/data-collection-rule-overview.md). You can create multiple DCRs with different sets of overrides and apply them to multiple virtual machines. You apply a DCR to a virtual machine by creating an association as described in [Configure data collection for the Azure Monitor agent (preview)](../platform/data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations).
 
 
 ## Multiple overrides
@@ -267,106 +267,8 @@ Defines threshold and comparison logic for the critical condition. If this eleme
 | `operator`  | No | Defines comparison operator to use in threshold expression. Possible values: >, <, >=, <=, ==. |
 
 ## Sample data collection rule
-The following sample data collection rule shows an example of an override to configure monitoring.
+For a sample data collection rule enabling guest monitoring, see [Enable a virtual machine using Resource Manager template](vminsights-health-enable.md#enable-a-virtual-machine-using-resource-manager-template).
 
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "defaultHealthDataCollectionRuleName": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the name of the data collection rule to create."
-      },
-      "defaultValue": "Microsoft-VMInsights-Health"
-    },
-    "destinationWorkspaceResourceId": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the Azure resource ID of the Log Analytics workspace to use to store virtual machine health data."
-      }
-    },
-    "dataCollectionRuleLocation": {
-      "type": "string",
-      "metadata": {
-        "description": "The location code in which the data collection rule should be deployed. Examples: eastus, westeurope, etc"
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Insights/dataCollectionRules",
-      "name": "[parameters('defaultHealthDataCollectionRuleName')]",
-      "location": "[parameters('dataCollectionRuleLocation')]",
-      "apiVersion": "2019-11-01-preview",
-      "properties": {
-        "description": "Data collection rule for VM Insights health.",
-        "dataSources": {
-          "performanceCounters": [
-              {
-                  "name": "VMHealthPerfCounters",
-                  "streams": [ "Microsoft-Perf" ],
-                  "scheduledTransferPeriod": "PT1M",
-                  "samplingFrequencyInSeconds": 60,
-                  "counterSpecifiers": [
-                      "\\LogicalDisk(*)\\% Free Space",
-                      "\\Memory\\Available Bytes",
-                      "\\Processor(_Total)\\% Processor Time"
-                  ]
-              }
-          ],
-          "extensions": [
-            {
-              "name": "Microsoft-VMInsights-Health",
-              "streams": [
-                "Microsoft-HealthStateChange"
-              ],
-              "extensionName": "HealthExtension",
-              "extensionSettings": {
-                "schemaVersion": "1.0",
-                "contentVersion": "",
-                "healthRuleOverrides": [
-                  {
-                    "scopes": [ "*" ],
-                    "monitors": ["root"],
-                    "alertConfiguration": {
-                      "isEnabled": true
-                    }
-                  }
-                ]
-              },
-              "inputDataSources": [
-                  "VMHealthPerfCounters"
-              ]
-
-            }
-          ]
-        },
-        "destinations": {
-          "logAnalytics": [
-            {
-              "workspaceResourceId": "[parameters('destinationWorkspaceResourceId')]",
-              "name": "Microsoft-HealthStateChange-Dest"
-            }
-          ]
-        },					
-        "dataFlows": [
-          {
-            "streams": [
-              "Microsoft-HealthStateChange"
-            ],
-            "destinations": [
-              "Microsoft-HealthStateChange-Dest"
-            ]
-          }
-        ]
-      }
-    }
-  ]
-}
-```
 
 ## Next steps
 

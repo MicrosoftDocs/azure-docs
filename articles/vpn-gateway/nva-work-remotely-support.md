@@ -61,3 +61,6 @@ Most major NVA partners have posted guidance around scaling for sudden, unexpect
 [Fortinet COVID-19 Updates for Customers and Partners](https://www.fortinet.com/covid-19.html "COVID-19 Updates for Customers and Partners")
 
 [Palo Alto Networks COVID-19 Response Center](https://live.paloaltonetworks.com/t5/COVID-19-Response-Center/ct-p/COVID-19_Response_Center "Palo Alto Networks COVID-19 Response Center")
+
+[Kemp Enable Remote Work and Always-On App Experience for Business Continuity](https://kemptechnologies.com/remote-work-always-on-application-experience-business-continuity/ "Kemp Enable Remote Work and Always-On App Experience for Business Continuity")
+

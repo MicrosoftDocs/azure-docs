@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Advanced configuration options for the NPS extension for Multi-Factor Authentication
 
-The Network Policy Server (NPS) extension extends your cloud-based Azure AD Multi-Factor Authentication features into your on-premises infrastructure. This article assumes that you already have the extension installed, and now want to know how to customize the extension for you needs. 
+The Network Policy Server (NPS) extension extends your cloud-based Azure AD Multi-Factor Authentication features into your on-premises infrastructure. This article assumes that you already have the extension installed, and now want to know how to customize the extension for you needs.
 
 ## Alternate login ID
 
@@ -48,7 +48,7 @@ To configure an IP allowed list, go to `HKLM\SOFTWARE\Microsoft\AzureMfa` and co
 > [!NOTE]
 > This registry key is not created by default by the installer and an error appears in the AuthZOptCh log when the service is restarted. This error in the log can be ignored, but if this registry key is created and left empty if not needed then the error message does not return.
 
-When a request comes in from an IP address that exists in the `IP_WHITELIST`, two-step verification is skipped. The IP list is compared to the IP address that is provided in the *ratNASIPAddress* attribute of the RADIUS request. If a RADIUS request comes in without the ratNASIPAddress attribute, the following warning is logged: "P_WHITE_LIST_WARNING::IP Whitelist is being ignored as source IP is missing in RADIUS request in NasIpAddress attribute."
+When a request comes in from an IP address that exists in the `IP_WHITELIST`, two-step verification is skipped. The IP list is compared to the IP address that is provided in the *ratNASIPAddress* attribute of the RADIUS request. If a RADIUS request comes in without the ratNASIPAddress attribute, a warning is logged: "IP_WHITE_LIST_WARNING::IP Whitelist is being ignored as the source IP is missing in the RADIUS request NasIpAddress attribute.
 
 ## Next steps
 

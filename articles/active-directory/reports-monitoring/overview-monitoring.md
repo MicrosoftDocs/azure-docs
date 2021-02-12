@@ -39,6 +39,22 @@ Currently, you can route the logs to:
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
+## Licensing and prerequisites for Azure AD reporting and monitoring
+
+You'll need an Azure AD premium license to access the Azure AD sign in logs.
+
+For detailed feature and licensing information in the [Azure Active Directory pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
+
+To deploy Azure AD monitoring and reporting you'll need a user who is a global administrator or security administrator for the Azure AD tenant.
+
+Depending on the final destination of your log data, you'll need one of the following:
+
+* An Azure storage account that you have ListKeys permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage).
+
+* An Azure Event Hubs namespace to integrate with third-party SIEM solutions.
+
+* An Azure Log Analytics workspace to send logs to Azure Monitor logs.
+
 ## Diagnostic settings configuration
 
 To configure monitoring settings for Azure AD activity logs, first sign-in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**. From here, you can access the diagnostic settings configuration page in two ways:

@@ -469,7 +469,7 @@ After your application succeeds locally, you can deploy it to Azure by using the
 3. Deploy the application by pushing it to the remote.
    
    ```bash
-   git push azure master
+   git push azure main
    ```
 
 4. In a few seconds, your web application is published and launched in a browser.

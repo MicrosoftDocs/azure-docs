@@ -112,3 +112,8 @@ If the recovery point has a snapshot and it's the latest recovery point availabl
 ### I don’t need Instant Restore functionality. Can it be disabled?
 
 Instant restore feature is enabled for everyone and can't be disabled. You can reduce the snapshot retention to a minimum of one day.
+
+### Is it safe to restart the VM during the transfer process (which can take many hours)? Will restarting the VM interrupt or slow down the transfer?
+
+Yes its safe, and there is absolutely no impact in data transfer speed.
+

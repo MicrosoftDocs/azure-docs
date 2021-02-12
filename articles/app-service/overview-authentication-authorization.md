@@ -146,6 +146,7 @@ With this option, you don't need to write any authentication code in your app. F
 
 ## More resources
 
+* [Tutorial: Authenticate and authorize users in a web app that accesses Azure Storage and Microsoft Graph](scenario-secure-app-authentication-app-service.md)
 * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](tutorial-auth-aad.md)  
 * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
 * [Customize authentication and authorization in App Service](app-service-authentication-how-to.md)
@@ -160,6 +161,7 @@ Provider-specific how-to guides:
 * [How to configure your app to use Microsoft Account login][MSA]
 * [How to configure your app to use Twitter login][Twitter]
 * [How to configure your app to use an OpenID Connect provider for login (preview)][OIDC]
+* [How to configure your app to use an Sign in with Apple (preview)][Apple]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md
@@ -167,6 +169,7 @@ Provider-specific how-to guides:
 [MSA]: configure-authentication-provider-microsoft.md
 [Twitter]: configure-authentication-provider-twitter.md
 [OIDC]: configure-authentication-provider-openid-connect.md
+[Apple]: configure-authentication-provider-apple.md
 
 [custom-auth]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#custom-auth
 

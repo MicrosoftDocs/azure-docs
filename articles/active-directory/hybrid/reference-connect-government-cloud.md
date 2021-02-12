@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 This article describes considerations for integrating a hybrid environment with the Microsoft Azure Government cloud. This information is provided as a reference for administrators and architects who work with the Azure Government cloud.
 
 > [!NOTE]
-> To integrate an on-premises Microsoft Azure Active Directory (Azure AD) environment with the Azure Government cloud, you need to upgrade to the latest release of [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+> To integrate a Microsoft Active Directory environment (either on-premises or hosted in an IaaS that is part of the same cloud instance) with the Azure Government cloud, you need to upgrade to the latest release of [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
 For a full list of United States government Department of Defense endpoints, refer to the [documentation](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 

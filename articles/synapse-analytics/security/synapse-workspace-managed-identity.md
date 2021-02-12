@@ -10,7 +10,7 @@ ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse workspace managed identity (preview)
+# Azure Synapse workspace managed identity
 
 In this article, you'll learn about managed identity in Azure Synapse workspace.
 

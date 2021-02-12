@@ -40,7 +40,7 @@ Azure Monitor lets you analyze Windows Virtual Desktop data and review virtual m
 Before you can use Log Analytics, you'll need to create a workspace. To do that, follow the instructions in one of the following two articles:
 
 - If you prefer using Azure portal, see [Create a Log Analytics workspace in Azure portal](../azure-monitor/learn/quick-create-workspace.md).
-- If you prefer PowerShell, see [Create a Log Analytics workspace with PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+- If you prefer PowerShell, see [Create a Log Analytics workspace with PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
 
 After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) to get the following information:
 
@@ -77,7 +77,7 @@ To set up Log Analytics for a new object:
 6. Select **Save**.
 
 >[!NOTE]
->Log Analytics gives you the option to stream data to [Event Hubs](../event-hubs/event-hubs-about.md) or archive it in a storage account. To learn more about this feature, see [Stream Azure monitoring data to an event hub](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) and [Archive Azure resource logs to storage account](../azure-monitor/platform/resource-logs-collect-storage.md).
+>Log Analytics gives you the option to stream data to [Event Hubs](../event-hubs/event-hubs-about.md) or archive it in a storage account. To learn more about this feature, see [Stream Azure monitoring data to an event hub](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) and [Archive Azure resource logs to storage account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 ## How to access Log Analytics
 
@@ -108,7 +108,7 @@ You can access Log Analytics workspaces on the Azure portal or Azure Monitor.
 5. You are ready to query diagnostics. All diagnostics tables have a "WVD" prefix.
 
 >[!NOTE]
->For more detailed information about the tables stored in Azure Monitor Logs, see the [Azure Monitor data refence](https://docs.microsoft.com/azure/azure-monitor/reference/). All tables related to Windows Virtual Desktop are labeled "WVD."
+>For more detailed information about the tables stored in Azure Monitor Logs, see the [Azure Monitor data refence](/azure/azure-monitor/reference/). All tables related to Windows Virtual Desktop are labeled "WVD."
 
 ## Cadence for sending diagnostic events
 
@@ -128,9 +128,9 @@ Access example queries through the Azure Monitor Log Analytics UI:
 1. Select **Windows Virtual Desktop** to review available queries.
 1. Select **Run** to run the selected query.
 
-Learn more about the sample query interface in [Saved queries in Azure Monitor Log Analytics](../azure-monitor/log-query/saved-queries.md).
+Learn more about the sample query interface in [Saved queries in Azure Monitor Log Analytics](../azure-monitor/log-query/example-queries.md).
 
-The following query list lets you review connection information or issues for a single user. You can run these queries in the [Log Analytics query editor](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries). For each query, replace `userupn` with the UPN of the user you want to look up.
+The following query list lets you review connection information or issues for a single user. You can run these queries in the [Log Analytics query editor](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query). For each query, replace `userupn` with the UPN of the user you want to look up.
 
 
 To find all connections for a single user:

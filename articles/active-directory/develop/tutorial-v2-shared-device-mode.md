@@ -18,7 +18,7 @@ ms.custom: aaddev, identityplatformtop40
 
 # Tutorial: Use shared-device mode in your Android application
 
-This tutorial provides guidance for both developers and tenant administrators in setting up and supporting shared-device mode for an Android app.
+In this tutorial, Android developers and Azure Active Directory (Azure AD) tenant administrators learn about the code, Authenticator app, and tenant settings required to enable shared-device mode for an Android app.
 
 In this tutorial:
 

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
@@ -86,7 +86,7 @@ Password writeback is a highly secure service. To ensure your information is pro
 * **Tenant-specific service-bus relay**
    * When you set up the service, a tenant-specific service bus relay is set up that's protected by a randomly generated strong password that Microsoft never has access to.
 * **Locked down, cryptographically strong, password encryption key**
-   * After the service bus relay is created, a strong symmetric key is created that'is used to encrypt the password as it comes over the wire. This key only lives in your company's secret store in the cloud, which is heavily locked down and audited, just like any other password in the directory.
+   * After the service bus relay is created, a strong symmetric key is created that is used to encrypt the password as it comes over the wire. This key only lives in your company's secret store in the cloud, which is heavily locked down and audited, just like any other password in the directory.
 * **Industry standard Transport Layer Security (TLS)**
    1. When a password reset or change operation occurs in the cloud, the plaintext password is encrypted with your public key.
    1. The encrypted password is placed into an HTTPS message that's sent over an encrypted channel by using Microsoft TLS/SSL certs to your service bus relay.

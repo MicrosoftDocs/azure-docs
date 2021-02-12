@@ -2,17 +2,13 @@
 title: Plan an Azure Active Directory Application Proxy Deployment
 description: An end-to-end guide for planning the deployment of Application proxy within your organization
 services: active-directory
-documentationcenter: 'azure'
 author: kenwith
-manager: celestedg
-ms.assetid:
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 12/31/2020
 ms.author: kenwith
 ---
 
@@ -319,7 +315,7 @@ The following articles cover common scenarios that can also be used to create tr
 * [Configure single sign-on to my app](application-proxy-config-sso-how-to.md)
 * [Problem creating an app in admin portal](application-proxy-config-problem.md)
 * [Configure Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [Configure with PingAccess](/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide)
+* [Configure with PingAccess](./application-proxy-ping-access-publishing-guide.md)
 * [Can't Access this Corporate Application error](application-proxy-sign-in-bad-gateway-timeout-error.md)
 * [Problem installing the Application Proxy Agent Connector](application-proxy-connector-installation-problem.md)
 * [Sign-in problem](application-sign-in-problem-on-premises-application-proxy.md)

@@ -165,7 +165,7 @@ conceptualContent:
         - url: ../azure-functions/functions-overview.md
           itemType: overview
           text: Introduction to Azure Functions
-        - url: ../azure-functions/functions-create-first-function-vs-code.md
+        - url: ../azure-functions/create-first-function-vs-code-csharp.md
           itemType: quickstart
           text: Create your first function
         - url: ../azure-functions/functions-triggers-bindings.md

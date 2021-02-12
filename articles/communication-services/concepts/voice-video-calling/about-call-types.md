@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-You can use Azure Communication Services to make and receive voice and video calls, analyze call metadata, record calls, and even build call trees. Your calls can be made to other Internet-connected devices and to plain-old telephones. You can use the Communication Services JavaScript, Android, or iOS client libraries to build applications that allow your users to speak to one another in private conversations or in group discussions. Azure Communication Services supports calls to and from services or Bots.
+You can use Azure Communication Services to make and receive one to one or group voice and video calls. Your calls can be made to other Internet-connected devices and to plain-old telephones. You can use the Communication Services JavaScript, Android, or iOS client libraries to build applications that allow your users to speak to one another in private conversations or in group discussions. Azure Communication Services supports calls to and from services or Bots.
 
 ## Call types in Azure Communication Services
 
@@ -44,8 +44,8 @@ We support H.264 (MPEG-4)
 We support up to Full HD 1080p on the native (iOS, Android) SDKs. For Web (JS) SDK we support Standard HD 720p. The quality depends on the available bandwidth.  
 
 ### Rooms concept
-Rooms are are a set of APIs and SDKs that allow you to easily add audio, video, screen sharing, PSTN and SMS interactions to your website or native application.
-During the preview you can use the group ID to join the same conversation. You can create as many group ID as you need and separate the users by the “rooms”. Moving forward will introduce more controls around “rooms” 
+Rooms are a set of APIs and SDKs that allow you to easily add audio, video, screen sharing, PSTN and SMS interactions to your website or native application.
+During the preview you can use the group ID to join the same conversation. You can create as many group IDs as you need and separate the users by the “rooms”. Moving forward will introduce more controls around “rooms” 
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: banders
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Get started with the Azure Enterprise portal
@@ -39,33 +39,33 @@ To help manage your organization's usage and spend, Azure customers with an Ente
 - Department Administrator (read only)
 - Account Owner
 
-Each role has a varying degree of user limits and permissions. For more information, see [Organization structure and permissions by role](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-ea-roles#organization-structure-and-permissions-by-role).
+Each role has a varying degree of user limits and permissions. For more information, see [Organization structure and permissions by role](./understand-ea-roles.md#organization-structure-and-permissions-by-role).
 
 ## Activate your enrollment, create a subscription, and other administrative tasks
 
-For more information regarding activating your enrollment, creating a department or subscription, adding administrators and account owners, and other administrative tasks, see [Azure EA portal administration](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration).
+For more information regarding activating your enrollment, creating a department or subscription, adding administrators and account owners, and other administrative tasks, see [Azure EA portal administration](./ea-portal-administration.md).
 
-If you’d like to know more about transferring an Enterprise subscription to a Pay-As-You-Go subscription, see [Azure Enterprise transfers](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-transfers).
+If you’d like to know more about transferring an Enterprise subscription to a Pay-As-You-Go subscription, see [Azure Enterprise transfers](./ea-transfers.md).
 
 ## View usage summary and download reports
 
 You can manage and act on your Azure EA invoice. Your invoice is a representation of your bill and should be reviewed for accuracy.
 
-To view usage summary, download reports, and manage enrollment invoices, see [Azure Enterprise enrollment invoices](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-enrollment-invoices).
+To view usage summary, download reports, and manage enrollment invoices, see [Azure Enterprise enrollment invoices](./ea-portal-enrollment-invoices.md).
 
 ## Now that you're familiar with the basics, here are some additional links to help you get onboarded
 
-[Azure EA pricing](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-pricing-overview) provides details on how usage is calculated and goes over charges for various Azure services in the Enterprise Agreement where the calculations are more complex.
+[Azure EA pricing](./ea-pricing-overview.md) provides details on how usage is calculated and goes over charges for various Azure services in the Enterprise Agreement where the calculations are more complex.
 
-If you'd like to know about how Azure reservations for VM reserved instances can help you save money with your enterprise enrollment, see [Azure EA VM reserved instances](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-vm-reservations).
+If you'd like to know about how Azure reservations for VM reserved instances can help you save money with your enterprise enrollment, see [Azure EA VM reserved instances](./ea-portal-vm-reservations.md).
 
-For information on which REST APIs to use with your Azure enterprise enrollment and an explanation for how to resolve common issues with REST APIs, see [Azure Enterprise REST APIs](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+For information on which REST APIs to use with your Azure enterprise enrollment and an explanation for how to resolve common issues with REST APIs, see [Azure Enterprise REST APIs](./ea-portal-rest-apis.md).
 
-[Azure EA agreements and amendments](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) describes how Azure EA agreements and amendments might affect your access, use, and payments for Azure services.
+[Azure EA agreements and amendments](./ea-portal-agreements.md) describes how Azure EA agreements and amendments might affect your access, use, and payments for Azure services.
 
-[Azure Marketplace](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-azure-marketplace) explains how EA customers and partners can view marketplace charges and enable Azure Marketplace purchases.
+[Azure Marketplace](./ea-azure-marketplace.md) explains how EA customers and partners can view marketplace charges and enable Azure Marketplace purchases.
 
-For explanations regarding the common tasks that a partner EA administrator accomplishes in the Azure EA portal, see [Azure EA portal administration for partners](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-partner-portal-administration).
+For explanations regarding the common tasks that a partner EA administrator accomplishes in the Azure EA portal, see [Azure EA portal administration for partners](./ea-partner-portal-administration.md).
 
 ## Get started on Azure EA - FAQ
 
@@ -127,7 +127,7 @@ You can create as many departments as you need under your Azure EA enrollment. I
 
 After you have created departments and subscriptions, you can see data in the usage report. This information can help you track usage and manage cost and spend at the department level.
 
-You can also access usage data via the reporting API. For detailed information and sample code, see [Azure Enterprise REST APIs](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+You can also access usage data via the reporting API. For detailed information and sample code, see [Azure Enterprise REST APIs](./ea-portal-rest-apis.md).
 
 ### Can I set a spending quota and get alerts as I approach my limit?
 
@@ -139,7 +139,7 @@ To define your spending quota, select a department and then select the edit icon
 
 If you use _resource groups_ and _tags_, this information is tracked at service level, and you can access it in the detailed usage download (CSV) file. See the [download usage report](https://ea.azure.com/report/downloadusage) in the Azure Enterprise portal.
 
-You can also access usage via API. For detailed information and sample code, see [Azure Enterprise REST APIs](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+You can also access usage via API. For detailed information and sample code, see [Azure Enterprise REST APIs](./ea-portal-rest-apis.md).
 
 > [!NOTE]
 > You can only apply tags to resources that support Azure Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. You must re-deploy these resources through the Resource Manager to support tagging. All other resources support tagging.

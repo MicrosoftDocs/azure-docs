@@ -133,7 +133,7 @@ If you have problems performing any operations on shared image galleries, image 
 
 *ZRS storage account type is not supported in this region.*  
 **Cause**: You've chosen standard zone-redundant storage (ZRS) in a region that does not yet support it.  
-**Workaround**: Change the storage account type to **Premium\_LRS** or **Standard\_LRS**. Check our documentation for the latest [list of regions](/azure/storage/common/storage-redundancy#zone-redundant-storage) with ZRS preview enabled.
+**Workaround**: Change the storage account type to **Premium\_LRS** or **Standard\_LRS**. Check our documentation for the latest [list of regions](../storage/common/storage-redundancy.md#zone-redundant-storage) with ZRS preview enabled.
 
 ## Creating or updating image versions ##
 
@@ -339,4 +339,4 @@ Use the **--expand ReplicationStatus** flag to check if the replication to all t
 
 ## Next steps
 
-Learn more about [shared image galleries](./linux/shared-image-galleries.md).
+Learn more about [shared image galleries](./shared-image-galleries.md).

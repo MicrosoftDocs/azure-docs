@@ -2,7 +2,7 @@
 title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/12/2020
 ms.custom: references_regions
 ---
 # Recover files from Azure virtual machine backup
@@ -112,6 +112,7 @@ The script also requires Python and bash components to execute and connect secur
 | --------------- | ---- |
 | bash | 4 and above |
 | python | 2.6.6 and above  |
+| .NET | 4.6.2 and above |
 | TLS | 1.2 should be supported  |
 
 ## Step 4: Access requirements to successfully run the script
@@ -150,7 +151,7 @@ When you run the executable, the operating system mounts the new volumes and ass
 
    ![Recovery volumes attached](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
-**For backed-up VMs with large disks (Windows)**
+#### For backed-up VMs with large disks (Windows)
 
 If the file recovery process hangs after you run the file-restore script (for example, if the disks are never mounted, or they're mounted but the volumes don't appear), perform the following  steps:
   
@@ -176,12 +177,12 @@ In Linux, the volumes of the recovery point are mounted to the folder where the 
   ![Linux File recovery menu](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
 
 
-**For backed-up VMs with large disks (Linux)**
+#### For backed-up VMs with large disks (Linux)**
 
 If the file recovery process hangs after you run the file-restore script (for example, if the disks are never mounted, or they're mounted but the volumes don't appear), perform the following  steps:
 
 1. In the file /etc/iscsi/iscsid.conf, change the setting from:
-    - `node.conn[0].timeo.noop_out_timeout = 5`  to `node.conn[0].timeo.noop_out_timeout = 30`
+    - `node.conn[0].timeo.noop_out_timeout = 5`  to `node.conn[0].timeo.noop_out_timeout = 120`
 2. After making the above changes, rerun the script. If there are transient failures, ensure there is a gap of 20 to 30 minutes between reruns to avoid successive bursts of requests impacting the target preparation. This interval between re-runs will ensure the target is ready for connection from the script.
 3. After file recovery, make sure you go back to the portal and select **Unmount disks** for recovery points where you weren't able to mount volumes. Essentially, this step will clean any existing processes/sessions and increase the chance of recovery.
 

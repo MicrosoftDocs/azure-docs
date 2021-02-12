@@ -8,13 +8,13 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/05/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ---
 # Configure Azure AD Multi-Factor Authentication settings
 
@@ -62,9 +62,7 @@ To block a user, complete the following steps:
 
 1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
 1. Select **Add** to block a user.
-1. Select the **Replication Group**, then choose *Azure Default*.
-
-    Enter the username for the blocked user as `username\@domain.com`, then provide a comment in the *Reason* field.
+1. Enter the username for the blocked user as `username@domain.com`, then provide a comment in the *Reason* field.
 1. When ready, select **OK** to block the user.
 
 ### Unblock a user

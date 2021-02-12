@@ -15,7 +15,7 @@ ms.author: erhopf
 # Inspect Custom Speech data
 
 > [!NOTE]
-> This page assumes you've read [Prepare test data for Custom Speech](how-to-custom-speech-test-data.md) and have uploaded a dataset for inspection.
+> This page assumes you've read [Prepare test data for Custom Speech](./how-to-custom-speech-test-and-train.md) and have uploaded a dataset for inspection.
 
 Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result. From the [Custom Speech portal](https://speech.microsoft.com/customspeech), you can play back uploaded audio and determine if the provided recognition result is correct. This tool helps you inspect quality of Microsoft's baseline speech-to-text model, inspect a trained custom model, or compare transcription by two models.
 
@@ -95,9 +95,9 @@ The files exported to Data will be used as a brand-new dataset and will not affe
 
 - [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 - [Train your model](how-to-custom-speech-train-model.md)
-- [Improve your model](how-to-custom-speech-improve-accuracy.md)
-- [Deploy your model](how-to-custom-speech-deploy-model.md)
+- [Improve your model](./how-to-custom-speech-evaluate-data.md)
+- [Deploy your model](./how-to-custom-speech-train-model.md)
 
 ## Additional resources
 
-- [Prepare test data for Custom Speech](how-to-custom-speech-test-data.md)
+- [Prepare test data for Custom Speech](./how-to-custom-speech-test-and-train.md)

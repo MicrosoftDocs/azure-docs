@@ -42,4 +42,4 @@ To analyze differences in data storage prices, transaction prices, and storage c
 
 ## Next steps
 
-- [Create a Storage account](./data-lake-storage-quickstart-create-account.md)
+- [Create a Storage account](../common/storage-account-create.md)

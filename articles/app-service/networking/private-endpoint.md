@@ -115,7 +115,7 @@ For pricing details, see [Azure Private Link pricing][pricing].
 
 When you use Azure Function in Elastic Premium Plan with Private Endpoint, to run or execute the function in Azure Web portal, you must have direct network access or you will receive an HTTP 403 error. In other words, your browser must be able to reach the Private Endpoint to execute the function from the Azure Web portal. 
 
-You can connect up to 100 Private Endpoint to a particular Web App.
+You can connect up to 100 Private Endpoints to a particular Web App.
 
 Slots cannot use Private Endpoint.
 
@@ -143,7 +143,7 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 [dnsvalidation]: ../app-service-web-tutorial-custom-domain.md
 [pllimitations]: ../../private-link/private-endpoint-overview.md#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide1]: ../../private-link/create-private-endpoint-webapp-portal.md
+[howtoguide1]: ../../private-link/tutorial-private-endpoint-webapp-portal.md
 [howtoguide2]: ../scripts/cli-deploy-privateendpoint.md
 [howtoguide3]: ../scripts/powershell-deploy-private-endpoint.md
 [howtoguide4]: ../scripts/template-deploy-private-endpoint.md
