@@ -62,6 +62,8 @@
       href: quickstart-v2-uwp.md
     - name: Windows Desktop .NET
       href: quickstart-v2-windows-desktop.md
+    - name: Node.js Electron
+      href: quickstart-v2-nodejs-desktop.md
   - name: Daemon or back-end service
     items:
     - name: .NET Core console (daemon)
