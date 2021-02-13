@@ -1,6 +1,6 @@
 ---
-title: Use Dataflow to process data for automated machine learning(AutoML) models
-description: Learn how to use Azure Data Factory using mapping data flows to process data for automated machine learning(AutoML) models.
+title: Use Dataflow to process data from automated machine learning(AutoML) models
+description: Learn how to use Azure Data Factory data flows to process data from automated machine learning(AutoML) models.
 services: data-factory
 author: amberz
 co-author: ATLArcht
@@ -15,7 +15,7 @@ ms.co-author: Donnana
 ---
 
 
-# Use Dataflow to process data for automated machine learning(AutoML) models
+# Configure Dataflow to process data of automated machine learning(AutoML) models
 
 Automated machine learning(AutoML) is adopted by machine learning projects to train, tune and gain best model automatically using target metric you specify for classification, regression and time-series forecasting. 
 
@@ -29,7 +29,7 @@ In Automated machine learning(AutoML) project, it would apply the following thre
     
     Azure Data Factories Mapping data flows are visually designed data transformations with code-free to data engineers. It's powerful to process large data since the pipeline use scaled-out Spark clusters.
 
-* Split training dataset and test dataset. 
+* Split training dataset and test dataset.
     
     Training dataset will be used for training model, test dataset will be used for evaluate models in machine learning project. Mapping data flows conditional split activity would split training data and test data. 
 
@@ -67,18 +67,18 @@ Let's suppose to remove row count less than 2.
 
 1. Use Aggregate activity to get count number of rows: **Group by** based on Col2 and **Aggregates** with count(1) for row count. 
 
-    ![using Aggregate Activity to add Row Count](./media/scenario-dataflow-process-data-aml-models/aggregate-activity-addrowcount.png)
+    ![configure Aggregate Activity to get count number of rows](./media/scenario-dataflow-process-data-aml-models/aggregate-activity-addrowcount.png)
 
 1. Use Sink activity, choose **Sink type** as Cache in **Sink** tab, then choose desired column from **key columns** dropdown list in **Settings** tab. 
 
-    ![using CacheSink Activity to add Row Count](./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png)
+    ![configure CacheSink Activity to get count number of rows in cached sink](./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png)
 
-1. Use derived column activity to add row count column in  in master source stream. In **Derived column's settings** tab, use CacheSink#lookup expression getting row count from SinkCache.
-    ![using DerivedColumn Activity to get count number of rows in S1](./media/scenario-dataflow-process-data-aml-models/derived-column-activity-rowcount-source1.png)
+1. Use derived column activity to add row count column in  in source stream. In **Derived column's settings** tab, use CacheSink#lookup expression getting row count from SinkCache.
+    ![configure Derived Column Activity to add count number of rows in source 1](./media/scenario-dataflow-process-data-aml-models/derived-column-activity-rowcount-source-1.png)
 
 1. Use Conditional split activity to remove unqualified data. In this example,  row count based on Col2 column, and the condition is to remove row count less than 2, so two rows (ID=2 and ID=7) will be removed. You would save unqualified data to a blob storage for data management. 
 
-    ![using Conditional Split to get greater or equal than 2](./media/scenario-dataflow-process-data-aml-models/conditionalsplit-greater-or-equal-than-2.png)
+    ![configure Conditional Split activity to get data which is greater or equal than 2](./media/scenario-dataflow-process-data-aml-models/conditionalsplit-greater-or-equal-than-2.png)
 
 > [!NOTE]
 >    *    Create a new source for getting count number of rows which will be used in original source in later steps. 
@@ -89,19 +89,19 @@ Let's suppose to remove row count less than 2.
 1. We want to split training data and test data for each partition. In this example, for the same value of Col2, get top 2 rows as test data and the rest rows as training data. 
 
     Use Window activity to add one column row number for each partition. In **Over** tab choose column for partition(in this tutorial, will partition for Col2), give order in **Sort** tab(in this tutorial, will based on ID to order), and in **Window columns** tab to add one column as row number for each partition. 
-    ![using Window Activity to add Row Number](./media/scenario-dataflow-process-data-aml-models/window-activity-add-row-number.png)
+    ![configure Window Activity to add one new column being row number](./media/scenario-dataflow-process-data-aml-models/window-activity-add-row-number.png)
 
 1. Use conditional split activity to split each partition top 2 rows to test dataset, and the rest rows to training dataset. In **Conditional split settings** tab, use expression lesserOrEqual(RowNum,2) as condition. 
 
-    ![To Split Training Dataset and Test Dataset](./media/scenario-dataflow-process-data-aml-models/split-training-dataset-test-dataset.png)
+    ![configure conditional split activity to split current dataset to training dataset and test dataset](./media/scenario-dataflow-process-data-aml-models/split-training-dataset-test-dataset.png)
 
 ## Partition training dataset and test dataset with parquet format
 
 1. Use Sink activity, in **Optimize** tab, using **Unique value per partition** to set a column as a column key for partition. 
-    ![Partition Training Dataset Sink](./media/scenario-dataflow-process-data-aml-models/partition-training-dataset-sink.png)
+    ![configure Sink activity to set partition of training dataset](./media/scenario-dataflow-process-data-aml-models/partition-training-dataset-sink.png)
 
-    Let's look back the entire pipeline logic:  
-    ![Look back entire Pipeline](./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png)
+    Let's look back the entire pipeline logic.
+    ![The logic of entire Pipeline](./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png)
 
 
 ## Next steps
