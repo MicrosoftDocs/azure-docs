@@ -1,6 +1,6 @@
 ---
 title: Guidance for migrating HDInsight customer Log Analytics
-description: Determine the types, sizes, and retention policies for HDInsight activity log files.
+description: Learn about the changes to the Azure Monitor integration and best-practices for using the new tables. 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -52,12 +52,10 @@ The following sections describe how customers can use the new Azure Monitor inte
 > [!NOTE]
 > Only clusters created in late-September 2020 and after are eligible for the new Azure Monitoring integration.
 
-
-
 ## Activate a new Azure Monitor integration 
 
 > [!NOTE]
-> You must have a Log Analytics workspace created in a subscription you have access to before doing enabling the new integration. Learn how to create a Log Analytics workspace [here](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-create-workspace).
+> You must have a Log Analytics workspace created in a subscription you have access to before doing enabling the new integration. Learn how to create a Log Analytics workspace [here](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
 Activate the new integration by going to your cluster's portal page, scrolling down the menu on the left until you reach the **Monitoring** section, and selecting the **Azure Monitor** blade. There will be a button to enable the pipeline. Once you select **Enable**, you can choose the Log Analytics workspace that you want your logs to be sent to. Select **Save** once you have chosen your workspace. 
 
@@ -81,8 +79,8 @@ The second way is through Cluster portal access.
 
 For comparison, the following screenshots show the legacy integration workspace view and the new integration workspace view:
 
-![]() 
-![]()
+<![alt-text-description](image)>
+<![alt-text-description](image)>
 
 ### Using the new tables
 
@@ -92,7 +90,7 @@ These integrations can help you use the new tables:
 
 In your Logs query editor, set the toggle to **Queries** above the table list. Make sure that the queries are grouped by **Resource Type** and that there's no filter set for a resource type other than **HDInsight Clusters**. The following image shows how the results look when grouped by **Resource Type** and filtered for **HDInsight Clusters**. Just select one and it appear in the Logs query editor. Be sure to read the comments included in the queries, as some require you to enter some information, like your cluster name, for the query to run successfully.
 
-![]()
+<![alt-text-description](image)>
 
 #### Ad-hoc queries
 
@@ -100,9 +98,9 @@ You can enter your own queries in the Logs query editor. queries used on the old
 
 #### Insights
 
-Insights are cluster-specific visualization dashboards made using [Azure Workbooks](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/workbooks-overview). These dashboards give you detailed graphs and visualizations of how your cluster is running. The dashboards have sections for each cluster type, YARN, system metrics, and component logs. You can access the Insight for your cluster by visiting your cluster's page in the portal, scrolling down to the **Monitoring** section, and selecting the **Insights** blade. The dashboard loads automatically if you have enabled the new integration. Please allow a few seconds for the graphs to load as they query the logs.
+Insights are cluster-specific visualization dashboards made using [Azure Workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). These dashboards give you detailed graphs and visualizations of how your cluster is running. The dashboards have sections for each cluster type, YARN, system metrics, and component logs. You can access the Insight for your cluster by visiting your cluster's page in the portal, scrolling down to the **Monitoring** section, and selecting the **Insights** blade. The dashboard loads automatically if you have enabled the new integration. Please allow a few seconds for the graphs to load as they query the logs.
 
-![]()
+<![alt-text-description](image)>
 
 #### Custom Azure workbooks
 
