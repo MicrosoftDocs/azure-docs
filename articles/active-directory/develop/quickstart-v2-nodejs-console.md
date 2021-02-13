@@ -200,3 +200,10 @@ const tokenResponse = await cca.acquireTokenByClientCredential(tokenRequest);
 > | `tokenResponse` | The response contains an access token for the scopes requested. |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## Next steps
+
+To learn more about daemon/console app development with MSAL Node, see the tutorial:
+
+> [!div class="nextstepaction"]
+> [Daemon application that calls web APIs](tutorial-v2-nodejs-console.md)

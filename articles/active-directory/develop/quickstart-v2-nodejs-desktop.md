@@ -232,3 +232,10 @@ async function listenForAuthCode(navigateUrl, authWindow) {
 > |---------|---------|
 > | `authWindow` | Current Electron window in process. |
 > | `tokenRequest` | Contains the scopes being requested, such as `"User.Read"` for Microsoft Graph or `"api://<Application ID>/access_as_user"` for custom web APIs. |
+
+## Next steps
+
+To learn more about Electron desktop app development with MSAL Node, see the tutorial:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Sign in users and call the Microsoft Graph API in an Electron desktop app](tutorial-v2-nodejs-desktop.md)
