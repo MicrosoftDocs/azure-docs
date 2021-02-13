@@ -55,7 +55,7 @@ Create a file in the root directory of your project called **client.js** to cont
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
@@ -72,7 +72,7 @@ The following classes and interfaces handle some of the major features of the Az
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
 | CallClient                       | The CallClient is the main entry point to the Calling client library.                                                                       |
 | CallAgent                        | The CallAgent is used to start and manage calls.                                                                                            |
-| AzureCommunicationUserCredential | The AzureCommunicationUserCredential class implements the CommunicationUserCredential interface which is used to instantiate the CallAgent. |
+| AzureCommunicationTokenCredential | The AzureCommunicationTokenCredential class implements the CommunicationUserCredential interface which is used to instantiate the CallAgent. |
 
 
 ## Authenticate the client
@@ -82,7 +82,7 @@ You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for you
 ```javascript
 async function init() {
     const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
     callAgent = await callClient.createCallAgent(tokenCredential);
     callButton.disabled = false;
 }

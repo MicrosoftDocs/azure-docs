@@ -94,8 +94,8 @@ var chatClient = new ChatClient(ENDPOINT_URL, userCredential);
 // user access tokens should be created by a trusted service using the Administration client library
 const token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance with the AzureCommunicationUserCredential class
-const userCredential = new AzureCommunicationUserCredential(token);
+// create a CommunicationUserCredential instance with the AzureCommunicationTokenCredential class
+const userCredential = new AzureCommunicationTokenCredential(token);
 
 // initialize the chat client library with the credential
 let chatClient = new ChatClient(ENDPOINT_URL, userCredential);
@@ -150,7 +150,7 @@ var userCredential = new CommunicationUserCredential(
 #### [JavaScript](#tab/javascript)
 
 ```javascript
-const userCredential = new AzureCommunicationUserCredential({
+const userCredential = new AzureCommunicationTokenCredential({
   tokenRefresher: async () => fetchNewTokenForCurrentUser(),
   refreshProactively: true,
   initialToken: token
