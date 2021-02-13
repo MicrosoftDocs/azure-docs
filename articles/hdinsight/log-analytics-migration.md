@@ -79,8 +79,8 @@ The second way is through Cluster portal access.
 
 For comparison, the following screenshots show the legacy integration workspace view and the new integration workspace view:
 
-<![alt-text-description](image)>
-<![alt-text-description](image)>
+<![alt-text-description]()>
+<![alt-text-description]()>
 
 ### Using the new tables
 
@@ -90,7 +90,7 @@ These integrations can help you use the new tables:
 
 In your Logs query editor, set the toggle to **Queries** above the table list. Make sure that the queries are grouped by **Resource Type** and that there's no filter set for a resource type other than **HDInsight Clusters**. The following image shows how the results look when grouped by **Resource Type** and filtered for **HDInsight Clusters**. Just select one and it appear in the Logs query editor. Be sure to read the comments included in the queries, as some require you to enter some information, like your cluster name, for the query to run successfully.
 
-<![alt-text-description](image)>
+<![alt-text-description]()>
 
 #### Ad-hoc queries
 
@@ -100,7 +100,7 @@ You can enter your own queries in the Logs query editor. queries used on the old
 
 Insights are cluster-specific visualization dashboards made using [Azure Workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). These dashboards give you detailed graphs and visualizations of how your cluster is running. The dashboards have sections for each cluster type, YARN, system metrics, and component logs. You can access the Insight for your cluster by visiting your cluster's page in the portal, scrolling down to the **Monitoring** section, and selecting the **Insights** blade. The dashboard loads automatically if you have enabled the new integration. Please allow a few seconds for the graphs to load as they query the logs.
 
-<![alt-text-description](image)>
+<![alt-text-description]()>
 
 #### Custom Azure workbooks
 
@@ -119,13 +119,13 @@ Use our new out-of-box, at-scale workbook <add link> to get a multi-cluster moni
 
 You can add custom alerts to your clusters and workspaces in the Log query editor. Go to the Logs query editor by selecting the **Logs** blade from either your cluster or workspace portal. Run a query and then select **New Alert Rule** as shown in the following screenshot. For more information, read about [configuring alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
 
-![]()
+![alt-text-description]()
 
 ## Activate an existing Azure Monitor integration
 
 If are using the classic Azure Monitor Integration, you'll need to make some adjustments to the new table formats after you switch to the new Azure Monitor Integration.
 
-To enable the new Azure Monitor Integration, please follow the steps outlined in the [Enable a new Azure Monitor integration](#enable-a-new-azure-monitor-integration) section.
+To enable the new Azure Monitor Integration, please follow the steps outlined in the [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section.
 
 ### Run queries in Log Analytics
 
@@ -151,7 +151,7 @@ If you are using the out-of-box monitoring dashboard for HDInsight clusters, lik
 
 You will see an HDInsight option in Azure Monitor.
 
-![]()
+![alt-text-description]()
 
 The HDInsight Monitor portal provides you the capability of monitoring multiple HDInsight clusters in one place. We organize the clusters based on the workload type, so you see types like Spark, HBase, and Hive. Instead of going to multiple dashboards, now you can monitor all your HDInsight clusters in this view.
 
