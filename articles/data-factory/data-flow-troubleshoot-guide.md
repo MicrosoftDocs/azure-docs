@@ -24,7 +24,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 ### Error code: DF-Executor-SystemImplicitCartesian
 
 - **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
-- **Causes**: Implicit cartesian product for INNER join between logical plans is not supported. If the columns used in the join create the unique key, at least one column from both sides of the relationship are required.
+- **Causes**: Implicit cartesian product for INNER join between logical plans is not supported. If the columns are used in the join, then the unique key wiith at least one column from both sides of the relationship is required.
 - **Recommendation**: For non-equality based joins you have to opt for CUSTOM CROSS JOIN.
 
 ### Error code: DF-Executor-SystemInvalidJson
@@ -39,7 +39,13 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Causes**: Broadcast has a default timeout of 60 secs in debug runs and 300 seconds in job runs. Stream chosen for broadcast seems too large to produce data within this limit.
 - **Recommendation**: Check the Optimize tab on your data flow transformations for Join, Exists, and Lookup. The default option for Broadcast is "Auto". If "Auto" is set, or if you are manually setting the left or right side to broadcast under "Fixed", then you can either set a larger Azure Integration Runtime configuration, or switch off broadcast. The recommended approach for best performance in data flows is to allow Spark to broadcast using "Auto" and use a Memory Optimized Azure IR.
 
-If you are executing the data flow in a debug test execution from a debug pipeline run, you may run into this condition more frequently. This is because ADF throttles the broadcast timeout to 60 secs in order to maintain a faster debug experience. If you would like to extend that to the 300-seconds timeout from a triggered run, you can use the Debug > Use Activity Runtime option to utilize the Azure IR defined in your Execute Data Flow pipeline activity.
+ If you are executing the data flow in a debug test execution from a debug pipeline run, you may run into this condition more frequently. This is because ADF throttles the broadcast timeout to 60 secs in order to maintain a faster debug experience. If you would like to extend that to the 300-seconds timeout from a triggered run, you can use the Debug > Use Activity Runtime option to utilize the Azure IR defined in your Execute Data Flow pipeline activity.
+ 
+--
+
+- **Message**: Broadcast join timeout error, you can choose 'Off' of broadcast option in join/exists/lookup transformation to avoid this issue. If you intend to broadcast join option to improve performance then make sure broadcast stream can produce data within 60 secs in debug runs and 300 secs in job runs.
+- **Causes**: Broadcast has a default timeout of 60 secs in debug runs and 300 secs in job runs. On broadcast join, the stream chosen for broadcast seems too large to produce data within this limit. If a broadcast join is not used, the default broadcast done by dataflow can reach the same limit
+- **Recommendation**: Turn off the broadcast option or avoid broadcasting large data streams where the processing can take more than 60 secs. Choose a smaller stream to broadcast instead. Large SQL/DW tables and source files are typically bad candidates. In the absence of a broadcast join, use a larger cluster if the error occurs.
 
 ### Error code: DF-Executor-Conversion
 
@@ -98,11 +104,6 @@ If you are executing the data flow in a debug test execution from a debug pipeli
 - **Recommendation**: Verify the JSON file's encoding is supported. On the Source transformation that is using a JSON dataset, expand 'JSON Settings' and turn on 'Single Document'.
 
 
-### Error code: DF-Executor-BroadcastTimeout
-- **Message**: Broadcast join timeout error, you can choose 'Off' of broadcast option in join/exists/lookup transformation to avoid this issue. If you intend to broadcast join option to improve performance then make sure broadcast stream can produce data within 60 secs in debug runs and 300 secs in job runs.
-- **Causes**: Broadcast has a default timeout of 60 secs in debug runs and 300 secs in job runs. On broadcast join, the stream chosen for broadcast seems too large to produce data within this limit. If a broadcast join is not used, the default broadcast done by dataflow can reach the same limit
-- **Recommendation**: Turn off the broadcast option or avoid broadcasting large data streams where the processing can take more than 60 secs. Choose a smaller stream to broadcast instead. Large SQL/DW tables and source files are typically bad candidates. In the absence of a broadcast join, use a larger cluster if the error occurs.
-
 
 ### Error code: DF-Executor-Conversion
 - **Message**: Converting to a date or time failed due to an invalid character
@@ -116,7 +117,7 @@ If you are executing the data flow in a debug test execution from a debug pipeli
 - **Recommendation**: Please contact Microsoft product team regarding this issue for more details
 
 ### Error code: DF-Executor-PartitionDirectoryError
-- **Message**: The specified source path has either multiple partitioned directories (for e.g. <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/<Partition Root Directory 2>/c=10/d=30) or partitioned directory with other file or non-partitioned directory (for e.g. <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/Directory 2/file1), remove partition root directory from source path and read it through separate source transformation.
+- **Message**: The specified source path has either multiple partitioned directories (for e.g. *<Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/<Partition Root Directory 2>/c=10/d=30*) or partitioned directory with other file or non-partitioned directory (for e.g. *<Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/Directory 2/file1*), remove partition root directory from source path and read it through separate source transformation.
 - **Causes**: Source path has either multiple partitioned directories or partitioned directory with other file or non-partitioned directory.
 - **Recommendation**: Remove partitioned root directory from source path and read it through separate source transformation.
 
@@ -200,14 +201,14 @@ If you are executing the data flow in a debug test execution from a debug pipeli
 - **Recommendation**: Please use Excel file right data types.
 
 ### Error code: 4502
-- **Message**: There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime.
+- **Message**: There are substantial concurrent MappingDataflow executions which are causing failures due to throttling under Integration Runtime.
 - **Causes**: A lot of Dataflow Activity runs are going on concurrently on the Integration Runtime. Please learn more about the [Azure Data Factory limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#data-factory-limits).
 - **Recommendation**: In case you are looking to run more Data flow activities in parallel, please distribute those on multiple integration runtimes.
 
 
 ### Error code: InvalidTemplate
 - **Message**: The pipeline expression cannot be evaluated.
-- **Causes**: Pipeline expression passed in the dataflow activity are not being processed correctly because of syntax error.
+- **Causes**: Pipeline expression passed in the dataflow activity is not being processed correctly because of syntax error.
 - **Recommendation**: Please check your activity in activity monitoring to verify the expression.
 
 ### Error code: 2011
@@ -216,17 +217,17 @@ If you are executing the data flow in a debug test execution from a debug pipeli
 - **Recommendation**: Please configure Data flow to run on integration runtime with 'Managed Virtual Network'.
 
 ## Miscellaneous Troubleshooting Tips
-- **Issue** : Hit unexpected exception and execution failed
+- **Issue**: Hit unexpected exception and execution failed
 	- **Message**: During Data Flow activity execution: Hit unexpected exception and execution failed.
 	- **Causes**: This is a back-end service error. You can retry the operation and also restart your debug session.
 	- **Recommendation**: If retry and restart do not resolve the issue, contact customer support.
 
--  **Issue** : Debug data preview No Output Data on Join
+-  **Issue**: Debug data preview No Output Data on Join
 	- **Message**: There are a high number of null values or missing values which may be caused by having too few rows sampled. Try updating the debug row limit and refreshing the data.
 	- **Causes**: Join condition did not match any rows or resulted in high number of NULLs during data preview.
 	- **Recommendation**: Go to Debug Settings and increase the number of rows in the source row limit. Make sure that you have select an Azure IR with a large enough data flow cluster to handle more data.
 	
-- **Issue** : Validation Error at Source with multiline CSV files 
+- **Issue**: Validation Error at Source with multiline CSV files 
 	- **Message**: You might see one of the following error messages:
 		- The last column is null or missing.
 		- Schema validation at source fails.
