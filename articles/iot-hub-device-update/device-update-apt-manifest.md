@@ -100,13 +100,11 @@ If version is omitted, the latest available version of specified package will be
 version. This automatic resolution can lead to errors regarding an unmet dependency. [Learn More](https://unix.stackexchange.com/questions/350192/apt-get-not-properly-resolving-a-dependency-on-a-fixed-version-in-a-debian-ubunt)
 
 If you're updating a specific version of the Azure IoT Edge security daemon, then you should include the desired version of the `iotedge` package and its dependent `libiothsm-std` package in your APT manifest.
-[Learn More](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-update-iot-edge#update-the-security-daemon)
+[Learn More](https://docs.microsoft.com/azure/iot-edge/how-to-update-iot-edge#update-the-security-daemon)
 
 ## Recommended value for installed Criteria
 
 The Installed Criteria for an APT Manifest is `<name>-<version>` where `<name>` is the name of the APT Manifest and `<version>` is the version of the APT Manifest. For example, `contoso-iot-edge-1.0.0.0`. 
-
-[Learn More](../how-adu-uses-iot-pnp.md) about Installed Criteria.
 
 ## Guidelines on creating an APT Manifest
 
