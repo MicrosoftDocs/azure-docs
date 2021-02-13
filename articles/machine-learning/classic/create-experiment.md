@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Quickstart: Create a data science experiment - Azur
 description: This machine learning quickstart walks you through an easy data science experiment. We'll predict the price of a car using a regression algorithm.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: quickstart
 
 author: likebupt
