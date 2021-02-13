@@ -41,7 +41,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
  If you are executing the data flow in a debug test execution from a debug pipeline run, you may run into this condition more frequently. This is because ADF throttles the broadcast timeout to 60 secs in order to maintain a faster debug experience. If you would like to extend that to the 300-seconds timeout from a triggered run, you can use the Debug > Use Activity Runtime option to utilize the Azure IR defined in your Execute Data Flow pipeline activity.
  
---
+- --
 
 - **Message**: Broadcast join timeout error, you can choose 'Off' of broadcast option in join/exists/lookup transformation to avoid this issue. If you intend to broadcast join option to improve performance then make sure broadcast stream can produce data within 60 secs in debug runs and 300 secs in job runs.
 - **Causes**: Broadcast has a default timeout of 60 secs in debug runs and 300 secs in job runs. On broadcast join, the stream chosen for broadcast seems too large to produce data within this limit. If a broadcast join is not used, the default broadcast done by dataflow can reach the same limit
