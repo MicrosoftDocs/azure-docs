@@ -18,7 +18,7 @@ ms.date: 02/03/2021
 Microsoft Azure Government uses same underlying technologies as global Azure, which includes the core components of [Infrastructure-as-a-Service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/), [Platform-as-a-Service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/), and [Software-as-a-Service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Both Azure and Azure Government have the same comprehensive security controls in place, as well as the same Microsoft commitment on the safeguarding of customer data.  Whereas both cloud environments are assessed and authorized at the FedRAMP High impact level, Azure Government provides an additional layer of protection to customers through contractual commitments regarding storage of Customer Data in the United States and limiting potential access to systems processing Customer Data to screened US persons.  These commitments may be of interest to customers using the cloud to store or process data subject to US export control regulations such as the EAR, ITAR, and DoE 10 CFR Part 810.
 
 ### Export control implications
-Customers are responsible for designing and deploying their applications to meet export control requirements such as those prescribed in the EAR and ITAR.  In doing so, customers should not include sensitive or restricted information in Azure resource names, as explained in [Considerations for Naming Azure Resources](./documentation-government-concept-naming-resources.md).  Data stored or processed in customer VMs, storage accounts, databases, Azure Import/Export, Azure Cache for Redis, ExpressRoute, Azure Cognitive Search, App Service, API Management, and other Azure services suitable for holding, processing, or transmitting Customer Data can contain export-controlled data.  However, metadata for these Azure services is not permitted to contain export-controlled data.  This metadata includes all configuration data entered when creating and maintaining an Azure service, including subscription names, service names, server names, database names, tenant role names, resource groups, deployment names, resource names, resource tags, circuit name, etc.  It also includes all shipping information that is used to transport media for Azure Import/Export, such as carrier name, tracking number, description, return information, drive list, package list, storage account name, container name, etc.  Sensitive data should not be included in HTTP headers sent to the REST API in search/query strings as part of the API.
+Customers are responsible for designing and deploying their applications to meet [export control requirements](./documentation-government-overview-itar.md) such as those prescribed in the EAR and ITAR.  In doing so, customers should not include sensitive or restricted information in Azure resource names, as explained in [Considerations for naming Azure resources](./documentation-government-concept-naming-resources.md).  Data stored or processed in customer VMs, storage accounts, databases, Azure Import/Export, Azure Cache for Redis, ExpressRoute, Azure Cognitive Search, App Service, API Management, and other Azure services suitable for holding, processing, or transmitting Customer Data can contain export-controlled data.  However, metadata for these Azure services is not permitted to contain export-controlled data.  This metadata includes all configuration data entered when creating and maintaining an Azure service, including subscription names, service names, server names, database names, tenant role names, resource groups, deployment names, resource names, resource tags, circuit name, etc.  It also includes all shipping information that is used to transport media for Azure Import/Export, such as carrier name, tracking number, description, return information, drive list, package list, storage account name, container name, etc.  Sensitive data should not be included in HTTP headers sent to the REST API in search/query strings as part of the API.
 
 ### Guidance for developers
 Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government.  However, there are some key differences that developers working on applications hosted in Azure Government must be aware of.  For detailed information, see [Guidance for developers](./documentation-government-developer-guide.md).  As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as in global Azure.  Table below lists API endpoints in Azure vs. Azure Government for accessing and managing various services.
@@ -34,7 +34,7 @@ Azure Government services operate the same way as the corresponding services in 
 ||Language Understanding|See [LUIS REST API docs](../cognitive-services/luis/developer-reference-resource.md)|\*.cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)||
 ||Personalizer|See [Personalizer docs](../cognitive-services/personalizer/quickstart-personalizer-sdk.md#prerequisites)|\*.cognitiveservices.azure.us||
 ||QnA Maker|See [QnA Maker docs](../cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure.md)|\*.cognitiveservices.azure.us||
-||Speech service|See [STT API docs](../cognitive-services/speech-service/rest-speech-to-text.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../cognitive-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**<br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`<br>Arizona: `https://usgovarizona.s2s.speech.azure.us`<br>||
+||Speech service|See [STT API docs](../cognitive-services/speech-service/rest-speech-to-text.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../cognitive-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
 ||Translator|See [Translator API docs](../cognitive-services/translator/reference/v3-0-reference.md#base-urls)|\*.cognitiveservices.azure.us||
 |**Analytics**|HDInsight|\*.azurehdinsight.net|\*.azurehdinsight.us||
 ||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|
@@ -86,7 +86,7 @@ Azure Government services operate the same way as the corresponding services in 
 ||Azure Cognitive Search|\*.search.windows.net|\*.search.windows.us||
 
 ### Service availability
-Microsoft's goal is to enable 100% parity in service availability between Azure and Azure Government. To find out which services are available in Azure Government, customers should see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia). **Services available in Azure Government** are listed by category and whether they are Generally Available or available through Preview. If a service is available in Azure Government, that fact is not reiterated in the sections below. Instead, customers are encouraged to review [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) for the latest, up-to-date information on service availability.
+Microsoft's goal is to enable 100% parity in service availability between Azure and Azure Government. To find out which services are available in Azure Government, customers should see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia). Services available in Azure Government are listed by category and whether they are Generally Available or available through Preview. If a service is available in Azure Government, that fact is not reiterated in the sections below. Instead, customers are encouraged to review [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) for the latest, up-to-date information on service availability.
 
 In general, service availability in Azure Government implies that all corresponding service features are available to customers. Variations to this approach and other applicable limitations are tracked and explained in the sections below based on the main service categories outlined in the [online directory of Azure services](https://azure.microsoft.com/services/). Additional considerations for service deployment and usage in Azure Government are also provided.
 
@@ -151,8 +151,8 @@ For access to Azure Databricks in an Azure Government environment, contact your 
 ### [HDInsight](../hdinsight/hadoop/apache-hadoop-introduction.md)
 The following HDInsight **features are not currently available** in Azure Government:
 
-- HDInsight on Windows.
-- Azure Data Lake Storage.
+- HDInsight on Windows
+- Azure Data Lake Storage
 
 Azure Blob Storage is the only available storage option currently.
 
@@ -171,7 +171,7 @@ You can see a demo on how to build data-centric solutions on Azure Government us
 ### [Power BI](/power-bi/service-govus-overview)
 The following Power BI **features are not currently available** in Azure Government:
 
-- Portal support.
+- Portal support
 
 You can see a demo on [how to build data-centric solutions on Azure Government using Power BI](https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/).
 
@@ -181,7 +181,7 @@ You can see a demo on [how to build data-centric solutions on Azure Government u
 ### [Power BI Embedded](/azure/power-bi-embedded/)
 The following Power BI Embedded **features are not yet available** in Azure Government:
 
-- Portal support.
+- Portal support
 
 
 ## Compute
@@ -193,10 +193,10 @@ The following Virtual Machines **features are not currently available** in Azure
 - Settings
     - Continuous delivery
 - Operations
-    - Auto-Shutdown
+    - Auto shutdown
 - Monitoring
     - Application Insights
-- Support + Troubleshooting
+- Support + troubleshooting
     - Ubuntu Advantage support plan
 
 ### [Azure Functions](../azure-functions/index.yml)
@@ -259,7 +259,7 @@ Azure Government customers can enable Application Insights with a [codeless agen
 >[!NOTE]
 >[**Connection strings**](../azure-monitor/app/sdk-connection-string.md?tabs=net) are the new preferred method of setting custom endpoints within Application Insights.
 
-**Firewall exceptions** - Application Insights uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
+**Firewall exceptions** - Application Insights uses several IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
 
 >[!NOTE]
 >Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic except for availability monitoring and webhooks, which require inbound firewall rules.
@@ -531,13 +531,6 @@ The following App Service **features are not currently available** in Azure Gove
     - Deployment Options: only Local Git Repository and External Repository are available
 - Development Tools
     - Resource explorer
-
-### [Azure Cognitive Search](../search/search-what-is-azure-search.md)
-For a self-directed exploration of search functionality using public government data, visit the Content Search and Intelligence web site, select the dataset "US Court of Appeals District 1", and then choose one of the demo options.
-
-Search features that have been widely adopted in government search applications include [cognitive skills](../search/cognitive-search-concept-intro.md), useful for extracting structure and information from large undifferentiated text documents.
-
-Basic query syntax, formulating queries to search over large amounts of content, is also relevant to application developers. Azure Cognitive Search supports two syntaxes: [simple](../search/query-simple-syntax.md) and [full](../search/query-lucene-syntax.md). You can review [query expression examples](../search/search-query-simple-examples.md) for an orientation.
 
 
 ## Next steps
