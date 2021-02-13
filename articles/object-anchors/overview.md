@@ -49,7 +49,7 @@ The following sections provide information about getting started with using and 
      Pre-scanning the object will also greatly reduce the AOA detection latency, say, from 30 seconds to 5 seconds.
 -  For dark and highly reflective objects you may have to scan the object at closer range and also by moving your head up and down and left and right to let the 
     device see surfaces from multiple angles and multiple distances.
--  When you see a wrong AOA detection like flipped orientation or incorrect pose such as a tilted model, visualize the spatial mapping. Often the incorrect 
+-  When you see a wrong object detection such as the orientation being flipped or the pose being incorrect such as a tilted model, you should visualize the spatial mapping. Often the incorrect 
     results are due to poor or incomplete surface reconstruction. You can remove the holograms, scan the object, and run AOA detection again.
 -  AOA Runtime SDK provides a few parameters to allow the user to fine-tune the detection, as demonstrated in AOA sample apps. The default parameters are good 
     for most objects. You may need to adjust them for some special objects. Below are the tips:
