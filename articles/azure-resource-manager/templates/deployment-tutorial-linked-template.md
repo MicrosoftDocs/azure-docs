@@ -25,7 +25,7 @@ In the previous tutorials, you deploy a template that creates a storage account,
 
 You can separate the storage account resource into a linked template:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
+:::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 The following template is the main template. The highlighted `Microsoft.Resources/deployments` object shows how to call a linked template. The linked template cannot be stored as a local file or a file that is only available on your local network. You can either provide a URI value of the linked template that includes either HTTP or HTTPS,  or use the _relativePath_ property to deploy a remote linked template at a location relative to the parent template. One option is to place both the main template and the linked template in a storage account.
 
