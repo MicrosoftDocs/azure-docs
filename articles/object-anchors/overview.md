@@ -51,7 +51,7 @@ The following sections provide information about getting started with using and 
     device see surfaces from multiple angles and multiple distances.
 -  When you see a wrong object detection such as the orientation being flipped or the pose being incorrect such as a tilted model, you should visualize the spatial mapping. Often the incorrect 
     results are due to poor or incomplete surface reconstruction. You can remove the holograms, scan the object, and run object detection on the app again.
--  AOA Runtime SDK provides a few parameters to allow the user to fine-tune the detection, as demonstrated in AOA sample apps. The default parameters are good 
+-  The provided runtime SDK provides a few parameters to allow users to fine-tune the detection, as demonstrated in our sample apps. The default parameters work well 
     for most objects. You may need to adjust them for some special objects. Below are the tips:
 
     - Use a lower surface coverage threshold if the physical object is large, dark, or shiny.
