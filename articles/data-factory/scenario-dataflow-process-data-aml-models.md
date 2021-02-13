@@ -15,7 +15,11 @@ ms.co-author: Donnana
 ---
 
 
+<<<<<<< HEAD
 # Configure Dataflow to process data of automated machine learning(AutoML) models
+=======
+# Use Dataflow to process data for automated machine learning (AutoML) models
+>>>>>>> a9bc529b768275ba423d5327a5535458138463d8
 
 Automated machine learning(AutoML) is adopted by machine learning projects to train, tune and gain best model automatically using target metric you specify for classification, regression and time-series forecasting. 
 

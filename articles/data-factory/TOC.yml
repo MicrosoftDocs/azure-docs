@@ -732,7 +732,7 @@
         href: how-to-sqldb-to-cosmosdb.md
       - name: Dedupe and null check with snippets
         href: how-to-data-flow-dedupe-nulls-snippets.md
-      - name: use data flow to process data of aml models 
+      - name: Process data from aml models using data flow
         href: scenario-dataflow-process-data-aml-models.md
     - name: SSIS migration from on-premises
       items:
