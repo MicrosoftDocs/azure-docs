@@ -209,6 +209,7 @@ The following example creates a new database and sets the maintenance window usi
       --name $databaseName \
       --edition GeneralPurpose \
       --family Gen5 \
+      --capacity 2 \
       --maint-config-id $maintenanceConfig
    ```
 
