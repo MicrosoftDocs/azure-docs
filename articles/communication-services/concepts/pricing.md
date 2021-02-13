@@ -43,6 +43,29 @@ Alice made a group call with her colleagues, Bob and Charlie. Alice and Bob used
 
 **Total cost for the group call**: $0.48 + $0.172 = $0.652
 
+### Pricing example: A user on ACS JS SDK joins a scheduled Microsoft Teams meeting
+
+Alice is a doctor who set a virtual visit with patient Bob. Alice will be joining the visit from the Teams Desktop application. Bob will receive a link to join using the ACS  JS SDK embedded in the Healthcare provider website. Bob will use his mobile phone to enter the visit using a web browser (iPhone with Safari). Chat available during the virtual visit. 
+
+- The call lasts a total of 30 minutes.
+- Alice and Bob participated for the entire call. Alice turned on her video after five minutes the call started and shared her screen for 13 minutes. Bob had the video on for the whole call.
+- Alice send five messages, Bob replied with three messages.
+
+
+**Cost calculations**
+
+- 1 participant (Bob) x 30 minutes x $0.004 per participant per minute = $0.12 [both video and audio are charged at the same rate]
+- 1 participant (Alice) x 30 minutes x $0.000 per participant per minute = $0.0*. 
+- 1 participant (Bob) x 3 chat messages x $0.0008 = $0.0024.
+- 1 participant (Alice) x 5 chat messages x $0.000  = $0.0*. 
+
+*Alice participation covered by Teams license. You will see in Azure Bill the minutes, chat messages that Teams users had with ACS Users for your convenience. The records will be with  $0 price
+
+**Total cost for the visit**: 
+User joining using the ACS JS SDK: $0.12 + $0.0024 = $0.1224
+User joining on Teams Desktop Application: $0 (covered by Teams license) 
+
+
 ## Chat
 
 With Communication Services you can enhance your application with the ability to send and receive chat messages between 2 or more users. Chat client libraries are available for JavaScript, .NET, Python and Java. Refer to [this page to learn about client libraries](./sdk-options.md)
