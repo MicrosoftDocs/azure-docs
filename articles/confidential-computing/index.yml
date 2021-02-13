@@ -80,7 +80,7 @@ landingContent:
             url: confidential-nodes-aks-overview.md
       - linkListType: concept
         links:
-         -  text: Confidential containers
+         -  text: Confidential Containers
             url: confidential-containers.md
          -  text: Enclave-aware containers
             url: enclave-aware-containers.md
