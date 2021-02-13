@@ -63089,7 +63089,7 @@
       "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#troubleshoot",
       "redirect_url": "/articles/azure-monitor/app/change-analysis-troubleshoot",
       "redirect_document_id": false
-    }
+    },
     {
       "source_path_from_root": "/articles/azure-monitor/learn/tutorial-response.md",
       "redirect_url": "/azure/azure-monitor/alerts/tutorial-response",
