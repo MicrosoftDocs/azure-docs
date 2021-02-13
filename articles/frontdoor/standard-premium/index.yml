@@ -72,7 +72,7 @@ landingContent:
           - text: Rule Set Match Condition
             url: concept-rule-set-match-conditions.md
           - text: Rule Set Action
-            url: concept-rule-actions.md
+            url: concept-rule-set-actions.md
       - linkListType: how-to-guide
         links:
           - text: Configure a Rule Set
