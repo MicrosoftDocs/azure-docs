@@ -39,7 +39,7 @@ The following sections provide information about getting started with using and 
         -Y, use ***(0, -1, 0)*** or ***(0, 0, -1)*** for -Z, and likewise for any other direction.
      - Make sure that the 3D model is encoded in one of the formats - ***.glb, .gltf, .ply, .fbx, .obj***.
 -  Our ingestion service could take long to process a large, high LOD (level-of-detail) model. For efficacy you can preprocess your 3D model to remove the interior faces.
--  The AOA Runtime SDK requires a user-provided search region to search for and detect the physical object. The search region could be a bounding box, a sphere, 
+-  The provided runtime SDK requires a user-provided search region to search for and detect the physical object(s). The search region could be a bounding box, a sphere, 
     a view frustum, or any combination of them. To avoid a false detection, it is preferable to set a search region large enough to cover the object. When using the provided sample apps, you can stand on one side of the object about 2 meters away from the closest surface and start the app.
 -  Before starting the AOA app on a HoloLens 2 device, remove the holograms in the vicinity of your workplace via ***Settings->System->Holograms***.
     This step ensures that if a new object such as a car is present in the same space as occupied by another previously, or the object has moved from the target space, any old, and irrelevant holograms will not persist and create confusing visualization for the object currently in view.
