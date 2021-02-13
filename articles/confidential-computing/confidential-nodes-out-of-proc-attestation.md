@@ -23,7 +23,7 @@ SGX applications built using Open Enclave SDK by default use in-proc attestation
 
 Utilizing this feature is **highly recommended**, as it enhances uptime for your enclave apps during Intel Platform updates or DCAP driver updates.
 
-To enable this on the AKS Cluster please modify the below command when enabling the confidential computing add-on. Detailed CLI instructions as referenced [here](confidential-nodes-aks-get-started): 
+To enable this feature on AKS Cluster please modify add --enable-sgxquotehelper command to the CLI when enabling the confidential computing add-on. Detailed CLI instructions are [here](confidential-nodes-aks-get-started.md): 
 
 ```azurecli-interactive
 # Create a new AKS cluster with system node pool with Confidential Computing addon enabled and SGX Quote Helper
