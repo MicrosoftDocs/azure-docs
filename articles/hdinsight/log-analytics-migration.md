@@ -193,6 +193,13 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
 
 ## General
 
+
+| Workload | Detais |
+| --- | --- |
+| General | <ul><li>**New table**: HDInsightAmbariSystemMetrics</li><li>**Old table**: metrics\_cpu\_nice\_clmetrics\_cpu\_system\_clmetrics\_cpu\_user\_cl metrics\_memory\_cache\_CLmetrics\_memory\_swap\_CLmetrics\_memory\_total\_CLmetrics\_memory\_buffer\_CLmetrics\_load\_1min\_CLmetrics\_load\_cpu\_CL metrics\_load\_nodes\_CLmetrics\_load\_procs\_CLmetrics\_network\_in\_CLmetrics\_network\_out\_CL</li><li>**Description**: This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edgenodes) instead of just the two headnodes. Each metric is no w column and each metric is reported once per record.</li></ul>|
+| General | <ul><li>**New table**: HDInsightAmbariClusterAlerts</li><li>**Old table**: metrics\_cluster\_alerts\_CL</li><li>**Description**: This table contains Ambari Cluster Alerts from each node in the cluster (except for edgenodes). Each alert is a record in this table.</li></ul>|
+
+
 | Workload | New Table (Azure Monitor) | Description | Old Table (Azure Monitor (Classic) |
 | --- | --- | --- | --- |
 | **General** | **HDInsightAmbariSystemMetrics** | This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edgenodes) instead of just the two headnodes. Each metric is no w column and each metric is reported once per record. | metrics\_cpu\_nice\_clmetrics\_cpu\_system\_clmetrics\_cpu\_user\_cl metrics\_memory\_cache\_CLmetrics\_memory\_swap\_CLmetrics\_memory\_total\_CLmetrics\_memory\_buffer\_CLmetrics\_load\_1min\_CLmetrics\_load\_cpu\_CL metrics\_load\_nodes\_CLmetrics\_load\_procs\_CLmetrics\_network\_in\_CLmetrics\_network\_out\_CL
