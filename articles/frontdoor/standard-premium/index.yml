@@ -70,9 +70,9 @@ landingContent:
           - text: What is Rule Set?
             url: concept-rule-set.md
           - text: Rule Set Match Condition
-            url: concept-rule-set-match-condition.md
+            url: concept-rule-set-match-conditions.md
           - text: Rule Set Action
-            url: concept-rule-action.md
+            url: concept-rule-actions.md
       - linkListType: how-to-guide
         links:
           - text: Configure a Rule Set
@@ -81,10 +81,10 @@ landingContent:
   # Card
   - title: Reports, Metrics and Logs
     linkLists:
-      - linkListType: concept
+      - linkListType: how-to-guide
         links:
           - text: Reports
-            url: concept-reports.md
+            url: how-to-reports.md
           - text: Monitoring Metrics and Alerts
             url: how-to-monitor-metrics.md
           - text: Logging
