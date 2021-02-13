@@ -88,9 +88,7 @@ More](device-update-plug-and-play.md) about `installedCriteria` and the `AzureDe
 
 The SWUpdate Update Handler integrates with the 'SWUpdate' command-line
 executable and other shell commands to implement A/B updates specifically for
-the Raspberry Pi reference Yocto image. [Learn More](yocto-configuration.md)
-about the Raspberry Pi reference Yocto image. The SWUpdate Update Handler is
-implemented in src/content_handlers/swupdate_content_handler.
+the Raspberry Pi reference Yocto image. Find the latest Raspberry Pi reference Yocto image [here](https://github.com/Azure/iot-hub-device-update/releases). The SWUpdate Update Handler is implemented in [src/content_handlers/swupdate_content_handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/swupdate_handler).
 
 ### APT Update Handler
 
@@ -108,18 +106,18 @@ started right away!
 If you downloaded our Raspberry Pi reference image, click [here](device-update-raspberry-pi.md) to learn how to get
 started.
 
-### [Build the agent](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md)
+### Build the agent
 
-Follow the instructions to [build](how-to-build-agent-code.md) the Device Update Agent
+Follow the instructions to [build](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md) the Device Update Agent
 from source.
 
-### [Run the agent](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md)
+### Run the agent
 
-Once the agent is successfully building, it's time [run](how-to-run-agent.md)
+Once the agent is successfully building, it's time [run](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md)
 the agent.
 
-### [Modifying the agent](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.md)
+### Modifying the agent
 
 At this point, you'll have an idea for how the Device Update Agent works.  Now, make the
 changes needed to incorporate the agent into your image.  Look at how to
-[modify](how-to-modify-the-agent-code.md) the Device Update Agent for guidance.
+[modify](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.m) the Device Update Agent for guidance.
