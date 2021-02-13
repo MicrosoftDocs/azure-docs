@@ -139,15 +139,15 @@ We provide a [mapping table](#appendix-1-table-mapping) between the old table to
 
 ### Update dashboards for HDInsight clusters
 
-If you have built multiple dashboards to monitor your HDInsight clusters, you need to adjust the query behind the table once you enable the new Azure Monitor Integration. Table name/field name might change in the new integration, but all the information you have in old integration is included.
+If you have built multiple dashboards to monitor your HDInsight clusters, you need to adjust the query behind the table once you enable the new Azure Monitor integration. Table name/field name might change in the new integration, but all the information you have in old integration is included.
 
 Please refer to the [mapping table](#appendix-1-table-mapping) between the old table/schema to the new table/schema to update the query behind the dashboards.
 
-#### Out-of-Box dashboards 
+#### Out-of-box dashboards 
 
 We also created much improved out-of-box dashboards both at the cluster-level. There is a button on the top right of every graph that allows you to see the underlying query that produces the information, which is a great way to familiarize yourself with how the new tables can be queried effectively. You can access the out-of-box dashboards by following the instructions found in the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections.
 
-### I am using HDInsight workload-specific monitoring dashboard
+### Use an HDInsight workload-specific monitoring dashboard in Azure Monitor
 
 If you are using the out-of-box monitoring dashboard for HDInsight clusters, like HDInsight Spark Monitoring, HDInsight HBase Monitoring, and HDInsight Interactive Monitoring, we are working on provide you the same capabilities on Azure Monitor portal.
 
@@ -190,12 +190,25 @@ You won't be able to create new clusters with classic Azure Monitor integration 
 
 The below chart shows the table mappings from the classic Azure Monitoring Integration to our new one. The **Workload** section describes which workload each table is associated with. The **New Table** section shows the name of the new table. The **Description** section describes the type of logs/metrics that will be available in this table. The **Old Table** section is a list of all the tables from the classic Azure Monitor Integration whose data will now be present in the table listed in **New Table**.
 
+> [!NOTE]
+> Some tables are new and not based off of old tables.
+
+## General
+
 | Workload | New Table (Azure Monitor) | Description | Old Table (Azure Monitor (Classic) |
 | --- | --- | --- | --- |
-| **Kafka** | **HDInsightKafkaMetrics** | this table contains JMX metrics from Kafka. It contains all the same JMX metrics as the old Custom Logs tables, plus more metrics we deemed are important. It contains one metric per record. | metrics\_kafka\_CL
+| **General** | **HDInsightAmbariSystemMetrics** | This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edgenodes) instead of just the two headnodes. Each metric is no w column and each metric is reported once per record. | metrics\_cpu\_nice\_clmetrics\_cpu\_system\_clmetrics\_cpu\_user\_cl metrics\_memory\_cache\_CLmetrics\_memory\_swap\_CLmetrics\_memory\_total\_CLmetrics\_memory\_buffer\_CLmetrics\_load\_1min\_CLmetrics\_load\_cpu\_CL metrics\_load\_nodes\_CLmetrics\_load\_procs\_CLmetrics\_network\_in\_CLmetrics\_network\_out\_CL
  |
-| **Kafka** | **HDInsightKafkaLogs** | This table contains all logs generated from the Kafka Brokers. | log\_kafkaserver\_CL, log\_kafkacontroller\_CL
+| **General** | **HDInsightAmbariClusterAlerts** | This table contains Ambari Cluster Alerts from each node in the cluster (except for edgenodes). Each alert is a record in this table. | metrics\_cluster\_alerts\_CL
  |
+| **General** | **HDInsightSecurityLogs** | This table contains records from the Ambari Audit and Auth Logs. | log\_ambari\_audit\_CLlog\_auth\_CL |
+| **General** | **HDInsightRangerAuditLogs** | This table contains all records from the Ranger Audit log for ESP clusters | ranger\_audit\_logs\_CL |
+| **General** | **HDInsightGatewayAuditLogs\_CL** | This table contains the Gateway nodes audit information. It is the same format as the table in Old Tables column. **It is still located in the Custom Logs section.** | log\_gateway\_Audit\_CL |
+    
+## Spark
+
+| Workload | New Table (Azure Monitor) | Description | Old Table (Azure Monitor (Classic) |
+| --- | --- | --- | --- |
 | **Spark** | **HDInsightSparkLogs** | This table contains all logs related to Spark and its related component: Livy and Jupyter. | log\_zeppelin-zeppelin\_CL,log\_sparkapplication\_stats\_executors\_CL,sparkapplication\_stats\_allexecutors\_CL,application\_stats\_storedrdd,log\_livy,log\_jupyter\_CL,log\_spark\_CL,log\_sparkappsexecutors\_CL, log\_sparkappsdrivers\_CL
  |
 | **Spark** | **HDInsightSparkApplicationEvents** | This table contains event information for Spark Applications including Submission and Completion time, App Id, and AppName. It is useful for keeping track of when applications started and completed. |
@@ -220,28 +233,53 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
  |
 | **Spark** | **HDInsightJupyterNotebookEvents** | This table contains event information for Jupyter Notebooks. |
  |
-| **HBase** | **HDInsightHBaseMetrics** | This table contains JMX metrics from HBase. It contains all the same JMX metrics from the tables listed in the Old Schema column. In contrast from the old tables, each row contains one metric | metrics\_regionserver\_CLmetrics\_regionserver\_wal\_CLmetrics\_regionserver\_ipc\_CLmetrics\_regionserver\_os\_CLmetrics\_regionserver\_replication\_CLmetrics\_restserver\_CL,metrics\_restserver\_jvm\_CLmetrics\_hmaster\_assignmentmanager\_CLmetrics\_hmaster\_ipc\_CLmetrics\_hmaser\_os\_CLmetrics\_hmaster\_balancer\_CLmetrics\_hmaster\_jvm\_CLmetrics\_hmaster\_CL,metrics\_hmaster\_fs\_CL
- |
-| **HBase** | **HDInsightHBaseLogs** | This table contains logs from HBase and its related components: Phoenix and HDFS | log\_regionserver\_CLlog\_restserver\_CLlog\_phoenixserver\_CLlog\_hmaster\_CL,log\_hdfsnamenode\_CL,log\_garbage\_collector\_CL
- |
-| **Storm** | **HDInsightStormMetrics** | This table contains the same JMX metrics as the tables in the Old Tables section. Its rows contain one metric per record. | metrics\_stormnimbus\_CLmetrics\_stormsupervisor\_CL |
-| **Storm** | **HDInsightStormTopologyMetrics** | This table contains topology level metrics from Storm. It is the same shape as the table listed in Old Tables section | metrics\_stormrest\_CL |
-| **Storm** | **HDInsightStormLogs** | This table contains all logs generated from Storm. | log\_supervisor\_CL,log\_nimbus\_CL |
-| **Hadoop/Yarn** | **HDInsightHadoopAndYarnMetrics** | this table contains JMX metrics from the Hadoop and YARN frameworks. It contains all the same JMX metrics as the old Custom Logs tables, plus more metrics we deemed are important. We added Timeline Server, Node Manager, and Job History Server metrics. It contains one metric per record. | metrics\_resourcemanager\_clustermetrics\_CLmetrics\_resourcemanager\_jvm\_CLmetrics\_resourcemanager\_queue\_root\_CLmetrics\_resourcemanager\_queue\_root\_joblauncher\_CLmetrics\_resourcemanager\_queue\_root\_default\_CLmetrics\_resourcemanager\_queue\_root\_thriftsvr\_CL
- |
-| **Hadoop/Yarn** | **HDInsightHadoopAndYarnLogs** | This table contains all logs generated from the Hadoop and YARN frameworks. | log\_mrjobsummary\_CLlog\_resourcemanager\_CLlog\_timelineserver\_CLlog\_nodemanager\_CL
- |
+    
+## Hive/LLAP
+
+| Workload | New Table (Azure Monitor) | Description | Old Table (Azure Monitor (Classic) |
+| --- | --- | --- | --- |
 | **Hive/LLAP** | **HDInsightHiveAndLLAPMetrics** | This table contains JMX metrics from the Hive and LLAP frameworks. It contains all the same JMX metrics as the old Custom Logs tables. It contains one metric per record. | llap\_metrics\_hiveserver2\_CLllap\_metrics\_hs2\_metrics\_subsystemllap\_metrics\_jvm\_CLllap\_metrics\_llap\_daemon\_info\_CLllap\_metrics\_buddy\_allocator\_info\_CLllap\_metrics\_deamon\_jvm\_CLllap\_metrics\_io\_CLllap\_metrics\_executor\_metrics\_CLllap\_metrics\_metricssystem\_stats\_CL,llap\_metrics\_cache\_CL
  |
 | **Hive/LLAP** | **HDInsightHiveAndLLAPLogs** | This table contains logs generated from Hive, LLAP, and their related components: WebHCat and Zeppelin | log\_hivemetastore\_CL log\_hiveserver2\_CLlog\_hiveserve2interactive\_CLlog\_webhcat\_CL
  |
-| **General** | **HDInsightAmbariSystemMetrics** | This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edgenodes) instead of just the two headnodes. Each metric is no w column and each metric is reported once per record. | metrics\_cpu\_nice\_clmetrics\_cpu\_system\_clmetrics\_cpu\_user\_cl metrics\_memory\_cache\_CLmetrics\_memory\_swap\_CLmetrics\_memory\_total\_CLmetrics\_memory\_buffer\_CLmetrics\_load\_1min\_CLmetrics\_load\_cpu\_CL metrics\_load\_nodes\_CLmetrics\_load\_procs\_CLmetrics\_network\_in\_CLmetrics\_network\_out\_CL
- |
-| **General** | **HDInsightAmbariClusterAlerts** | This table contains Ambari Cluster Alerts from each node in the cluster (except for edgenodes). Each alert is a record in this table. | metrics\_cluster\_alerts\_CL
- |
-| **General** | **HDInsightSecurityLogs** | This table contains records from the Ambari Audit and Auth Logs. | log\_ambari\_audit\_CLlog\_auth\_CL |
-| **General** | **HDInsightRangerAuditLogs** | This table contains all records from the Ranger Audit log for ESP clusters | ranger\_audit\_logs\_CL |
-| **General** | **HDInsightGatewayAuditLogs\_CL** | This table contains the Gateway nodes audit information. It is the same format as the table in Old Tables column. **It is still located in the Custom Logs section.** | log\_gateway\_Audit\_CL |
-| **Oozie** | **HDInsightOozieLogs** | This table contains all logs generated from the Oozie framework | Log\_oozie\_CL |
+    
+## Kafka
 
-**Note:** Some tables are new and not based off of old tables.
+| Workload | New Table (Azure Monitor) | Description | Old Table (Azure Monitor (Classic) |
+| --- | --- | --- | --- |
+| **Kafka** | **HDInsightKafkaMetrics** | this table contains JMX metrics from Kafka. It contains all the same JMX metrics as the old Custom Logs tables, plus more metrics we deemed are important. It contains one metric per record. | metrics\_kafka\_CL
+ |
+| **Kafka** | **HDInsightKafkaLogs** | This table contains all logs generated from the Kafka Brokers. | log\_kafkaserver\_CL, log\_kafkacontroller\_CL
+ |
+    
+## HBase
+
+| Workload | New Table (Azure Monitor) | Description | Old Table (Azure Monitor (Classic) |
+| --- | --- | --- | --- |
+| **HBase** | **HDInsightHBaseMetrics** | This table contains JMX metrics from HBase. It contains all the same JMX metrics from the tables listed in the Old Schema column. In contrast from the old tables, each row contains one metric | metrics\_regionserver\_CLmetrics\_regionserver\_wal\_CLmetrics\_regionserver\_ipc\_CLmetrics\_regionserver\_os\_CLmetrics\_regionserver\_replication\_CLmetrics\_restserver\_CL,metrics\_restserver\_jvm\_CLmetrics\_hmaster\_assignmentmanager\_CLmetrics\_hmaster\_ipc\_CLmetrics\_hmaser\_os\_CLmetrics\_hmaster\_balancer\_CLmetrics\_hmaster\_jvm\_CLmetrics\_hmaster\_CL,metrics\_hmaster\_fs\_CL
+ |
+| **HBase** | **HDInsightHBaseLogs** | This table contains logs from HBase and its related components: Phoenix and HDFS | log\_regionserver\_CLlog\_restserver\_CLlog\_phoenixserver\_CLlog\_hmaster\_CL,log\_hdfsnamenode\_CL,log\_garbage\_collector\_CL
+ |
+    
+## Storm
+
+| Workload | New Table (Azure Monitor) | Description | Old Table (Azure Monitor (Classic) |
+| --- | --- | --- | --- |
+| **Storm** | **HDInsightStormMetrics** | This table contains the same JMX metrics as the tables in the Old Tables section. Its rows contain one metric per record. | metrics\_stormnimbus\_CLmetrics\_stormsupervisor\_CL |
+| **Storm** | **HDInsightStormTopologyMetrics** | This table contains topology level metrics from Storm. It is the same shape as the table listed in Old Tables section | metrics\_stormrest\_CL |
+| **Storm** | **HDInsightStormLogs** | This table contains all logs generated from Storm. | log\_supervisor\_CL,log\_nimbus\_CL |
+
+## Hadoop/Yarn
+
+| Workload | New Table (Azure Monitor) | Description | Old Table (Azure Monitor (Classic) |
+| --- | --- | --- | --- |
+| **Hadoop/Yarn** | **HDInsightHadoopAndYarnMetrics** | this table contains JMX metrics from the Hadoop and YARN frameworks. It contains all the same JMX metrics as the old Custom Logs tables, plus more metrics we deemed are important. We added Timeline Server, Node Manager, and Job History Server metrics. It contains one metric per record. | metrics\_resourcemanager\_clustermetrics\_CLmetrics\_resourcemanager\_jvm\_CLmetrics\_resourcemanager\_queue\_root\_CLmetrics\_resourcemanager\_queue\_root\_joblauncher\_CLmetrics\_resourcemanager\_queue\_root\_default\_CLmetrics\_resourcemanager\_queue\_root\_thriftsvr\_CL
+ |
+| **Hadoop/Yarn** | **HDInsightHadoopAndYarnLogs** | This table contains all logs generated from the Hadoop and YARN frameworks. | log\_mrjobsummary\_CLlog\_resourcemanager\_CLlog\_timelineserver\_CLlog\_nodemanager\_CL
+ |
+
+## Oozie
+
+| Workload | New Table (Azure Monitor) | Description | Old Table (Azure Monitor (Classic) |
+| --- | --- | --- | --- |
+| **Oozie** | **HDInsightOozieLogs** | This table contains all logs generated from the Oozie framework | Log\_oozie\_CL |
