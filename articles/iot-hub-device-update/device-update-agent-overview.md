@@ -21,29 +21,22 @@ allowing for messaging to flow between the Device Update Agent and Device Update
 
 ## The Interface Layer
 
-The Azure IoT PnP interfaces are implemented in `src/agent`.
+The Interface layer is made up of the [AzureDeviceUpdateCore](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface) interface and the [DeviceInformation](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) interface. [Learn More](device-update-plug-and-play.md) about the Azure IoT PnP interfaces.
 
-For more details see 
-* `AzureDeviceUpdateCore` in 
-[`src/agent/adu_core_interface/inc/aduc/adu_core_interface.h`](./../../src\agent\adu_core_interface\inc\aduc\adu_core_interface.h) and
-[`src/agent/adu_core_interface/src/adu_core_interface.c`](./../../src/agent/adu_core_interface/src/adu_core_interface.c) 
-* `DeviceInformation` in
-[`src/agent/device_info_interface/inc/aduc/device_info_interface.h`](./../../src/agent/device_info_interface/inc/aduc/device_info_interface.h) and
-[`src/agent/device_info_interface/src/device_info_interface.c`](./../../src/agent/device_info_interface/src/device_info_interface.c).
+These interfaces rely on a configuration file for default values. The default values include aduc_manfuacter and aduc_model for the AzureDeviceUpdateCore interface and model and manufacturer for the DeviceInformation interface. [Learn More](device-update-configuration-file).
 
-Implement both `AzureDeviceUpdateCore` and `DeviceInformation`
-Azure IoT PnP interfaces for the device. [Learn More](../how-adu-uses-iot-pnp.md) about the Azure IoT PnP interfaces.
+The Azure IoT PnP interfaces are documented in [`src/agent`](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent).
 
 ### AzureDeviceUpdateCore
 
 The `AzureDeviceUpdateCore` interface is the primary communication channel between
-Device Update Agent and Services. [Learn More](../how-adu-uses-iot-pnp.md) about this
+Device Update Agent and Services. [Learn More](device-update-plug-and-play.md) about this
 interface.
 
 ### DeviceInformation
 
 `DeviceInformation` is used to implement the Azure IoT PnP
-`DeviceInformation` interface. [Learn More](../how-adu-uses-iot-pnp.md) about this interface.
+`DeviceInformation` interface. [Learn More](device-update-plug-and-play.md) about this interface.
 
 ## The Platform Layer
 
@@ -51,7 +44,7 @@ There are two implementations of the Platform Layer. The Simulator Platform
 Layer has a trivial implementation of the update actions and is used for quickly
 testing and evaluating Device Update for IoT Hub services and setup. When the Device Update Agent is built with
 the Simulator Platform Layer, we refer to it as the Device Update Simulator Agent or just
-simulator. [Learn More](./how-to-run-agent.md) about how to use the simulator
+simulator. [Learn More](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md) about how to use the simulator
 agent. The Linux Platform Layer integrates with [Delivery Optimization](https://github.com/microsoft/do-client) for
 downloads and is used in our Raspberry Pi reference image, and all clients that run on Linux systems.
 
@@ -62,12 +55,12 @@ The Simulator Platform Layer implementation can be found in the
 testing and evaluating Device Update for IoT Hub.  Many of the actions in the
 "simulator" implementation are mocked to reduce physical changes to experiment with Device Update for IoT Hub.  An end to end
 "simulated" update can be performed using this Platform Layer. [Learn
-More](how-to-run-agent.md) about running the simulator agent.
+More](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md) about running the simulator agent.
 
 ### Linux Platform Layer
 
 The Linux Platform Layer implementation can be found in the
-`src/platform_layers/linux_platform_layer` and it integrates with the [Delivery Optimization Client](https://github.com/Azure/doclient-private-preview/releases) for downloads and is used in our Raspberry Pi reference image, and all clients that run on Linux systems.
+`src/platform_layers/linux_platform_layer` and it integrates with the [Delivery Optimization Client](https://github.com/microsoft/do-client/releases) for downloads and is used in our Raspberry Pi reference image, and all clients that run on Linux systems.
 
 This layer can integrate with different Update Handlers to implement the
 installer. For
@@ -88,8 +81,8 @@ mostly no-ops. The implementation of the Simulator Update Handler is in
 src/content_handlers/simulator_content_handler. The InstalledCriteria field in
 the AzureDeviceUpdateCore PnP interface should be the sha256 hash of the
 content. It is the same hash that is present in the [Import Manifest
-Object](../publish-api-reference/import-content.md). [Learn
-More](../how-adu-uses-iot-pnp.md) about `installedCriteria` and the `AzureDeviceUpdateCore` interface.
+Object](import-update.md#create-device-update-import-manifest). [Learn
+More](device-update-plug-and-play.md) about `installedCriteria` and the `AzureDeviceUpdateCore` interface.
 
 ### SWUpdate Update Handler
 
@@ -112,8 +105,7 @@ We have uploaded pre-built Raspberry Pi reference images, Device Update agent bi
 and Device Update agent packages as part of our GitHub releases. Download them to get
 started right away!
 
-If you downloaded our Raspberry Pi reference image, click
-[here](../quickstarts/how-to-agent-eval-pi-quickstart.md) to learn how to get
+If you downloaded our Raspberry Pi reference image, click [here](device-update-raspberry-pi.md) to learn how to get
 started.
 
 ### [Build the agent](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md)
