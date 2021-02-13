@@ -15,92 +15,68 @@ This article explains the flow need to take a virtual machine (VM) with Office i
 
 ## Requirements
 
-This covers the prerequisites for the manual process. Later we can automate.
+You'll need the following things to set up the rule editor:
 
 - a VM running Windows
 - a copy of Office
 - a copy of FSLogix installed on your deployment
-- a network share to which all the VMs in the host pool have read-only access
+- a network share that all VMs in your host pool have read-only access to
 
 ## Install Office
 
-1. RDP in the VM.
-
-2. Install Office. Installation can be either manually or via an automated process. More information [here](https://docs.microsoft.com/en-us/azure/virtual-desktop/install-office-on-wvd-master-image).
-
-![A close up of a device Description automatically generated](media/285978eaf61d22af88ab113f88d25438.png)
-
-3. During the installation apply proper licensing.
+To install Office on your VHD or VHDX, enable the Remote Desktop Protocol in your VM, then follow the instructions in [Install Office on a VHD master image](install-office-on-wvd-master-image.md). When installing, make sure you're using [the correct licenses](overview.md#requirements).
 
 >[!NOTE]
->Windows Virtual Desktop requires Share Computer Activation (SCA).*
-
-4. Once installation is completed close office.
+>Windows Virtual Desktop requires Share Computer Activation (SCA).
 
 ## Install FSLogix
 
-1. Open a browser and navigate to <http://aka.ms/fslogix_download>**.** This will trigger download of the FSLogix agent.
+To install FSLogix and the Rule Editor, follow the instructions in [Download and install FSLogix](/fslogix/install-ht).
 
-2. Once the download is complete open the FSLogix zip file and from the x64\\Releases install:
+## Create and prepare a VHD for the Rule Editor
 
-FSLogixAppsSetup.exe
+Next, you'll need to create and prepare a VHD image to use the Rule Editor on:
 
-3. Check **I agree to the license and terms and conditions**
+1. Open a command prompt as an administrator and run the following command:
 
-4. Select **Install**.
+    ```cmd
+	    for /f "tokens=1 delims=" %%# in ('qprocess^|find /i /c /n "MicrosoftEdg"') do ( set count=%%# ) 
+ 	    taskkill /F /IM MicrosoftEdge.exe /T
+    ```
 
-![A screenshot of a cell phone Description automatically generated](media/e1c54089089adcb5f52876ba6c6746ac.png)
+    >[!NOTE]
+    > Make sure to keep the blank spaces you see in this command.
 
-FSLogixAppsRuleEditorSetup.exe
+2. After that, run the following command:
 
-5. Check **I agree to the license and terms and conditions**
+    ```cmd
+    sc queryex type=service state=all | find /i "ClickToRunSvc"
+    ```
+    
+    >[!NOTE]
+    >If you find the service, restart the VM before continuing with step 3.
 
-6. Select **Install**
+3. Next, go to **Program Files** > **FSLogix** > **Apps** and run the following command to create the target VHD:
 
-![A screenshot of a cell phone Description automatically generated](media/142cfbf625d569a7c717e4272eed9c98.png)
+    ```cmd
+    frx moveto-vhd -filename <path to network share>\office.vhdx -src "C:\Program Files\Microsoft Office" -size-mbs 5000 
+    ```
 
-## Prepare
+    The VHD you create with this command should contain the C:\\Program Files\\Microsoft Office folder.
 
-Open **CMD** as administrator run to end Edge
+### Configure the Rule Editor
 
-for /f "tokens=1 delims=" %%\# in ('qprocess\^\|find /i /c /n "MicrosoftEdg"')
-do (
+Now that you've prepared your image, you'll need to configure the Rule Editor and create a file to store your rules in.
 
->   set count=%%\# )
+1. Go to **Program Files** > **FSLogix** > **Apps** and run **RuleEditor.exe**.
 
-taskkill /F /IM MicrosoftEdge.exe /T
-
-*Note: blank space spaces matter*
-
-Run
-
-sc queryex type=service state=all \| find /i "ClickToRunSvc"
-
-If service is found use restart the VM before trying next steps.
-
-Navigate to
-
-c:\\Program Files\\FSLogix\\Apps
-
-### Create target VHD 
-
->   frx moveto-vhd -filename \<path to network share\>\\office.vhdx -src
->   "C:\\Program Files\\Microsoft Office" -size-mbs 5000
-
->   *Note: the outcome of this operation is the creation of a VHD with the
->   content of the C:\\Program Files\\Microsoft Office.*
-
-### Create rules file
-
-Start the rule editor (C:\\Program Files\\FSLogix\\Apps\\RuleEditor.exe).
-
-Create a new **Rule Set File** by clicking File \> New create and saving the rule set to local folder (e.g. C:\\Users\\ssa.GT090617\\Documents\\FSLogix Rule Sets)
+2. Select **File** > **New** > **Create** to make a new rule set, then save that rule set to a local folder.
 
 ![](media/55fbdbd900195c65942b3ac359aadd52.png)
 
-Select **Blank Rule Set** and press **OK**.
+3. Select **Blank Rule Set**, then select **OK**.
 
-Click the **+** button. This will open the **Add Rule** dialog
+4. Select the **+** button. This will open the **Add Rule** window.
 
 ![A screenshot of a cell phone Description automatically generated](media/8f4af1a16b4ca06514968ee40bbdbda4.png)
 
@@ -108,19 +84,23 @@ Click the **+** button. This will open the **Add Rule** dialog
 
 This will change the options in the **Add Rule** dialog.
 
-From the drop down select **App Container (VHD) Rule**.
+5. From the drop-down menu, select **App Container (VHD) Rule**.
 
 ![](media/b16a8f7db974a70c4a0f109420cbf7c5.png)
 
-For folder type **C:\\Program Files\\Microsoft Office**
+6. Enter **C:\\Program Files\\Microsoft Office** into the **Folder** field.
 
-For Disk file select **\<path\>\\office.vhd** from the **Create target VHD** section
+7. For the **Disk file** field, select **\<path\>\\office.vhd** from the **Create target VHD** section.
 
-Click **OK**.
+8. Select **OK**.
 
 ![](media/998989f1bc4512d1b6786868e2cb93fe.png)
 
-The .frx and .fxa are always saved in a working folder (e.g. **C:\\Users\\\<username\>\\Documents\\FSLogix Rule Sets**). Both files need to be moved to the Rules folder C:\\Program Files\\FSLogix\\Apps\\Rules become effective. This is by design.
+9. Go to the working folder at **C:\\Users\\\<username\>\\Documents\\FSLogix Rule Sets** and look for the .frx and .fxa files. You need to move these files to the Rules folder located at **C:\\Program Files\\FSLogix\\Apps\\Rules** in order for the rules to start working.
 
 >[!NOTE]
 > There's currently a known issue in the public preview version of this feature that causes it to stop working after you reset your machine.
+
+## Next steps
+
+If you want to learn more about FSLogix, check out our [FSLogix documentation](/fslogix/).
