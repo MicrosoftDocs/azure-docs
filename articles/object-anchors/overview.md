@@ -38,10 +38,10 @@ The following sections provide information about getting started with using and 
      - Confirm the nominal gravity direction that corresponds to the real world vertical orientation of the object. If the object's downward vertical/gravity is 
         -Y, use ***(0, -1, 0)*** or ***(0, 0, -1)*** for -Z, and likewise for any other direction.
      - Make sure that the 3D model is encoded in one of the formats - ***.glb, .gltf, .ply, .fbx, .obj***.
--  AOA ingestion service could take long to process a large, high LOD (level-of-detail) model. For efficacy you can preprocess your 3D model to remove the interior faces.
--  The AOA Runtime SDK requires a user-provided search region to search for and detect the physical object. The search region could be a bounding box, a sphere, 
-    a view frustum, or any combination of them. To avoid a false detection, it is preferable to set a search region large enough to cover the object. When using the AOA sample apps, you can stand on one side of the object about 2 meters away from the closest surface and start the app.
--  Before starting the AOA app on a HoloLens 2 device, remove the holograms in the vicinity of your workplace via ***Settings->System->Holograms***.
+-  Our ingestion service could take long to process a large, high LOD (level-of-detail) model. For efficacy you can preprocess your 3D model to remove the interior faces.
+-  The provided runtime SDK requires a user-provided search region to search for and detect the physical object(s). The search region could be a bounding box, a sphere, 
+    a view frustum, or any combination of them. To avoid a false detection, it is preferable to set a search region large enough to cover the object. When using the provided sample apps, you can stand on one side of the object about 2 meters away from the closest surface and start the app.
+-  Before starting the Object Anchors app on a HoloLens 2 device, remove the holograms in the vicinity of your workplace via ***Settings->System->Holograms*** on your devices main settings.
     This step ensures that if a new object such as a car is present in the same space as occupied by another previously, or the object has moved from the target space, any old, and irrelevant holograms will not persist and create confusing visualization for the object currently in view.
 -  After removing the holograms and before starting an AOA App, scan the object such as a car by looking at the object while wearing the device from about 1-2 
     meters and slowly going all around the object one or two times.
@@ -49,10 +49,10 @@ The following sections provide information about getting started with using and 
      Pre-scanning the object will also greatly reduce the AOA detection latency, say, from 30 seconds to 5 seconds.
 -  For dark and highly reflective objects you may have to scan the object at closer range and also by moving your head up and down and left and right to let the 
     device see surfaces from multiple angles and multiple distances.
--  When you see a wrong AOA detection like flipped orientation or incorrect pose such as a tilted model, visualize the spatial mapping. Often the incorrect 
-    results are due to poor or incomplete surface reconstruction. You can remove the holograms, scan the object, and run AOA detection again.
--  AOA Runtime SDK provides a few parameters to allow the user to fine-tune the detection, as demonstrated in AOA sample apps. The default parameters are good 
-    for most objects. You may need to adjust them for some special objects. Below are the tips:
+-  When you see a wrong object detection such as the orientation being flipped or the pose being incorrect such as a tilted model, you should visualize the spatial mapping. Often the incorrect 
+    results are due to poor or incomplete surface reconstruction. You can remove the holograms, scan the object, and run object detection on the app again.
+-  The provided runtime SDK provides a few parameters to allow users to fine-tune the detection, as demonstrated in our sample apps. The default parameters work well 
+    for most objects. If you find that you need to adjust them for specific objects, here are some recommendations:
 
     - Use a lower surface coverage threshold if the physical object is large, dark, or shiny.
     - Allow a small scale change (for example, 0.1) for large object like a car.
