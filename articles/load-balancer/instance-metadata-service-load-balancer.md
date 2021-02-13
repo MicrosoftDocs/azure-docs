@@ -24,7 +24,7 @@ The metadata includes the following information for the virtual machines or virt
 
 ## Access the load balancer metadata using the IMDS
 
-For more information on how to access the load balancer metadata, see [Use the Azure Instance Metadata Service to access load balancer information.](howto-load-balancer-imds.md)to access load balancer information.
+For more information on how to access the load balancer metadata, see [Use the Azure Instance Metadata Service to access load balancer information](howto-load-balancer-imds.md).
 
 ## Troubleshoot common error codes
 
@@ -35,7 +35,7 @@ For more information on common error codes and their mitigation methods, see [Tr
 If you're unable to retrieve a metadata response after multiple attempts, create a support issue in the Azure portal.
 
 ## Next steps
-Learn more about [Azure Instance Metadata Service](/virtual-machines/windows/instance-metadata-service)
+Learn more about [Azure Instance Metadata Service](./virtual-machines/windows/instance-metadata-service)
 
 [Deploy a standard load balancer](quickstart-load-balancer-standard-public-portal.md)
 
