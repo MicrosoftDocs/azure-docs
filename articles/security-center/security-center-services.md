@@ -91,10 +91,8 @@ For information about when recommendations are generated for each of these prote
 | Trend Micro – Deep Security | Windows Server Family  | No | Yes |
 | Symantec v12.1.1100+| Windows Server Family  | No | Yes |
 | McAfee v10+ | Windows Server Family  | No | Yes |
-| McAfee v10+ | Linux Server Family  | No | Yes **\*** |
-| Sophos V9+| Linux Server Family  | No | Yes  **\***  |
-
- **\*** The coverage state and supporting data is currently only available in the Log Analytics workspace associated to your protected subscriptions. It isn't reflected in the Azure Security Center portal.
+| McAfee v10+ | Linux Server Family  | No | Yes |
+| Sophos V9+| Linux Server Family  | No | Yes |
 
 > [!NOTE]
 > Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell (v3.0 or newer).
