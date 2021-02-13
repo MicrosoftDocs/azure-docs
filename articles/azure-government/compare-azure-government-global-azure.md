@@ -21,7 +21,7 @@ Microsoft Azure Government uses same underlying technologies as global Azure, wh
 Customers are responsible for designing and deploying their applications to meet export control requirements such as those prescribed in the EAR and ITAR.  In doing so, customers should not include sensitive or restricted information in Azure resource names, as explained in [Considerations for Naming Azure Resources](./documentation-government-concept-naming-resources.md).  Data stored or processed in customer VMs, storage accounts, databases, Azure Import/Export, Azure Cache for Redis, ExpressRoute, Azure Cognitive Search, App Service, API Management, and other Azure services suitable for holding, processing, or transmitting Customer Data can contain export-controlled data.  However, metadata for these Azure services is not permitted to contain export-controlled data.  This metadata includes all configuration data entered when creating and maintaining an Azure service, including subscription names, service names, server names, database names, tenant role names, resource groups, deployment names, resource names, resource tags, circuit name, etc.  It also includes all shipping information that is used to transport media for Azure Import/Export, such as carrier name, tracking number, description, return information, drive list, package list, storage account name, container name, etc.  Sensitive data should not be included in HTTP headers sent to the REST API in search/query strings as part of the API.
 
 ### Guidance for developers
-Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government.  However, there are some key differences that developers working on applications hosted in Azure Government must be aware of.  For detailed information, see [Guidance for developers](./documentation-government-developer-guide.md).  As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as in global Azure.  Table below lists URLs in Azure vs. Azure Government for accessing and managing various services.
+Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government.  However, there are some key differences that developers working on applications hosted in Azure Government must be aware of.  For detailed information, see [Guidance for developers](./documentation-government-developer-guide.md).  As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as in global Azure.  Table below lists API endpoints in Azure vs. Azure Government for accessing and managing various services.
 
 |Service category|Service name|Azure Public|Azure Government|Notes|
 |-----------|-----------|-------|----------|----------------------|
@@ -34,7 +34,7 @@ Azure Government services operate the same way as the corresponding services in 
 ||Language Understanding|See [LUIS REST API docs](../cognitive-services/luis/developer-reference-resource.md)|\*.cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)||
 ||Personalizer|See [Personalizer docs](../cognitive-services/personalizer/quickstart-personalizer-sdk.md#prerequisites)|\*.cognitiveservices.azure.us||
 ||QnA Maker|See [QnA Maker docs](../cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure.md)|\*.cognitiveservices.azure.us||
-||Speech Service|See [STT API docs](../cognitive-services/speech-service/rest-speech-to-text.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)<br><br>**Speech-to-text endpoints**<br>Virginia: `https://usgovvirginia.stt.speech.azure.us`<br>Arizona: `https://usgovarizona.stt.speech.azure.us` <br><br>**Text-to-speech endpoints**<br>Virginia: `https://usgovvirginia.tts.speech.azure.us`<br>Arizona: `https://usgovarizona.tts.speech.azure.us` <br><br>**Speech translation endpoints**<br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`<br>Arizona: `https://usgovarizona.s2s.speech.azure.us`<br><br>**Auth token service**<br>Virginia: `https://usgovvirginia.api.cognitive.microsoft.us/sts/v1.0/issueToken` <br>Arizona: `https://usgovarizona.api.cognitive.microsoft.us/sts/v1.0/issueToken` <br>||
+||Speech service|See [STT API docs](../cognitive-services/speech-service/rest-speech-to-text.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../cognitive-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**<br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`<br>Arizona: `https://usgovarizona.s2s.speech.azure.us`<br>||
 ||Translator|See [Translator API docs](../cognitive-services/translator/reference/v3-0-reference.md#base-urls)|\*.cognitiveservices.azure.us||
 |**Analytics**|HDInsight|\*.azurehdinsight.net|\*.azurehdinsight.us||
 ||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|
@@ -86,12 +86,12 @@ Azure Government services operate the same way as the corresponding services in 
 ||Azure Cognitive Search|\*.search.windows.net|\*.search.windows.us||
 
 ### Service availability
-Microsoft's goal is to enable 100% parity in service availability between Azure and Azure Government.  To find out which services are available in Azure Government, customers should visit the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.  The **services available in Azure Government** are listed by category, as well as whether they are Generally Available or available through Preview.  If a service is available in Azure Government, that fact is not reiterated in the sections below.  Instead, customers are encouraged to visit the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard for the latest, up-to-date information on service availability.
+Microsoft's goal is to enable 100% parity in service availability between Azure and Azure Government. To find out which services are available in Azure Government, customers should see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia). **Services available in Azure Government** are listed by category and whether they are Generally Available or available through Preview. If a service is available in Azure Government, that fact is not reiterated in the sections below. Instead, customers are encouraged to review [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) for the latest, up-to-date information on service availability.
 
-In general, service availability in Azure Government implies that all corresponding service features are available to customers.  Variations to this approach and other applicable limitations are tracked and explained in the sections below based on the main service categories outlined in the [online directory of Azure services](https://azure.microsoft.com/services/).  Additional considerations for service deployment and usage in Azure Government are also provided.
+In general, service availability in Azure Government implies that all corresponding service features are available to customers. Variations to this approach and other applicable limitations are tracked and explained in the sections below based on the main service categories outlined in the [online directory of Azure services](https://azure.microsoft.com/services/). Additional considerations for service deployment and usage in Azure Government are also provided.
 
 ## AI + Machine Learning
-This section outlines variations and considerations when using **Azure Bot Service**, **Azure Machine Learning**, and **Cognitive Services** in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service,bot-service,cognitive-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.  
+This section outlines variations and considerations when using **Azure Bot Service**, **Azure Machine Learning**, and **Cognitive Services** in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service,bot-service,cognitive-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).  
 
 ### [Azure Bot Service](/azure/bot-service/)
 The following Azure Bot Service **features are not currently available** in Azure Government:
@@ -115,7 +115,7 @@ Commonly used services in bot applications that are not currently available in A
 - Application Insights
 - Speech Service
 
-For more information, see [How do I create a bot that uses US Government data center](/azure/bot-service/bot-service-resources-faq-ecosystem?view=azure-bot-service-4.0&preserve-view=true#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
+For more information, see [How do I create a bot that uses US Government data center](/azure/bot-service/bot-service-resources-faq-ecosystem#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
 
 ### [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md)
 For feature variations and limitations, see [Azure Machine Learning sovereign cloud parity](../machine-learning/reference-machine-learning-cloud-parity.md).
@@ -133,7 +133,7 @@ The following Language Understanding **features are not currently available** in
 The following Speech Service **features are not currently available** in Azure Government:
 - Custom Voice
 
-See details of supported locales by features in [Language and region support for the Speech Services](../cognitive-services/speech-service/language-support.md). See additonal endpoint information [here](../cognitive-services/Speech-Service/sovereign-clouds.md).
+See details of supported locales by features in [Speech service supported regions](../cognitive-services/speech-service/regions.md). For additional information including API endpoints, see [Speech service in sovereign clouds](../cognitive-services/Speech-Service/sovereign-clouds.md).
 
 ### [Translator](../cognitive-services/translator/translator-info-overview.md)
 The following Translator **features are not currently available** in Azure Government:
@@ -142,7 +142,7 @@ The following Translator **features are not currently available** in Azure Gover
 
 
 ## Analytics
-This section outlines variations and considerations when using Analytics services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share,power-bi-embedded,analysis-services,event-hubs,data-lake-analytics,storage,data-catalog,data-factory,synapse-analytics,stream-analytics,databricks,hdinsight&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
+This section outlines variations and considerations when using Analytics services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share,power-bi-embedded,analysis-services,event-hubs,data-lake-analytics,storage,data-catalog,data-factory,synapse-analytics,stream-analytics,databricks,hdinsight&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
 
 
 ### [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
@@ -150,12 +150,13 @@ For access to Azure Databricks in an Azure Government environment, contact your 
 
 ### [HDInsight](../hdinsight/hadoop/apache-hadoop-introduction.md)
 The following HDInsight **features are not currently available** in Azure Government:
+
 - HDInsight on Windows.
-- Azure Data Lake Store.
+- Azure Data Lake Storage.
+
 Azure Blob Storage is the only available storage option currently.
 
-For secured virtual networks, you will want to allow Network Security Groups (NSGs) access to certain IP addresses and ports. For Azure Government, you should allow the following IP addresses (all with an Allowed port of 443):
-
+For secured virtual networks, you will want to allow network security groups (NSGs) access to certain IP addresses and ports. For Azure Government, you should allow the following IP addresses (all with an Allowed port of 443):
 
 |**Region**|**Allowed IP addresses**|**Allowed port**|
 |------|--------------------|------------|
@@ -169,6 +170,7 @@ You can see a demo on how to build data-centric solutions on Azure Government us
 
 ### [Power BI](/power-bi/service-govus-overview)
 The following Power BI **features are not currently available** in Azure Government:
+
 - Portal support.
 
 You can see a demo on [how to build data-centric solutions on Azure Government using Power BI](https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/).
@@ -178,14 +180,16 @@ You can see a demo on [how to build data-centric solutions on Azure Government u
 
 ### [Power BI Embedded](/azure/power-bi-embedded/)
 The following Power BI Embedded **features are not yet available** in Azure Government:
+
 - Portal support.
 
 
 ## Compute
-This section outlines variations and considerations when using Compute services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud,azure-vmware-cloudsimple,cloud-services,batch,container-instances,app-service,service-fabric,functions,kubernetes-service,virtual-machine-scale-sets,virtual-machines&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
+This section outlines variations and considerations when using Compute services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud,azure-vmware-cloudsimple,cloud-services,batch,container-instances,app-service,service-fabric,functions,kubernetes-service,virtual-machine-scale-sets,virtual-machines&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
 
 ### [Virtual Machines](../virtual-machines/sizes.md)
 The following Virtual Machines **features are not currently available** in Azure Government:
+
 - Settings
     - Continuous delivery
 - Operations
@@ -199,20 +203,22 @@ The following Virtual Machines **features are not currently available** in Azure
 When connecting your function app to Application Insights in Azure Government, make sure you use [`APPLICATIONINSIGHTS_CONNECTION_STRING`](../azure-functions/functions-app-settings.md#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.
 
 ## Databases
-This section outlines variations and considerations when using Databases services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir,data-factory,sql-server-stretch-database,redis-cache,database-migration,synapse-analytics,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
+This section outlines variations and considerations when using Databases services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir,data-factory,sql-server-stretch-database,redis-cache,database-migration,synapse-analytics,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
 
 ### [Azure Database for MySQL](../mysql/index.yml)
 The following Azure Database for MySQL **features are not currently available** in Azure Government:
+
 - Advanced Threat Protection
 - Private endpoint connections
 
 ### [Azure Database for PostgreSQL](../postgresql/index.yml)
 The following Azure Database for PostgreSQL **features are not currently available** in Azure Government:
+
 - Advanced Threat Protection
 - Private endpoint connections
 
 ## Developer Tools
-This section outlines variations and considerations when using Developer Tools services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=app-configuration,devtest-lab,lab-services,azure-devops&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
+This section outlines variations and considerations when using Developer Tools services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=app-configuration,devtest-lab,lab-services,azure-devops&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
 
 ### [Azure DevTest Labs](../devtest-labs/devtest-lab-overview.md)
 The following Azure DevTest Labs **features are not currently available** in Azure Government:
@@ -220,14 +226,14 @@ The following Azure DevTest Labs **features are not currently available** in Azu
 
 
 ## Internet of Things
-This section outlines variations and considerations when using Internet of Things services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=api-management,cosmos-db,notification-hubs,logic-apps,stream-analytics,machine-learning-studio,machine-learning-service,event-grid,functions,azure-rtos,azure-maps,iot-central,iot-hub&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
+This section outlines variations and considerations when using Internet of Things services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=api-management,cosmos-db,notification-hubs,logic-apps,stream-analytics,machine-learning-studio,machine-learning-service,event-grid,functions,azure-rtos,azure-maps,iot-central,iot-hub&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
 
 ### [Azure IoT Hub](../iot-hub/index.yml)
 If you are using the IoT Hub connection string (instead of the Event Hub-compatible settings) with the Microsoft Azure Service Bus .NET client library to receive telemetry or operations monitoring events, then be sure to use WindowsAzure.ServiceBus NuGet package version 4.1.2 or higher.
 
 
 ## Management and Governance
-This section outlines variations and considerations when using Management and Governance services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=managed-applications,azure-policy,network-watcher,monitor,traffic-manager,automation,scheduler,site-recovery,cost-management,backup,blueprints,advisor&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
+This section outlines variations and considerations when using Management and Governance services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=managed-applications,azure-policy,network-watcher,monitor,traffic-manager,automation,scheduler,site-recovery,cost-management,backup,blueprints,advisor&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
 
 > [!NOTE]
 >This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](/powershell/azure/new-azureps-module-az?preserve-view=true&view=azps-3.3.0). For Az module installation instructions, see [**Install Azure PowerShell**](/powershell/azure/install-az-ps?preserve-view=true&view=azps-3.3.0).
@@ -322,7 +328,7 @@ Advisor monitors your virtual machine usage for 7 days and identifies low-utiliz
 
 ## Media
 This section outlines variations and considerations when using Media services in the Azure Government environment.
-For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=cdn,media-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.  For Azure Media Services v3 availability, see [Azure clouds and regions in which Media Services v3 exists](../media-services/latest/azure-clouds-regions.md).
+For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=cdn,media-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).  For Azure Media Services v3 availability, see [Azure clouds and regions in which Media Services v3 exists](../media-services/latest/azure-clouds-regions.md).
 
 ### [Media Services](../media-services/previous/index.yml)
 For information on how to connect to Media Services v2, see [Access the Azure Media Services API with Azure AD authentication](../media-services/previous/media-services-use-aad-auth-to-access-ams-api.md). The following Media Services **features are not currently available** in Azure Government:
@@ -333,16 +339,18 @@ For information on how to connect to Media Services v2, see [Access the Azure Me
 
 For more information, see [Create a Video Indexer account](../media-services/video-indexer/connect-to-azure.md#video-indexer-in-azure-government).
 
+
 ## Migration
-This section outlines variations and considerations when using Migration services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration,cost-management,azure-migrate,site-recovery&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
+This section outlines variations and considerations when using Migration services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration,cost-management,azure-migrate,site-recovery&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
 
 ### [Azure Migrate](../migrate/migrate-services-overview.md)
 The following Azure Migrate **features are not currently available** in Azure Government:
 - Dependency visualization functionality as Azure Migrate depends on Service Map for dependency visualization which is currently unavailable in Azure Government.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
 
+
 ## Networking
-This section outlines variations and considerations when using Networking services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-bastion,frontdoor,virtual-wan,dns,ddos-protection,cdn,azure-firewall,network-watcher,load-balancer,vpn-gateway,expressroute,application-gateway,virtual-network&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
+This section outlines variations and considerations when using Networking services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-bastion,frontdoor,virtual-wan,dns,ddos-protection,cdn,azure-firewall,network-watcher,load-balancer,vpn-gateway,expressroute,application-gateway,virtual-network&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
 
 ### [Azure ExpressRoute](../expressroute/index.yml)
 Azure ExpressRoute is used to create private connections between Azure Government datacenters and customer's on-premises infrastructure or a colocation facility.  ExpressRoute connections do not go over the public Internet—they offer optimized pathways (shortest hops, lowest latency, highest performance, etc.) for customers and Azure Government geo-redundant regions.
@@ -396,7 +404,7 @@ Traffic Manager health checks can originate from certain IP addresses for Azure 
 
 
 ## Security
-This section outlines variations and considerations when using Security services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel,azure-dedicated-hsm,information-protection,application-gateway,vpn-gateway,security-center,key-vault,active-directory-ds,ddos-protection,active-directory&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
+This section outlines variations and considerations when using Security services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel,azure-dedicated-hsm,information-protection,application-gateway,vpn-gateway,security-center,key-vault,active-directory-ds,ddos-protection,active-directory&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
 
 ### [Azure Active Directory Premium P1 and P2](../active-directory/index.yml)
 The following features have known limitations in Azure Government:
@@ -417,8 +425,6 @@ The following features have known limitations in Azure Government:
     
 - Limitations with Azure AD SSPR:
     - Azure AD SSPR from Windows 10 login screen is not available
-
-
 
 ### [Azure Information Protection](/azure/information-protection/what-is-information-protection)
 Azure Information Protection Premium is part of the [Enterprise Mobility + Security](/enterprise-mobility-security) suite.  For details on this service and how to use it, see the [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
@@ -450,7 +456,6 @@ The following Azure Security Center **features are not currently available** in 
     - [Azure Defender for Resource Manager](../security-center/defender-for-resource-manager-introduction.md)
     - [Azure Defender for DNS](../security-center/defender-for-dns-introduction.md)
 
-
 **Azure Security Center FAQ**
 
 For Azure Security Center FAQ, see [Azure Security Center frequently asked questions public documentation](../security-center/faq-general.md). Additional FAQ for Azure Security Center in Azure Government are listed below.
@@ -474,7 +479,7 @@ For information about EMS suite capabilities in Azure Government, see the [Enter
 
 
 ## Storage
-This section outlines variations and considerations when using Storage services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache,managed-disks,storsimple,backup,storage&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
+This section outlines variations and considerations when using Storage services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache,managed-disks,storsimple,backup,storage&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
 
 ### [Azure Storage](../storage/index.yml)
 For a Quickstart that will help you get started with Storage in Azure Government, see [Develop with Storage API on Azure Government](./documentation-government-get-started-connect-to-storage.md).
@@ -492,8 +497,7 @@ Table in Guidance for developers section shows URL endpoints for main Azure Stor
 >[!NOTE]
 >All your scripts and code need to account for the appropriate endpoints. See [**Configure Azure Storage Connection Strings**](../storage/common/storage-configure-connection-string.md).
 
-
-For more information on APIs, see the [Cloud Storage Account Constructor](/java/api/com.microsoft.azure.storage.cloudstorageaccount.cloudstorageaccount).
+For more information on APIs, see [Cloud Storage Account Constructor](/java/api/com.microsoft.azure.storage.cloudstorageaccount.cloudstorageaccount).
 
 The endpoint suffix to use in these overloads is *core.usgovcloudapi.net*.
 
@@ -511,14 +515,16 @@ For all jobs, we recommend that you rotate your storage account keys after the j
 
 
 ## Web
-This section outlines variations and considerations when using Web services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud,signalr-service,api-management,notification-hubs,search,cdn,app-service-linux,app-service&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
+This section outlines variations and considerations when using Web services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud,signalr-service,api-management,notification-hubs,search,cdn,app-service-linux,app-service&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia).
 
 ### [API Management](../api-management/index.yml)
 The following API Management **features are not currently available** in Azure Government:
+
 - Azure AD B2C Integration
 
 ### [App Service](../app-service/overview.md)
 The following App Service **features are not currently available** in Azure Government:
+
 - Resource
     - App Service Certificate
 - Deployment
