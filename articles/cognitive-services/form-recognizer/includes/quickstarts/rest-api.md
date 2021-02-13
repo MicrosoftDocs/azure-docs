@@ -32,15 +32,15 @@ You can use Form Recognizer to analyze and extract tables, selection marks, text
 
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
-1. Replace `\"{your-document-url}` with one of the example URLs.</br></br>
+1. Replace `\"{your-document-url}` with one of the example URLs.
 
-# [v2.1 preview](#tab/v2-1)
+### [v2.1 preview](#tab/v2-1)
 
 ```bash
 curl -v -i POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{​​​​​​​'source': '{your-document-url}'}​​​​​​​​"
 ```
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ```bash
 curl -v -i POST "https://{Endpoint}/formrecognizer/v2.0/layout/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{​​​​​​​'source': '{your-document-url}'}​​​​​​​​"
@@ -53,7 +53,7 @@ You'll receive a `202 (Success)` response that includes am **Operation-Location*
 ```console
 https://cognitiveservice/formrecognizer/v2.1-preview.2/layout/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
-<!-- markdownlint-disable MD001 -->
+
 ### Get layout results
 
 After you've called the **[Analyze Layout](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync)** API, you call the **[Get Analyze Layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeLayoutResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
@@ -62,12 +62,14 @@ After you've called the **[Analyze Layout](https://westcentralus.dev.cognitive.m
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 1. Replace `{resultId}` with the operation ID from the previous step.
 <!-- markdownlint-disable MD024 -->
-# [v2.1 preview](#tab/v2-1)  
+
+### [v2.1 preview](#tab/v2-1)
+
 ```bash
 curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/layout/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ```bash
 curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/layout/analyzeResults/{resultId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
@@ -83,8 +85,8 @@ See the following invoice image and its corresponding JSON output. The output ha
 
 :::image type="content" source="../../media/contoso-invoice.png" alt-text="Contoso project statement document with a table.":::
 
-# [v2.1 preview](#tab/v2-1)
-  
+### [v2.1 preview](#tab/v2-1)
+
 ```json
 {
     "status": "succeeded",
@@ -204,7 +206,7 @@ See the following invoice image and its corresponding JSON output. The output ha
 }
 ```
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ```json
 {
@@ -307,17 +309,27 @@ See the following invoice image and its corresponding JSON output. The output ha
 }
 ```
 
+
+
 ---
+
+
 
 ## Analyze invoices
 
-### [v2.1 preview](#tab/v2-1)
+# [version 2.0](#tab/v2-0)
+
+> [!IMPORTANT]
+> This feature isn't available in the selected API version.
+
+# [version 2.1 preview](#tab/v2-1)
 
 To start analyzing an invoice, use the cURL command below. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoices.md). Before you run the command, make these changes:
 
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{your invoice URL}` with the URL address of an invoice document.
 1. Replace `{subscription key}` with your subscription key.
+
 
 ```bash
 curl -v -i POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:  {subscription key}" --data-ascii "{​​​​​​​'source': '{your invoice URL}'}​​​​​​​​"
@@ -503,10 +515,6 @@ See the following invoice document and its corresponding JSON output. The JSON c
 }
 ```
 
-### [v2.0](#tab/v2-0)
-
-> [!IMPORTANT]
-> This feature isn't available in the selected API version.
 ---
 
 ## Train a custom model
@@ -529,13 +537,13 @@ To train a Form Recognizer model with the documents in your Azure blob container
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 
-# [v2.1 preview](#tab/v2-1)
+### [v2.1 preview](#tab/v2-1)
 
 ```bash
 curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}'}"
 ```
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ```bash
 curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}'}"
@@ -557,13 +565,13 @@ Before you run the command, make these changes:
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 
-# [v2.1 preview](#tab/v2-1) 
+### [v2.1 preview](#tab/v2-1)
 
 ```bash
 curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}', 'useLabelFile':true}"
 ```
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ```bash
 curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{SAS URL}', 'useLabelFile':true }"
@@ -581,13 +589,13 @@ After you've started the train operation, you use a new operation, **[Get Custom
 1. Replace `{subscription key}` with your subscription key
 1. Replace `{model ID}` with the model ID you received in the previous step
 
-# [v2.1 preview](#tab/v2-1)
+### [v2.1 preview](#tab/v2-1)
 
 ```bash
 curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{model ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ```bash
 curl -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{model ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}"
@@ -674,13 +682,13 @@ Next, you'll use your newly trained model to analyze a document and extract key-
 1. Replace `{SAS URL}` with an SAS URL to your file in Azure storage. Follow the steps in the Training section, but instead of getting a SAS URL for the whole blob container, get one for the specific file you want to analyze.
 1. Replace `{subscription key}` with your subscription key.
 
-# [v2.1 preview](#tab/v2-1) 
+### [v2.1 preview](#tab/v2-1)
 
 ```bash
 curl -v "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{model ID}/analyze?includeTextDetails=true" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" -d "{ 'source': '{SAS URL}' } "
 ```
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ```bash
 curl -v "https://{Endpoint}/formrecognizer/v2.0/custom/models/{model ID}/analyze?includeTextDetails=true" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" -d "{ 'source': '{SAS URL}' } "
@@ -698,13 +706,13 @@ Call the Get **[Analyze Form Result](https://westcentralus.dev.cognitive.microso
 1. Replace `{result ID}` with the ID that you received in the previous section.
 1. Replace `{subscription key}` with your subscription key.
 
-# [v2.1 preview](#tab/v2-1)
+### [v2.1 preview](#tab/v2-1)
 
 ```bash
 curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview/custom/models/{model ID}/analyzeResults/{result ID}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ```bash
 curl -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{model ID}/analyzeResults/{result ID}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
@@ -717,149 +725,6 @@ You'll receive a `200 (Success)` response with a JSON body in the following form
 In custom models trained without labels, the key/value pair associations and tables are in the `"pageResults"` node of the JSON output. In custom models trained with labels, the  key/value pair associations are in the `"documentResults"` node. If you also specified plain text extraction through the *includeTextDetails* URL parameter, then the `"readResults"` node will show the content and positions of all the text in the document.
 
 This sample JSON output has been shortened for simplicity.
-
-### [v2.0](#tab/v2-0)
-
-```JSON
-{
-  "status": "succeeded",
-  "createdDateTime": "2020-08-21T00:46:25Z",
-  "lastUpdatedDateTime": "2020-08-21T00:46:32Z",
-  "analyzeResult": {
-    "version": "2.0.0",
-    "readResults": [
-      {
-        "page": 1,
-        "angle": 0,
-        "width": 8.5,
-        "height": 11,
-        "unit": "inch",
-        "lines": [
-          {
-            "text": "Project Statement",
-            "boundingBox": [
-              5.0153,
-              0.275,
-              8.0944,
-              0.275,
-              8.0944,
-              0.7125,
-              5.0153,
-              0.7125
-            ],
-            "words": [
-              {
-                "text": "Project",
-                "boundingBox": [
-                  5.0153,
-                  0.275,
-                  6.2278,
-                  0.275,
-                  6.2278,
-                  0.7125,
-                  5.0153,
-                  0.7125
-                ]
-              },
-              {
-                "text": "Statement",
-                "boundingBox": [
-                  6.3292,
-                  0.275,
-                  8.0944,
-                  0.275,
-                  8.0944,
-                  0.7125,
-                  6.3292,
-                  0.7125
-                ]
-              }
-            ]
-          }, 
-        ...
-        ]
-      }
-    ],
-    "pageResults": [
-      {
-        "page": 1,
-        "keyValuePairs": [
-          {
-            "key": {
-              "text": "Date:",
-              "boundingBox": [
-                6.9722,
-                1.0264,
-                7.3417,
-                1.0264,
-                7.3417,
-                1.1931,
-                6.9722,
-                1.1931
-              ],
-              "elements": [
-                "#/readResults/0/lines/2/words/0"
-              ]
-            },
-            "confidence": 1
-          },
-         ...
-        ],
-        "tables": [
-          {
-            "rows": 4,
-            "columns": 5,
-            "cells": [
-              {
-                "text": "Training Date",
-                "rowIndex": 0,
-                "columnIndex": 0,
-                "boundingBox": [
-                  0.6931,
-                  4.2444,
-                  1.5681,
-                  4.2444,
-                  1.5681,
-                  4.4125,
-                  0.6931,
-                  4.4125
-                ],
-                "confidence": 1,
-                "rowSpan": 1,
-                "columnSpan": 1,
-                "elements": [
-                  "#/readResults/0/lines/15/words/0",
-                  "#/readResults/0/lines/15/words/1"
-                ],
-                "isHeader": true,
-                "isFooter": false
-              },
-              ...
-            ]
-          }
-        ], 
-        "clusterId": 0
-      }
-    ],
-    "documentResults": [],
-    "errors": []
-  }
-}
-```    
-
----
-
-### Improve results
-
-[!INCLUDE [improve results](../improve-results-unlabeled.md)]
-
-## Analyze receipts
-
-This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipts.md). To start analyzing a receipt, call the **[Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
-
-1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
-1. Replace `{your receipt URL}` with the URL address of a receipt image.
-1. Replace `{subscription key>` with the subscription key you copied from the previous step.
 
 ### [v2.1 preview](#tab/v2-1)
 
@@ -1006,13 +871,156 @@ This section demonstrates how to analyze and extract common fields from US recei
 }
 ```
 
-# [v2.1 preview](#tab/v2-1)
+### [v2.0](#tab/v2-0)
+
+```JSON
+{
+  "status": "succeeded",
+  "createdDateTime": "2020-08-21T00:46:25Z",
+  "lastUpdatedDateTime": "2020-08-21T00:46:32Z",
+  "analyzeResult": {
+    "version": "2.0.0",
+    "readResults": [
+      {
+        "page": 1,
+        "angle": 0,
+        "width": 8.5,
+        "height": 11,
+        "unit": "inch",
+        "lines": [
+          {
+            "text": "Project Statement",
+            "boundingBox": [
+              5.0153,
+              0.275,
+              8.0944,
+              0.275,
+              8.0944,
+              0.7125,
+              5.0153,
+              0.7125
+            ],
+            "words": [
+              {
+                "text": "Project",
+                "boundingBox": [
+                  5.0153,
+                  0.275,
+                  6.2278,
+                  0.275,
+                  6.2278,
+                  0.7125,
+                  5.0153,
+                  0.7125
+                ]
+              },
+              {
+                "text": "Statement",
+                "boundingBox": [
+                  6.3292,
+                  0.275,
+                  8.0944,
+                  0.275,
+                  8.0944,
+                  0.7125,
+                  6.3292,
+                  0.7125
+                ]
+              }
+            ]
+          }, 
+        ...
+        ]
+      }
+    ],
+    "pageResults": [
+      {
+        "page": 1,
+        "keyValuePairs": [
+          {
+            "key": {
+              "text": "Date:",
+              "boundingBox": [
+                6.9722,
+                1.0264,
+                7.3417,
+                1.0264,
+                7.3417,
+                1.1931,
+                6.9722,
+                1.1931
+              ],
+              "elements": [
+                "#/readResults/0/lines/2/words/0"
+              ]
+            },
+            "confidence": 1
+          },
+         ...
+        ],
+        "tables": [
+          {
+            "rows": 4,
+            "columns": 5,
+            "cells": [
+              {
+                "text": "Training Date",
+                "rowIndex": 0,
+                "columnIndex": 0,
+                "boundingBox": [
+                  0.6931,
+                  4.2444,
+                  1.5681,
+                  4.2444,
+                  1.5681,
+                  4.4125,
+                  0.6931,
+                  4.4125
+                ],
+                "confidence": 1,
+                "rowSpan": 1,
+                "columnSpan": 1,
+                "elements": [
+                  "#/readResults/0/lines/15/words/0",
+                  "#/readResults/0/lines/15/words/1"
+                ],
+                "isHeader": true,
+                "isFooter": false
+              },
+              ...
+            ]
+          }
+        ], 
+        "clusterId": 0
+      }
+    ],
+    "documentResults": [],
+    "errors": []
+  }
+}
+```  
+
+---
+
+### Improve results
+
+[!INCLUDE [improve results](../improve-results-unlabeled.md)]
+
+## Analyze receipts
+
+This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipts.md). To start analyzing a receipt, call the **[Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
+
+1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
+1. Replace `{your receipt URL}` with the URL address of a receipt image.
+1. Replace `{subscription key>` with the subscription key you copied from the previous step.
+
+### [v2.1 preview](#tab/v2-1)
 
 ```bash
 curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
 ```
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ```bash
 curl -i -X POST "https://{Endpoint}/formrecognizer/v2.0/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
@@ -1034,13 +1042,13 @@ After you've called the **Analyze Receipt** API, you call the **[Get Analyze Rec
 1. Replace `{operationId}` with the operation ID from the previous step.
 1. Replace `{subscription key}` with your subscription key.
 
-# [v2.1 preview](#tab/v2-1)
+### [v2.1 preview](#tab/v2-1)
 
 ```bash
 curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/receipt/analyzeResults/{operationId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ```bash
 curl -X GET "https://{Endpoint}/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/{operationId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
@@ -1385,7 +1393,7 @@ The `"readResults"` node contains all of the recognized text (if you set the opt
 
 ## Analyze business cards
 
-# [v2.1 preview](#tab/v2-1)  
+### [v2.1 preview](#tab/v2-1)  
 
 This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md). To start analyzing a business card, you call the **[Analyze Business Card](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)** API using the cURL command below. Before you run the command, make these changes:
 
@@ -1538,12 +1546,10 @@ This sample illustrates the JSON output returned by Form Recognizer. It has been
 
 The script will print responses to the console until the **Analyze Business Card** operation completes.
 
-# [v2.0](#tab/v2-0)  
+### [v2.0](#tab/v2-0)  
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
-
-
 
 ---
 
@@ -1556,14 +1562,14 @@ Use the **[List Custom Models](https://westcentralus.dev.cognitive.microsoft.com
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 
-# [v2.1 preview](#tab/v2-1)
+### [v2.1 preview](#tab/v2-1)
 
 ```bash
 curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models?op=full"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ```bash
 curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models?op=full"
@@ -1601,18 +1607,17 @@ To retrieve detailed information about a specific custom model, use the **[Get C
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 1. Replace `{modelId}` with the ID of the custom model you want to look up.
 
-# [v2.1 preview](#tab/v2-1)
+### [v2.1 preview](#tab/v2-1)
 
 ```bash
 curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ```bash
 curl -v -X GET "https://{Endpoint}/formrecognizer/v2.0/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
-
 
 ---
 
@@ -1664,23 +1669,21 @@ You can also delete a model from your account by referencing its ID. This comman
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
 1. Replace `{modelId}` with the ID of the custom model you want to look up.
 
-# [v2.1 preview](#tab/v2-1)
+### [v2.1 preview](#tab/v2-1)
 
 ```bash
 curl -v -X DELETE "https://{Endpoint}/formrecognizer/v2.1-preview.2/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ```bash
 curl -v -X DELETE "https://{Endpoint}/formrecognizer/v2.0/custom/models/{modelId}" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
-
 ---
 
 You'll receive a `204` success response, indicating that your model is marked for deletion. Model artifacts will be removed within 48 hours.
-
 
 ## Next steps
 
