@@ -41,7 +41,7 @@ The following sections provide information about getting started with using and 
 -  Our ingestion service could take long to process a large, high LOD (level-of-detail) model. For efficacy you can preprocess your 3D model to remove the interior faces.
 -  The provided runtime SDK requires a user-provided search region to search for and detect the physical object(s). The search region could be a bounding box, a sphere, 
     a view frustum, or any combination of them. To avoid a false detection, it is preferable to set a search region large enough to cover the object. When using the provided sample apps, you can stand on one side of the object about 2 meters away from the closest surface and start the app.
--  Before starting the AOA app on a HoloLens 2 device, remove the holograms in the vicinity of your workplace via ***Settings->System->Holograms***.
+-  Before starting the Object Anchors app on a HoloLens 2 device, remove the holograms in the vicinity of your workplace via ***Settings->System->Holograms*** on your devices main settings.
     This step ensures that if a new object such as a car is present in the same space as occupied by another previously, or the object has moved from the target space, any old, and irrelevant holograms will not persist and create confusing visualization for the object currently in view.
 -  After removing the holograms and before starting an AOA App, scan the object such as a car by looking at the object while wearing the device from about 1-2 
     meters and slowly going all around the object one or two times.
