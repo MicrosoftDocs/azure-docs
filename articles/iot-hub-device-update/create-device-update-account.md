@@ -90,14 +90,6 @@ To configure IoT Hub
 
 [Learn More](device-update-resources.md) about the message routes that are configured. 
 
-### Message Routes that are configured
-
-|   Route Name    | Routing Query  | Description  |
-| :--------- | :---- |:---- |
-|  DeviceUpdate.DigitalTwinChanges | true |Listens for Digital Twin Changes Events  |
-|  DeviceUpdate.DeviceLifeCycle | opType = 'deleteDeviceIdentity'  | Listens for Devices that have been deleted |
-|  DeviceUpdate.TelemetryModelInformation | iothub-interface-id = "urn:azureiot:ModelDiscovery:ModelInformation:1 | Listens for new devices types |
-|  DeviceUpdate.DeviceTwinEvents| (opType = 'updateTwin' OR opType = 'replaceTwin') AND IS_DEFINED($body.tags.ADUGroup) | Listens for new Device Update Groups |
 
 ## Configure access control roles
 
