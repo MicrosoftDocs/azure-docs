@@ -111,7 +111,7 @@ The [Authentication administrator](#authentication-administrator) and [Privilege
 > [!IMPORTANT]
 > This role is not currently capable of managing MFA settings in the legacy MFA management portal.
 
-### [Azure AD Joined Device Local Administrator](#azure-ad-joined-device-local-administrator-permissions)/Device Administrators
+### [Azure AD Joined Device Local Administrator](#azure-ad-joined-device-local-administrator-permissions)
 
 This role is available for assignment only as an additional local administrator in [Device settings](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
 
@@ -210,14 +210,14 @@ Users in this role can read and update basic information of users, groups, and s
 
 Users with this role can manage (read, add, verify, update, and delete) domain names. They can also read directory information about users, groups, and applications, as these objects possess domain dependencies. For on-premises environments, users with this role can configure domain names for federation so that associated users are always authenticated on-premises. These users can then sign into Azure AD-based services with their on-premises passwords via single sign-on. Federation settings need to be synced via Azure AD Connect, so users also have permissions to manage Azure AD Connect.
 
-### [Dynamics 365 administrator / CRM Administrator](#crm-service-administrator-permissions)
+### [Dynamics 365 administrator](#dynamics-365-administrator-permissions)
 
 Users with this role have global permissions within Microsoft Dynamics 365 Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Use the service admin role to manage your Azure AD organization](/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Dynamics 365 Service Administrator." It is "Dynamics 365 Administrator" in the [Azure portal](https://portal.azure.com).
 
-### [Exchange Administrator](#exchange-service-administrator-permissions)
+### [Exchange Administrator](#exchange-administrator-permissions)
 
 Users with this role have global permissions within Microsoft Exchange Online, when the service is present. Also has the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. More information at [About Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -296,7 +296,7 @@ Users in this role can access the full set of administrative capabilities in the
 ### [Insights Business Leader](#insights-business-leader-permissions)
 Users in this role can access a set of dashboards and insights via the [M365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This includes full access to all dashboards and presented insights and data exploration functionality. Users in this role do not have access to product configuration settings, which is the responsibility of the Insights Admin role.
 
-### [Intune Administrator](#intune-service-administrator-permissions)
+### [Intune Administrator](#intune-administrator-permissions)
 
 Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](/intune/role-based-access-control).
 
@@ -357,7 +357,7 @@ Do not use. This role has been deprecated and will be removed from Azure AD in t
 
 Users with this role have limited ability to manage passwords. This role does not grant the ability to manage service requests or monitor service health. Whether a Password Administrator can reset a user's password depends on the role the user is assigned. For a list of the roles that a Password Administrator can reset passwords for, see [Password reset permissions](#password-reset-permissions).
 
-### [Power BI Administrator](#power-bi-service-administrator-permissions)
+### [Power BI Administrator](#power-bi-administrator-permissions)
 
 Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Understanding the Power BI admin role](/power-bi/service-admin-role).
 
@@ -479,7 +479,7 @@ Users with this role can open support requests with Microsoft for Azure and Micr
 > [!NOTE]
 > Previously, this role was called "Service Administrator" in [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). We have renamed it to "Service Support Administrator" to align with the exsiting name in Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell.
 
-### [SharePoint Administrator](#sharepoint-service-administrator-permissions)
+### [SharePoint Administrator](#sharepoint-administrator-permissions)
 
 Users with this role have global permissions within Microsoft SharePoint Online, when the service is present, as well as the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -489,7 +489,7 @@ Users with this role have global permissions within Microsoft SharePoint Online,
 > [!NOTE]
 > This role also grants scoped permissions to the Microsoft Graph API for Microsoft Intune, allowing the management and configuration of policies related to SharePoint and OneDrive resources.
 
-### [Skype for Business / Lync Administrator](#lync-service-administrator-permissions)
+### [Skype for Business Administrator](#skype-for-business-administrator-permissions)
 
 Users with this role have global permissions within Microsoft Skype for Business, when the service is present, as well as manage Skype-specific user attributes in Azure Active Directory. Additionally, this role grants the ability to manage support tickets and monitor service health, and to access the Teams and Skype for Business Admin Center. The account must also be licensed for Teams or it can't run Teams PowerShell cmdlets. More information at [About the Skype for Business admin role](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) and Teams licensing information at [Skype for Business and Microsoft Teams add-on licensing](/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
@@ -858,23 +858,6 @@ Can manage Conditional Access capabilities.
 > | microsoft.directory/policies/conditionalAccess/policiesAppliedTo/read | Read policies.conditionalAccess property in Azure Active Directory. |
 > | microsoft.directory/policies/conditionalAccess/tenantDefault/update | Update policies.conditionalAccess property in Azure Active Directory. |
 
-### CRM Service Administrator permissions
-
-Can manage all aspects of the Dynamics 365 product.
-
-> [!NOTE]
-> This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-> | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
-> | microsoft.powerApps.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365. |
-> | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
-> | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
-> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-
 ### Customer LockBox Access Approver permissions
 
 Can approve Microsoft support requests to access customer organizational data.
@@ -1043,7 +1026,24 @@ Can manage domain names in cloud and on-premises.
 > | microsoft.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties in Azure Active Directory. |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
-### Exchange Service Administrator permissions
+### Dynamics 365 Administrator permissions
+
+Can manage all aspects of the Dynamics 365 product.
+
+> [!NOTE]
+> This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
+> | microsoft.powerApps.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365. |
+> | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+### Exchange Administrator permissions
 
 Can manage all aspects of the Exchange product.
 
@@ -1169,6 +1169,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 > | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Read all resources in microsoft.windows.defenderAdvancedThreatProtection. |
 
 ### Global Reader permissions
+
 Can read everything that a Global Administrator can, but not edit anything.
 
 > [!NOTE]
@@ -1242,6 +1243,7 @@ Can read everything that a Global Administrator can, but not edit anything.
 > | microsoft.office365.webPortal/allEntities/standard/read    | Read standard properties on all resources in microsoft.office365.webPortal. |
 
 ### Groups Administrator permissions
+
 Can manage all aspects of groups and group settings like naming and expiration policies.
 
 > [!div class="mx-tableFixed"]
@@ -1264,6 +1266,7 @@ Can manage all aspects of groups and group settings like naming and expiration p
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Guest Inviter permissions
+
 Can invite guest users independent of the 'members can invite guests' setting.
 
 > [!div class="mx-tableFixed"]
@@ -1363,7 +1366,7 @@ Can view and share dashboards and insights via the M365 Insights app.
 > | microsoft.insights/reports/read | View reports and dashboard in Insights app. |
 > | microsoft.insights/programs/update | Deploy and manage programs in Insights app. |
 
-### Intune Service Administrator permissions
+### Intune Administrator permissions
 
 Can manage all aspects of the Intune product.
 
@@ -1431,25 +1434,6 @@ Can manage product licenses on users and groups.
 > | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 
-### Lync Service Administrator permissions
-
-Can manage all aspects of the Skype for Business product.
-
-> [!NOTE]
-> This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-> | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
-> | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
-> | microsoft.office365.skypeForBusiness/allEntities/allTasks | Manage all aspects of Skype for Business Online. |
-> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-> | microsoft.office365.usageReports/allEntities/read    | Read Office 365 usage reports. |
-> | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
-
-
 ### Message Center Privacy Reader permissions
 
 Can read Message Center posts, data privacy messages, groups, domains and subscriptions.
@@ -1465,6 +1449,7 @@ Can read Message Center posts, data privacy messages, groups, domains and subscr
 > | microsoft.office365.messageCenter/securityMessages/read | Read securityMessages in microsoft.office365.messageCenter. |
 
 ### Message Center Reader permissions
+
 Can read messages and updates for their organization in Message Center only. 
 
 > [!NOTE]
@@ -1477,6 +1462,7 @@ Can read messages and updates for their organization in Message Center only.
 > | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 
 ### Modern Commerce User permissions
+
 Can manage commercial purchases for a company, department or team. 
 
 > [!NOTE]
@@ -1490,8 +1476,8 @@ Can manage commercial purchases for a company, department or team.
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and view own Office 365 support tickets. |
 > | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
-
 ### Network Administrator permissions
+
 Can manage network locations and review enterprise network design insights for Microsoft 365 Software as a Service applications.
 
 > [!NOTE]
@@ -1504,6 +1490,7 @@ Can manage network locations and review enterprise network design insights for M
 > | microsoft.office365.network/locations/allProperties/allTasks | Read and configure network locations properties for each location. |
 
 ### Office Apps Administrator permissions
+
 Can manage Office apps' cloud services, including policy and settings management, and manage the ability to select, unselect and publish "what's new" feature content to end-user's devices.
 
 > [!NOTE]
@@ -1626,7 +1613,7 @@ Can reset passwords for non-administrators and Password administrators.
 > | microsoft.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
 > | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
-### Power BI Service Administrator permissions
+### Power BI Administrator permissions
 
 Can manage all aspects of the Power BI product.
 
@@ -1642,7 +1629,6 @@ Can manage all aspects of the Power BI product.
 > | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-
 
 ### Power Platform Administrator permissions
 
@@ -1826,7 +1812,6 @@ Creates and manages security events.
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 > | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Read and configure Windows Defender Advanced Threat Protection. |
 
-
 ### Security Reader permissions
 
 Can read security information and reports in Azure AD and Microsoft 365.
@@ -1866,7 +1851,7 @@ Can read service health information and manage support tickets.
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
-### SharePoint Service Administrator permissions
+### SharePoint Administrator permissions
 
 Can manage all aspects of the SharePoint service.
 
@@ -1890,6 +1875,24 @@ Can manage all aspects of the SharePoint service.
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 > | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports. |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+
+### Skype for Business Administrator permissions
+
+Can manage all aspects of the Skype for Business product.
+
+> [!NOTE]
+> This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
+> | microsoft.office365.skypeForBusiness/allEntities/allTasks | Manage all aspects of Skype for Business Online. |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+> | microsoft.office365.usageReports/allEntities/read    | Read Office 365 usage reports. |
+> | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### Teams Administrator permissions
 
@@ -1984,6 +1987,7 @@ Can perform management related tasks on Teams certified devices.
 > | microsoft.teams/devices/basic/read | Manage  all aspects of Teams-certified devices including configuration policies. |
 
 ### Usage Summary Reports Reader permissions
+
 Can see only tenant level aggregates in M365 Usage Analytics and Productivity Score.
 
 > [!div class="mx-tableFixed"]
@@ -1993,6 +1997,7 @@ Can see only tenant level aggregates in M365 Usage Analytics and Productivity Sc
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in microsoft.office365.webPortal.|
 
 ### User Administrator permissions
+
 Can manage all aspects of users and groups, including resetting passwords for limited admins.
 
 > [!div class="mx-tableFixed"]
