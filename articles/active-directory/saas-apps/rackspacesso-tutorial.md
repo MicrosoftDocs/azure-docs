@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Rackspace SSO | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Rackspace SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 36b398be-2f7e-4ce8-9031-53587299bc4a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Rackspace SSO
 
@@ -27,7 +21,7 @@ Integrating Rackspace SSO with Azure AD provides you with the following benefits
 * You can enable your users to be automatically signed-in to Rackspace SSO (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -101,11 +95,11 @@ To configure Azure AD single sign-on with Rackspace SSO, perform the following s
 
 	a. Click **Upload metadata file**.
 
-    ![image](common/upload-metadata.png)
+    ![Screenshot shows Basic SAML Configuration with the Upload metadata file link.](common/upload-metadata.png)
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	![image](common/browse-upload-metadata.png)
+	![Screenshot shows a dialog box where you can select and upload a file.](common/browse-upload-metadata.png)
 
 	c. Once the metadata file is successfully uploaded, the necessary urls get auto populated automatically.
 
@@ -229,7 +223,7 @@ See the Rackspace [Attribute Mapping Basics documentation](https://developer.rac
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Rackspace SSO tile in the Access Panel, you should be automatically signed in to the Rackspace SSO for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Rackspace SSO tile in the Access Panel, you should be automatically signed in to the Rackspace SSO for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 You can also use the **Validate** button in the **Rackspace SSO** Single sign-on settings:
 
@@ -237,9 +231,8 @@ You can also use the **Validate** button in the **Rackspace SSO** Single sign-on
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

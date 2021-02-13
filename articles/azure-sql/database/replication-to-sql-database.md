@@ -18,7 +18,7 @@ ms.date: 04/28/2020
 You can configure an Azure SQL Database as the push subscriber in a one-way transactional or snapshot replication topology.
 
 > [!NOTE]
-> This article describes the use of [transactional replication](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL Database. It is unrelated to [active geo-replication](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication), an Azure SQL Database feature that allows you to create complete readable replicas of individual databases.
+> This article describes the use of [transactional replication](/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL Database. It is unrelated to [active geo-replication](./active-geo-replication-overview.md), an Azure SQL Database feature that allows you to create complete readable replicas of individual databases.
 
 ## Supported configurations
   
@@ -44,16 +44,16 @@ To use all the features of Azure SQL Database, you must be using the latest vers
 
 ### Types of replication
 
-There are different [types of replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
+There are different [types of replication](/sql/relational-databases/replication/types-of-replication):
 
 | Replication | Azure SQL Database | Azure SQL Managed Instance |
 | :----| :------------- | :--------------- |
-| [**Standard Transactional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Yes (only as subscriber) | Yes | 
-| [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Yes (only as subscriber) | Yes|
-| [**Merge replication**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | No | No|
-| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
-| [**Bidirectional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
-| [**Updatable subscriptions**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
+| [**Standard Transactional**](/sql/relational-databases/replication/transactional/transactional-replication) | Yes (only as subscriber) | Yes | 
+| [**Snapshot**](/sql/relational-databases/replication/snapshot-replication) | Yes (only as subscriber) | Yes|
+| [**Merge replication**](/sql/relational-databases/replication/merge/merge-replication) | No | No|
+| [**Peer-to-peer**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
+| [**Bidirectional**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
+| [**Updatable subscriptions**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
 | &nbsp; | &nbsp; | &nbsp; |
 
   
@@ -72,7 +72,7 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 
 ## Replication Architecture  
 
-![replication-to-sql-database](./media/replication-to-sql-database/replication-to-sql-database.png)  
+![Diagram shows the replication architecture with Azure SQL Database, which contains several subscriber clusters in different regions, and on-premises Azure virtual machines, which contains a Publisher, Logread executable, and distributor executables that connect to remote clusters.](./media/replication-to-sql-database/replication-to-sql-database.png)  
 
 ## Scenarios  
 
@@ -120,14 +120,14 @@ The following options are not supported for Azure SQL Database subscriptions:
 
 Create a publication and a push subscription. For more information, see:
   
-- [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) by using the server name as the subscriber (for example **N'azuresqldbdns.database.windows.net'**) and the Azure SQL Database name as the destination database (for example **AdventureWorks**).  
+- [Create a Publication](/sql/relational-databases/replication/publish/create-a-publication)
+- [Create a Push Subscription](/sql/relational-databases/replication/create-a-push-subscription/) by using the server name as the subscriber (for example **N'azuresqldbdns.database.windows.net'**) and the Azure SQL Database name as the destination database (for example **AdventureWorks**).  
 
 ## See Also  
 
 - [Transactional replication](../managed-instance/replication-transactional-overview.md)
-- [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Types of Replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Monitoring (Replication)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Initialize a Subscription](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Create a Publication](/sql/relational-databases/replication/publish/create-a-publication)
+- [Create a Push Subscription](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Types of Replication](/sql/relational-databases/replication/types-of-replication)
+- [Monitoring (Replication)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Initialize a Subscription](/sql/relational-databases/replication/initialize-a-subscription)

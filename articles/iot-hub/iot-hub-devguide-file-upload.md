@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.custom: mqtt
+ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Upload files with IoT Hub
@@ -20,6 +20,8 @@ Instead of brokering messages through IoT Hub itself, IoT Hub instead acts as a 
 Before you upload a file to IoT Hub from a device, you must configure your hub by [associating an Azure Storage](iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub) account to it.
 
 Your device can then [initialize an upload](iot-hub-devguide-file-upload.md#initialize-a-file-upload) and then [notify IoT hub](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) when the upload completes. Optionally, when a device notifies IoT Hub that the upload is complete, the service can generate a [notification message](iot-hub-devguide-file-upload.md#file-upload-notifications).
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ### When to use
 

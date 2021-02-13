@@ -1,8 +1,10 @@
 ---
 title: Lifecycle of knowledge base - QnA Maker
 description: QnA Maker learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 09/01/2020
 ---
 
 # Knowledge base lifecycle in QnA Maker
@@ -11,11 +13,18 @@ QnA Maker learns best in an iterative cycle of model changes, utterance examples
 ![Authoring cycle](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
 
 ## Creating a QnA Maker knowledge base
-QnA Maker knowledge base (KB) endpoint provides a best-match answer to a user query based on the content of the KB. Creating a knowledge base is a one-time action to setting up a content repository of questions, answers, and associated metadata. A knowledge base can be created by crawling pre-existing content such as FAQ pages, product manuals or structured Q-A pairs. Learn how to [create a knowledge base](../quickstarts/create-publish-knowledge-base.md).
+QnA Maker knowledge base (KB) endpoint provides a best-match answer to a user query based on the content of the KB. Creating a knowledge base is a one-time action to setting up a content repository of questions, answers, and associated metadata. A KB can be created by crawling pre-existing content such the following sources:
+
+- FAQ pages
+- Product manuals
+- Q-A pairs
+
+Learn how to [create a knowledge base](../quickstarts/create-publish-knowledge-base.md).
 
 ## Testing and updating the knowledge base
 
-The knowledge base is ready for testing once it is populated with content, either editorially or through automatic extraction. Interactive testing can be done in the QnA Maker portal through the **Test** panel by entering common user queries and verifying that the responses returned with the correct response and sufficient confidence score.
+The knowledge base is ready for testing once it is populated with content, either editorially or through automatic extraction. Interactive testing can be done in the QnA Maker portal, through the **Test** panel. You enter common user queries. Then you verify that the responses returned with both the correct response and a sufficient confidence score.
+
 
 * **To fix low confidence scores**: add alternate questions.
 * **When a query incorrectly returns the [default response](../How-to/change-default-answer.md)**: add new answers to the correct question.
@@ -36,7 +45,7 @@ For large KBs, use automated testing with the [generateAnswer API](../how-to/met
 ## Publish the knowledge base
 Once you are done testing the knowledge base, you can publish it. Publish pushes the latest version of the tested knowledge base  to a dedicated Azure Cognitive Search index representing the **published** knowledge base. It also creates an endpoint that can be called in your application or chat bot.
 
-This way, any changes being made to the test version of the knowledge base do not affect the published version that might be live in a production application.
+Due to the publish action, any further changes made to the test version of the knowledge base leave the published version unaffected. The published version might be live in a production application.
 
 Each of these knowledge bases can be targeted for testing separately. Using the APIs, you can target the test version of the knowledge base with `isTest` body property in the generateAnswer call.
 
@@ -64,11 +73,11 @@ A knowledge base has two states: *test* and *published*.
 
 ### Test knowledge base
 
-The *test knowledge base* is the version currently edited, saved, and tested for accuracy and completeness of responses. Changes made to the test knowledge base don't affect the end user of your application or chat bot. The test knowledge base is known as `test` in the HTTP request. The `test` knowledge is available with the QnA Maker's portal interactive **Test** pane.
+The *test knowledge base* is the version currently edited and saved. The test version has been tested for accuracy, and for completeness of responses. Changes made to the test knowledge base don't affect the end user of your application or chat bot. The test knowledge base is known as `test` in the HTTP request. The `test` knowledge is available with the QnA Maker's portal interactive **Test** pane.
 
 ### Production knowledge base
 
-The *published knowledge base* is the version that's used in your chat bot or application. The action of publishing a knowledge base puts the content of the test knowledge base in the published version of the knowledge base. Because the published knowledge base is the version that the application uses through the endpoint, make sure that the content is correct and well tested. The published knowledge base is known as `prod` in the HTTP request.
+The *published knowledge base* is the version that's used in your chat bot or application. Publishing a knowledge base puts the content of its test version into its published version. The published knowledge base is the version that the application uses through the endpoint. Make sure that the content is correct and well tested. The published knowledge base is known as `prod` in the HTTP request.
 
 
 ## Next steps

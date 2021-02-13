@@ -20,7 +20,7 @@ After the **Peering** resource is deployed successfully, you can view it by foll
 1. Select the **Peering** resource you created.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering resource view](../media/setup-direct-get-open.png)
+    > ![Screenshot that shows the Peering resource yuo created.](../media/setup-direct-get-open.png)
 
 1. The **Overview** page shows high-level information, as shown here.
 
@@ -42,4 +42,4 @@ After the **Peering** resource is deployed successfully, you can view it by foll
     * When you select a row at the top of the screen, the **Connection** section on the bottom shows details for each connection. Select the arrows to expand **Configuration**, **IPv4 address**, and **IPv6 address**.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering resource view](../media/setup-exchange-get-connectionsipv4.png)
+    > ![Screenshot that highlights an arrow that expands a section.](../media/setup-exchange-get-connectionsipv4.png)

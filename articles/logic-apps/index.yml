@@ -33,6 +33,8 @@ landingContent:
             url: concepts-schedule-automated-recurring-tasks-workflows.md
           - text: B2B enterprise integration
             url: logic-apps-enterprise-integration-overview.md
+          - text: Resource health for logic apps
+            url: healthy-unhealthy-resource.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Logic Apps
@@ -143,6 +145,8 @@ landingContent:
             url: logic-apps-create-azure-resource-manager-templates.md
           - text: Deploy logic app templates
             url: logic-apps-deploy-azure-resource-manager-templates.md
+          - text: Call logic apps from Power Automate and Power Apps
+            url: call-from-power-automate-power-apps.md
       - linkListType: learn
         links:
           - text: Create and deploy with Resource Manager templates

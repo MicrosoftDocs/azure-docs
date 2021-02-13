@@ -1,12 +1,9 @@
 ---
 title: C#, Apache Hive & Apache Pig on Apache Hadoop - Azure HDInsight
 description: Learn how to use C# user-defined functions (UDF) with Apache Hive and Apache Pig streaming in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.date: 12/06/2019
 ---
 
@@ -25,7 +22,7 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
     Use whatever IDE you want. We recommend [Visual Studio](https://www.visualstudio.com/vs) or [Visual Studio Code](https://code.visualstudio.com/). The steps in this document use Visual Studio 2019.
 
-* A way to upload .exe files to the cluster and run Pig and Hive jobs. We recommend [Data Lake Tools for Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md), [Azure PowerShell](/powershell/azure), and [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). The steps in this document use the Data Lake Tools for Visual Studio to upload the files and run the example Hive query.
+* A way to upload .exe files to the cluster and run Pig and Hive jobs. We recommend [Data Lake Tools for Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md), [Azure PowerShell](/powershell/azure), and [Azure CLI](/cli/azure/install-azure-cli). The steps in this document use the Data Lake Tools for Visual Studio to upload the files and run the example Hive query.
 
     For information on other ways to run Hive queries, see [What is Apache Hive and HiveQL on Azure HDInsight?](hdinsight-use-hive.md).
 

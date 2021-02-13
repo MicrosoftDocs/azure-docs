@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Kubernetes Service (AKS) with Azure Co
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 01/08/2021
 
 ---
 
@@ -13,6 +13,9 @@ ms.date: 02/25/2020
 When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), an authentication mechanism needs to be established. This operation is implemented as part of the CLI and Portal experience by granting the required permissions to your ACR. This article provides examples for configuring authentication between these two Azure services. 
 
 You can set up the AKS to ACR integration in a few simple commands with the Azure CLI. This integration assigns the AcrPull role to the service principal associated to the AKS Cluster.
+
+> [!NOTE]
+> This article covers automatic authentication between AKS and ACR. If you need to pull an image from a private external registry, use an [image pull secret][Image Pull Secret].
 
 ## Before you begin
 
@@ -56,7 +59,7 @@ This step may take several minutes to complete.
 Integrate an existing ACR with existing AKS clusters by supplying valid values for **acr-name** or **acr-resource-id** as below.
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>
 ```
 
 or,
@@ -68,7 +71,7 @@ az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 You can also remove the integration between an ACR and an AKS cluster with the following
 
 ```azurecli
-az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
+az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-name>
 ```
 
 or
@@ -85,7 +88,7 @@ Import an image from docker hub into your ACR by running the following:
 
 
 ```azurecli
-az acr import  -n <myContainerRegistry> --source docker.io/library/nginx:latest --image nginx:v1
+az acr import  -n <acr-name> --source docker.io/library/nginx:latest --image nginx:v1
 ```
 
 ### Deploy the sample image from ACR to AKS
@@ -96,7 +99,7 @@ Ensure you have the proper AKS credentials
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
-Create a file called **acr-nginx.yaml** that contains the following:
+Create a file called **acr-nginx.yaml** that contains the following. Substitute the resource name of your registry for **acr-name**. Example: *myContainerRegistry*.
 
 ```yaml
 apiVersion: apps/v1
@@ -117,7 +120,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: <replace this image property with you acr login server, image and tag>
+        image: <acr-name>.azurecr.io/nginx:v1
         ports:
         - containerPort: 80
 ```
@@ -143,8 +146,10 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 ```
 
 ### Troubleshooting
+* Run the [az aks check-acr](/cli/azure/aks#az_aks_check_acr) command to validate that the registry is accessible from the AKS cluster.
 * Learn more about [ACR Diagnostics](../container-registry/container-registry-diagnostics-audit-logs.md)
 * Learn more about [ACR Health](../container-registry/container-registry-check-health.md)
 
 <!-- LINKS - external -->
 [AKS AKS CLI]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[Image Pull secret]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/

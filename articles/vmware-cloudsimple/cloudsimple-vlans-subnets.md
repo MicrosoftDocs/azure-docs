@@ -1,6 +1,6 @@
 ---
 title: VLANs and subnets in Azure VMware Solution by CloudSimple
-description: Learn about VLANs and subnets in CloudSimple Private Cloud 
+description: Learn about VLANs and subnets in CloudSimple Private Cloud and about the network that CloudSimple provides where your CloudSimple service is deployed.
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 08/15/2019 

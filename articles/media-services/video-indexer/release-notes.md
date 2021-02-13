@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 02/01/2021
 ms.author: juliako
 ---
 
@@ -25,6 +25,80 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## January 2021
+
+### Video Indexer is deployed on US Government cloud 
+
+You can now create a Video Indexer paid account on US government cloud in Virginia and Arizona regions. 
+Video Indexer free trial offering isn't available in the mentioned region. For more information go to Video Indexer Documentation. 
+
+### Video Indexer deployed in the India Central region 
+
+You can now create a Video Indexer paid account in the India Central region. 
+
+### New Dark Mode for the Video Indexer website experience
+
+The Video Indexer website experiences is now available in dark mode. 
+To enable the dark mode open the settings panel and toggle on the **Dark Mode** option. 
+
+:::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Dark mode setting":::
+
+## December 2020
+
+### Video Indexer deployed in the Switzerland West and Switzerland North
+
+You can now create a Video Indexer paid account in the Switzerland West and Switzerland North regions.
+
+## October 2020
+
+### Animated character identification improvements  
+
+Video Indexer supports detection, grouping, and recognition of characters in animated content via integration with Cognitive Services custom vision. We added a major improvement to this AI algorithm in the detection and characters recognition, as a result insight accuracy and identified characters are significantly improved.
+
+### Planned Video Indexer website authenticatication changes
+
+Starting March 1st 2021, you no longer will be able to sign up and sign in to the [Video Indexer website](https://www.videoindexer.ai/) [developer portal](video-indexer-use-apis.md) using Facebook or LinkedIn.
+
+You will be able to sign up and sign in using one of these providers: Azure AD, Microsoft, and Google.
+
+> [!NOTE]
+> The Video Indexer accounts connected to LinkedIn and Facebook will not be accessible after March 1st 2021. 
+> 
+> You should [invite](invite-users.md) an Azure AD, Microsoft, or Google email you own to the Video Indexer account so you will still have access.<br/>
+> Alternatively, you can create a paid account and migrate the data.
+
+## August 2020
+
+### Mobile design for the Video Indexer website
+
+The Video Indexer website experience is now supporting mobile devices. The user experience is responsive to adapt to your mobile screen size (excluding customization UIs). 
+
+### Accessibility improvements and bug fixes 
+
+As part of WCAG (Web Content Accessibility guidelines), the Video Indexer website experiences is aligned with grade C, as part of Microsoft Accessibility standards. Several bugs and improvements related to keyboard navigation, programmatic access, and screen reader were solved. 
+
+## July 2020
+
+### GA for multi-language identification
+
+Multi-language identification is moved from preview to GA and ready for productive use.
+
+There is no pricing impact related to the "Preview to GA" transition.
+
+### Video Indexer website improvements
+
+#### Adjustments in the video gallery
+
+New search bar for deep insights search with additional filtering capabilities was added. Search results were also enhanced.
+
+New list view with ability to sort and manage video archive with multiple files.
+
+#### New panel for easy selection and configuration
+
+Side panel for easy selection and user configuration was added, allowing simple and quick account creation and sharing as well as setting configuration.
+
+Side panel is also used for user preferences and help.
 
 ## June 2020
 

@@ -3,17 +3,18 @@ title: Telemetry channels in Azure Application Insights | Microsoft Docs
 description: How to customize telemetry channels in Azure Application Insights SDKs for .NET and .NET Core.
 ms.topic: conceptual
 ms.date: 05/14/2019
+ms.custom: devx-track-csharp
 
 ms.reviewer: mbullwin
 ---
 
 # Telemetry channels in Application Insights
 
-Telemetry channels are an integral part of the [Azure Application Insights SDKs](../../azure-monitor/app/app-insights-overview.md). They manage buffering and transmission of telemetry to the Application Insights service. The .NET and .NET Core versions of the SDKs have two built-in telemetry channels: `InMemoryChannel` and `ServerTelemetryChannel`. This article describes each channel in detail, including how to customize channel behavior.
+Telemetry channels are an integral part of the [Azure Application Insights SDKs](./app-insights-overview.md). They manage buffering and transmission of telemetry to the Application Insights service. The .NET and .NET Core versions of the SDKs have two built-in telemetry channels: `InMemoryChannel` and `ServerTelemetryChannel`. This article describes each channel in detail, including how to customize channel behavior.
 
 ## What are telemetry channels?
 
-Telemetry channels are responsible for buffering telemetry items and sending them to the Application Insights service, where they're stored for querying and analysis. A telemetry channel is any class that implements the [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) interface.
+Telemetry channels are responsible for buffering telemetry items and sending them to the Application Insights service, where they're stored for querying and analysis. A telemetry channel is any class that implements the [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel) interface.
 
 The `Send(ITelemetry item)` method of a telemetry channel is called after all telemetry initializers and telemetry processors are called. So, any items dropped by a telemetry processor won't reach the channel. `Send()` doesn't typically send the items to the back end instantly. Typically, it buffers them in memory and sends them in batches, for efficient transmission.
 
@@ -35,7 +36,7 @@ The Application Insights .NET and .NET Core SDKs ship with two built-in channels
 
 You configure a telemetry channel by setting it to the active telemetry configuration. For ASP.NET applications, configuration involves setting the telemetry channel instance to `TelemetryConfiguration.Active`, or by modifying `ApplicationInsights.config`. For ASP.NET Core applications, configuration involves adding the channel to the Dependency Injection Container.
 
-The following sections show examples of configuring the `StorageFolder` setting for the channel in various application types. `StorageFolder` is just one of the configurable settings. For the full list of configuration settings, see [the settings section](telemetry-channels.md#configurable-settings-in-channels) later in this article.
+The following sections show examples of configuring the `StorageFolder` setting for the channel in various application types. `StorageFolder` is just one of the configurable settings. For the full list of configuration settings, see [the settings section](#configurable-settings-in-channels) later in this article.
 
 ### Configuration by using ApplicationInsights.config for ASP.NET applications
 
@@ -148,13 +149,25 @@ The short answer is that none of the built-in channels offer a transaction-type 
 
 Although the name of its package and namespace includes "WindowsServer," this channel is supported on systems other than Windows, with the following exception. On systems other than Windows, the channel doesn't create a local storage folder by default. You must create a local storage folder and configure the channel to use it. After local storage has been configured, the channel works the same way on all systems.
 
+> [!NOTE]
+> With the release 2.15.0-beta3 and greater local storage is now automatically created for Linux, Mac, and Windows. For non Windows systems the SDK will automatically create a local storage folder based on the following logic:
+> - `${TMPDIR}` - if `${TMPDIR}` environment variable is set this location is used.
+> - `/var/tmp` - if the previous location does not exist we try `/var/tmp`.
+> - `/tmp` - if both the previous locations do not exist we try `tmp`. 
+> - If none of those locations exist local storage is not created and manual configuration is still required. [For full implementation details](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860).
+
 ### Does the SDK create temporary local storage? Is the data encrypted at storage?
 
 The SDK stores telemetry items in local storage during network problems or during throttling. This data isn't encrypted locally.
 
 For Windows systems, the SDK automatically creates a temporary local folder in the %TEMP% or %LOCALAPPDATA% directory, and restricts access to administrators and the current user only.
 
-For systems other than Windows, no local storage is created automatically by the SDK, and so no data is stored locally by default. You can create a storage directory yourself and configure the channel to use it. In this case, you're responsible for ensuring that the directory is secured.
+For systems other than Windows, no local storage is created automatically by the SDK, and so no data is stored locally by default.
+
+> [!NOTE]
+> With the release 2.15.0-beta3 and greater local storage is now automatically created for Linux, Mac, and Windows. 
+
+ You can create a storage directory yourself and configure the channel to use it. In this case, you're responsible for ensuring that the directory is secured.
 Read more about [data protection and privacy](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
 
 ## Open-source SDK
@@ -162,5 +175,6 @@ Like every SDK for Application Insights, channels are open source. Read and cont
 
 ## Next steps
 
-* [Sampling](../../azure-monitor/app/sampling.md)
-* [SDK Troubleshooting](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
+* [Sampling](./sampling.md)
+* [SDK Troubleshooting](./asp-net-troubleshoot-no-data.md)
+

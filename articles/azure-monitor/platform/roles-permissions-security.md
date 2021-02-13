@@ -13,7 +13,7 @@ ms.subservice: ""
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Many teams need to strictly regulate access to monitoring data and settings. For example, if you have team members who work exclusively on monitoring (support engineers, DevOps engineers) or if you use a managed service provider, you may want to grant them access to only monitoring data while restricting their ability to create, modify, or delete resources. This article shows how to quickly apply a built-in monitoring RBAC role to a user in Azure or build your own custom role for a user who needs limited monitoring permissions. It then discusses security considerations for your Azure Monitor-related resources and how you can limit access to the data they contain.
+Many teams need to strictly regulate access to monitoring data and settings. For example, if you have team members who work exclusively on monitoring (support engineers, DevOps engineers) or if you use a managed service provider, you may want to grant them access to only monitoring data while restricting their ability to create, modify, or delete resources. This article shows how to quickly apply a built-in monitoring Azure role to a user in Azure or build your own custom role for a user who needs limited monitoring permissions. It then discusses security considerations for your Azure Monitor-related resources and how you can limit access to the data they contain.
 
 ## Built-in monitoring roles
 Azure Monitor’s built-in roles are designed to help limit access to resources in a subscription while still enabling those responsible for monitoring infrastructure to obtain and configure the data they need. Azure Monitor provides two out-of-the-box roles: A Monitoring Reader and a Monitoring Contributor.
@@ -62,8 +62,8 @@ People assigned the Monitoring Contributor role can view all monitoring data in 
 > 
 > 
 
-## Monitoring permissions and custom RBAC roles
-If the above built-in roles don’t meet the exact needs of your team, you can [create a custom RBAC role](../../role-based-access-control/custom-roles.md) with more granular permissions. Below are the common Azure Monitor RBAC operations with their descriptions.
+## Monitoring permissions and Azure custom roles
+If the above built-in roles don’t meet the exact needs of your team, you can [create an Azure custom role](../../role-based-access-control/custom-roles.md) with more granular permissions. Below are the common Azure RBAC operations for Azure Monitor with their descriptions.
 
 | Operation | Description |
 | --- | --- |
@@ -92,7 +92,7 @@ If the above built-in roles don’t meet the exact needs of your team, you can [
 > 
 > 
 
-For example, using the above table you could create a custom RBAC role for an “Activity Log Reader” like this:
+For example, using the above table you could create an Azure custom role for an “Activity Log Reader” like this:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -130,7 +130,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 You can then give the token to the entity that needs to read from that storage account, and it can list and read from all blobs in that storage account.
 
-Alternatively, if you need to control this permission with RBAC, you can grant that entity the Microsoft.Storage/storageAccounts/listkeys/action permission on that particular storage account. This is necessary for users who need to be able to set a diagnostic setting or log profile to archive to a storage account. For example, you could create the following custom RBAC role for a user or application that only needs to read from one storage account:
+Alternatively, if you need to control this permission with Azure RBAC, you can grant that entity the Microsoft.Storage/storageAccounts/listkeys/action permission on that particular storage account. This is necessary for users who need to be able to set a diagnostic setting or log profile to archive to a storage account. For example, you could create the following Azure custom role for a user or application that only needs to read from one storage account:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -154,7 +154,7 @@ New-AzRoleDefinition -Role $role
 A similar pattern can be followed with event hubs, but first you need to create a dedicated Listen authorization rule. If you want to grant,  access to an application that only needs to listen to monitoring-related event hubs, do the following:
 
 1. Create a shared access policy on the event hub(s) that were created for streaming monitoring data with only Listen claims. This can be done in the portal. For example, you might call it “monitoringReadOnly.” If possible, you will want to give that key directly to the consumer and skip the next step.
-2. If the consumer needs to be able to get the key ad hoc, grant the user the ListKeys action for that event hub. This is also necessary for users who need to be able to set a diagnostic setting or log profile to stream to event hubs. For example, you might create an RBAC rule:
+2. If the consumer needs to be able to get the key ad hoc, grant the user the ListKeys action for that event hub. This is also necessary for users who need to be able to set a diagnostic setting or log profile to stream to event hubs. For example, you might create an Azure RBAC rule:
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"
@@ -183,5 +183,6 @@ Azure Monitor is considered one of these "trusted Microsoft services" If you all
 For more information, see [Network security and Azure Storage](../../storage/common/storage-network-security.md)
 
 ## Next steps
-* [Read about RBAC and permissions in Resource Manager](../../role-based-access-control/overview.md)
-* [Read the overview of monitoring in Azure](../../azure-monitor/overview.md)
+* [Read about Azure RBAC and permissions in Resource Manager](../../role-based-access-control/overview.md)
+* [Read the overview of monitoring in Azure](../overview.md)
+

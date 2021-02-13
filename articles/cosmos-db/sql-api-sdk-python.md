@@ -1,16 +1,17 @@
 ---
 title: Azure Cosmos DB SQL Python API, SDK & resources
 description: Learn all about the SQL Python API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Python SDK.
-author: anfeldma-ms
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 05/20/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 # Azure Cosmos DB Python SDK for SQL API: Release notes and resources
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
@@ -21,22 +22,39 @@ ms.custom: tracking-python
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Bulk executor - .NET  v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**Download SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**API documentation**|[Python API reference documentation](/python/api/azure-cosmos/?preserve-view=true&view=azure-python)|
 |**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Get started**|[Get started with the Python SDK](create-sql-api-python.md)|
 |**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.5.3+](https://www.python.org/downloads/)|
 
 ## Release history
+
+### 4.1.0 (2020-08-10)
+
+- Added deprecation warning for "lazy" indexing mode. The backend no longer allows creating containers with this mode and will set them to consistent instead.
+
+**New features**
+- Added the ability to set the analytical storage TTL when creating a new container.
+
+**Bug fixes**
+- Fixed support for dicts as inputs for get_client APIs.
+- Fixed Python 2/3 compatibility in query iterators.
+- Fixed type hint error (Issue #12570).
+- Fixed bug where options headers were not added to upsert_item function. Issue #11791 - thank you @aalapatirvbd.
+- Fixed error raised when a non string ID is used in an item. It now raises TypeError rather than AttributeError (Issue #11793).
 
 ### 4.0.0
 
@@ -103,7 +121,7 @@ ms.custom: tracking-python
 
 * The constructor of `CosmosClient` has been updated:
 
-  * The `auth` parameter has been renamed to `credential` and will now take an authentication type directly. This means the master key value, a dictionary of resource tokens, or a list of permissions can be passed in. However the old dictionary format is still supported.
+  * The `auth` parameter has been renamed to `credential` and will now take an authentication type directly. This means the primary key value, a dictionary of resource tokens, or a list of permissions can be passed in. However the old dictionary format is still supported.
 
   * The `connection_policy` parameter has been made a keyword only parameter, and while it is still supported, each of the individual attributes of the policy can now be passed in as explicit keyword arguments:
 
@@ -298,37 +316,35 @@ Version 4.0.0b1 is the first preview of our efforts to create a user-friendly cl
 
 Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible.
 
-Any request to Azure Cosmos DB using a retired SDK are rejected by the service.
-
 > [!WARNING]
-> All versions of the Python SDK for SQL API prior to version **1.0.0** were retired on **February 29, 2016**. And, all versions 1.x and 2.x of the Python SDK for SQL API will be retired on **August 30, 2020**.
+> After 31 August 2022, Azure Cosmos DB will no longer make bug fixes or provide support to versions 1.x and 2.x of the Azure Cosmos DB Python SDK for SQL API. If you prefer not to upgrade, requests sent from version 1.x and 2.x of the SDK will continue to be served by the Azure Cosmos DB service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
 | [4.0.0](#400) |May 20, 2020 |--- |
 | [3.0.2](#302) |Nov 15, 2018 |--- |
 | [3.0.1](#301) |Oct 04, 2018 |--- |
-| [2.3.3](#233) |Sept 08, 2018 |August 30, 2020 |
-| [2.3.2](#232) |May 08, 2018 |August 30, 2020 |
-| [2.3.1](#231) |December 21, 2017 |August 30, 2020 |
-| [2.3.0](#230) |November 10, 2017 |August 30, 2020 |
-| [2.2.1](#221) |Sep 29, 2017 |August 30, 2020 |
-| [2.2.0](#220) |May 10, 2017 |August 30, 2020 |
-| [2.1.0](#210) |May 01, 2017 |August 30, 2020 |
-| [2.0.1](#201) |October 30, 2016 |August 30, 2020 |
-| [2.0.0](#200) |September 29, 2016 |August 30, 2020 |
-| [1.9.0](#190) |July 07, 2016 |August 30, 2020 |
-| [1.8.0](#180) |June 14, 2016 |August 30, 2020 |
-| [1.7.0](#170) |April 26, 2016 |August 30, 2020 |
-| [1.6.1](#161) |April 08, 2016 |August 30, 2020 |
-| [1.6.0](#160) |March 29, 2016 |August 30, 2020 |
-| [1.5.0](#150) |January 03, 2016 |August 30, 2020 |
-| [1.4.2](#142) |October 06, 2015 |August 30, 2020 |
-| 1.4.1 |October 06, 2015 |August 30, 2020 |
-| [1.2.0](#120) |August 06, 2015 |August 30, 2020 |
-| [1.1.0](#110) |July 09, 2015 |August 30, 2020 |
-| [1.0.1](#101) |May 25, 2015 |August 30, 2020 |
-| 1.0.0 |April 07, 2015 |August 30, 2020 |
+| [2.3.3](#233) |Sept 08, 2018 |August 31, 2022 |
+| [2.3.2](#232) |May 08, 2018 |August 31, 2022 |
+| [2.3.1](#231) |December 21, 2017 |August 31, 2022 |
+| [2.3.0](#230) |November 10, 2017 |August 31, 2022 |
+| [2.2.1](#221) |Sep 29, 2017 |August 31, 2022 |
+| [2.2.0](#220) |May 10, 2017 |August 31, 2022 |
+| [2.1.0](#210) |May 01, 2017 |August 31, 2022 |
+| [2.0.1](#201) |October 30, 2016 |August 31, 2022 |
+| [2.0.0](#200) |September 29, 2016 |August 31, 2022 |
+| [1.9.0](#190) |July 07, 2016 |August 31, 2022 |
+| [1.8.0](#180) |June 14, 2016 |August 31, 2022 |
+| [1.7.0](#170) |April 26, 2016 |August 31, 2022 |
+| [1.6.1](#161) |April 08, 2016 |August 31, 2022 |
+| [1.6.0](#160) |March 29, 2016 |August 31, 2022 |
+| [1.5.0](#150) |January 03, 2016 |August 31, 2022 |
+| [1.4.2](#142) |October 06, 2015 |August 31, 2022 |
+| 1.4.1 |October 06, 2015 |August 31, 2022 |
+| [1.2.0](#120) |August 06, 2015 |August 31, 2022 |
+| [1.1.0](#110) |July 09, 2015 |August 31, 2022 |
+| [1.0.1](#101) |May 25, 2015 |August 31, 2022 |
+| 1.0.0 |April 07, 2015 |August 31, 2022 |
 | 0.9.4-prelease |January 14, 2015 |February 29, 2016 |
 | 0.9.3-prelease |December 09, 2014 |February 29, 2016 |
 | 0.9.2-prelease |November 25, 2014 |February 29, 2016 |
@@ -341,4 +357,4 @@ Any request to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 ## Next steps
 
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page. 
+To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

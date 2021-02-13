@@ -9,18 +9,15 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
-
+ms.date: 12/21/2020
+ms.custom: automl
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
 
 # Tutorial: Create a classification model with automated ML in Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In this tutorial, you learn how to create a basic classification model without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
->[!IMPORTANT]
-> The automated machine learning experience in the Azure Machine learning studio is in preview. Certain features may not be supported or have limited capabilities.
+In this tutorial, you learn how to create a simple classification model without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
@@ -44,9 +41,9 @@ In this tutorial, you learn how to do the following tasks:
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service. 
 
-Create an **Enterprise edition** workspace via the Azure portal, a web-based console for managing your Azure resources.
+There are many [ways to create a workspace](how-to-manage-workspace.md). In this tutorial, you create a workspace via the Azure portal, a web-based console for managing your Azure resources.
 
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
@@ -101,42 +98,52 @@ Before you configure your experiment, upload your data file to your workspace in
         Column headers| Indicates how the headers of the dataset, if any, will be treated.| All files have same headers
         Skip rows | Indicates how many, if any, rows are skipped in the dataset.| None
 
-    1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. Select **Next**.
-
-        ![Preview tab configuration](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
-
+    1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week**, so as to not include it. Select **Next**.
+         ![Schema form](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
     1. On the **Confirm details** form, verify the information matches what was previously  populated on the **Basic info, Datastore and file selection** and **Settings and preview** forms.
     
     1. Select **Create** to complete the creation of your dataset.
     
     1. Select your dataset once it appears in the list.
     
-    1. Review the **Data preview**  to ensure you didn't include **day_of_week** then, select **OK**.
+    1. Review the **Data preview**  to ensure you didn't include **day_of_week** then, select **Close**.
 
     1. Select  **Next**.
 
-## Configure experiment run
+## Configure run
 
 After you load and configure your data, you can set up your experiment. This setup includes experiment design tasks such as, selecting the size of your compute environment and specifying what column you want to predict. 
+
+1. Select the **Create new** radio button.
 
 1. Populate the **Configure Run** form as follows:
     1. Enter this experiment name: `my-1st-automl-experiment`
 
     1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
     
-    1. Select **Create a new compute** and configure your compute target. A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment, we use a cloud-based compute. 
+    1. Select **+Create a new compute** and configure your compute target. A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment, we use a cloud-based compute. 
+        1. Populate the **Virtual Machine** form to set up your compute.
 
-        Field | Description | Value for tutorial
-        ----|---|---
-        Compute name |A unique name that identifies your compute context.|automl-compute
-        Virtual&nbsp;machine&nbsp;type| Select the virtual machine type for your compute.|CPU (Central Processing Unit)
-        Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute.|Standard_DS12_V2
-        Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
-        Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
-        Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None
-        1. Select **Create** to get the compute target. 
+            Field | Description | Value for tutorial
+            ----|---|---
+            Virtual&nbsp;machine&nbsp;priority |Select what priority your experiment should have| Dedicated
+            Virtual&nbsp;machine&nbsp;type| Select the virtual machine type for your compute.|CPU (Central Processing Unit)
+            Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute. A list of recommended sizes is provided based on your data and experiment type. |Standard_DS12_V2
+        
+        1. Select **Next** to populate the **Configure settings form**.
+        
+            Field | Description | Value for tutorial
+            ----|---|---
+            Compute name |	A unique name that identifies your compute context. | automl-compute
+            Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
+            Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
+            Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None               
+
+        1. Select **Create** to create your compute target. 
 
             **This takes a couple minutes to complete.** 
+
+             ![Settings page](./media/tutorial-first-experiment-automated-ml/compute-settings.png)
 
         1. After creation, select your new compute target from the drop-down list.
 
@@ -158,14 +165,12 @@ After you load and configure your data, you can set up your experiment. This set
         Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 5
         
         Select **Save**.
-
-1. Select **Finish** to run the experiment. The **Run Detail**  screen opens with the **Run status** at the top as the experiment preparation begins.
+    
+1. Select **Finish** to run the experiment. The **Run Detail**  screen opens with the **Run status** at the top as the experiment preparation begins. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio, to inform you of the status of your experiment.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.
-> Once running, it takes **2-3 minutes more for each iteration**.  
-> Select **Refresh** periodically to see the status of the run as the experiment progresses.
->
+> Once running, it takes **2-3 minutes more for each iteration**.  <br> <br>
 > In production, you'd likely walk away for a bit. But for this tutorial, we suggest you start exploring the tested algorithms on the **Models** tab as they complete while the others are still running. 
 
 ##  Explore models
@@ -237,12 +242,12 @@ Delete just the deployment instance from Azure Machine Learning at https:\//ml.a
 In this automated machine learning tutorial, you used Azure Machine Learning's automated ML interface to create and deploy a classification model. See these articles for more information and next steps:
 
 > [!div class="nextstepaction"]
-> [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Consume a web service](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context)
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
-+ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
++ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.
 + Learn more about [featurization](how-to-configure-auto-features.md#featurization).
-+ Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile).
++ Learn more about [data profiling](how-to-connect-data-ui.md#profile).
 
 
 >[!NOTE]

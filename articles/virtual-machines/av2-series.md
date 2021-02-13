@@ -4,7 +4,7 @@ description: Specifications for the Av2-series VMs.
 author: migerdes
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
 ---
@@ -13,19 +13,17 @@ ms.author: jushiman
 
 The Av2-series VMs can be deployed on a variety of hardware types and processors. Av2-series VMs have CPU performance and memory configurations best suited for entry level workloads like development and test. The size is throttled to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine. Some example use cases include development and test servers, low traffic web servers, small to medium databases, proof-of-concepts, and code repositories.
 
-ACU: 100
+[ACU](acu.md): 100<br>
+[Premium Storage](premium-storage-performance.md): Not Supported <br>
+[Premium Storage caching](premium-storage-performance.md): Not Supported <br>
+[Live Migration](maintenance-and-updates.md): Supported <br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
+[VM Generation Support](generation-2.md): Generation 1 <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+<br>
 
-Premium Storage:  Not Supported
-
-Premium Storage caching:  Not Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
-
-Pricing Calculator and Region Availability Information : <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Pricing Calculator</a>
-
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks/throughput: IOPS | Max NICs | Expected network bandwidth (Mbps)
+| Size | vCore | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks/throughput: IOPS | Max NICs | Expected network bandwidth (Mbps)
 |---|---|---|---|---|---|---|---|
 | Standard_A1_v2  | 1 | 2  | 10 | 1000/20/10  | 2/2x500   | 2 | 250  |
 | Standard_A2_v2  | 2 | 4  | 20 | 2000/40/20  | 4/4x500   | 2 | 500  |
@@ -46,9 +44,9 @@ Pricing Calculator and Region Availability Information : <a href="https://azure.
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator and Region Availability Information : <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Pricing Calculator</a>
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/">Disk Types</a>
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
 
 ## Next steps
 

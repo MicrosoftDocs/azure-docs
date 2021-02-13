@@ -15,7 +15,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 # Create features for data in SQL Server using SQL and Python
 This document shows how to generate features for data stored in a SQL Server VM on Azure that help algorithms learn more efficiently from the data. You can use SQL or a programming language like Python to accomplish this task. Both approaches are demonstrated here.
 
-This task is a step in the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+This task is a step in the [Team Data Science Process (TDSP)](./index.yml).
 
 > [!NOTE]
 > For a practical example, you can consult the [NYC Taxi dataset](https://www.andresmh.com/nyctaxitrips/) and refer to the IPNB titled [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) for an end-to-end walk-through.
@@ -93,12 +93,12 @@ These location-based features can be further used to generate additional count f
 
 > [!TIP]
 > You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency. [Here is an example of how to do this using pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
-> Another alternative is to insert data in the database using [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx)
+> Another alternative is to insert data in the database using [BCP utility](/sql/tools/bcp-utility)
 > 
 > 
 
 ### <a name="sql-aml"></a>Connecting to Azure Machine Learning
-The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) module in Azure ML as shown below:
+The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Import Data](/azure/machine-learning/studio-module-reference/import-data) module in Azure ML as shown below:
 
 ![Azure ML readers](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
@@ -120,5 +120,4 @@ The [Pandas library](https://pandas.pydata.org/) in Python provides a rich set o
 data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 ```
 
-Now you can work with the Pandas data frame as covered in topics [Create features for Azure blob storage data using Panda](create-features-blob.md).
-
+Now you can work with the Pandas data frame as covered in topics [Create features for Azure blob storage data using Panda](./explore-data-blob.md).

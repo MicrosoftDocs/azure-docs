@@ -15,17 +15,17 @@ Automatic device management in Azure IoT Hub automates many repetitive and compl
 
 * **IoT hardware manufacturer/integrator:** Manufacturers of IoT hardware, integrators assembling hardware from various manufacturers, or suppliers providing hardware for an IoT deployment manufactured or integrated by other suppliers. Involved in development and integration of firmware, embedded operating systems, and embedded software.
 
-* **IoT solution developer:** The development of an IoT solution is typically done by a solution developer. This developer may be part of an in-house team or a system integrator specializing in this activity. The IoT solution developer can develop various components of the IoT solution from scratch, integrate various standard or open-source components, or customize an [IoT solution accelerator](/azure/iot-accelerators/).
+* **IoT solution developer:** The development of an IoT solution is typically done by a solution developer. This developer may be part of an in-house team or a system integrator specializing in this activity. The IoT solution developer can develop various components of the IoT solution from scratch, integrate various standard or open-source components, or customize an [IoT solution accelerator](../iot-accelerators/index.yml).
 
 * **IoT solution operator:** After the IoT solution is deployed, it requires long-term operations, monitoring, upgrades, and maintenance. These tasks can be done by an in-house team that consists of information technology specialists, hardware operations and maintenance teams, and domain specialists who monitor the correct behavior of the overall IoT infrastructure.
 
 ## Understand automatic device management for configuring IoT devices at scale
 
-Automatic device management includes the many benefits of [device twins](iot-hub-devguide-device-twins.md) and [module twins](iot-hub-devguide-module-twins.md) to synchronize desired and reported states between the cloud and devices. [Automatic device configurations](iot-hub-auto-device-config.md) automatically update large sets of twins and summarize progress and compliance. The following high-level steps describe how automatic device management is developed and used:
+Automatic device management includes the many benefits of [device twins](iot-hub-devguide-device-twins.md) and [module twins](iot-hub-devguide-module-twins.md) to synchronize desired and reported states between the cloud and devices. [Automatic device configurations](./iot-hub-automatic-device-management.md) automatically update large sets of twins and summarize progress and compliance. The following high-level steps describe how automatic device management is developed and used:
 
 * The **IoT hardware manufacturer/integrator** implements device management features within an embedded application using [device twins](iot-hub-devguide-device-twins.md). These features could include firmware updates, software installation and update, and settings management.
 
-* The **IoT solution developer** implements the management layer of device management operations using [device twins](iot-hub-devguide-device-twins.md) and [automatic device configurations](iot-hub-auto-device-config.md). The solution should include defining an operator interface to perform device management tasks.
+* The **IoT solution developer** implements the management layer of device management operations using [device twins](iot-hub-devguide-device-twins.md) and [automatic device configurations](./iot-hub-automatic-device-management.md). The solution should include defining an operator interface to perform device management tasks.
 
 * The **IoT solution operator** uses the IoT solution to perform device management tasks, particularly to group devices together, initiate configuration changes like firmware updates, monitor progress, and troubleshoot issues that arise.
 
@@ -59,7 +59,7 @@ The following are best practices for IoT solution developers who are building sy
 
 * **Organize devices using device twin tags:** The solution should allow the operator to define quality rings or other sets of devices based on various deployment strategies such as canary. Device organization can be implemented within your solution using device twin tags and [queries](iot-hub-devguide-query-language.md). Device organization is necessary to allow for configuration roll outs safely and accurately.
 
-* **Implement [automatic device configurations](iot-hub-auto-device-config.md):** Automatic device configurations deploy and monitor configuration changes to large sets of IoT devices via device twins.
+* **Implement [automatic device configurations](./iot-hub-automatic-device-management.md):** Automatic device configurations deploy and monitor configuration changes to large sets of IoT devices via device twins.
 
    Automatic device configurations target sets of device twins via the **target condition,** which is a query on device twin tags or reported properties. The **target content** is the set of desired properties that will be set within the targeted device twins. The target content should align with the device twin structure defined by the IoT hardware manufacturer/integrator. The **metrics** are queries on device twin reported properties and should also align with the device twin structure defined by the IoT hardware manufacturer/integrator.
 
@@ -73,7 +73,7 @@ The following are best practices for IoT solution operators who using an IoT sol
 
 * **Organize devices for management:** The IoT solution should define or allow for the creation of quality rings or other sets of devices based on various deployment strategies such as canary. The sets of devices will be used to roll out configuration changes and to perform other at-scale device management operations.
 
-* **Perform configuration changes using a phased roll out:**  A phased roll out is an overall process whereby an operator deploys changes to a broadening set of IoT devices. The goal is to make changes gradually to reduce the risk of making wide scale breaking changes.  The operator should use the solution's interface to create an [automatic device configuration](iot-hub-auto-device-config.md) and the targeting condition should target an initial set of devices (such as a canary group). The operator should then validate the configuration change in the initial set of devices.
+* **Perform configuration changes using a phased roll out:**  A phased roll out is an overall process whereby an operator deploys changes to a broadening set of IoT devices. The goal is to make changes gradually to reduce the risk of making wide scale breaking changes.  The operator should use the solution's interface to create an [automatic device configuration](./iot-hub-automatic-device-management.md) and the targeting condition should target an initial set of devices (such as a canary group). The operator should then validate the configuration change in the initial set of devices.
 
    Once validation is complete, the operator will update the automatic device configuration to include a larger set of devices. The operator should also set the priority for the configuration to be higher than other configurations currently targeted to those devices. The roll out can be monitored using the metrics reported by the automatic device configuration.
 
@@ -83,6 +83,6 @@ The following are best practices for IoT solution operators who using an IoT sol
 
 * Learn about implementing device twins in [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md).
 
-* Walk through the steps to create, update, or delete an automatic device configuration in [Configure and monitor IoT devices at scale](iot-hub-auto-device-config.md).
+* Walk through the steps to create, update, or delete an automatic device configuration in [Configure and monitor IoT devices at scale](./iot-hub-automatic-device-management.md).
 
 * Implement a firmware update pattern using device twins and automatic device configurations in [Tutorial: Implement a device firmware update process](tutorial-firmware-update.md).

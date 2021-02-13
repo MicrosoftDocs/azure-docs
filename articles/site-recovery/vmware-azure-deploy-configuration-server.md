@@ -61,7 +61,7 @@ You must have a user with one of the following permissions set in Azure Active D
 
 ## Import the template in VMware
 
-1. Sign in to the VMware vCenter server or vSphere ESXi host by using the VMWare vSphere Client.
+1. Sign in to the VMware vCenter server or vSphere ESXi host by using the VMware vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the **Deploy OVF Template** wizard.
 
      ![Deploy OVF Template](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
@@ -93,7 +93,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ## Register the configuration server with Azure Site Recovery services
 
-1. From the VMWare vSphere Client console, turn on the VM.
+1. From the VMware vSphere Client console, turn on the VM.
 2. The VM boots up into a Windows Server 2016 installation experience. Accept the license agreement, and enter an administrator password.
 3. After the installation finishes, sign in to the VM as the administrator.
 4. The first time you sign in, within a few seconds the Azure Site Recovery Configuration tool starts.
@@ -161,7 +161,7 @@ Refer to our [troubleshooting article](vmware-azure-troubleshoot-configuration-s
     To learn more about the configuration server and its functionalities, see [VMware to Azure replication architecture](vmware-azure-architecture.md).
 * Where can I find the latest version of the configuration server?
 
-    For steps to upgrade the configuration server through the portal, see [Upgrade the configuration server](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). For instructions on how to upgrade all Site Recovery components, see [Service updates in Site Recovery](https://aka.ms/asr_how_to_upgrade).
+    For steps to upgrade the configuration server through the portal, see [Upgrade the configuration server](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). For instructions on how to upgrade all Site Recovery components, see [Service updates in Site Recovery](./service-updates-how-to.md).
 * Where can I download the passphrase for configuration server?
 
     To download the passphrase, see [Manage the configuration server for VMware VM disaster recovery](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase).

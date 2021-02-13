@@ -3,9 +3,9 @@ title: Automate tasks with multiple Azure services
 description: Tutorial - Create automated workflows to process emails with Azure Logic Apps, Azure Storage, and Azure Functions
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ms.date: 02/27/2020
 ---
 
@@ -31,11 +31,11 @@ When you're done, your logic app looks like this workflow at a high level:
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * An email account from an email provider supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/).
 
-  This logic app uses an Office 365 Outlook account. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
+  This logic app uses a work or school account. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
 
   > [!IMPORTANT]
   > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
@@ -45,13 +45,13 @@ When you're done, your logic app looks like this workflow at a high level:
 
 * Download and install the [free Microsoft Azure Storage Explorer](https://storageexplorer.com/). This tool helps you check that your storage container is correctly set up.
 
-## Sign in to Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
+* If your logic app needs to communicate through a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service or runtime in the Azure region where your logic app exists. If your logic app also uses [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in your logic app's Azure region.
 
 ## Set up storage to save attachments
 
 You can save incoming emails and attachments as blobs in an [Azure storage container](../storage/common/storage-introduction.md).
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
 1. Before you can create a storage container, [create a storage account](../storage/common/storage-account-create.md) with these settings on the **Basics** tab in the Azure portal:
 
@@ -88,7 +88,7 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
 
    To get your storage account's access key, you can also use
    [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey)
-   or [Azure CLI](/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
+   or [Azure CLI](/cli/azure/storage/account/keys).
 
 1. Create a blob storage container for your email attachments.
 
@@ -104,7 +104,7 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
 
       ![Finished storage container](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   To create a storage container, you can also use [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) or [Azure CLI](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create).
+   To create a storage container, you can also use [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) or [Azure CLI](/cli/azure/storage/container#az-storage-container-create).
 
 Next, connect Storage Explorer to your storage account.
 
@@ -162,7 +162,7 @@ Now, use the code snippet provided by these steps to create an Azure function th
 
    ![Created function app](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   To create a function app, you can also use [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md),    or [PowerShell and Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
+   To create a function app, you can also use [Azure CLI](../azure-functions/create-first-function-cli-csharp.md),    or [PowerShell and Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 1. In the **Function Apps** list, expand your function app, if not already expanded. Under your function app, select **Functions**. On the functions toolbar, select **New function**.
 
@@ -325,7 +325,7 @@ Now add a condition that selects only emails that have attachments.
 
    1. On the first row under **And**, click inside the left box. From the dynamic content list that appears, select the **Has Attachment** property.
 
-      ![Build condition](./media/tutorial-process-email-attachments-workflow/build-condition.png)
+      ![Screenshot that shows the "And" property for the condition and the "Has Attachment" property selection.](./media/tutorial-process-email-attachments-workflow/build-condition.png)
 
    1. In the middle box, keep the operator **is equal to**.
 
@@ -394,7 +394,7 @@ This step adds your previously created Azure function to your logic app and pass
 
    ![Inside "If true", add action](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-1. In the search box, find "azure functions", and select this action: **Choose an Azure function - Azure Functions**
+1. In the search box, find "Azure functions", and select this action: **Choose an Azure function - Azure Functions**
 
    ![Select action for "Choose an Azure function"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
@@ -463,7 +463,7 @@ Next, add an action that creates a blob in your storage container so you can sav
 
    When you're done, the action looks like this example:
 
-   ![Finished "Create blob" action](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
+   ![Screenshot that shows an example of a finished "Create blob" action.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
 1. Save your logic app.
 

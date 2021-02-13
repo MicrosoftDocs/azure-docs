@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 07/01/2020
+ms.date: 01/23/2021
 ---
 
 # Quickstart: Create a demo app in the portal (Azure Cognitive Search)
@@ -31,7 +31,7 @@ Before you begin, you must have the following:
 
   This quickstart uses the built-in Real Estate sample data and index because it has thumbnail images (the wizard supports adding images to the results page). To create the index used in this exercise, run the **Import data** wizard, choosing the *realestate-us-sample* data source.
 
-  ![data source page for sample data](media/search-create-app-portal/import-data-realestate.png)
+  :::image type="content" source="media/search-create-app-portal/import-data-realestate.png" alt-text="data source page for sample data" border="false":::
 
 When the index is ready to use, move on to the next step.
 
@@ -57,7 +57,7 @@ The wizard provides a basic layout for rendered search results that includes spa
 
 1. In Description, choose a field that provides details that might help someone decide whether to click through to that particular document.
 
-   ![data source page for sample data](media/search-create-app-portal/configure-results.png)
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="configure results for sample data" border="false":::
 
 ## Add a sidebar
 
@@ -68,8 +68,9 @@ In Azure Cognitive Search, faceted navigation is a cumulative filtering experien
 > [!TIP]
 > You can view the full index schema in the portal. Look for the **Index definition (JSON)** link in each index's overview page. Fields that qualify for faceted navigation have "filterable: true" and "facetable: true" attributes.
 
-Accept the current selection of facets and continue to the next page.
+1. In the wizard, select the **Sidebar** tab at the top of the page. You will see a list of all fields that are attributed as filterable and facetable in the index.
 
+1. Accept the current selection of faceted fields and continue to the next page.
 
 ## Add typeahead
 
@@ -79,20 +80,44 @@ Suggestions are enabled on specific field definitions. The wizard gives you opti
 
 The following screenshot shows options in the wizard, juxtaposed with a rendered page in the app. You can see how field selections are used, and how "Show Field Name" is used to include or exclude labeling within the suggestion.
 
-![Query suggestion configuration](media/search-create-app-portal/suggestions.png)
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="Query suggestion configuration":::
+
+## Add suggestions
+
+Suggestions refer to automated query prompts that are attached to the search box. Cognitive Search supports two: *autocompletion* of a partially entered search term, and *suggestions* for a dropdown list of potential matching documents based.
+
+The wizard supports suggestions, and the fields that can provide suggested results are derived from a [`Suggesters`](index-add-suggesters.md) construct in the index:
+
+```JSON
+  "suggesters": [
+    {
+      "name": "sg",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": [
+        "number",
+        "street",
+        "city",
+        "region",
+        "postCode",
+        "tags"
+      ]
+```
+
+1. In the wizard, select the **Suggestions** tab at the top of the page. You will see a list of all fields that are designated in the index schema as suggestion providers.
+
+1. Accept the current selection and continue to the next page.
 
 ## Create, download and execute
 
-1. Select **Create demo app** to generate the HTML file.
+1. Select **Create demo app** at the bottom of the page to generate the HTML file.
 
 1. When prompted, select **Download your app** to download the file.
 
-1. Open the file. You should see a page similar to the following screenshot. Enter a term and use filters to narrow results. 
+1. Open the file and click the Search button. This action executes a query, which can be an empty query (`*`) that returns an arbitrary result set. The page should look similar to the following screenshot. Enter a term and use filters to narrow results. 
 
 The underlying index is composed of fictitious, generated data that has been duplicated across documents, and descriptions sometimes do not match the image. You can expect a more cohesive experience when you create an app based on your own indexes.
 
-![Run the app](media/search-create-app-portal/run-app.png)
-
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Run the app":::
 
 ## Clean up resources
 
@@ -104,7 +129,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-While the default app is useful for initial exploration and small tasks, reviewing the APIs early on will help you understand the concepts and workflow on a deeper level:
+The demo app is useful for prototyping because you can simulate an end-user experience without having to write JavaScript or front-end code. For more information about front-end features, start with faceted navigation:
 
 > [!div class="nextstepaction"]
-> [Create an index using .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [How to build a facet filter](search-filters-facets.md)

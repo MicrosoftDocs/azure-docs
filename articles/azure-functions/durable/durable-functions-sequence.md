@@ -9,7 +9,7 @@ ms.author: azfuncdf
 
 # Function chaining in Durable Functions - Hello sequence sample
 
-Function chaining refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function. This article describes the chaining sequence that you create when you complete the Durable Functions quickstart ([C#](durable-functions-create-first-csharp.md) or [JavaScript](quickstart-js-vscode.md)). For more information about Durable Functions, see [Durable Functions overview](durable-functions-overview.md).
+Function chaining refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function. This article describes the chaining sequence that you create when you complete the Durable Functions quickstart ([C#](durable-functions-create-first-csharp.md),  [JavaScript](quickstart-js-vscode.md), or [Python](quickstart-python-vscode.md)). For more information about Durable Functions, see [Durable Functions overview](durable-functions-overview.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -19,7 +19,7 @@ This article explains the following functions in the sample app:
 
 * `E1_HelloSequence`: An [orchestrator function](durable-functions-bindings.md#orchestration-trigger) that calls `E1_SayHello` multiple times in a sequence. It stores the outputs from the `E1_SayHello` calls and records the results.
 * `E1_SayHello`: An [activity function](durable-functions-bindings.md#activity-trigger) that prepends a string with "Hello".
-* `HttpStart`: An HTTP triggered function that starts an instance of the orchestrator.
+* `HttpStart`: An HTTP triggered [durable client](durable-functions-bindings.md#orchestration-client) function that starts an instance of the orchestrator.
 
 ### E1_HelloSequence orchestrator function
 
@@ -34,7 +34,7 @@ The code calls `E1_SayHello` three times in sequence with different parameter va
 # [JavaScript](#tab/javascript)
 
 > [!NOTE]
-> JavaScript Durable Functions are available for the Functions 2.0 runtime only.
+> JavaScript Durable Functions are available for the Functions 3.0 runtime only.
 
 #### function.json
 
@@ -49,17 +49,47 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 
 #### index.js
 
-Here is the function:
+Here is the orchestrator function:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). It's a library that enables you to write Durable Functions in JavaScript. There are three significant differences between an orchestration function and other JavaScript functions:
+All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). It's a library that enables you to write Durable Functions in JavaScript. There are three significant differences between an orchestrator function and other JavaScript functions:
 
-1. The function is a [generator function.](/scripting/javascript/advanced/iterators-and-generators-javascript).
+1. The orchestrator function is a [generator function](/scripting/javascript/advanced/iterators-and-generators-javascript).
 2. The function is wrapped in a call to the `durable-functions` module's `orchestrator` method (here `df`).
 3. The function must be synchronous. Because the 'orchestrator' method handles calling 'context.done', the function should simply 'return'.
 
 The `context` object contains a `df` durable orchestration context object that lets you call other *activity* functions and pass input parameters using its `callActivity` method. The code calls `E1_SayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is added to the `outputs` array, which is returned at the end of the function.
+
+# [Python](#tab/python)
+
+> [!NOTE]
+> Python Durable Functions are available for the Functions 3.0 runtime only.
+
+
+#### function.json
+
+If you use Visual Studio Code or the Azure portal for development, here's the content of the *function.json* file for the orchestrator function. Most orchestrator *function.json* files look almost exactly like this.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/function.json)]
+
+The important thing is the `orchestrationTrigger` binding type. All orchestrator functions must use this trigger type.
+
+> [!WARNING]
+> To abide by the "no I/O" rule of orchestrator functions, don't use any input or output bindings when using the `orchestrationTrigger` trigger binding.  If other input or output bindings are needed, they should instead be used in the context of `activityTrigger` functions, which are called by the orchestrator. For more information, see the [orchestrator function code constraints](durable-functions-code-constraints.md) article.
+
+#### \_\_init\_\_.py
+
+Here is the orchestrator function:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/\_\_init\_\_.py)]
+
+All Python orchestration functions must include the [`durable-functions` package](https://pypi.org/project/azure-functions-durable). It's a library that enables you to write Durable Functions in Python. There are two significant differences between an orchestrator function and other Python functions:
+
+1. The orchestrator function is a [generator function](https://wiki.python.org/moin/Generators).
+2. The _file_ should register the orchestrator function as an orchestrator by stating `main = df.Orchestrator.create(<orchestrator function name>)` at the end of the file. This helps distinguish it from other, helper, functions declared in the file.
+
+The `context` object lets you call other *activity* functions and pass input parameters using its `call_activity` method. The code calls `E1_SayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is returned at the end of the function.
 
 ---
 
@@ -86,7 +116,7 @@ The *function.json* file for the activity function `E1_SayHello` is similar to t
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/function.json)]
 
 > [!NOTE]
-> Any function called by an orchestration function must use the `activityTrigger` binding.
+> All activity functions called by an orchestration function must use the `activityTrigger` binding.
 
 The implementation of `E1_SayHello` is a relatively trivial string formatting operation.
 
@@ -94,7 +124,26 @@ The implementation of `E1_SayHello` is a relatively trivial string formatting op
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-Unlike a JavaScript orchestration function, an activity function needs no special setup. The input passed to it by the orchestrator function is located on the `context.bindings` object under the name of the `activityTrigger` binding - in this case, `context.bindings.name`. The binding name can be set as a parameter of the exported function and accessed directly, which is what the sample code does.
+Unlike the orchestration function, an activity function needs no special setup. The input passed to it by the orchestrator function is located on the `context.bindings` object under the name of the `activityTrigger` binding - in this case, `context.bindings.name`. The binding name can be set as a parameter of the exported function and accessed directly, which is what the sample code does.
+
+# [Python](#tab/python)
+
+#### E1_SayHello/function.json
+
+The *function.json* file for the activity function `E1_SayHello` is similar to that of `E1_HelloSequence` except that it uses an `activityTrigger` binding type instead of an `orchestrationTrigger` binding type.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/function.json)]
+
+> [!NOTE]
+> All activity functions called by an orchestration function must use the `activityTrigger` binding.
+
+The implementation of `E1_SayHello` is a relatively trivial string formatting operation.
+
+#### E1_SayHello/\_\_init\_\_.py
+
+[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/\_\_init\_\_.py)]
+
+Unlike the orchestrator function, an activity function needs no special setup. The input passed to it by the orchestrator function is directly accessible as the parameter to the function.
 
 ---
 
@@ -121,6 +170,20 @@ To interact with orchestrators, the function must include a `durableClient` inpu
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
 Use `df.getClient` to obtain a `DurableOrchestrationClient` object. You use the client to start an orchestration. It can also help you return an HTTP response containing URLs for checking the status of the new orchestration.
+
+# [Python](#tab/python)
+
+#### HttpStart/function.json
+
+[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/function.json)]
+
+To interact with orchestrators, the function must include a `durableClient` input binding.
+
+#### HttpStart/\_\_init\_\_.py
+
+[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/\_\_init\_\_.py)]
+
+Use the `DurableOrchestrationClient` constructor to obtain a Durable Functions client. You use the client to start an orchestration. It can also help you return an HTTP response containing URLs for checking the status of the new orchestration.
 
 ---
 

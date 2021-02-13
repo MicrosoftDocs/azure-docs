@@ -57,7 +57,6 @@ For more information about how to create and upload a VHD for creating Azure VM,
 
 Continuing problems may indicate a corrupted VHD. In this situation, we recommend that you rebuild the VHD from scratch.
 
-For more information, see the following articles:
+For more information, see the following article:
 
-- [About Windows VHD](../windows/managed-disks-overview.md)
-- [About Linux VHD](../linux/managed-disks-overview.md)
+- [About VHD](../managed-disks-overview.md)

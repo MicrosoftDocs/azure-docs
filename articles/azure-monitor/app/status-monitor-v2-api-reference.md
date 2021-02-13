@@ -638,14 +638,15 @@ Timeout Reached. Stopping...
 
   View your telemetry:
  - [Explore metrics](../platform/metrics-charts.md) to monitor performance and usage.
-- [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems.
+- [Search events and logs](./diagnostic-search.md) to diagnose problems.
 - Use [analytics](../log-query/log-query-overview.md) for more advanced queries.
-- [Create dashboards](../../azure-monitor/app/overview-dashboard.md).
+- [Create dashboards](./overview-dashboard.md).
  
  Add more telemetry:
  - [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
-- [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to enable trace calls.
-- [Add the Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so you can insert trace and log calls.
+- [Add web client telemetry](./javascript.md) to see exceptions from web page code and to enable trace calls.
+- [Add the Application Insights SDK to your code](./asp-net.md) so you can insert trace and log calls.
  
  Do more with Application Insights Agent:
  - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Application Insights Agent.
+

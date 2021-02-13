@@ -1,6 +1,6 @@
 ---
 title: Microsoft Security Code Analysis documentation FAQ
-description: This article contains an FAQ about the Microsoft Security Code Analysis extension
+description: Learn about the Microsoft Security Code Analysis extension by reviewing frequently asked questions (FAQs).
 author: sukhans
 manager: sukhans
 ms.author: terrylan
@@ -159,7 +159,7 @@ The following resources help you securely manage secrets and access sensitive in
  - [Azure AD Managed Service Identity (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Managed identities in Azure App Service and Azure Functions](../../app-service/overview-managed-identity.md)
- - [AppAuthentication library](../../key-vault/general/service-to-service-authentication.md)
+ - [AppAuthentication library](/dotnet/api/overview/azure/service-to-service-authentication)
 
 
 For more information, see the blog post [Managing Secrets Securely in the Cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).

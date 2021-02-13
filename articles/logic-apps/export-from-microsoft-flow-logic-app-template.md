@@ -3,12 +3,14 @@ title: Export flows from Power Automate to Azure Logic Apps
 description: Migrate flows from Power Automate to Azure Logic Apps by exporting as Azure Resource Manager templates
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 01/20/2021
 ---
 
 # Export flows from Power Automate and deploy to Azure Logic Apps
+
+> For flows created after October 2020, you can no longer export from Power Automate and deploy to Azure Logic Apps.
 
 To extend and expand your flow's capabilities, you can migrate that flow from [Power Automate](https://flow.microsoft.com) to [Azure Logic Apps](../logic-apps/logic-apps-overview.md). You can export your flow as an Azure Resource Manager template for a logic app, deploy that logic app template to an Azure resource group, and then open that logic app in the Logic App Designer.
 
@@ -22,7 +24,7 @@ To extend and expand your flow's capabilities, you can migrate that flow from [P
 > [Power Automate connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
 > * To find which Logic Apps connectors don't have Power Automate equivalents, see 
-> [Logic Apps connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> [Logic Apps connectors](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## Prerequisites
 
@@ -96,7 +98,7 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
    1. For each step that requires an authorized connection, expand that step, and select **Add new**.
 
-      ![Add new connection](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
+      ![Screenshot that shows the "Add new" button selected on the Outlook "Connections" window.](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
 
    1. Sign in to each service or provide the necessary credentials to authorize the connection.
 

@@ -6,7 +6,9 @@
   href: conversion-rest-api.md
 - name: Configure the model conversion
   href: configure-model-conversion.md
+- name: Laying out files for conversion
+  href: layout-files-for-conversion.md
 - name: Override materials during model conversion
   href: override-materials.md
-- name: Get information about a converted model
+- name: Get information about conversions
   href: get-information.md

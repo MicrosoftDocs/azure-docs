@@ -7,7 +7,7 @@ ms.service: virtual-machines-windows
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 11/17/2020
 ms.author: cathys
 keywords: visualstudio
 ---
@@ -25,9 +25,9 @@ Images for the most recent major versions, Visual Studio 2019, Visual Studio 201
 
 | Release version                                                                                                                                                | Editions              | Product version   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019: Latest (Version 16.5)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Community | Version 16.5.4    |
-| Visual Studio 2019: RTW                         | Enterprise | Version 16.0.13    |
-| Visual Studio 2017: Latest (Version 15.9)           | Enterprise, Community | Version 15.9.22   |
+| [Visual Studio 2019: Latest (Version 16.8)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Community | Version 16.8.0    |
+| Visual Studio 2019: RTW                         | Enterprise | Version 16.0.20    |
+| Visual Studio 2017: Latest (Version 15.9)           | Enterprise, Community | Version 15.9.29   |
 | Visual Studio 2017: RTW                             | Enterprise, Community | Version 15.0.28  |
 | Visual Studio 2015: Latest (Update 3)               | Enterprise, Community | Version 14.0.25431.01 |
 
@@ -72,7 +72,7 @@ Azure offers a full range of virtual machine sizes. Because Visual Studio is a p
    * Standard_D2S_v2
    * Standard_D3_v2
     
-For more information on the latest machine sizes, see [Sizes for Windows virtual machines in Azure](./sizes.md).
+For more information on the latest machine sizes, see [Sizes for Windows virtual machines in Azure](../sizes.md).
 
 With Azure, you can rebalance your initial choice by resizing the VM. You can either provision a new VM with a more appropriate size, or resize your existing VM to different underlying hardware. For more information, see [Resize a Windows VM](./resize-vm.md).
 

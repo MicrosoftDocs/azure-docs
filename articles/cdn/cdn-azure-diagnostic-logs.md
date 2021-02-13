@@ -1,7 +1,7 @@
 ---
 title: Diagnostic logs
 titleSuffix: Azure Content Delivery Network
-description: Customer can enable log analysis for Azure CDN.
+description: Learn how to use Azure diagnostic logs to save core analytics, which allows you to export usage metrics from your Azure Content Delivery Network endpoint.
 services: cdn
 author: asudbring
 manager: KumudD
@@ -20,16 +20,17 @@ ms.author: allensu
 
 With Azure diagnostic logs, you can view core analytics and save them into one or more destinations including:
 
- - Azure Storage account
- - Log Analytics workspace
-  - Azure Event Hubs
+* Azure Storage account
+* Log Analytics workspace
+* Azure Event Hubs
+
 This feature is available on CDN endpoints for all pricing tiers. 
 
 Diagnostics logs allow you to export basic usage metrics from your CDN endpoint to different kinds sources so that you can consume them in a customized way. You can do the following types of data export:
 
-- Export data to blob storage, export to CSV, and generate graphs in Excel.
-- Export data to Event Hubs and correlate with data from other Azure services.
-- Export data to Azure Monitor logs and view data in your own Log Analytics workspace
+* Export data to blob storage, export to CSV, and generate graphs in Excel.
+* Export data to Event Hubs and correlate with data from other Azure services.
+* Export data to Azure Monitor logs and view data in your own Log Analytics workspace
 
 An Azure CDN profile is required for the following steps. Refer to [create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md) before you continue.
 
@@ -54,7 +55,7 @@ Follow these steps enable logging for your Azure CDN endpoint:
 To use a storage account to store the logs, follow these steps:
 
  >[!NOTE] 
- >A storage account is required to complete these steps. Refer to: **[Create an Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)** for more information.
+ >A storage account is required to complete these steps. Refer to: **[Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** for more information.
 	
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
  
@@ -73,7 +74,7 @@ To use a storage account to store the logs, follow these steps:
 To use Log Analytics for the logs, follow these steps:
 
 >[!NOTE] 
->A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)** for more information.
+>A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md)** for more information.
 	
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
@@ -90,7 +91,7 @@ To use Log Analytics for the logs, follow these steps:
 To use an event hub for the logs, follow these steps:
 
 >[!NOTE] 
->An event hub is required to complete these steps. Refer to: **[Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)** for more information.
+>An event hub is required to complete these steps. Refer to: **[Quickstart: Create an event hub using Azure portal](../event-hubs/event-hubs-create.md)** for more information.
 	
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
@@ -153,7 +154,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
 
     $workspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName $rsg -Name $workspacename
 
-    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -StorageAccountId $workspace.ResourceId -Enabled $true -Categories CoreAnalytics
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -WorkspaceId $workspace.ResourceId -Enabled $true -Categories CoreAnalytics
     ```
 ### Enable diagnostics logs for event hub namespace
 
@@ -173,9 +174,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
 
     $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
 
-    $eventhub = Get-AzEventHubNamespace -ResourceGroupName $rsg -Name $eventhubname
-
-    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -StorageAccountId $eventhub.id -Enabled $true -Categories CoreAnalytics
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -EventHubName $eventhubname -Enabled $true -Categories CoreAnalytics
     ```
 
 ## Consuming diagnostics logs from Azure Storage
@@ -366,14 +365,7 @@ Example properties:
 
 ## Additional resources
 
-* [Azure Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Core analytics via Azure CDN supplemental portal](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
-
-
-
-
-
-
-
+* [Azure Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md)
+* [Core analytics via Azure CDN supplemental portal](./cdn-analyze-usage-patterns.md)
+* [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md)
+* [Azure Log Analytics REST API](/rest/api/loganalytics)

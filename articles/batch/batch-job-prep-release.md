@@ -3,7 +3,7 @@ title: Create tasks to prepare & complete jobs on compute nodes
 description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
 ms.topic: how-to
 ms.date: 02/17/2020
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 
 ---
 # Run job preparation and job release tasks on Batch compute nodes

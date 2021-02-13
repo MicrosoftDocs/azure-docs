@@ -1,6 +1,6 @@
 ---
 title: Create and use an Azure Files share on Windows VMs
-description: In this quickstart, you setup an Azure Files share in the Azure portal and connect it to a Windows virtual machine. You connect to the Files share, upload a file to the Files share. Then you take a snapshot of the Files share, modify the file in the Files share, and restore a previous snapshot of the Files share.
+description: Create and use an Azure Files share in the Azure portal. Connect it to a Windows VM, connect to the Files share, and upload a file to the Files share.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
@@ -94,7 +94,7 @@ At this point, you've created a new virtual machine and attached a data disk. No
 1. In the Azure portal, navigate to the *qsfileshare* fileshare and select **Connect**.
 1. Copy the contents of the second box and paste it in **Notepad**.
 
-   ![The UNC path from the Azure Files Connect pane](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
+   ![Screenshot that shows the contents of the seconds box that you should copy and paste in Notepad.](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
 1. In the VM, open **File Explorer** and select **This PC** in the window. This selection will change the menus available on the ribbon. On the **Computer** menu, select **Map network drive**.
 1. Select the drive letter and enter the UNC path. If you've followed the naming suggestions in this quickstart, copy *\\qsstorageacct.file.core.windows.net\qsfileshare* from **Notepad**.

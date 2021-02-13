@@ -18,7 +18,7 @@ ms.workload: na
 
 # Develop secure applications on Azure
 In this article we present security activities and controls to consider when you develop applications for the cloud. Security questions and concepts to consider during the implementation and verification phases of the Microsoft [Security Development Lifecycle
-(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) are covered. The goal is to help you define activities and Azure services that you can use to develop a more secure application.
+(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) are covered. The goal is to help you define activities and Azure services that you can use to develop a more secure application.
 
 The following SDL phases are covered in this article:
 
@@ -34,7 +34,7 @@ misuse of your application.
 
 ### Perform code reviews
 
-Before you check in code, conduct [code reviews](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) to increase overall code quality and reduce the risk of creating bugs. You can use [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) to manage the code review process.
+Before you check in code, conduct [code reviews](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) to increase overall code quality and reduce the risk of creating bugs. You can use [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) to manage the code review process.
 
 ### Perform static code analysis
 
@@ -56,22 +56,22 @@ formed data enters the workflow. You don't want malformed data
 persisting in your database or triggering a malfunction in a downstream
 component.
 
-Blacklisting and whitelisting are two general approaches to performing
+Blocklisting and allowlisting are two general approaches to performing
 input syntax validation:
 
-  - Blacklisting attempts to check that a given user input doesn't
+  - Blocklisting attempts to check that a given user input doesn't
     contain "known to be malicious" content.
 
-  - Whitelisting attempts to check that a given user input matches a set
-    of "known good" inputs. Character-based whitelisting is a form of
-    whitelisting where an application checks that user input contains
+  - Allowlisting attempts to check that a given user input matches a set
+    of "known good" inputs. Character-based allowlisting is a form of
+    allowlisting where an application checks that user input contains
     only "known good" characters or that input matches a known format.
     For example, this might involve checking that a username contains
     only alphanumeric characters or that it contains exactly two
     numbers.
 
-Whitelisting is the preferred approach for building secure software.
-Blacklisting is prone to error because it's impossible to think of a
+Allowlisting is the preferred approach for building secure software.
+Blocklisting is prone to error because it's impossible to think of a
 complete list of potentially bad input.
 
 Do this work on the server, not on the client side (or on the server and
@@ -80,7 +80,7 @@ on the client side).
 ### Verify your application's outputs
 
 Any output that you present either visually or within a document should
-always be encoded and escaped. [Escaping](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), also known as *output encoding*, is used to help ensure that untrusted data isn't a vehicle for an injection attack. Escaping, combined with data validation, provides layered defenses to increase security of the
+always be encoded and escaped. [Escaping](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), also known as *output encoding*, is used to help ensure that untrusted data isn't a vehicle for an injection attack. Escaping, combined with data validation, provides layered defenses to increase security of the
 system as a whole.
 
 Escaping makes sure that everything is displayed as *output.* Escaping
@@ -149,8 +149,8 @@ Antimalware protection helps identify and remove viruses, spyware, and
 other malicious software. You can install [Microsoft Antimalware](../fundamentals/antimalware.md)
 or a Microsoft partner's endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/),
 [Broadcom](https://www.broadcom.com/products),
-[McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10),
-and [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
+[McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10),
+and [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 [Microsoft Antimalware](../fundamentals/antimalware.md)
 includes features like real-time protection, scheduled scanning, malware
@@ -225,7 +225,7 @@ reviewed and mitigated.
 
 You can build a picture of the attack surface by scanning the
 application. Microsoft offers an attack surface analysis tool called
-[Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including
+[Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including
 [OWASP Zed Attack Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project),
 [Arachni](http://arachni-scanner.com/),
 [Skipfish](https://code.google.com/p/skipfish/), and

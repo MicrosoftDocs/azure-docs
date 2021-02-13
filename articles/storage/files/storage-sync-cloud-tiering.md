@@ -1,6 +1,6 @@
 ---
 title: Understanding Azure File Sync Cloud Tiering | Microsoft Docs
-description: Learn about Azure File Sync's feature Cloud Tiering
+description: Read about cloud tiering, an optional Azure File Sync feature. Frequently accessed files are cached locally on the server; others are tiered to Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -35,16 +35,19 @@ Cloud tiering does not depend on the NTFS feature for tracking last access time.
 <a id="tiering-minimum-file-size"></a>
 ### What is the minimum file size for a file to tier?
 
-For agent versions 9 and newer, the minimum file size for a file to tier is based on the file system cluster size. The following table illustrates the minimum file sizes that can be tiered, based on the volume cluster size:
+For agent versions 9 and newer, the minimum file size for a file to tier is based on the file system cluster size. The minimum file size eligible for cloud tiering is calculated by 2x the cluster size and at a minimum 8 KB. The following table illustrates the minimum file sizes that can be tiered, based on the volume cluster size:
 
 |Volume cluster size (Bytes) |Files of this size or larger can be tiered  |
 |----------------------------|---------|
-|4 KB (4096)                 | 8 KB    |
+|4 KB or smaller (4096)      | 8 KB    |
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
-|32 KB (32768) and larger    | 64 KB   |
+|32 KB (32768)               | 64 KB   |
+|64 KB (65536)    | 128 KB  |
 
-All file systems that are used by Windows organize your hard disk based on cluster size (also known as allocation unit size). Cluster size represents the smallest amount of disk space that can be used to hold a file. When file sizes do not come out to an even multiple of the cluster size, additional space must be used to hold the file (up to the next multiple of the cluster size).
+Cluster sizes up to 64 KB are currently supported but, for larger sizes, cloud tiering does not work.
+
+All file systems that are used by Windows, organize your hard disk based on cluster size (also known as allocation unit size). Cluster size represents the smallest amount of disk space that can be used to hold a file. When file sizes do not come out to an even multiple of the cluster size, additional space must be used to hold the file - up to the next multiple of the cluster size.
 
 Azure File Sync is supported on NTFS volumes with Windows Server 2012 R2 and newer. The following table describes the default cluster sizes when you create a new NTFS volume. 
 
@@ -57,7 +60,9 @@ Azure File Sync is supported on NTFS volumes with Windows Server 2012 R2 and new
 |128TB – 256 TB | 64 KB         |
 |> 256 TB       | Not supported |
 
-It is possible that upon creation of the volume, you manually formatted the volume with a different cluster (allocation unit) size. If your volume stems from an older version of Windows, default cluster sizes may also be different. [This article has more details on default cluster sizes.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
+It is possible that upon creation of the volume, you manually formatted the volume with a different cluster size. If your volume stems from an older version of Windows, default cluster sizes may also be different. [This article has more details on default cluster sizes.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Even if you choose a cluster size smaller than 4 KB, an 8 KB limit as the smallest file size that can be tiered, still applies. (Even if technically 2x cluster size would equate to less than 8 KB.)
+
+The reason for the absolute minimum is found in the way NTFS stores extremely small files - 1 KB to 4 KB sized files. Depending on other parameters of the volume, it is possible that small files are not stored in a cluster on disk at all. It's possibly more efficient to store such files directly in the volume's Master File Table or "MFT record". The cloud tiering reparse point is always stored on disk and takes up exactly one cluster. Tiering such small files could end up with no space savings. Extreme cases could even end up using more space with cloud tiering enabled. To safeguard against that, the smallest size of a file that cloud tiering will tier, is 8 KB on a 4 KB or smaller cluster size.
 
 <a id="afs-volume-free-space"></a>
 ### How does the volume free space tiering policy work?
@@ -75,11 +80,23 @@ When there is more than one server endpoint on a volume, the effective volume fr
 ### How does the date tiering policy work in conjunction with the volume free space tiering policy? 
 When enabling cloud tiering on a server endpoint, you set a volume free space policy. It always takes precedence over any other policies, including the date policy. Optionally, you can enable a date policy for each server endpoint on that volume. This policy manages that only files accessed (that is, read or written to) within the range of days this policy describes will be kept local. Files not accessed with the number of days specified, will be tiered. 
 
-Cloud Tiering uses the last access time to determine which files should be tiered. The cloud tiering filter driver (storagesync.sys) tracks last access time and logs the information in the cloud tiering heat store. You can see the heat store using a local PowerShell cmdlet.
+Cloud Tiering uses the last access time to determine which files should be tiered. The cloud tiering filter driver (storagesync.sys) tracks last access time and logs the information in the cloud tiering heat store. You can retrieve the heat store and save it into a CSV file by using a server-local PowerShell cmdlet.
 
 ```powershell
+# There is a single heat store for files on a volume / server endpoint / individual file.
+# The heat store can get very large. If you only need to retrieve the "coolest" number of items, use -Limit and a number
+
+# Import the PS module:
 Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
-Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+
+# VOLUME FREE SPACE: To get the order in which files will be tiered using the volume free space policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrder
+
+# DATE POLICY: To get the order in which files will be tiered using the date policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrderV2
+
+# Find the heat store information for a particular file:
+Get-StorageSyncHeatStoreInformation -FilePath '<PathToSpecificFile>'
 ```
 
 > [!IMPORTANT]
@@ -90,7 +107,7 @@ Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
 
 Keep in mind that the volume free space policy always takes precedence, and when there isn't enough free space on the volume to retain as many days worth of files as described by the date policy, Azure File Sync will continue tiering the coldest files until the volume free space percentage is met.
 
-For example, say you have a date-based tiering policy of 60 days and a volume free space policy of 20%. If, after applying the date policy, there is less than 20% of free space on the volume, the volume free space policy will kick in and override the date policy. This will result in more files being tiered, such that the amount of data kept on the server may be reduced from 60 days of data to 45 days. Conversely, this policy will force the tiering of files that fall outside of your time range even if you have not hit your free space threshold – so a file that is 61 days old will be tiered even if your volume is empty.
+For example, say you have a date-based tiering policy of 60 days and a volume free space policy of 20%. If after applying the date policy, there is less than 20% of free space on the volume, the volume free space policy will kick in and override the date policy. This will result in more files being tiered, such that the amount of data kept on the server may be reduced from 60 days of data to 45 days. Conversely, this policy will force the tiering of files that fall outside of your time range even if you have not hit your free space threshold – so a file that is 61 days old will be tiered even if your volume is empty.
 
 <a id="volume-free-space-guidelines"></a>
 ### How do I determine the appropriate amount of volume free space?

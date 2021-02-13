@@ -2,14 +2,14 @@
 title: include file
 description: include file 
 services: cognitive-services
-author: diberry
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 08/16/2018
-ms.author: diberry
+ms.date: 12/29/2020
+ms.author: aahi
 ---
 
 To understand what a LUIS prediction endpoint returns, view a prediction result in a web browser. In order to query a public app, you need your own key and the app ID. The public IoT app ID, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, is provided as part of the URL in step one.

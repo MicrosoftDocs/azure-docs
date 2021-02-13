@@ -15,7 +15,7 @@ This article demonstrates how to use pre-production environments to review chang
 
 A pre-production (staging) environment is a fully-functional staged version of your application that includes changes not available in production.
 
-Azure Static Web Apps generates a GitHub Actions workflow in the repository. When a a pull request is created against a branch that the workflow watches, the pre-production environment is built. The pre-production environment stages the app, enables you to perform reviews before pushing to production.
+Azure Static Web Apps generates a GitHub Actions workflow in the repository. When a pull request is created against a branch that the workflow watches, the pre-production environment is built. The pre-production environment stages the app, enables you to perform reviews before pushing to production.
 
 Multiple pre-production environments can co-exist at the same time when using Azure Static Web Apps. Each time you create a pull request against the watched branch, a staged version with your changes is deployed to a distinct pre-production environment.
 

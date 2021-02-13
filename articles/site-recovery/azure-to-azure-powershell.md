@@ -244,6 +244,15 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
+#### Fabric and container creation when enabling zone to zone replication
+
+When enabling zone to zone replication, only one fabric will be created. But there will be two containers. Assuming that the region is West Europe, use following commands to get the primary and protection containers -
+
+```azurepowershell
+$primaryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-container"
+$recoveryPprotectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-t-container"
+```
+
 ### Create a replication policy
 
 ```azurepowershell
@@ -280,6 +289,14 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
 Write-Output $TempASRJob.State
 
 $EusToWusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
+```
+
+#### Protection container mapping creation when enabling zone to zone replication
+
+When enabling zone to zone replication, use the below command to create protection container mapping. Assuming that the region is West Europe, the command will be -
+
+```azurepowershell
+$protContainerMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimprotectionContainer -Name "westeurope-westeurope-24-hour-retention-policy-s"
 ```
 
 ### Create a protection container mapping for failback (reverse replication after a failover)
@@ -618,7 +635,7 @@ After reprotection is complete, you can fail over in the reverse direction, West
 You can disable replication with the `Remove-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet.
 
 ```azurepowershell
-Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicationProtectedItem
 ```
 
 ## Next steps

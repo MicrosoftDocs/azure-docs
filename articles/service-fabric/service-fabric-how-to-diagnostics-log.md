@@ -6,6 +6,7 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: srrengar
+ms.custom: devx-track-csharp
 ---
 
 # Add logging to your Service Fabric application

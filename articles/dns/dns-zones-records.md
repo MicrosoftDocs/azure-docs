@@ -139,5 +139,5 @@ The following default limits apply when using Azure DNS:
 
 ## Next steps
 
-* To start using Azure DNS, learn how to [create a DNS zone](dns-getstarted-create-dnszone-portal.md) and [create DNS records](dns-getstarted-create-recordset-portal.md).
+* To start using Azure DNS, learn how to [create a DNS zone](./dns-getstarted-portal.md) and [create DNS records](./dns-getstarted-portal.md).
 * To migrate an existing DNS zone, learn how to [import and export a DNS zone file](dns-import-export.md).

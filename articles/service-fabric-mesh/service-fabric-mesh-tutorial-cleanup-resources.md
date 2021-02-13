@@ -1,15 +1,20 @@
 ---
 title: Tutorial- Cleanup Azure Service Fabric Mesh resources 
 description: Learn how to remove Azure Service Fabric Mesh resources so that you do not get charged for resources you are no longer using.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want to avoid being charged for Azure resources I am no longer using.
 ---
 
 # Tutorial: Remove Azure resources
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 This tutorial is part five of a series and shows you how to delete the app and its resources so that you don't get charged for them.
 

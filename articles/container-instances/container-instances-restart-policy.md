@@ -2,7 +2,7 @@
 title: Restart policy for run-once tasks 
 description: Learn how to use Azure Container Instances to execute tasks that run to completion, such as in build, test, or image rendering jobs.
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 08/11/2020
 ---
 
 # Run containerized tasks with restart policies
@@ -22,6 +22,8 @@ When you create a [container group](container-instances-container-groups.md) in 
 | `Always` | Containers in the container group are always restarted. This is the **default** setting applied when no restart policy is specified at container creation. |
 | `Never` | Containers in the container group are never restarted. The containers run at most once. |
 | `OnFailure` | Containers in the container group are restarted only when the process executed in the container fails (when it terminates with a nonzero exit code). The containers are run at least once. |
+
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## Specify a restart policy
 

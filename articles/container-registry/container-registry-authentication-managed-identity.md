@@ -48,7 +48,7 @@ This article assumes you have the `aci-helloworld:v1` container image stored in 
 
 ## Create a Docker-enabled VM
 
-Create a Docker-enabled Ubuntu virtual machine. You also need to install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) on the virtual machine. If you already have an Azure virtual machine, skip this step to create the virtual machine.
+Create a Docker-enabled Ubuntu virtual machine. You also need to install the [Azure CLI](/cli/azure/install-azure-cli) on the virtual machine. If you already have an Azure virtual machine, skip this step to create the virtual machine.
 
 Deploy a default Ubuntu Azure virtual machine with [az vm create][az-vm-create]. The following example creates a VM named *myDockerVM* in an existing resource group named *myResourceGroup*:
 
@@ -81,7 +81,7 @@ sudo apt install docker.io -y
 After installation, run the following command to verify that Docker is running properly on the VM:
 
 ```bash
-sudo docker run -it hello-world
+sudo docker run -it mcr.microsoft.com/hello-world
 ```
 
 Output:
@@ -94,7 +94,7 @@ This message shows that your installation appears to be working correctly.
 
 ### Install the Azure CLI
 
-Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) to install the Azure CLI on your Ubuntu virtual machine. For this article, ensure that you install version 2.0.55 or later.
+Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-apt) to install the Azure CLI on your Ubuntu virtual machine. For this article, ensure that you install version 2.0.55 or later.
 
 Exit the SSH session.
 
@@ -102,7 +102,7 @@ Exit the SSH session.
 
 ### Create an identity
 
-Create an identity in your subscription using the [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) command. You can use the same resource group you used previously to create the container registry or virtual machine, or a different one.
+Create an identity in your subscription using the [az identity create](/cli/azure/identit#az-identity-create) command. You can use the same resource group you used previously to create the container registry or virtual machine, or a different one.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRId
@@ -225,6 +225,8 @@ You should see a `Login succeeded` message. You can then run `docker` commands w
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
+> [!NOTE]
+> System-assigned managed service identities can be used to interact with ACRs and App Service can use system-assigned managed service identities. However, you cannot combine these, as App Service cannot use MSI to talk to an ACR. The only way is to enable admin on the ACR and use the admin username/password.
 
 ## Next steps
 

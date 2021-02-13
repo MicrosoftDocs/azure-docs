@@ -27,12 +27,12 @@ Here are some possible error codes you could receive when using Spot VMs and sca
 | MaxPriceChangeNotAllowedForAllocatedVMs | Max price change is not allowed when the VM '{0}' is currently allocated. Please deallocate and try again. | Stop\Deallocate the VM so that you can change the max price. |
 | MaxPriceChangeNotAllowed | Max price change is not allowed. | You cannot change the max price for this VM. |
 | AzureSpotIsNotSupportedForThisAPIVersion  |  Azure Spot is not supported for this API version. | The API version needs to be 2019-03-01. |
-| AzureSpotIsNotSupportedForThisVMSize  |  Azure Spot is not supported for this VM size {0}. | Select another VM size. For more information, see [Spot Virtual Machines](./linux/spot-vms.md). |
-| MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Max price is supported only for Azure Spot Virtual Machines. | For more information, see [Spot Virtual Machines](./linux/spot-vms.md). |
+| AzureSpotIsNotSupportedForThisVMSize  |  Azure Spot is not supported for this VM size {0}. | Select another VM size. For more information, see [Spot Virtual Machines](./spot-vms.md). |
+| MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Max price is supported only for Azure Spot Virtual Machines. | For more information, see [Spot Virtual Machines](./spot-vms.md). |
 | MoveResourcesWithAzureSpotVMNotSupported  |  The Move resources request contains an Azure Spot virtual machine. This is currently not supported. Please check the error details for virtual machine Ids. | You cannot move Spot VMs. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  The Move resources request contains an Azure Spot virtual machine scale set. This is currently not supported. Please check the error details for virtual machine scale set Ids. | You cannot move Spot scale set instances. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Azure Spot Virtual Machine is not supported in Virtual Machine Scale Set with VM Orchestration mode. | Set the orchestration mode to virtual machine scale set in order to use Spot instances. |
 
 
 **Next steps**
-For more information, see [spot Virtual Machines](./linux/spot-vms.md).
+For more information, see [spot Virtual Machines](./spot-vms.md).

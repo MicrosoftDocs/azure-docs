@@ -1,5 +1,6 @@
 ---
-title: Build a web API that calls web APIs - Microsoft identity platform | Azure
+title: Build a web API that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web API that calls downstream web APIs (overview).
 services: active-directory
 author: jmprieur
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Scenario: A web API that calls web APIs
@@ -21,7 +22,7 @@ Learn what you need to know to build a web API that calls web APIs.
 
 ## Prerequisites
 
-This scenario, in which a protected web API calls web APIs, builds on top of the "Protect a web API" scenario. To learn more about this foundational scenario, see [Scenario: Protected web API](scenario-protected-web-api-overview.md).
+This scenario, in which a protected web API calls other web APIs, builds on [Scenario: Protected web API](scenario-protected-web-api-overview.md).
 
 ## Overview
 
@@ -37,5 +38,5 @@ The app registration part that's related to API permissions is classical. The ap
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [App registration](scenario-web-api-call-api-app-registration.md)
+Move on to the next article in this scenario,
+[App registration](scenario-web-api-call-api-app-registration.md).

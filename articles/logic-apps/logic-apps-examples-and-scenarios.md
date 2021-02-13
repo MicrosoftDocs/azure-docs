@@ -125,7 +125,7 @@ You can fully develop and deploy logic apps with Visual Studio, Azure DevOps, or
 
 ## Handle content types, conversions, and transformations
 
-You can access, convert, and transform multiple content types by using the many functions in the Azure Logic Apps [workflow definition language](https://aka.ms/logicappsdocs). For example, you can convert between a string, JSON, and XML with the `@json()` and `@xml()` workflow expressions. The Logic Apps engine preserves content types to support content transfer in a lossless manner between services.
+You can access, convert, and transform multiple content types by using the many functions in the Azure Logic Apps [workflow definition language](./logic-apps-workflow-definition-language.md). For example, you can convert between a string, JSON, and XML with the `@json()` and `@xml()` workflow expressions. The Logic Apps engine preserves content types to support content transfer in a lossless manner between services.
 
 * [Handle content types in Azure Logic Apps](../logic-apps/logic-apps-content-type.md), such as `application/`, `application/octet-stream`, and `multipart/formdata`
 * [Reference guide to using functions in expressions for Azure Logic Apps and Power Automate](../logic-apps/workflow-definition-language-functions-reference.md)

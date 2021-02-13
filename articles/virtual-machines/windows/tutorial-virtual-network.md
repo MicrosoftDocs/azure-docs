@@ -7,7 +7,7 @@ ms.subservice: networking
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/04/2018
+ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: mvc
 
@@ -124,7 +124,7 @@ $frontendNic = New-AzNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Set the username and password needed for the administrator account on the VM using [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1). You use these credentials to connect to the VM in additional steps:
+Set the username and password needed for the administrator account on the VM using [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential). You use these credentials to connect to the VM in additional steps:
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -277,7 +277,4 @@ In this tutorial, you created and secured Azure networks as related to virtual m
 > * Secure network traffic
 > * Create a back-end VM
 
-Advance to the next tutorial to learn about monitoring securing data on virtual machines using Azure backup.
-
-> [!div class="nextstepaction"]
-> [Back up Windows virtual machines in Azure](./tutorial-backup-vms.md)
+To learn about protecting your VM disks, see [Backup and disaster recovery for disks](backup-and-disaster-recovery-for-azure-iaas-disks.md).

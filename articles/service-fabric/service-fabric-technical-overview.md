@@ -5,7 +5,6 @@ author: masnider
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
-ms.custom: sfrev
 ---
 
 # Service Fabric terminology overview

@@ -24,9 +24,9 @@ The Python sampling uses the [pyodbc](https://code.google.com/p/pyodbc/) ODBC li
 > 
 
 **Why sample your data?**
-If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. Sampling facilitates data understanding, exploration, and feature engineering. Its role in the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) is to enable fast prototyping of the data processing functions and machine learning models.
+If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. Sampling facilitates data understanding, exploration, and feature engineering. Its role in the [Team Data Science Process (TDSP)](./index.yml) is to enable fast prototyping of the data processing functions and machine learning models.
 
-This sampling task is a step in the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+This sampling task is a step in the [Team Data Science Process (TDSP)](./index.yml).
 
 ## <a name="SQL"></a>Using SQL
 This section describes several methods using SQL to perform simple random sampling against the data in the database. Choose a method based on your data size and its distribution.
@@ -128,4 +128,4 @@ To walk through an example of the Team Data Science Process a using a public dat
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png
 
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

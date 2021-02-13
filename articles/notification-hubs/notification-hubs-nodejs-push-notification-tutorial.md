@@ -18,6 +18,7 @@ ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
+ms.custom: devx-track-js
 ---
 
 # Sending push notifications with Azure Notification Hubs and Node.js
@@ -105,7 +106,7 @@ The `GcmService` object provides a `send` method that can be used to send push n
 - **Payload** - the message's JSON or raw string payload.
 - **Callback** - the callback function.
 
-For more information on the payload format, see the [Payload documentation](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
+For more information on the payload format, see the [Payload documentation](https://payload.readthedocs.io/en/latest/).
 
 The following code uses the `GcmService` instance exposed by the `NotificationHubService` to send a push notification to all registered clients.
 
@@ -225,7 +226,7 @@ The sample snippets above allow you to easily build service infrastructure to de
 [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
-[nodejswebsite]: ../app-service/app-service-web-get-started-nodejs.md
+[nodejswebsite]: ../app-service/quickstart-nodejs.md
 [webmatrix]: /aspnet/web-pages/videos/introduction/create-a-website-using-webmatrix
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/

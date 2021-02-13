@@ -67,10 +67,10 @@ In the example above, we have defined an ingress resource named `go-server-ingre
 
 ## TLS Redirect
 
-Application Gateway [can be configured](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview)
+Application Gateway [can be configured](./redirect-overview.md)
 to automatically redirect HTTP URLs to their HTTPS counterparts. When this
 annotation is present and TLS is properly configured, Kubernetes Ingress
-controller will create a [routing rule with a redirection configuration](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration)
+controller will create a [routing rule with a redirection configuration](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration)
 and apply the changes to your Application Gateway. The redirect created will be HTTP `301 Moved Permanently`.
 
 ### Usage

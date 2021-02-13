@@ -8,8 +8,9 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 01/25/2021
 ms.author: juliako
+ms.custom: devx-track-js
 ---
 
 # Embed Video Indexer widgets in your apps
@@ -96,6 +97,17 @@ To provide editing insights capabilities in your embedded widget, you must pass 
 The Cognitive Insights widget can interact with a video on your app. This section shows how to achieve this interaction.
 
 ![Cognitive Insights widget Video Indexer](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
+
+### Flow overview
+
+When you edit the transcripts, the following flow occurs:
+
+1. You edit the transcript in the timeline.
+1. Video Indexer gets these updates and saves them in the [from transcript edits](customize-language-model-with-website.md#customize-language-models-by-correcting-transcripts) in the language model.
+1. The captions are updated:
+
+    * If you are using Video Indexer's player widget - it’s automatically updated.
+    * If you are using an external player - you get a new captions file user the **Get video captions** call.
 
 ### Cross-origin communications
 
@@ -286,6 +298,10 @@ See the [code samples](https://github.com/Azure-Samples/media-services-video-ind
 | `embed-both-widgets`              | Embed VI Player and Insights and communicate between them.                      |
 | `url-generator`                   | Generates widgets custom embed URL based on user-specified options.             |
 | `html5-player`                    | Embed VI Insights with a default HTML5 video player.                           |
+
+## Supported browsers
+
+For more information, see [supported browsers](video-indexer-overview.md#supported-browsers).
 
 ## Next steps
 

@@ -39,7 +39,7 @@ In both collection modes, additional data collection folders can be specified by
 * Azure PowerShell. See [Install Azure PowerShell](/powershell/azure/install-az-ps)] for install instructions.
 
 ## Add the extension
-You can use [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlets or [Service Management REST APIs](https://msdn.microsoft.com/library/ee460799.aspx) to add the AzureLogCollector extension.
+You can use [Microsoft Azure PowerShell](/previous-versions/azure/dn495240(v=azure.100)) cmdlets or [Service Management REST APIs](/previous-versions/azure/ee460799(v=azure.100)) to add the AzureLogCollector extension.
 
 For Cloud Services, the existing Azure Powershell cmdlet, **Set-AzureServiceExtension**, can be used to enable the extension on Cloud Service role instances. Every time this extension is enabled through this cmdlet, log collection is triggered on the selected role instances of selected roles.
 
@@ -523,4 +523,3 @@ else
 
 ## Next Steps
 Now you can examine or copy your logs from one simple location.
-

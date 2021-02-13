@@ -4,8 +4,9 @@ description: Resolve declined credit card at Azure sign-up in the Azure portal o
 author: v-miegge
 ms.reviewer: judupont
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: troubleshooting 
-ms.date: 06/05/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -65,4 +66,4 @@ If you have questions or need help, [create a support request](https://ms.portal
 
 ## Next steps
 
-- [Azure Billing documentation](../../billing/index.md)
+- [Azure Billing documentation](../index.yml)

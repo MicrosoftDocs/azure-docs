@@ -1,6 +1,6 @@
 ---
 title: Tutorial to set up Azure Data Box| Microsoft Docs
-description: Learn how to cable and connect your Azure Data Box
+description: In this tutorial, learn how to cable your Azure Data Box, connect Azure Data Box, and turn on Azure Data Box.
 services: databox
 author: alkohli
 
@@ -117,7 +117,7 @@ Perform the following steps to set up your device using the local web UI and the
 2. Connect to MGMT port of your device and access its local web UI at https\://192.168.100.10. This may take up to 5 minutes after you turned on the device.
 3. Click **Details** and then click **Go on to the webpage**.
 
-   ![Connect to local web UI](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
+   ![Connect to local web UI](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
 4. You see a **Sign in** page for the local web UI. Ensure that the device serial number matches across both the portal UI and the local web UI. The device is locked at this point.
 5. Sign into the [Azure portal](https://portal.azure.com).

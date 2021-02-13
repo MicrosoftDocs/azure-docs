@@ -1,20 +1,18 @@
 ---
-title: Subclip a video when encoding with Azure Media Services REST
+title: Subclip a video when encoding with Media Services REST
 description: This topic describes how to subclip a video when encoding with Azure Media Services using REST
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/10/2019
-ms.author: juliako
-
+ms.author: inhenkel
 ---
 # Subclip a video when encoding with Media Services - REST
 
@@ -45,7 +43,7 @@ To complete the steps described in this topic, you have to:
 1. Update the value of "transformName" environment variable with your transform name. 
 1. Select the **Body** tab and update the "myOutputAsset" with your output Asset name.
 
-    ```
+    ```json
     {
       "properties": {
         "description": "A Job with transform cb9599fb-03b3-40eb-a2ff-7ea909f53735 and single clip.",
@@ -54,8 +52,8 @@ To complete the steps described in this topic, you have to:
           "@odata.type": "#Microsoft.Media.JobInputHttp",
           "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
           "files": [
-          		"Ignite-short.mp4"
-          	],
+            "Ignite-short.mp4"
+          ],
           "start": {
             "@odata.type": "#Microsoft.Media.AbsoluteClipTime",
             "time": "PT10S"

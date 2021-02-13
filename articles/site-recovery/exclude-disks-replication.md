@@ -202,7 +202,7 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 Our paging file settings on the source VM are as follows:
 
-![Paging file settings on source virtual machine](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
+![Screenshot of the Virtual Memory dialog with the D: Drive [Pagefile volume] line highlighted showing a Paging File Size (MB) of 3000-7000.](./media/exclude-disks-replication/pagefile-d-drive-source-vm.png)
 
 1. We enable replication for the VM.
 2. We exclude DB-Disk1 from replication.
@@ -255,7 +255,7 @@ DB-Disk3 | Disk3 | F:\ | User data 2
 
 Our paging file settings on the Azure VM are as follows:
 
-![Paging file settings on Azure virtual machine](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
+![Screenshot of the Virtual Memory dialog with the C: Drive line highlighted showing a Paging File Size setting of "System managed".](./media/exclude-disks-replication/pagefile-azure-vm-after-failover-2.png)
 
 
 ## Next steps

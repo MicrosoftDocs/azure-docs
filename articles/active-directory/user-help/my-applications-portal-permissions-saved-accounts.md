@@ -21,13 +21,13 @@ When you use organizational applications in the **My Apps** portal, you often gr
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+>This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](../manage-apps/access-panel-collections.md).
 
-## Manage app permissions
+## Manage app accounts
 
-To view the permissions consented to by you or your administrator, select **...** when you hover over an app in the **My Apps** portal, then select **Manage your application**:
+To view the apps consented to by you or your administrator, select **...** when you hover over an app in the **My Apps** portal, then select **Manage your application**:
 
-![Manage an application in the My Apps portal](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
+![Manage an application in the My Apps portal](media/my-applications-portal-permissions-saved-accounts/my-apps-home-woodgrove.png)
 
 The top part of permissions window shows what you personally consented to. Examples of apps permissions include the ability to access your calendar, contacts, or camera.
 

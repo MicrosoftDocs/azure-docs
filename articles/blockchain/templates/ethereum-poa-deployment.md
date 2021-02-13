@@ -1,9 +1,10 @@
 ---
 title: Deploy Ethereum Proof-of-Authority consortium solution template on Azure
 description: Use the Ethereum Proof-of-Authority consortium solution to deploy and configure a multi-member consortium Ethereum network on Azure
-ms.date: 07/07/2020
+ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
+ms.custom: devx-track-js
 ---
 # Deploy Ethereum proof-of-authority consortium solution template on Azure
 
@@ -17,6 +18,9 @@ Microsoft Azure compute, networking, and storage services. Each consortium membe
 ## Choose an Azure Blockchain solution
 
 Before choosing to use the Ethereum proof-of-authority consortium solution template, compare your scenario with the common use cases of available Azure Blockchain options.
+
+> [!IMPORTANT]
+> Consider using [Azure Blockchain Service](../service/overview.md) rather than the Ethereum on Azure solution template. Azure Blockchain Service is a supported managed Azure Service. Parity Ethereum transitioned to community driven development and maintenance. For more information, see [Transitioning Parity Ethereum to OpenEthereum DAO](https://www.parity.io/parity-ethereum-openethereum-dao/).
 
 Option | Service model | Common use case
 -------|---------------|-----------------
@@ -40,7 +44,8 @@ Each consortium member deployment includes:
 * VNet Gateway (optional) for allowing VPN connections across private VNets
 
 By default, the RPC and peering endpoints are accessible over public IP to enable simplified connectivity across
-subscriptions and clouds. For application level access-controls, you can use [Parity's permissioning contracts](https://wiki.parity.io/Permissioning). Networks deployed behind VPNs, which leverage VNet gateways for cross-subscription connectivity are supported. Since VPN and VNet deployments are more complex, you may want to start with a public IP model when prototyping a solution.
+
+subscriptions and clouds. For application level access-controls, you can use [Parity's permissioning contracts](https://openethereum.github.io/Permissioning.html). Networks deployed behind VPNs, which leverage VNet gateways for cross-subscription connectivity are supported. Since VPN and VNet deployments are more complex, you may want to start with a public IP model when prototyping a solution.
 
 Docker containers are used for reliability and modularity. Azure Container Registry is used to host and serve versioned images as part of each deployment. The container images consist of:
 
@@ -319,7 +324,7 @@ For security reasons, the SSH port access is denied by a network group security 
 
 1. Select the **allow-ssh** rule.
 
-    ![ssh-allow](./media/ethereum-poa-deployment/ssh-allow.png)
+    ![Screen capture shows an overview window the the ssh-allow selected.](./media/ethereum-poa-deployment/ssh-allow.png)
 
 1. Change **Action** to **Allow**
 
@@ -681,7 +686,7 @@ Now that your smart contract is deployed, you can send a transaction to call a f
 
 ## WebAssembly (WASM) support
 
-WebAssembly support is already enabled for you on newly deployed PoA networks. It allows for smart-contract development in any language that transpiles to Web-Assembly (Rust, C, C++). For more information, see: [Parity Overview of WebAssembly](https://wiki.parity.io/WebAssembly-Home) and [Tutorial from Parity Tech](https://github.com/paritytech/pwasm-tutorial)
+WebAssembly support is already enabled for you on newly deployed PoA networks. It allows for smart-contract development in any language that transpiles to Web-Assembly (Rust, C, C++). For more information, see: [Parity Overview of WebAssembly](https://openethereum.github.io/WebAssembly-Home.html) and [Tutorial from Parity Tech](https://github.com/paritytech/pwasm-tutorial)
 
 ## FAQ
 

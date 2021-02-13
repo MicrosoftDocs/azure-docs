@@ -1,26 +1,23 @@
 ---
-title: Cleanup a standalone cluster
-description: In this tutorial you learn how to clean up AWS or Azure resources in your standalone Service Fabric cluster.
-author: dkkapur
-
+title: Clean up a standalone cluster
+description: In this tutorial, learn how to delete AWS or Azure resources for your standalone Service Fabric cluster.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
 ---
 # Tutorial: Clean up your standalone cluster
 
-Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS or Azure and install an application into it.
+Service Fabric standalone clusters offer you the option to choose your own environment to host Service Fabric. In this tutorial series, you'll create a standalone cluster hosted on AWS or Azure and deploy an application to it.
 
-This tutorial is part four of a series. This part of the tutorial shows you how to clean up the AWS or Azure resources that you created to host your Service Fabric cluster.
+This tutorial is part four of a series. This part of the tutorial shows you how to delete the AWS or Azure resources that you created to host your Service Fabric cluster.
 
-In part four of the series, you learn how to:
+In this article, you'll learn to:
 
 > [!div class="checklist"]
-> * Clean up Service Fabric cluster
-> * Clean up your AWS or Azure resources
+> * Remove a Service Fabric cluster
+> * Delete your AWS or Azure resources
 
-## Clean up Service Fabric cluster
+## Remove a Service Fabric cluster
 
 1. RDP into the VM that you used to installed Service Fabric.
 2. Open PowerShell.
@@ -31,7 +28,7 @@ In part four of the series, you learn how to:
   .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
   ```
 
-5. Enter `Y` when prompted, if it was successful your output will look like the following, with your own IP addresses substituted in:
+5. Enter `Y` when prompted. If it was successful, your output will look like the following (with your own IP addresses):
 
   ```powershell
   Best Practices Analyzer completed successfully.
@@ -44,23 +41,23 @@ In part four of the series, you learn how to:
   The cluster is successfully removed.
   ```
 
-## Clean up AWS resources
+## Delete AWS resources
 
 1. Sign in to your AWS Account.
 2. Go to the EC2 Console.
 3. Select the three nodes that you created in part one of the tutorial.
-4. Click on **Actions** > **Instance State** > **Terminate**.
+4. Select **Actions** > **Instance State** > **Terminate**.
 
-## Clean up Azure resources
+## Delete Azure resources
 
 1. Sign in to the Azure portal.
 2. Go to the **Virtual Machines** section.
 3. Select check boxes for the three nodes that you created in part one of the tutorial.
-4. Click on **Delete**.
+4. Select **Delete**.
 
 ## Next steps
 
-In part four of the series, you learned how to clean up your resources that were created in previous steps.
+In this tutorial, you learned how to delete the resources you created in previous steps.
 
 > [!div class="checklist"]
 > * Clean up your resources

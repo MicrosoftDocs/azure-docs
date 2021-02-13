@@ -1,12 +1,9 @@
 ---
 title: 'Tutorial: Build Spark machine learning app - Azure HDInsight'
-description: Tutorial - Step-by-step instructions on how to build Apache Spark machine learning application in HDInsight Spark clusters using Jupyter notebook.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+description: Tutorial - Step-by-step instructions on how to build Apache Spark machine learning application in HDInsight Spark clusters using Jupyter Notebook.
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,mvc, tracking-python
+ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
 
 #customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a simple machine learning Spark application.
@@ -38,7 +35,7 @@ The application uses the sample **HVAC.csv** data that is available on all clust
 
 This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) to do a document classification. ML Pipelines provide a uniform set of high-level APIs built on top of DataFrames. The DataFrames help users create and tune practical machine learning pipelines. In the pipeline, you split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels. Do the following steps to create the application.
 
-1. Create a Jupyter notebook using the PySpark kernel. For the instructions, see [Create a Jupyter notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+1. Create a Jupyter Notebook using the PySpark kernel. For the instructions, see [Create a Jupyter Notebook file](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 1. Import the types required for this scenario. Paste the following snippet in an empty cell, and then press **SHIFT + ENTER**.
 
@@ -183,7 +180,7 @@ This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/
 
 ## Use Anaconda scikit-learn library for Spark machine learning
 
-Apache Spark clusters in HDInsight include Anaconda libraries. It also includes the **scikit-learn** library for machine learning. The library also includes various data sets that you can use to build sample applications directly from a Jupyter notebook. For examples on using the scikit-learn library, see [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
+Apache Spark clusters in HDInsight include Anaconda libraries. It also includes the **scikit-learn** library for machine learning. The library also includes various data sets that you can use to build sample applications directly from a Jupyter Notebook. For examples on using the scikit-learn library, see [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
 
 ## Clean up resources
 

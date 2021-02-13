@@ -45,7 +45,7 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 > [!NOTE]
 > For container access, you must have both `Read` and `List` permissions, whereas with blob access, you only need `Read` permission.
 
-Once the permissions are configured, create the SAS token and format the SAS URL for access to the storage container. Using the formatted SAS URL for the storage container, generate a resource file with [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet).
+Once the permissions are configured, create the SAS token and format the SAS URL for access to the storage container. Using the formatted SAS URL for the storage container, generate a resource file with [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl).
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);
@@ -56,7 +56,7 @@ string containerSasUrl = String.Format("{0}{1}", container.Uri, sasToken);
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 ```
 
-An alternative to generating a SAS URL is to enable anonymous, public read-access to a container and its blobs in Azure Blob storage. By doing so, you can grant read-only access to these resources without sharing your account key, and without requiring a SAS. Public read-access is typically used for scenarios where you want certain blobs to be always available for anonymous read-access. If this scenario suits your solution, see the [Anonymous access to blobs](../storage/blobs/storage-manage-access-to-resources.md) article to learn more about managing access to your blob data.
+An alternative to generating a SAS URL is to enable anonymous, public read-access to a container and its blobs in Azure Blob storage. By doing so, you can grant read-only access to these resources without sharing your account key, and without requiring a SAS. Public read-access is typically used for scenarios where you want certain blobs to be always available for anonymous read-access. If this scenario suits your solution, see the [Anonymous access to blobs](../storage/blobs/anonymous-read-access-configure.md) article to learn more about managing access to your blob data.
 
 ### Storage container name
 
@@ -88,13 +88,13 @@ Each Azure Batch task uses files differently, which is why Batch has options ava
 
 Your Batch job may contain several tasks that all use the same, common files. If common task files are shared among many tasks, using an application package to contain the files instead of using resource files may be a better option. Application packages provide optimization for download speed. Also, data in application packages is cached between tasks, so if your task files don't change often, application packages may be a good fit for your solution. With application packages, you don't need to manually manage several resource files or generate SAS URLs to access the files in Azure Storage. Batch works in the background with Azure Storage to store and deploy application packages to compute nodes.
 
-If each task has many files unique to that task, resource files are the best option becasue tasks that use unique files often need to be updated or replaced, which is not as easy to do with application packages content. Resource files provide additional flexibility for updating, adding, or editing individual files.
+If each task has many files unique to that task, resource files are the best option because tasks that use unique files often need to be updated or replaced, which is not as easy to do with application packages content. Resource files provide additional flexibility for updating, adding, or editing individual files.
 
 ### Number of resource files per task
 
 If there are several hundred resource files specified on a task, Batch might reject the task as being too large. It's best to keep your tasks small by minimizing the number of resource files on the task itself.
 
-If there's no way to minimize the number of files your task needs, you can optimize the task by creating a single resource file that references a storage container of resource files. To do this, put your resource files into an Azure Storage container and use the different "container" [methods](/dotnet/api/microsoft.azure.batch.resourcefile?view=azure-dotnet#methods) for resource files. Use the blob prefix options to specify collections of files to be downloaded for your tasks.
+If there's no way to minimize the number of files your task needs, you can optimize the task by creating a single resource file that references a storage container of resource files. To do this, put your resource files into an Azure Storage container and use the different "container" [methods](/dotnet/api/microsoft.azure.batch.resourcefile#methods) for resource files. Use the blob prefix options to specify collections of files to be downloaded for your tasks.
 
 ## Next steps
 

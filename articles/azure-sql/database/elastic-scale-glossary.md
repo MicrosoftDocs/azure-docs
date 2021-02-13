@@ -35,7 +35,7 @@ These terms are used in [Adding a shard using Elastic Database tools](elastic-sc
 
 **Multi-tenant** and **Single-tenant**: This shows a single-tenant database and a multi-tenant database:
 
-![Single and multi-tenant databases](./media/elastic-scale-glossary/multi-single-simple.png)
+![Screenshot that shows a single-tenant database and a multi-tenant database.](./media/elastic-scale-glossary/multi-single-simple.png)
 
 Here is a representation of **sharded** single and multi-tenant databases. 
 
@@ -61,7 +61,7 @@ Here is a representation of **sharded** single and multi-tenant databases.
 
 **Shard map manager**: A management object and data store that contains the shard map(s), shard locations, and mappings for one or more shard sets.
 
-![Mappings][2]
+![Diagram shows a shard map manager associated with shardmaps_global, shards_global, and shard_mappings_global.][2]
 
 ## Verbs
 **Horizontal scaling**: The act of scaling out (or in) a collection of shards by adding or removing shards to a shard map, as shown below.

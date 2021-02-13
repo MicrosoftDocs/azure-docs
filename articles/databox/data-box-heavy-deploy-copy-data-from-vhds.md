@@ -33,7 +33,7 @@ Before you begin, make sure that:
 4. You've reviewed the:
 
     - Supported [managed disk sizes in Azure object size limits](data-box-heavy-limits.md#azure-object-size-limits).
-    - [Introduction to Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview). 
+    - [Introduction to Azure managed disks](../virtual-machines/managed-disks-overview.md). 
 
 ## Connect to Data Box Heavy
 
@@ -70,11 +70,11 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     > [!NOTE]
     > The credentials for all the shares for managed disks are identical.
 
-    ![Get share credentials 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![Get share credentials](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
 2. From the Access share and copy data dialog box, copy the **Username** and the **Password** for the share. Click **OK**.
     
-    ![Get share credentials 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
+    ![Get share credentials 2](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
 3. To access the shares associated with your resource (*mydbmdrg1* in the following example) from your host computer, open a command window. At the command prompt, type:
 
@@ -96,7 +96,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>\<ShareName>`. Click **OK** to open File Explorer.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
+    ![Connect to share via File Explorer](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     You should now see the following precreated folders within each share.
     
@@ -109,7 +109,7 @@ If you are using a Linux host computer, perform the following steps to configure
 
 1. Supply the IP addresses of the allowed clients that can access the share. In the local web UI, go to **Connect and copy** page. Under **NFS settings**, click **NFS client access**.
 
-    ![Configure NFS client access 1](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
+    ![Configure NFS client access](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
 2. Supply the IP address of the NFS client and click **Add**. You can configure access for multiple NFS clients by repeating this step. Click **OK**.
 
@@ -177,4 +177,3 @@ Advance to the next tutorial to learn how to ship your Data Box Heavy back to Mi
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box Heavy to Microsoft](./data-box-heavy-deploy-picked-up.md)
-

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: tutorial
 ms.date: 01/17/2020
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 #Customer intent: As an IT administrator, I want to learn about high availability in Azure so that I can deploy a highly-available and redundant infrastructure.
 ---
@@ -114,5 +114,5 @@ Advance to the next tutorial to learn about virtual machine scale sets.
 > [Create a virtual machine scale set](tutorial-create-vmss.md)
 
 * To learn more about availability zones, visit the  [Availability Zones documentation](../../availability-zones/az-overview.md).
-* More documentation about both availability sets and availability zones is also available [here](./manage-availability.md).
+* More documentation about both availability sets and availability zones is also available [here](../manage-availability.md).
 * To try out availability zones, visit [Create a Linux virtual machine in an availability zone with the Azure CLI](./create-cli-availability-zone.md)

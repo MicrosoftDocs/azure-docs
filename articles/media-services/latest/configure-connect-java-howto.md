@@ -3,7 +3,7 @@ title: Connect to Azure Media Services v3 API - Java
 description: This article describes how to connect to Azure Media Services v3 API with Java.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -11,12 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/18/2019
-ms.author: juliako
+ms.topic: quickstart
+ms.date: 11/17/2020
+ms.custom: devx-track-java
+ms.author: inhenkel
 
 ---
 # Connect to Media Services v3 API - Java
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article shows you how to connect to the Azure Media Services v3 Java SDK using the service principal sign in method.
 
@@ -55,25 +58,9 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
 
 1. In Visual Studio Code, open the folder where your project is
 1. Find and open the `pom.xml`
-1. Add the needed dependencies
+1. Add the needed dependencies.
 
-    ```xml
-   <dependency>
-     <groupId>com.microsoft.azure.mediaservices.v2018_07_01</groupId>
-     <artifactId>azure-mgmt-media</artifactId>
-     <version>1.0.0-beta-3</version>
-   </dependency>
-   <dependency>
-     <groupId>com.microsoft.rest</groupId>
-     <artifactId>client-runtime</artifactId>
-     <version>1.6.6</version>
-   </dependency>
-   <dependency>
-     <groupId>com.microsoft.azure</groupId>
-     <artifactId>azure-client-authentication</artifactId>
-     <version>1.6.6</version>
-   </dependency>
-    ```
+   See `pom.xml` in the [Video encoding](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESCustomPreset/pom.xml) sample.
 
 ## Connect to the Java client
 
@@ -119,7 +106,7 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
 
 - [Media Services concepts](concepts-overview.md)
 - [Java SDK](https://aka.ms/ams-v3-java-sdk)
-- [Java reference](https://aka.ms/ams-v3-java-ref)
+- [Java reference](/java/api/overview/azure/mediaservices/management)
 - [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)
 
 ## Next steps

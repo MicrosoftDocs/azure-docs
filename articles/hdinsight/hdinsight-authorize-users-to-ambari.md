@@ -1,9 +1,6 @@
 ---
 title: Authorize users for Ambari Views - Azure HDInsight 
 description: 'How to manage Ambari user and group permissions for HDInsight clusters with ESP enabled.'
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -19,7 +16,7 @@ Active Directory users can sign in to the cluster nodes using their domain crede
 > [!WARNING]  
 > Do not change the password of the Ambari watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password breaks the ability to use script actions or perform scaling operations with your cluster.
 
-If you have not already done so, follow [these instructions](./domain-joined/apache-domain-joined-configure.md) to provision a new ESP cluster.
+If you have not already done so, follow [these instructions](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) to provision a new ESP cluster.
 
 ## Access the Ambari management page
 

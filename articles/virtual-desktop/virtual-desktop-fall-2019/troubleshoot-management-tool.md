@@ -1,19 +1,16 @@
 ---
-title: Windows Virtual Desktop management tool - Azure
-description: How to troubleshoot issues with the Windows Virtual Desktop management tool.
-services: virtual-desktop
+title: Windows Virtual Desktop (classic) management tool - Azure
+description: How to troubleshoot issues with the Windows Virtual Desktop (classic) management tool.
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Troubleshoot the Windows Virtual Desktop management tool
+# Troubleshoot the Windows Virtual Desktop (classic) management tool
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 This article describes issues that can occur while deploying the Windows Virtual Desktop management tool and how to fix them.
 

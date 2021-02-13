@@ -8,7 +8,7 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
-ms.date: 04/25/2020
+ms.date: 11/17/2020
 ---
 
 # Tutorial: Query a Cognitive Search index from Power Apps
@@ -26,9 +26,9 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## Prerequisites
 
-* [Power Apps account](http://make.powerapps.com)
+* [Power Apps account](https://make.powerapps.com)
 
-* [Hotels-sample index](search-get-started-portal.md)
+* [Hotels-sample index](search-get-started-portal.md) hosted on your search service
 
 * [Query API key](search-security-api-keys.md#find-existing-keys)
 
@@ -36,7 +36,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 A connector in Power Apps is a data source connection. In this step, you'll create a custom connector to connect to a search index in the cloud.
 
-1. [Sign in](http://make.powerapps.com) to Power Apps.
+1. [Sign in](https://make.powerapps.com) to Power Apps.
 
 1. On the left, expand **Data** > **Custom Connectors**.
  
@@ -71,9 +71,9 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
    * For the URL enter a sample query for your search index (`search=*` returns all documents, `$select=` lets you choose fields). The API version is required. Fully specified, a URL might look like this: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
 
-   * For Headers, type `Content-Type`. 
+   * For Headers, type `Content-Type`. You'll set the value to `application/json` in a later step.
 
-     **Power Apps** will use the syntax to extract parameters from the query. Notice we explicitly defined the search field. 
+     **Power Apps** uses the syntax in the URL to extract parameters from the query: search, select, and api-version parameters become configurable as you progress through the wizard.
 
        :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Import from sample" border="true":::
 
@@ -87,7 +87,7 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
 1. For *select*: Set `HotelName,Description,Address/City` as the **default value**, set **required** to *False*, and set **visibility** to *none*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Version parameter metadata" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Select parameter metadata" border="true":::
 
 1. For *api-version*: Set `2020-06-30` as the **default value**, set **required** to *True*, and set **visibility** as *internal*.  
 
@@ -106,11 +106,11 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
       - {name: Content-Type, in: header, required: false, type: string}
     ```
 
-1. Return to the **3. Request** step and scroll down to the Response section. Click **"Add default response"**. This is critical because it will help Power Apps understand the schema of the response. 
+1. Switch back to the wizard and return to the **3. Request** step. Scroll down to the Response section. Click **"Add default response"**. This is critical because it will help Power Apps understand the schema of the response. 
 
 1. Paste a sample response. An easy way to capture a sample response is through Search Explorer in the Azure portal. In Search Explorer, you should enter the same query as you did for the request, but add **$top=2** to constrain results to just two documents: : `search=*&$select=HotelName,Description,Address/City&$top=2`. 
 
-   Power Apps only needs a few results to detect the schema.
+   Power Apps only needs a few results to detect the schema. You can copy the following response into the wizard now, assuming you're using the hotels-sample-index.
 
     ```JSON
     {
@@ -139,7 +139,11 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
     > [!TIP] 
     > There is a character limit to the JSON response you can enter, so you may want to simplify the JSON before pasting it. The schema and format of the response is more important than the values themselves. For example, the Description field could be simplified to just the first sentence.
 
-1. Click **Create connector** on the top right.
+1. Click **Import** to add the default response.
+
+1. Click **Create connector** on the top right to save the definition.
+
+1. Click **Close** to close the connector.
 
 ## 2 - Test the connection
 
@@ -149,7 +153,7 @@ You will need a [query API key](search-security-api-keys.md#find-existing-keys) 
 
 1. On the far left, click **Custom Connectors**.
 
-1. Search for the connector by name (in this tutorial, is "AzureSearchQuery").
+1. Find your connector in the list (in this tutorial, is "AzureSearchQuery").
 
 1. Select the connector, expand the actions list, and select **View Properties**.
 
@@ -256,5 +260,4 @@ If you are using a free service, remember that you are limited to three indexes,
 Power Apps enables the rapid application development of custom apps. Now that you know how to connect to a search index, learn more about creating a rich visualize experience in a custom Power App.
 
 > [!div class="nextstepaction"]
-> [Power Apps Learning Catalog](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
-
+> [Power Apps Learning Catalog](/powerapps/learning-catalog/get-started)

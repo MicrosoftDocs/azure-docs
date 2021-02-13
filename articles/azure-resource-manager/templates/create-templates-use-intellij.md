@@ -1,15 +1,16 @@
 ---
 title: Deploy template - IntelliJ IDEA
-description: Learn how to create your first Azure Resource Manager template using the IntelliJ IDEA, and how to deploy it.
+description: Learn how to create your first Azure Resource Manager template (ARM template) using the IntelliJ IDEA, and how to deploy it.
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
+ms.custom: devx-track-java
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use the IntelliJ IDEA to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 ---
 
 # Create and deploy ARM templates by using the IntelliJ IDEA
 
-Learn how to deploy an Azure Resource Manager (ARM) template to Azure using the IntelliJ IDEA, and the process of editing and update the template directly from the IDE. ARM templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+Learn how to deploy an Azure Resource Manager template (ARM template) to Azure using the IntelliJ IDEA, and the process of editing and update the template directly from the IDE. ARM templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see the [template deployment overview](overview.md).
 
 ![Resource Manager template portal diagram](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -61,7 +62,7 @@ Instead of creating a template from scratch, you open a template from [Azure Qui
 
 1. You can edit the two files on this page and deploy the changes to Azure. Here we modify the value of **storageAccountType** in parameter files, from `Standard_LRS` to `Standard_GRS`. Then, click **Update Deployment** on the bottom and confirm the update.
 
-    ![Resource Manager template edit deployment](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
+    ![Screenshot shows the Resource Manager template with the Update Deployment prompt displayed.](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
 1. After update deployment completed, you can verify on the portal that the created storage account is changed to `Standard_GRS`.
 

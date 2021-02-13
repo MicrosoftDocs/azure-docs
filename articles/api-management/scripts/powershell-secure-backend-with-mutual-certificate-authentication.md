@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell Script Sample - Secure back end | Microsoft Docs
-description: Azure PowerShell Script Sample - Secure back end
+description: Learn how to use an Azure PowerShell script sample to secure backend with mutual certificate authentication.
 services: api-management
 documentationcenter: ''
 author: vladvino

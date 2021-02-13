@@ -1,6 +1,6 @@
 ---
 title: Migrate from Windows Azure Media Encoder to Media Encoder Standard | Microsoft Docs
-description: This topic discusses how to migrate from Azure Media Encoder to the Media Encoder Standard media processor.
+description: This topic discusses how to migrate from Windows Azure Media Encoder to the Media Encoder Standard media processor.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Migrate from Windows Azure Media Encoder to Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 This article discusses the steps for migrating from the legacy Windows Azure Media Encoder (WAME) media processor (which is being retired) to the Media Encoder Standard media processor. For the retirement dates, see this [legacy components](legacy-components.md) topic.
 

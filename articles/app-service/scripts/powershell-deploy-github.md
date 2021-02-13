@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'PowerShell: Deploy code from GitHub'
 description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to deploy code from GitHub.
 tags: azure-service-management
@@ -6,7 +6,7 @@ tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.topic: sample
 ms.date: 03/20/2017
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Create a web app and deploy code from GitHub

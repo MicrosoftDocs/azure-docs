@@ -4,11 +4,11 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 07/16/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ---
 
-Before you assign an RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope.
+Before you assign an Azure RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope. Azure RBAC roles defined at a broader scope are inherited by the resources beneath them.
 
 The following list describes the levels at which you can scope access to Azure blob and queue resources, starting with the narrowest scope:
 
@@ -19,4 +19,4 @@ The following list describes the levels at which you can scope access to Azure b
 - **The subscription.** At this scope, a role assignment applies to all of the containers or queues in all of the storage accounts in all of the resource groups in the subscription.
 - **A management group.** At this scope, a role assignment applies to all of the containers or queues in all of the storage accounts in all of the resource groups in all of the subscriptions in the management group.
 
-For more information about RBAC role assignments and scope, see [What is Azure role-based access control (Azure RBAC)?](../articles/role-based-access-control/overview.md).
+For more information about Azure role assignments and scope, see [What is Azure role-based access control (Azure RBAC)?](../articles/role-based-access-control/overview.md).

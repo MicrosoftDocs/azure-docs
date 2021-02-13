@@ -1,14 +1,14 @@
 ---
 title: Create a scale set that uses Azure Spot VMs 
 description: Learn how to create Azure virtual machine scale sets that use Spot VMs to save on costs.
-author: cynthn
-ms.author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
-ms.reviewer: jagaveer
-ms.custom: jagaveer
+ms.reviewer: cynthn
+ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
@@ -26,6 +26,24 @@ Pricing for Spot instances is variable, based on region and SKU. For more inform
 
 With variable pricing, you have option to set a max price, in US dollars (USD), using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the instance won't be evicted based on price. The price for the instance will be the current price for Spot or the price for a standard instance, which ever is less, as long as there is capacity and quota available.
 
+
+## Limitations
+
+The following sizes are not supported for Azure Spot:
+ - B-series
+ - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
+
+Azure Spot can be deployed to any region, except Microsoft Azure China 21Vianet.
+
+<a name="channel"></a>
+
+The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
+
+-	Enterprise Agreement
+-	Pay-as-you-go offer code 003P
+-	Sponsored
+- For Cloud Service Provider (CSP), contact your partner
+
 ## Eviction policy
 
 When creating Spot scale sets, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
@@ -36,6 +54,11 @@ If you would like your instances in your Spot scale set to be deleted when they 
 
 Users can opt-in to receive in-VM notifications through [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 
+## Placement Groups
+Placement group is a construct similar to an Azure availability set, with its own fault domains and upgrade domains. By default, a scale set consists of a single placement group with a maximum size of 100 VMs. If the scale set property called `singlePlacementGroup` is set to *false*, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs. 
+
+> [!IMPORTANT]
+> Unless you are using Infiniband with HPC, it is strongly recommended to set the scale set property `singlePlacementGroup` to *false* to enable multiple placement groups for better scaling across the region or zone. 
 
 ## Deploying Spot VMs in scale sets
 
@@ -61,6 +84,7 @@ az vmss create \
     --name myScaleSet \
     --image UbuntuLTS \
     --upgrade-policy-mode automatic \
+    --single-placement-group false \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
@@ -86,14 +110,26 @@ $vmssConfig = New-AzVmssConfig `
 
 The process to create a scale set that uses Spot VMs is the same as detailed in the getting started article for [Linux](quick-create-template-linux.md) or [Windows](quick-create-template-windows.md). 
 
-For Spot template deployments, use`"apiVersion": "2019-03-01"` or later. Add the `priority`, `evictionPolicy` and `billingProfile` properties to the `"virtualMachineProfile":` section in your template: 
+For Spot template deployments, use`"apiVersion": "2019-03-01"` or later. 
+
+Add the `priority`, `evictionPolicy` and `billingProfile` properties to the `"virtualMachineProfile":`section and the `"singlePlacementGroup": false,` property to the `"Microsoft.Compute/virtualMachineScaleSets"` section in your template:
 
 ```json
-                "priority": "Spot",
+
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  },
+  "properties": {
+    "singlePlacementGroup": false,
+    }
+
+        "virtualMachineProfile": {
+              "priority": "Spot",
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
                 }
+            },
 ```
 
 To delete the instance after it has been evicted, change the `evictionPolicy` parameter to `Delete`.
@@ -142,23 +178,7 @@ To delete the instance after it has been evicted, change the `evictionPolicy` pa
 
 **Q:**  Does autoscale work with both eviction policies (deallocate and delete)?
 
-**A:** It is recommended that you set your eviction policy to delete when using autoscale. This is because deallocated instances are counted against your capacity count on the scale set. When using autoscale, you will likely hit your target instance count quickly due to the deallocated, evicted instances. 
-
-
-**Q:** What channels support Spot VMs?
-
-**A:** See the table below for Spot VM availability.
-
-<a name="channel"></a>
-
-| Azure Channels               | Azure Spot VMs Availability       |
-|------------------------------|-----------------------------------|
-| Enterprise Agreement         | Yes                               |
-| Pay As You Go                | Yes                               |
-| Cloud Service Provider (CSP) | [Contact your partner](/partner-center/azure-plan-get-started) |
-| Benefits                     | Not available                     |
-| Sponsored                    | Yes                               |
-| Free Trial                   | Not available                     |
+**A:** Yes, however it is recommended that you set your eviction policy to delete when using autoscale. This is because deallocated instances are counted against your capacity count on the scale set. When using autoscale, you will likely hit your target instance count quickly due to the deallocated, evicted instances. Also, your scaling operations could be impacted by spot evictions. For example, virtual machine scale set instances could fall below the set min count due to multiple spot evictions during scaling operations. 
 
 
 **Q:** Where can I post questions?

@@ -22,9 +22,9 @@ This task is a step in the [Team Data Science Process](overview.md).
 This article assumes that you have:
 
 * Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-account-create.md)
-* Provisioned a customized Hadoop cluster with the HDInsight service. If you need instructions, see [Customize Azure HDInsight Hadoop Clusters for Advanced Analytics](customize-hadoop-cluster.md).
+* Provisioned a customized Hadoop cluster with the HDInsight service. If you need instructions, see [Customize Azure HDInsight Hadoop Clusters for Advanced Analytics](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 * The data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, follow the instructions in [Create and load data to Hive tables](move-hive-tables.md) to upload data to Hive tables first.
-* Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md).
+* Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 * If you need instructions on how to submit Hive queries, see [How to Submit Hive Queries](move-hive-tables.md#submit)
 
 ## Example Hive query scripts for data exploration
@@ -69,4 +69,3 @@ This article assumes that you have:
 
 ## Additional query scripts for taxi trip data scenarios
 Examples of queries that are specific to [NYC Taxi Trip Data](https://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [GitHub repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run.
-

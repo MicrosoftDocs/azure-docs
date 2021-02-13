@@ -9,10 +9,4 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-Currently available only in the following regions:
-
-- West US 2
-- East US
-- South Central US
-- US Gov Virginia
-- US Gov Arizona
+Double encryption is available in all regions that managed disks are available.

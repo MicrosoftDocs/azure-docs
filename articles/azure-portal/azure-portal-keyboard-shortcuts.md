@@ -1,22 +1,12 @@
 ---
-title: Azure portal keyboard shortcuts | Microsoft Docs
+title: Azure portal keyboard shortcuts
 description: The Azure portal supports global keyboard shortcuts to help you perform actions, navigate, and go to locations in the Azure portal. 
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: lwelicki
-editor: ''
-
 ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 12/20/2019
-ms.author: mblythe
 ms.custom: accessibility
 ---
+
 # Keyboard shortcuts in the Azure portal
 
 This article lists the keyboard shortcuts that work everywhere in the Azure portal. Individual services may have their own keyboard shortcuts.
@@ -48,7 +38,11 @@ This article lists the keyboard shortcuts that work everywhere in the Azure port
 |Go to **Resource groups**|G+R |
 |Open the left sidebar item at this position |G+number|
 
+## Keyboard shortcuts for specific pages in the Azure portal
+
+- [Azure Resource Graph Explorer](../governance/resource-graph/reference/keyboard-shortcuts.md)
+
 ## Next steps
 
-- [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md)
-- [Supported browsers and devices](../azure-preview-portal-supported-browsers-devices.md)
+- [Turn on high contrast or change theme](set-preferences.md#choose-a-theme-or-enable-high-contrast)
+- [Supported browsers and devices](azure-portal-supported-browsers-devices.md)

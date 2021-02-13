@@ -87,7 +87,7 @@ In this guide we will also expose the **developer portal** to external audiences
 > 
 > Application Gateway WAF rules, which may break portal's functionality include:
 > 
-> - `920330`, `931130`, `942100`, `942110`, `942180`, `942200`, `942260`, `942370`, `949110`, `980130` for the administrative mode
+> - `920300`, `920330`, `931130`, `942100`, `942110`, `942180`, `942200`, `942260`, `942340`, `942370` for the administrative mode
 > - `942200`, `942260`, `942370`, `942430`, `942440` for the published portal
 
 ## Create a resource group for Resource Manager
@@ -289,7 +289,7 @@ Create custom probes to the API Management service `ContosoApi` proxy domain end
 
 ```powershell
 $apimprobe = New-AzApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName $gatewayHostname -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
-$apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/signin" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
+$apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/internal-status-0123456789abcdef" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
 ```
 
 ### Step 7

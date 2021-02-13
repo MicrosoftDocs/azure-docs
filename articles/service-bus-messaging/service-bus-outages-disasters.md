@@ -2,7 +2,7 @@
 title: Insulate Azure Service Bus applications against outages and disasters
 description: This articles provides techniques to protect applications against a potential Azure Service Bus outage.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 02/10/2021
 ---
 
 # Best practices for insulating applications against Service Bus outages and disasters
@@ -18,11 +18,13 @@ High Availability and Disaster Recovery concepts are built right into the Azure 
 
 ### Geo-Disaster Recovery
 
-Service Bus Premium supports Geo-disaster recovery, at the namespace level. For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md). The disaster recovery feature, available for the [Premium SKU](service-bus-premium-messaging.md) only, implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces.
+Service Bus Premium supports Geo-disaster recovery, at the namespace level. For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md). The disaster recovery feature, available for the [Premium SKU](service-bus-premium-messaging.md) only, implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces. With Geo-Disaster Recovery, only metadata for entities is replicated between primary and secondary namespaces.  
 
 ### Availability Zones
 
 The Service Bus Premium SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Service Bus manages three copies of messaging store (1 primary and 2 secondary). Service Bus keeps all the three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. If the applications see transient disconnects from Service Bus, the retry logic in the SDK will automatically reconnect to Service Bus. 
+
+When you use availability zones, both metadata and data (messages) are replicated across data centers in the availability zone. 
 
 > [!NOTE]
 > The Availability Zones support for Azure Service Bus Premium is only available in [Azure regions](../availability-zones/az-region.md) where availability zones are present.
@@ -68,7 +70,7 @@ When using passive replication, in the following scenarios messages can be lost 
 The [Geo-replication with Service Bus Standard Tier][Geo-replication with Service Bus Standard Tier] sample demonstrates passive replication of messaging entities.
 
 ## Protecting relay endpoints against datacenter outages or disasters
-Geo-replication of [Azure Relay](../service-bus-relay/relay-what-is-it.md) endpoints allows a service that exposes a relay endpoint to be reachable in the presence of Service Bus outages. To achieve geo-replication, the service must create two relay endpoints in different namespaces. The namespaces must reside in different datacenters and the two endpoints must have different names. For example, a primary endpoint can be reached under **contosoPrimary.servicebus.windows.net/myPrimaryService**, while its secondary counterpart can be reached under **contosoSecondary.servicebus.windows.net/mySecondaryService**.
+Geo-replication of [Azure Relay](../azure-relay/relay-what-is-it.md) endpoints allows a service that exposes a relay endpoint to be reachable in the presence of Service Bus outages. To achieve geo-replication, the service must create two relay endpoints in different namespaces. The namespaces must reside in different datacenters and the two endpoints must have different names. For example, a primary endpoint can be reached under **contosoPrimary.servicebus.windows.net/myPrimaryService**, while its secondary counterpart can be reached under **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 The service then listens on both endpoints, and a client can invoke the service via either endpoint. A client application randomly picks one of the relays as the primary endpoint, and sends its request to the active endpoint. If the operation fails with an error code, this failure indicates that the relay endpoint is not available. The application opens a channel to the backup endpoint and reissues the request. At that point the active and the backup endpoints switch roles: the client application considers the old active endpoint to be the new backup endpoint, and the old backup endpoint to be the new active endpoint. If both send operations fail, the roles of the two entities remain unchanged and an error is returned.
 

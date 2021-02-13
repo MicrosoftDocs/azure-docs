@@ -8,7 +8,11 @@ ms.date: 09/18/2018
 ---
 # Create, view, and manage classic metric alerts using Azure Monitor
 
-Classic metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Classic metric alerts is an older functionality that allows for alerting only on non-dimensional metrics. There is an existing newer functionality called Metric alerts which has improved functionality over classic metric alerts. You can learn more about the new metric alerts functionality in [metric alerts overview](../../azure-monitor/platform/alerts-metric-overview.md). In this article, we will describe how to create, view and manage classic metric alert rules through Azure portal, Azure CLI and Powershell.
+> [!WARNING]
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users, though still in limited use for resources that do not yet support the new alerts.
+>
+
+Classic metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Classic metric alerts is an older functionality that allows for alerting only on non-dimensional metrics. There is an existing newer functionality called Metric alerts which has improved functionality over classic metric alerts. You can learn more about the new metric alerts functionality in [metric alerts overview](./alerts-metric-overview.md). In this article, we will describe how to create, view and manage classic metric alert rules through Azure portal, Azure CLI and Powershell.
 
 ## With Azure portal
 
@@ -46,7 +50,7 @@ After you create an alert, you can select it and do one of the following tasks:
 
 ## With Azure CLI
 
-The previous sections described how to create, view and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest).
+The previous sections described how to create, view and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli). Quickest way to start using Azure CLI is through [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ### Get all classic metric alert rules in a resource group
 
@@ -124,5 +128,6 @@ This sections shows how to use PowerShell commands create, view and manage class
 
 ## Next steps
 
-- [Create a classic metric alert with a Resource Manager template](../../azure-monitor/platform/alerts-enable-template.md).
-- [Have a classic metric alert notify a non-Azure system using a webhook](../../azure-monitor/platform/alerts-webhooks.md).
+- [Create a classic metric alert with a Resource Manager template](./alerts-enable-template.md).
+- [Have a classic metric alert notify a non-Azure system using a webhook](./alerts-webhooks.md).
+

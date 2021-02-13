@@ -11,7 +11,7 @@ ms.date: 01/23/2018
 
 # Create Service Manager Web app using the automated script
 
-Use the following script to create the Web app for your Service Manager instance. More information about Service Manager connection is here: [Service Manager Web app](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Use the following script to create the Web app for your Service Manager instance. More information about Service Manager connection is here: [Service Manager Web app](./itsmc-connections-scsm.md)
 
 Run the script by providing the following required details:
 
@@ -134,14 +134,14 @@ if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered
     {
         Write-Host "Failed to Register Microsoft.Web Resource Provider. Please register it in Azure Portal."
         exit
-    }   
+    }
 }
 do
 {
     $rand = Get-Random -Maximum 32000
 
     $siteName = $siteNamePrefix + $rand
-    
+
     $resource = Get-AzResource -Name $siteName -ResourceType Microsoft.Web/sites
 
 }while($resource)
@@ -229,7 +229,7 @@ try
     $appSettings['ida:ServerName'] = $serverName
     $appSettings['ida:Domain'] = $domain
     $appSettings['ida:Username'] = $userName
-	$appSettings['ida:WhitelistedClientId'] = $clientId
+    $appSettings['ida:WhitelistedClientId'] = $clientId
 
     $connStrings = @{}
     $kvp = @{"Type"="Custom"; "Value"=$password}
@@ -272,7 +272,7 @@ if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered
     catch
     {
         Write-Host "Failed to Register Microsoft.Relay Resource Provider. Please register it in Azure Portal."
-    }   
+    }
 }
 
 $resource = Get-AzResource -Name $serviceName -ResourceType Microsoft.Relay/namespaces
@@ -281,7 +281,7 @@ if(!$resource)
 {
     $serviceName = $siteName + "sbn"
     $properties = @{
-	    "sku" = @{
+        "sku" = @{
             "name"= "Standard"
             "tier"= "Standard"
             "capacity"= 1
@@ -313,5 +313,11 @@ if(!$err)
 }
 ```
 
+## Troubleshoot Service Manager web app deployment
+
+-	If you have problems with web app deployment, ensure that you have permissions to create/deploy resources in the subscription.
+-	If you get an **Object reference not set to instance of an object** error when you run the [script](itsmc-service-manager-script.md), ensure that you entered valid values in the **User Configuration** section.
+-	If you fail to create the service bus relay namespace, ensure that the required resource provider is registered in the subscription. If it's not registered, manually create the service bus relay namespace from the Azure portal. You can also create it when you [create the hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection) in the Azure portal.
+
 ## Next steps
-[Configure the Hybrid connection](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).
+[Configure the Hybrid connection](./itsmc-connections-scsm.md#configure-the-hybrid-connection).

@@ -119,7 +119,7 @@ Splunk does not seem to have an operator similar to `project-away`. You can use 
 | **Azure Monitor** | **project**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 
 ### Aggregation
-See the [Aggregations in Azure Monitor log queries](aggregations.md) for the different aggregation functions.
+See the [Aggregations in Azure Monitor log queries](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations) for the different aggregation functions.
 
 | | Operator | Example |
 |:---|:---|:---|

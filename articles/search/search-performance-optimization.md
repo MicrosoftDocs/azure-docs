@@ -26,7 +26,7 @@ Before undertaking a larger deployment effort, make sure you know what a typical
 
 1. Start with a low number of queries per second (QPS) and then gradually increase the number executed in the test until the query latency drops below the predefined target. This is an important benchmark to help you plan for scale as your application grows in usage.
 
-1. Wherever possible, reuse HTTP connections. If you are using the Azure Cognitive Search .NET SDK, this means you should reuse an instance or [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) instance, and if you are using the REST API, you should reuse a single HttpClient.
+1. Wherever possible, reuse HTTP connections. If you are using the Azure Cognitive Search .NET SDK, this means you should reuse an instance or [SearchClient](/dotnet/api/azure.search.documents.searchclient) instance, and if you are using the REST API, you should reuse a single HttpClient.
 
 1. Vary the substance of query requests so that search occurs over different parts of your index. Variation is important because if you continually execute the same search requests, caching of data will start to make performance look better than it might with a more disparate query set.
 
@@ -39,7 +39,7 @@ While creating these test workloads, there are some characteristics of Azure Cog
 + Azure Cognitive Search does not run indexing tasks in the background. If your service handles query and indexing workloads concurrently, take this into account by either introducing indexing jobs into your query tests, or by exploring options for running indexing jobs during off peak hours.
 
 > [!Tip]
-> You can simulate a realistic query load using load testing tools. Try [load testing with Azure DevOps](https://docs.microsoft.com/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) or use one of these [alternatives](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
+> You can simulate a realistic query load using load testing tools. Try [load testing with Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) or use one of these [alternatives](/azure/devops/test/load-test/overview#alternatives).
 
 ## Scale for high query volume
 
@@ -83,6 +83,30 @@ For more details on this, please visit the [Azure Cognitive Search Service Level
 
 Since replicas are copies of your data, having multiple replicas allows Azure Cognitive Search to do machine reboots and maintenance against one replica, while query execution continues on other replicas. Conversely, if you take replicas away, you'll incur query performance degradation, assuming those replicas were an under-utilized resource.
 
+<a name="availability-zones"></a>
+
+### Availability Zones
+
+[Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) divide a region's data centers into distinct physical location groups to provide high-availability, within the same region. For Cognitive Search, individual replicas are the units for zone assignment. A search service runs within one region; its replicas run in different zones.
+
+You can utilize Availability Zones with Azure Cognitive Search by adding two or more replicas to your search service. Each replica will be placed in a different Availability Zone within the region. If you have more replicas than Availability Zones, the replicas will be distributed across Availability Zones as evenly as possible.
+
+Azure Cognitive Search currently supports Availability Zones for Standard tier or higher search services that were created in one of the following regions:
+
++ Australia East (created January 30, 2021 or later)
++ Canada Central (created January 30, 2021 or later)
++ Central US (created December 4, 2020 or later)
++ East US 2 (created January 30, 2021 or later)
++ France Central (created October 23, 2020 or later)
++ Japan East (created January 30, 2021 or later)
++ North Europe (created January 28, 2021 or later)
++ South East Asia (created January 31, 2021 or later)
++ UK South (created January 30, 2021 or later)
++ West Europe (created January 29, 2021 or later)
++ West US 2 (created January 30, 2021 or later)
+
+Availability Zones do not impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/). You still need 3 or more replicas for query high availability.
+
 ## Scale for geo-distributed workloads and geo-redundancy
 
 For geo-distributed workloads, users who are located far from the host data center will have higher latency rates. One mitigation is to provision multiple search services in regions with closer proximity to these users.
@@ -95,7 +119,7 @@ The goal of a geo-distributed set of search services is to have two or more inde
 
 ### Keep data synchronized across multiple services
 
-There are two options for keeping your distributed search services in sync, which consist of either using the [Azure Cognitive Search Indexer](search-indexer-overview.md) or the Push API (also referred to as the [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/)).  
+There are two options for keeping your distributed search services in sync, which consist of either using the [Azure Cognitive Search Indexer](search-indexer-overview.md) or the Push API (also referred to as the [Azure Cognitive Search REST API](/rest/api/searchservice/)).  
 
 ### Use indexers for updating content on multiple services
 
@@ -107,7 +131,7 @@ Here is a high-level visual of what that architecture would look like.
 
 ### Use REST APIs for pushing content updates on multiple services
 
-If you are using the Azure Cognitive Search REST API to [push content in your Azure Cognitive Search index](https://docs.microsoft.com/rest/api/searchservice/update-index), you can keep your various search services in sync by pushing changes to all search services whenever an update is required. In your code, make sure to handle cases where an update to one search service fails but succeeds for other search services.
+If you are using the Azure Cognitive Search REST API to [push content in your Azure Cognitive Search index](/rest/api/searchservice/update-index), you can keep your various search services in sync by pushing changes to all search services whenever an update is required. In your code, make sure to handle cases where an update to one search service fails but succeeds for other search services.
 
 ## Leverage Azure Traffic Manager
 

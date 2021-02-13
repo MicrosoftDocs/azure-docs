@@ -10,7 +10,7 @@ ms.author: amberb
  
 2. Search on **Cost Management + Billing**.
  
-   ![Screenshot that shows Azure portal search](./media/billing-check-account-type/billing-search-cost-management-billing.png)    
+   ![Screenshot that shows an Azure portal search for Cost Management + Billing.](./media/billing-check-account-type/billing-search-cost-management-billing.png)    
  
 3. If you have access to just one billing scope, select **Properties** from the left-hand side.
  

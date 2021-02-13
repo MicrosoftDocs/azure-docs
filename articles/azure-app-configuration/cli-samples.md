@@ -1,11 +1,12 @@
 ---
 title: Azure CLI samples - Azure App Configuration
 description: Information about sample scripts provided for Azure App Configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 02/19/2020
+ms.date: 02/19/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI samples

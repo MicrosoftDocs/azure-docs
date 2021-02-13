@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.custom: has-adal-ref
+ms.custom: "has-adal-ref, devx-track-csharp"
 ---
 # Get started with the Azure CDN Library for .NET
 > [!div class="op_single_selector"]

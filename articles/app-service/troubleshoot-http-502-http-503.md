@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 ---
 # Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in Azure App Service
-"502 bad gateway" and "503 service unavailable" are common errors in your app hosted in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). This article helps you troubleshoot these errors.
+"502 bad gateway" and "503 service unavailable" are common errors in your app hosted in [Azure App Service](./overview.md). This article helps you troubleshoot these errors.
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
@@ -38,7 +38,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 ### 1. Observe and monitor application behavior
 #### Track Service health
-Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
+Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](../service-health/service-notifications.md).
 
 #### Monitor your app
 This option enables you to find out if your application is having any issues. In your app’s blade, click the **Requests and errors** tile. The **Metric** blade will show you all the metrics you can add.
@@ -56,7 +56,7 @@ Some of the metrics that you might want to monitor for your app are
 For more information, see:
 
 * [Monitor apps in Azure App Service](web-sites-monitor.md)
-* [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+* [Receive alert notifications](../azure-monitor/platform/alerts-overview.md)
 
 <a name="collect"></a>
 
@@ -106,5 +106,4 @@ This is often the simplest way to recover from one-time issues. On the [Azure Po
  ![restart app to solve HTTP errors of 502 bad gateway and 503 service unavailable](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 You can also manage your app using Azure Powershell. For more information, see
-[Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
-
+[Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).

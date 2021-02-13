@@ -24,7 +24,7 @@ Network traffic is subjected to the configured firewall rules when you route you
 
 For this tutorial, you create a simplified single VNet with two subnets for easy deployment.
 
-For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
+For production deployments, a [hub and spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
@@ -43,6 +43,8 @@ In this tutorial, you learn how to:
 > * Test the firewall
 
 If you prefer, you can complete this tutorial using [Azure PowerShell](deploy-ps.md).
+
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -66,7 +68,7 @@ The resource group contains all the resources for the tutorial.
 This VNet will contain three subnets.
 
 > [!NOTE]
-> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 1. Select **Networking** > **Virtual network**.
@@ -266,4 +268,4 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)
+> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)

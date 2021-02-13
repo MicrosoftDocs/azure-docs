@@ -1,6 +1,6 @@
 ---
 title: Configure client authentication of incoming calls - Azure Event Grid IoT Edge | Microsoft Docs 
-description: Configure API protocols exposed by Event Grid on IoT Edge.  
+description: Learn about the possible client authentication configurations for the Event Grid module.  
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke

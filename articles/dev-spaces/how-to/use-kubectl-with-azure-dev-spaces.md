@@ -8,6 +8,8 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 ---
 # Use kubectl with an Azure Dev Space
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
+
 You can access the Kubernetes cluster within an Azure Dev Space, and use existing Kubernetes tools like `kubectl`.
 
 Running `az aks use-dev-spaces` command will automatically add a `kubectl` configuration context for you, so kubectl should already be connected to your Azure Dev Spaces Kubernetes cluster. Examples:

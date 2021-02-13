@@ -3,7 +3,7 @@ title: App visibility and control with Microsoft Cloud App Security
 description: Learn ways to identify app risk levels, stop breaches and leaks in real time, and use app connectors to take advantage of provider APIs for visibility and governance.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -31,8 +31,8 @@ Use Microsoft Cloud App Discovery (an Azure Active Directory Premium P1 feature)
  
 ### Learn more
 
-- [Discover and manage shadow IT in your network ](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it)
-- [Discovered apps with Cloud App Security ](https://docs.microsoft.com/cloud-app-security/discovered-apps)
+- [Discover and manage shadow IT in your network ](/cloud-app-security/tutorial-shadow-it)
+- [Discovered apps with Cloud App Security ](/cloud-app-security/discovered-apps)
  
 ## User session visibility and control 
 
@@ -48,7 +48,7 @@ With this control you can:
  
 ### Learn more
 
-- [Protect apps with Session Control in Cloud App Security ](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Protect apps with Session Control in Cloud App Security ](/cloud-app-security/proxy-intro-aad)
  
 ## Advanced app visibility and controls 
 
@@ -57,11 +57,11 @@ Cloud App Security leverages the APIs provided by the cloud provider. Each servi
  
 ### Learn more  
 
-- [Connect apps in Cloud App Security ](https://docs.microsoft.com/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
+- [Connect apps in Cloud App Security ](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
 
 ## Next steps
 
-- [Discover and manage shadow IT in your network ](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it)
-- [Discovered apps with Cloud App Security ](https://docs.microsoft.com/cloud-app-security/discovered-apps)
-- [Protect apps with Session Control in Cloud App Security ](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-- [Connect apps in Cloud App Security ](https://docs.microsoft.com/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)
+- [Discover and manage shadow IT in your network ](/cloud-app-security/tutorial-shadow-it)
+- [Discovered apps with Cloud App Security ](/cloud-app-security/discovered-apps)
+- [Protect apps with Session Control in Cloud App Security ](/cloud-app-security/proxy-intro-aad)
+- [Connect apps in Cloud App Security ](/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps)

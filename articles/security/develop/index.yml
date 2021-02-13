@@ -27,7 +27,7 @@ landingContent:
         links:
           - text: Secure development best practices
             url: secure-dev-overview.md
-          - text: Desgin phase
+          - text: Design phase
             url: secure-design.md
           - text: Development phase
             url: secure-develop.md
@@ -50,6 +50,6 @@ landingContent:
       - linkListType: learn
         links:
           - text: Top 5 security items
-            url: https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider
+            url: /learn/modules/top-5-security-items-to-consider
           - text: Secure your cloud applications in Azure
-            url: https://docs.microsoft.com/learn/paths/secure-your-cloud-apps
+            url: /learn/paths/secure-your-cloud-apps

@@ -21,8 +21,8 @@ This article shows how to use Azure Cognitive Search to index data stored in Azu
 You can set up an Azure Table storage indexer by using these resources:
 
 * [Azure portal](https://ms.portal.azure.com)
-* Azure Cognitive Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* Azure Cognitive Search [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
+* Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
+* Azure Cognitive Search [.NET SDK](/dotnet/api/overview/azure/search)
 
 Here we demonstrate the flow by using the REST API. 
 
@@ -58,18 +58,20 @@ To create a datasource:
     }   
 ```
 
-For more information on the Create Datasource API, see [Create Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+For more information on the Create Datasource API, see [Create Datasource](/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 #### Ways to specify credentials ####
 
 You can provide the credentials for the table in one of these ways: 
 
+- **Managed identity connection string**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` 
+This connection string does not require an account key, but you must follow the instructions for [Setting up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md).
 - **Full access storage account connection string**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` You can get the connection string from the Azure portal by going to the **Storage account blade** > **Settings** > **Keys** (for classic storage accounts) or **Settings** > **Access keys** (for Azure Resource Manager storage accounts).
 - **Storage account shared access signature connection string**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` The shared access signature should have the list and read permissions on containers (tables in this case) and objects (table rows).
 -  **Table shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` The shared access signature should have query (read) permissions on the table.
 
-For more information on storage shared access signatures, see [Using shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+For more information on storage shared access signatures, see [Using shared access signatures](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
 > If you use shared access signature credentials, you will need to update the datasource credentials periodically with renewed signatures to prevent their expiration. If shared access signature credentials expire, the indexer fails with an error message similar to "Credentials provided in the connection string are invalid or have expired."  
@@ -93,7 +95,7 @@ To create an index:
     }
 ```
 
-For more information on creating indexes, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+For more information on creating indexes, see [Create Index](/rest/api/searchservice/create-index).
 
 ### Step 3: Create an indexer
 An indexer connects a datasource with a target search index and provides a schedule to automate the data refresh. 
@@ -115,7 +117,7 @@ After the index and datasource are created, you're ready to create the indexer:
 
 This indexer runs every two hours. (The schedule interval is set to "PT2H".) To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is five minutes. The schedule is optional; if omitted, an indexer runs only once when it's created. However, you can run an indexer on demand at any time.   
 
-For more information on the Create Indexer API, see [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+For more information on the Create Indexer API, see [Create Indexer](/rest/api/searchservice/create-indexer).
 
 For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
@@ -166,7 +168,7 @@ Here are two possible approaches for improving table indexing performance. Both 
 
 - If your data is partitioned by time (for example, you create a new partition every day or week), consider the following approach: 
 	- Use a query of the form: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
-	- Monitor indexer progress by using [Get Indexer Status API](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status), and periodically update the `<TimeStamp>` condition of the query based on the latest successful high-water-mark value. 
+	- Monitor indexer progress by using [Get Indexer Status API](/rest/api/searchservice/get-indexer-status), and periodically update the `<TimeStamp>` condition of the query based on the latest successful high-water-mark value. 
 	- With this approach, if you need to trigger a complete reindexing, you need to reset the datasource query in addition to resetting the indexer. 
 
 

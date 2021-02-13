@@ -2,13 +2,13 @@
 title: AVS assessment calculations in Azure Migrate | Microsoft Docs
 description: Provides an overview of AVS assessment calculations in the Azure Migrate service.
 author: rashi-ms
-ms.service: azure-migrate
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.author: mahain
 ---
 
-# AVS assessments in Azure Migrate: Server Assessment
+# Server Assessment overview (migrate to Azure VMware Solution)
 
 [Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads. It also tracks your private and public cloud instances to Azure. The hub offers Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
@@ -202,6 +202,8 @@ After the effective utilization value is determined, the storage, network, and c
 
 If you use *as on-premises sizing*, Server Assessment doesn't consider the performance history of the VMs and disks. Instead, it allocates AVS nodes based on the size allocated on-premises. The default storage type is vSAN in AVS.
 
+[Learn more](./tutorial-assess-vmware-azure-vmware-solution.md#review-an-assessment) about how to review an Azure VMware Solution assessment.
+
 ## Confidence ratings
 
 Each performance-based assessment in Azure Migrate is associated with a confidence rating that ranges from one (lowest) to five stars (highest).
@@ -230,9 +232,15 @@ Depending on the percentage of data points available, the confidence rating for 
 
 Here are a few reasons why an assessment could get a low confidence rating:
 
-- You didn't profile your environment for the duration for which you are creating the assessment. For example, if you create the assessment with performance duration set to one day, you must wait for at least a day after you start discovery for all the data points to get collected.
-- Some VMs were shut down during the period for which the assessment was calculated. If any VMs are turned off for some duration, Server Assessment can't collect the performance data for that period.
-- Some VMs were created during the period for which the assessment was calculated. For example, if you created an assessment for the performance history of the last month, but some VMs were created in the environment only a week ago, the performance history of the new VMs won't exist for the complete duration.
+- You didn't profile your environment for the duration for which you're creating the assessment. For example, if you create the assessment with performance duration set to one day, you must wait at least a day after you start discovery for all the data points to get collected.
+- Assessment is not able to collect the performance data for some or all the VMs in the assessment period. For a high confidence rating, please ensure that: 
+    - VMs are powered on for the duration of the assessment
+    - Outbound connections on ports 443 are allowed
+    - For Hyper-V VMs dynamic memory is enabled 
+    
+    Please 'Recalculate' the assessment to reflect the latest changes in confidence rating.
+
+- Some VMs were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some VMs were created only a week ago. In this case, the performance data for the new VMs will not be available for the entire duration and the confidence rating would be low.
 
 > [!NOTE]
 > If the confidence rating of any assessment is less than five stars, we recommend that you wait at least a day for the appliance to profile the environment, and then recalculate the assessment. If you don't, performance-based sizing might not be reliable. In that case, we recommend that you switch the assessment to on-premises sizing.
@@ -251,8 +259,8 @@ Note that as Azure VMware Solution (AVS) is in Preview, the node prices in the a
 ## Migration Tool Guidance
 
 In the Azure readiness report for Azure VMware Solution (AVS) assessment, you can see the following suggested tools: 
-- **VMware HCX or Enterprise**: For VMware machines, VMWare Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMWare Solution (AVS) private cloud. [Learn More](../azure-vmware/hybrid-cloud-extension-installation.md).
-- **Unknown**: For machines imported via a CSV file, the default migration tool is unknown. Though for VMware machines, it is recommended to use the VMWare Hybrid Cloud Extension (HCX) solution.
+- **VMware HCX or Enterprise**: For VMware machines, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+- **Unknown**: For machines imported via a CSV file, the default migration tool is unknown. Though for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution.
 
 ## Next steps
 

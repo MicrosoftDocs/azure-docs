@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Interfaces and custom models
@@ -24,18 +25,18 @@ In this tutorial, you learn how to:
 
 ## Get started with the Mixed Reality Toolkit (MRTK)
 
-The Mixed Reality Toolkit (MRTK) is a cross-platform toolkit for building mixed reality experiences. We'll use MRTK 2.3 for its interaction and visualization features.
+The Mixed Reality Toolkit (MRTK) is a cross-platform toolkit for building mixed reality experiences. We'll use MRTK 2.5.1 for its interaction and visualization features.
 
-To add MRTK, follow the [Required steps](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#required) listed in [Getting started with MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html).
+To add MRTK, follow the [Required steps](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#required) listed in the [MRTK Installation Guide](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html).
 
 Those steps are:
- - [Get the latest MRTK Unity packages](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#get-the-latest-mrtk-unity-packages)
-     - Even though it says "latest", this is for version 2.3.
+ - [Get the latest MRTK Unity packages](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#1-get-the-latest-mrtk-unity-packages)
+     - Even though it says "latest", please use version 2.5.1 from the MRTK release page.
      - We only use the *Foundation* package in this tutorial. The *Extensions*, *Tools*, and *Examples* packages are not required.
- - [Import MRTK packages into your Unity project](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#import-mrtk-packages-into-your-unity-project)
- - [Switch your Unity project to the target platform](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#switch-your-unity-project-to-the-target-platform)
+ - [Import MRTK packages into your Unity project](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#2-import-mrtk-packages-into-your-unity-project)
+ - [Switch your Unity project to the target platform](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#3-switch-your-unity-project-to-the-target-platform)
      - You should have done this step already in the first chapter, but now is a good time to double check!
- - [Add MRTK to a new scene or new project](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.3.0/Documentation/GettingStartedWithTheMRTK.html#add-mrtk-to-a-new-scene-or-new-project)
+ - [Add MRTK to a new scene or new project](https://microsoft.github.io/MixedRealityToolkit-Unity/version/releases/2.5.1/Documentation/Installation.html#4-add-and-configure-mrtk-with-a-new-scene)
      - You can add MRTK to a new scene and re-add your coordinator and model objects/scripts, or you can add MRTK to your existing scene using the *Mixed Reality Toolkit -> Add to Scene and Configure* menu command.
 
 ## Import assets used by this tutorial
@@ -70,14 +71,14 @@ You can now add the prefab **AppMenu** to the scene, for visual feedback of the 
 1. Locate the **AppMenu** prefab in *Assets/RemoteRenderingTutorial/Prefabs/AppMenu*
 1. Drag the **AppMenu** prefab into the scene.
 1. You'll likely see a dialog for **TMP Importer**, since this is the first time we're including *Text Mesh Pro* assets in the scene. Follow the prompts to **Import TMP Essentials**. Then close the importer dialog, the examples and extras are not needed.
-1. The **AppMenu** is configured to automatically hook up and provide the modal for consenting to connecting to a Session, so we can remove the bypass placed earlier. On the **RemoteRenderingCoordinator** GameObject, remove the bypass for authorization we implemented previously, by pressing the '-' button on the **On Requesting Authorization** event.\
- ![Remove bypass](./media/remove-bypass-event.png).\
+1. The **AppMenu** is configured to automatically hook up and provide the modal for consenting to connecting to a Session, so we can remove the bypass placed earlier. On the **RemoteRenderingCoordinator** GameObject, remove the bypass for authorization we implemented previously, by pressing the '-' button on the **On Requesting Authorization** event.
+ ![Remove bypass](./media/remove-bypass-event.png).
 1. Test the view controller by pressing **Play** in the Unity Editor.
 1. In the Editor, now that MRTK is configured, you can use the WASD keys to change the position your view and holding the right mouse button + moving the mouse to change your view direction. Try "driving" around the scene a bit to get a feel for the controls.
 1. On device, you can raise your palm up to summon the **AppMenu**, in the Unity Editor, use the hotkey 'M'.
 1. If you've lost sight of the menu, press the 'M' key to summon the menu. The menu will be placed near the camera for easy interaction.
-1. The authorization will now show as a request to the right of the **AppMenu**, from now on, you'll use this to authorize the app to manage remote rendering sessions.\
- ![UI authorize](./media/authorize-request-ui.png)\
+1. The authorization will now show as a request to the right of the **AppMenu**, from now on, you'll use this to authorize the app to manage remote rendering sessions.
+ ![UI authorize](./media/authorize-request-ui.png)
 1. Stop Unity from playing to continue with the tutorial.
 
 ## Manage model state
@@ -88,7 +89,7 @@ Notice that the **RemoteRenderedModel** script implements **BaseRemoteRenderedMo
 
 1. Create a new script named **RemoteRenderedModel** in the same folder as **RemoteRenderingCoordinator**. Replace the entire contents with the following code:
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -100,19 +101,23 @@ Notice that the **RemoteRenderedModel** script implements **BaseRemoteRenderedMo
 
     public class RemoteRenderedModel : BaseRemoteRenderedModel
     {
-        [SerializeField]
-        [Tooltip("The friendly name for this model")]
-        private string modelDisplayName;
-        [SerializeField]
-        [Tooltip("The URI for this model")]
-        private string modelPath;
-
         public bool AutomaticallyLoad = true;
 
         private ModelState currentModelState = ModelState.NotReady;
 
+        [SerializeField]
+        [Tooltip("The friendly name for this model")]
+        private string modelDisplayName;
         public override string ModelDisplayName { get => modelDisplayName; set => modelDisplayName = value; }
-        public override string ModelPath { get => modelPath; set => modelPath = value; }
+
+        [SerializeField]
+        [Tooltip("The URI for this model")]
+        private string modelPath;
+        public override string ModelPath
+        {
+            get => modelPath.Trim();
+            set => modelPath = value;
+        }
 
         public override ModelState CurrentModelState
         {
@@ -250,11 +255,11 @@ In the most basic terms, **RemoteRenderedModel** holds the data needed to load a
 Let's test the new script by loading the test model again. We'll create a Game Object to contain the script and be a parent to the test model.
 
 1. Create a new empty Game Object in the scene and name it **TestModel**.
-1. Add the *RemoteRenderedModel* script to **TestModel**.\
+1. Add the *RemoteRenderedModel* script to **TestModel**.
 ![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)
-1. Fill in the `Model Display Name` and the `Model Path` with "*TestModel*" and "*builtin://Engine*" respectively.\
+1. Fill in the `Model Display Name` and the `Model Path` with "*TestModel*" and "*builtin://Engine*" respectively.
 ![Specify model details](./media/add-model-script.png)
-1. Position the **TestModel** object in front of the camera, at position **x = 0, y = 0, z = 3**.\
+1. Position the **TestModel** object in front of the camera, at position **x = 0, y = 0, z = 3**.
 ![Position object](./media/test-model-position.png)
 1. Ensure **AutomaticallyLoad** is turned on.
 1. Press **Play** in the Unity Editor to test the application.
@@ -275,7 +280,7 @@ Follow the steps specified in the [Quickstart: Convert a model for rendering](..
 ## Load and rendering a custom model
 
 1. Create a new empty GameObject in the scene and name it similar to your custom model.
-1. Add the *RemoteRenderedModel* script to the newly created GameObject.\
+1. Add the *RemoteRenderedModel* script to the newly created GameObject.
  ![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)
 1. Fill in the `Model Display Name` with an appropriate name for your model.
 1. Fill in the `Model Path` with the model's *Shared Access Signature (SAS)* URI you created in the ingestion steps above.

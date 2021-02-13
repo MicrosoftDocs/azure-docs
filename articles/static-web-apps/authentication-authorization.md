@@ -102,7 +102,7 @@ As you remove a user, keep in mind the following items:
 
 When you grant consent to an application as an end-user, the application has access to your email address or your username depending on the identity provider. Once this information is provided, the owner of the application decides how to manage personally identifying information.
 
-End-users need to contact administrators of individual web apps to to revoke this information from their systems.
+End-users need to contact administrators of individual web apps to revoke this information from their systems.
 
 To remove personally identifying information from the Azure Static Web Apps platform, and prevent the platform from providing this information on future requests, submit a request using the URL:
 

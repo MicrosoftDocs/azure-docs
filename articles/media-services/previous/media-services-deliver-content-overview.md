@@ -13,6 +13,9 @@ ms.author: juliako
 ---
 
 # Deliver content to customers
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 When you're delivering your streaming or video-on-demand content to customers, your goal is to deliver high-quality video to various devices under different network conditions.
 
 To achieve this goal, you can:
@@ -61,7 +64,7 @@ Locators have expiration dates. The Azure portal sets an expiration date 100 yea
 > 
 > 
 
-To update an expiration date on a locator, use [REST](/rest/api/media/operations/locator#update_a_locator) or [.NET](https://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
+To update an expiration date on a locator, use [REST](/rest/api/media/operations/locator#update_a_locator) or [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
 
 Locators are not designed to manage per-user access control. You can give different access rights to individual users by using Digital Rights Management (DRM) solutions. For more information, see [Securing Media](/previous-versions/azure/dn282272(v=azure.100)).
 

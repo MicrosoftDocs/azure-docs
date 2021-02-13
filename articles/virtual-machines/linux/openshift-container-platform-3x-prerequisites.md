@@ -5,7 +5,7 @@ author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
@@ -129,7 +129,7 @@ Take note of the appId property and password returned from the command:
  > [!WARNING] 
  > Be sure to write down the secure password as it will not be possible to retrieve this password again.
 
-For more information on service principals, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+For more information on service principals, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 ## Prerequisites applicable only to Resource Manager template
 

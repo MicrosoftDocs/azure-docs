@@ -10,21 +10,20 @@ ms.custom: references_regions
 
 You can use the [Azure Backup service](./backup-overview.md) to back up Azure file shares. This article summarizes support settings when you back up Azure file shares with Azure Backup.
 
+> [!NOTE]
+> Azure Backup currently doesn't support NFS shares.
+
 ## Supported regions
 
 ### GA regions for Azure file shares backup
 
 Azure file shares backup is available in all regions **except** for: Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China East 2, China North, China North 2, US Gov Iowa
 
-### Supported regions for accidental delete protection
-
-West Central US, Australia South East, Canada Central, West Central US, India South, North Central US, Japan East, Brazil South, South Central US, Australia East, East US, East US 2
-
 ## Supported storage accounts
 
 | Storage  account details | Support                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Account  Kind            | Azure  Backup supports Azure file shares present in general-purpose v1, general-purpose v2 and file storage type storage accounts |
+| Account  Kind            | Azure  Backup supports Azure file shares present in general-purpose v1, general-purpose v2, and file storage type storage accounts |
 | Performance              | Azure  Backup supports file shares in both standard and Premium Storage accounts |
 | Replication              | Azure  file shares in storage accounts with any replication type are  supported |
 | Firewall enabled         | Azure file shares in storage accounts with Firewall rules that allow Microsoft Azure Services to access storage account are supported|
@@ -59,7 +58,7 @@ West Central US, Australia South East, Canada Central, West Central US, India So
 | Setting                                                      | Limit   |
 | ------------------------------------------------------------ | ------- |
 | Maximum number of restores per day                           | 10      |
-| Maximum  number of files per restore                         | 10      |
+| Maximum  number of files per restore                         | 99      |
 | Maximum  recommended restore size per restore for large file shares | 15  TiB |
 
 ## Retention limits

@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Network Watcher instance | Microsoft Docs
-description: Learn how to enable Network Watcher in an Azure region.
+description: Learn how to create an Azure Network Watcher in an Azure region by using the Azure portal or other technologies, and how to delete a Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -52,7 +52,7 @@ When you enable Network Watcher using the portal, the name of the Network Watche
 
 The Network Watcher instance is automatically created in a resource group named *NetworkWatcherRG*. The resource group is created if it does not already exist.
 
-If you wish to customize the name of a Network Watcher instance and the resource group it's placed into, you can use Powershell, the Azure CLI, the REST API, or ARMClient methods described in the sections that follow. In each option, the resource group must exist before you create a Network Watcher in it.  
+If you wish to customize the name of a Network Watcher instance and the resource group it's placed into, you can use PowerShell, the Azure CLI, the REST API, or ARMClient methods described in the sections that follow. In each option, the resource group must exist before you create a Network Watcher in it.  
 
 ## Create a Network Watcher with PowerShell
 
@@ -96,6 +96,10 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
+## Create a Network Watcher using Azure Quickstart Template
+
+To create an instance of Network Watcher refer this [Quickstart Template](https://azure.microsoft.com/resources/templates/101-networkwatcher-create/)
+
 ## Delete a Network Watcher in the portal
 
 Navigate to **All Services** > **Networking** > **Network Watcher**.
@@ -120,7 +124,7 @@ Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup Networ
 
 Now that you have an instance of Network Watcher, learn about the features available:
 
-* [Topology](network-watcher-topology-overview.md)
+* [Topology](./view-network-topology.md)
 * [Packet capture](network-watcher-packet-capture-overview.md)
 * [IP flow verify](network-watcher-ip-flow-verify-overview.md)
 * [Next hop](network-watcher-next-hop-overview.md)

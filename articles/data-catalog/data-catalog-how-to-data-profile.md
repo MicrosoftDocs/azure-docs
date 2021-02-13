@@ -7,8 +7,9 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ---
-
 # How to data profile data sources in Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## Introduction
 
@@ -24,7 +25,7 @@ Data profiling examines the data in the data source being registered, and collec
 
 The following data sources support data profiling:
 
-* SQL Server (including Azure SQL DB and Azure SQL Data Warehouse) tables and views
+* SQL Server (including Azure SQL DB and Azure Synapse Analytics) tables and views
 * Oracle tables and views
 * Teradata tables and views
 * Hive tables

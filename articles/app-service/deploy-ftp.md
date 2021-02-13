@@ -13,7 +13,7 @@ ms.custom: seodec18
 # Deploy your app to Azure App Service using FTP/S
 
 This article shows you how to use FTP or FTPS to deploy your web app, mobile app backend, 
-or API app to [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
+or API app to [Azure App Service](./overview.md).
 
 The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment.
 
@@ -40,7 +40,7 @@ In the FTP dashboard, select **Copy** to copy the FTPS endpoint and app credenti
 It's recommended that you use **App Credentials** to deploy to your app because it's unique to each app. However, if you click **User Credentials**, you can set user-level credentials that you can use for FTP/S login to all App Service apps in your subscription.
 
 > [!NOTE]
-> Authenticating to an FTP/FTPS endpoint using user-level credentials requirers
+> Authenticating to an FTP/FTPS endpoint using user-level credentials requires
 > a username in the following format: 
 >
 >`<app-name>\<user-name>`
@@ -85,9 +85,18 @@ For FTP deployment using [Azure PowerShell](/cli/azure), see [Upload files to a 
 
 ## Troubleshoot FTP deployment
 
-- [How can I troubleshoot FTP deployment?](#how-can-i-troubleshoot-ftp-deployment)
-- [I'm not able to FTP and publish my code. How can I resolve the issue?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
-- [How can I connect to FTP in Azure App Service via passive mode?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
+- [Deploy your app to Azure App Service using FTP/S](#deploy-your-app-to-azure-app-service-using-ftps)
+  - [Open FTP dashboard](#open-ftp-dashboard)
+  - [Get FTP connection information](#get-ftp-connection-information)
+  - [Deploy files to Azure](#deploy-files-to-azure)
+  - [Enforce FTPS](#enforce-ftps)
+  - [Automate with scripts](#automate-with-scripts)
+  - [Troubleshoot FTP deployment](#troubleshoot-ftp-deployment)
+    - [How can I troubleshoot FTP deployment?](#how-can-i-troubleshoot-ftp-deployment)
+    - [I'm not able to FTP and publish my code. How can I resolve the issue?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+    - [How can I connect to FTP in Azure App Service via passive mode?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
+  - [Next steps](#next-steps)
+  - [More resources](#more-resources)
 
 ### How can I troubleshoot FTP deployment?
 
@@ -102,7 +111,7 @@ To determine a deployment or runtime issue, see [Deployment vs. runtime issues](
 ### I'm not able to FTP and publish my code. How can I resolve the issue?
 Check that you've entered the correct hostname and [credentials](#open-ftp-dashboard). Check also that the following FTP ports on your machine are not blocked by a firewall:
 
-- FTP control connection port: 21
+- FTP control connection port: 21, 990
 - FTP data connection port: 989, 10001-10300
  
 ### How can I connect to FTP in Azure App Service via passive mode?

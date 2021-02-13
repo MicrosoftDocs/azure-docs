@@ -2,11 +2,11 @@
 title: Using private endpoints for Azure App Configuration
 description: Secure your App Configuration store using private endpoints
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 3/12/2020
-ms.author: lcozzens
+ms.date: 07/15/2020
 
 #Customer intent: As a developer using Azure App Configuration, I want to understand how to use private endpoints to enable secure communication with my App Configuration instance.
 ---
@@ -67,5 +67,5 @@ Learn more about creating a private endpoint for your App Configuration store, r
 
 Learn to configure your DNS server with private endpoints:
 
-- [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for Private Endpoints](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [DNS configuration for Private Endpoints](../private-link/private-endpoint-overview.md#dns-configuration)

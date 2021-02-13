@@ -3,14 +3,14 @@ title: Train app - LUIS
 titleSuffix: Azure Cognitive Services
 description: Training is the process of teaching your Language Understanding (LUIS) app version to improve its natural language understanding. Train your LUIS app after updates to the model such as adding, editing, labeling, or deleting entities, intents, or utterances.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.author: diberry
+
 ---
 
 # Train your active version of the LUIS app
@@ -37,9 +37,15 @@ Training date and time are GMT + 2.
 
 ## Train with all data
 
-Training uses a small percentage of negative sampling. If you want to use all data instead of the small negative sampling, use the [API](#version-settings-api-use-of-usealltrainingdata).
+Training uses a small percentage of negative sampling. You can use all available data instead using either the portal or API. 
 
-### Version settings API use of UseAllTrainingData
+### Using the LUIS portal
+
+Log into the [LUIS portal](https://www.luis.ai/) and click on your app. Select **Manage** at the top of the screen, then select **Settings** and enable or disable the **use-deterministic training** option. When disabled, training will use all available data.
+
+![A button for enabling or disabling non deterministic training](./media/non-determinstic-training.png)
+
+### Using the version settings API
 
 Use the [Version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the `UseAllTrainingData` set to true to turn off this feature.
 

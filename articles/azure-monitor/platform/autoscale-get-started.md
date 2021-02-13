@@ -1,6 +1,6 @@
 ---
 title: Get started with autoscale in Azure
-description: "Learn how to scale your resource Web App, Cloud Service, Virtual Machine or Virtual Machine Scale set in Azure."
+description: "Learn how to scale your resource Web App, Cloud Service, Virtual Machine or Virtual Machine scale set in Azure."
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
@@ -8,7 +8,7 @@ ms.subservice: autoscale
 # Get started with Autoscale in Azure
 This article describes how to set up your Autoscale settings for your resource in the Microsoft Azure portal.
 
-Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](../../api-management/api-management-key-concepts.md).
+Azure Monitor autoscale applies only to [Virtual Machine scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](../../api-management/api-management-key-concepts.md).
 
 ## Discover the Autoscale settings in your subscription
 
@@ -107,6 +107,26 @@ You can now set the number of instances that you want to scale to manually.
 
 You can always return to Autoscale by clicking **Enable autoscale** and then **Save**.
 
+## Route traffic to healthy instances (App Service)
+
+<a id="health-check-path"></a>
+
+When your Azure web app is scaled out to multiple instances, App Service can perform health checks on your instances to route traffic to the healthy instances. To learn more, see [this article on App Service Health check](../../app-service/monitor-instances-health-check.md).
+
+## Moving Autoscale to a different region
+This section describes how to move Azure autoscale to another region under the same Subscription, and Resource Group. You can use REST API to move autoscale settings.
+### Prerequisite
+1. Ensure that the subscription and Resource Group are available and the details in both the source and destination regions are identical.
+1. Ensure that Azure autoscale is available in the [Azure region you want to move to](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
+
+### Move
+Use [REST API](/rest/api/monitor/autoscalesettings/createorupdate) to create an autoscale setting in the new environment. The autoscale setting created in the destination region will be a copy of the autoscale setting in the source region.
+
+[Diagnostic settings](./diagnostic-settings.md) that were created in association with the autoscale setting in the source region cannot be moved. You will need to recreate diagnostic settings in the destination region, after the creation of autosale settings is completed. 
+
+### Learn more about moving resources across Azure regions
+To learn more about moving resources between regions and disaster recovery in Azure, refer to [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
@@ -115,7 +135,7 @@ You can always return to Autoscale by clicking **Enable autoscale** and then **S
 [1]:https://portal.azure.com
 [2]: ./media/autoscale-get-started/azure-monitor-launch.png
 [3]: ./media/autoscale-get-started/discover-autoscale-azure-monitor.png
-[4]: ../../app-service/app-service-web-get-started-dotnet.md
+[4]: ../../app-service/quickstart-dotnetcore.md
 [5]: ./media/autoscale-get-started/scale-setting-new-web-app.png
 [6]: ./media/autoscale-get-started/create-scale-setting-web-app.png
 [7]: ./media/autoscale-get-started/scale-in-recommendation.png

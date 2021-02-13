@@ -9,6 +9,8 @@ keywords: "azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, A
 
 # How running your code with Azure Dev Spaces works
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 Azure Dev Spaces provides you with multiple ways to rapidly iterate and debug Kubernetes applications and collaborate with your team on an Azure Kubernetes Service (AKS) cluster. Once your [project is prepared to run in a dev space][how-it-works-prep], you can use Dev Spaces to build and run your project in your AKS cluster.
 
 This article describes what happens run your code in AKS with Dev Spaces.
@@ -194,27 +196,14 @@ ingress:
 
 To learn more about networking and how requests are routed in Azure Dev Spaces see [How routing works with Azure Dev Spaces][how-it-works-routing].
 
-To learn more about using Azure Dev Spaces for rapidly iterating and developing, see [How Local Process with Kubernetes works][how-it-works-local-process-kubernetes] and [How remote debugging your code with Azure Dev Spaces works][how-it-works-remote-debugging].
-
-To get started using Azure Dev Spaces to run your project, see the following quickstarts:
-
-* [Rapidly iterate and debug with Visual Studio Code and Java][quickstart-java]
-* [Rapidly iterate and debug with Visual Studio Code and .NET][quickstart-netcore]
-* [Rapidly iterate and debug with Visual Studio Code and Node.js][quickstart-node]
-* [Rapidly iterate and debug with Visual Studio and .NET Core][quickstart-vs]
-* [Using the CLI to develop an application on Kubernetes][quickstart-cli]
+To learn more about rapidly iterating and developing with Kubernetes, see [How Bridge to Kubernetes works][how-it-works-bridge-to-kubernetes] and [How remote debugging your code with Azure Dev Spaces works][how-it-works-remote-debugging].
 
 
 [azds-yaml-section]: #how-running-your-code-is-configured
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
+[how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md
-[quickstart-cli]: quickstart-cli.md
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md
-[quickstart-vs]: quickstart-netcore-visualstudio.md
 [sync-section]: #file-synchronization
 [troubleshooting]: troubleshooting.md

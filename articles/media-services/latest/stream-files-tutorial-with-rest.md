@@ -1,21 +1,22 @@
 ---
-title: Encode a remote file and stream using Azure Media Services v3
+title: Encode a remote file and stream using Media Services
 description: Follow the steps of this tutorial to encode a file based on a URL and stream your content with Azure Media Services using REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2020
-ms.author: juliako
+ms.date: 10/12/2020
+ms.author: inhenkel
 ---
 
 # Tutorial: Encode a remote file based on URL and stream the video - REST
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services enables you to encode your media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For encoding guidance, see [Encoding concept](encoding-concept.md).
 
@@ -111,7 +112,7 @@ In this section, we send requests that are relevant to encoding and creating URL
     The following **POST** operation is sent.
 
     ```
-    https://login.microsoftonline.com/:tenantId/oauth2/token
+    https://login.microsoftonline.com/:aadTenantDomain/oauth2/token
     ```
 
 4. The response comes back with the token and sets the "AccessToken" environment variable to the token value. To see the code that sets "AccessToken" , click on the **Tests** tab. 
@@ -164,10 +165,17 @@ The output [Asset](/rest/api/media/assets) stores the result of your encoding jo
         {
         "properties": {
             "description": "My Asset",
-            "alternateId" : "some GUID"
+            "alternateId" : "some GUID",
+            "storageAccountName": "<replace from environment file>",
+            "container": "<supply any valid container name of your choosing>"
          }
         }
         ```
+
+> [!NOTE]
+> Be sure to replace the storage account and container names either with those from the environment file or supply your own.
+>
+> As you complete the steps described in the rest of this article, make sure that you supply valid parameters in request bodies.
 
 ### Create a transform
 
@@ -349,8 +357,9 @@ In this section, let's build an HLS streaming URL. URLs consist of the following
     To get the hostname, you can use the following GET operation:
     
     ```
-    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/default?api-version={{api-version}}
     ```
+    and make sure that you set the `resourceGroupName` and `accountName` parameters to match the environment file. 
     
 3. A path that you got in the previous (List paths) section.  
 

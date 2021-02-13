@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot Azure Migrate projects
 description: Helps you to troubleshoot issues with creating and managing Azure Migrate projects.
-ms.topic: troubleshooting
-author: musa-57
+author: ms-psharma
+ms.author: panshar
 ms.manager: abhemraj
-ms.author: hamusa
+ms.topic: troubleshooting
 ms.date: 01/01/2020
 ---
 
@@ -14,7 +14,7 @@ This article helps you troubleshoot issues when creating and managing [Azure Mig
 
 ## How to add new project?
 
-You can have multiple Azure Migrate projects in a subscription. [Learn how](how-to-add-tool-first-time.md) to create a project for the first time, or [add additional](create-manage-projects.md#create-additional-projects) projects.
+You can have multiple Azure Migrate projects in a subscription. [Learn how](./create-manage-projects.md) to create a project for the first time, or [add additional](create-manage-projects.md#create-additional-projects) projects.
 
 ## What Azure permissions are needed?
 
@@ -35,7 +35,7 @@ You can assess up to 35,000 VMware VMs or up to 35,000 Hyper-V VMs in a single p
 
 ## Can I upgrade old project?
 
-Projects from the previous version of Azure Migrate can't be updated. You need to [create a new project](how-to-add-tool-first-time.md), and add tools to it.
+Projects from the previous version of Azure Migrate can't be updated. You need to [create a new project](./create-manage-projects.md), and add tools to it.
 
 ## Can't create a project
 
@@ -47,7 +47,7 @@ If you try to create a project and encounter a deployment error:
 - If you receive the error, "Requests must contain user identity headers", this might indicate that you don't have access to the Azure Active Directory (Azure AD) tenant of the organization. In this case:
     - When you're added to an Azure AD tenant for the first time, you receive an email invitation to join the tenant.
     - Accept the invitation to be added to the tenant.
-    - If you can't see the email, contact a user with access to the tenant, and ask them to [resend the invitation](../active-directory/b2b/add-users-administrator.md#resend-invitations-to-guest-users) to you.
+    - If you can't see the email, contact a user with access to the tenant, and ask them to [resend the invitation](../active-directory/external-identities/add-users-administrator.md#resend-invitations-to-guest-users) to you.
     - After receiving the invitation email, open it and select the link to accept the invitation. Then, sign out of the Azure portal and sign in again. (refreshing the browser won't work.) You can then start creating the migration project.
 
 ## How do I delete a project

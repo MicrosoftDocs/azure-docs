@@ -4,15 +4,15 @@ description: Learn to use Python to create and manage a Windows VM in Azure.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Create and manage Windows VMs in Azure using Python
 
-An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. This article covers creating, managing, and deleting VM resources using Python. You learn how to:
+An [Azure Virtual Machine](overview.md) (VM) needs several supporting Azure resources. This article covers creating, managing, and deleting VM resources using Python. You learn how to:
 
 > [!div class="checklist"]
 > * Create a Visual Studio project
@@ -337,7 +337,7 @@ Now that you created all the supporting resources, you can create a virtual mach
     ```
 
     > [!NOTE]
-    > This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../linux/cli-ps-findimage.md).
     > 
     > 
 
@@ -459,7 +459,7 @@ You can stop a virtual machine and keep all its settings, but continue to be cha
 
 ### Resize the VM
 
-Many aspects of deployment should be considered when deciding on a size for your virtual machine. For more information, see [VM sizes](sizes.md).
+Many aspects of deployment should be considered when deciding on a size for your virtual machine. For more information, see [VM sizes](../sizes.md).
 
 1. To change the size of the virtual machine, add this function after the variables in the .py file:
 
@@ -487,7 +487,7 @@ Many aspects of deployment should be considered when deciding on a size for your
 
 ### Add a data disk to the VM
 
-Virtual machines can have one or more [data disks](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) that are stored as VHDs.
+Virtual machines can have one or more [data disks](../managed-disks-overview.md) that are stored as VHDs.
 
 1. To add a data disk to the virtual machine, add this function after the variables in the .py file: 
 
@@ -562,4 +562,4 @@ Because you are charged for resources used in Azure, it's always a good practice
 ## Next steps
 
 - If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../../azure-resource-manager/templates/deployment-history.md)
-- Learn more about the [Azure Python Library](/python/api/overview/azure/?view=azure-python)
+- Learn more about the [Azure Python Library](/python/api/overview/azure/)

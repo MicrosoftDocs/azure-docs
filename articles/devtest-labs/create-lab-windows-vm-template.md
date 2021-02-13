@@ -7,7 +7,7 @@ ms.date: 06/26/2020
 ---
 
 # Quickstart: Set up a lab by using Azure DevTest Labs ARM template
-In this quickstart, you create a lab with a Windows Server 2019 Datacenter VM by using an Azure Resource Manager(ARM) template. 
+In this quickstart, you create a lab with a Windows Server 2019 Datacenter VM by using an Azure Resource Manager template (ARM template). 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-dtl-create-lab-windows-vm/).
 
-:::code language="json" source="~/quickstart-templates/101-dtl-create-lab-windows-vm/azuredeploy.json" range="1-97" highlight="51-85":::
+:::code language="json" source="~/quickstart-templates/101-dtl-create-lab-windows-vm/azuredeploy.json":::
 
 The resources defined in the template include:
 

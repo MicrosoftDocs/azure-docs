@@ -1,28 +1,24 @@
 ---
 title: Use AutoML to create models & deploy 
 titleSuffix: Azure Machine Learning
-description: Create, review, and deploy automated machine learning models with Azure Machine Learning.
+description: Create, review, and deploy automated machine learning models with the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: nibaccam
 author: aniththa
-manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
-
+ms.date: 12/20/2020
+ms.topic: conceptual
+ms.custom: how-to, automl
 ---
 
 # Create, review, and deploy automated machine learning models with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 In this article, you learn how to create, explore, and deploy automated machine learning models without a single line of code in Azure Machine Learning studio.
 
->[!IMPORTANT]
-> The automated ML experience in the Azure Machine learning studio is in preview. Certain features may not be supported or have limited capabilities.
-
- Automated machine learning is a process in which the best machine learning algorithm to use for your specific data is selected for you. This process enables you to generate machine learning models quickly. [Learn more about automated machine learning](concept-automated-ml.md).
+Automated machine learning is a process in which the best machine learning algorithm to use for your specific data is selected for you. This process enables you to generate machine learning models quickly. [Learn more about automated machine learning](concept-automated-ml.md).
  
 For an end to end example, try the [tutorial for creating a classification model with Azure Machine Learning's automated ML interface](tutorial-first-experiment-automated-ml.md). 
 
@@ -32,7 +28,7 @@ For a Python code-based experience, [configure your automated machine learning e
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* An Azure Machine Learning workspace with a type of **Enterprise edition**. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  To upgrade an existing workspace to Enterprise edition, see [Upgrade to Enterprise edition](how-to-manage-workspace.md#upgrade).
+* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
 
 ## Get started
 
@@ -65,7 +61,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 
     1. Select **Next** to open the **Datastore and file selection form**. On this form you select where to upload your dataset; the default storage container that's automatically created with your workspace, or choose a storage container that you want to use for the experiment. 
     
-        1. If your data is behind a virtual network, you need to enable the **skip the validation** function to ensure that the workspace can access your data. Learn more about [network isolation and privacy](how-to-enable-virtual-network.md#machine-learning-studio). 
+        1. If your data is behind a virtual network, you need to enable the **skip the validation** function to ensure that the workspace can access your data. For more information, see [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md). 
     
     1. Select **Browse** to upload the data file for your dataset. 
 
@@ -85,12 +81,12 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
             
         Select **Next.**
 
-    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. Learn more about [data profiling](#profile).
+    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. Learn more about [data profiling](how-to-connect-data-ui.md#profile).
 
         Select **Next**.
 1. Select your newly created dataset once it appears. You are also able to view a preview of the dataset and sample statistics. 
 
-1. On the **Configure run** form, enter a unique experiment name.
+1. On the **Configure run** form, select **Create new** and enter **Tutorial-automl-deploy** for the experiment name.
 
 1. Select a target column; this is the column that you would like to do predictions on.
 
@@ -110,17 +106,20 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
     Select **Create**. Creation of a new compute can take a few minutes.
 
     >[!NOTE]
-    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling](#profile) for more details).
+    > Your compute name will indicate if the compute you select/create is *profiling enabled*. (See the section [data profiling](how-to-connect-data-ui.md#profile) for more details).
 
     Select **Next**.
 
 1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) for more information.
 
-    1. For **classification**, you can also enable deep learning which is used for text featurizations.
+    1. For **classification**, you can also enable deep learning.
+    
+        If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options](how-to-configure-cross-validation-data-splits.md).
+
 
     1. For **forecasting** you can, 
     
-        1. Enable deep learning
+        1. Enable deep learning.
     
         1. Select *time column*: This column contains the time data to be used.
 
@@ -130,42 +129,16 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 
     Additional configurations|Description
     ------|------
-    Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#explore-model-metrics).
-    Explain best model | Select to enable or disable, in order to show explainability of the recommended best model.
-    Blocked algorithm| Select algorithms you want to exclude from the training job.
+    Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
+    Explain best model | Select to enable or disable, in order to show explanations for the recommended best model. <br> This functionality is not currently available for [certain forecasting algorithms](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
+    Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-models). <br> See the [supported models for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
-    Validation| Select one of the cross validation options to use in the training job. [Learn more about cross validation](how-to-configure-cross-validation-data-splits.md#prerequisites).
-    Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations.
+    Validation| Select one of the cross validation options to use in the training job. <br> [Learn more about cross validation](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Forecasting only supports k-fold cross validation.
+    Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. Learn more about how automated ML performs [multiple child runs on clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
 
 1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings** you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurization). 
 
-    ![Azure Machine Learning studio task type form](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
-
-<a name="profile"></a>
-
-## Data profiling & summary stats
-
-You can get a vast variety of summary statistics across your data set to verify whether your data set is ML-ready. For non-numeric columns, they include only basic statistics like min, max, and error count. For numeric columns, you can also review their statistical moments and estimated quantiles. Specifically, our data profile includes:
-
->[!NOTE]
-> Blank entries appear for features with irrelevant types.
-
-Statistic|Description
-------|------
-Feature| Name of the column that is being summarized.
-Profile| In-line visualization based on the type inferred. For example, strings, booleans, and dates will have value counts, while decimals (numerics) have approximated histograms. This allows you to gain a quick understanding of the distribution of the data.
-Type distribution| In-line value count of types within a column. Nulls are their own type, so this visualization is useful for detecting odd or missing values.
-Type|Inferred type of the column. Possible values include: strings, booleans, dates, and decimals.
-Min| Minimum value of the column. Blank entries appear for features whose type does not have an inherent ordering (e.g. booleans).
-Max| Maximum value of the column. 
-Count| Total number of missing and non-missing entries in the column.
-Not missing count| Number of entries in the column that are not missing. Empty strings and errors are treated as values, so they will not contribute to the "not missing count."
-Quantiles| Approximated values at each quantile to provide a sense of the distribution of the data.
-Mean| Arithmetic mean or average of the column.
-Standard deviation| Measure of the amount of dispersion or variation of this column's data.
-Variance| Measure of how far spread out this column's data is from its average value. 
-Skewness| Measure of how different this column's data is from a normal distribution.
-Kurtosis| Measure of how heavily tailed this column's data is compared to a normal distribution.
+    ![Screenshot shows the Select task type dialog box with View featurization settings called out.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 ## Customize featurization
 
@@ -179,11 +152,14 @@ Included | Specifies which columns to include for training.
 Feature type| Change the value type for the selected column.
 Impute with| Select what value to impute missing values with in your data.
 
-![Azure Machine Learning studio task type form](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
+![Azure Machine Learning studio custom featurization](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## Run experiment and view results
 
 Select **Finish** to run your experiment. The experiment preparing process can take up to 10 minutes. Training jobs can take an additional 2-3 minutes more for each pipeline to finish running.
+
+> [!NOTE]
+> The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended model's final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
 
 ### View experiment details
 
@@ -191,7 +167,7 @@ The **Run Detail** screen opens to the **Details** tab. This screen shows you a 
 
 The **Models** tab contains a list of the models created ordered by the metric score. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they are added to the list. Use this to get a quick comparison of the metrics for the models produced so far.
 
-[![Run details dashboard](media/how-to-use-automated-ml-for-ml-models/run-details.png)](media/how-to-use-automated-ml-for-ml-models/run-details-expanded.png#lightbox)
+![Run detail](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
 
 ### View training run details
 
@@ -225,7 +201,7 @@ Automated ML helps you with deploying the model without writing code:
     Compute type| Select the type of endpoint you want to deploy: *Azure Kubernetes Service (AKS)* or *Azure Container Instance (ACI)*.
     Compute name| *Applies to AKS only:* Select the name of the AKS cluster you wish to deploy to.
     Enable authentication | Select to allow for token-based or key-based authentication.
-    Use custom deployment assets| Enable this feature if you want to upload your own scoring script and environment file. [Learn more about scoring scripts](how-to-deploy-and-where.md#script).
+    Use custom deployment assets| Enable this feature if you want to upload your own scoring script and environment file. [Learn more about scoring scripts](how-to-deploy-and-where.md).
 
     >[!Important]
     > File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed.
@@ -235,10 +211,10 @@ Automated ML helps you with deploying the model without writing code:
 1. Select **Deploy**. Deployment can take about 20 minutes to complete.
     Once deployment begins, the **Model summary** tab appears. See the deployment progress under the **Deploy status** section. 
 
-Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI's built in Azure Machine Learning support](how-to-consume-web-service.md#consume-the-service-from-power-bi).
+Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI's built in Azure Machine Learning support](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context).
 
 ## Next steps
 
-* [Learn how to consume a web service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).
+* [Learn how to consume a web service](how-to-consume-web-service.md).
 * [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.

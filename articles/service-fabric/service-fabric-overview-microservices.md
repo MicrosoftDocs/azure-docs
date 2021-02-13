@@ -3,7 +3,6 @@ title: Introduction to microservices on Azure
 description: An overview of why building cloud applications with a microservices approach is important for modern application development and how Azure Service Fabric provides a platform to achieve this.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.custom: sfrev
 ---
 # Why use a microservices approach to building applications
 
@@ -132,6 +131,9 @@ Visit the Azure architecture center for guidance on [designing and building micr
 Azure Service Fabric emerged when Microsoft transitioned from delivering boxed products, which were typically monolithic, to delivering services. The experience of building and operating large services, like Azure SQL Database and Azure Cosmos DB, shaped Service Fabric. The platform evolved over time as more services adopted it. Service Fabric had to run not only in Azure but also in standalone Windows Server deployments.
 
 ***The aim of Service Fabric is to solve the hard problems of building and running a service and to use infrastructure resources efficiently, so teams can solve business problems by using a microservices approach.***
+
+This short video introduces Service Fabric and microservices:
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 Service Fabric helps you build applications that use a microservices approach by providing:
 

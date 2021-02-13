@@ -4,7 +4,7 @@ description: Use My Apps collections to Customize My Apps pages for a simpler My
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 Your users can use the My Apps portal to view and start the cloud-based applications they have access to. By default, all the applications a user can access are listed together on a single page. To better organize this page for your users, if you have an Azure AD Premium P1 or P2 license you can set up collections. With a collection, you can group together applications that are related (for example, by job role, task, or project) and display them on a separate tab. A collection essentially applies a filter to the applications a user can already access, so the user sees only those applications in the collection that have been assigned to them.
 
 > [!NOTE]
-> This article covers how an admin can enable and create collections. For information for the end user about how to use the My Apps portal and collections, see [Access and use collections](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
+> This article covers how an admin can enable and create collections. For information for the end user about how to use the My Apps portal and collections, see [Access and use collections](../user-help/my-applications-portal-workspaces.md).
 
 ## Enable the latest My Apps features
 

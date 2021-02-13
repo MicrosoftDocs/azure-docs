@@ -3,19 +3,20 @@ title: 'Quickstart: Delete an application from your Azure Active Directory (Azur
 description: This quickstart uses the Azure portal to delete an application from your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 1/5/2021
 ms.author: kenwith
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Delete an application from your Azure Active Directory (Azure AD) tenant
 
 This quickstart uses the Azure portal to delete an application that was added to your Azure Active Directory (Azure AD) tenant.
+
+Learn more about SSO and Azure, see [What is Single Sign-On (SSO)](what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -26,10 +27,11 @@ To delete an application from your Azure AD tenant, you need:
 - Optional: Completion of [View your apps](view-applications-portal.md).
 - Optional: Completion of [Add an app](add-application-portal.md).
 - Optional: Completion of [Configure an app](add-application-portal-configure.md).
+- Optional: Completion of [Assign users to an app](add-application-portal-assign-users.md).
 - Optional: Completion of [Set up single sign-on](add-application-portal-setup-sso.md).
 
 >[!IMPORTANT]
->Use a nonproduction environment to test the steps in this quickstart.
+>Use a non-production environment to test the steps in this quickstart.
 
 ## Delete an application from your Azure AD tenant
 
@@ -39,9 +41,15 @@ To delete an application from your Azure AD tenant:
 1. In the **Manage** section in the left pane, select **Properties**.
 1. Select **Delete**, and then select **Yes** to confirm you want to delete the app from your Azure AD tenant.
 
+> [!TIP]
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
+
+## Clean up resources
+
+When your done with this quickstart series, consider deleting the app to clean up your test tenant. Deleting the app was covered in this quickstart.
 
 ## Next steps
 
-- [Application management best practices](application-management-fundamentals.md)
-- [Application management common scenarios](common-scenarios.md)
-- [Application management visibility and control](cloud-app-security.md)
+You have completed the quickstart series! Next, learn about Single Sign-On (SSO), see [What is SSO?](what-is-single-sign-on.md) Or read about best practices in app management.
+> [!div class="nextstepaction"]
+> [Application management best practices](application-management-fundamentals.md)

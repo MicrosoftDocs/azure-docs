@@ -38,7 +38,7 @@ When a user tries to sign in to an application secured by Azure AD, and if Pass-
 8. The agent validates the username and password against Active Directory by using standard Windows APIs, which is a similar mechanism to what Active Directory Federation Services (AD FS) uses. The username can be either the on-premises default username, usually `userPrincipalName`, or another attribute configured in Azure AD Connect (known as `Alternate ID`).
 9. The on-premises Active Directory domain controller (DC) evaluates the request and returns the appropriate response (success, failure, password expired, or user locked out) to the agent.
 10. The Authentication Agent, in turn, returns this response back to Azure AD.
-11. Azure AD evaluates the response and responds to the user as appropriate. For example, Azure AD either signs the user in immediately or requests for Azure Multi-Factor Authentication.
+11. Azure AD evaluates the response and responds to the user as appropriate. For example, Azure AD either signs the user in immediately or requests for Azure AD Multi-Factor Authentication.
 12. If the user sign-in is successful, the user can access the application.
 
 The following diagram illustrates all the components and the steps involved:

@@ -103,7 +103,7 @@ The below example is a join transformation named `JoinMatchedData` that takes le
 
 In the Data Factory UX, this transformation looks like the below image:
 
-![Join example](media/data-flow/join-script1.png "Join example")
+![Screenshot shows the transformation with the Join Settings tab selected and a Join type of Inner.](media/data-flow/join-script1.png "Join example")
 
 The data flow script for this transformation is in the snippet below:
 
@@ -125,7 +125,7 @@ The below example is a join transformation named `JoiningColumns` that takes lef
 
 In the Data Factory UX, this transformation looks like the below image:
 
-![Join example](media/data-flow/join-script2.png "Join example")
+![Screenshot shows the transformation with the Join Settings tab selected and a Join type of Custom (cross).](media/data-flow/join-script2.png "Join example")
 
 The data flow script for this transformation is in the snippet below:
 

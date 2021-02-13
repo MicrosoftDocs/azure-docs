@@ -16,9 +16,13 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
+ms.custom: devx-track-csharp
 
 ---
-# Using Axinom to deliver Widevine licenses to Azure Media Services 
+# Using Axinom to deliver Widevine licenses to Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [castLabs](media-services-castlabs-integration.md)
 > * [Axinom](media-services-axinom-integration.md)

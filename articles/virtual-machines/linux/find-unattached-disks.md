@@ -1,5 +1,5 @@
 ---
-title: Find and delete unattached Azure managed and unmanaged disks
+title: Azure CLI - Find and delete unattached managed and unmanaged disks
 description: How to find and delete unattached Azure managed and unmanaged (VHDs/page blobs) disks by using Azure CLI.
 author: roygara
 ms.service: virtual-machines
@@ -15,7 +15,7 @@ When you delete a virtual machine (VM) in Azure, by default, any disks that are 
 
 ## Managed disks: Find and delete unattached disks 
 
-The following script looks for unattached [managed disks](managed-disks-overview.md) by examining the value of the **ManagedBy** property. When a managed disk is attached to a VM, the **ManagedBy** property contains the resource ID of the VM. When a managed disk is unattached, the **ManagedBy** property is null. The script examines all the managed disks in an Azure subscription. When the script locates a managed disk with the **ManagedBy** property set to null, the script determines that the disk is unattached.
+The following script looks for unattached [managed disks](../managed-disks-overview.md) by examining the value of the **ManagedBy** property. When a managed disk is attached to a VM, the **ManagedBy** property contains the resource ID of the VM. When a managed disk is unattached, the **ManagedBy** property is null. The script examines all the managed disks in an Azure subscription. When the script locates a managed disk with the **ManagedBy** property set to null, the script determines that the disk is unattached.
 
 >[!IMPORTANT]
 >First, run the script by setting the **deleteUnattachedDisks** variable to 0. This action lets you find and view all the unattached managed disks.
@@ -24,11 +24,9 @@ The following script looks for unattached [managed disks](managed-disks-overview
 >
 
 ```azurecli
-
 # Set deleteUnattachedDisks=1 if you want to delete unattached Managed Disks
 # Set deleteUnattachedDisks=0 if you want to see the Id of the unattached Managed Disks
 deleteUnattachedDisks=0
-
 unattachedDiskIds=$(az disk list --query '[?managedBy==`null`].[id]' -o tsv)
 for id in ${unattachedDiskIds[@]}
 do
@@ -56,13 +54,10 @@ Unmanaged disks are VHD files that are stored as [page blobs](/rest/api/storages
 >
 
 ```azurecli
-   
 # Set deleteUnattachedVHDs=1 if you want to delete unattached VHDs
 # Set deleteUnattachedVHDs=0 if you want to see the details of the unattached VHDs
 deleteUnattachedVHDs=0
-
 storageAccountIds=$(az storage account list --query [].[id] -o tsv)
-
 for id in ${storageAccountIds[@]}
 do
     connectionString=$(az storage account show-connection-string --ids $id --query connectionString -o tsv)
@@ -101,5 +96,3 @@ done
 ## Next steps
 
 For more information, see [Delete a storage account](../../storage/common/storage-account-create.md#delete-a-storage-account).
-
-

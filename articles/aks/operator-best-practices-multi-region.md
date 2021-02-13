@@ -53,9 +53,9 @@ Traffic Manager performs DNS lookups and returns a user's most appropriate endpo
 
 For information on how to set up endpoints and routing, see [Configure the geographic traffic routing method by using Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
 
-### Layer 7 application routing with Azure Front Door Service
+### Application routing with Azure Front Door Service
 
-Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door Service](../frontdoor/front-door-overview.md) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Azure Front Door Service include TLS termination, custom domain, web application firewall, URL Rewrite, and session affinity. Review the needs of your application traffic to understand which solution is the most suitable.
+Using split TCP-based anycast protocol, [Azure Front Door Service](../frontdoor/front-door-overview.md) ensures that your end users promptly connect to the nearest Front Door POP (Point of Presence). Additional features of Azure Front Door Service include TLS termination, custom domain, web application firewall, URL Rewrite, and session affinity. Review the needs of your application traffic to understand which solution is the most suitable.
 
 ### Interconnect regions with global virtual network peering
 
@@ -89,7 +89,7 @@ Geo-replication is a feature of *Premium* SKU container registries. For informat
 
 State can be either externalized or colocated with the code that manipulates the state. Typically, you externalize state by using a database or other data store that runs on different machines over the network or that runs out of process on the same machine.
 
-Containers and microservices are most resilient when the processes that run inside them don't retain state. Because applications almost always contain some state, use a PaaS solution such as Azure Database for MySQL, Azure Database for PostgreSQL, or Azure SQL Database.
+Containers and microservices are most resilient when the processes that run inside them don't retain state. Because applications almost always contain some state, use a PaaS solution such as Azure Cosmos DB, Azure Database for PostgreSQL, Azure Database for MySQL or Azure SQL Database.
 
 To build portable applications, see the following guidelines:
 
@@ -109,16 +109,13 @@ Your applications might use Azure Storage for their data. Because your applicati
 
 Your applications might require persistent storage even after a pod is deleted. In Kubernetes, you can use persistent volumes to persist data storage. Persistent volumes are mounted to a node VM and then exposed to the pods. Persistent volumes follow pods even if the pods are moved to a different node inside the same cluster.
 
-The replication strategy you use depends on your storage solution. Common storage solutions such as [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html), and [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) provide their own guidance about disaster recovery and replication.
+The replication strategy you use depends on your storage solution. Common storage solutions such as [Gluster](https://docs.gluster.org/en/latest/Administrator-Guide/Geo-Replication/), [Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/v1.2/ceph-disaster-recovery.html), and [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps) provide their own guidance about disaster recovery and replication.
 
 The typical strategy is to provide a common storage point where applications can write their data. This data is then replicated across regions and then accessed locally.
 
 ![Infrastructure-based asynchronous replication](media/operator-best-practices-bc-dr/aks-infra-based-async-repl.png)
 
-If you use Azure Managed Disks, you can choose replication and DR solutions such as these:
-
-* [Velero on Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
+If you use Azure Managed Disks, there are a few options you can use to handle replication and disaster recovery. [Velero on Azure][velero] and [Kasten][kasten] are back up solutions native to Kubernetes but are not supported.
 
 ### Application-based asynchronous replication
 
@@ -136,3 +133,6 @@ This article focuses on business continuity and disaster recovery considerations
 <!-- INTERNAL LINKS -->
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
+
+[velero]: https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md
+[kasten]: https://www.kasten.io/

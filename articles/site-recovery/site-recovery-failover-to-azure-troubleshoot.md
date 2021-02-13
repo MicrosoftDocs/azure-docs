@@ -78,8 +78,8 @@ For detailed troubleshooting instructions on SSH issues, please see our document
 
 If the **Connect** button on the failed over VM in Azure is grayed out and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, then,
 
-1. Go to **Virtual machine** > **Networking**, click on the name of required network interface.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. Navigate to **Ip Configurations**, then click on the name field of required IP configuration. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+1. Go to **Virtual machine** > **Networking**, click on the name of required network interface.  ![Screenshot shows the Networking page for a virtual machine with the network interface name selected.](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. Navigate to **Ip Configurations**, then click on the name field of required IP configuration. ![Screenshot shows the I P configurations page for the network interface with the I P configuration name selected.](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. To enable Public IP address, click on **Enable**. ![Enable IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
 4. Click on **Configure required settings** > **Create new**. ![Create new](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Enter the name of public address, choose the default options for **SKU** and **assignment**, then click **OK**.
@@ -164,7 +164,7 @@ To resolve the issue:
 
 2. If the output of the previous commands shows that either the http_proxy or https_proxy settings are defined, use one of the following methods to unblock the Master Target communications with configuration server:
    
-   - Download the [PsExec tool](https://aka.ms/PsExec).
+   - Download the [PsExec tool](/sysinternals/downloads/psexec).
    - Use the tool to access the System user context and determine whether the proxy address is configured. 
    - If the proxy is configured, open IE in a system user context using the PsExec tool.
   

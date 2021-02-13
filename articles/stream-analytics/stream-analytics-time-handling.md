@@ -1,9 +1,8 @@
 ---
 title: Understand time handling in Azure Stream Analytics
 description: Learn how to choose the best start time, handle late and early events, and about time handling metrics in Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/11/2020
@@ -41,7 +40,7 @@ Arrival time is used by default and is best used for data archiving scenarios wh
 
 Application time is assigned when the event is generated, and it's part of the event payload. To process events by application time, use the **Timestamp by** clause in the SELECT query. If **Timestamp by** is absent, events are processed by arrival time.
 
-It's important to use a timestamp in the payload when temporal logic is involved to account for delays in the source system or in the network. The time assigned to an event is available in [SYSTEM.TIMESTAMP](https://docs.microsoft.com/stream-analytics-query/system-timestamp-stream-analytics).
+It's important to use a timestamp in the payload when temporal logic is involved to account for delays in the source system or in the network. The time assigned to an event is available in [SYSTEM.TIMESTAMP](/stream-analytics-query/system-timestamp-stream-analytics).
 
 ## How time progresses in Azure Stream Analytics
 
@@ -217,5 +216,5 @@ In this illustration, the following tolerances are used:
 
 ## Next steps
 
-- [Azure Stream Analytics event order considerations](stream-analytics-out-of-order-and-late-events.md)
+- [Azure Stream Analytics event order considerations]()
 - [Stream Analytics job metrics](stream-analytics-monitoring.md)

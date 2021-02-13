@@ -205,7 +205,7 @@ To identify if you're hitting the IOPS limit, go into the Storage Account diagno
 
 With new disk offerings under Standard storage, the IOPS and Throughput limits could differ, but the cumulative limit of Standard Storage account is 20000 IOPS(Premium storage has different limits at account or Disk level). Read more about different standard storage disk offerings and per disk limits:
 
-* [Scalability and performance targets for VM disks on Windows](../windows/disk-scalability-targets.md).
+* [Scalability and performance targets for VM disks on Windows](../disks-scalability-targets.md).
 
 #### References
 
@@ -221,7 +221,7 @@ Check Throughput Limits of the VHDs attached to the VM. Add the VM Metrics Disk 
 
 New disk offerings under Standard storage have different IOPS and throughput limits (IOPS are not exposed per VHD). Look at the data to see if you're the hitting the limits of combined throughput MB of the VHD(s) at VM level using Disk Read and Write, then optimize your VM storage configuration to scale past single VHD limits. Read more about different standard storage disk offerings and per disk limits:
 
-* [Scalability and performance targets for VM disks on Windows](../windows/disk-scalability-targets.md).
+* [Scalability and performance targets for VM disks on Windows](../disks-scalability-targets.md).
 
 ### High disk utilization/latency remediation
 

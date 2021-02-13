@@ -1,19 +1,19 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Transforms and Jobs in Media Services
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: Learn how to create a Transforms to describe the rules for processing your videos in Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/19/2019
-ms.author: juliako
+ms.author: inhenkel
 ---
 
 # Transforms and Jobs in Media Services
@@ -59,7 +59,7 @@ In Media Services v3, presets are strongly typed entities in the API itself. You
 
 ### Creating Transforms
 
-You can create Transforms using REST, CLI, or any of the published SDKs. The Media Services v3 API is driven by Azure Resource Manager, so you can also use Resource Manager templates to create and deploy Transforms in your Media Services account. Role-based access control can be used to lock down access to Transforms.
+You can create Transforms using REST, CLI, or any of the published SDKs. The Media Services v3 API is driven by Azure Resource Manager, so you can also use Resource Manager templates to create and deploy Transforms in your Media Services account. Azure role-based access control can be used to lock down access to Transforms.
 
 ### Updating Transforms
 
@@ -71,7 +71,7 @@ The following diagram shows the **Transform** object and the objects it referenc
 
 Select the image to view it full size.  
 
-<a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a>
+[![Diagram showing the Transform object and the objects it references, including the class derivation relationships between the objects.](./media/api-diagrams/transform-small.png)](./media/api-diagrams/transform-large.png#lightbox)
 
 ## Jobs
 
@@ -99,7 +99,7 @@ The following diagram shows the **Job** object and the objects it references inc
 
 Click the image to view it full size.  
 
-<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a>
+[![Diagram showing the Job object and the objects it references, including the class derivation relationships between the objects.](./media/api-diagrams/job-small.png)](./media/api-diagrams/job-large.png#lightbox)
 
 ## Configure Media Reserved Units
 

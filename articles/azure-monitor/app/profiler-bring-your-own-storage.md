@@ -4,7 +4,7 @@ description: Configure BYOS (Bring Your Own Storage) for Profiler & Snapshot Deb
 ms.topic: conceptual
 author: renatosalas
 ms.author: regutier
-ms.date: 04/14/2020
+ms.date: 01/14/2021
 
 ms.reviewer: mbullwin
 ---
@@ -59,7 +59,7 @@ _Figure 1.1_
 If you're also using Private Link, it's required one additional configuration to allow connection to our Trusted Microsoft Service from your Virtual Network. Refer to the [Storage Network Security documentation](../../storage/common/storage-network-security.md#trusted-microsoft-services).
 
 ### Link your Storage Account with your Application Insights resource
-To configure BYOS for code-level diagnostics (Profiler/Debugger), there are two options:
+To configure BYOS for code-level diagnostics (Profiler/Debugger), there are three options:
 
 * Using Azure PowerShell Cmdlets
 * Using Azure Command Line Interface (CLI)
@@ -87,7 +87,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are two 
 
     Pattern:
     ```powershell
-    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{storage_account_name}"
+    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{application_insights_name}"
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
     ```
 

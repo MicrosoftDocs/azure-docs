@@ -42,7 +42,7 @@ When prompted, please enter your Azure AD global admin credentials. This should 
 
 After the agent is installed, you'll see the following two new programs in the "Add/Remove Programs" list in the Control Panel of your server: 
 
-![admin agent](media/whatis-aadc-admin-agent/adminagent1.png)
+![Screenshot that shows the Add/Remove Programs list that includes the new programs you added.](media/whatis-aadc-admin-agent/adminagent1.png)
 
 ## What data in my Sync service is shown to the Microsoft service engineer? 
 When you open a support case  the Microsoft Support Engineer can see, for a given user, the relevant data in Active Directory, the Active Directory connector space in the Azure Active Directory Connect server, the Azure Active Directory connector space in the Azure Active Directory Connect server and the Metaverse in the Azure Active Directory Connect server. 
@@ -65,7 +65,7 @@ Once the agent is installed, If you do not want the Microsoft service engineer t
 3. Save the config file.
 4. Restart Azure AD Connect Administration Agent service as shown below
 
-![admin agent](media/whatis-aadc-admin-agent/adminagent2.png)
+![Screenshot that shows where to restart the Azure AD Administrator Agent service.](media/whatis-aadc-admin-agent/adminagent2.png)
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

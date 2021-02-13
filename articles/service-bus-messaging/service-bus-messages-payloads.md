@@ -2,7 +2,7 @@
 title: Azure Service Bus messages, payloads, and serialization | Microsoft Docs
 description: This article provides an overview of Azure Service Bus messages, payloads, message routing, and serialization. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/29/2021
 ---
 
 # Messages, payloads, and serialization
@@ -65,8 +65,6 @@ Unlike the Java or .NET Standard variants, the .NET Framework version of the Ser
 When using the legacy SBMP protocol, those objects are then serialized with the default binary serializer, or with a serializer that is externally supplied. When using the AMQP protocol, the object is serialized into an AMQP object. The receiver can retrieve those objects with the [GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) method, supplying the expected type. With AMQP, the objects are serialized into an AMQP graph of **ArrayList** and **IDictionary<string,object>** objects, and any AMQP client can decode them. 
 
 While this hidden serialization magic is convenient, applications should take explicit control of object serialization and turn their object graphs into streams before including them into a message, and do the reverse on the receiver side. This yields interoperable results. It should also be noted that while AMQP has a powerful binary encoding model, it is tied to the AMQP messaging ecosystem and HTTP clients will have trouble decoding such payloads. 
-
-We generally recommend JSON and Apache Avro as payload formats for structured data.
 
 The .NET Standard and Java API variants only accept byte arrays, which means that the application must handle object serialization control. 
 

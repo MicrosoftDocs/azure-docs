@@ -1,7 +1,7 @@
 ---
-title: Get token & call Microsoft Graph with console app identity | Azure
+title: "Quickstart: Get token & call Microsoft Graph in a console app | Azure"
 titleSuffix: Microsoft identity platform
-description: Learn how to get a token and call a protected Microsoft Graph API with it from a .NET Core app
+description: In this quickstart, you learn how a .NET Core sample app can use the client credentials flow to get a token and call Microsoft Graph.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -10,19 +10,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 10/05/2020
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-#Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
+ms.reviewer: marsma
+ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core"
+#Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by the Microsoft identity platform using client credentials flow.
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph API using console app's identity
 
-In this quickstart, you'll learn how to write a .NET Core application that can get an access token using the app's own identity and then call the Microsoft Graph API to display a [list of users](https://docs.microsoft.com/graph/api/user-list) in the directory. This scenario is useful for situations where headless, unattended job or a windows service needs to run with an application identity, instead of a user's identity. (See [How the sample works](#how-the-sample-works) for an illustration.)
+In this quickstart, you download and run a code sample that demonstrates how a .NET Core console application can get an access token to call the Microsoft Graph API and display a [list of users](/graph/api/user-list) in the directory. The code sample also demonstrates how a job or a windows service can run with an application identity, instead of a user's identity. 
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
-This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2).
+This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/dotnet-core).
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
@@ -33,7 +36,7 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the new [Azure portal - App registrations](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs) pane.
+> 1. Go to the <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application with just one click.
 >
@@ -43,23 +46,23 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter your application's registration information.
-> 1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Daemon-console`, then select **Register** to create the application.
-> 1. Once registered, select the **Certificates & secrets** menu.
-> 1. Under **Client secrets**, select **+ New client secret**. Give it a name and select **Add**. Copy the secret on a safe location. You will need it to use in your code.
-> 1. Now, select the **API Permissions** menu, select **+ Add a permission** button, select **Microsoft Graph**.
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</span></a>.
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Search for and select **Azure Active Directory**.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application, for example `Daemon-console`. Users of your app might see this name, and you can change it later.
+> 1. Select **Register** to create the application.
+> 1. Under **Manage**, select **Certificates & secrets**.
+> 1. Under **Client secrets**, select **New client secret**, enter a name, and then select **Add**. Record the secret value in a safe location for use in a later step.
+> 1. Under **Manage**, select **API Permissions** > **Add a permission**. Select **Microsoft Graph**.
 > 1. Select **Application permissions**.
-> 1. Under **User** node, select **User.Read.All**, then select **Add permissions**
+> 1. Under **User** node, select **User.Read.All**, then select **Add permissions**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### Download and configure your quickstart app
 >
 > #### Step 1: Configure your application in Azure portal
-> For the code sample for this quickstart to work, you need to create a client secret, and add Graph API's **User.Read.All** application permission.
+> For the code sample in this quickstart to work, create a client secret and add Graph API's **User.Read.All** application permission.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
@@ -70,10 +73,13 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 
 > [!div renderon="docs"]
 > [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+>
+> You can run the provided project in either Visual Studio or Visual Studio for Mac.
+
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project using Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -112,7 +118,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 ##### Global tenant administrator
 
 > [!div renderon="docs"]
-> If you are a global tenant administrator, go to **API Permissions** page in the Azure Portal's Application Registration (Preview) and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
+> If you are a global tenant administrator, in the Azure Portal navigate to **Enterprise applications** > Select your app registration > Choose **"Permissions"** from the Security section of the left navigation pane. Select the large button labeled **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**
@@ -121,7 +127,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 
 ##### Standard user
 
-If you're a standard user of your tenant, then you need to ask a global administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
+If you're a standard user of your tenant, ask a global administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
@@ -141,10 +147,10 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!div renderon="docs"]
 > #### Step 5: Run the application
 
-If you're using Visual Studio, press **F5** to run the application, otherwise, run the application via command prompt or console:
+If you're using Visual Studio or Visual Studio for Mac, press **F5** to run the application, otherwise, run the application via command prompt, console, or terminal:
 
-```console
-cd {ProjectFolder}\daemon-console\1-Call-Graph
+```dotnetcli
+cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
 
@@ -167,13 +173,7 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
 
  You can install MSAL.NET by running the following command in Visual Studio's **Package Manager Console**:
 
-```powershell
-Install-Package Microsoft.Identity.Client
-```
-
-Alternatively, if you are not using Visual Studio, you can run the following command to add MSAL to your project:
-
-```console
+```dotnetcli
 dotnet add package Microsoft.Identity.Client
 ```
 
@@ -199,9 +199,9 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > |---------|---------|
 > | `config.ClientSecret` | Is the client secret created for the application in Azure Portal. |
 > | `config.ClientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
-> | `config.Authority`    | (Optional) The STS endpoint for user to authenticate. Usually <https://login.microsoftonline.com/{tenant}> for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
+> | `config.Authority`    | (Optional) The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
 
-For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
+For more information, please see the [reference documentation for `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication)
 
 ### Requesting tokens
 
@@ -216,28 +216,13 @@ result = await app.AcquireTokenForClient(scopes)
 > |---------|---------|
 > | `scopes` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration (Preview). |
 
-For more information, please see the [reference documentation for `AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
+For more information, please see the [reference documentation for `AcquireTokenForClient`](/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
 
-To learn more about daemon applications, see the scenario landing page
+To learn more about daemon applications, see the scenario overview:
 
 > [!div class="nextstepaction"]
 > [Daemon application that calls web APIs](scenario-daemon-overview.md)
-
-For the daemon application tutorial, see:
-
-> [!div class="nextstepaction"]
-> [Daemon .NET Core console tutorial](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
-
-Learn more about permissions and consent:
-
-> [!div class="nextstepaction"]
-> [Permissions and Consent](v2-permissions-and-consent.md)
-
-To know more about the auth flow for this scenario, see the Oauth 2.0 client credentials flow:
-
-> [!div class="nextstepaction"]
-> [Client credentials Oauth flow](v2-oauth2-client-creds-grant-flow.md)

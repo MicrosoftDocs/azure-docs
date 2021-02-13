@@ -1,6 +1,6 @@
 ---
 title: Deploy StorSimple Virtual Array for Cloud Solution Provider Program
-description: An overview about the StorSimple and CSP for StorSimple partners.
+description: Learn how a CSP partner can add a customer or a new subscription to an existing customer and then create a service to deploy a StorSimple Virtual Array in CSP.
 services: storsimple
 documentationcenter: NA
 author: alkohli

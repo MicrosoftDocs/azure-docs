@@ -1,11 +1,11 @@
 ---
 title: 'Azure Virtual WAN default IPsec policies | Microsoft Docs'
-description: This article provides information about IPsec policies for Virtual WAN.
+description: Learn about Azure Virtual WAN IPsec connectivity policies, including default initiator and responder policies and custom policy combinations.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 09/22/2020
 ms.author: cherylmc
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to know the IPsec policies
 ---

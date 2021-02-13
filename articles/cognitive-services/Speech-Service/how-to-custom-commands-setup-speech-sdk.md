@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
+ms.custom: devx-track-csharp
 ---
 
 # Integrate with a client application using Speech SDK
@@ -28,8 +29,8 @@ A Custom Commands application is required to complete this article. If you haven
 You'll also need:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) or higher. This guide is based on Visual Studio 2019.
-> * An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
-> * [Enable your device for development](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
+> * An Azure subscription key for Speech Services. [Get one for free](overview.md#try-the-speech-service-for-free) or create it on the [Azure portal](https://portal.azure.com)
+> * [Enable your device for development](/windows/uwp/get-started/enable-your-device-for-development)
 
 ## Step 1: Publish Custom Commands application
 
@@ -37,7 +38,7 @@ You'll also need:
 1. Go to **Settings**, select **LUIS resource**
 1. If **Prediction resource** is not assigned, select a query prediction key or create a new one
 
-    Query prediction key is always required before publishing an application. For more information about LUIS resources, reference [Create LUIS Resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
+    Query prediction key is always required before publishing an application. For more information about LUIS resources, reference [Create LUIS Resource](../luis/luis-how-to-azure-subscription.md)
 
 1. Go back to editing Commands, Select **Publish**
 

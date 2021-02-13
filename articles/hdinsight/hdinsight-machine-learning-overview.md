@@ -1,9 +1,6 @@
 ---
 title: Machine learning overview - Azure HDInsight
 description: Overview of big data machine learning options for clusters in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
@@ -36,7 +33,7 @@ Azure Machine Learning provides tools to model predictive analytics, and a fully
 
 ![Microsoft Azure machine learning overview](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
-Create features for data in an HDInsight Hadoop cluster using [Hive queries](../machine-learning/team-data-science-process/create-features-hive.md). *Feature engineering* attempts to increase the predictive power of learning algorithms by creating features from raw data that facilitate the learning process. You can run HiveQL queries from Azure Machine Learning Studio (classic), and access data processed in Hive and stored in blob storage, by using the [Import Data module](../machine-learning/studio/import-data.md).
+Create features for data in an HDInsight Hadoop cluster using [Hive queries](../machine-learning/team-data-science-process/create-features-hive.md). *Feature engineering* attempts to increase the predictive power of learning algorithms by creating features from raw data that facilitate the learning process. You can run HiveQL queries from Azure Machine Learning Studio (classic), and access data processed in Hive and stored in blob storage, by using the [Import Data module](../machine-learning/classic/import-data.md).
 
 ## Microsoft Cognitive Toolkit
 

@@ -9,7 +9,6 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.topic: sample
 ms.date: 03/19/2018
-ms.custom: sfrev
 ---
 
 # Update the RDP port range values

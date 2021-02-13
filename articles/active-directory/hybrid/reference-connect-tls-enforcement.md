@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: TLS 1.2 enforcement for Azure Active Directory Connect| Microsoft Docs'
-description: This article lists all releases of Azure AD Connect and Azure AD Sync
+description: Learn how to force your Azure AD Connect server to use only Transport Layer Security (TLS) 1.2.
 services: active-directory
 documentationcenter: ''
 author: billmath

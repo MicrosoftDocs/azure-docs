@@ -5,12 +5,15 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/23/2020
+ms.date: 11/10/2020
 
 ---
 
 # How to create alerts from Azure Monitor for VMs
 [Alerts in Azure Monitor](../platform/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. Azure Monitor for VMs does not include pre-configured alert rules, but you can create your own based on data that it collects. This article provides guidance on creating alert rules, including a set of sample queries.
+
+> [!IMPORTANT]
+> The alerts described in this article are based on log queries from data collected Azure Monitor for VMs. This is different than the alerts created by [Azure Monitor for VM guest health](vminsights-health-overview.md) which is a feature currently in public preview. As this feature nears general availability, guidance for alerting will be consolidated.
 
 
 ## Alert rule types
@@ -18,8 +21,8 @@ Azure Monitor has [different types of alert rules](../platform/alerts-overview.m
 
 There are two types of log alerts in Azure Monitor:
 
-- [Number of results alerts](../platform/alerts-unified-log.md#number-of-results-alert-rules) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such and Windows and Syslog events collected by the [Log Analytics agent](../platform/log-analytics-agent.md) or for analyzing performance trends across multiple computers.
-- [Metric measurement alerts](../platform/alerts-unified-log.md#metric-measurement-alert-rules) create a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These alert rules are ideal for performance data collected by Azure Monitor for VMs since they can create individual alerts for each computer.
+- [Number of results alerts](../platform/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such and Windows and Syslog events collected by the [Log Analytics agent](../platform/log-analytics-agent.md) or for analyzing performance trends across multiple computers.
+- [Metric measurement alerts](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These alert rules are ideal for performance data collected by Azure Monitor for VMs since they can create individual alerts for each computer.
 
 
 ## Alert rule walkthrough

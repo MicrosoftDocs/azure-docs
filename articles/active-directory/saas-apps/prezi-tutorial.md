@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Prezi | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Prezi.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: dd6a6d39-f6c4-49ef-b849-12724d5ea3c2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on integration with Prezi
@@ -27,7 +21,7 @@ In this tutorial, you learn how to integrate Prezi with Azure Active Directory (
 * Enable your users to be automatically signed in to Prezi with their Azure AD accounts.
 * Manage your accounts in the Azure portal.
 
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -42,7 +36,10 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Prezi supports SP- and IDP-initiated SSO.
 * Prezi supports just-in-time user provisioning.
-* After you configure Prezi, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. For more information, see [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* After you configure Prezi, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. For more information, see [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Add Prezi from the gallery
 
@@ -82,7 +79,7 @@ To enable Azure AD SSO in the Azure portal:
 
 1. Select **Set additional URLs**, and do the following step if you want to configure the application in **SP**-initiated mode:
 
-    In the **Sign-on URL** box, enter the URL `https://prezi.com/login/sso/`.
+    In the **Sign-on URL** box, enter the URL: `https://prezi.com/login/sso/`.
 
 1. Select **Save**.
 
@@ -167,14 +164,13 @@ In this section, a user called Britta Simon is created in Prezi. Prezi supports 
 
 In this section, you test your Azure AD SSO configuration by using the Access Panel.
 
-When you select the Prezi tile in the Access Panel, you should be automatically signed in to the Prezi account for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Prezi tile in the Access Panel, you should be automatically signed in to the Prezi account for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 - [Try Prezi with Azure AD](https://aad.portal.azure.com/)
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-- [How to protect Prezi with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [How to protect Prezi with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

@@ -1,6 +1,6 @@
 ---
 title: Stream logs to SumoLogic using Azure Monitor  | Microsoft Docs
-description: Learn how to integrate Azure Active Directory logs with SumoLogic using Azure Monitor
+description: Learn how to integrate Azure Active Directory logs with SumoLogic using Azure Monitor.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -28,12 +28,12 @@ In this article, you learn how to integrate Azure Active Directory (Azure AD) lo
 ## Prerequisites
 
 To use this feature, you need:
-* An Azure event hub that contains Azure AD activity logs. Learn how to [stream your activity logs to an event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
+* An Azure event hub that contains Azure AD activity logs. Learn how to [stream your activity logs to an event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md). 
 * A SumoLogic single sign-on enabled subscription.
 
 ## Steps to integrate Azure AD logs with SumoLogic 
 
-1. First, [stream the Azure AD logs to an Azure event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md).
+1. First, [stream the Azure AD logs to an Azure event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
 2. Configure your SumoLogic instance to [collect logs for Azure Active Directory](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory).
 3. [Install the Azure AD SumoLogic app](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) to use the pre-configured dashboards that provide real-time analysis of your environment.
 

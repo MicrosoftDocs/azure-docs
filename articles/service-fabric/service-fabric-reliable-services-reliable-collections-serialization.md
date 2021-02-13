@@ -4,6 +4,7 @@ description: Learn about Azure Service Fabric Reliable Collections object serial
 
 ms.topic: conceptual
 ms.date: 5/8/2017
+ms.custom: devx-track-csharp
 ---
 # Reliable Collection object serialization in Azure Service Fabric
 Reliable Collections' replicate and persist their items to make sure they are durable across machine failures and power outages.
@@ -15,7 +16,7 @@ Reliable State Manager contains built-in serializers and allows custom serialize
 ## Built-in Serializers
 
 Reliable State Manager includes built-in serializer for some common types, so that they can be serialized efficiently by default. 
-For other types, Reliable State Manager falls back to use the [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1).
+For other types, Reliable State Manager falls back to use the [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer).
 Built-in serializers are more efficient since they know their types cannot change and they do not need to include information about the type like its type name.
 
 Reliable State Manager has built-in serializer for following types: 
@@ -146,7 +147,7 @@ This way each version can read as much it can and jump over the remaining part o
 
 ## Next steps
   * [Serialization and upgrade](service-fabric-application-upgrade-data-serialization.md)
-  * [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
   * [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
   * [Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
   * Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).

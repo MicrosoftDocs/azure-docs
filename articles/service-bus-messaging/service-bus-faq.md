@@ -2,14 +2,13 @@
 title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
 description: This article provides answers to some of the frequently asked questions (FAQ) about Azure Service Bus.
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 01/20/2021
 ---
 
 # Azure Service Bus - Frequently asked questions (FAQ)
 
 This article discusses some frequently asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQs](https://azure.microsoft.com/support/faq/) for general Azure pricing and support information.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## General questions about Azure Service Bus
 ### What is Azure Service Bus?
@@ -31,20 +30,32 @@ Ordering isn't ensured when using partitioned entities. In the event that a part
 
  Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
 
+### <a name="in-region-data-residency"></a>Where does Azure Service Bus store data?
+Azure Service Bus standard tier utilizes Azure SQL Database for its backend storage layer. For all regions except Brazil South and Southeast Asia, the database backup is hosted in a different region (usually the Azure paired region). For the Brazil south and Southeast Asia regions, database backups are stored in the same region to accommodate data-residency requirements for these regions.
+
+Azure Service Bus premium tier stores metadata and data in regions that you select. When geo-disaster recovery is set up for an Azure Service Bus premium namespace, the metadata is copied over to the secondary region that you select.
+
+
 ### What ports do I need to open on the firewall? 
 You can use the following protocols with Azure Service Bus to send and receive messages:
 
-- Advanced Message Queuing Protocol (AMQP)
-- Service Bus Messaging Protocol (SBMP)
-- HTTP
+- Advanced Message Queuing Protocol 1.0 (AMQP)
+- Hypertext Transfer Protocol 1.1 with TLS (HTTPS)
 
-See the following table for the outbound ports you need to open to use these protocols to communicate with Azure Event Hubs. 
+See the following table for the outbound TCP ports you need to open to use these protocols to communicate with Azure Service Bus:
 
-| Protocol | Ports | Details | 
+| Protocol | Port | Details | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 and 5672 | See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350 to 9354 | See [Connectivity mode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
-| HTTP, HTTPS | 80, 443 | 
+| AMQP | 5671 | AMQP with TLS. See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
+| HTTPS | 443 | This port is used for the HTTP/REST API and for AMQP-over-WebSockets |
+
+The HTTPS port is generally required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Azure Active Directory (when used) run over HTTPS. 
+
+The official Azure SDKs generally use the AMQP protocol for sending and receiving messages from Service Bus. 
+
+[!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+
+The older WindowsAzure.ServiceBus package for the .NET Framework has an option to use the legacy "Service Bus Messaging Protocol" (SBMP), also referred to as "NetMessaging". This protocol uses TCP ports 9350-9354. The default mode for this package is to automatically detect whether those ports are available for communication and will switch to WebSockets with TLS over port 443 if that is not the case. You can override this setting and force this mode by setting the `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode) on the [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity) setting, which applies globally to the application.
 
 ### What IP addresses do I need to add to allow list?
 To find the right IP addresses to add to allow list for your connections, follow these steps:
@@ -52,16 +63,16 @@ To find the right IP addresses to add to allow list for your connections, follow
 1. Run the following command from a command prompt: 
 
     ```
-    nslookup <YourNamespaceName>.cloudapp.net
+    nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Note down the IP address returned in `Non-authoritative answer`. This IP address is static. The only time it would change is if you restore the namespace on to a different cluster.
+2. Note down the IP address returned in `Non-authoritative answer`. 
 
-If you use the zone redundancy for your namespace, you need to do a few additional steps: 
+If you use the **zone redundancy** for your namespace, you need to do a few additional steps: 
 
 1. First, you run nslookup on the namespace.
 
     ```
-    nslookup <yournamespace>.cloudapp.net
+    nslookup <yournamespace>.servicebus.windows.net
     ```
 2. Note down the name in the **non-authoritative answer** section, which is in one of the following formats: 
 
@@ -72,8 +83,11 @@ If you use the zone redundancy for your namespace, you need to do a few addition
     ```
 3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
 
+    > [!NOTE]
+    > The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or moved to a different cluster.
+
 ### Where can I find the IP address of the client sending/receiving messages to/from a namespace? 
-We don't log the IP addresses of clients sending or receiving messages to/from your namespace. Regenerate keys so that all existing clients will fail to authenticate and review role-based access control ([RBAC](authenticate-application.md#built-in-rbac-roles-for-azure-service-bus)) settings to ensure that only allowed users or applications have access to the namespace. 
+We don't log the IP addresses of clients sending or receiving messages to/from your namespace. Regenerate keys so that all existing clients will fail to authenticate and review [Azure role-based access control (Azure RBAC)](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) settings to ensure that only allowed users or applications have access to the namespace. 
 
 If you're using a **premium** namespace, use [IP filtering](service-bus-ip-filtering.md), [virtual network service endpoints](service-bus-service-endpoints.md), and [private endpoints](private-link-service.md) to limit access to the namespace. 
 
@@ -152,6 +166,8 @@ Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
 $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
+## Is it possible to disable TLS 1.0 or 1.1 on Service Bus namespaces?
+No. It's not possible to disable TLS 1.0 or 1.1 on Service Bus namespaces. In your client applications connecting to Service Bus, use TLS 1.2 or above. For more information, see [Enforcing TLS 1.2 use with Azure Service Bus - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/messaging-on-azure/enforcing-tls-1-2-use-with-azure-service-bus/ba-p/370912).
 
 ## Next steps
 To learn more about Service Bus, see the following articles:

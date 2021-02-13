@@ -5,7 +5,7 @@ author: rloutlaw
 ms.service: virtual-machines
 ms.subservice: monitoring
 ms.custom: REST
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: routlaw
 ---
@@ -37,7 +37,7 @@ The following headers are required:
 
 | Name | Description |
 | :--- | :---------- |
-| subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli). |
 | resourceGroupName | The name of the Azure resource group associated with the resource. You can get this value from the Azure Resource Manager API, CLI, or the portal. |
 | vmname | The name of the Azure Virtual Machine. |
 | metricnames | Comma-separated list of valid  [Load Balancer metrics](../../load-balancer/load-balancer-standard-diagnostics.md). |
@@ -57,42 +57,42 @@ Status code 200 is returned when the list of metric values is returned successfu
 
 ```json
 {
-	"cost": 0,
-	"timespan": "2018-06-08T23:48:10Z/2018-06-09T00:48:10Z",
-	"interval": "PT1M",
-	"value": [
-		{
-			"id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU",
-			"type": "Microsoft.Insights/metrics",
-			"name": {
-				"value": "Percentage CPU",
-				"localizedValue": "Percentage CPU"
-			},
-			"unit": "Percent",
-			"timeseries": [
-				{
-					"metadatavalues": [],
-					"data": [
-						{
-							"timeStamp": "2018-06-08T23:48:00Z",
-							"average": 0.44
-						},
-						{
-							"timeStamp": "2018-06-08T23:49:00Z",
-							"average": 0.31
-						},
-						{
-							"timeStamp": "2018-06-08T23:50:00Z",
-							"average": 0.29
-						},
-						{
-							"timeStamp": "2018-06-08T23:51:00Z",
-							"average": 0.29
-						},
-						{
-							"timeStamp": "2018-06-08T23:52:00Z",
-							"average": 0.285
-						} ]
+    "cost": 0,
+    "timespan": "2018-06-08T23:48:10Z/2018-06-09T00:48:10Z",
+    "interval": "PT1M",
+    "value": [
+        {
+            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmname}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=Percentage%20CPU",
+            "type": "Microsoft.Insights/metrics",
+            "name": {
+                "value": "Percentage CPU",
+                "localizedValue": "Percentage CPU"
+            },
+            "unit": "Percent",
+            "timeseries": [
+                {
+                    "metadatavalues": [],
+                    "data": [
+                        {
+                            "timeStamp": "2018-06-08T23:48:00Z",
+                            "average": 0.44
+                        },
+                        {
+                            "timeStamp": "2018-06-08T23:49:00Z",
+                            "average": 0.31
+                        },
+                        {
+                            "timeStamp": "2018-06-08T23:50:00Z",
+                            "average": 0.29
+                        },
+                        {
+                            "timeStamp": "2018-06-08T23:51:00Z",
+                            "average": 0.29
+                        },
+                        {
+                            "timeStamp": "2018-06-08T23:52:00Z",
+                            "average": 0.285
+                        } ]
                 } ]
         } ]
 }

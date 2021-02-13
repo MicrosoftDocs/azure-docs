@@ -4,8 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn about the supported data platforms and tools for the Azure Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
 author: lobrien
 ms.author: laobri
@@ -50,7 +49,7 @@ To run SQL Server Management Studio, you can search for "SQL Server Management S
 
 By default, the database server with the default database instance runs automatically. You can use tools like SQL Server Management Studio on the VM to access the SQL Server database locally. Local administrator accounts have admin access on the database.
 
-Also, the DSVM comes with ODBC and JDBC drivers to talk to SQL Server, Azure SQL databases, and Azure SQL Data Warehouse from applications written in multiple languages, including Python and Machine Learning Server.
+Also, the DSVM comes with ODBC and JDBC drivers to talk to SQL Server, Azure SQL databases, and Azure Synapse Analytics from applications written in multiple languages, including Python and Machine Learning Server.
 
 ### How is it configured and installed on the DSVM? 
 
@@ -100,5 +99,4 @@ Libraries to access data from Azure Blob storage or Azure Data Lake Storage, usi
 
 For the Spark instance on the DSVM to access data stored in Blob storage or Azure Data Lake Storage, you must create and configure the `core-site.xml` file based on the template found in $SPARK_HOME/conf/core-site.xml.template. You must also have the appropriate credentials to access Blob storage and Azure Data Lake Storage. (Note that the template files use placeholders for Blob storage and Azure Data Lake Storage configurations.)
 
-For more detailed info about creating Azure Data Lake Storage service credentials, see [Authentication with Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). After the credentials for Blob storage or Azure Data Lake Storage are entered in the core-site.xml file, you can reference the data stored in those sources through the URI prefix of wasb:// or adl://.
-
+For more detailed info about creating Azure Data Lake Storage service credentials, see [Authentication with Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). After the credentials for Blob storage or Azure Data Lake Storage are entered in the core-site.xml file, you can reference the data stored in those sources through the URI prefix of wasb:// or adl://.

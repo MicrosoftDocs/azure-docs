@@ -24,8 +24,8 @@ You can take the following action items to improve your score:
 
 1. *Ensure that your app or service is appropriately categorized*: choose three categories that represent your app or service's capabilities.
 2. *Azure Marketplace Apps: grow your Azure consumption month-over-month.* If you are able to achieve 1,000 hours of Azure usage a month, you will greatly increase your chances of being featured.
-3. *AppSource Apps: increase the acquisitions coming to your offer.* If you are able to achieve 10 acquisitions per month, you will greatly increase your chances of being featured. 
-4. *Achieve Co-Sell ready status*: complete the requirements for co-sell ready.
+3. *AppSource Apps: increase the acquisitions coming to your offer.* If you are able to achieve 10 acquisitions per month, you will greatly increase your chances of being featured.
+4. *Achieve Co-Sell ready status*: complete the [requirements for co-sell ready](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 5. *Improve the quality of your offer*: see  [content listing guidelines](marketplace-criteria-content-validation.md) for information on how to modify your offer
 6. Publish multiple offers in Marketplace: are all your core apps and services listed? Do you have a trial experience?
 7. Encourage your customers to write reviews.

@@ -1,16 +1,19 @@
 ---
-title: How to configure a cloud service (portal) | Microsoft Docs
+title: How to configure a cloud service (classic) - Portal | Microsoft Docs
 description: Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances. These examples use the Azure portal.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/07/2016
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# How to Configure Cloud Services
+
+# How to Configure and Azure Cloud Service (classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 You can configure the most commonly used settings for a cloud service in the Azure portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
 
@@ -43,7 +46,7 @@ If you need to target a specific OS version, you can set it in **Configuration**
 
 You can add alerts to your cloud service. Click **Settings** > **Alert Rules** > **Add alert**.
 
-![Screenshot of the Settings pan with the Alert rules option highlighted and outlined in red and teh Add alert option outlined in red.](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
+![Screenshot of the Settings pan with the Alert rules option highlighted and outlined in red and the Add alert option outlined in red.](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
 From here, you can set up an alert. With the **Metric** drop-down box, you can set up an alert for the following types of data.
 

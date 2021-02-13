@@ -4,6 +4,8 @@
   items:
     - name: About Azure Functions
       href: functions-overview.md
+    - name: Getting started
+      href: functions-get-started.md
     - name: Durable Functions
       href: durable/durable-functions-overview.md
     - name: Serverless comparison
@@ -13,15 +15,43 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create function
+    - name: Create your first function
       expanded: true
       items:
         - name: Visual Studio Code
-          href: ./functions-create-first-function-vs-code.md
+          expanded: true
+          items:
+          - name: C#
+            href: create-first-function-vs-code-csharp.md
+          - name: Java
+            href: create-first-function-vs-code-java.md
+          - name: JavaScript
+            href: create-first-function-vs-code-node.md
+          - name: PowerShell
+            href: create-first-function-vs-code-powershell.md
+          - name: Python
+            href: create-first-function-vs-code-python.md
+          - name: TypeScript
+            href: create-first-function-vs-code-typescript.md
+          - name: Other (Go/Rust)
+            href: create-first-function-vs-code-other.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
         - name: Command line
-          href: functions-create-first-azure-function-azure-cli.md
+          expanded: false
+          items:
+          - name: C#
+            href: create-first-function-cli-csharp.md
+          - name: Java
+            href: create-first-function-cli-java.md
+          - name: JavaScript
+            href: create-first-function-cli-node.md
+          - name: PowerShell
+            href: create-first-function-cli-powershell.md
+          - name: Python
+            href: create-first-function-cli-python.md
+          - name: TypeScript
+            href: create-first-function-cli-typescript.md
         - name: ARM template
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
@@ -79,14 +109,65 @@
         - name: TypeScript
           href: /samples/browse/?products=azure-functions&languages=typescript
     - name: Azure CLI
-      href: functions-cli-samples.md
+      items:
+        - name: CLI sample index
+          href: functions-cli-samples.md
+        - name: Create function app
+          items:
+            - name: Serverless function app
+              href: ./scripts/functions-cli-create-serverless.md
+            - name: Serverless Python app
+              href: ./scripts/functions-cli-create-serverless-python.md
+            - name: Scalable Premium plan app
+              href: ./scripts/functions-cli-create-premium-plan.md
+            - name: Dedicated (App Service) plan app  
+              href: ./scripts/functions-cli-create-app-service-plan.md
+        - name: Integrate services
+          items:
+            - name: Connect Azure Storage
+              href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
+            - name: Connect Azure Cosmos DB  
+              href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
+            - name: Python mount Files share
+              href: ./scripts/functions-cli-mount-files-storage-linux.md
+        - name: Continuous deployment
+          items:
+            - name: GitHub deployment
+              href: ./scripts/functions-cli-create-function-app-github-continuous.md
+            - name: DevOps deployment
+              href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Concepts
   items:
+    - name: Best practices
+      items:
+        - name: Performance and reliability
+          href: functions-best-practices.md
+          displayName: best practices
+        - name: Manage connections
+          href: manage-connections.md
+          displayName: best practices
+        - name: Storage considerations
+          href: storage-considerations.md
+          displayName: encryption, keys, mount, files
+        - name: Error handling and function retries
+          href: functions-bindings-error-pages.md
+          displayName: best practices
+        - name: Security
+          href: security-concepts.md
+          displayName: best practices
     - name: Compare runtime versions
       href: functions-versions.md
       displayName: migrate, migration, v3
-    - name: Premium plan
-      href: functions-premium-plan.md
+    - name: Hosting and scale
+      items:
+        - name: Consumption plan
+          href: consumption-plan.md
+        - name: Premium plan
+          href: functions-premium-plan.md
+        - name: Dedicated plan
+          href: dedicated-plan.md
+        - name: Event-driven scaling
+          href: event-driven-scaling.md  
     - name: Deployments
       href: functions-deployment-technologies.md
     - name: Events and messaging
@@ -103,6 +184,7 @@
           href: functions-bindings-example.md
         - name: Register binding extensions
           href: functions-bindings-register.md
+          displayName: bundles, extension bundles
         - name: Binding expression patterns
           href: functions-bindings-expressions-patterns.md
         - name: Use binding return values
@@ -129,6 +211,10 @@
           href: functions-reference-python.md
         - name: TypeScript
           href: functions-reference-node.md#typescript
+    - name: Frameworks
+      items:
+        - name: Express.js
+          href: shift-expressjs.md
     - name: Security
       items:
         - name: Security overview
@@ -136,16 +222,14 @@
           displayName: secure, ssl
         - name: Security baseline
           href: security-baseline.md
+    - name: Monitoring
+      href: functions-monitoring.md
+      displayName: App Insights, Application Insights, logs, logging
     - name: Diagnostics
       href: functions-diagnostics.md
     - name: Consumption plan costs
       href: functions-consumption-costs.md
-    - name: Performance considerations
-      href: functions-best-practices.md
       displayName: best practice
-    - name: Storage considerations
-      href: storage-considerations.md
-      displayName: encryption, keys, mount, files
     - name: Functions Proxies
       href: functions-proxies.md
     - name: Networking options
@@ -170,18 +254,19 @@
               href: functions-develop-vs.md
             - name: Core Tools development
               href: functions-run-local.md
+              displayName: local, runtime
         - name: Create functions
           items:
             - name: HTTP trigger
               items:
                 - name: Azure portal
-                  href: functions-create-first-azure-function.md
+                  href: functions-create-function-app-portal.md
                 - name: Command line
-                  href: ./functions-create-first-azure-function-azure-cli.md
+                  href: ./create-first-function-cli-csharp.md
                 - name: Visual Studio
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
-                  href: ./functions-create-first-function-vs-code.md
+                  href: ./create-first-function-vs-code-csharp.md
                 - name: Java using Gradle
                   href: functions-create-first-java-gradle.md
                 - name: Java using Eclipse
@@ -195,7 +280,9 @@
                 - name: Linux App Service plan
                   href: create-function-app-linux-app-service-plan.md
                 - name: Linux Consumption plan
-                  href: ./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python
+                  href: create-first-function-cli-python.md
+                - name: Premium plan
+                  href: create-premium-plan-function-app-portal.md
                 - name: Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Azure Cosmos DB trigger
@@ -206,8 +293,11 @@
               href: functions-create-storage-queue-triggered-function.md
             - name: Timer trigger
               href: functions-create-scheduled-function.md
-        - name: Add bindings
+        - name: Connect to services
           items:
+            - name: How to connect to services
+              displayName: bindings,integrate
+              href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
             - name: Storage - Python
@@ -233,7 +323,7 @@
         - name: Manage connections
           href: manage-connections.md
           displayName: best practice
-        - name: Error handling
+        - name: Error handling and retries
           href: functions-bindings-error-pages.md
         - name: Manually run a non HTTP-triggered function
           href: functions-manually-run-non-http.md
@@ -259,7 +349,7 @@
         - name: On-premises functions
           href: functions-runtime-install.md
         - name: Deploy using the Jenkins plugin
-          href: /azure/jenkins/jenkins-azure-functions-deploy
+          href: /azure/developer/jenkins/deploy-to-azure-functions
           maintainContext: true
     - name: Configure
       items:
@@ -268,19 +358,24 @@
           displayName: app setting, application setting
         - name: Set the runtime version
           href: set-runtime-version.md
-        - name: Manually register an extension
-          href: install-update-binding-extensions-manual.md
         - name: Disable a function
           href: disable-function.md
         - name: Geo-disaster recovery
           href: functions-geo-disaster-recovery.md
     - name: Monitor
       items:
-        - name: Monitor functions
-          href: functions-monitoring.md
+        - name: Configure monitoring
+          href: configure-monitoring.md
           displayName: App Insights, Application Insights, logs, logging
-        - name: Analyze logs
+        - name: Analyze telemetry data
+          href: analyze-telemetry-data.md  
+          displayName: App Insights, Application Insights, Kusto
+        - name: Streaming logs
+          href: streaming-logs.md
+          displayName: monitoring
+        - name: Diagnostic logs
           href: functions-monitor-log-analytics.md
+          displayName: Azure Monitor, Kusto, Log Analytics, metrics
     - name: Secure
       items:
         - name: Add SSL cert
@@ -299,6 +394,8 @@
               href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Authenticate with an OpenID Connect provider (Preview)
               href: ../app-service/configure-authentication-provider-openid-connect.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Authenticate using Sign in with Apple (Preview)
+              href: ../app-service/configure-authentication-provider-apple.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Advanced auth
           href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Restrict IPs
@@ -311,7 +408,7 @@
           href: configure-encrypt-at-rest-using-cmk.md
     - name: Integrate
       items:
-        - name: Add bindings
+        - name: Connect to services
           items:
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -329,8 +426,6 @@
           href: ./functions-create-vnet.md
         - name: Create an Open API 2.0 definition
           href: ./functions-openapi-definition.md
-        - name: Export to PowerApps and Microsoft Flow
-          href: app-service-export-api-to-powerapps-and-flow.md
         - name: Use a managed identity
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
         - name: Customize HTTP function endpoint
@@ -341,8 +436,10 @@
       items:
         - name: Troubleshoot storage
           href: functions-recover-storage-account.md
-        - name: Troubleshoot Python dependencies
-          href: recover-module-not-found.md
+        - name: Troubleshoot Python functions
+          href: recover-python-functions.md
+        - name: Scale and performance for Python functions
+          href: python-scale-performance-reference.md
 - name: Reference
   items:
     - name: API references
@@ -395,6 +492,8 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+        - name: Dapr
+          href: https://github.com/dapr/azure-functions-extension
         - name: Event Grid
           items:
             - name: Overview
@@ -428,6 +527,8 @@
             - name: Output
               href: functions-bindings-event-iot-output.md
               displayName: Azure IoT Hubs
+        - name: Kafka
+          href: https://github.com/azure/azure-functions-kafka-extension
         - name: HTTP and webhooks
           items:
             - name: Overview
@@ -439,8 +540,6 @@
             - name: Output
               href: functions-bindings-http-webhook-output.md
               displayName: HTTP
-        - name: Microsoft Graph
-          href: functions-bindings-microsoft-graph.md
         - name: Mobile Apps
           href: functions-bindings-mobile-apps.md
         - name: Notification Hubs
@@ -456,6 +555,17 @@
             - name: Output
               href: functions-bindings-storage-queue-output.md
               displayName: Queue storage
+        - name: RabbitMQ
+          items:
+            - name: Overview
+              href: functions-bindings-rabbitmq.md
+              displayName: RabbitMQ
+            - name: Trigger
+              href: functions-bindings-rabbitmq-trigger.md
+              displayName: RabbitMQ
+            - name: Output
+              href: functions-bindings-rabbitmq-output.md
+              displayName: RabbitMQ
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Service Bus
@@ -484,7 +594,16 @@
               href: functions-bindings-signalr-service-output.md
               displayName: SignalR Service
         - name: Table storage
-          href: functions-bindings-storage-table.md
+          items: 
+            - name: Overview
+              href: functions-bindings-storage-table.md
+              displayName: Table storage
+            - name: Input
+              href: functions-bindings-storage-table-input.md
+              displayName: Table storage
+            - name: Output
+              href: functions-bindings-storage-table-output.md
+              displayName: Table storage
         - name: Timer
           href: functions-bindings-timer.md
         - name: Twilio
@@ -508,7 +627,7 @@
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=compute
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/functions/
+      href: pricing.md
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Quota information

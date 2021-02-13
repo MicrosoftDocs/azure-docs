@@ -7,8 +7,9 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ---
-
 # Set up the business glossary for governed tagging
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## Introduction
 

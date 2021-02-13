@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Wikispaces | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Wikispaces.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 665b95aa-f7f5-4406-9e2a-6fc299a1599c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Wikispaces
 
@@ -27,7 +21,7 @@ Integrating Wikispaces with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to Wikispaces (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -108,7 +102,7 @@ To configure Azure AD single sign-on with Wikispaces, perform the following step
     `https://session.wikispaces.net/<instancename>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Wikispaces Client support team](https://www.wikispaces.com/site/help) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Wikispaces Client support team](https://wikispaces.psu.edu/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -126,7 +120,7 @@ To configure Azure AD single sign-on with Wikispaces, perform the following step
 
 ### Configure Wikispaces Single Sign-On
 
-To configure single sign-on on **Wikispaces** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Wikispaces support team](https://www.wikispaces.com/site/help). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Wikispaces** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Wikispaces support team](https://wikispaces.psu.edu/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -192,11 +186,11 @@ In order to enable Azure AD users to sign in to Wikispaces, they must be provisi
 
 3. Click the **Invite People**.
    
-    ![Invite People](./media/wikispaces-tutorial/ic787194.png "Invite People")
+    ![Screenshot shows the Members page where you can select Invite People.](./media/wikispaces-tutorial/ic787194.png "Invite People")
 
 4. In the **Invite People** section, perform the following steps:
    
-    ![Invite People](./media/wikispaces-tutorial/ic787208.png "Invite People")
+    ![Screenshot shows the Invite People section where you can enter user data.](./media/wikispaces-tutorial/ic787208.png "Invite People")
    
     a. Type the **Usernames or Email Address** of a valid Azure AD account you want to provision into the related textboxes.
    
@@ -212,13 +206,12 @@ In order to enable Azure AD users to sign in to Wikispaces, they must be provisi
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Wikispaces tile in the Access Panel, you should be automatically signed in to the Wikispaces for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Wikispaces tile in the Access Panel, you should be automatically signed in to the Wikispaces for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

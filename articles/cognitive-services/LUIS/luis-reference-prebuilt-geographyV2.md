@@ -3,14 +3,14 @@ title: Geography V2 prebuilt entity - LUIS
 titleSuffix: Azure Cognitive Services
 description: This article contains geographyV2 prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: diberry
+
 ---
 
 # GeographyV2 prebuilt entity for a LUIS app

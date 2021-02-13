@@ -1,18 +1,11 @@
 ---
 title: Load data from Office 365 by using Azure Data Factory 
 description: 'Use Azure Data Factory to copy data from Office 365'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-
 ---
 # Load data from Office 365 by using Azure Data Factory
 
@@ -75,7 +68,7 @@ This article shows you how to use the Data Factory _load data from Office 365 in
 
     ![Config Office 365 dataset table](./media/load-office-365-data/edit-dataset.png)
 
-8. Now go back to the **pipeline** > **Source tab** to continue configuring additional properties for Office 365 data extraction.  User scope and user scope filter are optional predicates that you can define to restrict the data you want to extract out of Office 365. See [Office 365 dataset properties](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties) section for how you configure these settings.
+8. Now go back to the **pipeline** > **Source tab** to continue configuring additional properties for Office 365 data extraction.  User scope and user scope filter are optional predicates that you can define to restrict the data you want to extract out of Office 365. See [Office 365 dataset properties](./connector-office-365.md#dataset-properties) section for how you configure these settings.
 
 9. You are required to choose one of the date filters and provide the start time and end time values.
 
@@ -143,7 +136,7 @@ Now go to the destination Azure Blob Storage and verify that Office 365 data has
 
 ## Next steps
 
-Advance to the following article to learn about Azure SQL Data Warehouse support: 
+Advance to the following article to learn about Azure Synapse Analytics support: 
 
 > [!div class="nextstepaction"]
 >[Office 365 connector](connector-office-365.md)

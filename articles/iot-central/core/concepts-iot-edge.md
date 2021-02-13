@@ -3,10 +3,11 @@ title: Azure IoT Edge and Azure IoT Central | Microsoft Docs
 description: Understand how to use Azure IoT Edge with an IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/12/2019
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
+ms.custom: [device-developer, iot-edge]
 ---
 
 # Connect Azure IoT Edge devices to an Azure IoT Central application
@@ -53,11 +54,11 @@ In Azure IoT Central, you can import a deployment manifest to create a device te
 
 ![Flowchart of deployment manifest life cycle](./media/concepts-iot-edge/dmflow.png)
 
-IoT Plug and Play (preview) models an IoT Edge device as follows:
+IoT Central models an IoT Edge device as follows:
 
-* Every IoT Edge device template has a device capability model.
+* Every IoT Edge device template has a device model.
 * For every custom module listed in the deployment manifest, a module capability model is generated.
-* A relationship is established between each module capability model and a device capability model.
+* A relationship is established between each module capability model and a device model.
 * A module capability model implements module interfaces.
 * Each module interface contains telemetry, properties, and commands.
 
@@ -65,7 +66,7 @@ IoT Plug and Play (preview) models an IoT Edge device as follows:
 
 ## IoT Edge gateway devices
 
-If you selected an IoT Edge device to be a gateway device, you can add downstream relationships to device capability models for devices you want to connect to the gateway device.
+If you selected an IoT Edge device to be a gateway device, you can add downstream relationships to device models for devices you want to connect to the gateway device.
 
 ## Next steps
 

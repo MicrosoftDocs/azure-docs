@@ -60,11 +60,3 @@ Always run a security vulnerability detection on your image prior to submitting.
 
 Even if your organization does not have images in the Azure marketplace, consider checking your Windows and Linux image configurations against these recommendations.
 
-## Contacting customers
-
-To identify customers and their contact emails:
-
-1.	In Cloud Partner Portal, on the left rail, select **Insights**.
-2.	On the **Orders and Usage** tab, use the **Start Date** and **End Date** fields to query usage within the required date range. This shows which Azure subscriptions were used for the offer on a daily basis. Export this data. 
-3.	Similarly, on the **Customer** tab, query and export your customer base.
-4.	Match the Subscription ID from step 2 to the Subscription ID from step 3 to find the necessary customer information.

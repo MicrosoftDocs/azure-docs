@@ -39,7 +39,7 @@ If you don’t have a Media Service  account, use the following steps to create 
 1. Browse to the [Cloud Shell](https://shell.azure.com/).
 1. Select "Bash" as your environment in the drop-down on the left-hand side of the shell window
 
-    ![Bash](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
+    ![Screen capturs shows Bash selected from the shell window.](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
 1. Set your Azure subscription as the default account using the following command template:
     
     ```
@@ -226,7 +226,7 @@ Look for the “roleDefinitionName” and see that its value is set to “LVAEdg
 
 This confirms that we have linked the custom user role with the service principal that is used for our application.
 
-### Test the service principal RBAC  
+### Test the service principal access control
 
 1. Login using the Service Principal. For this, we will need 3 pieces of information for the Azure Active Directory to grant us the proper access token that we can get from the output of the [Create service principal](#create-service-principal) step:
     1. AadClientID 

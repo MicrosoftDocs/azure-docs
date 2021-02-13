@@ -1,5 +1,5 @@
 ---
-title: Acquire tokens to call a web API (daemon app) - Microsoft identity platform | Azure
+title: Acquire tokens to call a web API (daemon app) - The Microsoft identity platform | Azure
 description: Learn how to build a daemon app that calls web APIs (acquiring tokens)
 services: active-directory
 author: jmprieur
@@ -13,7 +13,7 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 
-#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
 
 ---
 
@@ -90,6 +90,11 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
     // Mitigation: Change the scope to be as expected.
 }
 ```
+
+### AcquireTokenForClient uses the application token cache
+
+In MSAL.NET, `AcquireTokenForClient` uses the application token cache. (All the other AcquireToken*XX* methods use the user token cache.)
+Don't call `AcquireTokenSilent` before you call `AcquireTokenForClient`, because `AcquireTokenSilent` uses the *user* token cache. `AcquireTokenForClient` checks the *application* token cache itself and updates it.
 
 # [Python](#tab/python)
 
@@ -199,11 +204,6 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 For more information, see the protocol documentation: [Microsoft identity platform and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md).
 
-## Application token cache
-
-In MSAL.NET, `AcquireTokenForClient` uses the application token cache. (All the other AcquireToken*XX* methods use the user token cache.)
-Don't call `AcquireTokenSilent` before you call `AcquireTokenForClient`, because `AcquireTokenSilent` uses the *user* token cache. `AcquireTokenForClient` checks the *application* token cache itself and updates it.
-
 ## Troubleshooting
 
 ### Did you use the resource/.default scope?
@@ -229,21 +229,27 @@ Content: {
 }
 ```
 
+### Are you calling your own API?
+
+If you call your own web API and couldn't add an app permission to the app registration for your daemon app, did you expose an app role in your web API?
+
+For details, see [Exposing application permissions (app roles)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) and, in particular, [Ensuring that Azure AD issues tokens for your web API to only allowed clients](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients).
+
 ## Next steps
 
 # [.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=dotnet).
 
 # [Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=python).
 
 # [Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=java)
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=java).
 
 ---

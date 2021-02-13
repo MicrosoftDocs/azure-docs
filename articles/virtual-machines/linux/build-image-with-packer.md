@@ -4,7 +4,7 @@ description: Learn how to use Packer to create images of Linux virtual machines 
 author: cynthn
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn

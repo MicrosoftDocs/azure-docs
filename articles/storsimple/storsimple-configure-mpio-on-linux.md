@@ -1,6 +1,6 @@
 ---
 title: Configure MPIO on StorSimple Linux host
-description: Configure MPIO on StorSimple connected to a Linux host running CentOS 6.6
+description: Learn the steps required to configure Multipathing IO (MPIO) on your StorSimple Linux (Centos 6.6) host server.
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
@@ -15,7 +15,6 @@ This procedure is applicable to all the models of StorSimple 8000 series devices
 
 > [!NOTE]
 > This procedure cannot be used for a StorSimple Cloud Appliance. For more information, see how to configure host servers for your cloud appliance.
-
 
 ## About multipathing
 The multipathing feature allows you to configure multiple I/O paths between a host server and a storage device. These I/O paths are physical SAN connections that can include separate cables, switches, network interfaces, and controllers. Multipathing aggregates the I/O paths, to configure a new device that is associated with all of the aggregated paths.
@@ -45,7 +44,7 @@ The multipath.conf has five sections:
 
 - **System level defaults** *(defaults)*: You can override system level defaults.
 - **Blacklisted devices** *(blacklist)*: You can specify the list of devices that should not be controlled by device-mapper.
-- **Blacklist exceptions** *(blacklist_exceptions)*: You can identify specific devices to be treated as multipath devices even if listed in the blacklist.
+- **Blacklist exceptions** *(blacklist_exceptions)*: You can identify specific devices to be treated as multipath devices even if listed in the blocklist.
 - **Storage controller specific settings** *(devices)*: You can specify configuration settings that will be applied to devices that have Vendor and Product information.
 - **Device specific settings** *(multipaths)*: You can use this section to fine-tune the configuration settings for individual LUNs.
 
@@ -206,12 +205,12 @@ The multipath-supported devices can be automatically discovered and configured.
     ```
 
 ### Step 2: Configure multipathing for StorSimple volumes
-By default, all devices are black listed in the multipath.conf file and will be bypassed. You will need to create blacklist exceptions to allow multipathing for volumes from StorSimple devices.
+By default, all devices are blocklisted in the multipath.conf file and will be bypassed. You will need to create blocklist exceptions to allow multipathing for volumes from StorSimple devices.
 
 1. Edit the `/etc/mulitpath.conf` file. Type:
    
     `vi /etc/multipath.conf`
-1. Locate the blacklist_exceptions section in the multipath.conf file. Your StorSimple device needs to be listed as a blacklist exception in this section. You can uncomment relevant lines in this file to modify it as shown below (use only the specific model of the device you are using):
+1. Locate the blacklist_exceptions section in the multipath.conf file. Your StorSimple device needs to be listed as a blocklist exception in this section. You can uncomment relevant lines in this file to modify it as shown below (use only the specific model of the device you are using):
    
     ```config
     blacklist_exceptions {
@@ -371,9 +370,9 @@ Repeat this command for all the connected network interfaces on the iSCSI target
 `iscsiadm -m node --login -T <TARGET_IQN>`
 
 
-Q. I am not sure if my device is whitelisted.
+Q. I am not sure if my device is allowed.
 
-A. To verify whether your device is whitelisted, use the following troubleshooting interactive command:
+A. To verify whether your device is allowed, use the following troubleshooting interactive command:
 
 ```console
 multipathd -k
@@ -443,4 +442,3 @@ As you are configuring MPIO on Linux host, you may also need to refer to the fol
 
 * [Setting up MPIO on CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Linux Training Guide](http://linux-training.be/linuxsys.pdf)
-

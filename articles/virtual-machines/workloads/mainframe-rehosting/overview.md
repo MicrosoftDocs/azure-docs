@@ -65,7 +65,7 @@ To get started:
 
 The IBM DB2 pureScale environment provides a database cluster for Azure. It's not identical to the original environment, but it delivers similar availability and scale as IBM DB2 for z/OS running in a Parallel Sysplex setup.
 
-To get started, see [IBM DB2 pureScale on Azure](../../linux/ibm-db2-purescale-azure.md).
+To get started, see [IBM DB2 pureScale on Azure](.//ibm/ibm-db2-purescale-azure.md).
 
 ## Considerations
 
@@ -85,7 +85,7 @@ With Azure IaaS such as a VM, specific system functions provide failover support
 
 ### Scalability
 
-Mainframes typically scale up, while cloud environments scale out. Azure offers a range of [Linux](../../linux/sizes.md) and [Windows](../../windows/sizes.md) sizes to meet your needs. The cloud also scales up or down to match exact user specifications. Compute power, storage, and services
+Mainframes typically scale up, while cloud environments scale out. Azure offers a range of [Linux](../../sizes.md) and [Windows](../../sizes.md) sizes to meet your needs. The cloud also scales up or down to match exact user specifications. Compute power, storage, and services
 [scale](/azure/architecture/best-practices/auto-scaling) on demand under a usage-based billing model.
 
 ### Storage

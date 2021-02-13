@@ -1,7 +1,7 @@
 ---
 title: Testing Azure VM network throughput
 titlesuffix: Azure Virtual Network
-description: Learn how to test Azure virtual machine network throughput.
+description: Use NTTTCP to target the network for testing and minimize the use of other resources that could impact performance.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/21/2017
+ms.date: 10/06/2020
 ms.author: steveesp
 
 ---
@@ -23,7 +23,7 @@ Copy the tool to two Azure VMs of the same size. One VM functions as SENDER
 and the other as RECEIVER.
 
 #### Deploying VMs for testing
-For the purposes of this test, the two VMs should be in either the same Cloud Service or the same Availability Set so that we can use their internal IPs and exclude the Load Balancers from the test. It is possible to test with the VIP but this kind of testing is outside the scope of this document.
+For the purposes of this test, the two VMs should be in either the same [Proximity Placement Group](../virtual-machines/co-location.md) or the same Availability Set so that we can use their internal IPs and exclude the Load Balancers from the test. It is possible to test with the VIP but this kind of testing is outside the scope of this document.
 
 Make a note of the RECEIVER's IP address. Let's call that IP "a.b.c.r"
 
@@ -51,9 +51,9 @@ Sender parameters: ntttcp -s10.27.33.7 -t 10 -n 1 -P 1
 #### Get NTTTCP onto the VMs.
 
 Download the latest version:
-<https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
+https://github.com/microsoft/ntttcp/releases/download/v5.35/NTttcp.exe
 
-Or search for it if moved: <https://www.bing.com/search?q=ntttcp+download>\< -- should be first hit
+Or view the top-level GitHub Page: <https://github.com/microsoft/ntttcp>\
 
 Consider putting NTTTCP in separate folder, like c:\\tools
 

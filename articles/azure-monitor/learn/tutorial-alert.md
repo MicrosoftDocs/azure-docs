@@ -3,8 +3,8 @@ title: Send alerts from Azure Application Insights | Microsoft Docs
 description: Tutorial to send alerts in response to errors in your application using Azure Application Insights.
 ms.subservice: application-insights
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 04/10/2019
 
 ms.custom: mvc
@@ -24,7 +24,7 @@ You learn how to:
 
 To complete this tutorial:
 
-Create an [Application Insights resource](./dotnetcore-quick-start.md#enable-application-insights).
+Create an [Application Insights resource](../app/create-new-resource.md).
 
 ## Sign in to Azure
 
@@ -69,4 +69,5 @@ Availability tests in Application Insights allow you to automatically test your 
 Now that you've learned how to alert on issues, advance to the next tutorial to learn how to analyze how users are interacting with your application.
 
 > [!div class="nextstepaction"]
-> [Understand users](../../azure-monitor/learn/tutorial-users.md)
+> [Understand users](./tutorial-users.md)
+

@@ -202,7 +202,7 @@ Projecting to tables in Azure Storage is useful for reporting and analysis using
 Let's build a dashboard to visualize the key phrases extracted from documents as a word cloud. To create the right data structure, add a Shaper skill to the skillset to create a custom shape that has the document-specific details and key phrases. The custom shape will be called `pbiShape` on the `document` root node.
 
 > [!NOTE] 
-> Table projections are Azure Storage tables, governed by the storage limits imposed by Azure Storage. For more information, see [table storage limits](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). It is useful to know that the entity size cannot exceed 1 MB and a single property can be no bigger than 64 KB. These constraints make tables a good solution for storing a large number of small entities.
+> Table projections are Azure Storage tables, governed by the storage limits imposed by Azure Storage. For more information, see [table storage limits](/rest/api/storageservices/understanding-the-table-service-data-model). It is useful to know that the entity size cannot exceed 1 MB and a single property can be no bigger than 64 KB. These constraints make tables a good solution for storing a large number of small entities.
 
 ### Using a Shaper skill to create a custom shape
 
@@ -352,7 +352,7 @@ Slicing implicitly generates a relationship between the parent and child tables,
 
 The ```generatedKeyName``` and ```referenceKeyName``` properties are used to relate data across tables or even across projection types. Each row in the child table/projection has a property pointing back to the parent. The name of the column or property in the child is the ```referenceKeyName``` from the parent. When the ```referenceKeyName``` is not provided, the service defaults it to the ```generatedKeyName``` from the parent. 
 
-Power BI relies on these generated keys to discover relationships within the tables. If you need the column in the child table named differently, set the ```referenceKeyName``` property on the parent table. One example would be to set the ```generatedKeyName``` as ID on the pbiDocument table and the ```referenceKeyName``` as DocumentID. This would result in the column in the pbiEntities and pbiKeyPhrases tables containing the document id being named DocumentID.
+Power BI relies on these generated keys to discover relationships within the tables. If you need the column in the child table named differently, set the ```referenceKeyName``` property on the parent table. One example would be to set the ```generatedKeyName``` as ID on the pbiDocument table and the ```referenceKeyName``` as DocumentID. This would result in the column in the pbiEntities and pbiKeyPhrases tables containing the document ID being named DocumentID.
 
 ## Projecting to objects
 
@@ -534,7 +534,7 @@ From the consolidated crossProjection object, slice the object into multiple tab
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
         "projections": [
              {
-        		"tables": [
+                "tables": [
                     {
                         "tableName": "crossDocument",
                         "generatedKeyName": "Id",
@@ -558,7 +558,7 @@ From the consolidated crossProjection object, slice the object into multiple tab
                      
                 ],
                 "objects": [
-                	{
+                    {
                         "storageContainer": "crossobject",
                         "generatedKeyName": "crosslayout",
                         "source": null,
@@ -572,14 +572,13 @@ From the consolidated crossProjection object, slice the object into multiple tab
                     }
                 ],
                 "files": [
-                	 {
+                    {
                         "storageContainer": "crossimages",
                         "generatedKeyName": "crossimages",
                         "source": "/document/crossProjection/images/*/image"
                     }
-                	]
-                
-        	}
+                ]
+            }
         ]
     }
 ```
@@ -626,10 +625,10 @@ When building projections of different types, file and object projections are ge
                         "source": null,
                         "sourceContext": "/document/normalized_images/*/text",
                         "inputs": [
-                        	{
-                        		"name": "ocrText",
-                        		"source": "/document/normalized_images/*/text"
-                        	}
+                            {
+                                "name": "ocrText",
+                                "source": "/document/normalized_images/*/text"
+                            }
                         ]
                     },
                     {
@@ -637,10 +636,10 @@ When building projections of different types, file and object projections are ge
                         "source": null,
                         "sourceContext": "/document/normalized_images/*/layoutText",
                         "inputs": [
-                        	{
-                        		"name": "ocrLayoutText",
-                        		"source": "/document/normalized_images/*/layoutText"
-                        	}
+                            {
+                                "name": "ocrLayoutText",
+                                "source": "/document/normalized_images/*/layoutText"
+                            }
                         ]
                     }
                 ],
@@ -673,4 +672,3 @@ For an overview on projections, learn more about capabilities like groups and sl
 
 > [!div class="nextstepaction"]
 > [Projections in a knowledge store](knowledge-store-projection-overview.md)
-

@@ -45,7 +45,7 @@ To make the Map feature display relevant alerts, create an alert rule that appli
 - Include a clause to group alerts by computer (for example, **by Computer interval 1 minute**).
 - Base the alert on a metric.
 
-For more information about Azure Alerts and creating alert rules, see [Unified alerts in Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
+For more information about Azure Alerts and creating alert rules, see [Unified alerts in Azure Monitor](../platform/alerts-overview.md).
 
 In the upper-right corner, the **Legend** option describes the symbols and roles on the map. For a closer look at your map and to move it around, use the zoom controls in the lower-right corner. You can set the zoom level and fit the map to the size of the page.  
 
@@ -91,7 +91,7 @@ The map visualizes the VM's dependencies by discovering running process groups a
 
 By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour. To run the query, use the **TimeRange** selector in the upper-left corner. You might run a query, for example, during an incident or to see the status before a change.  
 
-![Direct VM map overview](./media/vminsights-maps/map-direct-vm-01.png)
+![Screenshot of the Map tab in the Monitoring Insights section of Azure portal showing a diagram of the dependencies between virtual machines.](./media/vminsights-maps/map-direct-vm-01.png)
 
 ## View a map from a virtual machine scale set
 
@@ -107,7 +107,7 @@ To load a map for a specific instance, first select that instance on the map. Th
 
 By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour. To run the query, use the **TimeRange** selector. You might run a query, for example, during an incident or to see the status before a change.
 
-![Direct VM map overview](./media/vminsights-maps/map-direct-vmss-01.png)
+![Screenshot of the Map tab in the Monitoring Insights section of Azure portal showing a diagram of dependencies between virtual machine scale sets.](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
 >You can also access a map for a specific instance from the **Instances** view for your virtual machine scale set. In the **Settings** section, go to **Instances** > **Insights**.
@@ -124,10 +124,11 @@ In Azure Monitor, the Map feature provides a global view of your VMs and their d
 
 Choose a workspace by using the **Workspace** selector at the top of the page. If you have more than one Log Analytics workspace, choose the workspace that's enabled with the solution and that has VMs reporting to it. 
 
-The **Group** selector returns subscriptions, resource groups, [computer groups](../../azure-monitor/platform/computer-groups.md), and virtual machine scale sets of computers that are related to the selected workspace. Your selection applies only to the Map feature and doesn't carry over to Performance or Health.
+The **Group** selector returns subscriptions, resource groups, [computer groups](../platform/computer-groups.md), and virtual machine scale sets of computers that are related to the selected workspace. Your selection applies only to the Map feature and doesn't carry over to Performance or Health.
 
 By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour. To run the query, use the **TimeRange** selector. You might run a query, for example, during an incident or to see the status before a change.  
 
 ## Next steps
 
 To identify bottlenecks, check performance, and understand overall utilization of your VMs, see [View performance status for Azure Monitor for VMs](vminsights-performance.md). 
+
