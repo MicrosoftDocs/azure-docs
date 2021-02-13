@@ -51,6 +51,8 @@
     href: how-to-compression.md
   - name: URL Rewrite
     href: concept-rule-set-url-redirect-and-rewrite.md
+  - name: Enable Private link
+    href: how-to-enable-private-endpoint.md
   - name: Logging
     href: how-to-logs.md
   - name: Monitoring and alerts
