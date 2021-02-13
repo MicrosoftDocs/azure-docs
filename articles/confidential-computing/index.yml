@@ -76,11 +76,11 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links: 
-          - text: Azure Kubernetes Service (AKS) Confidential Computing Nodes
+          - text: Confidential computing nodes on AKS (Azure Kubernetes Service)
             url: confidential-nodes-aks-overview.md
       - linkListType: concept
         links:
-         -  text: Confidential Containers
+         -  text: Confidential containers
             url: confidential-containers.md
          -  text: Enclave-aware containers
             url: enclave-aware-containers.md
@@ -92,7 +92,7 @@ landingContent:
             url: confidential-nodes-aks-get-started.md
       - linkListType: sample
         links:
-          - text: Confidential Container Samples (unmodified containers on SGX)
+          - text: Confidential container samples (unmodified containers on SGX)
             url: https://github.com/Azure-Samples/confidential-container-samples
           - text: Enclave Aware Container Samples
             url: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/confidential-computing/enclave-aware-containers.md
@@ -121,7 +121,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Confidential Healthcare Demo on AKS
+          - text: Confidential healthcare demo on AKS
             url: https://github.com/Azure-Samples/confidential-container-samples
           - text: Attested Mutual TLS with Open Enclave on AKS
             url: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/confidential-computing/enclave-aware-containers.md
