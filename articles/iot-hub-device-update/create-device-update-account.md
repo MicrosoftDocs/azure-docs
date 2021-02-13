@@ -45,7 +45,7 @@ To get started with Device Update you'll need to create a Device Update account,
 
 8. You will see the deployment status change to "complete" in a few minutes. Click "Go to resource"
 
-:::image type="content" source="media/create-device-update-account/account-complete.png" alt-text="Account deployment complete." lightbox="media/create-device-update-account/account-deployment-complete.png":::
+:::image type="content" source="media/create-device-update-account/account-complete.png" alt-text="Account deployment complete." lightbox="media/create-device-update-account/account-complete.png":::
 
 ## Create a device update instance 
 
@@ -61,8 +61,8 @@ To create a Device Update instance after an account has been created.
 
 :::image type="content" source="media/create-device-update-account/instance-details.png" alt-text="Instance details." lightbox="media/create-device-update-account/instance-details.png":::
 
-     > [!NOTE] 
-     > The IoT Hub you link to your Device Update resource, doesn't need to be in the same region as your Device Update Account. However, for better performance it is recommended that your IoT Hub be in a region same as or close to the region of your Device Update account. 
+   > [!NOTE] 
+   > The IoT Hub you link to your Device Update resource, doesn't need to be in the same region as your Device Update Account. However, for better performance it is recommended that your IoT Hub be in a region same as or close to the region of your Device Update account. 
 
 3. Click "Create". You will see the instance in a "Creating" state. 
 
