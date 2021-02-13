@@ -35,7 +35,7 @@ This deployment instructions assumes:
 1. Supporting Kubernetes version 1.16+
 1. Intel SGX DCAP Driver Pre-installed on the AKS Nodes. Read more [here](./faq.md)
 
-## Installing the CLI pre-requisites (needed for the addon in preview)
+## Installing the CLI pre-requisites (needed for the add-on in preview)
 
 To install the aks-preview 0.5.0 extension or later, use the following Azure CLI commands:
 
