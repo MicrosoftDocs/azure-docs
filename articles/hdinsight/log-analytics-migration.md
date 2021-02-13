@@ -119,7 +119,7 @@ Use our new out-of-box, at-scale workbook <add link> to get a multi-cluster moni
 
 You can add custom alerts to your clusters and workspaces in the Log query editor. Go to the Logs query editor by selecting the **Logs** blade from either your cluster or workspace portal. Run a query and then select **New Alert Rule** as shown in the following screenshot. For more information, read about [configuring alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
 
-![alt-text-description]()
+<![alt-text-description]()>
 
 ## Activate an existing Azure Monitor integration
 
@@ -151,7 +151,7 @@ If you are using the out-of-box monitoring dashboard for HDInsight clusters, lik
 
 You will see an HDInsight option in Azure Monitor.
 
-![alt-text-description]()
+<![alt-text-description]()>
 
 The HDInsight Monitor portal provides you the capability of monitoring multiple HDInsight clusters in one place. We organize the clusters based on the workload type, so you see types like Spark, HBase, and Hive. Instead of going to multiple dashboards, now you can monitor all your HDInsight clusters in this view.
 
