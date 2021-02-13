@@ -49,7 +49,7 @@ To update the aks-preview CLI extension, use the following Azure CLI commands:
 az extension update --name aks-preview
 ```
 ### Azure Confidential Computing addon feature registration on Azure (optional but recommended)
-Registering the AKS-ConfidentialComputingAddon on the Azure Subscription. This feature will add SGX device plugin daemonset as discussed in details [here](./confidential-nodes-aks-overview.md#aks-provided-daemon-sets-addon):
+Registering the AKS-ConfidentialComputingAddon on the Azure Subscription. This feature will add SGX device plugin daemonset as discussed in details [here](./confidential-nodes-aks-overview.md#confidential-computing-add-on-for-aks):
 1. SGX Device Driver Plugin
 ```azurecli-interactive
 az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.ContainerService
