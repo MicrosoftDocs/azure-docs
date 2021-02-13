@@ -311,14 +311,13 @@ See the following invoice image and its corresponding JSON output. The output ha
 
 ## Analyze invoices
 
-# v2.1 preview](#tab/v2-1)
+### [v2.1 preview](#tab/v2-1)
 
 To start analyzing an invoice, use the cURL command below. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoices.md). Before you run the command, make these changes:
 
 1. Replace `{Endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{your invoice URL}` with the URL address of an invoice document.
 1. Replace `{subscription key}` with your subscription key.
-
 
 ```bash
 curl -v -i POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key:  {subscription key}" --data-ascii "{​​​​​​​'source': '{your invoice URL}'}​​​​​​​​"
@@ -504,7 +503,7 @@ See the following invoice document and its corresponding JSON output. The JSON c
 }
 ```
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 > [!IMPORTANT]
 > This feature isn't available in the selected API version.
@@ -719,9 +718,7 @@ In custom models trained without labels, the key/value pair associations and tab
 
 This sample JSON output has been shortened for simplicity.
 
-
-
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ```JSON
 {
@@ -864,7 +861,7 @@ This section demonstrates how to analyze and extract common fields from US recei
 1. Replace `{your receipt URL}` with the URL address of a receipt image.
 1. Replace `{subscription key>` with the subscription key you copied from the previous step.
 
-# [v2.1 preview](#tab/v2-1)
+### [v2.1 preview](#tab/v2-1)
 
 ```JSON
 {
