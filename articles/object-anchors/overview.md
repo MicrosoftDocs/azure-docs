@@ -38,7 +38,7 @@ The following sections provide information about getting started with using and 
      - Confirm the nominal gravity direction that corresponds to the real world vertical orientation of the object. If the object's downward vertical/gravity is 
         -Y, use ***(0, -1, 0)*** or ***(0, 0, -1)*** for -Z, and likewise for any other direction.
      - Make sure that the 3D model is encoded in one of the formats - ***.glb, .gltf, .ply, .fbx, .obj***.
--  AOA ingestion service could take long to process a large, high LOD (level-of-detail) model. For efficacy you can preprocess your 3D model to remove the interior faces.
+-  Our ingestion service could take long to process a large, high LOD (level-of-detail) model. For efficacy you can preprocess your 3D model to remove the interior faces.
 -  The AOA Runtime SDK requires a user-provided search region to search for and detect the physical object. The search region could be a bounding box, a sphere, 
     a view frustum, or any combination of them. To avoid a false detection, it is preferable to set a search region large enough to cover the object. When using the AOA sample apps, you can stand on one side of the object about 2 meters away from the closest surface and start the app.
 -  Before starting the AOA app on a HoloLens 2 device, remove the holograms in the vicinity of your workplace via ***Settings->System->Holograms***.
