@@ -85,7 +85,7 @@ If you are executing the data flow in a debug test execution from a debug pipeli
 ### Error code: DF-Executor-ParseError
 - **Message**: Expression cannot be parsed
 - **Causes**: Expression has parsing errors due to formatting
-- **Recommendation**: Pleae check formatting in expression.
+- **Recommendation**: Please check formatting in expression.
 
 ### Error code: DF-Executor-SystemImplicitCartesian
 - **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
@@ -148,13 +148,13 @@ If you are executing the data flow in a debug test execution from a debug pipeli
 ### Error code: DF-Executor-ColumnUnavailable
 - **Message**: Column name used in expression is unavailable or invalid.
 - **Causes**: Invalid or unavailable column name is used in expressions.
-- **Recommendation**: Check column name(s) used in expressions.
+- **Recommendation**: Please check column name(s) used in expressions.
 
 
 ### Error code: DF-Executor-ParseError
 - **Message**: Expression cannot be parsed.
 - **Causes**: Expression has parsing errors due to formatting.
-- **Recommendation**: Check formatting in expression.
+- **Recommendation**: Please check formatting in expression.
 
 
  ### Error code: DF-Executor-OutOfDiskSpaceError
@@ -197,11 +197,11 @@ If you are executing the data flow in a debug test execution from a debug pipeli
 - --
 - **Message**: Data type is not supported.
 - **Causes**: Undetermined
-- **Recommendation**: Use Excel file right data types.
+- **Recommendation**: Please use Excel file right data types.
 
 ### Error code: 4502
 - **Message**: There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime.
-- **Causes**: A lot of Dataflow Activity runs are going on concurrently on the Integration Runtime. Please learn more about the [Azure Data Factory limits](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#data-factory-limits).
+- **Causes**: A lot of Dataflow Activity runs are going on concurrently on the Integration Runtime. Please learn more about the [Azure Data Factory limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#data-factory-limits).
 - **Recommendation**: In case you are looking to run more Data flow activities in parallel, please distribute those on multiple integration runtimes.
 
 
