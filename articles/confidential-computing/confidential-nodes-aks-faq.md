@@ -12,7 +12,6 @@ ms.author: amgowda
 
 This article addresses frequent questions about Intel SGX based confidential computing nodes on Azure Kubernetes Service (AKS). If you have any further questions, email **acconaks@microsoft.com**.
 
-# FAQ Items
 - [Are the confidential computing nodes on AKS in GA](#1)
 - [What is attestation and how can we do attestation of apps running in enclaves?](#2)
 - [Can I enable Accelerated Networking with Azure confidential computing AKS Clusters?](#3)
