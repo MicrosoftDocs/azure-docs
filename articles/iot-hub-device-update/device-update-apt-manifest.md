@@ -1,6 +1,6 @@
 ---
 title: Understand Device Update for IoT Hub APT manifest | Microsoft Docs
-description: Understand how Device Update for IoT Hub uses apt manifest for performing a package-based update.
+description: Understand how Device Update for IoT Hub uses apt manifest for a package-based update.
 author: vimeht
 ms.author: vimeht
 ms.date: 2/12/2021
@@ -17,7 +17,7 @@ The APT Manifest is a JSON file that describes an update details required by APT
 
 [Learn More](import-update.md) about importing updates into Device Update.
 
-When an APT manifest is delivered to an Device Update Agent as an update, the agent will process the manifest and perform the necessary operations. These operations include downloading and installing the packages specified in the APT Manifest file as well as their dependencies.
+When an APT manifest is delivered to an Device Update Agent as an update, the agent will process the manifest and carry out the necessary operations. These operations include downloading and installing the packages specified in the APT Manifest file and their dependencies.
 
 Device Update supports APT UpdateType and APT Update Handler. This support allows the Device Update Agent to evaluate the installed Debian packages and update the necessary packages. 
 
@@ -119,8 +119,8 @@ keep in mind:
 - When it comes to the desired state of each individual package, specify the exact name and version of the package that you would like to install on your device. Always validate the values against the package repository that you intend to use as the source for the package
 - Ensure that the packages in the APT Manifest are listed in the order they should be installed
 - Always validate the installation of packages on a test device to ensure the outcome is desired
-- When installing a specific version of a package (For example, `iotedge 1.0.9-1`), it is best practice to also have in the APT Manifest the explicit versions of the dependent packages to be installed (For example, `libiothsm 1.0.9-1`)
-- While it is not mandated, always ensure your APT Manifest is cumulative to avoid getting your device into an unknown state. A cumulative update will ensure that your devices have the desired version of every package you care about even if the device has skipped an APT Update deployment due to failure in installation, or being taken offline
+- When installing a specific version of a package (For example, `iotedge 1.0.9-1`), it's best practice to also have in the APT Manifest the explicit versions of the dependent packages to be installed (For example, `libiothsm 1.0.9-1`)
+- While it's not mandated, always ensure your APT Manifest is cumulative to avoid getting your device into an unknown state. A cumulative update will ensure that your devices have the desired version of every package you care about even if the device has skipped an APT Update deployment because of failure in installation, or being taken offline
 
 For example:
 
