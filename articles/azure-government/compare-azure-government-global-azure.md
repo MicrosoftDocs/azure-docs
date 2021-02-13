@@ -535,8 +535,10 @@ The following App Service **features are not currently available** in Azure Gove
 
 ## Next steps
 Learn more about Azure Government:
+
 - [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
 
 Start using Azure Government:
+
 - [Guidance for developers](./documentation-government-developer-guide.md)
 - [Connect with the Azure Government portal](./documentation-government-get-started-connect-with-portal.md)
