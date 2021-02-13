@@ -79,7 +79,7 @@ Each time the search area changes, the app will remove instances currently being
 
 This app can track multiple objects at one time. To do that, upload multiple models to the **LocalState** folder and set a search area that covers all the target objects. It may take longer to detect and track multiple objects.
 
-The app aligns a 3D model to its physical counterpart within approximately 2+ cm error. A user can air tap using their left hand to turn on the high precision tracking mode, which computes a more accurate pose. This is still an experimental feature, which consumes more system resources, and could result in higher jitter in the estimated pose. Air tap again with the left hand to switch back to the normal tracking mode.
+The app aligns a 3D model to its physical counterpart closely. A user can air tap using their left hand to turn on the high precision tracking mode, which computes a more accurate pose. This is still an experimental feature, which consumes more system resources, and could result in higher jitter in the estimated pose. Air tap again with the left hand to switch back to the normal tracking mode.
 
 ## Capture diagnostics from the application
 
