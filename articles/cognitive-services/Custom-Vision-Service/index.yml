@@ -103,10 +103,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Training API
-            url: https://go.microsoft.com/fwlink/?linkid=865446
-          - text: Prediction API
-            url: https://go.microsoft.com/fwlink/?linkid=865445
+          - text: REST API
+            url: https://docs.microsoft.com/rest/api/custom-vision/
           - text: .NET SDK
             url: /dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
           - text: Python SDK
