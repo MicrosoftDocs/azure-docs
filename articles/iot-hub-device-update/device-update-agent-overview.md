@@ -21,22 +21,17 @@ allowing for messaging to flow between the Device Update Agent and Device Update
 
 ## The Interface Layer
 
-The Interface layer is made up of the [AzureDeviceUpdateCore](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface) interface and the [DeviceInformation](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) interface. [Learn More](device-update-plug-and-play.md) about the Azure IoT PnP interfaces.
+The Interface layer is made up of the [ADU Core Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) and the [Device Information Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface).
 
-These interfaces rely on a configuration file for default values. The default values include aduc_manfuacter and aduc_model for the AzureDeviceUpdateCore interface and model and manufacturer for the DeviceInformation interface. [Learn More](device-update-configuration-file).
+These interfaces rely on a configuration file for default values. The default values include aduc_manfuacter and aduc_model for the AzureDeviceUpdateCore interface and model and manufacturer for the DeviceInformation interface. [Learn More](device-update-configuration-file) the configuration file.
 
-The Azure IoT PnP interfaces are documented in [`src/agent`](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent).
+### ADU Core Interface
 
-### AzureDeviceUpdateCore
+The 'ADU Core' interface is the primary communication channel between Device Update Agent and Services. [Learn More](device-update-plug-and-play.md#adu-core-interface) about this interface.
 
-The `AzureDeviceUpdateCore` interface is the primary communication channel between
-Device Update Agent and Services. [Learn More](device-update-plug-and-play.md) about this
-interface.
+### Device Information Interface
 
-### DeviceInformation
-
-`DeviceInformation` is used to implement the Azure IoT PnP
-`DeviceInformation` interface. [Learn More](device-update-plug-and-play.md) about this interface.
+The Device Information Interface is used to implement the Azure IoT PnP `DeviceInformation` interface. [Learn More](device-update-plug-and-play.md#device-information-interface) about this interface.
 
 ## The Platform Layer
 
