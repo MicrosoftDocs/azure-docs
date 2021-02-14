@@ -5,7 +5,7 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 02/12/2020
 ms.author: chrande
 ms.custom: devx-track-js
 ---
@@ -201,8 +201,10 @@ The create collection extension command creates a new MongoDB collection. The da
   customAction: "CreateCollection",
   collection: "<Collection Name>",
   shardKey: "<Shard key path>",
-  offerThroughput: (int), // Amount of throughput allocated to a specific collection
-
+  /* Choose Provisioned Throughput or Autoscale
+  offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set
+  autoScaleSettings: { maxThroughput: (int) } // Autoscale enabled with required max throughput set
+  */
 }
 ```
 
@@ -293,7 +295,10 @@ The update collection extension command updates the properties associated with t
 {
   customAction: "UpdateCollection",
   collection: "<Name of the collection that you want to update>",
-  offerThroughput: (int) // New throughput that will be set to the collection
+  /* Choose Provisioned Throughput or Autoscale
+  offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set
+  autoScaleSettings: { maxThroughput: (int) } // Autoscale enabled with required max throughput set
+  */
 }
 ```
 
