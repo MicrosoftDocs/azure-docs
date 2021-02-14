@@ -11,15 +11,14 @@ ms.service: iot-hub-device-update
 # Device groups
 
 A device group is a collection of devices. Device groups provide a way to scale deployments to many devices. Each device belongs to exactly one device group at a time.
-You may choose to create multiple device groups to organize your devices. For example, Contoso might use the "Flighting" group for the devices in its test laboratory and 
-the "Evaluation" group for the devices that its field team uses in the operations center. Further, Contoso might choose to group their Production devices based on
+You may choose to create multiple device groups to organize your devices. For example, Contoso might use the "Flighting" device group for the devices in its test laboratory and 
+the "Evaluation" device group for the devices that its field team uses in the operations center. Further, Contoso might choose to group their Production devices based on
 their geographic regions, so that they can update devices on a schedule that aligns with their regional timezones. 
-
 
 
 ## Using device twin tag for device group creation
 
-Device twin tags are used to group devices. Devices need to have a ADUGroup key and a value in their device twin to belong to a group.
+Device twin tags enable users to group devices. Devices need to have a ADUGroup key and a value in their device twin to allow them to be grouped.
 
 ### Device twin tag format
 
@@ -30,10 +29,10 @@ Device twin tags are used to group devices. Devices need to have a ADUGroup key 
 ```
 
 
-## Uncategorized group
+## Uncategorized device group
 
 Uncategorized is a reserved word that is used to group devices that:
-- Don't have ADUGroup device twin tag.
+- Don't have the ADUGroup device twin tag.
 - Have ADUGroup device twin tag but a group is not created with this group name.
 
 For example consider the devices with their device twin tags below:
