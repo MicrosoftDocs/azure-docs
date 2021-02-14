@@ -14,7 +14,7 @@ ms.author: gahllevy
 
 In this quick start, you'll create a sample mongo shell app that can execute a multi-document transaction on a fixed collection in Azure Cosmos DB API for MongoDB 4.0.
 
-## What are multi-document transactions?
+## What are Multi-Document Transactions?
 
 In Azure Cosmos DB API for MongoDB, operations on a single document are atomic. Multi-document transactions enable applications to execute atomic operations across multiple documents. It offers "all-or-nothing" semantics to the operations. On commit, the changes made inside the transactions are persisted and if the transaction fails, all changes inside the transaction are discarded.
 
@@ -31,7 +31,7 @@ Multi-document transactions are supported within a unsharded collection in 4.0. 
 
 All drivers that support wire protocol version 4.0 or greater will support Azure Cosmos DB API for MongoDB multi-document transactions.
 
-## Multi-Document Transaction in Mongo Shell
+## Multi-Document Transactions in Mongo Shell
 
 1. Open a command prompt, go to directory of mongo shell (version 4.0+)
 
