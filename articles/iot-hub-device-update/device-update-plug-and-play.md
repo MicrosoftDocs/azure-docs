@@ -14,7 +14,7 @@ Device Update for IoT Hub uses [IoT Plug and Play](https://docs.microsoft.com/az
 
 ## Device Information Interface
 
-The Device Information Interface is a concept used within the [IoT Plug and Play architecture](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play) which contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. Learn more from this `DeviceInformation` [example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
+The Device Information Interface is a concept used within the [IoT Plug and Play architecture](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play) which contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update for IoT Hub uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. To learn more see this [Device Information example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
 |Name|Type|Schema|Direction|Description|Example|
 |----|----|------|---------|-----------|-----------|
@@ -29,9 +29,9 @@ The Device Information Interface is a concept used within the [IoT Plug and Play
 
 ## ADU Core Interface
 
-The 'ADU Core' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
+The 'ADU Core' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties:
 
-### Agent Metadata
+### 1. Agent Metadata
 
 Agent Metadata contains fields that the device or Device Update agent uses to send
 information and status to Device Update services.
@@ -44,19 +44,16 @@ information and status to Device Update services.
 |installedUpdateId|string|device to cloud|An ID of the update that is currently installed (through Device Update). This value will be null for a device that has never taken an update through Device Update.|Null|
 |deviceProperties|Map|device to cloud|The set of properties that contain the manufacturer and model.|See  below section for details
 
-### deviceProperties
+### 2. Device Properties
 
 |Name|Schema|Direction|Description|
 |----|------|---------|-----------|
-|manufacturer|string|device to cloud|The device manufacturer of the device, reported through DeviceProperties. This property is read from one of two places, first, the AzureDeviceUpdateCore interface will attempt to read the 'aduc_manufacturer' value from the [Device Update-conf.txt]() file.  Second, if the value is not populated in Device Update-conf.txt, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MANUFACTURER. This property will only be reported at boot time.|
-|model|string|device to cloud|The device model of the device, reported through DeviceProperties. This property is read from one of two places, first, the AzureDeviceUpdateCore interface will attempt to read the 'aduc_model' value from the [Device Update-conf.txt]() file.  Second, if the value is not populated in Device Update-conf.txt, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MODEL. This property will only be reported at boot time.|
+|manufacturer|string|device to cloud|The device manufacturer of the device, reported through 'DeviceProperties'. This property is read from one of two places, first, the 'AzureDeviceUpdateCore' interface will attempt to read the 'aduc_manufacturer' value from the [Configuration file](device-update-configuration-file.md) file.  Second, if the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MANUFACTURER. This property will only be reported at boot time.|
+|model|string|device to cloud|The device model of the device, reported through DeviceProperties. This property is read from one of two places, first, the AzureDeviceUpdateCore interface will attempt to read the 'aduc_model' value from the [Configuration file](device-update-configuration-file.md) file.  Second, if the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MODEL. This property will only be reported at boot time.|
 
-### State
+## State
 
-The following `State` below represent when the Device Update Agent reports a given state, after receiving an action from the Device Update Service.
-See the [overview workflow]() of requests that flow between the Device Update Service
-and Agent. `State` is reported in response to an `Action` (see `Actions` section below) sent
-to the Device Update Agent from the Device Update Service.
+It is the status reported by the Device Update Agent after receiving an action from the Device Update Service. See the [overview workflow](understand-device-update.md#device-update-agent) for the requests that flow between the Device Update Service and the Device Update Agent. `State` is reported in response to an `Action` (see `Actions` section below) sent to the Device Update Agent from the Device Update Service.
 
 |Name|Value|Description|
 |---------|-----|-----------|
@@ -65,7 +62,7 @@ to the Device Update Agent from the Device Update Service.
 |InstallSucceeded|4|A successful install.|
 |Failed|255|A failure occurred during updating.|
 
-### Service Metadata
+## Service Metadata
 
 Service Metadata contains fields that the Device Update services use to communicate
 actions and metadata to the device or agent.
@@ -77,7 +74,7 @@ actions and metadata to the device or agent.
 |updateManifestSignature|JSON Object|cloud to device|A JSON Web Signature (JWS) with JSON Web Keys used for source verification.|
 |fileUrls|Map|cloud to device|Map of `FileHash` to `DownloadUri`. Tells the agent, which files to download and the hash to use to verify the files were downloaded correctly.|
 
-#### Action
+## Action
 
 The following `Actions` below represent the actions taken by the Device Update Agent as instructed by the Device Update Service.
 See the [overview workflow](https://github.com/Azure/adu-private-preview/blob/master/src/agent/adu_core_interface/src/agent_workflow.c)
@@ -93,4 +90,4 @@ The Device Update Agent will report a `State` (see `State` section above) proces
 
 ## Model ID
 
-Configure your IoT Plug and Play device to announce the model ID as part of the device connection with the value **"dtmi:AzureDeviceUpdate;1"** by following this [example](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c#model-id-announcement). To learn more on how to build smart devices with IoT Plug and Play that advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c).
+Device Update for IoT Hub requires the IoT Plug and Play device to announce the model ID as part of the device connection with a value of **"dtmi:AzureDeviceUpdate;1"** by following this [example](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c#model-id-announcement). To learn more on how to build smart devices with IoT Plug and Play that advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c).
