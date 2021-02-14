@@ -18,7 +18,11 @@ The "adu-conf.txt" is an optional file that can be created to manage the followi
 * DeviceInformation.model
 * Device Connection String (if it is not known by the Device Update Agent).
 
-The Device Update Agent will first try to get the `manufacturer` and `model` values from the device for the [ADU Core Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) and the [Device Information Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface). If that fails, the Device Update Agent will next look for the "adu-conf.txt" file and use the values  from there. If both attempts are not successful, the Device Update Agent will use default values.
+Purpose
+The Device Update Agent will first try to get the `manufacturer` and `model` values from the device for the [Interface Layer](device-update-agent-overview.md#the-interface-layer). If that fails, the Device Update Agent will next look for the "adu-conf.txt" file and use the values  from there. If both attempts are not successful, the Device Update Agent will use default values.
+
+Learn more about [ADU Core Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) and [Device Information Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface).
+
 
 ## File location
 
@@ -34,8 +38,6 @@ the following fields.
 |aduc_model|Reported by the `AzureDeviceUpdateCore:4.ClientMetadata:4` interface to classify the device for targeting the update deployment.|
 |manufacturer|Reported by the Device Update Agent as part of the `DeviceInformation` interface.|
 |model|Reported by the Device Update Agent as part of the `DeviceInformation` interface.|
-
-[Learn more](device-update-plug-and-play.md) about the `DeviceInformation` and `AzureDeviceUpdate:4` interfaces.
 
 ## Example "adu-conf.txt" file contents
 
