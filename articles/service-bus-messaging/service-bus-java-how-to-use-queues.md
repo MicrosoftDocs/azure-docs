@@ -116,7 +116,7 @@ If you are using Eclipse and created a Java console application, convert your Ja
     ```
 1. Add a method named `sendMessageBatch` method to send messages to the queue you created. This method creates a `ServiceBusSenderClient` for the queue, invokes the `createMessages` method to get the list of messages, prepares one or more batches, and sends the batches to the queue. 
 
-```java
+    ```java
     static void sendMessageBatch()
     {
         // create a Service Bus Sender client for the queue 
@@ -161,12 +161,15 @@ If you are using Eclipse and created a Java console application, convert your Ja
         //close the client
         senderClient.close();
     }
-```
+    ```
 
 ## Receive messages from a queue
 In this section, you'll add code to retrieve messages from the queue. 
 
 1. Add a method named `receiveMessages` to receive messages from the queue. This method creates a `ServiceBusProcessorClient` for the queue by specifying a handler for processing messages and another one for handling errors. Then, it starts the processor, waits for few seconds, prints the messages that are received, and then stops and closes the processor.
+
+    > [!IMPORTANT]
+    > Replace `QueueTest` in `QueueTest::processMessage` in the code with the name of your class. 
 
     ```java
     // handles received messages

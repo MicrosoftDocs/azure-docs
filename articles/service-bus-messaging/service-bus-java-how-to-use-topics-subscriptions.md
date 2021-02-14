@@ -116,7 +116,7 @@ If you are using Eclipse and created a Java console application, convert your Ja
     ```
 1. Add a method named `sendMessageBatch` method to send messages to the topic you created. This method creates a `ServiceBusSenderClient` for the topic, invokes the `createMessages` method to get the list of messages, prepares one or more batches, and sends the batches to the topic. 
 
-```java
+    ```java
     static void sendMessageBatch()
     {
         // create a Service Bus Sender client for the topic 
@@ -161,7 +161,7 @@ If you are using Eclipse and created a Java console application, convert your Ja
         //close the client
         senderClient.close();
     }
-```
+    ```
 
 ## Receive messages from a subscription
 In this section, you'll add code to retrieve messages from a subscription to the topic. 
