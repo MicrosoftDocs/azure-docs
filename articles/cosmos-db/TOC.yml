@@ -1103,9 +1103,11 @@
           href: tutorial-global-distribution-mongodb.md
     - name: Concepts
       items:
-        - name: Wire protocol support (3.6)
+        - name: API version 4.0
           href: mongodb-feature-support-36.md
-        - name: Wire protocol support (3.2)
+        - name: API version 3.6
+          href: mongodb-feature-support-36.md
+        - name: API version 3.2
           href: mongodb-feature-support.md
         - name: FAQ
           href: mongodb-api-faq.md
@@ -1146,6 +1148,8 @@
           href: mongodb-change-streams.md
         - name: Manage data indexing
           href: mongodb-indexing.md
+        - name: Use multi-document transactions
+          href: use-multi-document-transactions.md
         - name: Create a container - MongoDB API
           href: how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API
