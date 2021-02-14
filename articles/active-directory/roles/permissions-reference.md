@@ -237,7 +237,7 @@ Users with this role add or delete custom attributes available to all user flows
 
 This administrator manages federation between Azure AD organizations and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service ID, assigned key containers). This user can enable the Azure AD organization to trust authentications from external identity providers. The resulting impact on end-user experiences depends on the type of organization:
 
-* Azure AD organizations for employees and partners: The addition  of a federation (e.g. with Gmail) will immediately impact all guest invitations not yet redeemed. See [Adding Google as an identity provider for B2B guest users](../external-identities/google-federation.md).
+* Azure AD organizations for employees and partners: The addition of a federation (e.g. with Gmail) will immediately impact all guest invitations not yet redeemed. See [Adding Google as an identity provider for B2B guest users](../external-identities/google-federation.md).
 * Azure Active Directory B2C organizations: The addition of a federation (for example, with Facebook, or with another Azure AD organization) does not immediately impact end-user flows until the identity provider is added as an option in a user flow (also called a built-in policy). See [Configuring a Microsoft account as an identity provider](../../active-directory-b2c/identity-provider-microsoft-account.md) for an example. To change user flows, the limited role of "B2C User Flow Administrator" is required.
 
 ### [Global Administrator](#global-administrator-permissions)
@@ -713,7 +713,7 @@ Manage secrets for federation and encryption in the Identity Experience Framewor
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.aad.b2c/trustFramework/keySets/allTasks | Read and configure key sets in  Azure Active Directory B2C. |
+> | microsoft.aad.b2c/trustFramework/keySets/allTasks | Read and configure key sets in Azure Active Directory B2C. |
 
 ### B2C IEF Policy Administrator permissions
 
@@ -722,7 +722,7 @@ Create and manage trust framework policies in the Identity Experience Framework.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.aad.b2c/trustFramework/policies/allTasks | Read and configure custom policies in  Azure Active Directory B2C. |
+> | microsoft.aad.b2c/trustFramework/policies/allTasks | Read and configure custom policies in Azure Active Directory B2C. |
 
 ### Billing Administrator permissions
 
@@ -987,7 +987,7 @@ Can read & write basic directory information. For granting access to application
 > | --- | --- |
 > | microsoft.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
 > | microsoft.directory/groups/assignLicense | Manage licenses on groups in Azure Active Directory. |
-> | microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory.  |
+> | microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
 > | microsoft.directory/groups/classification/update | Update classification property of the group in Azure Active Directory. |
 > | microsoft.directory/groups/create | Create groups in Azure Active Directory. |
 > | microsoft.directory/groups/groupType/update | Update the groupType property of a group in Azure Active Directory. |
@@ -1076,7 +1076,7 @@ Create and manage all aspects of user flows.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.aad.b2c/userFlows/allTasks | Read and configure user flows in  Azure Active Directory B2C. |
+> | microsoft.aad.b2c/userFlows/allTasks | Read and configure user flows in Azure Active Directory B2C. |
 
 ### External ID User Flow Attribute Administrator permissions
 
@@ -1085,7 +1085,7 @@ Create and manage the attribute schema available to all user flows.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.aad.b2c/userAttributes/allTasks | Read and configure user attributes in  Azure Active Directory B2C. |
+> | microsoft.aad.b2c/userAttributes/allTasks | Read and configure user attributes in Azure Active Directory B2C. |
 
 ### External Identity Provider Administrator permissions
 
@@ -1094,7 +1094,7 @@ Configure identity providers for use in direct federation.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.aad.b2c/identityProviders/allTasks | Read and configure identity providers in  Azure Active Directory B2C. |
+> | microsoft.aad.b2c/identityProviders/allTasks | Read and configure identity providers in Azure Active Directory B2C. |
 
 ### Global Administrator permissions
 
