@@ -1,9 +1,9 @@
 ---
 title: Understand how Device Update for IoT Hub uses IoT Plug and Play | Microsoft Docs
 description: Device Update for IoT Hub uses to discover and manage devices that are over-the-air update capable.
-author: philmea
-ms.author: philmea
-ms.date: 1/11/2021
+author: ValOlson
+ms.author: valls
+ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub
 ---
@@ -16,9 +16,9 @@ devices that are over-the-air update capable. Device Update services will send a
 properties and messages to and from devices using PnP interfaces. Device Update requires
 devices/clients implement the following interfaces and model-id as described below.
 
-## Device Information
+## Device Information Interface
 
-The [DeviceInformation](https://github.com/Azure/iot-plugandplay-models/) interface is a concept used within
+The [Device Info](https://github.com/Azure/iot-plugandplay-models/) interface is a concept used within
 the [Azure IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 which contains device to cloud properties that
 provide information about the hardware and operating system of the device. Device Update uses the DeviceInformation.manufacturer
@@ -36,11 +36,10 @@ and DeviceInformation.model properties for telemetry and diagnostics. Learn more
 |totalStorage|Property|string|device to cloud|Total available storage on the device in kilobytes.|2048|
 |totalMemory|Property|string|device to cloud|Total available memory on the device in kilobytes.|256|
 
-## Device Update for IoT Hub Core
+## ADU Core Interface
 
-The Device Update for IoT Hub Core (Device Update Core) interface is used to send update
-actions and metadata to devices and receive update status from devices. The Device Update
-Core interface is split into two Object properties.
+The 'ADU Core' interface is used to send update
+actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
 
 ### Agent Metadata
 
