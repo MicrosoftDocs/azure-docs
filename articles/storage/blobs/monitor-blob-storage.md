@@ -106,7 +106,7 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
 2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, click the **OK** button, and then click the **Save** button.
 
    > [!NOTE]
-   > Before you choose a storage account as the export destination, see [Archive Azure resource logs](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) to understand prerequisites on the storage account.
+   > Before you choose a storage account as the export destination, see [Archive Azure resource logs](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) to understand prerequisites on the storage account. Also, when archiving logs to storage, it doesn't provide an option to set retention period currently as available in classic metrics.
 
 #### Stream logs to Azure Event Hubs
 
