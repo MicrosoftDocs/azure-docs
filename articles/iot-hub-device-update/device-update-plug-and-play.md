@@ -10,22 +10,14 @@ ms.service: iot-hub
 
 # Device Update for IoT Hub and IoT Plug and Play
 
-Device Update for IoT Hub uses [IoT Plug and
-Play](https://docs.microsoft.com/azure/iot-pnp/) to discover and manage
-devices that are over-the-air update capable. Device Update services will send and receive
-properties and messages to and from devices using PnP interfaces. Device Update requires
-devices/clients implement the following interfaces and model-id as described below.
+Device Update for IoT Hub uses [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp/) to discover and manage devices that are over-the-air update capable. The Device Update service will send and receive properties and messages to and from devices using PnP interfaces. Device Update for IoT Hub requires devices/clients to implement the following interfaces and model-id as described below.
 
 ## Device Information Interface
 
 The Device Information Interface is a concept used within
-the [Azure IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
-which contains device to cloud properties that
-provide information about the hardware and operating system of the device. Device Update uses the DeviceInformation.manufacturer
-and DeviceInformation.model properties for telemetry and diagnostics. Learn more from this
- `DeviceInformation` [example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
+the [Azure IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play) which contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. Learn more from this `DeviceInformation` [example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
-|Name|Type|Schema|Direction|Description|Description|
+|Name|Type|Schema|Direction|Description|Example|
 |----|----|------|---------|-----------|-----------|
 |manufacturer|Property|string|device to cloud|Company name of the device manufacturer. This could be the same as the name of the original equipment manufacturer (OEM).|Contoso|
 |model|Property|string|device to cloud|Device model name or ID.|IoT Edge Device|
