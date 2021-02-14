@@ -6,7 +6,7 @@ author: msmimart
 manager: celestedg
 
 ms.author: mimart
-ms.date: 12/07/2020
+ms.date: 01/14/2021
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
@@ -33,6 +33,7 @@ You typically use only one identity provider in your applications, but you have 
 * [Amazon](identity-provider-amazon.md)
 * [Azure AD (Single-tenant)](identity-provider-azure-ad-single-tenant.md)
 * [Azure AD (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md)
+* [Azure AD B2C](identity-provider-azure-ad-b2c.md)
 * [Facebook](identity-provider-facebook.md)
 * [Generic identity provider](identity-provider-generic-openid-connect.md)
 * [GitHub](identity-provider-github.md)
@@ -42,6 +43,7 @@ You typically use only one identity provider in your applications, but you have 
 * [Microsoft Account](identity-provider-microsoft-account.md)
 * [QQ](identity-provider-qq.md)
 * [Salesforce](identity-provider-salesforce.md)
+* [Salesforce (SAML protocol)](identity-provider-salesforce-saml.md)
 * [Twitter](identity-provider-twitter.md)
 * [WeChat](identity-provider-wechat.md)
 * [Weibo](identity-provider-weibo.md)

@@ -1,13 +1,9 @@
 ---
 title: Source control
 description: Learn how to configure source control in Azure Data Factory
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.reviewer:
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
@@ -20,11 +16,12 @@ By default, the Azure Data Factory user interface experience (UX) authors direct
 
 - The Data Factory service doesn't include a repository for storing the JSON entities for your changes. The only way to save changes is via the **Publish All** button and all changes are published directly to the data factory service.
 - The Data Factory service isn't optimized for collaboration and version control.
+- The Azure Resource Manager template required to deploy Data Factory itself is not included.
 
 To provide a better authoring experience, Azure Data Factory allows you to configure a Git repository with either Azure Repos or GitHub. Git is a version control system that allows for easier change tracking and collaboration. This article will outline how to configure and work in a git repository along with highlighting best practices and a troubleshooting guide.
 
 > [!NOTE]
-> Azure Data Factory git integration is only available for GitHub Enterprise in the Azure Government Cloud.
+> For Azure Government Cloud, only GitHub Enterprise is available.
 
 To learn more about how Azure Data Factory integrates with Git, view the 15-minute tutorial video below:
 

@@ -82,7 +82,8 @@ The following core requirements apply:
 * All machines, including domain controllers, that have Azure AD Password Protection components installed must have the Universal C Runtime installed.
     * You can get the runtime by making sure you have all updates from Windows Update. Or you can get it in an OS-specific update package. For more information, see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * You need an account that has Active Directory domain administrator privileges in the forest root domain to register the Windows Server Active Directory forest with Azure AD.
-* The Key Distribution Service must be enabled on all domain controllers in the domain that run Windows Server 2012. By default, this service is enabled via manual trigger start.
+* The Key Distribution Service must be enabled on all domain controllers in the domain that run Windows Server 2012 and later versions. By default, this service is enabled via manual trigger start.
+
 * Network connectivity must exist between at least one domain controller in each domain and at least one server that hosts the proxy service for Azure AD Password Protection. This connectivity must allow the domain controller to access RPC endpoint mapper port 135 and the RPC server port on the proxy service.
     * By default, the RPC server port is a dynamic RPC port, but it can be configured to [use a static port](#static).
 * All machines where the Azure AD Password Protection Proxy service will be installed must have network access to the following endpoints:
@@ -96,7 +97,7 @@ The following core requirements apply:
 
 The following requirements apply to the Azure AD Password Protection DC agent:
 
-* All machines where the Azure AD Password Protection DC agent software will be installed must run Windows Server 2012 or later.
+* All machines where the Azure AD Password Protection DC agent software will be installed must run Windows Server 2012 or later, including Windows Server Core editions.
     * The Active Directory domain or forest doesn't need to be at Windows Server 2012 domain functional level (DFL) or forest functional level (FFL). As mentioned in [Design Principles](concept-password-ban-bad-on-premises.md#design-principles), there's no minimum DFL or FFL required for either the DC agent or proxy software to run.
 * All machines that run the Azure AD Password Protection DC agent must have .NET 4.5 installed.
 * Any Active Directory domain that runs the Azure AD Password Protection DC agent service must use Distributed File System Replication (DFSR) for sysvol replication.
@@ -113,7 +114,7 @@ The following requirements apply to the Azure AD Password Protection DC agent:
 
 The following requirements apply to the Azure AD Password Protection proxy service:
 
-* All machines where the Azure AD Password Protection proxy service will be installed must run Windows Server 2012 R2 or later.
+* All machines where the Azure AD Password Protection proxy service will be installed must run Windows Server 2012 R2 or later, including Windows Server Core editions.
 
     > [!NOTE]
     > The Azure AD Password Protection proxy service deployment is a mandatory requirement for deploying Azure AD Password Protection even though the domain controller may have outbound direct internet connectivity.

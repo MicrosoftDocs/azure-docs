@@ -4,7 +4,7 @@ description: Learn about hardware and virtual appliances for certified Defender 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
 ---
@@ -45,7 +45,7 @@ See [Appliance specifications](#appliance-specifications) for vendor details.
 
 About preconfigured sensors: Microsoft has partnered with Arrow to provide preconfigured sensors. To purchase a preconfigured sensor, contact Arrow at the following address: <hardware.sales@arrow.com>
 
-About bringing your own appliance: Review supported models described here. After you've acquired your appliance, go to **Defender for IoT** > **Network Sensors ISO** > **Installation** to download the software.
+About bringing your own appliance: Review the supported models described here. After you've acquired your appliance, go to **Defender for IoT** > **Network Sensors ISO** > **Installation** to download the software.
 
 :::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Network sensors ISO.":::
 
@@ -220,7 +220,7 @@ This section details additional appliances that were certified by Microsoft but 
 | Image | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="Enterprise deployment type."::: |
 | Model | Dell PowerEdge R340 XL |
 | Monitoring ports | Up to nine RJ45 or six OPT |
-| Max bandwidth [1](#anchortext2)| 1G Mb/sec |
+| Max bandwidth [1](#anchortext2)| 1 Gb/sec |
 | Max protected devices | 10,000 |
 
 <a id="anchortext2">One</a> Bandwidth capacity can vary, depending on protocols distribution.
@@ -249,28 +249,6 @@ After you purchase the appliance, go to **Defender for IoT** > **Network Sensors
 ## Dell R340 BOM
 
 :::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="Dell R340 BOM.":::
-
-## SMB deployment: Neousys Nuvo-5006LP
-
-| Component | Technical specifications |
-|--|--|
-| Construction | Aluminum, fanless and dust-proof design |
-| Dimensions | 240 mm (W) x 225 mm (D) x 77 mm (H) |
-| Weight | 3.1 kg (including CPU, memory, and HDD) |
-| CPU | Intel Core i5-6500TE (6M Cache, up to 3.30 GHz) S1151 |
-| Chipset | Intel Q170 Platform Controller Hub |
-| Memory | 8-GB DDR4 2133 MHz Wide Temperature SODIMM |
-| Storage | 128-GB 3ME3 Wide Temperature mSATA SSD |
-| Network controller | 6x Gigabit Ethernet ports by Intel I219 |
-| Device access | 4 USBs: Two fronts, two rears, one internal |
-| Power adapter | 120/240VAC-20VDC/6A |
-| Mounting | Mounting kit, DIN rail |
-| Operating Temperature | \-25°C ~ 70°C |
-| Storage Temperature | \-40°C ~ 85°C |
-| Humidity | 10% ~ 90%, non-condensing |
-| Vibration | Operating, 5 Grms, 5-500 Hz, 3 axes <br>(w/ SSD, according to IEC60068-2-64) |
-| Shock | Operating, 50 Grms, half-sine 11-ms duration (w/ SSD, according to IEC60068-2-27) |
-| EMC | CE/FCC Class A, according to EN 55022, EN 55024, and EN 55032 |
 
 ## Next steps
 

@@ -92,8 +92,9 @@ The following tables show the available metrics and details.
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
->| system.cpu.usage | system.cpu.usage | Percent | Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed.|
->| process.cpu.usage | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
+>| system.cpu.usage | system.cpu.usage | Percent | Recent CPU usage for the whole system (Obsolete and don't suggest using it). This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed.|
+>| process.cpu.usage | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process (Obsolete and don't suggest using it). This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
+>| AppCpuUsage | App CPU Usage (preview) | Percent | Recent CPU usage of the JVM process against the CPU allocated to this app, double type value between [0.0,1.0]. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
 >| jvm.memory.committed | jvm.memory.committed | Bytes | Represents the amount of memory that is guaranteed to be available for use by the JVM. The JVM may release memory to the system and committed could be less than init. committed will always be greater than or equal to used. |
 >| jvm.memory.used | jvm.memory.used | Bytes | Represents the amount of memory currently used in bytes. |
 >| jvm.memory.max | jvm.memory.max | Bytes | Represents the maximum amount of memory that can be used for memory management. The amount of used and committed memory will always be less than or equal to max if max is defined. A memory allocation may fail if it attempts to increase the used memory such that used > committed even if used <= max would still be true (for example, when the system is low on virtual memory). |
@@ -109,12 +110,13 @@ The following tables show the available metrics and details.
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|------|-----------------------------|------|---------|
->| CPU usage       | cpu-usage      | Milliseconds | Amount of time the process has utilized the CPU. |
+>| CPU usage       | cpu-usage      | Percent      | The percent of the process's CPU usage relative to all of the system CPU resources [0-100]. |
 >| Working set     | working-set    | Megabytes    | Amount of working set used by the process. |
 >| GC heap size    | gc-heap-size   | Megabytes    | Total heap size reported by the garbage collector. |
 >| Gen 0 GC count  | gen-0-gc-count | Count        | Number of Generation 0 garbage collections per second. |
 >| Gen 1 GC count  | gen-1-gc-count | Count        | Number of Generation 1 garbage collections per second. |
 >| Gen 2 GC count  | gen-2-gc-count | Count        | Number of Generation 2 garbage collections per second. |
+>| Time in GC      | timein-gc      | Percent      | The percent of time in garbage collection since the last garbage collection. |
 >| Gen 0 heap size | gen-0-size     | Bytes        | Generation 0 heap size. |
 >| Gen 1 heap size | gen-1-size     | Bytes        | Generation 1 heap size. |
 >| Gen 2 heap size | gen-2-size     | Bytes        | Generation 2 heap size. |

@@ -52,6 +52,10 @@ You don't need separate licensing for VMware/Hyper-V protection.
 - If you're a System Center customer, use System Center Data Protection Manager (DPM) to protect VMware VMs.
 - If you aren't a System Center customer, you can use Azure Backup Server (pay-as-you-go) to protect VMware VMs.
 
+### Can I restore a backup of a Hyper-V or VMware VM, stored in Azure, to Azure as an Azure VM?
+
+No, this is not currently possible. You can only restore to an on-premises host.
+
 ## SharePoint
 
 ### Can I recover a SharePoint item to the original location if SharePoint is configured by using SQL AlwaysOn (with protection on disk)?

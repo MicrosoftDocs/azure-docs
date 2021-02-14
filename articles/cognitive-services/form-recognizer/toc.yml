@@ -20,6 +20,8 @@
     href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Form Recognizer with AI Builder
     href: tutorial-ai-builder.md
+  - name: Extract form data in bulk
+    href: tutorial-bulk-processing.md
 - name: Concepts
   items:
   - name: Layout extraction
@@ -53,10 +55,8 @@
     href: disaster-recovery.md
 - name: Reference
   items:
-  - name: Form Recognizer API v2.1 preview
-    href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync
-  - name: Form Recognizer API v2.0
-    href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/formrecognizer/
   - name: SDKs
     items:
     - name: .NET

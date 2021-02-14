@@ -1,9 +1,6 @@
 ---
 title: Security options for Hive in Azure HDInsight
 description: Security options for Hive in Standard and ESP clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual

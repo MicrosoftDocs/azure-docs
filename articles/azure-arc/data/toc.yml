@@ -50,6 +50,8 @@
           href: create-data-controller-using-azdata.md
         - name: Kubernetes tools
           href: create-data-controller-using-kubernetes-native-tools.md
+        - name: Apply SCC (OpenShift)
+          href: how-to-apply-security-context-constraint.md
     - name: Common experiences across Azure Arc enabled data services
       items:
         - name: Monitor with dashboards (Azure Data Studio)
@@ -94,6 +96,8 @@
       items:
         - name: What is Azure Arc enabled PostgreSQL Hyperscale
           href: what-is-azure-arc-enabled-postgres-hyperscale.md
+        - name: Limitations
+          href: limitations-postgresql-hyperscale.md
     - name: Quickstarts
       items:
         - name: Supported versions
@@ -226,6 +230,8 @@
       href: /sql/azdata/reference/reference-azdata-arc-resource-kind?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: arc-sql
       href: /sql/azdata/reference/reference-azdata-arc-sql?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-sql-endpoint
+      href: /sql/azdata/reference/reference-azdata-arc-sql-endpoint?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: arc-sql-mi
       href: /sql/azdata/reference/reference-azdata-arc-sql-mi?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: arc-sql-mi-config
@@ -233,4 +239,4 @@
 - name: Resources
   items:
     - name: Azure Arc jumpstart
-      href: https://github.com/microsoft/azure_arc
+      href: https://azurearcjumpstart.io

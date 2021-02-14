@@ -1,7 +1,7 @@
 ---
 title: Learn to audit the contents of virtual machines
-description: Learn how Azure Policy uses the Guest Configuration agent to audit settings inside virtual machines.
-ms.date: 10/14/2020
+description: Learn how Azure Policy uses the Guest Configuration client to audit settings inside virtual machines.
+ms.date: 01/14/2021
 ms.topic: conceptual
 ---
 # Understand Azure Policy's Guest Configuration
@@ -82,7 +82,7 @@ of the configuration within the machine.
 ## Supported client types
 
 Guest Configuration policy definitions are inclusive of new versions. Older versions of operating
-systems available in Azure Marketplace are excluded if the Guest Configuration agent isn't
+systems available in Azure Marketplace are excluded if the Guest Configuration client isn't
 compatible. The following table shows a list of supported operating systems on Azure images:
 
 |Publisher|Name|Versions|
@@ -144,21 +144,16 @@ For Arc connected servers in private datacenters, allow traffic using the follow
 
 ## Managed identity requirements
 
-Policy definitions in the initiative
-[Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
-enable a system-assigned managed identity, if one doesn't exist. There are two policy definitions in
-the initiative that manage identity creation. The IF conditions in the policy definitions ensure the
-correct behavior based on the current state of the machine resource in Azure.
+Policy definitions in the initiative _Deploy prerequisites to enable Guest Configuration policies on
+virtual machines_ enable a system-assigned managed identity, if one doesn't exist. There are two
+policy definitions in the initiative that manage identity creation. The IF conditions in the policy
+definitions ensure the correct behavior based on the current state of the machine resource in Azure.
 
 If the machine doesn't currently have any managed identities, the effective policy will be:
-[\[Preview\]: Add system-assigned managed identity to enable Guest Configuration assignments on
-virtual machines with no
-identities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+[Add system-assigned managed identity to enable Guest Configuration assignments on virtual machines with no identities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
 If the machine currently has a user-assigned system identity, the effective policy will be:
-[\[Preview\]: Add system-assigned managed identity to enable Guest Configuration assignments on
-virtual machines with a user-assigned
-identity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
+[Add system-assigned managed identity to enable Guest Configuration assignments on VMs with a user-assigned identity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## Guest Configuration definition requirements
 
@@ -183,9 +178,9 @@ data](../how-to/get-compliance-data.md).
 
 #### Auditing operating system settings following industry baselines
 
-One initiative in Azure Policy provides the ability to audit operating system settings following a
-"baseline". The definition, _\[Preview\]: Audit Windows VMs that do not match Azure security
-baseline settings_ includes a set of rules based on Active Directory Group Policy.
+One initiative in Azure Policy audits operating system settings following a "baseline". The
+definition, _\[Preview\]: Windows machines should meet requirements for the Azure security baseline_
+includes a set of rules based on Active Directory Group Policy.
 
 Most of the settings are available as parameters. Parameters allow you to customize what is audited.
 Align the policy with your requirements or map the policy to third-party information such as
@@ -220,20 +215,23 @@ The Audit policy definitions available for Guest Configuration include the
 [Azure Arc for servers](../../../azure-arc/servers/overview.md) that are in the scope of the policy
 assignment are automatically included.
 
+## Troubleshooting guest configuration
+
+For more information about troubleshooting Guest Configuration, see
+[Azure Policy troubleshooting](../troubleshoot/general.md).
+
 ### Multiple assignments
 
 Guest Configuration policy definitions currently only support assigning the same Guest Assignment
 once per machine, even if the Policy assignment uses different parameters.
 
-## Client log files
+### Client log files
 
 The Guest Configuration extension writes log files to the following locations:
 
 Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
 Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
-
-Where `<version>` refers to the current version number.
 
 ### Collecting logs remotely
 
@@ -267,6 +265,15 @@ linesToIncludeAfterMatch=10
 logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
 egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
+
+### Client files
+
+The Guest Configuration client downloads content packages to a machine and extracts the contents.
+To verify what content has been downloaded and stored, view the folder locations given below.
+
+Windows: `c:\programdata\guestconfig\configurations`
+
+Linux: `/var/lib/guestconfig/configurations`
 
 ## Guest Configuration samples
 

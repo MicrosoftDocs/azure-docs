@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 02/01/2021
 ms.author: panosper
 ---
 
@@ -78,7 +78,9 @@ Both base models and custom models will be retired after some time (see [Model l
 
 **Q: Are my requests logged?**
 
-**A**: By default requests are not logged (neither audio, nor transcription). If required you may select *Log content from this endpoint* option when you [create a custom endpoint](./how-to-custom-speech-train-model.md) to enable tracing. Then requests will be logged in Azure in secure storage.
+**A**: By default requests are not logged (neither audio, nor transcription). If necessary, you may select *Log content from this endpoint* option when you [create a custom endpoint](how-to-custom-speech-train-model.md#deploy-a-custom-model). You can also enable audio logging in the [Speech SDK](how-to-use-logging.md) on a per-request basis without creating a custom endpoint. In both cases, audio and recognition results of requests will be stored in secure storage. For subscriptions that use Microsoft-owned storage, they will be available for 30 days.
+
+You can export the logged files on the deployment page in Speech Studio if you use a custom endpoint with *Log content from this endpoint* enabled. If audio logging is enabled via the SDK, call the [API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) to access the files.
 
 **Q: Are my requests throttled?**
 
@@ -127,18 +129,20 @@ See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md).
 
 **A**: Yes. You can transcribe it yourself or use a professional transcription service. Some users prefer professional transcribers and others use crowdsourcing or do the transcriptions themselves.
 
-**Q: How long will it take to train a custom model audio data?**
+**Q: How long will it take to train a custom model with audio data?**
 
-**A**: Training a model with audio data is a lengthy process. Depending on the amount of data, it can take several days to create a custom model. If it cannot be finished within one week, the service might abort the training operation and report the model as failed. For faster results, use one of the [regions](custom-speech-overview.md#set-up-your-azure-account) where dedicated hardware is available for training. You can copy the fully trained model to another region using the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Training with just text is much faster and typically finishes within minutes.
+**A**: Training a model with audio data can be a lengthy process. Depending on the amount of data, it can take several days to create a custom model. If it cannot be finished within one week, the service might abort the training operation and report the model as failed.
 
-Some base models cannot be customized with audio data. For them the service will just use the text of the transcription for training and discard the audio data. Training will then be finished much faster and results will be the same as training with just text.
+For faster results, use one of the [regions](custom-speech-overview.md#set-up-your-azure-account) where dedicated hardware is available for training. In general, the service processes approximately 10 hours of audio data per day in regions with such hardware. It can only process about 1 hour of audio data per day in other regions. You can copy the fully trained model to another region using the [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Training with just text is much faster and typically finishes within minutes.
+
+Some base models cannot be customized with audio data. For them the service will just use the text of the transcription for training and ignore the audio data. Training will then be finished much faster and results will be the same as training with just text. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data.
 
 ## Accuracy testing
 
 **Q: What is word error rate (WER) and how is it computed?**
 
 **A**: WER is the evaluation metric for speech recognition. WER is counted as the total number of errors,
-which includes insertions, deletions, and substitutions, divided by the total number of words in the reference transcription. For more information, see [word error rate](https://en.wikipedia.org/wiki/Word_error_rate).
+which includes insertions, deletions, and substitutions, divided by the total number of words in the reference transcription. For more information, see [Evaluate Custom Speech accuracy](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy).
 
 **Q: How do I determine whether the results of an accuracy test are good?**
 

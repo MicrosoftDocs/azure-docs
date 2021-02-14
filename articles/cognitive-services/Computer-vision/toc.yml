@@ -109,16 +109,8 @@
     href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: Azure PowerShell
     href: /powershell/module/azurerm.cognitiveservices/
-  - name: Computer Vision API v3.2 preview
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005
-  - name: Computer Vision API v3.1
-    href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
-  - name: Computer Vision API v3.0
-    href: https://aka.ms/computer-vision-v3-ref
-  - name: Computer Vision API v2.1
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
-  - name: Computer Vision API v1.0
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/computer-vision/
   - name: SDKs
     items:
     - name: .NET
@@ -140,7 +132,7 @@
     - name: Explore an image processing app
       href: Tutorials/CSharpTutorial.md
     - name: Other Computer Vision samples
-      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+      href: /samples/browse/?products=azure&terms=computer-vision
   - name: FAQ
     href: FAQ.md
   - name: Category taxonomy

@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2020
+ms.date: 02/11/2021
 ms.author: memildin
 ---
 
@@ -67,6 +67,7 @@ Below is the pricing page for an example subscription. You'll notice that each p
 - [What are the plans offered by Security Center?](#what-are-the-plans-offered-by-security-center)
 - [How do I enable Azure Defender for my subscription?](#how-do-i-enable-azure-defender-for-my-subscription)
 - [Can I enable Azure Defender for servers on a subset of servers in my subscription?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
 - [My subscription has Azure Defender for servers enabled, do I pay for not-running servers?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
 - [Will I be charged for machines without the Log Analytics agent installed?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
 - [If a Log Analytics agent reports to multiple workspaces, will I be charged twice?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
@@ -106,12 +107,15 @@ No. When you enable [Azure Defender for servers](defender-for-servers-introducti
 
 An alternative is to enable Azure Defender for servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include just-in-time VM access, network detections, regulatory compliance, adaptive network hardening, adaptive application control, and more. 
 
+### If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?
+If you've already got a license for Microsoft Defender for Endpoint, you won't have to pay for that part of your Azure Defender license.
+
+To confirm your discount, contact Security Center's support team and provide the relevant workspace ID, region, and license information for each relevant license.
 
 ### My subscription has Azure Defender for servers enabled, do I pay for not-running servers? 
-No. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, you'll be billed hourly for running servers only. You won't be charged for any server that's turned off,  during the time it's off. 
+No. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, you won't be charged for any servers that are in the "deallocated" state while they're in that state.
 
-> [!TIP]
-> This also applies to the other resource types protected by Security Center. 
+:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Azure Virtual Machines showing a deallocated machine":::
 
 ### Will I be charged for machines without the Log Analytics agent installed?
 Yes. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, the machines in that subscription get a range of protections even if you haven't installed the Log Analytics agent.

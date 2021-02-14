@@ -11,6 +11,7 @@ ms.date: 05/12/2020
 ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
+ms.custom: references_regions
 ---
 
 # Configure network routing preference for Azure Storage (preview)
@@ -18,6 +19,9 @@ ms.subservice: common
 You can configure network [routing preference](../../virtual-network/routing-preference-overview.md) (preview) for your Azure storage account to specify how network traffic is routed to your account from clients over the Internet. By default, traffic from the Internet is routed to the public endpoint of your storage account over the [Microsoft global network](../../networking/microsoft-global-network.md). Azure Storage provides additional options for configuring how traffic is routed to your storage account.
 
 Configuring routing preference gives you the flexibility to optimize your traffic either for premium network performance or for cost. When you configure a routing preference, you specify how traffic will be directed to the public endpoint for your storage account by default. You can also publish route-specific endpoints for your storage account.
+
+> [!NOTE]
+> This feature is not supported in storage accounts that are configured to use the premium performance tier or Zone-redundant storage (ZRS).
 
 ## Microsoft global network versus Internet routing
 
@@ -61,9 +65,36 @@ The connection strings for the published route-specific endpoints can be copied 
 
 Routing preference for Azure Storage is available in the following regions:
 
-- France South
-- North Central US
-- West Central US
+- Central US 
+- Central US EUAP
+- East US 
+- East US 2
+- East US 2 
+- East US 2 EUAP
+- South Central US
+- West Central US
+- West US 
+- West US 2 
+- France Central 
+- France South 
+- Germany North 
+- Germany West Central 
+- North Central US
+- North Europe 
+- Norway East 
+- Switzerland North
+- Switzerland West
+- UK South 
+- UK West 
+- West Europe 
+- UAE Central
+- East Asia 
+- Southeast Asia 
+- Japan East 
+- Japan West 
+- West India
+- Australia East 
+- Australia Southeast 
 
 The following known issues affect the routing preference preview for Azure Storage:
 

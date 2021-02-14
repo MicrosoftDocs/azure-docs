@@ -27,7 +27,7 @@ forwarded without making any modifications to the event payload.
 The implementation of this pattern is covered by the
 [Event replication between Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) and
 [Event replication between Event Hubs and Service Bus](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus)
-samples.
+samples and the [Use Apache Kafka MirrorMaker with Event Hubs](event-hubs-kafka-mirror-maker-tutorial.md) tutorial for the specific case of replicating data from an Apache Kafka broker into Event Hubs.
 
 ### Streams and order preservation
 
@@ -52,7 +52,7 @@ partition](event-hubs-features.md#partitions).
 >
 > In the EventProcessor, you set the position through the InitialOffsetProvider
 > on the EventProcessorOptions. With the other receiver APIs, the position is
-> passed through teh constructor. 
+> passed through the constructor. 
 
 
 The pre-built replication function helpers [provided as

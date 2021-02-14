@@ -20,16 +20,6 @@ This tutorial describes the steps you need to perform in both G Suite and Azure 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-> [!NOTE]
-> The G Suite connector was recently updated on October 2019. Changes made to the G Suite connector include:
->
-> * Added support for additional G Suite user and group attributes.
-> * Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
-> * Updated default attribute mappings.
-
-> [!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
-
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in G Suite
@@ -58,15 +48,15 @@ Before configuring G Suite for automatic user provisioning with Azure AD, you wi
 
 1. Sign in to the [G Suite Admin console](https://admin.google.com/) with your administrator account, and then select **Security**. If you don't see the link, it might be hidden under the **More Controls** menu at the bottom of the screen.
 
-    ![G Suite Security](./media/google-apps-provisioning-tutorial/gapps-security.png)
+    ![G Suite Security](./media/g-suite-provisioning-tutorial/gapps-security.png)
 
 2. On the **Security** page, select **API Reference**.
 
-    ![G Suite API](./media/google-apps-provisioning-tutorial/gapps-api.png)
+    ![G Suite API](./media/g-suite-provisioning-tutorial/gapps-api.png)
 
 3. Select **Enable API access**.
 
-    ![G Suite API Enabled](./media/google-apps-provisioning-tutorial/gapps-api-enabled.png)
+    ![G Suite API Enabled](./media/g-suite-provisioning-tutorial/gapps-api-enabled.png)
 
     > [!IMPORTANT]
    > For every user that you intend to provision to G Suite, their user name in Azure AD **must** be tied to a custom domain. For example, user names that look like bob@contoso.onmicrosoft.com are not accepted by G Suite. On the other hand, bob@contoso.com is accepted. You can change an existing user's domain by following the instructions [here](../fundamentals/add-custom-domain.md).
@@ -75,15 +65,15 @@ Before configuring G Suite for automatic user provisioning with Azure AD, you wi
 
     a. In the [G Suite Admin Console](https://admin.google.com/), select **Domains**.
 
-    ![G Suite Domains](./media/google-apps-provisioning-tutorial/gapps-domains.png)
+    ![G Suite Domains](./media/g-suite-provisioning-tutorial/gapps-domains.png)
 
     b. Select **Add a domain or a domain alias**.
 
-    ![G Suite Add Domain](./media/google-apps-provisioning-tutorial/gapps-add-domain.png)
+    ![G Suite Add Domain](./media/g-suite-provisioning-tutorial/gapps-add-domain.png)
 
     c. Select **Add another domain**, and then type in the name of the domain that you want to add.
 
-    ![G Suite Add Another](./media/google-apps-provisioning-tutorial/gapps-add-another.png)
+    ![G Suite Add Another](./media/g-suite-provisioning-tutorial/gapps-add-another.png)
 
     d. Select **Continue and verify domain ownership**. Then follow the steps to verify that you own the domain name. For comprehensive instructions on how to verify your domain with Google, see [Verify your site ownership](https://support.google.com/webmasters/answer/35179).
 
@@ -91,11 +81,11 @@ Before configuring G Suite for automatic user provisioning with Azure AD, you wi
 
 5. Next, determine which admin account you want to use to manage user provisioning in G Suite. Navigate to **Admin Roles**.
 
-    ![G Suite Admin](./media/google-apps-provisioning-tutorial/gapps-admin.png)
+    ![G Suite Admin](./media/g-suite-provisioning-tutorial/gapps-admin.png)
 
 6. For the **Admin role** of that account, edit the **Privileges** for that role. Make sure to enable all **Admin API Privileges** so that this account can be used for provisioning.
 
-    ![G Suite Admin Privileges](./media/google-apps-provisioning-tutorial/gapps-admin-privileges.png)
+    ![G Suite Admin Privileges](./media/g-suite-provisioning-tutorial/gapps-admin-privileges.png)
 
 ## Step 3. Add G Suite from the Azure AD application gallery
 
@@ -121,9 +111,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**. Users will need to login to portal.azure.com and will not be able to use aad.portal.azure.com
 
-	![Enterprise applications blade](./media/google-apps-provisioning-tutorial/enterprise-applications.png)
+	![Enterprise applications blade](./media/g-suite-provisioning-tutorial/enterprise-applications.png)
 
-	![All applications blade](./media/google-apps-provisioning-tutorial/all-applications.png)
+	![All applications blade](./media/g-suite-provisioning-tutorial/all-applications.png)
 
 2. In the applications list, select **G Suite**.
 
@@ -133,7 +123,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
-      ![Get started blade](./media/google-apps-provisioning-tutorial/get-started.png)
+      ![Get started blade](./media/g-suite-provisioning-tutorial/get-started.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
@@ -141,11 +131,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, click on **Authorize**. You will be redirected to a Google authorization dialog box in a new browser window.
 
-      ![G Suite authorize](./media/google-apps-provisioning-tutorial/authorize-1.png)
+      ![G Suite authorize](./media/g-suite-provisioning-tutorial/authorize-1.png)
 
 6. Confirm that you want to give Azure AD permissions to make changes to your G Suite tenant. Select **Accept**.
 
-     ![G Suite Tenant Auth](./media/google-apps-provisioning-tutorial/gapps-auth.png)
+     ![G Suite Tenant Auth](./media/g-suite-provisioning-tutorial/gapps-auth.png)
 
 7. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to G Suite. If the connection fails, ensure your G Suite account has Admin permissions and try again. Then try the **Authorize** step again.
 
@@ -271,7 +261,13 @@ Once you've configured provisioning, use the following resources to monitor your
 
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## Change log
+
+* 10/17/2020 - Added support for additional G Suite user and group attributes.
+* 10/17/2020 - Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
+* 10/17/2020 - Updated default attribute mappings.
 
 ## Additional resources
 

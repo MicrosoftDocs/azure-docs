@@ -34,7 +34,7 @@ You can also open Cloud Shell in a separate browser tab by going to [https://she
 
 To configure Azure monitoring and update management in this tutorial, you need a Windows VM in Azure.
 
-First, set an administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
+First, set an administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential

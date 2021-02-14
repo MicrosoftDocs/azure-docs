@@ -15,7 +15,7 @@ Each parameter must be set to one of the [data types](template-syntax.md#data-ty
 
 ## Define parameter
 
-The following example shows a simple parameter definition. It defines a parameter named **storageSKU**. The parameter is a string value, and only accepts values that are valid for its intended use. The parameter uses a default value when no value is provided during deployment.
+The following example shows a simple parameter definition. It defines a parameter named `storageSKU`. The parameter is a string value, and only accepts values that are valid for its intended use. The parameter uses a default value when no value is provided during deployment.
 
 ```json
 "parameters": {

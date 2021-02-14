@@ -25,7 +25,7 @@ Instead of creating and managing IoT Central applications on the [Azure IoT Cent
 
 ## Create an application
 
-[!INCLUDE [Warning About Access Required](../../../includes/warning-contribitorrequireaccess.md)]
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
 Use the [az iot central app create](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-create&preserve-view=true) command to create an IoT Central application in your Azure subscription. For example:
 

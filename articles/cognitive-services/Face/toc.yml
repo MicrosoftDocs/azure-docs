@@ -34,7 +34,9 @@
   - name: Specify a face recognition model
     href: Face-API-How-to-Topics/specify-recognition-model.md
   - name: Specify a face detection model
-    href: Face-API-How-to-Topics/specify-detection-model.md  
+    href: Face-API-How-to-Topics/specify-detection-model.md
+  - name: Mitigate latency when using the Face service
+    href: Face-API-How-to-Topics/how-to-mitigate-latency.md
   - name: Use the large-scale feature
     href: Face-API-How-to-Topics/how-to-use-large-scale.md
   - name: Analyze videos in real time
@@ -64,8 +66,8 @@
         href: build-enrollment-app.md
 - name: Reference
   items:
-  - name: Face API
-    href: APIReference.md
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/face/
   - name: SDKs
     items:
     - name: .NET

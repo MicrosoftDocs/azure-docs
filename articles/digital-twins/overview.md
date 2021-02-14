@@ -35,6 +35,8 @@ In Azure Digital Twins, you define the digital entities that represent the peopl
 
 You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define models such as "building", "floor", and "elevator". You can then create **digital twins** based on these models to represent your specific environment.
 
+[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
+
 Models are defined in a JSON-like language called [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md), and they describe twins in terms of their state properties, telemetry events, commands, components, and relationships.
 * Models define semantic **relationships** between your entities so that you can connect your twins into a knowledge graph that reflects their interactions. You can think of the models as nouns in a description of your world, and the relationships as verbs.
 * You can also specialize twins using model inheritance. One model can inherit from another.
@@ -93,10 +95,10 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 
 ## Service limits
 
-For a list of Azure Digital Twins limits, see [*Reference: Service limits*](reference-service-limits.md).
+For a list of Azure Digital Twins limits, see [*Azure Digital Twins service limits*](reference-service-limits.md).
 
 ## Next steps
 
-If you have worked with the first preview release of Azure Digital Twins (October 2018), learn what has changed: [*Overview: Differences from first release*](overview-differences.md).
+* Dive into working with Azure Digital Twins in the quickstart: [*Quickstart: Explore a sample scenario*](quickstart-adt-explorer.md).
 
-Or, go ahead and dive into working with Azure Digital Twins with the quickstart: [*Quickstart: Explore a sample scenario*](quickstart-adt-explorer.md).
+* Or, start reading about Azure Digital Twins concepts with [*Concepts: Custom models*](concepts-models.md).

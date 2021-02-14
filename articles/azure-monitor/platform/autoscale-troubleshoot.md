@@ -83,7 +83,7 @@ The chart on the bottom shows a few values.
  - The **Observed Capacity** (purple) shows the instance count seen by autoscale engine. 
  - The **Metric Threshold** (light green) is set to 10. 
 
-If there are multiple scale action rules, you can use splitting or the **add filter** option in the Metrics explorer chart to look at metric by a specific source or rule. For more information on splitting a metric chart, see [Advanced features of metric charts - splitting](metrics-charts.md#apply-splitting-to-a-chart)
+If there are multiple scale action rules, you can use splitting or the **add filter** option in the Metrics explorer chart to look at metric by a specific source or rule. For more information on splitting a metric chart, see [Advanced features of metric charts - splitting](metrics-charts.md#apply-splitting)
 
 ## Example 3 - Understanding autoscale events
 

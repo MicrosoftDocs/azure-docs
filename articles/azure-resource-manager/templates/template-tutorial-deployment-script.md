@@ -325,13 +325,13 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 
     ![Resource Manager template deployment script resources](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
 
-    Both files have the **azscripts** suffix. One is a storage account and the other is a container instance.
+    Both files have the _azscripts_ suffix. One is a storage account and the other is a container instance.
 
     Select **Show hidden types** to list the `deploymentScripts` resource.
 
-1. Select the storage account with the **azscripts** suffix.
-1. Select the **File shares** tile. You will see an **azscripts** folder. The folder contains the deployment script execution files.
-1. Select **azscripts**. You will see two folders **azscriptinput** and **azscriptoutput**. The input folder contains a system PowerShell script file and the user deployment script files. The output folder contains a _executionresult.json_ and the script output file. You can see the error message in _executionresult.json_. The output file isn't there because the execution failed.
+1. Select the storage account with the _azscripts_ suffix.
+1. Select the **File shares** tile. You will see an _azscripts_ folder that contains the deployment script execution files.
+1. Select _azscripts_. You will see two folders _azscriptinput_ and _azscriptoutput_. The input folder contains a system PowerShell script file and the user deployment script files. The output folder contains a _executionresult.json_ and the script output file. You can see the error message in _executionresult.json_. The output file isn't there because the execution failed.
 
 Remove the `Write-Output1` line and redeploy the template.
 

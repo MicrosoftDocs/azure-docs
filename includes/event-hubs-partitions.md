@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 11/24/2020
+ms.date: 01/05/2021
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -23,7 +23,7 @@ which it was accepted.
 ![Diagram that displays the older to newer sequence of
 events.](./media/event-hubs-partitions/partition.png)
 
-Event Hubs is designed to help with processing of very large volumes of events,
+Event Hubs is designed to help with processing of large volumes of events,
 and partitioning helps with that in two ways:
 
 First, even though Event Hubs is a PaaS service, there's a physical reality
@@ -34,7 +34,7 @@ allows for multiple parallel logs to be used for the same Event Hub and
 therefore multiplying the available raw IO throughput capacity.
 
 Second, your own applications must be able to keep up with processing the volume
-of events that are being sent into an Event Hub. That may be quite complex and
+of events that are being sent into an Event Hub. It may be complex and
 requires substantial, scaled-out, parallel processing capacity. The rationale
 for partitions is the same as above: The capacity of a single process to handle
 events is limited, and therefore you need several processes, and partitions are
@@ -102,7 +102,7 @@ interrelationship of the events.
 A sequence of events identified by a partition key is a *stream*. A partition is
 a multiplexed log store for many such streams. 
 
-The partition count of an Event Hub can be increased after the Event Hub has
+The partition count for an event hub in a [dedicated Event Hubs cluster](../articles/event-hubs/event-hubs-dedicated-overview.md) can be [increased](../articles/event-hubs/dynamically-add-partitions.md) after the event hub has
 been created, but the distribution of streams across partitions will change when
 it's done as the mapping of partition keys to partitions changes, so you
 should try hard to avoid such changes if the relative order of events matters in

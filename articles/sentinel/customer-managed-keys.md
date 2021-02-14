@@ -60,7 +60,7 @@ To provision CMK, follow these steps: 
     > [!NOTE]
     >  Azure Key Vault must be configured as recoverable to protect your key and the access.
 
-1.  [Turn on recovery options:](../key-vault/general/best-practices.md#turn-on-recovery-options)
+1.  [Turn on recovery options:](../key-vault/general/key-vault-recovery.md)
 
     -   Make sure [Soft Delete](../key-vault/general/soft-delete-overview.md) is turned on.
 

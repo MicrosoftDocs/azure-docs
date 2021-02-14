@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 01/29/2021
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Single Server
@@ -61,7 +61,7 @@ There are two types of restore available:
 - **Point-in-time restore** is available with either backup redundancy option and creates a new server in the same region as your original server.
 - **Geo-restore** is available only if you configured your server for geo-redundant storage and it allows you to restore your server to a different region.
 
-The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time is usually less than 12 hours.
+The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time varies depending on the the last data backup and the amount of recovery needs to be performed. It is usually less than 12 hours.
 
 > [!NOTE] 
 > If your source PostgreSQL server is encrypted with customer-managed keys, please see the [documentation](concepts-data-encryption-postgresql.md) for additional considerations. 
@@ -76,6 +76,16 @@ Independent of your backup redundancy option, you can perform a restore to any p
 Point-in-time restore is useful in multiple scenarios. For example, when a user accidentally deletes data, drops an important table or database, or if an application accidentally overwrites good data with bad data due to an application defect.
 
 You may need to wait for the next transaction log backup to be taken before you can restore to a point in time within the last five minutes.
+
+If you want to restore a dropped table, 
+1. Restore source server using Point-in-time method.
+2. Dump the table using `pg_dump` from restored server.
+3. Rename source table on original server.
+4. Import table using psql command line on original server.
+5. You can optionally delete the restored server.
+
+>[!Note]
+> It is recommended not to create multiple restores for the same server at the same time. 
 
 ### Geo-restore
 
@@ -92,7 +102,7 @@ During geo-restore, the server configurations that can be changed include comput
 
 After a restore from either recovery mechanism, you should perform the following tasks to get your users and applications back up and running:
 
-- If the new server is meant to replace the original server, redirect clients and client applications to the new server
+- If the new server is meant to replace the original server, redirect clients and client applications to the new server. Also change the user name also to `username@new-restored-server-name`.
 - Ensure appropriate server-level firewall and VNet rules are in place for users to connect. These rules are not copied over from the original server.
 - Ensure appropriate logins and database level permissions are in place
 - Configure alerts, as appropriate
