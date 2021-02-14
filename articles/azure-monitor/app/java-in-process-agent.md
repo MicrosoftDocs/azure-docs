@@ -331,7 +331,7 @@ requestTelemetry.setName("myname");
 ### Get the request telemetry id and the operation id using the 2.x SDK
 
 > [!NOTE]
-> This feature is only in 3.0.3-BETA and later
+> This feature is only in 3.0.3 and later
 
 Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
 

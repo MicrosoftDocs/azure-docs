@@ -125,7 +125,7 @@ You can also set the sampling percentage using the environment variable `APPLICA
 
 ## Sampling overrides (preview)
 
-This feature is in preview, starting from 3.0.3-BETA.2.
+This feature is in preview, starting from 3.0.3.
 
 Sampling overrides allow you to override the [default sampling percentage](#sampling), for example:
 * Set the sampling percentage to 0 (or some small value) for noisy health checks.
@@ -272,7 +272,7 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 
 ## Suppressing specific auto-collected telemetry
 
-Starting from version 3.0.2, specific auto-collected telemetry can be suppressed using these configuration options:
+Starting from version 3.0.3, specific auto-collected telemetry can be suppressed using these configuration options:
 
 ```json
 {
@@ -281,6 +281,9 @@ Starting from version 3.0.2, specific auto-collected telemetry can be suppressed
       "enabled": false
     },
     "jdbc": {
+      "enabled": false
+    },
+    "jms": {
       "enabled": false
     },
     "kafka": {
@@ -294,15 +297,28 @@ Starting from version 3.0.2, specific auto-collected telemetry can be suppressed
     },
     "redis": {
       "enabled": false
+    },
+    "springScheduling": {
+      "enabled": false
     }
   }
 }
 ```
 
+You can also suppress these instrumentations using these environment variables:
+
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_REDIS_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_SPRING_SCHEDULING_ENABLED`
+
 > NOTE
 > If you are looking for more fine-grained control, e.g. to suppress some redis calls but not all redis calls,
 > see [sampling overrides](./java-standalone-sampling-overrides.md).
-
 
 ## Heartbeat
 
@@ -341,7 +357,7 @@ This feature is in preview.
 
 By default, metrics are captured every 60 seconds.
 
-Starting from version 3.0.3-BETA, you can change this interval:
+Starting from version 3.0.3, you can change this interval:
 
 ```json
 {
