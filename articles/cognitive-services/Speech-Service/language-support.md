@@ -21,7 +21,7 @@ Language support varies by Speech service functionality. The following tables su
 
 Both the Microsoft Speech SDK and the REST API support the following languages (locales). 
 
-To improve accuracy, customization is offered for a subset of the languages through uploading **Audio + Human-labeled Transcripts** or **Related Text: Sentences**. To learn more about customization, see [Get started with Custom Speech](./custom-speech-overview.md).
+To improve accuracy, customization is offered for a subset of the languages through uploading **Audio + Human-labeled Transcripts** or **Related Text: Sentences**. Support for customization of the acoustic model with **Audio + Human-labeled Transcripts** is limited to the specific base models listed below. Other base models and languages will only use the text of the transcripts to train custom models just like with **Related Text: Sentences**. To learn more about customization, see [Get started with Custom Speech](./custom-speech-overview.md).
 
 <!--
 To get the AM and ML bits:
@@ -48,48 +48,48 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Arabic (United Arab Emirates)      | `ar-AE` | Language model                                   |                           |
 | Bulgarian (Bulgaria)               | `bg-BG` | Language model                                   |                           |
 | Catalan (Spain)                    | `ca-ES` | Language model                                   | Yes                          |
-| Chinese (Cantonese, Traditional)   | `zh-HK` | Acoustic model<br>Language model                 |        Yes                   |
-| Chinese (Mandarin, Simplified)     | `zh-CN` | Acoustic model<br>Language model                 |     Yes                      |
-| Chinese (Taiwanese Mandarin)       | `zh-TW` | Acoustic model<br>Language model                 |           Yes                |
+| Chinese (Cantonese, Traditional)   | `zh-HK` | Acoustic model (20201015)<br>Language model                 |        Yes                   |
+| Chinese (Mandarin, Simplified)     | `zh-CN` | Acoustic model (20200910)<br>Language model                 |     Yes                      |
+| Chinese (Taiwanese Mandarin)       | `zh-TW` | Acoustic model (20190701, 20201015)<br>Language model                 |           Yes                |
 | Croatian (Croatia)                 | `hr-HR` | Language model                                   |                           |
 | Czech (Czech Republic)             | `cs-CZ` | Language Model                                   |                           |
 | Danish (Denmark)                   | `da-DK` | Language model                                   | Yes                          |
-| Dutch (Netherlands)                | `nl-NL` | Language model                                   |    Yes                       |
-| English (Australia)                | `en-AU` | Acoustic model<br>Language model                 | Yes                          |
-| English (Canada)                   | `en-CA` | Acoustic model<br>Language model                 | Yes                          |
+| Dutch (Netherlands)                | `nl-NL` | Acoustic model (20201015)<br>Language model                                   |    Yes                       |
+| English (Australia)                | `en-AU` | Acoustic model (20201019)<br>Language model                 | Yes                          |
+| English (Canada)                   | `en-CA` | Acoustic model (20201019)<br>Language model                 | Yes                          |
 | English (Hong Kong)                | `en-HK` | Language Model                                   |                           |
-| English (India)                    | `en-IN` | Acoustic model<br>Language model                 | Yes                          |
+| English (India)                    | `en-IN` | Acoustic model (20200923)<br>Language model                 | Yes                          |
 | English (Ireland)                  | `en-IE` | Language Model                                   |                           |
-| English (New Zealand)              | `en-NZ` | Acoustic model<br>Language model                 |  Yes                         |
+| English (New Zealand)              | `en-NZ` | Acoustic model (20201019)<br>Language model                 |  Yes                         |
 | English (Nigeria)                  | `en-NG` | Language Model                                   |                           |
 | English (Philippines)              | `en-PH` | Language Model                                   |                           |
 | English (Singapore)                | `en-SG` | Language Model                                   |                           |
 | English (South Africa)             | `en-ZA` | Language Model                                   |                           |
-| English (United Kingdom)           | `en-GB` | Acoustic model<br>Language model<br>Pronunciation| Yes                          |
-| English (United States)            | `en-US` | Acoustic model<br>Language model<br>Pronunciation| Yes                          |
+| English (United Kingdom)           | `en-GB` | Acoustic model (20201019)<br>Language model<br>Pronunciation| Yes                          |
+| English (United States)            | `en-US` | Acoustic model (20201019)<br>Language model<br>Pronunciation| Yes                          |
 | Estonian(Estonia)                  | `et-EE` | Language Model                                   |                           |
 | Finnish (Finland)                  | `fi-FI` | Language model                                   |     Yes                      |
-| French (Canada)                    | `fr-CA` | Acoustic model<br>Language model                 |     Yes                      |
-| French (France)                    | `fr-FR` | Acoustic model<br>Language model<br>Pronunciation|      Yes                     |
-| German (Germany)                   | `de-DE` | Acoustic model<br>Language model<br>Pronunciation|  Yes                         |
+| French (Canada)                    | `fr-CA` | Acoustic model (20201015)<br>Language model                 |     Yes                      |
+| French (France)                    | `fr-FR` | Acoustic model (20201015)<br>Language model<br>Pronunciation|      Yes                     |
+| German (Germany)                   | `de-DE` | Acoustic model (20190701, 20200619, 20201127)<br>Language model<br>Pronunciation|  Yes                         |
 | Greek (Greece)                     | `el-GR` | Language model                                   |                           |
 | Gujarati (Indian)                  | `gu-IN` | Language model                                   |                           |
-| Hindi (India)                      | `hi-IN` | Acoustic model<br>Language model                 |     Yes                      |
+| Hindi (India)                      | `hi-IN` | Acoustic model (20200701)<br>Language model                 |     Yes                      |
 | Hungarian (Hungary)                | `hu-HU` | Language Model                                   |                           |
 | Irish(Ireland)                     | `ga-IE` | Language model                                   |                           |
-| Italian (Italy)                    | `it-IT` | Acoustic model<br>Language model<br>Pronunciation|      Yes                     |
-| Japanese (Japan)                   | `ja-JP` | Acoustic model<br>Language model                 |      Yes                     |
-| Korean (Korea)                     | `ko-KR` | Acoustic model<br>Language model                 |      Yes                     |
+| Italian (Italy)                    | `it-IT` | Acoustic model (20201016)<br>Language model<br>Pronunciation|      Yes                     |
+| Japanese (Japan)                   | `ja-JP` | Language model                                   |      Yes                     |
+| Korean (Korea)                     | `ko-KR` | Acoustic model (20201015)<br>Language model                 |      Yes                     |
 | Latvian (Latvia)                   | `lv-LV` | Language model                                   |                           |
 | Lithuanian (Lithuania)             | `lt-LT` | Language model                                   |                           |
 | Maltese(Malta)                     | `mt-MT` | Language model                                   |                           |
 | Marathi (India)                    | `mr-IN` | Language model                                   |                           |
 | Norwegian (Bokmål, Norway)         | `nb-NO` | Language model                                   |     Yes                      |
 | Polish (Poland)                    | `pl-PL` | Language model                                   |       Yes                    |
-| Portuguese (Brazil)                | `pt-BR` | Acoustic model<br>Language model<br>Pronunciation|          Yes                 |
+| Portuguese (Brazil)                | `pt-BR` | Acoustic model (20190620, 20201015)<br>Language model<br>Pronunciation|          Yes                 |
 | Portuguese (Portugal)              | `pt-PT` | Language model                                   |             Yes              |
 | Romanian (Romania)                 | `ro-RO` | Language model                                   |                           |
-| Russian (Russia)                   | `ru-RU` | Acoustic model<br>Language model                 |                Yes           |
+| Russian (Russia)                   | `ru-RU` | Acoustic model (20200907)<br>Language model                 |                Yes           |
 | Slovak (Slovakia)                  | `sk-SK` | Language model                                   |                           |
 | Slovenian (Slovenia)               | `sl-SI` | Language model                                   |                           |
 | Spanish (Argentina)                | `es-AR` | Language Model                                   |                           |
@@ -104,13 +104,13 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Spanish (Equatorial Guinea)        | `es-GQ` | Language Model                                   |                           |
 | Spanish (Guatemala)                | `es-GT` | Language Model                                   |                           |
 | Spanish (Honduras)                 | `es-HN` | Language Model                                   |                           |
-| Spanish (Mexico)                   | `es-MX` | Acoustic model<br>Language model                 |    Yes                       |
+| Spanish (Mexico)                   | `es-MX` | Acoustic model (20200907)<br>Language model                 |    Yes                       |
 | Spanish (Nicaragua)                | `es-NI` | Language Model                                   |                           |
 | Spanish (Panama)                   | `es-PA` | Language Model                                   |                           |
 | Spanish (Paraguay)                 | `es-PY` | Language Model                                   |                           |
 | Spanish (Peru)                     | `es-PE` | Language Model                                   |                           |
 | Spanish (Puerto Rico)              | `es-PR` | Language Model                                   |                           |
-| Spanish (Spain)                    | `es-ES` | Acoustic model<br>Language model                 |  Yes                         |
+| Spanish (Spain)                    | `es-ES` | Acoustic model (20201015)<br>Language model                 |  Yes                         |
 | Spanish (Uruguay)                  | `es-UY` | Language Model                                   |                           |
 | Spanish (USA)                      | `es-US` | Language Model                                   |                           |
 | Spanish (Venezuela)                | `es-VE` | Language Model                                   |                           |
