@@ -36,8 +36,8 @@ You can only install one version of Core Tools on a given computer. Unless other
 
 ## Prerequisites
 
-Azure Functions Core Tools currently depends on the Azure CLI for authenticating with your Azure account. 
-This means that you must [install the Azure CLI locally](/cli/azure/install-azure-cli) to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
+Azure Functions Core Tools currently depends on either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-5.5.0) for authenticating with your Azure account. 
+This means that you must install one of these tools to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
 
 ## Install the Azure Functions Core Tools
 
@@ -501,7 +501,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 The Azure Functions Core Tools supports two types of deployment: deploying function project files directly to your function app via [Zip Deploy](functions-deployment-technologies.md#zip-deploy) and [deploying a custom Docker container](functions-deployment-technologies.md#docker-container). You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create), to which you'll deploy your code. Projects that require compilation should be built so that the binaries can be deployed.
 
 >[!IMPORTANT]
->You must have the [Azure CLI](/cli/azure/install-azure-cli) installed locally to be able to publish to Azure from Core Tools.  
+>You must have the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-5.5.0) installed locally to be able to publish to Azure from Core Tools.  
 
 A project folder may contain language-specific files and directories that shouldn't be published. Excluded items are listed in a .funcignore file in the root project folder.     
 
