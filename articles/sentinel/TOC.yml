@@ -29,8 +29,12 @@
     href: roles.md
   - name: Advanced multistage attack detection
     href: fusion.md
-  - name: Automate threat prevention and response
-    href: automate-responses-with-playbooks.md
+  - name: SOAR - Automation
+    items:
+    - name: Automation rules for incident handling
+      href: automate-incident-handling-with-automation-rules.md
+    - name: Advanced automation with playbooks
+      href: automate-responses-with-playbooks.md
   - name: Bring your own machine learning platform
     href: bring-your-own-ml.md
   - name: Extend Azure Sentinel across workspaces and tenants

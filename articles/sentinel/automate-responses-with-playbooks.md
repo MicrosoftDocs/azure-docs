@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2021
+ms.date: 02/14/2021
 ms.author: yelevin
 
 ---
@@ -41,7 +41,7 @@ Playbooks in Azure Sentinel are based on workflows built in [Azure Logic Apps](.
 
 Azure Logic Apps communicates with other systems and services using connectors. The following is a brief explanation of connectors and some of their important attributes:
 
-- **Managed Connector:** A set of actions and triggers, which wrap around API calls to a particular product or service. Azure Logic Apps offers hundreds of connectors to communicate with both Microsoft and non-Microsoft services.
+- **Managed Connector:** A set of actions and triggers that wrap around API calls to a particular product or service. Azure Logic Apps offers hundreds of connectors to communicate with both Microsoft and non-Microsoft services.
   - [List of all Logic Apps connectors and their documentation](/connectors/connector-reference/)
 
 - **Custom connector:** You may want to communicate with services that aren't available as prebuilt connectors. Custom connectors address this need by allowing you to create (and even share) a connector and define its own triggers and actions.
@@ -87,7 +87,7 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 
 - Attach the playbook to an automation rule or an analytics rule, or run manually when required
 
-### When to use playbooks
+### Use cases for playbooks
 
 The Azure Logic Apps platform offers hundreds of actions and triggers, so almost any automation scenario can be created. Azure Sentinel recommends starting with the following SOC scenarios:
 
@@ -100,7 +100,7 @@ For example:
 An Azure Sentinel incident was created from an alert by an analytics rule that generates IP address entities.
 The analytics rule triggers a playbook with the following steps:
 
-- Start with [Azure Sentinel incident trigger](/connectors/azuresentinel/#triggers). <!--Why the incident trigger? The playbook is triggered by an alert, not an incident! What am I missing?--> The entities list of the incident arrives as part of the trigger's dynamic fields.
+- Start when a [new Azure Sentinel incident is created](/connectors/azuresentinel/#triggers). <!--Why the incident trigger? The playbook is triggered by an alert, not an incident! What am I missing?--> The entities represented in the incident are stored in the incident trigger's dynamic fields.
 
 - For each IP address, query an external Threat Intelligence provider, such as [Virus Total](https://www.virustotal.com/), to retrieve more data.
 
@@ -141,7 +141,7 @@ The analytics rule triggers a playbook with the following steps:
 
 #### Response
 
-**Immediately respond to threats with minimal human dependencies.**
+**Immediately respond to threats, with minimal human dependencies.**
 
 Two examples:
 
@@ -149,13 +149,14 @@ Two examples:
 
    - Start when a new Azure Sentinel incident is created.
 
-   - For each user suspected as compromised in the incident entities:
+   - For each user entity in the incident suspected as compromised:
 
-     - Send a Teams message to the user, confirming if they took the suspicious action.
+     - Send a Teams message to the user, requesting confirmation that the user took the suspicious action.
 
-     - Check with Azure AD Identity Protection to [confirm the user's status as compromised](/connectors/azureadip/#confirm-a-risky-user-as-compromised).
+     - Check with Azure AD Identity Protection to [confirm the user's status as compromised](/connectors/azureadip/#confirm-a-risky-user-as-compromised). Azure AD Identity Protection will label the user as **risky**, and apply any enforcement policy already configured - for example, to require the user to use MFA when next signing in.
 
-   - Set the Azure AD Identity Protection policy to require the user to use MFA when next signing in.
+        > [!NOTE]
+        > The playbook does not initiate any enforcement action on the user, nor does it initiate any configuration of enforcement policy. It only tells Azure AD Identity Protection to apply any already defined policies as appropriate. Any enforcement depends entirely on the appropriate policies being defined in Azure AD Identity Protection.
 
 1. Respond to an analytics rule that indicates a compromised machine, as discovered by [Microsoft Defender for Endpoint](/windows/security/threat-protection/):
 
@@ -163,7 +164,7 @@ Two examples:
 
    - Use the **Entities - Get Hosts** action in Azure Sentinel to parse the suspicious machines that are included in the incident entities.
 
-   - Set the Microsoft Defender for Endpoint policy to [isolate the machines](/connectors/wdatp/#actions---isolate-machine) in the alert.
+   - Issue a command to Microsoft Defender for Endpoint to [isolate the machines](/connectors/wdatp/#actions---isolate-machine) in the alert.
 
 ## How to run a playbook
 
@@ -171,60 +172,47 @@ Playbooks can be run either **manually** or **automatically**.
 
 Running them manually means that when you get an alert, you can choose to run a playbook on-demand as a response to the selected alert. Currently this feature is supported only for alerts, not for incidents.
 
-Running them automatically means to set them as an automated response in an analytics rule.
+Running them automatically means to set them as an automated response in an analytics rule (for alerts), or as an action in an automation rule (for incidents). [Learn more about automation rules](automate-incident-handling-with-automation-rules.md).
 
-### Setting automated response
+### Set an automated response
 
-Using real-time automation, response teams can significantly reduce their workload by fully automating the routine responses to recurring types of alerts, allowing you to concentrate more on unique alerts, analyzing patterns, threat hunting, and more.
+Security operations teams can significantly reduce their workload by fully automating the routine responses to recurring types of incidents and alerts, allowing you to concentrate more on unique incidents and alerts, analyzing patterns, threat hunting, and more.
 
-Setting automated response means that every time an analytics rule is triggered, in addition to creating an alert and possibly an incident, the rule will run a playbook, which will receive as an input the alert or incident created by the rule.
+Setting automated response means that every time an analytics rule is triggered, in addition to creating an alert, the rule will run a playbook, which will receive as an input the alert created by the rule. 
 
-To attach a playbook to an analytics rule:
+If the alert creates an incident, the incident will trigger an automation rule which may in turn run a playbook, which will receive as an input the incident created by the alert.
 
-1. Go to **Analytics**.
+#### Alert creation automated response
 
-1. Select the Analytics Rule you want to define an automated response for.
+For playbooks that are triggered by alert creation and receive alerts as their inputs (their first step is “When an Azure Sentinel Alert is triggered”), attach the playbook to an analytics rule:
 
-1. Click **Edit**.
+1. Edit the analytics rule that generates the alert you want to define an automated response for.
 
-1. Select the **Automated Response** tab.
+1. Under **Alert automation** in the **Automated response** tab, select the playbook or playbooks that this analytics rule will trigger when an alert is created.
 
-1. Select the playbooks that this analytics rule will trigger when an alert or an incident is created.
+#### Incident creation automated response
 
-    Note: The input for the playbook will fit the [playbook trigger kind](/connectors/azuresentinel/#triggers):
-    - When an Azure Sentinel incident is triggered
-    - When an Azure Sentinel alert is triggered 
+For playbooks that are triggered by incident creation and receive incidents as their inputs (their first step is “When an Azure Sentinel Incident is triggered”), create an automation rule and define a **Run playbook** action in it. This can be done in 2 ways:
 
-#### Special configurations:
+- Edit the analytics rule that generates the incident you want to define an automated response for. Under **Incident automation** in the **Automated response** tab, create an automation rule. This will create a automated response only for this analytics rule. 
 
-- For **Microsoft incident creation** rules, you can attach only playbooks that start with **When an Azure Sentinel incident is triggered**.
+- From the **Automation rules** tab in the **Automation** blade, create a new automation rule and specify the appropriate conditions and desired actions. This automation rule will be applied to any analytics rule that fulfills the specified conditions.
 
-- For **scheduled query** rules, behavior depends on the rule's **event grouping** and **alert grouping** settings:
-
-  - A playbook can be triggered by the creation of an incident only if incident creation is enabled in **Incident Settings** (such that every alert creates an incident).
-
-  - If **Event Grouping** was enabled on this analytics rule (such that any event creates an alert):
-    Any attached playbook that start with **When an Azure Sentinel alert is triggered** will be triggered for each alert that this rule creates.
-
-  - If incident creation is enabled, any attached playbook that start with **When an Azure Sentinel Incident is triggered** will be triggered for each incident that this rule creates.
-
-    In order to run a playbook on the incident that gathers all the alerts from this analytics rule, use **Alert Grouping** in **Incident settings** tab.  <!--The playbook will run immediately upon the creation of the incident, which will include only the single alert that generated the incident, and not any of the subsequent alerts that were grouped into this incident. -->
-
-    <!-- How each configuration option in analytics rule creation affects running of playbooks-->
+See the [complete instructions for creating automation rules](create-automation-rules.md).
 
 ### Run a playbook manually on an alert
 
-Manual trigger is available from the Azure Sentinel portal in the following blades:
+Manual triggering is available from the Azure Sentinel portal in the following blades:
 
-- In **Incidents** view, choose a specific incident, and open the alerts tab.
+- In **Incidents** view, choose a specific incident, open its **Alerts** tab, and choose an alert.
 
 - In **Investigation**, choose a specific alert.
 
-1. Click on **View Playbooks**. You will get a list of all playbooks that start with an **When an Azure Sentinel Alert is triggered** and that you have access to.
+1. Click on **View playbooks** for the chosen alert. You will get a list of all playbooks that start with an **When an Azure Sentinel Alert is triggered** and that you have access to.
 
-1. Click on **Run Playbook** to trigger the related playbook.
+1. Click on **Run** on the line of a specific playbook to trigger it.
 
-1. View run log: A list of all the runs of this playbook on this alert will be available in **Runs** tab. It might take a few seconds for the last run to appear in this list.
+1. Select the **Runs** tab to view a list of all the times any playbook has been run on this alert. It might take a few seconds for any just-completed run to appear in this list.
 
 1. Clicking on a specific run will open the full run log in Logic Apps.
 
@@ -234,9 +222,11 @@ Not supported yet. <!--make this a note instead? -->
 
 ## Manage your playbooks
 
-In the Playbooks blade, there appears a list of all the playbooks which you have access to, filtered by the subscriptions which are currently displayed in Azure. The subscriptions filter is available from the **Directory + subscription** menu in the global page header.
+In the **Playbooks** tab, there appears a list of all the playbooks which you have access to, filtered by the subscriptions which are currently displayed in Azure. The subscriptions filter is available from the **Directory + subscription** menu in the global page header.
 
-Each item in the list indicates a playbook. Clicking on a playbook name directs you to the playbook's main page in Logic Apps. The **Status** column indicates if it is enabled or disabled. The **Runs** column enumerates the number of times this playbook has run.
+Clicking on a playbook name directs you to the playbook's main page in Logic Apps. The **Status** column indicates if it is enabled or disabled. The **Runs** column enumerates the number of times this playbook has run. 
+
+***I DON'T SEE A RUNS COLUMN!***
 
 **Trigger kind** represents the Logic Apps trigger that starts this playbook.
 
@@ -252,10 +242,10 @@ Each item in the list indicates a playbook. Clicking on a playbook name directs 
 
 API connections are used to connect Logic Apps to other services. Every time a new authentication to a Logic Apps connector is made, a new resource of type **API connection** is created, and contains the information provided when configuring access to the service.
 
-To see all the API connections, enter *API connections* in the header search box of the Azure Portal. Note the interesting columns:
+To see all the API connections, enter *API connections* in the header search box of the Azure Portal. Note the columns of interest:
 
 - Display name - the "friendly" name you give to the connection every time you create one. 
-- Status - indicates the connection status: Error, connected.
+- Status - indicates the connection status: error, connected.
 - Resource group - API connections are created in the resource group of the playbook (Logic Apps) resource.
 
 Another way to view API connections would be to go to the **All Resources** blade and filter it by type *API connection*. This way allows the selection, tagging, and deletion of multiple connections at once.

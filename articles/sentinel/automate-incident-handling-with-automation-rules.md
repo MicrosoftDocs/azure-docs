@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2021
+ms.date: 02/14/2021
 ms.author: yelevin
 ---
 # Security Orchestration, Automation, and Response (SOAR) in Azure Sentinel
@@ -37,7 +37,7 @@ Automation rules are made up of several components:
 
 Automation rules are triggered by the creation of an incident. 
 
-To review – incidents are created from alerts, by analytics rules, of which there are four types, as explained in the tutorial [Investigate alerts with Azure Sentinel](tutorial-detect-threats-built-in.md).
+To review – incidents are created from alerts by analytics rules, of which there are four types, as explained in the tutorial [Investigate alerts with Azure Sentinel](tutorial-detect-threats-built-in.md).
 
 #### Conditions
 
