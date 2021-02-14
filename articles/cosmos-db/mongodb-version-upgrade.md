@@ -42,7 +42,7 @@ The following are the new features included in version 4.0:
 
 ### Changes from version 3.2
 
-- **RequestRateIsLarge errors are optional** by default, the SSR feature is enabled, so that requests from the client application will not return 16500 error. Instead requests will resume until they complete or fulfill the timeout. The SSR feature can be configured from the 'Features' blade.
+- **RequestRateIsLarge errors are optional** by default, the [Server Side Retry (SSR)](prevent-rate-limiting-errors.md)  feature is enabled, so that requests from the client application will not return 16500 error. Instead requests will resume until they complete or hit the 60 second timeout.
 - Per request timeout is set to 60 seconds.
 - MongoDB collections created on the new wire protocol version will only have the `_id` property indexed by default.
 
@@ -90,7 +90,7 @@ If you are upgrading from version 3.2, you will need to replace the existing end
     :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="New overview blade." border="false":::
 
 >[!Note]
-> You may also downgrade your account from 4.0 to 3.6 via these same steps. If you upgraded from 3.2 to (4.0 or 3.6) and wish to downgrade back to 3.2, you may just switch back to your previous connection string with the host `accountname.documents.azure.com` which remains active post-upgrade.
+> You may also downgrade your account from 4.0 to 3.6 via these same steps. If you upgraded from 3.2 to (4.0 or 3.6) and wish to downgrade back to 3.2, you can switch back to your previous connection string with the host `accountname.documents.azure.com` which remains active post-upgrade running version 3.2.
 
 
 ## Next steps

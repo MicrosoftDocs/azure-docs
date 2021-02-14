@@ -536,7 +536,7 @@ globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
 
 ## GridFS
 
-Cosmos DB supports GridFS through any GridFS-compatible Mongo driver.
+Cosmos DB supports GridFS through any GridFS-compatible MongoDB driver.
 
 ## Replication
 
@@ -568,7 +568,7 @@ Cosmos DB does not yet support users and roles. However, Cosmos DB supports Azur
 
 ## Write Concern
 
-Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) which specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by the client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
+Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) which specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication, all writes are automatically majority (strong consistency) by default. Any write concern specified by the client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
 
 ## Next steps
 
