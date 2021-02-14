@@ -55,7 +55,7 @@ PS> wsl --list
 
 ## Download Ubuntu update agent
 
-The Ubuntu update image can be downloaded from the *Assets* section from release notes [here](https://github.com/Azure/adu-private-preview/releases).
+The Ubuntu update image can be downloaded from the *Assets* section from release notes [here](https://github.com/Azure/iot-hub-device-update/releases).
 
 There are two versions of the agent. If you are exercising image-based scenario use AducIotAgentSim-microsoft-swupdate and if you are exercising package-based scenario use AducIotAgentSim-microsoft-apt.
 
