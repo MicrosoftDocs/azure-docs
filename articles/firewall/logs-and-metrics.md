@@ -44,6 +44,11 @@ Metrics are lightweight and can support near real-time scenarios making them use
    }
    ```
 
+> [!NOTE]
+> When receiving the Deny response for HTTP requests under `default action` you will not find the logs under the Log Analytics Workspace with standard protocol or port queries.
+> The `Protocol` field will have a space in it and will match against `"HTTP "`, Or you can filter using the `msg_s` field's content.
+
+
 * **Network rule log**
 
    The Network rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
