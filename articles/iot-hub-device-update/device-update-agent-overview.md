@@ -23,7 +23,7 @@ allowing for messaging to flow between the Device Update Agent and Device Update
 
 The Interface layer is made up of the [ADU Core Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) and the [Device Information Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface).
 
-These interfaces rely on a configuration file for default values. The default values include aduc_manfuacter and aduc_model for the AzureDeviceUpdateCore interface and model and manufacturer for the DeviceInformation interface. [Learn More](device-update-configuration-file) the configuration file.
+These interfaces rely on a configuration file for default values. The default values include aduc_manfuacter and aduc_model for the AzureDeviceUpdateCore interface and model and manufacturer for the DeviceInformation interface. [Learn More](device-update-configuration-file.md) the configuration file.
 
 ### ADU Core Interface
 
