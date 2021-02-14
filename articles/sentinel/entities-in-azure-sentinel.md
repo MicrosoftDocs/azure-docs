@@ -74,6 +74,8 @@ When Azure Sentinel is able to identify entities in alerts from different types 
 
 Learn how to [map data fields to entities](map-data-fields-to-entities.md).
 
+Learn [which identifiers strongly identify an entity](entities-reference.md).
+
 ## Entity pages
 
 When you encounter any entity (currently limited to users and hosts) in a search, an alert, or an investigation, you can select the entity and be taken to an **entity page**, a datasheet full of useful information about that entity. The types of information you will find on this page include basic facts about the entity, a timeline of notable events related to this entity and insights about the entity's behavior.
