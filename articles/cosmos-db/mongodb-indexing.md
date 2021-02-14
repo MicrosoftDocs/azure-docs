@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 02/12/2021
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js

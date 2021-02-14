@@ -4,7 +4,7 @@ description: Learn how to set up Azure Private Link to access an Azure Cosmos ac
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 02/12/2021
 ms.author: thweiss 
 ms.custom: devx-track-azurecli
 ---

@@ -5,7 +5,7 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: guide
-ms.date: 09/22/2020
+ms.date: 02/12/2021
 ms.author: chrande
 
 ---

@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB's API for MongoDB (4.0 version) support
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 02/01/2021
+ms.date: 02/12/2021
 author: gahl-levy
 ms.author: gahllevy
 ---

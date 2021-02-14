@@ -5,7 +5,7 @@ author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 02/12/2021
 ms.author: rosouz
 ms.custom: devx-track-js, devx-track-csharp
 ---

@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.subservice: cosmosdb-mongo
-ms.date: 10/12/2020
+ms.date: 02/12/2021
 ms.author: tisande
 ms.reviewer: sngun
 ---

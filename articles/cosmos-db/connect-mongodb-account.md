@@ -6,7 +6,7 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 02/12/2021
 ms.reviewer: sngun
 adobe-target: true
 adobe-target-activity: DocsExp-A/B-384740-MongoDB-2.8.2021
