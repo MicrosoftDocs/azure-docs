@@ -18,7 +18,7 @@ The "adu-conf.txt" is an optional file that can be created to manage the followi
 * DeviceInformation.model
 * Device Connection String (if it is not known by the Device Update Agent).
 
-First, the Device Update Agent will try to get the `manufacturer` and `model` values from the device, for the [ADU Core Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) and the [Device Information Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface). If that fails, second, the Device Update Agent will look for the "adu-conf.txt" file and use the values defined from there. If both attempts are not successful, last the Device Update Agent will use default values.
+The Device Update Agent will first try to get the `manufacturer` and `model` values from the device for the [ADU Core Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) and the [Device Information Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface). If that fails, the Device Update Agent will next look for the "adu-conf.txt" file and use the values  from there. If both attempts are not successful, the Device Update Agent will use default values.
 
 ## File location
 
