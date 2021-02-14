@@ -71,7 +71,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 4. Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
-For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](/azure/databricks/clusters/create).
 
 ## Create notebook
 
@@ -144,7 +144,7 @@ Perform the following tasks to run a Spark SQL job on the data.
 
     Once the command successfully completes, you have all the data from the JSON file as a table in Databricks cluster.
 
-    The `%sql` language magic command enables you to run a SQL code from the notebook, even if the notebook is of another type. For more information, see [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
+    The `%sql` language magic command enables you to run a SQL code from the notebook, even if the notebook is of another type. For more information, see [Mixing languages in a notebook](/azure/databricks/notebooks/notebooks-use#mix-languages).
 
 2. Let's look at a snapshot of the sample JSON data to better understand the query that you run. Paste the following snippet in the code cell and press **SHIFT + ENTER**.
 
@@ -195,6 +195,6 @@ Advance to the next article to learn how to perform an ETL operation (extract, t
 > [!div class="nextstepaction"]
 >[Extract, transform, and load data using Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse).
 
-- To learn how to import data from other data sources into Azure Databricks, see [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
+- To learn how to import data from other data sources into Azure Databricks, see [Spark data sources](/azure/databricks/data/data-sources/).
 
-- To learn about other ways to access Azure Data Lake Storage Gen2 from an Azure Databricks workspace, see [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html).
+- To learn about other ways to access Azure Data Lake Storage Gen2 from an Azure Databricks workspace, see [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2).

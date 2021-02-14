@@ -6707,6 +6707,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Face/APIReference.md",
+      "redirect_url": "https://docs.microsoft.com/rest/api/face/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/deploy-form-recognizer-on-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
       "redirect_document_id": false
@@ -61782,6 +61787,17 @@
       "source_path_from_root": "/articles/communication-services/concepts/voice-video-calling/teams-interop.md",
       "redirect_url": "/azure/communication-services/concepts/teams-interop",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#visualizations-for-application-change-analysis",
+      "redirect_url": "/articles/azure-monitor/app/change-analysis-visualizations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#troubleshoot",
+      "redirect_url": "/articles/azure-monitor/app/change-analysis-troubleshoot",
+      "redirect_document_id": false
     }
+
   ]
 }
