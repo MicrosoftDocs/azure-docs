@@ -2,7 +2,7 @@
 title: Azure Service Bus metrics in Azure Monitor| Microsoft Docs
 description: This article explains how to use Azure Monitor to monitor Service Bus entities (queues, topics, and subscriptions).
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 02/12/2021
 ---
 
 # Azure Service Bus metrics in Azure Monitor
@@ -69,7 +69,7 @@ The following two types of errors are classified as user errors:
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-|Incoming Messages|The number of events or messages sent to Service Bus over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
+|Incoming Messages|The number of events or messages sent to Service Bus over a specified period. This metric doesn't include messages that are auto forwarded.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
 |Outgoing Messages|The number of events or messages received from Service Bus over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
 | Messages| Count of messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: Entity name |
 | Active Messages| Count of active messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: Entity name |
