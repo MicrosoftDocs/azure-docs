@@ -18,7 +18,7 @@ devices/clients implement the following interfaces and model-id as described bel
 
 ## Device Information Interface
 
-The [Device Info](https://github.com/Azure/iot-plugandplay-models/) interface is a concept used within
+The Device Information Interface is a concept used within
 the [Azure IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 which contains device to cloud properties that
 provide information about the hardware and operating system of the device. Device Update uses the DeviceInformation.manufacturer
@@ -38,8 +38,7 @@ and DeviceInformation.model properties for telemetry and diagnostics. Learn more
 
 ## ADU Core Interface
 
-The 'ADU Core' interface is used to send update
-actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
+The 'ADU Core' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
 
 ### Agent Metadata
 
