@@ -70,7 +70,8 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 # [ASP.NET Core](#tab/netcore)
 
-The following versions of ASP.NET Core are supported: ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0, ASP.NET Core 3.1
+> [!IMPORTANT]
+> The following versions of ASP.NET Core are supported: ASP.NET Core 2.1, 3.1, and 5.0. Versions 2.0, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
 
 Targeting the full framework from ASP.NET Core, self-contained deployment, and Linux based applications are currently **not supported** with agent/extension based monitoring. ([Manual instrumentation](./asp-net-core.md) via code will work in all of the previous scenarios.)
 
@@ -85,7 +86,7 @@ Targeting the full framework from ASP.NET Core, self-contained deployment, and L
 
      ![Instrument your web app](./media/azure-web-apps/create-resource-01.png)
 
-2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. ASP.NET Core offers **Recommended collection** or **Disabled** for ASP.NET Core 2.1, 2.2, 3.0 and 3.1.
+2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. ASP.NET Core offers **Recommended collection** or **Disabled** for ASP.NET Core 2.1 and 3.1.
 
     ![Choose options per platform](./media/azure-web-apps/choose-options-new-net-core.png)
 
