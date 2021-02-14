@@ -4,23 +4,14 @@ description: Learn how to use the voluntary migration tool to migrate your class
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 02/14/2020
 ms.subservice: alerts
 ---
 # Use the voluntary migration tool to migrate your classic alert rules
 
-As [previously announced](./monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired for public cloud users, though still in limited use for resources that do not yet support the new alerts. A migration tool was available in the Azure portal to customers who used classic alert rules and who want to trigger migration themselves. This article explains how to use the that migration tool, which will also be used to remaining alerts pending further announcement.
+As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
 
-## Benefits of new alerts
-
-Classic alerts are being replaced by new, unified alerting in Azure Monitor. The new alerts platform has the following benefits:
-
-- You can alert on a variety of multidimensional metrics for [many more Azure services](alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
-- The new metric alerts support [multi-resource alert rules](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor) that greatly reduce the overhead of managing many rules.
-- The unified notification mechanism, which supports:
-  - [Action groups](./action-groups.md), a modular notification mechanism that works with all new alert types (metric, log, and activity log).
-  - New notification mechanisms like SMS, voice, and ITSM Connector.
-- The [unified alert experience](./alerts-overview.md) brings all the alerts on different signals (metric, log, and activity log) into one place.
+A migration tool is available in the Azure portal to customers who used classic alert rules and who want to trigger migration themselves. This article explains how to use the that migration tool.
 
 ## Before you migrate
 

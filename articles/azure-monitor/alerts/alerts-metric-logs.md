@@ -4,7 +4,7 @@ description: Tutorial on creating near-real time metric alerts on popular log an
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
 ---
 
@@ -13,8 +13,6 @@ ms.subservice: alerts
 ## Overview
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Azure Monitor supports [metric alert type](./alerts-metric-near-real-time.md) which has benefits over the [classic alerts](./alerts-classic-portal.md). Metrics are available for [large list of Azure services](../essentials/metrics-supported.md). This article explains usage of a subset (that is) for resource - `Microsoft.OperationalInsights/workspaces`.
 
 You can use metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs including resources in Azure or on-premises. The supported Log Analytics solutions are listed below:
 
