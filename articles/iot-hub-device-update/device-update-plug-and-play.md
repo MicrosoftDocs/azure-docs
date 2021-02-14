@@ -14,8 +14,7 @@ Device Update for IoT Hub uses [IoT Plug and Play](https://docs.microsoft.com/az
 
 ## Device Information Interface
 
-The Device Information Interface is a concept used within
-the [Azure IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play) which contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. Learn more from this `DeviceInformation` [example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
+The Device Information Interface is a concept used within the [Azure IoT Plug and Play architecture](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play) which contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. Learn more from this `DeviceInformation` [example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
 |Name|Type|Schema|Direction|Description|Example|
 |----|----|------|---------|-----------|-----------|
