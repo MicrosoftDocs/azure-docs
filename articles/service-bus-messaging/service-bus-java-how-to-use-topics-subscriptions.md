@@ -68,11 +68,9 @@ If you are using Eclipse and created a Java console application, convert your Ja
 
     ```java
     import com.azure.messaging.servicebus.*;
-    import com.azure.messaging.servicebus.models.*;
     
     import java.util.concurrent.CountDownLatch;
     import java.util.concurrent.TimeUnit;
-    import java.util.function.Consumer;
     import java.util.Arrays;
     import java.util.List;
     ```    
@@ -88,7 +86,7 @@ If you are using Eclipse and created a Java console application, convert your Ja
 3. Add a method named `sendMessage` in the class to send one message to the topic. 
 
     ```java
-        static void sendMessage()
+    static void sendMessage()
     {
         // create a Service Bus Sender client for the queue 
         ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
