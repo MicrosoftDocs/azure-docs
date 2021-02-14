@@ -7,7 +7,7 @@ ms.custom: deshriva
 ms.date: 02/08/2021
 ---
 
-## Retired HDInsight versions
+# Retired HDInsight versions
 
 The following table lists the retired versions of HDInsight.
 
