@@ -7,7 +7,7 @@
     - name: Best practices
       href: howto-best-practices.md
     - name: FAQ
-      href: faq.md
+      href: faq.yml
 - name: Quickstarts
   expanded: true
   items:

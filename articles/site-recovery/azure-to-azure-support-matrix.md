@@ -30,6 +30,7 @@ This article summarizes support and prerequisites for disaster recovery of Azure
 **Replicate Azure VMs from one subscription to another for disaster recovery** | Supported within the same Azure Active Directory tenant.
 **Migrate VMs across regions within supported geographical clusters (within and across subscriptions)** | Supported within the same Azure Active Directory tenant.
 **Migrate VMs within the same region** | Not supported.
+**Azure Dedicated Hosts** | Not supported.
 
 ## Region support
 
@@ -70,7 +71,7 @@ Azure Storage firewalls for virtual networks  | Supported | If you are using fir
 
 ## Replicated machine operating systems
 
-Site Recovery supports replication of Azure VMs running the operating systems listed in this section. Please note that if an already replicating machine is subsequently upgraded (or downgraded) to a different major kernel, you need to disable replication and re-enable replication after the upgrade.
+Site Recovery supports replication of Azure VMs running the operating systems listed in this section. Note that if an already replicating machine is subsequently upgraded (or downgraded) to a different major kernel, you need to disable replication and re-enable replication after the upgrade.
 
 ### Windows
 
@@ -200,7 +201,7 @@ VMs migrated using Site Recovery | Supported | If a VMware VM or physical machin
 Azure RBAC policies | Not supported | Azure role-based access control (Azure RBAC) policies on VMs are not replicated to the failover VM in target region.
 Extensions | Not supported | Extensions are not replicated to the failover VM in target region. It needs to be installed manually after failover.
 Proximity Placement Groups | Supported | Virtual machines located inside a Proximity Placement Group can be protected using Site Recovery.
-Tags  | Supported | User generated tags applied on source virtual machines are carried over to target virtual machines post test failover or failover.
+Tags  | Supported | User generated tags applied on source virtual machines are carried over to target virtual machines post test failover or failover. Tags on the VM(s) are replicated once every 24 hours for as long as the VM(s) is/are present in the target region.
 
 
 ## Replicated machines - disk actions
@@ -260,7 +261,7 @@ NVMe disks | Not supported
 Azure shared disks | Not supported
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported
-Tags  | User generated tags are replicated every 24 hours.
+Tags  | Supported | User generated tags are replicated every 24 hours.
 
 >[!IMPORTANT]
 > To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [managed disks](../virtual-machines/disks-scalability-targets.md). If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings,follow the disk scalability and performance targets for your source VMs.

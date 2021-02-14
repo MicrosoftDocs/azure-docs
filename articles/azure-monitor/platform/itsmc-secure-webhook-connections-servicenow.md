@@ -20,6 +20,7 @@ Ensure that you've met the following prerequisites:
 
 * Azure AD is registered.
 * You have the supported version of The ServiceNow Event Management - ITOM (version New York or later).
+* [Application](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ac4c9c57dbb1d090561b186c1396191a/1.2.0?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%26q%3Devent%2520management%2520connectors&sl=sh) installed on ServiceNow instance.
 
 ## Configure the ServiceNow connection
 
