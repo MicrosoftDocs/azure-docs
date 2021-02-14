@@ -14,7 +14,7 @@ Device Update for IoT Hub provides Yocto reference images for testing and rollou
 ## Download Yocto image
 
 There are three Yocto images available as a part of the "Assets" in a given
-[Device Update GitHub release](https://github.com/Azure/adu-private-preview/releases). The base image (adu-base-image) and two update images (adu-update-image) are provided so you can try rollouts to different versions without needing to flash the SD card on the
+[Device Update GitHub release](https://github.com/Azure/iot-hub-device-update/releases). The base image (adu-base-image) and two update images (adu-update-image) are provided so you can try rollouts to different versions without needing to flash the SD card on the
 device.  To do so, you'll need to upload the update images to the Device Update for IoT Hub
 Service, as a part of the import.
 
@@ -84,7 +84,7 @@ IoT Hub a connection string will be generated for the device.
    > You may see multiple prompts that the card is unformatted. **Cancel all of them (do not format the card)**.
 
 2. In the remaining window, verify you see a partition or disk called `adu`.
-3. **Optional**. In the `adu` partition directory, create the Device Update Configuration file "adu-conf.txt" and open it. [Learn more]() about configuring "adu-conf.txt".
+3. **Optional**. In the `adu` partition directory, create the Device Update Configuration file "adu-conf.txt" and open it. [Learn more](device-update-configuration-file.md) about configuring "adu-conf.txt".
 4. Paste your previously saved device connection string into the text file.
 
    **Example**:  (replace your IoT Hub name, DeviceId, and shared access key with
