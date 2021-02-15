@@ -42,10 +42,11 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 
 	10.20.253.150 sollabdsm35-node
 
-	
+	```
 
-	Create and exchange the SSH keys
+2. 	Create and exchange the SSH keys
 
+	```
 	[root@sollabdsm35 ~]# ssh-keygen -t rsa -b 1024
 
 	[root@sollabdsm36 ~]# ssh-keygen -t rsa -b 1024
@@ -59,7 +60,10 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	[root@sollabdsm36 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm35
 
 	[root@sollabdsm36 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub sollabdsm36
-	Disable selinux on both nodes
+	```
+
+3.	Disable selinux on both nodes
+	```
 	[root@sollabdsm35 ~]# vi /etc/selinux/config
 
 	...
@@ -77,17 +81,17 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	```  
 
 4. Reboot the servers and then use the following command to verify the status of SELINUX
-```
-[root@sollabdsm35 ~]# sestatus
+	```
+	[root@sollabdsm35 ~]# sestatus
 
-SELinux status: disabled
+	SELinux status: disabled
 
-  
+	
 
-[root@sollabdsm36 ~]# sestatus
+	[root@sollabdsm36 ~]# sestatus
 
-SELinux status: disabled
-```
+	SELinux status: disabled
+	```
 
 5. Configure NTP (Network Time Protocol). The time and time zones for both cluster nodes must match.
 	```
@@ -132,7 +136,7 @@ SELinux status: disabled
 	^- tick.srs1.ntfo.org 3 10 177 801 -3429us[-3427us] +/- 100ms
 	```
 
-* Update the System
+6. Update the System
 
   *  First install the latest updates on the system before we start to install the SBD device.
 
@@ -148,7 +152,7 @@ SELinux status: disabled
 	```
  
 
-* Install the SAP HANA and RHEL-HA repositories
+7. Install the SAP HANA and RHEL-HA repositories
 
 	```
 	subscription-manager repos –list
@@ -160,7 +164,7 @@ SELinux status: disabled
 	```
 	  
 
-* Install the Pacemaker, SBD, OpenIPMI, ipmitools and fencing_sbd tools on all nodes
+8. Install the Pacemaker, SBD, OpenIPMI, ipmitools and fencing_sbd tools on all nodes
 
 	```	
 	yum install pcs sbd fence-agent-sbd.x86_64 OpenIPMI
@@ -169,7 +173,7 @@ SELinux status: disabled
 
   ## Configure Watchdog
 
-* make sure, that the watchdog daemon is not running at this time (on all systems)
+1. Make sure, that the watchdog daemon is not running at this time (on all systems)
 	```
 	 [root@sollabdsm35 ~]# systemctl disable watchdog
 	[root@sollabdsm36 ~]# systemctl disable watchdog
@@ -190,7 +194,7 @@ SELinux status: disabled
 
 	```
 
-* The default linux watchdog which will be installed during the installation is the iTCO watchdog wich is not supported by UCS and HPE SDFlex systems. Therefore, this watchdog must be disabled.
+2. The default linux watchdog which will be installed during the installation is the iTCO watchdog wich is not supported by UCS and HPE SDFlex systems. Therefore, this watchdog must be disabled.
   * The wrong watchdog is installed and loaded on the system:
 	```
 
@@ -250,7 +254,7 @@ pacemaker service.
 
 	``` 
 
-* By default the required device is /dev/watchdog will not be created.
+3. By default the required device is /dev/watchdog will not be created.
 
 	```
 	No watchdog device was created
@@ -260,7 +264,7 @@ pacemaker service.
 	ls: cannot access /dev/watchdog: No such file or directory
 	```
 
-* Configure the IPMI watchdog
+4. Configure the IPMI watchdog
 
 	```	
 	sollabdsm35:~ # mv /etc/sysconfig/ipmi /etc/sysconfig/ipmi.org
@@ -314,38 +318,25 @@ pacemaker service.
 	[root@sollabdsm35 ~]# lsof /dev/watchdog
 	```
 
-	### SBD configuration
+## SBD configuration
+1.  Make sure the iSCSI or FC disk is visible on both nodes. This example will use a FC based SBD device.
+2.  The LUN-ID must be identically on all nodes!!!
+  
+3.  Reference http://www.linux-ha.org/wiki/SBD_Fencing
+	```
+	multipath -ll
+	3600a098038304179392b4d6c6e2f4b62 dm-5 NETAPP ,LUN C-Mode
+	size=1.0G features='4 queue_if_no_path pg_init_retries 50
+	retain_attached_hw_handle' hwhandler='1 alua' wp=rw
+	|-+- policy='service-time 0' prio=50 status=active
+	| |- 8:0:1:2 sdi 8:128 active ready running
+	| `- 10:0:1:2 sdk 8:160 active ready running
+	`-+- policy='service-time 0' prio=10 status=enabled
+	|- 8:0:3:2 sdj 8:144 active ready running
+	`- 10:0:3:2 sdl 8:176 active ready running
+	```
 
-	  * Make sure the iSCSI or FC disk is visible on both nodes. This example will use a FC based SBD device.
-
-	  * The LUN-ID must be identically on all nodes!!!
-
-	  
-
-	   * Reference http://www.linux-ha.org/wiki/SBD_Fencing
-
-		```
-		multipath -ll
-
-		3600a098038304179392b4d6c6e2f4b62 dm-5 NETAPP ,LUN C-Mode
-
-		size=1.0G features='4 queue_if_no_path pg_init_retries 50
-		retain_attached_hw_handle' hwhandler='1 alua' wp=rw
-
-		|-+- policy='service-time 0' prio=50 status=active
-
-		| |- 8:0:1:2 sdi 8:128 active ready running
-
-		| `- 10:0:1:2 sdk 8:160 active ready running
-
-		`-+- policy='service-time 0' prio=10 status=enabled
-
-		|- 8:0:3:2 sdj 8:144 active ready running
-
-		`- 10:0:3:2 sdl 8:176 active ready running
-		```
-
-* Creating the SBD discs and set up the cluster primitive fencing (must be executed on first node)
+4.  Creating the SBD discs and set up the cluster primitive fencing (must be executed on first node)
 	```
 	sbd -d /dev/mapper/3600a098038304179392b4d6c6e2f4b62 -4 20 -1 10 create 
 
@@ -358,7 +349,7 @@ pacemaker service.
 	Device /dev/mapper/3600a098038304179392b4d6c6e2f4b62 is initialized.
 	```
 
-  * Copy the SBD config over to node2
+5.  Copy the SBD config over to node2
 	```
 	vi /etc/sysconfig/sbd
 
@@ -375,7 +366,7 @@ pacemaker service.
 	scp /etc/sysconfig/sbd node2:/etc/sysconfig/sbd
 	```
 
-  * Check that the SBD disk is visible from both nodes.
+6.  Check that the SBD disk is visible from both nodes.
 	```
 	sbd -d /dev/mapper/3600a098038304179392b4d6c6e2f4b62 dump
 
@@ -395,7 +386,7 @@ pacemaker service.
 	==Header on disk /dev/mapper/3600a098038304179392b4d6c6e2f4b62 is dumped
 	```
 
-  * Add the SBD device in the SBD config file
+7.  Add the SBD device in the SBD config file
 
 	```
 	\# SBD_DEVICE specifies the devices to use for exchanging sbd messages
@@ -413,20 +404,19 @@ pacemaker service.
 	SBD_PACEMAKER=yes
 	```
 
-### Cluster initialization
+## Cluster initialization
 
-  * Set up the cluster user password (all nodes)
+1.  Set up the cluster user password (all nodes)
 	```
 	passwd hacluster
 	```
-  * Start PCS on all systems
+2.  Start PCS on all systems
 	```
 	systemctl enable pcsd
 	```
   
 
-  *   Stop the firewall and disable it on (all nodes)
-
+3.  Stop the firewall and disable it on (all nodes)
 	```
 	systemctl disable firewalld 
 
@@ -435,14 +425,14 @@ pacemaker service.
 	systemctl stop firewalld
 	```
 
-* Start pcsd service
+4.  Start pcsd service
 	```
 	systemctl start pcsd
 	```
   
   
 
-* Run the cluster authentication only from node1
+5.  Run the cluster authentication only from node1
 
 	```
 	pcs cluster auth sollabdsm35 sollabdsm36
@@ -459,13 +449,13 @@ pacemaker service.
 
 	 ``` 
 
-* Create the cluster
+6.  Create the cluster
 	```
 	pcs cluster setup --start --name hana sollabdsm35 sollabdsm36
 	```
   
 
-* Check the cluster status
+7.  Check the cluster status
 
 	```
 	pcs cluster status
@@ -503,24 +493,24 @@ pacemaker service.
 	pcsd: active/disabled
 	```
 
-* If one node is not joining the cluster check if the firewalld is still running.
+8. If one node is not joining the cluster check if the firewalld is still running.
 
   
 
-* create and enable the SBD Device
+9. Create and enable the SBD Device
 	```
 	pcs stonith create SBD fence_sbd devices=/dev/mapper/3600a098038303f4c467446447a
 	```
   
 
-* stop the cluster restart the cluster services (on all nodes)
+10. Stop the cluster restart the cluster services (on all nodes)
 
 	```
 	pcs cluster stop --all
 	```
 
 
-* restart the cluster services (on all nodes)
+11. Restart the cluster services (on all nodes)
 
 	```
 	systemctl stop pcsd
@@ -532,7 +522,7 @@ pacemaker service.
 	systemctl start pcsd
 	```
 
-* Corosync must start the SBD service
+12. Corosync must start the SBD service
 
 	```
 	systemctl status sbd
@@ -545,7 +535,7 @@ pacemaker service.
 	Active: active (running) since Wed 2021-01-20 01:43:41 EST; 9min ago
 	```
 
-* Restart the cluster (if not automatically started from pcsd)
+13. Restart the cluster (if not automatically started from pcsd)
 
 	```
 	pcs cluster start –-all
@@ -560,7 +550,7 @@ pacemaker service.
 	```
   
 
-* Enable Stonith settings
+14. Enable Stonith settings
 	```
 	pcs stonith enable SBD --device=/dev/mapper/3600a098038304179392b4d6c6e2f4d65
 	pcs property set stonith-watchdog-timeout=20
@@ -568,7 +558,7 @@ pacemaker service.
 	```
   
 
-* Check the new cluster status with now one resource
+15. Check the new cluster status with now one resource
 	```
 	pcs status
 
@@ -608,7 +598,7 @@ pacemaker service.
 	```
   
 
-* Now the IPMI timer must run and the /dev/watchdog device must be opened by sbd.
+16. Now the IPMI timer must run and the /dev/watchdog device must be opened by sbd.
 
 	```
 	ipmitool mc watchdog get
@@ -634,7 +624,7 @@ pacemaker service.
 	sbd 117569 root 5w CHR 10,130 0t0 323812 /dev/watchdog
 	```
 
-* Check the SBD status
+17. Check the SBD status
 
 	```
 	sbd -d /dev/mapper/3600a098038304445693f4c467446447a list
@@ -645,7 +635,7 @@ pacemaker service.
 	```
   
 
-* Test the SBD fencing by crashing the kernel
+18. Test the SBD fencing by crashing the kernel
 
   * Trigger the Kernel Crash
 
@@ -663,34 +653,28 @@ pacemaker service.
 	```
   
 
-* For the rest of the SAP HANA clustering you can disable STONITH by setting:
+19. For the rest of the SAP HANA clustering you can disable STONITH by setting:
 
   * pcs property set stonith-enabled=false
-
-  
-
   * This parameter must be set to true for productive usage!!! 
   * If not set to true this cluster will be not supported.
   * pcs property set stonith-enabled=true 
 
-### HANA Integration into the Cluster
+## HANA Integration into the Cluster
 ```
 To integrate HANA into the cluster we first need to differentiate between two options.
-Option one is the cost optimized solution where the customer can use the secondary system to run e.g. the QAS system on it. This is not recommended because there is no system available to test updates on the cluster software, OS, HANA… or even configuration updates can lead to unplanned downtime of the PRD system. AND in addition to this, if the PRD system must be activated on the secondary system it is required to shutdown the QAS system on the secondary node. But it is an option
-
-A much better option is to create a cost optimized scenario where the data base can be switched over directly. Only this scenario is described here in this document. In this case we recommend installing one cluster for the QAS system and a separate cluster for the PRD system. Only in this case it is possible to test all components before it goes into production.
-  
-  ```
+Option one is the cost optimized solution where the customer can use the secondary system to run e.g. the QAS system on it. This isnot 	recommended because there is no system available to test updates on the cluster software, OS, HANA… or even configurationupdates can 	lead to unplanned downtime of the PRD system. AND in addition to this, if the PRD system must be activated on thesecondary system it is 	required to shutdown the QAS system on the secondary node. But it is an option
+A much better option is to create a cost optimized scenario where the data base can be switched over directly. Only this scenario is	described here in this document. In this case we recommend installing one cluster for the QAS system and a separate cluster forthe PRD 	system. Only in this case it is possible to test all components before it goes into production.
+```
 
 * This process is build of the RHEL description on page:
 
   * https://access.redhat.com/articles/3004101
 
- #### Steps to follow to configure HSR
+ ### Steps to follow to configure HSR
 
-* These are the actions to execute on node1 (primary)
+1.  These are the actions to execute on node1 (primary)
 
- 
 	```
 	  Make sure, that the database logmode is set to normal
 
@@ -802,7 +786,7 @@ A much better option is to create a cost optimized scenario where the data base 
 	done.
 	```
 
- #### These are the actions to execute on node2 (secondary)
+ 2. These are the actions to execute on node2 (secondary)
 	```
 
 	* Stop the database
@@ -932,7 +916,7 @@ A much better option is to create a cost optimized scenario where the data base 
 	~~~~~~~~~~~~~~
 	```
 
-* It is also possible to get more information on the replication status:
+3. It is also possible to get more information on the replication status:
 	```
 	~~~~~
 	hr2adm@node1:/usr/sap/HR2/HDB00> python
@@ -1009,9 +993,9 @@ global.ini
 <ip-address_site>=<internal-host-name_site>
 ```
 
-### Configuring SAP HANA in a pacemaker cluster
+## Configuring SAP HANA in a pacemaker cluster
 
-#####  This guide will assume that following things are working properly:
+###  This guide will assume that following things are working properly:
 
   
 
@@ -1031,13 +1015,15 @@ Both nodes are subscribed to 'High-availability' and 'RHEL for SAP HANA' (RHEL 6
 
 https://access.redhat.com/solutions/645843 --> quorum Policy
 
-#### Steps to configure 
-
+### Steps to configure 
+1. Configure pcs 
 	```
 	[root@node1 ~]# pcs property unset no-quorum-policy (optional – only if it was set before)
 	[root@node1 ~]# pcs resource defaults resource-stickiness=1000
 	[root@node1 ~]# pcs resource defaults migration-threshold=5000
-
+	```
+2.  Configure corosync
+	```
 	https://access.redhat.com/solutions/1293523 --> quorum information RHEL7
 
 	cat /etc/corosync/corosync.conf
@@ -1103,7 +1089,7 @@ https://access.redhat.com/solutions/645843 --> quorum Policy
 	```
   
 
-* Create cloned SAPHanaTopology resource
+1.  Create cloned SAPHanaTopology resource
 	```
 	pcs resource create SAPHanaTopology_HR2_00 SAPHanaTopology SID=HR2 InstanceNumber=00 --clone clone-max=2 clone-node-max=1 interleave=true
 	SAPHanaTopology resource is gathering status and configuration of SAP
@@ -1139,30 +1125,30 @@ https://access.redhat.com/solutions/645843 --> quorum Policy
 
 	```
 
-* Create Primary/Secondary SAPHana resource
+3.  Create Primary/Secondary SAPHana resource
 
-```
-SAPHana resource is responsible for starting, stopping and relocating the SAP HANA database. This resource must be run as a Primary/Secondary cluster resource. The resource has the following attributes.
+	```
+	SAPHana resource is responsible for starting, stopping and relocating the SAP HANA database. This resource must be run as a Primary/	Secondary cluster resource. The resource has the following attributes.
 
+	
+
+	Attribute Name Required? Default value Description
+
+	SID Yes None SAP System Identifier (SID) of SAP HANA installation. Must be same for all nodes.
+
+	InstanceNumber Yes none 2-digit SAP Instance identifier.
+
+	PREFER_SITE_TAKEOVER
+
+	no yes Should cluster prefer to switchover to secondary instance instead of restarting primary locally? ("no": Do prefer restart locally; 	"yes": Do prefer takeover to remote site)
+
+	AUTOMATED_REGISTER no false Should the former SAP HANA primary be registered as secondary after takeover and DUPLICATE_PRIMARY_TIMEOUT? 	("false": no, manual intervention will be needed; "true": yes, the former primary will be registered by resource agent as secondary)
+
+	DUPLICATE_PRIMARY_TIMEOUT no 7200 Time difference (in seconds) needed between primary time stamps, if a dual-primary situation occurs. If 	the time difference is less than the time gap, then the cluster holds one or both instances in a "WAITING" status. This is to give an 	admin a chance to react on a failover. A failed former primary will be registered after the time difference is passed. After this 	registration to the new primary all data will be overwritten by the system replication.
+	```
   
 
-Attribute Name Required? Default value Description
-
-SID Yes None SAP System Identifier (SID) of SAP HANA installation. Must be same for all nodes.
-
-InstanceNumber Yes none 2-digit SAP Instance identifier.
-
-PREFER_SITE_TAKEOVER
-
-no yes Should cluster prefer to switchover to secondary instance instead of restarting primary locally? ("no": Do prefer restart locally; "yes": Do prefer takeover to remote site)
-
-AUTOMATED_REGISTER no false Should the former SAP HANA primary be registered as secondary after takeover and DUPLICATE_PRIMARY_TIMEOUT? ("false": no, manual intervention will be needed; "true": yes, the former primary will be registered by resource agent as secondary)
-
-DUPLICATE_PRIMARY_TIMEOUT no 7200 Time difference (in seconds) needed between primary time stamps, if a dual-primary situation occurs. If the time difference is less than the time gap, then the cluster holds one or both instances in a "WAITING" status. This is to give an admin a chance to react on a failover. A failed former primary will be registered after the time difference is passed. After this registration to the new primary all data will be overwritten by the system replication.
-```
-  
-
-* Create the HANA resource
+5.  Create the HANA resource
 	```
 	pcs resource create SAPHana_HR2_00 SAPHana SID=HR2 InstanceNumber=00 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 	AUTOMATED_REGISTER=true primary notify=true clone-max=2 clone-node-max=1 interleave=true
 
@@ -1264,7 +1250,7 @@ DUPLICATE_PRIMARY_TIMEOUT no 7200 Time difference (in seconds) needed between pr
 	+ primary-SAPHana_HR2_00 : 100
 	```
 
-* Create Virtual IP address resource
+6.  Create Virtual IP address resource
 
 	```
 	Cluster will contain Virtual IP address in order to reach the Primary instance of SAP HANA. Below is example command to create IPaddr2 	resource with IP 10.7.0.84/24
@@ -1284,7 +1270,7 @@ DUPLICATE_PRIMARY_TIMEOUT no 7200 Time difference (in seconds) needed between pr
 		stop interval=0s timeout=20s (vip_HR2_00-stop-interval-0s)
 	```
 
-* Create constraints
+7.  Create constraints
 
 	```
 	For correct operation we need to ensure that SAPHanaTopology resources are started before starting the SAPHana resources and also that 	the virtual IP address is present on the node where the Primary resource of SAPHana is running. To achieve this, the following 2 	constraints need to be created.
@@ -1297,75 +1283,43 @@ DUPLICATE_PRIMARY_TIMEOUT no 7200 Time difference (in seconds) needed between pr
 
 #### (SAP Hana takeover by cluster)
 
-	```
-	To test out the move of the SAPHana resource from one node to another, use the command below. Note that the option --primary should NOT 	be used when running the below command due to the way how the SAPHana resource works internally.
+```
+To test out the move of the SAPHana resource from one node to another, use the command below. Note that the option --primary shouldNOT 	be used when running the below command due to the way how the SAPHana resource works internally.
+pcs resource move SAPHana_HR2_00-primary
 
-	pcs resource move SAPHana_HR2_00-primary
+IMPORTANT: After each pcs resource move command invocation the cluster
+creates location constraints to achieve the move of the resource.
+These constraints must be removed in order to allow automatic failover
+in the future.
+To remove them you can use the command :
 
-	
-
-	IMPORTANT: After each pcs resource move command invocation the cluster
-	creates location constraints to achieve the move of the resource.
-	These constraints must be removed in order to allow automatic failover
-	in the future.
-
-	To remove them you can use the command :
-
-	
-
-	pcs resource clear SAPHana_HR2_00-primary
-
-
-	crm_mon -A1
-
-	Node Attributes:
-
-		* Node node1.localdomain:
-
-		+ hana_hr2_clone_state : DEMOTED
-
-		+ hana_hr2_remoteHost : node2
-
-		+ hana_hr2_roles : 2:P:primary1::worker:
-
-		+ hana_hr2_site : DC1
-
-		+ hana_hr2_srmode : syncmem
-
-		+ hana_hr2_sync_state : PRIM
-
-		+ hana_hr2_version : 2.00.033.00.1535711040
-
-		+ hana_hr2_vhost : node1
-
-		+ lpa_hr2_lpt : 1540867236
-
-		+ primary-SAPHana_HR2_00 : 150
-
-		* Node node2.localdomain:
-
-		+ hana_hr2_clone_state : PROMOTED
-
-		+ hana_hr2_op_mode : logreplay
-
-		+ hana_hr2_remoteHost : node1
-
-		+ hana_hr2_roles : 4:S:primary1:primary:worker:primary
-
-		+ hana_hr2_site : DC2
-
-		+ hana_hr2_srmode : syncmem
-
-		+ hana_hr2_sync_state : SOK
-
-		+ hana_hr2_version : 2.00.033.00.1535711040
-
-		+ hana_hr2_vhost : node2
-
-		+ lpa_hr2_lpt : 1540867311
-
-		+ primary-SAPHana_HR2_00 : 100
-	```
+pcs resource clear SAPHana_HR2_00-primary
+crm_mon -A1
+Node Attributes:
+	* Node node1.localdomain:
+	+ hana_hr2_clone_state : DEMOTED
+	+ hana_hr2_remoteHost : node2
+	+ hana_hr2_roles : 2:P:primary1::worker:
+	+ hana_hr2_site : DC1
+	+ hana_hr2_srmode : syncmem
+	+ hana_hr2_sync_state : PRIM
+	+ hana_hr2_version : 2.00.033.00.1535711040
+	+ hana_hr2_vhost : node1
+	+ lpa_hr2_lpt : 1540867236
+	+ primary-SAPHana_HR2_00 : 150
+	* Node node2.localdomain:
+	+ hana_hr2_clone_state : PROMOTED
+	+ hana_hr2_op_mode : logreplay
+	+ hana_hr2_remoteHost : node1
+	+ hana_hr2_roles : 4:S:primary1:primary:worker:primary
+	+ hana_hr2_site : DC2
+	+ hana_hr2_srmode : syncmem
+	+ hana_hr2_sync_state : SOK
+	+ hana_hr2_version : 2.00.033.00.1535711040
+	+ hana_hr2_vhost : node2
+	+ lpa_hr2_lpt : 1540867311
+	+ primary-SAPHana_HR2_00 : 100
+```
   
 
 * Login to HANA as verification
