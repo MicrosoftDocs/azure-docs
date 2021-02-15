@@ -15,7 +15,7 @@ This quickstart demonstrates how to use the Azure portal to create a fully manag
 
 You can also consult a more in-depth set of instructions on [Deploying Azure Databricks in your Azure Virtual Network (VNET Injection)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). 
 
-## Installing Azure Databricks in a VNET with Azure Managed Instance for Apache Cassandra
+## Install Azure Databricks in a VNET with the managed instance
 
 First, take note of the address space in your VNET:
 
