@@ -4,7 +4,7 @@ description: The Azure Bastion security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 02/12/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -67,7 +67,11 @@ Connectivity to Gateway Manager and Azure service tag is protected (locked down)
 
 **Guidance**: Azure Bastion is integrated with Azure Active Directory (Azure AD) which is Azure's default identity and access management service. Users can access the Azure portal using Azure AD authentication to manage Azure Bastion service (create, update, and delete Bastion resources).
 
-Connecting to virtual machines using Azure Bastion relies on either an SSH key or username/password, and currently does not support the use of Azure AD credentials.
+Connecting to virtual machines using Azure Bastion relies on either an SSH key or username/password, and currently does not support the use of Azure AD credentials. 
+
+You can store your SSH keys as Azure Key Vault secrets and use these secrets to connect to your virtual machines using Azure Bastion. You can control user access to these secrets by [assigning Key Vault access policies](../key-vault/general/assign-access-policy-portal.md) either on individual users or Azure AD groups. Your users will need the following permissions to use this method to connect to a virtual machine:
+- **Get** access to the secrets stored in the chosen Azure Key Vault
+- **List** access to the secrets stored in the chosen Azure Key Vault
 
 In addition to an SSH key or username/password, when connecting to virtual machines using Azure Bastion your user will need the following role assignments:
 - Reader role on the target virtual machine
@@ -104,7 +108,8 @@ For more information, see the following references:
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
-**Guidance**: Azure Bastion is integrated with Azure Active Directory (Azure AD) for access and management of the service. Configure Azure Multi-Factor Authentication for your Azure AD tenant. Azure AD supports strong authentication controls through multi-factor authentication (MFA) and strong passwordless methods.  
+**Guidance**: Azure Bastion is integrated with Azure Active Directory (Azure AD) for access and management of the service. Configure Azure Active Directory Multi-Factor Authentication for your Azure AD tenant. Azure AD supports strong authentication controls through multi-factor authentication (MFA) and strong passwordless methods.
+  
 - Multi-factor authentication: Enable Azure AD MFA and follow Azure Security Center identity and access management recommendations for your MFA setup. MFA can be enforced on all users, select users, or at the per-user level based on sign-in conditions and risk factors. 
 
 - Passwordless authentication: Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app,  and on-premises authentication methods such as smart cards. 
@@ -373,7 +378,7 @@ Enable and collect network security group (NSG) resource logs and NSG flow logs 
 
 - [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Enable Azure resource logs for Azure Bastion ](diagnostic-logs.md)
+- [Enable Azure resource logs for Azure Bastion](diagnostic-logs.md)
 
 **Azure Security Center monitoring**: Not applicable
 

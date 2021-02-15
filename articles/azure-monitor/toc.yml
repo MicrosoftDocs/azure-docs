@@ -978,10 +978,14 @@
         href: app/sharepoint.md
       - name: Windows desktop
         href: app/windows-desktop.md
-    - name: Other tools
-      items: 
-      - name: Change analysis
-        href: app/change-analysis.md
+  - name: Change Analysis
+    items:
+    - name: Overview
+      href: app/change-analysis.md
+    - name: Visualizations
+      href: app/change-analysis-visualizations.md
+    - name: Troubleshoot
+      href: app/change-analysis-troubleshoot.md
   - name: Azure Monitor for VMs
     items:
     - name: Overview
