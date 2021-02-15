@@ -36,9 +36,9 @@ Get answers to your identity app development questions directly from Microsoft e
 
 [Microsoft Q&A](/answers/products/) is Azure's recommended source of community support.
 
-If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Use one of following tags when you ask your [high-quality question](https://docs.microsoft.com/en-us/answers/articles/24951/how-to-write-a-quality-question.html):
+If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Use one of following tags when you ask your [high-quality question](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html):
 
-| Component/area| Tags|
+| Component/area| Tags  |
 |------------|---------------------------|
 | Active Directory Authentication Library (ADAL)                              | [[adal]](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html)                |
 | Microsoft Authentication Library (MSAL)                                     | [[msal]](https://docs.microsoft.com/answers/topics/azure-ad-msal.html)                            |
@@ -114,4 +114,3 @@ News and information about Azure AD is shared at the [Azure Active Directory Ide
 Also, share your experiences, engage and learn from experts in the [Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/).
 
 
-[What is the Microsoft Identity Platform?](v2-overview.md)
