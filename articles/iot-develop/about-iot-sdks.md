@@ -10,11 +10,11 @@ ms.date: 02/11/2021
 
 # Overview of Azure IoT Device SDKs
 
-The Azure IoT device SDKs are a set of device client libraries, developer guides, samples, and documentation. The SDKs help to programmatically connect devices to Azure IoT services.
+The Azure IoT device SDKs are a set of device client libraries, developer guides, samples, and documentation. The device SDKs help you to programmatically connect devices to Azure IoT services.
 
 :::image type="content" border="false" source="media/about-iot-sdks/iot-sdk-diagram.png" alt-text="Diagram showing various Azure IoT SDKs":::
 
-As the diagram shows, you can use Azure IoT Device SDKs to connect your devices to the cloud. Various SDKs are available to fit your device and programming language needs. Guidance on selecting the appropriate device SDK is available in the section [Which SDK should I use](#which-sdk-should-i-use). Additionally, Azure IoT offers Service SDKs--these SDKs allow your cloud-based application to connect with Azure IoT services on the backend. This article will focus on device SDKs, but you can learn more about [Azure IoT's Service SDKs below](#service-sdks).
+As the diagram shows, there are several device SDKs available to fit your device and programming language needs. Guidance on selecting the appropriate device SDK is available in [Which SDK should I use](#which-sdk-should-i-use). There are also Azure IoT service SDKs available to connect your cloud-based application with Azure IoT services on the backend. This article focuses on the device SDKs, but you can learn more about Azure service SDKs [here](#service-sdks).
 
 ## Why should I use the Azure IoT Device SDKs?
 
@@ -38,7 +38,7 @@ An unconstrained device is one that has a more robust CPU, which is capable of r
 
 ### Your team’s familiarity with the programming language
 
-Azure IoT SDKs are implemented in multiple languages so you can choose the language you prefer. It also maximizes your ability to integrate smoothly with other familiar, language-specific tools. Language familiarity optimizes for quality throughout the development cycle of research, prototyping, product development, and ongoing maintenance.
+Azure IoT device SDKs are implemented in multiple languages so you can choose the language that your prefer. The device SDKs also integrate with other familiar, language-specific tools. Being able to work with a familiar development language and tools, enables your team to optimize the development cycle of research, prototyping, product development, and ongoing maintenance.
 
 Whenever possible, select an SDK that feels familiar to your development team. All Azure IoT SDKs are open source and have several samples available for your team to evaluate and test before committing to a specific SDK.
 
