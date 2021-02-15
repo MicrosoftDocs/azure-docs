@@ -62,7 +62,6 @@ locations
 ---------
 {eastus}
 {eastus2}
-{eastus2(stage)}
 {westus}
 {westeurope}
 {eastasia}
