@@ -85,7 +85,7 @@ db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughpu
 
 ## <a id="update-database"></a> Update database
 
-The update database extension command updates the properties associated with the specified database. The following table describes the parameters within the command:
+The update database extension command updates the properties associated with the specified database. Changing your database from provisioned throughput to autoscale and vice-versa is only supported in the Azure Portal. The following table describes the parameters within the command:
 
 |**Field**|**Type** |**Description** |
 |---------|---------|---------|
@@ -289,7 +289,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", s
 
 ## <a id="update-collection"></a> Update collection
 
-The update collection extension command updates the properties associated with the specified collection.
+The update collection extension command updates the properties associated with the specified collection. Changing your collection from provisioned throughput to autoscale and vice-versa is only supported in the Azure Portal.
 
 ```javascript
 {
