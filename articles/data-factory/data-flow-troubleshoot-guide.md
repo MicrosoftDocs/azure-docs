@@ -14,7 +14,7 @@ ms.date: 09/11/2020
 
 This article explores common troubleshooting methods for mapping data flows in Azure Data Factory.
 
-## Common Error Codes and Messages 
+## Common error codes and messages 
 
 ### Error code: DF-Executor-SourceInvalidPayload
 - **Message**: Data preview, debug, and pipeline data flow execution failed because container does not exist
@@ -37,11 +37,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 - **Message**: Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs
 - **Causes**: Broadcast has a default timeout of 60 secs in debug runs and 300 seconds in job runs. Stream chosen for broadcast seems too large to produce data within this limit.
-- **Recommendation**: Check the Optimize tab on your data flow transformations for Join, Exists, and Lookup. The default option for Broadcast is "Auto". If "Auto" is set, or if you are manually setting the left or right side to broadcast under "Fixed", then you can either set a larger Azure Integration Runtime configuration, or switch off broadcast. The recommended approach for best performance in data flows is to allow Spark to broadcast using "Auto" and use a Memory Optimized Azure IR.
-
- If you are executing the data flow in a debug test execution from a debug pipeline run, you may run into this condition more frequently. This is because ADF throttles the broadcast timeout to 60 secs in order to maintain a faster debug experience. If you would like to extend that to the 300-seconds timeout from a triggered run, you can use the Debug > Use Activity Runtime option to utilize the Azure IR defined in your Execute Data Flow pipeline activity.
- 
-- --
+- **Recommendation**: Check the Optimize tab on your data flow transformations for Join, Exists, and Lookup. The default option for Broadcast is "Auto". If "Auto" is set, or if you are manually setting the left or right side to broadcast under "Fixed", then you can either set a larger Azure Integration Runtime configuration, or switch off broadcast. The recommended approach for best performance in data flows is to allow Spark to broadcast using "Auto" and use a Memory Optimized Azure IR. If you are executing the data flow in a debug test execution from a debug pipeline run, you may run into this condition more frequently. This is because ADF throttles the broadcast timeout to 60 secs in order to maintain a faster debug experience. If you would like to extend that to the 300-seconds timeout from a triggered run, you can use the Debug > Use Activity Runtime option to utilize the Azure IR defined in your Execute Data Flow pipeline activity.
 
 - **Message**: Broadcast join timeout error, you can choose 'Off' of broadcast option in join/exists/lookup transformation to avoid this issue. If you intend to broadcast join option to improve performance then make sure broadcast stream can produce data within 60 secs in debug runs and 300 secs in job runs.
 - **Causes**: Broadcast has a default timeout of 60 secs in debug runs and 300 secs in job runs. On broadcast join, the stream chosen for broadcast seems too large to produce data within this limit. If a broadcast join is not used, the default broadcast done by dataflow can reach the same limit
@@ -136,7 +132,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Message**: Please make sure that the access key in your Linked Service is correct.
 - **Causes**: Account Name or Access Key is incorrect.
 - **Recommendation**: Please supply right account name or access key.
-- --
+
 - **Message**: Please make sure that the access key in your Linked Service is correct
 - **Causes**: Account Name or Access Key incorrect
 - **Recommendation**: Ensure the account name or access key specified in your linked service is correct. 
@@ -173,15 +169,15 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Message**: Excel sheet name or index is required.
 - **Causes**: Undetermined
 - **Recommendation**: Please check parameter value and specify sheet name or index to read Excel data.
-- ---
+
 - **Message**: Excel sheet name and index cannot exist at the same time.
 - **Causes**: Undetermined
 - **Recommendation**: Please check parameter value and specify sheet name or index to read Excel data.
-- --
+
 - **Message**: Invalid range is provided.
 - **Causes**: Undetermined
 - **Recommendation**: Please check parameter value and specify valid range by reference: [Excel properties](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
-- --
+
 - **Message**: Invalid excel file is provided while only .xlsx and .xls are supported
 - **Causes**: Undetermined
 - **Recommendation**: Make sure Excel file extension is either .xlsx or .xls.
@@ -191,11 +187,11 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Message**: Excel worksheet does not exist.
 - **Causes**: Undetermined
 - **Recommendation**: Please check parameter value and specify valid sheet name or index to read Excel data.
-- --
+
 - **Message**: Reading excel files with different schema is not supported now.
 - **Causes**: Undetermined
 - **Recommendation**: Use correct Excel file.
-- --
+
 - **Message**: Data type is not supported.
 - **Causes**: Undetermined
 - **Recommendation**: Please use Excel file right data types.
@@ -216,7 +212,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Causes**: Data flow does not support the linked services with self-hosted integration runtime.
 - **Recommendation**: Please configure Data flow to run on integration runtime with 'Managed Virtual Network'.
 
-## Miscellaneous Troubleshooting Tips
+## Miscellaneous troubleshooting tips
 - **Issue**: Hit unexpected exception and execution failed
 	- **Message**: During Data Flow activity execution: Hit unexpected exception and execution failed.
 	- **Causes**: This is a back-end service error. You can retry the operation and also restart your debug session.
@@ -239,3 +235,5 @@ This article explores common troubleshooting methods for mapping data flows in A
 1. Check the status of your dataset connections. In each Source and Sink transformation, visit the Linked Service for each dataset that you are using and test connections.
 2. Check the status of your file and table connections from the data flow designer. Switch on Debug and click on Data Preview on your Source transformations to ensure that you are able to access your data.
 3. If everything looks good from data preview, go into the Pipeline designer and put your data flow in a pipeline activity. Debug the pipeline for an end-to-end test.
+
+
