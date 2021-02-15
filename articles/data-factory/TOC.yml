@@ -105,6 +105,8 @@
     items:
     - name: Transform data with mapping data flows
       items:
+      - name: Transform data in the lake with Delta Lake
+        href: tutorial-data-flow-delta-lake.md
       - name: Transform data with mapping data flows
         href: tutorial-data-flow.md
       - name: Mapping data flow video tutorials
@@ -556,6 +558,8 @@
       href: data-flow-lookup.md
     - name: New branch
       href: data-flow-new-branch.md
+    - name: Parse
+      href: data-flow-parse.md
     - name: Pivot
       href: data-flow-pivot.md
     - name: Rank
@@ -760,6 +764,10 @@
       href: solution-template-databricks-notebook.md
   - name: Understanding pricing
     items:
+    - name: Data flow reserved capacity overview
+      href: data-flow-reserved-capacity-overview.md
+    - name: Data flow understand reservation charges
+      href: data-flow-understand-reservation-charges.md
     - name: Plan and manage costs     
       href: plan-manage-costs.md 
     - name: Pricing examples     
@@ -802,6 +810,8 @@
     href: /azure/templates/microsoft.datafactory/allversions
   - name: Python
     href: /python/api/overview/azure/datafactory
+  - name: Azure Policy built-ins
+    href: policy-reference.md
 - name: Resources
   items:
   - name: Whitepapers

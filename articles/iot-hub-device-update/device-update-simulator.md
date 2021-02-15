@@ -1,11 +1,11 @@
 ---
 title: Getting Started Using Ubuntu (18.04 x64) Simulator Reference Agent | Microsoft Docs
 description: Getting Started Using Ubuntu (18.04 x64) Simulator Reference Agent.
-author: philmea
-ms.author: philmea
-ms.date: 1/11/2021
-ms.topic: conceptual
-ms.service: iot-hub
+author: vimeht
+ms.author: vimeht
+ms.date: 2/11/2021
+ms.topic: tutorial
+ms.service: iot-hub-device-update
 ---
 
 # Getting Started Using Ubuntu (18.04 x64) Simulator Reference Agent
@@ -37,7 +37,7 @@ PS> Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsyst
 
 3. Start "Ubuntu 18.04 LTS" and install.
 
-4. When installed, you will be asked to set root name (username) and password. Be sure to use a memorable root name password.
+4. When installed, you'll be asked to set root name (username) and password. Be sure to use a memorable root name password.
 
 5. In PowerShell, run the following command to set Ubuntu to be the default Linux distribution:
 
@@ -57,7 +57,7 @@ PS> wsl --list
 
 The Ubuntu update image can be downloaded from the *Assets* section from release notes [here](https://github.com/Azure/iot-hub-device-update/releases).
 
-There are two versions of the agent. If you are exercising image-based scenario use AducIotAgentSim-microsoft-swupdate and if you are exercising package-based scenario use AducIotAgentSim-microsoft-apt.
+There are two versions of the agent. If you're exercising image-based scenario, use AducIotAgentSim-microsoft-swupdate and if you are exercising package-based scenario, use AducIotAgentSim-microsoft-apt.
 
 ## Install Device Update Agent simulator
 
@@ -67,7 +67,7 @@ There are two versions of the agent. If you are exercising image-based scenario 
   explorer.exe .
   ```
 
-2. Copy AducIotAgentSim-microsoft-swupdate (or AducIotAgentSim-microsoft-apt) from your local folder where it was downloaded under /mnt to your home folder inside of WSL.
+2. Copy AducIotAgentSim-microsoft-swupdate (or AducIotAgentSim-microsoft-apt) from your local folder where it was downloaded under /mnt to your home folder in WSL.
 
 3. Run the following command to make the binaries executable.
 
@@ -83,16 +83,16 @@ There are two versions of the agent. If you are exercising image-based scenario 
 
 ## Add device to Azure IoT Hub
 
-Once the Device Update Agent is running on an IoT device, the device needs to be added to the Azure IoT Hub.  From within the Azure IoT Hub a connection string will be generated for a particular device.
+Once the Device Update Agent is running on an IoT device, the device needs to be added to the Azure IoT Hub.  From within Azure IoT Hub, a connection string will be generated for a particular device.
 
 1. From the Azure portal, launch the Device Update IoT Hub.
 2. Create a new device.
 3. On the left-hand side of the page, navigate to 'Explorers' > 'IoT Devices' > Select "New".
 4. Provide a name for the device under 'Device ID'--Ensure that "Autogenerate keys" is checkbox is selected.
 5. Select 'Save'.
-6. Now, you will be returned to the 'Devices' page and the device you created should be in the list. Select that device.
+6. Now, you'll be returned to the 'Devices' page and the device you created should be in the list. Select that device.
 7. In the device view, select the 'Copy' icon next to 'Primary Connection String'.
-8. Paste the copied characters somewhere for later use in the steps below. **This is your device connection string**.
+8. Paste the copied characters somewhere for later use in the steps below. **This copied string is your device connection string**.
 
 ## Add connection string to simulator
 
@@ -111,11 +111,10 @@ or
 ./AducIotAgentSim-microsoft-apt '{device connection string}'
 ```
 
-3. Scroll up and look for the string indicating that the device is in "Idle" state, which means it is ready for service commands:
+3. Scroll up and look for the string indicating that the device is in "Idle" state. An "Idle" state signifies that the device is ready for service commands:
 
 ```markdown
 Agent running. [main]
 ```
 
-> [!div class="nextstepaction"]
-> [Import New Update](import-update.md)
+[Next steps: Import new update](import-update.md)

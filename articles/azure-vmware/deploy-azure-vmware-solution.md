@@ -63,13 +63,13 @@ In this example, the 10.74.72.0/22 network was input during deployment derives t
 
 ## Connect and sign in to vCenter and NSX-T
 
-Log into the jump box you created in the earlier step. Once you've logged in, open a web browser and navigate to and log into both vCenter and NSX-T admin console.  
+Log into the jump box you created in the earlier step. Once you've logged in, open a web browser and navigate to and log into both vCenter and NSX-T Manager.  
 
-You can identify the vCenter, and NSX-T admin console's IP addresses and credentials in the Azure portal.  Select your private cloud and then in the **Overview** view, select **Identity > Default**. 
+You can identify the vCenter, and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then in the **Overview** view, select **Identity > Default**. 
 
 ## Create a network segment on Azure VMware Solution
 
-You use NSX-T to create new network segments in your Azure VMware Solution environment.  You defined the networks you want to create in the [planning section](production-ready-deployment-steps.md).  If you haven't defined them, go back to the [planning section](production-ready-deployment-steps.md) before proceeding.
+You use NSX-T Manager to create new network segments in your Azure VMware Solution environment.  You defined the networks you want to create in the [planning section](production-ready-deployment-steps.md).  If you haven't defined them, go back to the [planning section](production-ready-deployment-steps.md) before proceeding.
 
 >[!IMPORTANT]
 >Make sure the CIDR network address block you defined doesn't overlap with anything in your Azure or on-premises environments.  
