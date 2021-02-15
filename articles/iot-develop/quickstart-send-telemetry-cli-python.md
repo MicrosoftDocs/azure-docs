@@ -1,17 +1,19 @@
 ---
 title: Send device telemetry to Azure IoT Hub quickstart (Python) 
 description: In this quickstart, you use the Azure IoT Hub Device SDK for Python to send telemetry from a device to an Iot hub.
-author: elhorton
-ms.author: elhorton
+author: timlt
+ms.author: timlt
 ms.service: iot-develop
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/11/2021
 ---
 
-# Quickstart: Send telemetry from a device to an IoT hub (Python)
+# Quickstart: Send telemetry from a device to an Azure IoT hub (Python)
 
-In this quickstart, you learn a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You use the Azure CLI to create an IoT hub and a device, then you use the Azure IoT Python SDK to build a simulated client device and send telemetry to the hub. 
+**Applies to**: [Device application development](about-iot-develop.md#device-application-development)
+
+In this quickstart, you learn a basic IoT device application development workflow. You use the Azure CLI to create an Azure IoT hub and a device, then you use the Azure IoT Python SDK to build a simulated client device and send telemetry to the hub. 
 
 ## Prerequisites
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
