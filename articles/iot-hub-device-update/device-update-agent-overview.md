@@ -98,7 +98,7 @@ We have uploaded pre-built Raspberry Pi reference images, Device Update agent bi
 and Device Update agent packages as part of our GitHub releases. Download them to get
 started right away!
 
-If you downloaded our Raspberry Pi reference image, click [here](device-update-raspberry-pi.md) to learn how to get
+If you downloaded our Raspberry Pi reference image, Learn more [here](device-update-raspberry-pi.md) on how to get
 started.
 
 ### Build the agent
