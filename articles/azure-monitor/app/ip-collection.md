@@ -236,7 +236,7 @@ requests
 
 Newly collected IP addresses will appear in the `customDimensions_client-ip` column. The default `client-ip` column will still have all four octets either zeroed out. 
 
-If testing from localhost, and the value for `customDimensions_client-ip` is `::1`, this value is expected behavior. `::1` represents the loopback address in IPv6. It's equivalent to `127.0.01` in IPv4.
+If testing from localhost, and the value for `customDimensions_client-ip` is `::1`, this value is expected behavior. `::1` represents the loopback address in IPv6. It's equivalent to `127.0.0.1` in IPv4.
 
 ## Next Steps
 
