@@ -121,8 +121,9 @@ For more information, see [Connect sensors to the on-premises management console
 ## 7. Populate Azure Sentinel with alert information (optional)
 
 Send alert information to Azure Sentinel by configuring Azure Sentinel. See [Connect your data from Defender for IoT to Azure Sentinel](how-to-configure-with-sentinel.md).
-## Next steps
 
-[Welcome to Azure Defender for IoT](overview.md)
+## See also
 
-[Azure Defender for IoT architecture](architecture.md)
+- [Welcome to Azure Defender for IoT](overview.md)
+
+- [Azure Defender for IoT architecture](architecture.md)
