@@ -52,13 +52,19 @@ ms.custom: "include file"
 | Maximum query running time | 10 minutes | See [Timeouts](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) for details.  |
 | Maximum request rate | 200 requests per 30 seconds per Azure AD user or client IP address | See [Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits) for details. |
 
+**Azure Monitor Logs connector**
+| Category | Limit | Comments |
+|:---|:---|:---|
+| Max number of records | 500,000 | |
+| Max query timeout | 110 second | |
+| Charts | | Visualization in Logs page and the connector are using different charting libraries and some functionality isn't available in the connector currently. |
+
 **General workspace limits**
 
 | Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum columns in a table         | 500 | |
 | Maximum characters for column name | 500 | |
-| Data export | Not currently available | Use Azure Function or Logic App to aggregate and export data. | 
 
 **<a name="data-ingestion-volume-rate">Data ingestion volume rate</a>**
 

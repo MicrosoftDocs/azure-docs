@@ -586,16 +586,16 @@
           href: alerts/itsmc-resync-servicenow.md
       - name: Integrate with Secure Export
         items:
-           - name: Overview
-             href: alerts/it-service-management-connector-secure-webhook-connections.md
-           - name: Secure Export Azure Configuration
-             href: alerts/itsm-connector-secure-webhook-connections-azure-configuration.md
-           - name: ITSM Connector Partners Setup
-             items:
-              - name: BMC
-                href: alerts/itsmc-secure-webhook-connections-bmc.md
-              - name: ServiceNow
-                href: alerts/itsmc-secure-webhook-connections-servicenow.md
+        - name: Overview
+          href: alerts/it-service-management-connector-secure-webhook-connections.md
+        - name: Secure Export Azure Configuration
+          href: alerts/itsm-connector-secure-webhook-connections-azure-configuration.md
+        - name: ITSM Connector Partners Setup
+          items:
+          - name: BMC
+            href: alerts/itsmc-secure-webhook-connections-bmc.md
+          - name: ServiceNow
+            href: alerts/itsmc-secure-webhook-connections-servicenow.md
     - name: Migrate classic alert rules
       items:
       - name: About classic alerts 
@@ -1448,23 +1448,3 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
