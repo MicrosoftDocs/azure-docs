@@ -990,7 +990,7 @@
     href: ephemeral-os-disks.md
   - name: Migration and conversion
     items:
-    - name: Convert disk between Standard and Premium
+    - name: Convert disk to another disk type
       items:
       - name: CLI
         href: ./linux/convert-disk-storage.md
