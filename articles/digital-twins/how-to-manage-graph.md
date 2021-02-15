@@ -54,7 +54,7 @@ The following code sample illustrates how to create a relationship in your Azure
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod":::
 
-In your main method, you can now call the `CreateRelationship()` function to create a _contains_ relationship like this: 
+In your main method, you can now call the custom function to create a _contains_ relationship like this: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseCreateRelationship":::
 
@@ -87,7 +87,7 @@ Here is an example that retrieves a list of relationships:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
-You can now call this method to see the outgoing relationships of the twins like this:
+You can now call this custom method to see the outgoing relationships of the twins like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindOutgoingRelationships":::
 
@@ -103,17 +103,17 @@ Note that the `IncomingRelationship` calls don't return the full body of the rel
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindIncomingRelationshipsMethod":::
 
-You can now call this method to see the incoming relationships of the twins like this:
+You can now call this custom method to see the incoming relationships of the twins like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindIncomingRelationships":::
 
 ### List all twin properties and relationships
 
-Using the above methods for listing outgoing and incoming relationships to a twin, you can create a method that prints full twin information, including the twin's properties and both types of its relationships. Here is an example method, called `FetchAndPrintTwinAsync()`, showing how to do this.
+Using the above methods for listing outgoing and incoming relationships to a twin, you can create a method that prints full twin information, including the twin's properties and both types of its relationships. Here is an example custom method showing how to do this.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FetchAndPrintMethod":::
 
-You can now call this function in your main method like this: 
+You can now call this custom function in your main method like this: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFetchAndPrint":::
 
@@ -128,7 +128,7 @@ The required parameters for the client call are the ID of the source twin (the t
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod":::
 
-Here is an example of a call to this method, passing in a JSON Patch document with the information to update a property.
+Here is an example of a call to this custom method, passing in a JSON Patch document with the information to update a property.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseUpdateRelationship":::
 
@@ -138,7 +138,7 @@ The first parameter specifies the source twin (the twin where the relationship o
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod":::
 
-You can now call this method to delete a relationship like this:
+You can now call this custom method to delete a relationship like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 
