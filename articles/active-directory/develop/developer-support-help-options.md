@@ -62,9 +62,9 @@ The following posts from [Microsoft Q&A](https://docs.microsoft.com/answers/prod
     <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
 </div>
 
-For answers on your developer questions from the largest community developer ecosystem, ask your question on Stack Overflow.
+Another option for community support is [Stack Overflow](https://stackoverflow.com).
 
-If you submit a new question to Stack Overflow, please use one or more of the following tags when you create the question:
+If you don't find an answer and ask a new question, add one or more of the following tags to your question:
 
 :::row:::
     :::column:::
