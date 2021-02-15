@@ -39,8 +39,7 @@ Create an Azure Managed Instance for Apache Cassandra cluster:
 resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 location='West US'
-managementVirtualNetworkId = '/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet'
-managementPrivateSubnetName = 'management'
+delegatedManagementSubnetId = '/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/management'
 cassandraVersion='3.11'
 initialCassandraAdminPassword='myPassword'
 
@@ -51,16 +50,11 @@ az cassandra-mi cluster create \
     --clusterName $clusterName \
     --resourceGroupName $resourceGroupName \
     --delegatedManagementSubnetId $delegatedManagementSubnetId \
-    --managementPrivateSubnetName $managementPrivateSubnetName
     --cassandraVersion $cassandraVersion \
     --initialCassandraAdminPassword $initialCassandraAdminPassword \
-    --externalSeedNodes ipAddress='10.52.221.2' \
-    --externalSeedNodes ipAddress='10.52.221.3' \
-    --externalSeedNodes ipAddress='10.52.221.4' \
-    --clientCertificates pem='BEGIN CERTIFICATE-----\n...Base64 encoded certificate 1...\n-----END CERTIFICATE-----' \
-    --clientCertificates pem='BEGIN CERTIFICATE-----\n...Base64 encoded certificate 2...\n-----END CERTIFICATE-----' \
-    --externalGossipCertificates pem='BEGIN CERTIFICATE-----\n...Base64 encoded certificate 1...\n-----END CERTIFICATE-----' \
-    --externalGossipCertificates pem='BEGIN CERTIFICATE-----\n...Base64 encoded certificate 2...\n-----END CERTIFICATE-----' 
+    --externalSeedNodes 10.52.221.2,10.52.221.3,10.52.221.4
+    --clientCertificates 'BEGIN CERTIFICATE-----\n...Base64 encoded certificate 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...Base64 encoded certificate 2...\n-----END CERTIFICATE-----' \
+    --externalGossipCertificates 'BEGIN CERTIFICATE-----\n...Base64 encoded certificate 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...Base64 encoded certificate 2...\n-----END CERTIFICATE-----' \
 ```
 
 ### Delete a managed Cassandra cluster
@@ -202,8 +196,6 @@ az cassandra-mi datacenter update \
     --resourceGroupName $resourceGroupName \
     --clusterName $clusterName \
     --dataCenterName $dataCenterName \
-    --dataCenterLocation $dataCenterLocation \
-    --delegatedSubnetId $delegatedSubnetId \
     --nodeCount 13 
 ```
 

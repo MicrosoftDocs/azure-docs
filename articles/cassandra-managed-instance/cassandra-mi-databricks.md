@@ -17,15 +17,15 @@ You can also learn more with a detailed instructions on [Deploying Azure Databri
 
 ## Install Azure Databricks in a VNET with the managed instance
 
-First, take note of the address space in your VNET:
+First, navigate to the resource group in Azure portal that contains the VNET in which your Cassandra Managed Instance is deployed. Open the VNET resource, and take note of the address space in your VNET:
 
 ![VNET](./media/cassandra-mi-databricks/vnet.png)
 
-Search for Azure Databricks in the portal:
+Then, from the resource group, click `Add` and search for Azure Databricks in the search field:
 
 ![Databricks](./media/cassandra-mi-databricks/databricks.png)
 
-Select create:
+Select `Create`:
 
 ![Crate Databricks](./media/cassandra-mi-databricks/databricks-create.png)
 
@@ -41,7 +41,7 @@ To avoid range collisions, ensure you select higher ranges. If necessary, use a 
 
 ![Subnet Calculator](./media/cassandra-mi-databricks/subnet-calc.png)
 
-Click review and create, then create to deploy the work space. When created, launch workspace:
+Click `Review and create`, then `Create` to deploy the work space. When created, launch workspace:
 
 ![Databricks Workspace](./media/cassandra-mi-databricks/databricks-workspace.png)
 
