@@ -32,9 +32,11 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 ## Post a question to Microsoft Q&A
 
-For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](https://docs.microsoft.com/answers/products/), Azure’s preferred destination for community support. 
+Get answers to your identity app development questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs), and members of our expert community.
 
-If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
+[Microsoft Q&A](/answers/products/) is Azure's recommended source of community support.
+
+If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Use one of following tags when you ask your [high-quality question](https://docs.microsoft.com/en-us/answers/articles/24951/how-to-write-a-quality-question.html):
 
 | Component/area| Tags|
 |------------|---------------------------|
@@ -46,10 +48,7 @@ If you can't find an answer to your problem using search, submit a new question 
 | [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html)                 |
 | All other authentication and authorization areas                            | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
 
-The following posts from [Microsoft Q&A](https://docs.microsoft.com/answers/products/) contain tips on how to ask questions and how to add source code. Follow these guidelines to increase the chances for community members to assess and respond to your question quickly:
 
-- [How do I ask a good question](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
-- [How to create a minimal, complete, and verifiable example](https://docs.microsoft.com/answers/articles/24907/how-to-write-a-quality-answer.html)
 
 ## Post a question on Stack Overflow
 
@@ -57,9 +56,9 @@ The following posts from [Microsoft Q&A](https://docs.microsoft.com/answers/prod
     <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
 </div>
 
-For answers on your developer questions from the largest community developer ecosystem, ask your question on Stack Overflow.
+Another option for community support is [Stack Overflow](https://stackoverflow.com).
 
-If you submit a new question to Stack Overflow, please use one or more of the following tags when you create the question:
+If you don't find an answer and ask a new question, add one or more of the following tags to your question:
 
 :::row:::
     :::column:::
@@ -115,3 +114,4 @@ News and information about Azure AD is shared at the [Azure Active Directory Ide
 Also, share your experiences, engage and learn from experts in the [Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/).
 
 
+[What is the Microsoft Identity Platform?](v2-overview.md)
