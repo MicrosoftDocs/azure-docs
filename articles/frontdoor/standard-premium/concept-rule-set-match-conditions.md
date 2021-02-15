@@ -14,7 +14,7 @@ ms.author: yuajia
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-This tutorial shows how to create a Rule Set and your first set of rules in both Azure portal.In Azure Front Door [Rule Set](concept-rule-set.md), a rule consists of zero or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in Azure Front Door rule set.
+This tutorial shows you how to create a Rule Set with your first set of rules in the Azure portal. In Azure Front Door Standard/Premium [Rule Set](concept-rule-set.md), a rule consists of zero or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in Azure Front Door Standard/Premium Rule Set.
 
 The first part of a rule is a match condition or set of match conditions. A rule can consist of up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are done. If you use multiple match conditions, the match conditions are grouped together by using AND logic. For all match conditions that support multiple values (noted as "space-separated"), the "OR" operator is assumed.
 
@@ -220,6 +220,6 @@ Regex doesn't support the following operations:
 
 ## Next steps
 
-* Learn more about [Azure Front Door Standard/Premium Rule Set](concept-rule-set.md)
+* Learn more about [Rule Set](concept-rule-set.md)
 * Learn how to [configure your first Rules Set](how-to-configure-rule-set.md)
 * Learn more about [Rule Set actions](concept-rule-set-actions.md)
