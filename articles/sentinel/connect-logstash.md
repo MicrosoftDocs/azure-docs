@@ -23,7 +23,7 @@ ms.author: yelevin
 > [!IMPORTANT]
 > Data ingestion using the Logstash output plugin is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Using Azure Sentinel's new output plugin for the **Logstash data collection engine**, you can now send any type of log you want through Logstash directly to your Log Analytics workspace in Azure Sentinel. Your logs will be sent to a custom table that you will define using the output plugin.
+Using Azure Sentinel's output plugin for the **Logstash data collection engine**, you can send any type of log you want through Logstash directly to your Log Analytics workspace in Azure Sentinel. Your logs will be sent to a custom table that you will define using the output plugin.
 
 To learn more about working with the Logstash data collection engine, see [Getting started with Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html).
 
