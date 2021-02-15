@@ -49,7 +49,7 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 
 :::image type="content" source="./media/expressroute-global-reach/on-prem-cloud-connections.png" alt-text="Enter the ExpressRoute ID and the authorization key, and then select Create.":::
 
-3. Select **create**. The new connection shows in the On-premises cloud connections list.  
+3. Select **Create**. The new connection shows in the On-premises cloud connections list.  
 
 >[!TIP]
 >You can delete or disconnect a connection from the list by selecting **More**.  
