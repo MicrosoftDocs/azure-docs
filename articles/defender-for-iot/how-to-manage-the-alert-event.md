@@ -121,6 +121,6 @@ To export:
 1. Select Export.
 1. Select Export Extended Alerts to export alert information in separate rows for each alert that covers multiple devices. When Export Extended Alerts is selected, the .csv file will create a duplicate row of the alert event with the unique items in each row. Using this option makes it easier to investigate exported alert events.
 
-## See also
+## Next steps
 
 [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)

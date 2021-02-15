@@ -285,6 +285,6 @@ When you're using the tool:
 
 - Confirm with IT the appliance domain (as it appears in the certificate) with your DNS server and the corresponding IP address. 
     
-## See also
+## Next steps
 
 [Defender for IoT API sensor and management console APIs](references-work-with-defender-for-iot-apis.md)

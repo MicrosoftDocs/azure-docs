@@ -410,7 +410,7 @@ The following procedure describes how to update the on-premises management conso
 
 1. Select the file that you downloaded from the Defender for IoT **Updates** page.
 
-## See also
+## Next steps
 
 [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
 
