@@ -529,24 +529,23 @@ Review this list before site deployment:
 
 | **#** | **Task or activity** | **Status** | **Comments** |
 |--|--|--|--|
-| 1 | Provide global. | ☐ |  |
-| 3 | Order appliances. | ☐ |  |
-| 4 | Prepare a list of subnets in the network. | ☐ |  |
-| 5 | Provide a VLAN list of the production networks. | ☐ |  |
-| 6 | Provide a list of switch models in the network. | ☐ |  |
-| 7 | Provide a list of vendors and protocols of the industrial equipment. | ☐ |  |
-| 8 | Provide network details for sensors (IP address, subnet, D-GW, DNS). | ☐ |  |
-| 9 | Create necessary firewall rules and the access list. | ☐ |  |
-| 10 | Create spanning ports on switches for port monitoring, or configure network taps as desired. | ☐ |  |
-| 11 | Prepare rack space for sensor appliances. | ☐ |  |
-| 12 | Prepare a workstation for personnel. | ☐ |  |
-| 13 | Provide a keyboard, monitor, and mouse for the Defender for IoT rack devices. | ☐ |  |
-| 14 | Rack and cable the appliances. | ☐ |  |
-| 15 | Allocate site resources to support deployment. | ☐ |  |
-| 16 | Create Active Directory groups or local users. | ☐ |  |
-| 17 | Set-up training (self-learning). | ☐ |  |
-| 18 | Go or no-go. | ☐ |  |
-| 19 | Schedule the deployment date. | ☐ |  |
+| 1 | Order appliances. | ☐ |  |
+| 2 | Prepare a list of subnets in the network. | ☐ |  |
+| 3 | Provide a VLAN list of the production networks. | ☐ |  |
+| 4 | Provide a list of switch models in the network. | ☐ |  |
+| 5 | Provide a list of vendors and protocols of the industrial equipment. | ☐ |  |
+| 6 | Provide network details for sensors (IP address, subnet, D-GW, DNS). | ☐ |  |
+| 7 | Create necessary firewall rules and the access list. | ☐ |  |
+| 8 | Create spanning ports on switches for port monitoring, or configure network taps as desired. | ☐ |  |
+| 9 | Prepare rack space for sensor appliances. | ☐ |  |
+| 10 | Prepare a workstation for personnel. | ☐ |  |
+| 11 | Provide a keyboard, monitor, and mouse for the Defender for IoT rack devices. | ☐ |  |
+| 12 | Rack and cable the appliances. | ☐ |  |
+| 13 | Allocate site resources to support deployment. | ☐ |  |
+| 14 | Create Active Directory groups or local users. | ☐ |  |
+| 15 | Set-up training (self-learning). | ☐ |  |
+| 16 | Go or no-go. | ☐ |  |
+| 17 | Schedule the deployment date. | ☐ |  |
 
 
 | **Date** | **Note** | **Deployment date** | **Note** |
