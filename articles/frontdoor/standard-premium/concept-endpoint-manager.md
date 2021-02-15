@@ -43,4 +43,4 @@ With the linked view within Endpoint Manager, you could easily identify the asso
 
 ## Next Steps
 
-Learn how to [create a Front Door](create-front-door-portal.md).
+Learn how to [create a Front Door Standard/Premium](create-front-door-portal.md).
