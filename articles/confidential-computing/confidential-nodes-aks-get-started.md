@@ -19,14 +19,6 @@ In this quickstart, you'll learn how to deploy an Azure Kubernetes Service (AKS)
 > [!NOTE]
 > Confidential computing DCsv2 VMs leverage specialized hardware that is subject to higher pricing and region availability. For more information, see the virtual machines page for [available SKUs and supported regions](virtual-machine-solutions.md).
 
-### Deployment pre-requisites
-This deployment instructions assumes:
-
-1. Have an active Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin
-1. Have the Azure CLI version 2.0.64 or later installed and configured on your deployment machine (Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](../container-registry/container-registry-get-started-azure-cli.md)
-1. [aks-preview extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) minimum version 0.5.0  (needed for the add-on)
-1. VM Cores Quota availability. Have a minimum of six **DC<x>s-v2** cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription 8 cores. If you plan to provision a cluster that requires more than 8 cores, follow [these](../azure-portal/supportability/per-vm-quota-requests.md) instructions to raise a quota increase ticket
-
 ### Confidential computing node features (DC<x>s-v2)
 
 1. Linux Worker Nodes supporting Linux Containers Only
@@ -35,7 +27,17 @@ This deployment instructions assumes:
 1. Supporting Kubernetes version 1.16+
 1. Intel SGX DCAP Driver Pre-installed on the AKS Nodes. Read more [here](./faq.md)
 
-## Installing the CLI pre-requisites (needed for the add-on in preview)
+## Deployment pre-requisites
+The deployment tutorial requires the below :
+
+1. An active Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin
+1. Azure CLI version 2.0.64 or later installed and configured on your deployment machine (Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](../container-registry/container-registry-get-started-azure-cli.md)
+1. Azure [aks-preview extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) minimum version 0.5.0
+1. Minimum of six **DC<x>s-v2** cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription 8 cores. If you plan to provision a cluster that requires more than 8 cores, follow [these](../azure-portal/supportability/per-vm-quota-requests.md) instructions to raise a quota increase ticket
+
+## CLI based preparation steps (required for add-on in preview - optional but recommended)
+
+### Step 1: Installing the CLI pre-requisites
 
 To install the aks-preview 0.5.0 extension or later, use the following Azure CLI commands:
 
@@ -48,7 +50,7 @@ To update the aks-preview CLI extension, use the following Azure CLI commands:
 ```azurecli-interactive
 az extension update --name aks-preview
 ```
-### Azure Confidential Computing addon feature registration on Azure (optional but recommended)
+### Step 2: Azure Confidential Computing addon feature registration on Azure
 Registering the AKS-ConfidentialComputingAddon on the Azure Subscription. This feature will add SGX device plugin daemonset as discussed in details [here](./confidential-nodes-aks-overview.md#confidential-computing-add-on-for-aks):
 1. SGX Device Driver Plugin
 ```azurecli-interactive
@@ -64,8 +66,9 @@ When the status shows as registered, refresh the registration of the Microsoft.C
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
+## Creating new AKS cluster with confidential computing nodes and add-on
 
-## Creating an AKS cluster with confidential computing nodes and add-on
+### Step 1: Creating an AKS cluster with system node pool
 
 If you already have an AKS cluster that meets the above requirements, [skip to the existing cluster section](#existing-cluster) to add a new confidential computing node pool.
 
@@ -83,14 +86,16 @@ az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enabl
 ```
 The above creates a new AKS cluster with system node pool with the add-on enabled. Now proceed adding a user node of Confidential Computing Nodepool type on AKS (DCsv2)
 
-The below example adds an user nodepool with 3 nodes of `Standard_DC2s_v2` size. You can choose other supported list of DCsv2 SKUs and regions from [here](../virtual-machines/dcv2-series.md):
+### Step 2: Adding confidential computing node pool to AKS cluster 
+
+Run the below command to an user nodepool of `Standard_DC2s_v2` size with 3 nodes. You can choose other supported list of DCsv2 SKUs and regions from [here](../virtual-machines/dcv2-series.md):
 
 ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-vm-size Standard_DC2s_v2
 ```
-The above command should add a new node pool with **DC<x>s-v2** automatically daemonsets only on the confidential computing node pools - ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin)
-    
-
+The above command is complete a new node pool with **DC<x>s-v2** should be visible with Confidential computing add-on daemonsets ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin)
+ 
+### Step 3: Verify the node pool and add-on
 Get the credentials for your AKS cluster using the az aks get-credentials command:
 
 ```azurecli-interactive
@@ -110,30 +115,16 @@ Go to [Hello World from Enclave](#hello-world) deployment section to test an app
 
 ## Adding confidential computing node pool to existing AKS cluster<a id="existing-cluster"></a>
 
-This section assumes you have an AKS cluster running already that meets the criteria listed in the pre-requisites section.
+This section assumes you have an AKS cluster running already that meets the criteria listed in the pre-requisites section (applies to add-on).
 
-First, let us add the add-on feature to Azure Subscription
+### Step 1: Enabling the confidential computing AKS add-on on the existing cluster
 
-```azurecli-interactive
-az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.ContainerService
-```
-It might take several minutes for the status to show as Registered. You can check the registration status by using the 'az feature list' command. This feature registration is done only once per subscription. If this was registered previously you can skip the above step:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputingAddon')].{Name:name,State:properties.state}"
-```
-When the status shows as registered, refresh the registration of the Microsoft.ContainerService resource provider by using the 'az provider register' command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-Next, enabling the confidential computing AKS add-on on the existing cluster:
+Run the below command to enable the confidential computing add-on
 
 ```azurecli-interactive
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
-Now add a **DC<x>s-v2** user node pool to the cluster
+### Step 2: Add **DC<x>s-v2** user node pool to the cluster
     
 > [!NOTE]
 > To use the confidential computing capability your existing AKS cluster need to have at minimum one **DC<x>s-v2** VM SKU based node pool. Learn more on confidential computing DCsv2 VMs SKU's here [available SKUs and supported regions](virtual-machine-solutions.md).
@@ -147,6 +138,11 @@ Verify
 
 az aks nodepool list --cluster-name myAKSCluster --resource-group myResourceGroup
 ```
+the above command should list the recent node pool you added with the name confcompool1.
+
+### Step 3: Verify that daemonsets are running on confidential node pools
+
+Login to your existing AKS cluster to perform the below verification. 
 
 ```console
 kubectl get nodes
@@ -159,7 +155,7 @@ $ kubectl get pods --all-namespaces
 output (you may also see other daemonsets along SGX daemonsets as below)
 kube-system     sgx-device-plugin-xxxx     1/1     Running
 ```
-If the output matches to the above, then your AKS cluster is now ready to run confidential applications.
+If the output matches to the above, then your AKS cluster is now ready to run confidential applications. Please follow the below test application deployment.
 
 ## Hello World from isolated enclave application <a id="hello-world"></a>
 Create a file named *hello-world-enclave.yaml* and paste the following YAML manifest. This Open Enclave based sample application code can be found in the [Open Enclave project](https://github.com/openenclave/openenclave/tree/master/samples/helloworld). The below deployment assumes you have deployed the addon "confcom".
