@@ -52,7 +52,7 @@ For example, for the twin *foo*, each specific relationship ID must be unique. H
 
 The following code sample illustrates how to create a relationship in your Azure Digital Twins instance.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod" highlight="13":::
 
 In your main method, you can now call the custom function to create a _contains_ relationship like this: 
 
@@ -85,7 +85,7 @@ This returns an `Azure.Pageable<T>` or `Azure.AsyncPageable<T>`, depending on wh
 
 Here is an example that retrieves a list of relationships:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod" highlight="8":::
 
 You can now call this custom method to see the outgoing relationships of the twins like this:
 
@@ -101,7 +101,7 @@ The previous code sample was focused on finding outgoing relationships from a tw
 
 Note that the `IncomingRelationship` calls don't return the full body of the relationship.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindIncomingRelationshipsMethod":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindIncomingRelationshipsMethod" highlight="8":::
 
 You can now call this custom method to see the incoming relationships of the twins like this:
 
@@ -126,7 +126,7 @@ Relationships are updated using the `UpdateRelationship` method.
 
 The required parameters for the client call are the ID of the source twin (the twin where the relationship originates), the ID of the relationship to update, and a [JSON Patch](http://jsonpatch.com/) document containing the properties and new values you'd like to update.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod" highlight="6":::
 
 Here is an example of a call to this custom method, passing in a JSON Patch document with the information to update a property.
 
@@ -136,7 +136,7 @@ Here is an example of a call to this custom method, passing in a JSON Patch docu
 
 The first parameter specifies the source twin (the twin where the relationship originates). The other parameter is the relationship ID. You need both the twin ID and the relationship ID, because relationship IDs are only unique within the scope of a twin.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod" highlight="5":::
 
 You can now call this custom method to delete a relationship like this:
 
