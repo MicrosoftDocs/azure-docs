@@ -53,9 +53,7 @@
     href: how-to-cache-purge.md
   - name: Compression
     href: how-to-compression.md
-  - name: URL Rewrite
-    href: concept-rule-set-url-redirect-and-rewrite.md
-  - name: Enable Private link
+  - name: Enable Private Link
     href: how-to-enable-private-endpoint.md
   - name: Logging
     href: how-to-logs.md
