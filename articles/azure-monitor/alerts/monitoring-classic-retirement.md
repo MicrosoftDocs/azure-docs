@@ -45,7 +45,7 @@ This means:
 - Some [classic alert rules that cannot be automatically migrated](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts) and will require manual action from users to continue to run.
 
 > [!IMPORTANT]
-> Azure Monitor has rolled out a [tool to voluntarily migrate](alerts-using-migration-tool.md) their classic alert rules to the new platform. Remaining rules will be migrated automatically once the service is retired. Customers will need to ensure automation consuming classic alert rule payload is adapted to handle the new payload from [Unified Metrics and Alerts for other Azure resources](#unified-metrics-and-alerts-for-other-azure-resources), after migration of the classic alert rules. For more information, see [prepare for classic alert rule migration](alerts-prepare-migration.md).
+> Azure Monitor has rolled out a [tool to voluntarily migrate](alerts-using-migration-tool.md) their classic alert rules to the new platform. Remaining rules will be migrated automatically once the service is retired. Customers will need to ensure automation consuming classic alert rule payload is adapted to handle the new payload from [Unified Metrics and Alerts for other Azure resources](#unified-metrics-and-alerts-for-azure-resources), after migration of the classic alert rules. For more information, see [prepare for classic alert rule migration](alerts-prepare-migration.md).
 
 ## Pricing for Migrated Alert Rules
 
