@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2020
+ms.date: 02/15/2021
 ms.author: memildin
 ---
 
@@ -38,8 +38,8 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 | Release state:                  | Generally available (GA)                                                                                                                                                                                                                                                                                      |
 | Pricing:                        | Requires [Azure Defender for servers](security-center-pricing.md)                                                                                                                                                                                                                                             |
 | Supported platforms:            | Azure machines running Windows<br>Azure Arc machines running Windows|
-| Supported versions of Windows:  |  • Security Center supports detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1<br> • Server endpoint monitoring using this integration has been disabled for Office 365 GCC customers|
-| Unsupported operating systems:  |  • Windows Server 2019<br> • Windows 10<br> • Linux|
+| Supported versions of Windows:  |  • Security Center supports detection on Windows Server 2019, 2016, 2012 R2, and 2008 R2 SP1<br> • Server endpoint monitoring using this integration has been disabled for Office 365 GCC customers<br> • [Windows 10 Enterprise multi-session](../..//virtual-desktop/windows-10-multisession-faq.md) (formerly Enterprise for Virtual Desktops (EVD)<br> •  [Windows Virtual Desktop (WVD)](../../virtual-desktop/overview.md)|
+| Unsupported operating systems:  |  • Windows 10 (other than EVD or WVD)<br> • Linux|
 | Required roles and permissions: | To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor**|
 | Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov<br>![No](./media/icons/no-icon.png) GCC customers running workloads in global Azure clouds                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
@@ -57,7 +57,7 @@ Microsoft Defender for Endpoint provides:
 
 By integrating Defender for Endpoint with Security Center, you'll benefit from the following additional capabilities:
 
-- **Automated onboarding**. Security Center automatically enables the Microsoft Defender for Endpoint sensor for all Windows servers monitored by Security Center. Except for those that are running Windows Server 2019, which must be onboarded via local script, Group Policy Object (GPO), or [Microsoft Endpoint Configuration Manager](/mem/configmgr/) (formerly SCCM).
+- **Automated onboarding**. Security Center automatically enables the Microsoft Defender for Endpoint sensor for all Windows servers monitored by Security Center.
 
 - **Single pane of glass**. The Security Center console displays Microsoft Defender for Endpoint alerts. To investigate further, use Microsoft Defender for Endpoint's own portal pages where you'll see additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
 
