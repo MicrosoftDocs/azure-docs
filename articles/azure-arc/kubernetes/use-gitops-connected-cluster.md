@@ -11,7 +11,7 @@ description: "Use GitOps to configure an Azure Arc enabled Kubernetes cluster (P
 keywords: "GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, containers"
 ---
 
-# Deploy configurations using GitOps on Arc enabled Kubernetes cluster (Preview)
+# Deploy configurations using GitOps on an Arc enabled Kubernetes cluster (Preview)
 
 This article demonstrates applying configurations on an Azure Arc enabled Kubernetes cluster. A conceptual overview of the same can be found [here](./conceptual-configurations.md).
 

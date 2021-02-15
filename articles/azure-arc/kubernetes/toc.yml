@@ -6,7 +6,7 @@
     href: overview.md
 - name: Concepts
   items:
-  - name: Agents and communication pattern
+  - name: Agent architecture
     href: conceptual-agent-architecture.md
   - name: Configurations and GitOps
     href: conceptual-configurations.md

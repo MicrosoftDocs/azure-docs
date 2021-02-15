@@ -39,8 +39,8 @@ You can create multiple namespace-scoped `sourceControlConfiguration` resources 
 > * Since the `config-agent` monitors for new or updated `sourceControlConfiguration` extension resources to be available on Azure Arc enabled Kubernetes resource, agents require connectivity for the desired state to be pulled down to the cluster. Whenever agents aren't able to connect to Azure, the desired state properties declared on the `sourceControlConfiguration` resource in Azure Resource Manager are not applied on the cluster.
 > * Sensitive customer inputs like private key, known hosts content, HTTPS username, and token/password are not stored for more than 48 hours in the Azure Arc enabled Kubernetes services. If you are using sensitive inputs for configurations, be advised to bring the clusters online as regularly as possible.
 
-## At-scale enforcement of configurations
+## Apply configurations at scale
 
-Due to the Azure Resource Manager representation of configurations, you can use Azure Policy to automate the creation of the same configuration on all Azure Arc enabled Kubernetes resources within the scope of a subscription or a resource group. 
+Since Azure Resource Manager manages your configurations, you can use Azure Policy to automate the creation of the same configuration on all Azure Arc enabled Kubernetes resources within the scope of a subscription or a resource group. 
 
 This at-scale enforcement ensures that a common baseline configuration (containing configurations like ClusterRoleBindings, RoleBindings, and NetworkPolicy) can be applied across the entire fleet or inventory of Azure Arc enabled Kubernetes clusters.
