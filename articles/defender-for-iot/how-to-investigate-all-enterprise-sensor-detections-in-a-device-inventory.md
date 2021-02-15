@@ -220,6 +220,6 @@ The following additional zone information is available:
 
 - **Update progress**: If the connected sensor is being upgraded, upgrade statuses will appear. During upgrade, the on-premises management console does not receive device information from the sensor.
 
-## See also
+## Next steps
 
 [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)

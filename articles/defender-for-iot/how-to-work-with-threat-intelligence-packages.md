@@ -68,6 +68,6 @@ To update a package on multiple sensors simultaneously:
 
 7. Upload the package.
 
-## See also
+## Next steps
 
 [Update versions](how-to-manage-sensors-from-the-on-premises-management-console.md#update-versions)

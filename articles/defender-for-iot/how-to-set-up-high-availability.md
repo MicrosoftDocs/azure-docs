@@ -143,6 +143,6 @@ To update with high availability:
 
 3. Update the sensors.
 
-## See also
+## Next steps
 
 [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)
