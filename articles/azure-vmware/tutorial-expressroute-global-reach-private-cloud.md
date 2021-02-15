@@ -12,7 +12,7 @@ ExpressRoute Global Reach connects your on-premises environment to your Azure VM
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Use Azure Portal to enable on-premises-to-private cloud ExpressRoute Global Reach peering
+> * Use the Azure portal to enable on-premises-to-private cloud ExpressRoute Global Reach peering.
 
 
 ## Before you begin
