@@ -13,21 +13,21 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 
 This quickstart demonstrates how to use the Azure portal to create a fully managed Apache Spark cluster inside the VNET of your Azure Managed Instance for Apache Cassandra cluster. 
 
-You can also learn more with a detailed instructions on [Deploying Azure Databricks in your Azure Virtual Network (VNET Injection)](../databricks/administration-guide/cloud-configurations/azure/vnet-inject.md). 
+You can also learn more with a detailed instructions on [Deploying Azure Databricks in your Azure Virtual Network (VNET Injection)](https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). 
 
 ## Install Azure Databricks in a VNET with the managed instance
 
 First, navigate to the resource group in Azure portal that contains the VNET in which your Cassandra Managed Instance is deployed. Open the VNET resource, and take note of the address space in your VNET:
 
-![VNET](./media/cassandra-mi-databricks/vnet.png)
+![Virtual Network Resource](./media/cassandra-mi-databricks/vnet.png)
 
 Then, from the resource group, click `Add` and search for Azure Databricks in the search field:
 
-![Databricks](./media/cassandra-mi-databricks/databricks.png)
+![Add Azure Databricks](./media/cassandra-mi-databricks/databricks.png)
 
 Select `Create`:
 
-![Crate Databricks](./media/cassandra-mi-databricks/databricks-create.png)
+![Create Azure Databricks account](./media/cassandra-mi-databricks/databricks-create.png)
 
 Select a name for the Azure Databricks workspace, and ensure it's created in same region as your VNET:
 
@@ -61,7 +61,7 @@ spark.cassandra.connection.ssl.enabled true
 
 In Libraries, ensure you install the latest spark connector for Cassandra (and restart cluster):
 
-![Connector](./media/cassandra-mi-databricks/connector.png)
+![Install Cassandra Connector](./media/cassandra-mi-databricks/connector.png)
 
 ## Next steps
 

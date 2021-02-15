@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions about Azure Managed Instance for Apache Cassandra from the Azure portal
-description: This quickstart shows how to create an Azure Managed Instance for Apache Cassandra cluster using the Azure portal.
+description: This article answers frequently asked questions about Azure Managed Instance for Apache Cassandra.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cassandra-managed-instance

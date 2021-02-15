@@ -30,12 +30,10 @@ landingContent:
         links:
           - text: Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API
             url: cassandra-api-vs-cassandra-mi.md
-          - text: Azure Managed Instance for Apache Cassandra Resource Model
-            url: cassandra-managed-instance-resource-model.md
       - linkListType: quickstart
         links:
           - text: Create an Azure Managed Instance for Apache Cassandra
-            url: create-cassandra-managed-instance-portal.md
+            url: quickstart.md
           - text: Deploy a Managed Apache Spark Cluster with Azure Databricks
             url: cassandra-mi-databricks.md            
       - linkListType: video
@@ -45,26 +43,12 @@ landingContent:
 
   # Card 
   - title: Use Azure Managed Instance for Apache Cassandra
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Hybrid Deployments with VNET peering
-            url: cassandra-mi-vnet-injection.md
-          - text: Scaling Your cluster
-            url: cassandra-mi-scale.md     
+    linkLists:  
       - linkListType: concept
         links:   
           - text: Frequently asked questions
-            url: cassandra-mi-faq.md             
-          - text: Getting started with CQL queries
-            url: cql-query-getting-started.md       
-      - linkListType: tutorial
-        links:
-          - text: Build a Grafana dashboard using hosted prometheus metrics
-            url: cassandra-mi-grafana-setup.md
+            url: cassandra-mi-faq.md                
       - linkListType: how-to-guide
-        links:
-          - text: Add a Managed Instance to an existing on-prem cluster
-            url: cassandra-mi-hybrid-onprem.md   
+        links: 
           - text: Manage resources with Azure CLI
             url: manage-with-cli.md                           
