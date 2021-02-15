@@ -58,7 +58,7 @@ Table-based RBAC is supported for Azure Sentinel via Log Analytics.
 
 1. **Add the custom role to your Azure subscription**. Run the [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) command, pointing to the custom JSON file you created in the previous step.
 
-    ``powershell
+    ``PowerShell
     New-AzRoleDefinition -InputFile "C:\Users\<user>\OneDrive\Demos\Custom_RBAC.json"
     ```
 
@@ -79,11 +79,11 @@ Table-based RBAC is supported for Azure Sentinel via Log Analytics.
 
 1. In your Azure subscription, add your operations team users to your new custom role.
 
-The designated users on your operations team now have access to the specific logs you've allowed for them via Log Analytics. They do not have the ability to access security event tables or any other tables in the Azure Sentinel workspace.
+The configured users on your operations team can now access the logs they need via Log Analytics. They don't have the ability to access security event tables or any other tables in the Azure Sentinel workspace.
 
 ## Alternate methods for controlling access to resources
 
-Depending on your organization's needs, you may want to implement any of the following methods for allowing access to specific resources only:
+The following table describes other methods you can use to allow access to specific Azure Sentinel resources:
 
 |Scenario  |Method  |
 |---------|---------|
