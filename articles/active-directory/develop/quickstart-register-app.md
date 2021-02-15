@@ -60,6 +60,9 @@ Your application's code, or more typically an authentication library used in you
 
 :::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot of the Azure portal in a web browser, showing an app registration's Overview pane.":::
 
+> [!NOTE]
+> There can be multiple applications with the same name but different client ID in Azure Active Directory.
+
 ## Add a redirect URI
 
 A *redirect URI* is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication.
