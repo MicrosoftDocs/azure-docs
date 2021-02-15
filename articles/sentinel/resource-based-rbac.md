@@ -102,7 +102,7 @@ Resource-based RBAC may not provide a full solution for other scenarios. In such
 |Scenario  |Method  |
 |---------|---------|
 |A subsidiary has a SOC team that requires a full Azure Sentinel experience     |Use a [multi-workspace architecture](https://www.youtube.com/watch?v=_mm3GNwPBHU&feature=youtu.be) to separate your data permissions.         |
-|You want to set controls on each table in Azure Sentinel     |  Use [table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) to define permissions for each table.     |
+|You want to set controls on each table in Azure Sentinel     |  Use [table-based RBAC](table-based-rbac.md) to define permissions for each table.     |
 |Provide only selected information to users     | Provide access to data using built-in integration with [Power BI dashboards and reports](/azure/azure-monitor/platform/powerbi).       |
 |  Limit access based on the specific users referenced by an event   | **Example**: Limit access to Office 365 logs based on a user's subsidiary. <br><br>Use one of the following methods: <br>- Use data-based RBAC and custom-based collection <br>- Enrich the relevant log with the subsidiary information. In this case, you can use the enriched data in workbooks to ensure that each non-SOC team gets access to a workbook that is pre-filtered to display relevant data only.  <!--not sure if we should include this-->     |
 
