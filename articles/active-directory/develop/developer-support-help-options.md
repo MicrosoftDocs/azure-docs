@@ -52,8 +52,6 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 | Any other area related to authentication or authorization topics | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
 
 
-- [How do I ask a good question](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
-- [How to create a minimal, complete, and verifiable example](https://docs.microsoft.com/answers/articles/24907/how-to-write-a-quality-answer.html)
 
 ## Post a question on Stack Overflow
 
