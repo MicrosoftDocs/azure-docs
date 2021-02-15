@@ -29,7 +29,7 @@ $authHeader = @{
 }
 
 # Invoke the REST API
-$restUri = '$restUri = 'https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Storage/skus?api-version=2019-06-01'
+$restUri = 'https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Storage/skus?api-version=2019-06-01'
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 Write-Host "All regions that support NFS LRS"
