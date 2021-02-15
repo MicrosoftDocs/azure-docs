@@ -33,7 +33,7 @@ Table-based RBAC is supported for Azure Sentinel via Log Analytics.
 
 ## Implementing table-base RBAC
 
-1. **Define a custom RBAC role to support your table permissions**. Use the following JSON as a template:
+1. Define a custom RBAC role to support your table permissions. Use the following JSON as a template:
 
     ```json
     {
@@ -56,7 +56,7 @@ Table-based RBAC is supported for Azure Sentinel via Log Analytics.
 
     For more information, see the [Azure RBAC documentation](/azure/role-based-access-control/custom-roles).
 
-1. **Add the custom role to your Azure subscription**. Run the [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) command, pointing to the custom JSON file you created in the previous step.
+1. Add the custom role to your Azure subscription. Run the [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) command, pointing to the custom JSON file you created in the previous step.
 
     ``PowerShell
     New-AzRoleDefinition -InputFile "C:\Users\<user>\OneDrive\Demos\Custom_RBAC.json"

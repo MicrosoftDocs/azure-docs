@@ -91,10 +91,9 @@ The following table summarizes the roles and allowed actions in Azure Sentinel.
 
 - You can use the Log Analytics advanced Azure role-based access control across the data in your Azure Sentinel workspace. This includes both data type-based Azure RBAC and resource-centric Azure RBAC. For more information on Log Analytics roles, see [Manage log data and workspaces in Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 
+- Assign permissions to specific resources or tables using [resource-based RBAC](resource-based-rbac.md) or [table-based RBAC](table-based-rbac.md). Resource- and table-based RBAC enable you to provide access to specific resources and tables in Azure Sentinel, without allowing access to the entire Azure Sentinel experience.
 ## Next steps
 
 In this document, you learned how to work with roles for Azure Sentinel users and what each role enables users to do.
 
-* To provide access to resources in Azure Sentinel without the Azure Sentinel environment, see [Resource-based RBAC for Azure Sentinel](resource-based-rbac.md).
-
-* Find blog posts about Azure security and compliance at the [Azure Sentinel Blog](https://aka.ms/azuresentinelblog). 
+Find blog posts about Azure security and compliance at the [Azure Sentinel Blog](https://aka.ms/azuresentinelblog). 
