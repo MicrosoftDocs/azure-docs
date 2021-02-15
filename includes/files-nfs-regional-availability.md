@@ -10,9 +10,9 @@ ms.author: rogarana
 ms.custom: "include file"
 ---
 
-NFS is supported in **ALL** 35+ regions where Premium Files Storage is available.
+NFS is supported in **ALL** 30+ regions where Premium Files Storage is available.
 
-We are continuously adding regions. For the most upto date list get the list of supported regions query the [Skus List REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/skus/list). Sample below provides a way to query the list of regions via PowerShell.
+We are continuously adding regions. For the most up-to-date list, query the [Skus List REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/skus/list). Sample below provides a way to query the list of regions via PowerShell.
 
 You can also check [Azure Products available by region page](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage&regions=all) and look for your region availability for Premium Files Storage.
 
