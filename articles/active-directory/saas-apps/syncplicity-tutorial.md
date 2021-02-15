@@ -40,10 +40,9 @@ To configure the integration of Syncplicity into Azure AD, you need to add Syncp
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **Syncplicity** in the search box.
-1. Select **Syncplicity** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Under **Create**, click **Enterprise Application**.
+1. In the **Browse Azure AD gallery** section, type **Syncplicity** in the search box.
+1. Select **Syncplicity** from results panel and then click **Create** to add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD SSO
 
@@ -62,28 +61,31 @@ To configure and test Azure AD SSO with Syncplicity, complete the following buil
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Syncplicity** application integration page, find the **Manage** section and select **Single sign-on**.
-1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. In the [Azure portal](https://portal.azure.com/), on the **Syncplicity** application integration page, find the **Getting Started** section and select **Set up single sign-on**.
+2. On the **Select a Single sign-on method** page, select **SAML**.
+3. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** page, enter the values for the following fields:
+4. In the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.syncplicity.com`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<companyname>.syncplicity.com/sp`
+
+    b. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<companyname>.syncplicity.com`
+    
+    c. In the **Reply URL (Assertion Consumer Service URL)** text box, type a URL using the following pattern:
+    `https://<companyname>.syncplicity.com/Auth/AssertionConsumerService.aspx`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Syncplicity Client support team](https://www.syncplicity.com/contact-us) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
    ![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Set up Syncplicity** section, copy the appropriate URL(s) based on your requirement.
+6. On the **Set up Syncplicity** section, copy the appropriate URL(s) based on your requirement.
 
    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
