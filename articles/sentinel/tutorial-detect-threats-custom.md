@@ -87,7 +87,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
     Learn more about [entities in Azure Sentinel](entities-in-azure-sentinel.md).
 
-    See [Map data fields to entities in Azure Sentinel](map-data-fields-to-entities.md) for complete entity mapping instructions.
+    See [Map data fields to entities in Azure Sentinel](map-data-fields-to-entities.md) for complete entity mapping instructions, along with important information about [backward compatibility](map-data-fields-to-entities.md#notes-on-the-new-version).
 
 - Use the **Custom details** configuration section to extract event data items from your query and surface them in the alerts produced by this rule, giving you immediate event content visibility in your alerts and incidents.
 
