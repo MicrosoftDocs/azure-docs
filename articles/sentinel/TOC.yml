@@ -25,7 +25,7 @@
     href: tutorial-respond-threats-playbook.md
 - name: Concepts
   items:
-  - name: Assign permissions using roles
+  - name: Permissions in Azure Sentinel
     href: roles.md
   - name: Advanced multistage attack detection
     href: fusion.md
@@ -218,7 +218,7 @@
       href: connect-azure-stack.md
     - name: Monitor data connector health
       href: monitor-data-connector-health.md
-  - name: Enable User and Entity Behavior Analytics
+  - name: Enable user and entity behavior analytics
     href: enable-entity-behavior-analytics.md
   - name: Manage multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
@@ -241,6 +241,12 @@
       href: livestream.md
   - name: Remove Azure Sentinel
     href: offboard.md
+  - name: Implement advanced RBAC
+    items:
+      - name: Resource-based RBAC
+        href: resource-based-rbac.md
+      - name: Table-based RBAC
+        href: table-based-rbac.md
 - name: Reference
   items:
   - name: Azure RBAC roles
