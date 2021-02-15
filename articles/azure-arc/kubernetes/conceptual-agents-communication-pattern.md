@@ -45,7 +45,7 @@ Connect a cluster to Azure Arc using the following steps:
         | `deployment.apps/resource-sync-agent` | Syncs the above mentioned cluster metadata to Azure |
         | `deployment.apps/flux-logs-agent` | Collects logs from the flux operators deployed as a part of source control configuration |
     
-1. Once all the Azure Arc enabled Kubernetes agent pods in `Running` state, verify that your cluster successfully connected to Azure Arc. You should see:
+1. Once all the Azure Arc enabled Kubernetes agent pods in `Running` state, verify that your cluster connected to Azure Arc. You should see:
     * An Azure Arc enabled Kubernetes resource in [Azure Resource Manager](../../azure-resource-manager/management/overview.md). This resource is tracked in Azure as a projection of the customer-managed Kubernetes cluster, not the actual Kubernetes cluster itself.
     * Cluster metadata, like Kubernetes version, agent version, and number of nodes, appears on the Azure Arc enabled Kubernetes resource as metadata.
 
