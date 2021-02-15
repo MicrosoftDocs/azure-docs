@@ -1,7 +1,7 @@
 ---
 title: 'Azure Front Door: URL redirect and URL rewrite'
 description: This article helps you understand how Azure Front Door supports URL redirection and URL rewrite using Azure Front Door Rule Set. 
-services: front-door
+services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: article
@@ -27,7 +27,7 @@ Azure Front Door can redirect traffic at each of the following levels: protocol,
 
 You can configure URL redirect via Rule Set.
 
-:::image type="content" source="../media/concept-url-redirect-and-rewrite/front-door-url-redirect.png" alt-text="Screenshot of creating url redirect with Rule Set.":::
+:::image type="content" source="../media/concept-url-redirect-and-rewrite/front-door-url-redirect.png" alt-text="Screenshot of creating url redirect with Rule Set." lightbox="../media/concept-url-redirect-and-rewrite/front-door-url-redirect-expanded.png":::
 
 ### Redirection types
 A redirect type sets the response status code for the clients to understand the purpose of the redirect. The following types of redirection are supported:
@@ -64,7 +64,7 @@ With this feature, you can redirect users to different origins based on scenario
 
 You can configure URL redirect via Rule Set.
 
-:::image type="content" source="../media/concept-url-redirect-and-rewrite/front-door-url-rewrite.png" alt-text="Screenshot of creating url rewrite with Rule Set.":::
+:::image type="content" source="../media/concept-url-redirect-and-rewrite/front-door-url-rewrite.png" alt-text="Screenshot of creating url rewrite with Rule Set." lightbox="../media/concept-url-redirect-and-rewrite/front-door-url-rewrite-expanded.png":::
 
 ### Source pattern
 
@@ -88,4 +88,4 @@ For example, if I set **Preserve unmatched path to No**.
 
 ## Next steps
 
-* Learn more about [Azure Front Door Rule Set](concept-rule-set.md)
+* Learn more about [Azure Front Door Standard/Premium Rule Set](concept-rule-set.md).
