@@ -29,13 +29,13 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API
-            url: cassandra-api-vs-cassandra-mi.md
+            url: compare-api-and-managed-instance.md
       - linkListType: quickstart
         links:
           - text: Create an Azure Managed Instance for Apache Cassandra
             url: quickstart.md
           - text: Deploy a Managed Apache Spark Cluster with Azure Databricks
-            url: cassandra-mi-databricks.md            
+            url: databricks.md            
       - linkListType: video
         links:
           - text: Modernize your existing applications with a Cassandra managed instance in the cloud
@@ -47,7 +47,7 @@ landingContent:
       - linkListType: concept
         links:   
           - text: Frequently asked questions
-            url: cassandra-mi-faq.md                
+            url: faq.md                
       - linkListType: how-to-guide
         links: 
           - text: Manage resources with Azure CLI

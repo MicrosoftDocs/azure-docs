@@ -7,15 +7,15 @@
 - name: Concepts
   items:
     - name: FAQ
-      href: cassandra-mi-faq.md  
+      href: faq.md  
     - name: Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API
-      href: cassandra-api-vs-cassandra-mi.md                 
+      href: compare-api-and-managed-instance.md                
 - name: Quickstarts
   items:
     - name: Create a Cassandra cluster
       href: quickstart.md
     - name: Deploy Spark Cluster with Databricks
-      href: cassandra-mi-databricks.md      
+      href: databricks.md      
 - name: How-to guides
   items:
     - name: Manage with Azure CLI
