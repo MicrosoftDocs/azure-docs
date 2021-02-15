@@ -42,7 +42,7 @@ $response.value| Where-Object -FilterScript {($_.name -EQ 'Premium_LRS') -and ($
 
 Sample response
 ```
-All regions that support NFS ZRS
+All regions that support NFS Zonal redundancy
 locations
 ---------
 {eastus}
@@ -57,7 +57,7 @@ locations
 {eastus2euap}
 {francecentral}
 
-All regions that support NFS LRS
+All regions that support NFS Local redundancy
 locations
 ---------
 {eastus}
