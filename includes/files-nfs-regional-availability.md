@@ -27,15 +27,16 @@ $authHeader = @{
     'Content-Type'='application/json'
     'Authorization'='Bearer ' + $token.AccessToken
 }
+$subscription = $azContext.Subscription.Id
 
 # Invoke the REST API
-$restUri = 'https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Storage/skus?api-version=2019-06-01'
+$restUri = 'https://management.azure.com/subscriptions/$subscription/providers/Microsoft.Storage/skus?api-version=2019-06-01'
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
-Write-Host "All regions that support NFS LRS"
+Write-Host "All regions that support NFS Zonal redundancy"
 $response.value| Where-Object -FilterScript {($_.name -EQ 'Premium_ZRS') -and ($_.kind -eq 'FileStorage') -and ($_.capabilities.name -contains 'supportsNfsShare')}| Select-Object locations
 
-Write-Host "All regions that support NFS ZRS"
+Write-Host "All regions that support NFS Local redundancy"
 $response.value| Where-Object -FilterScript {($_.name -EQ 'Premium_LRS') -and ($_.kind -eq 'FileStorage') -and ($_.capabilities.name -contains 'supportsNfsShare')}| Select-Object locations
 ```
 
