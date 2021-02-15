@@ -209,7 +209,7 @@ The two calls that modify *Twin1* are executed one after another, and change mes
 
 You can delete twins using the `DeleteDigitalTwin()` method. However, you can only delete a twin when it has no more relationships. So, delete the twin's incoming and outgoing relationships first.
 
-Here is an example of the code to delete twins and their relationships:
+Here is an example of the code to delete twins and their relationships. The `DeleteDigitalTwin` SDK call is highlighted to clarify where it falls in the wider example context.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin" highlight="7":::
 
