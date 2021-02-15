@@ -270,4 +270,4 @@ Yes, Azure Front Door does support alerts. Alerts are configured on metrics.
 
 ## Next steps
 
-Learn how to [create a Front Door](create-front-door-portal.md).
+Learn how to [create a Front Door Standard/Premium](create-front-door-portal.md).
