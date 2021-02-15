@@ -61797,6 +61797,46 @@
       "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#troubleshoot",
       "redirect_url": "/articles/azure-monitor/app/change-analysis-troubleshoot",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/personalizer/personalizer-encryption-of-data-at-rest.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/encrypt-data-at-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Content-Moderator/content-moderator-encryption-of-data-at-rest.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/encrypt-data-at-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Custom-Vision-Service/custom-vision-encryption-of-data-at-rest.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/encrypt-data-at-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/face-encryption-of-data-at-rest.md",
+      "redirect_url": "/azure/cognitive-services/Face/encrypt-data-at-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-encryption-of-data-at-rest.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/encrypt-data-at-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/qna-maker-encryption-of-data-at-rest.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/encrypt-data-at-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Translator/translator-encryption-of-data-at-rest.md",
+      "redirect_url": "/azure/cognitive-services/Translator/encrypt-data-at-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/encrypt-data-at-rest",
+      "redirect_document_id": false
     }
 
   ]
