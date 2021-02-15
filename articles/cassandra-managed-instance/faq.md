@@ -23,7 +23,7 @@ No, there is no architectural dependency between Azure Managed Instance for Apac
 
 ## Can I deploy Azure Managed Instance for Apache Cassandra in any region?
 
-The service will be available in a limited number of regions during preview. Our plan will be to make the service available across all regions in Azure. 
+The service will be available in a limited number of regions during preview.
 
 ## What are the storage and throughput limits of Azure Managed Instance for Apache Cassandra?
 
