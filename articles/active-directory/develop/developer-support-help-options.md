@@ -80,10 +80,10 @@ To create a new GitHub issue, select the link for the library you are developing
 | MSAL Library| GitHub issues URL |
 |---------------------------------------------------|----------------------------|
 | MSAL for .NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
-|MSAL for Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues|
-| MSAL for js| https://github.com/AzureAD/microsoft-authentication-library-for-js/issues|
-|MSAL for Python| https://github.com/AzureAD/microsoft-authentication-library-for-python/issues|
-| MSAL for Android| https://github.com/AzureAD/microsoft-authentication-library-for-android/issues
+|MSAL for Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
+| MSAL for js| https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+|MSAL for Python| https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
+| MSAL for Android| https://github.com/AzureAD/microsoft-authentication-library-for-android/issues |
 | MSAL for iOS/macOS | https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
 
 ## Submit feedback on Azure Feedback
