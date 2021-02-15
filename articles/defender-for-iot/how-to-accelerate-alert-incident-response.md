@@ -136,7 +136,7 @@ The rule is added to the **Customized Alerts Rules** list, where you can review 
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/customized-alerts-screen.png" alt-text="Screenshot of a user-added customized rule.":::
 
-### See also
+## Next steps
 
 [View information provided in alerts](how-to-view-information-provided-in-alerts.md)
 

@@ -277,7 +277,7 @@ The exported logs are added to the **Archived Logs** list. Send the OTP to the s
 
 The list of archived logs can contain up to five items. If the number of items in the list goes beyond that number, the earliest item is deleted.
 
-## See also
+## Next steps
 
 - [View alerts](how-to-view-alerts.md)
 

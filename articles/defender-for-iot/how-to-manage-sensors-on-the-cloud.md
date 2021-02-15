@@ -118,6 +118,6 @@ To reactivate a sensor:
 
 9. Select **Activate**.
 
-## See also
+## Next steps
 
 [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
