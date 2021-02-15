@@ -58,7 +58,7 @@ Key features included with Azure Front Door Standard/Premium (Preview):
 
 * Customizable traffic routing and optimizations via **[Rule Set](concept-rule-set.md)**.
 
-* **[Built-in reports](concept-reports.md)** with all-in-one dashboard for both Front Door and security patterns.
+* **[Built-in reports](how-to-reports.md)** with all-in-one dashboard for both Front Door and security patterns.
 
 * **[Real-time monitoring](how-to-monitor-metrics.md)** and alerts that integrate with Azure Monitoring.
 
