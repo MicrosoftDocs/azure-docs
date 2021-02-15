@@ -2,7 +2,7 @@
 title: Configure virtual network service endpoints for Azure Service Bus
 description: This article provides information on how to add a Microsoft.ServiceBus service endpoint to a virtual network. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 02/12/2021
 ms.custom: fasttrack-edit
 ---
 
@@ -52,7 +52,8 @@ This section shows you how to use Azure portal to add a virtual network service 
     > [!NOTE]
     > You see the **Networking** tab only for **premium** namespaces.  
     
-    By default, the **Selected networks** option is selected. If you don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).
+    >[!WARNING]
+    > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).
 
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Networking page - default" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
     
@@ -83,28 +84,11 @@ This section shows you how to use Azure portal to add a virtual network service 
 [!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## Use Resource Manager template
-The following Resource Manager template enables adding a virtual network rule to an existing Service Bus 
-namespace.
+The following sample Resource Manager template adds a virtual network rule to an existing Service Bus namespace. For the network rule, it specifies the ID of a subnet in a virtual network. 
 
-Template parameters:
+The ID is a fully qualified Resource Manager path for the virtual network subnet. For example, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
 
-* **namespaceName**: Service Bus namespace.
-* **virtualNetworkingSubnetId**: Fully qualified Resource Manager path for the virtual network subnet; for example, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
-
-> [!NOTE]
-> While there are no deny rules possible, the Azure Resource Manager template has the default action set to **"Allow"** which doesn't restrict connections.
-> When making Virtual Network or Firewalls rules, we must change the
-> ***"defaultAction"***
-> 
-> from
-> ```json
-> "defaultAction": "Allow"
-> ```
-> to
-> ```json
-> "defaultAction": "Deny"
-> ```
->
+When adding virtual network or firewalls rules, set the value of `defaultAction` to `Deny`.
 
 Template:
 
@@ -208,6 +192,9 @@ Template:
 ```
 
 To deploy the template, follow the instructions for [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`.  The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
 
 ## Next steps
 

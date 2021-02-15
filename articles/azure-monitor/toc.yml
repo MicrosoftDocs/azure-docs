@@ -426,8 +426,10 @@
       - name: Linux
         displayname: diagnostics extension
         items: 
-        - name: Overview
+        - name: Version 4.0
           href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+        - name: Version 3.0
+          href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
         - name: Collect metrics with Telegraf
           href: platform/collect-custom-metrics-linux-telegraf.md   
     - name: Troubleshoot
@@ -976,10 +978,14 @@
         href: app/sharepoint.md
       - name: Windows desktop
         href: app/windows-desktop.md
-    - name: Other tools
-      items: 
-      - name: Change analysis
-        href: app/change-analysis.md
+  - name: Change Analysis
+    items:
+    - name: Overview
+      href: app/change-analysis.md
+    - name: Visualizations
+      href: app/change-analysis-visualizations.md
+    - name: Troubleshoot
+      href: app/change-analysis-troubleshoot.md
   - name: Azure Monitor for VMs
     items:
     - name: Overview
