@@ -693,7 +693,7 @@ To restore the entire VM, complete these steps:
 
    1. In the Azure portal, select **+ Create a resource** and search for and select **Storage Account**.
     
-      ![Storage Account add page](./media/oracle-backup-recovery/storage-1.png)
+      ![Screenshot that shows where to create a resource.](./media/oracle-backup-recovery/storage-1.png)
     
     
    1. In the Create storage account page, choose your existing resource group **rg-oracle**, name your storage account **oracrestore** and choose **Storage V2 (generalpurpose v2)** for Account Kind. Change Replication to **Locally-redundant storage (LRS)** and set Performance to **Standard**. Ensure that Location is set to the same region as all your other resources in the resource group. 
@@ -873,7 +873,7 @@ After the VM is restored, you should reassign the original IP address to the new
 
 5.  Now you must detach the NIC that was created with the VM restore operation as it is configured as the primary interface. Click on **Detach network interface** and choose the new NIC similar to **vmoracle19c-nic-XXXXXXXXXXXX**, then click **OK**
 
-    ![IP address value](./media/oracle-backup-recovery/create-ip-05.png)
+    ![Screenshot that shows where to select Detach network interface.](./media/oracle-backup-recovery/create-ip-05.png)
     
     Your recreated VM will now have the original NIC, which is associated with the original IP address and Network Security Group rules
     

@@ -97,12 +97,12 @@ In the Azure app registration for the client application:
 
 ### Updating the application manifest
 
-Having hold of a certificate, you need to compute:
+After acquiring a certificate, compute these values:
 
 - `$base64Thumbprint` - Base64-encoded value of the certificate hash
 - `$base64Value` - Base64-encoded value of the certificate raw data
 
-You also need to provide a GUID to identify the key in the application manifest (`$keyId`).
+Provide a GUID to identify the key in the application manifest (`$keyId`).
 
 In the Azure app registration for the client application:
 1. Select **Manifest** to open the application manifest.
