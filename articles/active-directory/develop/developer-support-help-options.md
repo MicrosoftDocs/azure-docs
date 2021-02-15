@@ -35,7 +35,9 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 ## Post a question to Microsoft Q&A
 
-For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](https://docs.microsoft.com/answers/products/), Azure’s preferred destination for community support. 
+Get answers to your identity app development questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs), and members of our expert community.
+
+[Microsoft Q&A](/answers/products/) is Azure's recommended source of community support.
 
 If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
 
