@@ -7,7 +7,7 @@ ms.service: cassandra-managed-instance
 ms.topic: quickstart
 ms.date: 01/18/2021
 ---
-# Quickstart: Deploy a Managed Apache Spark Cluster with Azure Databricks
+# Quickstart: Deploy a Managed Apache Spark Cluster with Azure Databricks (Preview)
 
 Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters, accelerating hybrid scenarios and reducing ongoing maintenance.
 
