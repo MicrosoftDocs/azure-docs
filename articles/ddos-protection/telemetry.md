@@ -65,7 +65,7 @@ The following [metrics](../azure-monitor/platform/metrics-supported.md#microsoft
 
 ## View DDoS protection telemetry
 
-Telemetry for an attack is provided through Azure Monitor in real time. The telemetry is available only for the duration that a public IP address is under mitigation. You don't see telemetry before or after an attack is mitigated.
+Telemetry for an attack is provided through Azure Monitor in real time. Telemetry is available only when a public IP address has been under mitigation. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to your DDoS Protection Plan.
 2. Under **Monitoring**, select **Metrics**.
