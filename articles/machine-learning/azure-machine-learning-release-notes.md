@@ -36,6 +36,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
        
        A job will stop if exceeds any of them. error_threshold is required to keep it backward compatibility. Set the value to -1 to ignore it.
     + Fixed whitespace handling in AutoMLStep name.
+    + ScriptRunConfig is now supported by HyperDriveStep
   + **azureml-train-core**
     + HyperDrive runs invoked from a ScriptRun will now be considered a child run.
     + Add `process_count` to [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) to support multi-process multi-node PyTorch jobs.
