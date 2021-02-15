@@ -220,6 +220,6 @@ Regex doesn't support the following operations:
 
 ## Next steps
 
-* Learn more about [Rule Set](concept-rule-set.md)
-* Learn how to [configure your first Rules Set](how-to-configure-rule-set.md)
-* Learn more about [Rule Set actions](concept-rule-set-actions.md)
+* Learn more about [Rule Set](concept-rule-set.md).
+* Learn how to [configure your first Rules Set](how-to-configure-rule-set.md).
+* Learn more about [Rule Set actions](concept-rule-set-actions.md).
