@@ -1,8 +1,8 @@
 ---
 title: Send device telemetry to Azure IoT Hub quickstart (Node.js)
 description: In this quickstart, you use the Azure IoT Hub Device SDK for Node.js to send telemetry from a device to an Iot hub.
-author: elhorton
-ms.author: elhorton
+author: timlt
+ms.author: timlt
 ms.service: iot-develop
 ms.devlang: node
 ms.topic: quickstart
@@ -11,7 +11,9 @@ ms.date: 01/11/2021
 
 # Quickstart: Send telemetry from a device to an IoT hub (Node.js)
 
-In this quickstart, you learn a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You use the Azure CLI to create an IoT hub and a simulated device, then you use the Azure IoT Node.js SDK to access the device and send telemetry to the hub. You also use the Azure portal to visualize device metrics.
+**Applies to**: [Device application development](about-iot-develop.md#device-application-development)
+
+In this quickstart, you learn a basic IoT device application development workflow. You use the Azure CLI to create an Azure IoT hub and a simulated device, then you use the Azure IoT Node.js SDK to access the device and send telemetry to the hub.
 
 ## Prerequisites
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -196,7 +198,7 @@ To delete a resource group by name:
 
 ## Next steps
 
-In this quickstart, you learned a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You used the Azure CLI to create an IoT hub and a simulated device, then you used the Azure IoT Node.js SDK to access the device and send telemetry to the hub. You also used the Azure portal to visualize device metrics.
+In this quickstart, you learned a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You used the Azure CLI to create an IoT hub and a simulated device, then you used the Azure IoT Node.js SDK to access the device and send telemetry to the hub. 
 
 As a next step, explore the Azure IoT Node.js SDK through application samples.
 
