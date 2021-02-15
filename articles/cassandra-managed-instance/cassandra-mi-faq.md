@@ -47,7 +47,7 @@ These settings are fully supported as with any self-hosted Apache Cassandra envi
 
 ### How can I monitor infrastructure along with throughput?
 
-We host a [Prometheus](https://prometheus.io/docs/introduction/overview/) server to monitor activity across your cluster, and expose an endpoint. The server maintains 10 minutes or 10GB of data (whichever threshold is reached first). You will need to set up a [federation](https://prometheus.io/docs/prometheus/latest/federation/) and appropriate dashboard tool (for example, Grafana).
+We host a [Prometheus](https://prometheus.io/docs/introduction/overview/) server to monitor activity across your cluster, and expose an endpoint. The server maintains 10 minutes or 10 GB of data (whichever threshold is reached first). You will need to set up a [federation](https://prometheus.io/docs/prometheus/latest/federation/) and appropriate dashboard tool (for example, Grafana).
 
 ### Does Azure Managed Instance for Apache Cassandra provide full backups?
 
