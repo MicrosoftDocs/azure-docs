@@ -81,9 +81,9 @@ More](device-update-plug-and-play.md) about `installedCriteria` and the `AzureDe
 
 ### SWUpdate Update Handler
 
-The SWUpdate Update Handler integrates with the 'SWUpdate' command-line
+The "SWUpdate Update Handler" integrates with the "SWUpdate" command-line
 executable and other shell commands to implement A/B updates specifically for
-the Raspberry Pi reference Yocto image. Find the latest Raspberry Pi reference Yocto image [here](https://github.com/Azure/iot-hub-device-update/releases). The SWUpdate Update Handler is implemented in [src/content_handlers/swupdate_content_handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/swupdate_handler).
+the Raspberry Pi reference Yocto image. Find the latest Raspberry Pi reference Yocto image [here](https://github.com/Azure/iot-hub-device-update/releases). The "SWUpdate Update Handler" is implemented in [src/content_handlers/swupdate_content_handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/swupdate_handler).
 
 ### APT Update Handler
 
