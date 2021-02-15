@@ -63,7 +63,7 @@ landingContent:
             url: how-to-create-origin.md
 
   # Card
-  - title: Configure a Rules Set
+  - title: Configure a Rule Set
     linkLists:
       - linkListType: concept
         links:
@@ -79,7 +79,7 @@ landingContent:
             url: how-to-configure-rule-set.md
 
   # Card
-  - title: Reports, Metrics and Logs
+  - title: Reports, metrics and logs
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -91,7 +91,7 @@ landingContent:
             url: how-to-logs.md
 
     # Card
-  - title: Caching and Optimization
+  - title: Caching and optimization
     linkLists:
       - linkListType: concept
         links:

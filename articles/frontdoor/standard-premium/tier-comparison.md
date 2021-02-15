@@ -39,7 +39,7 @@ Azure Front Door is offered for 3 different SKUs, [Azure Front Door](../front-do
     * Private Link support
     * Integration with Microsoft Threat Intelligence and security analytics. 
 
-:::image type="content" source="../media/tier-comparison/tier-comparison.png" alt-text="Diagram showing a comparison between Front Door SKUs":::
+![Diagram showing a comparison between Front Door SKUs.](../media/tier-comparison/tier-comparison.png)
 
 ## Feature comparison
 
@@ -60,6 +60,6 @@ Azure Front Door is offered for 3 different SKUs, [Azure Front Door](../front-do
 | Traffic reports | Yes | Yes |
 | Security Report | No | Yes | 
 
-## Next Steps
+## Next steps
 
 Learn how to [create a Front Door](create-front-door-portal.md)
