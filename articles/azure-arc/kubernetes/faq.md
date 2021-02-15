@@ -32,15 +32,15 @@ The Managed service identity (MSI) certificate associated with your Azure Arc en
 
 1. Delete Azure Arc enabled Kubernetes resource and agents on the cluster 
 
-```console
-az connectedk8s delete
-```
+    ```console
+    az connectedk8s delete -n <name> -g <resource-group>
+    ```
 
 1. Recreate the Azure Arc enabled Kubernetes resource by deploying agents on the cluster again.
-
-```console
-az connectedk8s connect
-```
+    
+    ```console
+    az connectedk8s connect -n <name> -g <resource-group>
+    ```
 
 > [!NOTE]
 > `az connectedk8s delete` will also delete configurations on top of the cluster. After running `az connectedk8s connect`, create the configurations on the cluster again, either manually or using Azure Policy.
