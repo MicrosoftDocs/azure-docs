@@ -21,7 +21,7 @@ With Azure Front Door Standard/Premium, you can transform your global consumer a
 
    :::image type="content" source="../media/overview/front-door-overview.png" alt-text="Azure Front Door Standard/Premium architecture" lightbox="../media/overview/front-door-overview-expanded.png":::
 
-Front Door works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split TCP and Microsoft's global network to improve global connectivity. Based on your routing method you can ensure that Front Door will route your client requests to the fastest and most available origin. An application backend is any Internet-facing service hosted inside or outside of Azure. Front Door provides a range of traffic-routing methods and origin health monitoring options to suit different application needs and automatic failover scenarios. Similar to Traffic Manager, Front Door is resilient to failures, including failures to an entire Azure region.
+Azure Front Door Standard/Premium works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split TCP and Microsoft's global network to improve global connectivity. Based on your routing method you can ensure that Azure Front Door will route your client requests to the fastest and most available origin. An application backend is any Internet-facing service hosted inside or outside of Azure. AzureFront Door Standard/Premium provides a range of traffic-routing methods and origin health monitoring options to suit different application needs and automatic failover scenarios. Similar to Traffic Manager, Front Door is resilient to failures, including failures to an entire Azure region.
 
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios.
@@ -34,37 +34,37 @@ Front Door works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split
 > For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 > [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
+> Azure Front Door Standard/Premium is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Why use Azure Front Door Standard/Premium (Preview)?
 
-Azure Front Door Standard/Premium (Preview) provides a single unified platform for static content and dynamic application acceleration, with enhanced security capabilities. Front Door also enables you to define, manage, and monitor the global routing for your app.
+Azure Front Door Standard/Premium provides a single unified platform for static content and dynamic application acceleration, with enhanced security capabilities. Front Door also enables you to define, manage, and monitor the global routing for your app.
 
 Key features included with Azure Front Door Standard/Premium (Preview):
 
-* Accelerated application performance by using split TCP-based anycast protocol.
+- Accelerated application performance by using split TCP-based anycast protocol.
 
-* Intelligent **health probe** monitoring and load balancing among **origins**.
+- Intelligent **[health probe](concept-health-probes.md)** monitoring and load balancing among **[origins](concept-origin.md)**.
 
-* Define your own custom domain with flexible domain validation.
+- Define your own custom domain with flexible domain validation.
 
-* Application security with integrated Web Application Firewall (WAF).
+- Application security with integrated Web Application Firewall (WAF).
 
-* SSL offload and integrated certificate management.
+- SSL offload and integrated certificate management.
 
-* Secure your origins with **Private Link**.  
+- Secure your origins with **[Private Link](concept-private-endpoints.md)**.  
 
-* Customizable traffic routing and optimizations via **Rule Set**.
+- Customizable traffic routing and optimizations via **[Rule Set](concept-rule-set.md)**.
 
-* **Built-in reports** with all-in-one dashboard for both Front Door and security patterns.
+- **[Built-in reports](how-to-reports.md)** with all-in-one dashboard for both Front Door and security patterns.
 
-* **Real-time monitoring** and alerts that integrate with Azure Monitoring.
+- **[Real-time monitoring](how-to-monitor-metrics.md)** and alerts that integrate with Azure Monitoring.
 
-* **Logging** for each Front Door request and failed health probes.
+- **[Logging](how-to-logs.md)** for each Front Door request and failed health probes.
 
-* Native support of end-to-end IPv6 connectivity and **HTTP/2 protocol**.
+- Native support of end-to-end IPv6 connectivity and HTTP/2 protocol.
 
 ## Pricing
 
