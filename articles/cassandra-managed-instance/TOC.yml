@@ -4,7 +4,7 @@
   items:
     - name: Welcome to Azure Managed Instance for Apache Cassandra
       href: introduction.md
-    - name: Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API
+    - name: Cassandra Vs Azure Cosmos DB 
       href: cassandra-api-vs-cassandra-mi.md
 - name: Concepts
   items:
