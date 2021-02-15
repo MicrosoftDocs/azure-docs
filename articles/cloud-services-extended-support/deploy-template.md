@@ -442,7 +442,7 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     }
     ```
  
-8. Deploy the template and parameter file (defining parameters in template file) to create the Cloud Service (extended support) deployment. Please refer [sample templates](https://github.com/Azure-Samples/cloud-services-extended-support) as required.
+8. Deploy the template and parameter file (defining parameters in template file) to create the Cloud Service (extended support) deployment. Please refer these [sample templates](https://github.com/Azure-Samples/cloud-services-extended-support) as required.
 
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg"  -TemplateFile "file path to your template file” -TemplateParameterFile "file path to your parameter file"
