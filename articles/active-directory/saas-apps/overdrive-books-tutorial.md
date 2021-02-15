@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/18/2021
+ms.date: 02/15/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Overdrive
@@ -31,9 +31,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Overdrive supports **SP** initiated SSO
+* Overdrive supports **SP** initiated SSO.
 
-* Overdrive supports **Just In Time** user provisioning
+* Overdrive supports **Just In Time** user provisioning.
 
 ## Add Overdrive from the gallery
 
@@ -59,7 +59,7 @@ To configure and test Azure AD SSO with Overdrive, perform the following steps:
     1. **[Create Overdrive test user](#create-overdrive-test-user)** - to have a counterpart of B.Simon in Overdrive that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -116,7 +116,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Configure Overdrive SSO
+## Configure Overdrive SSO
 
 To configure single sign-on on **Overdrive** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Overdrive support team](https://help.overdrive.com/). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -128,7 +128,7 @@ In this section, a user called Britta Simon is created in Overdrive. Overdrive s
 >You can use any other OverDrive user account creation tools or APIs provided by OverDrive to provision Azure AD user accounts.
 >
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 

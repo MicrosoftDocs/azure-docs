@@ -708,6 +708,8 @@
         href: github-tutorial.md
       - name: GitHub AE
         href: github-ae-tutorial.md
+      - name: GitHub Enterprise Cloud - Enterprise Account
+        href: github-enterprise-cloud-enterprise-account-tutorial.md  
       - name: GlassFrog
         href: glassfrog-tutorial.md
       - name: GlobalOne
@@ -1694,6 +1696,8 @@
         href: softeon-tutorial.md
       - name: Software AG Cloud
         href: software-ag-cloud-tutorial.md
+      - name: SolarWinds Service Desk
+        href: samanage-tutorial.md  
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-tutorial.md
       - name: Sonarqube
