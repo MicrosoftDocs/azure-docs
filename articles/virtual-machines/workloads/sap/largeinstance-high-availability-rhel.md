@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 02/08/2021
 ---
 
-# SAP HANA High Availability configuration on Rhel
+# Azure Large Instances high availability for SAP on RHEL
 
   
 
-This document describes how to configure the Pacemaker Cluster in RHEL7.6 to automate a SAP HANA database failover. This document assumes that the consultant has good Linux, SAP HANA and Pacemaker knowledge.
+In this article, you learn how to configure the Pacemaker cluster in RHEL 7.6 to automate an SAP HANA database failover. You need to have a good understanding of Linux, SAP HANA, and Pacemaker to complete the steps in this guide.
 
-### System Configuration
+## Configure your Pacemaker cluster
 
-It is very helpful to set up the ssh key exchange before starting the cluster configuration. The two nodes must trust each other anyway.
+Before you can begin configuring the cluster, set up SSH key exchange to establish trust between nodes.
 
-* Create an identical /etc/hosts on both nodes
+1. Use the following commands to create identical `/etc/hosts` on both nodes.
 
 	```
 	root@sollabdsm35 ~]# cat /etc/hosts
@@ -76,7 +76,7 @@ It is very helpful to set up the ssh key exchange before starting the cluster co
 
 	```  
 
-* Reboot the server
+4. Reboot the servers and then use the following command to verify the status of SELINUX
 ```
 [root@sollabdsm35 ~]# sestatus
 
@@ -89,9 +89,7 @@ SELinux status: disabled
 SELinux status: disabled
 ```
 
-* Configure NTP
-  * It is a very bad idea to have a different time or time zone on the cluster nodes.
-  * Therefore, it is absolutely mandatory to configure NTP!
+5. Configure NTP (Network Time Protocol). The time and time zones for both cluster nodes must match.
 	```
 	vi /etc/chrony.conf
 
@@ -165,11 +163,11 @@ SELinux status: disabled
 * Install the Pacemaker, SBD, OpenIPMI, ipmitools and fencing_sbd tools on all nodes
 
 	```	
-	node1:~ # yum install pcs sbd fence-agent-sbd.x86_64 OpenIPMI
+	yum install pcs sbd fence-agent-sbd.x86_64 OpenIPMI
 	ipmitools
 	```
 
-  ### Watchdog Configuration
+  ## Configure Watchdog
 
 * make sure, that the watchdog daemon is not running at this time (on all systems)
 	```
