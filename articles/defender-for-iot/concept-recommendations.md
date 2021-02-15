@@ -57,6 +57,7 @@ Recommendation alerts provide insight and suggestions for actions to improve the
 | Medium | IP filter rule includes large IP range | IoT Hub | An allow IP filter rule source IP range is too large. Overly permissive rules can expose your IoT hub to malicious actors. |
 | Low | Enable diagnostics logs in IoT Hub | IoT Hub | Enable logs and retain them for up to a year. Retaining logs enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
 
+
 ## Next steps
 
 - Defender for IoT service [Overview](overview.md)

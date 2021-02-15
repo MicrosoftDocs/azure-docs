@@ -79,6 +79,6 @@ To define SNMP v3 health monitoring:
 
 5. Select **Save**.
 
-## Next steps
+## See also
 
 [Export troubleshooting logs](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
