@@ -11,7 +11,7 @@ ms.topic: how-to
 
 The [model conversion](model-conversion.md) service is controlled through a [REST API](https://en.wikipedia.org/wiki/Representational_state_transfer). This API can be used to create conversions, get conversion properties, and list existing conversions.
 
-## REST API Reference
+## REST API reference
 
 The Remote Rendering REST API reference documentation can be found [here](https://docs.microsoft.com/rest/api/mixedreality/2021-01-01preview/remoterendering), and the swagger definitions [here](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mixedreality/data-plane/Microsoft.MixedReality).
 
