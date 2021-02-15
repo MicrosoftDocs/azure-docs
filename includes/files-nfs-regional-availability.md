@@ -10,9 +10,11 @@ ms.author: rogarana
 ms.custom: "include file"
 ---
 
-NFS is available in all regions where Premium Files Storage is available. We are continuously adding regions. For the most upto date list go to (Azure Products available by region)[https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage&regions=all] page and look for your region availability for Premium Files Storage. For list of ZRS enabled regions, go to (ZRS documentation page)[https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage] and look for regional availability for Premium files shares.
+NFS is supported in all regions where Premium Files Storage is available.
 
-You can also get the list of supported regions using the following PowerShell
+We are continuously adding regions. For the most upto date list get the list of supported regions using the following PowerShell.
+
+You can also check (Azure Products available by region)[https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage&regions=all] page and look for your region availability for Premium Files Storage.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if not using Cloud Shell
