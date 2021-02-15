@@ -12,6 +12,16 @@ ms.author: chrande
 # Pre-migration steps for data migrations from MongoDB to Azure Cosmos DB's API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
+> [!IMPORTANT]  
+> This MongoDB pre-migration guide is the first in a series on migrating MongoDB to Azure Cosmos DB at scale. Customers licensing and deploying MongoDB on self-managed infrastructure may want to reduce and manage the cost of their data estate by migrating to a managed cloud service like Azure Cosmos DB with pay-as-you-go pricing and elastic scalability. The goal of this series is to guide the customer through the migration process:
+>
+> 1. [Pre-migration](mongodb-pre-migration.md) - inventory the existing MongoDB data estate, plan migration, and choose the appropriate migration tool(s).
+> 2. Execution - migrate from MongoDB to Azure Cosmos DB using the provided [tutorials]().
+> 3. [Post-migration](mongodb-post-migration.md) - update and optimize existing applications to execute against your new Azure Cosmos DB data estate.
+>
+
+A thorough pre-mi
+
 Before you migrate your data from MongoDB (either on-premises or in the cloud) to Azure Cosmos DB's API for MongoDB, you should:
 
 1. [Read the key considerations about using Azure Cosmos DB's API for MongoDB](#considerations)
