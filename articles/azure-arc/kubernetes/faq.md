@@ -52,6 +52,7 @@ Yes, you can still use configurations on a cluster receiving deployments via a C
 **Drift reconciliation** 
 
 The CI/CD pipeline scope of deployment only extends to the duration of the pipeline run. However, the GitOps operator on the cluster continuously polls the Git repository to fetch the desired state of Kubernetes resources on the cluster. If the GitOps operator finds the desired state of resources to be different from the actual state of resources on the cluster, this drift is reconciled.
+
 **At-scale enforcement** 
 
 CI/CD pipelines are good for event driven deployments to your Kubernetes cluster, where the event could be a push to a Git repository. However, deployment of the same configuration to all your Kubernetes clusters requires the CI/CD pipeline to be configured with credentials of each of these Kubernetes clusters manually. On the other hand, in the case of Azure Arc enabled Kubernetes, since Azure Resource Manager manages your configurations, you can use Azure Policy to automate the application of the desired configuration on all Kubernetes clusters under a subscription or resource group scope in one go. This capability is even applicable to Azure Arc enabled Kubernetes resources created after the policy assignment.
