@@ -58,12 +58,13 @@ Table-based RBAC is supported for Azure Sentinel via Log Analytics.
 
 1. Add the custom role to your Azure subscription. Run the [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) command, pointing to the custom JSON file you created in the previous step.
 
-    ``PowerShell
+    ```PowerShell
     New-AzRoleDefinition -InputFile "C:\Users\<user>\OneDrive\Demos\Custom_RBAC.json"
     ```
 
     The command output should be similar to the following:
 
+    ```PowerShell
     Name             : Perf Monitor Team
     Id               : ab403341-d1f6-4cea-ae97-aea203b895a1
     IsCustom         : True
@@ -73,6 +74,7 @@ Table-based RBAC is supported for Azure Sentinel via Log Analytics.
     DataActions      : {}
     NotDataActions   : {}
     AssignableScopes : {/subscriptions/8f153238-e602-427e-a7c0-xxxxxxx50918}
+    ```
 
     > [!NOTE]
     > Running Azure PowerShell commands requires that you've installed the Azure PowerShell module. For more information, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
