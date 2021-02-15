@@ -87,7 +87,7 @@ You can access the details of any digital twin by calling the `GetDigitalTwin()`
 
 This call returns twin data as a strongly-typed object type such as `BasicDigitalTwin`. `BasicDigitalTwin` is a serialization helper class included with the SDK, which will return the core twin metadata and properties in pre-parsed form. Here's an example of how to use this to view twin details:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin" highlight="2":::
 
 Only properties that have been set at least once are returned when you retrieve a twin with the `GetDigitalTwin()` method.
 
@@ -211,7 +211,7 @@ You can delete twins using the `DeleteDigitalTwin()` method. However, you can on
 
 Here is an example of the code to delete twins and their relationships:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin" highlight="7":::
 
 ### Delete all digital twins
 
