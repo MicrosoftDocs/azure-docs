@@ -39,7 +39,7 @@ Get answers to your identity app development questions directly from Microsoft e
 
 [Microsoft Q&A](/answers/products/) is Azure's recommended source of community support.
 
-If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
+If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Use one of following tags when you ask your [high-quality question](https://docs.microsoft.com/en-us/answers/articles/24951/how-to-write-a-quality-question.html):
 
 |Component/area  | Tags |
 |---------|---------|
