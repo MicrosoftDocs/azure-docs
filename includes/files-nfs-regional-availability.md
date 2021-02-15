@@ -41,7 +41,7 @@ Replace `{subscriptionId}` in the `$restUri` variable to get information about y
 
 Sample response
 ```
-All regions that support NFS LRS
+All regions that support NFS ZRS
 locations
 ---------
 {eastus}
@@ -56,7 +56,7 @@ locations
 {eastus2euap}
 {francecentral}
 
-All regions that support NFS ZRS
+All regions that support NFS LRS
 locations
 ---------
 {eastus}
