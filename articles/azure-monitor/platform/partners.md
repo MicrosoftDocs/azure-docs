@@ -274,13 +274,13 @@ SIGNL4 - the mobile alerting app for operations teams - is the fastest way to ro
 
 ## Site24x7
 
-![Site24x7 Logo](./media/partners/site24_7.png)
+![Site24x7 Logo](./media/partners/site24-7.png)
 
 Site24x7 provides advanced and full stack Azure monitoring solution, delivering visibility and insight into your applications allowing application owners to detect performance bottlenecks rapidly, automate fault resolution, and optimize their performance.
 With Site24x7 Azure Monitoring, you will be able to:
 
 * Monitor more than 100 Azure IaaS and PaaS services.
-* Get in-depth monitoring for Windows and Linux VMs with exclusive Azure extensions, right from the Azure marketplace.
+* Get in-depth monitoring for Windows and Linux VMs with exclusive Azure extensions, right from the Azure Marketplace.
 * Troubleshoot applications with insight on logs from Azure. Send logs to Site24x7, save search queries, set query-based alerts, and manage Azure logs from a single dashboard.
 * Detect any service health issues and ensure reliable deployments via the Azure Deployment Manager (ADM) Health Check.
 * Automate fault resolution with a set of IT Automation tools.
