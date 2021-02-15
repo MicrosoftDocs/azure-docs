@@ -98,6 +98,9 @@ while ($exportStatus.Status -eq "InProgress")
 [Console]::WriteLine("")
 $exportStatus
 ```
+## Cancel the export request
+
+Use the procedure in the blog [How to cancel Azure SQL Database Import or Export operation](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-cancel-azure-sql-database-import-or-export-operation/ba-p/1935001) to cancel an ongoing import or export operation on Azure SQL Database. 
 
 ## Next steps
 
