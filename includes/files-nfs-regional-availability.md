@@ -34,10 +34,10 @@ $restUri = "https://management.azure.com/subscriptions/$subscription/providers/M
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 # List of all regions that has NFS support.
-$response.value| Where-Object -FilterScript {($_.kind -eq 'FileStorage') -and ($_.capabilities.name -contains 'supportsNfsShare')}| Select-Object locations
+$response.value| Where-Object -FilterScript {$_.capabilities| Where-Object { $_.name -eq 'supportsNfsShare' -and $_.value -eq 'true'}}| Select-Object locations, kind, name
 
 # List of regions that support NFS Zonal redundancy.
-$response.value| Where-Object -FilterScript {($_.name -EQ 'Premium_ZRS') -and ($_.kind -eq 'FileStorage') -and ($_.capabilities.name -contains 'supportsNfsShare')}| Select-Object locations
+$response.value| Where-Object -FilterScript {($_.name -EQ 'Premium_ZRS') -and ($_.capabilities| Where-Object { $_.name -eq 'supportsNfsShare' -and $_.value -eq 'true'})}| Select-Object locations
 ```
 
 Sample response
