@@ -17,7 +17,7 @@ ms.author: duau
 
 Azure Front Door Standard/Premium Route defines how the traffic is handled when the incoming request arrives at the Azure Front Door environment. Through the Route settings, an association is defined between a domain and a backend origin group. By turning on the advance features such as Pattern to Mach, Rule set, more granular control over the traffic is achievable.
 
-A Front Door routing configuration is composed of two major parts: "left-hand side"  and "right-hand side". We match the incoming request to the left-hand side of the route and the right-hand side defines how we process the request.
+A Front Door Standard/Premium routing configuration is composed of two major parts: "left-hand side"  and "right-hand side". We match the incoming request to the left-hand side of the route and the right-hand side defines how we process the request.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
@@ -128,8 +128,8 @@ Given that configuration, the following example matching table would result:
 
 ### Routing decision
 
-Once Azure Front Door has matched to a single routing rule, it then needs to choose how to process the request. If Azure Front Door has a cached response available for the matched routing rule, then the request gets served back to the client. The next thing Azure Front Door evaluates is whether or not you have a Rule Set for the matched routing rule. If there isn't a Rule Set defined, then the request gets forwarded to the backend pool as is. Otherwise, the Rule Set are executed in the order as they're configured.
+Once Azure Front Door Standard/Premium has matched to a single routing rule, it then needs to choose how to process the request. If Azure Front Door Standard/Premium has a cached response available for the matched routing rule, then the request gets served back to the client. The next thing Azure Front Door Standard/Premium evaluates is whether or not you have a Rule Set for the matched routing rule. If there isn't a Rule Set defined, then the request gets forwarded to the backend pool as is. Otherwise, the Rule Set gets executed in the order as they're configured.
 
 ## Next steps
 
-Learn how to [create a Front Door](create-front-door-portal.md).
+Learn how to [create a Front Door Standard/Premium](create-front-door-portal.md).
