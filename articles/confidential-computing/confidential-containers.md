@@ -30,7 +30,7 @@ A hardware based Trusted Execution Environment (TEE) is an important component t
 
 Confidential containers support custom applications developed with **Python, Java, Node JS, etc. or packaged container applications like NGINX, Redis Cache, MemCache**,  and so on, to be run unmodified on AKS with confidential computing nodes.
 
-Confidential containers are the fastest path to container confidentiality and will only require repackaging of the existing docker container applications and will not require application code changes. Confidential containers are docker container applications that are packaged to run in a TEE. Some confidential container enablers also offer container encryption that can help protect the container code during storage and transport and while mounted in the host. Container encryption allows you to go further for protecting the code/model packaged in the container with its decryption attached to the TEE.
+Confidential containers are the fastest path to container confidentiality and will only require repackaging of the existing docker container applications and will not require application code changes. Confidential containers are docker container applications that are packaged to run in a TEE. Some confidential container enablers also offer container encryption that can help protect the container code during storage and transport and while mounted in the host. Container encryption allows you to go further and protect the code/model packaged in the container with its decryption key attached to the TEE.
 
 ## Confidential Containers development and deployment flow
 Below is the process for confidential containers from development to deployment
