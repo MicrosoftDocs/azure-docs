@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # Support and help options for developers
 
-If you're just starting to integrate with Azure Active Directory (Azure AD), Microsoft identities, or Microsoft Graph API, or when you're implementing a new feature to your application, there are times when you need to obtain help from the community or understand the support options that you have as a developer. Here are suggestions for where you can get help.
+If you're just starting to integrate with Azure Active Directory (Azure AD), Microsoft identities, or Microsoft Graph API, or when you're implementing a new feature to your application, there are times when you need to obtain help from the community or understand the support options that you have as a developer. Here are suggestions for where you can get help when developing your Microsoft identity platform solutions.
 
 ## Create an Azure support request
 
@@ -27,11 +27,8 @@ If you're just starting to integrate with Azure Active Directory (Azure AD), Mic
 
 Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
 
-- Go to the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-- If you are not an Azure customer, you can also open a support request with Microsoft via [our commercial support](https://support.serviceshub.microsoft.com/supportforbusiness).
-
-- You can also try a [virtual agent](https://support.microsoft.com/contactus/?ws=support) to obtain support or ask questions.
+- [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+- [Azure portal for the United States government](https://portal.azure.us)
 
 ## Post a question to Microsoft Q&A
 
@@ -39,15 +36,15 @@ For quick and reliable answers on your technical product questions from Microsof
 
 If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
 
-|Component/area  | Tags |
-|---------|---------|
-| ADAL library | [[adal]](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) |
-| MSAL library     | [[msal]](https://docs.microsoft.com/answers/topics/azure-ad-msal.html) |
-| OWIN middleware  | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
-| [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html) |
-| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html) |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[azure-ad-graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
-| Any other area related to authentication or authorization topics | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| Component/area| Tags|
+|------------|---------------------------|
+| Active Directory Authentication Library (ADAL)                              | [[adal]](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html)                |
+| Microsoft Authentication Library (MSAL)                                     | [[msal]](https://docs.microsoft.com/answers/topics/azure-ad-msal.html)                            |
+| Open Web Interface for .NET (OWIN) middleware                               | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| [Azure AD B2B / External Identities](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html)                     |
+| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html)                     |
+| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html)                 |
+| All other authentication and authorization areas                            | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
 
 The following posts from [Microsoft Q&A](https://docs.microsoft.com/answers/products/) contain tips on how to ask questions and how to add source code. Follow these guidelines to increase the chances for community members to assess and respond to your question quickly:
 
@@ -77,6 +74,19 @@ If you submit a new question to Stack Overflow, please use one or more of the fo
     :::column-end:::
 :::row-end:::
 
+## Create a GitHub issue
+
+To create a new GitHub issue, select the link for the library you are developing for.
+
+| MSAL Library| GitHub issues URL |
+|---------------------------------------------------|----------------------------|
+| MSAL for .NET|https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues|
+|MSAL for Java |https://github.com/AzureAD/microsoft-authentication-library-for-java/issues|
+| MSAL for js|https://github.com/AzureAD/microsoft-authentication-library-for-js/issues|
+|MSAL for Python|https://github.com/AzureAD/microsoft-authentication-library-for-python/issues|
+| MSAL for Android| https://github.com/AzureAD/microsoft-authentication-library-for-android/issues
+| MSAL for iOS/macOS | https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
+
 ## Submit feedback on Azure Feedback
 
 <div class='icon is-large'>
@@ -98,13 +108,10 @@ To request new features, post them on Azure Feedback. Share your ideas for makin
     <img alt='Stay informed' src='https://docs.microsoft.com/media/common/i_blog.svg'>
 </div>
 
-Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/en-us/updates/?category=identity).
+Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=identity).
 
 News and information about Azure AD is shared at the [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity).
 
-Also, share your experiences, engage and learn from experts in the [Tech Community](https://techcommunity.microsoft.com/).
+Also, share your experiences, engage and learn from experts in the [Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/).
 
 
-## Next steps
-
-[What is the Microsoft Identity Platform?](v2-overview.md)
