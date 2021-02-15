@@ -260,7 +260,7 @@ To reset a user's password on the on-premises management console:
 
 1. Select **Update**.
 
-## Next steps
+## See also
 
 [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
 [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md)

@@ -295,7 +295,7 @@ To view scan results:
 
 1. When the scan is finished, on the **Actions** pane, select **View Scan Results**. The CSV file with the scan results is downloaded to your computer.
 
-## Next steps
+## See also
 
 [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 [Investigate sensor detections in the device map](how-to-work-with-the-sensor-device-map.md)

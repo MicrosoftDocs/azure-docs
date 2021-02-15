@@ -218,7 +218,7 @@ To export a CSV file:
 
 - On the upper-right menu of the device inventory, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false":::. The CSV report is generated and downloaded.
 
-## Next steps
+## See also
 
 [Investigate all enterprise sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 
