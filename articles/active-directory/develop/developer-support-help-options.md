@@ -51,7 +51,6 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 | [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[azure-ad-graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
 | Any other area related to authentication or authorization topics | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
 
-The following posts from [Microsoft Q&A](https://docs.microsoft.com/answers/products/) contain tips on how to ask questions and how to add source code. Follow these guidelines to increase the chances for community members to assess and respond to your question quickly:
 
 - [How do I ask a good question](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
 - [How to create a minimal, complete, and verifiable example](https://docs.microsoft.com/answers/articles/24907/how-to-write-a-quality-answer.html)
