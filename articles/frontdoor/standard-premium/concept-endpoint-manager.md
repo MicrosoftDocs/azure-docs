@@ -22,7 +22,7 @@ Endpoint Manager provides an overview of endpoints you've configured for your Az
 * Routes
 * Security
 
-:::image type="content" source="../media/concept-endpoint-manager/endpoint-manager-1.png" alt-text="Screenshot of Endpoint Manager without configurations.":::
+:::image type="content" source="../media/concept-endpoint-manager/endpoint-manager-1.png" alt-text="Screenshot of Endpoint Manager without configurations." lightbox="../media/concept-endpoint-manager/endpoint-manager-1-expanded.png":::
 
 Endpoint Manager list how many instances of each element are created within an endpoint. The association status for each element will also be displayed. For example, you may create multiple domains and origin groups, and assign the association between them with different routes.
 
@@ -39,7 +39,7 @@ With the linked view within Endpoint Manager, you could easily identify the asso
 * Which origin group is associated to which domain?
 * Which WAF policy is associated to which domain?
 
-:::image type="content" source="../media/concept-endpoint-manager/endpoint-manager-2.png" alt-text="Screenshot of Endpoint Manager with configurations.":::
+:::image type="content" source="../media/concept-endpoint-manager/endpoint-manager-2.png" alt-text="Screenshot of Endpoint Manager with configurations." lightbox="../media/concept-endpoint-manager/endpoint-manager-2-expanded.png":::
 
 ## Next Steps
 
