@@ -12,7 +12,7 @@ ms.custom: "include file"
 
 NFS is supported in **ALL** 30+ regions where Premium Files Storage is available.
 
-We are continuously adding regions. For the most up-to-date list, use the sameple below to query the list of regions with NFS support. You can also check for your region support at [Azure Products available by region page](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage&regions=all) under **Premium Files Storage**.
+We are continuously adding regions. For the most up-to-date list, use the sample below to query the list of regions with NFS support. You can also check for your region support at [Azure Products available by region page](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage&regions=all) under **Premium Files Storage**.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if not using Cloud Shell
