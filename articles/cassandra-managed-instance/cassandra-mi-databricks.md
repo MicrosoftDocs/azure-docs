@@ -13,7 +13,7 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 
 This quickstart demonstrates how to use the Azure portal to create a fully managed Apache Spark cluster inside the VNET of your Azure Managed Instance for Apache Cassandra cluster. 
 
-You can also learn more with a detailed instructions on [Deploying Azure Databricks in your Azure Virtual Network (VNET Injection)](https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). 
+You can also learn more with a detailed instructions on [Deploying Azure Databricks in your Azure Virtual Network (VNET Injection)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). 
 
 ## Install Azure Databricks in a VNET with the managed instance
 
@@ -35,7 +35,7 @@ Select a name for the Azure Databricks workspace, and ensure it's created in sam
 
 Select the Networking tab, then check yes for deploying Azure Databricks to your VNET, and specify public and private subnet names and subnet ranges:
 
-![Subnets](./media/cassandra-mi-databricks/subnets.png)
+![Specify public and private subnet names](./media/cassandra-mi-databricks/subnets.png)
 
 To avoid range collisions, ensure you select higher ranges. If necessary, use a visual subnet calculator like [this](https://www.fryguy.net/wp-content/tools/subnets.html) for dividing the ranges:
 
