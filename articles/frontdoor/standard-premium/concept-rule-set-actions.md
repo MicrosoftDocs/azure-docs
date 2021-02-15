@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Front Door rule set actions
+title: Configure Azure Front Door Standard/Premium rule set actions
 description: This article provides a list of the various actions you can do with Azure Front Door rule set. 
 services: frontdoor
 author: duongau
@@ -9,7 +9,7 @@ ms.date: 02/18/2021
 ms.author: yuajia
 ---
 
-# Azure Front Door Rule Set Actions
+# Azure Front Door Standard/Premium Rule Set Actions
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
@@ -147,5 +147,5 @@ Preserve unmatched path | If set to **Yes**, the remaining path after the source
 
 ## Next steps
 
-* Learn more about [Azure Front Door Rule Set](concept-rule-set.md)
-* Learn more about [Rule Set Match Conditions](concept-rule-set-match-conditions.md)
+* Learn more about [Azure Front Door Stanard/Premium Rule Set](concept-rule-set.md).
+* Learn more about [Rule Set Match Conditions](concept-rule-set-match-conditions.md).
