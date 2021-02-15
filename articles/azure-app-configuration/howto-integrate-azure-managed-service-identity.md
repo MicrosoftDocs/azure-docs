@@ -5,7 +5,7 @@ description: Authenticate to Azure App Configuration using managed identities
 author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 2/25/2020
 ---
@@ -133,6 +133,14 @@ To set up a managed identity in the portal, you first create an application and 
     ```
     ---
 
+    > [!NOTE]
+    > In the case you want to use a **user assigned managed identity**, be sure to specify the clientId when creating the [ManagedIdentityCredential](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet)
+    >
+    >       config.AddAzureAppConfiguration(options =>
+    >           options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));
+    > You will need to specify the clientId even if only one user assigned managed identity is defined, and there is no system assigned managed identity.
+
+
 1. To use both App Configuration values and Key Vault references, update *Program.cs* as shown below. This code calls `SetCredential` as part of `ConfigureKeyVault` to tell the config provider what credential to use when authenticating to Key Vault.
 
     ### [.NET Core 2.x](#tab/core2x)
@@ -187,6 +195,8 @@ To set up a managed identity in the portal, you first create an application and 
 
     > [!NOTE]
     > The `ManagedIdentityCredential` works only in Azure environments of services that support managed identity authentication. It doesn't work in the local environment. Use [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) for the code to work in both local and Azure environments as it will fall back to a few authentication options including managed identity.
+    > 
+    > In case you want to use a user asigned managed identity with the `DefaultAzureCredential` when deployed to azure, [specify the clientId](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
