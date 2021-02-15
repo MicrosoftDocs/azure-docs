@@ -86,6 +86,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Row context via Window transformation](http://youtu.be/jqt1gmX2XUg)
 
+[Parse transformation](https://www.youtube.com/watch?v=r7O7AJcuqoY)
+
 ## Source and sink
 
 [Reading and writing JSONs](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
