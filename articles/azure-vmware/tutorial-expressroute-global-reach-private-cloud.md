@@ -34,7 +34,7 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 
    :::image type="content" source="media/expressroute-global-reach/start-request-auth-key-onprem-er.png" alt-text="Select Authorizations and  enter the name for the authorization key ":::
   
- 3. Once created, the new key appears in the list of authorization keys for the circuit.
+    Once created, the new key appears in the list of authorization keys for the circuit.
  
  4. Make a note of the authorization key and the ExpressRoute ID. You'll use them in the next step to complete the peering.
  
