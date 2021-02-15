@@ -584,6 +584,8 @@
           href: alerts/itsmc-dashboard-errors.md
         - name: Sync ITSM Connector
           href: alerts/itsmc-resync-servicenow.md
+        - name: Connector deletion
+          href: platform/itsmc-connector-deletion.md
       - name: Integrate with Secure Export
         items:
         - name: Overview
