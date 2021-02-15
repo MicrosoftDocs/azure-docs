@@ -3,7 +3,7 @@ title: "Connect an Azure Arc enabled Kubernetes cluster (Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/09/2021
+ms.date: 02/15/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -14,7 +14,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Connect an Azure Arc enabled Kubernetes cluster (Preview)
 
-This article provides a walk-through on connecting any existing Kubernetes cluster to Azure Arc. A conceptual overview of the same can be found [here](./conceptual-agents-communication-pattern.md).
+This article provides a walk-through on connecting any existing Kubernetes cluster to Azure Arc. A conceptual overview of the same can be found [here](./conceptual-agent-architecture.md).
 
 ## Before you begin
 

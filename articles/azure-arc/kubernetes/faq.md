@@ -2,7 +2,7 @@
 title: "Azure Arc enabled Kuberneetes Frequently Asked Questions"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/08/2021
+ms.date: 02/15/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb

@@ -3,7 +3,7 @@ title: "Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster(Previe
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/09/2021
+ms.date: 02/15/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned

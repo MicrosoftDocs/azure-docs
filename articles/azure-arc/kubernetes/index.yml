@@ -8,20 +8,34 @@ metadata:
   author: shashankbarsin
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 02/08/2021
+  ms.date: 02/15/2021
   ms.author: shasb
 
 landingContent:
   - title: Connect Kubernetes clusters to Azure using Azure Arc
-    linkLists: 
+    linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Arc enabled Kubernetes?
-            url: overview.md 
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Agent architecture
+            url: conceptual-agent-architecture.md
+          - text: Configurations and GitOps
+            url: conceptual-configurations.md
+          - text: Frequently Asked Questions
+            url: faq.md
+
+  - title: Get started
+    linkLists:
       - linkListType: quickstart
         links:
           - text: Connect cluster
             url: connect-cluster.md
+      
+  - title: Configure, govern and monitor clusters
+    linkLists:
       - linkListType: how-to-guide
         links:  
           - text: Deploy configurations using GitOps
@@ -32,13 +46,14 @@ landingContent:
             url: use-azure-policy.md
           - text: Deploy Azure IoT edge workloads
             url: deploy-azure-iot-edge-workloads.md
- # Card
+ 
   - title: Proof of concept
     linkLists:
      - linkListType: sample
        links:
           - text: Jumpstart
             url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
+  
   - title: Reference architecture
     linkLists:
       - linkListType: architecture

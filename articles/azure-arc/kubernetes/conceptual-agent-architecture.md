@@ -1,8 +1,8 @@
 ---
-title: "Agents and communication pattern - Azure Arc enabled Kubernetes"
+title: "Azure Arc enabled Kubernetes Agent Architecture"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/08/2021
+ms.date: 02/15/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
@@ -10,7 +10,7 @@ description: "This article provides an architectural overview of Azure Arc enabl
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
-# Agents and communication pattern - Azure Arc enabled Kubernetes
+# Azure Arc enabled Kubernetes Agent Architecture
 
 [Kubernetes](https://kubernetes.io/) can be used to deploy containerized workloads on hybrid and multi-cloud environments in a consistent way. Azure Arc enabled Kubernetes can be used as a centralized control plane to consistently manage policy, governance, and security across these heterogenous environments. This article provides:
 

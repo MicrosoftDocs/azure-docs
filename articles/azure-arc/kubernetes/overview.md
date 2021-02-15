@@ -3,7 +3,7 @@ title: "Overview of Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 05/19/2020
+ms.date: 02/15/2021
 ms.topic: overview
 author: mlearned
 ms.author: mlearned

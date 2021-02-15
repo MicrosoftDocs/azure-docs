@@ -7,7 +7,7 @@
 - name: Concepts
   items:
   - name: Agents and communication pattern
-    href: conceptual-agents-communication-pattern.md
+    href: conceptual-agent-architecture.md
   - name: Configurations and GitOps
     href: conceptual-configurations.md
   - name: Frequently Asked Questions
