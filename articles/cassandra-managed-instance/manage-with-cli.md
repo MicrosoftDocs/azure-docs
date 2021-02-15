@@ -28,7 +28,7 @@ The following sections demonstrate how to manage Azure Managed Instance for Apac
 * [Get cluster details](#get-cluster-details)
 * [Update an existing managed Cassandra cluster](#update-an-existing-managed-cassandra-cluster)
 * [List clusters by resource group](#list-clusters-by-resource-group)
-* [List clusters by subscription id](#list-clusters-by-subscription-id)
+* [List clusters by subscription ID](#list-clusters-by-subscription-id)
 
 
 ### Create a managed Cassandra cluster
@@ -108,9 +108,9 @@ az cassandra-mi list-clusters \
     --resourceGroupName $resourceGroupName \
 ```
 
-### List clusters by subscription id
+### List clusters by subscription ID
 
-List clusters by subscription id:
+List clusters by subscription ID:
 
 ```azurecli-interactive
 subscriptionId='MySubscriptionId'

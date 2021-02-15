@@ -17,51 +17,51 @@ You can also learn more with a detailed instructions on [Deploying Azure Databri
 
 ## Install Azure Databricks in a VNET with the managed instance
 
-First, navigate to the resource group in Azure portal that contains the VNET in which your Cassandra Managed Instance is deployed. Open the VNET resource, and take note of the address space in your VNET:
+1. First, navigate to the resource group in Azure portal that contains the VNET in which your Cassandra Managed Instance is deployed. Open the VNET resource, and take note of the address space in your VNET:
 
-![Virtual Network Resource](./media/cassandra-mi-databricks/vnet.png)
+    :::image type="content" source="./media/databricks/vnet.png" alt-text="Virtual Network Resource" border="false":::
 
-Then, from the resource group, click `Add` and search for Azure Databricks in the search field:
+2. Then, from the resource group, click `Add` and search for Azure Databricks in the search field:
 
-![Add Azure Databricks](./media/cassandra-mi-databricks/databricks.png)
+    :::image type="content" source="./media/databricks/databricks.png" alt-text="Add Azure Databricks" border="false":::
 
-Select `Create`:
+3. Select `Create`:
 
-![Create Azure Databricks account](./media/cassandra-mi-databricks/databricks-create.png)
+    :::image type="content" source="./media/databricks/databricks-create.png" alt-text="Create Azure Databricks account" border="false":::
 
-Select a name for the Azure Databricks workspace, and ensure it's created in same region as your VNET:
+4. Select a name for the Azure Databricks workspace, and ensure it's created in same region as your VNET:
 
-![Select name](./media/cassandra-mi-databricks/select-name.png)
+    :::image type="content" source="./media/databricks/select-name.png" alt-text="Select name" border="false":::
 
-Select the Networking tab, then check yes for deploying Azure Databricks to your VNET, and specify public and private subnet names and subnet ranges:
+5. Select the Networking tab, then check yes for deploying Azure Databricks to your VNET, and specify public and private subnet names and subnet ranges:
 
-![Specify public and private subnet names](./media/cassandra-mi-databricks/subnets.png)
+    :::image type="content" source="./media/databricks/subnets.png" alt-text="Specify public and private subnet names" border="false":::
 
-To avoid range collisions, ensure you select higher ranges. If necessary, use a visual subnet calculator like [this](https://www.fryguy.net/wp-content/tools/subnets.html) for dividing the ranges:
+6. To avoid range collisions, ensure you select higher ranges. If necessary, use a visual subnet calculator like [this](https://www.fryguy.net/wp-content/tools/subnets.html) for dividing the ranges:
 
-![Subnet Calculator](./media/cassandra-mi-databricks/subnet-calc.png)
+    :::image type="content" source="./media/databricks/subnet-calc.png" alt-text="Subnet Calculator" border="false":::
 
-Click `Review and create`, then `Create` to deploy the work space. When created, launch workspace:
+7. Click `Review and create`, then `Create` to deploy the work space. When created, launch workspace:
 
-![Databricks Workspace](./media/cassandra-mi-databricks/databricks-workspace.png)
+    :::image type="content" source="./media/databricks/databricks-workspace.png" alt-text="Databricks Workspace" border="false":::
 
-When creating a cluster, you'll need to select a version supported by the Cassandra Connector (Scala 2.11 or below):
+8. When creating a cluster, you'll need to select a version supported by the Cassandra Connector (Scala 2.11 or below):
 
-![Spark Cluster](./media/cassandra-mi-databricks/spark-cluster.png)
+    :::image type="content" source="./media/databricks/spark-cluster.png" alt-text="Spark Cluster" border="false":::
 
-Expand advanced options, and ensure you add config as follows (replacing node IP and credentials):
+9. Expand advanced options, and ensure you add config as follows (replacing node IP and credentials):
 
-```java
-spark.cassandra.connection.host <node1 IP>,<node 2 IP>, <node IP>
-spark.cassandra.auth.password cassandra
-spark.cassandra.connection.port 9042
-spark.cassandra.auth.username cassandra
-spark.cassandra.connection.ssl.enabled true
-```
+    ```java
+    spark.cassandra.connection.host <node1 IP>,<node 2 IP>, <node IP>
+    spark.cassandra.auth.password cassandra
+    spark.cassandra.connection.port 9042
+    spark.cassandra.auth.username cassandra
+    spark.cassandra.connection.ssl.enabled true
+    ```
 
-In Libraries, ensure you install the latest spark connector for Cassandra (and restart cluster):
+10. In Libraries, ensure you install the latest spark connector for Cassandra (and restart cluster):
 
-![Install Cassandra Connector](./media/cassandra-mi-databricks/connector.png)
+    :::image type="content" source="./media/databricks/connector.png" alt-text="Install Cassandra Connector" border="false":::
 
 ## Next steps
 

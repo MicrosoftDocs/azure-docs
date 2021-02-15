@@ -21,38 +21,35 @@ An Azure subscription or free Azure Cosmos DB trial account
 <a id="create-account"></a>
 ## Create a managed instance cluster
 
-Go to the [Azure portal](https://portal.azure.com/). Search for and select **Managed Instance for Apache Cassandra**.
+1. Go to the [Azure portal](https://portal.azure.com/). Search for and select **Managed Instance for Apache Cassandra**.
+
+    :::image type="content" source="./media/quickstart/search-portal.png" alt-text="Search Azure Portal" border="false":::
+
+2. Click on **Create Managed Instance for Apache Cassandra cluster**.
 
 
-![Search Azure Portal](./media/quickstart/search-portal.png)
+    :::image type="content" source="./media/quickstart/create-cluster.png" alt-text="Create Cluster" border="false":::
 
 
-Click on **Create Managed Instance for Apache Cassandra cluster**.
+3. On the **Create Managed Instance for Apache Cassandra** page, enter resource group, cluster name, number of nodes, and specify Cassandra admin password that will be created for the cluster. The click on **Next: Networking**.
 
+    :::image type="content" source="./media/quickstart/create-cluster-page.png" alt-text="Create Cluster Page" border="false":::
 
-![Create Cluster](./media/quickstart/create-cluster.png)
+4. On the **Networking** page, select Virtual Network or create a new one. Then click review and create.
 
+    :::image type="content" source="./media/quickstart/networking.png" alt-text="Networking Page" border="false":::
 
-On the **Create Managed Instance for Apache Cassandra** page, enter resource group, cluster name, number of nodes, and specify Cassandra admin password that will be created for the cluster. The click on **Next: Networking**.
+5. Review and click create.
 
+    :::image type="content" source="./media/quickstart/review-create.png" alt-text="Create Cluster Review Page" border="false":::
 
-![Create Cluster Page](./media/quickstart/create-cluster-page.png)
+6. Once resources are created, the overview page should show cluster name and number of nodes.
 
-On the **Networking** page, select Virtual Network or create a new one. Then click review and create.
+    :::image type="content" source="./media/quickstart/overview.png" alt-text="Created Cluster Overview Page" border="false":::
 
-![Networking Page](./media/quickstart/networking.png)
+7. You can review cluster nodes from within your existing or newly created VNET:
 
-Review and click create.
-
-![Create Cluster Review Page](./media/quickstart/review-create.png)
-
-Once resources are created, the overview page should show cluster name and number of nodes.
-
-![Created Cluster Overview Page](./media/quickstart/overview.png)
-
-You can review cluster nodes from within your existing or newly created VNET:
-
-![View Resources](./media/quickstart/resources.png)
+    :::image type="content" source="./media/quickstart/resources.png" alt-text="View Resources" border="false":::
 
 ## Next steps
 
