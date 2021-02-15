@@ -59,8 +59,8 @@ The Linux Platform Layer implementation can be found in the
 
 This layer can integrate with different Update Handlers to implement the
 installer. For
-instance, the SWUpdate Update Handler invokes a shell script to call into the
-'SWUpdate' executable to do an update.
+instance, the "SWUpdate Update Handler" invokes a shell script to call into the
+"SWUpdate" executable to do an update.
 
 ## Update Handlers
 
