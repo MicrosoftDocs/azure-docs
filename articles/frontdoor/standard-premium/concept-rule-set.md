@@ -65,6 +65,6 @@ For more quota limit, refer to [Azure subscription and service limits, quotas an
 
 ## Next steps
 
-* Learn how to [create a Front Door](create-front-door-portal.md).
+* Learn how to [create a Front Door Standard/Premium](create-front-door-portal.md).
 * Learn how to configure your first [Rule Set](how-to-configure-rule-set.md).
  
