@@ -37,7 +37,7 @@ Connect a cluster to Azure Arc using the following steps:
 
         | Agent | Description |
         | ----- | ----------- |
-        | `deployment.apps/clusteridentityoperator` | Azure Arc enabled Kubernetes currently supports only [system assigned identities] (https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). clusteridentityoperator makes the first outbound communication needed to fetch the managed service identity (MSI) certificate used by other agents for communication with Azure. |
+        | `deployment.apps/clusteridentityoperator` | Azure Arc enabled Kubernetes currently supports only [system assigned identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). clusteridentityoperator makes the first outbound communication needed to fetch the managed service identity (MSI) certificate used by other agents for communication with Azure. |
         | `deployment.apps/config-agent` | Watches the connected cluster for source control configuration resources applied on the cluster and updates compliance state |
         | `deployment.apps/controller-manager` | An operator of operators that orchestrates interactions between Azure Arc components |    
         | `deployment.apps/metrics-agent` | Collects metrics of other Arc agents to ensure that these agents are exhibiting optimal performance |
