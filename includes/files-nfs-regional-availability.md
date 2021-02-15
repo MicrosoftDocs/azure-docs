@@ -40,8 +40,6 @@ Write-Host "All regions that support NFS Local redundancy"
 $response.value| Where-Object -FilterScript {($_.name -EQ 'Premium_LRS') -and ($_.kind -eq 'FileStorage') -and ($_.capabilities.name -contains 'supportsNfsShare')}| Select-Object locations
 ```
 
-Replace `{subscriptionId}` in the `$restUri` variable to get information about your subscription.
-
 Sample response
 ```
 All regions that support NFS ZRS
