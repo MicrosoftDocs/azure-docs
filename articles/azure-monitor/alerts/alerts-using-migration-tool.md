@@ -11,13 +11,13 @@ ms.subservice: alerts
 
 As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
 
-A migration tool is available in the Azure portal to customers who used classic alert rules and who want to trigger migration themselves. This article explains how to use the that migration tool.
+A migration tool is available in the Azure portal to customers who used classic alert rules and who want to trigger migration themselves. This article explains how to use the migration tool.
 
 ## Before you migrate
 
 The migration process converts classic alert rules to new, equivalent alert rules, and creates action groups. In preparation, be aware of the following points:
 
-- Both the notification payload format and the APIs to create and manage new alert rules are different from those of the classic alert rules because they support more features. [Learn how to prepare for the migration](alerts-prepare-migration.md).
+- Both the notification payload format and the APIs to create and manage new alert rules are different from classic alert rules because they support more features. [Learn how to prepare for the migration](alerts-prepare-migration.md).
 
 - Some classic alert rules cannot be migrated by using the tool. [Learn which rules cannot be migrated and what to do with them](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
 
@@ -68,7 +68,7 @@ When a subscription becomes ready for migration, the subscription owner will rec
 
 ### Who can trigger the migration?
 
-Users who have the Monitoring Contributor role assigned to them at the subscription level are able to trigger the migration. [Learn more about Azure role-based access control for the migration process](alerts-understand-migration.md#who-can-trigger-the-migration).
+Users who have the Monitoring Contributor role assigned to them at the subscription level can trigger the migration. [Learn more about Azure role-based access control for the migration process](alerts-understand-migration.md#who-can-trigger-the-migration).
 
 ### How long will the migration take?
 
