@@ -9,6 +9,9 @@ ms.date: 01/19/2021
 ---
 
 # Getting started with Azure IoT embedded device development
+
+**Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)
+
 This getting started guide contains a set of quickstarts that shows you how to start working with embedded devices and Azure IoT. Each quickstart follows the same pattern in which you take a device, flash the device with Azure RTOS sample code and configuration settings, and connect the device to Azure IoT.
 
 In each quickstart, you complete the following basic tasks:
