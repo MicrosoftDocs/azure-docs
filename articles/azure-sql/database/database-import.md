@@ -139,6 +139,10 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 > [!TIP]
 > For another script example, see [Import a database from a BACPAC file](scripts/import-from-bacpac-powershell.md).
 
+## Cancel the import request
+
+Use the procedure in the blog [How to cancel Azure SQL Database Import or Export operation](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-cancel-azure-sql-database-import-or-export-operation/ba-p/1935001) to cancel an ongoing import or export operation on Azure SQL Database. 
+
 ## Limitations
 
 - Importing to a database in elastic pool isn't supported. You can import data into a single database and then move the database to an elastic pool.
