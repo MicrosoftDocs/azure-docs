@@ -36,7 +36,7 @@ Device security properties are maintained in a dedicated security module twin fo
 
 See [Create security module twin](quickstart-create-security-twin.md) and [Configure security agents](how-to-agent-configuration.md) to learn how to create, customize, and configure the twin. See [Understanding module twins](../iot-hub/iot-hub-devguide-module-twins.md) to learn more about the concept of module twins in IoT Hub.
 
-## See also
+## Next steps
 
 - [Defender for IoT overview](overview.md)
 - [Deploy security agents](how-to-deploy-agent.md)

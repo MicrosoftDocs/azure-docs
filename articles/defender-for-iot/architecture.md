@@ -112,7 +112,7 @@ The Defender for IoT portal in Azure is used to help you:
 
 - Update Threat Intelligence packages
 
-## See also
+## Next steps
 
 [Defender for IoT FAQ](resources-frequently-asked-questions.md)
 
