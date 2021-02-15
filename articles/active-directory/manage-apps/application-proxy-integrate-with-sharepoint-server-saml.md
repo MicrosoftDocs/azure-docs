@@ -20,15 +20,17 @@ ms.collection: M365-identity-device-management
 
 # Integrate with SharePoint (SAML)
 
-This step-by-step guide explains how to integrate a SharePoint on-premises farm with Azure Active Directory (Azure AD) Application Proxy for SAML. You can allow your Azure AD users to access your SharePoint on-premises instance from an external network. 
+This step-by-step guide explains how to secure the access to the [Azure Active Directory integrated on-premises Sharepoint (SAML)](https://docs.microsoft.com/en-gb/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial) using Azure AD Application Proxy, where users in your organization (Azure AD, B2B) connect to Sharepoint through the Internet.
+
+> [!NOTE] If you're new to Azure AD Application Proxy and want to learn more, see [Remote access to on-premises applications through Azure AD Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy).
+
+There are three primary advantages of this setup:
+
+- Azure AD Application Proxy ensures that just authenticated traffic can reach your internal network and the Sharepoint server.
+- Your users can access the Sharepoint sites as usual without using VPN.
+- You can control the access by user assignement on Azure AD Application Proxy level and you can increase the security with Azure AD features like Conditional Access and multi-factor authorization (MFA).
 
 This process requires two Enterprise Applications. One is a SharePoint on-premises instance that you publish from the gallery to your list of managed SaaS apps. The second is an on-premises application (non-gallery application) you'll use to publish the first Enterprise Gallery Application.
-
-There are three primary advantages for this process: 
-
- - If the on-premises SharePoint instance is using Azure AD as single-sign on (SSO), you can extend the access and allow remote users to access SharePoint securely without VPN.
- - You can apply Azure AD security features like Conditional Access and multi-factor authorization (MFA) for external access.
- - You can grant B2B users in Azure AD access to your on-premises SharePoint instance. 
 
 ## Prerequisites
 
