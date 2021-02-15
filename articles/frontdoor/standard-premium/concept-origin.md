@@ -66,7 +66,6 @@ An origin group defines how origins should be evaluated via health probes. It al
 
 ### Health probes
 
-
 Azure Front Door Standard/Premium sends periodic HTTP/HTTPS probe requests to each of your configured origins. Probe requests determine the proximity and health of each origin to load balance your end-user requests. Health probe settings for an origin group define how we poll the health status of app backends. The following settings are available for load-balancing configuration:
 
 * **Path**: The URL used for probe requests for all the origins in the origin group. For example, if one of your origins is `contoso-westus.azurewebsites.net` and the path gets set to /probe/test.aspx, then Front Door environments, assuming the protocol is HTTP, will send health probe requests to `http://contoso-westus.azurewebsites.net/probe/test.aspx`.
@@ -96,7 +95,7 @@ Load-balancing settings for the origin group define how we evaluate health probe
 
 For more information, see [Least latency based routing method](#latency).
 
-## Front Door routing methods
+## Routing methods
 
 Azure Front Door Standard/Premium supports different kinds of traffic-routing methods to determine how to route your HTTP/HTTPS traffic to different service endpoints. When your client requests reaching Front Door, the configured routing method gets applied to ensure the requests are forwarded to the best backend instance. 
 
@@ -148,4 +147,4 @@ The weighted method enables some useful scenarios:
 
 ## Next steps
 
-* [Create a Front Door profile](create-front-door-portal.md)
+Learn how to [create a Front Door Standard/Premium](create-front-door-portal.md)
