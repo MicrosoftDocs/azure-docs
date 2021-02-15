@@ -29,7 +29,7 @@ Some resource types can query for metrics over multiple resources. The metrics m
 ![Screenshot that shows a menu of resources that are compatible with multiple resources.](./media/metrics-charts/020.png)
 
 > [!WARNING] 
-> You must have Monitoring Reader permission at the subscription level to visualize metrics across multiple resources, resource groups, or a subscription. For more information, see [Add or remove Azure role assignments by using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+> You must have Monitoring Reader permission at the subscription level to visualize metrics across multiple resources, resource groups, or a subscription. For more information, see [Add or remove Azure role assignments by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 To visualize metrics over multiple resources, start by selecting multiple resources within the resource scope picker. 
 
@@ -77,13 +77,12 @@ In this example, we filter by TailspinToysDemo. Here, the filter removes metrics
 
 ## Pin multiple-resource charts 
 
-Multiple-resource charts that visualize metrics across resource groups and subscriptions require the user to have *Monitoring Reader* permission at the subscription level. Ensure that all users of the dashboards to which you pin multiple-resource charts have sufficient permissions. For more information, see [Add or remove Azure role assignments by using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Multiple-resource charts that visualize metrics across resource groups and subscriptions require the user to have *Monitoring Reader* permission at the subscription level. Ensure that all users of the dashboards to which you pin multiple-resource charts have sufficient permissions. For more information, see [Add or remove Azure role assignments by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-To pin your multiple-resource chart to a dashboard, see [Pinning to dashboards](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pinning-to-dashboards). 
+To pin your multiple-resource chart to a dashboard, see [Pinning to dashboards](./metrics-charts.md#pinning-to-dashboards). 
 
 ## Next steps
 
 * [Troubleshoot the metrics explorer](metrics-troubleshoot.md)
 * [See a list of available metrics for Azure services](metrics-supported.md)
 * [See examples of configured charts](metric-chart-samples.md)
-

@@ -3,13 +3,13 @@ title: Use pod security policies in Azure Kubernetes Service (AKS)
 description: Learn how to control pod admissions by using PodSecurityPolicy in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 02/12/2021
 ---
 
 # Preview - Secure your cluster using pod security policies in Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **The feature described in this document, pod security policy (preview), is set for deprecation and will no longer be available after May 31st, 2021** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md). The deprecation date has been extended from the previous date of October 15th, 2020.
+> **The feature described in this document, pod security policy (preview), is set for deprecation and will no longer be available after June 30th, 2021** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md). The deprecation date has been extended from the previous date of October 15th, 2020.
 >
 > After pod security policy (preview) is deprecated, you must disable the feature on any existing clusters using the deprecated feature to perform future cluster upgrades and stay within Azure support.
 >

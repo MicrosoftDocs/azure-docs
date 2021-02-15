@@ -9,7 +9,7 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 1/29/2021
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -99,16 +99,30 @@ Having the search ID allows correlation of the metrics emitted by Azure Cognitiv
 
 **Use C# (newer v11 SDK)**
 
+The latest SDK requires the use of an Http Pipeline to set the header as detailed in this [sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Pipeline.md#implementing-a-syncronous-policy).
+
+```csharp
+// Create a custom policy to add the correct headers
+public class SearchIdPipelinePolicy : HttpPipelineSynchronousPolicy
+{
+    public override void OnSendingRequest(HttpMessage message)
+    {
+        message.Request.Headers.SetValue("x-ms-azs-return-searchid", "true");
+    }
+}
+```
+
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Azure.Search.Documents
 
-var client = new SearchClient(<SearchServiceName>, <IndexName>, new AzureKeyCredentials(<QueryKey>));
+SearchClientOptions clientOptions = new SearchClientOptions();
+clientOptions.AddPolicy(new SearchIdPipelinePolicy(), HttpPipelinePosition.PerCall);
 
-// Use HTTP headers so that you can get the search ID from the response
-var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
-var response = await client.searchasync(searchText: searchText, searchOptions: options, customHeaders: headers);
+var client = new SearchClient("<SearchServiceName>", "<IndexName>", new AzureKeyCredential("<QueryKey>"), options: clientOptions);
+
+Response<SearchResults<SearchDocument>> response = await client.SearchAsync<SearchDocument>(searchText: searchText, searchOptions: options);
 string searchId = string.Empty;
-if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues))
+if (response.GetRawResponse().Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues))
 {
     searchId = headerValues.FirstOrDefault();
 }
@@ -151,7 +165,7 @@ Every time that a search request is issued by a user, you should log that as a s
 + **ScoringProfile**: (string) name of the scoring profile used, if any
 
 > [!NOTE]
-> Request the count of user generated queries by adding $count=true to your search query. For more information, see [Search Documents (REST)](/rest/api/searchservice/search-documents#counttrue--false).
+> Request the count of user generated queries by adding $count=true to your search query. For more information, see [Search Documents (REST)](/rest/api/searchservice/search-documents#query-parameters).
 >
 
 **Use C#**

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 01/11/2021
 ms.author: jeedes
 ---
 
@@ -127,8 +127,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     c. In the **Reply URL** textbox, type a URL using the following pattern: 
 
     ```http
-    https://www.google.com
-    https://www.google.com/a/<yourdomain.com>
+    https://www.google.com/acs
+    https://www.google.com/a/<yourdomain.com>/acs
     ```
 
 1. On the **Basic SAML Configuration** section, if you want to configure for the **Google Cloud Platform** perform the following steps:
@@ -147,8 +147,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     c. In the **Reply URL** textbox, type a URL using the following pattern: 
     
     ```http
-    https://www.google.com
-    https://www.google.com/a/<yourdomain.com>
+    https://www.google.com/acs
+    https://www.google.com/a/<yourdomain.com>/acs
     ```
 
     > [!NOTE]
@@ -244,7 +244,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Google Cloud (G Suite) Connector Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Google Cloud (G Suite) Connector tile in the My Apps, this will redirect to Google Cloud (G Suite) Connector Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the Google Cloud (G Suite) Connector tile in the My Apps, this will redirect to Google Cloud (G Suite) Connector Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps

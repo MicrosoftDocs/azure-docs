@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ---
 
-# Overview of Backup Center
+# Overview of Backup Center (Preview)
 
 Backup Center provides a **single unified management experience** in Azure for enterprises to govern, monitor, operate, and analyze backups at scale. As such, it's consistent with Azure’s native management experiences.
 
@@ -17,7 +17,7 @@ Some of the key benefits of Backup Center include:
 
 ## Supported scenarios
 
-* Backup Center is currently supported for Azure VM backup and Azure Database for PostgreSQL Server backup.
+* Backup Center is currently supported for Azure VM backup, SQL in Azure VM backup, SAP HANA in Azure VM backup, Azure Files backup, and Azure Database for PostgreSQL Server backup.
 * Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
 ## Get started

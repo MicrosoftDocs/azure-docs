@@ -15,7 +15,7 @@ Azure Monitor for containers provides a rich monitoring experience for Azure Kub
 
 You can enable Azure Monitor for containers for one or more existing deployments of Azure Red Hat OpenShift v4.x by using the supported methods described in this article.
 
-For an existing cluster, run this [Bash script in the Azure CLI](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create&preserve-view=true).
+For an existing cluster, run this [Bash script in the Azure CLI](/cli/azure/openshift#az-openshift-create&preserve-view=true).
 
 ## Supported and unsupported features
 
@@ -116,7 +116,7 @@ If you don't have a workspace to specify, you can skip to the [Integrate with th
     export kubeContext="<kubeContext name of your ARO v4 cluster>"  
     ```
 
-    Example:
+    Here is the command you must run once you have populated the 3 variables with Export commands:
 
     `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext --workspace-id $logAnalyticsWorkspaceResourceId`
 

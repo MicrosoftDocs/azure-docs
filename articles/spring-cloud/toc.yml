@@ -10,7 +10,7 @@
   items:
     - name: Launch your first app
       href: spring-cloud-quickstart.md
-    - name: Build and run Microservices
+    - name: Build and run microservices
       expanded: true
       items:
       - name: Introduction to the sample app
@@ -33,8 +33,6 @@
       href: spring-cloud-tutorial-custom-domain.md
     - name: Use managed identity to connect Key Vault to Azure Spring Cloud app
       href: spring-cloud-tutorial-managed-identities-key-vault.md
-    - name: Deploy Azure Spring Cloud in virtual network
-      href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
     - name: Use managed identity to invoke Azure Functions from an Azure Spring Cloud app
       href: spring-cloud-tutorial-managed-identities-functions.md
 - name: Concepts
@@ -47,8 +45,12 @@
       href: spring-cloud-concept-metrics.md
     - name: Azure Spring Boot Actuator
       href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
-    - name: Security controls
-      href: spring-cloud-concept-security-controls.md
+    - name: Security
+      items:
+      - name: Security controls
+        href: spring-cloud-concept-security-controls.md
+      - name: Security controls by Azure Policy
+        href: ./security-controls-policy.md
     - name: Understand app status
       href: spring-cloud-concept-app-status.md
     - name: Plan for disaster recovery
@@ -61,7 +63,7 @@
           href: spring-cloud-tutorial-prepare-app-deployment.md
         - name: Set up a Config Server
           href: spring-cloud-tutorial-config-server.md
-        - name: Enable Service Registration
+        - name: Enable service registration
           href: spring-cloud-service-registration.md
     - name: Deploy
       items:
@@ -71,6 +73,8 @@
           href: spring-cloud-howto-launch-from-source.md
         - name: Use IntelliJ to deploy apps
           href: spring-cloud-tutorial-intellij-deploy-apps.md
+        - name: Use VS Code to deploy apps
+          href: https://code.visualstudio.com/docs/java/java-spring-cloud
         - name: Deploy Azure Spring Cloud with Azure PowerShell
           href: spring-cloud-howto-deploy-powershell.md
     - name: Configure
@@ -99,7 +103,20 @@
           href: spring-cloud-howto-application-insights.md
         - name: Resilience4J Circuit Breaker Metrics
           href: spring-cloud-howto-circuit-breaker-metrics.md
-
+        - name: Structured application log
+          href: spring-cloud-structured-app-log.md
+    - name: Network
+      items: 
+        - name: Deploy Azure Spring Cloud in a virtual network
+          href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
+        - name: Access your application in a private network
+          href: spring-cloud-access-app-virtual-network.md
+        - name: Expose applications to the Internet
+          href: spring-cloud-expose-apps-gateway-azure-firewall.md
+        - name: Customer responsibilities running Azure Spring Cloud in VNET
+          href: spring-cloud-vnet-customer-responsibilities.md
+        - name: Troubleshooting Azure Spring Cloud in virtual networks
+          href: spring-cloud-troubleshooting-vnet.md
     - name: Secure
       items:
         - name: Enable system-assigned managed identity
@@ -130,7 +147,7 @@
       items:
         - name: Self diagnose and solve problems
           href: spring-cloud-howto-self-diagnose-solve.md
-        - name: Troubleshooting Guide
+        - name: Troubleshooting guide
           href: spring-cloud-troubleshoot.md
     - name: Migrate
       items:
@@ -139,8 +156,12 @@
         - name: Spring Boot
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
-          href: https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
-- name: DevOps Deployment
+          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+- name: Architecture
+  items:
+    - name: Reference architecture
+      href: spring-cloud-reference-architecture.md
+- name: DevOps deployment
   items:
   - name: CI/CD with Azure DevOps
     href: spring-cloud-howto-cicd.md
@@ -150,17 +171,17 @@
     href: spring-cloud-github-actions-key-vault.md
 - name: Troubleshoot
   items:
-  - name: Troubleshooting Guide
+  - name: Troubleshooting guide
     href: spring-cloud-troubleshoot.md
 - name: Reference
   items:
-  - name: Azure CLI Plugin
+  - name: Azure CLI plugin
     href: /cli/azure/ext/spring-cloud/spring-cloud
   - name: Azure PowerShell
     href: /powershell/module/az.springcloud
   - name: Resources
     href: spring-cloud-resources.md
-  - name: Frequently Asked Questions
+  - name: Frequently asked questions
     href: spring-cloud-faq.md
   - name: REST API reference
     href: /rest/api/azurespringcloud/

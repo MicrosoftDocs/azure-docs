@@ -216,7 +216,9 @@
         href: azure-to-azure-how-to-reprotect.md
       - name: Set up disaster recovery for Azure VMs after migration to Azure
         href: azure-to-azure-replicate-after-migration.md
-      - name: Enable Zone to Zone disaster recovery
+    - name: Zone to Zone disaster recovery
+      items:
+      - name: Enable replication between zones within a region
         href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
     - name: Manage
       items:
@@ -478,6 +480,8 @@
     href: hyper-v-vmm-powershell-resource-manager.md
   - name: Add automation runbooks to recovery plans
     href: site-recovery-runbook-automation.md
+  - name: ARM Templates
+    href: asr-arm-templates.md
 - name: Monitoring
   items:
   - name: Common questions about monitoring

@@ -19,6 +19,8 @@ Follow these steps to remotely connect from a Windows client.
 
     `winrm quickconfig`
 
+    For more information, see [Installation and configuration for Windows Remote Management](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management#quick-default-configuration).
+
 3. Assign a variable to the device IP address.
 
     $ip = "<device_ip>"

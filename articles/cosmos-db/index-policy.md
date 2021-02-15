@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 02/10/2021
 ms.author: tisande
 ---
 
@@ -30,6 +30,14 @@ Azure Cosmos DB supports two indexing modes:
 > Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query a Cosmos container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (except if you are using an Azure Cosmos account in [serverless](serverless.md) mode which doesn't support lazy indexing).
 
 By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure CosmosDB to automatically index documents as they are written.
+
+## <a id="index-size"></a>Index size
+
+In Azure Cosmos DB, the total consumed storage is the combination of both the Data size and Index size. The following are some features of index size:
+
+* The index size depends on the indexing policy. If all the properties are indexed, then the index size can be larger than the data size.
+* When data is deleted, indexes are compacted on a near continuous basis. However, for small data deletions, you may not immediately observe a decrease in index size.
+* The Index size can temporarily grow when physical partitions split. The index space is released after the partition split is completed.
 
 ## <a id="include-exclude-paths"></a>Including and excluding property paths
 
@@ -170,33 +178,35 @@ You should customize your indexing policy so you can serve all necessary `ORDER 
 
 If a query has filters on two or more properties, it may be helpful to create a composite index for these properties.
 
-For example, consider the following query which has an equality filter on two properties:
+For example, consider the following query which has both an equality and range filter:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age = 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18
 ```
 
-This query will be more efficient, taking less time and consuming fewer RU's, if it is able to leverage a composite index on (name ASC, age ASC).
+This query will be more efficient, taking less time and consuming fewer RU's, if it is able to leverage a composite index on `(name ASC, age ASC)`.
 
-Queries with range filters can also be optimized with a composite index. However, the query can only have a single range filter. Range filters include `>`, `<`, `<=`, `>=`, and `!=`. The range filter should be defined last in the composite index.
+Queries with multiple range filters can also be optimized with a composite index. However, each individual composite index can only optimize a single range filter. Range filters include `>`, `<`, `<=`, `>=`, and `!=`. The range filter should be defined last in the composite index.
 
-Consider the following query with both equality and range filters:
+Consider the following query with an equality filter and two range filters:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18 AND c._ts > 1612212188
 ```
 
-This query will be more efficient with a composite index on (name ASC, age ASC). However, the query would not utilize a composite index on (age ASC, name ASC) because the equality filters must be defined first in the composite index.
+This query will be more efficient with a composite index on `(name ASC, age ASC)` and `(name ASC, _ts ASC)`. However, the query would not utilize a composite index on `(age ASC, name ASC)` because the properties with equality filters must be defined first in the composite index. Two separate composite indexes are required instead of a single composite index on `(name ASC, age ASC, _ts ASC)` since each composite index can only optimize a single range filter.
 
 The following considerations are used when creating composite indexes for queries with filters on multiple properties
 
+- Filter expressions can use multiple composite indexes.
 - The properties in the query's filter should match those in composite index. If a property is in the composite index but is not included in the query as a filter, the query will not utilize the composite index.
 - If a query has additional properties in the filter that were not defined in a composite index, then a combination of composite and range indexes will be used to evaluate the query. This will require fewer RU's than exclusively using range indexes.
-- If a property has a range filter (`>`, `<`, `<=`, `>=`, or `!=`), then this property should be defined last in the composite index. If a query has more than one range filter, it will not utilize the composite index.
+- If a property has a range filter (`>`, `<`, `<=`, `>=`, or `!=`), then this property should be defined last in the composite index. If a query has more than one range filter, it may benefit from multiple composite indexes.
 - When creating a composite index to optimize queries with multiple filters, the `ORDER` of the composite index will have no impact on the results. This property is optional.
-- If you do not define a composite index for a query with filters on multiple properties, the query will still succeed. However, the RU cost of the query can be reduced with a composite index.
-- Queries with both aggregates (for example, COUNT or SUM) and filters also benefit from composite indexes.
-- Filter expressions can use multiple composite indexes.
 
 Consider the following examples where a composite index is defined on properties name, age, and timestamp:
 
@@ -211,43 +221,76 @@ Consider the following examples where a composite index is defined on properties
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
 | ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
-### Queries with a filter as well as an ORDER BY clause
+### Queries with a filter and ORDER BY
 
 If a query filters on one or more properties and has different properties in the ORDER BY clause, it may be helpful to add the properties in the filter to the `ORDER BY` clause.
 
-For example, by adding the properties in the filter to the ORDER BY clause, the following query could be rewritten to leverage a composite index:
+For example, by adding the properties in the filter to the `ORDER BY` clause, the following query could be rewritten to leverage a composite index:
 
 Query using range index:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+SELECT *
+FROM c 
+WHERE c.name = "John" 
+ORDER BY c.timestamp
 ```
 
 Query using composite index:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John"
+ORDER BY c.name, c.timestamp
 ```
 
-The same pattern and query optimizations can be generalized for queries with multiple equality filters:
+The same query optimizations can be generalized for any `ORDER BY` queries with filters, keeping in mind that individual composite indexes can only support, at most, one range filter.
 
 Query using range index:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.timestamp
 ```
 
 Query using composite index:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.name, c.age, c.timestamp
 ```
 
-The following considerations are used when creating composite indexes to optimize a query with a filter and `ORDER BY` clause:
+In addition, you can use composite indexes to optimize queries with system functions and ORDER BY:
 
-* If the query filters on properties, these should be included first in the `ORDER BY` clause.
-* If the query filters on multiple properties, the equality filters must be the first properties in the `ORDER BY` clause
+Query using range index:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.lastName
+```
+
+Query using composite index:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.firstName, c.lastName
+```
+
+The following considerations apply when creating composite indexes to optimize a query with a filter and `ORDER BY` clause:
+
 * If you do not define a composite index on a query with a filter on one property and a separate `ORDER BY` clause using a different property, the query will still succeed. However, the RU cost of the query can be reduced with a composite index, particularly if the property in the `ORDER BY` clause has a high cardinality.
+* If the query filters on properties, these should be included first in the `ORDER BY` clause.
+* If the query filters on multiple properties, the equality filters must be the first properties in the `ORDER BY` clause.
+* If the query filters on multiple properties, you can have a maximum of one range filter or system function utilized per composite index. The property used in the range filter or system function should be defined last in the composite index.
 * All considerations for creating composite indexes for `ORDER BY` queries with multiple properties as well as queries with filters on multiple properties still apply.
 
 
@@ -261,7 +304,27 @@ The following considerations are used when creating composite indexes to optimiz
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
 
-## Modifying the indexing policy
+### Queries with a filter and an aggregate 
+
+If a query filters on one or more properties and has an aggregate system function, it may be helpful to create a composite index for the properties in the filter and aggregate system function. This optimization applies to the [SUM](sql-query-aggregate-sum.md) and [AVG](sql-query-aggregate-avg.md) system functions.
+
+The following considerations apply when creating composite indexes to optimize a query with a filter and aggregate system function.
+
+* Composite indexes are optional when running queries with aggregates. However, the RU cost of the query can often be significantly reduced with a composite index.
+* If the query filters on multiple properties, the equality filters must be the first properties in the composite index.
+* You can have a maximum of one range filter per composite index and it must be on the property in the aggregate system function.
+* The property in the aggregate system function should be defined last in the composite index.
+* The `order` (`ASC` or `DESC`) does not matter.
+
+| **Composite Index**                      | **Sample Query**                                  | **Supported by Composite Index?** |
+| ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
+| ```(name ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John"``` | `Yes` |
+| ```(timestamp ASC, name ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John"``` | `No` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name > "John"``` | `No` |
+| ```(name ASC, age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age = 25``` | `Yes` |
+| ```(age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age > 25``` | `No` |
+
+## <index-transformation>Modifying the indexing policy
 
 A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in-place (so no additional storage space is consumed during the operation). The old indexing policy is efficiently transformed to the new policy without affecting the write availability, read availability, or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size.
 

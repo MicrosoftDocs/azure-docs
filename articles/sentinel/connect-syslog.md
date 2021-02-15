@@ -1,6 +1,6 @@
 ---
 title: Connect Syslog data to Azure Sentinel | Microsoft Docs
-description: Connect any machine or appliance that supports Syslog to Azure Sentinel by using an agent on a Linux machine between the appliance and Sentinel. 
+description: Connect any machine or appliance that supports Syslog to Azure Sentinel by using an agent on a Linux machine between the appliance and Azure Sentinel. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -63,17 +63,17 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 
 ### Configure the Log Analytics agent
 
-1. At the bottom of the Syslog connector blade, click the **Open your workspace advanced settings configuration >** link.
+1. At the bottom of the Syslog connector blade, click the **Open your workspace agents configuration >** link.
 
-1. On the **Advanced settings** blade, select **Data** > **Syslog**. Then add the facilities for the connector to collect.
+1. On the **Agents configuration** blade, select the **Syslog** tab. Then add the facilities for the connector to collect. Select **Add facility** and choose from the drop-down list of facilities.
     
     - Add the facilities that your syslog appliance includes in its log headers. 
     
     - If you want to use anomalous SSH login detection with the data that you collect, add **auth** and **authpriv**. See the [following section](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) for additional details.
 
-1. When you have added all the facilities that you want to monitor, and adjusted any severity options for each one, select the checkbox **Apply below configuration to my machines**.
+1. When you have added all the facilities that you want to monitor, verify that the check boxes for all the desired severities are marked.
 
-1. Select **Save**. 
+1. Select **Apply**. 
 
 1. On your VM or appliance, make sure you're sending the facilities that you specified.
 
@@ -84,7 +84,6 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 > [!NOTE]
 > **Using the same machine to forward both plain Syslog *and* CEF messages**
 >
->
 > You can use your existing [CEF log forwarder machine](connect-cef-agent.md) to collect and forward logs from plain Syslog sources as well. However, you must perform the following steps to avoid sending events in both formats to Azure Sentinel, as that will result in duplication of events.
 >
 >    Having already set up [data collection from your CEF sources](connect-common-event-format.md), and having configured the Log Analytics agent as above:
@@ -93,7 +92,6 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 >
 > 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Azure Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
-
 
 ### Configure the Syslog connector for anomalous SSH login detection
 
@@ -109,15 +107,16 @@ Azure Sentinel can apply machine learning (ML) to the syslog data to identify an
  
 This detection requires a specific configuration of the Syslog data connector: 
 
-1. For step 5 in the previous procedure, make sure that both **auth** and **authpriv** are selected as facilities to monitor. Keep the default settings for the severity options, so that they are all selected. For example:
-    
-    > [!div class="mx-imgBorder"]
-    > ![Facilities required for anomalous SSH login detection](./media/connect-syslog/facilities-ssh-detection.png)
+1. For step 2 under [Configure the Log Analytics agent](#configure-the-log-analytics-agent) above, make sure that both **auth** and **authpriv** are selected as facilities to monitor, and that all the severities are selected. 
 
 2. Allow sufficient time for syslog information to be collected. Then, navigate to **Azure Sentinel - Logs**, and copy and paste the following query:
     
-    ```console
-    Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```kusto
+    Syslog
+    | where Facility in ("authpriv","auth")
+    | extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)
+    | where isnotempty(c)
+    | count 
     ```
     
     Change the **Time range** if required, and select **Run**.

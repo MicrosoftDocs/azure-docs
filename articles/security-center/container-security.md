@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 02/07/2021
 ms.author: memildin
 
 ---
@@ -66,11 +66,25 @@ To monitor unmanaged containers hosted on IaaS Linux VMs, enable the optional [A
 ### Continuous monitoring of your Kubernetes clusters
 Security Center works together with Azure Kubernetes Service (AKS), Microsoft's managed container orchestration service for developing, deploying, and managing containerized applications.
 
-AKS provides security controls and visibility into the security posture of your clusters. Security Center uses these features to:
-* Constantly monitor the configuration of your AKS clusters
-* Generate security recommendations aligned with industry standards
+AKS provides security controls and visibility into the security posture of your clusters. Security Center uses these features to constantly monitor the configuration of your AKS clusters and generate security recommendations aligned with industry standards.
+
+This is a high-level diagram of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy:
+
+:::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="High-level architecture of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
+
+You can see that the items received and analyzed by Security Center include:
+
+- audit logs from the API server
+- raw security events from the Log Analytics agent
+
+    > [!NOTE]
+    > We don't currently support installation of the Log Analytics agent on Azure Kubernetes Service clusters that are running on virtual machine scale sets.
+
+- cluster configuration information from the AKS cluster
+- workload configuration from Azure Policy (via the **Azure Policy add-on for Kubernetes**)
 
 For details of the relevant Security Center recommendations that might appear for this feature, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
+
 
 ###  Workload protection best-practices using Kubernetes admission control
 

@@ -50,7 +50,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 ## Create a function in Azure Functions that can write data to Azure Cache for Redis
 
-1. See the [Create a function app](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) section of the Functions documentation. This section walks you through how to create a function app and an [HTTP-triggered function in Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function), by using the CSharp language.  
+1. See the [Create a function app](../azure-functions/functions-get-started.md) section of the Functions documentation. This section walks you through how to create a function app and an [HTTP-triggered function in Azure Functions](../azure-functions/functions-get-started.md), by using the CSharp language.  
 
 2. Browse to the **run.csx** function. Update it with the following code. Replace **"\<your Azure Cache for Redis connection string goes here\>"** with the Azure Cache for Redis primary connection string that you retrieved in the previous section. 
 
