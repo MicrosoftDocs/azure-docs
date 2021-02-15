@@ -121,19 +121,19 @@ Following is an example HRD policy definition:
    }
 ```
 
-The policy type is "HomeRealmDiscoveryPolicy."
+The policy type is "[HomeRealmDiscoveryPolicy](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy)".
 
 **AccelerateToFederatedDomain** is optional. If **AccelerateToFederatedDomain** is false, the policy has no effect on auto-acceleration. If **AccelerateToFederatedDomain** is true and there is only one verified and federated domain in the tenant, then users will be taken straight to the federated IdP for sign in. If it is true and there is more than one verified domain in the tenant, **PreferredDomain** must be specified.
 
 **PreferredDomain** is optional. **PreferredDomain** should indicate a domain to which to accelerate. It can be omitted if the tenant has only one federated domain.  If it is omitted, and there is more than one verified federated domain, the policy has no effect.
 
- If **PreferredDomain** is specified, it must match a verified, federated domain for the tenant. All users of the application must be able to sign in to that domain.
+ If **PreferredDomain** is specified, it must match a verified, federated domain for the tenant. All users of the application must be able to sign in to that domain - users who cannot sign in at the federated domain will be trapped and unable to complete sign in.
 
 **AllowCloudPasswordValidation** is optional. If **AllowCloudPasswordValidation** is true then the application is allowed to authenticate a federated user by presenting username/password credentials directly to the Azure Active Directory token endpoint. This only works if Password Hash Sync is enabled.
 
 Additionally, two tenant-level HRD options exist, not shown above:
 
-- **AlternateIdLogin** is optional.  If enabled, this allows users to sign in at the Azure AD sign in page using their email addresses in place of their UPN.  See the [full document](../authentication/howto-authentication-use-email-signin.md) for more details.  Alternate IDs rely on the use not being auto-accelerated to a federated IDP.
+- **AlternateIdLogin** is optional.  If enabled, this [allows users to sign in with their email addresses instead of their UPN](../authentication/howto-authentication-use-email-signin.md) at the Azure AD sign in page.  Alternate IDs rely on the user not being auto-accelerated to a federated IDP.
 
 - **DomainHintPolicy** is an optional complex object that [*prevents* domain hints from auto-accelerating users to federated domains](prevent-domain-hints-with-home-realm-discovery.md). This tenant-wide setting is used to ensure that applications which send domain hints do not prevent users from signing in with cloud-managed credentials.
 
