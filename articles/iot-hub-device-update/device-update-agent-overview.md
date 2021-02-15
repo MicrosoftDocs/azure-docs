@@ -59,8 +59,8 @@ The Linux Platform Layer implementation can be found in the
 
 This layer can integrate with different Update Handlers to implement the
 installer. For
-instance, the "SWUpdate Update Handler" invokes a shell script to call into the
-"SWUpdate" executable to do an update.
+instance, the `SWUpdate` Update Handler invokes a shell script to call into the
+`SWUpdate` executable to do an update.
 
 ## Update Handlers
 
@@ -79,11 +79,11 @@ content. This is the same hash that is present in the [Import Manifest
 Object](import-update.md#create-device-update-import-manifest). [Learn
 More](device-update-plug-and-play.md) about `installedCriteria` and the `AzureDeviceUpdateCore` interface.
 
-### SWUpdate Update Handler
+### `SWUpdate` Update Handler
 
-The "SWUpdate Update Handler" integrates with the "SWUpdate" command-line
+The `SWUpdate` Update Handler" integrates with the `SWUpdate` command-line
 executable and other shell commands to implement A/B updates specifically for
-the Raspberry Pi reference Yocto image. Find the latest Raspberry Pi reference Yocto image [here](https://github.com/Azure/iot-hub-device-update/releases). The "SWUpdate Update Handler" is implemented in [src/content_handlers/swupdate_content_handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/swupdate_handler).
+the Raspberry Pi reference Yocto image. Find the latest Raspberry Pi reference Yocto image [here](https://github.com/Azure/iot-hub-device-update/releases). The `SWUpdate` Update Handler is implemented in [src/content_handlers/swupdate_content_handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/swupdate_handler).
 
 ### APT Update Handler
 
