@@ -20,7 +20,7 @@ The process of deletion of unused connector contain 2 phases:
 
 ## Deletion of the associated actions
 
-1. In order to fond the action group you should go into “Monitor”
+1. In order to find the action group you should go into “Monitor”
     ![Screenshot of monitor selection.](media/itsmc-connector-deletion/itsmc-monitor-selection.png)
 
 2. Select “Alerts”
