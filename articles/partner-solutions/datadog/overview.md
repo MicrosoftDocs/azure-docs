@@ -4,7 +4,7 @@ description: Learn about using Datadog in the Azure Marketplace.
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 02/12/2021
+ms.date: 02/16/2021
 ms.author: tomfitz
 ---
 
@@ -12,8 +12,9 @@ ms.author: tomfitz
 
 ## Overview
 
-Datadog is a Software as a Service (SaaS) offering in the Azure Marketplace. It provides monitoring, analytics, and dashboards.
-These articles show how to integrate Datadog with Azure.
+Datadog is a monitoring and analytics platform for large-scale applications. It's a Software as a Service (SaaS) offering in the Azure Marketplace. Datadog aggregates data across your entire stack with 400+ integrations for troubleshooting, alerting, and graphing.
+
+The service is offered through the `Microsoft.Datadog` resource provider namespace.
 
 ## Capabilities
 
