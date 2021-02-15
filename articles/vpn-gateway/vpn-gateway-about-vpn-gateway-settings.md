@@ -1,12 +1,12 @@
 ---
-title: VPN gateway settings for cross-premises Azure connections | Microsoft Docs
-description: Learn about VPN Gateway settings for Azure virtual network gateways.
+title: 'Azure VPN Gateway: configuration settings'
+description: Learn about VPN Gateway resources and settings for a virtual network created in the Resource Manager deployment model.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 10/21/2020
 ms.author: cherylmc
 
 ---
@@ -23,8 +23,6 @@ The values in this article apply VPN gateways (virtual network gateways that use
 * For zone-redundant gateways, see [About zone-redundant gateways](about-zone-redundant-vnet-gateways.md).
 
 * For Virtual WAN, see [About Virtual WAN](../virtual-wan/virtual-wan-about.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="gwtype"></a>Gateway types
 
@@ -51,11 +49,11 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### Configure a gateway SKU
 
-#### Azure portal
+**Azure portal**
 
 If you use the Azure portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown. The options you are presented with correspond to the Gateway type and VPN type that you select.
 
-#### PowerShell
+**PowerShell**
 
 The following PowerShell example specifies the `-GatewaySku` as VpnGw1. When using PowerShell to create a gateway, you have to first create the IP configuration, then use a variable to refer to it. In this example, the configuration variable is $gwipconfig.
 
@@ -65,7 +63,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### Azure CLI
+**Azure CLI**
 
 ```azurecli
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
@@ -75,11 +73,17 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 If you have a VPN gateway and you want to use a different gateway SKU, your options are to either resize your gateway SKU, or to change to another SKU. When you change to another gateway SKU, you delete the existing gateway entirely and build a new one. A gateway can take up to 45 minutes to build. In comparison, when you resize a gateway SKU, there is not much downtime because you do not have to delete and rebuild the gateway. If you have the option to resize your gateway SKU, rather than change it, you will want to do that. However, there are rules regarding resizing:
 
-1. You can resize between VpnGw1, VpnGw2, and VpnGw3 SKUs.
+1. With the exception of the Basic SKU, you can resize a VPN gateway SKU to another VPN gateway SKU within the same generation (Generation1 or Generation2). For example, VpnGw1 of Generation1 can be resized to VpnGw2 of Generation1 but not to VpnGw2 of Generation2.
 2. When working with the old gateway SKUs, you can resize between Basic, Standard, and HighPerformance SKUs.
-3. You **cannot** resize from Basic/Standard/HighPerformance SKUs to the new VpnGw1/VpnGw2/VpnGw3 SKUs. You must instead, [change](#change) to the new SKUs.
+3. You **cannot** resize from Basic/Standard/HighPerformance SKUs to VpnGw SKUs. You must instead, [change](#change) to the new SKUs.
 
 #### <a name="resizegwsku"></a>To resize a gateway
+
+**Azure portal**
+
+[!INCLUDE [Resize a SKU - portal](../../includes/vpn-gateway-resize-gw-portal-include.md)]
+
+**PowerShell**
 
 [!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
 
@@ -135,7 +139,9 @@ Before you create a VPN gateway, you must create a gateway subnet. The gateway s
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 >
 
-When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. Look at the instructions for the configuration that you want to create and verify that the gateway subnet you want to create meets those requirements. Additionally, you may want to make sure your gateway subnet contains enough IP addresses to accommodate possible future additional configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26 etc.). That way, if you add functionality in the future, you won't have to tear your gateway, then delete and recreate the gateway subnet to allow for more IP addresses.
+When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. 
+
+When you are planning your gateway subnet size, refer to the documentation for the configuration that you are planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. Additionally, you may want to make sure your gateway subnet contains enough IP addresses to accommodate possible future additional configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26 etc.) if you have the available address space to do so. This will accommodate most configurations.
 
 The following Resource Manager PowerShell example shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
 
@@ -147,9 +153,9 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ## <a name="lng"></a>Local network gateways
 
- A local network gateway is different than a virtual network gateway. When creating a VPN gateway configuration, the local network gateway usually represents your on-premises location. In the classic deployment model, the local network gateway was referred to as a Local Site.
+A local network gateway is different than a virtual network gateway. When creating a VPN gateway configuration, the local network gateway usually represents your on-premises network and the corresponding VPN device. In the classic deployment model, the local network gateway was referred to as a Local Site.
 
-You give the local network gateway a name, the public IP address of the on-premises VPN device, and specify the address prefixes that are located on the on-premises location. Azure looks at the destination address prefixes for network traffic, consults the configuration that you have specified for your local network gateway, and routes packets accordingly. You also specify local network gateways for VNet-to-VNet configurations that use a VPN gateway connection.
+You give the local network gateway a name, the public IP address or the fully qualified domain name (FQDN) of the on-premises VPN device, and specify the address prefixes that are located on the on-premises location. Azure looks at the destination address prefixes for network traffic, consults the configuration that you have specified for your local network gateway, and routes packets accordingly. If you use Border Gateway Protocol (BGP) on your VPN device, you will provide the BGP peer IP address of your VPN device and the autonomous system number (ASN) of your on premises network. You also specify local network gateways for VNet-to-VNet configurations that use a VPN gateway connection.
 
 The following PowerShell example creates a new local network gateway:
 
@@ -167,7 +173,7 @@ For additional technical resources and specific syntax requirements when using R
 | **Classic** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
+| [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/network/virtualnetworkgateways) |
 | Not supported | [Azure CLI](/cli/azure/network/vnet-gateway)|
 
 ## Next steps

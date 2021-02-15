@@ -1,9 +1,9 @@
 ---
-title: Collect custom metrics for a Linux VM with the InfluxData Telegraf agent
-description: Collect custom metrics for a Linux VM with the InfluxData Telegraf agent
+title: Collect custom metrics for Linux VM with the InfluxData Telegraf agent
+description: Instructions on how to deploy the InfluxData Telegraf agent on a Linux VM in Azure and configure the agent to publish metrics to Azure Monitor. 
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
@@ -15,9 +15,12 @@ By using Azure Monitor, you can collect custom metrics via your application tele
 
 ## InfluxData Telegraf agent 
 
-[Telegraf](https://docs.influxdata.com/telegraf/v1.7/) is a plug-in-driven agent that enables the collection of metrics from over 150 different sources. Depending on what workloads run on your VM, you can configure the agent to leverage specialized input plug-ins to collect metrics. Examples are MySQL, NGINX, and Apache. By using output plug-ins, the agent can then write to destinations that you choose. The Telegraf agent has integrated directly with the Azure Monitor custom metrics REST API. It supports an Azure Monitor output plug-in. By using this plug-in, the agent can collect workload-specific metrics on your Linux VM and submit them as custom metrics to Azure Monitor. 
+[Telegraf](https://docs.influxdata.com/telegraf/) is a plug-in-driven agent that enables the collection of metrics from over 150 different sources. Depending on what workloads run on your VM, you can configure the agent to leverage specialized input plug-ins to collect metrics. Examples are MySQL, NGINX, and Apache. By using output plug-ins, the agent can then write to destinations that you choose. The Telegraf agent has integrated directly with the Azure Monitor custom metrics REST API. It supports an Azure Monitor output plug-in. By using this plug-in, the agent can collect workload-specific metrics on your Linux VM and submit them as custom metrics to Azure Monitor. 
 
  ![Telegraph agent overview](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
+
+> [!NOTE]  
+> Custom Metrics are not supported in all regions. Supported regions are listed [here](./metrics-custom-overview.md#supported-regions)
 
 ## Send custom metrics 
 
@@ -25,25 +28,28 @@ For this tutorial, we deploy a Linux VM that runs the Ubuntu 16.04 LTS operating
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
+> [!NOTE]  
+> If you want to migrate classic alert rules and use an existing Linux virtual machine, make sure the virutal machine has a system-assigned identity set to **On**.
+
 Create a new Linux VM: 
 
-1. Select the **Create a resource** option from the left-hand navigation pane. 
-1. Search for **Virtual Machine**.  
+1. Select the **Create a resource** option from the left-hand navigation pane. 
+1. Search for **Virtual Machine**.  
 1. Select **Ubuntu 16.04 LTS** and select **Create**. 
-1. Provide a VM name like **MyTelegrafVM**.  
-1. Leave the disk type as **SSD**. Then provide a **username**, such as **azureuser**. 
-1. For **Authentication type**, select **Password**. Then enter a password you'll use later to SSH into this VM. 
-1. Choose to **Create new resource group**. Then provide a name, such as **myResourceGroup**. Choose your **Location**. Then select **OK**. 
+1. Provide a VM name like **MyTelegrafVM**.  
+1. Leave the disk type as **SSD**. Then provide a **username**, such as **azureuser**. 
+1. For **Authentication type**, select **Password**. Then enter a password you'll use later to SSH into this VM. 
+1. Choose to **Create new resource group**. Then provide a name, such as **myResourceGroup**. Choose your **Location**. Then select **OK**. 
 
     ![Create an Ubuntu VM](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
-1. Select a size for the VM. You can filter by **Compute type** or **Disk type**, for example. 
+1. Select a size for the VM. You can filter by **Compute type** or **Disk type**, for example. 
 
     ![Virtual machine size Telegraph agent overview](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. On the **Settings** page in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **SSH (22)**. Leave the rest of the defaults and select **OK**. 
+1. On the **Settings** page in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **SSH (22)**. Leave the rest of the defaults and select **OK**. 
 
-1. On the summary page, select **Create** to start the VM deployment. 
+1. On the summary page, select **Create** to start the VM deployment. 
 
 1. The VM is pinned to the Azure portal dashboard. After the deployment finishes, the VM summary automatically opens. 
 
@@ -53,11 +59,11 @@ Create a new Linux VM:
  
 ## Connect to the VM 
 
-Create an SSH connection with the VM. Select the **Connect** button on the overview page for your VM. 
+Create an SSH connection with the VM. Select the **Connect** button on the overview page for your VM. 
 
 ![Telegraf VM overview page](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
 
-In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 22. In **Login using VM local account**, a connection command is shown. Select the button to copy the command. The following example shows what the SSH connection command looks like: 
+In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 22. In **Login using VM local account**, a connection command is shown. Select the button to copy the command. The following example shows what the SSH connection command looks like: 
 
 ```cmd
 ssh azureuser@XXXX.XX.XXX 
@@ -71,7 +77,7 @@ To install the Telegraf Debian package onto the VM, run the following commands f
 
 ```cmd
 # download the package to the VM 
-wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb 
+wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb 
 # install the package 
 sudo dpkg -i telegraf_1.8.0~rc1-1_amd64.deb
 ```
@@ -102,7 +108,7 @@ Now the agent will collect metrics from each of the input plug-ins specified and
 
 1. Open the [Azure portal](https://portal.azure.com). 
 
-1. Navigate to the new **Monitor** tab. Then select **Metrics**.  
+1. Navigate to the new **Monitor** tab. Then select **Metrics**.  
 
      ![Monitor - Metrics (preview)](./media/collect-custom-metrics-linux-telegraf/metrics.png)
 
@@ -116,16 +122,13 @@ Now the agent will collect metrics from each of the input plug-ins specified and
 
 ## Additional configuration 
 
-The preceding walkthrough provides information on how to configure the Telegraf agent to collect metrics from a few basic input plug-ins. The Telegraf agent has support for over 150 input plug-ins, with some supporting additional configuration options. InfluxData has published a [list of supported plugins](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) and instructions on [how to configure them](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/).  
+The preceding walkthrough provides information on how to configure the Telegraf agent to collect metrics from a few basic input plug-ins. The Telegraf agent has support for over 150 input plug-ins, with some supporting additional configuration options. InfluxData has published a [list of supported plugins](https://docs.influxdata.com/telegraf/v1.15/plugins/inputs/) and instructions on [how to configure them](https://docs.influxdata.com/telegraf/v1.15/administration/configuration/).  
 
 Additionally, in this walkthrough, you used the Telegraf agent to emit metrics about the VM the agent is deployed on. The Telegraf agent can also be used as a collector and forwarder of metrics for other resources. To learn how to configure the agent to emit metrics for other Azure resources, see [Azure Monitor Custom Metric Output for Telegraf](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md).  
 
 ## Clean up resources 
 
-When they're no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine and select **Delete**. Then confirm the name of the resource group to delete. 
+When they're no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine and select **Delete**. Then confirm the name of the resource group to delete. 
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).
-
-
-

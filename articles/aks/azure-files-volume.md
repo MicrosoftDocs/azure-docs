@@ -1,13 +1,11 @@
 ---
-title: Create a static volume for multiple pods in Azure Kubernetes Service (AKS)
+title: Manually create Azure Files share
+titleSuffix: Azure Kubernetes Service
 description: Learn how to manually create a volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: mlearned
+
 
 #Customer intent: As a developer, I want to learn how to manually create and attach storage using Azure Files to a pod in AKS.
 
@@ -43,7 +41,7 @@ az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
 # Export the connection string as an environment variable, this is used when creating the Azure file share
-export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv`
+export AZURE_STORAGE_CONNECTION_STRING=$(az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv)
 
 # Create the file share
 az storage share create -n $AKS_PERS_SHARE_NAME --connection-string $AZURE_STORAGE_CONNECTION_STRING
@@ -70,7 +68,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## Mount the file share as a volume
 
-To mount the Azure Files share into your pod, configure the volume in the container spec. Create a new file named `azure-files-pod.yaml` with the following contents. If you changed the name of the Files share or secret name, update the *shareName* and *secretName*. If desired, update the `mountPath`, which is the path where the Files share is mounted in the pod. For Windows Server containers (currently in preview in AKS), specify a *mountPath* using the Windows path convention, such as *'D:'*.
+To mount the Azure Files share into your pod, configure the volume in the container spec. Create a new file named `azure-files-pod.yaml` with the following contents. If you changed the name of the Files share or secret name, update the *shareName* and *secretName*. If desired, update the `mountPath`, which is the path where the Files share is mounted in the pod. For Windows Server containers, specify a *mountPath* using the Windows path convention, such as *'D:'*.
 
 ```yaml
 apiVersion: v1
@@ -79,7 +77,7 @@ metadata:
   name: mypod
 spec:
   containers:
-  - image: nginx:1.15.5
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     name: mypod
     resources:
       requests:
@@ -111,7 +109,7 @@ You now have a running pod with an Azure Files share mounted at */mnt/azure*. Yo
 Containers:
   mypod:
     Container ID:   docker://86d244cfc7c4822401e88f55fd75217d213aa9c3c6a3df169e76e8e25ed28166
-    Image:          nginx:1.15.5
+    Image:          mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     Image ID:       docker-pullable://nginx@sha256:9ad0746d8f2ea6df3a17ba89eca40b48c47066dfab55a75e08e2b70fc80d929e
     State:          Running
       Started:      Sat, 02 Mar 2019 00:05:47 +0000
@@ -134,17 +132,7 @@ Volumes:
 
 ## Mount options
 
-Default *fileMode* and *dirMode* values differ between Kubernetes versions as described in the following table.
-
-| version | value |
-| ---- | ---- |
-| v1.6.x, v1.7.x | 0777 |
-| v1.8.0-v1.8.5 | 0700 |
-| v1.8.6 or above | 0755 |
-| v1.9.0 | 0700 |
-| v1.9.1 or above | 0755 |
-
-If using a cluster of version 1.8.5 or greater and statically creating the persistent volume object, mount options need to be specified on the *PersistentVolume* object.
+The default value for *fileMode* and *dirMode* is *0755* for Kubernetes version 1.9.1 and above. If using a cluster with Kubernetes version 1.8.5 or greater and statically creating the persistent volume object, mount options need to be specified on the *PersistentVolume* object. The following example sets *0777*:
 
 ```yaml
 apiVersion: v1
@@ -158,22 +146,93 @@ spec:
     - ReadWriteMany
   azureFile:
     secretName: azure-secret
-    shareName: azurefile
+    shareName: aksshare
     readOnly: false
   mountOptions:
   - dir_mode=0777
   - file_mode=0777
   - uid=1000
   - gid=1000
+  - mfsymlinks
+  - nobrl
 ```
 
 If using a cluster of version 1.8.0 - 1.8.4, a security context can be specified with the *runAsUser* value set to *0*. For more information on Pod security context, see [Configure a Security Context][kubernetes-security-context].
+
+To update your mount options, create a *azurefile-mount-options-pv.yaml* file with a *PersistentVolume*. For example:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azurefile
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  azureFile:
+    secretName: azure-secret
+    shareName: aksshare
+    readOnly: false
+  mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+  - mfsymlinks
+  - nobrl
+```
+
+Create a *azurefile-mount-options-pvc.yaml* file with a *PersistentVolumeClaim* that uses the *PersistentVolume*. For example:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azurefile
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 5Gi
+```
+
+Use the `kubectl` commands to create the *PersistentVolume* and *PersistentVolumeClaim*.
+
+```console
+kubectl apply -f azurefile-mount-options-pv.yaml
+kubectl apply -f azurefile-mount-options-pvc.yaml
+```
+
+Verify your *PersistentVolumeClaim* is created and bound to the *PersistentVolume*.
+
+```console
+$ kubectl get pvc azurefile
+
+NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
+```
+
+Update your container spec to reference your *PersistentVolumeClaim* and update your pod. For example:
+
+```yaml
+...
+  volumes:
+  - name: azure
+    persistentVolumeClaim:
+      claimName: azurefile
+```
 
 ## Next steps
 
 For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
 
 For more information about AKS clusters interact with Azure Files, see the [Kubernetes plugin for Azure Files][kubernetes-files].
+
+For storage class parameters, see [Static Provision(bring your own file share)](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#static-provisionbring-your-own-file-share).
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create

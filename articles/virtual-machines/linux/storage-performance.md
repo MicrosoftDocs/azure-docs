@@ -1,26 +1,28 @@
 ---
-title: Optimize performance on Azure Lsv2-series virtual machines - Storage | Microsoft Docs
-description: Learn how to optimize performance for your solution on the Lsv2-series virtual machines.
+title: Optimize performance on Azure Lsv2-series virtual machines - Storage 
+description: Learn how to optimize performance for your solution on the Lsv2-series virtual machines using a Linux example.
 services: virtual-machines-linux
 author: laurenhughes
-manager: gwallace
-
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
+ms-subservice: sizes
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 08/05/2019
 ms.author: joelpell
 ---
 
-# Optimize performance on the Lsv2-series virtual machines
+# Optimize performance on the Lsv2-series Linux virtual machines
 
 Lsv2-series virtual machines support a variety of workloads that need high I/O and throughput on local storage across a wide range of applications and industries.  The Lsv2-series is ideal for Big Data, SQL, NoSQL databases, data warehousing and large transactional databases, including Cassandra, MongoDB, Cloudera, and Redis.
 
-The design of the Lsv2-series Virtual Machines (VMs) maximizes the AMD EPYC™ 7551 processor to provide the best performance between the processor, memory, NVMe devices, and the VMs. In addition to maximizing the hardware performance, Lsv2-series VMs are designed to work with the needs of Linux operating systems for better performance with the hardware and the software.
+The design of the Lsv2-series Virtual Machines (VMs) maximizes the AMD EPYC™ 7551 processor to provide the best performance between the processor, memory, NVMe devices, and the VMs. Working with partners in Linux, several builds are available Azure Marketplace that are optimized for Lsv2-series performance and currently include:
 
-Tuning the software and hardware resulted in the optimized version of [Canonical’s Ubuntu 18.04 and 16.04](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer?tab=Overview), released in early December 2018 to the Azure Marketplace, which supports maximum performance on the NVMe devices in Lsv2-series VMs.
+- Ubuntu 18.04
+- Ubuntu 16.04
+- RHEL 8.0
+- Debian 9
+- Debian 10
 
 This article provides tips and suggestions to ensure your workloads and applications achieve the maximum performance designed into the VMs. The information on this page will be continuously updated as more Lsv2 optimized images are added to the Azure Marketplace.
 
@@ -76,7 +78,7 @@ Scenarios that securely erase data to protect the customer include:
 - The VM becomes unhealthy and has to service heal to another node due to a hardware issue.
 - A small number of the planned maintenance servicing operations that requires the VM to be reallocated to another host for servicing.
 
-To learn more about options for backing up data in local storage, see [Backup and disaster recovery for Azure IaaS disks](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+To learn more about options for backing up data in local storage, see [Backup and disaster recovery for Azure IaaS disks](../backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 ## Frequently asked questions
 
@@ -103,4 +105,4 @@ To learn more about options for backing up data in local storage, see [Backup an
    
 ## Next steps
 
-* See specifications for all [VMs optimized for storage performance](sizes-storage.md) on Azure
+* See specifications for all [VMs optimized for storage performance](../sizes-storage.md) on Azure

@@ -4,7 +4,7 @@ description: Troubleshoot RDP issues in Azure for Windows VMs.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 
@@ -32,7 +32,7 @@ The following issues with creating an RDP to connection to a VM are covered in t
 - [Troubleshoot An internal error](Troubleshoot-rdp-internal-error.md)
 - [Troubleshoot connection disconnects frequently](troubleshoot-rdp-intermittent-connectivity.md)
 - [Troubleshoot a general error](troubleshoot-rdp-general-error.md)
-- [Troubleshoot authentication errors](troubleshoot-authentication-error-rdp-vm.md)
+- [Troubleshoot authentication errors](/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm)
 - [Troubleshoot Azure VM RDP connection issues by Event ID](event-id-troubleshoot-vm-rdp-connecton.md)
 - [Troubleshoot RDP error in VM because of static IP](troubleshoot-rdp-static-ip.md)
 - [Troubleshoot RDP error in VM because the NIC is disabled](troubleshoot-rdp-nic-disabled.md)
@@ -42,4 +42,3 @@ The following issues with creating an RDP to connection to a VM are covered in t
 - [Guest OS firewall is blocking inbound traffic](guest-os-firewall-blocking-inbound-traffic.md)
 - [Guest OS firewall is misconfigured](guest-os-firewall-misconfigured.md) 
 - [Troubleshoot RDP error caused by netvsc.sys](troubleshoot-rdp-driver-netvsc.md)
-

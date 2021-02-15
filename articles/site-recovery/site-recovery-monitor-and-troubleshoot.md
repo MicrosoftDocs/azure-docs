@@ -31,7 +31,7 @@ You might want to review [common monitoring questions](monitoring-common-questio
 
 2. From the dashboard, drill down into different areas. 
 
-    ![Site Recovery dashboard](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
+    ![Screenshot that shows the areas on the dashboard where you can drill down.](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
 3. In **Replicated items**, click **View All** to see all the servers in the vault.
 4. Click the status details in each section to drill down.

@@ -1,24 +1,20 @@
 ---
 title: Network Performance Monitor solution in Azure | Microsoft Docs
 description: Network Performance Monitor in Azure helps you monitor the performance of your networks, in near real time, to detect and locate network performance bottlenecks.
-services: log-analytics
-documentationcenter: ''
-author: vinynigam
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/20/2018
+author: vinynigam
 ms.author: vinigam
+ms.date: 02/20/2018
+
 ---
 
 # Network Performance Monitor solution in Azure
 
 ![Network Performance Monitor symbol](./media/network-performance-monitor/npm-symbol.png)
 
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher before 29 February 2024.
 
 Network Performance Monitor is a cloud-based hybrid network monitoring solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to service and application endpoints and monitor the performance of Azure ExpressRoute. 
 
@@ -30,33 +26,53 @@ Network Performance Monitor offers three broad capabilities:
 
 * [Service Connectivity Monitor](network-performance-monitor-service-connectivity.md): You can monitor the connectivity from your users to the services you care about, determine what infrastructure is in the path, and identify where network bottlenecks occur. You can know about outages before your users, and see the exact location of the issues along your network path. 
 
-    This capability helps you perform tests based on HTTP, HTTPS, TCP, and ICMP to monitor in near real time or historically the availability and response time of your service. You also can monitor the contribution of the network in packet loss and latency. With a network topology map, you can isolate network slowdowns. You can identify problem spots that occur along the network path from the node to the service, with latency data on each hop. With built-in tests, you can monitor network connectivity to Office 365 and Dynamics CRM without any preconfiguration. With this capability, you can monitor network connectivity to any TCP-capable endpoint, such as websites, SaaS applications, PaaS applications, and SQL databases.
+    This capability helps you perform tests based on HTTP, HTTPS, TCP, and ICMP to monitor in near real time or historically the availability and response time of your service. You also can monitor the contribution of the network in packet loss and latency. With a network topology map, you can isolate network slowdowns. You can identify problem spots that occur along the network path from the node to the service, with latency data on each hop. With built-in tests, you can monitor network connectivity to Microsoft 365 and Dynamics CRM without any preconfiguration. With this capability, you can monitor network connectivity to any TCP-capable endpoint, such as websites, SaaS applications, PaaS applications, and SQL databases.
 
 * [ExpressRoute Monitor](network-performance-monitor-expressroute.md): Monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.  
 
-More information on the various capabilities supported by [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) is available online.
+More information on the various capabilities supported by [Network Performance Monitor](../../networking/network-monitoring-overview.md) is available online.
  
 ## Supported Regions
 NPM can monitor connectivity between networks and applications in any part of the world, from a workspace that is hosted in one of the following regions:
+* North Europe
 * West Europe
+* Switzerland North
+* France Central
+* South Africa North
+* Canada Central
+* West US
 * West Central US
+* North Central US
+* South Central US
+* Central US
 * East US
+* East US 2
+* West US 2
 * East Japan
 * South East Asia
 * South East Australia
+* Australia Central
+* Australia East
 * South UK
+* East Asia
+* Korea Central
 * Central India
 * US Government Virginia
+* US Government Arizona
+* China East 2
 
 
-The list of supported regions for ExpressRoute Monitor is available in the [documentation](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
+The list of supported regions for ExpressRoute Monitor is available in the [documentation](../../expressroute/how-to-npm.md?utm_swu=8117).
 
 
 ## Set up and configure
 
+> [!NOTE]
+> You may also see the Log Analytics agent referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent.
+
 ### Install and configure agents 
 
-Use the basic processes to install agents at [Connect Windows computers to Azure Monitor](../platform/agent-windows.md) and [Connect Operations Manager to Azure Monitor](../platform/om-agents.md).
+Use the basic processes to install agents at [Connect Windows computers to Azure Monitor](../platform/agent-windows.md), [Connect Linux computers to Azure Monitor (Preview)](../../virtual-machines/extensions/oms-linux.md) and [Connect Operations Manager to Azure Monitor](../platform/om-agents.md).
 
 ### Where to install the agents 
 
@@ -64,23 +80,29 @@ Use the basic processes to install agents at [Connect Windows computers to Azure
 
     To monitor a network link, install agents on both endpoints of that link. If you're unsure about the topology of your network, install the agents on servers with critical workloads between which you want to monitor the network performance. For example, if you want to monitor the network connection between a web server and a server running SQL, install an agent on both servers. Agents monitor network connectivity (links) between hosts, not the hosts themselves. 
 
-* **Service Connectivity Monitor**: Install an Log Analytics agent on each node from which you want to monitor the network connectivity to the service endpoint. An example is if you want to monitor network connectivity to Office 365 from your office sites labeled O1, O2, and O3. Install the Log Analytics agent on at least one node each in O1, O2, and O3. 
+* **Service Connectivity Monitor**: Install an Log Analytics agent on each node from which you want to monitor the network connectivity to the service endpoint. An example is if you want to monitor network connectivity to Microsoft 365 from your office sites labeled O1, O2, and O3. Install the Log Analytics agent on at least one node each in O1, O2, and O3. 
 
-* **ExpressRoute Monitor**: Install at least one Log Analytics agent in your Azure virtual network. Also install at least one agent in your on-premises subnetwork, which is connected through ExpressRoute private peering.  
+* **ExpressRoute Monitor**: Install at least one Log Analytics agent in your Azure virtual network. Also install at least one agent in your on-premises subnetwork, which is connected through ExpressRoute private peering.  
 
 ### Configure Log Analytics agents for monitoring 
 
 Network Performance Monitor uses synthetic transactions to monitor network performance between source and destination agents. You can choose between TCP and ICMP as the protocol for monitoring in Performance Monitor and Service Connectivity Monitor capabilities. Only TCP is available as the monitoring protocol for ExpressRoute Monitor. Make sure that the firewall allows communication between the Log Analytics agents used for monitoring on the protocol you choose. 
 
-* **TCP protocol**: If you choose TCP as the protocol for monitoring, open the firewall port on the agents used for Network Performance Monitor and ExpressRoute Monitor to make sure that the agents can connect to each other. To open the port, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrative privileges.
+* **TCP protocol**: If you choose TCP as the protocol for monitoring, open the firewall port on the agents used for Network Performance Monitor and ExpressRoute Monitor to make sure that the agents can connect to each other. For Windows machines, to open the port, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrative privileges.
+For Linux machines, portNumbers to be used needs to be changed manually. 
+* Navigate to path: /var/opt/microsoft/omsagent/npm_state . 
+* Open file: npmdregistry
+* Change the value for Port Number ```“PortNumber:<port of your choice>”```
 
-    The script creates registry keys required by the solution. It also creates Windows Firewall rules to allow agents to create TCP connections with each other. The registry keys created by the script specify whether to log the debug logs and the path for the logs file. The script also defines the agent TCP port used for communication. The values for these keys are automatically set by the script. Don't manually change these keys. The port opened by default is 8084. You can use a custom port by providing the parameter portNumber to the script. Use the same port on all the computers where the script is run. 
+ Do note that port numbers being used should be same across all the agents used in a workspace. 
 
-    >[!NOTE]
-    > The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
+The script creates registry keys required by the solution. It also creates Windows Firewall rules to allow agents to create TCP connections with each other. The registry keys created by the script specify whether to log the debug logs and the path for the logs file. The script also defines the agent TCP port used for communication. The values for these keys are automatically set by the script. Don't manually change these keys. The port opened by default is 8084. You can use a custom port by providing the parameter portNumber to the script. Use the same port on all the computers where the script is run. 
 
-    >[!NOTE]
-    > You don't need to run the [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell script for Service Connectivity Monitor.
+   >[!NOTE]
+   > The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
+
+   >[!NOTE]
+   > You don't need to run the [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell script for Service Connectivity Monitor.
 
     
 
@@ -98,9 +120,9 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
 
 ### Configure the solution 
 
-1. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md). 
+1. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md). 
 2. Open your Log Analytics workspace, and select the **Overview** tile. 
-3. Select the **Network Performance Monitor** tile with the message *Solution requires additional configuration*.
+3. Select the **Network Performance Monitor** tile with the message *Solution requires additional configuration*.
 
    ![Network Performance Monitor tile](media/network-performance-monitor/npm-config.png)
 
@@ -110,7 +132,7 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
 
    ![Performance Monitor view](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Service Connectivity Monitor**: The capability provides built-in preconfigured tests to monitor network connectivity to Office 365 and Dynamics 365 from your agents. Choose the Office 365 and Dynamics 365 services that you want to monitor by selecting the check boxes beside them. To choose the agents from which you want to monitor, select **Add Agents**. If you don't want to use this capability or want to set it up later, don't choose anything and select **Save & Continue**.
+   **Service Connectivity Monitor**: The capability provides built-in preconfigured tests to monitor network connectivity to Microsoft 365 and Dynamics 365 from your agents. Choose the Microsoft 365 and Dynamics 365 services that you want to monitor by selecting the check boxes beside them. To choose the agents from which you want to monitor, select **Add Agents**. If you don't want to use this capability or want to set it up later, don't choose anything and select **Save & Continue**.
 
    ![Service Connectivity Monitor view](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
@@ -128,13 +150,13 @@ After the setup is finished, it takes 30 minutes to an hour for the data to popu
 
 #### Edit monitoring settings for subnets and nodes 
 
-All subnets with at least one agent installed are listed on the **Subnetworks** tab on the configuration page. 
+All subnets with at least one agent installed are listed on the **Subnetworks** tab on the configuration page. 
 
 
 To enable or disable monitoring of particular subnetworks:
 
 1. Select or clear the check box next to the **subnetwork ID**. Then make sure that **Use for Monitoring** is selected or cleared, as appropriate. You can select or clear multiple subnets. When disabled, subnetworks aren't monitored, and the agents are updated to stop pinging other agents. 
-2. Choose the nodes that you want to monitor in a particular subnetwork. Select the subnetwork from the list, and move the required nodes between the lists that contain unmonitored and monitored nodes. You can add a custom description to the subnetwork.
+2. Choose the nodes that you want to monitor in a particular subnetwork. Select the subnetwork from the list, and move the required nodes between the lists that contain unmonitored and monitored nodes. You can add a custom description to the subnetwork.
 3. Select **Save** to save the configuration. 
 
 #### Choose nodes to monitor
@@ -198,9 +220,9 @@ After you enable the Network Performance Monitor solution, the solution tile on 
 
 ### Drill down for depth 
 
-You can select various links on the solution dashboard to drill down deeper into any area of interest. For example, when you see an alert or an unhealthy network link appear on the dashboard, select it to investigate further. A page lists all the subnetwork links for the particular network link. You can see the loss, latency, and health status of each subnetwork link. You can quickly find out which subnetwork link causes problems. Select **View node links** to see all the node links for the unhealthy subnet link. Then, you can see individual node-to-node links and find the unhealthy node links. 
+You can select various links on the solution dashboard to drill down deeper into any area of interest. For example, when you see an alert or an unhealthy network link appear on the dashboard, select it to investigate further. A page lists all the subnetwork links for the particular network link. You can see the loss, latency, and health status of each subnetwork link. You can quickly find out which subnetwork link causes problems. Select **View node links** to see all the node links for the unhealthy subnet link. Then, you can see individual node-to-node links and find the unhealthy node links. 
 
-Select **View topology** to view the hop-by-hop topology of the routes between the source and destination nodes. The unhealthy routes appear in red. You can view the latency contributed by each hop so that you can quickly identify the problem to a particular portion of the network.
+Select **View topology** to view the hop-by-hop topology of the routes between the source and destination nodes. The unhealthy routes appear in red. You can view the latency contributed by each hop so that you can quickly identify the problem to a particular portion of the network.
 
  
 
@@ -240,13 +262,13 @@ The topology shown in the map is layer 3 topology and doesn't contain layer 2 de
 
 ## Log queries in Azure Monitor
 
-All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in [log queries](../log-query/log-query-overview.md). You can perform interactive analysis of data in the repository and correlate data from different sources. You also can create custom alerts and views and export the data to Excel, Power BI, or a shareable link. The **Common Queries** area in the dashboard has some useful queries that you can use as the starting point to create your own queries and reports. 
+All data that is exposed graphically through the Network Performance Monitor dashboard and drill-down pages is also available natively in [log queries](../log-query/log-query-overview.md). You can perform interactive analysis of data in the repository and correlate data from different sources. You also can create custom alerts and views and export the data to Excel, Power BI, or a shareable link. The **Common Queries** area in the dashboard has some useful queries that you can use as the starting point to create your own queries and reports. 
 
 ## Alerts
 
-Network Performance Monitor uses the alerting capabilities of [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+Network Performance Monitor uses the alerting capabilities of [Azure Monitor](../platform/alerts-overview.md).
 
-This means that all notifications are managed using [action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).  
+This means that all notifications are managed using [action groups](../platform/action-groups.md).  
 
 If you are an NPM user creating an alert via Log Analytics: 
 1. You will see a link that will redirect you to Azure portal. Click it to access the portal.
@@ -256,8 +278,8 @@ If you are an NPM user creating an alert via Log Analytics:
 
 If you are an NPM user creating an alert via Azure portal:  
 1. You can choose to enter your email directly or you can choose to create alerts via action groups.
-2. If you choose to enter your email directly, an action group with the name **NPM Email ActionGroup** is created and the email id is added to that action group.
-3. If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group [here.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+2. If you choose to enter your email directly, an action group with the name **NPM Email ActionGroup** is created and the email ID is added to that action group.
+3. If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group [here.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
 
 Each time you create an alert, NPM creates a query based log alert rule in Azure Monitor. 
@@ -273,7 +295,7 @@ Information on pricing is available [online](network-performance-monitor-pricing
 
 * **UserVoice:** You can post your ideas for Network Performance Monitor features that you want us to work on. Visit the [UserVoice page](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 
-* **Join our cohort:** We're always interested in having new customers join our cohort. As part of it, you get early access to new features and an opportunity to help us improve Network Performance Monitor. If you're interested in joining, fill out this [quick survey](https://aka.ms/npmcohort). 
+* **Join our cohort:** We're always interested in having new customers join our cohort. As part of it, you get early access to new features and an opportunity to help us improve Network Performance Monitor. If you're interested in joining, fill out this [quick survey](https://aka.ms/npmcohort). 
 
 ## Next steps 
 Learn more about [Performance Monitor](network-performance-monitor-performance-monitor.md), [Service Connectivity Monitor](network-performance-monitor-performance-monitor.md), and [ExpressRoute Monitor](network-performance-monitor-expressroute.md). 

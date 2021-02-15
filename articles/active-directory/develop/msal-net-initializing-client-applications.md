@@ -1,28 +1,24 @@
 ---
-title: Initialize client applications (Microsoft Authentication Library for .NET) | Azure
+title: Initialize MSAL.NET client applications | Azure
+titleSuffix: Microsoft identity platform
 description: Learn about initializing public client and confidential client applications using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
-author: rwike77
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
-ms.author: ryanwi
+ms.date: 09/18/2019
+ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn about initializing client applications so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
 # Initialize client applications using MSAL.NET
-This article describes initializing public client and confidential client applications using Microsoft Authentication Library for .NET (MSAL.NET).  To learn more about the client application types and application configuration options, read the [overview](msal-client-applications.md).
+This article describes initializing public client and confidential client applications using the Microsoft Authentication Library for .NET (MSAL.NET).  To learn more about the client application types and application configuration options, read the [overview](msal-client-applications.md).
 
 With MSAL.NET 3.x, the recommended way to instantiate an application is by using the application builders: `PublicClientApplicationBuilder` and `ConfidentialClientApplicationBuilder`. They offer a powerful mechanism to configure the application either from the code, or from a configuration file, or even by mixing both approaches.
 
@@ -97,7 +93,7 @@ In the code snippets using application builders, a number of `.With` methods can
 
 The modifiers you can set on a public client or confidential client application builder are:
 
-|Parameter | Description|
+|Modifier | Description|
 |--------- | --------- |
 |`.WithAuthority()` 7 overrides | Sets the application default authority to an Azure AD authority, with the possibility of choosing the Azure Cloud, the audience, the tenant (tenant ID or domain name), or providing directly the authority URI.|
 |`.WithAdfsAuthority(string)` | Sets the application default authority to be an ADFS authority.|
@@ -116,7 +112,7 @@ The modifiers you can set on a public client or confidential client application 
 
 The modifiers you can set on a public client application builder on Xamarin.iOS are:
 
-|Parameter | Description|
+|Modifier | Description|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Xamarin.iOS only**: Sets the iOS key chain security group (for the cache persistence).|
 
@@ -124,7 +120,7 @@ The modifiers you can set on a public client application builder on Xamarin.iOS 
 
 The modifiers you can set on a confidential client application builder are:
 
-|Parameter | Description|
+|Modifier | Description|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Sets the certificate identifying the application with Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Sets the client secret (app password) identifying the application with Azure AD.|
@@ -138,7 +134,7 @@ Let's assume that your application is a line-of-business application, which is o
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzurePublic, tenantId)
+        .WithAuthority(AzureCloudInstance.AzurePublic, tenantId)
         .Build();
 ```
 
@@ -147,7 +143,7 @@ Where it becomes interesting is that programming for national clouds has now sim
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzureUsGovernment, AadAuthorityAudience.AzureAdMultipleOrgs)
+        .WithAuthority(AzureCloudInstance.AzureUsGovernment, AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
 ```
 
@@ -167,3 +163,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
         .Build();
 ```
+
+## Next steps
+
+After you've initialized the client application, your next task is to add support for user sign-in, authorized API access, or both.
+
+Our application scenario documentation provides guidance for signing in a user and acquiring an access token to access an API on behalf of that user:
+
+- [Web app that signs in users: Sign-in and sign-out](scenario-web-app-sign-user-sign-in.md)
+- [Web app that calls web APIs: Acquire a token](scenario-web-app-call-api-acquire-token.md)

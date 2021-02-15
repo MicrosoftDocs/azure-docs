@@ -1,36 +1,35 @@
 ---
-title: IIS logs in Azure Monitor | Microsoft Docs
+title: Collect IIS logs with Log Analytics agent in Azure Monitor
 description: Internet Information Services (IIS) stores user activity in log files that can be collected by Azure Monitor.  This article describes how to configure collection of IIS logs and details of the records they create in Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: bwren
 ms.author: bwren
+ms.date: 11/13/2020
+
 ---
 
-# Collect IIS logs in Azure Monitor
-Internet Information Services (IIS) stores user activity in log files that can be collected by Azure Monitor and stored as [log data](data-platform.md).
+# Collect IIS logs with Log Analytics agent in Azure Monitor
+Internet Information Services (IIS) stores user activity in log files that can be collected by the Log Analytics agent and stored in [Azure Monitor Logs](data-platform.md).
+
+> [!IMPORTANT]
+> This article covers collecting IIS logs with the [Log Analytics agent](log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](agents-overview.md) for a list of the available agents and the data they can collect.
 
 ![IIS logs](media/data-sources-iis-logs/overview.png)
 
 ## Configuring IIS logs
-Azure Monitor collects entries from log files created by IIS, so you must [configure IIS for logging](https://technet.microsoft.com/library/hh831775.aspx).
+Azure Monitor collects entries from log files created by IIS, so you must [configure IIS for logging](/previous-versions/orphan-topics/ws.11/hh831775(v=ws.11)).
 
 Azure Monitor only supports IIS log files stored in W3C format and does not support custom fields or IIS Advanced Logging. It does not collect logs in NCSA or IIS native format.
 
-Configure IIS logs in Azure Monitor from the [Advanced Settings menu](agent-data-sources.md#configuring-data-sources).  There is no configuration required other than selecting **Collect W3C format IIS log files**.
+Configure IIS logs in Azure Monitor from the [Advanced Settings menu](agent-data-sources.md#configuring-data-sources) for the Log Analytics agent.  There is no configuration required other than selecting **Collect W3C format IIS log files**.
 
 
 ## Data collection
-Azure Monitor collects IIS log entries from each agent each time the log timestamp changes or a new file is created. The log is read every 5 minutes. The frequency of new file creation is controlled by the **Log File Rollover Schedule** setting for the IIS site, which is once a day by default. If for any reason IIS doesn't update the timestamp before the rollover time, if the setting is **Hourly**, Azure Monitor collects the log each hour. If the setting is **Daily**, Azure Monitor collects the log every 24 hours.
+Azure Monitor collects IIS log entries from each agent each time the log timestamp changes. The log is read every **5 minutes**. If for any reason IIS doesn't update the timestamp before the rollover time when a new file is created, entries will be collected following creation of the new file. The frequency of new file creation is controlled by the **Log File Rollover Schedule** setting for the IIS site, which is once a day by default. If the setting is **Hourly**, Azure Monitor collects the log each hour. If the setting is **Daily**, Azure Monitor collects the log every 24 hours.
 
+> [!IMPORTANT]
+> It is recommended to set the **Log File Rollover Schedule** to **Hourly**. If it's set to **Daily**, you may experience spikes in your data since it will only be collected once per day.
 
 ## IIS log record properties
 IIS log records have a type of **W3CIISLog** and have the properties in the following table:

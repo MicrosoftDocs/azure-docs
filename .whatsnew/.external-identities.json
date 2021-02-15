@@ -1,0 +1,24 @@
+{
+    "$schema": "https://whatsnewapi.azurewebsites.net/schema",
+    "docSetProductName": "Azure Active Directory external identities",
+    "rootDirectory": "articles/active-directory/external-identities/",
+    "docLinkSettings": {
+        "linkFormat": "relative",
+        "relativeLinkPrefix": "/azure/active-directory/external-identities"
+    },
+    "inclusionCriteria": {
+        "excludePullRequestTitles": true,
+        "minAdditionsToFile" : 10,
+        "maxFilesChanged": 50,
+        "labels": [
+            "label:active-directory/svc",
+            "label:B2B/subsvc"
+        ]
+    },
+    "areas": [
+        {
+            "name": ".",
+            "heading": "Azure Active Directory external identities"
+        }
+    ]
+}

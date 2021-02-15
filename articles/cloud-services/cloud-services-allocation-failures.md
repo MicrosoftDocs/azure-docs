@@ -1,24 +1,19 @@
 ---
-title: Troubleshooting Cloud Service allocation failure | Microsoft Docs
-description: Troubleshooting allocation failure when you deploy Cloud Services in Azure
-services: azure-service-management, cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: felixwu
-editor: ''
-tags: top-support-issue
-
-ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
+title: Troubleshooting Cloud Service (classic) allocation failure | Microsoft Docs
+description: Troubleshoot an allocation failure when you deploy Azure Cloud Services. Learn how allocation works and why allocation can fail.
+ms.topic: article
 ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 06/15/2018
-ms.author: v-six
-
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Troubleshooting allocation failure when you deploy Cloud Services in Azure
+# Troubleshooting allocation failure when you deploy Cloud Services (classic) in Azure
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 ## Summary
 When you deploy instances to a Cloud Service or add new web or worker role instances, Microsoft Azure allocates compute resources. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
 
@@ -38,7 +33,7 @@ When an allocation request is pinned to a cluster, there's a higher chance of fa
 ### Error Message
 You may see the following error message:
 
-    "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+> "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
 
 ### Common Issues
 Here are the common allocation scenarios that cause an allocation request to be pinned to a single cluster.
@@ -67,4 +62,4 @@ Here are the common allocation scenarios that cause an allocation request to be 
      ```
    * Follow #2 from above, making sure to specify the new ReservedIP in the service's CSCFG.
 4. Remove affinity group for new deployments - Affinity Groups are no longer recommended. Follow steps for #1 above to deploy a new cloud service. Ensure cloud service is not in an affinity group.
-5. Convert to a Regional Virtual Network - See [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+5. Convert to a Regional Virtual Network - See [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](/previous-versions/azure/virtual-network/virtual-networks-migrate-to-regional-vnet).

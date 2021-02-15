@@ -1,5 +1,5 @@
 ---
-title: Tutorial - High availability for Linux VMs in Azure | Microsoft Docs
+title: Tutorial - High availability for Linux VMs in Azure 
 description: In this tutorial, you learn how to use the Azure CLI to deploy highly available virtual machines in Availability Sets
 documentationcenter: ''
 services: virtual-machines-linux
@@ -8,15 +8,14 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: 
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/24/2018
+ms.date: 01/17/2020
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 #Customer intent: As an IT administrator, I want to learn about high availability in Azure so that I can deploy a highly-available and redundant infrastructure.
 ---
@@ -32,17 +31,15 @@ In this tutorial, you learn how to:
 > * Create a VM in an availability set
 > * Check available VM sizes
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
-## Availability set overview
+## Overview
 
 An Availability Set is a logical grouping capability that you can use in Azure to ensure that the VM resources you place within it are isolated from each other when they are deployed within an Azure datacenter. Azure ensures that the VMs you place within an Availability Set run across multiple physical servers, compute racks, storage units, and network switches. If a hardware or Azure software failure occurs, only a subset of your VMs are impacted, and your overall application stays up and continues to be available to your customers. Availability Sets are an essential capability when you want to build reliable cloud solutions.
 
 Let’s consider a typical VM-based solution where you might have four front-end web servers and use two back-end VMs that host a database. With Azure, you’d want to define two availability sets before you deploy your VMs: one availability set for the “web” tier and one availability set for the “database” tier. When you create a new VM you can then specify the availability set as a parameter to the az vm create command, and Azure automatically ensures that the VMs you create within the available set are isolated across multiple physical hardware resources. If the physical hardware that one of your Web Server or Database Server VMs is running on has a problem, you know that the other instances of your Web Server and Database VMs remain running because they are on different hardware.
-
-Use Availability Sets when you want to deploy reliable VM-based solutions within Azure.
 
 
 ## Create an availability set
@@ -115,3 +112,7 @@ Advance to the next tutorial to learn about virtual machine scale sets.
 
 > [!div class="nextstepaction"]
 > [Create a virtual machine scale set](tutorial-create-vmss.md)
+
+* To learn more about availability zones, visit the  [Availability Zones documentation](../../availability-zones/az-overview.md).
+* More documentation about both availability sets and availability zones is also available [here](../manage-availability.md).
+* To try out availability zones, visit [Create a Linux virtual machine in an availability zone with the Azure CLI](./create-cli-availability-zone.md)

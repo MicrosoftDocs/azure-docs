@@ -1,31 +1,29 @@
 ---
 title: Wire Data solution in Azure Monitor | Microsoft Docs
 description: Wire data is consolidated network and performance data from computers with Log Analytics agents. Network data is combined with your log data to help you correlate data.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/03/2018
-ms.author: magoedte
+author: bwren
+ms.author: bwren
+ms.date: 05/29/2020
+
 ---
+
 # Wire Data 2.0 (Preview) solution in Azure Monitor
 
 ![Wire Data symbol](media/wire-data/wire-data2-symbol.png)
 
 Wire data is consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent, including those monitored by Operations Manager in your environment. Network data is combined with your other log data to help you correlate data.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 In addition to the Log Analytics agent, the Wire Data solution uses Microsoft Dependency Agents that you install on computers in your IT infrastructure. Dependency Agents monitor network data sent to and from your computers for network levels 2-3 in the [OSI model](https://en.wikipedia.org/wiki/OSI_model), including the various protocols and ports used. Data is then sent to Azure Monitor using agents.  
 
 >[!NOTE]
->If you have already deployed Service Map, or are considering Service Map or [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md), there is a new connection metrics data set they collect and store in Azure Monitor that provides comparable information to Wire Data.
+>The Wire Data solution has been replaced with the [Service Map solution](service-map.md).  Both use the Log Analytics agent and Dependency agent to collect network connection data into Azure Monitor. 
+> 
+>Existing customers using the Wire Data solution may continue to use it. We will publish guidance for a migration timeline for moving to Service Map.
+>
+>New customers should install the [Service Map solution](service-map.md) or [Azure Monitor for VMs](vminsights-overview.md).  The Service Map data set is comparable to Wire Data.  Azure Monitor for VMs includes the Service Map data set with additional performance data and features for analysis. 
+
 
 By default, Azure Monitor logs data for CPU, memory, disk, and network performance data from counters built into Windows and Linux, as well as other performance counters that you can specify. Network and other data collection is done in real-time for each agent, including subnets and application-level protocols being used by the computer.  Wire Data looks at network data at the application level, not down at the TCP transport layer.  The solution doesn't look at individual ACKs and SYNs.  Once the handshake is completed, it is considered a live connection and marked as Connected. That connection stays live as long as both sides agree the socket is open and data can pass back and forth.  Once either side closes the connection, it is marked as Disconnected.  Therefore, it only counts the bandwidth of successfully completed packets, it doesn't report on resends or failed packets.
 
@@ -54,16 +52,16 @@ Wire Data gets its data from the Microsoft Dependency Agent. The Dependency Agen
 
 | **Connected source** | **Supported** | **Description** |
 | --- | --- | --- |
-| Windows agents | Yes | Wire Data analyzes and collects data from Windows agent computers. <br><br> In addition to the [Log Analytics agent for Windows](../../azure-monitor/platform/agent-windows.md), Windows agents require the Microsoft Dependency Agent. See the [supported operating systems](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) for a complete list of operating system versions. |
-| Linux agents | Yes | Wire Data analyzes and collects data from Linux agent computers.<br><br> In addition to the [Log Analytics agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), Linux agents require the Microsoft Dependency Agent. See the [supported operating systems](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) for a complete list of operating system versions. |
-| System Center Operations Manager management group | Yes | Wire Data analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../../azure-monitor/platform/om-agents.md). <br><br> A direct connection from the System Center Operations Manager agent computer to Azure Monitor is required. |
+| Windows agents | Yes | Wire Data analyzes and collects data from Windows agent computers. <br><br> In addition to the [Log Analytics agent for Windows](../platform/agent-windows.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](vminsights-enable-overview.md#supported-operating-systems) for a complete list of operating system versions. |
+| Linux agents | Yes | Wire Data analyzes and collects data from Linux agent computers.<br><br> In addition to the [Log Analytics agent for Linux](../learn/quick-collect-linux-computer.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](vminsights-enable-overview.md#supported-operating-systems) for a complete list of operating system versions. |
+| System Center Operations Manager management group | Yes | Wire Data analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../platform/om-agents.md). <br><br> A direct connection from the System Center Operations Manager agent computer to Azure Monitor is required. |
 | Azure storage account | No | Wire Data collects data from agent computers, so there is no data from it to collect from Azure Storage. |
 
 On Windows, the Microsoft Monitoring Agent (MMA) is used by both System Center Operations Manager and Azure Monitor to gather and send data. Depending on the context, the agent is called the System Center Operations Manager Agent, Log Analytics agent, MMA, or Direct Agent. System Center Operations Manager and Azure Monitor provide slightly different versions of the MMA. These versions can each report to System Center Operations Manager, to Azure Monitor, or to both.
 
 On Linux, the Log Analytics agent for Linux gathers and sends data to Azure Monitor. You can use Wire Data on servers with agents directly connected to Azure Monitor, or on servers that are connecting to Azure Monitor via System Center Operations Manager management groups.
 
-The Dependency Agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Wire Data is always transmitted by the Log Analytics agent to Azure Monitor, either directly or through the Log Analytics gateway.
+The Dependency agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Wire Data is always transmitted by the Log Analytics agent to Azure Monitor, either directly or through the Log Analytics gateway.
 
 ![agent diagram](./media/wire-data/agents.png)
 
@@ -78,12 +76,12 @@ If your Windows or Linux computers cannot directly connect to the service, you n
 
 - Requires the [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) solution offer.
 - If you're using the previous version of the Wire Data solution, you must first remove it. However, all data captured through the original Wire Data solution is still available in Wire Data 2.0 and log search.
-- Administrator privileges are required to install or uninstall the Dependency Agent.
-- The Dependency Agent must be installed on a computer with a 64-bit operating system.
+- Administrator privileges are required to install or uninstall the Dependency agent.
+- The Dependency agent must be installed on a computer with a 64-bit operating system.
 
 ### Operating systems
 
-The following sections list the supported operating systems for the Dependency Agent. Wire Data doesn't support 32-bit architectures for any operating system.
+The following sections list the supported operating systems for the Dependency agent. Wire Data doesn't support 32-bit architectures for any operating system.
 
 #### Windows Server
 
@@ -165,25 +163,25 @@ The following sections list the supported operating systems for the Dependency a
 
 Perform the following steps to configure the Wire Data solution for your workspaces.
 
-1. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
-2. Install the Dependency Agent on each computer where you want to get data. The Dependency Agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
+1. Enable the Activity Log Analytics solution from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](./solutions.md).
+2. Install the Dependency agent on each computer where you want to get data. The Dependency agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
 
 > [!NOTE]
 > You cannot add the previous version of the Wire Data solution to new workspaces. If you have the original Wire Data solution enabled, you can continue to use it. However, to use Wire Data 2.0, you must first remove the original version.
 > 
  
-### Install the Dependency Agent on Windows
+### Install the Dependency agent on Windows
 
 Administrator privileges are required to install or uninstall the agent.
 
-The Dependency Agent is installed on computers running Windows through InstallDependencyAgent-Windows.exe. If you run this executable file without any options, it starts a wizard that you can follow to install interactively.
+The Dependency agent is installed on computers running Windows through InstallDependencyAgent-Windows.exe. If you run this executable file without any options, it starts a wizard that you can follow to install interactively.
 
-Use the following steps to install the Dependency Agent on each computer running Windows:
+Use the following steps to install the Dependency agent on each computer running Windows:
 
-1. Install the Log Analytics agent following the steps in [Collect data from Windows computers hosted in your environment](../../azure-monitor/platform/agent-windows.md).
-2. Download the Windows Dependency Agent using the link in the previous section and then run it by using the following command: `InstallDependencyAgent-Windows.exe`
+1. Install the Log Analytics agent following the steps in [Collect data from Windows computers hosted in your environment](../platform/agent-windows.md).
+2. Download the Windows Dependency agent using the link in the previous section and then run it by using the following command: `InstallDependencyAgent-Windows.exe`
 3. Follow the wizard to install the agent.
-4. If the Dependency Agent fails to start, check the logs for detailed error information. For Windows agents, the log directory is %Programfiles%\Microsoft Dependency Agent\logs.
+4. If the Dependency agent fails to start, check the logs for detailed error information. For Windows agents, the log directory is %Programfiles%\Microsoft Dependency Agent\logs.
 
 #### Windows command line
 
@@ -196,20 +194,20 @@ InstallDependencyAgent-Windows.exe /?
 | <code>/?</code> | Get a list of the command-line options. |
 | <code>/S</code> | Perform a silent installation with no user prompts. |
 
-Files for the Windows Dependency Agent are placed in C:\Program Files\Microsoft Dependency Agent by default.
+Files for the Windows Dependency agent are placed in C:\Program Files\Microsoft Dependency agent by default.
 
-### Install the Dependency Agent on Linux
+### Install the Dependency agent on Linux
 
 Root access is required to install or configure the agent.
 
-The Dependency Agent is installed on Linux computers through InstallDependencyAgent-Linux64.bin, a shell script with a self-extracting binary. You can run the file by using _sh_ or add execute permissions to the file itself.
+The Dependency agent is installed on Linux computers through InstallDependencyAgent-Linux64.bin, a shell script with a self-extracting binary. You can run the file by using _sh_ or add execute permissions to the file itself.
 
-Use the following steps to install the Dependency Agent on each Linux computer:
+Use the following steps to install the Dependency agent on each Linux computer:
 
-1. Install the Log Analytics agent following the steps in [Collect data from Linux computers hosted in your environment](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
-2. Download the Linux Dependency Agent using the link in the previous section and then install it as root by using the following command:
+1. Install the Log Analytics agent following the steps in [Collect data from Linux computers hosted in your environment](../learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+2. Download the Linux Dependency agent using the link in the previous section and then install it as root by using the following command:
 sh InstallDependencyAgent-Linux64.bin
-3. If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is: /var/opt/microsoft/dependency-agent/log.
+3. If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is: /var/opt/microsoft/dependency-agent/log.
 
 To see a list of the installation flags, run the installation program with the `-help` flag as follows.
 
@@ -223,7 +221,7 @@ InstallDependencyAgent-Linux64.bin -help
 | <code>-s</code> | Perform a silent installation with no user prompts. |
 | <code>--check</code> | Check permissions and the operating system but do not install the agent. |
 
-Files for the Dependency Agent are placed in the following directories:
+Files for the Dependency agent are placed in the following directories:
 
 | **Files** | **Location** |
 | --- | --- |
@@ -235,7 +233,7 @@ Files for the Dependency Agent are placed in the following directories:
 
 ### Installation script examples
 
-To easily deploy the Dependency Agent on many servers at once, it helps to use a script. You can use the following script examples to download and install the Dependency Agent on either Windows or Linux.
+To easily deploy the Dependency agent on many servers at once, it helps to use a script. You can use the following script examples to download and install the Dependency agent on either Windows or Linux.
 
 #### PowerShell script for Windows
 
@@ -259,7 +257,7 @@ sh InstallDependencyAgent-Linux64.bin -s
 
 ### Desired State Configuration
 
-To deploy the Dependency Agent via Desired State Configuration, you can use the xPSDesiredStateConfiguration module and a bit of code like the following:
+To deploy the Dependency agent via Desired State Configuration, you can use the xPSDesiredStateConfiguration module and a bit of code like the following:
 
 ```powershell
 Import-DscResource -ModuleName xPSDesiredStateConfiguration
@@ -272,7 +270,7 @@ Node $NodeName
 
 {
 
-    # Download and install the Dependency Agent
+    # Download and install the Dependency agent
 
     xRemoteFile DAPackage
 
@@ -312,19 +310,19 @@ Node $NodeName
 
 ```
 
-### Uninstall the Dependency Agent
+### Uninstall the Dependency agent
 
-Use the following sections to help you remove the Dependency Agent.
+Use the following sections to help you remove the Dependency agent.
 
-#### Uninstall the Dependency Agent on Windows
+#### Uninstall the Dependency agent on Windows
 
-An administrator can uninstall the Dependency Agent for Windows through Control Panel.
+An administrator can uninstall the Dependency agent for Windows through Control Panel.
 
-An administrator can also run %Programfiles%\Microsoft Dependency Agent\Uninstall.exe to uninstall the Dependency Agent.
+An administrator can also run %Programfiles%\Microsoft Dependency Agent\Uninstall.exe to uninstall the Dependency agent.
 
-#### Uninstall the Dependency Agent on Linux
+#### Uninstall the Dependency agent on Linux
 
-To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the connector, which is installed automatically with the agent. You can uninstall both by using the following single command:
+To completely uninstall the Dependency agent from Linux, you must remove the agent itself and the connector, which is installed automatically with the agent. You can uninstall both by using the following single command:
 
 ```
 rpm -e dependency-agent dependency-agent-connector
@@ -363,15 +361,15 @@ In the **Overview** page for your Log Analytics workspace in the Azure portal, c
 
 You can use the **Agents capturing network traffic** blade to determine how much network bandwidth is being consumed by computers. This blade can help you easily find the _chattiest_ computer in your environment. Such computers could be overloaded, acting abnormally, or using more network resources than normal.
 
-![log search example](./media/wire-data/log-search-example01.png)
+![Screenshot of the Agents capturing network traffic blade in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each computer.](./media/wire-data/log-search-example01.png)
 
 Similarly, you can use the **Local Subnets** blade to determine how much network traffic is moving through your subnets. Users often define subnets around critical areas for their applications. This blade offers a view into those areas.
 
-![log search example](./media/wire-data/log-search-example02.png)
+![Screenshot of the Local Subnets blade in the Wire Data 2.0 dashboard showing the network bandwidth consumed by a each LocalSubnet.](./media/wire-data/log-search-example02.png)
 
 The **Application-level Protocols** blade is useful because it's helpful know what protocols are in use. For example, you might expect SSH to not be in use in your network environment. Viewing information available in the blade can quickly confirm or disprove your expectation.
 
-![log search example](./media/wire-data/log-search-example03.png)
+![Screenshot of the Application-level Protocols blade in the Wire Data 2.0 dashboard showing the network bandwidth consumed by each protocol.](./media/wire-data/log-search-example03.png)
 
 It's also useful to know if protocol traffic is increasing or decreasing over time. For example, if the amount of data being transmitted by an application is increasing, that might be something you should be aware of, or that you might find noteworthy.
 
@@ -413,7 +411,7 @@ A record with a type of _WireData_ is created for each type of input data. WireD
 | RemoteIPLongitude | IP longitude value |
 | RemoteIPLatitude | IP latitude value |
 
-
 ## Next steps
 
-- [Search logs](../../azure-monitor/log-query/log-query-overview.md) to view detailed wire data search records.
+- [Search logs](../log-query/log-query-overview.md) to view detailed wire data search records.
+

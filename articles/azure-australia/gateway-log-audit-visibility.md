@@ -1,18 +1,18 @@
 ---
 title: Gateway logging, auditing, and visibility in Azure Australia
 description: How to configure Logging, Auditing, and Visibility within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: yvettep
 ---
 
 # Gateway logging, auditing, and visibility in Azure Australia
 
-Detecting and responding to cyber security threats relies on generating, collecting and analysing data related to the operation of a system.
+Detecting and responding to cyber security threats relies on generating, collecting and analyzing data related to the operation of a system.
 
-Microsoft has built-in tools in Azure to help you implement logging, auditing and visibility to manage the security of your systems deployed in Azure. There is also a reference architecture that aligns with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the Information Security Manual (ISM).
+Microsoft has built-in tools in Azure to help you implement logging, auditing, and visibility to manage the security of your systems deployed in Azure. There is also a reference architecture that aligns with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the Information Security Manual (ISM).
 
 Gateways act as information flow control mechanisms at the network layer and may also control information at the higher layers of the Open System Interconnect (OSI) model. Gateways are necessary to control data flows between security domains and prevent unauthorised access from external networks. Given the criticality of gateways in controlling the flow of information between security domains, any failure, particularly at higher classifications, may have serious consequences. As such, robust mechanisms for alerting personnel to situations that may cause cyber security incidents are especially important for gateways.
 
@@ -33,21 +33,21 @@ The overall security requirements for Commonwealth systems are defined in the AC
     * Enable Automatic Provisioning of the Microsoft Monitoring Agent to supported Azure VMs
     * Regularly review, prioritise, and mitigate the security recommendations and alerts on the Security Centre dashboard
 
-4. Government entities must enable log and event forwarding from their Azure subscription to the ACSC to provide the ACSC with visibility of non-compliance with this guidance. Azure Event Hubs provides the capability to perform external log streaming to the ACSC or on-premise systems owned by the Commonwealth entity
+4. Government entities must enable log and event forwarding from their Azure subscription to the ACSC to provide the ACSC with visibility of non-compliance with this guidance. Azure Event Hubs provides the capability to perform external log streaming to the ACSC or on-premises systems owned by the Commonwealth entity
 
 5. Commonwealth entities should align the logging they enable within Azure to the requirements specified in the ISM
 
-6. Microsoft retains logs within Azure for 90 days. Customer entities must implement a log archival regime to ensure logs can be retained for the seven years required under the NAA AFDA
+6. Microsoft keeps logs within Azure for 90 days. Customer entities must implement a log archival regime to ensure logs can be kept for the seven years required under the NAA AFDA
 
-7. Commonwealth entities that have on premise or Azure-based Security Information and Event Management (SIEM) capabilities can also forward logs to those systems
+7. Commonwealth entities that have on-premises or Azure-based Security Information and Event Management (SIEM) capabilities can also forward logs to those systems
 
-8. Commonwealth entities should implement Network Watcher flow logs for Network Security Groups (NSGs) and Virtual Machines. These logs should be stored in a dedicated storage account containing only security logs, and access to the storage account should be secured with Role-Based Access Controls
+8. Commonwealth entities should implement Network Watcher flow logs for Network Security Groups (NSGs) and Virtual Machines. These logs should be stored in a dedicated storage account containing only security logs, and access to the storage account should be secured with Azure role-based access control (Azure RBAC)
 
 9. Commonwealth entities must implement ACSC Consumer Guidance to ensure Azure workloads meet the intent of the ISM for logging and monitoring. Commonwealth entities must also opt in to Azure capabilities that assist the ACSC to receive real-time monitoring, alerting, and logs associated with Australian Government usage of Azure
 
 ## Architecture
 
-To confidently understand the network traffic entering and leaving your Azure environment, the necessary logging must be enabled on the right set of components. This ensures complete visibility of the environment and provides the necessary data to perform analysis.
+To confidently understand the network traffic entering and leaving your Azure environment, the necessary logging must be enabled on the right set of components. Doing this ensures complete visibility of the environment and provides the necessary data to do analysis.
 
 ![Azure Monitoring Architecture](media/visibility.png)
 
@@ -64,7 +64,7 @@ The architecture shown above is made up of discrete components that provide the 
 |Incident Response|<ul><li>Azure Alerts</li><li>Azure Automation</li></ul>|
 |
 
-The architecture works by first generating logs from the necessary sources and then collecting them into centralised repositories. Once you have collected the logs, they can be:
+The architecture works by first generating logs from the necessary sources and then collecting them into centralised repositories. Once you've collected the logs, they can be:
 
 * used by Azure analysis services to get insight,
 * get forwarded to external systems, or
@@ -80,13 +80,13 @@ When implementing the components listed in this article, the following general g
 
 * Refer to the *Azure - ACSC Certification Report – Protected 2018* publication for the certification status of individual services and perform self-assessments on any relevant components not included in the report as per the *ACSC CONSUMER GUIDE – Microsoft Azure at PROTECTED*
 
-* For components not referenced in this article, Commonwealth entities should follow the principles included regarding generating, capturing, analysing, and retaining logs
+* For components not referenced in this article, Commonwealth entities should follow the principles included about generating, capturing, analysing, and keeping logs
 
 * Identify and prioritise the logging, auditing, and visibility on high value systems as well as all network ingress and egress points to systems hosted in Azure
 
 * Consolidate logs and minimise the number of instances of logging tools such as storage accounts, Log Analytics workspaces and Event Hubs
 
-* Restrict administrative privileges through Role-Based Access Controls
+* Restrict administrative privileges through Azure role-based access control (Azure RBAC)
 
 * Use Multi-Factor Authentication (MFA) for accounts administering or configuring resources in Azure
 
@@ -108,8 +108,8 @@ When implementing the components listed in this article, the following general g
 |---|---|
 |Australian Regulatory and Policy Compliance Documents|[https://aka.ms/au-irap](https://aka.ms/au-irap)|
 |Azure products - Australian regions and non-regional|[https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast](https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast)|
-|Microsoft Azure Security and Audit Log Management Whitepaper|[https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf)|
-|Microsoft Monitoring Agent Configuration|[https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)|
+|Microsoft Azure Security and Audit Log Management Whitepaper|[https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf)|
+|Microsoft Monitoring Agent Configuration|[https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent](../azure-monitor/platform/log-analytics-agent.md)|
 |
 
 ## Component guidance
@@ -133,8 +133,8 @@ Azure Application Gateway is one of the possible entry points into an Azure envi
 
 |Resources|Link|
 |---|---|
-|Application Gateway Documentation|[https://docs.microsoft.com/azure/application-gateway/](https://docs.microsoft.com/azure/application-gateway/)|
-|Application Gateway quickstart Guide|[https://docs.microsoft.com/azure/application-gateway/quick-create-portal](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)|
+|Application Gateway Documentation|[https://docs.microsoft.com/azure/application-gateway/](../application-gateway/index.yml)|
+|Application Gateway quickstart Guide|[https://docs.microsoft.com/azure/application-gateway/quick-create-portal](../application-gateway/quick-create-portal.md)|
 |
 
 ### VPN Gateway
@@ -143,8 +143,8 @@ The VPN Gateway is a potential entry point for a wide range of communications in
 
 |Resources|Link|
 |---|---|
-|VPN Gateway Documentation|[https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway)|
-|Australian Government specific VPN Gateway guidance|[https://aka.ms/AzGovAUSecurity](https://aka.ms/AzGovAUSecurity)|
+|VPN Gateway Documentation|[https://docs.microsoft.com/azure/vpn-gateway/](../vpn-gateway/index.yml)|
+|Australian Government specific VPN Gateway guidance|[Azure VPN Gateway configuration](vpn-gateway.md)|
 |
 
 ### Azure Firewall
@@ -153,13 +153,13 @@ Azure Firewall provides a controlled exit point from an Azure environment and th
 
 |Resources|Link|
 |---|---|
-|Azure Firewall Documentation|[https://docs.microsoft.com/azure/firewall/](https://docs.microsoft.com/azure/firewall)|
-|Tutorial: Monitor Azure Firewall logs and metrics|[https://docs.microsoft.com/azure/firewall/tutorial-diagnostics](https://docs.microsoft.com/azure/firewall/tutorial-diagnostics)|
+|Azure Firewall Documentation|[https://docs.microsoft.com/azure/firewall/](../firewall/index.yml)|
+|Tutorial: Monitor Azure Firewall logs and metrics|[https://docs.microsoft.com/azure/firewall/tutorial-diagnostics](../firewall/firewall-diagnostics.md)|
 |
 
 ### Network Virtual Appliances (NVA)
 
-NVAs can be used to complement the security capabilities available natively in Azure. The logs generated on NVAs can be valuable resources in detecting cyber security incidents and are a key part of an overall logging, auditing, and visibility strategy. To capture logs from NVAs, utilise the Microsoft Monitoring Agent (MMA). For NVAs that do not support the installation of the MMA, consider using a Syslog or other log collection server to relay logs.
+NVAs can be used to complement the security capabilities available natively in Azure. The logs generated on NVAs can be valuable resources in detecting cyber security incidents and are a key part of an overall logging, auditing, and visibility strategy. To capture logs from NVAs, utilise the Microsoft Monitoring Agent (MMA). For NVAs that don't support the installation of the MMA, consider using a Syslog or other log collection server to relay logs.
 
 |Resources|Link|
 |---|---|
@@ -173,19 +173,19 @@ Azure Load Balancer logs are used to obtain useful information about the connect
 
 |Resources|Link|
 |---|---|
-|Azure Load Balancer Documentation|[https://docs.microsoft.com/azure/load-balancer](https://docs.microsoft.com/azure/load-balancer)|
-|Metrics and health diagnostics for Standard Load Balancer|[https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)|
+|Azure Load Balancer Documentation|[https://docs.microsoft.com/azure/load-balancer](../load-balancer/index.yml)|
+|Metrics and health diagnostics for Standard Load Balancer|[https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics](../load-balancer/load-balancer-standard-diagnostics.md)|
 |
 
 ### Virtual Machines
 
-Virtual Machines are end points that send and receive network communications, process data and provide services. As Virtual Machines can host data or crucial system services, ensuring that they are operating correctly and detecting cyber security incidents can be critical. Virtual Machines collect various event and audit logs that can track the operation of the system and the actions performed on that system. Logs collected on Virtual Machines can be forwarded to a Log Analytics Workspace using the Microsoft Monitoring Agent where they can be analysed by Azure Security Center and applicable Log Analytics solutions. Virtual Machines can also integrate directly with Azure Event Hubs or to a SIEM, either directly or through a Log Collection Server.
+Virtual Machines are end points that send and receive network communications, process data and provide services. As Virtual Machines can host data or crucial system services, ensuring that they're operating correctly and detecting cyber security incidents can be critical. Virtual Machines collect various event and audit logs that can track the operation of the system and the actions done on that system. Logs collected on Virtual Machines can be forwarded to a Log Analytics Workspace using the Microsoft Monitoring Agent where they can be analysed by Azure Security Center and applicable Log Analytics solutions. Virtual Machines can also integrate directly with Azure Event Hubs or to a SIEM, either directly or through a Log Collection Server.
 
 |Resources|Link|
 |---|---|
-|Virtual Machines|[https://docs.microsoft.com/azure/virtual-machines](https://docs.microsoft.com/azure/virtual-machines)|
-|Collect Data from Virtual Machines|[https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm)|
-|Stream Virtual Machine Logs to Event Hubs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs)|
+|Virtual Machines|[https://docs.microsoft.com/azure/virtual-machines](../virtual-machines/index.yml)|
+|Collect Data from Virtual Machines|[https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm](../azure-monitor/learn/quick-collect-azurevm.md)|
+|Stream Virtual Machine Logs to Event Hubs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)|
 |
 
 ### Domain Name Services (DNS) servers
@@ -194,7 +194,7 @@ DNS Server logs provide key information related to the services that systems are
 
 |Resources|Link|
 |---|---|
-|Azure Name Resolution for Virtual Networks|[https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)|
+|Azure Name Resolution for Virtual Networks|[https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)|
 |
 
 ### Syslog and log collection servers
@@ -203,7 +203,7 @@ To receive logs from Network Virtual Appliances, or custom security logs from ot
 
 |Resources|Link|
 |---|---|
-|Syslog data sources in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog)|
+|Syslog data sources in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog](../azure-monitor/platform/data-sources-syslog.md)|
 |Log Collection Server|Refer to vendor documentation for details on monitoring and SIEM architecture|
 |
 
@@ -213,19 +213,19 @@ NSGs control traffic into and out of virtual networks in Azure. NSGs apply rules
 
 |Resources|Link|
 |---|---|
-|Network Security Group Documentation|[https://docs.microsoft.com/azure/virtual-network/security-overview](https://docs.microsoft.com/azure/virtual-network/security-overview)|
-|Introduction to flow logging for network security groups|[https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|
-|Tutorial: Log network traffic to and from a Virtual Machine using the Azure portal|[https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)|
+|Network Security Group Documentation|[https://docs.microsoft.com/azure/virtual-network/security-overview](../virtual-network/network-security-groups-overview.md)|
+|Introduction to flow logging for network security groups|[https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview](../network-watcher/network-watcher-nsg-flow-logging-overview.md)|
+|Tutorial: Log network traffic to and from a Virtual Machine using the Azure portal|[https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal](../network-watcher/network-watcher-nsg-flow-logging-portal.md)|
 |
 
 ### Azure Activity Log
 
-Azure Activity Log, which is part of Azure Monitor, is a subscription log that provides insight into subscription-level events that have occurred in Azure. The Activity Log can help determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken ***on*** the resources in a subscription. The Activity Log is crucial for tracking the configuration changes made within the Azure environment. Azure Activity Logs are automatically available for use in Log Analytics solutions and can be sent to Event Hubs or Azure Storage for processing or retention.
+Azure Activity Log, which is part of Azure Monitor, is a subscription log that provides insight into subscription-level events that have occurred in Azure. The Activity Log can help determine the 'what, who, and when' for any write operations (PUT, POST, DELETE) taken ***on*** the resources in a subscription. The Activity Log is crucial for tracking the configuration changes made within the Azure environment. Azure Activity Logs are automatically available for use in Log Analytics solutions and can be sent to Event Hubs or Azure Storage for processing or retention.
 
 |Resources|Link|
 |---|---|
-|Azure Activity Log Documentation|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
-|Stream the Azure Activity Log to Event Hubs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs)|
+|Azure Activity Log Documentation|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs](../azure-monitor/platform/platform-logs-overview.md)|
+|Stream the Azure Activity Log to Event Hubs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs](../azure-monitor/platform/activity-log.md#legacy-collection-methods)|
 |
 
 ### Azure Diagnostic Log
@@ -234,18 +234,18 @@ Azure Monitor diagnostic logs are logs emitted by an Azure service that provide 
 
 |Resources|Link|
 |---|---|
-|Azure Diagnostic Log Documentation|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
-|Support services for Diagnostic Logs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-diagnostic-logs-schema](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-diagnostic-logs-schema)|
+|Azure Diagnostic Log Documentation|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs](../azure-monitor/platform/platform-logs-overview.md)|
+|Support services for Diagnostic Logs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-diagnostic-logs-schema](../azure-monitor/platform/resource-logs-schema.md)|
 |
 
 ### Azure Policy
 
-Azure Policy enforces rules on how resources can be deployed, such as the type, location, and configuration. Azure Policy can be configured to ensure resources can only be deployed if they are compliant with requirements. Azure Policy is a core component to maintaining the integrity of an Azure environment. Events related to Azure Policy are logged to the Azure Activity Log and are automatically available for use in Log Analytics solutions or can be sent to Event Hubs or Azure Storage for processing or retention.
+Azure Policy enforces rules on how resources can be deployed, such as the type, location, and configuration. Azure Policy can be configured to ensure resources can only be deployed if they're compliant with requirements. Azure Policy is a core component to maintaining the integrity of an Azure environment. Events related to Azure Policy are logged to the Azure Activity Log and are automatically available for use in Log Analytics solutions or can be sent to Event Hubs or Azure Storage for processing or retention.
 
 |Resources|Link|
 |---|---|
-|Azure Policy Documentation|[https://docs.microsoft.com/azure/governance/policy](https://docs.microsoft.com/azure/governance/policy)|
-|Leveraging Azure Policy and Resource Manager templates using Azure Blueprints|[https://docs.microsoft.com/azure/governance/blueprints/overview](https://docs.microsoft.com/azure/governance/blueprints/overview)|
+|Azure Policy Documentation|[https://docs.microsoft.com/azure/governance/policy](../governance/policy/index.yml)|
+|Leveraging Azure Policy and Resource Manager templates using Azure Blueprints|[https://docs.microsoft.com/azure/governance/blueprints/overview](../governance/blueprints/overview.md)|
 |
 
 ## Log collection
@@ -258,8 +258,8 @@ The purpose of an Event Hub is to aggregate the log data for the various sources
 
 |Resources|Link|
 |---|---|
-|Event Hubs Documentation|[https://docs.microsoft.com/azure/event-hubs](https://docs.microsoft.com/azure/event-hubs)|
-|Guidance on Event Hubs and External Tools|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs)|
+|Event Hubs Documentation|[https://docs.microsoft.com/azure/event-hubs](../event-hubs/index.yml)|
+|Guidance on Event Hubs and External Tools|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)|
 |
 
 ### Log Analytics
@@ -268,8 +268,8 @@ Log Analytics is part of Azure Monitor and is used for log analysis. Log Analyti
 
 |Resources|Link|
 |---|---|
-|Log Analytics Documentation|[https://docs.microsoft.com/azure/azure-monitor](https://docs.microsoft.com/azure/azure-monitor)|
-|Tutorial: Analyze Data in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata)|
+|Log Analytics Documentation|[https://docs.microsoft.com/azure/azure-monitor](../azure-monitor/index.yml)|
+|Tutorial: Analyze Data in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata](../azure-monitor/log-query/log-analytics-tutorial.md)|
 |
 
 ### Network Watcher
@@ -278,13 +278,13 @@ The use of Network Watcher is recommended by the ACSC to assist in understanding
 
 |Resources|Link|
 |---|---|
-|Network Watcher|[https://docs.microsoft.com/azure/network-watcher](https://docs.microsoft.com/azure/network-watcher)|
-|Packet Capture Overview|[https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)|
+|Network Watcher|[https://docs.microsoft.com/azure/network-watcher](../network-watcher/index.yml)|
+|Packet Capture Overview|[https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview](../network-watcher/network-watcher-packet-capture-overview.md)|
 |
 
 ## Log retention
 
-For Australian Government organisations, the logs captured within Azure must be retained in accordance with the National Archives of Australia [Administrative Functions Disposal Authority (AFDA)](http://www.naa.gov.au/information-management/records-authorities/types-of-records-authorities/AFDA/index.aspx), which specifies retaining logs up to seven years.
+For Australian Government organisations, the logs captured within Azure must be retained in accordance with the National Archives of Australia [Administrative Functions Disposal Authority (AFDA)](https://www.naa.gov.au/information-management/records-authorities/types-records-authorities/afda-express-version-2-functions), which specifies retaining logs up to seven years.
 
 |Log Location|Retention Period|
 |---|---|
@@ -301,11 +301,11 @@ Azure Storage is the repository for logs for long-term retention in Azure. Azure
 
 |Resources|Link|
 |---|---|
-|Azure Storage Documentation|[https://docs.microsoft.com/azure/storage](https://docs.microsoft.com/azure/storage)|
-|Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage|[https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|
-|Tutorial: Archive Azure metric and log data using Azure Storage|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data)|
-|Azure Storage Replication|[https://docs.microsoft.com/azure/storage/common/storage-redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy)|
-|Creating a Snapshot of a Blob|[https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)|
+|Azure Storage Documentation|[https://docs.microsoft.com/azure/storage](../storage/index.yml)|
+|Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage|[https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview](../event-hubs/event-hubs-capture-overview.md)|
+|Tutorial: Archive Azure metric and log data using Azure Storage|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data](../azure-monitor/platform/platform-logs-overview.md)|
+|Azure Storage Replication|[https://docs.microsoft.com/azure/storage/common/storage-redundancy](../storage/common/storage-redundancy.md)|
+|Creating a Snapshot of a Blob|[https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)|
 |
 
 ## Log analysis
@@ -318,8 +318,8 @@ Azure Security Center provides unified security management and advanced threat p
 
 |Resources|Link|
 |---|---|
-|Azure Security Center Documentation|[https://docs.microsoft.com/azure/security-center](https://docs.microsoft.com/azure/security-center)|
-|Quickstart: Onboard your Azure subscription to Security Center Standard|[https://docs.microsoft.com/azure/security-center/security-center-get-started](https://docs.microsoft.com/azure/security-center/security-center-get-started)|
+|Azure Security Center Documentation|[https://docs.microsoft.com/azure/security-center](../security-center/index.yml)|
+|Quickstart: Onboard your Azure subscription to Security Center Standard|[https://docs.microsoft.com/azure/security-center/security-center-get-started](../security-center/security-center-get-started.md)|
 |
 
 ### Traffic Analytics
@@ -328,7 +328,7 @@ Traffic Analytics is a cloud-based solution that provides visibility into user a
 
 |Resources|Link|
 |---|---|
-|Traffic Analytics Documentation|[https://docs.microsoft.com/azure/network-watcher/traffic-analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)|
+|Traffic Analytics Documentation|[https://docs.microsoft.com/azure/network-watcher/traffic-analytics](../network-watcher/traffic-analytics.md)|
 |
 
 ### Azure Advisor
@@ -337,8 +337,8 @@ Azure Advisor analyses resource configuration and other data to recommend soluti
 
 |Resources|Link|
 |---|---|
-|Azure Advisor Documentation|[https://docs.microsoft.com/azure/advisor](https://docs.microsoft.com/azure/advisor)|
-|Get started with Azure Advisor|[https://docs.microsoft.com/azure/advisor/advisor-get-started](https://docs.microsoft.com/azure/advisor/advisor-get-started)|
+|Azure Advisor Documentation|[https://docs.microsoft.com/azure/advisor](../advisor/index.yml)|
+|Get started with Azure Advisor|[https://docs.microsoft.com/azure/advisor/advisor-get-started](../advisor/advisor-get-started.md)|
 |
 
 ### DNS Analytics (Preview)
@@ -347,7 +347,7 @@ DNS Analytics is a Log Analytics Solution that collects, analyses, and correlate
 
 |Resources|Link|
 |---|---|
-|DNS Analytics Documentation|[https://docs.microsoft.com/azure/azure-monitor/insights/dns-analytics](https://docs.microsoft.com/azure/azure-monitor/insights/dns-analytics)|
+|DNS Analytics Documentation|[https://docs.microsoft.com/azure/azure-monitor/insights/dns-analytics](../azure-monitor/insights/dns-analytics.md)|
 |
 
 ### Activity Log Analytics
@@ -356,7 +356,7 @@ Activity Log Analytics is a Log Analytics Solution that helps analyse and search
 
 |Resources|Link|
 |---|---|
-|Collect and analyze Azure activity logs in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs)|
+|Collect and analyze Azure activity logs in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs](../azure-monitor/platform/activity-log.md)|
 |
 
 ### Security Information and Event Management (SIEM)
@@ -372,7 +372,7 @@ A SIEM is a system that provides centralised storage, auditing and analysis of s
 
 ### Australian Cyber Security Centre
 
-The Australian Cyber Security Centre (ACSC) is the Australian Government’s lead on national cyber security. It brings together cyber security capabilities from across the Australian Government to improve the cyber resilience of the Australian community and support the economic and social prosperity of Australia in the digital age. The ACSC recommends that Commonwealth entities forward all mandated system-generated log files, events, and logs to the ACSC for whole of Australian Government monitoring.
+The Australian Cyber Security Centre (ACSC) is the Australian Government's lead on national cyber security. It brings together cyber security capabilities from across the Australian Government to improve the cyber resilience of the Australian community and support the economic and social prosperity of Australia in the digital age. The ACSC recommends that Commonwealth entities forward all mandated system-generated log files, events, and logs to the ACSC for whole of Australian Government monitoring.
 
 |Resources|Link|
 |---|---|
@@ -389,9 +389,9 @@ Azure Alerts can be used to notify support and security personnel in response to
 
 |Resources|Link|
 |---|---|
-|Overview of Alerts in Microsoft Azure|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-alerts)|
-|Managing and responding to security alerts in Azure Security Center|[https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)|
-|Respond to events with Azure Monitor Alerts|[https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)|
+|Overview of Alerts in Microsoft Azure|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-alerts](../azure-monitor/platform/alerts-overview.md)|
+|Managing and responding to security alerts in Azure Security Center|[https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts](../security-center/security-center-managing-and-responding-alerts.md)|
+|Respond to events with Azure Monitor Alerts|[https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response](../azure-monitor/learn/tutorial-response.md)|
 |
 
 ### Azure Automation
@@ -400,8 +400,8 @@ Azure Automation enables Commonwealth entities to trigger actions in response to
 
 |Resources|Link|
 |---|---|
-|Azure Automation Documentation|[https://docs.microsoft.com/azure/automation](https://docs.microsoft.com/azure/automation)|
-|How-to guide: Use an alert to trigger an Azure Automation runbook|[https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook)|
+|Azure Automation Documentation|[https://docs.microsoft.com/azure/automation](../automation/index.yml)|
+|How-to guide: Use an alert to trigger an Azure Automation runbook|[https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook](../automation/automation-create-alert-triggered-runbook.md)|
 |
 
 ## Next steps

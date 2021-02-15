@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure IoT Hub module identity and module twin (C) | Microsoft Docs
+title: Get started with Azure IoT Hub module identity & module twin (C)
 description: Learn how to create module identity and update module twin using IoT SDKs for C.
 author: chrissie926
 ms.service: iot-hub
@@ -8,6 +8,7 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
+ms.custom:  [amqp, mqtt]
 ---
 
 # Get started with IoT Hub module identity and module twin (C)
@@ -15,7 +16,7 @@ ms.author: menchi
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
+> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
 
 At the end of this tutorial, you have two C apps:
 
@@ -26,7 +27,7 @@ At the end of this tutorial, you have two C apps:
 > [!NOTE]
 > For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution backend, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
-To complete this tutorial, you need the following:
+## Prerequisites
 
 * An active Azure account. (If you don't have an account, you can create an [Azure free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
@@ -186,7 +187,8 @@ In this section, you create a C app on your simulated device that updates the mo
     ![Azure portal module detail](./media/iot-hub-c-c-module-twin-getstarted/module-detail.png)
 
 2. **Create UpdateModuleTwinReportedProperties app**
-Add the following `using` statements at the top of the **Program.cs** file:
+   
+   Add the following to your C file:
 
     ```C
     #include <stdio.h>
@@ -295,7 +297,7 @@ static void deviceTwinCallback(DEVICE_TWIN_UPDATE_STATE update_state, const unsi
     (void)userContextCallback;
 
     printf("Device Twin update received (state=%s, size=%zu): %s\r\n", 
-        ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
+        MU_ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
 }
 
 static void reportedStateCallback(int status_code, void* userContextCallback)
@@ -347,7 +349,7 @@ void iothub_module_client_sample_device_twin_run(void)
 
             (void)IoTHubModuleClient_LL_SetOption(iotHubModuleClientHandle, OPTION_LOG_TRACE, &traceOn);
 
-            // Check the return of all API calls when developing your solution. Return checks ommited for sample simplification.
+            // Check the return of all API calls when developing your solution. Return checks omitted for sample simplification.
 
             (void)IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, deviceTwinCallback, iotHubModuleClientHandle);
             (void)IoTHubModuleClient_LL_SendReportedState(iotHubModuleClientHandle, (const unsigned char*)reportedState, reportedStateSize, reportedStateCallback, iotHubModuleClientHandle);
@@ -382,4 +384,4 @@ int main(void)
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
 * [Getting started with device management](iot-hub-node-node-device-management-get-started.md)
-* [Getting started with IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Getting started with IoT Edge](../iot-edge/quickstart-linux.md)

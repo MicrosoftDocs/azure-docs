@@ -1,15 +1,16 @@
 ---
-title: Raspberry Pi to cloud (Node.js) - Connect Raspberry Pi to Azure IoT Hub | Microsoft Docs
+title: Connect Raspberry Pi to Azure IoT Hub in the cloud (Node.js)
 description: Learn how to set up and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform in this tutorial.
 author: wesmc7777
-manager:  philmea
+manager:  eliotgra
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 04/11/2018
+ms.date: 03/13/2020
 ms.author: wesmc
+ms.custom: ['Role: Cloud Development', devx-track-js]
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub (Node.js)
@@ -89,10 +90,7 @@ Prepare the microSD card for installation of the Raspbian image.
 
 1. Download Raspbian.
 
-   a. [Download Raspbian Stretch](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (the .zip file).
-
-   > [!WARNING]
-   > Please use above link to download `raspbian-2017-07-5` zip image. The latest version of Raspbian images has some known issues with Wiring-Pi Node, which might cause failure in your next steps.
+   a. [Raspbian Buster with desktop](https://www.raspberrypi.org/software/) (the .zip file).
 
    b. Extract the Raspbian image to a folder on your computer.
 
@@ -129,11 +127,11 @@ Prepare the microSD card for installation of the Raspbian image.
 
 ### Connect the sensor to Pi
 
-Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don’t have the sensor, [skip this section](#connect-pi-to-the-network).
+Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don't have the sensor, [skip this section](#connect-pi-to-the-network).
 
 ![The Raspberry Pi and sensor connection](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
-The BME280 sensor can collect temperature and humidity data. The LED blinks when the device sends a message to the cloud. 
+The BME280 sensor can collect temperature and humidity data. The LED blinks when the device sends a message to the cloud.
 
 For sensor pins, use the following wiring:
 
@@ -146,7 +144,7 @@ For sensor pins, use the following wiring:
 | LED VDD (Pin 18F)        | GPIO 24 (Pin 18)       | White cable   |
 | LED GND (Pin 17F)        | GND (Pin 20)           | Black cable   |
 
-Click to view [Raspberry Pi 2 & 3 pin mappings](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) for your reference.
+Click to view [Raspberry Pi 2 & 3 pin mappings](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) for your reference.
 
 After you've successfully connected BME280 to your Raspberry Pi, it should be like below image.
 
@@ -154,7 +152,7 @@ After you've successfully connected BME280 to your Raspberry Pi, it should be li
 
 ### Connect Pi to the network
 
-Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
+Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/documentation/configuration/wireless/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
 
 ![Connected to wired network](./media/iot-hub-raspberry-pi-kit-node-get-started/5-power-on-pi.png)
 
@@ -168,8 +166,8 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 1. Connect to your Raspberry Pi with one of the following SSH clients from your host computer:
 
    **Windows Users**
-  
-   a. Download and install [PuTTY](https://www.putty.org/) for Windows. 
+
+   a. Download and install [PuTTY](https://www.putty.org/) for Windows.
 
    b. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
 
@@ -200,14 +198,14 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 3. Clone the sample application.
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
+   git clone https://github.com/Azure-Samples/azure-iot-samples-node.git
    ```
 
 4. Install all packages for the sample. The installation includes Azure IoT device SDK, BME280 Sensor library, and Wiring Pi library.
 
    ```bash
-   cd iot-hub-node-raspberrypi-client-app
-   sudo npm install
+   cd azure-iot-samples-node/iot-hub/Tutorials/RaspberryPiApp
+   npm install
    ```
 
    > [!NOTE]
@@ -226,6 +224,8 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    There are two items in this file you can configure. The first one is `interval`, which defines the time interval (in milliseconds) between messages sent to the cloud. The second one is `simulatedData`, which is a Boolean value for whether to use simulated sensor data or not.
 
    If you **don't have the sensor**, set the `simulatedData` value to `true` to make the sample application create and use simulated sensor data.
+
+   *Note: The i2c address used in this tutorial is 0x77 by default. Depending on your configuration it might also be 0x76: if you encounter an i2c error, try to change the value to 118 and see if that works better. To see what address is used by your sensor, run `sudo i2cdetect -y 1` in a shell on the raspberry pi*
 
 2. Save and exit by typing Control-O > Enter > Control-X.
 
@@ -252,6 +252,6 @@ For more ways to process data sent by your device, continue on to the next secti
 
 ## Next steps
 
-You’ve run a sample application to collect sensor data and send it to your IoT hub.
+You've run a sample application to collect sensor data and send it to your IoT hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

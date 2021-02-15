@@ -9,13 +9,12 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
+ms.custom: [amqp, mqtt, devx-track-js]
 ---
 
 # Send cloud-to-device messages with IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
-
-## Introduction
 
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) quickstart shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
 
@@ -39,10 +38,13 @@ At the end of this tutorial, you run two Node.js console apps:
 > IoT Hub has SDK support for many device platforms and languages (including C, Java, Python, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
 >
 
-To complete this tutorial, you need the following:
+## Prerequisites
 
-* Node.js version 10.0.x or later.
+* Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) describes how to install Node.js for this tutorial on either Windows or Linux.
+
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial) in just a couple of minutes.)
+
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Receive messages in the simulated device app
 
@@ -67,11 +69,20 @@ In this section, you modify the simulated device app you created in [Send teleme
     });
     ```
 
-    In this example, the device invokes the **complete** function to notify IoT Hub that it has processed the message. The call to **complete** is not required if you are using MQTT transport and can be omitted. It is required for HTTPS and AMQP.
+In this example, the device invokes the **complete** function to notify IoT Hub that it has processed the message and that it can safely be removed from the device queue. The call to **complete** is not required if you are using MQTT transport and can be omitted. It is required for AMQP and HTTPS.
+
+With AMQP and HTTPS, but not MQTT, the device can also:
+
+* Abandon a message, which results in IoT Hub retaining the message in the device queue for future consumption.
+* Reject a message, which which permanently removes the message from the device queue.
+
+If something happens that prevents the device from completing, abandoning, or rejecting the message, IoT Hub will, after a fixed timeout period, queue the message for delivery again. For this reason, the message processing logic in the device app must be *idempotent*, so that receiving the same message multiple times produces the same result.
+
+For more detailed information about how IoT Hub processes cloud-to-device messages, including details of the cloud-to-device message lifecycle, see [Send cloud-to-device messages from an IoT hub](iot-hub-devguide-messages-c2d.md).
   
-   > [!NOTE]
-   > If you use HTTPS instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTPS support, and IoT Hub throttling, see the [IoT Hub developer guide](iot-hub-devguide-messaging.md).
-   >
+> [!NOTE]
+> If you use HTTPS instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (a minimum of every 25 minutes). For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](iot-hub-devguide-c2d-guidance.md) and [Choose a communication protocol](iot-hub-devguide-protocols.md).
+>
 
 ## Get the IoT hub connection string
 

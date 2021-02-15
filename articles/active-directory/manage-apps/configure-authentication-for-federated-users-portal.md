@@ -4,7 +4,7 @@ description: Learn how to configure Home Realm Discovery policy for Azure Active
 services: active-directory
 documentationcenter: 
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
@@ -31,7 +31,7 @@ The user might need to be taken to one of the following locations to be authenti
 
 - Microsoft account.  The user is a guest in the resource tenant.
 
--  An on-premises identity provider such as Active Directory Federation Services (AD FS).
+- An on-premises identity provider such as Active Directory Federation Services (AD FS).
 
 - Another identity provider that's federated with the Azure AD tenant.
 
@@ -46,12 +46,13 @@ As a result users can skip the initial Azure Active Directory page. This process
 In cases where the tenant is federated to another IdP for sign-in, auto-acceleration makes user sign-in more streamlined.  You can configure auto-acceleration for individual applications.
 
 >[!NOTE]
->If you configure an application for auto-acceleration, guest users cannot sign in. If you take a user straight to a federated IdP for authentication, there is no way to for them to get back to the Azure Active Directory sign-in page. Guest users, who might need to be directed to other tenants or an external IdP such as a Microsoft account, can't sign in to that application because they're skipping the Home Realm Discovery step.  
+>If you configure an application for auto-acceleration, guest users cannot sign in and users with managed credentials (like FIDO) cannot use them. If you take a user straight to a federated IdP for authentication, there is no way to for them to get back to the Azure Active Directory sign-in page. Guest users, who might need to be directed to other tenants or an external IdP such as a Microsoft account, can't sign in to that application because they're skipping the Home Realm Discovery step.  
 
-There are two ways to control auto-acceleration to a federated IdP:
+There are three ways to control auto-acceleration to a federated IdP:
 
-- Use a domain hint on authentication requests for an application.
-- Configure a Home Realm Discovery policy to enable auto-acceleration.
+- Use a [domain hint](#domain-hints) on authentication requests for an application.
+- Configure a Home Realm Discovery policy to [force auto-acceleration](#home-realm-discovery-policy-for-auto-acceleration).
+- Configure a Home Realm Discovery policy to [ignore domain hints](prevent-domain-hints-with-home-realm-discovery.md) from specific applications or for certain domains.
 
 ### Domain hints
 
@@ -67,18 +68,22 @@ Domain hint syntax varies depending on the protocol that's used, and it's typica
 
 **Open ID Connect**: A query string domain_hint=contoso.com.
 
-If a domain hint is included in the authentication request from the application, and the tenant is federated with that domain, Azure AD attempts to redirect sign-in to the IdP that's configured for that domain.
+If a domain hint is included in the authentication request from the application, and the tenant is federated with that domain, Azure AD by default attempts to redirect sign-in to the IdP that's configured for that domain.
 
 If the domain hint doesn’t refer to a verified federated domain, it is ignored and normal Home Realm Discovery is invoked.
 
 For more information about auto-acceleration using the domain hints that are supported by Azure Active Directory, see the [Enterprise Mobility + Security blog](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
 
 >[!NOTE]
->If a domain hint is included in an authentication request, its presence overrides auto-acceleration that is set for the application in HRD policy.
+>If a domain hint is included in an authentication request and [should be respected](#home-realm-discovery-policy-to-prevent-auto-acceleration), its presence overrides auto-acceleration that is set for the application in HRD policy.
 
 ### Home Realm Discovery policy for auto-acceleration
 
-Some applications do not provide a way to configure the authentication request they emit. In these cases, it’s not possible to use domain hints to control auto-acceleration. Auto-acceleration can be configured via policy to achieve the same behavior.  
+Some applications do not provide a way to configure the authentication request they emit. In these cases, it’s not possible to use domain hints to control auto-acceleration. Auto-acceleration can be configured via Home Realm Discovery policy to achieve the same behavior.  
+
+### Home Realm Discovery policy to prevent auto-acceleration
+
+Some Microsoft and SaaS applications automatically include domain_hints (for example, `https://outlook.com/contoso.com` results in a login request with `&domain_hint=contoso.com` appended), which can disrupt rollout of managed credentials like FIDO.  You can use [Home Realm Discovery Policy](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) to ignore domain hints from certain apps or for certain domains, during rollout of managed credentials.  
 
 ## Enable direct ROPC authentication of federated users for legacy applications
 
@@ -111,7 +116,7 @@ Following is an example HRD policy definition:
     {  
     "AccelerateToFederatedDomain":true,
     "PreferredDomain":"federated.example.edu",
-    "AllowCloudPasswordValidation":false
+    "AllowCloudPasswordValidation":false,    
     }
    }
 ```
@@ -126,11 +131,17 @@ The policy type is "HomeRealmDiscoveryPolicy."
 
 **AllowCloudPasswordValidation** is optional. If **AllowCloudPasswordValidation** is true then the application is allowed to authenticate a federated user by presenting username/password credentials directly to the Azure Active Directory token endpoint. This only works if Password Hash Sync is enabled.
 
+Additionally, two tenant-level HRD options exist, not shown above:
+
+- **AlternateIdLogin** is optional.  If enabled, this allows users to sign in at the Azure AD sign in page using their email addresses in place of their UPN.  See the [full document](../authentication/howto-authentication-use-email-signin.md) for more details.  Alternate IDs rely on the use not being auto-accelerated to a federated IDP.
+
+- **DomainHintPolicy** is an optional complex object that [*prevents* domain hints from auto-accelerating users to federated domains](prevent-domain-hints-with-home-realm-discovery.md). This tenant-wide setting is used to ensure that applications which send domain hints do not prevent users from signing in with cloud-managed credentials.
+
 ### Priority and evaluation of HRD policies
 
 HRD policies can be created and then assigned to specific organizations and service principals. This means that it is possible for multiple policies to apply to a specific application. The HRD policy that takes effect follows these rules:
 
-- If a domain hint is present in the authentication request, then any HRD policy is ignored for auto-acceleration. The behavior that's specified by the domain hint is used.
+- If a domain hint is present in the authentication request, then HRD policy for the tenant (the policy with ) is checked to see if [domain hints should be ignored](prevent-domain-hints-with-home-realm-discovery.md). If domain hints are allowed, the behavior that's specified by the domain hint is used.
 
 - Otherwise, if a policy is explicitly assigned to the service principal, it is enforced.
 

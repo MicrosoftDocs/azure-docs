@@ -4,7 +4,7 @@ description: How to redeploy Linux virtual machines in Azure to mitigate SSH con
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 tags: azure-resource-manager,top-support-issue
 
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
@@ -34,17 +34,19 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## Use the Azure classic CLI
-Install the [latest Azure classic CLI](../../cli-install-nodejs.md) and log in to your Azure account. Make sure that you are in Resource Manager mode (`azure config mode arm`).
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+
+Install the [latest Azure classic CLI](/cli/azure/install-classic-cli) and log in to your Azure account. Make sure that you are in Resource Manager mode (`azure config mode arm`).
 
 The following example redeploys the VM named *myVM* in the resource group named *myResourceGroup*:
 
-```azurecli
+```console
 azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
 ```
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 ## Next steps
-If you are having issues connecting to your VM, you can find specific help on [troubleshooting SSH connections](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [detailed SSH troubleshooting steps](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). If you cannot access an application running on your VM, you can also read [application troubleshooting issues](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
+If you are having issues connecting to your VM, you can find specific help on [troubleshooting SSH connections](troubleshoot-ssh-connection.md) or [detailed SSH troubleshooting steps](detailed-troubleshoot-ssh-connection.md). If you cannot access an application running on your VM, you can also read [application troubleshooting issues](troubleshoot-app-connection.md).

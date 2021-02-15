@@ -3,141 +3,86 @@ title: Monitor identity and access in Azure Security Center | Microsoft Docs
 description: Learn how to use the identity and access capability in Azure Security Center to monitor your users' access activity and identity-related issues.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
-ms.author: "v-mohabe"
+ms.date: 10/08/2020
+ms.author: memildin
 ---
-# Monitor identity and access in Azure Security Center (Preview)
-This article helps you use Azure Security Center to monitor users' identity and access activity.
 
-> [!NOTE]
-> The "View *classic* Identity & Access" link will be retired on July 31st, 2019. Click [here](security-center-features-retirement-july2019.md#menu_classicidentity) to learn on alternative services.
+# Monitor identity and access
 
-> [!NOTE]
-> Monitoring identity and access is in preview and available only on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
->
+The security perimeter has evolved from a network perimeter to an identity perimeter. With this development, security is less about defending your network, and more about managing the security of your apps, data, and users.
 
-Identity should be the control plane for your enterprise, and protecting your identity should be your top priority. The security perimeter has evolved from a network perimeter to an identity perimeter. Security becomes less about defending your network and more about defending your data, as well as managing the security of your apps and users. Nowadays, with more data and more apps moving to the cloud, identity becomes the new perimeter.
+By monitoring the activities and configuration settings related to identity, you can take proactive actions before an incident takes place, or reactive actions to stop attempted attacks.
 
-By monitoring identity activities, you can take proactive actions before an incident takes place or reactive actions to stop an attack attempt. The Identity & Access dashboard provides you with recommendations such as:
+## What identity and access safeguards does Security Center provide? 
 
-- Enable MFA for privileged accounts on your subscription
-- Remove external accounts with write permissions from your subscription
-- Remove privileged external accounts from your subscription
+Azure Security Center has two dedicated security controls for ensuring you're meeting your organization's identity and security requirements: 
 
-> [!NOTE]
-> If your subscription has more than 600 accounts, Security Center is unable to run the Identity recommendations against your subscription. Recommendations that are not run are listed under “unavailable assessments” which is discussed below.
-Security Center is unable to run the Identity recommendations against a Cloud Solution Provider (CSP) partner's admin agents.
->
+ - **Manage access and permissions** - We encourage you to adopt the [least privilege access model](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and ensure you grant your users only the access necessary for them to do their jobs. This control also includes recommendations for implementing [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) to control access to your resources.
+ 
+ - **Enable MFA** - With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on.
 
-See [Recommendations](security-center-identity-access.md#recommendations) for a list of the Identity and Access recommendations provided by Security Center.
+### Example recommendations for identity and access
 
-## Monitoring security health
-You can monitor the security state of your resources on the **Security Center – Overview** dashboard. The **Resources** section is a health indicator showing the severities for each resource type.
+Examples of recommendations you might see in these two controls on Security Center's **Recommendations** page:
 
-You can view a list of all issues by selecting **Recommendations**. Under **Resources**, you can view a list of issues specific to compute & apps, data security, networking, or identity & access. For more information about how to apply recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
+- MFA should be enabled on accounts with owner permissions on your subscription
+- A maximum of 3 owners should be designated for your subscription
+- External accounts with read permissions should be removed from your subscription
+- Deprecated accounts should be removed from your subscription (Deprecated accounts are accounts that are no longer needed, and blocked from signing in by Azure Active Directory)
 
-For a complete list of Identity and Access recommendations, see [recommendations](security-center-identity-access.md#recommendations).
+> [!TIP]
+> For more information about these recommendations and the others you might see in these controls, see [Identity and Access recommendations](recommendations-reference.md#recs-identityandaccess).
 
-To continue, select **Identity & access** under **Resources** or the Security Center main menu.
+### Limitations
 
-![Security Center dashboard][1]
+There are some limitations to Security Center's identity and access protections:
 
-## Monitor identity and access
-Under **Identity & Access**, there are two tabs:
+- Identity recommendations aren't available for subscriptions with more than 600 accounts. In such cases, these recommendations will be listed under "unavailable assessments".
+- Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
+- Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you might see inaccurate results in the **Manage access and permissions** control.
 
-- **Overview**: recommendations identified by Security Center.
-- **Subscriptions**: list of your subscriptions and current security state of each.
+## Multi-factor authentication (MFA) and Azure Active Directory 
 
-![Identity & Access][2]
+Enabling MFA requires [Azure Active Directory (AD) tenant permissions](../active-directory/roles/permissions-reference.md).
 
-### Overview section
-Under **Overview**, there is a list of recommendations. The first column lists the recommendation. The second column shows the total number of subscriptions that are affected by that recommendation. The third column shows the severity of the issue.
+- If you have a premium edition of AD, enable MFA using [Conditional Access](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
+- If you're using AD free edition, enable **security defaults** as described in [Azure Active Directory documentation](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
-1. Select a recommendation. The recommendation’s window opens and displays:
+## Identify accounts without multi-factor authentication (MFA) enabled
 
-   - Description of the recommendation
-   - List of unhealthy and healthy subscriptions
-   - List of resources that are unscanned due to a failed assessment or the resource is under a subscription running on the Free tier and is not assessed
+To see which accounts don't have MFA enabled, use the following Azure Resource Graph query. The query returns all unhealthy resources - accounts - of the recommendation "MFA should be enabled on accounts with owner permissions on your subscription". 
 
-   ![Recommendation's window][3]
+1. Open **Azure Resource Graph Explorer**.
 
-1. Select a subscription in the list for additional detail.
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
 
-### Subscriptions section
-Under **Subscriptions**, there is a list of subscriptions. The first column lists the subscriptions. The second column shows the total number of recommendations for each subscription. The third column shows the severities of the issues.
+1. Enter the following query and select **Run query**.
 
-![Subscription's tab][4]
+    ```kusto
+    securityresources
+     | where type == "microsoft.security/assessments"
+     | where properties.displayName == "MFA should be enabled on accounts with owner permissions on your subscription"
+     | where properties.status.code == "Unhealthy"
+    ```
 
-1. Select a subscription. A summary view opens with three tabs:
+1. The `additionalData` property reveals the list of account object IDs for accounts that don't have MFA enforced. 
 
-   - **Recommendations**:  based on assessments performed by Security Center that failed.
-   - **Passed assessments**: list of assessments performed by Security Center that passed.
-   - **Unavailable assessments**: list of assessments that failed to run due to an error or because the subscription has more than 600 accounts.
+    > [!NOTE]
+    > The accounts are shown as object IDs rather than account names to protect the privacy of the account holders.
 
-   Under **Recommendations** is a list of the recommendations for the selected subscription and severity of each recommendation.
+> [!TIP]
+> Alternatively, you can use Security Center's REST API method [Assessments - Get](/rest/api/securitycenter/assessments/get).
 
-   ![Recommendations for select subscription][5]
-
-1. Select a recommendation for a description of the recommendation, a list of unhealthy and healthy subscriptions, and a list of unscanned resources.
-
-   ![Description of recommendation][6]
-
-   Under **Passed assessments** is a list of passed assessments.  Severity of these assessments is always green.
-
-   ![Passed assessments][7]
-
-1. Select a passed assessment from the list for a description of the assessment and a list of healthy subscriptions. There is a tab for unhealthy subscriptions that lists all the subscriptions that failed.
-
-   ![Passed assessments][8]
-
-## Recommendations
-Use the table below as a reference to help you understand the available Identity & Access recommendations and what each one does if you apply it.
-
-|Resource type|Secure score|Recommendation|Description|
-|----|----|----|----|
-|Subscription|50|MFA should be enabled on accounts with owner permissions on your subscription|Enable Multi-Factor Authentication (MFA) for all subscription accounts with administrator privileges to prevent a breach of accounts or resources.|
-|Subscription|40|MFA should be enabled on your subscription accounts with write permissions|Enable Multi-Factor Authentication (MFA) for all subscription accounts with write privileges to prevent a breach of accounts or resources.|
-|Subscription|30|External accounts with owner permissions should be removed from your subscription|Remove external accounts with owner permissions from your subscription in order to prevent unmonitored access.|
-|Subscription|30|MFA should be enabled on your subscription accounts with read permissions|Enable Multi-Factor Authentication (MFA) for all subscription accounts with read privileges to prevent a breach of accounts or resources.|
-|Subscription|25|External accounts with write permissions should be removed from your subscription|Remove external accounts with write permissions from your subscription in order to prevent unmonitored access. |
-|Subscription|20|Deprecated accounts with owner permissions should be removed from your subscription|Remove deprecated accounts with owner permissions from your subscriptions.|
-|Subscription|5|Deprecated accounts should be removed from your subscription|Remove deprecated accounts from your subscriptions to enable access to only current users. |
-|Subscription|5|There should be more than one owner assigned to your subscription|Designate more than one subscription owner in order to have administrator access redundancy.|
-|Subscription|5|A maximum of 3 owners should be designated for your subscription|Designate less than 3 subscription owners in order to reduce the potential for breach by a compromised owner.|
-|Key vault|5|Diagnostics logs in Key Vault should be enabled|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
-|Subscription|15|External accounts with read permissions should be removed  from your subscription|Remove external accounts with read privileges from your subscription in order to prevent unmonitored access.| 
-
-> [!NOTE]
-> If you created a Conditional Access policy that necessitates MFA but has exclusions set, the Security Center MFA recommendation assessment considers the policy non-compliant, because it enables some users to sign in to Azure without MFA.
 
 ## Next steps
-To learn more about recommendations that apply to other Azure resource types, see the following:
+To learn more about recommendations that apply to other Azure resource types, see the following article:
 
-- [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-recommendations.md)
 - [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
-- [Protecting your Azure SQL service and data in Azure Security Center](security-center-sql-service-recommendations.md)
-
-To learn more about Security Center, see the following:
-* [Manage and respond to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts and respond to security incidents in Security Center.
-* [Understand security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
-* [Azure Security Center FAQ](security-center-faq.md). Find answers to frequently asked questions about using Security Center.
-
-
-<!--Image references-->
-[1]: ./media/security-center-identity-access/overview.png
-[2]: ./media/security-center-identity-access/identity-dashboard.png
-[3]: ./media/security-center-identity-access/select-subscription.png
-[4]: ./media/security-center-identity-access/subscriptions.png
-[5]: ./media/security-center-identity-access/recommendations.png
-[6]: ./media/security-center-identity-access/designate.png
-[7]: ./media/security-center-identity-access/passed-assessments.png
-[8]: ./media/security-center-identity-access/remove.png

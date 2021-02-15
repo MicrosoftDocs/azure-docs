@@ -1,10 +1,10 @@
 ---
 title: Troubleshooting file compression in Azure CDN | Microsoft Docs
-description: Troubleshoot issues with Azure CDN file compression.
+description: Learn how to troubleshoot issues with file compression in Azure Content Delivery Network. This article covers several possible causes.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: sohamnc
+manager: danielgi
 editor: ''
 
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
@@ -12,7 +12,7 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 
@@ -38,6 +38,7 @@ There are several possible causes, including:
 * The requested content is not eligible for compression.
 * Compression is not enabled for the requested file type.
 * The HTTP request did not include a header requesting a valid compression type.
+* Origin is sending chunked content.
 
 ## Troubleshooting steps
 > [!TIP]
@@ -106,8 +107,8 @@ Using your browser's developer tools, check the response headers to ensure the f
 
 To be eligible for compression, a file must meet the following size requirements:
 
-* Larger than 128 bytes.
-* Smaller than 1 MB.
+* Larger than 128 bytes (Content-Length: 128)
+* Smaller than 3 MB
 
 ### Check the request at the origin server for a **Via** header
 The **Via** HTTP header indicates to the web server that the request is being passed by a proxy server.  Microsoft IIS web servers by default do not compress responses when the request contains a **Via** header.  To override this behavior, perform the following:

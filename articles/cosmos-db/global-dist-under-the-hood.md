@@ -1,20 +1,21 @@
 ---
 title: Global distribution with Azure Cosmos DB- under the hood 
 description: This article provides technical details relating to global distribution of Azure Cosmos DB
-author: dharmas-cosmos
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: dharmas
+ms.date: 07/02/2020
+ms.author: sngun
 ms.reviewer: sngun
 
 ---
 
 # Global data distribution with Azure Cosmos DB - under the hood
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB is a foundational service in Azure, so it's deployed across all Azure regions worldwide including the public, sovereign, Department of Defense (DoD) and government clouds. Within a data center, we deploy and manage the Azure Cosmos DB on massive stamps of machines, each with dedicated local storage. Within a data center, Azure Cosmos DB is deployed across many clusters, each potentially running multiple generations of hardware. Machines within a cluster are typically spread across 10-20 fault domains for high availability within a region. The following image shows the Cosmos DB global distribution system topology:
 
-![System Topology](./media/global-dist-under-the-hood/distributed-system-topology.png)
+:::image type="content" source="./media/global-dist-under-the-hood/distributed-system-topology.png" alt-text="System Topology" border="false":::
 
 **Global distribution in Azure Cosmos DB is turnkey:** At any time, with a few clicks or programmatically with a single API call, you can add or remove the geographical regions associated with your Cosmos database. A Cosmos database, in turn, consists of a set of Cosmos containers. In Cosmos DB, containers serve as the logical units of distribution and scalability. The collections, tables, and graphs you create are (internally) just Cosmos containers. Containers are completely schema-agnostic and provide a scope for a query. Data in a Cosmos container is automatically indexed upon ingestion. Automatic indexing enables users to query the data without the hassles of schema or index management, especially in a globally distributed setup.  
 
@@ -26,11 +27,11 @@ When an app using Cosmos DB elastically scales throughput on a Cosmos container 
 
 As shown in the following image, the data within a container is distributed along two dimensions - within a region and across regions, worldwide:  
 
-![physical partitions](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="physical partitions" border="false":::
 
 A physical partition is implemented by a group of replicas, called a *replica-set*. Each machine hosts hundreds of replicas that correspond to various physical partitions within a fixed set of processes as shown in the image above. Replicas corresponding to the physical partitions are dynamically placed and load balanced across the machines within a cluster and data centers within a region.  
 
-A replica uniquely belongs to an Azure Cosmos DB tenant. Each replica hosts an instance of Cosmos DB’s [database engine](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), which manages the resources as well as the associated indexes. The Cosmos DB database engine operates on an atom-record-sequence (ARS) based type system. The engine is agnostic to the concept of a schema, blurring the boundary between the structure and instance values of records. Cosmos DB achieves full schema agnosticism by automatically indexing everything upon ingestion in an efficient manner, which allows users to query their globally distributed data without having to deal with schema or index management.
+A replica uniquely belongs to an Azure Cosmos DB tenant. Each replica hosts an instance of Cosmos DB’s [database engine](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), which manages the resources as well as the associated indexes. The Cosmos database engine operates on an atom-record-sequence (ARS) based type system. The engine is agnostic to the concept of a schema, blurring the boundary between the structure and instance values of records. Cosmos DB achieves full schema agnosticism by automatically indexing everything upon ingestion in an efficient manner, which allows users to query their globally distributed data without having to deal with schema or index management.
 
 The Cosmos database engine consists of components including implementation of several coordination primitives, language runtimes, the query processor, and the storage and indexing subsystems responsible for transactional storage and indexing of data, respectively. To provide durability and high availability, the database engine persists its data and index on SSDs and replicates it among the database engine instances within the replica-set(s) respectively. Larger tenants correspond to higher scale of throughput and storage and have either bigger or more replicas or both. Every component of the system is fully asynchronous – no thread ever blocks, and each thread does short-lived work without incurring any unnecessary thread switches. Rate-limiting and back-pressure are plumbed across the entire stack from the admission control to all I/O paths. Cosmos database engine is designed to exploit fine-grained concurrency and to deliver high throughput while operating within frugal amounts of system resources.
 
@@ -48,7 +49,7 @@ A physical partition is materialized as a self-managed and dynamically load-bala
 
 A group of physical partitions, one from each of the configured with the Cosmos database regions, is composed to manage the same set of keys replicated across all the configured regions. This higher coordination primitive is called a *partition-set* - a geographically distributed dynamic overlay of physical partitions managing a given set of keys. While a given physical partition (a replica-set) is scoped within a cluster, a partition-set can span clusters, data centers, and geographical regions as shown in the image below:  
 
-![Partition Sets](./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png)
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Partition Sets" border="false":::
 
 You can think of a partition-set as a geographically dispersed “super replica-set”, which is composed of multiple replica-sets owning the same set of keys. Similar to a replica-set, a partition-set’s membership is also dynamic – it fluctuates based on implicit physical partition management operations to add/remove new partitions to/from a given partition-set (for instance, when you scale out throughput on a container, add/remove a region to your Cosmos database, or when failures occur). By virtue of having each of the partitions (of a partition-set) manage the partition-set membership within its own replica-set, the membership is fully decentralized and highly available. During the reconfiguration of a partition-set, the topology of the overlay between physical partitions is also established. The topology is dynamically selected based on the consistency level, geographical distance, and available network bandwidth between the source and the target physical partitions.  
 
@@ -58,7 +59,7 @@ The service allows you to configure your Cosmos databases with either a single w
 
 Our design for the update propagation, conflict resolution, and causality tracking is inspired from the prior work on [epidemic algorithms](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) and the [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) system. While the kernels of the ideas have survived and provide a convenient frame of reference for communicating the Cosmos DB’s system design, they have also undergone significant transformation as we applied them to the Cosmos DB system. This was needed, because the previous systems were designed neither with the resource governance nor with the scale at which Cosmos DB needs to operate, nor to provide the capabilities (for example, bounded staleness consistency) and the stringent and comprehensive SLAs that Cosmos DB delivers to its customers.  
 
-Recall that a partition-set is distributed across multiple regions and follows Cosmos DBs (multi-master) replication protocol to replicate the data among the physical partitions comprising a given partition-set. Each physical partition (of a partition-set) accepts writes and serves reads typically to the clients that are local to that region. Writes accepted by a physical partition within a region are durably committed and made highly available within the physical partition before they are acknowledged to the client. These are tentative writes and are propagated to other physical partitions within the partition-set using an anti-entropy channel. Clients can request either tentative or committed writes by passing a request header. The anti-entropy propagation (including the frequency of propagation) is dynamic, based on the topology of the partition-set, regional proximity of the physical partitions, and the consistency level configured. Within a partition-set, Cosmos DB follows a primary commit scheme with a dynamically selected arbiter partition. The arbiter selection is dynamic and is an integral part of the reconfiguration of the partition-set based on the topology of the overlay. The committed writes (including multi-row/batched updates) are guaranteed to be ordered. 
+Recall that a partition-set is distributed across multiple regions and follows Cosmos DBs (multi-region writes) replication protocol to replicate the data among the physical partitions comprising a given partition-set. Each physical partition (of a partition-set) accepts writes and serves reads typically to the clients that are local to that region. Writes accepted by a physical partition within a region are durably committed and made highly available within the physical partition before they are acknowledged to the client. These are tentative writes and are propagated to other physical partitions within the partition-set using an anti-entropy channel. Clients can request either tentative or committed writes by passing a request header. The anti-entropy propagation (including the frequency of propagation) is dynamic, based on the topology of the partition-set, regional proximity of the physical partitions, and the consistency level configured. Within a partition-set, Cosmos DB follows a primary commit scheme with a dynamically selected arbiter partition. The arbiter selection is dynamic and is an integral part of the reconfiguration of the partition-set based on the topology of the overlay. The committed writes (including multi-row/batched updates) are guaranteed to be ordered. 
 
 We employ encoded vector clocks (containing region ID and logical clocks corresponding to each level of consensus at the replica-set and partition-set, respectively) for causality tracking and version vectors to detect and resolve update conflicts. The topology and the peer selection algorithm are designed to ensure fixed and minimal storage and minimal network overhead of version vectors. The algorithm guarantees the strict convergence property.  
 

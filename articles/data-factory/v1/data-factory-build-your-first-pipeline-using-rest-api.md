@@ -1,23 +1,14 @@
 ---
-title: Build your first data factory (REST) | Microsoft Docs
+title: Build your first data factory (REST) 
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Data Factory REST API.
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 7e0a2465-2d85-4143-a4bb-42e03c273097
+author: dcstwh
+ms.author: weetok
+ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Tutorial: Build your first Azure data factory using Data Factory REST API
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-build-your-first-pipeline.md)
@@ -53,7 +44,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
   2. Get **client ID** and **secret key**.
   3. Get **tenant ID**.
   4. Assign the **ADFGetStartedApp** application to the **Data Factory Contributor** role.
-* Install [Azure PowerShell](/powershell/azure/overview).
+* Install [Azure PowerShell](/powershell/azure/).
 * Launch **PowerShell** and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
   1. Run **Connect-AzAccount** and enter the user name and password that you use to sign in to the Azure portal.
   2. Run **Get-AzSubscription** to view all the subscriptions for this account.
@@ -84,7 +75,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 ### azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see the information about how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-account-manage.md#access-keys).
+> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 >
 >
 
@@ -132,7 +123,7 @@ Note the following points:
 * You could use **your own HDInsight cluster** instead of using an on-demand HDInsight cluster. See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details.
 * The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice is processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done.
 
-    As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
+    As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Azure Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
 
 See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
 
@@ -299,7 +290,7 @@ In this step, you create an Azure Data Factory named **FirstDataFactoryREST**. A
     Confirm that the name of the data factory you specify here (ADFCopyTutorialDF) matches the name specified in the **datafactory.json**.
 
 	```powershell
-    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@datafactory.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
 	```
 2. Run the command by using **Invoke-Command**.
 

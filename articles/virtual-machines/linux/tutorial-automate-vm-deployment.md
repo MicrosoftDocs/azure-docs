@@ -1,22 +1,16 @@
 ---
-title: Tutorial - Customize a Linux VM with cloud-init in Azure | Microsoft Docs
+title: Tutorial - Customize a Linux VM with cloud-init in Azure 
 description: In this tutorial, you learn how to use cloud-init and Key Vault to customize Linux VMs the first time they boot in Azure 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 09/12/2019
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 
 #Customer intent: As an IT administrator or developer, I want learn about cloud-init so that I customize and configure Linux VMs in Azure on first boot to minimize the number of post-deployment configuration tasks required.
 ---
@@ -32,8 +26,6 @@ In a previous tutorial, you learned how to SSH to a virtual machine (VM) and man
 > * Use Key Vault to securely store certificates
 > * Automate secure deployments of NGINX with cloud-init
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Cloud-init overview
@@ -41,21 +33,13 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install. Cloud-init automatically uses the native package management tool for the distro you select.
 
-We are working with our partners to get cloud-init included and working in the images that they provide to Azure. The following table outlines the current cloud-init availability on Azure platform images:
-
-| Alias | Publisher | Offer | SKU | Version |
-|:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |latest |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |latest |
-| CoreOS |CoreOS |CoreOS |Stable |latest |
-| | OpenLogic | CentOS | 7-CI | latest |
-| | RedHat | RHEL | 7-RAW-CI | latest |
+We are working with our partners to get cloud-init included and working in the images that they provide to Azure. For detailed information cloud-init support for each distribution, see [Cloud-init support for VMs in Azure](using-cloud-init.md).
 
 
 ## Create cloud-init config file
 To see cloud-init in action, create a VM that installs NGINX and runs a simple 'Hello World' Node.js app. The following cloud-init configuration installs the required packages, creates a Node.js app, then initialize and starts the app.
 
-In your current shell, create a file named *cloud-init.txt* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor cloud-init.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
+At your bash prompt or in the Cloud Shell, create a file named *cloud-init.txt* and paste the following configuration. For example, type `sensible-editor cloud-init.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
 ```yaml
 #cloud-config
@@ -113,7 +97,7 @@ Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). Use the `--cust
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroupAutomate \
-    --name myVM \
+    --name myAutomatedVM \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -125,7 +109,7 @@ It takes a few minutes for the VM to be created, the packages to install, and th
 To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](/cli/azure/vm#az-vm-open-port):
 
 ```azurecli-interactive
-az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
+az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAutomatedVM
 ```
 
 ## Test web app
@@ -147,7 +131,7 @@ The following steps show how you can:
 - Create a VM and inject the certificate
 
 ### Create an Azure Key Vault
-First, create a Key Vault with [az keyvault create](/cli/azure/keyvault#az-keyvault-create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *mykeyvault* in the following example with your own unique Key Vault name:
+First, create a Key Vault with [az keyvault create](/cli/azure/keyvault#az-keyvault-create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace `mykeyvault` in the following example with your own unique Key Vault name:
 
 ```azurecli-interactive
 keyvault_name=mykeyvault
@@ -164,7 +148,7 @@ For production use, you should import a valid certificate signed by trusted prov
 az keyvault certificate create \
     --vault-name $keyvault_name \
     --name mycert \
-    --policy "$(az keyvault certificate get-default-policy)"
+    --policy "$(az keyvault certificate get-default-policy --output json)"
 ```
 
 
@@ -176,14 +160,14 @@ secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
           --query "[?attributes.enabled].id" --output tsv)
-vm_secret=$(az vm secret format --secret "$secret")
+vm_secret=$(az vm secret format --secret "$secret" --output json)
 ```
 
 
 ### Create cloud-init config to secure NGINX
 When you create a VM, certificates and keys are stored in the protected */var/lib/waagent/* directory. To automate adding the certificate to the VM and configuring NGINX, you can use an updated cloud-init config from the previous example.
 
-Create a file named *cloud-init-secured.txt* and paste the following configuration. Again, if you use the Cloud Shell, create the cloud-init config file there and not on your local machine. Use `sensible-editor cloud-init-secured.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
+Create a file named *cloud-init-secured.txt* and paste the following configuration. If you use the Cloud Shell, create the cloud-init config file there and not on your local machine. For example, type `sensible-editor cloud-init-secured.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
 ```yaml
 #cloud-config
@@ -240,7 +224,7 @@ Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). The certificate
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroupAutomate \
-    --name myVMSecured \
+    --name myVMWithCerts \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -255,7 +239,7 @@ To allow secure web traffic to reach your VM, open port 443 from the Internet wi
 ```azurecli-interactive
 az vm open-port \
     --resource-group myResourceGroupAutomate \
-    --name myVMSecured \
+    --name myVMWithCerts \
     --port 443
 ```
 

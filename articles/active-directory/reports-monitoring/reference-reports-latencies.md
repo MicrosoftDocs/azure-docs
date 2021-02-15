@@ -51,8 +51,8 @@ If you already have activities data with your free license, then you can see it 
 
 There are two types of security reports:
 
-- [Risky sign-ins](concept-risky-sign-ins.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
-- [Users flagged for risk](concept-user-at-risk.md) - A risky user is an indicator for a user account that might have been compromised. 
+- [Risky sign-ins](../identity-protection/overview-identity-protection.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
+- [Users flagged for risk](../identity-protection/overview-identity-protection.md) - A risky user is an indicator for a user account that might have been compromised. 
 
 The following table lists the latency information for security reports.
 
@@ -61,11 +61,11 @@ The following table lists the latency information for security reports.
 | Users at risk          | 5 minutes   | 15 minutes  | 2 hours  |
 | Risky sign-ins         | 5 minutes   | 15 minutes  | 2 hours  |
 
-## Risk events
+## Risk detections
 
-Azure AD uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user accounts. Each detected suspicious action is stored in a record called a **risk event**.
+Azure AD uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user accounts. Each detected suspicious action is stored in a record called a **risk detection**.
 
-The following table lists the latency information for risk events.
+The following table lists the latency information for risk detections.
 
 | Report | Minimum | Average | Maximum |
 | :-- | --- | --- | --- |
@@ -81,4 +81,4 @@ The following table lists the latency information for risk events.
 
 * [Azure AD reports overview](overview-reports.md)
 * [Programmatic access to Azure AD reports](concept-reporting-api.md)
-* [Azure Active Directory risk events](concept-risk-events.md)
+* [Azure Active Directory risk detections](../identity-protection/overview-identity-protection.md)

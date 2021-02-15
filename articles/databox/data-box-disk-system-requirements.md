@@ -7,15 +7,32 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 09/04/2019
 ms.author: alkohli
+ms.localizationpriority: high 
 ---
+
+::: zone target="docs"
+
 # Azure Data Box Disk system requirements
 
 This article describes the important system requirements for your Microsoft Azure Data Box Disk solution and for the clients connecting to the Data Box Disk. We recommend that you review the information carefully before you deploy your Data Box Disk, and then refer back to it as necessary during the deployment and subsequent operation.
 
 The system requirements include the supported platforms for clients connecting to disks, supported storage accounts, and storage types.
 
+::: zone-end
+
+::: zone target="chromeless"
+
+## Review prerequisites
+
+1. You must have ordered your Data Box Disk using the [Tutorial: Order your Azure Data Box Disk](data-box-disk-deploy-ordered.md). You have received your disks and one connecting cable per disk.
+2. You have a client computer available from which you can copy the data. Your client computer must:
+
+    - Run a supported operating system.
+    - Have other required software installed.
+
+::: zone-end
 
 ## Supported operating systems for clients
 
@@ -35,7 +52,7 @@ For Windows client, following should also be installed.
 | --- | --- |
 | Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |5.0|
+| Windows Management Framework |5.1|
 | BitLocker| - |
 
 ## Other required software for Linux clients
@@ -59,10 +76,6 @@ Here is a list of the supported storage types for the Data Box Disk.
 | General Purpose  |Standard; both V1 and V2 are supported. Both hot and cool tiers are supported. |
 | Blob storage account | |
 
->[!NOTE]
-> Azure Data Lake Storage Gen 2 accounts are not supported.
-
-
 ## Supported storage types for upload
 
 Here is a list of the storage types supported for uploaded to Azure using Data Box Disk.
@@ -74,8 +87,11 @@ Here is a list of the storage types supported for uploaded to Azure using Data B
 | Azure Files  | |
 | Managed Disks | |
 
+::: zone target="docs"
 
 ## Next step
 
 * [Deploy your Azure Data Box Disk](data-box-disk-deploy-ordered.md)
+
+::: zone-end
 

@@ -1,25 +1,17 @@
 ﻿---
-title: Using Azure Application Gateway with Internal Load Balancer - PowerShell | Microsoft Docs
+title: Use with Internal Load Balancer - Azure Application Gateway
 description: This page provides instructions to create, configure, start, and delete an Azure application gateway with internal load balancer (ILB) for Azure Resource Manager
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
-ms.assetid: 75cfd5a2-e378-4365-99ee-a2b2abda2e0d
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/23/2018
+ms.topic: how-to
+ms.date: 11/13/2019
 ms.author: victorh
-
 ---
+
 # Create an application gateway with an internal load balancer (ILB)
 
-Azure Application Gateway can be configured with an Internet-facing VIP or with an internal endpoint that is not exposed to the Internet, also known as an internal load balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications that are not exposed to the Internet. It's also useful for services and tiers within a multi-tier application that sit in a security boundary that is not exposed to the Internet but still require round-robin load distribution, session stickiness, or Secure Sockets Layer (SSL) termination.
+Azure Application Gateway can be configured with an Internet-facing VIP or with an internal endpoint that is not exposed to the Internet, also known as an internal load balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications that are not exposed to the Internet. It's also useful for services and tiers within a multi-tier application that sit in a security boundary that is not exposed to the Internet but still require round-robin load distribution, session stickiness, or Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), termination.
 
 This article walks you through the steps to configure an application gateway with an ILB.
 
@@ -53,7 +45,7 @@ Here are the steps that are needed to create an application gateway:
 
 ## Create a resource group for Resource Manager
 
-Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdlets. More info is available at [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdlets. More info is available at [Using Windows PowerShell with Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 ### Step 1
 
@@ -261,12 +253,9 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 ## Next steps
 
-If you want to configure SSL offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
-
-If you want to configure an application gateway to use with an ILB, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
+If you want to configure SSL offload, see [Configure an application gateway for SSL offload](./tutorial-ssl-powershell.md).
 
 If you want more information about load balancing options in general, see:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

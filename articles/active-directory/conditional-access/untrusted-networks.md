@@ -1,12 +1,12 @@
 ---
-title: How to require multi-factor authentication (MFA) for access from untrusted networks with Azure Active Directory (Azure AD) Conditional Access | Microsoft Docs
+title: Require MFA from untrusted networks - Azure Active Directory
 description: Learn how to configure a Conditional Access policy in Azure Active Directory (Azure AD) to for access attempts from untrusted networks.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 12/10/2018
+ms.topic: how-to
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,10 +23,7 @@ This article gives you the information you need to configure a Conditional Acces
 
 ## Prerequisites
 
-This article assumes that you are familiar with: 
-
-- The [basic concepts](overview.md) of Azure AD Conditional Access 
-- The [best practices](best-practices.md) for configuring Conditional Access policies in the Azure portal
+This article assumes that you are familiar with the [basic concepts](overview.md) of Conditional Access. 
 
 ## Scenario description
 
@@ -44,26 +41,26 @@ With Azure AD Conditional Access, you can address this requirement with a single
 
 The challenge of this scenario is to translate *access from an untrusted network location* into a Conditional Access condition. In a Conditional Access policy, you can configure the [locations condition](location-condition.md) to address scenarios that are related to network locations. The locations condition enables you to select named locations, which are logical groupings of IP address ranges, countries and regions.  
 
-Typically, your organization owns one or more address ranges, for example, 199.30.16.0 - 199.30.16.24.
+Typically, your organization owns one or more address ranges, for example, 199.30.16.0 - 199.30.16.15.
 You can configure a named location by:
 
-- Specifying this range (199.30.16.0/24) 
+- Specifying this range (199.30.16.0/28) 
 - Assigning a descriptive name such as **Corporate Network** 
 
 Instead of trying to define what all locations are that are not trusted, you can:
 
 - Include any location 
 
-   ![Conditional Access](./media/untrusted-networks/02.png)
+   :::image type="content" source="./media/untrusted-networks/02.png" alt-text="Screenshot of the Azure A D Locations pane, with Configure set to Yes, the Include tab visible, and the Any location option selected and highlighted." border="false":::
 
 - Exclude all trusted locations 
 
-   ![Conditional Access](./media/untrusted-networks/01.png)
+   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Screenshot of the Azure A D Locations pane, with Configure set to Yes, the Exclude tab visible, and the All trusted locations option selected." border="false":::
 
 ## Policy deployment
 
-With the approach outlined in this article, you can now configure a Conditional Access policy for untrusted locations. To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see [How to deploy a new policy](best-practices.md#how-should-you-deploy-a-new-policy). 
+With the approach outlined in this article, you can now configure a Conditional Access policy for untrusted locations. To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended.
 
 ## Next steps
 
-If you would like to learn more about Conditional Access, see [What is Conditional Access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+If you would like to learn more about Conditional Access, see [What is Conditional Access in Azure Active Directory?](./overview.md)

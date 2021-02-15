@@ -1,18 +1,16 @@
 ---
-title: Create an Azure DNS private zone using Azure PowerShell
-description: In this article, you create and test a private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first private DNS zone and record using Azure PowerShell.
+title: Quickstart - Create an Azure private DNS zone using Azure PowerShell
+description: In this quickstart, you learn how to create and manage your first private DNS zone and record using Azure PowerShell.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
-ms.topic: article
-ms.date: 06/14/2019
-ms.author: victorh
-#Customer intent: As an experienced network administrator I want to create an  Azure DNS private zone, so I can resolve host names on my private virtual networks.
+ms.topic: quickstart
+ms.date: 10/20/2020
+ms.author: rohink
+#Customer intent: As an experienced network administrator I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
 ---
 
-# Create an Azure DNS private zone using Azure PowerShell
-
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+# Quickstart: Create an Azure private DNS zone using Azure PowerShell
 
 This article walks you through the steps to create your first private DNS zone and record using Azure PowerShell.
 
@@ -20,19 +18,13 @@ This article walks you through the steps to create your first private DNS zone a
 
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  These are called *linked* virtual networks. When autoregistration is enabled, Azure DNS also updates the zone records whenever a virtual machine is created, changes its' IP address, or is deleted.
 
-In this article, you learn how to:
-
-> [!div class="checklist"]
-> * Create a DNS private zone
-> * Create test virtual machines
-> * Create an additional DNS record
-> * Test the private zone
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## Prerequisites
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you prefer, you can complete this procedure using [Azure CLI](private-dns-getstarted-cli.md).
+If you prefer, you can complete this quickstart using [Azure CLI](private-dns-getstarted-cli.md).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create the resource group
 
@@ -42,7 +34,7 @@ First, create a resource group to contain the DNS zone:
 New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 ```
 
-## Create a DNS private zone
+## Create a private DNS zone
 
 A DNS zone is created by using the `New-AzPrivateDnsZone` cmdlet.
 
@@ -140,7 +132,7 @@ You can use the ping command to test name resolution. So, configure the firewall
 2. Run the following command:
 
    ```powershell
-   New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+   New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
    ```
 
 Repeat for myVM02.
@@ -195,7 +187,7 @@ Repeat for myVM02.
    PS C:\>
    ```
 
-## Delete all resources
+## Clean up resources
 
 When no longer needed, delete the **MyAzureResourceGroup** resource group to delete the resources created in this article.
 
@@ -205,7 +197,5 @@ Remove-AzResourceGroup -Name MyAzureResourceGroup
 
 ## Next steps
 
-In this article, you deployed a private DNS zone, created a DNS record, and tested the zone.
-Next, you can learn more about private DNS zones.
-
-* [Using Azure DNS for private domains](private-dns-overview.md)
+> [!div class="nextstepaction"]
+> [Azure DNS Private Zones scenarios](private-dns-scenarios.md)

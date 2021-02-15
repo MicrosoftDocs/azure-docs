@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect Sensor SDK download
-description: Download links for the Sensor SDK and instructions how to install.
+description: Learn how to download and install the Azure Kinect Sensor SDK on Windows and Linux.
 author: Brent-A
 ms.author: brenta
 ms.prod: kinect-dk
@@ -21,18 +21,20 @@ This page has the download links for each version of the Azure Kinect Sensor SDK
 - The [Azure Kinect Recorder](azure-kinect-recorder.md).
 - The [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md).
 
-## Windows download link
+## Windows installation instructions
 
-[Microsoft installer](https://download.microsoft.com/download/E/B/D/EBDBB3C1-ED3F-4236-96D6-2BCB352F3710/Azure%20Kinect%20SDK%201.1.0.msi) | [GitHub source code](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/releases/tag/v1.1.0)
+You can find installation details for the latest and previous versions of Azure Kinect Sensor SDK and Firmware [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md).
+
+You can find the source code [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK).
 
 > [!NOTE]
-> When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect SDK 1.0.2". You will find the tools referenced in articles in this path.
+> When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect SDK 1.2". You will find the tools referenced in articles in this path.
 
 ## Linux installation instructions
 
 Currently, the only supported distribution is Ubuntu 18.04. To request support for other distributions, see [this page](https://aka.ms/azurekinectfeedback).
 
-First, you'll need to configure [Microsoft's Package Repository](https://packages.microsoft.com/), following the instructions [here](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software).
+First, you'll need to configure [Microsoft's Package Repository](https://packages.microsoft.com/), following the instructions [here](/windows-server/administration/linux-package-repository-for-microsoft-software).
 
 Now, you can install the necessary packages. The `k4a-tools` package includes the [Azure Kinect Viewer](azure-kinect-viewer.md), the [Azure Kinect Recorder](record-sensor-streams-file.md), and the [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md). To install it, run
 

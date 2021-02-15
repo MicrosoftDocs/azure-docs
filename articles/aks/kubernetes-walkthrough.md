@@ -1,33 +1,33 @@
 ---
-title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster
+title: 'Quickstart: Deploy an AKS cluster by using Azure CLI'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: quickstart
-ms.date: 05/20/2019
-ms.author: mlearned
-ms.custom: H1Hack27Feb2017, mvc, devcenter
+ms.date: 01/12/2021
+
+ms.custom: [H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1]
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure CLI
+# Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you deploy an AKS cluster using the Azure CLI. A multi-container application that includes a web front end and a Redis instance is run in the cluster. You then see how to monitor the health of the cluster and pods that run your application.
+In this quickstart, you deploy an Azure Kubernetes Service (AKS) cluster using the Azure CLI. AKS is a managed Kubernetes service that lets you quickly deploy and manage clusters. A multi-container application that includes a web front end and a Redis instance is run in the cluster. You then see how to monitor the health of the cluster and pods that run your application.
 
-If you want to use Windows Server containers (currently in preview in AKS), see [Create an AKS cluster that supports Windows Server containers][windows-container-cli].
+To learn more about creating a Windows Server node pool, see [Create an AKS cluster that supports Windows Server containers][windows-container-cli].
 
-![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Voting app deployed in Azure Kubernetes Service](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+- This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+> [!NOTE]
+> If running the commands in this quickstart locally (instead of Azure Cloud Shell), ensure you run the commands as administrator.
 
 ## Create a resource group
 
@@ -39,7 +39,7 @@ The following example creates a resource group named *myResourceGroup* in the *e
 az group create --name myResourceGroup --location eastus
 ```
 
-The following example output shows the resource group created successfully:
+Output similar to the following example indicates the resource group has been created successfully:
 
 ```json
 {
@@ -56,18 +56,31 @@ The following example output shows the resource group created successfully:
 
 ## Create AKS cluster
 
-Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Azure Monitor for containers is also enabled using the *--enable-addons monitoring* parameter.
+Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
+
+> [!NOTE]
+> [Azure Monitor for containers][azure-monitor-containers] is enabled using the *--enable-addons monitoring* parameter, which requires *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* to be registered on you subscription. To check the registration status:
+> 
+> ```azurecli
+> az provider show -n Microsoft.OperationsManagement -o table
+> az provider show -n Microsoft.OperationalInsights -o table
+> ```
+> 
+> If they are not registered, use the following command to register *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights*:
+> 
+> ```azurecli
+> az provider register --namespace Microsoft.OperationsManagement
+> az provider register --namespace Microsoft.OperationalInsights
+> ```
 
 ```azurecli-interactive
-az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --node-count 1 \
-    --enable-addons monitoring \
-    --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+
+> [!NOTE]
+> When creating an AKS cluster a second resource group is automatically created to store the AKS resources. For more information see [Why are two resource groups created with AKS?](./faq.md#why-are-two-resource-groups-created-with-aks)
 
 ## Connect to the cluster
 
@@ -82,6 +95,9 @@ To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks ge
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
+
+> [!NOTE]
+> The above command uses the default location for the [Kubernetes configuration file][kubeconfig-file], which is `~/.kube/config`. You can specify a different location for your Kubernetes configuration file using *--file*.
 
 To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
 
@@ -98,12 +114,9 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 
 ## Run the application
 
-A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. In this quickstart, a manifest is used to create all objects needed to run the Azure Vote application. This manifest includes two [Kubernetes deployments][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] are also created - an internal service for the Redis instance, and an external service to access the Azure Vote application from the internet.
+A [Kubernetes manifest file][kubernetes-deployment] defines a desired state for the cluster, such as what container images to run. In this quickstart, a manifest is used to create all objects needed to run the [Azure Vote application][azure-vote-app]. This manifest includes two [Kubernetes deployments][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] are also created - an internal service for the Redis instance, and an external service to access the Azure Vote application from the internet.
 
-> [!TIP]
-> In this quickstart, you manually create and deploy your application manifests to the AKS cluster. In more real-world scenarios, you can use [Azure Dev Spaces][azure-dev-spaces] to rapidly iterate and debug your code directly in the AKS cluster. You can use Dev Spaces across OS platforms and development environments, and work together with others on your team.
-
-Create a file named `azure-vote.yaml` and copy in the following YAML definition. If you use the Azure Cloud Shell, this file can be created using `vi` or `nano` as if working on a virtual or physical system:
+Create a file named `azure-vote.yaml` and copy in the following YAML definition. If you use the Azure Cloud Shell, this file can be created using `code`, `vi`, or `nano` as if working on a virtual or physical system:
 
 ```yaml
 apiVersion: apps/v1
@@ -124,7 +137,10 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-back
-        image: redis
+        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
         resources:
           requests:
             cpu: 100m
@@ -164,7 +180,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: microsoft/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         resources:
           requests:
             cpu: 100m
@@ -192,7 +208,7 @@ spec:
 
 Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-vote.yaml
 ```
 
@@ -230,39 +246,20 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 To see the Azure Vote app in action, open a web browser to the external IP address of your service.
 
-![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Voting app deployed in Azure Kubernetes Service](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
-## Monitor health and logs
-
-When the AKS cluster was created, Azure Monitor for containers was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal.
-
-To see the current status, uptime, and resource usage for the Azure Vote pods, complete the following steps:
-
-1. Open a web browser to the Azure portal [https://portal.azure.com][azure-portal].
-1. Select your resource group, such as *myResourceGroup*, then select your AKS cluster, such as *myAKSCluster*.
-1. Under **Monitoring** on the left-hand side, choose **Insights**
-1. Across the top, choose to **+ Add Filter**
-1. Select *Namespace* as the property, then choose *\<All but kube-system\>*
-1. Choose to view the **Containers**.
-
-The *azure-vote-back* and *azure-vote-front* containers are displayed, as shown in the following example:
-
-![View the health of running containers in AKS](media/kubernetes-walkthrough/monitor-containers.png)
-
-To see logs for the `azure-vote-back` pod, choose the option to **View in analytics**, then click the **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
-
-![View the containers logs in AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
+When the AKS cluster was created, [Azure Monitor for containers][azure-monitor-containers] was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal.
 
 ## Delete the cluster
 
-When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Get the code
 
@@ -284,19 +281,20 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[kubeconfig-file]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-monitor]: https://aka.ms/coingfonboarding
+[aks-monitor]: ../azure-monitor/insights/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az-aks-browse
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az-aks-browse]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-browse
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-install-cli
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
+[azure-monitor-containers]: ../azure-monitor/insights/container-insights-overview.md
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests

@@ -1,10 +1,7 @@
 ---
-title: Set up Apache Kafka on HDInsight using Azure PowerShell - Quickstart
+title: 'Quickstart: Create Apache Kafka with Azure PowerShell - HDInsight'
 description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using Azure PowerShell. You also learn about Kafka topics, subscribers, and consumers.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
@@ -25,7 +22,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+* The PowerShell [Az Module](/powershell/azure/) installed.
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -127,7 +126,7 @@ New-AzHDInsightCluster `
 
 It can take up to 20 minutes to create the HDInsight cluster.
 
-The `-DisksPerWorkerNode` parameter configures the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node.
+The `-DisksPerWorkerNode` parameter configures the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/managed-disks-overview.md) are used to provide high throughput and more storage per node.
 
 The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). The type of disk depends on the VM size used by the worker nodes (Kafka brokers). Premium disks are used automatically with DS and GS series VMs. All other VM types use standard. You can set the VM type by using the `-WorkerNodeSize` parameter. For more information on parameters, see the [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) documentation.
 
@@ -147,7 +146,7 @@ If you plan to use more than 32 worker nodes (either at cluster creation or by s
 
 Once connected, you see information similar to the following text:
 
-```text
+```output
 Authorized uses only. All activity may be monitored and reported.
 Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 
@@ -166,7 +165,6 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 Welcome to Kafka on HDInsight.
 
 Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-ssuhuser@hn0-mykafk:~$
 ```
 
 ## <a id="getkafkainfo"></a>Get the Apache Zookeeper and Broker host information
@@ -245,7 +243,7 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
         
         In regions with three fault domains, a replication factor of 3 allows replicas to be spread across the fault domains. In regions with two fault domains, a replication factor of four spreads the replicas evenly across the domains.
         
-        For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
+        For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
 
         Kafka is not aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
 

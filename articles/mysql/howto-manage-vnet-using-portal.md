@@ -1,11 +1,11 @@
 ---
-title: Create and manage Azure Database for MySQL VNet service endpoints and rules using the Azure portal | Microsoft Docs
+title: Manage VNet endpoints - Azure portal - Azure Database for MySQL
 description: Create and manage Azure Database for MySQL VNet service endpoints and rules using the Azure portal
-author: bolzmj
-ms.author: mbolz
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 10/22/2018
+ms.topic: how-to
+ms.date: 3/18/2020
 ---
 # Create and manage Azure Database for MySQL VNet service endpoints and VNet rules by using the Azure portal
 Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for MySQL server. For an overview of Azure Database for MySQL VNet service endpoints, including limitations, see [Azure Database for MySQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md). VNet service endpoints are available in all supported regions for Azure Database for MySQL.
@@ -26,11 +26,11 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 
 3. Next, click on **+ Adding existing virtual network**. If you do not have an existing VNet you can click **+ Create new virtual network** to create one. See [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
 
-   ![Azure portal - click Connection security](./media/howto-manage-vnet-using-portal/1-connection-security.png)
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/1-connection-security.png" alt-text="Azure portal - click Connection security":::
 
 4. Enter a VNet rule name, select the subscription, Virtual network and Subnet name and then click **Enable**. This automatically enables VNet service endpoints on the subnet using the **Microsoft.SQL** service tag.
 
-   ![Azure portal - configure VNet](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/2-configure-vnet.png" alt-text="Azure portal - configure VNet":::
 
    The account must have the necessary permissions to create a virtual network and service endpoint.
 
@@ -38,7 +38,7 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
     
    To secure Azure service resources to a VNet, the user must have permission to "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/" for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles.
     
-   Learn more about [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) and assigning specific permissions to [custom roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+   Learn more about [built-in roles](../role-based-access-control/built-in-roles.md) and assigning specific permissions to [custom roles](../role-based-access-control/custom-roles.md).
     
    VNets and Azure service resources can be in the same or different subscriptions. If the VNet and Azure service resources are in different subscriptions, the resources should be under the same Active Directory (AD) tenant. Ensure that both the subscriptions have the **Microsoft.Sql** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
 
@@ -48,11 +48,11 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 
 5. Once enabled, click **OK** and you will see that VNet service endpoints are enabled along with a VNet rule.
 
-   ![VNet service endpoints enabled and VNet rule created](./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png" alt-text="VNet service endpoints enabled and VNet rule created":::
 
 ## Next steps
 - Similarly, you can script to [Enable VNet service endpoints and create a VNET rule for Azure Database for MySQL using Azure CLI](howto-manage-vnet-using-cli.md).
 - For help in connecting to an Azure Database for MySQL server, see [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md)
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

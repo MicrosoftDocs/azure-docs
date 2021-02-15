@@ -1,22 +1,21 @@
 ---
 title: Metadata with GenerateAnswer API - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer sets. You can filter results to user queries, and store additional information that can be used in follow-up conversations.
+description: QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer pairs. You can filter results to user queries, and store additional information that can be used in follow-up conversations.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 06/27/2019
-ms.author: diberry
+ms.topic: conceptual
+ms.date: 11/09/2020
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Get an answer with the GenerateAnswer API and metadata
 
 To get the predicted answer to a user's question, use the GenerateAnswer API. When you publish a knowledge base, you can see information about how to use this API on the **Publish** page. You can also configure the API to filter answers based on metadata tags, and test the knowledge base from the endpoint with the test query string parameter.
 
-QnA Maker lets you add metadata, in the form of key and value pairs, to your sets of questions and answers. You can then use this information to filter results to user queries, and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../Concepts/knowledge-base.md).
+QnA Maker lets you add metadata, in the form of key and value pairs, to your pairs of questions and answers. You can then use this information to filter results to user queries, and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../index.yml).
 
 <a name="qna-entity"></a>
 
@@ -32,13 +31,13 @@ Each QnA entity has a unique and persistent ID. You can use the ID to make updat
 
 ## Get answer predictions with the GenerateAnswer API
 
-You use the [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) in your bot or application to query your knowledge base with a user question, to get the best match from the question and answer sets.
+You use the [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) in your bot or application to query your knowledge base with a user question, to get the best match from the question and answer pairs.
 
 <a name="generateanswer-endpoint"></a>
 
-## Publish to get GenerateAnswer endpoint 
+## Publish to get GenerateAnswer endpoint
 
-After you publish your knowledge base, either from the [QnA Maker portal](https://www.qnamaker.ai), or by using the [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), you can get the details of your GenerateAnswer endpoint.
+After you publish your knowledge base, either from the [QnA Maker portal](https://www.qnamaker.ai), or by using the [API](/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), you can get the details of your GenerateAnswer endpoint.
 
 To get your endpoint details:
 1. Sign in to [https://www.qnamaker.ai](https://www.qnamaker.ai).
@@ -46,7 +45,15 @@ To get your endpoint details:
     ![Screenshot of My knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Get your GenerateAnswer endpoint details.
 
+    # [QnA Maker GA (stable release)](#tab/v1)
+
     ![Screenshot of endpoint details](../media/qnamaker-how-to-metadata-usage/view-code.png)
+
+    # [QnA Maker managed (preview release)](#tab/v2)
+
+    ![Screenshot of endpoint details managed](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
+
+    ---
 
 You can also get your endpoint details from the **Settings** tab of your knowledge base.
 
@@ -54,15 +61,15 @@ You can also get your endpoint details from the **Settings** tab of your knowled
 
 ## GenerateAnswer request configuration
 
-You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/csharp.md). 
+You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/quickstart-sdk.md#generate-an-answer-from-the-knowledge-base).
 
 The POST request uses:
 
-* Required [URI parameters](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
-* Required [header property](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer), `Authorization`, for security
-* Required [body properties](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto). 
+* Required [URI parameters](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
+* Required header property, `Authorization`, for security
+* Required [body properties](/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto).
 
-The GenerateAnswer URL has the following format: 
+The GenerateAnswer URL has the following format:
 
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
@@ -77,7 +84,8 @@ An example JSON body looks like:
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
-    "scoreThreshold": 20,
+    "scoreThreshold": 30,
+    "rankerType": "" // values: QuestionOnly
     "strictFilters": [
     {
         "name": "category",
@@ -87,17 +95,21 @@ An example JSON body looks like:
 }
 ```
 
+Learn more about [rankerType](../concepts/best-practices.md#choosing-ranker-type).
+
+The previous JSON requested only answers that are at 30% or above the threshold score.
+
 <a name="generateanswer-response"></a>
 
 ## GenerateAnswer response properties
 
-The [response](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) is a JSON object including all the information you need to display the answer and the next turn in the conversation, if available.
+The [response](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) is a JSON object including all the information you need to display the answer and the next turn in the conversation, if available.
 
 ```json
 {
     "answers": [
         {
-            "score": 28.54820341616869,
+            "score": 38.54820341616869,
             "Id": 20,
             "answer": "There is no direct integration of LUIS with QnA Maker. But, in your bot code, you can use LUIS and QnA Maker together. [View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/tree/master/Node/samples/QnAMaker/QnAWithLUIS)",
             "source": "Custom Editorial",
@@ -115,25 +127,30 @@ The [response](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerrun
 }
 ```
 
+The previous JSON responded with an answer with a score of 38.5%.
+
 ## Use QnA Maker with a bot in C#
 
-The bot framework provides access to the QnA Maker's properties:
+The bot framework provides access to the QnA Maker's properties with the [getAnswer API](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
 var metadata = new Microsoft.Bot.Builder.AI.QnA.Metadata();
 var qnaOptions = new QnAMakerOptions();
 
+metadata.Name = Constants.MetadataName.Intent;
+metadata.Value = topIntent;
+qnaOptions.StrictFilters = new Microsoft.Bot.Builder.AI.QnA.Metadata[] { metadata };
 qnaOptions.Top = Constants.DefaultTop;
 qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
 ```
 
-The Support bot has [an example](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) with this code.
+The previous JSON requested only answers that are at 30% or above the threshold score.
 
 ## Use QnA Maker with a bot in Node.js
 
-The bot framework provides access to the QnA Maker's properties:
+The bot framework provides access to the QnA Maker's properties with the [getAnswer API](/javascript/api/botbuilder-ai/qnamaker?preserve-view=true&view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');
@@ -141,13 +158,13 @@ this.qnaMaker = new QnAMaker(endpoint);
 
 // Default QnAMakerOptions
 var qnaMakerOptions = {
-    ScoreThreshold: 0.03,
+    ScoreThreshold: 0.30,
     Top: 3
 };
 var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
 ```
 
-The Support bot has [an example](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) with this code.
+The previous JSON requested only answers that are at 30% or above the threshold score.
 
 <a name="metadata-example"></a>
 
@@ -169,19 +186,46 @@ Because results are required only for the restaurant "Paradise", you can set a f
 {
     "question": "When does this hotel close?",
     "top": 1,
-    "strictFilters": [
-      {
-        "name": "restaurant",
-        "value": "paradise"
-      }]
+    "strictFilters": [ { "name": "restaurant", "value": "paradise"}]
 }
 ```
+
+### Logical AND by default
+
+To combine several metadata filters in the query, add the additional metadata filters to the array of the `strictFilters` property. By default, the values are logically combined (AND). A logical combination requires all filters to matches the QnA pairs in order for the pair to be returned in the answer.
+
+This is equivalent to using the `strictFiltersCompoundOperationType` property with the value of `AND`.
+
+### Logical OR using strictFiltersCompoundOperationType property
+
+When combining several metadata filters, if you are only concerned with one or some of the filters matching, use the `strictFiltersCompoundOperationType` property with the value of `OR`.
+
+This allows your knowledge base to return answers when any filter matches but won't return answers that have no metadata.
+
+```json
+{
+    "question": "When do facilities in this hotel close?",
+    "top": 1,
+    "strictFilters": [
+      { "name": "type","value": "restaurant"},
+      { "name": "type", "value": "bar"},
+      { "name": "type", "value": "poolbar"}
+    ],
+    "strictFiltersCompoundOperationType": "OR"
+}
+```
+
+### Metadata examples in quickstarts
+
+Learn more about metadata in the QnA Maker portal quickstart for metadata:
+* [Authoring - add metadata to QnA pair](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Query prediction - filter answers by metadata](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 <a name="keep-context"></a>
 
 ## Use question and answer results to keep conversation context
 
-The response to the GenerateAnswer contains the corresponding metadata information of the matched question and answer set. You can use this information in your client application to store the context of the previous conversation for use in later conversations. 
+The response to the GenerateAnswer contains the corresponding metadata information of the matched question and answer pair. You can use this information in your client application to store the context of the previous conversation for use in later conversations.
 
 ```json
 {
@@ -224,9 +268,23 @@ You can search through the published kb, using `isTest=false`, or in the test kb
 }
 ```
 
+## Common HTTP errors
+
+|Code|Explanation|
+|:--|--|
+|2xx|Success|
+|400|Request's parameters are incorrect meaning the required parameters are missing, malformed, or too large|
+|400|Request's body is incorrect meaning the JSON is missing, malformed, or too large|
+|401|Invalid key|
+|403|Forbidden - you do not have correct permissions|
+|404|KB doesn't exist|
+|410|This API is deprecated and is no longer available|
+
 ## Next steps
 
-The **Publish** page also provides information to generate an answer with [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) and [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
+The **Publish** page also provides information to [generate an answer](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) with Postman or cURL.
 
 > [!div class="nextstepaction"]
-> [Create a knowledge base](./create-knowledge-base.md)
+> [Get analytics on your knowledge base](../how-to/get-analytics-knowledge-base.md)
+> [!div class="nextstepaction"]
+> [Confidence score](../Concepts/confidence-score.md)

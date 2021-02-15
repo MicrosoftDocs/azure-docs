@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Trisotech Digital Enterprise Server | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Trisotech Digital Enterprise Server.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 6d54d20c-eca1-4fa6-b56a-4c3ed0593db0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Trisotech Digital Enterprise Server
 
@@ -27,7 +21,7 @@ Integrating Trisotech Digital Enterprise Server with Azure AD provides you with 
 * You can enable your users to be automatically signed-in to Trisotech Digital Enterprise Server (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -122,15 +116,15 @@ To configure Azure AD single sign-on with Trisotech Digital Enterprise Server, p
 
 2. Click on the **Menu icon** and then select **Administration**.
 
-	![Configure Single Sign-On](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
+	![Screenshot shows the Administration icon in Microsoft Digital Enterprise Server.](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
 
 3. Select **User Provider**.
 
-	![Configure Single Sign-On](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
+	![Screenshot shows User Provider selected from the menu.](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
 
 4. In the **User Provider Configurations** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
+	![Screenshot shows the User Provider Configurations where you can enter the values described.](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
 
 	a. Select **Secured Assertion Markup Language 2 (SAML 2)** from the dropdown in the **Authentication Method**.
 
@@ -205,13 +199,12 @@ In this section, a user called Britta Simon is created in Trisotech Digital Ente
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Trisotech Digital Enterprise Server tile in the Access Panel, you should be automatically signed in to the Trisotech Digital Enterprise Server for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Trisotech Digital Enterprise Server tile in the Access Panel, you should be automatically signed in to the Trisotech Digital Enterprise Server for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

@@ -1,18 +1,14 @@
 ---
 title: Log data ingestion time in Azure Monitor | Microsoft Docs
 description: Explains the different factors that affect latency in collecting log data in Azure Monitor.
-services: log-analytics
-documentationcenter: ''
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: tysonn
-ms.service: log-analytics
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/18/2019
 ms.author: bwren
+ms.date: 07/18/2019
+
 ---
+
 # Log data ingestion time in Azure Monitor
 Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. There are often questions about the time it takes for log data to become available after it's collected. This article explains the different factors that affect this latency.
 
@@ -39,10 +35,10 @@ Agents and management solutions use different strategies to collect data from a 
 ### Agent upload frequency
 To ensure the Log Analytics agent is lightweight, the agent buffers logs and periodically uploads them to Azure Monitor. Upload frequency varies between 30 seconds and 2 minutes depending on the type of data. Most data is uploaded in under 1 minute. Network conditions may negatively affect the latency of this data to reach Azure Monitor ingestion point.
 
-### Azure activity logs, diagnostic logs and metrics
+### Azure activity logs, resource logs and metrics
 Azure data adds additional time to become available at Log Analytics ingestion point for processing:
 
-- Data from diagnostic logs take 2-15 minutes, depending on the Azure service. See the [query below](#checking-ingestion-time) to examine this latency in your environment
+- Data from resource logs take 2-15 minutes, depending on the Azure service. See the [query below](#checking-ingestion-time) to examine this latency in your environment
 - Azure platform metrics take 3 minutes to be sent to Log Analytics ingestion point.
 - Activity log data will take about 10-15 minutes to be sent to Log Analytics ingestion point.
 
@@ -51,13 +47,13 @@ Once available at ingestion point, data takes additional 2-5 minutes to be avail
 ### Management solutions collection
 Some solutions do not collect their data from an agent and may use a collection method that introduces additional latency. Some solutions collect data at regular intervals without attempting near-real time collection. Specific examples include the following:
 
-- Office 365 solution polls activity logs using the Office 365 Management Activity API, which currently does not provide any near-real time latency guarantees.
+- Microsoft 365 solution polls activity logs using the Management Activity API, which currently does not provide any near-real time latency guarantees.
 - Windows Analytics solutions (Update Compliance for example) data is collected by the solution at a daily frequency.
 
 Refer to the documentation for each solution to determine its collection frequency.
 
 ### Pipeline-process time
-Once log records are ingested into the Azure Monitor pipeline (as identified in the [_TimeReceived](log-standard-properties.md#_timereceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically adds 5-15 seconds. Some management solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, the Network Performance Monitoring aggregates incoming data over 3-minute intervals, effectively adding 3-minute latency. Another process that adds latency is the process that handles custom logs. In some cases, this process might add few minutes of latency to logs that are collected from files by the agent.
+Once log records are ingested into the Azure Monitor pipeline (as identified in the [_TimeReceived](./log-standard-columns.md#_timereceived) property), they're written to temporary storage to ensure tenant isolation and to make sure that data isn't lost. This process typically adds 5-15 seconds. Some management solutions implement heavier algorithms to aggregate data and derive insights as data is streaming in. For example, the Network Performance Monitoring aggregates incoming data over 3-minute intervals, effectively adding 3-minute latency. Another process that adds latency is the process that handles custom logs. In some cases, this process might add few minutes of latency to logs that are collected from files by the agent.
 
 ### New custom data types provisioning
 When a new type of custom data is created from a [custom log](data-sources-custom-logs.md) or the [Data Collector API](data-collector-api.md), the system creates a dedicated storage container. This is a one-time overhead that occurs only on the first appearance of this data type.
@@ -77,14 +73,14 @@ Ingestion time may vary for different resources under different circumstances. Y
 
 | Step | Property or Function | Comments |
 |:---|:---|:---|
-| Record created at data source | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>If the data source doesn't set this value, then it will be set to the same time as _TimeReceived. |
-| Record received by Azure Monitor ingestion endpoint | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>If the data source doesn't set this value, then it will be set to the same time as _TimeReceived. |
+| Record received by Azure Monitor ingestion endpoint | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
 | Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### Ingestion latency delays
 You can measure the latency of a specific record by comparing the result of the [ingestion_time()](/azure/kusto/query/ingestiontimefunction) function to the _TimeGenerated_ property. This data can be used with various aggregations to find how ingestion latency behaves. Examine some percentile of the ingestion time to get insights for large amount of data. 
 
-For example, the following query will show you which computers had the highest ingestion time over the current day: 
+For example, the following query will show you which computers had the highest ingestion time over the prior 8 hours: 
 
 ``` Kusto
 Heartbeat
@@ -94,8 +90,11 @@ Heartbeat
 | summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by Computer 
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
- 
-If you want to drill down on the ingestion time for a specific computer over a period of time, use the following query which also visualizes the data in a graph: 
+
+The preceding percentile checks are good for finding general trends in latency. To identify a short-term spike in latency, using the maximum (`max()`) might be more effective.
+
+If you want to drill down on the ingestion time for a specific computer over a period of time, use the following query, which also visualizes the data from the past day in a graph: 
+
 
 ``` Kusto
 Heartbeat 
@@ -140,4 +139,3 @@ Heartbeat
 
 ## Next steps
 * Read the [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) for Azure Monitor.
-

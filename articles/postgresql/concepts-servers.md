@@ -1,8 +1,8 @@
----
-title: Server concepts in Azure Database for PostgreSQL - Single Server
+﻿---
+title: Servers - Azure Database for PostgreSQL - Single Server
 description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
@@ -58,6 +58,6 @@ As a managed service for Postgres, the configurable parameters in Azure Database
 
 ## Next steps
 - For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md).
-- For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](concepts-pricing-tiers.md).
+- For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](concepts-pricing-tiers.md).
 - For information on connecting to the service, see [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).
 - View and edit server parameters through [Azure portal](howto-configure-server-parameters-using-portal.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).

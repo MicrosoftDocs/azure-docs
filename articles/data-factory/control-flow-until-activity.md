@@ -1,22 +1,17 @@
 ---
-title: Until activity in Azure Data Factory | Microsoft Docs
+title: Until activity in Azure Data Factory 
 description: The Until activity executes a set of activities in a loop until the condition associated with the activity evaluates to true or it times out. 
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: dcstwh
+ms.author: weetok
+ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
 ---
+
 # Until activity in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The Until activity provides the same functionality that a do-until looping structure provides in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a timeout value for the until activity in Data Factory. 
 
 ## Syntax
@@ -197,10 +192,7 @@ The pipeline in this sample copies data from an input folder to an output folder
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

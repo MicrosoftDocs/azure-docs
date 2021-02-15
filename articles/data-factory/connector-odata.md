@@ -1,22 +1,14 @@
 ---
-title: Copy data from OData sources by using Azure Data Factory | Microsoft Docs
+title: Copy data from OData sources by using Azure Data Factory 
 description: Learn how to copy data from OData sources to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 10/14/2020
 ms.author: jingwang
-
 ---
 # Copy data from an OData source by using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-odata-connector.md)
@@ -26,12 +18,21 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 ## Supported capabilities
 
+This OData connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from an OData source to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Specifically, this OData connector supports:
 
 - OData version 3.0 and 4.0.
-- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Windows**, **AAD service principal**, and **managed identities for Azure resources**.
+- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Windows**, and **AAD service principal**.
+
+## Prerequisites
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Get started
 
@@ -47,7 +48,8 @@ The following properties are supported for an OData linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **OData**. |Yes |
 | url | The root URL of the OData service. |Yes |
-| authenticationType | The type of authentication used to connect to the OData source. Allowed values are **Anonymous**, **Basic**, **Windows**, **AadServicePrincipal**, and **ManagedServiceIdentity**. User based OAuth isn't supported. | Yes |
+| authenticationType | The type of authentication used to connect to the OData source. Allowed values are **Anonymous**, **Basic**, **Windows**, and **AadServicePrincipal**. User-based OAuth isn't supported. You can additionally configure authentication headers in `authHeader` property.| Yes |
+| authHeaders | Additional HTTP request headers for authentication.<br/> For example, to use API key authentication, you can select authentication type as “Anonymous” and specify API key in the header. | No |
 | userName | Specify **userName** if you use Basic or Windows authentication. | No |
 | password | Specify **password** for the user account you specified for **userName**. Mark this field as a **SecureString** type to store it securely in Data Factory. You also can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | servicePrincipalId | Specify the Azure Active Directory application's client ID. | No |
@@ -57,7 +59,8 @@ The following properties are supported for an OData linked service:
 | servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).  | No|
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | No |
 | aadResourceId | Specify the AAD resource you are requesting for authorization.| No |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can choose Azure Integration Runtime or a self-hosted Integration Runtime (if your data store is located in a private network). If not specified, the default Azure Integration Runtime is used. |No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
 **Example 1: Using Anonymous authentication**
 
@@ -184,6 +187,31 @@ The following properties are supported for an OData linked service:
 }
 ```
 
+**Example 6: Using API key authentication**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of OData source>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "APIKey": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## Dataset properties
 
 This section provides a list of properties that the OData dataset supports.
@@ -205,6 +233,7 @@ To copy data from OData, set the **type** property of the dataset to **ODataReso
     "properties":
     {
         "type": "ODataResource",
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<OData linked service name>",
             "type": "LinkedServiceReference"
@@ -225,12 +254,13 @@ For a full list of sections and properties that are available for defining activ
 
 ### OData as source
 
-To copy data from OData, set the **source** type in Copy Activity to **RelationalSource**. The following properties are supported in the Copy Activity **source** section:
+To copy data from OData, the following properties are supported in the Copy Activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The **type** property of the Copy Activity source must be set to **RelationalSource**. | Yes |
+| type | The **type** property of the Copy Activity source must be set to **ODataSource**. | Yes |
 | query | OData query options for filtering data. Example: `"$select=Name,Description&$top=5"`.<br/><br/>**Note**: The OData connector copies data from the combined URL: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. For more information, see [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. If not specified, the default value is **00:30:00** (30 minutes). | No |
 
 **Example**
 
@@ -253,7 +283,7 @@ To copy data from OData, set the **source** type in Copy Activity to **Relationa
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "ODataSource",
                 "query": "$select=Name,Description&$top=5"
             },
             "sink": {
@@ -263,6 +293,8 @@ To copy data from OData, set the **source** type in Copy Activity to **Relationa
     }
 ]
 ```
+
+If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
 
 ## Data type mapping for OData
 
@@ -290,6 +322,10 @@ When you copy data from OData, the following mappings are used between OData dat
 > OData complex data types (such as **Object**) aren't supported.
 
 
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 ## Next steps
 
-For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

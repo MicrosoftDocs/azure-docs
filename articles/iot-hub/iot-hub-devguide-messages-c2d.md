@@ -8,6 +8,8 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
+ms.custom: mqtt, devx-track-azurecli
+
 ---
 
 # Send cloud-to-device messages from an IoT hub
@@ -117,6 +119,12 @@ The body of a feedback message is shown in the following code:
 ]
 ```
 
+**Pending feedback for deleted devices**
+
+When a device is deleted, any pending feedback is deleted as well. Device feedback is sent in batches. If a device is deleted in the narrow window (often less than 1 second) between when the device confirms receipt of the message and when the next feedback batch is prepared, the feedback will not occur.
+
+You can address this behavior by waiting a period of time for pending feedback to arrive before deleting your device. Related message feedback should be assumed lost once a device is deleted.
+
 ## Cloud-to-device configuration options
 
 Each IoT hub exposes the following configuration options for cloud-to-device messaging:
@@ -126,9 +134,33 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 | defaultTtlAsIso8601       | Default TTL for cloud-to-device messages | ISO_8601 interval up to 2 days (minimum 1 minute); default: 1 hour |
 | maxDeliveryCount          | Maximum delivery count for cloud-to-device per-device queues | 1 to 100; default: 10 |
 | feedback.ttlAsIso8601     | Retention for service-bound feedback messages | ISO_8601 interval up to 2 days (minimum 1 minute); default: 1 hour |
-| feedback.maxDeliveryCount | Maximum delivery count for the feedback queue | 1 to 100; default: 100 |
+| feedback.maxDeliveryCount | Maximum delivery count for the feedback queue | 1 to 100; default: 10 |
+| feedback.lockDurationAsIso8601 | Maximum delivery count for the feedback queue | ISO_8601 interval from 5 to 300 seconds (minimum 5 seconds); default: 60 seconds. |
 
-For more information about how to set these configuration options, see [Create IoT hubs](iot-hub-create-through-portal.md).
+You can set the configuration options in one of the following ways:
+
+* **Azure portal**: Under **Settings** on your IoT hub, select **Built-in endpoints** and expand **Cloud to device messaging**. (Setting the **feedback.maxDeliveryCount** and **feedback.lockDurationAsIso8601** properties is not currently supported in Azure portal.)
+
+    ![Set configuration options for cloud-to-device messaging in the portal](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
+
+* **Azure CLI**: Use the [az iot hub update](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) command:
+
+    ```azurecli
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.defaultTtlAsIso8601=PT1H0M0S
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.maxDeliveryCount=10
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.ttlAsIso8601=PT1H0M0S
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.maxDeliveryCount=10
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.lockDurationAsIso8601=PT0H1M0S
+    ```
 
 ## Next steps
 

@@ -1,29 +1,49 @@
 ---
-title: How to install and run containers - Computer Vision
+title: Install Read OCR Docker containers from Computer Vision
 titleSuffix: Azure Cognitive Services
-description: How to download, install, and run containers for Computer Vision in this walkthrough tutorial.
+description: Use the Read OCR Docker containers from Computer Vision to extract text from images and documents, on-premises.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.author: dapine
-ms.custom: seodec18
+ms.date: 11/23/2020
+ms.author: aahi
+ms.custom: seodec18, cog-serv-seo-aug-2020
+keywords: on-premises, OCR, Docker, container
 ---
 
-# Install and run Recognize Text containers
+# Install Read OCR Docker containers (Preview) 
 
-The Recognize Text portion of Computer Vision is also available as a Docker container. It allows you to detect and extract printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.  
-> [!IMPORTANT]
-> The Recognize Text container currently works only with English.
+[!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run Computer Vision containers.
+
+The *Read* OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](concept-recognizing-text.md#read-api).
+
+## Read 3.2-preview container
+
+> [!NOTE]
+> The Read 3.0-preview container has been deprecated. 
+
+The Read 3.2-preview OCR container provides:
+* New models for enhanced accuracy.
+* Support for multiple languages within the same document.
+* Support for a total of 73 languages. See the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr).
+* A single operation for both documents and images.
+* Support for larger documents and images.
+* Confidence scores.
+* Support for documents with both print and handwritten text.
+* Ability to extract text from only selected page(s) in a document.
+* Choose text line output order from default to a more natural reading order for Latin languages only.
+* Text line classification as handwritten style or not for Latin languages only.
+
+If you're using Read 2.0 containers today, see the [migration guide](read-container-migration-guide.md) to learn about changes in the new versions.
 
 ## Prerequisites
 
-You must meet the following prerequisites before using Recognize Text containers:
+You must meet the following prerequisites before using the containers:
 
 |Required|Purpose|
 |--|--|
@@ -31,43 +51,61 @@ You must meet the following prerequisites before using Recognize Text containers
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
 
-## Request access to the private container registry
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+## Request approval to run the container
+
+Fill out and submit the [request form](https://aka.ms/csgate) to request approval to run the container. 
+
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
+
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ### The host computer
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
+### Advanced Vector Extension support
+
+The **host** computer is the computer that runs the docker container. The host *must support* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check for AVX2 support on Linux hosts with the following command:
+
+```console
+grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
+```
+
+> [!WARNING]
+> The host computer is *required* to support AVX2. The container *will not* function correctly without AVX2 support.
+
 ### Container requirements and recommendations
 
-The following table describes the minimum and recommended CPU cores and memory to allocate for each Recognize Text container.
-
-| Container | Minimum | Recommended |TPS<br>(Minimum, Maximum)|
-|-----------|---------|-------------|--|
-|Recognize Text|1 core, 8-GB memory, 0.5 TPS|2 cores, 8-GB memory, 1 TPS|0.5, 1|
-
-* Each core must be at least 2.6 gigahertz (GHz) or faster.
-* TPS - transactions per second
-
-Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+[!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
 ## Get the container image with `docker pull`
 
-Container images for Recognize Text are available. 
+Container images for Read are available.
 
-| Container | Repository |
+| Container | Container Registry / Repository / Image Name |
 |-----------|------------|
-|Recognize Text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
+| Read 2.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
+| Read 3.2-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
+### Docker pull for the Read container
 
-### Docker pull for the Recognize Text container
+# [Version 3.2-preview](#tab/version-3-2)
 
+```bash
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2
 ```
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
+
+# [Version 2.0-preview](#tab/version-2)
+
+```bash
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
 ```
+
+---
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -80,20 +118,15 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 
 ## Run the container with `docker run`
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. The command uses the following parameters:
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
 
-| Placeholder | Value |
-|-------------|-------|
-|{API_KEY} | This key is used to start the container, and is available on the Azure `Cognitive Services` Keys page.  |
-|{ENDPOINT_URI} | The billing endpoint URI value. Example is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+[Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
-You need to add the `vision/v2.0` routing to the endpoint URI as shown in the following BILLING_ENDPOINT_URI example.
-
-Replace these parameters with your own values in the following example `docker run` command.
+# [Version 3.2-preview](#tab/version-3-2)
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -101,37 +134,286 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs a recognize container from the container image
-* Allocates one CPU core and 4 gigabytes (GB) of memory
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits. The container image is still available on the host computer. 
+* Runs the Read container from the container image.
+* Allocates 8 CPU core and 18 gigabytes (GB) of memory.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
+
+# [Version 2.0-preview](#tab/version-2)
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+This command:
+
+* Runs the Read container from the container image.
+* Allocates 8 CPU core and 16 gigabytes (GB) of memory.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
+
+---
+
 
 More [examples](./computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
+If you need higher throughput (for example, when processing multi-page files), consider deploying multiple containers [on a Kubernetes cluster](deploy-computer-vision-on-premises.md), using [Azure Storage](../../storage/common/storage-account-create.md) and [Azure Queue](../../storage/queues/storage-queues-introduction.md).
+
+If you're using Azure Storage to store images for processing, you can create a [connection string](../../storage/common/storage-configure-connection-string.md) to use when calling the container.
+
+To find your connection string:
+
+1. Navigate to **Storage accounts** on the Azure portal, and find your account.
+2. Click on **Access keys** in the left navigation list.
+3. Your connection string will be located below **Connection string**
+
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
-
-
-## Query the container's prediction endpoint
-
-The container provides REST-based query prediction endpoint APIs. 
-
-Use the host, `http://localhost:5000`, for container APIs.
-
-### Asynchronous text recognition
-
-You can use the `POST /vision/v2.0/recognizeText` and `GET /vision/v2.0/textOperations/*{id}*` operations in concert to asynchronously recognize printed text in an image, similar to how the Computer Vision service uses those corresponding REST operations. The Recognize Text container only recognizes printed text, not handwritten text, at this time, so the `mode` parameter normally specified for the Computer Vision service operation is ignored by the Recognize Text container.
-
-### Synchronous text recognition
-
-You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronously recognize printed text in an image. Because this operation is synchronous, the request body for this operation is the same as the `POST /vision/v2.0/recognizeText` operation, but the response body for this operation is the same as that returned by the `GET /vision/v2.0/textOperations/*{id}*` operation.
 
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
+## Query the container's prediction endpoint
+
+The container provides REST-based query prediction endpoint APIs. 
+
+# [Version 3.2-preview](#tab/version-3-2)
+
+Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v3.2-preview-read/swagger.json`.
+
+# [Version 2.0-preview](#tab/version-2)
+
+Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v2.0-preview-read/swagger.json`.
+
+---
+
+### Asynchronous read
+
+
+# [Version 3.2-preview](#tab/version-3-2)
+
+You can use the `POST /vision/v3.2/read/analyze` and `GET /vision/v3.2/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
+
+
+From the swagger UI, select the `Analyze` to expand it in the browser. Then select **Try it out** > **Choose file**. In this example, we'll use the following image:
+
+![tabs vs spaces](media/tabs-vs-spaces.png)
+
+When the asynchronous POST has run successfully, it returns an **HTTP 202** status code. As part of the response, there is an `operation-location` header that holds the result endpoint for the request.
+
+```http
+ content-length: 0
+ date: Fri, 04 Sep 2020 16:23:01 GMT
+ operation-location: http://localhost:5000/vision/v3.2/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ server: Kestrel
+```
+
+The `operation-location` is the fully qualified URL and is accessed via an HTTP GET. Here is the JSON response from executing the `operation-location` URL from the preceding image:
+
+```json
+{
+  "status": "succeeded",
+  "createdDateTime": "2021-02-04T06:32:08.2752706+00:00",
+  "lastUpdatedDateTime": "2021-02-04T06:32:08.7706172+00:00",
+  "analyzeResult": {
+    "version": "3.2.0",
+    "readResults": [
+      {
+        "page": 1,
+        "angle": 2.1243,
+        "width": 502,
+        "height": 252,
+        "unit": "pixel",
+        "lines": [
+          {
+            "boundingBox": [
+              58,
+              42,
+              314,
+              59,
+              311,
+              123,
+              56,
+              121
+            ],
+            "text": "Tabs vs",
+            "appearance": {
+              "style": {
+                "name": "handwriting",
+                "confidence": 0.96
+              }
+            },
+            "words": [
+              {
+                "boundingBox": [
+                  68,
+                  44,
+                  225,
+                  59,
+                  224,
+                  122,
+                  66,
+                  123
+                ],
+                "text": "Tabs",
+                "confidence": 0.933
+              },
+              {
+                "boundingBox": [
+                  241,
+                  61,
+                  314,
+                  72,
+                  314,
+                  123,
+                  239,
+                  122
+                ],
+                "text": "vs",
+                "confidence": 0.977
+              }
+            ]
+          },
+          {
+            "boundingBox": [
+              286,
+              171,
+              415,
+              165,
+              417,
+              197,
+              287,
+              201
+            ],
+            "text": "paces",
+            "appearance": {
+              "style": {
+                "name": "handwriting",
+                "confidence": 0.746
+              }
+            },
+            "words": [
+              {
+                "boundingBox": [
+                  286,
+                  179,
+                  404,
+                  166,
+                  405,
+                  198,
+                  290,
+                  201
+                ],
+                "text": "paces",
+                "confidence": 0.938
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+# [Version 2.0-preview](#tab/version-2)
+
+You can use the `POST /vision/v2.0/read/core/asyncBatchAnalyze` and `GET /vision/v2.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
+
+From the swagger UI, select the `asyncBatchAnalyze` to expand it in the browser. Then select **Try it out** > **Choose file**. In this example, we'll use the following image:
+
+![tabs vs spaces](media/tabs-vs-spaces.png)
+
+When the asynchronous POST has run successfully, it returns an **HTTP 202** status code. As part of the response, there is an `operation-location` header that holds the result endpoint for the request.
+
+```http
+ content-length: 0
+ date: Fri, 13 Sep 2019 16:23:01 GMT
+ operation-location: http://localhost:5000/vision/v2.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ server: Kestrel
+```
+
+The `operation-location` is the fully qualified URL and is accessed via an HTTP GET. Here is the JSON response from executing the `operation-location` URL from the preceding image:
+
+```json
+{
+  "status": "Succeeded",
+  "recognitionResults": [
+    {
+      "page": 1,
+      "clockwiseOrientation": 2.42,
+      "width": 502,
+      "height": 252,
+      "unit": "pixel",
+      "lines": [
+        {
+          "boundingBox": [ 56, 39, 317, 50, 313, 134, 53, 123 ],
+          "text": "Tabs VS",
+          "words": [
+            {
+              "boundingBox": [ 90, 43, 243, 53, 243, 123, 94, 125 ],
+              "text": "Tabs",
+              "confidence": "Low"
+            },
+            {
+              "boundingBox": [ 259, 55, 313, 62, 313, 122, 259, 123 ],
+              "text": "VS"
+            }
+          ]
+        },
+        {
+          "boundingBox": [ 221, 148, 417, 146, 417, 206, 227, 218 ],
+          "text": "Spaces",
+          "words": [
+            {
+              "boundingBox": [ 230, 148, 416, 141, 419, 211, 232, 218 ],
+              "text": "Spaces"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+---
+
+> [!IMPORTANT]
+> If you deploy multiple Read containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](./computer-vision-resource-container-config.md).
+
+### Synchronous read
+
+You can use the following operation to synchronously read an image. 
+
+# [Version 3.2-preview](#tab/version-3-2)
+
+`POST /vision/v3.2/read/syncAnalyze` 
+
+# [Version 2.0-preview](#tab/version-2)
+
+`POST /vision/v2.0/read/core/Analyze`
+
+---
+
+When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
+
+```json
+{
+    "status": "Failed"
+}
+```
+
+The JSON response object has the same object graph as the asynchronous version. If you're a JavaScript user and want type safety, consider using TypeScript to cast the JSON response.
+
+For an example use-case, see the <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">TypeScript sandbox here <span class="docon docon-navigate-external x-hidden-focus"></span></a> and select **Run** to visualize its ease-of-use.
 
 ## Stop the container
 
@@ -139,29 +421,26 @@ You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronous
 
 ## Troubleshooting
 
-If you run the container with an output [mount](./computer-vision-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
+If you run the container with an output [mount](./computer-vision-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## Billing
 
-The Recognize Text containers send billing information to Azure, using a _Recognize Text_ resource on your Azure account. 
+The Cognitive Services containers send billing information to Azure, using the corresponding resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](./computer-vision-resource-container-config.md).
 
-<!--blogs/samples/video course -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
-
 ## Summary
 
-In this article, you learned concepts and workflow for downloading, installing, and running Recognize Text containers. In summary:
+In this article, you learned concepts and workflow for downloading, installing, and running Computer Vision containers. In summary:
 
-* Recognize Text provides a Linux container for Docker, encapsulating recognize text.
-* Container images are downloaded from the Microsoft Container Registry (MCR) in Azure.
+* Computer Vision provides a Linux container for Docker, encapsulating Read.
+* Container images are downloaded from the "Container Preview" container registry in Azure.
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in Recognize Text containers by specifying the host URI of the container.
+* You can use either the REST API or SDK to call operations in Read containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
@@ -170,7 +449,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 ## Next steps
 
 * Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
-* Review [Computer Vision overview](Home.md) to learn more about recognizing printed and handwritten text  
-* Refer to the [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for details about the methods supported by the container.
+* Review [Computer Vision overview](overview.md) to learn more about recognizing printed and handwritten text
+* Refer to the [Computer Vision API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

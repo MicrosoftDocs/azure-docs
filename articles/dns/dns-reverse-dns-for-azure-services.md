@@ -1,18 +1,16 @@
 ---
-title: Reverse DNS for Azure services | Microsoft Docs
-description: Learn how to configure reverse DNS lookups for services hosted in Azure
+title: Reverse DNS for Azure services - Azure DNS
+description: With this learning path, get started configuring reverse DNS lookups for services hosted in Azure.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: timlt
-
+author: rohinkoul
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Configure reverse DNS for services hosted in Azure
@@ -30,7 +28,7 @@ Before reading this article, you should be familiar with this [Overview of rever
 In Azure DNS, compute resources (such as virtual machines, virtual machine scale sets, or Service Fabric clusters) are exposed via a PublicIpAddress resource. Reverse DNS lookups are configured using the 'ReverseFqdn' property of the PublicIpAddress.
 
 
-Reverse DNS is not currently supported for the Azure App Service.
+Reverse DNS is not currently supported for the Azure App Service and Application Gateway.
 
 ## Validation of reverse DNS records
 
@@ -57,7 +55,7 @@ Azure currently supports reverse DNS only for IPv4 PublicIpAddress resources. It
 
 #### PowerShell
 
-To add reverse DNS to an existing PublicIpAddress:
+To update reverse DNS to an existing PublicIpAddress:
 
 ```powershell
 $pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
@@ -244,11 +242,10 @@ No. Azure currently supports reverse DNS only for IPv4 PublicIpAddress resources
 
 ### Can I send emails to external domains from my Azure Compute services?
 
-The technical ability to send email directly from an Azure deployment depends on the subscription type. Regardless of subscription type, Microsoft recommends using trusted mail relay services to send outgoing mail. For further details, see [Enhanced Azure Security for sending Emails – November 2017 Update](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
+The technical ability to send email directly from an Azure deployment depends on the subscription type. Regardless of subscription type, Microsoft recommends using trusted mail relay services to send outgoing mail. For further details, see [Enhanced Azure Security for sending Emails – November 2017 Update](../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
 
 ## Next steps
 
 For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Learn how to [host the reverse lookup zone for your ISP-assigned IP range in Azure DNS](dns-reverse-dns-for-azure-services.md).
-

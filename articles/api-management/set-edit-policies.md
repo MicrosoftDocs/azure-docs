@@ -1,6 +1,6 @@
 ---
 title: How to set or edit Azure API Management policies | Microsoft Docs
-description: This topic shows how to set or edit Azure API Management policies.
+description: Learn how to set or edit Azure API Management policies. These policies are XML documents that describe a sequence of inbound and outbound statements.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
@@ -37,21 +36,23 @@ To set or edit a policy, follow the following steps:
 6. Select an operation to which you want to apply the policy. If you want to apply the policy to all operations, select **All operations**.
 7. Select the **</>** (code editor) icon in the **Inbound processing** or **Outbound processing** section.
 8. Paste the desired policy code into one of the appropriate blocks.
-         
-        <policies>
-             <inbound>
-                 <base />
-             </inbound>
-             <backend>
-                 <base />
-             </backend>
-             <outbound>
-                 <base />
-             </outbound>
-             <on-error>
-                 <base />
-             </on-error>
-         </policies>
+
+    ```xml
+    <policies>
+        <inbound>
+            <base />
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
+    ```
  
 ## Configure scope
 
@@ -130,5 +131,5 @@ Operation scope is configured for the selected operation.
 See the following related topics:
 
 + [Transform APIs](transform-api.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)
++ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
++ [Policy samples](./policy-reference.md)

@@ -1,42 +1,34 @@
 ---
-title: Key Vault references - Azure App Service | Microsoft Docs
-description: Conceptual reference and setup guide for Azure Key Vault references in Azure App Service and Azure Functions
-services: app-service
+title: Use Key Vault references
+description: Learn how to set up Azure App Service and Azure Functions to use Azure Key Vault references. Make Key Vault secrets available to your application code.
 author: mattchenderson
-manager: jeconnoc
-editor: ''
 
-ms.service: app-service
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
 
 ---
 
-# Use Key Vault references for App Service and Azure Functions (preview)
+# Use Key Vault references for App Service and Azure Functions
 
-> [!NOTE] 
-> Key Vault references are currently in preview.
-
-This topic shows you how to work with secrets from Azure Key Vault in your App Service or Azure Functions application without requiring any code changes. [Azure Key Vault](../key-vault/key-vault-overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history.
+This topic shows you how to work with secrets from Azure Key Vault in your App Service or Azure Functions application without requiring any code changes. [Azure Key Vault](../key-vault/general/overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history.
 
 ## Granting your app access to Key Vault
 
 In order to read secrets from Key Vault, you need to have a vault created and give your app permission to access it.
 
-1. Create a key vault by following the [Key Vault quickstart](../key-vault/quick-create-cli.md).
+1. Create a key vault by following the [Key Vault quickstart](../key-vault/secrets/quick-create-cli.md).
 
 1. Create a [system-assigned managed identity](overview-managed-identity.md) for your application.
 
    > [!NOTE] 
    > Key Vault references currently only support system-assigned managed identities. User-assigned identities cannot be used.
 
-1. Create an [access policy in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) for the application identity you created earlier. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
+1. Create an [access policy in Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) for the application identity you created earlier. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
 
-    Granting access to an application identity in key vault is a onetime operation, and it will remain same for all Azure subscriptions. You can use it to deploy as many certificates as you want. 
+   > [!IMPORTANT]
+   > Key Vault references are not presently able to resolve secrets stored in a key vault with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md) unless the app is hosted within an [App Service Environment](./environment/intro.md).
 
 ## Reference syntax
 
@@ -45,24 +37,24 @@ A Key Vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 > [!div class="mx-tdBreakAll"]
 > | Reference string                                                            | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | The **SecretUri** should be the full data-plane URI of a secret in Key Vault, including a version, e.g., https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** should the name of your Key Vault resource. The **SecretName** should be the name of the target secret. The **SecretVersion** should be the version of the secret to use. |
-
-> [!NOTE] 
-> In the current preview, versions are required. When rotating secrets, you will need to update the version in your application configuration.
+> | SecretUri=_secretUri_                                                       | The **SecretUri** should be the full data-plane URI of a secret in Key Vault, optionally including a version, e.g., `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`  |
+> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** is required and should the name of your Key Vault resource. The **SecretName** is required and should be the name of the target secret. The **SecretVersion** is optional but if present indicates the version of the secret to use. |
 
 For example, a complete reference would look like the following:
 
 ```
-@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
+@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret)
 ```
 
 Alternatively:
 
 ```
-@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret;SecretVersion=ec96f02080254f109c51a1f14cdb1931)
+@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret)
 ```
 
+## Rotation
+
+If a version is not specified in the reference, then the app will use the latest version that exists in Key Vault. When newer versions become available, such as with a rotation event, the app will automatically update and begin using the latest version within one day. Any configuration changes made to the app will cause an immediate update to the latest versions of all referenced secrets.
 
 ## Source Application Settings from Key Vault
 
@@ -77,7 +69,7 @@ To use a Key Vault reference for an application setting, set the reference as th
 
 When automating resource deployments through Azure Resource Manager templates, you may need to sequence your dependencies in a particular order to make this feature work. Of note, you will need to define your application settings as their own resource, rather than using a `siteConfig` property in the site definition. This is because the site needs to be defined first so that the system-assigned identity is created with it and can be used in the access policy.
 
-An example psuedo-template for a function app might look like the following:
+An example pseudo-template for a function app might look like the following:
 
 ```json
 {
@@ -182,3 +174,29 @@ An example psuedo-template for a function app might look like the following:
 
 > [!NOTE] 
 > In this example, the source control deployment depends on the application settings. This is normally unsafe behavior, as the app setting update behaves asynchronously. However, because we have included the `WEBSITE_ENABLE_SYNC_UPDATE_SITE` application setting, the update is synchronous. This means that the source control deployment will only begin once the application settings have been fully updated.
+
+## Troubleshooting Key Vault References
+
+If a reference is not resolved properly, the reference value will be used instead. This means that for application settings, an environment variable would be created whose value has the `@Microsoft.KeyVault(...)` syntax. This may cause the application to throw errors, as it was expecting a secret of a certain structure.
+
+Most commonly, this is due to a misconfiguration of the [Key Vault access policy](#granting-your-app-access-to-key-vault). However, it could also be due to a secret no longer existing or a syntax error in the reference itself.
+
+If the syntax is correct, you can view other causes for error by checking the current resolution status in the portal. Navigate to Application Settings and select "Edit" for the reference in question. Below the setting configuration, you should see status information, including any errors. The absence of these implies that the reference syntax is invalid.
+
+You can also use one of the built-in detectors to get additional information.
+
+### Using the detector for App Service
+
+1. In the portal, navigate to your app.
+2. Select **Diagnose and solve problems**.
+3. Choose **Availability and Performance** and select **Web app down.**
+4. Find **Key Vault Application Settings Diagnostics** and click **More info**.
+
+
+### Using the detector for Azure Functions
+
+1. In the portal, navigate to your app.
+2. Navigate to **Platform features.**
+3. Select **Diagnose and solve problems**.
+4. Choose **Availability and Performance** and select **Function app down or reporting errors.**
+5. Click on **Key Vault Application Settings Diagnostics.**

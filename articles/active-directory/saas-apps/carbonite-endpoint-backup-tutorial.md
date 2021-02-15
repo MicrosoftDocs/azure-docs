@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Carbonite Endpoint Backup | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Carbonite Endpoint Backup.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: b78091f1-2f06-4c2c-8541-72aee0b5a322
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/06/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Carbonite Endpoint Backup with Azure Active Directory
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate Carbonite Endpoint Backup with A
 * Enable your users to be automatically signed-in to Carbonite Endpoint Backup with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -81,36 +74,33 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Identifier** text box, type one of the following URLs:
 
-    | | |
-    |-|-|
-    | `https://red-us.mysecuredatavault.com`|
-    | `https://red-apac.mysecuredatavault.com`|
-    | `https://red-fr.mysecuredatavault.com`|
-    | `https://red-emea.mysecuredatavault.com`|
-    | `https://kamino.mysecuredatavault.com`|
-    | | |
+    ```http
+    https://red-us.mysecuredatavault.com
+    https://red-apac.mysecuredatavault.com
+    https://red-fr.mysecuredatavault.com
+    https://red-emea.mysecuredatavault.com
+    https://kamino.mysecuredatavault.com
+    ```
 
     b. In the **Reply URL** text box, type one of the following URLs:
 
-    | | |
-    |-|-|
-    | `https://red-us.mysecuredatavault.com/AssertionConsumerService.aspx`|
-    | `https://red-apac.mysecuredatavault.com/AssertionConsumerService.aspx`|
-    | `https://red-fr.mysecuredatavault.com/AssertionConsumerService.aspx`|
-    | `https://red-emea.mysecuredatavault.com/AssertionConsumerService.aspx`|
-    | | |
+    ```http
+    https://red-us.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-apac.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-fr.mysecuredatavault.com/AssertionConsumerService.aspx
+    https://red-emea.mysecuredatavault.com/AssertionConsumerService.aspx
+    ```
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type one of the following URLs:
 
-    | | |
-    |-|-|
-    | `https://red-us.mysecuredatavault.com/`|
-    | `https://red-apac.mysecuredatavault.com/`|
-    | `https://red-fr.mysecuredatavault.com/`|
-    | `https://red-emea.mysecuredatavault.com/`|
-    | | |
+    ```http
+    https://red-us.mysecuredatavault.com/
+    https://red-apac.mysecuredatavault.com/
+    https://red-fr.mysecuredatavault.com/
+    https://red-emea.mysecuredatavault.com/
+    ```
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -122,27 +112,35 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Configure Carbonite Endpoint Backup SSO
 
-1. In a different web browser window, sign in to your Carbonite Endpoint Backup company site as an administrator.
+1. To automate the configuration within Carbonite Endpoint Backup, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-1. Click on the **Company** from the left pane.
+	![My apps extension](common/install-myappssecure-extension.png)
 
-    ![Carbonite Endpoint Backup configuration ](media/carbonite-endpoint-backup-tutorial/configure1.png)
+2. After adding extension to the browser, click on **Setup Carbonite Endpoint Backup** will direct you to the Carbonite Endpoint Backup application. From there, provide the admin credentials to sign into Carbonite Endpoint Backup. The browser extension will automatically configure the application for you and automate steps 3-7.
 
-1. Click on **Single sign-on**.
+	![Setup configuration](common/setup-sso.png)
 
-    ![Carbonite Endpoint Backup configuration ](media/carbonite-endpoint-backup-tutorial/configure2.png)
+3. If you want to setup Carbonite Endpoint Backup manually, open a new web browser window and sign into your Carbonite Endpoint Backup company site as an administrator and perform the following steps:
 
-1. Click on **Enable** and then click **Edit settings** to configure.
+4. Click on the **Company** from the left pane.
 
-    ![Carbonite Endpoint Backup configuration ](media/carbonite-endpoint-backup-tutorial/configure3.png)
+    ![Screenshot shows Carbonite Endpoint with Company selected.](media/carbonite-endpoint-backup-tutorial/configure1.png)
 
-1. On the **Single sign-on** settings page, perform the following steps:
+5. Click on **Single sign-on**.
 
-    ![Carbonite Endpoint Backup configuration ](media/carbonite-endpoint-backup-tutorial/configure4.png)
+    ![Screenshot shows Company with Single sign-on selected.](media/carbonite-endpoint-backup-tutorial/configure2.png)
 
-    1. In the **Identity provider name** textbox, enter the name of identity provider like **Microsoft Azure AD**.
+6. Click on **Enable** and then click **Edit settings** to configure.
 
-    1. In the **Identity provider URL** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
+    ![Screenshot shows the Single sign-on tab with Enable and Edit settings called out.](media/carbonite-endpoint-backup-tutorial/configure3.png)
+
+7. On the **Single sign-on** settings page, perform the following steps:
+
+    ![Screenshot shows the Single sign-on tab with the information described in this step.](media/carbonite-endpoint-backup-tutorial/configure4.png)
+
+    1. In the **Identity provider name** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
+
+    1. In the **Identity provider URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
     1. Click on **Choose file** to upload the downloaded **Certificate(Base64)** file from the Azure portal.
 
@@ -184,11 +182,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Users** from the left pane and then click **Add user**.
 
-    ![Add User in Carbonite Endpoint Backup](media/carbonite-endpoint-backup-tutorial/adduser1.png)
+    ![Screenshot shows the Carbonite Endpoint page with Users and Add users selected.](media/carbonite-endpoint-backup-tutorial/adduser1.png)
 
 1. On the **Add user** page, perform the following steps:
 
-    ![Add User in Carbonite Endpoint Backup](media/carbonite-endpoint-backup-tutorial/adduser2.png)
+    ![Screenshot shows the Add user page where you can perform the steps described here.](media/carbonite-endpoint-backup-tutorial/adduser2.png)
 
     1. Enter the **Email**, **First name**, **Last name** of the user and provide the required permissions to the user according to the Organizational requirements.
 
@@ -198,12 +196,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Carbonite Endpoint Backup tile in the Access Panel, you should be automatically signed in to the Carbonite Endpoint Backup for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Carbonite Endpoint Backup tile in the Access Panel, you should be automatically signed in to the Carbonite Endpoint Backup for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

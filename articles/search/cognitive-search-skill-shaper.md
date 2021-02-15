@@ -1,20 +1,17 @@
 ---
-title: Shaper cognitive search skill - Azure Search
-description: Extract metadata and structured information from unstructured data and shape it as a complex type in an Azure Search enrichment pipeline.
-services: search
-manager: pablocas
-author: luiscabrer
+title: Shaper cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Extract metadata and structured information from unstructured data and shape it as a complex type in an AI enrichment pipeline in Azure Cognitive Search.
 
-ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+manager: nitinme
+author: luiscabrer
 ms.author: luisca
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-#	Shaper cognitive skill
+# Shaper cognitive skill
 
 The **Shaper** skill consolidates several inputs into a [complex type](search-howto-complex-data-types.md) that can be referenced later in the enrichment pipeline. The **Shaper** skill allows you to essentially create a structure, define the name of the members of that structure, and assign values to each member. Examples of consolidated fields useful in search scenarios include combining a first and last name into a single structure, city and state into a single structure, or name and birthdate into a single structure to establish unique identity.
 
@@ -30,7 +27,7 @@ Microsoft.Skills.Util.ShaperSkill
 
 ## Scenario 1: complex types
 
-Consider a scenario where you want to create a structure called *analyzedText* that has two members: *text* and *sentiment*, respectively. In an Azure Search index, a multi-part searchable field is called a *complex type* and it's often created when source data has a corresponding complex structure that maps to it.
+Consider a scenario where you want to create a structure called *analyzedText* that has two members: *text* and *sentiment*, respectively. In an index, a multi-part searchable field is called a *complex type* and it's often created when source data has a corresponding complex structure that maps to it.
 
 However, another approach for creating complex types is through the **Shaper** skill. By including this skill in a skillset, the in-memory operations during skillset processing can output data shapes with nested structures, which can then be mapped to a complex type in your index. 
 
@@ -108,7 +105,7 @@ An incoming JSON document providing usable input for this **Shaper** skill could
 
 ###	Skill output
 
-The **Shaper** skill generates a new element called *analyzedText* with the combined elements of *text* and *sentiment*. This output conforms to the index schema. It will be imported and indexed in an Azure Search index.
+The **Shaper** skill generates a new element called *analyzedText* with the combined elements of *text* and *sentiment*. This output conforms to the index schema. It will be imported and indexed in an Azure Cognitive Search index.
 
 ```json
 {
@@ -247,8 +244,8 @@ In this case, the **Shaper** creates a complex type. This structure exists in-me
 
 ## See also
 
-+ [Predefined skills](cognitive-search-predefined-skills.md)
++ [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to use complex types](search-howto-complex-data-types.md)
-+ [Knowledge store overview](knowledge-store-concept-intro.md)
-+ [How to get started with knowledge store](knowledge-store-howto.md)
++ [Knowledge store](knowledge-store-concept-intro.md)
++ [Create a knowledge store in REST](knowledge-store-create-rest.md)

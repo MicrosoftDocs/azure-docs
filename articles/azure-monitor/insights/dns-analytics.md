@@ -1,18 +1,12 @@
 ---
 title: DNS Analytics solution in Azure Monitor | Microsoft Docs
 description: Set up and use the DNS Analytics solution in Azure Monitor to gather insights into DNS infrastructure on security, performance, and operations.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 03/20/2018
-ms.author: magoedte
+
 ---
 
 # Gather insights about your DNS infrastructure with the DNS Analytics Preview solution
@@ -40,11 +34,11 @@ The following table describes the connected sources that are supported by this s
 | [Windows agents](../platform/agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
 | [Linux agents](../learn/quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
 | [System Center Operations Manager management group](../platform/om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Azure Monitor is not required. Data is forwarded from the management group to the Log Analytics workspace. |
-| [Azure storage account](../platform/collect-azure-metrics-logs.md) | No | Azure storage isn't used by the solution. |
+| [Azure storage account](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure storage isn't used by the solution. |
 
 ### Data collection details
 
-The solution collects DNS inventory and DNS event-related data from the DNS servers where a Log Analytics agent is installed. This data is then uploaded to Azure Monitor and displayed in the solution dashboard. Inventory-related data, such as the number of DNS servers, zones, and resource records, is collected by running the DNS PowerShell cmdlets. The data is updated once every two days. The event-related data is collected near real time from the [analytic and audit logs](https://technet.microsoft.com/library/dn800669.aspx#enhanc) provided by enhanced DNS logging and diagnostics in Windows Server 2012 R2.
+The solution collects DNS inventory and DNS event-related data from the DNS servers where a Log Analytics agent is installed. This data is then uploaded to Azure Monitor and displayed in the solution dashboard. Inventory-related data, such as the number of DNS servers, zones, and resource records, is collected by running the DNS PowerShell cmdlets. The data is updated once every two days. The event-related data is collected near real time from the [analytic and audit logs](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc) provided by enhanced DNS logging and diagnostics in Windows Server 2012 R2.
 
 ## Configuration
 
@@ -59,13 +53,13 @@ The solution starts collecting data without the need of further configuration. H
 
 On the solution dashboard, click **Configuration** to open the DNS Analytics Configuration page. There are two types of configuration changes that you can make:
 
-- **Whitelisted Domain Names**. The solution does not process all the lookup queries. It maintains a whitelist of domain name suffixes. The lookup queries that resolve to the domain names that match domain name suffixes in this whitelist are not processed by the solution. Not processing whitelisted domain names helps to optimize the data sent to Azure Monitor. The default whitelist includes popular public domain names, such as www.google.com and www.facebook.com. You can view the complete default list by scrolling.
+- **Allowlisted Domain Names**. The solution does not process all the lookup queries. It maintains an allowlist of domain name suffixes. The lookup queries that resolve to the domain names that match domain name suffixes in this allowlist are not processed by the solution. Not processing allowlisted domain names helps to optimize the data sent to Azure Monitor. The default allowlist includes popular public domain names, such as www.google.com and www.facebook.com. You can view the complete default list by scrolling.
 
   You can modify the list to add any domain name suffix that you want to view lookup insights for. You can also remove any domain name suffix that you don't want to view lookup insights for.
 
 - **Talkative Client Threshold**. DNS clients that exceed the threshold for the number of lookup requests are highlighted in the **DNS Clients** blade. The default threshold is 1,000. You can edit the threshold.
 
-    ![Whitelisted domain names](./media/dns-analytics/dns-config.png)
+    ![Allowlisted domain names](./media/dns-analytics/dns-config.png)
 
 ## Management packs
 
@@ -101,7 +95,7 @@ The solution dashboard shows the following blades:
 
 ![DNS Security blade](./media/dns-analytics/dns-security-blade.png)
 
-When you click a client IP in the list, Log Search opens and shows the lookup details of the respective query. In the following example, DNS Analytics detected that the communication was done with an [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot):
+When you click a client IP in the list, Log Search opens and shows the lookup details of the respective query. In the following example, DNS Analytics detected that the communication was done with an [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot&threatId=2621):
 
 ![Log search results showing ircbot](./media/dns-analytics/ircbot.png)
 
@@ -112,7 +106,7 @@ The information helps you to identify the:
 - IP addresses that the domain name resolves to.
 - Malicious IP address.
 - Severity of the issue.
-- Reason for blacklisting the malicious IP.
+- Reason for blocklisting the malicious IP.
 - Detection time.
 
 **Domains Queried**. Provides the most frequent domain names being queried by the DNS clients in your environment. You can view the list of all the domain names queried. You can also drill down into the lookup request details of a specific domain name in Log Search.
@@ -174,13 +168,16 @@ On the Log Search page, you can create a query. You can filter your search resul
 1. In the **search query box**, type `DnsInventory` to view all the DNS inventory-related data for the DNS servers managed by the solution. The results list the log data for DNS servers, DNS zones, and resource records.
 
     ![DnsInventory log search](./media/dns-analytics/log-search-dnsinventory.png)
+    
+## Troubleshooting
 
-## Feedback
+Common troubleshooting steps:
 
-There are two ways you can give feedback:
+1. Missing DNS Lookups Data - To troubleshoot this issue, try resetting the config or just loading the configuration page once in portal. For resetting, just change a setting to another value, then change it back to to the original value, and save the config.
 
-- **UserVoice**. Post ideas for DNS Analytics features to work on. Visit the [Log Analytics UserVoice page](https://aka.ms/dnsanalyticsuservoice).
-- **Join our cohort**. We're always interested in having new customers join our cohorts to get early access to new features and help us improve DNS Analytics. If you are interested in joining our cohorts, fill out [this quick survey](https://aka.ms/dnsanalyticssurvey).
+## Suggestions
+
+To provide feedback, visit the [Log Analytics UserVoice page](https://aka.ms/dnsanalyticsuservoice) to post ideas for DNS Analytics features to work on. 
 
 ## Next steps
 

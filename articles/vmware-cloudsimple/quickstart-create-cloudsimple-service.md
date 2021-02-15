@@ -1,15 +1,17 @@
 ---
-title: Azure VMware Solution by CloudSimple Quickstart - Create service 
-description: Learn how to create the CloudSimple service, provision nodes, and reserve nodes  
+title: "Quickstart: Create VMware CloudSimple service"
+titleSuffix: Azure VMware Solution by CloudSimple 
+description: Learn how to create the CloudSimple service, purchase nodes, and reserve nodes  
 author: sharaths-cs 
 ms.author: dikamath 
-ms.date: 04/10/2019 
+ms.date: 08/16/2019 
 ms.topic: article 
-ms.service: vmware 
+ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-# Quickstart - Create service
+
+# Quickstart - Create Azure VMware Solution by CloudSimple service
 
 To get started, create the Azure VMware Solution by CloudSimple in the Azure portal.
 
@@ -19,25 +21,15 @@ The CloudSimple service allows you to consume Azure VMware Solution by CloudSimp
 
 To add the CloudSimple service, you must create a gateway subnet. The gateway subnet is used when creating the edge network and requires a /28 CIDR block. The gateway subnet address space must be unique. It can't overlap with any of your on-premises network address spaces or Azure virtual network address space.
 
+## Before you begin
+
+Allocate a /28 CIDR block for gateway subnet.  A gateway subnet is required per CloudSimple service and is unique to the region in which it's created. The gateway subnet is used for Azure VMware Solution by CloudSimple edge network services and requires a /28 CIDR block. The gateway subnet address space must be unique. It must not overlap with any network that communicates with the CloudSimple environment.  The networks that communicate with CloudSimple include on-premises networks and Azure virtual networks.
+
+Review [Networking Prerequisites](cloudsimple-network-checklist.md). 
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-
-## Enable Microsoft.VMwareCloudSimple resource provider
-
-Follow the steps below to enable the resource provider for CloudSimple service.
-
-1. Select **All services**.
-2. Search for and select **subscriptions**.
-
-    ![Select subscriptions](media/cloudsimple-service-select-subscriptions.png)
-
-3. Select the subscription on which you want to enable CloudSimple service
-4. Click on **Resource providers** for the subscription
-5. Use **Microsoft.VMwareCloudSimple** to filter the resource provider
-6. Select the **Microsoft.VMwareCloudSimple** resource provider and click on **Register**
-
-    ![Register resource provider](media/cloudsimple-service-enable-resource-provider.png)
 
 ## Create the service
 
@@ -81,7 +73,7 @@ To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, fi
 7. Enter the prefix to identify the nodes.
 8. Select the location for the node resources.
 9. Select the dedicated location to host the node resources.
-10. Select the node type. You can choose the [CS28 or CS36 option](cloudsimple-node.md). The latter option includes the maximum compute and memory capacity.
+10. Select the [node type](cloudsimple-node.md).
 11. Select the number of nodes to provision.
 12. Select **Review + Create**.
 13. Review the settings. To modify any settings, click **Previous**.
@@ -90,4 +82,4 @@ To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, fi
 ## Next steps
 
 * [Create Private Cloud and configure environment](quickstart-create-private-cloud.md)
-* Learn more about [CloudSimple service](https://docs.azure.cloudsimple.com/cloudsimple-service)
+* Learn more about [CloudSimple service](./cloudsimple-service.md)

@@ -1,10 +1,7 @@
 ---
-title: Tutorial - Use Apache Storm to write to Storage/Data Lake Storage - Azure HDInsight 
+title: 'Tutorial: HDInsight Apache Storm to Storage - Azure/Data Lake'
 description: Tutorial - Learn how to use Apache Storm to write to the HDFS-compatible storage for Azure HDInsight.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
@@ -27,17 +24,17 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks)
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * [Apache Maven](https://maven.apache.org/download.cgi) properly [installed](https://maven.apache.org/install.html) according to Apache.  Maven is a project build system for Java projects.
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
+* The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`.  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 
 ### Example configuration
 
-The following YAML is an excerpt from the `resources/writetohdfs.yaml` file included in the example. This file defines the Storm topology using the [Flux](https://storm.apache.org/releases/1.1.2/flux.html) framework for Apache Storm.
+The following YAML is an excerpt from the `resources/writetohdfs.yaml` file included in the example. This file defines the Storm topology using the [Flux](https://storm.apache.org/releases/current/flux.html) framework for Apache Storm.
 
 ```yaml
 components:

@@ -1,19 +1,18 @@
 ---
-title: Supported operating systems, container engines - Azure IoT Edge | Microsoft Docs 
+title: Supported operating systems, container engines - Azure IoT Edge
 description: Learn which operating systems can run the Azure IoT Edge daemon and runtime, and supported container engines for your production devices
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/22/2019
+ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Azure IoT Edge supported systems
 
-This article provides details about which systems and components are supported by IoT Edge, whether officially or in preview. 
+This article provides details about which systems and components are supported by IoT Edge, whether officially or in preview.
 
 If you experience problems while using the Azure IoT Edge service, there are several ways to seek support. Try one of the following channels for support:
 
@@ -21,7 +20,7 @@ If you experience problems while using the Azure IoT Edge service, there are sev
 
 **Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
-**Feature requests** – The Azure IoT Edge product tracks feature requests via the product’s [User Voice page](https://feedback.azure.com/forums/907045-azure-iot-edge).
+**Feature requests** – The Azure IoT Edge product tracks feature requests via the product's [User Voice page](https://feedback.azure.com/forums/907045-azure-iot-edge).
 
 ## Container engines
 
@@ -30,67 +29,122 @@ Azure IoT Edge modules are implemented as containers, so IoT Edge needs a contai
 <br>
 <center>
 
-![Moby as container runtime](./media/support/only-moby-for-production.png)
+![The Moby engine as container runtime](./media/support/only-moby-for-production.png)
 </center>
 
 ## Operating systems
-Azure IoT Edge runs on most operating systems that can run containers; however, all of these systems are not equally supported. Operating systems are grouped into tiers that represent the level of support users can expect.
+
+Azure IoT Edge runs on most operating systems that can run containers; however, not all of these systems are equally supported. Operating systems are grouped into tiers that represent the level of support users can expect.
+
 * Tier 1 systems are supported. For tier 1 systems, Microsoft:
-    * has this operating system in automated tests
-    * provides installation packages for them
+  * has this operating system in automated tests
+  * provides installation packages for them
 * Tier 2 systems are compatible with Azure IoT Edge and can be used relatively easily. For tier 2 systems:
-    * Microsoft has done ad hoc testing on the platforms or knows of a partner successfully running Azure IoT Edge on the platform
-    * Installation packages for other platforms may work on these platforms
-    
+  * Microsoft has done informal testing on the platforms or knows of a partner successfully running Azure IoT Edge on the platform
+  * Installation packages for other platforms may work on these platforms
+
 The family of the host OS must always match the family of the guest OS used inside a module's container. In other words, you can only use Linux containers on Linux and Windows containers on Windows. When using Windows, only process isolated containers are supported, not Hyper-V isolated containers.  
 
-<br>
-<center>
-
-![Host OS matches guest OS](./media/support/edge-on-device.png)
-</center>
+IoT Edge for Linux on Windows uses IoT Edge in a Linux virtual machine running on a Windows host. In this way, you can run Linux modules on a Windows device.
 
 ### Tier 1
 
-The systems listed in the following table are supported by Microsoft, either generally available or in public preview, and are tested with each new release. 
+The systems listed in the following tables are supported by Microsoft, either generally available or in public preview, and are tested with each new release.
+
+Azure IoT Edge supports modules built as either Linux or Windows containers. Linux containers can be deployed to Linux devices or deployed to Windows devices using IoT Edge for Linux on Windows. Windows containers can only be deployed to Windows devices.
+
+#### Linux containers
+
+Modules built as Linux containers can be deployed to either Linux or Windows devices. For Linux devices, the IoT Edge runtime is installed directly on the host device. For Windows devices, a Linux virtual machine prebuilt with the IoT Edge runtime runs on the host device.
+
+[IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) is currently in public preview, but is the recommended way to run IoT Edge on Windows devices.
 
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| Raspbian-stretch |  | ![Raspbian Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
-| Ubuntu Server 16.04 | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Public preview  |
+| Raspberry Pi OS Stretch |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
 | Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Public preview |
-| Windows 10 IoT Enterprise, build 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows Server 2019, build 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows Server IoT 2019, build 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows 10 IoT Core, build 17763 | Public preview |  |  |
+| Windows 10 Pro | Public preview |  |  |
+| Windows 10 Enterprise | Public preview |  |  |
+| Windows 10 IoT Enterprise | Public preview |  |  |
+| Windows Server 2019 | Public preview |  |  |
 
+All Windows operating systems must be version 1809 (build 17763) or later.
 
-The Windows operating systems listed above are the requirements for devices that run Windows containers on Windows. This configuration is the only supported configuration for production. The Azure IoT Edge installation packages for Windows allow the use of Linux containers on Windows; however, this configuration is for development and testing only. Use of Linux containers on Windows is not a supported configuration for production. Any version of Windows 10 build 14393 or newer and Windows Server 2016 or newer can be used for this development scenario.
+>[!NOTE]
+>Ubuntu Server 16.04 support ended with the release of IoT Edge version 1.1.
+
+#### Windows containers
+
+>[!IMPORTANT]
+>IoT Edge 1.1 LTS is the last release channel that will support Windows containers. Starting with version 1.2, Windows containers will not be supported. Consider using or moving to [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) to run IoT Edge on Windows devices.
+
+Modules built as Windows containers can be deployed only to Windows devices.
+
+| Operating System | AMD64 | ARM32v7 | ARM64 |
+| ---------------- | ----- | ------- | ----- |
+| Windows 10 IoT Enterprise | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows Server 2019  | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows Server IoT 2019 | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+
+All Windows operating systems must be version 1809 (build 17763). The specific build of Windows is required for IoT Edge on Windows because the version of the Windows containers must exactly match the version of the host Windows device. Windows containers currently only use build 17763.
+
+>[!NOTE]
+>Windows 10 IoT Core support ended with the release of IoT Edge version 1.1.
 
 ### Tier 2
 
-The systems listed in the following table are considered compatible with Azure IoT Edge, but are not actively tested or maintained. 
+The systems listed in the following table are considered compatible with Azure IoT Edge, but are not actively tested or maintained by Microsoft.
 
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| CentOS 7.5 | ![CentOS + AMD64](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM64](./media/tutorial-c-module/green-check.png) |
-| Debian 8 | ![Debian 8 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Debian 9 | ![Debian 9 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Debian 10<sup>1</sup> | ![Debian 10 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM64](./media/tutorial-c-module/green-check.png) |
-| RHEL 7.5 | ![RHEL 7.5 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Ubuntu 16.04 | ![Ubuntu 16.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16.04 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Ubuntu 18.04 | ![Ubuntu 18.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM64](./media/tutorial-c-module/green-check.png) |
-| Wind River 8 | ![Wind River 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Yocto | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
-| Raspbian Buster<sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
+| [CentOS 7.5](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7.1804) | ![CentOS + AMD64](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Ubuntu 20.04 <sup>1</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | ![Ubuntu 20.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20.04 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Debian 9](https://www.debian.org/releases/stretch/) | ![Debian 9 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Debian 10](https://www.debian.org/releases/buster/) | ![Debian 10 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/tutorial-c-module/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Mentor Embedded Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Embedded Linux Omni OS + AMD64](./media/tutorial-c-module/green-check.png) |  | ![Mentor Embedded Linux Omni OS + ARM64](./media/tutorial-c-module/green-check.png) |
+| [RHEL 7.5](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.5_release_notes/index) | ![RHEL 7.5 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Ubuntu 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu 18.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Wind River 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
+| Raspberry Pi OS Buster |  | ![Raspberry Pi OS Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspberry Pi OS Buster + ARM64](./media/tutorial-c-module/green-check.png) |
 
-<sup>1</sup> Debian 10 systems, including Raspian Buster, use a version of OpenSSL that IoT Edge doesn't support. Use the following command to install an earlier version before installing IoT Edge: 
+<sup>1</sup> The Ubuntu Server 18.04 installation steps in [Install or uninstall Azure IoT Edge for Linux](how-to-install-iot-edge.md) should work without any changes on Ubuntu 20.04.
 
-```bash
-sudo apt-get install libssl1.0.2
-```
+## Releases
+
+IoT Edge release assets and release notes are available on the [azure-iotedge releases](https://github.com/Azure/azure-iotedge/releases) page. This section reflects information from those release notes to help you visualize the components of each version more easily.
+
+IoT Edge components can be installed or updated individually, and are backwards compatible with components from older versions. The following table lists the components included in each release:
+
+| Release | Security daemon | Edge hub<br>Edge agent | Libiothsm | Moby |
+|--|--|--|--|--|
+| **1.1.0 LTS**<sup>1</sup> | 1.1.0 | 1.1.0 | 1.1.0 |   |
+| **1.0.10** | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br>1.0.10.3<br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 |  |
+| **1.0.9** | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 |  |
+| **1.0.8** | 1.0.8 | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
+| **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4 (ARMv7hl, CentOS) |
+| **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
+| **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
+
+<sup>1</sup>IoT Edge 1.1 is the first long-term support (LTS) release channel. This version introduced no new features, but will receive bug fixes and security patches. IoT Edge 1.1 LTS uses .NET Core 3.1, and will be supported until December 3, 2022 to match the [.NET Core and .NET 5 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+
+>[!IMPORTANT]
+>With the release of a long-term support channel, we recommend that all current customers running 1.0.x upgrade their devices to 1.1.x to receive ongoing support.
+
+IoT Edge uses the Microsoft.Azure.Devices.Client SDK. For more information, see the [Azure IoT C# SDK GitHub repo](https://github.com/Azure/azure-iot-sdk-csharp) or the [Azure SDK for .NET reference content](/dotnet/api/overview/azure/iot/client). The following list shows the version of the client SDK that each release is tested against:
+
+| IoT Edge version | Microsoft.Azure.Devices.Client SDK version |
+|------------------|--------------------------------------------|
+| 1.0.10           | 1.28.0                                     |
+| 1.0.9            | 1.21.1                                     |
+| 1.0.8            | 1.20.3                                     |
+| 1.0.7            | 1.20.1                                     |
+| 1.0.6            | 1.17.1                                     |
+| 1.0.5            | 1.17.1                                     |
 
 ## Virtual Machines
+
 Azure IoT Edge can be run in virtual machines. Using a virtual machine as an IoT Edge device is common when customers want to augment existing infrastructure with edge intelligence. The family of the host VM OS must match the family of the guest OS used inside a module's container. This requirement is the same as when Azure IoT Edge is run directly on a device. Azure IoT Edge is agnostic of the underlying virtualization technology and works in VMs powered by platforms like Hyper-V and vSphere.
 
 <br>
@@ -100,13 +154,14 @@ Azure IoT Edge can be run in virtual machines. Using a virtual machine as an IoT
 </center>
 
 ## Minimum system requirements
+
 Azure IoT Edge runs great on devices as small as a Raspberry Pi3 to server grade hardware. Choosing the right hardware for your scenario depends on the workloads that you want to run. Making the final device decision can be complicated; however, you can easily start prototyping a solution on traditional laptops or desktops.
 
-Experience while prototyping will help guide your final device selection. Questions you should consider include: 
+Experience while prototyping will help guide your final device selection. Questions you should consider include:
 
 * How many modules are in your workload?
-* How many layers do your modules’ containers share?
-* In what language are your modules written? 
+* How many layers do your modules' containers share?
+* In what language are your modules written?
 * How much data will your modules be processing?
 * Do your modules need any specialized hardware for accelerating their workloads?
 * What are the desired performance characteristics of your solution?

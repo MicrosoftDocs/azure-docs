@@ -1,14 +1,15 @@
----
-title: Get started with Azure IoT Hub module identity and module twin (Node.js) | Microsoft Docs
+﻿---
+title: Start with Azure IoT Hub module identity & module twin (Node.js)
 description: Learn how to create module identity and update module twin using IoT SDKs for Node.js.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: node
+ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
+ms.custom: amqp, devx-track-js
 ---
 
 # Get started with IoT Hub module identity and module twin (Node.js)
@@ -16,7 +17,7 @@ ms.date: 04/26/2018
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
+> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
 
 At the end of this tutorial, you have two Node.js apps:
 
@@ -27,11 +28,11 @@ At the end of this tutorial, you have two Node.js apps:
 > [!NOTE]
 > For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
-To complete this tutorial, you need the following:
+## Prerequisites
+
+* Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) describes how to install Node.js for this tutorial on either Windows or Linux.
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
-
-* Install the latest [Node.js SDK](https://github.com/Azure/azure-iot-sdk-node).
 
 ## Create an IoT hub
 
@@ -49,12 +50,12 @@ In this section, you create a Node.js app that creates a device identity and a m
 
 1. Create a directory to hold your code.
 
-2. Inside of that directory, first run **npm init -y** to create an empty package.json with defaults. This is the project file for your code.
+2. Inside of that directory, first run **npm init -y** to create an empty package.json with defaults. This is the project file for your code.
 
-3. Run **npm install -S azure-iothub\@modules-preview** to install the service SDK inside the **node_modules** subdirectory.
+3. Run **npm install -S azure-iothub\@modules-preview** to install the service SDK inside the **node_modules** subdirectory.
 
     > [!NOTE]
-    > The subdirectory name node_modules uses the word module to mean "a node library". The term here has nothing to do with IoT Hub modules.
+    > The subdirectory name node_modules uses the word module to mean "a node library". The term here has nothing to do with IoT Hub modules.
 
 4. Create the following .js file in your directory. Call it **add.js**. Copy and paste your hub connection string and hub name.
 
@@ -131,10 +132,10 @@ In this section, you create a Node.js app on your simulated device that updates 
 2. Similar to you did in the step above, create a directory for your device code and use NPM to initialize it and install the device SDK (**npm install -S azure-iot-device-amqp\@modules-preview**).
 
    > [!NOTE]
-   > The npm install command may feel slow. Be patient, it's pulling down lots of code from the package repository.
+   > The npm install command may feel slow. Be patient, it's pulling down lots of code from the package repository.
 
    > [!NOTE]
-   > If you see an error that says npm ERR! registry error parsing json, this is safe to ignore. If you see an error that says npm ERR! registry error parsing json, this is safe to ignore.
+   > If you see an error that says npm ERR! registry error parsing json, this is safe to ignore. If you see an error that says npm ERR! registry error parsing json, this is safe to ignore.
 
 3. Create a file called twin.js. Copy and paste your module identity string.
 
@@ -187,18 +188,23 @@ In this section, you create a Node.js app on your simulated device that updates 
     });
     ```
 
-4. Now, run this using the command **node twin.js**.
+4. Now, run this using the command **node twin.js**.
 
-    ```
-    F:\temp\module_twin>node twin.js
-    client opened
-    twin contents:
-    { reported: { update: [Function: update], '$version': 1 },
-      desired: { '$version': 1 } }
-    new desired properties received:
-    {"$version":1}
-    twin state reported
-    ```
+   ```cmd/sh
+   F:\temp\module_twin>node twin.js
+   ```
+
+   You will then see:
+
+   ```console
+   client opened
+   twin contents:
+   { reported: { update: [Function: update], '$version': 1 },
+     desired: { '$version': 1 } }
+   new desired properties received:
+   {"$version":1}
+   twin state reported
+   ```
 
 ## Next steps
 
@@ -206,4 +212,4 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 * [Getting started with device management](iot-hub-node-node-device-management-get-started.md)
 
-* [Getting started with IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Getting started with IoT Edge](../iot-edge/quickstart-linux.md)

@@ -1,18 +1,18 @@
 ---
-title: Real User Measurements to Azure Traffic Manager with Visual Studio Mobile Center | Microsoft Docs
+title: Real User Measurements with Visual Studio Mobile Center - Azure Traffic Manager
 description: Set up your mobile application developed using Visual Studio Mobile Center to send Real User Measurements to Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
-author: asudbring
-manager: twooley
+author: duongau
+
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: allensu
-ms.custom: 
+ms.author: duau
+ms.custom: devx-track-js
 ---
 
 # How to send Real User Measurements to Traffic Manager with Visual Studio Mobile Center
@@ -49,7 +49,7 @@ To obtain the RUM Key using Azure portal using the following procedure:
 ## Step 2: Instrument your app with the RUM package of Mobile Center SDK
 
 If you're new to Visual Studio Mobile Center, visit its [website](https://mobile.azure.com). For detailed instructions on SDK integration, see
-[Getting Started with the Android SDK](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android).
+[Getting Started with the Android SDK](/mobile-center/sdk/getting-started/Android).
 
 To use Real User Measurements, complete the following procedure:
 
@@ -95,8 +95,7 @@ To use Real User Measurements, complete the following procedure:
 ## Next steps
 - Learn more about [Real User Measurements](traffic-manager-rum-overview.md)
 - Learn [how Traffic Manager works](traffic-manager-overview.md)
-- Learn more about [Mobile Center](https://docs.microsoft.com/mobile-center/)
+- Learn more about [Mobile Center](/mobile-center/)
 - [Sign up](https://mobile.azure.com) for Mobile Center
 - Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager
-- Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
-
+- Learn how to [create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md)

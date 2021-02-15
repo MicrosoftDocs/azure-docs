@@ -1,6 +1,6 @@
 ---
 title: Azure infrastructure integrity
-description: This article addresses the integrity of the Azure infrastructure.
+description: Learn about Azure infrastructure integrity and the steps Microsoft takes to secure it, such as virus scans on software component builds.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -9,6 +9,7 @@ editor: TomSh
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

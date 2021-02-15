@@ -1,6 +1,6 @@
 ---
-title: Configure message routing for Azure IoT Hub using the Azure CLI | Microsoft Docs
-description: Configure message routing for Azure IoT Hub using the Azure CLI
+title: Tutorial - Configure message routing for Azure IoT Hub using the Azure CLI
+description: Tutorial - Configure message routing for Azure IoT Hub using the Azure CLI. Depending on properties in the message, route to either a storage account or a Service Bus queue.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. I want to be able to set up the resource and the routing using the Azure CLI.
 ---
 
@@ -26,22 +26,22 @@ If you want to view the finished script, download the [Azure IoT C# Samples](htt
 
 ## Use the Azure CLI to create your resources
 
+Copy and paste the script below into Cloud Shell and press Enter. It runs the script one line at a time. This first section of the script will create the base resources for this tutorial, including the storage account, IoT Hub, Service Bus Namespace, and Service Bus queue. As you go through the rest of the tutorial, copy each block of script and paste it into Cloud Shell to run it.
+
+> [!TIP]
+> A tip about debugging: this script uses the continuation symbol (the backslash `\`) to make the script more readable. If you have a problem running the script, make sure your Cloud Shell session is running `bash` and that there are no spaces after any of the backslashes.
+> 
+
 There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make this easier, those resource names are appended with a random alphanumeric value called *randomValue*. The randomValue is generated once at the top of the script and appended to the resource names as needed throughout the script. If you don't want it to be random, you can set it to an empty string or to a specific value. 
 
 > [!IMPORTANT]
 > The variables set in the initial script are also used by the routing script, so run all of the script in the same Cloud Shell session. If you open a new session to run the script for setting up the routing, several of the variables will be missing values.
 >
 
-Copy and paste the script below into Cloud Shell and press Enter. It runs the script one line at a time. This first section of the script will create the base resources for this tutorial, including the storage account, IoT Hub, Service Bus Namespace, and Service Bus queue. As you go through the rest of the tutorial, copy each block of script and paste it into Cloud Shell to run it.
-
-> [!TIP]
-> A tip about debugging: this script uses the continuation symbol (the backslash `\`) to make the script more readable. If you have a problem running the script, make sure there are no spaces after any of the backslashes.
-> 
-
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account. 
-# This field is used when setting up the routing rules.
-subscriptionID=$(az account show --query id)
+# This field is used when setting up the routing queries.
+subscriptionID=$(az account show --query id -o tsv)
 
 # Concatenate this number onto the resources that have to be globally unique.
 # You can set this to "" or to a specific value if you don't want it to be random.
@@ -51,7 +51,7 @@ randomValue=$RANDOM
 # This command installs the IOT Extension for Azure CLI.
 # You only need to install this the first time.
 # You need it to create the device identity. 
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Set the values for the resource names that 
 #   don't have to be globally unique.
@@ -143,7 +143,7 @@ Now that the base resources are set up, you can configure the message routing.
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-To create a routing endpoint, use [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). To create the message route for the endpoint, use [az iot hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
+To create a routing endpoint, use [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create&preserve-view=true). To create the message route for the endpoint, use [az iot hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create&preserve-view=true).
 
 ### Route to a storage account
 
@@ -151,7 +151,7 @@ To create a routing endpoint, use [az iot hub routing-endpoint create](/cli/azur
 
 First, set up the endpoint for the storage account, then set up the route. 
 
-These variables are set:
+These are the variables used by the script that must be set within your Cloud Shell session:
 
 **storageConnectionString**: This value is retrieved from the storage account set up in the previous script. It is used by the message routing to access the storage account.
 
@@ -171,7 +171,7 @@ These variables are set:
 
 **endpointName**: This field is the name identifying the endpoint. 
 
-**enabled**: This field defaults to `true`, indicating that the message route should be enabled after created.
+**enabled**: This field defaults to `true`, indicating that the message route should be enabled after being created.
 
 **condition**: This field is the query used to filter for the messages sent to this endpoint. The query condition for the messages being routed to storage is `level="storage"`.
 
@@ -253,7 +253,7 @@ sbqConnectionString=$(az servicebus queue authorization-rule keys list \
 echo "service bus queue connection string = " $sbqConnectionString
 ```
 
-Now set up the routing endpoint and the message route for the Service Bus queue. These variables are set:
+Now set up the routing endpoint and the message route for the Service Bus queue. These are the variables used by the script that must be set within your Cloud Shell session:
 
 **endpointName**: This field is the name identifying the endpoint. 
 

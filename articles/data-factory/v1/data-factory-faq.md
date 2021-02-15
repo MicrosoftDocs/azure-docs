@@ -1,23 +1,14 @@
 ---
 title: Azure Data Factory - Frequently Asked Questions
 description: Frequently asked questions about Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
+author: dcstwh
+ms.author: weetok
+ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Azure Data Factory - Frequently Asked Questions
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [frequently asked question - Data Factory](../frequently-asked-questions.md).
@@ -44,7 +35,7 @@ See [Data Factory Pricing Details page][adf-pricing-details] for the pricing det
 Data Factory is available in **US West** and **North Europe**. The compute and storage services used by data factories can be in other regions. See [Supported regions](data-factory-introduction.md#supported-regions).
 
 ### What are the limits on number of data factories/pipelines/activities/datasets?
-See **Azure Data Factory Limits** section of the [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md#data-factory-limits) article.
+See **Azure Data Factory Limits** section of the [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) article.
 
 ### What is the authoring/developer experience with Azure Data Factory service?
 You can author/create data factories using one of the following tools/SDKs:
@@ -75,9 +66,9 @@ The following table provides a list of compute environments supported by Data Fa
 | --- | --- |
 | [On-demand HDInsight cluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning Studio (classic)](data-factory-compute-linked-services.md#azure-machine-learning-studio-classic-linked-service) |[Studio (classic) activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Stored Procedure](data-factory-stored-proc-activity.md) |
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure Synapse Analytics](data-factory-compute-linked-services.md#azure-synapse-analytics-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Stored Procedure](data-factory-stored-proc-activity.md) |
 
 ### How does Azure Data Factory compare with SQL Server Integration Services (SSIS)? 
 See the [Azure Data Factory vs. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) presentation from one of our MVPs (Most Valued Professionals): Reza Rad. Some of the recent changes in Data Factory may not be listed in the slide deck. We are continuously adding more capabilities to Azure Data Factory. We are continuously adding more capabilities to Azure Data Factory. We will incorporate these updates into the comparison of data integration technologies from Microsoft sometime later this year.   
@@ -212,4 +203,4 @@ If you really want to stop all the executions immediately, the only way would be
 [adf-pricing-details]: https://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: https://azure.microsoft.com/pricing/details/hdinsight/
 [hdinsight-alternate-storage]: https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
-[hdinsight-alternate-storage-2]: https://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
+[hdinsight-alternate-storage-2]: /archive/blogs/cindygross/use-additional-storage-accounts-with-hdinsight-hive

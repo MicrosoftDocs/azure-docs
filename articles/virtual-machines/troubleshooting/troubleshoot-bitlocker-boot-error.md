@@ -1,30 +1,28 @@
-﻿---
+---
 title: Troubleshooting BitLocker boot errors on an Azure VM | Microsoft Docs
 description: Learn how to troubleshoot BitLocker boot errors in an Azure VM
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/25/2019
+ms.date: 11/20/2020
 ms.author: genli
+ms.custom: has-adal-ref
 ---
-
 # BitLocker boot errors on an Azure VM
 
  This article describes BitLocker errors that you may experience when you start a Windows virtual machine (VM) in Microsoft Azure.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
-
 ## Symptom
 
- A Windows VM doesn't start. When you check the screenshots in the [Boot diagnostics](../windows/boot-diagnostics.md) window, you see one of the following error messages:
+ A Windows VM doesn't start. When you check the screenshots in the [Boot diagnostics](./boot-diagnostics.md) window, you see one of the following error messages:
 
 - Plug in the USB driver that has the BitLocker key
 
@@ -39,19 +37,22 @@ This problem may occur if the VM cannot locate the BitLocker Recovery Key (BEK) 
 
 ## Solution
 
-To resolve this problem, stop and deallocate the VM, and then restart it. This operation forces the VM to retrieve the BEK file from the Azure Key Vault, and then put it on the encrypted disk. 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
+To resolve this problem, stop and deallocate the VM, and then start it. This operation forces the VM to retrieve the BEK file from the Azure Key Vault, and then put it on the encrypted disk. 
 
 If this method does not the resolve the problem, follow these steps to restore the BEK file manually:
 
 1. Take a snapshot of the system disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
-2. [Attach the system disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md). To run the [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) command in the step 7, the **BitLocker Drive Encryption** feature must be enabled in the recovery VM.
+2. [Attach the system disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md). To run the [manage-bde](/windows-server/administration/windows-commands/manage-bde) command in the step 7, the **BitLocker Drive Encryption** feature must be enabled in the recovery VM.
 
     When you attach a managed disk, you might receive a "contains encryption settings and therefore cannot be used as a data disk” error message. In this situation, run the following script to try again to attach the disk:
 
     ```Powershell
     $rgName = "myResourceGroup"
     $osDiskName = "ProblemOsDisk"
-
+    # Set the EncryptionSettingsEnabled property to false, so you can attach the disk to the recovery VM.
     New-AzDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzDisk -diskName $osDiskName -ResourceGroupName $rgName
 
     $recoveryVMName = "myRecoveryVM" 
@@ -66,7 +67,7 @@ If this method does not the resolve the problem, follow these steps to restore t
     ```
      You cannot attach a managed disk to a VM that was restored from a blob image.
 
-3. After the disk is attached, make a remote desktop connection to the recovery VM so that you can run some Azure PowerShell scripts. Make sure that you have the [latest version of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installed on the recovery VM.
+3. After the disk is attached, make a remote desktop connection to the recovery VM so that you can run some Azure PowerShell scripts. Make sure that you have the [latest version of Azure PowerShell](/powershell/azure/) installed on the recovery VM.
 
 4. Open an elevated Azure PowerShell session (Run as administrator). Run the following commands to sign in to Azure subscription:
 
@@ -83,21 +84,18 @@ If this method does not the resolve the problem, follow these steps to restore t
             | Sort-Object -Property Created `
             | ft  Created, `
                 @{Label="Content Type";Expression={$_.ContentType}}, `
+                @{Label ="MachineName"; Expression = {$_.Tags.MachineName}}, `
                 @{Label ="Volume"; Expression = {$_.Tags.VolumeLetter}}, `
                 @{Label ="DiskEncryptionKeyFileName"; Expression = {$_.Tags.DiskEncryptionKeyFileName}}
     ```
 
-    The following is sample of the output. Locate the BEK file name for the attached disk. In this case, we assume that the drive letter of the attached disk is F, and the BEK file is EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK.
+    The following is sample of the output. In this case, we assume that the file name is EF7B2F5A-50C6-4637-0001-7F599C12F85C.BEK.
 
     ```
-    Created             Content Type Volume DiskEncryptionKeyFileName               
-    -------             ------------ ------ -------------------------               
-    4/5/2018 7:14:59 PM Wrapped BEK  C:\    B4B3E070-836C-4AF5-AC5B-66F6FDE6A971.BEK
-    4/7/2018 7:21:16 PM Wrapped BEK  F:\    EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
-    4/7/2018 7:26:23 PM Wrapped BEK  G:\    70148178-6FAE-41EC-A05B-3431E6252539.BEK
-    4/7/2018 7:26:26 PM Wrapped BEK  H:\    5745719F-4886-4940-9B51-C98AFABE5305.BEK
+    Created               Content Type Volume MachineName DiskEncryptionKeyFileName
+    -------               ------------ ------ ----------- -------------------------
+    11/20/2020 7:41:56 AM BEK          C:\    myVM   EF7B2F5A-50C6-4637-0001-7F599C12F85C.BEK
     ```
-
     If you see two duplicated volumes, the volume that has the newer timestamp is the current BEK file that is used by the recovery VM.
 
     If the **Content Type** value is **Wrapped BEK**, go to the [Key Encryption Key (KEK) scenarios](#key-encryption-key-scenario).
@@ -108,9 +106,10 @@ If this method does not the resolve the problem, follow these steps to restore t
 
     ```powershell
     $vault = "myKeyVault"
-    $bek = " EF7B2F5A-50C6-4637-9F13-7F599C12F85C"
+    $bek = "EF7B2F5A-50C6-4637-0001-7F599C12F85C"
     $keyVaultSecret = Get-AzKeyVaultSecret -VaultName $vault -Name $bek
-    $bekSecretBase64 = $keyVaultSecret.SecretValueText
+    $bstr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($keyVaultSecret.SecretValue)
+    $bekSecretBase64 = [Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
     $bekFileBytes = [Convert]::FromBase64String($bekSecretbase64)
     $path = "C:\BEK\DiskEncryptionKeyFileName.BEK"
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
@@ -119,30 +118,35 @@ If this method does not the resolve the problem, follow these steps to restore t
 7.	To unlock the attached disk by using the BEK file, run the following command.
 
     ```powershell
-    manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
+    manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-0001-7F599C12F85C.BEK
     ```
     In this sample, the attached OS disk is drive F. Make sure that you use the correct drive letter. 
 
-    - If the disk was successfully unlocked by using the BEK key. we can consider the BitLocker problem to be resolved. 
+8. After the disk was successfully unlocked by using the BEK key, detach the disk from the recovery VM, and then recreate the VM by using this new OS disk.
 
-    - If using the BEK key does not unlock the disk, you can use suspend protection to temporarily turn BitLocker OFF by running the following command
-    
-        ```powershell
-        manage-bde -protectors -disable F: -rc 0
-        ```      
-    - If you are going to rebuild the VM by using the dytem disk, you must fully decrypt the drive. To do this, run the following command:
+    > [!NOTE]
+    > Swapping OS Disk is not supported for VMs using disk encryption.
 
-        ```powershell
-        manage-bde -off F:
-        ```
-8.	Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as a system disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks-windows.md).
+9. If the new VM still cannot boot normally, try one of following steps after you unlock the drive:
+
+    - Suspend protection to temporarily turn BitLocker OFF by running the following:
+
+    ```console
+    manage-bde -protectors -disable F: -rc 0
+    ```
+
+    - Fully decrypt the drive. To do this, run the following command:
+
+    ```console
+    manage-bde -off F:
+    ```
 
 ### Key Encryption Key scenario
 
 For a Key Encryption Key scenario, follow these steps:
 
 1. Make sure that the logged-in user account requires the "unwrapped" permission in the Key Vault Access policies in the **USER|Key permissions|Cryptographic Operations|Unwrap Key**.
-2. Save the following scripts to a .PS1 file:
+2. Save the following script to a .PS1 file:
 
     ```powershell
     #Set the Parameters for the script
@@ -163,11 +167,21 @@ For a Key Encryption Key scenario, follow these steps:
             [string] 
             $adTenant
             )
-    # Load ADAL Assemblies. The following script assumes that the Azure PowerShell version you installed is 1.0.0. 
-    $adal = "${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts\1.0.0\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
-    $adalforms = "${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts\1.0.0\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll"
+    # Load ADAL Assemblies
+    $adal = "${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts\$(((dir ${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts).name) | select -last 1)\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
+    $adalforms = "${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts\$(((dir ${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts).name) | select -last 1)\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll"
+    If ((Test-Path -Path $adal) -and (Test-Path -Path $adalforms)) { 
+
     [System.Reflection.Assembly]::LoadFrom($adal)
     [System.Reflection.Assembly]::LoadFrom($adalforms)
+     }
+     else
+     {
+    $adal="${env:userprofile}\Documents\WindowsPowerShell\Modules\Az.Accounts\$(((dir ${env:userprofile}\Documents\WindowsPowerShell\Modules\Az.Accounts).name) | select -last 1)\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
+    $adalforms ="${env:userprofile}\Documents\WindowsPowerShell\Modules\Az.Accounts\$(((dir ${env:userprofile}\Documents\WindowsPowerShell\Modules\Az.Accounts).name) | select -last 1)\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll"
+    [System.Reflection.Assembly]::LoadFrom($adal)
+    [System.Reflection.Assembly]::LoadFrom($adalforms)
+     }  
 
     # Set well-known client ID for AzurePowerShell
     $clientId = "1950a258-227b-4e31-a9cf-717495945fc2" 
@@ -180,6 +194,7 @@ For a Key Encryption Key scenario, follow these steps:
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
     $authResult = $authContext.AcquireTokenAsync($resourceAppIdURI, $clientId, $redirectUri, $platformParameters).result
     # Generate auth header 
     $authHeader = $authResult.CreateAuthorizationHeader()
@@ -194,8 +209,9 @@ For a Key Encryption Key scenario, follow these steps:
     ########################################################################################################################
 
     #Get wrapped BEK and place it in JSON object to send to KeyVault REST API
-    $keyVaultSecret = Get-AzureKeyVaultSecret -VaultName $keyVaultName -Name $secretName
-    $wrappedBekSecretBase64 = $keyVaultSecret.SecretValueText
+    $keyVaultSecret = Get-AzKeyVaultSecret -VaultName $keyVaultName -Name $secretName
+    $bstr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($keyVaultSecret.SecretValue)
+    $wrappedBekSecretBase64 = [Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
     $jsonObject = @"
     {
     "alg": "RSA-OAEP",
@@ -204,7 +220,7 @@ For a Key Encryption Key scenario, follow these steps:
     "@
 
     #Get KEK Url
-    $kekUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name $kekName).Key.Kid;
+    $kekUrl = (Get-AzKeyVaultKey -VaultName $keyVaultName -Name $kekName).Key.Kid;
     $unwrapKeyRequestUrl = $kekUrl+ "/unwrapkey?api-version=2015-06-01";
 
     #Call KeyVault REST API to Unwrap 
@@ -226,22 +242,27 @@ For a Key Encryption Key scenario, follow these steps:
     #Convert base64 string to bytes and write to BEK file
     $bekFileBytes = [System.Convert]::FromBase64String($base64Bek);
     [System.IO.File]::WriteAllBytes($bekFilePath,$bekFileBytes)
+
+    #Delete the key from the memory
+    [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr)
+    clear-variable -name wrappedBekSecretBase64
     ```
-3. Set the parameters. The script will process the KEK secret to create the BEK key, and then save it to a local folder on the recovery VM.
+3. Set the parameters. The script will process the KEK secret to create the BEK key, and then save it to a local folder on the recovery VM. If you receive errors when you run the script, see the [script troubleshooting](#script-troubleshooting) section.
 
 4. You see the following output when the script begins:
 
-        GAC    Version        Location                                                                              
-        ---    -------        --------                                                                              
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
+    GAC    Version        Location                                                                              
+    ---    -------        --------                                                                              
+    False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
+    False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
 
     When the script finishes, you see the following output:
 
-        VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
-        version=2015-06-01 with -1-byte payload
-        VERBOSE: received 360-byte response of content type application/json; charset=utf-8
-
+    ```output
+    VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
+    version=2015-06-01 with -1-byte payload
+    VERBOSE: received 360-byte response of content type application/json; charset=utf-8
+    ```
 
 5. To unlock the attached disk by using the BEK file, run the following command:
 
@@ -250,17 +271,41 @@ For a Key Encryption Key scenario, follow these steps:
     ```
     In this sample, the attached OS disk is drive F. Make sure that you use the correct drive letter. 
 
-    - If the disk was successfully unlocked by using the BEK key. we can consider the BitLocker problem to be resolved. 
+6. After the disk was successfully unlocked by using the BEK key, detach the disk from the recovery VM, and then recreate the VM by using this new OS disk. 
 
-    - If using the BEK key does not unlock the disk, you can use suspend protection to temporarily turn BitLocker OFF by running the following command
-    
-        ```powershell
-        manage-bde -protectors -disable F: -rc 0
-        ```      
-    - If you are going to rebuild the VM by using the dytem disk, you must fully decrypt the drive. To do this, run the following command:
+    > [!NOTE]
+    > Swapping OS Disk is not supported for VMs using disk encryption.
 
-        ```powershell
-        manage-bde -off F:
-        ```
+7. If the new VM still cannot boot normally, try one of following steps after you unlock the drive:
 
-6. Detach the disk from the recovery VM, and then re-attach the disk to the affected VM as a system disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks-windows.md).
+    - Suspend protection to temporarily turn BitLocker OFF by running the following command:
+
+    ```console
+    manage-bde -protectors -disable F: -rc 0
+    ```
+
+    - Fully decrypt the drive. To do this, run the following command:
+
+    ```console
+    manage-bde -off F:
+    ```
+
+## Script troubleshooting
+
+**Error: Could not load file or assembly**
+
+This error occurs because the paths of the ADAL Assemblies are wrong. You can search for `Az.Accounts` folder to find the correct path.
+
+**Error: Get-AzKeyVaultSecret or Get-AzKeyVaultSecret is not recognized as the name of a cmdlet**
+
+If you are using the old AZ PowerShell module, you must change the two commands to `Get-AzureKeyVaultSecret` and `Get-AzureKeyVaultSecret`.
+
+**Parameters samples**
+
+| Parameters  | Value sample  |Comments   |
+|---|---|---|
+|  $keyVaultName | myKeyVault2112852926  | The name of the key Vault that stores the key |
+|$kekName   |mykey   | The name of the key that is used to encrypt the VM|
+|$secretName   |7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D  | The name of the secret of the VM key|
+|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D.BEK |The path for writing BEK file.|
+|$adTenant  |contoso.onmicrosoft.com   | FQDN or GUID of your Azure Active Directory that hosts the key vault |

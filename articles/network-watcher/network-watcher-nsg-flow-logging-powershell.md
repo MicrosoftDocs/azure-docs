@@ -1,20 +1,18 @@
 ---
-title: Manage Network Security Group Flow logs with Azure Network Watcher - PowerShell | Microsoft Docs
+title: Manage NSG Flow logs - Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: This page explains how to manage Network Security Group Flow logs in Azure Network Watcher with PowerShell
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
+author: damendo
 
-ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: kumud
+ms.date: 01/07/2021
+ms.author: damendo
 
 ---
 
@@ -59,7 +57,7 @@ Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id 
 Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 2
 
 #Configure Version 2 FLow Logs with Traffic Analytics Configured
-Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 2 -EnableTrafficAnalytics -WorkspaceResourceId $workspaceResourceId -WorkspaceGUID $workspaceid -WorkspaceLocation $workspaceRegion
+Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 2 -EnableTrafficAnalytics -WorkspaceResourceId $workspaceResourceId -WorkspaceGUID $workspaceGUID -WorkspaceLocation $workspaceLocation
 
 #Query Flow Log Status
 Get-AzNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $nsg.Id

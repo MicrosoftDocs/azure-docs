@@ -1,12 +1,10 @@
 ---
 title: Anomaly detection in Azure Stream Analytics
 description: This article describes how to use Azure Stream Analytics and Azure Machine Learning together to detect anomalies.
-services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: jasonh
+author: krishna0815
+ms.author: krishmam
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/21/2019
 ---
 
@@ -17,6 +15,12 @@ Available in both the cloud and Azure IoT Edge, Azure Stream Analytics offers bu
 The machine learning models assume a uniformly sampled time series. If the time series is not uniform, you may insert an aggregation step with a tumbling window prior to calling anomaly detection.
 
 The machine learning operations do not support seasonality trends or multi-variate correlations at this time.
+
+## Anomaly detection using machine learning in Azure Stream Analytics
+
+The following video demonstrates how to detect an anomaly in real time using machine learning functions in Azure Stream Analytics. 
+
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics/player]
 
 ## Model behavior
 
@@ -32,7 +36,7 @@ An anomaly generator available [here](https://aka.ms/asaanomalygenerator) can be
 
 ## Spike and dip
 
-Temporary anomalies in a time series event stream are known as spikes and dips. Spikes and dips can be monitored using the Machine Learning based operator, [AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+Temporary anomalies in a time series event stream are known as spikes and dips. Spikes and dips can be monitored using the Machine Learning based operator, [AnomalyDetection_SpikeAndDip](/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
 ).
 
 ![Example of spike and dip anomaly](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
@@ -64,7 +68,7 @@ FROM AnomalyDetectionStep
 
 ## Change point
 
-Persistent anomalies in a time series event stream are changes in the distribution of values in the event stream, like level changes and trends. In Stream Analytics, such anomalies are detected using the Machine Learning based [AnomalyDetection_ChangePoint](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) operator.
+Persistent anomalies in a time series event stream are changes in the distribution of values in the event stream, like level changes and trends. In Stream Analytics, such anomalies are detected using the Machine Learning based [AnomalyDetection_ChangePoint](/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) operator.
 
 Persistent changes last much longer than spikes and dips and could indicate catastrophic event(s). Persistent changes are not usually visible to the naked eye, but can be detected with the **AnomalyDetection_ChangePoint** operator.
 
@@ -144,17 +148,10 @@ Sample code to run the non-partitioned configurations above is located in the [S
 ### Identifying bottlenecks
 Use the Metrics pane in your Azure Stream Analytics job to identify bottlenecks in your pipeline. Review **Input/Output Events** for throughput and ["Watermark Delay"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) or **Backlogged Events** to see if the job is keeping up with the input rate. For Event Hub metrics, look for **Throttled Requests** and adjust the Threshold Units accordingly. For Cosmos DB metrics, review **Max consumed RU/s per partition key range** under Throughput to ensure your partition key ranges are uniformly consumed. For Azure SQL DB, monitor **Log IO** and **CPU**.
 
-## Anomaly detection using machine learning in Azure Stream Analytics
-
-The following video demonstrates how to detect an anomaly in real time using machine learning functions in Azure Stream Analytics. 
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Anomaly-detection-using-machine-learning-in-Azure-Stream-Analytics/player]
-
 ## Next steps
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)

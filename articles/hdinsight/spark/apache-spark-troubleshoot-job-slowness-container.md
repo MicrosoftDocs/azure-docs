@@ -1,14 +1,12 @@
 ---
-title: Apache Spark job runs slowly when the Azure storage container contains many files in Azure HDInsight
+title: Apache Spark slow when Azure HDInsight storage has many files
 description: Apache Spark job runs slowly when the Azure storage container contains many files in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.date: 07/29/2019
+ms.date: 08/21/2019
 ---
 
-# Scenario: Apache Spark job run slowly when the Azure storage container contains many files in Azure HDInsight
+# Apache Spark job run slowly when the Azure storage container contains many files in Azure HDInsight
 
 This article describes troubleshooting steps and possible resolutions for issues when using Apache Spark components in Azure HDInsight clusters.
 
@@ -22,8 +20,6 @@ This is a known Spark issue. The slowness comes from the `ListBlob` and `GetBlob
 
 To track partitions, Spark has to maintain a `FileStatusCache` which contains info about directory structure. Using this cache, Spark can parse the paths and be aware of available partitions. The benefit of tracking partitions is that Spark only touches the necessary files when you read data. To keep this information up-to-date, when you write new data, Spark has to list all files under the directory and update this cache.
 
-In Spark 1.6, every time you update the directory, you (1) clear the cache (2) recursively list all files and (3) update the whole cache. This will lead to many listing operations.
-
 In Spark 2.1, while we do not need to update the cache after every write, Spark will check whether an existing partition column matches with the proposed one in the current write request, so it will also lead to listing operations at the beginning of every write.
 
 In Spark 2.2, when writing data with append mode, this performance problem should be fixed.
@@ -36,10 +32,4 @@ For every Nth micro batch where N % 100 == 0 (100 is just an example), move exis
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
-
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
-
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
-
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

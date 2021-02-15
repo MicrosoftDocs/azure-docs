@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions on Microsoft Azure StorSimple and Cloud Solutions Provider Program for partners | Microsoft Docs
+title: 'FAQ for partners: StorSimple for Cloud Solutions Provider Program'
 description: Find answers to some common questions regarding StorSimple and CSP for partners.
 services: storsimple
 documentationcenter: NA
@@ -36,10 +36,10 @@ Questions and answers are arranged into the following categories:
 
 For more information, go to [StorSimple in CSP program](https://www.microsoft.com/en-us/server-cloud/products/storsimple/). 
 
-### Is StorSimple a usage-based or based on seat licenses like Office 365 and Enterprise Mobility Suite (EMS)?
+### Is StorSimple a usage-based or based on seat licenses like Microsoft 365 and Enterprise Mobility Suite (EMS)?
 StorSimple is a usage-based service. Customers who procure StorSimple Virtual Array via the CSP route pay for the usage of virtual array and Azure, billed as separate line-items in the CSP bill. 
 
-### Is the StorSimple business model similar to that of other services such as the Office 365 and the Enterprise Mobility Suite? 
+### Is the StorSimple business model similar to that of other services such as the Microsoft 365 and the Enterprise Mobility Suite? 
 Yes. The model is a wholesale discount model just like other usage-based services in Azure. The wholesale discount for StorSimple is similar to that of other Azure services. This model provides our CSP partners an opportunity to sell more and drive Azure consumption via StorSimple Virtual Array.  
 
 ### Which StorSimple SKUs are available at launch?
@@ -55,11 +55,11 @@ StorSimple Virtual Array for CSP is available in all the markets where StorSimpl
 There are multiple solutions:
 
 - The partners can resell StorSimple Virtual Array. 
-- The partners can deliver solutions built around StorSimple and other Azure services or third-party software. For more information, review some possible [solutions that exist around StorSimple](https://aka.ms/storsimple-build-solutions).
+- The partners can deliver solutions built around StorSimple and other Azure services or third-party software. For more information, review some possible [solutions that exist around StorSimple](./storsimple-disaster-recovery-using-azure-site-recovery.md).
 - They can also discover new business models by delivering managed services.
 
 ### What are the incentives available for StorSimple CSP partners? Do I qualify for any CSP program incentives?
-For information on incentives, go to [CSP program incentives](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+For information on incentives, go to [CSP program incentives](https://partner.microsoft.com/cloud-solution-provider/program-details).
 
 
 ## Deploy and manage StorSimple as a partner
@@ -85,7 +85,7 @@ Yes. The partner sales executive and the customer account team for the end custo
 You can visit the StorSimple in CSP forum to get answers to some commonly asked questions. You would need to join the [Azure Advisors Yammer group](https://www.yammer.com/azureadvisors) first. Next search for and join the group - **StorSimple Partner Advisors**.
 
 ### How does the Support work for StorSimple for CSP? 
-The support model for StorSimple in CSP is the same as that of other Azure services in CSP. For more information, go to [Customer Support for CSP](https://msdn.microsoft.com/partner-center/customer-support). 
+The support model for StorSimple in CSP is the same as that of other Azure services in CSP. For more information, go to [Customer Support for CSP](/partner-center/csp-overview).
 
 For more information about StorSimple for CSP, go to:
 

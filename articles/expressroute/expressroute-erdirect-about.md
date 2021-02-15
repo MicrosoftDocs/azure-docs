@@ -1,14 +1,14 @@
 ---
-title: About ExpressRoute Direct - Azure | Microsoft Docs
-description: This page provides an overview of ExpressRoute Direct
+title: 'About Azure ExpressRoute Direct'
+description: Learn about key features of Azure ExpressRoute Direct and information needed to onboard to ExpressRoute Direct, like available SKUs and technical requirements.
 services: expressroute
-author: jaredr80
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.author: jaredro
-ms.custom: seodec18
+ms.date: 08/12/2019
+ms.author: duau
+
 
 ---
 
@@ -38,11 +38,11 @@ Before using ExpressRoute Direct, you must first enroll your subscription. To en
 | Utilizes service providers to enable fast onboarding and connectivity into existing infrastructure | Requires 100 Gbps/10 Gbps infrastructure and full management of all layers
 | Integrates with hundreds of providers including Ethernet and MPLS | Direct/Dedicated capacity for regulated industries and massive data ingestion |
 | Circuits SKUs from 50 Mbps to 10 Gbps | Customer may select a combination of the following circuit SKUs on 100 Gbps ExpressRoute Direct: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> Customer may select a combination of the following circuit SKUs on 10 Gbps ExpressRoute Direct:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
-| Optimized for single tenant | Optimized for single tenant/Cloud Service providers/multiple business units
+| Optimized for single tenant | Optimized for single tenant with multiple business units and multiple work environments
 
 ## ExpressRoute Direct circuits
 
-Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365.  
+Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, and Microsoft 365.
 
 Each peering location has access to Microsoft’s global network and can access any region in a geopolitical zone by default and can access all global regions with a premium circuit.  
 
@@ -71,7 +71,7 @@ ExpressRoute Direct supports massive data ingestion scenarios into Azure storage
     * Must add the outer VLAN tag (STAG) based on the VLAN ID specified by Microsoft - *applicable only on QinQ*
     * Must support multiple BGP sessions (VLANs) per port and device
     * IPv4 and IPv6 connectivity. *For IPv6 no additional sub-interface will be created. IPv6 address will be added to existing sub-interface*. 
-    * Optional: [Bidirectional Forwarding Detection (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) support, which is configured by default on all Private Peerings on ExpressRoute circuits
+    * Optional: [Bidirectional Forwarding Detection (BFD)](./expressroute-bfd.md) support, which is configured by default on all Private Peerings on ExpressRoute circuits
 
 ## VLAN Tagging
 
