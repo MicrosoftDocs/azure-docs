@@ -67,7 +67,7 @@ To retrieve connection details for the new device:
 
     The **Device connection** dialog displays the connection details:
     :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-device-connect.png" alt-text="IoT Central device connection details":::
-1. Copy the following values from the **Device connection** dialog to a safe location, and then close the dialog. You'll use these in the next section to connect your device to IoT Central.
+1. Copy the following values from the **Device connection** dialog to a safe location. You'll use these in the next section to connect your device to IoT Central.
     * `ID scope`
     * `Device ID`
     * `Primary key`
@@ -75,7 +75,7 @@ To retrieve connection details for the new device:
 ## Send messages and monitor telemetry
 In this section, you will use the Python SDK to build a simulated device and send telemetry to your IoT Central application. 
 
-1. Open a Windows CMD terminal (for Linux, use **bash**). You will use this terminal to install the Python SDK and work with Python sample code.  
+1. Open a Windows CMD terminal (for Linux, use **bash**). You use this terminal to install the Python SDK, update environment variables, and run the Python code sample.
 
 1. Copy the [Azure IoT Python SDK device samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) to your local machine.
 
@@ -92,12 +92,6 @@ In this section, you will use the Python SDK to build a simulated device and sen
 
     ```console
     pip install azure-iot-device
-    ```
-
-1. Set the PROVISIONING_HOST environment variable.
-
-    ```console
-    set PROVISIONING_HOST=global.azure-devices-provisioning.net
     ```
 
 1. Set each of the following environment variables, to enable your simulated device to connect to IoT Central. For `ID_SCOPE`, `DEVICE_ID`, and `DEVICE_KEY`, use the values that you saved from the IoT Central *Device connection* dialog.
@@ -233,9 +227,9 @@ In this section, you will use the Python SDK to build a simulated device and sen
         # loop.close()
     ```
 
-As the Python code sends a message from your device to your IoT Central application, you will be able to see the messages appearing under the **Raw data** tab of your device:
+As the Python code sends a message from your device to your IoT Central application, the messages appear in the **Raw data** tab of your device in IoT Central:
 
-   :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-telemetry-output.png" alt-text="IoT Central raw data output":::
+   :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-telemetry-output.png" alt-text="Screen shot of IoT Central raw data output":::
 
 Your device is now securely connected and sending telemetry to Azure IoT.
 
