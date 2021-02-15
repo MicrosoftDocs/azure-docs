@@ -10,12 +10,67 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2021
+ms.date: 2/9/2021
 ms.author: yohaddad
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## February 2021 Guest OS
+
+>[!NOTE] 
+
+>The February Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the February Guest OS. This list is subject to change. 
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 21-02 |  [4601345]  |  Latest Cumulative Update(LCU) | 6.28 | Feb 9, 2021 |
+|  Rel 21-02 |  [4580325]  |  Flash update | 3.94, 4.87, 5.52, 6.28 | Oct 13, 2020 |
+|  Rel 21-02 |  [4586768]  |  IE Cumulative Updates | 2.107, 3.94, 4.87 | Nov 10, 2020 |
+|  Rel 21-02 |  [4601318]  |  Latest Cumulative Update(LCU) | 5.52 | Feb 9, 2021 |
+|  Rel 21-02 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup | 2.107 | Jan 12, 2021 |
+|  Rel 21-02 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup | 2.107 | Jan 12, 2021 |
+|  Rel 21-02 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup | 4.87 | Jan 12, 2021 |
+|  Rel 21-02 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup | 4.87 | Jan 12, 2021 |
+|  Rel 21-02 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup | 3.94 | Jan 12, 2021 |
+|  Rel 21-02 |  [4578954]  |  . NET Framework 4.5.2 Security and Quality Rollup | 3.94 | Jan 12, 2021 |
+|  Rel 21-02 |  [4578966]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update | 6.28 | Oct 13, 2020 |
+|  Rel 21-02 |  [4601347]  |  Monthly Rollup | 2.107 | Feb 9, 2021 |
+|  Rel 21-02 |  [4601348]  |  Monthly Rollup | 3.94 | Feb 9, 2021 |
+|  Rel 21-02 |  [4601384]  |  Monthly Rollup | 4.87 | Feb 9, 2021 |
+|  Rel 21-02 |  [4566426]  |  Servicing Stack update | 3.94 | July 14, 2020 |
+|  Rel 21-02 |  [4566425]  |  Servicing Stack update | 4.87 | July 14, 2020 |
+|  Rel 21-02 OOB |  [4578013]  |  Standalone Security Update | 4.87 | Aug 19, 2020 |
+|  Rel 21-02 |  [4601392]  |  Servicing Stack update | 5.52 | Feb 9, 2021 |
+|  Rel 21-02 |  [4592510]  |  Servicing Stack update | 2.107 | Dec 8, 2020 |
+|  Rel 21-02 |  [4601393]  |  Servicing Stack update | 6.28 | Feb 9, 2021 |
+|  Rel 21-02 |  [4494175]  |  Microcode | 5.52 | Sep 1, 2020 |
+|  Rel 21-02 |  [4494174]  |  Microcode | 6.28 | Sep 1, 2020 |
+
+[4601345]: https://support.microsoft.com/kb/4601345
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4601318]: https://support.microsoft.com/kb/4601318
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4601347]: https://support.microsoft.com/kb/4601347
+[4601348]: https://support.microsoft.com/kb/4601348
+[4601384]: https://support.microsoft.com/kb/4601384
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4601392]: https://support.microsoft.com/kb/4601392
+[4592510]: https://support.microsoft.com/kb/4592510
+[4601393]: https://support.microsoft.com/kb/4601393
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
 
 ## January 2021 Guest OS
 

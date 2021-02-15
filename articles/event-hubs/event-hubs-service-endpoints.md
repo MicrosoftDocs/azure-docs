@@ -2,7 +2,7 @@
 title: Virtual Network service endpoints - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to add a Microsoft.EventHub service endpoint to a virtual network. 
 ms.topic: article
-ms.date: 07/29/2020
+ms.date: 02/12/2021
 ---
 
 # Allow access to Azure Event Hubs namespaces from specific virtual networks 
@@ -41,8 +41,8 @@ This section shows you how to use Azure portal to add a virtual network service 
 1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
 4. Select **Networking** under **Settings** on the left menu. You see the **Networking** tab only for **standard** or **dedicated** namespaces. 
 
-    > [!NOTE]
-    > By default, the **Selected networks** option is selected as shown in the following image. If you don't specify an IP firewall rule or add a virtual network on this page, the namespace can be accessed via **public internet** (using the access key). 
+    > [!WARNING]
+    > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed via **public internet** (using the access key). 
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networks tab - selected networks option" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -74,29 +74,12 @@ This section shows you how to use Azure portal to add a virtual network service 
 [!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
 
 ## Use Resource Manager template
+The following sample Resource Manager template adds a virtual network rule to an existing Event Hubs namespace. For the network rule, it specifies the ID of a subnet in a virtual network. 
 
-The following Resource Manager template enables adding a virtual network rule to an existing Event Hubs namespace.
+The ID is a fully qualified Resource Manager path for the virtual network subnet. For example, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
 
-Template parameters:
+When adding virtual network or firewalls rules, set the value of `defaultAction` to `Deny`.
 
-* `namespaceName`: Event Hubs namespace.
-* `vnetRuleName`: Name for the Virtual Network rule to be created.
-* `virtualNetworkingSubnetId`: Fully qualified Resource Manager path for the virtual network subnet; for example, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
-
-> [!NOTE]
-> While there are no deny rules possible, the Azure Resource Manager template has the default action set to **"Allow"** which doesn't restrict connections.
-> When making Virtual Network or Firewalls rules, we must change the
-> ***"defaultAction"***
-> 
-> from
-> ```json
-> "defaultAction": "Allow"
-> ```
-> to
-> ```json
-> "defaultAction": "Deny"
-> ```
->
 
 ```json
 {
@@ -198,6 +181,9 @@ Template parameters:
 ```
 
 To deploy the template, follow the instructions for [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`.  The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
 
 ## Next steps
 
