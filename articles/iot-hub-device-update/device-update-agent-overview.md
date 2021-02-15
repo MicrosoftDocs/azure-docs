@@ -113,6 +113,5 @@ the agent.
 
 ### Modifying the agent
 
-At this point, you'll have an idea for how the Device Update Agent works.  Now, make the
-changes needed to incorporate the agent into your image.  Look at how to
+Now, make the changes needed to incorporate the agent into your image.  Look at how to
 [modify](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.m) the Device Update Agent for guidance.
