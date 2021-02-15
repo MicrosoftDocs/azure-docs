@@ -97,8 +97,7 @@ Edit _LocalConfiguration.json_ with the following parameters:
     "HostName" : ""
 }
 ```
-
-## See also
+## Next steps
 
 - [Security agents overview](security-agent-architecture.md)
 - [Deploy security agent](how-to-deploy-agent.md)

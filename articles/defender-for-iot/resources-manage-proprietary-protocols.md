@@ -207,6 +207,6 @@ Use edit and delete options as required. Certain rules are embedded and cannot b
 
 When you create multiple rules, alerts are triggered when any rule condition or condition sets are valid.
 
-## See also
+## Next steps
 
 [View information provided in alerts](how-to-view-information-provided-in-alerts.md)

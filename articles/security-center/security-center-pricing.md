@@ -120,11 +120,9 @@ No. When you enable [Azure Defender for servers](defender-for-servers-introducti
 | Starting     | VM is starting up.                                                                                                                               | Not billed            |
 | Running      | Normal working state for a VM                                                                                                                    | Billed                |
 | Stopping     | This is a transitional state. When completed, it will show as Stopped.                                                                           | Billed                |
-| Stopped      | The VM has been shut down from within the guest OS or using the PowerOff APIs. Hardware is still allocated to the VM and it remains on the host. | Billed (1)            |
-| Deallocating | Transitional state. When completed, the VM will show as Deallocated.                                                                             | Not billed (1)        |
+| Stopped      | The VM has been shut down from within the guest OS or using the PowerOff APIs. Hardware is still allocated to the VM and it remains on the host. | Billed                |
+| Deallocating | Transitional state. When completed, the VM will show as Deallocated.                                                                             | Not billed            |
 | Deallocated  | The VM has been stopped successfully and removed from the host.                                                                                  | Not billed            |
-
-(1) Some Azure resources, such as Disks and Networking, incur charges. Software licenses on the instance do not incur charges.
 
 :::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Azure Virtual Machines showing a deallocated machine":::
 
