@@ -105,10 +105,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 	> [!NOTE]
 	> The Reply URL value is not real. You will update the value with the actual Reply URL, which is explained later in the tutorial. If you are intending to use the application in **IDP** mode you need to leave the **Sign on URL** field blank, otherwise you will not be able to initiate the login from the **IDP**. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://app.launchdarkly.com`
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode. Leave the **Sign-on URL** blank.
 
     ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
