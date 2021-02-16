@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 02/16/2021
 ms.author: victorh
 ---
 
@@ -25,11 +25,9 @@ ms.author: victorh
 
 For more information, see [Azure Firewall Premium features](premium-features.md).
 
-
 ## Deploy the firewall
 
 Deploying an Azure Firewall Premium Preview is similar to deploying a standard Azure Firewall:
-
 
 :::image type="content" source="media/premium-portal/premium-portal.png" alt-text="portal deployment":::
 
@@ -46,8 +44,6 @@ Configuring a Premium firewall policy is similar to configuring a Standard firew
 When you configure application rules in a Premium policy, you can configure addition Premium features:
 
 :::image type="content" source="media/premium-portal/premium-application-rule.png" alt-text="Premium rule":::
-
- 
 
 ## Next steps
 

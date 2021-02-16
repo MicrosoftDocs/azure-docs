@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 02/16/2021
 ms.author: victorh
 ---
 
@@ -50,7 +50,7 @@ To learn more about Azure Firewall Premium Preview Intermediate CA certificate r
 
 A network intrusion detection and prevention system (IDPS) allows you to monitor your network for malicious activity, log information about this activity, report it, and optionally attempt to block it. 
 
-Azure Firewall Premium Preview provides signature-based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. 
+Azure Firewall Premium Preview provides signature-based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. The IDPS signatures are fully managed and continuously updated.
 
 IDPS allows you to detect attacks in all ports and protocols for non-encrypted traffic. However, when HTTPS traffic needs to be inspected, Azure Firewall can use its TLS inspection capability to decrypt the traffic and better detect malicious activities.  
 
@@ -84,7 +84,8 @@ Azure Firewall Premium Preview has the following known issues:
 
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|
-|ESNI support for FQDN resolution in HTTPS|Encrypted SNI isn't supported in HTTPS handshake|Today only Firefox supports ESNI through custom configuration. Suggested workaround is to disable this feature.|
+|TLS Inspection supported only on the HTTPS standard port|TLS Inspection supports only HTTPS/443. |None. Other ports will be supported in GA.|
+|ESNI support for FQDN resolution in HTTPS|Encrypted SNI isn't supported in HTTPS handshake.|Today only Firefox supports ESNI through custom configuration. Suggested workaround is to disable this feature.|
 |Client Certificates (TLS)|Client certificates are used to build a mutual identity trust between the client and the server. Client certificates are used during a TLS negotiation. Azure firewall renegotiates a connection with the server and has no access to the private key of the client certificates.|None|
 |QUIC/HTTP3|QUIC is the new major version of HTTP. It's a UDP-based protocol over 80 (PLAN) and 443 (SSL). FQDN/URL/TLS inspection won't be supported.|Configure passing UDP 80/443 as network rules.|
 |Secure Hub and forced tunneling not supported in Premium|Currently the Firewall Premium SKU isn't supported in Secure Hub deployments and forced tunnel configurations.|Fix scheduled for GA.|
