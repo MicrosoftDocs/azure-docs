@@ -46,7 +46,7 @@ The following metrics help with observability into our [bursting](disk-bursting.
 - **OS Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the OS disk.
 
 ## Storage IO utilization metrics
-The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available when using Premium enabled VM. These metrics are available for all disk types except for Ultra. 
+The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available when using premium enabled VM. These metrics are available for all disk types except for Ultra. 
 
 Metrics that help diagnose disk IO capping:
 
