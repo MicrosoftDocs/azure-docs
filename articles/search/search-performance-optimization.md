@@ -6,10 +6,10 @@ description: Learn techniques and best practices for tuning Azure Cognitive Sear
 manager: nitinme
 author: LiamCavanagh
 ms.author: liamca
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/01/2021
+ms.custom: references_regions
 ---
 
 # Scale for performance on Azure Cognitive Search
