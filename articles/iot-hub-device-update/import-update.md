@@ -29,7 +29,7 @@ Learn how to import a new update into Device Update for IoT Hub.
 1. Ensure that your update image file or APT Manifest file is located in a directory accessible from PowerShell.
 
 2. Clone [Device Update for IoT Hub repository](https://github.com/azure/iot-hub-device-update), or download it as a .zip file to
-a location accessible from PowerShell (Once the zip file is downloaded, right click for `Properties` > `General` tab > check `Unblock` in the `Security` section to avoid PowerShell security warning prompts).
+a location accessible from PowerShell (once the zip file is downloaded, right click for `Properties` > `General` tab > check `Unblock` in the `Security` section to avoid PowerShell security warning prompts).
 
 3. In PowerShell, navigate to `tools/AduCmdlets` directory and run:
 
@@ -68,7 +68,7 @@ a location accessible from PowerShell (Once the zip file is downloaded, right cl
     | --------- | --------- | --------- | --------- |
     | UpdateId | `UpdateId` object | Update identity. |
     | UpdateType | string | Update type: <ul><li>Specify `microsoft/apt:1` when performing a package-based update using reference agent.</li><li>Specify `microsoft/swupdate:1` when performing an image-based update using reference agent.</li><li>Specify `microsoft/simulator:1` when using sample agent simulator.</li><li>Specify a custom type if developing a custom agent.</li></ul> | <ul><li>Format: `{provider}/{type}:{typeVersion}`</li><li>Maximum of 32 characters total</li></ul> |
-    | InstalledCriteria | string | String interpreted by the agent to determine if the update completed successfully:  <ul><li>Specify **value** of SWVersion for update type `microsoft/swupdate:1`.</li><li>Specify `{name}-{version}` for update type `microsoft/apt:1`, of which name and version are obtained from the APT file.</li><li>Specify hash of the update file for update type `microsoft/simulator:1`.</li><li>Specify a custom string if developing a custom agent.</li></ul> | Maximum of 64 characters |
+    | InstalledCriteria | string | String interpreted by the agent to determine whether the update was applied successfully:  <ul><li>Specify **value** of SWVersion for update type `microsoft/swupdate:1`.</li><li>Specify `{name}-{version}` for update type `microsoft/apt:1`, of which name and version are obtained from the APT file.</li><li>Specify hash of the update file for update type `microsoft/simulator:1`.</li><li>Specify a custom string if developing a custom agent.</li></ul> | Maximum of 64 characters |
     | Compatibility | Array of `CompatibilityInfo` objects | Compatibility information of device compatible with this update. | Maximum of 10 items |
     | CreatedDateTime | date/time | Date and time at which the update was created. | Delimited ISO 8601 date and time format, in UTC |
     | ManifestVersion | string | Import manifest schema version. Specify `2.0`, which will be compatible with `urn:azureiot:AzureDeviceUpdateCore:1` interface and `urn:azureiot:AzureDeviceUpdateCore:4` interface.</li></ul> | Must be `2.0` |
@@ -139,7 +139,7 @@ Example:
 
    ![Select Update Files](media/import-update/select-update-files.png)
 
-6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
+6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account. The storage container is used to stage the update files temporarily.
 
    ![Storage Account](media/import-update/storage-account.png)
 
@@ -151,7 +151,7 @@ Example:
 
    ![Publish Update](media/import-update/publish-update.png)
 
-9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
+9. The import process begins, and the screen switches to to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
 
    ![Update Import Sequencing](media/import-update/update-publishing-sequence-2.png)
 
