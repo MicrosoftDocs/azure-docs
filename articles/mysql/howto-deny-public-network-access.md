@@ -16,7 +16,7 @@ This article describes how you can configure an Azure Database for MySQL server 
 
 To complete this how-to guide, you need:
 
-* An [Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+* An [Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) with General Purpose or Memory Optimized pricing tier
 
 ## Set Deny Public Network Access
 
