@@ -1,7 +1,7 @@
 ---
-title: Create a data labeling project
+title: Create a project for image labeling or text labeling
 titleSuffix: Azure Machine Learning
-description: Learn how to create and run labeling projects to tag data for machine learning. Use ML assisted labeling, or human in the loop labeling, to aid with the task.
+description: Learn how to create and run projects to label images or label text for machine learning. Use ML assisted labeling, or human in the loop labeling, to aid with the task.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -13,13 +13,12 @@ ms.custom: data4ml
 
 # Create a data labeling project and export labels 
 
-Learn how to create and run data labeling projects to tag data in Azure Machine Learning.  Use machine-learning-assisted data labeling, or human-in-the-loop labeling, to aid with the task.
-
+Learn how to create and run projects to label images or label text data in Azure Machine Learning.  Use machine-learning-assisted data labeling, or human-in-the-loop labeling, to aid with the task.
 
 ## Data labeling capabilities
 
 > [!Important]
-> Data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.)
+> Data images or text must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.)
 
 Azure Machine Learning data labeling is a central place to create, manage, and monitor labeling projects:
  - Coordinate data, labels, and team members to efficiently manage labeling tasks. 
@@ -43,26 +42,48 @@ If your data is already in Azure Blob storage, you should make it available as a
 
 To create a project, select **Add project**. Give the project an appropriate name and select **Labeling task type**. Project name cannot be reused, even if the project is deleted in future.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Labeling project creation wizard":::
 
-* Choose **Image Classification Multi-class** for projects when you want to apply only a *single label* from a set of labels to an image.
-* Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of labels to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
-* Choose **Object Identification (Bounding Box)** for projects when you want to assign a label and a bounding box to each object within an image.
-* Choose **Instance Segmentation (Polygon)(Preview)** for projects when you want to assign a label and draw a polygon around each object within an image.
+
+### Image labeling project
+
+* Select **Image** to create an image labeling project.
+
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Labeling project creation for mage labeling":::
+
+    * Choose **Image Classification Multi-class** for projects when you want to apply only a *single label* from a set of labels to an image.
+    * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of labels to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
+    * Choose **Object Identification (Bounding Box)** for projects when you want to assign a label and a bounding box to each object within an image.
+    * Choose **Instance Segmentation (Polygon)(Preview)** for projects when you want to assign a label and draw a polygon around each object within an image.
+
+    > [!IMPORTANT]
+    > Instance Segmentation (Polygon) is in public preview.
+    > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+    > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+    
+* Select **Next** when you're ready to continue.
+
+### Text labeling project (preview)
+
+:::image type="content" source="media/how-to-create-labeling-projects/text-labeling-creation-wizard.png" alt-text="Labeling project creation for text labeling":::
+
+* Select **Text** to create a text labeling project.
+
+    * Choose **Text Classification Multi-class (Preview)** for projects when you want to apply only a *single label* from a set of labels to eqch piece of text.
+    * Choose **Text Classification Multi-label (Preview)** for projects when you want to apply *one or more* labels from a set of labels to each piece of text.
+
+* Select **Next** when you're ready to continue.
 
 > [!IMPORTANT]
-> Instance Segmentation (Polygon) is in public preview.
+> Text labeling is in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Select **Next** when you're ready to continue.
 
 ## Specify the data to label
 
 If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. Or, select **Create a dataset** to use an existing Azure datastore or to upload local files.
 
 > [!NOTE]
-> A project cannot contain more than 500,000 images.  If your dataset has more, only the first 500,000 images will be loaded.  
+> A project cannot contain more than 500,000 files.  If your dataset has more, only the first 500,000 files will be loaded.  
 
 ### Create a dataset from an Azure datastore
 
@@ -99,13 +120,13 @@ The data gets uploaded to the default blob store ("workspaceblobstore") of your 
 
 ## <a name="incremental-refresh"> </a> Configure incremental refresh
 
-If you plan to add new images to your dataset, use incremental refresh to add these new images your project.   When **incremental refresh** is enabled,  the dataset is checked periodically for new images to be added to a project, based on the labeling completion rate.   The check for new data stops when the project contains the maximum 500,000 images.
+If you plan to add new files to your dataset, use incremental refresh to add these new files your project.   When **incremental refresh** is enabled,  the dataset is checked periodically for new images to be added to a project, based on the labeling completion rate.   The check for new data stops when the project contains the maximum 500,000 files.
 
-To add more images to your project, use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload to the appropriate folder in the blob storage. 
+To add more files to your project, use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload to the appropriate folder in the blob storage. 
 
 Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore. This data will be pulled into your project once a day when enabled.
 
-Uncheck this box if you do not want new images that appear in the datastore to be added to your project.
+Uncheck this box if you do not want new files that appear in the datastore to be added to your project.
 
 You can find the timestamp for the latest refresh in the **Incremental refresh** section of **Details** tab for your project.
 
@@ -144,10 +165,11 @@ The **ML-assisted labeling** page lets you trigger automatic machine learning mo
 
 
 Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling, which consists of two phases:
+
 * Clustering
 * Prelabeling
 
-The exact number of labeled images necessary to start assisted labeling is not a fixed number.  This can vary significantly from one labeling project to another. For some projects, is sometimes possible to see prelabel or cluster tasks after 300 images have been manually labeled. ML Assisted Labeling uses a technique called *Transfer Learning*, which uses a pre-trained model to jump-start the training process. If your dataset's classes are similar to those in the pre-trained model, pre-labels may be available after only a few hundred manually labeled images. If your dataset is significantly different from the data used to pre-train the model, it may take much longer.
+The exact number of labeled data necessary to start assisted labeling is not a fixed number.  This can vary significantly from one labeling project to another. For some projects, is sometimes possible to see prelabel or cluster tasks after 300 items have been manually labeled. ML Assisted Labeling uses a technique called *Transfer Learning*, which uses a pre-trained model to jump-start the training process. If your dataset's classes are similar to those in the pre-trained model, pre-labels may be available after only a few hundred manually labeled items. If your dataset is significantly different from the data used to pre-train the model, it may take much longer.
 
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
@@ -156,7 +178,7 @@ Since the final labels still rely on input from the labeler, this technology is 
 
 ### Clustering
 
-After a certain number of labels are submitted, the machine learning model for image classification starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler is viewing a grid of 4, 6, or 9 images. 
+After a certain number of labels are submitted, the machine learning model for classification starts to group together similar items.  These similar items are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler is viewing a grid of 4, 6, or 9 images.
 
 Once a machine learning model has been trained on your manually labeled data, the model is truncated to its last fully-connected layer. Unlabeled images are then passed through the truncated model in a process commonly known as "embedding" or "featurization." This embeds each image in a high-dimensional space defined by this model layer. Images that are nearest neighbors in the space are used for clustering tasks. 
 
@@ -164,7 +186,7 @@ The clustering phase does not appear for object detection models.
 
 ### Prelabeling
 
-After enough image labels are submitted, a classification model is used to predict image tags. Or an object detection model is used to predict bounding boxes. The labeler now sees pages that contain predicted labels already present on each image. For object detection, predicted boxes are also shown. The task is then to review these predictions and correct any mis-labeled images before submitting the page.  
+After enough labels are submitted, a classification model is used to predict tags. Or an object detection model is used to predict bounding boxes. The labeler now sees pages that contain predicted labels already present on each item. For object detection, predicted boxes are also shown. The task is then to review these predictions and correct any mis-labeled images before submitting the page.  
 
 Once a machine learning model has been trained on your manually labeled data, the model is evaluated on a test set of manually labeled images to determine its accuracy at different confidence thresholds. This evaluation process is used to determine a confidence threshold above which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Images with predictions more confident than this threshold are used for pre-labeling.
 
@@ -237,7 +259,7 @@ Use these steps to add one or more labels to a project:
 1. In the list on the left, select **Label classes**.
 1. At the top of the list, select **+ Add Labels**
     ![Add a label](media/how-to-create-labeling-projects/add-label.png)
-1. In the form, add your new label and choose how to proceed.  Since you've changed the available labels for an image, you choose how to treat the already labeled data:
+1. In the form, add your new label and choose how to proceed.  Since you've changed the available labels, you choose how to treat the already labeled data:
     * Start over, removing all existing labels.  Choose this option if you want to start labeling from the beginning with the new full set of labels. 
     * Start over, keeping all existing labels.  Choose this option to mark all data as unlabeled, but keep the existing labels as a default tag for images that were previously labeled.
     * Continue, keeping all existing labels. Choose this option to keep all data already labeled as is, and start using the new label for data not yet labeled.
@@ -245,10 +267,18 @@ Use these steps to add one or more labels to a project:
 1. Once you have added all new labels, at the top right of the page toggle **Paused** to **Running** to restart the project.  
 
 ## Export the labels
+ 
+Use the **Export** button on the **Project details** page of your labeling project. You can export the label data for Machine Learning experimentation at any time. 
 
-You can export the label data for Machine Learning experimentation at any time. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). Use the **Export** button on the **Project details** page of your labeling project.
+* Text labels can be exported as:
+    * AvCSV file. The CSV file is created in the default blob store of the Azure Machine Learning workspace in a folder within *Labeling/export/csv*. 
+    * An [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). 
 
-The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *export/coco*. You can access the exported Azure Machine Learning dataset in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
+* Image labels can be exported as:
+    * [COCO format](http://cocodataset.org/#format-data).The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *Labeling/export/coco*. 
+    * An [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). 
+
+Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
 
 ![Exported dataset](./media/how-to-create-labeling-projects/exported-dataset.png)
 
