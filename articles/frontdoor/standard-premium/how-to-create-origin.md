@@ -9,12 +9,12 @@ ms.date: 02/18/2021
 ms.author: qixwang 
 ---
 
-# Setup an Azure Front Door Origin
+# Set up an Azure Front Door Standard/Premium Origin
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-This article will show you how to create an Azure Front Door Standard/Premium (AFD) origin in an existing origin group. 
+This article will show you how to create an Azure Front Door Standard/Premium origin in an existing origin group. 
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
@@ -25,7 +25,7 @@ This article will show you how to create an Azure Front Door Standard/Premium (A
 
 Before you can create an Azure Front Door Standard/Premium origin, you must have created at least one origin group.
 
-## Create a new AFD Origin
+## Create a new Azure Front Door Standard/Premium Origin
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Front Door Standard/Premium profile.
 
@@ -33,9 +33,7 @@ Before you can create an Azure Front Door Standard/Premium origin, you must have
    
     :::image type="content" source="../media/how-to-create-origin/select-add-origin.png" alt-text="Screenshot of origin group landing page.":::
 
-1. The **Add an origin group** page appears.
-
-1. For **Name**,  enter a unique name for the new Azure Front Door origin group
+1. On the **Add an origin group** page, enter a unique **Name** for the new origin group.
 
 1. Select **Add an Origin** to add a new origin to current group. 
 
@@ -74,7 +72,4 @@ To delete an origin when you no longer need it, click the **...** and then selec
 
 ## Next steps
 
-To learn about custom domains, continue to the tutorial for adding a custom domain to your Azure Front Door endpoint.
-
-> [!div class="nextstepaction"]
-> [Add a custom domain]()
+To learn about custom domains, see [adding a custom domain](how-to-add-custom-domain.md) to your Azure Front Door Standard/Premium endpoint.
