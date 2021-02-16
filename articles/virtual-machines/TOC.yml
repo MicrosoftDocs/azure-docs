@@ -1144,7 +1144,7 @@
 - name: Security
   items:
   - name: Overview
-    href: ../security/fundamentals/overview.md
+    href: ../security/fundamentals/virtual-machines-overview.md?context=/azure/virtual-machines/context/context
   - name: Azure Security center
     href: ../security-center/security-center-introduction.md
   - name: Security baselines
