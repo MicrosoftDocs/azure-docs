@@ -95,15 +95,10 @@ The _azuredeploy.json_ has been added to the local repository. Next, you upload 
     ```bash
     git add .
     git commit -m "Add web app templates."
-    git push origin main
+    git push origin master
     ```
 
-    You might get a warning about LF. You can ignore the warning. **main** is the main branch.  You typically create a branch for each update. To simplify the tutorial, you use the main branch directly.
-
-1. Browse to your GitHub repository from a browser. The URL is `https://github.com/[YourAccountName]/[YourGitHubRepository]`. You shall see the _CreateWebApp_ folder and the three files inside the folder.
-1. Select _linkedStorageAccount.json_ to open the template.
-1. Select the **Raw** button. The URL begins with `https://raw.githubusercontent.com`.
-1. Make a copy of the URL. You need to provide this value when you configure the pipeline later in the tutorial.
+    You might get a warning about LF. You can ignore the warning. **master** is the master branch.  You typically create a branch for each update. To simplify the tutorial, you use the master branch directly.
 
 So far, you have created a GitHub repository, and uploaded the templates to the repository.
 
@@ -129,7 +124,7 @@ Create a service connection that is used to deploy projects to Azure.
 
 1. Select **Project settings** from the bottom of the left menu.
 1. Select **Service connections** under **Pipelines**.
-1. Select **New Service connection**, select **Azure Resource Manager**, and then select **Next**.
+1. Select **Create service connection**, select **Azure Resource Manager**, and then select **Next**.
 1. Select **Service principal**, and then select **Next**.
 1. Enter the following values:
 
@@ -150,7 +145,7 @@ Until now, you have completed the following tasks.  If you skip the previous sec
 To create a pipeline with a step to deploy a template:
 
 1. Select **Pipelines** from the left menu.
-1. Select **New pipeline**.
+1. Select **Create pipeline**.
 1. From the **Connect** tab, select **GitHub**. If asked, enter your GitHub credentials, and then follow the instructions. If you see the following screen, select **Only select repositories**, and verify your repository is in the list before you select **Approve & Install**.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines only select repositories](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)
