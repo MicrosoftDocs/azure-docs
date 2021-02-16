@@ -1,5 +1,5 @@
 ---
-title: Device Update for IoT Hub Agent Quickstartt| Microsoft Docs
+title: Device Update for IoT Hub Agent Quickstart| Microsoft Docs
 description: Device Update for IoT Hub Agent Quickstart
 author: ValOlson
 ms.author: valls
