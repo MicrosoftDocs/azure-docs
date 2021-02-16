@@ -58,7 +58,7 @@ To create a role assignment for the data share resource's managed identity manua
 1. Under *Select*, type in the name of your Azure Data Share resource.
 1. Click *Save*.
 
-To learn more about role assignment, refer to [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). If you are sharing data using REST APIs, you can create role assignment using API by referencing [Add or remove Azure role assignments using the REST API](../role-based-access-control/role-assignments-rest.md). 
+To learn more about role assignment, refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). If you are sharing data using REST APIs, you can create role assignment using API by referencing [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md). 
 
 For SQL-based sources, a SQL user needs to be created from an external provider in SQL Database with the same name as the Azure Data Share resource while connecting to SQL database using Azure Active Directory authentication. This user needs to be granted *db_datareader* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [Share from Azure SQL Database or Azure Synapse Analytics](how-to-share-from-sql.md) tutorial. 
 

@@ -144,7 +144,7 @@ To remove the User Access Administrator role assignment for yourself or another 
 
 Use the following basic steps to elevate access for a Global Administrator using the Azure CLI.
 
-1. Use the [az rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) command to call the `elevateAccess` endpoint, which grants you the User Access Administrator role at root scope (`/`).
+1. Use the [az rest](/cli/azure/reference-index#az_rest) command to call the `elevateAccess` endpoint, which grants you the User Access Administrator role at root scope (`/`).
 
     ```azurecli
     az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"

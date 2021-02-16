@@ -62,7 +62,7 @@ For more information about the invitation process, see [Azure Active Directory B
 
 ## Assign a role to a guest user
 
-In Azure RBAC, to grant access, you assign a role. To assign a role to a guest user, you follow [same steps](role-assignments-portal.md#add-a-role-assignment) as you would for a member user, group, service principal, or managed identity. Follow these steps assign a role to a guest user at different scopes.
+In Azure RBAC, to grant access, you assign a role. To assign a role to a guest user, you follow [same steps](role-assignments-portal.md) as you would for a member user, group, service principal, or managed identity. Follow these steps assign a role to a guest user at different scopes.
 
 1. In the Azure portal, click **All services**.
 
@@ -98,7 +98,7 @@ In Azure RBAC, to grant access, you assign a role. To assign a role to a guest u
 
 ## Assign a role to a guest user not yet in your directory
 
-To assign a role to a guest user, you follow [same steps](role-assignments-portal.md#add-a-role-assignment) as you would for a member user, group, service principal, or managed identity.
+To assign a role to a guest user, you follow [same steps](role-assignments-portal.md) as you would for a member user, group, service principal, or managed identity.
 
 If the guest user is not yet in your directory, you can invite the user directly from the Add role assignment pane.
 

@@ -148,6 +148,10 @@ The following shows an example of the output:
 }
 ```
 
+## ARM template
+
+There isn't a way to remove a role assignment using an Azure Resource Manager template (ARM template). To remove a role assignment, you must use other tools such as the Azure portal, Azure PowerShell, Azure CLI, or REST API.
+
 ## Next steps
 
 - [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
