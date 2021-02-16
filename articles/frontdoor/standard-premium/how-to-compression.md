@@ -9,7 +9,7 @@ ms.date: 02/18/2021
 ms.author: yuajia
 ---
 
-# Improve performance by compressing files in Azure Front Door
+# Improve performance by compressing files in Azure Front Door Standard/Premium
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
@@ -41,9 +41,9 @@ You can enable compression in the following ways:
 
 ### Enable compression in Endpoint manager
 
-1. From the Azure Front Door profile page, go to the **Endpoint Manager** and select the endpoint you want to enable compression.
+1. From the Azure Front Door Standard/Premium profile page, go to **Endpoint Manager** and select the endpoint you want to enable compression.
 
-1. Select Edit Endpoint, then select the route you want to enable compression. 
+1. Select **Edit Endpoint**, then select the **route** you want to enable compression. 
 
    :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-1.png" alt-text="Screenshot of Endpoint Manager landing page." lightbox="../media/how-to-compression/front-door-compression-endpoint-manager-1-expanded.png":::   
 
@@ -51,11 +51,13 @@ You can enable compression in the following ways:
 
    :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Enable compression in endpoint manager.":::   
 
-1. Click **Update**.
+1. Select **Update** to save the configuration.
 
 ### Enable compression in Optimization
 
-1. From the Azure Front Door profile page, go to the **Optimization**. Then select the route that has compression *Disabled*, click on the three dots, select *Configure route*.
+1. From the Azure Front Door Standard/Premium profile page, go to **Optimizations** under Settings. Expand the endpoint to see the list of routes. 
+
+1. Select the three dots next to the **route** that has compression *Disabled*. Then select **Configure route**.
 
    :::image type="content" source="../media/how-to-compression/front-door-compression-optimization-1.png" alt-text="Screen of enable compression on the optimization page." lightbox="../media/how-to-compression/front-door-compression-optimization-1-expanded.png"::: 
 
@@ -67,11 +69,11 @@ You can enable compression in the following ways:
 
 ## Modify compression content type
 
-You can modify the default list of MIME types in Optimization page.
+You can modify the default list of MIME types on Optimizations page.
 
-1. From the Azure Front Door profile page, go to **Optimizations**. Then select the route that has compression *Enabled*.
+1. From the Azure Front Door Standard/Premium profile page, go to **Optimizations** under Settings. Then select the **route** that has compression *Enabled*.
 
-1. Select the three dots on the right, then select **View Compression file types**.
+1. Select the three dots next to the **route** that has compression *Enabled*. Then select **View Compressed file types**.
 
    :::image type="content" source="../media/how-to-compression/front-door-compression-edit-content-type.png" alt-text="Screenshot of optimization page." lightbox="../media/how-to-compression/front-door-compression-edit-content-type-expanded.png"::: 
 
@@ -79,7 +81,7 @@ You can modify the default list of MIME types in Optimization page.
 
    :::image type="content" source="../media/how-to-compression/front-door-compression-edit-content-type-2.png" alt-text="Screenshot of customize file compression page."::: 
 
-1. Click **Save**.
+1. Select **Save**, to update compression configure .
 
 ## Disabling compression
 
@@ -89,17 +91,17 @@ You can disable compression in the following ways:
 
 ### Disable compression in Endpoint manager
 
-1. From the Azure Front Door profile page, go to **Endpoint manager** and select the endpoint you want to disable compression.
+1. From the Azure Front Door Standard/Premium profile page, go to **Endpoint manager** under Settings. Select the endpoint you want to disable compression.
 
-1. Select Edit Endpoint and then select the route you want to disable compression. Uncheck the **Enable compression** box.
+1. Select **Edit Endpoint** and then select the **route** you want to disable compression. Uncheck the **Enable compression** box.
 
-1. Click **Update**.
+1. Select **Update** to save the configuration.
 
 ### Disable compression in Optimizations
 
-1. From the Azure Front Door profile page, go to **Optimizations**. Then select the route that has compression *Enabled*.
+1. From the Azure Front Door Standard/Premium profile page, go to **Optimizations** under Settings. Then select the **route** that has compression *Enabled*.
 
-1. Select the three dots on the right, select *Configure route*.
+1. Select the three dots next to the **route** that has compression *Enabled*, then select *Configure route*.
 
     :::image type="content" source="../media/how-to-compression/front-door-disable-compression-optimization.png" alt-text="Screenshot of disable compression in optimization page."::: 
 
@@ -107,7 +109,7 @@ You can disable compression in the following ways:
 
     :::image type="content" source="../media/how-to-compression/front-door-disable-compression-optimization-2.png" alt-text="Screenshot of update route page for disabling compression."::: 
 
-1. Click **Update**.
+1. Select **Update** to save the configuration.
 
 ## Compression rules
 
