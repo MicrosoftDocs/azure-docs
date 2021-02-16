@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entity that exist in your environment.
 
-Sometimes, when your solution is tied to a particular industry, it can be easier and more effective to start with a set of models for that industry that already exist, instead of authoring your own model set from scratch. These pre-existing existing model sets are called **ontologies**. 
+Sometimes, when your solution is tied to a particular industry, it can be easier and more effective to start with a set of models for that industry that already exist, instead of authoring your own model set from scratch. These pre-existing model sets are called **ontologies**. 
 
 In general, an ontology is a set of models for a given domain—like a building structure, IoT system, smart city, the energy grid, web content, etc. Ontologies are often used as schemas for knowledge graphs, as they can enable:
 * Harmonization of software components, documentation, query libraries, etc.
@@ -31,7 +31,7 @@ This article explains why and how to use ontologies for your Azure Digital Twins
 
 ## Using ontologies for Azure Digital Twins
 
-Ontologies provide a great starting point for digital twin solutions. They encompass a set of domain-specific models and relationships between entities for designing, creating, and parsing a digital twin graph. Ontologies enable solution developers to begin a digital twins solution from a proven starting point, and focus on solving business problems instead of on constructing models from the ground up. The ontologies provided by Microsoft are also designed to be easily extensible, so that you can customize them for your solution. 
+Ontologies provide a great starting point for digital twin solutions. They encompass a set of domain-specific models and relationships between entities for designing, creating, and parsing a digital twin graph. Ontologies enable solution developers to begin a digital twins solution from a proven starting point, and focus on solving business problems. The ontologies provided by Microsoft are also designed to be easily extensible, so that you can customize them for your solution. 
 
 In addition, using these ontologies in your solutions can set them up for more seamless integration between different partners and vendors, because ontologies can provide a common vocabulary across solutions.
 

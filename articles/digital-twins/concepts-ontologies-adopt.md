@@ -19,9 +19,7 @@ ms.service: digital-twins
 
 Because it can be easier to start with an open-source DTDL ontology than starting from a blank page, Microsoft is partnering with domain experts to publish ontologies, which represent widely accepted industry conventions and support a variety of customer use cases. 
 
-The result is a set of open-source DTDL-based ontologies, which learn from, build on, learn from, or directly use industry standards. The ontologies are designed to meet the needs of downstream developers, with the potential to be widely adopted and/or extended by the industry. This scenario is illustrated in the diagram below.
-
-:::image type="content" source="media/concepts-ontologies/industry-path.png" alt-text="Flow diagram illustrating stages of adoption for an industry ontology: Evaluate, Adapt, Validate, Evangelize." lightbox="media/concepts-ontologies/industry-path.png"::: 
+The result is a set of open-source DTDL-based ontologies, which learn from, build on, learn from, or directly use industry standards. The ontologies are designed to meet the needs of downstream developers, with the potential to be widely adopted and/or extended by the industry.
 
 At this time, Microsoft has worked with real estate partners to develop an ontology for smart buildings, which provides common ground for modeling smart buildings based on industry standards to avoid reinvention. 
 
