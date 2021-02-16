@@ -46,9 +46,16 @@ Create a cloud resource group to manage all the resources you'll use in this qui
 
 Make sure your IoT Edge device meets the following requirements:
 
-* Windows PC or server, version 1809 or later
-* At least 4 GB of memory, recommended 8 GB of memory
-* 10 GB of free disk space
+* Editions
+  * Windows 10 version 1809 or later; build 17763 or later
+    * Professional, Enterprise, IoT Enterprise
+  * Windows Server 2019 build 17763 or later
+
+  
+* Hardware requirements
+  * Minimum Free Memory: 2GB
+  * Minimum Free Disk Space: 10GB
+
 
 >[!NOTE]
 >This quickstart uses Windows Admin Center to create a deployment of IoT Edge for Linux on Windows. You can also use PowerShell. If you wish to use PowerShell to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md).
