@@ -66,9 +66,11 @@ To create a Bing Search resource in the Azure portal, follow these instructions:
 There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
 -->
 ## Enable spell check from UI 
-You can enable spellcheck from the [Luis portal](www.luis.ai) for your example query if you go to **Manage --> Azure Resources** Tab. After you associate a prediction resource to your application, you can "change query parameters" from the bottom of the page and paste the resurce key in the "Enable spell check" field.
+You can enable spellcheck for your example query using the [Luis portal](https://www.luis.ai). Select **Manage** at the top of the screen, and **Azure Resources** in the left navigation. After you associate a prediction resource to your application, you can select **Change query parameters** from the bottom of the page and paste the resource key in the **Enable spell check** field.
     
-   ![Enable spell check](./media/luis-tutorial-bing-spellcheck/spellcheck-query-params.png)
+   > [!div class="mx-imgBorder"]
+   > ![Enable spell check](./media/luis-tutorial-bing-spellcheck/spellcheck-query-params.png)
+
 
 ## Adding the key to the endpoint URL
 For each query you want to apply spelling correction on, the endpoint query needs the Bing Spellcheck resource key passed in the query header parameter. You may have a chatbot that calls LUIS or you may call the LUIS endpoint API directly. Regardless of how the endpoint is called, each and every call must include the required information in the header's request for spelling corrections to work properly. You must set the value with **mkt-bing-spell-check-key** to the key value.
