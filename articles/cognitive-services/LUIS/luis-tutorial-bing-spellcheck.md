@@ -67,7 +67,7 @@ There are two places in LUIS to use the key. The first is in the [test panel](lu
 ## Enable spell check from UI 
 You can enable spellcheck from the [Luis portal](www.luis.ai) for your example query if you go to **Manage --> Azure Resources** Tab. After you associate a prediction resource to your application, you can "change query parameters" from the bottom of the page and paste the resurce key in the "Enable spell check" field.
     
-   ![Enable spell check](./media/luis-tutorial-bing-spellcheck/spellcheck-query-params-2.png)
+   ![Enable spell check](./media/luis-tutorial-bing-spellcheck/spellcheck-query-params.png)
 
 ## Adding the key to the endpoint URL
 For each query you want to apply spelling correction on, the endpoint query needs the Bing Spellcheck resource key passed in the query header parameter. You may have a chatbot that calls LUIS or you may call the LUIS endpoint API directly. Regardless of how the endpoint is called, each and every call must include the required information in the header's request for spelling corrections to work properly. You must set the value with **mkt-bing-spell-check-key** to the key value.
