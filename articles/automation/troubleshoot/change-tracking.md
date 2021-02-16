@@ -54,6 +54,8 @@ The machine has already been deployed to another workspace for Change Tracking.
 
 :::image type="content" source="./media/change-tracking/change-tracking-inline.png" alt-text="Usage and estimated costs" lightbox="./media/change-tracking/change-tracking-expanded.png":::
 
+[ ![Usage and estimated costs](./media/change-tracking/change-tracking-inline.png)](./media/change-tracking/change-tracking-expanded.png#lightbox)
+
 If your issue is still unresolved, follow the steps in [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows. For Linux, follow the steps in  [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
 ## Windows
