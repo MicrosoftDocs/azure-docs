@@ -26,7 +26,7 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 - Ensure that all gateways, including the ExpressRoute provider's service, support 4-byte Autonomous System Number (ASN). Azure VMware Solution uses 4-byte public ASNs for advertising routes.
 
 
-## Create an ExpressRoute authorization key in the on-premises ExpressRoute circuit.
+## Create an ExpressRoute authorization key in the on-premises ExpressRoute circuit
 
 1. From the **ExpressRoute circuits** blade, under Settings, select **Authorizations**.
 
