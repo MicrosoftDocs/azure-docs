@@ -1143,6 +1143,8 @@
     href: ./linux/static-dns-name-resolution-for-linux-on-azure.md
 - name: Security
   items:
+  - name: Overview
+    href: ../security/fundamentals/overview.md
   - name: Azure Security center
     href: ../security-center/security-center-introduction.md
   - name: Security baselines
