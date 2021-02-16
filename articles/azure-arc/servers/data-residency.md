@@ -23,7 +23,7 @@ Metadata information about the connected machine is also collected. Specifically
 * Computer fully qualified domain name (FQDN)
 * Connected Machine agent version
 * Active Directory and DNS fully qualified domain name (FQDN)
-* UUID (BIOS Id)
+* UUID (BIOS ID)
 * Connected Machine agent heartbeat
 * Connected Machine agent version
 * Public key for managed identity
