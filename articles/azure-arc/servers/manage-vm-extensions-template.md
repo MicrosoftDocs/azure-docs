@@ -774,7 +774,7 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
 Save the template file to disk. You can then deploy the extension to the connected machine with the following command.
 
 > [!NOTE]
-> The VM extension would require system or user managed identity to be assigned to authenticate to Key vault. See [How to authenticate to Key Vault and assign a Key Vault access policy](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) for Windows and Linux.
+> The VM extension would require a system-assigned identity to be assigned to authenticate to Key vault. See [How to authenticate to Key Vault using managed identity](managed-identity-authentication.md) for Windows and Linux Arc enabled servers.
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\KeyVaultExtension.json"
