@@ -306,9 +306,11 @@ This solution uses a Stream Analytics query to detect when a device stops sendin
 
     :::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Screenshot of Stream Analytics.":::
 
-## Configure export in IoT Central
+## Configure export in IoT Central 
 
-On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created from the Contoso template. In this section, you configure the application to stream the telemetry from its simulated devices to your event hub. To configure the export:
+On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created.
+
+In this section, you configure the application to stream the telemetry from its simulated devices to your event hub. To configure the export:
 
 1. Navigate to the **Data Export** page, select **+ New**, and then **Azure Event Hubs**.
 1. Use the following settings to configure the export, then select **Save**: 
@@ -317,13 +319,11 @@ On the [Azure IoT Central application manager](https://aka.ms/iotcentral) websit
     | ------- | ----- |
     | Display Name | Export to Event Hubs |
     | Enabled | On |
-    | Event Hubs namespace | Your Event Hubs namespace name |
-    | Event hub | centralexport |
-    | Measurements | On |
-    | Devices | Off |
-    | Device Templates | Off |
+    | Type of data to export | Telemetry |
+    | Enrichments | Enter desired key / Value of how you want the exported data to be organized | 
+    | Destination | Create New and enter information for where the data will be exported |
 
-    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="Screenshot of Continuous data export configuration.":::
+    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="Screenshot of the Data Export.":::
 
 Wait until the export status is **Running** before you continue.
 
