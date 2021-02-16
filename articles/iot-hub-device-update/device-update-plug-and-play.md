@@ -29,7 +29,7 @@ The Device Information Interface is a concept used within [IoT Plug and Play arc
 
 ## ADU Core Interface
 
-The 'ADU Core' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
+The 'ADUCoreInterface' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
 
 ### Agent Metadata
 
