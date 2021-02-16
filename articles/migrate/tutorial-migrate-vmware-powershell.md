@@ -457,19 +457,19 @@ Write-Output $MigrateJob.State
 
 1. After the migration is done, stop replication for the on-premises machine and clean-up replication state information for the VM using the following cmdlet. The cmdlet returns a job that can be tracked for monitoring the status of the operation.
 
-```azurepowershell-interactive
-# Stop replication for a migrated server
-$StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $ReplicatingServer
+   ```azurepowershell-interactive
+   # Stop replication for a migrated server
+   $StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $ReplicatingServer
 
-# Track job status to check for completion
-while (($StopReplicationJob.State -eq 'InProgress') -or ($StopReplicationJob.State -eq 'NotStarted')){
-        #If the job hasn't completed, sleep for 10 seconds before checking the job status again
-        sleep 10;
-        $StopReplicationJob = Get-AzMigrateJob -InputObject $StopReplicationJob
-}
-#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded".
-Write-Output $StopReplicationJob.State
-```
+   # Track job status to check for completion
+   while (($StopReplicationJob.State -eq 'InProgress') -or ($StopReplicationJob.State -eq 'NotStarted')){
+           #If the job hasn't completed, sleep for 10 seconds before checking the job status again
+           sleep 10;
+           $StopReplicationJob = Get-AzMigrateJob -InputObject $StopReplicationJob
+   }
+   #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded".
+   Write-Output $StopReplicationJob.State
+   ```
 
 1. Install the [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines if the machine has Linux OS. We automatically install the VM agent for Windows VMs during migration.
 1. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
