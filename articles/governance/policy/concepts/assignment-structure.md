@@ -117,7 +117,7 @@ non-compliance and is optional.
 If the assignment is for an initiative, different messages can be configured for each policy
 definition in the initiative. The messages use the `policyDefinitionReferenceId` value configured in
 the initiative definition. For details, see
-[property definitions properties](./initiative-definition-structure.md#policy-definition-properties).
+[policy definitions properties](./initiative-definition-structure.md#policy-definition-properties).
 
 ```json
 "nonComplianceMessages": [
