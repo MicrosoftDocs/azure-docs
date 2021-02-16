@@ -312,7 +312,7 @@ Using [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) along 
 > [!NOTE]
 > The configuration below does not collect logs, **only metrics**. It is feasible to extend the collector module to also collect and upload logs.
 
-[ ![Diagram that shows the metrics collection using LogAnaltics.](./media/telemetry-schema/loganalytics.png)](./media/telemetry-schema/loganalytics.png#lightbox)
+[ ![Diagram that shows the metrics collection using LogAnaltics.](./media/telemetry-schema/log-analytics.png)](./media/telemetry-schema/log-analytics.png#lightbox)
 
 1. Learn how to [collect metrics](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector)
 1. Use Docker CLI commands to build the [Docker file](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector/docker/linux) and publish the image to your Azure container registry.
@@ -347,7 +347,7 @@ Using [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) along 
     1. You will find the Workspace ID and the Secret Keys that you can use.
 
 1. Next, create a workbook by clicking on the `Workbooks` tab in the left navigation pane.
-1. Using Kusto query language, you can write queries as below and get CPU percentage used by the IoT edge modules.
+1. Using Kusto query language, you can write queries as below and get CPU percentage used by the IoT Edge modules.
     ```kusto
     let cpu_metrics = IoTEdgeMetrics_CL
     | where Name_s == "edgeAgent_used_cpu_percent"

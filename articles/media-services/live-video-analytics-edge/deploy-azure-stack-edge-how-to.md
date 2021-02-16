@@ -240,7 +240,8 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 
 * **Pod and Node Metrics**
 
-    Use [kubectl top](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top)  to see pod and node metrics. (This functionality will be available in the next Azure Stack Edge release. >v2007)<br/>`kubectl top pods -n iotedge` 
+    Use [kubectl top](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#top)  to see pod and node metrics.
+    <br/>`kubectl top pods -n iotedge` 
 
 * **Module Networking**   
 For Module discovery on Azure Stack Edge it is required that the module have the host port binding in createOptions. The module will then be addressable over `moduleName:hostport`.
