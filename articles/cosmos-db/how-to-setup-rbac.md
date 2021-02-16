@@ -265,6 +265,7 @@ Once you've created your role definitions, you can associate them with your AAD 
     - `/` (account-level)
     - `/dbs/<database-name>` (database-level)
     - `/dbs/<database-name>/colls/<container-name>` (container-level)
+
   The scope must match or be a sub-scope of one of the role definition's assignable scopes.
 
 > [!NOTE]
@@ -272,7 +273,7 @@ Once you've created your role definitions, you can associate them with your AAD 
 
 ### Using Azure PowerShell
 
-Assign the role *MyReadOnlyRole* to an identity:
+Assign a role to an identity:
 
 ```powershell
 $resourceGroupName = "<myResourceGroup>"
@@ -288,7 +289,7 @@ New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
 
 ### Using the Azure CLI
 
-Assign the role *MyReadOnlyRole* to an identity:
+Assign a role to an identity:
 
 ```azurecli
 resourceGroupName='<myResourceGroup>'
