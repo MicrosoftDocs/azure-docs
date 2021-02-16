@@ -141,7 +141,7 @@ Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName “myRouteSer
 Remove-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
 ```
 
-## Next step
+## Next steps
 
 After you create the Azure Route Server, continue to learn about how Azure Route Server interacts with ExpressRoute and VPN Gateways: 
 

@@ -9,9 +9,14 @@ ms.date: 03/02/2021
 ms.author: duau
 ---
 
-# About Azure Route Server supports for ExpressRoute and Azure VPN
+# About Azure Route Server support for ExpressRoute and Azure VPN
 
 Azure Route Server supports not only third-party network virtual appliances (NVA) running on Azure but also integrates seamlessly with ExpressRoute and Azure VPN gateways. You don’t need to configure or manage the BGP peering between the gateway and Azure Route Server. You can enable route exchange between the gateway and Azure Route Server with a simple [configuration change](quickstart-configure-route-server-powershell.md#route-exchange).
+
+> [!IMPORTANT]
+> Azure Route Server (Preview) is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How does it work?
 
@@ -23,7 +28,7 @@ For example, in the following diagram:
 
 * The ExpressRoute gateway will receive the route from “On-prem 1”, which is connected to the SDWAN appliance, along with the virtual network route from Azure Route Server.
 
-    :::image type="content" source="./media/expressroute-vpn-support/expressroute-with-route-server.png" alt-text="Configure ExpressRoute with Route Server":::
+    ![Diagram showing ExpressRoute configured with Route Server.](./media/expressroute-vpn-support/expressroute-with-route-server.png)
 
 You can also replace the SDWAN appliance with Azure VPN gateway. Since Azure VPN gateway and ExpressRoute are fully managed, you only need to enable the route exchange for the two on-premises networks to talk to each other.
 
@@ -31,7 +36,8 @@ You can also replace the SDWAN appliance with Azure VPN gateway. Since Azure VPN
 > Azure VPN gateway must be configured in [**active-active**](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md) mode.
 >
 
-:::image type="content" source="./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png" alt-text="Configure ExpressRoute and VPN with Route Server":::
+![Diagram showing ExpressRoute and VPN gateway configured with Route Server](./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png)
+
 
 ## Next steps
 

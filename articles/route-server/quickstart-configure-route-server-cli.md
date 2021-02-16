@@ -47,14 +47,14 @@ az network vnet create -g “RouteServerRG” -n “myVirtualNetwork” --addres
 az network vnet subnet create -g “RouteServerRG” --vnet-name “myVirtualNetwork” --name “RouteServerSubnet” --address-prefix “10.0.0.0/24”  
 ``` 
 
-2. Obtain the RouteServerSubnet Id. To view the resource ID of all subnets in the virtual network, use this command: 
+2. Obtain the RouteServerSubnet ID. To view the resource ID of all subnets in the virtual network, use this command: 
 
 ```azurecli-interactive 
 subnet_id = $(az network vnet subnet show -n “RouteServerSubnet” --vnet-name “myVirtualNetwork” -g “RouteServerRG” --query id -o tsv) 
 
 ``` 
 
-The RouteServerSubnet Id looks like the following one: 
+The RouteServerSubnet ID looks like the following one: 
 
 `/subscriptions/<subscriptionID>/resourceGroups/RouteServerRG/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/RouteServerSubnet`
 
@@ -154,7 +154,7 @@ az network routeserver peering delete --routeserver-name “myRouteServer” -g 
 az network routeserver delete -n “myRouteServer” -g “RouteServerRG” 
 ``` 
 
-## Next step
+## Next steps
 
 After you create the Azure Route Server, continue to learn about how Azure Route Server interacts with ExpressRoute and VPN Gateways: 
 

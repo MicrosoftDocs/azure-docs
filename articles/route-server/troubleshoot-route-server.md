@@ -44,7 +44,7 @@ The ASN that Azure Route Server uses is 65515. Make sure you configure a differe
 
      Azure Route Server exposes two BGP peer IPs, which are hosted on two VMs that share the responsibility of sending the routes to all other VMs running in your virtual network. Each of your NVA must set up two identical BGP sessions (e.g., use the same AS number, the same AS path and advertise the same set of routes) to the two VMs so that your VMs in the virtual network can get consistent routing info from Azure Route Server. See the diagram below.
 
-    :::image type="content" source="./media/faq/network-virtual-appliances.png" alt-text="Diagram showing a network virtual appliance with Route Server":::
+    ![Diagram showing a network virtual appliance with Route Server.](./media/faq/network-virtual-appliances.png)
 
     If you have two or more instances of the NVA, you *can* advertise different AS paths for the same route from different NVA instances if you want to designate one NVA instance as active and the other passive.
 
