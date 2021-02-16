@@ -101,7 +101,7 @@ The same considerations as in scenario 2 above apply. In this scenario, there ar
 * An Azure subscription.
 * A Log Analytics workspace.  
 
-See, [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md) to create a workspace if you don't have one in your subscription.
+See, [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md) to create a workspace if you don't have one in your subscription.
 
 
 ## Sign in to Azure

@@ -218,7 +218,7 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 ## Monitor a swap
 
-If the [swap operation](#AboutConfiguration) takes a long time to complete, you can get information on the swap operation in the [activity log](../azure-monitor/platform/platform-logs-overview.md).
+If the [swap operation](#AboutConfiguration) takes a long time to complete, you can get information on the swap operation in the [activity log](../azure-monitor/essentials/platform-logs-overview.md).
 
 On your app's resource page in the portal, in the left pane, select **Activity log**.
 

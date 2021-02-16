@@ -122,7 +122,7 @@ Use  encryption at rest on all Azure resources. Microsoft recommends allowing Az
 
 Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to critical Azure resources.
 
-- [How to create alerts for Azure Activity Log events](../../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 ## Next steps
