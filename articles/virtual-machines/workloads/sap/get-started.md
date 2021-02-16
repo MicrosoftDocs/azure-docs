@@ -81,6 +81,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 ## Change Log
 
+- 02/11/2021: Changes in [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md) to amend pacemaker cluster commands for RHEL 8.x
 - 02/03/2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to update  pcmk_host_map in the stonith create command
 - 02/03/2021: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to add pcmk_host_map in the stonith create command 
 - 02/03/2021: More details on I/O scheduler settings for SUSE in article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)

@@ -116,7 +116,7 @@ If you don't have a workspace to specify, you can skip to the [Integrate with th
     export kubeContext="<kubeContext name of your ARO v4 cluster>"  
     ```
 
-    Example:
+    Here is the command you must run once you have populated the 3 variables with Export commands:
 
     `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext --workspace-id $logAnalyticsWorkspaceResourceId`
 
