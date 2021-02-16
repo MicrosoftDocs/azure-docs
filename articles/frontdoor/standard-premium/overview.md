@@ -23,6 +23,8 @@ With Azure Front Door Standard/Premium, you can transform your global consumer a
 
 Azure Front Door Standard/Premium works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split TCP and Microsoft's global network to improve global connectivity. Based on your routing method you can ensure that Azure Front Door will route your client requests to the fastest and most available origin. An application backend is any Internet-facing service hosted inside or outside of Azure. AzureFront Door Standard/Premium provides a range of traffic-routing methods and origin health monitoring options to suit different application needs and automatic failover scenarios. Similar to Traffic Manager, Front Door is resilient to failures, including failures to an entire Azure region.
 
+Azure Front Door also protect your app at the edges with Web Application Firewall, Bot Protection, and built-in lay 3/layer 4 DDoS Protection. Secure your private back-ends and harden your service using Microsoft managed and custom rule sets. Azure Front Door gives you Microsoft’s best-in-practice security at global scale.  
+
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios.
 >
