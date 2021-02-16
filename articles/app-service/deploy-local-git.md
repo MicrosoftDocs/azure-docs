@@ -19,14 +19,12 @@ To follow the steps in this how-to guide:
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
 - [Install Git](https://www.git-scm.com/downloads).
-  
+
 - Have a local Git repository with code you want to deploy. To download a sample repository, run the following command in your local terminal window:
   
   ```bash
   git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
   ```
-
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -56,7 +54,7 @@ Run [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) from the root of
 New-AzWebApp -Name <app-name>
 ```
 
-The command creates a Git remote to your App Service app for you, named `azure`.
+When your run this cmdlet from a directory that's a Git repository, it automatically creates a Git remote to your App Service app for you, named `azure`.
 
 # [Azure portal](#tab/portal)
 
@@ -141,7 +139,7 @@ You may see the following common error messages when you use Git to publish to a
 
 ## Additional resources
 
-- [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
+- [App Service build server (Project Kudu documentation)](https://github.com/projectkudu/kudu/wiki)
 - [Continuous deployment to Azure App Service](deploy-continuous-deployment.md)
 - [Sample: Create a web app and deploy code from a local Git repository (Azure CLI)](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
 - [Sample: Create a web app and deploy code from a local Git repository (PowerShell)](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)
