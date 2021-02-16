@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 02/16/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -95,13 +95,13 @@ Perform the following steps to prepare the drives.
 Perform the following steps to create an import job in the Azure portal.
 
 1. Log on to https://portal.azure.com/.
-2. Go to **All services > Storage > Import/export jobs**.
+2. Search for **import/export jobs**.
 
-    ![Go to Import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+    ![Search on import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Click **Create Import/export Job**.
+3. Select **+ New**.
 
-    ![Click Create Import/export job](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+    ![Select New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. In **Basics**:
 
@@ -112,7 +112,7 @@ Perform the following steps to create an import job in the Azure portal.
    * Select a subscription.
    * Enter or select a resource group.
 
-     ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
 
 5. In **Job details**:
 
@@ -120,7 +120,7 @@ Perform the following steps to create an import job in the Azure portal.
    * Select the destination storage account where data will reside.
    * The dropoff location is automatically populated based on the region of the storage account selected.
 
-   ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+   ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
 6. In **Return shipping info**:
 
@@ -131,7 +131,7 @@ Perform the following steps to create an import job in the Azure portal.
        > [!TIP]
        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
-     ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
 7. In the **Summary**:
 
