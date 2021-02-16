@@ -101,17 +101,17 @@ started right away!
 If you downloaded our Raspberry Pi reference image, Learn more [here](device-update-raspberry-pi.md) on how to get
 started.
 
-### Build the agent
+### Build the Device Update Agent
 
 Follow the instructions to [build](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md) the Device Update Agent
 from source.
 
-### Run the agent
+### Run the Device Update Agent
 
 Once the agent is successfully building, it's time [run](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-run-agent.md)
 the agent.
 
-### Modifying the agent
+### Modifying the Device Update Agent
 
 Now, make the changes needed to incorporate the agent into your image.  Look at how to
 [modify](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.m) the Device Update Agent for guidance.
