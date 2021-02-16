@@ -1,11 +1,11 @@
 ---
 title: Induce Chaos in Service Fabric clusters 
 description: Using Fault Injection and Cluster Analysis Service APIs to manage Chaos in the cluster.
-author: motanv
+author: georgewallace
 
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.author: motanv
+ms.author: gwallace
 ms.custom: devx-track-csharp
 ---
 # Induce controlled Chaos in Service Fabric clusters
