@@ -2,8 +2,6 @@
 .DS_Store
 Thumbs.db
 
-desktop.ini
-
 # Visual Studio and VS Code files
 .vscode/*
 .vs/*
