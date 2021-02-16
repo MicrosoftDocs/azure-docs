@@ -90,6 +90,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 ### Device registration
 
 **Q**: What is device registration?
+
 **A**: Your org might require you to register the device to track access to secured resources, such as files and apps. They also might turn on Conditional Access to reduce the risk of unwanted access to those resources. You can unregister your device in **Settings**, but you may lose access to emails in Outlook, files in OneDrive, and you'll lose the ability to use phone sign-in.
 
 ### Verification codes when connected

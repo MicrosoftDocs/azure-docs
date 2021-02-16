@@ -180,7 +180,7 @@ You already added the blob URI in the hosts file for the client that you're usin
 
 ## Install certificates
 
-If you're using *https*, then you need to install appropriate certificates on your device. In this case, install the blob endpoint certificate. For more information, see how to create and upload certificates in [Use certificates with Azure Stack Edge Pro GPU device](azure-stack-edge-j-series-manage-certificates.md).
+If you're using *https*, then you need to install appropriate certificates on your device. In this case, install the blob endpoint certificate. For more information, see how to create and upload certificates in [Use certificates with Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-manage-certificates.md).
 
 ## Upload a VHD
 

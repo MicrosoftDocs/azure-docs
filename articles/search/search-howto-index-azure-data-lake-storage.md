@@ -6,7 +6,7 @@ description: Learn how to index content and metadata in Azure Data Lake Storage 
 manager: nitinme
 author: markheff
 ms.author: maheff
-ms.devlang: rest-api
+
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
