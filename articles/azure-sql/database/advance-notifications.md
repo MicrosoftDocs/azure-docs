@@ -1,6 +1,6 @@
 ---
 title: Advance notifications (Preview) for planned maintenance events
-description: Get email notification before Azure performs planned maintenance for Azure SQL Database or Azure SQL Managed Instance.
+description: Get notification before planned maintenance for Azure SQL Database or Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 02/09/2021
+ms.date: 02/12/2021
 ---
 # Advance notifications for planned maintenance events (Preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
