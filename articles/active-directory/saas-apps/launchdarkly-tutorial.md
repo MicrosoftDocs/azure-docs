@@ -21,6 +21,9 @@ Integrating LaunchDarkly with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to LaunchDarkly (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
+	> [!NOTE]
+	> The LaunchDarkly Azure Active Directory integration is one-way. After you configure the integration, you can use Azure AD to manage users, SSO, and accounts in LaunchDarkly, but you **cannot** use LaunchDarkly to manage users, SSO, and accounts in Azure.
+
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
