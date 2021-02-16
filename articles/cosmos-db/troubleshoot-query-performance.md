@@ -209,9 +209,10 @@ Following are some common system functions that don't use the index and must loa
 | Mathematical functions (non-aggregates) | If you need to compute a value frequently in your query, consider storing the value as a property in your JSON document. |
 
 These system functions can use indexes, except when used in queries with aggregates:
-| **System function**                     |  **Ideas   for optimization**             |
+
+| **System function**                     | **Ideas   for optimization**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| Spatial system functions | Store the query result in a real-time materialized view |
+| Spatial system functions                        | Store the query result in a real-time materialized view |
 
 When used in the `SELECT` clause, inefficient system functions will not affect how queries can use indexes.
 
