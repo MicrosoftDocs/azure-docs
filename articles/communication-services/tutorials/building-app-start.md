@@ -257,7 +257,7 @@ html {
     font-family: sans-serif;
   }
 ```
-Do not forget to save files. The unsaved files indicatted by whte dots, next to file names and in the Explorer menu on the left. To save you can click "Ctrl + S"
+Don't forget to save! The unsaved file is indicated by white dots next to file names in the file Explorer.
 
  :::image type="content" source="./media/step-one-pic-14.png" alt-text="App.js file with JS code":::
 
