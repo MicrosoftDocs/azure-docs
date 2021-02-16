@@ -165,7 +165,7 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 ### Application Insights
 
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-app-insights.md)]
+[!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
 
 ## Azure Policy limits
 

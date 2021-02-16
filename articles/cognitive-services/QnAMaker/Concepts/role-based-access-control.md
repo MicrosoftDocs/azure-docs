@@ -19,6 +19,9 @@ This Azure RBAC feature includes:
 * Azure Active Directory (AAD) is 100% backward compatible with key-based authentication for owners and contributors. Customers can use either key-based authentication or Azure RBAC-based authentication in their requests.
 * Quickly add authors and editors to all knowledge bases in the resource because control is at the resource level, not at the knowledge base level.
 
+> [!NOTE]
+> Make sure to add a custom subdomain for the resource. [Custom Subdomain](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) should be present by default, but if not, please add it
+
 ## Access is provided by a defined role
 
 [!INCLUDE [Azure RBAC permissions table](../includes/role-based-access-control.md)]
