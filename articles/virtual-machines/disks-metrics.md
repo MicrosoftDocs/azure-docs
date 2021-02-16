@@ -103,7 +103,7 @@ This metric is at 100%. It tells us that all of the 12,800 IOPS allotted to the 
 
 ![Screenshot showing O S Disk I O P S Consumed Percentage.](media/disks-metrics/utilization-metrics-example/os-disk.jpg)
 
-This metric tells us that around 90% of the 5,000 IOPS provisioned for this P30 OS disk is being used. This percentage means there's no bottleneck at the OS Disk. Now let's check the data disks that are attached to the VM by looking at the **Data Disk IOPS Consumed Percentage**:
+This metric tells us that around 90% of the 5,000 IOPS provisioned for this P30 OS disk is being used. This percentage means there's no bottleneck at the OS disk. Now let's check the data disks that are attached to the VM by looking at the **Data Disk IOPS Consumed Percentage**:
 
 ![Screenshot showing Data Disk I O P S Consumed Percentage.](media/disks-metrics/utilization-metrics-example/data-disks-no-splitting.jpg)
 
