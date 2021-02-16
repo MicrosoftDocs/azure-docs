@@ -42,7 +42,7 @@ After you connect your data sources, choose from a gallery of expertly created w
 
     | Workspace geography | Azure Sentinel-generated data geography |
     | --- | --- |
-    | United States<br>India<br>Brazil<br>Africa<br>Korea | United States |
+    | United States<br>India<br>Brazil<br>Africa<br>Korea<br>United Arab Emirates | United States |
     | Europe<br>France<br>Switzerland | Europe |
     | Australia | Australia |
     | United Kingdom | United Kingdom |
