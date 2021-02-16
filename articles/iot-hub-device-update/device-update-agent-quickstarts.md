@@ -1,3 +1,13 @@
+---
+title: Device Update for IoT Hub Agent Quickstartt| Microsoft Docs
+description: Device Update for IoT Hub Agent Quickstart
+author: ValOlson
+ms.author: valls
+ms.date: 2/15/2021
+ms.topic: conceptual
+ms.service: iot-hub-device-update
+---
+
 # Device Update for IoT Hub Agent Quickstart
 
 ## Getting Started - Image-based Updating
