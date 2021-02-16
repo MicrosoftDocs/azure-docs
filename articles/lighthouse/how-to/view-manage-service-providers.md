@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # View and manage service providers
 
-The **Service providers** page in the [Azure portal](https://portal.azure.com) gives customers control and visibility for their service providers who use [Azure Lighthouse](../overview.md). Customers can view details about service providers, delegate specific resources, shop for new service provider offers, remove service provider access, and more.
+The **Service providers** page in the [Azure portal](https://portal.azure.com) gives customers control and visibility for their service providers who use [Azure Lighthouse](../overview.md). Customers can view details about service providers, delegate specific resources, look for new offers, remove service provider access, and more.
 
 To view the **Service providers** page in the Azure portal, select **All services**, then search for **Service providers** and select it. You can also find this page by entering "Service providers" or "Azure Lighthouse" in the search box near the top of the Azure portal.
 
@@ -16,7 +16,7 @@ To view the **Service providers** page in the Azure portal, select **All service
 >
 > To add or update offers, delegate resources, and remove offers, the user must have a role with the `Microsoft.Authorization/roleAssignments/write` permission, such as [Owner](../../role-based-access-control/built-in-roles.md#owner).
 
-Keep in mind that the **Service providers** page only shows information about the service providers that have access to the customer's subscriptions or resource groups through Azure Lighthouse. If a customer works with additional service providers who don't use Azure Lighthouse to access the customer's resources, information about those service providers isn't shown here.
+Keep in mind that the **Service providers** page only shows information about the service providers that have access to the customer's subscriptions or resource groups through Azure Lighthouse. If a customer works with additional service providers who don't use Azure Lighthouse, you won't see information about those service providers here.
 
 ## View service provider details
 
