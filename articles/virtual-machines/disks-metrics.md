@@ -27,7 +27,23 @@ We have metrics on Azure that provide insight on how your virtual machines and d
 - **Disk Write Bytes/Sec**: The number of bytes that are written in a second from all disks attached to a VM.
 - **Disk Write Operations/Sec**: The number of output operations that are written in a second from all disks attached to a VM.
 
-## Storage IO utilization metrics
+# Bursting Metrics
+The following metrics help with observability into our [bursting](disk-bursting.md) feature on our premium disks:
+
+**Data Disk Max Burst Bandwidth**: The throughput limit that the data disk(s) can burst up to.
+**OS Disk Max Burst Bandwidth**: The throughput limit that the OS disk can burst up to.
+**Data Disk Max Burst IOPS**: the IOPS limit that the data disk(s) can burst up to.
+**OS Disk Max Burst IOPS**: The IOPS limit that the OS disk can burst up to.
+**Data Disk Target Bandwidth**: The throughput limit that the data(s) disk can achieve without bursting.
+**OS Disk Target Bandwidth**: The throughput limit that the OS disk can achieve without bursting.
+**Data Disk Target IOPS**: The IOPS limit that the data disk(s) can achieve without bursting.
+**OS Disk Target IOPS**: The IOPS limit that the data disk(s) can achieve without bursting.
+**Data Disk Used Burst BPS Credits Percentage**: The accumulated percentage of the throughput burst used for the data disk(s).
+**OS Disk Used Burst BPS Credits Percentage**: The accumulated percentage of the throughput burst used for the OS disk.
+**Data Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the data disk(s).
+**OS Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the OS disk.
+
+# Storage IO utilization metrics
 The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available when using Premium enabled VM. These metrics are available for all disk types except for Ultra. 
 
 Metrics that help diagnose disk IO capping:
