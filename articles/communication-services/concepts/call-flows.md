@@ -12,7 +12,7 @@ ms.topic: overview
 ms.service: azure-communication-services
 
 ---
-# Call flows basics
+# Call flow basics
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -72,12 +72,11 @@ If the client library can't use UDP for media due to firewall restrictions, an a
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagram showing TCP media process flow within Communication Services.":::
 
-### Case 5: ACS SDK and Microsoft Teams in a scheduled Teams meeting
+### Case 5: Communication Services client library and Microsoft Teams in a scheduled Teams meeting
 
-Signaling flows through the Signalling controller. Media flows through a component called Media Processor.
-Signaling controller and Media Processor shared for ACS and Microsoft Teams. 
+Signaling flows through the signaling controller. Media flows through the Media Processor. The signaling controller and Media Processor are shared between Communication Services and Microsoft Teams. 
 
-:::image type="content" source="./media/call-flows/teams-acs-meeting.png" alt-text="Diagram showing ACS SDK and Teams Client in a scheduled Teams Meeting.":::
+:::image type="content" source="./media/call-flows/teams-acs-meeting.png" alt-text="Diagram showing Communication Services client library and Teams Client in a scheduled Teams meeting.":::
 
 
 
