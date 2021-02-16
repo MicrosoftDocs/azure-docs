@@ -45,7 +45,7 @@ Follow these steps to configure the network for your device.
 
 2. If a zero day update is needed, you can do that here by configuring a data port with a wired connection. For more instructions on how to set up a wired connection for this device, see [Cable your device](azure-stack-edge-mini-r-deploy-install.md#cable-the-device). After the update is over, you can remove the wired connection.
 
-3. Create certificates for Wi-Fi and signing chain. Both the signing chain and the Wi-Fi certificates must be DER format with a *.cer* file extension. For instructions, see [Create certificates](azure-stack-edge-j-series-manage-certificates.md).
+3. Create certificates for Wi-Fi and signing chain. Both the signing chain and the Wi-Fi certificates must be DER format with a *.cer* file extension. For instructions, see [Create certificates](azure-stack-edge-gpu-manage-certificates.md).
 
 4. In the local web UI, go to **Get started**. On the **Security** tile, select **Certificates** and then select **Configure**. 
 

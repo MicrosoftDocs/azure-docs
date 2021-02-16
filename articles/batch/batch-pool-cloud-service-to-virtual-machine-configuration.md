@@ -2,7 +2,7 @@
 title: Migrate Batch pool configuration from Cloud Services to Virtual Machines
 description: Learn how to update your pool configuration to the latest and recommended configuration
 ms.topic: how-to
-ms.date: 1/6/2021
+ms.date: 2/16/2021
 ---
 
 # Migrate Batch pool configuration from Cloud Services to Virtual Machines
@@ -31,6 +31,19 @@ The following should be considered when updating pool configuration:
    > As with Virtual Machines and Virtual Machine Scale Sets, the OS managed disk used for each node incurs a cost, which is additional to the cost of the VMs. There is no OS disk cost for 'cloudServiceConfiguration' nodes as the OS disk is created on the nodes local SSD.
 
 - Pool and node startup and delete times may differ slightly between 'cloudServiceConfiguration' pools and 'virtualMachineConfiguration' pools.
+
+## Azure Data Factory custom activity pools
+
+Azure Batch pools can be used to run Data Factory custom activities. Any 'cloudServiceConfiguration' pools used to run custom activities will need to be deleted and new 'virtualMachineConfiguration' pools created.
+
+- Pipelines should be paused before delete/recreate to ensure no executions will be interrupted.
+- The same pool id can be used to avoid linked service configuration changes.
+- Resume pipelines when new pools have been created.
+
+For more information about using Azure Batch to run Data Factory custom activities:
+
+- [Azure Batch linked service](../data-factory/compute-linked-services.md#azure-batch-linked-service)
+- [Custom activities in a Data Factory pipeline](../data-factory/transform-data-using-dotnet-custom-activity.md)
 
 ## Next steps
 
