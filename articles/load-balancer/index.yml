@@ -45,8 +45,6 @@ landingContent:
             url: quickstart-load-balancer-standard-internal-portal.md
       - linkListType: tutorial
         links:
-          - text: Load balance internet traffic to VMs
-            url: tutorial-load-balancer-standard-manage-portal.md
           - text: Load balance VMs across availability zones with a Standard Load Balancer
             url: tutorial-load-balancer-standard-public-zone-redundant-portal.md
           - text: Configure port forwarding in Azure Load Balancer
