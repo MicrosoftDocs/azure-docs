@@ -32,7 +32,7 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
 
 ## Change your pricing tier 
 
-If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you can update it to use the Standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/):
+If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you should update it to use the Standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). Starting March 8th, the S0 through S4 pricing tiers will be retired. To update your resource's pricing:
 
 1. Navigate to your Text Analytics resource in the [Azure portal](https://portal.azure.com/).
 2. Select **Pricing tier** in the left navigation menu. It will be below **RESOURCE MANAGEMENT**. 
