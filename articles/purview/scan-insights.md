@@ -53,17 +53,17 @@ In Azure Purview, you can register and scan source types. You can view the scan 
 
 1. Based on the time filter value selected, you can see the distribution of successful, failed, and canceled scans by week or by the day in the graph.
 
-1. At the bottom of the graph there is a **View more** link for you to explore further. The link opens the  **Scan Status** page within Scan Insights experience. Here you can see a scan name and the number of times it has succeeded, failed or been canceled in the last 30 days.
+1. At the bottom of the graph, there is a **View more** link for you to explore further. The link opens the  **Scan Status** page within Scan Insights experience. Here you can see a scan name and the number of times it has succeeded, failed, or been canceled in the last 30 days.
 
-:::image type="content" source="./media/scan-insights/main-graph.png" alt-text="View Scan status over time":::
+    :::image type="content" source="./media/scan-insights/main-graph.png" alt-text="View Scan status over time":::
 
-4. You can explore a specific scan further, by clicking on the **scan name** that will connect you to the scan history within the **Sources** experience of Azure Purview. From the run history page, you can get the run id that will help in further failure investigation.
+4. You can explore a specific scan further, by clicking on the **scan name** that will connect you to the scan history within the **Sources** experience of Azure Purview. From the run history page, you can get the run ID that will help in further failure investigation.
 
-:::image type="content" source="./media/scan-insights/scan-status.png" alt-text="View Scan details":::
+    :::image type="content" source="./media/scan-insights/scan-status.png" alt-text="View Scan details":::
 
 5. Finally, you can come back to Scan Insights **Scan Status** page by following the bread crumbs on the top left corner of the run history page.
 
-:::image type="content" source="./media/scan-insights/scan-history.png" alt-text="View scan history"::: 
+    :::image type="content" source="./media/scan-insights/scan-history.png" alt-text="View scan history"::: 
 
 ## Next steps
 
