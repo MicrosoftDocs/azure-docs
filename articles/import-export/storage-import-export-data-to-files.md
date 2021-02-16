@@ -149,7 +149,7 @@ Perform the following steps to create an import job in the Azure portal.
         > [!TIP]
         > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
-       ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+       ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
 
 5. In the **Summary**:
@@ -157,7 +157,7 @@ Perform the following steps to create an import job in the Azure portal.
     - Provide the Azure datacenter shipping address for shipping disks back to Azure. Ensure that the job name and the full address are mentioned on the shipping label.
     - Click **OK** to complete import job creation.
 
-        ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+        ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
 ### [Azure CLI](#tab/azure-cli)
 
