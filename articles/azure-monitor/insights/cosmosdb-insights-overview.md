@@ -114,7 +114,7 @@ The **Overview** tab provides the most common metrics for the selected Azure Cos
 * Data & Index Usage
 * Cosmos DB Account Metrics by Collection
 
-**Total Requests:** This graph provides a view of the total requests for the account broken down by Status Code. The units at the bottom of the graph are a sum of the total requests for the period.
+**Total Requests:** This graph provides a view of the total requests for the account broken down by status code. The units at the bottom of the graph are a sum of the total requests for the period.
 
 ![Total Requests Graph](./media/cosmosdb-insights-overview/cosmosdb-totalrequests.png)
 
