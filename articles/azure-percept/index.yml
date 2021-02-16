@@ -13,6 +13,17 @@ metadata:
   ms.date: 02/05/2021 
 
 landingContent:
+  - title: Get started with the Azure Percept DK
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure Percept DK datasheet
+            url: azure-percept-dk-datasheet.md
+          - text: Azure Percept Vision datasheet
+            url: azure-percept-vision-datasheet.md
+          - text: Azure Percept Audio datasheet
+            url: azure-percept-audio-datasheet.md
+
   - title: Connect and develop devices
     linkLists:
       - linkListType: how-to-guide

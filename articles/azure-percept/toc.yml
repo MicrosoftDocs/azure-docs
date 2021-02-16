@@ -20,6 +20,14 @@
 
 - name: Reference
   items:
+    - name: Azure Percept device datasheets
+      items:
+        - name: Azure Percept DK datasheet
+          href: azure-percept-dk-datasheet.md
+        - name: Azure Percept Vision datasheet
+          href: azure-percept-vision-datasheet.md
+        - name: Azure Percept Audio datasheet
+          href: azure-percept-audio-datasheet.md
 
 - name: Resources
   items:
