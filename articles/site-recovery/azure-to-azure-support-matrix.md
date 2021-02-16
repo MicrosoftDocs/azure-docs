@@ -67,6 +67,16 @@ General purpose V2 storage accounts (Hot and Cool tier) | Supported | Usage of G
 Premium storage | Not supported | Standard storage accounts are used for cache storage, to help optimize costs.
 Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.
 
+The table below lists the limits in terms of number of disks that can replicate to a single storage account.
+
+**Storage account type**    |    **Churn = 4 MBps per disk**    |    **Churn = 8 MBps per disk**
+---    |    ---    |    ---
+V1 storage account    |    300 disks    |    150 disks
+V2 storage account    |    750 disks    |    375 disks
+
+As average churn on the disks increases, the number of disks that a storage account can support decreases. The above table may be used as a guide for making decisions on number of storage accounts that need to be provisioned.
+
+Please note that the above limits are specific to Azure to Azure and zone to zone DR scenarios. 
 
 ## Replicated machine operating systems
 
