@@ -52,7 +52,7 @@ The machine has already been deployed to another workspace for Change Tracking.
 
 1. If you get a ```Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota``` result, the quota defined on your workspace has been reached, which has stopped data from being saved. In your workspace, go to **Usage and estimated costs**. Either select a new **Pricing tier** that allows you to use more data, or click on **Daily cap**, and remove the cap.
 
-:::image type="content" source="./media/change-tracking/change-tracking-inline.png" alt-text="Usage and estimated costs" lightbox="./media/change-tracking/change-tracking-expanded.png":::
+![Usage and estimated costs](./media/change-tracking/change-tracking-usage.png)
 
 If your issue is still unresolved, follow the steps in [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows. For Linux, follow the steps in  [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
