@@ -23,7 +23,7 @@ With Azure Front Door Standard/Premium, you can transform your global consumer a
 
 Azure Front Door Standard/Premium works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split TCP and Microsoft's global network to improve global connectivity. Based on your routing method you can ensure that Azure Front Door will route your client requests to the fastest and most available origin. An application backend is any Internet-facing service hosted inside or outside of Azure. AzureFront Door Standard/Premium provides a range of traffic-routing methods and origin health monitoring options to suit different application needs and automatic failover scenarios. Similar to Traffic Manager, Front Door is resilient to failures, including failures to an entire Azure region.
 
-Azure Front Door also protect your app at the edges with Web Application Firewall, Bot Protection, and built-in lay 3/layer 4 DDoS Protection. It also secure your private back-ends with private link service. Azure Front Door gives you Microsoft’s best-in-practice security at global scale.  
+Azure Front Door also protect your app at the edges with Web Application Firewall, Bot Protection, and built-in lay 3/layer 4 DDoS Protection. It also secures your private back-ends with private link service. Azure Front Door gives you Microsoft’s best-in-practice security at global scale.  
 
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios.
@@ -70,7 +70,7 @@ Key features included with Azure Front Door Standard/Premium (Preview):
 
 ## Pricing
 
-Azure Front Door Standard/Premium has two SKUs, Standard and Premium. For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). See [SLA for Azure Front Door](https://azure.microsoft.com/support/legal/sla/frontdoor/v1_0/).
+Azure Front Door Standard/Premium has two SKUs, Standard and Premium. For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). 
 
 ## What's new?
 
