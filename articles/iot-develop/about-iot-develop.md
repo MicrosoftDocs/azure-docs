@@ -46,7 +46,7 @@ If your device is able to run a general-purpose operating system, we recommend f
 > See the [Embedded Device Development SDKs](about-iot-sdks.md) to get started.
 
 ## Choosing your hardware
-Azure IoT devices are the basic building blocks of an IoT solution and are responsible for observing and interacting with their environment. There are many different types of IoT devices, and it's helpful to understand the kinds of device that exist and how these might impact your development process.
+Azure IoT devices are the basic building blocks of an IoT solution and are responsible for observing and interacting with their environment. There are many different types of IoT devices, and it's helpful to understand the kinds of devices that exist and how these can impact your development process.
 
 For more information on the difference between devices types covered in this article, read [About IoT Device Types](concepts-iot-device-types.md).
 
