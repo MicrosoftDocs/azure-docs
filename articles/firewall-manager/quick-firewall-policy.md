@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create an Azure Firewall and a firewall policy - Resource Manager template'
-description: In this quickstart, you learn how to secure your virtual hub using Azure Firewall Manager.
+description: In this quickstart, you deploy an Azure Firewall and a firewall policy.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
@@ -12,14 +12,16 @@ ms.author: victorh
 
 # Quickstart: Create an Azure Firewall and a firewall policy - ARM template
 
-In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Firewall and a firewall policy. The deployed firewall has a policy with an application rule that allow connections to `www.microsoft.com` and a rule that allows connections to Windows Update using the **WindowsUpdate** FQDN tag. A network rule allows UDP connections to a time server at 13.86.101.172.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Firewall and a firewall policy. The firewall policy has an application rule that allows connections to `www.microsoft.com` and a rule that allows connections to Windows Update using the **WindowsUpdate** FQDN tag. A network rule allows UDP connections to a time server at 13.86.101.172.
 
 Also, IP Groups are used in the rules to define the **Source** IP addresses.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 For information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
+
 For information about Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md).
+
 For information about IP Groups, see [IP Groups in Azure Firewall](../firewall/ip-groups.md).
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
