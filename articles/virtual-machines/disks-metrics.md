@@ -9,8 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 # Disk performance metrics
+We have metrics on Azure that provide insight on how your virtual machines and disks are performing. These metrics can be viewed through the Azure portal. They can also be retrieved through an API call. Metrics are calculated over one-minute intervals. 
 
-We have metrics on Azure that provide insight on how your virtual machines and disks are performing. These metrics can be viewed through the Azure portal. They can also be retrieved through an API call. Metrics are calculated over one-minute intervals. The following metrics are available to get insight on VM and Disk IO, and also on throughput performance:
+## Disk IO, throughput and queue depth metrics
+The following metrics are available to get insight on VM and Disk IO, throughput and queue depth performance:
 
 - **OS Disk Queue Depth**: The number of current outstanding IO requests that are waiting to be read from or written to the OS disk.
 - **OS Disk Read Bytes/Sec**: The number of bytes that are read in a second from the OS disk.
@@ -27,23 +29,23 @@ We have metrics on Azure that provide insight on how your virtual machines and d
 - **Disk Write Bytes/Sec**: The number of bytes that are written in a second from all disks attached to a VM.
 - **Disk Write Operations/Sec**: The number of output operations that are written in a second from all disks attached to a VM.
 
-# Bursting Metrics
+## Bursting Metrics
 The following metrics help with observability into our [bursting](disk-bursting.md) feature on our premium disks:
 
-**Data Disk Max Burst Bandwidth**: The throughput limit that the data disk(s) can burst up to.
-**OS Disk Max Burst Bandwidth**: The throughput limit that the OS disk can burst up to.
-**Data Disk Max Burst IOPS**: the IOPS limit that the data disk(s) can burst up to.
-**OS Disk Max Burst IOPS**: The IOPS limit that the OS disk can burst up to.
-**Data Disk Target Bandwidth**: The throughput limit that the data(s) disk can achieve without bursting.
-**OS Disk Target Bandwidth**: The throughput limit that the OS disk can achieve without bursting.
-**Data Disk Target IOPS**: The IOPS limit that the data disk(s) can achieve without bursting.
-**OS Disk Target IOPS**: The IOPS limit that the data disk(s) can achieve without bursting.
-**Data Disk Used Burst BPS Credits Percentage**: The accumulated percentage of the throughput burst used for the data disk(s).
-**OS Disk Used Burst BPS Credits Percentage**: The accumulated percentage of the throughput burst used for the OS disk.
-**Data Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the data disk(s).
-**OS Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the OS disk.
+- **Data Disk Max Burst Bandwidth**: The throughput limit that the data disk(s) can burst up to.
+- **OS Disk Max Burst Bandwidth**: The throughput limit that the OS disk can burst up to.
+- **Data Disk Max Burst IOPS**: the IOPS limit that the data disk(s) can burst up to.
+- **OS Disk Max Burst IOPS**: The IOPS limit that the OS disk can burst up to.
+- **Data Disk Target Bandwidth**: The throughput limit that the data(s) disk can achieve without bursting.
+- **OS Disk Target Bandwidth**: The throughput limit that the OS disk can achieve without bursting.
+- **Data Disk Target IOPS**: The IOPS limit that the data disk(s) can achieve without bursting.
+- **OS Disk Target IOPS**: The IOPS limit that the data disk(s) can achieve without bursting.
+- **Data Disk Used Burst BPS Credits Percentage**: The accumulated percentage of the throughput burst used for the data disk(s).
+- **OS Disk Used Burst BPS Credits Percentage**: The accumulated percentage of the throughput burst used for the OS disk.
+- **Data Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the data disk(s).
+- **OS Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the OS disk.
 
-# Storage IO utilization metrics
+## Storage IO utilization metrics
 The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available when using Premium enabled VM. These metrics are available for all disk types except for Ultra. 
 
 Metrics that help diagnose disk IO capping:
