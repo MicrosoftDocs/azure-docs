@@ -75,7 +75,7 @@ To retrieve connection details for the new device:
 ## Send messages and monitor telemetry
 In this section, you will use the Python SDK to build a simulated device and send telemetry to your IoT Central application. 
 
-1. Open a Windows CMD terminal (for Linux, use **bash**). You use this terminal to install the Python SDK, update environment variables, and run the Python code sample.
+1. Open a terminal using Windows CMD, or Powershell, or Bash (for Windows or Linux). You'll use the terminal to install the Python SDK, update environment variables, and run the Python code sample.
 
 1. Copy the [Azure IoT Python SDK device samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) to your local machine.
 
@@ -96,7 +96,7 @@ In this section, you will use the Python SDK to build a simulated device and sen
 
 1. Set each of the following environment variables, to enable your simulated device to connect to IoT Central. For `ID_SCOPE`, `DEVICE_ID`, and `DEVICE_KEY`, use the values that you saved from the IoT Central *Device connection* dialog.
 
-    **Windows (cmd)**
+    **Windows CMD**
 
     ```console
     set PROVISIONING_HOST=global.azure-devices-provisioning.net
@@ -114,19 +114,34 @@ In this section, you will use the Python SDK to build a simulated device and sen
     > [!NOTE]
     > For Windows CMD there are no quotation marks surrounding the connection string or other variable values.
 
-    **Linux (bash)**
+    **Powershell**
+
+    ```azurepowershell
+    $env:PROVISIONING_HOST='global.azure-devices-provisioning.net'
+    ```
+    ```azurepowershell
+    $env:ID_SCOPE='<your ID scope>'
+    ```
+    ```azurepowershell
+    $env:DEVICE_ID='<your device ID>'
+    ```
+    ```azurepowershell
+    $env:DEVICE_KEY='<your device's primary key>'
+    ```
+
+    **Bash (Linux or Windows)**
 
     ```bash
-    export PROVISIONING_HOST="global.azure-devices-provisioning.net"
+    export PROVISIONING_HOST='global.azure-devices-provisioning.net'
     ```
     ```bash
-    export ID_SCOPE="<your ID scope>"
+    export ID_SCOPE='<your ID scope>'
     ```
     ```bash
-    export DEVICE_ID="<your device ID>"
+    export DEVICE_ID='<your device ID>'
     ```
     ```bash
-    export DEVICE_KEY="<your device's primary key>"
+    export DEVICE_KEY='<your device's primary key>'
     ```
 
 1. In your terminal, run the code for the sample file *simple_send_temperature.py* . This code accesses the simulated IoT device and sends a message to IoT Central.
@@ -227,7 +242,7 @@ In this section, you will use the Python SDK to build a simulated device and sen
         # loop.close()
     ```
 
-As the Python code sends a message from your device to your IoT Central application, the messages appear in the **Raw data** tab of your device in IoT Central:
+As the Python code sends a message from your device to your IoT Central application, the messages appear in the **Raw data** tab of your device in IoT Central. You might need to refresh the page to show recent messages.
 
    :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-telemetry-output.png" alt-text="Screen shot of IoT Central raw data output":::
 
