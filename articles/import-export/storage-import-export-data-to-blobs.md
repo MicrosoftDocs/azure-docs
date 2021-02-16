@@ -138,7 +138,7 @@ Perform the following steps to create an import job in the Azure portal.
    * Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
    * Click **OK** to create the import job.
 
-     ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
 ### [Azure CLI](#tab/azure-cli)
 

@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 02/16/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -113,13 +113,13 @@ For additional samples, go to [Samples for journal files](#samples-for-journal-f
 
 Perform the following steps to create an import job in the Azure portal.
 1. Log on to https://portal.azure.com/.
-2. Go to **All services > Storage > Import/export jobs**.
+2. Search for **import/export jobs**.
 
-    ![Go to Import/export](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+    ![Search on import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Click **Create Import/export Job**.
+3. Select **+ New**.
 
-    ![Click Import/export job](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+    ![Select New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. In **Basics**:
 
@@ -130,7 +130,7 @@ Perform the following steps to create an import job in the Azure portal.
     - Select a subscription.
     - Select a resource group.
 
-        ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+        ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
 
 3. In **Job details**:
 
@@ -138,7 +138,7 @@ Perform the following steps to create an import job in the Azure portal.
     - Select the storage account that the data will be imported into.
     - The dropoff location is automatically populated based on the region of the storage account selected.
 
-       ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+       ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
 4. In **Return shipping info**:
 
