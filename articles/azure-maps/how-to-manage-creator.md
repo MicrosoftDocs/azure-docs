@@ -3,7 +3,7 @@ title: Manage Microsoft Azure Maps Creator (Preview)
 description: In this article, you'll learn how to manage Microsoft Azure Maps Creator (Preview).
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 02/16/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -73,7 +73,7 @@ Creator usage data is incorporated in your Azure Maps usage charts and activity 
 
 ## Access to Creator services
 
-Creator services (Preview) are accessible only from within the location selected during creation. If calls are made to Creator services from outside the selected location, a user error message will be returned. To make calls from outside the selected location, the service URL must include the geographic prefix for the selected locations. For example, if Creator is created in the United States, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`.
+Creator services (Preview) and services making use of data hosted in Creator, such as Render service, are accessible at a URL that depends on the location selected during creation. For example, if Creator is created in the United States geography, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`.
 
 Also, all data imported into Creator should be uploaded into the same geographical location as the Creator resource. For example, if Creator is provisioned in the United Stated, all raw data should be uploaded via `us.atlas.microsoft.com/mapData/upload`.
 
