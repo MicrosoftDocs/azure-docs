@@ -950,6 +950,8 @@
       href: disks-reserved-capacity.md
     - name: Design for high performance
       href: premium-storage-performance.md
+    - name: Disk related metrics
+      href: disks-metrics.md
     - name: Disk bursting
       href: disk-bursting.md
     - name: Disk performance tiers
@@ -990,7 +992,7 @@
     href: ephemeral-os-disks.md
   - name: Migration and conversion
     items:
-    - name: Convert disk between Standard and Premium
+    - name: Convert disk to another disk type
       items:
       - name: CLI
         href: ./linux/convert-disk-storage.md
