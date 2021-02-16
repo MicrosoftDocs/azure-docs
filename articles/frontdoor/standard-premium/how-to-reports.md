@@ -16,7 +16,7 @@ ms.author: yuajia
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Front Door Analytics Reports provide a built-in and all-around view of how Azure Front Door is behaving and the associated WAF metrics. You can take advantage of Access Log to do further troubleshooting and debugging. Azure Front Door Analytics reports include AFD reports and security reports.
+Azure Front Door Analytics Reports provide a built-in and all-around view of how Azure Front Door is behaving and the associated WAF metrics. You can take advantage of Access Log to do further troubleshooting and debugging. Azure Front Door Analytics reports include AFD traffic reports and security reports.
 
 | Reports | Details |
 |---------|---------|
@@ -56,14 +56,14 @@ Reports support any selected date range from the previous 90 days. With data poi
    * Cache
    * Top url
    * Top referrer
-   * Top Usage
+   * Top user agent
 
 1. After choosing the dimension, you can select different filters.
   
     1. **Show data for** - Select the date range for which you want to view traffic by domain. Available ranges are:
         
         * Last 24 hours
-        * Last seven days
+        * Last 7 days
         * Last 30 days
         * Last 90 days
         * This month
@@ -76,7 +76,7 @@ Reports support any selected date range from the previous 90 days. With data poi
         * By hour – one data every hour for date ranges between 24 hours to 30 days
         * By day – one data per day for date ranges bigger than 30 days.
 
-        You can always use Aggregation to change the default aggregation granularity. Note: 5 minutes doesn’t work for data range longer than 30 days. 
+        You can always use Aggregation to change the default aggregation granularity. Note: 5 minutes doesn’t work for data range longer than 14 days. 
 
     1. **Location** - Select single or multiple client locations by country. Countries are grouped into six regions: North America, Asia, Europe, Africa, Oceania, and South America. Refer to [region/country mapping](https://en.wikipedia.org/wiki/Subregion). By default, all countries are selected.
     
