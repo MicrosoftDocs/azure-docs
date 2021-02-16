@@ -70,7 +70,7 @@ Key features included with Azure Front Door Standard/Premium (Preview):
 
 ## Pricing
 
-Azure Front Door Standard/Premium has two SKUs, Standard and Premium. For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). 
+Azure Front Door Standard/Premium has two SKUs, Standard and Premium. See [Tier Comparison](tier-comparison.md). For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). 
 
 ## What's new?
 
