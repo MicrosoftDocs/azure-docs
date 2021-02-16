@@ -35,7 +35,7 @@ Before you can create an Azure Front Door Standard/Premium origin, you must have
 
 1. On the **Add an origin group** page, enter a unique **Name** for the new origin group.
 
-1. Select **Add an Origin** to add a new origin to current group. 
+1. Then select **+ Add an Origin** to add a new origin to this origin group. 
 
     :::image type="content" source="../media/how-to-create-origin/add-origin-view.png" alt-text="Screenshot of add an origin page.":::
   
