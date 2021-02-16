@@ -12,11 +12,7 @@ ms.author: duau
 
 # Frequently asked questions for Azure Front Door Standard/Premium (Preview)
 
-This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
-
-1. The comments section of this article.
-2. [Azure Front Door UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=345025).
-3. **Microsoft Support:** To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
+This article answers common questions about Azure Front Door features and functionality.
 
 ## General
 
