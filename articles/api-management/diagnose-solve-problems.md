@@ -31,7 +31,7 @@ You can search your issues or problems in the search bar on the top of the page.
 
 ## Troubleshooting categories
 
-You can troubleshoot issues under categories. Common issues that are related to your API performance, gateway, proxy policies, and service tier can all be analyzed within each category. Each category also provides more specific diagnostics checks. 
+You can troubleshoot issues under categories. Common issues that are related to your API performance, gateway, API policies, and service tier can all be analyzed within each category. Each category also provides more specific diagnostics checks. 
 
 :::image type="content" source="media/diagnose-solve-problems/troubleshootingcategory.png" alt-text="Category View.":::
 
@@ -46,13 +46,13 @@ Check your API availability and performance issues under this category. After se
 
 :::image type="content" source="media/diagnose-solve-problems/categoryinteractivesearch2.png" alt-text="Interactive Interface check 2.":::
 
-### Proxy and Policies
+### API Policies
 
-This category detects proxy errors and notifies you of your policy issues. 
+This category detects errors and notifies you of your policy issues. 
 
 A similar interactive interface guides you to the data metrics to help you troubleshoot your API policies configuration.
 
-:::image type="content" source="media/diagnose-solve-problems/proxypolicies.png" alt-text="Proxy and Policies .":::
+:::image type="content" source="media/diagnose-solve-problems/proxypolicies.png" alt-text="API Policies .":::
 
 ### Gateway Performance 
 
