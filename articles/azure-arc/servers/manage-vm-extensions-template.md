@@ -644,14 +644,8 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
         "certificateStoreName":{
           "type": "string"
         },
-        "linkOnRenewal":{
-          "type": "bool"
-        },
         "certificateStoreLocation":{
           "type": "string"
-        },
-        "requireInitialSync":{
-          "type": "bool"
         },
         "observedCertificates":{
           "type": "string"
