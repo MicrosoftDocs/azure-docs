@@ -62,6 +62,9 @@ This image version comparison is done by comparing the values as a [Version](/do
 
 ## RHEL 6 image types
 
+>[!NOTE]
+> As of December 30 2020, RHEL 6.10 entered End Of Life (EOL). For continued support please enable ELS as part of the Extended Life-cycle Support phase, see [Red Hat ELS documentation](./redhat-extended-lifecycle-support.md).
+
 For RHEL 6.x images, the image types are shown in the following table.
 
 |Publisher | Offer | SKU value | Version | Details
@@ -103,7 +106,14 @@ Details for RHEL 8 image types are below.
 |RedHat | RHEL | 8 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191023) | These images are RHEL 8 LVM-partitioned images connected to standard Red Hat repositories.
 |RedHat | RHEL | 8-gen2 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191024) | These images are Hyper-V Generation 2 RHEL 8 LVM-partitioned images connected to standard Red Hat repositories. For more information about Generation 2 VMs in Azure, see [Support for Generation 2 VMs on Azure](../../generation-2.md).
 
-## RHEL longer support add-ons
+## RHEL Extended Support add-ons
+
+### Extended Life-cycle Support
+
+The Extended Life-cycle Support (ELS) add-on is an optional subscription that enables critical and important security fixes for releases that have reached End Of Life (EOL). More information on RHEL EUS is available in [Red Hat's documentation](https://access.redhat.com/support/policy/updates/errata#Extended_Life_Cycle_Support).
+
+ELS is currently only available for RHEL 6.10. For pay-as-you-go images, ELS can be enabled by following the steps in the [Red Hat ELS documentation](./redhat-extended-lifecycle-support.md).
+
 
 ### Extended Update Support
 
