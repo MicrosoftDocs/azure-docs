@@ -10,6 +10,9 @@
   - name: Secure virtual hub - ARM template
     displayName: Resource Manager
     href: quick-secure-virtual-hub.md
+  - name: Deploy firewall with policy - ARM template
+    displayName: Resource Manager
+    href: quick-firewall-policy.md
 - name: Tutorials
   items:
   - name: Secure your virtual hub - portal
