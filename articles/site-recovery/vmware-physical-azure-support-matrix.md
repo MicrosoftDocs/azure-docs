@@ -176,6 +176,7 @@ Add disk on replicated VM | Not supported.<br/> Disable replication for the VM, 
 
 > [!NOTE]
 > Any change to disk identity is not supported. For example, if the disk partitioning has been changed from GPT to MBR or vice versa, then this will change the disk identity. In such a scenario, the replication will break and a fresh setup will be required. 
+> For Linux machines, device name change is not supported as it has an impact on the disk identity.
 
 ## Network
 
@@ -323,6 +324,17 @@ Maximum data churn per day supported by a Process Server | 2 TB
 - These are average numbers assuming a 30 percent I/O overlap.
 - Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior.
 - These numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it is processed and a recovery point is created within five minutes.
+
+## Storage account limits
+
+As average churn on the disks increases, the number of disks that a storage account can support decreases. The below table may be used as a guide for making decisions on number of storage accounts that need to be provisioned.
+ 
+**Storage account type**    |    **Churn = 4 MBps per disk**    |    **Churn = 8 MBps per disk**
+---    |    ---    |    ---
+V1 storage account    |    600 disks    |    300 disks
+V2 storage account    |    1500 disks    |    750 disks
+
+Please note that the above limits are applicable to hybrid DR scenarios only.
 
 ## Vault tasks
 

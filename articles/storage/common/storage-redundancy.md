@@ -182,13 +182,21 @@ The following table indicates whether your data is durable and available in a gi
 
 <sup>1</sup> Account failover is required to restore write availability if the primary region becomes unavailable. For more information, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
+### Supported Azure Storage services
+
+The following table shows which redundancy options are supported by each Azure Storage service.
+
+| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br />Azure managed disks | Blob storage<br />Queue storage<br />Table storage<br />Azure Files | Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br /> | Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br /> |
+
 ### Supported storage account types
 
 The following table shows which redundancy options are supported by each type of storage account. For information for storage account types, see [Storage account overview](storage-account-overview.md).
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| General-purpose v2<br /> General-purpose v1<br /> Block blob storage<br /> Blob storage<br /> File storage | General-purpose v2<br /> Block blob storage<br /> File storage | General-purpose v2<br /> General-purpose v1<br /> Blob storage | General-purpose v2 |
+| General-purpose v2<br /> General-purpose v1<br /> BlockBlobStorage<br /> BlobStorage<br /> FileStorage | General-purpose v2<br /> BlockBlobStorage<br /> FileStorage | General-purpose v2<br /> General-purpose v1<br /> BlobStorage | General-purpose v2 |
 
 All data for all storage accounts is copied according to the redundancy option for the storage account. Objects including block blobs, append blobs, page blobs, queues, tables, and files are copied. Data in all tiers, including the archive tier, is copied. For more information about blob tiers, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md).
 

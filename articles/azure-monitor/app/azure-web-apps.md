@@ -70,7 +70,8 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 # [ASP.NET Core](#tab/netcore)
 
-The following versions of ASP.NET Core are supported: ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0, ASP.NET Core 3.1
+> [!IMPORTANT]
+> The following versions of ASP.NET Core are supported: ASP.NET Core 2.1 and 3.1. Versions 2.0, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
 
 Targeting the full framework from ASP.NET Core, self-contained deployment, and Linux based applications are currently **not supported** with agent/extension based monitoring. ([Manual instrumentation](./asp-net-core.md) via code will work in all of the previous scenarios.)
 
@@ -85,7 +86,7 @@ Targeting the full framework from ASP.NET Core, self-contained deployment, and L
 
      ![Instrument your web app](./media/azure-web-apps/create-resource-01.png)
 
-2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. ASP.NET Core offers **Recommended collection** or **Disabled** for ASP.NET Core 2.1, 2.2, 3.0 and 3.1.
+2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. ASP.NET Core offers **Recommended collection** or **Disabled** for ASP.NET Core 2.1 and 3.1.
 
     ![Choose options per platform](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -414,6 +415,12 @@ If you wish to test out codeless server and client-side monitoring for ASP.NET o
 ### Connection string and instrumentation key
 
 When codeless monitoring is being used, only the connection string is required. However, we still recommend setting the instrumentation key to preserve backwards compatibility with older versions of the SDK when manual instrumentation is being performed.
+
+### Difference between Standard Metrics from Application Insights vs Azure App Service metrics?
+
+Application Insights collects telemetry for those requests which made it to the application. If the failure occurred in WebApps/IIS, and the request did not reach the user application, then Application Insights will not have any telemetry about it.
+
+The duration for `serverresponsetime` calculated by Application Insights is not necessarily matching the server response time observed by Web Apps. This is because Application Insights only counts the duration when the request actual reaches user application. If the request is stuck/queued in IIS, that waiting time will be included in the Web App metrics, but not in Application Insights metrics.
 
 ## Release notes
 

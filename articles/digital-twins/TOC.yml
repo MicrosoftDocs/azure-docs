@@ -19,8 +19,18 @@
     href: tutorial-end-to-end.md
 - name: Concepts
   items:
-  - name: Custom models
+  - name: DTDL models
     href: concepts-models.md
+  - name: Ontologies
+    items:
+    - name: What is an ontology?
+      href: concepts-ontologies.md
+    - name: Adopting industry-standard ontologies
+      href: concepts-ontologies-adopt.md
+    - name: Converting ontologies
+      href: concepts-ontologies-convert.md
+    - name: Extending ontologies
+      href: concepts-ontologies-extend.md      
   - name: Digital twins and the twin graph
     href: concepts-twins-graph.md
   - name: Query language
@@ -52,7 +62,11 @@
       - name: Scripted version
         href: how-to-set-up-instance-scripted.md
     - name: Enable private access with Private Link
-      href: how-to-enable-private-link.md
+      items:
+      - name: Portal version
+        href: how-to-enable-private-link-portal.md
+      - name: CLI version
+        href: how-to-enable-private-link-cli.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration
@@ -61,10 +75,8 @@
       href: how-to-move-regions.md
   - name: Design models
     items:
-    - name: Manage custom models
+    - name: Manage DTDL models
       href: how-to-manage-model.md
-    - name: Integrate industry-standard models
-      href: how-to-integrate-models.md
     - name: Parse and validate models
       href: how-to-parse-models.md
     - name: Add tags
@@ -103,12 +115,16 @@
     items:
     - name: Manage endpoints and routes
       items:
-      - name: APIs and CLI version
-        href: how-to-manage-routes-apis-cli.md
       - name: Portal version
         href: how-to-manage-routes-portal.md
+      - name: APIs and CLI version
+        href: how-to-manage-routes-apis-cli.md
     - name: Enable a managed identity for routing events
-      href: how-to-enable-managed-identities.md
+      items:
+      - name: Portal version
+        href: how-to-enable-managed-identities-portal.md
+      - name: CLI version
+        href: how-to-enable-managed-identities-cli.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
     - name: Integrate with Azure Time Series Insights
@@ -239,8 +255,14 @@
         href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
       - name: Azure Digital Twins explorer (sample)
         href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
-      - name: DTDL validator (sample)
+      - name: DTDL Validator (sample)
         href: /samples/azure-samples/dtdl-validator/dtdl-validator/
+      - name: Model Uploader (sample)
+        href: https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader
+      - name: Model Visualizer (sample)
+        href: https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer 
+      - name: OWL2DTDL Converter   
+        href: https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL   
       - name: DPS and IoT Hub integration sample
         href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
       - name: SignalR integration sample

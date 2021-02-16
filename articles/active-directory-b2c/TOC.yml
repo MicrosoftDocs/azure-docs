@@ -26,11 +26,7 @@
     href: tutorial-register-applications.md
   - name: 3 - Create user flows
     href: tutorial-create-user-flows.md
-  - name: Add identity providers
-    href: tutorial-add-identity-providers.md
-  - name: Customize the UI
-    href: tutorial-customize-ui.md
-  - name: Authenticate users
+  - name: 4 - Authenticate users
     items:
     - name: ASP.NET
       href: tutorial-web-app-dotnet.md
@@ -41,7 +37,7 @@
     - name: Python
       href: tutorial-web-app-python.md
       displayName: flask
-  - name: Grant API access
+  - name: 5 - Grant API access
     items:
     - name: ASP.NET
       href: tutorial-web-api-dotnet.md
@@ -386,6 +382,8 @@
       href: partner-keyless.md
     - name: LexisNexis
       href: partner-lexisnexis.md
+    - name: Microsoft Dynamics 365 Fraud Protection
+      href: partner-dynamics-365-fraud-protection.md
     - name: N8 Identity
       href: partner-n8identity.md
     - name: Nevis
@@ -432,20 +430,20 @@
   - name: Secure API Management API
     href: secure-api-management.md
     displayName: apim, api management, migrate, b2clogin.com
-  - name: Secure phone-based MFA
-    href: phone-based-mfa.md
-    displayName: multi-factor authentication, Azure Monitor, Log Analytics
   - name: Logs and monitoring
     items:
     - name: Audit logs
       href: view-audit-logs.md
-      displayName: log, logs, logging, usage, events
+      displayName: log, logs, logging, usage, events, reports, reporting
     - name: Azure Monitor
       href: azure-monitor.md
-      displayName: log, logs, logging, usage, events
+      displayName: log, logs, logging, usage, events, reports, reporting, dashboard
     - name: Usage analytics
       href: analytics-with-application-insights.md
-      displayName: application insights, app insights
+      displayName: application insights, app insights, reports, reporting
+    - name: Secure phone-based MFA
+      href: phone-based-mfa.md
+      displayName: multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard
   - name: Compliance
     items:
     - name: User access
