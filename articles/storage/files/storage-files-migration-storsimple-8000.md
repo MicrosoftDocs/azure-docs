@@ -422,7 +422,7 @@ Your registered on-premises Windows Server instance must be ready and connected 
 
 :::row:::
     :::column:::
-        [![Step-by-step guide and demo for how to securely expose Azure file shares directly to information workers and apps - click to play!](./media/storage-files-migration-storsimple-8000/azure-files-direct-access-video-placeholder.png)](https://youtu.be/KG0OX0RgytI)
+        [![Step-by-step guide and demo for how to securely expose Azure file shares directly to information workers and apps - click to play!](./media/storage-files-migration-storsimple-8000/azure-files-direct-access-video-placeholder.png)](https://youtu.be/a-Twfus0HWE)
     :::column-end:::
     :::column:::
         This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps.</br>

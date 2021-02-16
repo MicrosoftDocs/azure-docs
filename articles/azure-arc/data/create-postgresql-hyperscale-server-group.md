@@ -76,8 +76,8 @@ azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2>
 > [!IMPORTANT]
 > - The storage class used for backups (_--storage-class-backups -scb_) defaults to the data controller's data storage class if it is not provided.
 > - To restore a server group to a separate server group (like point in time restore) you must configure your server group to use PVCs with ReadWriteMany access mode. It is required to do so at the creation of the server group. It cannot be changed after creating it. For more details read:
->    - [This section about backup and restore](https://docs.microsoft.com/azure/azure-arc/data/backup-restore-postgresql-hyperscale#create-a-server-group-that-is-ready-for-backups-and-restores)
->    - [This section about the limitations of Azure Arc enabled PostgreSQL Hyperscale](https://docs.microsoft.com/azure/azure-arc/data/limitations-postgresql-hyperscale)
+>    - [Create a server group that is ready for backups and restores](backup-restore-postgresql-hyperscale.md#create-a-server-group-that-is-ready-for-backups-and-restores)
+>    - [Limitations of Azure Arc enabled PostgreSQL Hyperscale](limitations-postgresql-hyperscale.md)
 
 
 > [!NOTE]
