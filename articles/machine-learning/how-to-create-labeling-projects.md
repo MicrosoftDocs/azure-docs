@@ -48,7 +48,7 @@ To create a project, select **Add project**. Give the project an appropriate nam
 
 * Select **Image** to create an image labeling project.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Labeling project creation for mage labeling":::
+    :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Labeling project creation for mage labeling":::
 
     * Choose **Image Classification Multi-class** for projects when you want to apply only a *single label* from a set of labels to an image.
     * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of labels to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
@@ -64,9 +64,9 @@ To create a project, select **Add project**. Give the project an appropriate nam
 
 ### Text labeling project (preview)
 
-:::image type="content" source="media/how-to-create-labeling-projects/text-labeling-creation-wizard.png" alt-text="Labeling project creation for text labeling":::
-
 * Select **Text** to create a text labeling project.
+
+    :::image type="content" source="media/how-to-create-labeling-projects/text-labeling-creation-wizard.png" alt-text="Labeling project creation for text labeling":::
 
     * Choose **Text Classification Multi-class (Preview)** for projects when you want to apply only a *single label* from a set of labels to eqch piece of text.
     * Choose **Text Classification Multi-label (Preview)** for projects when you want to apply *one or more* labels from a set of labels to each piece of text.
