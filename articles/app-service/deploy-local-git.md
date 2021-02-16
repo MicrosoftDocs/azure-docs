@@ -64,7 +64,7 @@ In the portal, you need to create an app first, then configure deployment for it
 
 ## Configure an existing app
 
-If haven't created an App Service app yet, see [Create a Git enabled app](#create-a-git-enabled-app) instead.
+If you haven't created an app yet, see [Create a Git enabled app](#create-a-git-enabled-app) instead.
 
 # [Azure CLI](#tab/cli)
 
@@ -120,7 +120,7 @@ Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name>
    
 1. In the **Git Credential Manager** window, enter your [user-scope or application-scope credentials](#configure-a-deployment-user), not your Azure sign-in credentials.
 
-    If your Git remote URL already contains the username nad password, you won't be prompted. 
+    If your Git remote URL already contains the username and password, you won't be prompted. 
    
 1. Review the output. You may see runtime-specific automation, such as MSBuild for ASP.NET, `npm install` for Node.js, and `pip install` for Python. 
    
