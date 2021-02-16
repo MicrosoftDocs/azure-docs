@@ -74,4 +74,4 @@ Below are the devices and the possible groups that can be created for them.
 
 
 
-[Next Step: Create Device Group](./create-update-group.md)
+[Next steps: Create device group](./create-update-group.md)
