@@ -1,7 +1,7 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 01/06/2021
+ms.date: 02/04/2021
 ms.topic: reference
 ms.custom: generated
 ---
@@ -126,6 +126,9 @@ part of a **table** in Resource Graph.
 - microsoft.azurestack/linkedsubscriptions
 - Microsoft.Azurestack/registrations (Azure Stack Hubs)
 - Microsoft.AzureStackHCI/clusters (Azure Stack HCI)
+- microsoft.azurestackhci/galleryimages
+- microsoft.azurestackhci/networkinterfaces
+- microsoft.azurestackhci/virtualnetworks
 - microsoft.baremetal/consoleconnections
 - Microsoft.BareMetal/crayServers (Cray Servers)
 - Microsoft.BareMetal/monitoringServers (Monitoring Servers)
@@ -327,6 +330,9 @@ part of a **table** in Resource Graph.
 - microsoft.insights/workbooktemplates (Azure Workbook Templates)
 - Microsoft.IntelligentITDigitalTwin/digitalTwins (Minervas)
 - microsoft.intelligentitdigitaltwin/digitaltwins/assets
+- microsoft.intelligentitdigitaltwin/digitaltwins/executionplans
+- microsoft.intelligentitdigitaltwin/digitaltwins/testplans
+- microsoft.intelligentitdigitaltwin/digitaltwins/tests
 - Microsoft.IoTCentral/IoTApps (IoT Central Applications)
 - Microsoft.IoTSpaces/Graph (Digital Twins (Deprecated))
 - microsoft.keyvault/hsmpools
@@ -490,6 +496,7 @@ part of a **table** in Resource Graph.
 - Microsoft.Resources/templateSpecs (Template specs)
 - microsoft.resources/templatespecs/versions
 - Microsoft.SaaS/applications (Software as a Service (classic))
+- Microsoft.SaaS/resources (CPX-Placeholder)
 - Microsoft.Scheduler/jobCollections (Scheduler Job Collections)
 - microsoft.scvmm/clouds
 - Microsoft.scvmm/virtualMachines (SCVMM virtual machine - Azure Arc)
@@ -584,6 +591,7 @@ part of a **table** in Resource Graph.
 - Microsoft.Web/StaticSites (Static Web Apps (Preview))
 - Microsoft.WindowsESU/multipleActivationKeys (Windows Multiple Activation Keys)
 - Microsoft.WindowsIoT/DeviceServices (Windows 10 IoT Core Services)
+- microsoft.workloadbuilder/migrationagents
 - microsoft.workloadbuilder/workloads
 - MyGet.PackageManagement/services (MyGet - Hosted NuGet, NPM, Bower and Vsix)
 - Paraleap.CloudMonix/services (CloudMonix)

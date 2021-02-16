@@ -74,7 +74,7 @@ You cannot move a virtual network to another resource group or subscription when
 
 ### Enable DDoS protection for all virtual networks
 
-This [policy](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Policy%20-%20Virtual%20Networks%20should%20be%20associated%20with%20an%20Azure%20DDoS%20Protection%20Standard%20plan) will detect any virtual networks in a defined scope that do not have DDoS Protection Standard enabled, then optionally create a remediation task that will create the association to protect the VNet. For detailed step-by-step instructions on how to deploy this policy, see https://aka.ms/ddosvnetpolicy-techcommunity.
+This [policy](https://aka.ms/ddosvnetpolicy) will detect any virtual networks in a defined scope that do not have DDoS Protection Standard enabled, then optionally create a remediation task that will create the association to protect the VNet. For detailed step-by-step instructions on how to deploy this policy, see https://aka.ms/ddosvnetpolicy-techcommunity.
 
 ## Validate and test
 
@@ -85,6 +85,11 @@ First, check the details of your DDoS protection plan:
 3. Select your DDoS protection plan from the list.
 
 The _MyVnet_ virtual network should be listed. 
+
+### View protected resources
+Under **Protected resources**, you can view your protected virtual networks and public IP addresses, or add more virtual networks to your DDoS protection plan:
+
+![View protected resources](./media/manage-ddos-protection/ddos-protected-resources.png)
 
 ## Clean up resources
 

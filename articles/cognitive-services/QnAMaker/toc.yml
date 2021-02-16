@@ -8,14 +8,14 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: With QnA Maker portal
+  - name: Create and Query Knowledgebase
     items:
-    - name: Create knowledge base
+    - name: QnA Maker portal
       href: Quickstarts/create-publish-knowledge-base.md
-    - name: Query a knowledge base
-      href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-  - name: Using client libraries or REST API
-    href: Quickstarts/quickstart-sdk.md
+    - name: Client libraries or REST API
+      href: Quickstarts/quickstart-sdk.md
+  - name: Query a knowledge base with REST APIs
+    href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
 - name: Tutorials
   items:
   - name: Integrate with Power Virtual Agent
@@ -30,12 +30,16 @@
     href: Concepts/azure-resources.md
   - name: Data sources and content
     href: Concepts/data-sources-and-content.md
+  - name: Azure role-based access control (Azure RBAC)	    
+    href: Concepts/role-based-access-control.md	
   - name: Ranker Process	
     displayName: DefaultAnswer, Default answer	
     href: Concepts/query-knowledge-base.md	
   - name: Development lifecycle	
     href: Concepts/development-lifecycle-knowledge-base.md	
     displayName: version control, test, index, publish, monitor usage, create
+  - name: Precise answering
+    href: reference-precise-answering.md
   - name: Best practices
     href: Concepts/best-practices.md
     displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
@@ -46,10 +50,8 @@
   - name: Manage Azure resources
     href: How-To/set-up-qnamaker-service-azure.md
     displayName: azure, resource, key, upgrade, pricing, tier,
-  - name: Manage QnA Maker App
+  - name: Manage QnA Maker resource access
     href: How-To/manage-qna-maker-app.md
-  - name: Turn on active learning
-    href: How-To/use-active-learning.md
   - name: Manage knowledge base
     items:
     - name: Create knowledge base
@@ -70,12 +72,18 @@
     - name: Add follow-up prompts
       href: How-To/multiturn-conversation.md
       displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
-    - name: Get suggested alternate questions
-      href: How-to/improve-knowledge-base.md
-      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount
+    - name: Change default answer
+      href: How-To/change-default-answer.md
   - name: Query knowledge base
     href: How-To/metadata-generateanswer-usage.md
     displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
+  - name: Set up Active Learning to enhance Knowledge base
+    items:
+    - name: Turn on active learning
+      href: How-To/use-active-learning.md
+    - name: Get suggested alternate questions
+      href: How-to/improve-knowledge-base.md
+      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount
   - name: Analytics and telemetry
     href: How-To/get-analytics-knowledge-base.md
 - name: Reference
@@ -84,33 +92,17 @@
     href: Overview/language-support.md
   - name: Limits
     href: limits.md
-  - name: Azure role-based access control (Azure RBAC)	    
-    href: Concepts/role-based-access-control.md	
-  - name: Active learning	
-    href: Concepts/active-learning-suggestions.md	
   - name: Confidence score	
     href: Concepts/confidence-score.md
   - name: Troubleshooting
     href: troubleshooting.md
-  - name: Question and answer pairs	
-    href: Concepts/question-answer-set.md
-  - name: Precise answering
-    href: reference-precise-answering.md
   - name: Add secured SharePoint files
     href: How-To/add-sharepoint-datasources.md
     displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
-  - name: Change default answer
-    href: How-To/change-default-answer.md
   - name: Service configuration
     href: reference-app-service.md
-  - name: Content and data formats
-    items:
-    - name: Content format guidelines
-      href: reference-document-format-guidelines.md
-    - name: URLs
-      href: reference-document-type-url.md
-    - name: Import and export data guidelines
-      href: reference-data-guidelines.md
+  - name: Content format guidelines
+    href: reference-document-format-guidelines.md
   - name: Display format
     href: reference-markdown-format.md
   - name: Private Links
@@ -118,7 +110,7 @@
   - name: Batch testing format
     href: reference-tsv-format-batch-testing.md
   - name: Encryption	
-    href: qna-maker-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md
   - name: REST API Reference
     items:
     - name: QnA Maker 4.0

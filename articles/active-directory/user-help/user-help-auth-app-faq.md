@@ -90,6 +90,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 ### Device registration
 
 **Q**: What is device registration?
+
 **A**: Your org might require you to register the device to track access to secured resources, such as files and apps. They also might turn on Conditional Access to reduce the risk of unwanted access to those resources. You can unregister your device in **Settings**, but you may lose access to emails in Outlook, files in OneDrive, and you'll lose the ability to use phone sign-in.
 
 ### Verification codes when connected
@@ -234,7 +235,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
    - On iOS, under **Settings**, select **How to turn on Autofill** in the Autofill settings section to learn how to set Authenticator as the default autofill provider.
    - On Android, under **Settings**, select **Set as Autofill provider** in the Autofill settings section.
 
-**Q**: What if **Autofill** switch is not available for me in Settings?
+**Q**: What if **Autofill** is not available for me in Settings?
 
 **A**: If Autofill is not available for you in Authenticator, it might be because autofill has not yet been allowed for your organization or account type. You can use this feature on a device where your work or school account isn’t added. To learn more on how to allow Autofill for your organization, see [Autofill for IT admins](#autofill-for-it-admins).
 

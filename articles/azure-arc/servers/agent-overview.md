@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine Windows agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 01/08/2021
+ms.date: 02/16/2021
 ms.topic: conceptual
 ---
 
@@ -28,6 +28,30 @@ The Azure Connected Machine agent package contains several logical components, w
 
 * The Extension agent manages VM extensions, including install, uninstall, and upgrade. Extensions are downloaded from Azure and copied to the `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and for Linux to `/opt/GC_Ext/downloads`. On Windows, the extension is installed to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension is installed to `/var/lib/waagent/<extension>`.
 
+## Instance metadata
+
+Metadata information about the connected machine is collected after the Connected Machine agent registers with Arc enabled servers. Specifically:
+
+* Operating system name, type, and version
+* Computer name
+* Computer fully qualified domain name (FQDN)
+* Connected Machine agent version
+* Active Directory and DNS fully qualified domain name (FQDN)
+* UUID (BIOS ID)
+* Connected Machine agent heartbeat
+* Connected Machine agent version
+* Public key for managed identity
+* Policy compliance status and details (if using Azure Policy Guest Configuration policies)
+
+The following metadata information is requested by the agent from Azure:
+
+* Resource location (region)
+* Virtual machine ID
+* Tags
+* Azure Active Directory managed identity certificate
+* Guest configuration policy assignments
+* Extension requests - install, update, and delete.
+
 ## Download agents
 
 You can download the Azure Connected Machine agent package for Windows and Linux from the locations listed below.
@@ -50,6 +74,7 @@ The following versions of the Windows and Linux operating system are officially 
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
+- Oracle Linux 7
 
 > [!WARNING]
 > The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. See [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md) for a list of the reserved words.
@@ -111,9 +136,9 @@ Preview agents (version 0.11 and lower) also require access to the following URL
 |`agentserviceapi.azure-automation.net`|Guest Configuration|
 |`*-agentservice-prod-1.azure-automation.net`|Guest Configuration|
 
-For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. For more information, review [Service tags](../../virtual-network/network-security-groups-overview.md#service-tags).
+For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
-The URLs in the previous table are required in addition to the Service Tag IP address range information because most services do not currently have a Service Tag registration. As such, the IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
+For more information, review [Service tags overview](../../virtual-network/service-tags-overview.md).
 
 ### Register Azure resource providers
 

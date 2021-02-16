@@ -212,6 +212,8 @@
     items:
     - name: Create an indexer
       href: search-howto-create-indexers.md
+    - name: Run or reset indexers
+      href: search-howto-run-reset-indexers.md
     - name: Schedule an indexer
       href: search-howto-schedule-indexers.md
     - name: Define field mappings
@@ -230,7 +232,7 @@
       items:      
       - name: Search over blobs
         href: search-blob-storage-integration.md
-      - name: Understand blobs with AI
+      - name: AI enrichment over blobs
         href: search-blob-ai-integration.md
       - name: Configure a blob indexer
         href: search-howto-indexing-azure-blob-storage.md
@@ -246,6 +248,8 @@
         href: search-howto-index-json-blobs.md
       - name: Index encrypted blobs
         href: search-howto-index-encrypted-blobs.md
+      - name: Metadata properties for blob content
+        href: search-blob-metadata-properties.md
     - name: Azure Tables
       href: search-howto-indexing-azure-tables.md
     - name: Azure Cosmos DB
@@ -300,10 +304,10 @@
         href: knowledge-store-projections-examples.md  
   - name: Queries
     items:
-    - name: Query types and composition
-      href: search-query-overview.md
     - name: Create a basic query
       href: search-query-create.md
+    - name: Query types and composition
+      href: search-query-overview.md
     - name: Use simple syntax (examples)
       href: search-query-simple-examples.md
     - name: Use full Lucene (examples)
@@ -528,6 +532,8 @@
   items:
   - name: Azure Community Support
     href: https://azure.microsoft.com/support/community/?product=search
+  - name: Partner spotlight
+    href: resource-partners-knowledge-mining.md
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
   - name: Feedback Forum (UserVoice)
@@ -552,8 +558,6 @@
       href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
     - name: Developer course (Pluralsight)
       href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
-  - name: Partner solutions
-    href: resource-partners-knowledge-mining.md
   - name: FAQ
     href: search-faq-frequently-asked-questions.md
   - name: Pricing

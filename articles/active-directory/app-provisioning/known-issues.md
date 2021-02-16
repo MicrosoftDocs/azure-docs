@@ -3,7 +3,7 @@ title: Known issues for application provisioning in Azure AD
 description: Learn about known issues when working with automated application provisioning in Azure AD.
 author: kenwith
 ms.author: kenwith
-manager: celestedg
+manager: daveba
 services: active-directory
 ms.service: active-directory
 ms.subservice: app-provisioning
