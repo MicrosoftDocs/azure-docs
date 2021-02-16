@@ -343,9 +343,11 @@ if (req.secure) {
 
 ## Monitor with Application Insights
 
-Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the App Insights agent, go to your web app in the Portal and select **Application Insights** under **Settings**, then select **Turn on Application Insights**. Next, select an existing App Insights resource or create a new one. Finally, select **Apply** at the bottom.
+Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the App Insights agent, go to your web app in the Portal and select **Application Insights** under **Settings**, then select **Turn on Application Insights**. Next, select an existing App Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app using PowerShell, please see [these instructions](../azure-monitor/app/azure-web-apps?tabs=netcore#enabling-through-powershell)
 
-This will attach the monitoring agent and add an app setting, `NODE_OPTIONS`, with information about the agent's location so that the Node process can read this information and attach the agent.
+This agent will monitor your server-side Node.js application. To monitor your client-side JavaScript, [add the JavaScript SDK to your project](../azure-monitor/app/javascript.md). 
+
+For more information, see the [Application Insights extension release notes](../azure-monitor/app/web-app-extension-release-notes.md).
 
 ::: zone-end
 
