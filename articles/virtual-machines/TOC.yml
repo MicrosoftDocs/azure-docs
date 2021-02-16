@@ -262,7 +262,7 @@
       href: dedicated-hosts-portal.md
     - name: PowerShell
       href: ./windows/dedicated-hosts-powershell.md
-  - name: Spot Virtual Machines
+  - name: Azure Spot Virtual Machines
     displayName: pre-empt, preempt, spot
     items:
     - name: Overview
@@ -990,7 +990,7 @@
     href: ephemeral-os-disks.md
   - name: Migration and conversion
     items:
-    - name: Convert disk between Standard and Premium
+    - name: Convert disk to another disk type
       items:
       - name: CLI
         href: ./linux/convert-disk-storage.md
@@ -1143,6 +1143,8 @@
     href: ./linux/static-dns-name-resolution-for-linux-on-azure.md
 - name: Security
   items:
+  - name: Overview
+    href: ../security/fundamentals/virtual-machines-overview.md?context=/azure/virtual-machines/context/context
   - name: Azure Security center
     href: ../security-center/security-center-introduction.md
   - name: Security baselines
@@ -1228,6 +1230,8 @@
     href: maintenance-and-updates.md
   - name: Automatic VM guest patching (preview)
     href: ./windows/automatic-vm-guest-patching.md
+  - name: Automatic extension upgrade (preview)
+    href: ./automatic-extension-upgrade.md
   - name: Maintenance control
     items:
     - name: Maintenance notifications

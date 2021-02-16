@@ -91,15 +91,15 @@ Built-in notebooks for Azure Cosmos DB are currently available in 29 Azure regio
 - Germany West Central
 - Japan West
 - Korea South
-- North Central us
+- North Central US
 - North Europe
-- South Central us
+- South Central US
 - Southeast Asia
 - Switzerland North
 - UAE Central
 - UK South
 - UK West
-- West Central us
+- West Central US
 - West Europe
 - West India
 - West US 2
