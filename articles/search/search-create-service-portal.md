@@ -23,9 +23,9 @@ You can create search service using the [Azure portal](https://portal.azure.com/
 
 The following service properties are fixed for the lifetime of the service - changing any of them requires a new service. Because they are fixed, consider the usage implications as you fill in each property:
 
-* Service name becomes part of the URL endpoint ([review tips](#name-the-service) for helpful service names).
-* [Service tier](search-sku-tier.md) affects billing and sets an upward limit on capacity. Some features are not available on the free tier.
-* Service region can determine the availability of certain scenarios. If you need [high security features](search-security-overview.md) or [AI enrichment](cognitive-search-concept-intro.md), you will need to create Azure Cognitive Search in the same region as other services, or in regions that provide the feature in question. 
++ Service name becomes part of the URL endpoint ([review tips](#name-the-service) for helpful service names).
++ [Service tier](search-sku-tier.md) affects billing and sets an upward limit on capacity. Some features are not available on the free tier.
++ Service region can determine the availability of certain scenarios. If you need [high security features](search-security-overview.md) or [AI enrichment](cognitive-search-concept-intro.md), you will need to create Azure Cognitive Search in the same region as other services, or in regions that provide the feature in question. 
 
 ## Subscribe (free or paid)
 
@@ -68,30 +68,30 @@ In Instance Details, provide a service name in the **URL** field. The name is pa
 
 Service name requirements:
 
-* It must be unique within the search.windows.net namespace
-* It must be between 2 and 60 characters in length
-* You must use lowercase letters, digits, or dashes ("-")
-* Do not use dashes ("-") in the first 2 characters or as the last single character
-* You may not use consecutive dashes ("--") anywhere
++ It must be unique within the search.windows.net namespace
++ It must be between 2 and 60 characters in length
++ You must use lowercase letters, digits, or dashes ("-")
++ Do not use dashes ("-") in the first 2 characters or as the last single character
++ You may not use consecutive dashes ("--") anywhere
 
 > [!TIP]
 > If you think you'll be using multiple services, we recommend including the region (or location) in the service name as a naming convention. Services within the same region can exchange data at no charge, so if Azure Cognitive Search is in West US, and you have other services also in West US, a name like `mysearchservice-westus` can save you a trip to the properties page when deciding how to combine or attach resources.
 
 ## Choose a location
 
-Azure Cognitive Search is available in most regions, as documented in the [pricing page](https://azure.microsoft.com/pricing/details/search/).
+Azure Cognitive Search is available in most regions, as documented in the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Generally, if you're using multiple Azure services, choose a region that is also hosting your data or application service. Doing so minimizes or voids bandwidth charges for outbound data (there are no charges for outbound data when services are in the same region).
 
-Generally, if you're using multiple Azure services, choose a region that is also hosting your data or application service. Doing so minimizes or voids bandwidth charges for outbound data (there are no charges for outbound data when services are in the same region).
++ [AI enrichment](cognitive-search-concept-intro.md) requires Cognitive Services to be in the same physical region as Azure Cognitive Search. As such, a few regions do not provide both capabilities. The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page indicates unavailable combinations as a missing check mark:
 
-Customers with business continuity and disaster recovery (BCDR) requirements should create their services in [regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each service.
+  :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Regional availability" border="false":::
 
-The following features are only available in certain regions:
++ Business continuity and disaster recovery (BCDR) requirements should be met by creating multiple search services in [regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each search service.
 
-* AI enrichment requires Cognitive Services to be in the same region as Azure Cognitive Search. Choose the [region for Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) first (the list is smaller), and then choose the same region for the search service.
+A few features have limited availability, with restrictions outlined in feature documentation:
 
-* Double encryption is only available in certain regions. For more information, see [double encryption](search-security-overview.md#double-encryption)
++ [Double encryption](search-security-overview.md#double-encryption)
 
-* Availability zone support is offered in specific regions, on services created after specific dates. For more information, see ["Availability Zones" in Scale for Performance](search-performance-optimization.md#availability-zones).
++ ["Availability Zones" in Scale for Performance](search-performance-optimization.md#availability-zones).
 
 ## Choose a pricing tier
 
@@ -117,7 +117,7 @@ Unless you are using the portal, programmatic access to your new service require
 
 1. On the **Overview** page, locate and copy the URL endpoint on the right side of the page.
 
-2. On the **Keys** page, copy either one of the admin keys (they are equivalent). Admin api-keys are required for creating, updating, and deleting objects on your service. In contrast, query keys provide read-access to index content.
+1. On the **Keys** page, copy either one of the admin keys (they are equivalent). Admin api-keys are required for creating, updating, and deleting objects on your service. In contrast, query keys provide read-access to index content.
 
    :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Service overview page with URL endpoint" border="false":::
 
@@ -137,8 +137,8 @@ Adding resources increases your monthly bill. The [pricing calculator](https://a
 > A service must have [2 replicas for read-only SLA and 3 replicas for read/write SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Go to your search service page in the Azure portal.
-2. In the left-navigation pane, select **Settings** > **Scale**.
-3. Use the slidebar to add resources of either type.
+1. In the left-navigation pane, select **Settings** > **Scale**.
+1. Use the slidebar to add resources of either type.
 
 :::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Add capacity through replicas and partitions" border="false":::
 
