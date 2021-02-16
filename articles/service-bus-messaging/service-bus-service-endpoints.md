@@ -20,8 +20,10 @@ The result is a private and isolated relationship between the workloads bound to
 > - Azure App Service
 > - Azure Functions
 
+Virtual Networks are supported only in [Premium tier](service-bus-premium-messaging.md) Service Bus namespaces. When using VNet service endpoints with Service Bus, you should not enable these endpoints in applications that mix standard and premium tier Service Bus namespaces. Because the standard tier does not support VNets. The endpoint is restricted to Premium tier namespaces only.
+
 > [!IMPORTANT]
-> Virtual Networks are supported only in [Premium tier](service-bus-premium-messaging.md) Service Bus namespaces. When using VNet service endpoints with Service Bus, you should not enable these endpoints in applications that mix standard and premium tier Service Bus namespaces. Because the standard tier does not support VNets. The endpoint is restricted to Premium tier namespaces only.
+> Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key).  
 
 ## Advanced security scenarios enabled by VNet integration 
 
