@@ -1863,7 +1863,7 @@
     },
     {
       "source_path": "articles/machine-learning/resource-known-issues.md",
-      "redirect_url": "/azure/machine-learning/how-to-debug-visual-studio-code",
+      "redirect_url": "/azure/machine-learning/how-to-configure-auto-train#troubleshooting",
       "redirect_document_id": false
     },
     {
