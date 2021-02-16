@@ -12,7 +12,7 @@ ms.subservice: disks
 Azure offers metrics in the Azure portal that provide insight on how your virtual machines (VM) and disks are performing. The metrics can also be retrieved through an API call. Metrics are calculated over one-minute intervals. 
 
 ## Disk IO, throughput and queue depth metrics
-The following metrics are available to get insight on VM and Disk IO, throughput and queue depth performance:
+The following metrics are available to get insight on VM and Disk IO, throughput, and queue depth performance:
 
 - **OS Disk Queue Depth**: The number of current outstanding IO requests that are waiting to be read from or written to the OS disk.
 - **OS Disk Read Bytes/Sec**: The number of bytes that are read in a second from the OS disk.
