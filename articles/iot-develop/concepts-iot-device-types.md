@@ -9,9 +9,18 @@ ms.date: 01/11/2021
 ---
 
 # Overview of Azure IoT device types
-IoT devices exist across a broad platform of hardware devices. From a small 8-bit MCU to the latest x86 CPUs like those present in a desktop computer. Many variables contribute to the decision on what type of hardware to choose for a IoT device.
+IoT devices exist across a broad platform of hardware devices. There are small 8-bit MCU all the way up to the latest x86 CPUs as found in a desktop computer. Many variables contribute to the decision on what type of hardware to choose for a IoT device and this article outlined some of the key difference.
 
-Some of the most important factors are cost, power consumption, and how it interacts with the physical world.
+## Key hardware differentiators
+Some of the most important factors are cost, power consumption, networking and the inputs and outputs available on the device for interacting with the physical world.
+
+* **Cost:** Smaller cheaper devices are typically used when mass producing the final product. However the trade-off is that development of the device can be more expensive given the highly constrained device. The development cost can be spread across all produced devices so the per unit development cost will be low.
+
+* **Power:** How much power a device consumes is important if the device will be utilizing batteries and not connected to the power grid. Constrained devices have many options designed for this scenario so can often be a better choice to reduce the operating power use, and extend the battery life of the device.
+
+* **Network Access:** There are many ways to connect a device to a cloud service. Ethernet, Wi-fi and cellular and some of the available options. The type of connection will depending on how and where the device is deployed and how it is used. For example, cellular can be an attractive option given the high coverage, however for high traffic devices this can an expensive. Hardwired ethernet, on the other hand, provides much cheaper data costs but with the downside of being fixed to a single location.
+
+* **Input and Outputs:** The inputs and outputs available on the device directly impact the devices operating capabilities. A microcontroller will typcially have many I/O functions built directly into the chip and provides a wide choice of sensors to connect directly.
 
 ## Microcontrollers vs Microprocessors
 IoT devices can be separated into two broad categories, microcontrollers (MCUs) and microprocessors (MPUs).
@@ -31,11 +40,5 @@ Below is a table showing some of the defining differences between an MCU and an 
 |**Development Difficulty**|<span style="color:red">Harder</span>|<span style="color:green">Easier</span>|
 |**Power Consumption**|<span style="color:green">Lower</span>|<span style="color:red">Higher</span>|
 |**Cost**|<span style="color:green">Lower</span>|<span style="color:red">Higher</span>|
-|**Deterministic**|<span style="color:green">Yes</span>|<span style="color:red">No</span>|
+|**Deterministic**|<span style="color:green">Yes</span>|<span style="color:red">No</span> - with exceptions|
 |**Device Size**|<span style="color:green">Smaller</span>|<span style="color:red">Larger</span>|
-
-## Device scenarios
-For device such as a temperature sensor, where the production volumes fall into the hundred thousands, the cost of device may be the major factor.
-
-For a device where the volumes are low, choosing a higher-order language could cut down development costs, at the sacrifice of a larger more expensive device.
-
