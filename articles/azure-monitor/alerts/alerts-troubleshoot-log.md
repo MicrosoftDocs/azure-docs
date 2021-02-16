@@ -5,7 +5,7 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
-ms.date: 10/29/2018
+ms.date: 09/22/2020
 
 ---
 # Troubleshoot log alerts in Azure Monitor  

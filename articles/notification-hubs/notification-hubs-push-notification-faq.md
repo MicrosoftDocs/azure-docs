@@ -12,9 +12,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 02/12/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
 ---
 
@@ -98,6 +98,10 @@ The PNS does not guarantee any SLA for delivering notifications. However, most p
 ### Is there any latency guarantee?
 
 Because of the nature of push notifications (they are delivered by an external, platform-specific PNS), there is no latency guarantee. Typically, the majority of push notifications are delivered within a few minutes.
+
+### Where does Azure Notification Hubs store data?
+
+Azure Notification Hubs stores customer registration data in the region selected by the customer. Notification Hubs provides metadata disaster recovery coverage (the Notification Hubs name, the connection string, and other critical information). For all regions except Brazil South and Southeast Asia, the metadata backup is hosted in a different region (usually the Azure paired region). For the Brazil South and Southeast Asia regions, backups are stored in the same region to accommodate data-residency requirements for these regions.
 
 ### What do I need to consider when designing a solution with namespaces and notification hubs?
 
