@@ -860,6 +860,9 @@
           items:
             - name: Configure Cross Origin Resource Sharing(CORS)
               href: how-to-configure-cross-origin-resource-sharing.md
+            - name: Configure role-based access control
+              href: how-to-setup-rbac.md
+              displayName: aad, active directory, rbac
             - name: Use managed identities to access data
               href: managed-identity-based-authentication.md
               displayName: msi, managed service identity, aad, azure active directory, identity
