@@ -21,6 +21,8 @@
     href: device-update-resources.md
   - name: Device update user roles and access
     href: device-update-control-access.md
+  - name: Device update apt manifest
+    href: device-update-apt-manifest.md
   - name: Device update compliance
     href: device-update-compliance.md
   - name: Device update groups
