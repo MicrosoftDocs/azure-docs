@@ -28,7 +28,7 @@ This article will guide you through solutions to these common scenarios and how 
 
 If you're seeing any of the following issues, this means that the boot loader, which loads the agent, was unable to install the agent properly and the agent service isn't running:
 - **RDAgentBootLoader** is either stopped or not running.
-- There is no status for **Remote Desktop Agent Loader**.
+- There's no status for **Remote Desktop Agent Loader**.
 
 To resolve this issue, start the RDAgent boot loader:
 
@@ -124,7 +124,7 @@ To resolve this issue:
 
 ## Error: ENDPOINT_NOT_FOUND
 
-Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 that says **ENDPOINT_NOT_FOUND** in the description, the broker was unable to find an endpoint to establish a connection on. This can be for a variety of reasons including you don’t have VMs in your host pool, they are not powered on, they have all exceeded the max session limit, the agent service is not running on them, etc.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 that says **ENDPOINT_NOT_FOUND** in the description, the broker was unable to find an endpoint to establish a connection on. This can be for various reasons including you don’t have VMs in your host pool, they are not powered on, they have all exceeded the max session limit, the agent service is not running on them, etc.
 
 To resolve this issue:
 1. Verify that the VM is powered on and hasn't been removed from the host pool.
@@ -215,10 +215,10 @@ To change the heartbeat threshold:
 1. Open your command prompt as an administrator.
 2. Enter the **qwinsta** command and run it.
 3. There should be two stack components displayed: **rdp-tcp** and **rdp-sxs**. 
-   - Depending on the version of the OS you're using, **rdp-sxs** may be followed by the build number as shown in the following screenshot. If it is, make sure to write this number down for later.
+   - Depending on the version of the OS you're using, **rdp-sxs** may be followed by the build number as shown in the following screenshot. If it is, make sure to write down this number for later.
 4. Open the Registry Editor.
 5. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
-6. Under **WinStations** you may see several folders for different stack versions. Select the folder that matches the version number from step 3.
+6. Under **WinStations**, you may see several folders for different stack versions. Select the folder that matches the version number from step 3.
 7. Create a new registry DWORD by right-clicking the registry editor, then selecting **New** > **DWORD (32-bit) Value**. When you create the DWORD, enter the following values:
    - HeartbeatInterval: 10000
    - HeartbeatWarnCount: 30 
@@ -363,7 +363,7 @@ By reinstalling the most updated version of the agent and boot loader, the side-
    > [!div class="mx-imgBorder"]
    > ![Screenshot of agent and bootloader download page](media/download-agent.png)
 
-2. Right-click the agent and boot loader installers you just downloaded.
+2. Right-click the agent and boot loader installers you downloaded.
 3. Select **Properties**.
 4. Select **Unblock**.
 5. Select **Ok**.
