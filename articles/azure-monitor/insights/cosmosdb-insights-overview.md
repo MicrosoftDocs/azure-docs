@@ -95,7 +95,7 @@ So in the example below you see that `eastus-billingint` is predominantly receiv
 
 1. Search for or select any of your existing Azure Cosmos DB accounts
 ![Search for Cosmos DB](./media/cosmosdb-insights-overview/cosmosdb-search.png)
-2. Once you've navigated to your Azure Cosmos DB account, in the Monitoring section select **Insights** or **Workbooks** to perform further analysis on Throughput, Requests, Storage, Availability, Latency, System, and Account Management.
+2. Once you've navigated to your Azure Cosmos DB account, in the Monitoring section select **Insights (preview)** or **Workbooks** to perform further analysis on throughput, requests, storage, availability, latency, system, and account management.
 ![Cosmos DB Insights Overview](./media/cosmosdb-insights-overview/cosmosdb-overview.png)
 
 ### Time Range
