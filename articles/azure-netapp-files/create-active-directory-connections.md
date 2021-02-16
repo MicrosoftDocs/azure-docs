@@ -20,9 +20,16 @@ ms.author: b-juche
 
 Several features of Azure NetApp Files require that you have an Active Directory connection.  For example, you need to have an Active Directory connection before you can create an [SMB volume](azure-netapp-files-create-volumes-smb.md) or a [dual-protocol volume](create-volumes-dual-protocol.md).  This article shows you how to create and manage Active Directory connections for Azure NetApp Files.
 
+## Before you begin  
+
+You must have already set up a capacity pool.   
+[Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)   
+A subnet must be delegated to Azure NetApp Files.  
+[Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+
 ## Requirements for Active Directory connections
 
- You need to create Active Directory connections before creating an SMB volume. The requirements for Active Directory connections are as follows: 
+ The requirements for Active Directory connections are as follows: 
 
 * The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you will specify.  
 
@@ -74,8 +81,6 @@ Several features of Azure NetApp Files require that you have an Active Directory
 * Azure NetApp Files supports [LDAP signing](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), which enables secure transmission of LDAP traffic between the Azure NetApp Files service and the targeted [Active Directory domain controllers](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). If you are following the guidance of Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) for LDAP signing, then you should enable the LDAP signing feature in Azure NetApp Files by checking the **LDAP Signing** box in the [Join Active Directory](#create-an-active-directory-connection) window. 
 
     [LDAP channel binding](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) configuration alone has no effect on the Azure NetApp Files service. However, if you use both LDAP channel binding and secure LDAP (for example, LDAPS or `start_tls`), then the SMB volume creation will fail.
-
-See Azure NetApp Files [SMB FAQs](./azure-netapp-files-faqs.md#smb-faqs) about additional AD information. 
 
 ## Decide which Domain Services to use 
 
@@ -151,10 +156,10 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         If you are using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
 
-    ![Join Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+        ![Join Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
     * **AES Encryption**   
-        Select this checkbox to enable AES encryption for an SMB volume. See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements. 
+        Select this checkbox if you want to enable AES encryption for an SMB volume. See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements. 
 
         ![Active Directory AES encryption](../media/azure-netapp-files/active-directory-aes-encryption.png)
 
