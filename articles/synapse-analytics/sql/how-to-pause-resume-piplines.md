@@ -128,27 +128,27 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
     
     The output is a JSON string that contains details of the dedicated SQL pool, including its status (in properties.status). This is passed to the next activity.
 
-    b. Evaluate the status and then initiate the Pause or Restart
+    b. Evaluate the desired state (Pause or Resume) and the current status (Online or Paused) and then initiate a Pause or a Resume accordingly.
     
-    Create an If Condition activity and use this to evaluate the status from the previous step.
+    Create a Switch activity and use this to evaluate the desired state and the current status from the previous step.
     
     ![Check condition dedicated SQL pool](./media/how-to-pause-resume-pipelines/check-condition.png)
     
-    An If Condition activity requires a Boolean output, so in this example we are using the starts with function that returns true or false:
+    Based on the desired state and the current status, only the following two combinations will require a change in state: Pause-Online or Resume-Paused.
     
     ```
-    @startswith(activity('CheckState').output.properties.status,'Paused')
+    @concat(pipeline().parameters.PauseOrResume,'-',activity('Check State').output.properties.status)
     ```
     
-    where CheckState is the name of the preceding Web activity.
+    where pipeline().parameters.PauseOrResume indicates the desired state, and Check State is the name of the preceding Web activity with output.properties.status defining the current status.
     
-    This is simply doing a check of the status – if it is paused it invokes the true activity (Restart) within the If Condition, if not it invokes the false activity (Pause).
+    This is simply doing a check of the desired state and the current status. If the desired state is Resume and the current status is Paused, a Resume Activity is invoked within the Resume-Pause Case. If the desired state is Pause and the current status is Online, a Pause Activity is invoked with the Pause-Online Case. Any other cases, such as a desired state of Pause and a current status of Paused, or a desired state of Resume and a current status of Online, would require no action and be handled by the Default case, which has no activities.
     
     Within the appropriate activity branch, add the final step.
 
     c. Dedicated SQL pool pause or resume
     
-    The final step (and this may be the only relevant step for some requirements), is to initiate the Pause or Restart of your dedicated SQL pool. This, like steps 1 and 3a, is a simple Web activity, calling the [Pause or Resume compute REST API for Azure Synapse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#pause-compute)
+    The final step (and this may be the only relevant step for some requirements), is to initiate the Pause or Resume of your dedicated SQL pool. This, like steps 1 and 3a, is a simple Web activity, calling the [Pause or Resume compute REST API for Azure Synapse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#pause-compute)
     
     ![Resume dedicated SQL pool](./media/how-to-pause-resume-pipelines/true-condition-resume.png)
     
@@ -162,10 +162,19 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
     Which in the example above I have parameterized using the @concat string function:
     
     ```
-    @concat('https://management.azure.com/subscriptions/',pipeline().parameters.Subscription,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.ServerName,'/sqlPools/',activity('CheckState').output.name,'/resume?api-version=2019-06-01-preview')
+    @concat('https://management.azure.com/subscriptions/',pipeline().parameters.Subscription,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.ServerName,'/sqlPools/',activity('Check State').output.name,'/resume?api-version=2019-06-01-preview')
     ```
     
-    In this case, we are using activity('CheckState').output.name (the name of the dedicated SQL pool from Step 3a) that was passed to this activity through the IF Condition loop. If you are using a single activity against a single database, you could embed the name of your dedicated SQL pool here, or use a parameter from the pipeline (for example, pipeline().parameters.DatabaseName using the example in Step 0).
+    In this case, we are using activity('Check State').output.name (the name of the dedicated SQL pool from Step 3a) that was passed to this activity through the Switch Condition. If you are using a single activity against a single database, you could embed the name of your dedicated SQL pool here, or use a parameter from the pipeline (for example, pipeline().parameters.DatabaseName using the example in Step 0).
+    
+    Here is the POST request to pause a dedicated SQL pool:
+      ```
+      
+    POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{server-name}/sqlPools/{database-name}/pause?api-version=2019-06-01-preview HTTP/1.1    
+    ```    
+    
+    Which would be parameterized using the @concat string function:
+    @concat('https://management.azure.com/subscriptions/',pipeline().parameters.Subscription,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.WorkspaceName,'/sqlPools/',activity('Check State').output.name,'/pause?api-version=2019-06-01-preview')
 
 ## Pipeline Run Output
 
