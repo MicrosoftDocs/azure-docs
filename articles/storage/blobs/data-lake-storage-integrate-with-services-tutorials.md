@@ -2,7 +2,7 @@
 title: 'Tutorials: Azure services with Azure Data Lake Storage Gen2'
 description: Find tutorials that help you learn how to use Azure services with Azure Data Lake Storage Gen2.
 author: normesta
-ms.topic: tutorial
+ms.topic: conceptual
 ms.author: normesta
 ms.date: 02/02/2021
 ms.service: storage

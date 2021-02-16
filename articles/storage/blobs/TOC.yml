@@ -769,6 +769,8 @@
         href: data-lake-storage-query-acceleration-how-to.md
       - name: Hadoop File System CLI
         href: data-lake-storage-use-hdfs-data-lake-storage.md
+    - name: Use with other Azure services
+      href: data-lake-storage-integrate-with-services-tutorials.md
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-how-to.md
     - name: Optimize performance

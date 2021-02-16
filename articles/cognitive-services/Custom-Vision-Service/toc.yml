@@ -31,7 +31,7 @@
   items:
   - name: Test your model
     href: test-your-model.md
-  - name: Improve your classifier
+  - name: Improve your model
     href: getting-started-improving-your-classifier.md
   - name: Select a domain
     href: select-domain.md
@@ -59,10 +59,8 @@
     href: ./update-application-to-3.0-sdk.md
 - name: Reference
   items:
-  - name: Custom Vision Training API  
-    href: https://go.microsoft.com/fwlink/?linkid=865446
-  - name: Custom Vision Prediction API 
-    href: https://go.microsoft.com/fwlink/?linkid=865445
+  - name: REST API  
+    href: https://docs.microsoft.com/rest/api/custom-vision/
   - name: SDKs
     items:
     - name: .NET
@@ -98,6 +96,6 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
-    href: custom-vision-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md
   - name: Release Notes
     href: release-notes.md
