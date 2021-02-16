@@ -9,7 +9,7 @@ ms.date: 01/11/2021
 ---
 
 # Overview of Azure IoT device types
-IoT devices exist across a broad platform of hardware devices. There are small 8-bit MCUs all the way up to the latest x86 CPUs as found in a desktop computer. Many variables factor into the decision for which hardware you to choose for a IoT device and this article outlined some of the key differences.
+IoT devices exist across a broad selection of hardware platforms. There are small 8-bit MCUs all the way up to the latest x86 CPUs as found in a desktop computer. Many variables factor into the decision for which hardware you to choose for a IoT device and this article outlined some of the key differences.
 
 ## Key hardware differentiators
 Some important factors when choosing your hardware are cost, power consumption, networking, and available inputs and outputs.
