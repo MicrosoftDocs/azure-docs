@@ -22,7 +22,7 @@ Learn the basics of external identities - Azure Active Directory B2C and Azure A
 
 Get a deeper view into the features and technical aspects of Azure Active Directory B2C service.
 
-|     |      |       |        |
+| Video title    |      |  Video title     |        |
 |:------|:------|:------|:------|
 |[Azure AD B2C sign-up sign-in](https://www.youtube.com/watch?v=c8rN1ZaR7wk&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=6&t=2s) 10:25       | [![image](./media/external-identities-videos/customer-sign-up-sign-in.png)](https://www.youtube.com/watch?v=c8rN1ZaR7wk&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=6)  | [Azure AD B2C single sign on and self service password reset](https://www.youtube.com/watch?v=kRV-7PSLK38&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=7) 8:40       | [![image](./media/external-identities-videos/single-sign-on.png)](https://www.youtube.com/watch?v=kRV-7PSLK38&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=7) |
 | [Application and identity migration to Azure AD B2C](https://www.youtube.com/watch?v=Xw_YwSJmhIQ&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=9) 10:34       | [![image](./media/external-identities-videos/identity-migration-aad-b2c.png)](https://www.youtube.com/watch?v=Xw_YwSJmhIQ&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=9) | [Build resilient and scalable flows using Azure AD B2C](https://www.youtube.com/watch?v=8f_Ozpw9yTs&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=12) 16:47       | [![image](./media/external-identities-videos/b2c-scalable-flows.png)](https://www.youtube.com/watch?v=8f_Ozpw9yTs&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=12) |
