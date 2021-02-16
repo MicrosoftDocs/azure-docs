@@ -27,8 +27,14 @@
     href: device-update-groups.md
   - name: How device update uses Plug and Play
     href: device-update-plug-and-play.md
-  - name: Device update networking requirements
+  - name: Device update  
     href: device-update-networking.md
+   - name: Understand Device Update Agent
+    href: device-update-agent-overview
+   - name: Device Update for IoT Hub Agent Quickstart
+    href: device-update-agent-quickstarts.md
+   - name: Understand Device Update Configuration File.
+    href: device-update-configuration-file.md
 
 - name: How-to guides
   items:
