@@ -35,6 +35,12 @@
       href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iothub
+    - name: C (Device)
+      href: /azure/iot-hub/iot-c-sdk-ref/
+    - name: Embedded C (Device)
+      href: https://azure.github.io/azure-sdk-for-c/
+    - name: Azure RTOS Middleware (Device)
+      href: /azure/rtos/threadx
     - name: .NET (Device)
       href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET (Service)
@@ -57,10 +63,6 @@
       href: /python/api/azure-iot-hub
     - name: Python (Management)
       href: /python/api/azure-mgmt-iothub
-    - name: C (Device)
-      href: /azure/iot-hub/iot-c-sdk-ref/
-    - name: Embedded C (Device)
-      href: https://azure.github.io/azure-sdk-for-c/
     - name: REST (Device)
       href: /rest/api/iothub/device
     - name: REST (Service)
@@ -75,30 +77,6 @@
   items:
     - name: Support and help options
       href: ../iot-fundamentals/iot-support-help.md
-    - name: Azure IoT services
-      items:
-      - name: IoT Hub
-        href: ./index.yml
-      - name: IoT Hub Device Provisioning Service
-        href: ../iot-dps/index.yml
-      - name: IoT Central
-        href: /microsoft-iot-central/
-      - name: IoT Edge
-        href: ../iot-edge/index.yml
-      - name: IoT solution accelerators
-        href: ../iot-accelerators/index.yml
-      - name: IoT Plug and Play
-        href: ../iot-pnp/index.yml
-      - name: Azure Maps
-        href: ../azure-maps/index.yml
-      - name: Time Series Insights
-        href: ../time-series-insights/index.yml
-    - name: Azure IoT SDKs
-      items:
-      - name: IoT Service SDKs
-        href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
-      - name: IoT Device SDKs
-        href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: Azure IoT samples
       items:
       - name: C# (.NET)
