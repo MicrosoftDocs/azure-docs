@@ -34,7 +34,7 @@ In this section, you'll map the Azure Private Link service to a private endpoint
 
 1. Select **+ Add an origin** to add a new origin or select a previously created origin from the list. Then select the checkbox to **Enable private link service**.
 
-    :::image type="content" source="../media/how-to-enable-private-endpoint/front-door-private-endpoint-private-link.png" alt-text="Screenshot of enabling private link in add an origin page.":::
+    :::image type="content" source="../media/how-to-enable-private-link/front-door-private-endpoint-private-link.png" alt-text="Screenshot of enabling private link in add an origin page.":::
 
 1. For **Select an Azure resource**, select **In my directory**. Select or enter the following setting to configure the resource you want Azure Front Door Premium to connect with privately.
     
@@ -50,4 +50,4 @@ In this section, you'll map the Azure Private Link service to a private endpoint
 
 To learn more about Azure Private endpoint, continue to:
 
-Learn about [Azure Front Door Premium Private endpoint](concept-private-endpoints.md).
+Learn about [Azure Front Door Premium Private Link](concept-private-link.md).
