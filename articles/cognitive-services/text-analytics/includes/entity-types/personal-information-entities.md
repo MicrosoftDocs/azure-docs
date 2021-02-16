@@ -30,8 +30,8 @@ The following entity categories are returned when you're sending requests to the
 | [Email](#category-email) | N/A | Email addresses. | `2019-10-01` | Also returned with `domain=phi`.   |
 | [URL](#category-url) | N/A | URLs to websites. | `2019-10-01` | Also returned with `domain=phi`. |
 | [IP](#category-ip) | N/A | Network IP addresses. | `2019-10-01` | Also returned with `domain=phi`. |
-| [DateTime](#category-datetime) | N/A | Dates and times of day. This category includes sub-categories of entities, such as *Date*. | `2019-10-01` |  | 
-| [Quantity](#category-quantity) | N/A | Numbers and numeric quantities.  This category includes sub-categories of entities, such as *age*. | `2019-10-01` |  |
+| [DateTime](#category-datetime) | N/A | Dates and times of day. This category includes sub-categories of entities, such as *Date*. | `2019-10-01` | *Date* also returned with `domain=phi`. | 
+| [Quantity](#category-quantity) | N/A | Numbers and numeric quantities.  This category includes sub-categories of entities, such as *age*. | `2019-10-01` | *Age* also returned with `domain=phi`. |
 
 
 ### Category: Person
