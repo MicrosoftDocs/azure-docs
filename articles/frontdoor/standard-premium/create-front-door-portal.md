@@ -57,11 +57,11 @@ An Azure account with an active subscription. [Create an account for free](https
     | **Subscription**  | Select your subscription. |
     | **Resource group**  | Select **Create new** and enter *contoso-appservice* in the text box.|
     | **Name** | Give your profile a name. This example uses **contoso-afd-quickcreate**. |
-    | **Tier** | Select either Standard or Premium SKU. Standard SKU is content delivery optimized. Premium SKU builds on Standard SKU and is focused on security.  |
+    | **Tier** | Select either Standard or Premium SKU. Standard SKU is content delivery optimized. Premium SKU builds on Standard SKU and is focused on security. See [Tier Comparison](tier-comparison.md).  |
     | **Endpoint name** | Enter a globally unique name for your endpoint. |
     | **Origin type** | Select the type of resource for your origin. In this example, we select an App service as the origin that has Private Link enabled. |
     | **Origin host name** | Enter the hostname for your origin. |
-    | **Enable Private Link** | If you want to have a private connection between your Azure Front Door and your origin. If you select Azure PaaS service App service or Storage as the origin type, all resources are pre-populated. If you're using ILB service as your origin, you'll need to input Resource ID manually. For more details, please refer to [Private link guidance](../../private-link/private-link-overview.md).
+    | **Enable Private Link** | If you want to have a private connection between your Azure Front Door and your origin. For more details, please refer to [Private link guidance](../../private-link/private-link-overview.md) and [Enable private link](how-to-enable-private-link.md).
     | **Caching** | Select the check box if you want to cache contents closer to users globally using Azure Front Door's edge POPs and Microsoft network. |
     | **WAF policy** | Select **Create new** or select an existing WAF policy from the dropdown if you want to enable this feature. |
 
@@ -257,4 +257,4 @@ Repeat the procedure for the other two groups.
 
 Advance to the next article to learn how to add a custom domain to your Front Door.
 > [!div class="nextstepaction"]
-> [Add a custom domain]()
+> [Add a custom domain](how-to-add-custom-domain.md)
