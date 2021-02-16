@@ -26,9 +26,9 @@ landingContent:
     linkLists:
     - linkListType: quickstart
       links:
-        - text: Send device telemetry to IoT Central (Python)
+        - text: Send device telemetry to IoT Central
           url: quickstart-send-telemetry-python.md
-        - text: Send device telemetry to IoT Hub (Python)
+        - text: Send device telemetry to IoT Hub
           url: quickstart-send-telemetry-cli-python.md
   - title: Get started with embedded device development
     linkLists:
