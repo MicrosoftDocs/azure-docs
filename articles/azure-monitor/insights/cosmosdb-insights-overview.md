@@ -122,7 +122,7 @@ The **Overview** tab provides the most common metrics for the selected Azure Cos
 
 ![Failed Requests Graph](./media/cosmosdb-insights-overview/cosmosdb-429.png)
 
-**Normalized RU Consumption (max)**: provides the max % (from 0-100%) of Normalized RU Consumption units for the specified period.
+**Normalized RU Consumption (max)**: This graph provides the max percentage between 0-100% of Normalized RU Consumption units for the specified period.
 
 ![Normalized RU Consumption Graph](./media/cosmosdb-insights-overview/cosmosdb-normalizedru.png)
 
