@@ -2,11 +2,12 @@
 title: Authenticate to Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the various ways an app or service can authenticate to Communication Services.
-author: matthewrobertson
+author: GrantMeStrength
+
 manager: jken
 services: azure-communication-services
 
-ms.author: marobert
+ms.author: jken
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
