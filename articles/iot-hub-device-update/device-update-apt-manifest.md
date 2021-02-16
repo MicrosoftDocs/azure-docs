@@ -175,4 +175,6 @@ This update includes foo package, and also includes bar package.
 }
 ```
 
-**[Next steps: Import new update](import-update.md)**
+## Next steps
+
+[Import new update](import-update.md)
