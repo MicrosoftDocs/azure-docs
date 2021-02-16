@@ -1277,6 +1277,15 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-add-identity-providers.md",
+      "redirect_url": "/azure/active-directory-b2c/add-identity-provider",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-customize-ui.md",
+      "redirect_url": "/azure/active-directory-b2c/customize-ui",
+      "redirect_document_id": false
+    },    {
       "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md",
       "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps",
       "redirect_document_id": false
@@ -16715,6 +16724,26 @@
     {
       "source_path_from_root": "/articles/databox-online/data-box-edge-troubleshoot.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-certificate-requirements.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-certificate-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-certificate-troubleshooting.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-certificate-troubleshooting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-create-certificates-tool.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-certificates-tool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-certificates.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-certificates",
       "redirect_document_id": false
     },
     {

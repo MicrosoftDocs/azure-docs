@@ -146,7 +146,7 @@ In a typical environment, you would have your DNS configured so that all storage
 
 ### (Optional) Install certificates
 
-Skip this step if you will connect via Storage Explorer using *http*. If you are using *https*, then you need to install appropriate certificates in Storage Explorer. In this case, install the blob endpoint certificate. For more information, see how to create and upload certificates in [Manage certificates](azure-stack-edge-j-series-manage-certificates.md). 
+Skip this step if you will connect via Storage Explorer using *http*. If you are using *https*, then you need to install appropriate certificates in Storage Explorer. In this case, install the blob endpoint certificate. For more information, see how to create and upload certificates in [Manage certificates](azure-stack-edge-gpu-manage-certificates.md). 
 
 ### Create and upload a VHD
 
