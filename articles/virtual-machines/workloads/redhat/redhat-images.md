@@ -114,6 +114,7 @@ The Extended Life-cycle Support (ELS) add-on is an optional subscription that en
 
 ELS is currently only available for RHEL 6.10. For pay-as-you-go images, ELS can be enabled by following the steps in the [Red Hat ELS documentation](./redhat-extended-lifecycle-support.md).
 
+If you’re running on an older version, an upgrade to RHEL 6.10 is required before you can enable ELS.
 
 ### Extended Update Support
 
