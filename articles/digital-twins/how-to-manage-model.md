@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Manage custom models
+title: Manage DTDL models
 titleSuffix: Azure Digital Twins
 description: See how to create, edit, and delete a model within Azure Digital Twins.
 author: baanders
