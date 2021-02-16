@@ -1,20 +1,30 @@
 ### YamlMime:Landing
 title: Azure Percept documentation
-summary: Azure Percept is a development kit and services designed to make building scalable edge AI solutions. # < 160 chars
+summary: Azure Percept is an end-to-end edge AI platform. # < 160 chars
 
 metadata:
   title: Azure Percept documentation
-  description: Azure Percept is a development kit and services designed to make building scalable edge AI solutions.
+  description: Azure Percept is an end-to-end edge AI platform.
   services: rtos
   ms.service: rtos
   ms.topic: landing-page 
-  author: philmea 
-  ms.author: philmea 
-  ms.date: 02/05/2021 
+  author: elqu20 
+  ms.author: v-elqu 
+  ms.date: 02/11/2021 
 
 landingContent:
-  - title: Get started with the Azure Percept DK
+  - title: Start prototyping with Azure Percept DK
     linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Connect to your Azure Percept DK over serial
+            url: how-to-connect-to-percept-dk-over-serial.md
+          - text: Connect to your Azure Percept DK over SSH
+            url: how-to-ssh-into-percept-dk.md
+      - linkListType: tutorial
+        links:
+          - text: Create a no-code vision solution
+            url: tutorial-nocode-vision.md
       - linkListType: reference
         links:
           - text: Azure Percept DK datasheet
@@ -24,11 +34,3 @@ landingContent:
           - text: Azure Percept Audio datasheet
             url: azure-percept-audio-datasheet.md
 
-  - title: Connect and develop devices
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Connect to DevKit over serial
-            url: how-to-connect-to-percept-dk-over-serial.md
-          - text: Connect to DevKit over SSH
-            url: how-to-ssh-into-percept-dk.md

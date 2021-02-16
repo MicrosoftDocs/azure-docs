@@ -13,11 +13,19 @@ ms.custom: template-tutorial
 
 Azure Percept Studio enables you to build and deploy custom computer vision solutions, no coding required. In this article, you will:
 
+<<<<<<< HEAD
 - create a vision project in [Azure Percept Studio]((https://go.microsoft.com/fwlink/?linkid=2135819))
 - collect training images with your devkit
 - label your training images in [Custom Vision](https://www.customvision.ai/)
 - train your custom object detection or classification model
 - deploy your model to your devkit
+=======
+- Create a vision project in [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)
+- Collect training images with your devkit
+- Label your training images in [Custom Vision](https://www.customvision.ai/)
+- Train your custom object detection or classification model
+- Deploy your model to your devkit
+>>>>>>> d16932fb0825dd9e86032aed2df9c5aa84d694ae
 
 This tutorial is suitable for developers with little to no AI experience and those just getting started with Azure Percept.
 
@@ -33,11 +41,19 @@ This tutorial is suitable for developers with little to no AI experience and tho
 
 1. On the overview page, click the **Demos & tutorials** tab.
 
+<<<<<<< HEAD
     :::image type="content" source="./media/tutorial-nocode-vision/percept-studio-overview.png" alt-text="Azure Percept Studio overview screen.":::
 
 1. Under **Vision tutorials and demos**, click **Create a vision prototype**.
 
     :::image type="content" source="./media/tutorial-nocode-vision/vision-tutorials-and-demos.png" alt-text="Azure Percept Studio demos and tutorials screen.":::
+=======
+    :::image type="content" source="./media/tutorial-nocode-vision/percept-studio-overview-inline.png" alt-text="Azure Percept Studio overview screen." lightbox="./media/tutorial-nocode-vision/percept-studio-overview.png":::
+
+1. Under **Vision tutorials and demos**, click **Create a vision prototype**.
+
+    :::image type="content" source="./media/tutorial-nocode-vision/vision-tutorials-and-demos-inline.png" alt-text="Azure Percept Studio demos and tutorials screen." lightbox="./media/tutorial-nocode-vision/vision-tutorials-and-demos.png":::
+>>>>>>> d16932fb0825dd9e86032aed2df9c5aa84d694ae
 
 1. On the **New Azure Percept Custom Vision prototype** page, do the following:
 
@@ -91,6 +107,12 @@ Next, you must either load images or capture images for training your AI model. 
 
 When you have enough photos, click **Next: Tag images and model training** at the bottom of the screen. All images will be saved in [Custom Vision](https://www.customvision.ai/).
 
+<<<<<<< HEAD
+=======
+> [!NOTE]
+> If you elect to upload training images directly to Custom Vision, please note that image file size cannot exceed 6MB.
+
+>>>>>>> d16932fb0825dd9e86032aed2df9c5aa84d694ae
 ## Tag images and train your model
 
 Before training your model, add labels to your images.
@@ -113,6 +135,12 @@ Before training your model, add labels to your images.
 
     :::image type="content" source="./media/tutorial-nocode-vision/iteration.png" alt-text="Model training results.":::
 
+<<<<<<< HEAD
+=======
+    > [!NOTE]
+    > If you elect to test your model on additional images in Custom Vision, please note that test image file size cannot exceed 4MB.
+
+>>>>>>> d16932fb0825dd9e86032aed2df9c5aa84d694ae
 Once you are satisfied with the performance of your model, close Custom Vision by closing the browser tab.
 
 ## Deploy your AI model
@@ -121,7 +149,11 @@ Once you are satisfied with the performance of your model, close Custom Vision b
 
 1. The **Evaluate and deploy** window will show the performance of your selected model iteration. Select the iteration you would like to deploy to your devkit under the **Model iteration** drop-down menu and click **Deploy model** at the bottom of the screen.
 
+<<<<<<< HEAD
     :::image type="content" source="./media/tutorial-nocode-vision/deploy-model.png" alt-text="Model deployment screen.":::
+=======
+    :::image type="content" source="./media/tutorial-nocode-vision/deploy-model-inline.png" alt-text="Model deployment screen." lightbox="./media/tutorial-nocode-vision/deploy-model.png":::
+>>>>>>> d16932fb0825dd9e86032aed2df9c5aa84d694ae
 
 1. After deploying your model, view your device's video stream to see your model inferencing in action.
 
@@ -129,7 +161,11 @@ Once you are satisfied with the performance of your model, close Custom Vision b
 
 After closing this window, you may go back and edit your vision project anytime by clicking **Vision** under **AI Projects** on the Azure Percept Studio homepage and selecting the name of your vision project.
 
+<<<<<<< HEAD
 :::image type="content" source="./media/tutorial-nocode-vision/vision-project.png" alt-text="Vision project page.":::
+=======
+:::image type="content" source="./media/tutorial-nocode-vision/vision-project-inline.png" alt-text="Vision project page." lightbox="./media/tutorial-nocode-vision/vision-project.png":::
+>>>>>>> d16932fb0825dd9e86032aed2df9c5aa84d694ae
 
 ## Clean up resources
 
@@ -147,4 +183,8 @@ Next, check out the vision how-to articles for information on additional vision 
 <!--
 Add links to how-to articles and oobe article.
 Change ms.service to azure-percept.
+<<<<<<< HEAD
 -->
+=======
+-->
+>>>>>>> d16932fb0825dd9e86032aed2df9c5aa84d694ae
