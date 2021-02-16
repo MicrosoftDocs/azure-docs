@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Front Door Standard/Premium Endpoint with Endpoint Manager
+title: Configure Azure Front Door Standard/Premium endpoint with Endpoint Manager
 description: This article shows how to configure an endpoint with Endpoint Manager.
 services: frontdoor
 author: duongau
@@ -9,12 +9,12 @@ ms.date: 02/18/2021
 ms.author: qixwang
 ---
 
-# Configure an Azure Front Door Standard/Premium (Preview) Endpoint with Endpoint Manager
+# Configure an Azure Front Door Standard/Premium (Preview) endpoint with Endpoint Manager
 
 > [!NOTE]
-> * This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View **[Azure Front Door Docs](../front-door-overview.md)**.
+> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View **[Azure Front Door Docs](../front-door-overview.md)**.
 
-This article shows you how to create an Azure Front Door (AFD) endpoint for an existing Azure Front Door profile with Endpoint Manager.
+This article shows you how to create an endpoint for an existing Azure Front Door Standard/Premium profile with Endpoint Manager.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
@@ -23,11 +23,11 @@ This article shows you how to create an Azure Front Door (AFD) endpoint for an e
 
 ## Prerequisites
 
-Before you can create an Azure Front Door endpoint with Endpoint Manager, you must have created at least one Azure Front Door profile created. The profile has to have at least one or more Azure Front Door endpoints. To organize your AFD endpoints by internet domain, web application, or some other criteria, you can use multiple profiles. 
+Before you can create an Azure Front Door Standard/Premium endpoint with Endpoint Manager, you must have created at least one Azure Front Door profile created. The profile has to have at least one or more Azure Front Door Standard/Premium endpoints. To organize your Azure Front Door Standard/Premium endpoints by internet domain, web application, or  other criteria, you can use multiple profiles. 
 
-To create an Azure Front Door profile, see [Create a new Azure Front Door profile](create-front-door-portal.md).
+To create an Azure Front Door profile, see [Create a new Azure Front Door Standard/Premium profile](create-front-door-portal.md).
 
-## Create a new AFD Endpoint
+## Create a new Azure Front Door Standard/Premium Endpoint
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Front Door Standard/Premium profile.
 
@@ -41,7 +41,7 @@ To create an Azure Front Door profile, see [Create a new Azure Front Door profil
 
     | Settings | Value |
     | -------- | ----- |
-    | Name | Enter a unique name for the new AFD endpoint. This name is used to access your cached resources at the domain `<endpointname>.az01.azurefd.net` |
+    | Name | Enter a unique name for the new Azure Front Door Standard/Premium endpoint. This name is used to access your cached resources at the domain `<endpointname>.az01.azurefd.net` |
     | Origin Response timeout (secs) | Enter a timeout value in seconds that Azure Front Door will wait before considering the connection with origin has timeout. |
     | Status | Select the checkbox to enable this endpoint. |
 
@@ -55,7 +55,7 @@ To create an Azure Front Door profile, see [Create a new Azure Front Door profil
 
 ### Add Domain
 
-1. On the **Add Domain** page, choose to associate a domain *from your Azure Front Door profile* or *add a new domain*. For information about how to create a brand new domain, see [Create a new Azure Front Door custom domain]().
+1. On the **Add Domain** page, choose to associate a domain *from your Azure Front Door profile* or *add a new domain*. For information about how to create a brand new domain, see [Create a new Azure Front Door Standard/Premium custom domain](how-to-add-custom-domain.md).
 
     :::image type="content" source="../media/how-to-configure-endpoint-manager/add-domain-page.png" alt-text="Screenshot of Add a domain page.":::
 
@@ -81,7 +81,7 @@ Front Door sends periodic HTTP/HTTPS probe requests to each of your origin. Prob
 
 * **Status**: Specify whether to turn on the health probing. If you have a single origin in your origin group, you can choose to disable the health probes reducing the load on your application backend. Even if you have multiple origins in the group but only one of them is in enabled state, you can disable health probes.
    
-* **Path**: The URL used for probe requests for all the origin in this origin group. For example, if one of your origins is contoso-westus.azurewebsites.net and the path is set to /probe/test.aspx, then Front Door environments, assuming the protocol is set to HTTP, will send health probe requests to http://contoso-westus.azurewebsites.net/probe/test.aspx. 
+* **Path**: The URL used for probe requests for all the origin in this origin group. For example, if one of your origins is contoso-westus.azurewebsites.net and the path is set to /probe/test.aspx, then Front Door environments, assuming the protocol is set to HTTP, will send health probe requests to `http://contoso-westus.azurewebsites.net/probe/test.aspx`. 
    
 * **Protocol**: Defines whether to send the health probe requests from Front Door to your origin with HTTP or HTTPS protocol.
    
@@ -110,7 +110,7 @@ Select **Add** to add the origin group to current endpoint. The origin group sho
 
 ### Add Route
 
-Select **Add** at the Routes view, The **Add a route** page appears.
+Select **Add** at the Routes view, the **Add a route** page appears. For information how to associate the domain and origin group, see [Create a new Azure Front Door route](how-to-configure-route.md)
 
 ### Add Security
 
@@ -133,12 +133,11 @@ Select **Add** at the Routes view, The **Add a route** page appears.
     :::image type="content" source="../media/how-to-configure-endpoint-manager/waf-in-security-view.png" alt-text="Screenshot of WAF policy in security view.":::
 
 ## Clean up resources
+
 To delete an endpoint when it's no longer needed, select **Delete Endpoint** at the end of the endpoint row 
 
 :::image type="content" source="../media/how-to-configure-endpoint-manager/delete-endpoint.png" alt-text="Screenshot of how to delete an endpoint.":::
 
 ## Next steps
-To learn about custom domains, continue to the tutorial for adding a custom domain to your AFD endpoint.
 
-> [!div class="nextstepaction"]
-> [Add a custom domain]()
+To learn about custom domains, continue to the How-to guide for [Adding a custom domain](how-to-add-custom-domain.md).
