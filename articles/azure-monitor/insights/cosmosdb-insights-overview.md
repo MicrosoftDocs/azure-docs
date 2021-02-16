@@ -83,13 +83,48 @@ Select **Capacity** at the top of the page and the **Capacity** portion of the w
 
 As with the overview workbook, selecting the drop-down next to an Azure Cosmos DB resource in the **Subscription** column will reveal a breakdown by the individual containers that make up the database.
 
-### Operations 
+### Operations
 
-Select **Operations** at the top of the page and the **Operations** portion of the workbook template opens. It gives you the ability to see your requests broken down by the type of requests made. 
+Select **Operations** at the top of the page and the **Operations** portion of the workbook template opens. It gives you the ability to see your requests broken down by the type of requests made.
 
 So in the example below you see that `eastus-billingint` is predominantly receiving read requests, but with a small number of upsert and create requests. Whereas `westeurope-billingint` is read-only from a request perspective, at least over the past four hours that the workbook is currently scoped to via its time range parameter.
 
-![Operations workbook](./media/cosmosdb-insights-overview/operation.png) 
+![Operations workbook](./media/cosmosdb-insights-overview/operation.png)
+
+## View from an Azure Cosmos DB resource
+
+1. Search for or select any of your Azure Cosmos DB accounts
+![Search for Cosmos DB](./media/cosmosdb-insights-overview/cosmosdb-search.png)
+2. Once you've navigated to your Azure Cosmos DB account, in the Monitoring section select **Insights** or **Workbooks** to perform further analysis on Throughput, Requests, Storage, Availability, Latency, System, and Account Management.
+![Cosmos DB Insights Overview](./media/cosmosdb-insights-overview/cosmosdb-overview.png)
+
+### Time Range
+
+By default, the Time Range displays data from the “Last 24 hours”. You can modify the time range to display data anywhere from the last 5 minutes to the last seven days. The Time Range selector also includes a “Custom” mode that allows you to type in the start/end dates to view a custom time frame based on available data for the selected account.
+
+![Cosmos DB Time Range](./media/cosmosdb-insights-overview/cosmosdb-timerange.png)
+
+### Insights Overview
+
+The **Overview** tab provides the most common metrics for the selected Azure Cosmos DB account including:
+
+* Total Requests
+* Failed Requests (429s)
+* Normalized RU Consumption (max)
+* Data & Index Usage
+* Cosmos DB Account Metrics by Collection
+
+**Total Requests:** This graph provides a view of the total requests for the account broken down by Status Code. The units at the bottom of the graph are a sum of the total requests for the period.
+
+![Total Requests Graph](./media/cosmosdb-insights-overview/cosmosdb-totalrequests.png)
+
+**Failed Requests (429s)**: provides a view of failed requests with a status code of 429. The units at the bottom of the graph are a sum of the total failed requests for the period.
+
+![Failed Requests Graph](./media/cosmosdb-insights-overview/cosmosdb-429.png)
+
+**Normalized RU Consumption (max)**: provides the max % (from 0-100%) of Normalized RU Consumption units for the specified period.
+
+![Normalized RU Consumption Graph](./media/cosmosdb-insights-overview/cosmosdb-normalizedru.png)
 
 ## Pin, export, and expand
 
@@ -97,8 +132,7 @@ You can pin any one of the metric sections to an [Azure Dashboard](../../azure-p
 
 ![Metric section pin to dashboard example](./media/cosmosdb-insights-overview/pin.png)
 
-To export your data into the Excel format, select the down arrow icon to the left of the pushpin 
-icon.
+To export your data into the Excel format, select the down arrow icon to the left of the pushpin icon.
 
 ![Export workbook icon](./media/cosmosdb-insights-overview/export.png)
 
