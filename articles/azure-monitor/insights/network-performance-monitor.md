@@ -120,7 +120,7 @@ The script creates registry keys required by the solution. It also creates Windo
 
 ### Configure the solution 
 
-1. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md). 
+1. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md). 
 2. Open your Log Analytics workspace, and select the **Overview** tile. 
 3. Select the **Network Performance Monitor** tile with the message *Solution requires additional configuration*.
 
