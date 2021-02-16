@@ -1,5 +1,5 @@
 ---
-title: Understand Device Update for IoT Hub APT manifest | Microsoft Docs
+title: Understand Device Update for Azure IoT Hub APT manifest | Microsoft Docs
 description: Understand how Device Update for IoT Hub uses apt manifest for a package-based update.
 author: vimeht
 ms.author: vimeht
@@ -11,11 +11,11 @@ ms.service: iot-hub-device-update
 
 # Device Update APT Manifest
 
-## Overview
-
 The APT Manifest is a JSON file that describes an update details required by APT Update Handler. This file can be imported into Device Update for IoT Hub just like any other update.
 
 [Learn More](import-update.md) about importing updates into Device Update.
+
+## Overview
 
 When an APT manifest is delivered to an Device Update Agent as an update, the agent will process the manifest and carry out the necessary operations. These operations include downloading and installing the packages specified in the APT Manifest file and their dependencies.
 
@@ -85,11 +85,13 @@ version in format [epoch:]upstream_version[-debian_revision].
 **epoch** is an unsigned int.
 
 **upstream_version** can include alphanumerics and characters such as ".","+","-" and "~". It should start with a digit.
->Note:'1.0.8' is equal to '1.0.8-0'
+> [!NOTE]
+> '1.0.8' is equal to '1.0.8-0'
 
 For example, **`"name":"iotedge" and "version":"1.0.8-2"`** is equivalent to installing a package using command `apt-get install iotedge=1.0.8-2`
 
->Note: version value doesn't contain an equal sign
+> [!NOTE]
+> Version value doesn't contain an equal sign
 
 If version is omitted, the latest available version of specified package will be installed.
 
@@ -108,9 +110,7 @@ The Installed Criteria for an APT Manifest is `<name>-<version>` where `<name>` 
 
 ## Guidelines on creating an APT Manifest
 
--------------------------------------------------------------------------------
-While creating the APT Manifest, there are some guidelines to
-keep in mind:
+While creating the APT Manifest, there are some guidelines to keep in mind:
 
 - Always ensure that the APT Manifest is a well-formed json file
 - Each APT Manifest should have a unique version. Try to come up with a standardized methodology to increment the version of the APT Manifest, so that it makes sense for your scenarios and can be easily followed
