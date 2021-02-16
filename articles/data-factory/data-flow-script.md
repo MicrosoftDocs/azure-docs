@@ -258,11 +258,13 @@ SurrogateKey window(over(dummy),
 ### Moving Average
 Moving average can be implemented very easily in data flows by using a Windows transformation. This example below creates a 15-day moving average of stock prices for Microsoft.
 
-```window(over(stocksymbol),
+```
+window(over(stocksymbol),
 	asc(Date, true),
 	startRowOffset: -7L,
 	endRowOffset: 7L,
-	FifteenDayMovingAvg = round(avg(Close),2)) ~> Window1```
+	FifteenDayMovingAvg = round(avg(Close),2)) ~> Window1
+```
 
 ## Next steps
 
