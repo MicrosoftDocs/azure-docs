@@ -11,6 +11,8 @@ ms.service: iot-hub-device-update
 
 # Device update resources
 
+To use Device Update for IoT Hub, you need to create a device update account and instance resource. 
+
 ## Device update account
 
 A Device Update account is a resource that is created within your Azure subscription. At the Device Update account level,
@@ -36,4 +38,6 @@ The following Message Routes are configured for Device Update:
 |  DeviceUpdate.TelemetryModelInformation | iothub-interface-id = "urn:azureiot:ModelDiscovery:ModelInformation:1 | Listens for new devices types |
 |  DeviceUpdate.DeviceTwinEvents| (opType = 'updateTwin' OR opType = 'replaceTwin') AND IS_DEFINED($body.tags.ADUGroup) | Listens for new Device Update Groups |
 
-[Next steps: Create device update resources](./create-device-update-account.md)
+## Next steps
+
+[Create device update resources](./create-device-update-account.md)
