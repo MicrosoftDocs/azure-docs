@@ -14,7 +14,7 @@ Learn how to deploy an update to an IoT device using Device Update for IoT Hub.
 
 ## Prerequisites
 
-* Access to an IoT Hub with Device Update for IoT Hub enabled. [Learn more](create-device-update-account) about enabling Device Update for Iot Hub. 
+* Access to an IoT Hub with Device Update for IoT Hub enabled. [Learn more](create-device-update-account.md) about enabling Device Update for Iot Hub. 
 * At least one update has been successfully imported for the provisioned device. [Learn more](import-update.md) about importing updates in Device Update for IoT Hub. 
 * An IoT device (or simulator) provisioned for Device Update within IoT Hub, running either Azure RTOS or Ubuntu 18.04 x64.
 * A tag has been assigned to the IoT device you are trying to update. The device is part of at least one update group. [Learn more](create-update-group.md) about creating update groups. 
