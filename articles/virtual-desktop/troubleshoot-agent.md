@@ -263,7 +263,7 @@ If you can't find your issue in this article or the instructions didn't help you
 - You're not seeing your VMs show up in the session hosts list
 - You don't see the **Remote Desktop Agent Loader** in the Services window
 - You don't see the **RdAgentBootLoader** component in the Task Manager
-- You're receiving an **Connection Broker couldn't validate the settings** error on custom image VMs
+- You're receiving a **Connection Broker couldn't validate the settings** error on custom image VMs
 - The instructions in this article didn't resolve your issue
 
 ### Step 1: Uninstall all agent, boot loader, and stack component programs
