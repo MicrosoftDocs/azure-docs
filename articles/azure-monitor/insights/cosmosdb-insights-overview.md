@@ -118,7 +118,7 @@ The **Overview** tab provides the most common metrics for the selected Azure Cos
 
 ![Total Requests Graph](./media/cosmosdb-insights-overview/cosmosdb-totalrequests.png)
 
-**Failed Requests (429s)**: provides a view of failed requests with a status code of 429. The units at the bottom of the graph are a sum of the total failed requests for the period.
+**Failed Requests (429s)**: This graph provides a view of failed requests with a status code of 429. The units at the bottom of the graph are a sum of the total failed requests for the period.
 
 ![Failed Requests Graph](./media/cosmosdb-insights-overview/cosmosdb-429.png)
 
