@@ -27,7 +27,7 @@ Use the following steps to set up the enterprise application:
 
    :::image type="content" source="media/create/datadogaadappgallery.png" alt-text="Datadog application in the AAD enterprise gallery." border="true":::
 
-1. Once the app is created, go to properties from the side panel, and set the **User assignment required?** to **No**, then select **Save**.
+1. Once the app is created, go to properties from the side panel. Set **User assignment required?** to **No**, and select **Save**.
 
    :::image type="content" source="media/create/userassignmentrequired.png" alt-text="Set properties for the Datadog application" border="true":::
 
@@ -39,7 +39,7 @@ Use the following steps to set up the enterprise application:
 
    :::image type="content" source="media/create/savesso.png" alt-text="Save single-sign on for the Datadog app" border="true":::
 
-1. The setup of the Single Sign on is now complete.
+1. The setup of single sign-on is now complete.
 
 ## Find offer
 
@@ -79,13 +79,13 @@ If you're linking to an existing Datadog organization, see the next section. Oth
 
 ## Link to existing Datadog organization
 
-You can create a new Datadog resource in Azure and link it to an existing Datadog organization.
+You can link your new Datadog resource in Azure to an existing Datadog organization.
 
 Select **Existing** for Data organization, and then select **Link to Datadog org**.
 
 :::image type="content" source="media/create/linktoexisting.png" alt-text="Link to existing Datadog organization." border="true":::
 
-This link opens the Datadog login window. Sign in to Datadog.
+The link opens a Datadog authentication window. Sign in to Datadog.
 
 By default, Azure will link your default selected Datadog organization to your Datadog resource. If you would like to change the select organization, open **datadoghq.com** in a separate browser tab. Sign in and switch to the specific organization. Then, select **Link to Datadog org**.
 
@@ -96,8 +96,8 @@ Use Azure resource tags to configure which metrics and logs are sent to Datadog.
 Tag rules for sending **metrics** are:
 
 - By default, metrics are collected for all resources, except virtual machines, virtual machine scale sets, and app service plans.
-- VM, VMSS, and app service plans with *Include* tags send metrics to Datadog.
-- VM, VMSS, and app service plans with *Exclude* tags don't send metrics to Datadog.
+- Virtual machines, virtual machine scale sets, and app service plans with *Include* tags send metrics to Datadog.
+- Virtual machines, virtual machine scale sets, and app service plans with *Exclude* tags don't send metrics to Datadog.
 - If there's a conflict between inclusion and exclusion rules, exclusion takes priority
 
 Tag rules for sending **logs** are:
@@ -105,19 +105,19 @@ Tag rules for sending **logs** are:
 - By default, logs are collected for all resources.
 - Azure resources with *Include* tags send logs to Datadog.
 - Azure resources with  *Exclude* tags don't send logs to Datadog.
-- If there is a conflict between inclusion and exclusion rules, exclusion takes priority.
+- If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
 
-For example, the screenshot below shows a tag rule where only those VMs, VMSS, and app service plans tagged as *Datadog = True* send metrics to Datadog.
+For example, the screenshot below shows a tag rule where only those virtual machines, virtual machine scale sets, and app service plans tagged as *Datadog = True* send metrics to Datadog.
 
 :::image type="content" source="media/create/configmetricslogs.png" alt-text="Configure Logs and Metrics." border="true":::
 
-There are 2 types of logs that can be emitted from Azure to Datadog.
+There are two types of logs that can be emitted from Azure to Datadog.
 
-1. **Subscription level logs** - Provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There is a single activity log for each Azure subscription.
+1. **Subscription level logs** - Provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
 
-1. **Azure resource logs** - Provide insight into operations that were performed on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+1. **Azure resource logs** - Provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
-To send subscription level logs to Datadog, select **Send subscription activity logs**. If this is left unchecked, none of the subscription level logs are sent to Datadog.
+To send subscription level logs to Datadog, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Datadog.
 
 To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in Azure Monitor Resource Log categories.  To filter the specific set of Azure resources sending logs to Datadog, you can use Azure resource tags.  
 
@@ -127,7 +127,7 @@ Once you have completed configuring metrics and logs, select **Next: Single sign
 
 If your organization uses Azure Active Directory as its identity provider, you can establish single sign-on from the Azure portal to Datadog. If your organization uses some other identity provider or you don't want to establish single sign-on at this time, you can skip this section.
 
-If you are linking the Datadog resource to an existing Datadog organization, you can't set up single sign-on at this step. Instead, you set up single sign-on after creating the Datadog resource. For more information, see [Reconfigure single sign-on]().
+If you're linking the Datadog resource to an existing Datadog organization, you can't set up single sign-on at this step. Instead, you set up single sign-on after creating the Datadog resource. For more information, see [Reconfigure single sign-on]().
 
 :::image type="content" source="media/create/linkingsso.png" alt-text="Single sign-on for linking to existing Datadog organization." border="true":::
 
