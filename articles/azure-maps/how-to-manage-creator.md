@@ -73,7 +73,7 @@ Creator usage data is incorporated in your Azure Maps usage charts and activity 
 
 ## Access to Creator services
 
-Creator services (Preview) and services that use data hosted in Creator (i.e. Render service), are accessible at a geographical URL. The geographical URL is determined by the location selected during creation. For example, if Creator is created in the United States geographical location, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`.
+Creator services (Preview) and services that use data hosted in Creator (for example, Render service), are accessible at a geographical URL. The geographical URL is determined by the location selected during creation. For example, if Creator is created in the United States geographical location, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`.
 
 Also, all data imported into Creator should be uploaded into the same geographical location as the Creator resource. For example, if Creator is provisioned in the United Stated, all raw data should be uploaded via `us.atlas.microsoft.com/mapData/upload`.
 
