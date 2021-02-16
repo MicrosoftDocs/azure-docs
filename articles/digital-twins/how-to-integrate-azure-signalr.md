@@ -79,7 +79,7 @@ Start Visual Studio (or another code editor of your choice), and open the code s
 
     This should resolve any dependency issues in the class.
 
-1. Publish your function to Azure, using the steps described in the [*Publish the app* section](tutorial-end-to-end.md#publish-the-app) of the *Connect an end-to-end solu tion* tutorial. You can publish it to the same app service/function app that you used in the end-to-end tutorial [prerequisite](#prerequisites), or create a new one—but you may want to use the same one to minimize duplication. 
+1. Publish your function to Azure, using the steps described in the [*Publish the app* section](tutorial-end-to-end.md#publish-the-app) of the *Connect an end-to-end solution* tutorial. You can publish it to the same app service/function app that you used in the end-to-end tutorial [prerequisite](#prerequisites), or create a new one—but you may want to use the same one to minimize duplication. 
 
 Next, configure the functions to communicate with your Azure SignalR instance. You'll start by gathering the SignalR instance's **connection string**, and then add it to the functions app's settings.
 
@@ -89,7 +89,7 @@ Next, configure the functions to communicate with your Azure SignalR instance. Y
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Screenshot of the Azure portal that shows the Keys page for the SignalR instance. The 'Copy to clipboard' icon next to the Primary CONNECTION STRING is highlighted." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-1. Finally, add your Azure SignalR **connection string** to the function's app settings, using the following Azure CLI command. Also, replace the placeholders with your resource group and app service/function app name from the [tutorial prerequisite](how-to-integrate-azure-signalr.md#prerequisites).The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
+1. Finally, add your Azure SignalR **connection string** to the function's app settings, using the following Azure CLI command. Also, replace the placeholders with your resource group and app service/function app name from the [tutorial prerequisites](how-to-integrate-azure-signalr.md#prerequisites). The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
  
     ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
@@ -101,7 +101,7 @@ Next, configure the functions to communicate with your Azure SignalR instance. Y
 
 #### Connect the function to Event Grid
 
-Next, subscribe the *broadcast* Azure function to the **event grid topic** you created during the [tutorial prerequisite](how-to-integrate-azure-signalr.md#prerequisites). This will allow telemetry data to flow from the thermostat67 twin through the event grid topic and to the function. From here, the function can broadcast the data to all the clients.
+Next, subscribe the *broadcast* Azure function to the **event grid topic** you created during the [tutorial prerequisites](how-to-integrate-azure-signalr.md#prerequisites). This will allow telemetry data to flow from the thermostat67 twin through the event grid topic and to the function. From here, the function can broadcast the data to all the clients.
 
 To do this, you'll create an **Event subscription** from your event grid topic to your *broadcast* Azure function as an endpoint.
 
@@ -122,7 +122,7 @@ Back on the *Create Event Subscription* page, hit **Create**.
 
 At this point, you should see two event subscriptions in the *Event Grid Topic* page.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/view-event-subscriptions.png" alt-text="Azure portal view of two event subscriptions in the Event grid topic page.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/view-event-subscriptions.png" alt-text="Azure portal view of two event subscriptions in the Event grid topic page." lightbox="media/how-to-integrate-azure-signalr/view-event-subscriptions.png":::
 
 ## Configure and run the web app
 
