@@ -75,7 +75,7 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
 1. Make the changes you need to make at elevated access.
 
-    For information about assigning roles, see [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md). If you are using Privileged Identity Management, see [Discover Azure resources to manage](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) or [Assign Azure resource roles](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    For information about assigning roles, see [Assign Azure roles using the Azure portal](role-assignments-portal.md). If you are using Privileged Identity Management, see [Discover Azure resources to manage](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) or [Assign Azure resource roles](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 1. Perform the steps in the following section to remove your elevated access.
 
@@ -152,7 +152,7 @@ Use the following basic steps to elevate access for a Global Administrator using
 
 1. Make the changes you need to make at elevated access.
 
-    For information about assigning roles, see [Add or remove Azure role assignments using the Azure CLI](role-assignments-cli.md).
+    For information about assigning roles, see [Assign Azure roles using the Azure CLI](role-assignments-cli.md).
 
 1. Perform the steps in a later section to remove your elevated access.
 
@@ -208,7 +208,7 @@ Use the following basic steps to elevate access for a Global Administrator using
 
 1. Make the changes you need to make at elevated access.
 
-    For information about assigning roles, see [Add or remove Azure role assignments using the REST API](role-assignments-rest.md).
+    For information about assigning roles, see [Assign Azure roles using the REST API](role-assignments-rest.md).
 
 1. Perform the steps in a later section to remove your elevated access.
 
@@ -326,4 +326,4 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 ## Next steps
 
 - [Understand the different roles](rbac-and-directory-admin-roles.md)
-- [Add or remove Azure role assignments using the REST API](role-assignments-rest.md)
+- [Assign Azure roles using the REST API](role-assignments-rest.md)

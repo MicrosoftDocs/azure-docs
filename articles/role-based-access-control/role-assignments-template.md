@@ -1,17 +1,17 @@
 ---
-title: Add Azure role assignments using Azure Resource Manager templates - Azure RBAC
+title: Assign Azure roles using Azure Resource Manager templates - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure Resource Manager templates and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/21/2021
 ms.author: rolyon
 ---
-# Add Azure role assignments using Azure Resource Manager templates
+# Assign Azure roles using Azure Resource Manager templates
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] In addition to using Azure PowerShell or the Azure CLI, you can assign roles using [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md). Templates can be helpful if you need to deploy resources consistently and repeatedly. This article describes how to assign roles using templates.
 
@@ -67,13 +67,13 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## Add a role assignment
+## Assign an Azure role
 
-In Azure RBAC, to grant access, you add a role assignment.
+In Azure RBAC, to grant access, you assign a role.
 
 ### Resource group scope (without parameters)
 
-The following template shows a basic way to add a role assignment. Some values are specified within the template. The following template demonstrates:
+The following template shows a basic way to assign a role. Some values are specified within the template. The following template demonstrates:
 
 -  How to assign the [Reader](built-in-roles.md#reader) role to a user, group, or application at a resource group scope
 
@@ -200,7 +200,7 @@ az deployment sub create --location centralus --template-file rbac-test.json --p
 
 ### Resource scope
 
-If you need to add a role assignment at the level of a resource, set the `scope` property on the role assignment to the name of the resource.
+If you need to assign a role at the level of a resource, set the `scope` property on the role assignment to the name of the resource.
 
 The following template demonstrates:
 
