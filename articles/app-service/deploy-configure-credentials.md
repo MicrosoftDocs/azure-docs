@@ -30,6 +30,10 @@ az webapp deployment user set --user-name <username> --password <password>
 
 The JSON output shows the password as `null`.
 
+# [Azure PowerShell](#tab/powershell)
+
+You can't configure the user-scope credentials with PowerShell. Use a different method, or consider [using application-scope credentials](#get-application-scope-credentials). 
+
 # [Azure portal](#tab/portal)
 
 You can configure your user-scope credentials in any app's [resource page](../azure-resource-manager/management/manage-resources-portal.md#manage-resources). Regardless in which app you configure these credentials, it applies to all apps for all subscriptions in your Azure account. 
@@ -53,7 +57,7 @@ If Git deployment is configured, the page shows a **Git/deployment username**; o
 >
 > 
 
----
+-----
 
 ## Use user-scope credentials with FTP/FTPS
 
@@ -94,7 +98,7 @@ Get-AzWebAppPublishingProfile -ResourceGroupName <group-name> -Name <app-name>
 
 2. In the **Application scope** section, select the **Copy** link to copy the username or password.
 
----
+-----
 
 ## Reset application-scope credentials
 
@@ -122,7 +126,7 @@ Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.
 
 2. In the **Application scope** section, select **Reset**.
 
----
+-----
 
 ## Disable basic authentication
 
