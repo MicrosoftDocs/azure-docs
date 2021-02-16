@@ -140,4 +140,4 @@ To delete an endpoint when it's no longer needed, select **Delete Endpoint** at 
 
 ## Next steps
 
-To learn about custom domains, continue to the How-to guide for [Adding a custom domain](how-to-add-custom-domain.md).
+To learn about custom domains, continue to [Adding a custom domain](how-to-add-custom-domain.md).
