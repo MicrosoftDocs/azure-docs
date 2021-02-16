@@ -73,7 +73,7 @@ The Simulator Update Handler is used by the Simulator Platform Layer and can
 be used with the Linux Platform Layer to fake interactions with a Content
 Handler. The Simulator Update Handler implements the Update Handler APIs with
 mostly no-ops. The implementation of the Simulator Update Handler is in
-src/content_handlers/simulator_content_handler. The InstalledCriteria field in
+[src/content_handlers/simulator_content_handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers). Note: The InstalledCriteria field in
 the AzureDeviceUpdateCore PnP interface should be the sha256 hash of the
 content. This is the same hash that is present in the [Import Manifest
 Object](import-update.md#create-device-update-import-manifest). [Learn
