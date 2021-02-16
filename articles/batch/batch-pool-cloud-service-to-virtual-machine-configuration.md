@@ -43,7 +43,7 @@ Azure Batch pools can be used to run Data Factory custom activities. Any 'cloudS
 For more information about using Azure Batch to run Data Factory custom activities:
 
 - [Azure Batch linked service](../data-factory/compute-linked-services.md#azure-batch-linked-service)
-- [Custom activities in a Data Factory pipeline](../data-factory/data-factory/transform-data-using-dotnet-custom-activity.md)
+- [Custom activities in a Data Factory pipeline](../data-factory/transform-data-using-dotnet-custom-activity.md)
 
 ## Next steps
 
