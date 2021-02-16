@@ -1,6 +1,6 @@
 ---
 title: Built-in & custom alerts list
-description: Learn about security alerts and recommended remediation using Defender for IoT features and service.
+description: Learn about security alerts and recommended remediation using Defender for IoT Hub's features and service.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
