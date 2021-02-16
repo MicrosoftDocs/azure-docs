@@ -59,6 +59,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Blobs backup
+            url: blob-backup-overview.md
           - text: Azure Disk Backup
             url: disk-backup-overview.md
           - text: Backup Center
