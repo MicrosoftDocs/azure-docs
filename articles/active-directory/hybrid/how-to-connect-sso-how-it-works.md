@@ -62,10 +62,6 @@ The sign-in flow on a web browser is as follows:
 6. Active Directory locates the computer account and returns a Kerberos ticket to the browser encrypted with the computer account's secret.
 7. The browser forwards the Kerberos ticket it acquired from Active Directory to Azure AD.
 8. Azure AD decrypts the Kerberos ticket, which includes the identity of the user signed into the corporate device, using the previously shared key.
-
-   >[!NOTE]
-   >Azure AD will attempt to match user's UPN from the Kerberos ticket to an Azure AD user object that has a corresponding value in the userPrincipalName attribute. If this is not successful, Azure AD will fall back to matching the samAccountName from the Kerberos ticket to an Azure AD user object that has a corresponding value in the onPremisesSamAccountName attribute.
-   
 9. After evaluation, Azure AD either returns a token back to the application or asks the user to perform additional proofs, such as Multi-Factor Authentication.
 10. If the user sign-in is successful, the user is able to access the application.
 
