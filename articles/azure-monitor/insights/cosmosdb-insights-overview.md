@@ -100,7 +100,7 @@ So in the example below you see that `eastus-billingint` is predominantly receiv
 
 ### Time range
 
-By default, the Time Range displays data from the “Last 24 hours”. You can modify the time range to display data anywhere from the last 5 minutes to the last seven days. The Time Range selector also includes a “Custom” mode that allows you to type in the start/end dates to view a custom time frame based on available data for the selected account.
+By default, the **Time Range** field displays data from the **Last 24 hours**. You can modify the time range to display data anywhere from the last 5 minutes to the last seven days. The time range selector also includes a **Custom** mode that allows you to type in the start/end dates to view a custom time frame based on available data for the selected account.
 
 ![Cosmos DB Time Range](./media/cosmosdb-insights-overview/cosmosdb-timerange.png)
 
