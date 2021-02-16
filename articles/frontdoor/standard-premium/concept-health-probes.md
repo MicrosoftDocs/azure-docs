@@ -6,11 +6,11 @@ author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/18/2021
 ms.author: duau
 ---
 
-# ​​Health probe monitoring
+# Health probe monitoring
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
@@ -45,11 +45,11 @@ Front Door supports the following HTTP methods for sending the health probes:
 
 Azure Front Door uses the same three-step process below across all algorithms to determine health.
 
-1. ​Exclude disabled backends.
+1. Exclude disabled backends.
 
 1. Exclude backends that have health probes errors:
 
-    * ​​​​This selection is done by looking at the last _n_ health probe responses. If at least _x_ are healthy, the backend is considered healthy.
+    * This selection is done by looking at the last _n_ health probe responses. If at least _x_ are healthy, the backend is considered healthy.
 
     * _n_ is configured by changing the SampleSize property in load-balancing settings.
 
@@ -70,4 +70,4 @@ If you have a single backend in your backend pool or only one backend is active 
 
 ## Next steps
 
-* Learn how to [create a Front Door](create-front-door-portal.md).
+Learn how to [create a Front Door Standard/Premium](create-front-door-portal.md).
