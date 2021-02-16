@@ -1063,7 +1063,7 @@ The following snippet from a device model shows the definition of a command. The
                 "displayName": {
                   "en": "Bank3"
                 },
-                "enumValue": 2,
+                "enumValue": 3,
                 "name": "Bank3"
               }
             ],
