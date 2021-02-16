@@ -1,5 +1,5 @@
 ---
-title: Configure role-based access control for your Azure Cosmos DB account
+title: Configure role-based access control for your Azure Cosmos DB account with Azure AD
 description: Learn how to configure role-based access control with Azure Active Directory for your Azure Cosmos DB account
 author: ThomasWeiss
 ms.service: cosmos-db
@@ -16,16 +16,16 @@ ms.author: thweiss
 
 Azure Cosmos DB exposes a built-in role-based access control (RBAC) system that lets you:
 
-- Authenticate your data requests with an Azure Active Directory (AAD) identity.
+- Authenticate your data requests with an Azure Active Directory (Azure AD) identity.
 - Authorize your data requests with a fine-grained, role-based permission model.
 
 ## Concepts
 
 The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found in other RBAC systems like [Azure RBAC](../role-based-access-control/overview.md):
 
-- The [permission model](#permission-model) is composed of a set of **actions**; each of these actions maps to one or multiple database operations.
+- The [permission model](#permission-model) is composed of a set of **actions**; each of these actions maps to one or multiple database operations. Some examples of actions include reading an item, writing an item, or executing a query.
 - Azure Cosmos DB users create **[role definitions](#role-definitions)** containing a list of allowed actions.
-- Role definitions get assigned to specific AAD identities through **[role assignments](#role-assignments)**. A role assignment also defines the scope that the role definition applies to; three scopes are currently supported:
+- Role definitions get assigned to specific Azure AD identities through **[role assignments](#role-assignments)**. A role assignment also defines the scope that the role definition applies to; currently, three scopes are currently:
     - An Azure Cosmos DB account,
     - An Azure Cosmos DB database,
     - An Azure Cosmos DB container.
@@ -33,7 +33,7 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
   :::image type="content" source="./media/how-to-setup-rbac/concepts.png" alt-text="RBAC concepts":::
 
 > [!NOTE]
-> The Azure Cosmos DB RBAC does not currently expose any built-in role definitions. Built-in role definitions will be added before the feature becomes generally available.
+> The Azure Cosmos DB RBAC does not currently expose any built-in role definitions.
 
 ## <a id="permission-model"></a> Permission model
 
@@ -41,16 +41,16 @@ The table below lists all the actions exposed by the permission model.
 
 | Name | Corresponding database operation(s) |
 |---|---|
-| `Microsoft.DocumentDB/databaseAccounts/readMetadata` | Reading account metadata. See [Metadata requests](#metadata-requests) for details. |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create` | Creating a new item |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read` | Reading an individual item by its ID and partition key (point-read) |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/replace` | Replacing an existing item |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/upsert` | "Upserting" an item (that is, creating it if it doesn't exist, or replacing it if it exists) |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/delete` | Deleting an item |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery` | Executing a [SQL query](sql-query-getting-started.md) |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` | Reading from the container's [change feed](read-change-feed.md) |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeStoredProcedure` | Executing a [stored procedure](stored-procedures-triggers-udfs.md) |
-| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/manageConflicts` | Managing [conflicts](conflict-resolution-policies.md) for multi-write region accounts (that is, listing and deleting items from the conflict feed) |
+| `Microsoft.DocumentDB/databaseAccounts/readMetadata` | Read account metadata. See [Metadata requests](#metadata-requests) for details. |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create` | Create a new item. |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read` | Read an individual item by its ID and partition key (point-read). |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/replace` | Replace an existing item. |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/upsert` | "Upsert" an item, which means create it if it doesn't exist, or replace it if it exists. |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/delete` | Delete an item. |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery` | Execute a [SQL query](sql-query-getting-started.md). |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` | Read from the container's [change feed](read-change-feed.md). |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeStoredProcedure` | Execute a [stored procedure](stored-procedures-triggers-udfs.md). |
+| `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/manageConflicts` | Manage [conflicts](conflict-resolution-policies.md) for multi-write region accounts (that is, list and delete items from the conflict feed). |
 
 Wildcards are supported at both *containers* and *items* levels:
 
@@ -62,9 +62,15 @@ Wildcards are supported at both *containers* and *items* levels:
 
 ### <a id="metadata-requests"></a> Metadata requests
 
-When using Azure Cosmos DB SDKs, these SDKs issue read-only metadata requests during initialization and to serve specific data requests. These metadata requests fetch various configuration details, like the global configuration of your account (which Azure regions the account is available in), the partition key of your containers or their indexing policy. They do *not* fetch any of the data that you've stored in your account.
+When using Azure Cosmos DB SDKs, these SDKs issue read-only metadata requests during initialization and to serve specific data requests. These metadata requests fetch various configuration details such as: 
 
-To ensure the best transparency of our permission model, these metadata requests are covered by an explicit action (`Microsoft.DocumentDB/databaseAccounts/readMetadata`). This action should be allowed in every situation where your Azure Cosmos DB account is accessed through one of the Azure Cosmos DB SDKs. It can be assigned (through a role assignment) at any level of the Cosmos DB hierarchy (that is, account, database, or container).
+- The global configuration of your account, which includes the Azure regions the account is available in.
+- The partition key of your containers or their indexing policy.
+- The list of physical partitions that make a container and their addresses.
+
+They do *not* fetch any of the data that you've stored in your account.
+
+To ensure the best transparency of our permission model, these metadata requests are explicitly covered by the `Microsoft.DocumentDB/databaseAccounts/readMetadata` action. This action should be allowed in every situation where your Azure Cosmos DB account is accessed through one of the Azure Cosmos DB SDKs. It can be assigned (through a role assignment) at any level in the Azure Cosmos DB hierarchy (that is, account, database, or container).
 
 The actual metadata requests allowed by the `Microsoft.DocumentDB/databaseAccounts/readMetadata` action depend on the scope that the action is assigned to:
 
@@ -76,13 +82,25 @@ The actual metadata requests allowed by the `Microsoft.DocumentDB/databaseAccoun
 
 ## <a id="role-definitions"></a> Create role definitions
 
+When creating a role definition, you need to provide:
+
+- The name of your Azure Cosmos DB account.
+- The resource group containing your account.
+- The type of the role definition; only `CustomRole` is currently supported.
+- The name of the role definition.
+- A list of [actions](#permission-model) that you want the role to allow.
+- One or multiple scope(s) that the role definition can be assigned at; supported scopes are:
+    - `/` (account-level),
+    - `/dbs/<database-name>` (database-level),
+    - `/dbs/<database-name>/colls/<container-name>` (container-level).
+
 ### Using Azure PowerShell
 
-Create a role named "MyReadOnlyRole" that only contains read actions:
+Create a role named *MyReadOnlyRole* that only contains read actions:
 
 ```powershell
-$resourceGroupName = "myResourceGroup"
-$accountName = "myCosmosAccount"
+$resourceGroupName = "<myResourceGroup>"
+$accountName = "<myCosmosAccount>"
 New-AzCosmosDBSqlRoleDefinition -AccountName $accountName `
     -ResourceGroupName $resourceGroupName `
     -Type CustomRole -RoleName MyReadOnlyRole `
@@ -94,11 +112,9 @@ New-AzCosmosDBSqlRoleDefinition -AccountName $accountName `
     -AssignableScope "/"
 ```
 
-Create a role named "MyReadWriteRole that contains all actions:
+Create a role named *MyReadWriteRole* that contains all actions:
 
 ```powershell
-$resourceGroupName = "myResourceGroup"
-$accountName = "myCosmosAccount"
 New-AzCosmosDBSqlRoleDefinition -AccountName $accountName `
     -ResourceGroupName $resourceGroupName `
     -Type CustomRole -RoleName MyReadWriteRole `
@@ -116,9 +132,27 @@ Get-AzCosmosDBSqlRoleDefinition -AccountName $accountName `
     -ResourceGroupName $resourceGroupName
 ```
 
+```
+RoleName         : MyReadWriteRole
+Id               : /subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDB/databaseAcc
+                   ounts/<myCosmosAccount>/sqlRoleDefinitions/<roleDefinitionId>
+Type             : CustomRole
+Permissions      : {Microsoft.Azure.Management.CosmosDB.Models.Permission}
+AssignableScopes : {/subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDB/databaseAc
+                   counts/<myCosmosAccount>}
+
+RoleName         : MyReadOnlyRole
+Id               : /subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDB/databaseAcc
+                   ounts/<myCosmosAccount>/sqlRoleDefinitions/<roleDefinitionId>
+Type             : CustomRole
+Permissions      : {Microsoft.Azure.Management.CosmosDB.Models.Permission}
+AssignableScopes : {/subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDB/databaseAc
+                   counts/<myCosmosAccount>}
+```
+
 ### Using the Azure CLI
 
-Create a role named "MyReadOnlyRole" that only contains read actions:
+Create a role named *MyReadOnlyRole* that only contains read actions:
 
 ```json
 // role-definition-ro.json
@@ -138,12 +172,12 @@ Create a role named "MyReadOnlyRole" that only contains read actions:
 ```
 
 ```azurecli
-resourceGroupName='myResourceGroup'
-accountName='myCosmosAccount'
+resourceGroupName='<myResourceGroup>'
+accountName='<myCosmosAccount>'
 az cosmosdb sql role definition create -a $accountName -g $resourceGroupName -b @role-definition-ro.json
 ```
 
-Create a role named "MyReadWriteRole" that contains all actions:
+Create a role named *MyReadWriteRole* that contains all actions:
 
 ```json
 // role-definition-rw.json
@@ -171,22 +205,80 @@ List the role definitions you've created to fetch their IDs:
 az cosmosdb sql role definition list -a $accountName -g $resourceGroupName
 ```
 
+```
+[
+  {
+    "assignableScopes": [
+      "/subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDB/databaseAccounts/<myCosmosAccount>"
+    ],
+    "id": "/subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDB/databaseAccounts/<myCosmosAccount>/sqlRoleDefinitions/<roleDefinitionId>",
+    "name": "<roleDefinitionId>",
+    "permissions": [
+      {
+        "dataActions": [
+          "Microsoft.DocumentDB/databaseAccounts/readMetadata",
+          "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*",
+          "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*"
+        ],
+        "notDataActions": []
+      }
+    ],
+    "resourceGroup": "<myResourceGroup>",
+    "roleName": "MyReadWriteRole",
+    "sqlRoleDefinitionGetResultsType": "CustomRole",
+    "type": "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions"
+  },
+  {
+    "assignableScopes": [
+      "/subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDB/databaseAccounts/<myCosmosAccount>"
+    ],
+    "id": "/subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDB/databaseAccounts/<myCosmosAccount>/sqlRoleDefinitions/<roleDefinitionId>",
+    "name": "<roleDefinitionId>",
+    "permissions": [
+      {
+        "dataActions": [
+          "Microsoft.DocumentDB/databaseAccounts/readMetadata",
+          "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read",
+          "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery",
+          "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed"
+        ],
+        "notDataActions": []
+      }
+    ],
+    "resourceGroup": "<myResourceGroup>",
+    "roleName": "MyReadOnlyRole",
+    "sqlRoleDefinitionGetResultsType": "CustomRole",
+    "type": "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions"
+  }
+]
+```
+
 ## <a id="role-assignments"></a> Create role assignments
 
-Once you've created your role definitions, you can associate them with your AAD identities.
+Once you've created your role definitions, you can associate them with your AAD identities. When creating a role assignment, you need to provide:
+
+- The name of your Azure Cosmos DB account.
+- The resource group containing your account.
+- The ID of the role definition to assign.
+- The principal ID of the identity that the role definition should be assigned to.
+- The scope of the role assignment; supported scopes are:
+    - `/` (account-level)
+    - `/dbs/<database-name>` (database-level)
+    - `/dbs/<database-name>/colls/<container-name>` (container-level)
+  The scope must match or be a sub-scope of one of the role definition's assignable scopes.
 
 > [!NOTE]
 > If you want to create a role assignment for a service principal, make sure to use its **Object ID** as found in the **Enterprise applications** section of the **Azure Active Directory** portal blade.
 
 ### Using Azure PowerShell
 
-Assign the role 'MyReadOnlyRole' to an identity:
+Assign the role *MyReadOnlyRole* to an identity:
 
 ```powershell
-$resourceGroupName = "myResourceGroup"
-$accountName = "myCosmosAccount"
-$readOnlyRoleDefinitionId = "roleDefinitionId" // as fetched above
-$principalId = "aadPrincipalId"
+$resourceGroupName = "<myResourceGroup>"
+$accountName = "<myCosmosAccount>"
+$readOnlyRoleDefinitionId = "<roleDefinitionId>" // as fetched above
+$principalId = "<aadPrincipalId>"
 New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
     -ResourceGroupName $resourceGroupName `
     -RoleDefinitionId $readOnlyRoleDefinitionId `
@@ -196,17 +288,17 @@ New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
 
 ### Using the Azure CLI
 
-Assign the role 'MyReadOnlyRole' to an identity:
+Assign the role *MyReadOnlyRole* to an identity:
 
 ```azurecli
-resourceGroupName='myResourceGroup'
-accountName='myCosmosAccount'
-readOnlyRoleDefinitionId = 'roleDefinitionId' // as fetched above
-principalId = 'aadPrincipalId'
+resourceGroupName='<myResourceGroup>'
+accountName='<myCosmosAccount>'
+readOnlyRoleDefinitionId = '<roleDefinitionId>' // as fetched above
+principalId = '<aadPrincipalId>'
 az cosmosdb sql role assignment create -a $accountName -g $resourceGroupName -s "/" -p $principalId -d $readOnlyRoleDefinitionId
 ```
 
-## Initialize the Azure Cosmos DB SDK with Azure Active Directory
+## Initialize the SDK with Azure AD
 
 To use the Azure Cosmos DB RBAC in your application, you have to update the way you initialize the Azure Cosmos DB SDK. Instead of passing your account's primary key, you have to pass an instance of a `TokenCredential` class. This instance provides the Azure Cosmos DB SDK with the context required to fetch an AAD token on behalf of the identity you wish to use.
 
@@ -257,17 +349,17 @@ This additional information flows in the **DataPlaneRequests** log category and 
 
 Only the SQL API is currently supported.
 
-### Which Azure Cosmos DB SQL API SDKs are supported by RBAC?
+### Which SDKs in Azure Cosmos DB SQL API support RBAC?
 
 The [.NET V3](sql-api-sdk-dotnet-standard.md) and [Java V4](sql-api-sdk-java-v4.md) SDKs are currently supported.
 
-### Is the AAD token automatically refreshed by the Azure Cosmos DB SDKs when it expires?
+### Is the Azure AD token automatically refreshed by the Azure Cosmos DB SDKs when it expires?
 
 Yes.
 
 ### Is it possible to disable the usage of the account primary key when using RBAC?
 
-Disabling the account primary key is not currently possible, but will be offered before the feature becomes generally available.
+Disabling the account primary key is not currently possible.
 
 ## Next steps
 

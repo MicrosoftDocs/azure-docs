@@ -68,7 +68,7 @@ Azure Cosmos DB exposes a built-in role-based access control (RBAC) system that 
 Azure Cosmos DB RBAC is the ideal access control method in situations where:
 
 - You don't want to use a shared secret like the primary key, and prefer to rely on a token-based authentication mechanism,
-- You want to use AAD identities to authenticate your requests,
+- You want to use Azure AD identities to authenticate your requests,
 - You need a fine-grained permission model to tightly restrict which database operations your identities are allowed to perform,
 - You wish to materialize your access control policies as "roles" that you can assign to multiple identities.
 
@@ -167,7 +167,7 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 
 | Subject | RBAC | Resource tokens |
 |--|--|--|
-| Authentication  | With Azure Active Directory (AAD). | Based on native Cosmos DB users<br>Integrating resource tokens with AAD requires extra work to bridge AAD identities and Azure Cosmos DB users. |
+| Authentication  | With Azure Active Directory (Azure AD). | Based on the native Azure Cosmos DB users<br>Integrating resource tokens with Azure AD requires extra work to bridge Azure AD identities and Azure Cosmos DB users. |
 | Authorization | Role-based: role definitions map allowed actions and can be assigned to multiple identities. | Permission-based: for each Azure Cosmos DB user, you need to assign data access permissions. |
 | Token scope | An AAD token carries the identity of the requester. This identity is matched against all assigned role definitions to perform authorization. | A resource token carries the permission granted to a specific Azure Cosmos DB user on a specific Azure Cosmos DB resource. Authorization requests on different resources may requires different tokens. |
 | Token refresh | The AAD token is automatically refreshed by the Azure Cosmos DB SDKs when it expires. | Resource token refresh is not supported. When a resource token expires, a new one needs to be issued. |
