@@ -104,7 +104,7 @@ By default, the **Time Range** field displays data from the **Last 24 hours**. Y
 
 ![Cosmos DB Time Range](./media/cosmosdb-insights-overview/cosmosdb-timerange.png)
 
-### Insights Overview
+### Insights overview
 
 The **Overview** tab provides the most common metrics for the selected Azure Cosmos DB account including:
 
