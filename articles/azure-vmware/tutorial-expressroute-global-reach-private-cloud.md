@@ -32,9 +32,9 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 
 2. Enter the name for the authorization key and select **Save**.
 
-   :::image type="content" source="media/expressroute-global-reach/start-request-auth-key-onprem-er.png" alt-text="Select Authorizations and  enter the name for the authorization key ":::
+    :::image type="content" source="media/expressroute-global-reach/start-request-auth-key-on-premises-expressroute.png" alt-text="Select Authorizations and enter the name for the authorization key.":::
   
-    Once created, the new key appears in the list of authorization keys for the circuit.
+     Once created, the new key appears in the list of authorization keys for the circuit.
  
  4. Make a note of the authorization key and the ExpressRoute ID. You'll use them in the next step to complete the peering.
  
@@ -43,11 +43,11 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 
 1. From the private cloud **Overview**, under Manage, select **Connectivity > ExpressRoute Global Reach > Add**.
 
-   :::image type="content" source="./media/expressroute-global-reach/expressroute-global-reach-tab.png" alt-text="From the menu, select Connectivity, the ExpressRoute Global Reach tab, and then Add.":::
+    :::image type="content" source="./media/expressroute-global-reach/expressroute-global-reach-tab.png" alt-text="From the menu, select Connectivity, the ExpressRoute Global Reach tab, and then Add.":::
 
 2. Enter the ExpressRoute ID and the authorization key created in the previous section.
 
-:::image type="content" source="./media/expressroute-global-reach/on-prem-cloud-connections.png" alt-text="Enter the ExpressRoute ID and the authorization key, and then select Create.":::
+    :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Enter the ExpressRoute ID and the authorization key, and then select Create.":::
 
 3. Select **Create**. The new connection shows in the On-premises cloud connections list.  
 
