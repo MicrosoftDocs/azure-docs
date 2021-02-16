@@ -15,22 +15,20 @@ ms.author: yuajia
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
+Azure Front Door Standard/Premium is integrated with Azure Monitor and has 11 metrics to help monitor Azure Front Door Standard/Premium in real-time to track, troubleshoot, and debug issues.  
+
+Azure Front Door Standard/Premium measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal. Metrics can be displayed in charts or grid of your choice and are accessible via portal, PowerShell, CLI, and API. For more information, see [Azure Monitor metrics](../../azure-monitor/platform/data-platform-metrics.md).  
+
+The default metrics are free of charge. You can enable additonal metrics for an extra cost. 
+
+You can configure alerts for each metric such as a threshold for 4XXErrorRate or 5XXErrorRate. When the error rate exceeds the threshold, it will trigger an alert as configured. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md). 
+
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Front Door Standard/Premium is integrated with Azure Monitor and publishes 11 metrics to help monitor AFD in real-time, and track, troubleshoot, and debug issues.  
-
-Azure Front Door Standard/Premium measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal.  
-
-Metrics can be displayed in charts or grid of your choice and are accessible via portal, PowerShell, CLI, and API. For more information, see [Azure Monitor metrics](../../azure-monitor/platform/data-platform-metrics.md).  
-
-The default metrics are free of charge. You can enable extra metrics for an extra cost. 
-
-You can also set up alerts for metrics. You can configure a threshold for 4XXErrorRate or 5XXErrorRate. When the error rate exceeds the threshold, it will trigger alert as configured. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md). 
-
-## Metrics supported in Azure Front Door
+## Metrics supported in Azure Front Door Standard/Premium
 
 | Metrics  | Description | Dimensions |
 | ------------- | ------------- | ------------- |
