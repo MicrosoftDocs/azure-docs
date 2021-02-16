@@ -1,9 +1,9 @@
 ---
-author: aahill
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/15/2021
-ms.author: aahi
+ms.date: 02/16/2021
+ms.author: lajanuar
 ---
 
 ## Configure an environment variable to store your authentication key
