@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/04/2021
 ms.author: alexeyo
 ---
 
@@ -265,8 +265,6 @@ If you plan to access the resource by using only a private endpoint, you can ski
              westeurope.prod.vnet.cog.trafficmanager.net
    ```
 
-3. Confirm that the IP address matches the IP address of your private endpoint.
-
 > [!NOTE]
 > The resolved IP address points to a virtual network proxy endpoint, which dispatches the network traffic to the private endpoint for the Cognitive Services resource. The behavior will be different for a resource with a custom domain name but *without* private endpoints. See [this section](#dns-configuration) for details.
 
@@ -285,29 +283,33 @@ A Speech resource with a custom domain name and a private endpoint enabled uses 
 
 We'll use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name (custom domain) for this section.
 
-Speech Services has REST APIs for [Speech-to-Text](rest-speech-to-text.md) and [Text-to-Speech](rest-text-to-speech.md). Consider the following information for the private-endpoint-enabled scenario.
+Speech Services has REST APIs for [Speech-to-text](rest-speech-to-text.md) and [Text-to-speech](rest-text-to-speech.md). Consider the following information for the private-endpoint-enabled scenario.
 
-Speech-to-Text has two REST APIs. Each API serves a different purpose, uses different endpoints, and requires a different approach when you're using it in the private-endpoint-enabled scenario.
+Speech-to-text has two REST APIs. Each API serves a different purpose, uses different endpoints, and requires a different approach when you're using it in the private-endpoint-enabled scenario.
 
-The Speech-to-Text REST APIs are:
-- [Speech-to-Text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), which is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](./migrate-v2-to-v3.md)
-- [Speech-to-Text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio), which is used for online transcription 
+The Speech-to-text REST APIs are:
+- [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), which is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](./migrate-v2-to-v3.md)
+- [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio), which is used for online transcription 
 
-Usage of the Speech-to-Text REST API for short audio and the text-to-speech REST API in the private endpoint scenario is the same. It's equivalent to the [Speech SDK case](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) described later in this article. 
+Usage of the Speech-to-text REST API for short audio and the Text-to-speech REST API in the private endpoint scenario is the same. It's equivalent to the [Speech SDK case](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) described later in this article. 
 
-Speech-to-Text REST API v3.0 uses a different set of endpoints, so it requires a different approach for the private-endpoint-enabled scenario.
+Speech-to-text REST API v3.0 uses a different set of endpoints, so it requires a different approach for the private-endpoint-enabled scenario.
 
 The next subsections describe both cases.
 
-##### Speech-to-Text REST API v3.0
+##### Speech-to-text REST API v3.0
 
-Usually, Speech resources use [Cognitive Services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the [Speech-to-Text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30). These resources have the following naming format: <p/>`{region}.api.cognitive.microsoft.com`.
+Usually, Speech resources use [Cognitive Services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30). These resources have the following naming format: <p/>`{region}.api.cognitive.microsoft.com`.
 
 This is a sample request URL:
 
 ```http
 https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
 ```
+
+> [!NOTE]
+> See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
+
 After you enable a custom domain for a Speech resource (which is necessary for private endpoints), that resource will use the following DNS name pattern for the basic REST API endpoint: <p/>`{your custom name}.cognitiveservices.azure.com`.
 
 That means that in our example, the REST API endpoint name will be: <p/>`my-private-link-speech.cognitiveservices.azure.com`.
@@ -325,48 +327,41 @@ After you enable a custom domain name for a Speech resource, you typically repla
 >
 > A custom domain for a Speech resource contains *no* information about the region where the resource is deployed. So the application logic described earlier will *not* work and needs to be altered.
 
-##### Speech-to-Text REST API for short audio and text-to-speech REST API
+##### Speech-to-text REST API for short audio and Text-to-speech REST API
 
-The [Speech-to-Text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) and the [text-to-speech REST API](rest-text-to-speech.md) use two types of endpoints:
+The [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) and the [Text-to-speech REST API](rest-text-to-speech.md) use two types of endpoints:
 - [Cognitive Services regional endpoints](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) for communicating with the Cognitive Services REST API to obtain an authorization token
 - Special endpoints for all other operations
 
-The detailed description of the special endpoints and how their URL should be transformed for a private-endpoint-enabled Speech resource is provided in [this subsection](#general-principles) about usage with the Speech SDK. The same principle described for the SDK applies for the Speech-to-Text REST API v1.0 and the text-to-speech REST API.
+> [!NOTE]
+> See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
 
-Get familiar with the material in the subsection mentioned in the previous paragraph and see the following example. The example describes the text-to-speech REST API. Usage of the Speech-to-Text REST API for short audio is fully equivalent.
+The detailed description of the special endpoints and how their URL should be transformed for a private-endpoint-enabled Speech resource is provided in [this subsection](#construct-endpoint-url) about usage with the Speech SDK. The same principle described for the SDK applies for the Speech-to-text REST API for short audio and the Text-to-speech REST API.
+
+Get familiar with the material in the subsection mentioned in the previous paragraph and see the following example. The example describes the Text-to-speech REST API. Usage of the Speech-to-text REST API for short audio is fully equivalent.
 
 > [!NOTE]
-> When you're using the Speech-to-Text REST API for short audio in private endpoint scenarios, use an authorization token [passed through](rest-speech-to-text.md#request-headers) the `Authorization` [header](rest-speech-to-text.md#request-headers). Passing a speech subscription key to the special endpoint via the `Ocp-Apim-Subscription-Key` header will *not* work and will generate Error 401.
+> When you're using the Speech-to-text REST API for short audio and Text-to-speech REST API in private endpoint scenarios, use a subscription key passed through the `Ocp-Apim-Subscription-Key` header. (See details for [Speech-to-text REST API for short audio](rest-speech-to-text.md#request-headers) and [Text-to-speech REST API](rest-text-to-speech.md#request-headers))
+>
+> Using an authorization token and passing it to the special endpoint via the `Authorization` header will work *only* if you've enabled the **All networks** access option in the **Networking** section of your Speech resource. In other cases you will get either `Forbidden` or `BadRequest` error when trying to obtain an authorization token.
 
-**Text-to-Speech REST API usage example**
+**Text-to-speech REST API usage example**
 
 We'll use West Europe as a sample Azure region and `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name (custom domain). The custom domain name `my-private-link-speech.cognitiveservices.azure.com` in our example belongs to the Speech resource created in the West Europe region.
 
-To get the list of the voices supported in the region, do the following two operations:
+To get the list of the voices supported in the region, perform the following request:
 
-- Obtain an authorization token:
-  ```http
-  https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken
-  ```
-- By using the token, get the list of voices:
-  ```http
-  https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
-  ```
-See more details on the preceding steps in the [text-to-speech REST API documentation](rest-text-to-speech.md).
+```http
+https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
+```
+See more details in the [Text-to-speech REST API documentation](rest-text-to-speech.md).
 
-For the private-endpoint-enabled Speech resource, the endpoint URLs for the same operation sequence need to be modified. The same sequence will look like this:
+For the private-endpoint-enabled Speech resource, the endpoint URL for the same operation needs to be modified. The same request will look like this:
 
-- Obtain an authorization token:
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/v1.0/issuetoken
-  ```
-  See the detailed explanation in the earlier [Speech-to-Text REST API v3.0](#speech-to-text-rest-api-v30) subsection.
-
-- By using the obtained token, get the list of voices:
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
-  ```
-  See a detailed explanation in the [General principles](#general-principles) subsection for the Speech SDK.
+```http
+https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
+```
+See a detailed explanation in the [Construct endpoint URL](#construct-endpoint-url) subsection for the Speech SDK.
 
 #### Speech resource with a custom domain name and a private endpoint: Usage with the Speech SDK
 
@@ -374,9 +369,9 @@ Using the Speech SDK with a custom domain name and private-endpoint-enabled Spee
 
 We'll use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name (custom domain) for this section.
 
-##### General principles
+##### Construct endpoint URL
 
-Usually in SDK scenarios (as well as in the text-to-speech REST API scenarios), Speech resources use the dedicated regional endpoints for different service offerings. The DNS name format for these endpoints is:
+Usually in SDK scenarios (as well as in the Speech-to-text REST API for short audio and Text-to-speech REST API scenarios), Speech resources use the dedicated regional endpoints for different service offerings. The DNS name format for these endpoints is:
 
 `{region}.{speech service offering}.speech.microsoft.com`
 
@@ -384,18 +379,18 @@ An example DNS name is:
 
 `westeurope.stt.speech.microsoft.com`
 
-All possible values for the region (first element of the DNS name) are listed in [Speech service supported regions](regions.md). The following table presents the possible values for the Speech Services offering (second element of the DNS name):
+All possible values for the region (first element of the DNS name) are listed in [Speech service supported regions](regions.md). (See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.) The following table presents the possible values for the Speech Services offering (second element of the DNS name):
 
 | DNS name value | Speech service offering                                    |
 |----------------|-------------------------------------------------------------|
 | `commands`     | [Custom Commands](custom-commands.md)                       |
 | `convai`       | [Conversation Transcription](conversation-transcription.md) |
 | `s2s`          | [Speech Translation](speech-translation.md)                 |
-| `stt`          | [Speech-to-Text](speech-to-text.md)                         |
-| `tts`          | [Text-to-Speech](text-to-speech.md)                         |
+| `stt`          | [Speech-to-text](speech-to-text.md)                         |
+| `tts`          | [Text-to-speech](text-to-speech.md)                         |
 | `voice`        | [Custom Voice](how-to-custom-voice.md)                      |
 
-So the earlier example (`westeurope.stt.speech.microsoft.com`) stands for a Speech-to-Text endpoint in West Europe.
+So the earlier example (`westeurope.stt.speech.microsoft.com`) stands for a Speech-to-text endpoint in West Europe.
 
 Private-endpoint-enabled endpoints communicate with Speech Services via a special proxy. Because of that, *you must change the endpoint connection URLs*. 
 
@@ -456,7 +451,7 @@ Follow these steps to modify your code:
 
 2. Create a `SpeechConfig` instance by using a full endpoint URL:
 
-   1. Modify the endpoint that you just determined, as described in the earlier [General principles](#general-principles) section.
+   1. Modify the endpoint that you just determined, as described in the earlier [Construct endpoint URL](#construct-endpoint-url) section.
 
    1. Modify how you create the instance of `SpeechConfig`. Most likely, your application is using something like this:
       ```csharp
@@ -528,76 +523,34 @@ Compare it with the output from [this section](#resolve-dns-from-other-networks)
 
 #### Speech resource with a custom domain name and without private endpoints: Usage with the REST APIs
 
-##### Speech-to-Text REST API v3.0
+##### Speech-to-text REST API v3.0
 
-Speech-to-Text REST API v3.0 usage is fully equivalent to the case of [private-endpoint-enabled Speech resources](#speech-to-text-rest-api-v30).
+Speech-to-text REST API v3.0 usage is fully equivalent to the case of [private-endpoint-enabled Speech resources](#speech-to-text-rest-api-v30).
 
-##### Speech-to-Text REST API for short audio and text-to-speech REST API
+##### Speech-to-text REST API for short audio and Text-to-speech REST API
 
-In this case, usage of the Speech-to-Text REST API for short audio and usage of the text-to-speech REST API have no differences from the general case, with one exception for the Speech-to-Text REST API for short audio. (See the following note.) You should use both APIs as described in the [speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) and [text-to-speech REST API](rest-text-to-speech.md) documentation.
+In this case, usage of the Speech-to-text REST API for short audio and usage of the Text-to-speech REST API have no differences from the general case, with one exception. (See the following note.) You should use both APIs as described in the [speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) and [Text-to-speech REST API](rest-text-to-speech.md) documentation.
 
 > [!NOTE]
-> When you're using the Speech-to-Text REST API for short audio in custom domain scenarios, use an authorization token [passed through](rest-speech-to-text.md#request-headers) an `Authorization` [header](rest-speech-to-text.md#request-headers). Passing a speech subscription key to the special endpoint via the `Ocp-Apim-Subscription-Key` header will *not* work and will generate Error 401.
+> When you're using the Speech-to-text REST API for short audio and Text-to-speech REST API in custom domain scenarios, use a subscription key passed through the `Ocp-Apim-Subscription-Key` header. (See details for [Speech-to-text REST API for short audio](rest-speech-to-text.md#request-headers) and [Text-to-speech REST API](rest-text-to-speech.md#request-headers))
+>
+> Using an authorization token and passing it to the special endpoint via the `Authorization` header will work *only* if you've enabled the **All networks** access option in the **Networking** section of your Speech resource. In other cases you will get either `Forbidden` or `BadRequest` error when trying to obtain an authorization token.
 
 #### Speech resource with a custom domain name and without private endpoints: Usage with the Speech SDK
 
-Using the Speech SDK with custom-domain-enabled Speech resources *without* private endpoints requires the review of, and likely changes to, your application code. Note that these changes are different from the case of a [private-endpoint-enabled Speech resource](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk). We're working on more seamless support of private endpoint and custom domain scenarios.
+Using the Speech SDK with custom-domain-enabled Speech resources *without* private endpoints is equivalent to the general case as described in the [Speech SDK documentation](speech-sdk.md).
 
-We'll use `my-private-link-speech.cognitiveservices.azure.com` as a sample Speech resource DNS name (custom domain) for this section.
+In case you have modified your code for using with a [private-endpoint-enabled Speech resource](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk), consider the following.
 
 In the section on [private-endpoint-enabled Speech resources](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk), we explained how to determine the endpoint URL, modify it, and make it work through "from endpoint"/"with endpoint" initialization of the `SpeechConfig` class instance.
 
 However, if you try to run the same application after having all private endpoints removed (allowing some time for the corresponding DNS record reprovisioning), you'll get an internal service error (404). The reason is that the [DNS record](#dns-configuration) now points to the regional Cognitive Services endpoint instead of the virtual network proxy, and the URL paths like `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US` won't be found there.
 
-If you roll back your application to the standard instantiation of `SpeechConfig` in the style of the following code, your application will terminate with the authentication error (401):
+You need to roll back your application to the standard instantiation of `SpeechConfig` in the style of the following code:
 
 ```csharp
 var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 ```
-
-##### Modifying applications
-
-To let your application use a Speech resource with a custom domain name and without private endpoints, follow these steps:
-
-1. Request an authorization token from the Cognitive Services REST API. [This article](../authentication.md#authenticate-with-an-authentication-token) shows how to get the token.
-
-   Use your custom domain name in the endpoint URL. In our example, this URL is:
-   ```http
-   https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
-   ```
-   > [!TIP]
-   > You can find this URL in the Azure portal. On your Speech resource page, under the **Resource management** group, select **Keys and Endpoint**.
-
-1. Create a `SpeechConfig` instance by using the authorization token that you obtained in the previous section. Suppose we have the following variables defined:
-
-   - `token`: the authorization token obtained in the previous section
-   - `azureRegion`: the name of the Speech resource [region](regions.md) (example: `westeurope`)
-   - `outError`: (only for the [Objective C](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithauthorizationtokenregionerror) case)
-
-   Create a `SpeechConfig` instance like this:
-
-   ```csharp
-   var config = SpeechConfig.FromAuthorizationToken(token, azureRegion);
-   ```
-   ```cpp
-   auto config = SpeechConfig::FromAuthorizationToken(token, azureRegion);
-   ```
-   ```java
-   SpeechConfig config = SpeechConfig.fromAuthorizationToken(token, azureRegion);
-   ```
-   ```python
-   import azure.cognitiveservices.speech as speechsdk
-   speech_config = speechsdk.SpeechConfig(auth_token=token, region=azureRegion)
-   ```
-   ```objectivec
-   SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithAuthorizationToken:token region:azureRegion error:outError];
-   ```
-> [!NOTE]
-> The caller needs to ensure that the authorization token is valid. Before the authorization token expires, the caller needs to refresh it by calling this setter with a new valid token. Because configuration values are copied when you're creating a new recognizer or synthesizer, the new token value will not apply to recognizers or synthesizers that have already been created.
->
-> For these, set the authorization token of the corresponding recognizer or synthesizer to refresh the token. If you don't refresh the token, the recognizer or synthesizer will encounter errors while operating.
-
-After this modification, your application should work with Speech resources that use a custom domain name without private endpoints.
 
 ## Pricing
 
@@ -607,5 +560,5 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 * [Azure Private Link](../../private-link/private-link-overview.md)
 * [Speech SDK](speech-sdk.md)
-* [Speech-to-Text REST API](rest-speech-to-text.md)
-* [Text-to-Speech REST API](rest-text-to-speech.md)
+* [Speech-to-text REST API](rest-speech-to-text.md)
+* [Text-to-speech REST API](rest-text-to-speech.md)

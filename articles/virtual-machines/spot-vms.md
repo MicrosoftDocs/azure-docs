@@ -1,13 +1,13 @@
 ---
 title: Use Azure Spot VMs
 description: Learn how to use Azure Spot VMs to save on costs.
-author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
-ms.author: cynthn
-ms.reviewer: jagaveer
+ms.reviewer: cynthn
 ---
 
 
@@ -54,7 +54,7 @@ Spot VMs can be deployed to any region, except Microsoft Azure China 21Vianet.
 The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
 
 -	Enterprise Agreement
--	Pay-as-you-go
+-	Pay-as-you-go offer code 003P
 -	Sponsored
 - For Cloud Service Provider (CSP), contact your partner
 

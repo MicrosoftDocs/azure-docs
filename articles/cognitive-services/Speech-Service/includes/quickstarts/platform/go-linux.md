@@ -18,6 +18,7 @@ Linux; see the list of [supported Linux distributions and target architectures](
 
 To complete this quickstart, you'll need:
 
+* On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for your platform. Installing this for the first time may require a restart.
 * gcc
 * [Go binary (1.13 or later)](https://golang.org/dl/)
 
