@@ -41,7 +41,7 @@ dotnet build
 Install the Azure Communication Chat client library for .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.3
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.4
 ``` 
 
 ## Object model
@@ -64,26 +64,26 @@ using Azure.Communication.Chat;
 // Your unique Azure Communication service endpoint
 Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
 
-CommunicationUserCredential communicationUserCredential = new CommunicationUserCredential(<Access_Token>);
-ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
+CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
+ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
 ```
 
 ## Start a chat thread
 
 Use the `createChatThread` method to create a chat thread.
-- Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
-- Use `members` property to pass a  list of `ChatThreadMember` objects to be added to the chat thread. The `ChatThreadMember` object is initialized with a `CommunicationUser` object. To get a `CommunicationUser` object, you will need to pass an Access ID which you
-created by following instruction to [Create a user](../../access-tokens.md#create-an-identity)
+- Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateTopic` function.
+- Use `participants` property to pass a  list of `ChatParticipant` objects to be added to the chat thread. The `ChatParticipant` object is initialized with a `CommunicationIdentifier` object. `CommunicationIdentifier` could be of type `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier`. For example, to get a `CommunicationIdentifier` object, you will need to pass an Access ID which you created by following instruction to [Create a user](../../access-tokens.md#create-an-identity)
 
-The response `chatThreadClient` is used to perform operations on the created chat thread: adding members to the chat thread, sending a message, deleting a message, etc.
+The response `chatThreadClient` is used to perform operations on the created chat thread: adding participants to the chat thread, sending a message, deleting a message, etc.
 It contains the `Id` attribute which is the unique ID of the chat thread. 
 
 ```csharp
-var chatThreadMember = new ChatThreadMember(new CommunicationUser("<Access_ID>"))
+var chatParticipant = new ChatParticipant(communicationIdentifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
 {
     DisplayName = "UserDisplayName"
 };
-ChatThreadClient chatThreadClient = await chatClient.CreateChatThreadAsync(topic: "Chat Thread topic C# sdk", members: new[] { chatThreadMember });
+CreateChatThreadResult createChatThreadResult = await chatClient.CreateChatThreadAsync(topic: "Hello world!", participants: new[] { chatParticipant });
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(createChatThreadResult.ChatThread.Id);
 string threadId = chatThreadClient.Id;
 ```
 
@@ -97,21 +97,24 @@ ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId);
 
 ## Send a message to a chat thread
 
-Use `SendMessage` method to send a message to a thread identified by threadId.
+Use `SendMessage` to send a message to a thread.
 
-- Use `content` to provide the chat message content, it is required.
-- Use `priority` to specify the message priority level, such as 'Normal' or 'High', if not specified, 'Normal' will be used.
-- Use `senderDisplayName` to specify the display name of the sender, if not specified, empty name will be used.
-
-`SendChatMessageResult` is the response returned from sending a message, it contains an id, which is the unique ID of the message.
+- Use `content` to provide the content for the message, it is required.
+- Use `type` for the content type of the message such as 'Text' or 'Html'. If not speficied, 'Text' will be set.
+- Use `senderDisplayName` to specify the display name of the sender. If not specified, empty string will be set.
 
 ```csharp
-var content = "hello world";
-var priority = ChatMessagePriority.Normal;
-var senderDisplayName = "sender name";
+var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", type: );
+```
+## Get a message
 
-SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(content, priority, senderDisplayName);
-string messageId = sendChatMessageResult.Id;
+Use `GetMessage` to retrieve a message from the service.
+`messageId` is the unique id of the message.
+
+`ChatMessage` is the response returned from getting a message, it contains an id, which is the unique identifier of the message, among other fields. Please refer to Azure.Communication.Chat.ChatMessage
+
+```csharp
+ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId);
 ```
 
 ## Receive chat messages from a chat thread
@@ -134,11 +137,13 @@ await foreach (ChatMessage message in allMessages)
 
 - `Text`: Regular chat message sent by a thread member.
 
-- `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
+- `Html`:  A formatted text message. Note that Communication Services users currently can't send RichText messages. This message type is supported by messages sent from Teams users to Communication Services users in Teams Interop scenarios.
 
-- `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
+- `TopicUpdated`: System message that indicates the topic has been updated.
 
-- `ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread.
+- `AddMember`: System message that indicates one or more members have been added to the chat thread.
+
+- `DeleteMember`: System message that indicates a member has been removed from the chat thread.
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
@@ -163,29 +168,75 @@ await chatThreadClient.DeleteMessageAsync(id);
 
 ## Add a user as member to the chat thread
 
-Once a thread is created, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the thread, and add/remove other members. Before calling `AddMembers`, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
+Once a thread is created, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the thread, and add/remove other members. Before calling `AddParticipants`, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
 
-Use `AddMembers` method to add thread members to the thread identified by threadId.
-
- - Use `members` to list the members to be added to the chat thread;
- - `User`, required, is the identity you get for this new user.
- - `DisplayName`, optional, is the display name for the thread member.
- - `ShareHistoryTime`, optional, time from which the chat history is shared with the member. To share history since the beginning of chat thread, set it to DateTime.MinValue. To share no history, previous to when the member was added, set it to the current time. To share partial history, set it to a point in time between the thread creation and the current time.
+Use `AddParticipants` to add one or more participants to the chat thread. The following are the supported attributes for each thread participant(s):
+- `communicationUser`, required, it is the identification for the thread participant.
+- `displayName`, optional, is the display name for the thread participant.
+- `shareHistoryTime`, optional, time from which the chat history is shared with the participant.
 
 ```csharp
-ChatThreadMember member = new ChatThreadMember(communicationUser);
-member.DisplayName = "display name member 1";
-member.ShareHistoryTime = DateTime.MinValue; // share all history
-await chatThreadClient.AddMembersAsync(members: new[] {member});
+var josh = new CommunicationUserIdentifier(id: "<Access_ID_For_Josh>");
+var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
+var amy = new CommunicationUserIdentifier(id: "<Access_ID_For_Amy>");
+
+var participants = new[]
+{
+    new ChatParticipant(josh) { DisplayName = "Josh" },
+    new ChatParticipant(gloria) { DisplayName = "Gloria" },
+    new ChatParticipant(amy) { DisplayName = "Amy" }
+};
+
+await chatThreadClient.AddParticipantsAsync(participants);
 ```
 ## Remove user from a chat thread
 
-Similar to adding a user to a thread, you can remove users from a chat thread. To do that, you need to track the identity (CommunicationUser) of the members you have added.
+Similar to adding a user to a thread, you can remove users from a chat thread. To do that, you need to track the identity `CommunicationUser` of the members you have added.
 
 ```csharp
-await chatThreadClient.RemoveMemberAsync(communicationUser);
+var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
+await chatThreadClient.RemoveParticipantAsync(gloria);
 ```
 
+## Get thread participants
+
+Use `GetParticipants` to retrieve the participants of the chat thread.
+
+```csharp
+AsyncPageable<ChatParticipant> allParticipants = chatThreadClient.GetParticipantsAsync();
+await foreach (ChatParticipant participant in allParticipants)
+{
+    Console.WriteLine($"{((CommunicationUserIdentifier)participant.User).Id}:{participant.DisplayName}:{participant.ShareHistoryTime}");
+}
+```
+
+## Send typing notification
+
+Use `SendTypingNotification` to indicate that the user is typing a response in the thread.
+
+```csharp
+await chatThreadClient.SendTypingNotificationAsync();
+```
+
+## Send read receipt
+
+Use `SendReadReceipt` to notify other participants that the message is read by the user.
+
+```csharp
+await chatThreadClient.SendReadReceiptAsync(messageId);
+```
+
+## Get read receipts
+
+Use `GetReadReceipts` to check the status of messages to see which ones are read by other participants of a chat thread.
+
+```csharp
+AsyncPageable<ChatMessageReadReceipt> allReadReceipts = chatThreadClient.GetReadReceiptsAsync();
+await foreach (ChatMessageReadReceipt readReceipt in allReadReceipts)
+{
+    Console.WriteLine($"{readReceipt.ChatMessageId}:{((CommunicationUserIdentifier)readReceipt.Sender).Id}:{readReceipt.ReadOn}");
+}
+```
 ## Run the code
 
 Run the application from your application directory with the `dotnet run` command.
