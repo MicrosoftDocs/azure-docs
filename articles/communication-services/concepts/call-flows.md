@@ -89,4 +89,4 @@ The following documents may be interesting to you:
 
 - Learn more about [call types](../concepts/voice-video-calling/about-call-types.md)
 - Learn about [Client-server architecture](./client-and-server-architecture.md)
-- Learn about [Call flow topologies](./call-flows.md)
+- Learn about [Call flow topologies](./detailed-call-flows.md)
