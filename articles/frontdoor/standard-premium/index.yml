@@ -77,9 +77,9 @@ landingContent:
         links:
           - text: What is Rule Set?
             url: concept-rule-set.md
-          - text: Rule Set Match Condition
+          - text: Rule Set Match Conditions
             url: concept-rule-set-match-conditions.md
-          - text: Rule Set Action
+          - text: Rule Set Actions
             url: concept-rule-set-actions.md
       - linkListType: how-to-guide
         links:

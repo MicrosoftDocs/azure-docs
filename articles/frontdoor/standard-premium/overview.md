@@ -56,7 +56,7 @@ Key features included with Azure Front Door Standard/Premium (Preview):
 
 - SSL offload and integrated certificate management.
 
-- Secure your origins with **[Private Link](concept-private-endpoints.md)**.  
+- Secure your origins with **[Private Link](concept-private-link.md)**.  
 
 - Customizable traffic routing and optimizations via **[Rule Set](concept-rule-set.md)**.
 
