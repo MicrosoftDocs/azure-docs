@@ -107,7 +107,7 @@ This metric tells us that around 90% of the 5,000 IOPS provisioned for this P30 
 
 ![Screenshot showing Data Disk I O P S Consumed Percentage.](media/disks-metrics/utilization-metrics-example/data-disks-no-splitting.jpg)
 
-This metric tells us that the average IOPS consumed percentage across all the disks attached is around 42%. This percentage is calculated based on the IOPS that are used by the disks, and that aren't being served from the host cache. Let's drill deeper into this metric by applying *splitting* on these metrics and splitting by the LUN value:
+This metric tells us that the average IOPS consumed percentage across all the disks attached is around 42%. This percentage is calculated based on the IOPS that are used by the disks, and aren't being served from the host cache. Let's drill deeper into this metric by applying *splitting* on these metrics and splitting by the LUN value:
 
 ![Screenshot showing Data Disk I O P S Consumed Percentage with splitting.](media/disks-metrics/utilization-metrics-example/data-disks-splitting.jpg)
 
