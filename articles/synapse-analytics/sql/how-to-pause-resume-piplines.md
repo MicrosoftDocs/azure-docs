@@ -128,7 +128,7 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
     
     The output is a JSON string that contains details of the dedicated SQL pool, including its status (in properties.status). This is passed to the next activity.
 
-    b. Evaluate the desired state (Pause or Resume) and the current status (Online or Paused) and then initiate a Pause or a Restart accordingly.
+    b. Evaluate the desired state (Pause or Resume) and the current status (Online or Paused) and then initiate a Pause or a Resume accordingly.
     
     Create a Switch activity and use this to evaluate the desired state and the current status from the previous step.
     
@@ -142,13 +142,13 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
     
     where pipeline().parameters.PauseOrResume indicates the desired state, and Check State is the name of the preceding Web activity with output.properties.status defining the current status.
     
-    This is simply doing a check of the desired state and the current status. If the desired state is Resume and the current status is Paused, a Restart Activity is invoked within the Resume-Pause Case. If the desired state is Pause and the current status is Online, a Pause Activity is invoked with the Pause-Online Case. Any other cases, such as a desired state of Pause and a current status of Paused, or a desired state of Resume and a current status of Online, would require no action and be handled by the Default case, which has no activities.
+    This is simply doing a check of the desired state and the current status. If the desired state is Resume and the current status is Paused, a Resume Activity is invoked within the Resume-Pause Case. If the desired state is Pause and the current status is Online, a Pause Activity is invoked with the Pause-Online Case. Any other cases, such as a desired state of Pause and a current status of Paused, or a desired state of Resume and a current status of Online, would require no action and be handled by the Default case, which has no activities.
     
     Within the appropriate activity branch, add the final step.
 
     c. Dedicated SQL pool pause or resume
     
-    The final step (and this may be the only relevant step for some requirements), is to initiate the Pause or Restart of your dedicated SQL pool. This, like steps 1 and 3a, is a simple Web activity, calling the [Pause or Resume compute REST API for Azure Synapse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#pause-compute)
+    The final step (and this may be the only relevant step for some requirements), is to initiate the Pause or Resume of your dedicated SQL pool. This, like steps 1 and 3a, is a simple Web activity, calling the [Pause or Resume compute REST API for Azure Synapse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#pause-compute)
     
     ![Resume dedicated SQL pool](./media/how-to-pause-resume-pipelines/true-condition-resume.png)
     
