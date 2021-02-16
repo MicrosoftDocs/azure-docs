@@ -16718,6 +16718,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-certificate-requirements.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-certificate-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-certificate-troubleshooting.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-certificate-troubleshooting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-create-certificates-tool.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-certificates-tool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-certificates.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-certificates",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-databricks/index.yml",
       "redirect_url": "/azure/databricks/",
       "redirect_document_id": false
