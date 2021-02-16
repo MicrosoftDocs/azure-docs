@@ -93,16 +93,19 @@ So in the example below you see that `eastus-billingint` is predominantly receiv
 
 ## View from an Azure Cosmos DB resource
 
-1. Search for or select any of your existing Azure Cosmos DB accounts
-![Search for Cosmos DB](./media/cosmosdb-insights-overview/cosmosdb-search.png)
+1. Search for or select any of your existing Azure Cosmos DB accounts.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-search.png" alt-text="Search for Azure Cosmos DB." border="true":::
+
 2. Once you've navigated to your Azure Cosmos DB account, in the Monitoring section select **Insights (preview)** or **Workbooks** to perform further analysis on throughput, requests, storage, availability, latency, system, and account management.
-![Cosmos DB Insights Overview](./media/cosmosdb-insights-overview/cosmosdb-overview.png)
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-overview.png" alt-text="Cosmos DB Insights Overview" border="true":::
 
 ### Time range
 
 By default, the **Time Range** field displays data from the **Last 24 hours**. You can modify the time range to display data anywhere from the last 5 minutes to the last seven days. The time range selector also includes a **Custom** mode that allows you to type in the start/end dates to view a custom time frame based on available data for the selected account.
 
-![Cosmos DB Time Range](./media/cosmosdb-insights-overview/cosmosdb-timerange.png)
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-timerange.png" alt-text="Cosmos DB Time Range" border="true":::
 
 ### Insights overview
 
@@ -116,15 +119,15 @@ The **Overview** tab provides the most common metrics for the selected Azure Cos
 
 **Total Requests:** This graph provides a view of the total requests for the account broken down by status code. The units at the bottom of the graph are a sum of the total requests for the period.
 
-![Total Requests Graph](./media/cosmosdb-insights-overview/cosmosdb-totalrequests.png)
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-totalrequests.png" alt-text="Cosmos DB Total Requests Graph" border="true":::
 
 **Failed Requests (429s)**: This graph provides a view of failed requests with a status code of 429. The units at the bottom of the graph are a sum of the total failed requests for the period.
 
-![Failed Requests Graph](./media/cosmosdb-insights-overview/cosmosdb-429.png)
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-429.png" alt-text="Cosmos DB Failed Requests Graph" border="true":::
 
 **Normalized RU Consumption (max)**: This graph provides the max percentage between 0-100% of Normalized RU Consumption units for the specified period.
 
-![Normalized RU Consumption Graph](./media/cosmosdb-insights-overview/cosmosdb-normalizedru.png)
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-normalizedru.png" alt-text="Cosmos DB Normalized RU Consumption" border="true":::
 
 ## Pin, export, and expand
 
