@@ -100,7 +100,7 @@ The _azuredeploy.json_ has been added to the local repository. Next, you upload 
 
     You might get a warning about LF. You can ignore the warning. **main** is the main branch.  You typically create a branch for each update. To simplify the tutorial, you use the main branch directly.
 
-1. Browse to your GitHub repository from a browser. The URL is `https://github.com/[YourAccountName]/[YourGitHubRepository]`. You shall see the _CreateWebApp_ folder and the three files inside the folder.
+1. Browse to your GitHub repository from a browser. The URL is `https://github.com/[YourAccountName]/[YourGitHubRepository]`. You shall see the _CreateWebApp_ folder and the two files inside the folder.
 1. Select _linkedStorageAccount.json_ to open the template.
 1. Select the **Raw** button. The URL begins with `https://raw.githubusercontent.com`.
 1. Make a copy of the URL. You need to provide this value when you configure the pipeline later in the tutorial.
