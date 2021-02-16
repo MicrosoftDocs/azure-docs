@@ -58,4 +58,4 @@ If you require further protection, then you can enable [Azure DDoS Protection St
 
 ## Next steps
 
-- Learn how to [create a Front Door](create-front-door-portal.md).
+Learn how to [create a Front Door Standard/Premium](create-front-door-portal.md).
