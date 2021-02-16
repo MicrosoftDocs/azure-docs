@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine Windows agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 02/03/2021
+ms.date: 02/16/2021
 ms.topic: conceptual
 ---
 
@@ -28,6 +28,30 @@ The Azure Connected Machine agent package contains several logical components, w
 
 * The Extension agent manages VM extensions, including install, uninstall, and upgrade. Extensions are downloaded from Azure and copied to the `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and for Linux to `/opt/GC_Ext/downloads`. On Windows, the extension is installed to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension is installed to `/var/lib/waagent/<extension>`.
 
+## Instance metadata
+
+Metadata information about the connected machine is collected after the Connected Machine agent registers with Arc enabled servers. Specifically:
+
+* Operating system name, type, and version
+* Computer name
+* Computer fully qualified domain name (FQDN)
+* Connected Machine agent version
+* Active Directory and DNS fully qualified domain name (FQDN)
+* UUID (BIOS ID)
+* Connected Machine agent heartbeat
+* Connected Machine agent version
+* Public key for managed identity
+* Policy compliance status and details (if using Azure Policy Guest Configuration policies)
+
+The following metadata information is requested by the agent from Azure:
+
+* Resource location (region)
+* Virtual machine ID
+* Tags
+* Azure Active Directory managed identity certificate
+* Guest configuration policy assignments
+* Extension requests - install, update, and delete.
+
 ## Download agents
 
 You can download the Azure Connected Machine agent package for Windows and Linux from the locations listed below.
@@ -50,6 +74,7 @@ The following versions of the Windows and Linux operating system are officially 
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
+- Oracle Linux 7
 
 > [!WARNING]
 > The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. See [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md) for a list of the reserved words.
