@@ -33,7 +33,7 @@ Get a deeper view into the features and technical aspects of Azure Active Direct
 
 Learn how to perform various use cases in Azure AD B2C.
 
-|     |      |       |      |
+|  Video title   |      |  Video title     |      |
 |:------|:------|:------|:------|
 |[Azure AD: Monitoring and reporting Azure AD B2C using Azure Monitor](https://www.youtube.com/watch?v=Mu9GQy-CbXI&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=1) 6:57       | [![image](./media/external-identities-videos/monitoring-reporting-aad-b2c.png)](https://www.youtube.com/watch?v=Mu9GQy-CbXI&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=1) | [Azure AD B2C user migration using Microsoft Graph API](https://www.youtube.com/watch?v=9BRXBtkBzL4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=5) 7:09       | [![image](./media/external-identities-videos/user-migration-msgraph-api.png)](https://www.youtube.com/watch?v=9BRXBtkBzL4list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=5) |
 | [Azure AD B2C user migration strategies](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2) 8:22       | [![image](./media/external-identities-videos/user-migration-stratagies.png)](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2) | [How to localize or customize language using Azure Active Directory B2C](https://www.youtube.com/watch?v=yqrX5_tA7Ms&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=13) 20:41       | [![image](./media/external-identities-videos/language-localization.png)](https://www.youtube.com/watch?v=yqrX5_tA7Ms&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=13) |
