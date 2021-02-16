@@ -27,7 +27,7 @@ Document Translation is a cloud-based feature of the [Azure Translator](../trans
 In our how-to guide, you'll learn how to quickly get started using Document Translator. To begin, you'll need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
-> [Get Started with Document Translator](get-started-with-document-translation.md)
+> [Get Started](get-started-with-document-translation.md)
 
 ## Supported document formats
 
@@ -55,6 +55,9 @@ The following glossary file types are supported by Document Translation:
 |Localization Interchange File Format|.xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
 |Tab Separated Values/TAB|.tsv/.tab| a tab-delimited raw-data file used by spreadsheet programs.|
 
-## Next Step
+## Next steps
 
-[**Get Started with Document Translation**](get-started-with-document-translation.md)
+> [!div class="nextstepaction"]
+> [Get Started with Document Translation](get-started-with-document-translation.md)
+>
+>

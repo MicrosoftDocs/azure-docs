@@ -61,9 +61,9 @@ Requests to the Translator service require a read-only key for authenticating ac
 
 You'll need to  [**create containers**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source, target, and optional glossary files.
 
-1. **Source container**. This container is where you upload your files for translation (required).
-1. **Target container**. This container is where your translated files will be stored (required).  
-1. **Glossary container**. This container is where you upload your glossary files (optional).  
+* **Source container**. This container is where you upload your files for translation (required).
+* **Target container**. This container is where your translated files will be stored (required).  
+* **Glossary container**. This container is where you upload your glossary files (optional).  
 
 *See* **Create SAS access tokens for Document Translation**
 
@@ -198,14 +198,16 @@ The following headers are included with each Document Translator API request:
 
 > [!IMPORTANT]
 >
-> * For the code samples, below, you may need to update the following fields, depending upon the operation:  
->
->> 1. `endpoint`
->> 1. `subscriptionKey`
->> 1. `sourceURL`
->> 1. `targetURL`
->> 1. `glossaryURL`
->> 1. `id`  (job ID)
+> * For the code samples, below, you may need to update the following fields, depending upon the operation:
+
+>> [!div class="checklist"]
+>>
+>> * `endpoint`
+>> * `subscriptionKey`
+>> * `sourceURL`
+>> * `targetURL`
+>> * `glossaryURL`
+>> * `id`  (job ID)
 >>
 > * You can find the job `id`  in the The POST method's  response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**.  
 > * You can also use a GET Jobs request to retrieve the  job `id`  for a Document Translation operation.
@@ -1246,5 +1248,10 @@ The table below lists the limits for data that you send to Document Translation.
 * [Translator v3 API reference](../reference/v3-0-reference.md)
 * [Language support](../language-support.md)
 * [Subscriptions in Azure API Management](/azure/api-management/api-management-subscriptions).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create a customized language system using Custom Translator](../custom-translator/overview.md)
 >
 >
