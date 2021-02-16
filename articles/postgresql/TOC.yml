@@ -30,6 +30,9 @@
   - name: Versioning policy
     href: concepts-version-policy.md
     displayName: version, postgresql
+  - name: Known issues & limitations
+    href: concepts-known-issues-limitations.md
+    displayName: issues, limitations, postgresql 
 - name: Single Server
   expanded: true
   items:
