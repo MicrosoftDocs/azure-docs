@@ -677,13 +677,13 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
       "settings": {
           "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
-          "certificateStoreName": <ingnored on linux>,
+          "certificateStoreName": <ignored on linux>,
           "certificateStoreLocation": <disk path where certificate is stored, default: "/var/lib/waagent/Microsoft.Azure.KeyVault">,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
           },
           "authenticationSettings": {
-                "msiEndpoint":  <Optional MSI endpoint e.g.: "http://localhost:40342/metadata/identity">,
-                "msiClientId":  <Optional MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+                "msiEndpoint":  <MSI endpoint e.g.: "http://localhost:40342/metadata/identity">,
+                "msiClientId":  <MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
         }
       }
     }
@@ -754,8 +754,8 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net"
         },
         "authenticationSettings": {
-                "msiEndpoint": <Optional MSI endpoint e.g.: "http://localhost:40342/metadata/identity">,
-                "msiClientId": <Optional MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
+                "msiEndpoint": <MSI endpoint e.g.: "http://localhost:40342/metadata/identity">,
+                "msiClientId": <MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619">
         }
       }
     }
