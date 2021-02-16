@@ -13,7 +13,7 @@ ms.date: 01/11/2021
 Azure IoT is a collection of managed and platform services that connect, monitor, and control your IoT devices. Azure IoT offers developers a comprehensive set of options. Your options include device platforms, supporting cloud services, SDKs, and tools for building device-enabled cloud applications.
 
 This article overviews several key considerations for developers who are getting started with Azure IoT. These concepts will orient you, as an IoT device developer, to your Azure IoT options and how to begin. Specifically, the article overviews these concepts:
-- [Understanding device development roles](#types-of-device-development)
+- [Understanding device development roles](#device-development-roles)
 - [Choosing your hardware](#choosing-your-hardware)
 - [Choosing an SDK](#choosing-an-sdk)
 - [Selecting connection options](#selecting-connection-options)
