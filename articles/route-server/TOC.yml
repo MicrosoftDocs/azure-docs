@@ -21,6 +21,12 @@
   items:
   - name: Troubleshoot Route Server issues
     href: troubleshoot-route-server.md
+- name: Reference
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/az.network/?view=azps-5.5.0#route
+  - name: Azure CLI
+    href: /cli/azure/network/routeserver?view=azure-cli-latest
 - name: Resources
   items:
   - name: Azure Roadmap

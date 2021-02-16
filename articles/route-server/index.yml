@@ -19,11 +19,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Route Server
+  - title: About Azure Route Server (Preview)
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Route Server?
+          - text: What is Azure Route Server (Preview)?
             url: overview.md
             
   # Card
