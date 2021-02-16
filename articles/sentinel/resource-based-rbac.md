@@ -1,6 +1,6 @@
 ---
-title: Implement resource-based role-based access control (resource-based RBAC) in Azure Sentinel | Microsoft Docs
-description: This article explains how to implement resource-based, role-based access control (resource-based RBAC) for Azure Sentinel. Resource-based RBAC enables you to provide access to specific resources only, without the entire Azure Sentinel experience.
+title: Implement resource-centric role-based access control (resource-centric RBAC) in Azure Sentinel | Microsoft Docs
+description: This article explains how to implement resource-centric, role-based access control (resource-centric RBAC) for Azure Sentinel. Resource-centric RBAC enables you to provide access to specific resources only, without the entire Azure Sentinel experience.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -14,22 +14,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2021
+ms.date: 02/16/2021
 ms.author: bagol
 
 ---
 
-# Resource-based RBAC for Azure Sentinel
+objects in 
 
-Typically, users who have access to an Azure Sentinel workspace also have access to all its resources, using [Azure roles](roles.md).
+# Resource-centric RBAC for Azure Sentinel
 
-However, you may have users who need access to specific resources in your Azure Sentinel workspace, but shouldn't have access to the entire Azure Sentinel environment.
+Typically, users who have access to an Azure Sentinel workspace also have access to all the workspace data, such as both security and performance content. Administrators can use [Azure roles](roles.md) to configure access to specific features in Azure Sentinel, depending on the access requirements in their team.
 
-In such cases, we recommend you use resource-based, role-based access control (resource-based RBAC). Resource-based RBAC enables you to provide access only to the resources required by each team.
+However, you may have some users who need to access only specific data in your Azure Sentinel workspace, but shouldn't have access to the entire Azure Sentinel environment. For example, you may want to allow your performance team to view performance data only.
 
-## Scenarios for resource-based RBAC
+In such cases, we recommend that you configure your role-based access control (RBAC) based on the resources allowed to your users instead of providing them with access to the Azure Sentinel workspace or specific Azure Sentinel features. Users are able to view data only in resources or resource groups where the users have access.
 
-The following table highlights the scenarios where resource-based RBAC is most helpful. Note the differences in access requirements between security operations (SOC) teams and non-SOC teams.
+Resource-centric RBAC enables users to view logs and workbooks using the following methods, instead of via Azure Sentinel:
+
+- **Via the resource itself**, such as an Azure Virtual Machine. Use this method to view logs and workbooks for a specific resource only.
+- **Via Azure Monitor**. Use this method when you want to create queries that span multiple resources and/or resource groups. When navigating to logs and workbooks in Azure Monitor, define your scope to one or more specific resource groups or resources.
+
+> [!NOTE]
+> If your data is not an Azure resource, such as Syslog, CEF, or AAD data, or data collected by a custom collector, you'll need to manually configure the resource ID that's used to identify the data and enable access.
+>
+> For more information, see [Manually configure resource-centric RBAC](#manually-configure-resource-centric-rbac).
+>
+## Scenarios for resource-centric RBAC
+
+The following table highlights the scenarios where resource-centric RBAC is most helpful. Note the differences in access requirements between security operations (SOC) teams and non-SOC teams.
 
 |  |SOC team  |Non-SOC team  |
 |---------|---------|---------|
@@ -38,10 +50,12 @@ The following table highlights the scenarios where resource-based RBAC is most h
 |**Experience**     |  The full Azure Sentinel experience, possibly limited by the [functional permissions](roles.md) assigned to the user       |  Log queries and Workbooks only       |
 |     |         |         |
 
-If your team has similar access requirements to the non-SOC team described in the table above, resource-based RBAC may be a good solution for your organization.
-## Implementing resource-base RBAC
+If your team has similar access requirements to the non-SOC team described in the table above, resource-centric RBAC may be a good solution for your organization.
 
-1. In Azure Monitor, enable resource-based RBAC as described in the [Azure Monitor documentation](/azure/azure-monitor/platform/manage-access).
+
+## Manually configure resource-centric RBAC
+
+1. In Azure Monitor, enable resource-centric RBAC as described in the [Azure Monitor documentation](/azure/azure-monitor/platform/manage-access).
 
 1. [Create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) for each team of users who needs to access your resources without the entire Azure Sentinel environment.
 
@@ -63,7 +77,7 @@ If your team has similar access requirements to the non-SOC team described in th
     - [Resource IDs with Logstash collection](#resource-ids-with-logstash-collection)
     - [Resource IDs with the Log Analytics API collection](#resource-ids-with-the-log-analytics-api-collection)
 
-Users with resource-based RBAC can access logs and workbooks via a parent resource group or via Azure Monitor. Azure Monitor also enables users to select the scope of the query or workbook, spanning multiple resource groups, and optionally selecting specific resources.
+Users with resource-centric RBAC can access logs and workbooks via a parent resource group or via Azure Monitor. Azure Monitor also enables users to select the scope of the query or workbook, spanning multiple resource groups, and optionally selecting specific resources.
 
 ### Resource IDs with log forwarding
 
@@ -93,11 +107,20 @@ needs example
 
 When collecting using the [Log Analytics data collector API](/azure/azure-monitor/platform/data-collector-api), you can assign to events with a resource ID using the HTTP [*x-ms-AzureResourceId*](/azure/azure-monitor/platform/data-collector-api#request-headers) request header.
 
-If you are using resource-based RBAC and want the events collected by API to be available to specific users, use the resource ID of the resource group you [created for your users](#implementing-resource-base-rbac).
+If you are using resource-centric RBAC and want the events collected by API to be available to specific users, use the resource ID of the resource group you [created for your users](#implementing-resource-base-rbac).
 
-## Alternate methods for controlling access to resources
+## Alternative methods for implementing resource-centric RBAC
 
-Resource-based RBAC may not provide a full solution for other scenarios. In such cases, use one of the following methods:
+Depending on the permissions required in your organization, manually configuring a resource ID to use with resource-centric RBAC may not provide a full solution.
+
+The following list describes scenarios where other solutions for data access may fit your requirements better:
+
+
+- **A subsidiary has a SOC team that requires a full Azure Sentinel experience**. In this case, use a [multi-workspace architecture](https://www.youtube.com/watch?v=_mm3GNwPBHU&feature=youtu.be) to separate your data permissions.
+
+    Create multiple Azure Sentinel workspaces, and provide access
+
+The following table describes other methods for providing access to specific data only, and ensuring that security data is available only to those who need it.
 
 |Scenario  |Method  |
 |---------|---------|
