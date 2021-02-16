@@ -7,12 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 02/08/2021
+ms.date: 02/09/2021
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
 
 Learn what's new in the service. Bookmark this page to keep up to date with the service. Check out the [Preview feature list](search-api-preview.md) to view features in public preview.
+
+## February 2021
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------|---------------|---------------|
+| [Reset Documents (preview)](search-howto-run-reset-indexers.md) |  Reprocesses individually selected search documents in indexer workloads. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
+| [Availability Zones](search-performance-optimization.md#availability-zones)| Search services with two or more replicas in certain regions, as listed in [this article](search-performance-optimization.md#availability-zones), gain resiliency by having replicas in two or more distinct physical locations.  | The region and date of search service creation determine availability. See the performance tuning document for details. |
 
 ## January 2021
 
@@ -24,7 +31,8 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 | Month | Feature | Description |
 |-------|---------|-------------|
-| November | [Customer-managed key encryption (extended)](search-security-manage-encryption-keys.md) | extends customer-managed encryption over the full range of assets created and managed by a search service. Generally available.|
+| November | [Customer-managed key encryption (extended)](search-security-manage-encryption-keys.md) | Extends customer-managed encryption over the full range of assets created and managed by a search service. Generally available.|
+| September | [Visual Studio Code extension for Azure Cognitive Search](search-get-started-vs-code.md) | Adds a workspace, navigation, intellisense, and templates for creating indexes, indexers, data sources, and skillsets. | Public preview |
 | September | [Managed service identity (indexers)](search-howto-managed-identities-data-sources.md) | Generally available.  |
 | September | [Outbound requests using a private link](search-indexer-howto-access-private.md) | Generally available.  |
 | September | [Management REST API (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | Generally available. |
@@ -64,7 +72,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 |November | [Text Translation skill](cognitive-search-skill-text-translation.md) | A cognitive skill used during indexing that evaluates and translates text. Generally available.|
 |November | [Power BI templates](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | Template for visualizing content in knowledge store |
 |November | [Azure Data Lake Storage Gen2 (preview)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API (preview)](search-howto-index-cosmosdb.md), and [Cosmos DB Cassandra API (preview)](search-howto-index-cosmosdb.md) | New indexer data sources in public preview. |
-|July | [Azure Government Cloud support](../azure-government/compare-azure-government-global-azure.md#azure-cognitive-search) | Generally available.|
+|July | [Azure Government Cloud support](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=search) | Generally available.|
 
 <a name="new-service-name"></a>
 

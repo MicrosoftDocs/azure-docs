@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Import training data - Azure'
 description: How to import your data into Azure Machine Learning Studio (classic) from various data sources. Learn what data types and data formats are supported.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt

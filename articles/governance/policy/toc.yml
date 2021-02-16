@@ -95,6 +95,8 @@
       href: ./samples/hipaa-hitrust-9-2.md
     - name: ISO 27001:2013
       href: ./samples/iso-27001.md
+    - name: New Zealand ISM
+      href: ./samples/new-zealand-ism.md
     - name: NIST SP 800-53 R4
       href: ./samples/nist-sp-800-53-r4.md
     - name: NIST SP 800-171 R2
@@ -321,8 +323,6 @@
     items:
     - name: Governance YouTube Channel
       href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-    - name: Video - Ignite 2019
-      href: https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions
     - name: Guest Configuration videos
       items:
       - name: Getting Started
