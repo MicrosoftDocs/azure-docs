@@ -13,7 +13,7 @@ ms.author: vashan
 # Virtual machines lifecycle and states
 
 Azure Virtual Machines (VMs) go through different states that can be categorized into *provisioning* and *power* states. The purpose of this article is to describe these states and specifically highlight when customers are billed for instance usage. 
-
+ 
 ## Power states
 
 The power state represents the last known state of the VM.
