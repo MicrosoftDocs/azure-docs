@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 # Disk performance metrics
-We have metrics on Azure that provide insight on how your virtual machines and disks are performing. These metrics can be viewed through the Azure portal. They can also be retrieved through an API call. Metrics are calculated over one-minute intervals. 
+Azure offers metrics in the Azure portal that provide insight on how your virtual machines (VM) and disks are performing. The metrics can also be retrieved through an API call. Metrics are calculated over one-minute intervals. 
 
 ## Disk IO, throughput and queue depth metrics
 The following metrics are available to get insight on VM and Disk IO, throughput and queue depth performance:
