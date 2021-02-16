@@ -4,11 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: This article will show you how to create an Azure Cognitive Services Translator resource and get a subscription key and endpoint URL.
 services: cognitive-services
 author: laujan
+ms.author: lajanuar
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/16/2021
 ---
 
 # Create a Translator resource
