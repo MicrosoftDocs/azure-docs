@@ -79,22 +79,19 @@ Service name requirements:
 
 ## Choose a location
 
-Azure Cognitive Search is available in most regions. The list of supported regions can be found in the [pricing page](https://azure.microsoft.com/pricing/details/search/).
+Azure Cognitive Search is available in most regions, as documented in the [pricing page](https://azure.microsoft.com/pricing/details/search/).
 
-> [!Note]
-> Central India and UAE North are currently unavailable for new services. For services already in those regions, you can scale up with no restrictions, and your service is fully supported in that region. The restrictions are temporary and limited to new services only. We will remove this note when the restrictions no longer apply.
->
-> Double encryption is only available in certain regions. For more information, see [double encryption](search-security-overview.md#double-encryption).
+Generally, if you're using multiple Azure services, choose a region that is also hosting your data or application service. Doing so minimizes or voids bandwidth charges for outbound data (there are no charges for outbound data when services are in the same region).
 
-### Requirements
+Customers with business continuity and disaster recovery (BCDR) requirements should create their services in [regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each service.
 
- If you are using AI enrichment, create your search service in the same region as Cognitive Services. *Co-location of Azure Cognitive Search and Cognitive Services in the same region is a requirement for AI enrichment*.
+The following features are only available in certain regions:
 
- Customers with business continuity and disaster recovery (BCDR) requirements should create their services in [regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each service.
+* AI enrichment requires Cognitive Services to be in the same region as Azure Cognitive Search. Choose the [region for Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) first (the list is smaller), and then choose the same region for the search service.
 
-### Recommendations
+* Double encryption is only available in certain regions. For more information, see [double encryption](search-security-overview.md#double-encryption)
 
-If you are using multiple Azure services, choose a region that is also hosting your data or application service. Doing so minimizes or voids bandwidth charges for outbound data (there are no charges for outbound data when services are in the same region).
+* Availability zone support is offered in specific regions, on services created after specific dates. For more information, see ["Availability Zones" in Scale for Performance](search-performance-optimization.md#availability-zones).
 
 ## Choose a pricing tier
 
