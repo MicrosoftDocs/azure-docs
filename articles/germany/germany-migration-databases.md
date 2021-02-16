@@ -48,10 +48,9 @@ For details about active geo-replication costs, see the section titled **Active 
 
 Migrating databases with active geo-replication requires an Azure SQL logical server in global Azure. You can create the server using the portal, Azure PowerShell, Azure CLI, etc., but configuring active geo-replication to migrate from Azure Germany to global Azure is only supported using Transact-SQL (T-SQL).
 
-> [!WARNING]
-> When migrating between clouds, the primary (Azure Germany) and secondary (global Azure) server names must be different. If the server names are the same, running the ALTER DATABASE statement will succeed, but the migration will fail. 
+> [!IMPORTANT]
+> When migrating between clouds, the primary (Azure Germany) and secondary (global Azure) server name prefixes must be different. If the server names are the same, running the ALTER DATABASE statement will succeed, but the migration will fail. For example, if the prefix of the primary server name is `myserver`  (`myserver.database.cloudapi.de`), the prefix of the secondary server name in global Azure cannot be `myserver`.
 
-For example, if the prefix of the primary server name is `myserver`  (`myserver.database.cloudapi.de`), the name of the secondary server in global Azure cannot be `myserver`. The primary (Azure Germany) and secondary (global Azure) server names must be different. 
 
 The `ALTER DATABASE` statement allows you to specify a target server in global Azure by using its fully qualified dns server name on the target side. 
 
