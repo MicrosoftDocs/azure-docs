@@ -12,8 +12,6 @@ keywords: "Kubernetes, Arc, Azure, containers, configuration, GitOps"
 
 # Configurations and GitOps with Azure Arc enabled Kubernetes
 
-## GitOps
-
 In relation to Kubernetes, GitOps is the practice of declaring the desired state of Kubernetes cluster configurations (deployments, namespaces, etc.) in a Git repository. This declaration is followed by a polling and pull-based deployment of these cluster configurations using an operator. The Git repository can contain:
 * YAML-format manifests describing any valid Kubernetes resources, including Namespaces, ConfigMaps, Deployments, DaemonSets, etc.
 * Helm charts for deploying applications.
@@ -22,7 +20,7 @@ In relation to Kubernetes, GitOps is the practice of declaring the desired state
 
 ## Configurations
 
-![Configurations architecture](./media/conceptual-configurations.png)
+[ ![Configurations architecture](./media/conceptual-configurations.png) ](./media/conceptual-configurations.png#lightbox)
 
 The connection between your cluster and a Git repository is created as a `Microsoft.KubernetesConfiguration/sourceControlConfigurations` extension resource on top of the Azure Arc enabled Kubernetes resource (represented by `Microsoft.Kubernetes/connectedClusters`) in Azure Resource Manager. 
 
@@ -44,3 +42,9 @@ You can create multiple namespace-scoped `sourceControlConfiguration` resources 
 Since Azure Resource Manager manages your configurations, you can use Azure Policy to automate the creation of the same configuration on all Azure Arc enabled Kubernetes resources within the scope of a subscription or a resource group. 
 
 This at-scale enforcement ensures that a common baseline configuration (containing configurations like ClusterRoleBindings, RoleBindings, and NetworkPolicy) can be applied across the entire fleet or inventory of Azure Arc enabled Kubernetes clusters.
+
+## Next steps
+
+* [Connect a cluster to Azure Arc](./connect-cluster.md)
+* [Create configurations on your Arc enabled Kubernetes cluster](./use-gitops-connected-cluster.md)
+* [Use Azure Policy to apply configurations at scale](./use-azure-policy.md)

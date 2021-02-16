@@ -85,3 +85,8 @@ Connect a cluster to Azure Arc using the following steps:
 | Fully connected | Agents are always able to reach out to Azure. Experience is ideal in this case as there is little delay in propagation of configurations (for GitOps), enforcement of policies (in Azure Policy and Gatekeeper) and collection of metrics and logs of workloads (in Azure Monitor) |
 | Semi-connected | MSI certificate pulled down by the `clusteridentityoperator` is valid for 90 days maximum before the certificate expires. Once the certificate expires, the Azure Arc enabled Kubernetes resource stops working. Delete and recreate the Azure Arc enabled Kubernetes resource and agents to get all the Arc features to work on the cluster. During the 90 days, users are recommended to connect the cluster at least once every 30 days. |
 | Disconnected | Kubernetes clusters in disconnected environments without any access to Azure are currently not supported by Azure Arc enabled Kubernetes. If this capability is of interest to you, submit or up-vote an idea on [Azure Arc's UserVoice forum](https://feedback.azure.com/forums/925690-azure-arc).
+
+## Next steps
+
+* [Connect a cluster to Azure Arc](./connect-cluster.md)
+* [Conceptual overview of configurations](./conceptual-configurations.md)
