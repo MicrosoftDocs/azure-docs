@@ -426,8 +426,8 @@ Access the blob data via a parameter that matches the name designated by binding
 
 You can declare function parameters as the following types to write out to blob storage:
 
-* Strings as `func.Out(str)`
-* Streams as `func.Out(func.InputStream)`
+* Strings as `func.Out[str]`
+* Streams as `func.Out[func.InputStream]`
 
 Refer to the [output example](#example) for details.
 
