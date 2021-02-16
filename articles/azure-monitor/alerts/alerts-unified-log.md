@@ -4,7 +4,7 @@ description: Trigger emails, notifications, call websites URLs (webhooks), or au
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 5/31/2019
+ms.date: 09/22/2020
 ms.subservice: alerts
 ---
 

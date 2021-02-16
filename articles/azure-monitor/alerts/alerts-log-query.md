@@ -4,7 +4,7 @@ description:  Recommendations for writing efficient alert queries
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 09/22/2020
 ms.subservice: alerts
 ---
 # Optimizing log alert queries
