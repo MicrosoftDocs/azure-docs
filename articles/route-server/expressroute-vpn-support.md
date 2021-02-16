@@ -36,7 +36,7 @@ You can also replace the SDWAN appliance with Azure VPN gateway. Since Azure VPN
 > Azure VPN gateway must be configured in [**active-active**](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md) mode.
 >
 
-![Diagram showing ExpressRoute and VPN gateway configured with Route Server](./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png)
+![Diagram showing ExpressRoute and VPN gateway configured with Route Server.](./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png)
 
 
 ## Next steps

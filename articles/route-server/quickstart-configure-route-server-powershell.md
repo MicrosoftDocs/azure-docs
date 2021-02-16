@@ -49,14 +49,14 @@ Add-AzVirtualNetworkSubnetConfig –Name “RouteServerSubnet” -AddressPrefix 
 $vnet | Set-AzVirtualNetwork
 ```
 
-2. Obtain the RouteServerSubnet Id. To see the resource ID of all subnets in the virtual network, use this command:
+2. Obtain the RouteServerSubnet ID. To see the resource ID of all subnets in the virtual network, use this command:
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork –Name “vnet_name” -ResourceGroupName “
 $vnet.Subnets
 ```
 
-The RouteServerSubnet Id looks like the following:
+The RouteServerSubnet ID looks like the following:
 
 `/subscriptions/<subscriptionID>/resourceGroups/RouteServerRG/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/RouteServerSubnet`
 
