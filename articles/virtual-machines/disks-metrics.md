@@ -8,70 +8,91 @@ ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
+# Disk performance metrics
 
-# Disk bursting metric examples
+We have metrics on Azure that provide insight on how your virtual machines and disks are performing. These metrics can be viewed through the Azure portal. They can also be retrieved through an API call. Metrics are calculated over one-minute intervals. The following metrics are available to get insight on VM and Disk IO, and also on throughput performance:
 
-The following examples show how bursting works with various VM and disk combinations. To make the examples easy to follow, we will focus on MB/s, but the same logic is applied independently to IOPS.
+- **OS Disk Queue Depth**: The number of current outstanding IO requests that are waiting to be read from or written to the OS disk.
+- **OS Disk Read Bytes/Sec**: The number of bytes that are read in a second from the OS disk.
+- **OS Disk Read Operations/Sec**: The number of input operations that are read in a second from the OS disk.
+- **OS Disk Write Bytes/Sec**: The number of bytes that are written in a second from the OS disk.
+- **OS Disk Write Operations/Sec**: The number of output operations that are written in a second from the OS disk.
+- **Data Disk Queue Depth**: The number of current outstanding IO requests that are waiting to be read from or written to the data disk(s).
+- **Data Disk Read Bytes/Sec**: The number of bytes that are read in a second from the data disk(s).
+- **Data Disk Read Operations/Sec**: The number of input operations that are read in a second from data disk(s).
+- **Data Disk Write Bytes/Sec**: The number of bytes that are written in a second from the data disk(s).
+- **Data Disk Write Operations/Sec**: The number of output operations that are written in a second from data disk(s).
+- **Disk Read Bytes/Sec**: The number of total bytes that are read in a second from all disks attached to a VM.
+- **Disk Read Operations/Sec**: The number of input operations that are read in a second from all disks attached to a VM.
+- **Disk Write Bytes/Sec**: The number of bytes that are written in a second from all disks attached to a VM.
+- **Disk Write Operations/Sec**: The number of output operations that are written in a second from all disks attached to a VM.
 
-### Non-burstable virtual machine with burstable disks
-**VM and disk combination:** 
-- Standard_D8as_v4 
-    - Uncached MB/s: 192
-- P4 OS Disk
-    - Provisioned MB/s: 25
-    - Max burst MB/s: 170 
-- 2 P10 Data Disks 
-    - Provisioned MB/s: 100
-    - Max burst MB/s: 170
+## Storage IO utilization metrics
+The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available when using Premium enabled VM. These metrics are available for all disk types except for Ultra. 
 
- When the VM boots up it retrieves data from the OS disk. Since the OS disk is part of a VM that is booting, the OS disk will be full of bursting credits. These credits will allow the OS disk burst its startup at 170 MB/s second.
+Metrics that help diagnose disk IO capping:
 
-![VM sends a request for 192 MB/s of throughput to OS disk, OS disk responds with 170 MB/s data.](media/disks-metrics/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-startup.jpg)
+- **Data Disk IOPS Consumed Percentage**: The percentage calculated by the data disk IOPS completed over the provisioned data disk IOPS. If this amount is at 100%, your application running is IO capped from your data disk's IOPS limit.
+- **Data Disk Bandwidth Consumed Percentage**: The percentage calculated by the data disk throughput completed over the provisioned data disk throughput. If this amount is at 100%, your application running is IO capped from your data disk's bandwidth limit.
+- **OS Disk IOPS Consumed Percentage**: The percentage calculated by the OS disk IOPS completed over the provisioned OS disk IOPS. If this amount is at 100%, your application running is IO capped from your OS disk's IOPS limit.
+- **OS Disk Bandwidth Consumed Percentage**: The percentage calculated by the OS disk throughput completed over the provisioned OS disk throughput. If this amount is at 100%, your application running is IO capped from your OS disk's bandwidth limit.
 
-After the boot up is complete, an application is then run on the VM and has a non-critical workload. This workload requires 15 MB/S that gets spread evenly across all the disks.
+Metrics that help diagnose VM IO capping:
 
-![Application sends request for 15 MB/s of throughput to VM, VM takes request and sends each of its disks a request for 5 MB/s, each disk returns 5 MB/s, VM returns 15 MB/s to application.](media/disks-metrics/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-idling.jpg)
+- **VM Cached IOPS Consumed Percentage**: The percentage calculated by the total IOPS completed over the max cached virtual machine IOPS limit. If this amount is at 100%, your application running is IO capped from your VM's cached IOPS limit.
+- **VM Cached Bandwidth Consumed Percentage**: The percentage calculated by the total disk throughput completed over the max cached virtual machine throughput. If this amount is at 100%, your application running is IO capped from your VM's cached bandwidth limit.
+- **VM uncached IOPS Consumed Percentage**: The percentage calculated by the total IOPS on a virtual machine completed over the max uncached  virtual machine IOPS limit. If this amount is at 100%, your application running is IO capped from your VM's uncached IOPS limit.
+- **VM Uncached Bandwidth Consumed Percentage**: The percentage calculated by the total disk throughput on a virtual machine completed over the max provisioned virtual machine throughput. If this amount is at 100%, your application running is IO capped from your VM's uncached bandwidth limit.
 
-Then the application needs to process a batched job that requires 192 MB/s. 2 MB/s are used by the OS disk and the rest are evenly split between the data disks.
+## Storage IO utilization metrics example
 
-![Application sends request for 192 MB/s of throughput to VM, VM takes request and sends the bulk of its request to the data disks (95 MB/s each) and 2 MB/s to the OS disk, the data disks burst to meet the demand and all disks return the requested throughput to the VM, which returns it to the application.](media/disks-metrics/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
+Let's run through an example of how to use these new Storage IO utilization metrics to help us debug where a bottleneck is in our system. The system setup is the same as the previous example, except this time the attached OS disk is *not* cached.
 
-### Burstable virtual machine with non-burstable disks
-**VM and disk combination:** 
-- Standard_L8s_v2 
-    - Uncached MB/s: 160
-    - Max burst MB/s: 1,280
-- P50 OS Disk
-    - Provisioned MB/s: 250 
-- 2 P10 Data Disks 
-    - Provisioned MB/s: 250
+**Setup:**
 
- After the initial boot up, an application is run on the VM and has a non-critical workload. This workload requires 30 MB/s that gets spread evenly across all the disks.
-![Application sends request for 30 MB/s of throughput to VM, VM takes request and sends each of its disks a request for 10 MB/s, each disk returns 10 MB/s, VM returns 30 MB/s to application.](media/disks-metrics/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
+- Standard_D8s_v3
+  - Cached IOPS: 16,000
+  - Uncached IOPS: 12,800
+- P30 OS disk
+  - IOPS: 5,000
+  - Host caching: **Disabled**
+- Two P30 data disks × 2
+  - IOPS: 5,000
+  - Host caching: **Read/write**
+- Two P30 data disks × 2
+  - IOPS: 5,000
+  - Host caching: **Disabled**
 
-Then the application needs to process a batched job that requires 600 MB/s. The Standard_L8s_v2 bursts to meet this demand and then requests to the disks get evenly spread out to P50 disks.
+Let's run a benchmarking test on this virtual machine and disk combination that creates IO activity. To learn how to benchmark storage IO on Azure, see [Benchmark your application on Azure Disk Storage](disks-benchmarks.md). From the benchmarking tool, you can see that the VM and disk combination can achieve 22,800 IOPS:
 
-![Application sends request for 600 MB/s of throughput to VM, VM takes bursts to take the request and sends each of its disks a request for 200 MB/s, each disk returns 200 MB/s, VM bursts to return 600 MB/s to application.](media/disks-metrics/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
-### Burstable virtual machine with burstable disks
-**VM and disk combination:** 
-- Standard_L8s_v2 
-    - Uncached MB/s: 160
-    - Max burst MB/s: 1,280
-- P4 OS Disk
-    - Provisioned MB/s: 25
-    - Max burst MB/s: 170 
-- 2 P4 Data Disks 
-    - Provisioned MB/s: 25
-    - Max burst MB/s: 170 
+![Screenshot of f i o output showing r=22.8k highlighted.](media/disks-metrics/utilization-metrics-example/fio-output.jpg)
 
-When the VM starts, it will burst to request its burst limit of 1,280 MB/s from the OS disk and the OS disk will respond with its burst performance of 170 MB/s.
 
-![At startup, the VM bursts to send a request of 1,280 MB/s to the OS disk, OS disk bursts to return the 1,280 MB/s.](media/disks-metrics/bursting-vm-bursting-disk/burst-vm-burst-disk-startup.jpg)
 
-After startup, you start an application that has a non-critical workload. This application requires 15 MB/s that gets spread evenly across all the disks.
+The Standard_D8s_v3 can achieve a total of 28,600 IOPS. Using the metrics, let's investigate what's going on and identify our storage IO bottleneck. On the left pane, select **Metrics**:
 
-![Application sends request for 15 MB/s of throughput to VM, VM takes request and sends each of its disks a request for 5 MB/s, each disk returns 5 MB/s, VM returns 15 MB/s to application.](media/disks-metrics/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
+![Screenshot showing Metrics highlighted on the left pane.](media/disks-metrics/utilization-metrics-example/metrics-menu.jpg)
 
-Then the application needs to process a batched job that requires 360 MB/s. The Standard_L8s_v2 bursts to meet this demand and then requests. Only 20 MB/s are needed by the OS disk. The remaining 340 MB/s are handled by the bursting P4 data disks.
+Let's first take a look at our **VM Cached IOPS Consumed Percentage** metric:
 
-![Application sends request for 360 MB/s of throughput to VM, VM takes bursts to take the request and sends each of its data disks a request for 170 MB/s and 20 MB/s from the OS disk, each disk returns the requested MB/s, VM bursts to return 360 MB/s to application.](media/disks-metrics/bursting-vm-bursting-disk/burst-vm-burst-disk-bursting.jpg)
+![Screenshot showing V M Cached I O P S Consumed Percentage.](media/disks-metrics/utilization-metrics-example/vm-cached.jpg)
+
+This metric tells us that 61% of the 16,000 IOPS allotted to the cached IOPS on the VM is being used. This percentage means that the storage IO bottleneck isn't with the disks that are cached because it isn't at 100%. Now let's look at our **VM Uncached IOPS Consumed Percentage** metric:
+
+![Screenshot showing V M Uncached I O P S Consumed Percentage.](media/disks-metrics/utilization-metrics-example/vm-uncached.jpg)
+
+This metric is at 100%. It tells us that all of the 12,800 IOPS allotted to the uncached IOPS on the VM are being used. One way we can remediate this issue is to change the size of our VM to a larger size that can handle the additional IO. But before we do that, let's look at the attached disk to find out how many IOPS they are seeing. Check the OS Disk by looking at the **OS Disk IOPS Consumed Percentage**:
+
+![Screenshot showing O S Disk I O P S Consumed Percentage.](media/disks-metrics/utilization-metrics-example/os-disk.jpg)
+
+This metric tells us that around 90% of the 5,000 IOPS provisioned for this P30 OS disk is being used. This percentage means there's no bottleneck at the OS Disk. Now let's check the data disks that are attached to the VM by looking at the **Data Disk IOPS Consumed Percentage**:
+
+![Screenshot showing Data Disk I O P S Consumed Percentage.](media/disks-metrics/utilization-metrics-example/data-disks-no-splitting.jpg)
+
+This metric tells us that the average IOPS consumed percentage across all the disks attached is around 42%. This percentage is calculated based on the IOPS that are used by the disks, and that aren't being served from the host cache. Let's drill deeper into this metric by applying *splitting* on these metrics and splitting by the LUN value:
+
+![Screenshot showing Data Disk I O P S Consumed Percentage with splitting.](media/disks-metrics/utilization-metrics-example/data-disks-splitting.jpg)
+
+This metric tells us the data disks attached on LUN 3 and 2 are using around 85% of their provisioned IOPS. Here is a diagram of what the IO looks like from the VM and disks architecture:
+
+![Diagram of Storage I O metrics example.](media/disks-metrics/utilization-metrics-example/metrics-diagram.jpg)

@@ -27,4 +27,4 @@ Bursting is also available on our [premium SSDs](disks-types.md#premium-ssd) for
 
 ## Next steps
 
-For examples of bursting in action, see [Disk bursting metric examples](disks-metrics.md).
+To learn how to gain insight into your bursting resources, see [Disk bursting metrics](disks-metrics.md).
