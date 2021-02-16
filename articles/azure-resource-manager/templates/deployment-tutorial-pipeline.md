@@ -129,7 +129,7 @@ Create a service connection that is used to deploy projects to Azure.
 
 1. Select **Project settings** from the bottom of the left menu.
 1. Select **Service connections** under **Pipelines**.
-1. Select **New Service connection**, select **Azure Resource Manager**, and then select **Next**.
+1. Select **Create Service connection**, select **Azure Resource Manager**, and then select **Next**.
 1. Select **Service principal**, and then select **Next**.
 1. Enter the following values:
 
@@ -150,7 +150,7 @@ Until now, you have completed the following tasks.  If you skip the previous sec
 To create a pipeline with a step to deploy a template:
 
 1. Select **Pipelines** from the left menu.
-1. Select **New pipeline**.
+1. Select **Create pipeline**.
 1. From the **Connect** tab, select **GitHub**. If asked, enter your GitHub credentials, and then follow the instructions. If you see the following screen, select **Only select repositories**, and verify your repository is in the list before you select **Approve & Install**.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines only select repositories](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)
