@@ -88,7 +88,7 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
 
    To get your storage account's access key, you can also use
    [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey)
-   or [Azure CLI](/cli/azure/storage/account/keys.md#az-storage-account-keys-list).
+   or [Azure CLI](/cli/azure/storage/account/keys).
 
 1. Create a blob storage container for your email attachments.
 

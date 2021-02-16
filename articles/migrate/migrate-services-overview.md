@@ -116,7 +116,7 @@ If you're looking for expert help to get started, Microsoft has skilled [Azure E
 There are two versions of the Azure Migrate service.
 
 - **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. [Learn more](whats-new.md) about what's new in this version.
-- **Previous version**: The previous version of Azure Migrate supports only assessment of on-premises VMware VMs. If you used the previous version, you should now use the current version. You can no longer create Azure Migrate projects using the previous version. And we recommend that you don't do new discoveries with it.
+- **Previous version**: The previous version of Azure Migrate, also known as classic Azure Migrate, supports only assessment of on-premises VMware VMs. Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, classic version of Azure Migrate will no longer be supported and the inventory metadata in classic projects will be deleted. You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](./create-manage-projects.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a classic project, you can attach it to a project of current version after you delete the classic project.
 
     To access existing projects in the Azure portal, search for and select **Azure Migrate**. The **Azure Migrate** dashboard has a notification and a link to access old Azure Migrate projects.
 

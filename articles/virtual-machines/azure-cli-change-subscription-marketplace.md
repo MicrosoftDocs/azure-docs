@@ -66,9 +66,12 @@ publisher=$(az vm get-instance-view --resource-group $sourceResourceGroup \
     --name $vmName --query 'storageProfile.imageReference.publisher' --output tsv)
 
 # Get information to create new virtual machine
-planName=$(az vm get-instance-view --resource-group $sourceResourceGroup --subscription $sourceSubscription --query 'plan.name' --name $vmName)
-planProduct=$(az vm get-instance-view --resource-group $sourceResourceGroup --subscription $sourceSubscription --query 'plan.product' --name $vmName)
-planPublisher=$(az vm get-instance-view --resource-group $sourceResourceGroup --subscription $sourceSubscription --query 'plan.publisher' --name $vmName)
+planName=$(az vm get-instance-view --resource-group $sourceResourceGroup \
+    --subscription $sourceSubscription --query 'plan.name' --name $vmName)
+planProduct=$(az vm get-instance-view --resource-group $sourceResourceGroup \
+    --subscription $sourceSubscription --query 'plan.product' --name $vmName)
+planPublisher=$(az vm get-instance-view --resource-group $sourceResourceGroup \
+    --subscription $sourceSubscription --query 'plan.publisher' --name $vmName)
 
 # Get the name of the OS disk
 osDiskName=$(az vm show --resource-group $sourceResourceGroup --name $vmName \
@@ -132,3 +135,8 @@ az group delete --name $destinationResourceGroup --subscription $destinationSubs
 - [az vm image terms accept](/cli/azure/vm/image/terms#az_vm_image_terms_accept)
 - [az vm image terms show](/cli/azure/vm/image/terms#az_vm_image_terms_show)
 - [az vm show](/cli/azure/vm#az_vm_show)
+
+## Next steps
+
+- [Move VMs to another Azure region](../site-recovery/azure-to-azure-tutorial-migrate.md)
+- [Move a VM to another subscription or resource group](./linux/move-vm.md)
