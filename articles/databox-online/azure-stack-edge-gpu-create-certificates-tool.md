@@ -117,15 +117,15 @@ Use these steps to prepare the Azure Stack Edge Pro device certificates:
     You'll also see an INF folder. This contains a management.<edge-devicename> information file in clear text explaining the certificate details.  
 
 
-6. Submit these files to your certificate authority (either internal or public). Be sure that your CA generates certificates, using your generated request, that meet the Azure Stack Edge Pro certificate requirements for [node certificates](azure-stack-edge-j-series-manage-certificates.md#node-certificates), [endpoint certificates](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates), and [local UI certificates](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
+6. Submit these files to your certificate authority (either internal or public). Be sure that your CA generates certificates, using your generated request, that meet the Azure Stack Edge Pro certificate requirements for [node certificates](azure-stack-edge-gpu-manage-certificates.md#node-certificates), [endpoint certificates](azure-stack-edge-gpu-manage-certificates.md#endpoint-certificates), and [local UI certificates](azure-stack-edge-gpu-manage-certificates.md#local-ui-certificates).
 
 ## Prepare certificates for deployment
 
 The certificate files that you get from your certificate authority (CA) must be imported and exported with properties that match the certificate requirements of the Azure Stack Edge Pro device. Complete the following steps on the same system where you generated the certificate signing requests.
 
-- To import the certificates, follow the steps in [Import certificates on the clients accessing your Azure Stack Edge Pro device](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- To import the certificates, follow the steps in [Import certificates on the clients accessing your Azure Stack Edge Pro device](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
-- To export the certificates, follow the steps in [Export certificates from the client accessing the Azure Stack Edge Pro device](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- To export the certificates, follow the steps in [Export certificates from the client accessing the Azure Stack Edge Pro device](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
 
 ## Validate certificates
