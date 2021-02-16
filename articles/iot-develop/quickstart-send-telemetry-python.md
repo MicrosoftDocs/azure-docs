@@ -18,12 +18,12 @@ In this quickstart, you learn a basic IoT device application development workflo
 ## Prerequisites
 - [Python 3.7+](https://www.python.org/downloads/). For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
     
-    To ensure that your Python version is up to date, run `python --version`. If you have both Python 2 and Python 3 installed, and are using a Python 3 environment, install all libraries using `pip3`. This ensures that the libraries are installed to your Python 3 runtime.
+    To ensure that your Python version is up to date, run `python --version`. If you have both Python 2 and Python 3 installed, and are using a Python 3 environment, install all libraries using `pip3`. Running `pip3` ensures that the libraries are installed to your Python 3 runtime.
     > [!IMPORTANT]
     > In the Python installer, select the option to **Add Python to PATH**. If you already have Python 3.7 or higher installed, confirm that you've added the Python installation folder to the `PATH` environment variable.
 
 ## Create an application
-In this section you create an IoT Central application. IoT Central is a portal-based IoT application platform that helps reduce the complexity and cost of developing and managing IoT solutions.
+In this section, you create an IoT Central application. IoT Central is a portal-based IoT application platform that helps reduce the complexity and cost of developing and managing IoT solutions.
 
 To create an Azure IoT Central application:
 1. Browse to [Azure IoT Central](https://apps.azureiotcentral.com/) and sign in with a Microsoft personal, work, or school account.
@@ -31,10 +31,10 @@ To create an Azure IoT Central application:
    :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-build.png" alt-text="IoT Central start page":::
 1. In **Application name**, enter a unique name or use the generated name.
 1. In **URL**, enter a memorable application URL prefix or use the generated URL prefix.
-1. Leave **Application template** set to *Custom application*. The dropdown might show other templates if any exist for your account.
+1. Leave **Application template** set to *Custom application*. The dropdown might show other options, if any templates already exist in your account.
 1. Select a **Pricing plan** option. 
-    - To use the application for free for 7 days, select **Free**. You can convert a free application to standard pricing before it expires.
-    - Optionally, you can select a standard pricing plan. If you select standard pricing, additional options appear and you'll need to set a **Directory**, an **Azure subscription**, and a **Location**. To learn about pricing, see [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). 
+    - To use the application for free for seven days, select **Free**. You can convert a free application to standard pricing before it expires.
+    - Optionally, you can select a standard pricing plan. If you select standard pricing, more options appear and you'll need to set a **Directory**, an **Azure subscription**, and a **Location**. To learn about pricing, see [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). 
         - **Directory** is the Azure Active Directory in which you create your application. An Azure Active Directory contains user identities, credentials, and other organizational information. If you don't have an Azure Active Directory, one is created when you create an Azure subscription.
         - An **Azure subscription** enables you to create instances of Azure services. IoT Central provisions resources in your subscription. If you don't have an Azure subscription, you can [create one for free](https://azure.microsoft.com/free/). After you create the subscription, return to the IoT Central **New application** page. Your new subscription appears in the **Azure subscription** drop-down.
         - **Location** is the [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) in which you create an application. Select a location that's physically closest to your devices to get optimal performance. After you choose a location, you can't move the application to a different location.
@@ -46,7 +46,7 @@ To create an Azure IoT Central application:
     :::image type="content" source="media/quickstart-send-telemetry-python/iot-central-created.png" alt-text="IoT Central new application dashboard":::
 
 ## Add a device
-In this section you add a new device to your IoT Central application. The device is an instance of a device template that represents a real or simulated device that you'll connect to the application. 
+In this section, you add a new device to your IoT Central application. The device is an instance of a device template that represents a real or simulated device that you'll connect to the application. 
 
 To create a new device:
 1. In the left pane select **Devices**, then select **+New**. This opens the new device dialog.
@@ -75,7 +75,7 @@ To retrieve connection details for the new device:
 ## Send messages and monitor telemetry
 In this section, you will use the Python SDK to build a simulated device and send telemetry to your IoT Central application. 
 
-1. Open a terminal using Windows CMD, or Powershell, or Bash (for Windows or Linux). You'll use the terminal to install the Python SDK, update environment variables, and run the Python code sample.
+1. Open a terminal using Windows CMD, or PowerShell, or Bash (for Windows or Linux). You'll use the terminal to install the Python SDK, update environment variables, and run the Python code sample.
 
 1. Copy the [Azure IoT Python SDK device samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) to your local machine.
 
@@ -114,7 +114,7 @@ In this section, you will use the Python SDK to build a simulated device and sen
     > [!NOTE]
     > For Windows CMD there are no quotation marks surrounding the connection string or other variable values.
 
-    **Powershell**
+    **PowerShell**
 
     ```azurepowershell
     $env:PROVISIONING_HOST='global.azure-devices-provisioning.net'
@@ -144,7 +144,7 @@ In this section, you will use the Python SDK to build a simulated device and sen
     export DEVICE_KEY='<your device's primary key>'
     ```
 
-1. In your terminal, run the code for the sample file *simple_send_temperature.py* . This code accesses the simulated IoT device and sends a message to IoT Central.
+1. In your terminal, run the code for the sample file *simple_send_temperature.py. This code accesses the simulated IoT device and sends a message to IoT Central.
 
     To run the Python sample from the terminal:
     ```console
