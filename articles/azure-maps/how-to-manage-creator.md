@@ -63,7 +63,7 @@ To delete the Creator resource, navigate to your Azure Maps account. Select **Ov
 
 Select the **Delete** button and type your Creator name to confirm deletion. Once the resource is deleted, you'll see a confirmation page, like in the image below:
 
-![Creator page with delete confirmation](./media/how-to-manage-creator/creator-confirmdelete.png)
+![Creator page with delete confirmation](./media/how-to-manage-creator/creator-confirm-delete.png)
 
 ## Authentication
 
