@@ -47,7 +47,15 @@ landingContent:
         links:
           - text: Configure Endpoint Manager
             url: how-to-configure-endpoint-manager.md
-          
+            
+  # Card
+  - title: Add Custom Domains
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Add a custom domain
+            url: how-to-add-custom-domain.md
+                    
   # Card
   - title: Manage your Origin Groups
     linkLists:
