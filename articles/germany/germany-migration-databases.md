@@ -2,7 +2,7 @@
 title: Migrate Azure database resources, Azure Germany to global Azure
 description: This article provides information about migrating your Azure database resources from Azure Germany to global Azure
 ms.topic: article
-ms.date: 02/12/2021
+ms.date: 02/16/2021
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
@@ -46,9 +46,14 @@ For databases that are too large for BACPAC files, or to migrate from one cloud 
 
 For details about active geo-replication costs, see the section titled **Active geo-replication** in [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-Migrating databases with active geo-replication requires an Azure SQL logical server in global Azure. You can create the server using the portal, Azure PowerShell, CLI, etc., but configuring active geo-replication to replicate (migrate) a database is only supported using Transact-SQL (T-SQL).
+Migrating databases with active geo-replication requires an Azure SQL logical server in global Azure. You can create the server using the portal, Azure PowerShell, Azure CLI, etc., but configuring active geo-replication to migrate from Azure Germany to global Azure is only supported using Transact-SQL (T-SQL).
 
-The `ALTER DATABASE` statement allows you to specify a target server in global Azure by using its fully qualified dns server name on the target side: 
+> [!WARNING]
+> When migrating between clouds, the primary (Azure Germany) and secondary (global Azure) server names must be different. If the server names are the same, running the ALTER DATABASE statement will succeed, but the migration will fail. 
+
+For example, if the prefix of the primary server name is `myserver`  (`myserver.database.cloudapi.de`), the name of the secondary server in global Azure cannot be `myserver`. The primary (Azure Germany) and secondary (global Azure) server names must be different. 
+
+The `ALTER DATABASE` statement allows you to specify a target server in global Azure by using its fully qualified dns server name on the target side. 
 
 
 ```sql
@@ -57,7 +62,7 @@ ALTER DATABASE [sourcedb] add secondary on server [public-server.database.window
 
 
 - *`sourcedb`* represents the database name in an Azure SQL server in Azure Germany. 
-- *`public-server.database.windows.net`* represents the Azure SQL server name that exists in global Azure, where the database should be migrated. The namespace "database.windows.net" is required, replace *public-server* with the name of your logical SQL server in global Azure.
+- *`public-server.database.windows.net`* represents the Azure SQL server name that exists in global Azure, where the database should be migrated. The namespace "database.windows.net" is required, replace *public-server* with the name of your logical SQL server in global Azure. The server in global Azure must have a different name than the primary server in Azure Germany.
 
 
 The command is executed on the master database on the Azure Germany server hosting the local database to be migrated. 
