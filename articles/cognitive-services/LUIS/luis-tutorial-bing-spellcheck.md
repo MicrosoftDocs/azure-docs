@@ -52,7 +52,8 @@ To create a Bing Search resource in the Azure portal, follow these instructions:
 
 4. An information panel appears to the right containing information including the Legal Notice. Select **Create** to begin the subscription creation process.
 
-    ![Bing Spell Check API V7 resource](./media/luis-tutorial-bing-spellcheck/bing-search-resource-portal.png)
+> [!div class="mx-imgBorder"]
+> ![Bing Spell Check API V7 resource](./media/luis-tutorial-bing-spellcheck/bing-search-resource-portal.png)
 
 5. In the next panel, enter your service settings. Wait for service creation process to finish.
 
