@@ -666,7 +666,7 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
 "resources": [
    {
       "type": "Microsoft.HybridCompute/machines/extensions",
-      "name": "[concat(parameters('vmName'),'/KVVMExtensionForWindows')]",
+      "name": "[concat(parameters('vmName'),'/KVVMExtensionForLinux')]",
       "apiVersion": "2019-12-12",
       "location": "[parameters('location')]",
       "properties": {
