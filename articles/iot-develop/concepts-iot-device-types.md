@@ -29,7 +29,7 @@ IoT devices can be separated into two broad categories, microcontrollers (MCUs) 
 
 **MPUs** will generally run a general purpose OS, such as Windows, Linux, or MacOSX, that provide a non-deterministic real-time response. There is typically no guarantee to when a task will be completed. 
 
-:::image type="content" source="media/concepts-iot-device-types/mcu-vs-mpu.png" alt-text="MCU vs MPU":::
+:::image type="content" border="false" source="media/concepts-iot-device-types/mcu-vs-mpu.png" alt-text="MCU vs MPU":::
 
 Below is a table showing some of the defining differences between an MCU and an MPU based system:
 
