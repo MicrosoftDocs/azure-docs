@@ -15,7 +15,7 @@ ms.author: duau
 > [!IMPORTANT]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
 
-Azure Front Door Standard/Premium is a fast, reliable, and secure modern cloud CDN that uses the Microsoft global edge network and integrates with intelligent threat protection. It combines the capabilities of Azure CDN Standard from Microsoft, Azure Front Door, Azure Web Application Firewall (WAF) into a single service.
+Azure Front Door Standard/Premium is a fast, reliable, and secure modern cloud CDN that uses the Microsoft global edge network and integrates with intelligent threat protection. It combines the capabilities of Azure CDN Standard from Microsoft, Azure Front Door, Azure Web Application Firewall (WAF) into a single secure cloud CDN platform.
 
 With Azure Front Door Standard/Premium, you can transform your global consumer and enterprise applications into secure and high-performing personalized modern applications with contents that reach a global audience with low latency.
 
