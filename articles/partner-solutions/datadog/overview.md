@@ -12,17 +12,17 @@ ms.author: tomfitz
 
 ## Overview
 
-Datadog is a monitoring and analytics platform for large-scale applications. It's a Software as a Service (SaaS) offering in the Azure Marketplace. Datadog aggregates data across your entire stack with 400+ integrations for troubleshooting, alerting, and graphing.
+Datadog is a monitoring and analytics platform for large-scale applications. It aggregates data across your entire stack with 400+ integrations for troubleshooting, alerting, and graphing. Datadog is available as a Software as a Service (SaaS) offering in the Azure Marketplace.
 
-The service is offered through the `Microsoft.Datadog` resource provider namespace.
+The service is accessed through the `Microsoft.Datadog` resource provider namespace.
 
 ## Capabilities
 
 Integrating Datadog with Azure provides the following capabilities:
 
-- **Seamless onboarding** - The Datadog SaaS software is an integrated service on Azure.
+- **Seamless onboarding** - The Datadog SaaS software is an integrated service on Azure. You can provision and manage the Datadog resource through the portal or command line.
 - **Unified billing** - Datadog costs are reported through Azure monthly bill.
-- **Single-Sign on to Datadog** - You don't need a separate sign-up from the Datadog portal.
+- **Single sign-on to Datadog** - You don't need a separate authentication for the Datadog portal.
 - **Log forwarder** - Enables forwarding of subscription activity and resource logs to Datadog.
 - **Metrics collection** - Automatically configure and set up Datadog crawler to send Azure resource metrics to Datadog.
 - **Datadog agent single pane of glass** - Provides a single pane of glass to install and uninstall Datadog agents on virtual machines and app services as extensions.

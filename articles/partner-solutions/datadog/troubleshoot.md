@@ -12,13 +12,13 @@ ms.author: tomfitz
 
 This document contains information about troubleshooting your solutions that use Datadog.
 
-## Unable to create a Datadog resource
+## Unable to create Datadog resource
 
 To set up the Azure Datadog integration, you must have **Owner** access on the Azure subscription. Ensure you have the appropriate access before starting the setup.
 
-## Single Sign On related errors
+## Single sign-on errors
 
-**An error shows unable to save Single sign-on settings** - This error happens where there's another Enterprise app that is using the Datadog SAML identifier. To find which app is using it, select **Edit** on the Basic SAML Configuration section.
+**Unable to save Single sign-on settings** - This error happens where there's another Enterprise app that is using the Datadog SAML identifier. To find which app is using it, select **Edit** on the Basic SAML Configuration section.
 
 To resolve this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO with Datadog. If you decide to use the other app, ensure the app has the [required settings](create.md#setup-datadog-single-sign-on-app).
 
@@ -36,13 +36,13 @@ The following image shows the correct values.
 
 When inviting guest user, use the home tenant UPN. By using the UPN, you keep the email address in-sync during the Single sign-on process. You can find the UPN by looking for the email address in the top-right corner of the user's Azure portal.
   
-## Logs not being emitted to Datadog
+## Logs not being emitted
 
 Only resources listed in the Azure Monitor resource log categories emit logs to Datadog. To verify whether the resource is emitting logs to Datadog, navigate to Azure diagnostic setting for the specific resource. Verify that there's a Datadog diagnostic setting.
 
 :::image type="content" source="media/troubleshoot/diagnosticsetting.png" alt-text="Datadog diagnostic setting on the Azure resource" border="true":::
 
-## Datadog agent not configured with the right API keys
+## Datadog agent installation fails
 
 The Azure Datadog integration provides you the ability to install Datadog agent on a virtual machine or app service. For configuring the Datadog agent, the API key selected as **Default Key** in the API Keys screen is used. If a default key isn't selected, the Datadog agent installation will fail.
 
