@@ -76,7 +76,7 @@ If the client library can't use UDP for media due to firewall restrictions, an a
 
 Signaling flows through the signaling controller. Media flows through the Media Processor. The signaling controller and Media Processor are shared between Communication Services and Microsoft Teams. 
 
-:::image type="content" source="./media/call-flows/teams-acs-meeting.png" alt-text="Diagram showing Communication Services client library and Teams Client in a scheduled Teams meeting.":::
+:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagram showing Communication Services client library and Teams Client in a scheduled Teams meeting.":::
 
 
 
