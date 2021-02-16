@@ -63441,6 +63441,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connector-deletion.md",
+      "redirect_url": "/azure/azure-monitor/alerts/itsmc-connector-deletion",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/platform/alerts-overview.md",
       "redirect_url": "/azure/azure-monitor/alerts/alerts-overview",
       "redirect_document_id": false
