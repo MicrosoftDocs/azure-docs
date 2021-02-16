@@ -12,27 +12,6 @@ ms.author: amgowda
 
 This article addresses frequent questions about Intel SGX based confidential computing nodes on Azure Kubernetes Service (AKS). If you have any further questions, email **acconaks@microsoft.com**.
 
-- [Are the confidential computing nodes on AKS in GA](#1)
-- [What is attestation and how can we do attestation of apps running in enclaves?](#2)
-- [Can I enable Accelerated Networking with Azure confidential computing AKS Clusters?](#3)
-- [Can I bring my existing containerized applications and run it on AKS with Azure Confidential Computing?](#4)
-- [What version of Intel SGX Driver version is on the AKS Image for confidential nodes?](#5)
-- [Can I inject post install scripts/customize drivers to the Nodes provisioned by AKS?](#6)
-- [Should I be using a Docker base image to get started on enclave applications?](#7)
-- [Can I run ACC Nodes with other standard AKS SKUs (build a heterogenous node pool cluster)?](#8)
-- [Can I run Windows Nodes and windows containers with ACC?](#9)
-- [What if my container size is more than available EPC memory?](#10)
-- [What happens if my enclave consumes more than maximum available EPC memory?](#11)
-- [Why can't I do forks () and exec to run multiple processes in my enclave application?](#12)
-- [Do you automatically install any additional daemonset to expose the SGX drivers?](#13)
-- [What is the VM SKU I should be choosing for confidential computing nodes?](#14)
-- [Can I still schedule and run non-enclave containers on confidential computing nodes?](#15)
-- [Can I provision AKS with DCSv2 Node Pools through Azure Portal?](#16)
-- [What Ubuntu version and VM generation is supported?](#17)
-- [What version of Kubernetes do you support and recommend?](#19)
-- [What are the known current limitations of the product?](#20)
-- [Will only signed and trusted images be loaded in the enclave for confidential computing?](#21)
-
 <a name="1"></a>
 ## Are the confidential computing nodes on AKS in GA? ##
 Yes
@@ -123,7 +102,7 @@ DCSv2 SKUs. The [DCSv2 SKUs](../virtual-machines/dcv2-series.md) are available i
 Yes. The VMs also have a regular memory that can run standard container workloads. Consider the security and threat model of your applications before you decide on the deployment models.
 <a name="16"></a>
 
-## Can I provision AKS with DCSv2 Node Pools through Azure portal? ##
+## Can I provision AKS with DCSv2 Node Pools through Azure Portal? ##
 
 Yes. Azure CLI could also be used as an alternative as documented [here](confidential-nodes-aks-get-started.md).
 
@@ -148,11 +127,11 @@ We support and recommend Kubernetes version 1.16 and above.
 - Supports Ubuntu 18.04 Gen 2 VM Nodes only 
 - No Windows Nodes Support or Windows Containers Support
 - EPC Memory based Horizontal Pod Autoscaling is not supported. CPU and regular memory-based scaling is supported.
-- Dev Spaces on AKS for confidential apps is not currently supported
+- Dev Spaces on AKS for confidential apps are not currently supported
 
 <a name="21"></a>
-## Will only signed and trusted images be loaded in the enclave for confidential computing?? ##
-Not natively during enclave initialization but yes through attestation process signature can be validated. Ref here[.attestation/basic-concepts#benefits-of-policy-signing]. 
+## Will only signed and trusted images be loaded in the enclave for confidential computing? ##
+Not natively during enclave initialization but yes through attestation process signature can be validated. Ref [here](../attestation/basic-concepts.md#benefits-of-policy-signing). 
 
 ## Next Steps
 Review the [confidential containers page](confidential-containers.md) for more details around confidential containers.
