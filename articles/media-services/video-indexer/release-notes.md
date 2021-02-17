@@ -34,7 +34,7 @@ Account owner role was added to Video Indexer. You can add, change and remove us
 
 ### Audio event detection (public preview on trial) 
 
-Video Indexer now detects the following audio effects in the non-speech segments of the content: gunshot, glass shatter, alarm, siren, explosion, dog bark, screaming, laughter, growd reactions (cheering, clapping and booing) and Silence. The newly added audio affects are available when choosing the **Advanced audio** preset on indexing. Standard indexing will only include **silence** and **crowd reaction**. 
+Video Indexer now detects the following audio effects in the non-speech segments of the content: gunshot, glass shatter, alarm, siren, explosion, dog bark, screaming, laughter, crowd reactions (cheering, clapping and booing) and Silence. The newly added audio affects are available when choosing the **Advanced audio** preset on indexing. Standard indexing will only include **silence** and **crowd reaction**. 
 
 The **clapping** event type that was included in the previous audio effects model, is now extracted a part of the **crowd reaction** event type.
 
