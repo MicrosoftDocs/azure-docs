@@ -299,10 +299,6 @@ This setting is configured in the **Active Directory Connections** under **NetAp
  
     A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
 
-## Configure LDAP over TLS
-
-If you want to configure LDAP over TLS for a volume, follow the steps described in [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md).
-
 ## Control access to an SMB volume  
 
 Access to an SMB volume is managed through permissions.  

@@ -159,10 +159,6 @@ You need to set the following attributes for LDAP users and LDAP groups:
 
 Follow instructions in [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md) to configure the NFS client.  
 
-## Configure LDAP over TLS
-
-If you want to configure LDAP over TLS for a volume, follow the steps described in [Configure LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md).
-
 ## Next steps  
 
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
