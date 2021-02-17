@@ -1,5 +1,5 @@
 ---
-title: 'Azure Front Door: Backend health monitoring'
+title: 'Azure Front Door Standard/Premium (Preview) Health probe monitoring'
 description: This article helps you understand how Azure Front Door monitors the health of your backend.
 services: frontdoor
 author: duongau
@@ -10,7 +10,7 @@ ms.date: 02/18/2021
 ms.author: duau
 ---
 
-# Health probe monitoring
+# Azure Front Door Standard/Premium (Preview) Health probe monitoring
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
