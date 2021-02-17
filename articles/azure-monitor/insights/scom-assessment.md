@@ -225,7 +225,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 
     >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](../log-query/log-query-overview.md), then the above query would change to the following.
+    > If your workspace has been upgraded to the [new Log Analytics query language](../logs/log-query-overview.md), then the above query would change to the following.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -250,7 +250,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 
     >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](../log-query/log-query-overview.md), then the above query would change to the following.
+    > If your workspace has been upgraded to the [new Log Analytics query language](../logs/log-query-overview.md), then the above query would change to the following.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -291,5 +291,5 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 ## Next steps
 
-- [Search logs](../log-query/log-query-overview.md) to learn how to analyze detailed System Center Operations Manager Health Check data and recommendations.
+- [Search logs](../logs/log-query-overview.md) to learn how to analyze detailed System Center Operations Manager Health Check data and recommendations.
 

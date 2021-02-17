@@ -502,11 +502,11 @@ Azure Cloud Shell supports Impact Level 5 workloads in Azure Government with no 
 
 <a name="log-analytics"></a>
 
-### [Log Analytics](../azure-monitor/platform/data-platform-logs.md)
+### [Log Analytics](../azure-monitor/logs/data-platform-logs.md)
 
-Log Analytics is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/platform/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
+Log Analytics is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/logs/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
-Log Analytics may also be used to ingest additional customer-provided logs. These logs may include data ingested as part of operating Azure Security Center or Azure Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/platform/customer-managed-keys.md).
+Log Analytics may also be used to ingest additional customer-provided logs. These logs may include data ingested as part of operating Azure Security Center or Azure Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/logs/customer-managed-keys.md).
 
 ### [Microsoft Intune](/intune/what-is-intune)
 

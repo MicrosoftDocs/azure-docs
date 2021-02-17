@@ -10,7 +10,7 @@ ms.topic: overview
 
 Azure Arc enabled servers allows you to manage your Windows and Linux machines hosted outside of Azure, on your corporate network, or other cloud provider consistent with how you manage native Azure virtual machines. When a hybrid machine is connected to Azure, it becomes a connected machine and is treated as a resource in Azure. Each connected machine has a Resource ID, is included in a resource group, and benefits from standard Azure constructs such as Azure Policy and applying tags. Service providers who manage a customer's on-premises infrastructure can manage their hybrid machines, just like they do today with native Azure resources, across multiple customer environments, using [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) with Azure Arc.
 
-To deliver this experience with your hybrid machines hosted outside of Azure, the Azure Connected Machine agent needs to be installed on each machine that you plan on connecting to Azure. This agent does not deliver any other functionality, and it doesn't replace the Azure [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to proactively monitor the OS and workloads running on the machine, manage it using Automation runbooks or solutions like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).
+To deliver this experience with your hybrid machines hosted outside of Azure, the Azure Connected Machine agent needs to be installed on each machine that you plan on connecting to Azure. This agent does not deliver any other functionality, and it doesn't replace the Azure [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to proactively monitor the OS and workloads running on the machine, manage it using Automation runbooks or solutions like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).
 
 ## Supported scenarios
 
@@ -20,7 +20,7 @@ When you connect your machine to Azure Arc enabled servers, it enables the abili
 
 - Report on configuration changes about installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers using Azure Automation [Change Tracking and Inventory](../../automation/change-tracking/overview.md).
 
-- Monitor your connected machine guest operating system performance, and discover application components to monitor their processes and dependencies with other resources the application communicates using [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md).
+- Monitor your connected machine guest operating system performance, and discover application components to monitor their processes and dependencies with other resources the application communicates using [Azure Monitor for VMs](../../azure-monitor/vm/vminsights-overview.md).
 
 - Simplify deployment with other Azure services like Azure Automation [State Configuration](../../automation/automation-dsc-overview.md) and Azure Monitor Log Analytics workspace using the supported [Azure VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machine. This includes performing post-deployment configuration or software installation using the Custom Script Extension.
 
@@ -31,7 +31,7 @@ When you connect your machine to Azure Arc enabled servers, it enables the abili
 
 - Include your non-Azure servers for threat detection and proactively monitor for potential security threats using [Azure Security Center](../../security-center/security-center-introduction.md).
 
-Log data collected and stored in a Log Analytics workspace from the hybrid machine now contains properties specific to the machine, such as a Resource ID. This can be used to support [resource-context](../../azure-monitor/platform/design-logs-deployment.md#access-mode) log access.
+Log data collected and stored in a Log Analytics workspace from the hybrid machine now contains properties specific to the machine, such as a Resource ID. This can be used to support [resource-context](../../azure-monitor/logs/design-logs-deployment.md#access-mode) log access.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
