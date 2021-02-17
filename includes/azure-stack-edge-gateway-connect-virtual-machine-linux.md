@@ -12,13 +12,13 @@ Open an SSH session to connect with the IP address.
 
 `ssh -l <username> <ip address>`
 
-When prompted, provide the password that you used when creating the VM.
+At the prompt, provide the password that you used when you created the VM.
 
 If you need to provide the SSH key, use this command.
 
 `ssh -i c:/users/Administrator/.ssh/id_rsa Administrator@5.5.41.236`
 
-Here is a sample output when connecting to VM:
+Here is an example output when you connect to the VM:
 
 ```powershell
 PS C:\07-30-2020\linux> ssh -l Administrator 10.126.68.186
@@ -60,9 +60,9 @@ See "man sudo_root" for details.
 Administrator@mylinuxvm:
 ```
 
-If you used a public IP address during VM creation, you can use that IP to connect to the VM. To get the public IP: 
+If you used a public IP address during the VM creation, you can use that IP to connect to the VM. To get the public IP, run the following command: 
 
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-The public IP in this case will be the same as the private IP that you passed during the creation of the virtual network interface.
+In this instance, the public IP is the same as the private IP that you passed during the creation of the virtual network interface.
