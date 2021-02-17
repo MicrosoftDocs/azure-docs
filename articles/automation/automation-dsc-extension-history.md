@@ -1,7 +1,7 @@
 ---
 title: Work with Azure Desired State Configuration extension version history
-description: This article tells how to work with the version history for the Desired State Configuration (DSC) extension in Azure.
-ms.date:  07/22/2020
+description: This article shares version history information for the Desired State Configuration (DSC) extension in Azure.
+ms.date:  02/17/2021
 keywords:  dsc, powershell, azure, extension
 services: automation
 ms.subservice: dsc
@@ -10,14 +10,34 @@ ms.topic: conceptual
 
 # Work with Azure Desired State Configuration extension version history
 
-The Azure Desired State Configuration (DSC) VM Extension is updated as-needed to support
-enhancements and new capabilities delivered by Azure, Windows Server, and the Windows Management
-Framework (WMF) that includes Windows PowerShell.
+The Azure Desired State Configuration (DSC) VM Extension is updated as-needed to support enhancements and new capabilities delivered by Azure, Windows Server, and the Windows Management Framework (WMF) that includes Windows PowerShell.
 
-This article provides information about each version of the Azure DSC VM Extension, what
-environments it supports, and comments and remarks on new features or changes.
+This article provides information about each version of the Azure DSC VM Extension, what environments it supports, and comments and remarks on new features or changes.
 
 ## Latest version
+
+### Version 2.83
+
+- **Release date:**
+  - February 2021
+- **OS support:**
+  - Windows Server 2019
+  - Windows Server 2016
+  - Windows Server 2012 R2
+  - Windows Server 2012
+  - Windows Server 2008 R2 SP1
+  - Windows Client 7/8.1/10
+  - Nano Server
+- **WMF support:**
+  - WMF 5.1
+  - WMF 5.0 RTM
+  - WMF 4.0 Update
+  - WMF 4.0
+- **Environment:**
+  - Azure
+  - Azure China Vianet 21
+  - Azure Government
+- **Remarks:** This release includes a fix for unsigned binaries with the Windows VM extension.
 
 ### Version 2.80
 
