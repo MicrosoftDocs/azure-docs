@@ -139,6 +139,20 @@ Scheduled processing usually coincides with a need for incremental indexing of c
 + [Azure Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
+## Change detection and indexer state
+
+Indexers can detect changes in the underlying data and only process new or updated documents on each indexer run. For example, if indexer status says that a run was successful with `0/0` documents processed, it means that the indexer didn't find any new or changed rows or blobs in the underlying data source.
+
+How an indexer supports change detection varies by data source:
+
++ Azure Blob Storage, Azure Table Storage, and Azure Data Lake Storage Gen2 stamp each blob or row update with a date and time. The various indexers use this information to determine which documents to update in the index. Built-in change detection means that an indexer can recognize new and updated documents, with no additional configuration required on your part.
+
++ Azure SQL and Cosmos DB provide change detection features in their platforms. You can specify the change detection policy in your data source definition.
+
+For large indexing loads, an indexer also keeps track of the last document it processed through an internal "high water mark". The marker is never exposed in the API, but internally the indexer keeps track of where it stopped. When indexing resumes, either through a scheduled run or an on-demand invocation, the indexer references the high water mark so that it can pick up where it left off.
+
+If you need to clear the high water mark to re-index in full, you can use [Reset Indexer](https://docs.microsoft.com/rest/api/searchservice/reset-indexer). For more selective re-indexing, use [Reset Skills](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) or [Reset Documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents). Through the reset APIs, you can clear internal state, and also flush the cache if you enabled [incremental enrichment](search-howto-incremental-index.md). For more background and comparison of each reset option, see [Run or reset indexers, skills, and documents](search-howto-run-reset-indexers.md).
+
 ## Know your data
 
 Indexers expect a tabular row set, where each row becomes a full or partial search document in the index. Often, there is a one-to-one correspondence between a row and the resulting search document, where all the fields in the row set fully populate each document. But you can use indexers to generate just part of a document, for example if you're using multiple indexers or approaches to build out the index. 

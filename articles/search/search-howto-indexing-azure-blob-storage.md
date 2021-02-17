@@ -9,6 +9,7 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
+ms.custom: contperf-fy21q3
 ---
 
 # How to configure blob indexing in Cognitive Search

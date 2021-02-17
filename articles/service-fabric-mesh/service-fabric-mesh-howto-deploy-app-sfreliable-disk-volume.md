@@ -9,6 +9,12 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ---
 
 # Mount highly available Service Fabric Reliable Disk based volume in a Service Fabric Mesh application 
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 The common method of persisting state with container apps is to use remote storage like Azure File Storage or database like Azure Cosmos DB. This incurs significant read and write network latency to the remote store.
 
 This article shows how to store state in highly available Service Fabric Reliable Disk by mounting a volume inside the container of a Service Fabric Mesh application.

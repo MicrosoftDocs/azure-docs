@@ -69,7 +69,7 @@ The Security Module for Azure RTOS supports specific security alerts and recomme
 
 ## Log Analytics (optional)
 
-While optional and not required, enabling and configuring Log Analytics can be helpful when you wish to further investigate device events and activities. Read about how to setting up and use [Log Analytics with the Defender for IoT service](how-to-security-data-access.md#log-analytics) to learn more. 
+While optional and not required, enabling and configuring Log Analytics can be helpful when you wish to further investigate device events and activities. Read about how to setup and use [Log Analytics with the Defender for IoT service](how-to-security-data-access.md#log-analytics) to learn more. 
 
 ## Next steps
 
