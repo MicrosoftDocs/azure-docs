@@ -127,7 +127,7 @@ Once you have completed configuring metrics and logs, select **Next: Single sign
 
 If your organization uses Azure Active Directory as its identity provider, you can establish single sign-on from the Azure portal to Datadog. If your organization uses some other identity provider or you don't want to establish single sign-on at this time, you can skip this section.
 
-If you're linking the Datadog resource to an existing Datadog organization, you can't set up single sign-on at this step. Instead, you set up single sign-on after creating the Datadog resource. For more information, see [Reconfigure single sign-on]().
+If you're linking the Datadog resource to an existing Datadog organization, you can't set up single sign-on at this step. Instead, you set up single sign-on after creating the Datadog resource. For more information, see [Reconfigure single sign-on](manage.md#reconfigure-single-sign-on).
 
 :::image type="content" source="media/create/linkingsso.png" alt-text="Single sign-on for linking to existing Datadog organization." border="true":::
 

@@ -4,7 +4,7 @@ description: Learn about using Datadog in the Azure Marketplace.
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.author: tomfitz
 ---
 
@@ -12,11 +12,11 @@ ms.author: tomfitz
 
 ## Overview
 
-Azure Datadog integration is an Azure marketplace offering that enables Datadog to run as a service on Azure. Datadog is a monitoring and analytics platform for large-scale applications. It aggregates data across your entire stack with 400+ integrations for troubleshooting, alerting, and graphing. 
+Azure Datadog integration is a Marketplace offering that enables Datadog to run as a service on Azure. Datadog is a monitoring and analytics platform for large-scale applications. It aggregates data across your entire stack with 400+ integrations for troubleshooting, alerting, and graphing.
 
-Datadog will now be available in the Azure console as an integrated service running on Azure. This means that Azure customers will be able to implement Datadog as a monitoring solution for their cloud workloads through new streamlined workflows that cover everything from procurement to configuration. The improved onboarding experience makes Datadog setup automatic, so new users can start monitoring the health and performance of their applications with Datadog quickly, whether they are based entirely in Azure or spread across hybrid or multi-cloud environments.
+Datadog is available in the Azure console as an integrated service running on Azure. This availability means you can implement Datadog as a monitoring solution for your cloud workloads through a streamlined workflow. The workflow covers everything from procurement to configuration. The onboarding experience simplifies how you start monitoring the health and performance of your applications, whether they're based entirely in Azure or spread across hybrid or multi-cloud environments.
 
-Now, you provision the Datadog resources through a resource provider named `Microsoft.Datadog`. You can create, provision and manage Datadog organization resources through the [Azure portal](https://portal.azure.com/). Datadog owns and runs the software as a service (SaaS) application including the organization and API keys.
+You provision the Datadog resources through a resource provider named `Microsoft.Datadog`. You can create, provision, and manage Datadog organization resources through the [Azure portal](https://portal.azure.com/). Datadog owns and runs the software as a service (SaaS) application including the organization and API keys.
 
 ## Capabilities
 
@@ -31,8 +31,7 @@ Integrating Datadog with Azure provides the following capabilities:
 
 ## Datadog links
 
-For more help with using Datadog, see the following links to the [Datadog site]().
-
+For more help with using Datadog, see the following links to the [Datadog site](https://www.datadoghq.com/).
 
 ## Next steps
 
