@@ -221,11 +221,12 @@ The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-The query example used in this call returns results in the form of a [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) object. 
+The query example used in this call returns results in the form of a [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) object. However, the return type of your data for each query will depend on what terms you specify with the `SELECT` statement:
+* Queries that begin with `SELECT * FROM ...` will return a list of digital twins (which can be serialized as `BasicDigitalTwin` objects).
+* Queries that begin in the format `SELECT <A>, <B>, <C> FROM ...` will return a dictionary with keys `<A>`, `<B>`, and `<C>`.
+* Other formats of `SELECT` statements can be crafted to return custom data. You might consider creating your own classes to handle very customized result sets. 
 
-However, the return type of your data for every query will depend on what terms you specify with the `SELECT` statement. For instance, if you are querying for an aggregate value, the result may be a collection of twins; if you are querying with a `JOIN`, the result may be in dictionary format. You should consider the query contents when specifying a type for the response, and even consider creating your own class to store the results if the query returns a very customized set of information.
-
-### Run query with paging
+### Query with paging
 
 Query calls support paging. Here is a complete example using `BasicDigitalTwin` as query result type with error handling and paging:
 
