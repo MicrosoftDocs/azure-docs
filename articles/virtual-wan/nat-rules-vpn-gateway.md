@@ -22,13 +22,13 @@ You can configure your Virtual WAN VPN gateway with static one-to-one NAT rules.
 
 This configuration uses a flow table to route traffic from an external (host) IP Address to an internal IP address associated with an endpoint inside a virtual network (virtual machine, computer, container, etc.).
 
-   :::image type="content" source="./media/nat-rules-vpn-gateway/architecture.png" alt-text="architecture diagram":::
+   :::image type="content" source="./media/nat-rules-vpn-gateway/diagram.png" alt-text="Diagram showing architecture.":::
 
 ## <a name="view"></a>Configure and view rules
 
 You can configure and view NAT rules on your VPN gateway settings at any time.
 
-   :::image type="content" source="./media/nat-rules-vpn-gateway/edit-rules.png" alt-text="Edit rules":::
+   :::image type="content" source="./media/nat-rules-vpn-gateway/edit-rules.png" alt-text="Screenshot showing edit rules.":::
 
 1. Navigate to your virtual hub.
 1. Select **VPN (Site to site)**.
