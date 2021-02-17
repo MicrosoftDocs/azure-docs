@@ -142,7 +142,6 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
 
     >[!NOTE]
     >You need to have the right permission to add the certificate from Azure Key Vault as a user. 
-    > 
 
     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-secret.png" alt-text="Screenshot of add a secret in custom create.":::
 
