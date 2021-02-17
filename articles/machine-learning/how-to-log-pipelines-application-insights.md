@@ -20,7 +20,7 @@ Having your logs in once place will provide a history of exceptions and error me
 
 ## Prerequisites
 
-* Follow the steps to create an [Azure Machine Learning](./how-to-manage-workspace.md) workspace and [create your first pipeline](./how-to-create-your-first-pipeline.md)
+* Follow the steps to create an [Azure Machine Learning](./how-to-manage-workspace.md) workspace and [create your first pipeline](./how-to-create-machine-learning-pipelines.md)
 * [Configure your development environment](./how-to-configure-environment.md) to install the Azure Machine Learning SDK.
 * Install the [OpenCensus Azure Monitor Exporter](https://pypi.org/project/opencensus-ext-azure/) package locally:
   ```python
@@ -128,7 +128,7 @@ custom_dimensions = {
 }
 
 # Assumes AzureLogHandler was already registered above
-logger.info("I will be sent to Application Insights with Custom Dimensions", custom_dimensions)
+logger.info("I will be sent to Application Insights with Custom Dimensions", extra= {"custom_dimensions":custom_dimensions})
 ```
 
 ## OpenCensus Python logging considerations
@@ -158,6 +158,6 @@ Some of the queries below use 'customDimensions.Level'. These severity levels co
 
 ## Next Steps
 
-Once you have logs in your Application Insights instance, they can be used to set [Azure Monitor alerts](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) based on query results.
+Once you have logs in your Application Insights instance, they can be used to set [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md#what-you-can-alert-on) based on query results.
 
-You can also add results from queries to an [Azure Dashboard](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) for additional insights.
+You can also add results from queries to an [Azure Dashboard](../azure-monitor/app/tutorial-app-dashboards.md#add-logs-query) for additional insights.

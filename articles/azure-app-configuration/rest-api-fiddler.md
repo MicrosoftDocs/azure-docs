@@ -1,8 +1,8 @@
 ﻿---
 title: Azure Active Directory REST API - Test Using Fiddler
 description: Use Fiddler to test the Azure App Configuration REST API
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020

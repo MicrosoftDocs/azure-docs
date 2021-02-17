@@ -60,22 +60,22 @@ You can now perform and manage all Site Recovery operations for the tenant in th
 ## Assign tenant access to the subscription
 
 1. Ensure that the disaster recovery infrastructure is set up. Partners access tenant subscriptions through the CSP portal, regardless of whether disaster recovery is managed or self-service. Set up the vault and register infrastructure to the tenant subscriptions.
-2. Provide the tenant with the [account you created](#create-a-tenant-account).
-3. You can add a new user to the tenant subscription through the CSP portal as follows:
+1. Provide the tenant with the [account you created](#create-a-tenant-account).
+1. You can add a new user to the tenant subscription through the CSP portal as follows:
 
-    a) Go to the tenant’s CSP subscription page, and then select the **Users and licenses** option.
+    1. Go to the tenant’s CSP subscription page, and then select the **Users and licenses** option.
 
-	  ![The tenant's CSP subscription page](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
+       ![The tenant's CSP subscription page](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-	b) Now create a new user by entering the relevant details and selecting permissions, or by uploading the list of users in a CSV file.
-    
-    c) After you've created a new user, go back to the Azure portal. In the **Subscription** page, select the relevant subscription.
+	1. Now create a new user by entering the relevant details and selecting permissions, or by uploading the list of users in a CSV file.
 
-    d) Select **Access control (IAM)**, and then click **Role assignments**.
+    1. After you've created a new user, go back to the Azure portal. In the **Subscription** page, select the relevant subscription.
 
-    e) Click **Add role assignment** to add a user with the relevant access level. The users that were created through the CSP portal are displayed on the Role assignments tab.
+    1. Select **Access control (IAM)**, and then click **Role assignments**.
 
-	  ![Add a user](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
+    1. Click **Add role assignment** to add a user with the relevant access level. The users that were created through the CSP portal are displayed on the Role assignments tab.
+
+        ![Add a user](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
 - For most management operations, the *Contributor* role is sufficient. Users with this access level can do everything on a subscription except change access levels (for which *Owner*-level access is required).
 - Site Recovery also has three [predefined user roles](site-recovery-role-based-linked-access-control.md), that can be used to further restrict access levels as required.

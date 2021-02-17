@@ -1,6 +1,6 @@
 ---
-title: Weather Services concepts in Microsoft Azure Maps
-description: Learn about the concepts that apply to Microsoft Azure Maps Weather Services.
+title: Weather services (Preview) concepts in Microsoft Azure Maps
+description: Learn about the concepts that apply to Microsoft Azure Maps Weather services (Preview).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -10,13 +10,18 @@ services: azure-maps
 manager: philmea
 ---
 
-# Weather services in Azure Maps
+# Weather services (Preview) in Azure Maps
 
-This article introduces concepts that apply to the [Azure Maps Weather Services](/rest/api/maps/weather). We recommend going through this article before starting out with the weather APIs.
+> [!IMPORTANT]
+> Azure Maps Weather services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This article introduces concepts that apply to Azure Maps [Weather services](/rest/api/maps/weather). We recommend going through this article before starting out with the weather APIs.
 
 ## Unit types
 
-Some of the Weather service APIs allow user to specify if the data is returned either in metric or in imperial units. The returned responses for these APIs include unitType and a numeric value that can be used for unit translations. See table below to interpret these values.
+Some of the Weather service (Preview) APIs allow user to specify if the data is returned either in metric or in imperial units. The returned responses for these APIs include unitType and a numeric value that can be used for unit translations. See table below to interpret these values.
 
 |unitType|Description         |
 |--------|--------------------|
@@ -47,7 +52,7 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 
 ## Weather icons
 
-Some of the Weather service APIs return the `iconCode` in the response. The `iconCode` is a numeric value used to define the icon. Don't link directly to these images from your applications, the URLs can and will change.
+Some of the Weather service (Preview) APIs return the `iconCode` in the response. The `iconCode` is a numeric value used to define the icon. Don't link directly to these images from your applications, the URLs can and will change.
 
 | Icon Number |Icon| Day | Night | Text |
 |-------------|:----:|-----|-------|------|

@@ -10,11 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 11/23/2020
+ms.date: 01/07/2021
 ms.author: vinigam
 #Customer intent: I need to migrate from Connection Monitor to Connection Monitor. 
 ---
 # Migrate to Connection Monitor from Connection Monitor (Classic)
+
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new connection monitors in Connection Monitor (classic) but you can continue to use existing connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate from Connection Monitor (classic) to the new Connection Monitor](migrate-to-connection-monitor-from-connection-monitor-classic.md)  in Azure Network Watcher before 29 February 2024.
 
 You can migrate existing connection monitors to new, improved Connection Monitor with only a few clicks and with zero downtime. To learn more about the benefits, see [Connection Monitor](./connection-monitor-overview.md).
 

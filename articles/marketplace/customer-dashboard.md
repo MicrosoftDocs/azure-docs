@@ -139,7 +139,7 @@ _**Table 1: Dictionary of data terms**_
 
 | Column name | Attribute name | Definition |
 | ------------ | ------------- | ------------- |
-| Marketplace Subscription Id | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. ID was formerly the Azure Subscription GUID. |
+| Marketplace Subscription Id | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. For infrastructure offers, this is the customer's Azure subscription GUID. For SaaS offers, this is shown as zeros since SaaS purchases do not require an Azure subscription. |
 | DateAcquired | Date Acquired | The first date the customer purchased any offer you published. |
 | DateLost | Date Lost | The last date the customer canceled the last of all previously purchased offers. |
 | Provider Name | Provider Name | The name of the provider involved in the relationship between Microsoft and the customer. If the customer is an Enterprise through Reseller, this will be the reseller. If a Cloud Solution Provider (CSP) is involved, this will be the CSP. |

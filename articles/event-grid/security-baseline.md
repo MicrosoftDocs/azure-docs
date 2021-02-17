@@ -177,9 +177,9 @@ related to Azure Event Grid, such as:- Azure Event Grid domains should use priva
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to Azure Event Grid. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -223,7 +223,7 @@ related to Azure Event Grid, such as:- Azure Event Grid domains should use priva
 
 **Guidance**: In Azure Monitor, set the log retention period for Log Analytics workspaces associated with your Azure Event Grid resources according to your organization's compliance regulations.
 
-- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -241,9 +241,9 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Getting started with Log Analytics queries](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Getting started with Log Analytics queries](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -265,7 +265,7 @@ Additionally, you can onboard your Log Analytics workspace to Azure Sentinel as 
 
 - [Details of Event Grid diagnostic log schema](diagnostic-logs.md)
 
-- [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -309,9 +309,9 @@ Azure role-based access control (Azure RBAC) allows you to manage access to Azur
 
 - [Authorizing access to Event Grid resources](security-authorization.md)
 
-- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center monitoring**: Yes
 
@@ -534,7 +534,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Event Grid resources and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -717,7 +717,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization before deployments.
 
-- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -759,9 +759,9 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 
 **Guidance**: If using custom Azure Policy definitions for your Event Grid or related resources, use Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/index)
 
 **Azure Security Center monitoring**: Not Applicable
 

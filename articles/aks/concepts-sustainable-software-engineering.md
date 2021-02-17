@@ -8,7 +8,7 @@ ms.date: 08/26/2020
 
 # Sustainable software engineering principles in Azure Kubernetes Service (AKS)
 
-The sustainable software engineering principles are a set of competencies to help you define, build, and run sustainable applications. The overall goal is to reduce your carbon footprint of every aspect of your application. The [Principles.Green project][principles-green] has an overview of the principles of sustainable software engineering.
+The sustainable software engineering principles are a set of competencies to help you define, build, and run sustainable applications. The overall goal is to reduce your carbon footprint of every aspect of your application. [The Principles of Sustainable Software Engineering][principles-sse] has an overview of the principles of sustainable software engineering.
 
 An important idea to understand about sustainable software engineering is that it's a shift in priorities and focus. In many cases, software is designed and ran in a way that focuses on fast performance and low latency. Sustainable software engineering focuses on reducing as much carbon emissions as possible. In some cases, applying sustainable software engineering principles can give you faster performance or lower latency, such as by lowering total network travel. In other cases, reducing carbon emissions may cause slower performance or increased latency, such as delaying low-priority workloads. Before considering applying sustainable software engineering principles to your application, review the priorities, needs, and trade-offs of your application.
 
@@ -56,7 +56,7 @@ Learn more about the features of AKS mentioned in this article:
 * [Availability Zones][availability-zones]
 
 [availability-zones]: availability-zones.md
-[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md
+[azure-monitor]: ../azure-monitor/containers/container-insights-overview.md
 [azure-traffic-manager]: ../traffic-manager/traffic-manager-overview.md
 [proiximity-placement-groups]: reduce-latency-ppg.md
 [regions]: faq.md#which-azure-regions-currently-provide-aks
@@ -69,4 +69,4 @@ Learn more about the features of AKS mentioned in this article:
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principles-green]: https://principles.green/
+[principles-sse]: https://docs.microsoft.com/learn/modules/sustainable-software-engineering-overview/

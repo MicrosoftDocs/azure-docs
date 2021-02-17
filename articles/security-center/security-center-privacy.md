@@ -93,4 +93,4 @@ A Security Center user can choose to opt out by deleting their [security contact
 [Alert data](security-center-managing-and-responding-alerts.md) is considered security data and is retained for a period of two years.
 
 ## Auditing and reporting
-Audit logs of security contact, just-in-time, and alert updates are maintained in [Azure Activity Logs](../azure-monitor/platform/platform-logs-overview.md).
+Audit logs of security contact, just-in-time, and alert updates are maintained in [Azure Activity Logs](../azure-monitor/essentials/platform-logs-overview.md).

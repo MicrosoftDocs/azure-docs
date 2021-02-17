@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Create a Batch account - Azure Resource Manager template
-description: Quickly learn to run a Batch job with the Azure CLI. Create and manage Azure resources from the command line or in scripts.
+description: This quickstart shows how to create a Batch account by using an ARM template.
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: subject-armqs

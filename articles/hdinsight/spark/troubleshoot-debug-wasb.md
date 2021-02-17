@@ -1,9 +1,6 @@
 ---
 title: Debug WASB file operations in Azure HDInsight
 description: Describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/18/2020

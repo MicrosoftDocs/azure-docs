@@ -127,6 +127,7 @@ Multi-path (MPIO) | Yes | Yes
 Locally redundant storage | Yes | Yes
 Geo-redundant storage | Yes | Yes
 Read-access geo-redundant storage | Yes | Yes
+Zone-redundant storage | No | No
 Cool storage | No | No
 Hot storage| No | No
 Block blobs | No | No

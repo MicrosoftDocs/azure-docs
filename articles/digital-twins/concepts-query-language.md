@@ -8,7 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated

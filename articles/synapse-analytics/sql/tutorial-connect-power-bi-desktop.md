@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to:
 To complete this tutorial, you need the following prerequisites:
 
 - [Power BI Desktop](https://powerbi.microsoft.com/downloads/) - needed to visualize the data and create a report.
-- [Azure Synapse workspace](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio) - needed to create database, external data source, and view.
+- [Azure Synapse workspace](../get-started-create-workspace.md) - needed to create database, external data source, and view.
 
 Optional:
 

@@ -35,7 +35,7 @@ Each API operates independently, except the Gremlin and SQL API, which are inter
 
 ### Is Azure Cosmos DB HIPAA compliant?
 
-Yes, Azure Cosmos DB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
+Yes, Azure Cosmos DB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](/compliance/regulatory/offering-hipaa-hitech).
 
 ### What are the storage limits of Azure Cosmos DB?
 
@@ -174,7 +174,7 @@ The SQL API supports low-latency aggregation at any scale via aggregate function
 
 The SQL API supports optimistic concurrency control (OCC) through HTTP entity tags, or ETags. Every SQL API resource has an ETag, and the ETag is set on the server every time a document is updated. The ETag header and the current value are included in all response messages. ETags can be used with the If-Match header to allow the server to decide whether a resource should be updated. The If-Match value is the ETag value to be checked against. If the ETag value matches the server ETag value, the resource is updated. If the ETag is no longer current, the server rejects the operation with an "HTTP 412 Precondition failure" response code. The client then refetches the resource to acquire the current ETag value for the resource. In addition, ETags can be used with the If-None-Match header to determine whether a refetch of a resource is needed.
 
-To use optimistic concurrency in .NET, use the [AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition) class. For a .NET sample, see [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) in the DocumentManagement sample on GitHub.
+To use optimistic concurrency in .NET, use the [AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition) class. For a .NET sample, see [Program.cs](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/DocumentManagement/Program.cs) in the DocumentManagement sample on GitHub.
 
 ### How do I perform transactions in the SQL API?
 

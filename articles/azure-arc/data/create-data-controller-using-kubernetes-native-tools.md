@@ -33,11 +33,9 @@ If you installed Azure Arc data controller in the past, on the same cluster and 
 ```console
 # Cleanup azure arc data service artifacts
 kubectl delete crd datacontrollers.arcdata.microsoft.com 
-kubectl delete sqlmanagedinstances.sql.arcdata.microsoft.com 
-kubectl delete postgresql-11s.arcdata.microsoft.com 
-kubectl delete postgresql-12s.arcdata.microsoft.com
-kubectl delete clusterroles azure-arc-data:cr-arc-metricsdc-reader
-kubectl delete clusterrolebindings azure-arc-data:crb-arc-metricsdc-reader
+kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com 
+kubectl delete crd postgresql-11s.arcdata.microsoft.com 
+kubectl delete crd postgresql-12s.arcdata.microsoft.com
 ```
 
 ## Overview
@@ -54,7 +52,7 @@ Creating the Azure Arc data controller has the following high level steps:
 Run the following command to create the custom resource definitions.  **[Requires Kubernetes Cluster Administrator Permissions]**
 
 ```console
-kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/custom-resource-definitions.yaml
+kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/custom-resource-definitions.yaml
 ```
 
 ## Create a namespace in which the data controller will be created
@@ -74,7 +72,7 @@ The bootstrapper service handles incoming requests for creating, editing, and de
 Run the following command to create a bootstrapper service, a service account for the bootstrapper service, and a role and role binding for the bootstrapper service account.
 
 ```console
-kubectl create --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/bootstrapper.yaml
+kubectl create --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/bootstrapper.yaml
 ```
 
 Verify that the bootstrapper pod is running using the following command.  You may need to run it a few times until the status changes to `Running`.
@@ -97,7 +95,7 @@ containers:
       - env:
         - name: ACCEPT_EULA
           value: "Y"
-        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-oct-2020  <-- template value to change
+        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-dec-2020  <-- template value to change
         image: <your registry DNS name or IP address>/<your repo>/arc-bootstrapper:<your tag>
         imagePullPolicy: IfNotPresent
         name: bootstrapper
@@ -145,7 +143,7 @@ echo '<your string to encode here>' | base64
 # echo 'example' | base64
 ```
 
-Once you have encoded the username and password you can create a file based on the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/controller-login-secret.yaml) and replace the username and password values with your own.
+Once you have encoded the username and password you can create a file based on the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml) and replace the username and password values with your own.
 
 Then run the following command to create the secret.
 
@@ -160,7 +158,7 @@ kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.y
 
 Now you are ready to create the data controller itself.
 
-First, create a copy of the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/data-controller.yaml) locally on your computer so that you can modify some of the settings.
+First, create a copy of the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/data-controller.yaml) locally on your computer so that you can modify some of the settings.
 
 Edit the following as needed:
 
@@ -195,7 +193,7 @@ spec:
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always
-    imageTag: public-preview-oct-2020 
+    imageTag: public-preview-dec-2020 
     registry: mcr.microsoft.com
     repository: arcdata
   security:

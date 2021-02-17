@@ -3,8 +3,7 @@ title: Tutorial for using Azure App Configuration Key Vault references in a Java
 description: In this tutorial, you learn how to use Azure App Configuration's Key Vault references from a Java Spring Boot app
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 
 ms.assetid: 
@@ -12,8 +11,8 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/16/2019
-ms.author: lcozzens
+ms.date: 08/11/2020
+ms.author: alkemper
 ms.custom: mvc, devx-track-java, devx-track-azurecli
 
 #Customer intent: I want to update my Spring Boot application to reference values stored in Key Vault through App Configuration.
@@ -91,7 +90,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Connect to Key Vault
 
-1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
+1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command:
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth

@@ -7,8 +7,6 @@ ms.date: 01/22/2020
 ms.author: trbye
 ---
 
-## Speech modes
-
 **Interactive**
 - Meant for command and control scenarios.
 - Has a segmentation time out value of X.

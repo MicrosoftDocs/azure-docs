@@ -34,6 +34,7 @@ The following sample *host.json* file for version 2.x+ has all possible options 
         "flushTimeout": "00:00:30"
     },
     "extensions": {
+        "blobs": {},
         "cosmosDb": {},
         "durableTask": {},
         "eventHubs": {},
@@ -124,7 +125,8 @@ The following sample *host.json* file for version 2.x+ has all possible options 
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 
@@ -209,6 +211,10 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 | tempFolder | null | Specifies the folder to write minidumps and uploader log files. If not set, then *%TEMP%\Dumps* is used. |
 | thresholdForSnapshotting | 1 | How many times Application Insights needs to see an exception before it asks for snapshots. |
 | uploaderProxy | null | Overrides the proxy server used in the Snapshot Uploader process. You may need to use this setting if your application connects to the internet via a proxy server. The Snapshot Collector runs within your application's process and will use the same proxy settings. However, the Snapshot Uploader runs as a separate process and you may need to configure the proxy server manually. If this value is null, then Snapshot Collector will attempt to autodetect the proxy's address by examining System.Net.WebRequest.DefaultWebProxy and passing on the value to the Snapshot Uploader. If this value isn't null, then autodetection isn't used and the proxy server specified here will be used in the Snapshot Uploader. |
+
+## blobs
+
+Configuration settings can be found in [Storage blob triggers and bindings](functions-bindings-storage-blob.md#hostjson-settings).  
 
 ## cosmosDb
 
@@ -372,7 +378,7 @@ Managed dependency is a feature that is currently only supported with PowerShell
 
 ## queues
 
-Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue-output.md#host-json).  
+Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue.md#host-json).  
 
 ## retry
 
@@ -439,6 +445,16 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## watchFiles
+
+An array of one or more names of files that are monitored for changes that require your app to restart.  This guarantees that when code in these files are changed, the updates are picked up by your functions.
+
+```json
+{
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 

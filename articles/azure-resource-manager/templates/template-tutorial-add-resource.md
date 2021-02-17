@@ -1,16 +1,16 @@
 ---
 title: Tutorial - Add resource to template
-description: Describes the steps to create your first Azure Resource Manager template. You learn about the template file syntax and how to deploy a storage account.
+description: Describes the steps to create your first Azure Resource Manager template (ARM template). You learn about the template file syntax and how to deploy a storage account.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
-ms.author: jgao 
+ms.author: jgao
 ms.custom:
 ---
 
 # Tutorial: Add a resource to your ARM template
 
-In the [previous tutorial](template-tutorial-create-first-template.md), you learned how to create a blank template and deploy it. Now, you're ready to deploy an actual resource. In this tutorial, you add a storage account. It takes about **9 minutes** to complete this tutorial.
+In the [previous tutorial](template-tutorial-create-first-template.md), you learned how to create a blank Azure Resource Manager template (ARM template) and deploy it. Now, you're ready to deploy an actual resource. In this tutorial, you add a storage account. It takes about **9 minutes** to complete this tutorial.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ You must have Visual Studio Code with the Resource Manager Tools extension, and 
 
 To add a storage account definition to the existing template, look at the highlighted JSON in the following example. Instead of trying to copy sections of the template, copy the whole file and replace your template with its contents.
 
-Replace **{provide-unique-name}** (including the curly brackets) with a unique storage account name.
+Replace `{provide-unique-name}` and the curly braces `{}` with a unique storage account name.
 
 > [!IMPORTANT]
 > The storage account name must be unique across Azure. The name must have only lowercase letters or numbers. It can be no longer than 24 characters. You might try a naming pattern like using **store1** as a prefix and then adding your initials and today's date. For example, the name you use could look like **store1abc09092019**.
@@ -37,15 +37,15 @@ You may be wondering how to find the properties to use for each resource type. Y
 
 Every resource you deploy has at least the following three properties:
 
-- **type**: Type of the resource. This value is a combination of the namespace of the resource provider and the resource type (such as Microsoft.Storage/storageAccounts).
-- **apiVersion**: Version of the REST API to use for creating the resource. Each resource provider published its own API versions, so this value is specific to the type.
-- **name**: Name of the resource.
+- `type`: Type of the resource. This value is a combination of the namespace of the resource provider and the resource type such as `Microsoft.Storage/storageAccounts`.
+- `apiVersion`: Version of the REST API to use for creating the resource. Each resource provider publishes its own API versions, so this value is specific to the type.
+- `name`: Name of the resource.
 
-Most resources also have a **location** property, which sets the region where the resource is deployed.
+Most resources also have a `location` property, which sets the region where the resource is deployed.
 
 The other properties vary by resource type and API version. It's important to understand the connection between the API version and the available properties, so let's jump into more detail.
 
-In this tutorial, you added a storage account to the template. You can see that API version at [storageAccounts 2019-04-01](/azure/templates/microsoft.storage/2019-04-01/storageaccounts). Notice that you didn't add all of the properties to your template. Many of the properties are optional. The Microsoft.Storage resource provider could release a new API version, but the version you're deploying doesn't have to change. You can continue using that version and know that the results of your deployment will be consistent.
+In this tutorial, you added a storage account to the template. You can see that API version at [storageAccounts 2019-04-01](/azure/templates/microsoft.storage/2019-04-01/storageaccounts). Notice that you didn't add all of the properties to your template. Many of the properties are optional. The `Microsoft.Storage` resource provider could release a new API version, but the version you're deploying doesn't have to change. You can continue using that version and know that the results of your deployment will be consistent.
 
 If you view an older API version, such as [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), you'll see that a smaller set of properties are available.
 
@@ -55,7 +55,7 @@ If you decide to change the API version for a resource, make sure you evaluate t
 
 You can deploy the template to create the storage account. Give your deployment a different name so you can easily find it in the history.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -80,16 +80,16 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
+> If the deployment failed, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
 
 Two possible deployment failures that you might encounter:
 
-- Error: Code=AccountNameInvalid; Message={provide-unique-name} is not a valid storage account name. Storage account name must be between 3 and
+- `Error: Code=AccountNameInvalid; Message={provide-unique-name}` is not a valid storage account name. Storage account name must be between 3 and
 24 characters in length and use numbers and lower-case letters only.
 
-    In the template, replace **{provide-unique-name}** with a unique storage account name.  See [Add resource](#add-resource).
+    In the template, replace `{provide-unique-name}` with a unique storage account name. See [Add resource](#add-resource).
 
-- Error: Code=StorageAccountAlreadyTaken; Message=The storage account named store1abc09092019 is already taken.
+- `Error: Code=StorageAccountAlreadyTaken; Message=The storage account named store1abc09092019` is already taken.
 
     In the template, try a different storage account name.
 
@@ -118,7 +118,7 @@ If you're stopping now, you might want to clean up the resources you deployed by
 
 ## Next steps
 
-You created a simple template to deploy an Azure storage account.  In the later tutorials, you learn how to add parameters, variables, resources, and outputs to a template. These features are the building blocks for much more complex templates.
+You created a simple template to deploy an Azure storage account. In the later tutorials, you learn how to add parameters, variables, resources, and outputs to a template. These features are the building blocks for much more complex templates.
 
 > [!div class="nextstepaction"]
 > [Add parameters](template-tutorial-add-parameters.md)

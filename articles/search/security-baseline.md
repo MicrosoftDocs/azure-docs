@@ -169,7 +169,7 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -183,7 +183,7 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 
 - [How to collect and analyze log data for Azure Cognitive Search](./search-monitor-logs.md)
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 **Azure Security Center monitoring**: Yes
 
@@ -203,7 +203,7 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 
 In Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage accounts for long-term and archival storage. 
 
-- [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -221,9 +221,9 @@ In Azure Monitor, set your Log Analytics workspace retention period according to
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Learn about Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Learn about Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -237,7 +237,7 @@ In Azure Monitor, set your Log Analytics workspace retention period according to
 
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -338,7 +338,7 @@ Establish a process to reduce the number of identities and credentials by enabli
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Multi-Factor Authentication (MFA) configured to log into and access Azure resources.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand secure, Azure-managed workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
  
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
@@ -532,7 +532,7 @@ Microsoft manages the underlying infrastructure for Cognitive Search and has imp
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to production instances of Cognitive Search and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [How to create alerts for Cognitive Search activities](./search-monitor-logs.md)
 

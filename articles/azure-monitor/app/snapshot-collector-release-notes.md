@@ -13,9 +13,14 @@ This article contains the releases notes for the Microsoft.ApplicationInsights.S
 
 [Learn](./snapshot-debugger.md) more about the Application Insights Snapshot Debugger for .NET applications.
 
-For bug reports and feedback, open an issue on GitHub at https://github.com/microsoft/ApplicationInsights-dotnet
+For bug reports and feedback, open an issue on GitHub at https://github.com/microsoft/ApplicationInsights-SnapshotCollector
 
 ## Release notes
+
+## [1.3.7.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.5)
+A point release to backport a fix from 1.4.0-pre.
+### Bug fixes
+- Fix [ObjectDisposedException on shutdown](https://github.com/microsoft/ApplicationInsights-dotnet/issues/2097).
 
 ## [1.3.7.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.4)
 A point release to address a problem discovered in testing Azure App Service's codeless attach scenario.

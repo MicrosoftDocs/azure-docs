@@ -1,6 +1,6 @@
 ---
-title: Send telemetry to Azure IoT Hub quickstart (iOS)
-description: Run a sample iOS application to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
+title: Quickstart - Send telemetry to Azure IoT Hub quickstart (iOS)
+description: In this quickstart, you run a sample iOS application to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -59,7 +59,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
    ```azurecli-interactive
-   az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id myiOSdevice --output table
+   az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id myiOSdevice --output table
    ```
 
    Make a note of the device connection string, which looks like:

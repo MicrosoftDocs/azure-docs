@@ -2,8 +2,8 @@
 title: Azure Monitor for Azure Cache for Redis | Microsoft Docs
 description: This article describes the Azure Monitor for Azure Redis Cache feature, which provides cache owners with a quick understanding of performance and utilization problems.
 ms.topic: conceptual
-author: mrbullwinkle    
-ms.author: mbullwin
+author: lgayhardt    
+ms.author: lagayhar
 ms.date: 09/10/2020
 
 ---
@@ -182,6 +182,6 @@ For troubleshooting guidance, refer to the dedicated workbook-based insights [tr
 
 ## Next steps
 
-* Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerts that aid in detecting problems.
+* Configure [metric alerts](../alerts/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerts that aid in detecting problems.
 
-* Learn the scenarios that workbooks support, how to author or customize reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).
+* Learn the scenarios that workbooks support, how to author or customize reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../visualize/workbooks-overview.md).

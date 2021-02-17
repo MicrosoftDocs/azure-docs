@@ -349,6 +349,31 @@ The disk space for your app service might be full. Steps to fix your disk space:
 1. Access your knowledge base to verify it works now.
 
 </details>
+<details>
+<summary><b>Why is my Application Insights not working?</b></summary>
+
+**Answer**:
+Please Cross check and update below steps to fix the issue:
+
+1. In App Service -> Settings group -> Configuration section -> Application Settings -> Name "UserAppInsightsKey" parameters is configured properly and set to the respective application insights Overview tab ("Instrumentation Key") Guid. 
+
+1. In App Service -> Settings group -> "Application Insights" section -> Make sure app insights is enabled and connected to respective application insights resource.
+
+</details>
+
+<details>
+<summary><b>My Application Insights is enabled but why is it not working properly?</b></summary>
+
+**Answer**:
+Please follow the below given steps: 
+
+1.  Copy the value of '“APPINSIGHTS_INSTRUMENTATIONKEY” name' into 'UserAppInsightsKey' name by overriding if there is some value already present there. 
+
+1.  If the 'UserAppInsightsKey' key does not exist in app settings, please add a new key with that name and copy the value.
+
+1.  Save it and this will automatically restart the app service. This should resolve the issue. 
+
+</details>
 
 # [QnA Maker managed (preview release)](#tab/v2)
 

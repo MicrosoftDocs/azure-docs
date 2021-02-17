@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
 # Customer intent: As an application developer, I need learn to how to register my web API with the Microsoft identity platform and expose permissions (scopes) to make the API's resources available to users of my client application.
 ---
@@ -42,7 +42,7 @@ The code in a client application requests permission to perform operations defin
 
 First, follow these steps to create an example scope named `Employees.Read.All`:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
 1. Select **Azure Active Directory** > **App registrations**, and then select your API's app registration.
 1. Select **Expose an API** > **Add a scope**.

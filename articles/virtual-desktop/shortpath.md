@@ -53,7 +53,7 @@ The diagram below gives a high-level overview of the RDP Shortpath network conne
 To support RDP Shortpath, the Windows Virtual Desktop client needs a direct line of sight to the session host. You can get a direct line of sight by using one of the following technologies:
 
 * [ExpressRoute private peering](../expressroute/expressroute-circuit-peerings.md)
-* [Site-to-Site VPN (IPsec based)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Site-to-Site VPN (IPsec based)](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [Point-to-Site VPN (IPsec based)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [Public IP address assignment](../virtual-network/virtual-network-public-ip-address.md)
 
@@ -137,7 +137,8 @@ You can also use PowerShell to configure Group policy
 $domainName = "contoso.com"
 $policyName = "RDP Shortpath Policy"
 $gpoSession = Open-NetGPO -PolicyStore "$domainName\$policyName"
-New-NetFirewallRule -DisplayName 'Remote Desktop - Shortpath (UDP-In)'  -Action Allow -Description 'Inbound rule for the Remote Desktop service to allow RDP traffic. [UDP 3390]' -Group '@FirewallAPI.dll,-28752' -Name 'RemoteDesktop-UserMode-In-Shortpath-UDP'  -PolicyStore PersistentStore -Profile Domain, Private -Service TermService -Protocol udp -LocalPort 3390 -Program '%SystemRoot%\system32\svchost.exe' -Enabled:True
+New-NetFirewallRule -DisplayName 'Remote Desktop - Shortpath (UDP-In)'  -Action Allow -Description 'Inbound rule for the Remote Desktop service to allow RDP traffic. [UDP 3390]' -Group '@FirewallAPI.dll,-28752' -Name 'RemoteDesktop-UserMode-In-Shortpath-UDP' -Profile Domain, Private -Service TermService -Protocol udp -LocalPort 3390 -Program '%SystemRoot%\system32\svchost.exe' -Enabled:True -GPOSession $gpoSession
+Save-NetGPO -GPOSession $gpoSession
 ```
 
 ## Configuring Azure Network Security Group
@@ -184,7 +185,7 @@ The possible values are:
 * **0** - user connection isn't using RDP Shortpath
 * **1** - user connection is using RDP Shortpath
   
-The following query list lets you review connection information. You can run this query in the [Log Analytics query editor](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query). For each query, replace `userupn` with the UPN of the user you want to look up.
+The following query list lets you review connection information. You can run this query in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). For each query, replace `userupn` with the UPN of the user you want to look up.
 
 ```kusto
 let Events = WVDConnections | where UserName == "userupn" ;

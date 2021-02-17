@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
+ms.date: 12/08/2019
 ---
 # Extract N-Gram Features from Text module reference
 
@@ -23,7 +23,7 @@ The module supports the following scenarios for using an n-gram dictionary:
 
 * [Use an existing set of text features](#use-an-existing-n-gram-dictionary) to featurize a free text column.
 
-* [Score or publish a model](#score-or-publish-a-model-that-uses-n-grams) that uses n-grams.
+* [Score or deploy a model](#build-inference-pipeline-that-uses-n-grams-to-deploy-a-real-time-endpoint) that uses n-grams.
 
 ### Create a new n-gram dictionary
 
@@ -89,17 +89,23 @@ The module supports the following scenarios for using an n-gram dictionary:
 
 1.  Submit the pipeline.
 
-### Score or publish a model that uses n-grams
+### Build inference pipeline that uses n-grams to deploy a real-time endpoint
 
-1.  Copy the **Extract N-Gram Features from Text** module from the training dataflow to the scoring dataflow.
+A training pipeline which contains **Extract N-Grams Feature From Text** and **Score Model** to make prediction on test dataset, is built in following structure:
 
-1.  Connect the **Result Vocabulary** output from the training dataflow to **Input Vocabulary** on the scoring dataflow.
+:::image type="content" source="./media/module/extract-n-gram-training-pipeline-score-model.png" alt-text="Extract N-Grams training pipeline example" border="true":::
 
-1.  In the scoring workflow, modify the Extract N-Gram Features from Text module and set the **Vocabulary mode** parameter to **ReadOnly**. Leave all else the same.
+**Vocabulary mode** of the circled **Extract N-Grams Feature From Text** module is **Create**, and **Vocabulary mode** of the module which connects to **Score Model** module is **ReadOnly**.
 
-1.  To publish the pipeline, save **Result Vocabulary** as a dataset.
+After submitting the training pipeline above successfully, you can register the output of the circled module as dataset.
 
-1.  Connect the saved dataset to the Extract N-Gram Features from Text module in your scoring graph.
+:::image type="content" source="./media/module/extract-n-gram-output-voc-register-dataset.png" alt-text="register dataset" border="true":::
+
+Then you can create real-time inference pipeline. After creating inference pipeline, you need to adjust your inference pipeline manually like following:
+
+:::image type="content" source="./media/module/extract-n-gram-inference-pipeline.png" alt-text="inference pipeline" border="true":::
+
+Then submit the inference pipeline, and deploy a real-time endpoint.
 
 ## Results
 

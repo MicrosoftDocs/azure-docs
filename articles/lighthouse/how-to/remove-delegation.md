@@ -1,7 +1,7 @@
 ---
 title: Remove access to a delegation
 description: Learn how to remove access to resources that had been delegated to a service provider for Azure Lighthouse.
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.topic: how-to
 ---
 
@@ -16,7 +16,7 @@ Removing a delegation can be done by a user in either the customer tenant or the
 
 ## Customers
 
-Users in the customer's tenant who have the [Owner built-in role](../../role-based-access-control/built-in-roles.md#owner) for a subscription can remove service provider access to that subscription (or to resource groups in that subscription). To do so, a user in the customer's tenant can go to the [Service providers page](view-manage-service-providers.md#add-or-remove-service-provider-offers) of the Azure portal, find the offer on the **Service provider offers** screen, and select the trash can icon in the row for that offer.
+Users in the customer's tenant who have a role with the `Microsoft.Authorization/roleAssignments/write` permission, such as [Owner](../../role-based-access-control/built-in-roles.md#owner), can remove service provider access to that subscription (or to resource groups in that subscription). To do so, the user can go to the [Service providers page](view-manage-service-providers.md#add-or-remove-service-provider-offers) of the Azure portal, find the offer on the **Service provider offers** screen, and select the trash can icon in the row for that offer.
 
 After confirming the deletion, no users in the service provider's tenant will be able to access the resources that had been previously delegated.
 
@@ -36,7 +36,7 @@ The example below shows an assignment granting the **Managed Services Registrati
     ] 
 ```
 
-This role can also be selected in an **Authorization** when [creating a Managed Service offer](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#authorization) to publish to Azure Marketplace.
+This role can also be selected in an **Authorization** when [creating a Managed Service offer](../../marketplace/plan-managed-service-offer.md) to publish to Azure Marketplace.
 
 A user with this permission can remove a delegation in one of the following ways.
 

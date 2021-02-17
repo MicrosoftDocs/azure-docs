@@ -35,7 +35,7 @@ You can also create a new branch using the following Git bash command in Windows
 git checkout -b <new branch name> <base branch name>
 
 ```
-If you don't specify a \<base branch name>, the new branch is based on `master`. 
+If you don't specify a \<base branch name>, the new branch is based on `main`. 
 
 To switch to your working branch, run the following command: 
 
@@ -43,7 +43,7 @@ To switch to your working branch, run the following command:
 git checkout <working branch name>
 ```
 
-After you switch to the working branch, you can start developing code or documentation artifacts to complete the work item. Running `git checkout master` switches you back to the `master` branch.
+After you switch to the working branch, you can start developing code or documentation artifacts to complete the work item. Running `git checkout main` switches you back to the `main` branch.
 
 It's a good practice to create a Git branch for each User Story work item. Then, for each Task work item, you can create a branch based on the User Story branch. Organize the branches in a hierarchy that corresponds to the User Story-Task relationship when you have multiple people working on different User Stories for the same project, or on different Tasks for the same User Story. You can minimize conflicts by having each team member work on a different branch, or on different code or other artifacts when sharing a branch. 
 
@@ -101,7 +101,7 @@ When you go back to **Repos** in the left navigation, you can see that you've be
 You can also use the following Git bash commands to merge the `script` working branch to its base branch and delete the working branch after merging:
 
 ```bash
-git checkout master
+git checkout main
 git merge script
 git branch -d script
 ```

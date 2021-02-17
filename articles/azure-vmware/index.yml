@@ -66,6 +66,8 @@ landingContent:
             url: tutorial-expressroute-global-reach-private-cloud.md
           - text: Scale a private cloud 
             url: tutorial-scale-private-cloud.md
+          - text: Delete a private cloud
+            url: tutorial-delete-private-cloud.md
 
 # card 3
   - title: Extend Azure VMware Solution
@@ -80,6 +82,8 @@ landingContent:
             url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
           - text: Manage DHCP
             url: manage-dhcp.md
+          - text: Configure NSX network components
+            url: configure-nsx-network-components-azure-portal.md
           - text: Deploy disaster recovery for VMs
             url: disaster-recovery-for-virtual-machines.md
           - text: Deploy VM via content library
@@ -139,7 +143,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.vmware
           - text: FAQ
-            url: faq.md
+            url: faq.yml
 
 # card 8
   - title: Troubleshooting

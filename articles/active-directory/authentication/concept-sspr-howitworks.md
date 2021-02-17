@@ -86,7 +86,7 @@ When you don't require registration, users aren't prompted during sign-in, but t
 >
 > This interrupt to register for SSPR doesn't break the user's connection if they're already signed in.
 
-## Set the number of days before users are asked to reconfirm their authentication information
+## Reconfirm authentication information
 
 To make sure that authentication methods are correct when they're needed to reset or change their password, you can require users confirm their info registered information after a certain period of time. This option is only available if you enable the **Require users to register when signing in** option.
 
@@ -134,7 +134,7 @@ When using a mobile app as a method for password reset, like the Microsoft Authe
 Users don't have the option to register their mobile app when registering for self-service password reset from [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup), or in the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 > [!IMPORTANT]
-> The Authenticator app can't be selected as the only authentication method when only method is required. Similarly, the Authenticator app and only one additional method cannot be selected when requiring two methods.
+> The Authenticator app can't be selected as the only authentication method when only one method is required. Similarly, the Authenticator app and only one additional method cannot be selected when requiring two methods.
 >
 > When configuring SSPR policies that include the Authenticator app as a method, at least one additional method should be selected when one method is required, and at least two additional methods should be selected when configuring two methods are required.
 >

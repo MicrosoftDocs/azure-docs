@@ -52,7 +52,7 @@ For more information on using Azure CLI with Event Grid, see [Route storage even
 
 When EventGrid receives an error for an event delivery attempt, EventGrid decides whether it should retry the delivery or dead-letter or drop the event based on the type of the error. 
 
-If the error returned by the subscribed endpoint is configuration related error which can't be fixed with retries (for example, if the endpoint is deleted), EventGrid will either perform dead lettering the event or drop the event if dead letter is not configured.
+If the error returned by the subscribed endpoint is configuration related error that can't be fixed with retries (for example, if the endpoint is deleted), EventGrid will either perform dead lettering the event or drop the event if dead letter is not configured.
 
 Following are the types of endpoints for which retry doesn't happen:
 
@@ -62,7 +62,7 @@ Following are the types of endpoints for which retry doesn't happen:
 | Webhook | 400 Bad Request, 413 Request Entity Too Large, 403 Forbidden, 404 Not Found, 401 Unauthorized |
  
 > [!NOTE]
-> If Dead-Letter is not configured for endpoint, events will be dropped when above errors happen, so consider configuring Dead-Letter, if you don't want these kinds of events to be dropped.
+> If Dead-Letter is not configured for endpoint, events will be dropped when above errors happen. Consider configuring Dead-Letter, if you don't want these kinds of events to be dropped.
 
 If the error returned by the subscribed endpoint is not among the above list, EventGrid performs the retry using policies described below:
 
@@ -75,7 +75,10 @@ Event Grid waits 30 seconds for a response after delivering a message. After 30 
 - 10 minutes
 - 30 minutes
 - 1 hour
-- Hourly for up to 24 hours
+- 3 hours
+- 6 hours
+- Every 12 hours up to 24 hours
+
 
 If the endpoint responds within 3 minutes, Event Grid will attempt to remove the event from the retry queue on a best effort basis but duplicates may still be received.
 
@@ -99,7 +102,7 @@ When Event Grid can't deliver an event within a certain time period or after try
 
 If either of the conditions is met, the event is dropped or dead-lettered.  By default, Event Grid doesn't turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the event subscription. You pull events from this storage account to resolve deliveries.
 
-Event Grid sends an event to the dead-letter location when it has tried all of its retry attempts. If Event Grid receives a 400 (Bad Request) or 413 (Request Entity Too Large) response code, it immediately sends the event to the dead-letter endpoint. These response codes indicate delivery of the event will never succeed.
+Event Grid sends an event to the dead-letter location when it has tried all of its retry attempts. If Event Grid receives a 400 (Bad Request) or 413 (Request Entity Too Large) response code, it immediately schedules the event for dead-lettering. These response codes indicate delivery of the event will never succeed.
 
 The time-to-live expiration is checked ONLY at the next scheduled delivery attempt. Therefore, even if time-to-live expires before the next scheduled delivery attempt, event expiry is checked only at the time of the next delivery and then subsequently dead-lettered. 
 

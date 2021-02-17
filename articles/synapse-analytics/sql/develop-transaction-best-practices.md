@@ -39,7 +39,7 @@ The transaction safety limits only apply to fully logged operations.
 
 The following operations are capable of being minimally logged:
 
-* CREATE TABLE AS SELECT ([CTAS])(../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+* CREATE TABLE AS SELECT ([CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json))
 * INSERT..SELECT
 * CREATE INDEX
 * ALTER INDEX REBUILD

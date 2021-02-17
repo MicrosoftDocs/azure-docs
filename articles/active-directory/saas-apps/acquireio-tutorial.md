@@ -68,23 +68,23 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
     In the **Reply URL** text box, type a URL using the following pattern:
     `https://app.acquire.io/ad/<acquire_account_uid>`
 
-	> [!NOTE]
-	> The value is not real. You will get the actual Reply URL which is explained later in the **Configure AcquireIO** section of the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > The value is not real. You will get the actual Reply URL which is explained later in the **Configure AcquireIO** section of the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up AcquireIO** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -106,11 +106,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the applications list, select **AcquireIO**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -120,17 +120,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. To automate the configuration within AcquireIO, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
+    ![My apps extension](common/install-myappssecure-extension.png)
 
 1. After adding the extension to the browser, click **Set up AcquireIO**, which directs you to the AcquireIO application. From there, provide the admin credentials to sign in to AcquireIO. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup configuration](common/setup-sso.png)
+    ![Setup configuration](common/setup-sso.png)
 
 1. If you want to set up AcquireIO manually, in a different web browser window, sign in to AcquireIO as an Administrator.
 
 1. From the left side of menu, click on **App Store**.
 
-	 ![Screenshot that highlights App Store.](./media/acquireio-tutorial/config01.png)
+    ![Screenshot that highlights App Store.](./media/acquireio-tutorial/config01.png)
 
 1. Scroll down up to **Active Directory** and click on **Install**.
 
@@ -140,13 +140,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screnshot that shows the Active Directory screen.](./media/acquireio-tutorial/config03.png)
 
-	a. Click **Copy** to copy the Reply URL for your instance and paste it in **Reply URL** textbox in **Basic SAML Configuration** section on Azure portal.
+    a. Click **Copy** to copy the Reply URL for your instance and paste it in **Reply URL** textbox in **Basic SAML Configuration** section on Azure portal.
 
     b. In the **Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-	c. Open the Base64 encoded certificate in Notepad, copy its content and paste it in the **X.509 Certificate** text box.
+    c. Open the Base64 encoded certificate in Notepad, copy its content and paste it in the **X.509 Certificate** text box.
 
-	d. Click **Connect Now**.
+    d. Click **Connect Now**.
 
 ### Create AcquireIO test user
 
@@ -158,7 +158,7 @@ To enable Azure AD users to sign in to AcquireIO, they must be provisioned into 
 
 1. From the left side of menu, click **Profiles** and navigate to **Add Profile**.
 
-	 ![Screenshot that highlights Profiles in menu on the left side of the screen as well as the Add Profile option.](./media/acquireio-tutorial/config04.png)
+    ![Screenshot that highlights Profiles in menu on the left side of the screen as well as the Add Profile option.](./media/acquireio-tutorial/config04.png)
 
 1. On the **Add customer** pop-up, perform the following steps:
 
@@ -178,9 +178,9 @@ When you click the AcquireIO tile in the Access Panel, you should be automatical
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 

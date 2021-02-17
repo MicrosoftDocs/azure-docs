@@ -111,7 +111,7 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 ##### Version 1.x
 
 ```xml
-<TargetFramework>net461</TargetFramework>
+<TargetFramework>net472</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 
