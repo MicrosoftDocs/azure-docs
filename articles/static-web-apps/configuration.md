@@ -21,7 +21,9 @@ Configuration for Azure Static Web Apps is defined in the _staticwebapp.config.j
 - Global HTTP header definitions
 - Custom MIME types
 
-The recommended location for the _staticwebapp.config.json_ is your application root. However, the file may be placed in any location within your application source code folder.
+## File location
+
+The recommended location for the _staticwebapp.config.json_ is in the folder set as the `app_location` in the [workflow file](./github-actions-workflow.md). However, the file may be placed in any location within your application source code folder.
 
 See the [example configuration](#example-configuration-file) file for details.
 
