@@ -1,5 +1,5 @@
 ---
-title: 'Azure Front Door: URL redirect and URL rewrite'
+title: 'URL redirect and URL rewrite with Azure Front Door Standard/Premium (Preview)'
 description: This article helps you understand how Azure Front Door supports URL redirection and URL rewrite using Azure Front Door Rule Set. 
 services: frontdoor
 author: duongau
@@ -9,7 +9,7 @@ ms.date: 02/18/2021
 ms.author: yuajia
 ---
 
-# URL redirect and URL rewrite
+# URL redirect and URL rewrite with Azure Front Door Standard/Premium (Preview)
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
