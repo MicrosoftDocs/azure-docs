@@ -66,12 +66,12 @@ Emails about Smart Detections performance anomalies are limited to one email per
 * *Can I create my own anomaly detection rules or customize existing rules?*
 
   * Not yet, but you can:
-    * [Set up alerts](../platform/alerts-log.md) that tell you when a metric crosses a threshold.
+    * [Set up alerts](../alerts/alerts-log.md) that tell you when a metric crosses a threshold.
     * [Export telemetry](./export-telemetry.md) to a [database](./code-sample-export-sql-stream-analytics.md) or [to Power BI](./export-power-bi.md), where you can analyze it yourself.
 * *How often is the analysis performed?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).
-* *So does this replace [metric alerts](../platform/alerts-log.md)?*
+* *So does this replace [metric alerts](../alerts/alerts-log.md)?*
   * No.  We don't commit to detecting every behavior that you might consider abnormal.
 
 
@@ -171,10 +171,10 @@ These diagnostic tools help you inspect the telemetry from your app:
 
 * [Profiler](profiler.md) 
 * [snapshot debugger](./snapshot-debugger.md)
-* [Analytics](../log-query/log-analytics-tutorial.md)
-* [Analytics smart diagnostics](../log-query/log-query-overview.md)
+* [Analytics](../logs/log-analytics-tutorial.md)
+* [Analytics smart diagnostics](../logs/log-query-overview.md)
 
 Smart detections are completely automatic. But maybe you'd like to set up some more alerts?
 
-* [Manually configured metric alerts](../platform/alerts-log.md)
+* [Manually configured metric alerts](../alerts/alerts-log.md)
 * [Availability web tests](./monitor-web-app-availability.md)

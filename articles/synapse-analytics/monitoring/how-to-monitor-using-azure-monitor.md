@@ -23,7 +23,7 @@ For more information, see [Azure Monitor overview](../../azure-monitor/overview.
 
 With Monitor, you can gain visibility into the performance and health of your Azure workloads. The most important type of Monitor data is the metric, which is also called the performance counter. Metrics are emitted by most Azure resources. Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
-To access these metrics, complete the instructions in [Azure Monitor data platform](../../azure-monitor/platform/data-platform.md).
+To access these metrics, complete the instructions in [Azure Monitor data platform](../../azure-monitor/data-platform.md).
 
 ### Workspace-level metrics
 
@@ -166,7 +166,7 @@ Create or add diagnostic settings for your workspace, dedicated SQL pool, or Apa
 1. Give your setting a name, select **Send to Log Analytics**, and then select a workspace from **Log Analytics workspace**.
 
     > [!NOTE]
-    > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [Log Analytics Known Limitations](../../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
+    > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [Log Analytics Known Limitations](../../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics).
 
 1. Select **Save**.
 

@@ -27,7 +27,7 @@ Management groups are a level of scope above subscriptions, but management group
 
 ## Scope format
 
-If you add role assignments using the command line, you'll need to specify the scope. For command-line tools, scope is a potentially long string that identifies the exact scope of the role assignment. In the Azure portal, this scope is typically listed as the *resource ID*.
+If you assign roles using the command line, you'll need to specify the scope. For command-line tools, scope is a potentially long string that identifies the exact scope of the role assignment. In the Azure portal, this scope is typically listed as the *resource ID*.
 
 The scope consists of a series of identifiers separated by the slash (/) character. You can think of this string as expressing the following hierarchy, where text without placeholders (`{}`) are fixed identifiers:
 
@@ -117,6 +117,6 @@ It's fairly simple to determine the scope for a management group, subscription, 
 
 ## Next steps
 
-- [Steps to add a role assignment](role-assignments-steps.md)
+- [Steps to assign an Azure role](role-assignments-steps.md)
 - [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [What are Azure management groups?](../governance/management-groups/overview.md)

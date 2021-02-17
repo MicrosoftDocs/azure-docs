@@ -178,9 +178,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes to your network resources. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -208,7 +208,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 * [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -228,9 +228,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-* [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-* [View and retrieve Azure Activity log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [View and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Azure Security Center monitoring**: Yes
 
@@ -252,7 +252,7 @@ When using the Hybrid Runbook Worker feature, Azure Security Center provides Sec
 
 **Guidance**: Within Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-* [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 * [Data retention details for Automation Accounts](./automation-managing-data.md#data-retention)
 
@@ -268,9 +268,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Understand log queries in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Understand log queries in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -286,7 +286,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 * [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [How to alert on Azure Monitor log data](../azure-monitor/learn/tutorial-response.md)
+* [How to alert on Azure Monitor log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -416,7 +416,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [How to configure action groups for custom alerting and notification](../azure-monitor/platform/action-groups.md)
+* [How to configure action groups for custom alerting and notification](../azure-monitor/alerts/action-groups.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -616,7 +616,7 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines are
 
 * [Diagnostic logging for a network security group](../private-link/private-link-overview.md#logging-and-monitoring)
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
