@@ -19,7 +19,6 @@ This tutorial shows you how to use Azure Functions to connect to resources in an
 > * Deploy a Service Bus trigger and HTTP trigger
 > * Lock down your function app behind a private endpoint
 > * Test to see that your function app is secure behind the virtual network
-> * How to deploy when everything is locked down
 > * Clean up Resources
 
 ## Create a function app in a Premium plan
