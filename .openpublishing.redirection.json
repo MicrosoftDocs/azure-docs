@@ -1,5 +1,15 @@
 {
   "redirections": [
+  {
+      "source_path": "articles/cosmos-db/create-mongodb-flask.md",
+      "redirect_url": "/azure/cosmos-db/mongodb-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/python.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/python",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/cognitive-services/Ink-Recognizer/concepts/send-ink-data.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/concepts/send-ink-data",
@@ -6712,11 +6722,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/deploy-face-container-on-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/Face/APIReference.md",
-      "redirect_url": "https://docs.microsoft.com/rest/api/face/",
       "redirect_document_id": false
     },
     {
