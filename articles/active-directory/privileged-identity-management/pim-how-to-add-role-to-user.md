@@ -96,7 +96,8 @@ For more information about creating administrative units, see [Add and remove ad
 
 ## Update or remove an existing role assignment
 
-Follow these steps to update or remove an existing role assignment. **Azure AD P2 licensed customers only** Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). For an detailed explanation, see the [Known issues](../roles/groups-concept.md#known-issues) section.
+Follow these steps to update or remove an existing role assignment. **Azure AD P2 licensed customers only** Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). For an detailed explanation, see the [Known issues](../roles/groups-concept.md#known-issues) section
+.
 
 1. Open **Azure AD Privileged Identity Management**.
 
