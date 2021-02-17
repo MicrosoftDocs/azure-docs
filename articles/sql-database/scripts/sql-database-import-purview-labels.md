@@ -3,7 +3,6 @@ title: Classify your Azure SQL data using Azure Purview labels
 description: Import your classification from Azure Purview in your Azure SQL Datbase and Azure Synpase Analytics 
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-classification
 ms.custom: 
 ms.devlang: azurepowershell
 ms.topic: sample
@@ -14,7 +13,7 @@ ms.date: 02/16/2021
 ---
 
 # Classify your Azure SQL data using Azure Purview labels
-[!INCLUDE[appliesto-sqldb-asa](../azure-sql/includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb-asa](../../azure-sql/includes/appliesto-sqldb-asa.md)]
 
 This document describes how to add Azure Purview labels in your Azure SQL Database and Azure Synapse Analytics (formerly SQL DW).
 
