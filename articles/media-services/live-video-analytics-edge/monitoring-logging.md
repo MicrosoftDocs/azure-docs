@@ -312,7 +312,7 @@ Using [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) along 
 > [!NOTE]
 > The configuration below does not collect logs, **only metrics**. It is feasible to extend the collector module to also collect and upload logs.
 
-[ ![Diagram that shows the metrics collection using LogAnaltics.](./media/telemetry-schema/log-analytics.png)](./media/telemetry-schema/log-analytics.png#lightbox)
+[ ![Diagram that shows the metrics collection using Log Analytics.](./media/telemetry-schema/log-analytics.png)](./media/telemetry-schema/log-analytics.png#lightbox)
 
 1. Learn how to [collect metrics](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector)
 1. Use Docker CLI commands to build the [Docker file](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector/docker/linux) and publish the image to your Azure container registry.
