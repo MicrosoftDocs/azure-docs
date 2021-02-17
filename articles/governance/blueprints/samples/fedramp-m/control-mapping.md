@@ -439,7 +439,7 @@ articles to learn about the blueprint and how to deploy this sample:
 
 > [!div class="nextstepaction"]
 > [FedRAMP Moderate blueprint - Overview](./index.md)
-> [FodRAMP Moderate blueprint - Deploy steps](./deploy.md)
+> [FedRAMP Moderate blueprint - Deploy steps](./deploy.md)
 
 Additional articles about blueprints and how to use them:
 
