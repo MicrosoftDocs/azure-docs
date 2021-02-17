@@ -14,7 +14,7 @@ ms.service: iot-hub
 ## Overview
 
 Device Update for IoT Hub uses an _update manifest_ to communicate actions and also metadata supporting those actions through the
- [AzureDeviceUpdateCore.OrchestratorMetadata:4](./../how-adu-uses-iot-pnp.md) interface properties.
+ [AzureDeviceUpdateCore.OrchestratorMetadata:4](./device-update-plug-and-play.md)interface properties.
  This document describes the fundamentals of how the `updateManifest` property, in the
  `AzureDeviceUpdateCore.OrchestratorMetadata:4` interface, is used by the Device Update Agent. The
  `AzureDeviceUpdateCore.OrchestratorMetadata:4` interface properties are sent from the Device Update for IoT Hub service
@@ -73,7 +73,7 @@ Having root and signing keys allows Microsoft to periodically roll the signing k
 ### JSON Web Signature (JWS)
 
 The `updateManifestSignature` is used to ensure that the information contained within the `updateManifest` has
-not been tampered with. The `updateManifestSignature` is produced using a JSON Web Signature with JSON Web Keys, allowing for source verification. The signature is a Base64Url Encoded string with three sections delineated by ".".  Refer to the [jws_util.h](../../src/utils/jws_utils/inc/jws_utils.h) helper methods for parsing and verifying JSON keys and tokens.
+not been tampered with. The `updateManifestSignature` is produced using a JSON Web Signature with JSON Web Keys, allowing for source verification. The signature is a Base64Url Encoded string with three sections delineated by ".".  Refer to the jws_util.h helper methods for parsing and verifying JSON keys and tokens.
 
 JSON Web Signature is a widely used [proposed IETF standard](https://tools.ietf.org/html/rfc7515) for signing
 content using JSON-based data structures. It is a way of ensuring integrity of data by verifying the signature
@@ -95,7 +95,7 @@ Each manifest type has its own schema and schema version.
 ## Update manifest properties
 
 The high-level definitions of the update manifest properties can be found in the interface definitions found
-[here](./../how-adu-uses-iot-pnp.md). To provide deeper context, let's take a closer look
+[here](./device-update-plug-and-play.md). To provide deeper context, let's take a closer look
 at the properties and how they are used in the system.
 
 ### updateId
@@ -150,7 +150,7 @@ A string that represents the schema version.
 
 |Update Method|Update Handler Type|Update Type|Installed Criteria|Expected Files for Publishing|
 |-------------|-------------------|----------|-----------------|--------------|
-|Image-based|SWUpdate|"microsoft/swupdate:version"|`<ADU_SOFTWARE_VERSION>` (defined in the Yocto build configuration [here](./yocto-configuration.md))|.swu file that contains SWUpdate image|
+|Image-based|SWUpdate|"microsoft/swupdate:version"|`<ADU_SOFTWARE_VERSION>` |.swu file that contains SWUpdate image|
 |Package-based|APT|"microsoft/apt:version"|`<name>` + "-" + `<version>` (defined properties in the APT Manifest file|`<APT Update Manifest>`.json that contains the APT configuration and package list|
 
 **Note**: The `ADU_SOFTWARE_VERSION` will be saved to the `/etc/adu-version` file.
