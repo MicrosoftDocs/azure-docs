@@ -90,6 +90,8 @@
     href: service-bus-samples.md
 - name: Concepts
   items:
+  - name: Queues, topics, and subscriptions
+    href: service-bus-queues-topics-subscriptions.md
   - name: Premium messaging
     href: service-bus-premium-messaging.md
   - name: Compare Azure Queues and Service Bus queues
@@ -160,8 +162,6 @@
     items:
     - name: Message handling
       items:
-      - name: Queues, topics, and subscriptions
-        href: service-bus-queues-topics-subscriptions.md
       - name: Java message service (JMS) 2.0 entities (preview)
         href: java-message-service-20-entities.md
       - name: Messages, payloads, and serialization
