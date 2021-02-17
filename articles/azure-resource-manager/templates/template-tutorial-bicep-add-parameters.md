@@ -1,5 +1,5 @@
 ---
-title: Tutorial - add parameters to template
+title: Tutorial - add parameters to Bicep template
 description: Add parameters to your Azure Resource Manager template (ARM template) to make it reusable.
 author: mumian
 ms.date: 02/17/2021
@@ -8,7 +8,7 @@ ms.author: jgao
 ms.custom: devx-track-azurecli
 ---
 
-# Tutorial: Add parameters to your ARM template
+# Tutorial: Add parameters to your ARM Bicep template
 
 In the [previous tutorial](template-tutorial-bicep-create-first-template.md), you learned how to deploy a storage account. In this tutorial, you learn how to improve the Azure Resource Manager template (ARM template) by adding parameters. This tutorial takes about **14 minutes** to complete.
 
@@ -22,7 +22,7 @@ You must have Visual Studio Code with the Bicep extension, and either Azure Powe
 
 At the end of the previous tutorial, your template had the following Bicep:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.bicep":::
+:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.bicep":::
 
 You may have noticed that there's a problem with this template. The storage account name is hard-coded. You can only use this template to deploy the same storage account every time. To deploy a storage account with a different name, you would have to create a new template, which obviously isn't a practical way to automate your deployments.
 
@@ -32,7 +32,7 @@ To make your template reusable, let's add a parameter that you can use to pass i
 
 Copy the whole file and replace your template with its contents.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.bicep" range="1-16" highlight="1-4,7":::
+:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.bicep" range="1-16" highlight="1-4,7":::
 
 ## Deploy template
 
@@ -80,7 +80,7 @@ Parameters enable you to customize the deployment by providing values that are t
 
 The previous template always deployed a **Standard_LRS** storage account. You might want the flexibility to deploy different SKUs depending on the environment. The following example shows the changes to add a parameter for SKU. Copy the whole file and paste over your template.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.bicep" range="1-29" highlight="5-17,23":::
+:::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.bicep" range="1-29" highlight="5-17,23":::
 
 The `storageSKU` parameter has a default value. This value is used when a value isn't specified during the deployment. It also has a list of allowed values. These values match the values that are needed to create a storage account. You don't want users of your template to pass in SKUs that don't work.
 
