@@ -116,11 +116,19 @@ The [Public IP address template](https://github.com/Azure/azure-docs-json-sample
 
 ## Example template
 
-The following examples demonstrate scenarios for using outputs.
+The following template doesn't deploy any resources. It shows some ways of returning outputs of different types.
 
-|Template  |Description  |
-|---------|---------|
-|[Copy variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Creates complex variables and outputs those values. Doesn't deploy any resources. |
+# [JSON](#tab/json)
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/outputs.json":::
+
+# [Bicep](#tab/bicep)
+
+Bicep doesn't currently support loops.
+
+:::code language="bicep" source="~/resourcemanager-templates/azure-resource-manager/outputs.bicep":::
+
+---
 
 ## Get output values
 
