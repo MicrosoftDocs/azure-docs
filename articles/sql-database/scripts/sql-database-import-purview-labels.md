@@ -32,8 +32,8 @@ This document describes how to add Azure Purview labels in your Azure SQL Databa
    > Once you close the page, the value will be masked. You won’t be able to retrieve the client secret’s Value if you go back to the page. You will have to generate a new client secret.
 
 9. Go back to the Overview page of your newly created application, and copy the following values for future use:
-   a. Application (client) ID
-   b. Directory (tenant) ID
+    1. Application (client) ID
+    1. Directory (tenant) ID
 
 ## Provide permissions to the application
 
