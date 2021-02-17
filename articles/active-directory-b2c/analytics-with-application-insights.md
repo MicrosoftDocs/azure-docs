@@ -114,7 +114,7 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 
 Technical profiles can be considered functions in the custom policy. These functions use the [technical profile inclusion](technicalprofiles.md#include-technical-profile) approach, where a technical profile includes another technical profile and changes settings or adds new functionality. The following table defines the technical profiles that are used to open a session and post events.
 
-| Technical Profile | Task |
+| Technical profile | Task |
 | ----------------- | -----|
 | AppInsights-Common | The common technical profile with typical configuration. It includes the Application Insights instrumentation key, a collection of claims to record, and developer mode. The other technical profiles include the common technical profile and add more claims, such as the event name. |
 | AppInsights-SignInRequest | Records a **SignInRequest** event with a set of claims when a sign-in request has been received. |
