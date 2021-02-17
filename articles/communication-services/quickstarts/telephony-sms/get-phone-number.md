@@ -16,7 +16,11 @@ ms.custom: references_regions
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Get started with Azure Communication Services by using the Azure portal to purchase a telephone number.
+Get started with Azure Communication Services by using the Azure portal  or the Communication Services Phone Numbers client library to manage telephone numbers.
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Java](./includes/phone-number-java.md)]
+::: zone-end
 
 ## Prerequisites
 
