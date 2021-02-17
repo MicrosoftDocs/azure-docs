@@ -35,7 +35,9 @@ You might want to consider using LRS cloud service in some of the following case
 
 Building a custom solution using LRS to migrate a database to the cloud requires several orchestration steps shown in the diagram and outlined in the table below.
 
-The migration entails making full database backups on SQL Server and copying backup files to Azur Blob storage. LRS service is used to restore full backup files from Azure Blob storage to SQL Managed Instance. LRS will monitor Azure Blob storage for any new differential or log backups added after the full backup has been restored, and will automatically restore any new files added. Databases being restored during the migration process will be in a restoring mode and cannot be used to read or write until the migration cutover. When all expected backup files have been restored, the migration is completed by manually initiating a cutover using the LRS service. The final cutover step will make databases available for read and write use on SQL Managed Instance. The migration process can be monitored during the procedure, and the process can also be aborted if required. 
+The migration entails making full database backups on SQL Server and copying backup files to Azur Blob storage. LRS is used to restore backup files from Azure Blob storage to SQL managed instance. LRS will monitor Azure Blob storage for any new differential, or log backups added after the full backup has been restored, and will automatically restore any new files added. Databases being restored during the migration process will be in a restoring mode and cannot be used to read or write until the process has been completed. 
+
+LRS can be started in auto-complete, or continous mode. When started in auto-complete mode, the migration will complete automatically when the last backup file specified has been restored. When started in continous mode, the service will continously restore any new backup files added and the migration will complete on the manual cutover only. The final cutover step will make databases available for read and write use on SQL Managed Instance. Progress of backup files being restored on SQL managed instance can be monitored using the service, and the process can also be aborted if required. 
 
   ![Log Replay Service orchestration steps explained for SQL Managed Instance](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
 
@@ -59,7 +61,7 @@ The migration entails making full database backups on SQL Server and copying bac
 -	PowerShell Az.SQL module version 2.16.0, or above ([install](https://www.powershellgallery.com/packages/Az.Sql/), or use Azure [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/))
 -	CLI version 2.19.0, or above ([install](https://docs.microsoft.com/cli/azure/install-azure-cli))
 -	Azure Blob Storage provisioned
--	SAS security token with **read only** and **list** permissions generated for the blob storage
+-	SAS security token with **read** and **list** only permissions generated for the blob storage
 
 ## Best practices
 
@@ -78,13 +80,13 @@ The following are highly recommended as best practices:
 ## Copy backups from SQL Server to Azure Blob storage
 
 The following two approaches can be utilized to copy backups to the blob storage in migrating databases to Managed Instance using LRS:
--	Using SQL Server native [BACKUP TO URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-ver15) feature .
--	Copying the backups to Blob Container using [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) or [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer). 
+-	Using SQL Server native [BACKUP TO URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-ver15) functionality.
+-	Copying the backups to Blob Container using [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10), or [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer). 
 
 ## Generate SAS authentication token
 
 > [!IMPORTANT]
-> Permissions for the SAS token for Azure Blob storage need to be read only and list. In case of any other permissions, LRS cloud service will fail to start. These security requirements are by design.
+> Permissions for the SAS token for Azure Blob storage need to be read and list. only In case of any other permissions, LRS cloud service will fail. These security requirements are by design.
 
 ## Start the migration
 
