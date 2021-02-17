@@ -423,4 +423,4 @@ To retrieve the power state of all the VMs in your subscription, use the [Virtua
 
 ## Next steps
 
-To learn more about monitoring your VM, see [Monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md).
+To learn more about monitoring your VM, see [Monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md).
