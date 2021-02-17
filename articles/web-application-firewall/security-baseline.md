@@ -110,9 +110,9 @@ Choose Azure PowerShell or Azure CLI to look-up or perform actions on resources 
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network settings and resources related to your Azure Web Application Firewall (WAF) deployments. Create alerts within Azure Monitor that will trigger when changes to critical network settings or resources take place.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -152,9 +152,9 @@ Azure Sentinel has a built-in Azure WAF workbook, which provides an overview of 
 
 - [Logging overview](ag/ag-overview.md#logging)
 
-- [Azure Monitor log query overview](../azure-monitor/log-query/log-query-overview.md)
+- [Azure Monitor log query overview](../azure-monitor/logs/log-query-overview.md)
 
-- [Overview of Azure Platform logs](../azure-monitor/platform/platform-logs-overview.md)
+- [Overview of Azure Platform logs](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -191,9 +191,9 @@ Azure Sentinel has a built-in WAF - firewall events workbook, which provides an 
 
 **Guidance**: Enable Azure Activity Log diagnostic settings, as well as the diagnostic settings for your Azure WAF, and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the collected data. Create alerts for anomalous activity based on WAF metrics. For example, if blocked number of requests exceeding 'X,' do 'Y'.
 
-- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
-- [How to create alerts within Azure](../azure-monitor/learn/tutorial-response.md)
+- [How to create alerts within Azure](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Not applicable
 
