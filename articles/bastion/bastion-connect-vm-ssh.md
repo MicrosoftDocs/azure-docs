@@ -81,7 +81,9 @@ In order to connect to the Linux VM via SSH, you must have the following ports o
 
 ## <a name="akv"></a>Connect: Using a private key stored in Azure Key Vault
 
-The portal update for this feature is currently rolling out to regions.
+>[!NOTE]
+>The portal update for this feature is currently rolling out to regions.
+>
 
 1. Open the [Azure portal](https://portal.azure.com). Navigate to the virtual machine that you want to connect to, then click **Connect** and select **Bastion** from the dropdown.
 1. After you select Bastion, a side bar appears that has three tabs – RDP, SSH, and Bastion. If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you didn't provision Bastion for the virtual network, see [Configure Bastion](bastion-create-host-portal.md).

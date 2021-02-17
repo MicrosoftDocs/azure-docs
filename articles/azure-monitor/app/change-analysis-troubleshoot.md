@@ -8,7 +8,7 @@ ms.date: 02/11/2021
 
 ---
 
-# Troubleshoot Application Change Analysis
+# Troubleshoot Application Change Analysis (preview)
 
 ## Having trouble registering Microsoft. Change Analysis resource provider from Change history tab
 
