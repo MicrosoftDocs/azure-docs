@@ -47,11 +47,13 @@
     href: choose-natural-language-processing-service.md
 - name: How-to guides
   items:
-  - name: Manage Azure resources
-    href: How-To/set-up-qnamaker-service-azure.md
-    displayName: azure, resource, key, upgrade, pricing, tier,
-  - name: Manage QnA Maker resource access
-    href: How-To/manage-qna-maker-app.md
+  - name: Manage QnA Maker resources
+    items:
+    - name: Set up QnA Maker resources
+      href: How-To/set-up-qnamaker-service-azure.md
+      displayName: azure, resource, key, upgrade, pricing, tier,
+    - name: Manage QnA Maker Resource access
+      href: How-To/manage-qna-maker-app.md
   - name: Manage knowledge base
     items:
     - name: Create knowledge base
