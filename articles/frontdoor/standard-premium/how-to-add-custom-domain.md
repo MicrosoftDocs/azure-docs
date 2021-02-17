@@ -12,7 +12,7 @@ ms.author: amsriva
 #Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
 ---
 
-# Tutorial: Create a custom domain on Azure Front Door Standard/Premium SKU (Preview) using the Azure portal
+# Create a custom domain on Azure Front Door Standard/Premium SKU (Preview) using the Azure portal
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
