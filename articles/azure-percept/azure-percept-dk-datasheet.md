@@ -10,7 +10,7 @@ ms.date: 02/16/2021
 
 # Azure Percept DK datasheet
 
-|Product Specification           |     |
+|Product Specification           |Value     |
 |--------------------------------|--------|
 |Industrial Design               |Integrated 80/20 1010 Series mounts |
 |Performance                     |0.7 TOPS (Azure Percept Vision)|

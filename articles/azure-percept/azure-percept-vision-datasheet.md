@@ -12,7 +12,7 @@ ms.date: 02/16/2021
 
 Specifications listed below are for the Azure Percept Vision device, included in the [Azure Percept DK](azure-percept-dk-datasheet.md).
 
-|Product Specification           |     |
+|Product Specification           |Value     |
 |--------------------------------|---------------------|
 |Target Industries               |Manufacturing <br> Smart Buildings <br> Auto <br> Retail |
 |Hero Scenarios                  |Shopper Analytics <br> On-shelf Availability <br> Shrink Reduction <br> Security/Surveillance <br> Workplace Safety|

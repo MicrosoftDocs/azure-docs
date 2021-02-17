@@ -10,7 +10,7 @@ ms.date: 02/16/2021
 
 # Azure Percept Audio datasheet
 
-|Product Specification           |     |
+|Product Specification           |Value     |
 |--------------------------------|--------|
 |Performance                     |180 Degrees Far-field at 4m, 58dB  |
 |Target Industries               |Healthcare <br> Hospitality <br> Smart Buildings <br> Automotive <br> Retail  |

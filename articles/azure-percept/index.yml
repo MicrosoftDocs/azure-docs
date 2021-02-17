@@ -22,6 +22,10 @@ landingContent:
 
   - title: Prototyping with Azure Percept DK
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Percept AI models
+            url: overview-ai-models.md
       - linkListType: tutorial
         links:
           - text: Create a no-code vision solution

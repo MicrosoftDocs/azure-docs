@@ -3,6 +3,8 @@
 
 - name: Overview
   items:
+      - name: Azure Percept AI models
+      href: overview-ai-models.md      
 
 - name: Quickstarts
   items:
