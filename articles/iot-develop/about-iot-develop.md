@@ -26,12 +26,12 @@ This article discusses two common roles that you can observe among device develo
 * **Embedded device development:** Describes development targeting resource constrained devices. A resource constrained device will often be used to reduce per unit costs, power consumption, or device size. These devices have direct control over the hardware platform they execute on.
 
 ### Device application development
-Device application developers are adapting existing devices to connect to the cloud and integrate into their IoT solutions. These devices can support higher-order language runtimes, such as C# or Python, and often support a robust general purpose operating system such as Windows or Linux. Common target devices include PCs, Containers, Raspberry Pis, and mobile devices. 
+Device application developers are adapting existing devices to connect to the cloud and integrate into their IoT solutions. These devices can support higher-order languages, such as C# or Python, and often support a robust general purpose operating system such as Windows or Linux. Common target devices include PCs, Containers, Raspberry Pis, and mobile devices. 
 
 Rather than develop constrained devices at scale, these developers focus on enabling a specific IoT scenario required by their cloud solution. Some of these developers will also work on constrained devices for their cloud solution. For developers working with constrained devices, see [Embedded Device Development](#embedded-device-development) path below.
 
 > [!TIP]
-> See the [Device Application Development SDKs](about-iot-sdks.md) to get started.
+> See the [Unconstrained Device SDKs](about-iot-sdks.md#unconstrained-device-sdks) to get started.
 
 ### Embedded device development
 Embedded development targets constrained devices that have limited memory and processing. Constrained devices restrict what can be achieved compared to a traditional development platform.
@@ -43,7 +43,7 @@ The current embedded SDKs target the **C** language. The embedded SDKs provide e
 If your device is able to run a general-purpose operating system, we recommend following the [Device Application Development](#device-application-development) path. It provides a richer set of development options.
 
 > [!TIP]
-> See the [Embedded Device Development SDKs](about-iot-sdks.md) to get started.
+> See the [Constrained Device SDKs](about-iot-sdks.md#constrained-device-sdks) to get started.
 
 ## Choosing your hardware
 Azure IoT devices are the basic building blocks of an IoT solution and are responsible for observing and interacting with their environment. There are many different types of IoT devices, and it's helpful to understand the kinds of devices that exist and how these can impact your development process.
