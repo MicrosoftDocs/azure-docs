@@ -115,7 +115,7 @@ Consider these details:
 * It can take several days for a training operation to complete. To improve the speed of training, make sure to create your Speech service subscription in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
 
 > [!NOTE]
-> Not all base models support training with audio. If a base model does not support it, the Speech service will only use the text from the transcripts and ignore the audio. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data.
+> Not all base models support training with audio. If a base model does not support it, the Speech service will only use the text from the transcripts and ignore the audio. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data. Even if a base model supports training with audio data, the service might use only part of the audio. Still it will use all the transcripts.
 
 > [!NOTE]
 > In cases when you change the base model used for training, and you have audio in the training dataset, *always* check whether the new selected base model [supports training with audio data](language-support.md#speech-to-text). If the previously used base model did not support training with audio data, and the training dataset contains audio, training time with the new base model will **drastically** increase, and may easily go from several hours to several days and more. This is especially true if your Speech service subscription is **not** in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
