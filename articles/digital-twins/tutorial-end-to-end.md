@@ -126,8 +126,6 @@ Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, 
 
 To enable the function app to access Azure Digital Twins, the next step is to configure an app setting, assign the app a system-managed Azure AD identity, and give this identity the *Azure Digital Twins Data Owner* role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md).
 
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
-
 In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your Azure Digital Twins instance. Fill in the placeholders with the details of your resources (remember that your Azure Digital Twins instance URL is its host name preceded by *https://*).
 
 ```azurecli-interactive
@@ -403,18 +401,15 @@ Here is a review of the scenario that you built out in this tutorial.
 
 ## Clean up resources
 
-If you no longer need the resources created in this tutorial, follow these steps to delete them. 
+After completing this tutorial, you can choose which resources you'd like to remove, depending on what you'd like to do next.
 
-Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete) command. This removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; and the Azure Functions app, including both functions and associated resources like storage.
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-> [!IMPORTANT]
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
+* **If you'd like to continue using the Azure Digital Twins instance you set up in this article, but clear out some or all of its models, twins, and relationships**, you can use the [az dt](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) CLI commands in an [Azure Cloud Shell](https://shell.azure.com) window to delete the elements you'd like to remove.
 
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
+    This option will not remove any of the other Azure resources created in this tutorial (IoT Hub, Azure Functions app, etc.). You can delete these individually using the [dt commands](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true) appropriate for each resource type.
 
-Finally, delete the project sample folder you downloaded to your local machine.
+You may also want to delete the project folder from your local machine.
 
 ## Next steps
 

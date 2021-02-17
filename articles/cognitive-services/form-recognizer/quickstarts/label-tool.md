@@ -172,7 +172,7 @@ It will also show which tables have been automatically extracted. Click on the t
 
 ### Apply labels to text
 
-Next, you'll create tags (labels) and apply them to the text elements that you want the model to recognize.
+Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze.
 
 # [v2.0](#tab/v2-0)  
 1. First, use the tags editor pane to create the tags you'd like to identify.
@@ -224,7 +224,7 @@ Follow the steps above to label at least five of your forms.
 Optionally, you can set the expected data type for each tag. Open the context menu to the right of a tag and select a type from the menu. This feature allows the detection algorithm to make certain assumptions that will improve the text-detection accuracy. It also ensures that the detected values will be returned in a standardized format in the final JSON output. Value type information is saved in the *fields.json* file in the same path as your label files.
 
 > [!div class="mx-imgBorder"]
-> ![Value type selection with sample labeling tool](../media/whats-new/formre-value-type.png)
+> ![Value type selection with sample labeling tool](../media/whats-new/value-type.png)
 
 The following value types and variations are currently supported:
 * `string`

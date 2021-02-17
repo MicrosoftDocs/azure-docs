@@ -16,6 +16,22 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+## February 2021
+
+### Read API v3.2 Public Preview with OCR support for 73 languages
+Computer Vision's Read API v3.2 public preview, available as cloud service and Docker container, includes these updates:
+* [OCR for 73 languages](./language-support.md#optical-character-recognition-ocr) including Simplified and Traditional Chinese, Japanese, Korean, and Latin languages.
+* Natural reading order for the text line output (Latin languages only)
+* Handwriting style classification for text lines along with a confidence score (Latin languages only).
+* Extract text only for selected pages for a multi-page document.
+* Available as a [Distroless container](./computer-vision-how-to-install-containers.md?tabs=version-3-2) for on-premise deployment.
+
+[Learn more](concept-recognizing-text.md) about the Read API.
+
+> [!div class="nextstepaction"]
+> [Use the Read API v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+
+
 ## January 2021
 
 ### Spatial analysis container update

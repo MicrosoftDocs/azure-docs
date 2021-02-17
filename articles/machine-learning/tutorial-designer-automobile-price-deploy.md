@@ -16,7 +16,7 @@ ms.custom: designer
 # Tutorial: Deploy a machine learning model with the designer
 
 
-You can deploy the predictive model developed in [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to give others a chance to use it. In part one, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you will:
+You can deploy the predictive model developed in [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to give others a chance to use it. In part one, you trained your model. Now, it's time to generate predictions based on user input. In this part of the tutorial, you will:
 
 > [!div class="checklist"]
 > * Create a real-time inference pipeline.
@@ -118,17 +118,19 @@ After your AKS service has finished provisioning, return to the real-time infere
 > You can also deploy to **Azure Container Instance** (ACI) if you select **Azure Container Instance** for **Compute type** in the real-time endpoint setting box.
 > Azure Container Instance is used for testing or development. Use ACI for low-scale CPU-based workloads that require less than 48 GB of RAM.
 
-## View the real-time endpoint
+## Test the real-time endpoint
 
 After deployment finishes, you can view your real-time endpoint by going to the **Endpoints** page.
 
 1. On the **Endpoints** page, select the endpoint you deployed.
 
-1. In the **Details** tab, you can see more information such as the REST URI, status, and tags.
+    In the **Details** tab, you can see more information such as the REST URI, Swagger definition, status, and tags.
 
-1. In the **Consume** tab, you can find security keys and set authentication methods.
+    In the **Consume** tab, you can find sample consumption code, security keys, and set authentication methods.
 
-1. In the **Deployment logs** tab, you can find the detailed deployment logs of your real-time endpoint. 
+    In the **Deployment logs** tab, you can find the detailed deployment logs of your real-time endpoint.
+
+1. To test your endpoint, go to the **Test** tab. From here, you can enter test data and select **Test** verify the output of your endpoint.
 
 For more information on consuming your web service, see [Consume a model deployed as a webservice](how-to-consume-web-service.md)
 
