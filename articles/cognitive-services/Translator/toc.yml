@@ -86,6 +86,22 @@
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+- name: Document Translation
+  items:
+  - name: Overview 
+    items:
+    - name: What is Document Translation?
+      href: document-translation/overview.md 
+  - name: How-to guides 
+    items:   
+    - name: Get started with Document Translation
+      href: document-translation/get-started-with-document-translation.md
+    - name:   Create SAS tokens 
+      href: document-translation/create-sas-tokens.md
+  - name: Reference
+    items:
+    - name: Document Translation API reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/translator/translation
 - name: Custom Translator
   items:
   - name: Overview
@@ -150,4 +166,3 @@
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Encryption
       href: encrypt-data-at-rest.md
-
