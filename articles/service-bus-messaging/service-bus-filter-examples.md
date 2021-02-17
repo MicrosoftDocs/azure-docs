@@ -6,6 +6,7 @@ ms.date: 02/17/2021
 ---
 
 # Set subscription filters (Azure Service Bus)
+This article provides a few examples on setting filters on Service Bus topic subscriptions. For conceptual information about filters, see [Filters](topic-filters.md).
 
 ## Filter on system properties
 To refer to a system property in a filter, use the following format: `sys.<system-property-name>`. 
