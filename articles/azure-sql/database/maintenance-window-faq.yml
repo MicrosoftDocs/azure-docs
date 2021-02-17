@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Maintenance Window FAQ
-  description: FAQ on how the Azure SQL Database and Managed Instance maintenance window can be configured.
+  description: FAQ on how the Azure SQL Database and managed instance maintenance window can be configured.
   services: sql-database
   ms.service: sql-database
   ms.subservice: service
@@ -39,7 +39,7 @@ sections:
 
       - question: What can I expect during a maintenance event?
         answer: |
-          During a maintenance update, databases are fully available and accessible but some of the maintenance updates require a failover as Azure takes SQL Databases offline for a short time to apply the maintenance updates (on average, eight seconds in duration). Planned maintenance updates occur once every 35 days on average, which means customer can expect approximately one planned maintenance event per month per Azure SQL Database and managed instance, and only during the maintenance window slots selected by the customer.
+          During a maintenance update, databases are fully available and accessible but some of the maintenance updates require a failover as Azure takes SQL Databases offline for a short time to apply the maintenance updates (generally a few seconds in duration). Planned maintenance updates occur once every 35 days on average, which means customer can expect approximately one planned maintenance event per month per Azure SQL Database and managed instance, and only during the maintenance window slots selected by the customer.
 
       - question: In which regions is choosing a maintenance window available?
         answer: | 
@@ -85,9 +85,13 @@ sections:
         answer: |
          If the database is part of an elastic pool, the maintenance window configuration of the elastic pool will be applied. Single databases outside of an elastic pool can have their own maintenance window configuration.
 
-      - question: What are supported options to configure a maintenance window for an existing Azure SQL Database or SQL Managed Instance?
+      - question: What are supported options to configure a maintenance window for an existing Azure SQL Database or SQL managed instance?
         answer: |
           Azure Portal, PowerShell, Azure CLI, and REST API.
+
+      - question: Can I configure a maintenance window during restore, recovery, copy, import, or GeoDR scenarios?
+        answer: |
+          No. The maintenance window schedule can be configured after resource is created.
 
 additionalContent: |
  ## See Also

@@ -58,7 +58,8 @@ Maintenance notifications can be configured to alert customers on upcoming plann
 Choosing a maintenance window other than the default is available on all SLOs **except for**:
 * Hyperscale 
 * Legacy Gen4 vCore
-* DTU S0 and S1 
+* Basic, S0 and S1 
+* DC, Fsv2, M-series
 
 ### Azure region support
 
@@ -81,13 +82,18 @@ Choosing a maintenance window other than the default is currently available in t
 - West US
 - West US2
 
-## Gateway maintenance 
+## Gateway maintenance for Azure SQL Database
 
-To get the maximum benefit from maintenance windows, make sure your client applications are using the redirect connection policy. For more on client connection policy in Azure SQL Database see [Azure SQL Database Connection policy](../database/connectivity-architecture.md#connection-policy), and in Azure SQL managed instance see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md). 
+To get the maximum benefit from maintenance windows, make sure your client applications are using the redirect connection policy. Redirect is the recommended connection policy, where clients establish connections directly to the node hosting the database, leading to reduced latency and improved throughput.  
 
-Redirect is the recommended connection policy, where clients establish connections directly to the node hosting the database, leading to reduced latency and improved throughput.  
+* In Azure SQL Database, any connections using the proxy connection policy could be affected by both the chosen maintenance window and the gateway node maintenance window. This is because the chosen database maintenance window schedule does not affect the gateway nodes maintenance schedule. The gateway nodes receive maintenance usually during the default schedule, 5PM to 8AM local time Monday - Sunday. However, client connections using the recommended redirect connection policy are unaffected by a gateway node maintenance failover. 
 
-The maintenance window schedule for gateway nodes are not changed by the Azure SQL Database or managed instance maintenance window. The gateway nodes receive maintenance only during the default schedule, 5PM to 8AM local time Monday - Sunday. Therefore, any connections using the proxy connection policy could be affected by both the chosen maintenance window and the gateway node maintenance window. Clients using the proxy connection policy would be terminated and could immediately re-connect to a different gateway. However, client connections using the redirect connection policy would be unaffected by a gateway node maintenance failover. 
+* In Azure SQL managed instance, the gateway node maintenance window schedule are affected by the managed instance maintenance window, so using the proxy connection policy does not potentially expose connections to an additional maintenance window.
+
+For more on the client connection policy in Azure SQL Database see [Azure SQL Database Connection policy](../database/connectivity-architecture.md#connection-policy). 
+
+For more on the client connection policy in Azure SQL managed instance see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md).
+
 
 ## Next steps
 
