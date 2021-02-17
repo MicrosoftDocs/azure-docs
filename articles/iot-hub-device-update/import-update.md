@@ -60,7 +60,7 @@ a location accessible from PowerShell (once the zip file is downloaded, right cl
     | updateVersion | Update version, for example, 2.0
     | updateType | <ul><li>Specify `microsoft/swupdate:1` for image update</li><li>Specify `microsoft/apt:1` for package update</li></ul>
     | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify recommended value for `microsoft/apt:1` update type.
-    | updateFilePath(s) | Path to the update file(s) on your PC
+    | updateFilePath(s) | Path to the update file(s) on your computer
 
     Full import manifest schema
 
