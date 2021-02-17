@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/29/2021
-ms.author: lajanaur
+ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: document processing
 ---
