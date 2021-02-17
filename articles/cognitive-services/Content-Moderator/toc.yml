@@ -116,14 +116,8 @@
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/559960-content-moderator
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator
   - name: Language support
     href: language-support.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure roadmap
