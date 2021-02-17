@@ -5,7 +5,7 @@ author: gahl-levy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: gahllevy
 
 ---
