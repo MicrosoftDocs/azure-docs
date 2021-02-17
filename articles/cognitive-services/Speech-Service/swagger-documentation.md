@@ -1,5 +1,5 @@
 ---
-title: Swagger documentation - Speech services
+title: Swagger documentation - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Swagger documentation can be used to auto-generate SDKs for a number of programming languages. All operations in our service are supported by Swagger
 services: cognitive-services
@@ -14,10 +14,10 @@ ms.author: alexeyo
 
 # Swagger documentation
 
-Speech Services offers a Swagger specification to interact with a handful of REST APIs used to import data, create models, test model accuracy, create custom endpoints, queue up batch transcriptions, and manage subscriptions. Most operations available through [the Custom Speech area of the Speech Studio](https://aka.ms/customspeech) can be completed programmatically using these APIs.
+Speech service offers a Swagger specification to interact with a handful of REST APIs used to import data, create models, test model accuracy, create custom endpoints, queue up batch transcriptions, and manage subscriptions. Most operations available through [the Custom Speech area of the Speech Studio](https://aka.ms/customspeech) can be completed programmatically using these APIs.
 
 > [!NOTE]
-> Speech Services has several REST APIs for [Speech-to-text](rest-speech-to-text.md) and [Text-to-speech](rest-text-to-speech.md).  
+> Speech service has several REST APIs for [Speech-to-text](rest-speech-to-text.md) and [Text-to-speech](rest-text-to-speech.md).  
 >
 > However only [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) and v2.0 are documented in the Swagger specification. See the documents referenced in the previous paragraph for the information on all other Speech Services REST APIs.
 
@@ -39,7 +39,7 @@ You'll need to set Swagger to the region of your Speech resource. You can confir
 1. The installed package is named `swagger_client`. Check that the installation has worked:  
        `python -c "import swagger_client"`
 
-You can use the Python library that you generated with the [Speech Services samples on GitHub](https://aka.ms/csspeech/samples).
+You can use the Python library that you generated with the [Speech service samples on GitHub](https://aka.ms/csspeech/samples).
 
 ## Reference documents
 
@@ -49,5 +49,5 @@ You can use the Python library that you generated with the [Speech Services samp
 
 ## Next steps
 
-* [Speech Services samples on GitHub](https://aka.ms/csspeech/samples).
-* [Get a Speech Services subscription key for free](overview.md#try-the-speech-service-for-free)
+* [Speech service samples on GitHub](https://aka.ms/csspeech/samples).
+* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
