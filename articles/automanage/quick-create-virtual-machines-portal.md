@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 09/04/2020
+ms.date: 02/17/2021
 ms.author: jushiman
 ---
 
@@ -29,10 +29,23 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://aka.ms/AutomanagePortal-Ignite21). 
 
+## Enable Automanage for a single VM
 
-## Enable Automanage for VMs on an existing VM
+1. Browse to the Virtual Machine that you would like to enable. 
+
+2. Click on the **Automanage (Preview)** entry in the Table of Contents under **Operations**.
+
+3. Select **Get Started**.
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\VMManage-GetStarted.png" alt-text="Get started single VM.":::
+
+4. Choose your Automanage settings (Environment, Preferences, Automanage Account) and hit **Enable**.
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\VMManage-Enable.png" alt-text="Enable on sinlge VM.":::
+
+## Enable Automanage for mulitple VMs
 
 1. In the search bar, search for and select **Automanage – Azure virtual machine best practices**.
 
@@ -60,31 +73,29 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 6. Click the **Enable** button.
 
 
-## Enable Automanage for VMs on a new VM
+## Enable Automanage for a new VM
 
-Sign into the Azure portal [here](https://aka.ms/automanageportalnextstep) to create a new VM and enable Automanage.
+Sign into the Azure portal [here](https://aka.ms/AutomanagePortal-Ignite21) to create a new VM and enable Automanage.
 
-1. Follow the creation steps in [Quickstart - create a Windows VM in the Azure portal](..\virtual-machines\windows\quick-create-portal.md).
+1. Choose **Create a resource** in the upper left corner of the Azure portal.
 
-2. After your VM is deployed, you will land on the deployment status page that has recommended **Next steps** at the bottom.
+2. In the search box above the list of Azure Marketplace resources, search for and select the image you want use, then choose **Create**.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="Next steps section located at the bottom of deployment page.":::
+> [!NOTE]
+> Check the Automanage supported [Linux distros](virtual-machines-best-practices.md) and [Windows Server versions](virtual-machines-best-practices.md). 
 
-3. Under **Next steps**, select **Enable Automanage virtual machine best practices**.
+3. Fill out the **Basics** tab with your VM details. 
 
-4. On the **Automanage – Azure virtual machine best practices** page, **Machines** will automatically be populated by your newly created VM.
+> [!NOTE]
+> Check the Automanage supported [regions](automanage-virtual-machines#prerequisites).
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="Newly created VM will show up as selected machine.":::
+4. Browse to the **Management** tab and choose your **Automanage Environment**.
 
-5. Under **Configuration profile**, click **Browse and change profiles and preferences**.
+    :::image type="content" source="media\quick-create-virtual-machine-portal\VMCreate-Management-Tab.png" alt-text="Enable Automanage in Management Tab.":::
 
-6. On the **Select configuration profile + preferences** blade:
-    1. Select a profile on the left: *Dev/Test* for testing, *Prod* for production.
-    1. Click the **Select** button.
+5. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Browse production configuration profile.":::
-
-7. Click the **Enable** button.
+6. When you see the message that validation has passed, select **Create**.
 
 ## Disable Automanage for VMs
 
@@ -116,4 +127,4 @@ In this quickstart, you enabled Azure Automanage for VMs.
 Discover how you can create and apply customized preferences when enabling Automanage on your virtual machine. 
 
 > [!div class="nextstepaction"]
-> [Azure Automanage for VMS - Custom configuration profile](virtual-machines-custom-preferences.md)
+> [Azure Automanage for VMs - Custom configuration profile](virtual-machines-custom-preferences.md)
