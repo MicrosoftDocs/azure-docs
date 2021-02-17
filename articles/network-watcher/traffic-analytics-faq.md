@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure traffic analytics frequently asked questions | Microsoft Docs
 description: Get answers to some of the most frequently asked questions about traffic analytics.
 services: network-watcher
@@ -122,7 +122,7 @@ Yes.
 
 ## Can I use an existing workspace?
 
-Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Monitor logs upgrade to new log search](../azure-monitor/log-query/log-query-overview.md).
+Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Monitor logs upgrade to new log search](../azure-monitor/logs/log-query-overview.md).
 
 ## Can my Azure Storage Account be in one subscription and my Log Analytics workspace be in a different subscription?
 
@@ -261,7 +261,7 @@ Steps :
 - You can use the shortlink for Log Analytics in Traffic Analytics. 
 - Use the [schema documented here](traffic-analytics-schema.md) to write your queries 
 - Click "New alert rule" to create the alert
-- Refer to [log alerts documentation](../azure-monitor/platform/alerts-log.md) to create the alert
+- Refer to [log alerts documentation](../azure-monitor/alerts/alerts-log.md) to create the alert
 
 ## How do I check which VMs are receiving most on-premises traffic?
 
