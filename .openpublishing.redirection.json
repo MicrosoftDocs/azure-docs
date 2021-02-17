@@ -63503,6 +63503,11 @@
       "source_path_from_root": "/articles/azure-monitor/scripts/powershell-sample-create-workspace.md",
       "redirect_url": "/azure/azure-monitor/logs/powershell-sample-create-workspace",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
+      "redirect_document_id": false
     }
   ]
 }

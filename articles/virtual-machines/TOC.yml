@@ -950,6 +950,8 @@
       href: disks-reserved-capacity.md
     - name: Design for high performance
       href: premium-storage-performance.md
+    - name: Disk related metrics
+      href: disks-metrics.md
     - name: Disk bursting
       href: disk-bursting.md
     - name: Disk performance tiers
