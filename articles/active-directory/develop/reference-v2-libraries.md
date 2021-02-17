@@ -31,9 +31,6 @@ A single-page application runs entirely on the browser surface and fetches page 
 
 Because a SPA's code runs entirely in the browser, it's considered a *public client* that's unable to store secrets securely.
 
-<<<<<<< HEAD
-[!INCLUDE [active-directory-develop-libraries-spa](../../../includes/active-directory-develop-libraries-spa.md)]
-=======
 | Language / framework | Project on<br/>GitHub                                                                                                    | Package                                                                      | Getting<br/>started                             | Sign in users                                         | Access web APIs                                                 | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
 |----------------------|--------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|:-----------------------------------------------:|:-----------------------------------------------------:|:---------------------------------------------------------------:|:------------------------------------------------------------:|
 | Angular              | [MSAL Angular 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)         | [@azure/msal-angular](https://www.npmjs.com/package/@azure/msal-angular)     | —                                               | ![Library can request ID tokens for user sign-in.][y] | ![Library can request access tokens for protected web APIs.][y] | Public preview                                               |
@@ -47,7 +44,6 @@ Because a SPA's code runs entirely in the browser, it's considered a *public cli
 -->
 
 <sup>1</sup> [Supplemental terms of use for Microsoft Azure Previews][preview-tos] apply to libraries in *Public preview*.
->>>>>>> dfdde355009b89d079473d97739c3f7e7363edd2
 
 ## Web application
 
@@ -55,9 +51,6 @@ A web application runs code on a server that generates and sends HTML, CSS, and 
 
 Because a web application's code runs on the web server, it's considered a *confidential client* that can store secrets securely.
 
-<<<<<<< HEAD
-[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
-=======
 | Language / framework | Project on<br/>GitHub                                                                                     | Package                                                                                                    | Getting<br/>started                               | Sign in users                                            | Access web APIs                                                    | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
 |----------------------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|:-------------------------------------------------:|:--------------------------------------------------------:|:------------------------------------------------------------------:|:------------------------------------------------------------:|
 | .NET                 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)                        | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)                      | —                                                 | ![Library cannot request ID tokens for user sign-in.][n] | ![Library can request access tokens for protected web APIs.][y]    | GA                                                           |
@@ -76,7 +69,6 @@ Because a web application's code runs on the web server, it's considered a *conf
 -->
 
 <sup>1</sup> [Supplemental terms of use for Microsoft Azure Previews][preview-tos] apply to libraries in *Public preview*.
->>>>>>> dfdde355009b89d079473d97739c3f7e7363edd2
 
 ## Desktop application
 
@@ -84,9 +76,6 @@ A desktop application is typically binary (compiled) code that surfaces a user i
 
 Because a desktop application runs on the user's desktop, it's considered a *public client* that's unable to store secrets securely.
 
-<<<<<<< HEAD
-[!INCLUDE [active-directory-develop-libraries-desktop](../../../includes/active-directory-develop-libraries-desktop.md)]
-=======
 | Language / framework | Project on<br/>GitHub                                                                                     | Package                                                                               | Getting<br/>started                        | Sign in users                                         | Access web APIs                                                 | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
 |----------------------|-----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|:------------------------------------------:|:-----------------------------------------------------:|:---------------------------------------------------------------:|:------------------------------------------------------------:|
 | Electron             | [MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) | [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node)                    | [Tutorial](tutorial-v2-nodejs-desktop.md)   | ![Library can request ID tokens for user sign-in.][y] | ![Library can request access tokens for protected web APIs.][y] | GA                                               |
@@ -100,7 +89,6 @@ Because a desktop application runs on the user's desktop, it's considered a *pub
 -->
 
 <sup>1</sup> [Supplemental terms of use for Microsoft Azure Previews][preview-tos] apply to libraries in *Public preview*.
->>>>>>> dfdde355009b89d079473d97739c3f7e7363edd2
 
 ## Mobile application
 
@@ -116,9 +104,6 @@ Services and daemons are commonly used for server-to-server and other unattended
 
 A service or daemon that runs on a server is considered a *confidential client* that can store its secrets securely.
 
-<<<<<<< HEAD
-[!INCLUDE [active-directory-develop-libraries-daemon](../../../includes/active-directory-develop-libraries-daemon.md)]
-=======
 | Language / framework | Project on<br/>GitHub                                                                 | Package                                                                                | Getting<br/>started                           | Sign in users                                            | Access web APIs                                                 | Generally available (GA) *or*<br/>Public preview<sup>1</sup> |
 |----------------------|---------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|:---------------------------------------------:|:--------------------------------------------------------:|:---------------------------------------------------------------:|:------------------------------------------------------------:|
 | .NET                 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)    | [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client/) | [Quickstart](quickstart-v2-netcore-daemon.md) | ![Library cannot request ID tokens for user sign-in.][n] | ![Library can request access tokens for protected web APIs.][y] | GA                                                           |
@@ -130,7 +115,6 @@ A service or daemon that runs on a server is considered a *confidential client* 
 -->
 
 <sup>1</sup> [Supplemental terms of use for Microsoft Azure Previews][preview-tos] apply to libraries in *Public preview*.
->>>>>>> dfdde355009b89d079473d97739c3f7e7363edd2
 
 ## Next steps
 
