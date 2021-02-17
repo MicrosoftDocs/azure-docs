@@ -5,18 +5,18 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/18/2021
 ms.author: yuajia
 ---
 
-# Azure Front Door Reports
+# Azure Front Door Standard/Premium Reports
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Front Door Analytics Reports provide a built-in and all-around view of how Azure Front Door is behaving and the associated WAF metrics. You can take advantage of Access Log to do further troubleshooting and debugging. Azure Front Door Analytics reports include AFD traffic reports and security reports.
+Azure Front Door Standard/Premium Analytics Reports provide a built-in and all-around view of how you Azure Front Door behaves along with associated Web Application Firewall metrics. You can also take advantage of Access Logs to do further troubleshooting and debugging. Azure Front Door Analytics reports include traffic reports and security reports.
 
 | Reports | Details |
 |---------|---------|
@@ -41,15 +41,16 @@ Most of the reports are based on access logs and are offered free of charge to c
 
 Reports support any selected date range from the previous 90 days. With data points of every 5 mins, every hour, or every day based on the date range selected. Normally, you can view data with delay of within an hour and occasionally with delay of up to a few hours. 
 
-## Access Reports using Portal
+## Access Reports using the Azure Portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select your Azure Front Door profile.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select your Azure Front Door Standard/Premium profile.
 
 1. In the navigation pane, select **Reports or Security** under *Analytics*.
 
    :::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Screenshot of Reports landing page":::
 
 1. There are seven tabs for different dimensions, select the dimension of interest.
+
    * Traffic by domain
    * Usage 
    * Traffic by location
@@ -101,27 +102,48 @@ Reports support any selected date range from the previous 90 days. With data poi
 
 | Metric | Description |
 |---------|---------|
-| Data Transferred | Shows data transferred from AFD edge POPs to client for the selected time frame, client location, domain, and protocol. |
-| Peak Bandwidth | Peak bandwidth usage in bits per seconds from Azure Front Door edge POPs to client for the selected time frame, client location, domain, and protocol. | 
-| Total Requests | The number of requests that AFD edge POPs responded to client for the selected time frame, client location, domain, and protocol. |
-| Cache Hit Ratio | The percentage of all the cacheable requests for which AFD served the contents from its edge caches for the selected time frame, client location, domain, and protocol. |
-| 5XX Error Rate | The percentage of requests for which the HTTP status code to client was a 5XX for the selected time frame, client location, domain, and protocol. |
-| Total Latency | Average latency of all the requests for the selected time frame, client location, domain, and protocol. The latency for each request is measured as the total time of when the client request gets received by Azure Front Door until the last response byte sent from Azure Front Door to client. |
+| Data Transferred | Shows data transferred from AFD edge POPs to client for the selected time frame, client locations, domains, and protocols. |
+| Peak Bandwidth | Peak bandwidth usage in bits per seconds from Azure Front Door edge POPs to client for the selected time frame, client locations, domains, and protocols. | 
+| Total Requests | The number of requests that AFD edge POPs responded to client for the selected time frame, client locations, domains, and protocols. |
+| Cache Hit Ratio | The percentage of all the cacheable requests for which AFD served the contents from its edge caches for the selected time frame, client locations, domains, and protocols. |
+| 5XX Error Rate | The percentage of requests for which the HTTP status code to client was a 5XX for the selected time frame, client locations, domains, and protocols. |
+| Total Latency | Average latency of all the requests for the selected time frame, client locations, domains, and protocols. The latency for each request is measured as the total time of when the client request gets received by Azure Front Door until the last response byte sent from Azure Front Door to client. |
 
 ## Traffic by Domain
 
 Traffic by Domain provides a grid view of all the domains under this Azure Front Door profile. In this report you can view: 
 * Requests
 * Data transferred out from Azure Front Door to client
-* Corresponding cache hit ratio and status code of each domain
+* Requests with status code (3XX, 4Xx and 5XX) of each domain
 
 Domains include Endpoint and Custom Domains, as explained in the Accessing Report session.  
 
 You can go to other tabs to investigate further or view access log for more information if you find the metrics below your expectation. 
 
-For definition of cache hit ratio, refer to Caching. 
-
 :::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Screenshot of landing page for reports":::
+
+
+## Usage
+
+This report shows the trends of traffic and response status code by different dimensions, including:
+
+* Data Transferred from edge to client and from origin to edge in line chart. 
+
+* Data Transferred from edge to client by protocol in line chart. 
+
+* Number of requests from edge to clients in line chart.  
+
+* Number of requests from edge to clients by protocol, HTTP and HTTPS, in line chart. 
+
+* Bandwidth from edge to client in line chart. 
+
+* Total latency, which measures the total time from the client request received by Front Door until the last response byte sent from Front Door to client.
+
+* Number of requests from edge to clients by HTTP status code, in line chart. Every request generates an HTTP status code. HTTP status code appears in HTTPStatusCode in Raw Log. The status code describes how CDN edge handled the request. For example, a 2xx status code indicates that the request got successfully served to a client. While a 4xx status code indicates that an error occurred. For more information about HTTP status codes, see List of HTTP status codes. 
+
+* Number of requests from the edge to clients by HTTP status code. Percentage of requests by HTTP status code among all requests in grid. 
+
+:::image type="content" source="../media/how-to-reports/front-door-reports-usage.png" alt-text="Screenshot of Reports by usage" lightbox="../media/how-to-reports/front-door-reports-usage-expanded.png":::
 
 ## Traffic by Location
 
@@ -132,32 +154,8 @@ This report displays the top 50 locations by the country of the visitors that ac
 The following are included in the reports:
 
 * A world map view of the top 50 countries by data transferred out or requests of your choice.
-* A grid of the top countries with corresponding data transferred out from AFD to clients, data transferred out % of all countries, requests, request % among all countries, cache hit ratio, 4XX response code and 5XX response code.
 * Two line charts trend view of the top five countries by data transferred out and requests of your choice. 
-
-You can select the view world map or line chart trend by data transferred out (traffic) or requests.  
-
-## Usage
-
-This report shows the trends of traffic and response status code by different dimensions, including:
-
-* Data Transferred from edge to client in line chart. 
-
-* Data Transferred from origin to client in line chart. 
-
-* Bandwidth from edge to client in line chart. 
-
-* Bandwidth from origin to client in line chart. 
-
-* Number of requests from edge to clients in line chart.  
-
-* Number of requests from edge to clients by protocol, HTTP and HTTPS, in line chart. 
-
-* Number of requests from edge to clients by HTTP status code, in line chart. Every request generates an HTTP status code. HTTP status code appears in HTTPStatusCode in Raw Log. The status code describes how CDN edge handled the request. For example, a 2xx status code indicates that the request got successfully served to a client. While a 4xx status code indicates that an error occurred. For more information about HTTP status codes, see List of HTTP status codes. 
-
-* Number of requests from the edge to clients by HTTP status code. Percentage of requests by HTTP status code among all requests in grid. 
-
-:::image type="content" source="../media/how-to-reports/front-door-reports-usage.png" alt-text="Screenshot of Reports by usage" lightbox="../media/how-to-reports/front-door-reports-usage-expanded.png":::
+* A grid of the top countries with corresponding data transferred out from AFD to clients, data transferred out % of all countries, requests, request % among all countries, cache hit ratio, 4XX response code and 5XX response code.
 
 ## Caching
 
@@ -167,7 +165,7 @@ Caching reports provides a chart view of cache hits/misses and cache hit ratio b
 
 * Cache hit ratio in line chart.
 
-* Cache Hits/Misses describe the request number cache hits and cache misses for client requests.
+Cache Hits/Misses describe the request number cache hits and cache misses for client requests.
 
 * Hits: the client requests that are served directly from Azure CDN edge servers. Refers to those requests whose values for CacheStatus in raw logs are HIT, PARTIAL_HIT, or REMOTE HIT. 
 
@@ -201,9 +199,12 @@ Top URLs allow you to view the amount of traffic incurred over a particular endp
 
 * URL, refers to the full path of the requested asset in the format of `http(s)://contoso.com/index.html/images/example.jpg`. 
 * Request counts. 
-* Request % of the total requests served by Azure CDN. 
+* Request % of the total requests served by Azure Front Door. 
 * Data transferred. 
 * Data transferred %. 
+* Cache Hit Ratio %
+* Requests with response code as 4XX
+* Requests with response code as 5XX
 
 > [!NOTE]
 > Top URLs may change over time and to get an accurate list of the top 50 URLs, Azure Front Door counts all your URL requests by hour and keep the running total over the course of a day. The URLs at the bottom of the 500 URLs may rise onto or drop off the list over the day, so the total number of these URLs are approximations.  
@@ -221,18 +222,21 @@ Top Referrers allow customers to view the top 50 referrer that originated the mo
 * Request % of total requests served by Azure CDN in the selected time period. 
 * Data transferred 
 * Data transferred % 
+* Cache Hit Ratio %
+* Requests with response code as 4XX
+* Requests with response code as 5XX
 
 :::image type="content" source="../media/how-to-reports/front-door-reports-top-referrer.png" alt-text="Reports for top referrer":::
 
-## Traffic by User Agent
+## Top User Agent
 
-This report allows you to have graphical and statistics view of the top 50 user agents that were used to request content.
+This report allows you to have graphical and statistics view of the top 50 user agents that were used to request content. For example,
 * Mozilla/5.0 (Windows NT 10.0; WOW64) 
 * AppleWebKit/537.36 (KHTML, like Gecko) 
 * Chrome/86.0.4240.75 
 * Safari/537.36.  
 
-A grid displays the request counts, request %, data transferred and data transferred. User Agent refers to the value of UserAgent in access logs.
+A grid displays the request counts, request %, data transferred and data transferred, cache Hit Ratio %, requests with response code as 4XX and requests with response code as 5XX. User Agent refers to the value of UserAgent in access logs.
 
 ## Security Report
 
@@ -250,11 +254,10 @@ This report allows you to have graphical and statistics view of WAF patterns by 
 | Events by Rule Group | Doughnut chart of the WAF requests distribution by Rule Group. |
 | Requests by actions | A table of requests by actions, in descending order. |
 | Requests by top Rule IDs | A table of requests by top 50 rule IDs, in descending order. |
-| Requests by Rule Description | A table of requests by top 50 countries, in descending order. |
 | Requests by top  countries |  A table of requests by top 50 countries, in descending order. |
 | Requests by top client IPs |  A table of requests by top 50 IPs, in descending order. |
 | Requests by top Request URL |  A table of requests by top 50 URLs, in descending order. |
-| Request by top Hostnames | A table of top 50 requests by hostname, in descending order. |
+| Request by top Hostnames | A table of requests by top 50 hostname, in descending order. |
 | Requests by top user agents | A table of requests by top 50 user agents, in descending order. |
 
 ## CVS format
@@ -360,4 +363,4 @@ The seven tables are for time, rule ID, country, IP address, URL, hostname, user
 
 ## Next steps
 
-Learn about [Azure Front Door Standard/Premium (Preview) real time monitoring metrics]().
+Learn about [Azure Front Door Standard/Premium real time monitoring metrics](how-to-monitor-metrics.md).

@@ -42,7 +42,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Storage Ge
 		
 		* Select the option to **Stream to an event hub** to stream log data to an Azure Event Hub. Most likely you will use this option if you have a downstream processing pipeline to analyze incoming logs at real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
 
-		* Select the option to **Send to Log Analytics** to use the Azure Monitor service to analyze the generated log data. If you select this option, you must provide the details for the Log Analytics workspace that you would use the perform log analysis. See [View or analyze data collected with Azure Monitor logs search](../azure-monitor/log-query/log-analytics-tutorial.md) for details on using Azure Monitor logs.
+		* Select the option to **Send to Log Analytics** to use the Azure Monitor service to analyze the generated log data. If you select this option, you must provide the details for the Log Analytics workspace that you would use the perform log analysis. See [View or analyze data collected with Azure Monitor logs search](../azure-monitor/logs/log-analytics-tutorial.md) for details on using Azure Monitor logs.
      
    * Specify whether you want to get audit logs or request logs or both.
    * Specify the number of days for which the data must be retained. Retention is only applicable if you are using Azure storage account to archive log data.
@@ -181,7 +181,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | StreamName |String |The path the operation was performed on |
 
 ## Samples to process the log data
-When sending logs from Azure Data Lake Storage Gen1 to Azure Monitor logs (see [View or analyze data collected with Azure Monitor logs search](../azure-monitor/log-query/log-analytics-tutorial.md) for details on using Azure Monitor logs), the following query will return a table containing a list of user display names, the time of the events, and the count of events for the time of the event along with a visual chart. It can easily be modified to show user GUID or other attributes:
+When sending logs from Azure Data Lake Storage Gen1 to Azure Monitor logs (see [View or analyze data collected with Azure Monitor logs search](../azure-monitor/logs/log-analytics-tutorial.md) for details on using Azure Monitor logs), the following query will return a table containing a list of user display names, the time of the events, and the count of events for the time of the event along with a visual chart. It can easily be modified to show user GUID or other attributes:
 
 ```
 search *

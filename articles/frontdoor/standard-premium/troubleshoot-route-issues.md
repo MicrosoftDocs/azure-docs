@@ -85,4 +85,4 @@ This behavior is separate from the Web Application Firewall (WAF) functionality 
 
 ## Next steps
 
-* Learn how to [create a Front Door](create-front-door-portal.md).
+Learn how to [create a Front Door Standard/Premium](create-front-door-portal.md).
