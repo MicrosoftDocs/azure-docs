@@ -52,7 +52,7 @@ The following requirements apply to NFSv4.1 client encryption:
 
 ## Configure the Azure portal 
 
-1.	Follow the instructions in [Create an Active Directory connection](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection).  
+1.	Follow the instructions in [Create an Active Directory connection](create-active-directory-connections.md).  
 
     Kerberos requires that you create at least one machine account in Active Directory. The account information you provide is used for creating the accounts for both SMB *and* NFSv4.1 Kerberos volumes. This machine is account is created automatically during volume creation.
 
@@ -170,5 +170,5 @@ Performance impact of krb5p:
 * [Troubleshoot NFSv4.1 Kerberos volume issues](troubleshoot-nfsv41-kerberos-volumes.md)
 * [FAQs About Azure NetApp Files](azure-netapp-files-faqs.md)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
-* [Create an Active Directory connection](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)
+* [Create an Active Directory connection](create-active-directory-connections.md)
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md) 
