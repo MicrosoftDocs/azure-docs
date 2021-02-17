@@ -27,7 +27,7 @@ In this quickstart, you'll learn how to deploy an Azure Kubernetes Service (AKS)
 1. Supporting Kubernetes version 1.16+
 1. Intel SGX DCAP Driver Pre-installed on the AKS Nodes. Read more [here](./faq.md)
 
-## Deployment pre-requisites
+## Deployment prerequisites
 The deployment tutorial requires the below :
 
 1. An active Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin
@@ -35,9 +35,10 @@ The deployment tutorial requires the below :
 1. Azure [aks-preview extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) minimum version 0.5.0
 1. Minimum of six **DC<x>s-v2** cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription 8 cores. If you plan to provision a cluster that requires more than 8 cores, follow [these](../azure-portal/supportability/per-vm-quota-requests.md) instructions to raise a quota increase ticket
 
-## CLI based preparation steps (required for add-on in preview - optional but recommended)
+## CLI-based preparation steps (required for add-on in preview - optional but recommended)
+Follow the below instructions to enable Confidential computing add-on on AKS.
 
-### Step 1: Installing the CLI pre-requisites
+### Step 1: Installing the CLI prerequisites
 
 To install the aks-preview 0.5.0 extension or later, use the following Azure CLI commands:
 
@@ -67,6 +68,7 @@ When the status shows as registered, refresh the registration of the Microsoft.C
 az provider register --namespace Microsoft.ContainerService
 ```
 ## Creating new AKS cluster with confidential computing nodes and add-on
+Follow the below instructions to add confidential computing capable nodes with add-on.
 
 ### Step 1: Creating an AKS cluster with system node pool
 
@@ -115,7 +117,7 @@ Go to [Hello World from Enclave](#hello-world) deployment section to test an app
 
 ## Adding confidential computing node pool to existing AKS cluster<a id="existing-cluster"></a>
 
-This section assumes you have an AKS cluster running already that meets the criteria listed in the pre-requisites section (applies to add-on).
+This section assumes you have an AKS cluster running already that meets the criteria listed in the prerequisites section (applies to add-on).
 
 ### Step 1: Enabling the confidential computing AKS add-on on the existing cluster
 
