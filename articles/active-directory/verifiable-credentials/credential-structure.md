@@ -7,8 +7,6 @@ manager: davba
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: barclayn
