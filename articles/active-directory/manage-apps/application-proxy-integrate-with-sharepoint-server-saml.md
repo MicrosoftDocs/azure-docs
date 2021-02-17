@@ -72,9 +72,9 @@ In this step, you create an application in your Azure AD tenant that uses Applic
     ![Screenshot that shows the options you use to create the app.](./media/application-proxy-integrate-with-sharepoint-server/create-application-azure-active-dirctory.png)
 
 
-2. Assign the [same groups](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#create-an-azure-ad-security-group-in-the-azure-portal) that you assigned to the on-premises SharePoint Gallery Application.
+2. Assign the [same groups](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#create-an-azure-ad-security-group-in-the-azure-portal) you assigned to the on-premises SharePoint Gallery Application.
 
-3. Finally, go to the **Properties** section and set **Visible to users?** to **No**. This will ensure that only the icon of the first application appears on the My Apps Portal (https://myapplications.microsoft.com).
+3. Finally, go to the **Properties** section and set **Visible to users?** to **No**. This option ensures that only the icon of the first application appears on the My Apps Portal (https://myapplications.microsoft.com).
 
    ![Screenshot that shows where to set the Visible to users? option.](./media/application-proxy-integrate-with-sharepoint-server/configure-properties.png)
  
