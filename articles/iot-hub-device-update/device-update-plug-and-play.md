@@ -88,6 +88,6 @@ Service Metadata contains fields that the Device Update services uses to communi
 
 Model ID is how smart devices advertise their capabilities to Azure IoT applications with IoT Plug and Play.To learn more on how to build smart devices to advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c).
 
-Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID with a value of **"dtmi:AzureDeviceUpdate;1"** as part of the device connection. Learn more [how to announce a model ID](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c#model-id-announcement)).
+Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID with a value of **"dtmi:AzureDeviceUpdate;1"** as part of the device connection. Learn more [how to announce a model ID](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c#model-id-announcement).
 
 
