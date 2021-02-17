@@ -78,7 +78,7 @@ az keyvault update --name keyvaultName --enabled-for-disk-encryption
 
 ## Update the template and parameters files for disk encryption
 
-The following step will walk you through the required template changes to enable disk encryption on an [existing managed cluster](tutorial-managed-cluster-deploy.md). Alternately, you can deploy a new Service Fabric managed cluster with disk encryption enabled with this template: https://github.com/Azure-Samples/service-fabric-cluster-templates
+The following step will walk you through the required template changes to enable disk encryption on an [existing managed cluster](tutorial-managed-cluster-deploy.md). Alternately, you can deploy a new Service Fabric managed cluster with disk encryption enabled with this template: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DiskEncryption
 
 1. Add the following parameters to the template, substituting your own subscription, resource group name, and vault name under `keyVaultResourceId`:
 
@@ -168,6 +168,8 @@ EncryptionExtensionInstalled : True
 ```
 
 ## Next steps
+
+[Sample: Standard SKU Service Fabric managed cluster, 1 node type with disk encryption enabled](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-DiskEncryption)
 
 [Azure Disk Encryption for Windows VMs](../virtual-machines/windows/disk-encryption-overview.md)
 
