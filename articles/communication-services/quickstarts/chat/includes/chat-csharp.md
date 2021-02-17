@@ -171,7 +171,7 @@ await chatThreadClient.DeleteMessageAsync(id);
 Once a thread is created, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the thread, and add/remove other members. Before calling `AddParticipants`, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
 
 Use `AddParticipants` to add one or more participants to the chat thread. The following are the supported attributes for each thread participant(s):
-- `communicationUser`, required, it is the identification for the thread participant.
+- `communicationUser`, required, is the identity of the thread participant.
 - `displayName`, optional, is the display name for the thread participant.
 - `shareHistoryTime`, optional, time from which the chat history is shared with the participant.
 
