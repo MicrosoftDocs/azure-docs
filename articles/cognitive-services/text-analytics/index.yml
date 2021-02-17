@@ -118,6 +118,23 @@ landingContent:
         - text: Entity recognition
           url: how-tos/text-analytics-how-to-entity-linking.md
 
+- title: Responsible use of AI
+  linkLists:
+    - linkListType: overview
+      links:
+        - text: Transparency note for Text Analytics
+          url: /legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context
+        - text: Transparency note for Health
+          url: /legal/cognitive-services/text-analytics/transparency-note-health?context=/azure/cognitive-services/text-analytics/context/context
+        - text: Transparency note for PII
+          url: /legal/cognitive-services/text-analytics/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/text-analytics/context/context
+        - text: Transparency note for Sentiment Analysis
+          url: /legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis?context=/azure/cognitive-services/text-analytics/context/context
+    - linkListType: concept
+      links:
+        - text: Integration and responsible use
+          url: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
+
 - title: Reference
   linkLists:
     - linkListType: reference
