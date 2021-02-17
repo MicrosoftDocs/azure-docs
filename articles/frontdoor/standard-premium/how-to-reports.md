@@ -1,5 +1,5 @@
 ---
-title: 'Azure Front Door: Reports'
+title: 'Azure Front Door Standard/Premium (Preview) Reports'
 description: This article explains how reporting works in Azure Front Door.
 services: frontdoor
 author: duongau
@@ -9,7 +9,7 @@ ms.date: 02/18/2021
 ms.author: yuajia
 ---
 
-# Azure Front Door Standard/Premium Reports
+# Azure Front Door Standard/Premium (Preview) Reports
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
