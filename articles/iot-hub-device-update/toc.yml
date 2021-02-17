@@ -35,6 +35,8 @@
     href: device-update-agent-overview.md
   - name: Understand Device Update for Azure IoT Hub Configuration File
     href: device-update-configuration-file.md
+  - name: Device Update for IoT Hub update manifest
+    href: update-manifest.md
 
 - name: How-to guides
   items:
