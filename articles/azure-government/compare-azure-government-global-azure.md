@@ -273,7 +273,7 @@ You need to open some **outgoing ports** in your server's firewall to allow the 
 |-------|---|----------|-----|
 |Telemetry|dc.applicationinsights.us|23.97.4.113|443|
 
-### [Azure Lighthouse](../lighthouse.md)
+### [Azure Lighthouse](../lighthouse/overview.md)
 
 The following Azure Lighthouse **features are not currently available** in Azure Government:
 - Managed Service offers published to Azure Marketplace
