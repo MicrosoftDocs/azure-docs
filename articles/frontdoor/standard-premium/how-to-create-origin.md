@@ -1,5 +1,5 @@
 ---
-title: Set up Azure Front Door Endpoint | Microsoft Docs
+title: Set up an Azure Front Door Standard/Premium (Preview) Origin
 description: This article shows how to configure an origin with Endpoint Manager.
 services: frontdoor
 author: duongau
@@ -9,7 +9,7 @@ ms.date: 02/18/2021
 ms.author: qixwang 
 ---
 
-# Set up an Azure Front Door Standard/Premium Origin
+# Set up an Azure Front Door Standard/Premium (Preview) Origin
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
