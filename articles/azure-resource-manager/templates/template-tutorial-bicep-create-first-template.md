@@ -1,35 +1,41 @@
 ---
-title: Tutorial - Create & deploy template
-description: Create your first Azure Resource Manager template (ARM template). In the tutorial, you learn about the template file syntax and how to deploy a storage account.
+title: Tutorial - Create & deploy Bicep template
+description: Create your first Azure Resource Manager template (ARM template) in Bicep. In the tutorial, you learn about the Bicep template file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 12/17/2020
+ms.date: 02/17/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
 
-#Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
+#Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates in Bicep, so I can use the templates to deploy Azure resources.
 
 ---
 
-# Tutorial: Create and deploy your first ARM template
+# Tutorial: Create and deploy your first ARM template in Bicep
 
-This tutorial introduces you to Azure Resource Manager templates (ARM templates). It shows you how to create a starter template and deploy it to Azure. You'll learn about the structure of the template and the tools you'll need for working with templates. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
+This tutorial introduces you to Azure Resource Manager templates (ARM templates) in Bicep. It shows you how to create a starter Bicep template and deploy it to Azure. You'll learn about the structure of the template and the tools you'll need for working with templates. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
 
-This tutorial is the first of a series. As you progress through the series, you modify the starting template step by step until you've explored all of the core parts of an ARM template. These elements are the building blocks for much more complex templates. We hope by the end of the series you're confident creating your own templates and ready to automate your deployments with templates.
+This tutorial is the first of a series. As you progress through the series, you modify the starting Bicep template step by step until you've explored all of the core parts of an ARM template. These elements are the building blocks for much more complex templates. We hope by the end of the series you're confident creating your own templates and ready to automate your deployments with templates.
 
-If you want to learn about the benefits of using templates and why you should automate deployment with templates, see [ARM template overview](overview.md). To learn about ARM templates through a guided set of modules on Microsoft Learn, see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
+[jgao - update the overview link]
+
+If you want to learn about the benefits of using templates and why you should automate deployment with templates, see [ARM Bicep template overview](bicep-overview.md). To learn about ARM templates through a guided set of modules on Microsoft Learn, see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Get tools
 
-Let's start by making sure you have the tools you need to create and deploy templates. Install these tools on your local machine.
+Let's start by making sure you have the tools you need to create and deploy Bicep templates. Install these tools on your local machine.
 
 ### Editor
 
-Templates are JSON files. To create templates, you need a good editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+[jgao - update the vs code and extension installation link]
+
+To create Bicep templates, you need a good editor. We recommend Visual Studio Code with the Bicep extension. If you need to install these tools, see [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ### Command-line deployment
+
+[jgao - need to provide the PowerShell and CLI versions]
 
 You also need either Azure PowerShell or Azure CLI to deploy the template. If you use Azure CLI, you must have the latest version. For the installation instructions, see:
 
@@ -47,36 +53,59 @@ Okay, you're ready to start learning about templates.
 
 ## Create your first template
 
-1. Open Visual Studio Code with the Resource Manager Tools extension installed.
+1. Open Visual Studio Code with the Bicep extension installed.
 1. From the **File** menu, select **New File** to create a new file.
 1. From the **File** menu, select **Save as**.
-1. Name the file _azuredeploy_ and select the _json_ file extension. The complete name of the file is _azuredeploy.json_.
+1. Name the file _azuredeploy_ and select the _bicep_ file extension. The complete name of the file is _azuredeploy.bicep_.
 1. Save the file to your workstation. Select a path that is easy to remember because you'll provide that path later when deploying the template.
-1. Copy and paste the following JSON into the file:
+1. Copy and paste the following Bicep into the file:
 
-    ```json
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "resources": []
+    ```bicep
+    resource provide_unique_name 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+      name: '{provide-unique-name}'
+      location: 'eastus'
+      sku: {
+        name: 'Standard_LRS'
+      }
+      kind: 'StorageV2'
+      properties: {
+        supportsHttpsTrafficOnly: true
+      }
     }
     ```
 
     Here's what your Visual Studio Code environment looks like:
 
-    ![ARM template Visual Studio Code first template](./media/template-tutorial-create-first-template/resource-manager-visual-studio-code-first-template.png)
+    ![ARM Bicep template Visual Studio Code first template](./media/template-tutorial-bicep-create-first-template/resource-manager-visual-studio-code-first-template.png)
 
-    This template doesn't deploy any resources. We're starting with a blank template so you can get familiar with the steps to deploy a template while minimizing the chance of something going wrong.
+    You may be wondering how to find the properties to use for each resource type. You can use the [ARM template reference](/azure/templates/) to find the resource types you want to deploy.
 
-    The JSON file has these elements:
+    Every resource you deploy has at least the following three properties:
 
-    - `$schema`: Specifies the location of the JSON schema file. The schema file describes the properties that are available within a template. For example, the schema defines `resources` as one of the valid properties for a template. Don't worry that the date for the schema is 2019-04-01. This schema version is up to date and includes all of the latest features. The schema date hasn't been changed because there have been no breaking changes since its introduction.
-    - `contentVersion`: Specifies the version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used.
-    - `resources`: Contains the resources you want to deploy or update. Currently, it's empty, but you'll add resources later.
+    - `type`: Type of the resource. This value is a combination of the namespace of the resource provider and the resource type such as `Microsoft.Storage/storageAccounts`.
+    - `apiVersion`: Version of the REST API to use for creating the resource. Each resource provider publishes its own API versions, so this value is specific to the type.
+    - `name`: Name of the resource.
+
+    Most resources also have a `location` property, which sets the region where the resource is deployed.
+
+    The other properties vary by resource type and API version. It's important to understand the connection between the API version and the available properties, so let's jump into more detail.
+
+    In this tutorial, you added a storage account to the template. You can see that API version at [storageAccounts 2019-06-01](/azure/templates/microsoft.storage/2019-06-01/storageaccounts). Notice that you didn't add all of the properties to your template. Many of the properties are optional. The `Microsoft.Storage` resource provider could release a new API version, but the version you're deploying doesn't have to change. You can continue using that version and know that the results of your deployment will be consistent.
+
+    If you view an older API version, such as [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), you'll see that a smaller set of properties are available.
+
+    If you decide to change the API version for a resource, make sure you evaluate the properties for that version and adjust your template appropriately.
+
+1. Replace `{provide-unique-name}` and the curly braces `{}` with a unique storage account name.
+
+    > [!IMPORTANT]
+    > The storage account name must be unique across Azure. The name must have only lowercase letters or numbers. It can be no longer than 24 characters. You might try a naming pattern like using **store1** as a prefix and then adding your initials and today's date. For example, the name you use could look like **store1abc09092019**.
+
+    Guessing a unique name for a storage account isn't easy and doesn't work well for automating large deployments. Later in this tutorial series, you'll use template features that make it easier to create a unique name.
 
 1. Save the file.
 
-Congratulations, you've created your first template.
+Congratulations, you've created your first Bicep template.
 
 ## Sign in to Azure
 
@@ -138,6 +167,8 @@ az group create \
 
 ## Deploy template
 
+[jgao - update powershell and cli commands]
+
 To deploy the template, use either Azure CLI or Azure PowerShell. Use the resource group you created. Give a name to the deployment so you can easily identify it in the deployment history. For convenience, also create a variable that stores the path to the template file. This variable makes it easier for you to run the deployment commands because you don't have to retype the path every time you deploy. Replace `{provide-the-path-to-the-template-file}` and the curly braces `{}` with the path to your template file.
 
 # [PowerShell](#tab/azure-powershell)
@@ -145,7 +176,7 @@ To deploy the template, use either Azure CLI or Azure PowerShell. Use the resour
 ```azurepowershell
 $templateFile = "{provide-the-path-to-the-template-file}"
 New-AzResourceGroupDeployment `
-  -Name blanktemplate `
+  -Name firsttemplate `
   -ResourceGroupName myResourceGroup `
   -TemplateFile $templateFile
 ```
@@ -157,7 +188,7 @@ To run this deployment command, you must have the [latest version](/cli/azure/in
 ```azurecli
 templateFile="{provide-the-path-to-the-template-file}"
 az deployment group create \
-  --name blanktemplate \
+  --name firsttemplate \
   --resource-group myResourceGroup \
   --template-file $templateFile
 ```
@@ -168,11 +199,11 @@ The deployment command returns results. Look for `ProvisioningState` to see whet
 
 # [PowerShell](#tab/azure-powershell)
 
-![PowerShell deployment provisioning state](./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png)
+![PowerShell deployment provisioning state](./media/template-tutorial-bicep-create-first-template/resource-manager-deployment-provisioningstate.png)
 
 # [Azure CLI](#tab/azure-cli)
 
-![Azure CLI deployment provisioning state](./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png)
+![Azure CLI deployment provisioning state](./media/template-tutorial-bicep-create-first-template/azure-cli-provisioning-state.png)
 
 ---
 
@@ -191,15 +222,15 @@ You can verify the deployment by exploring the resource group from the Azure por
 
 1. Notice in the upper right of the overview, the status of the deployment is displayed. Select **1 Succeeded**.
 
-   ![View deployment status](./media/template-tutorial-create-first-template/deployment-status.png)
+   ![View deployment status](./media/template-tutorial-bicep-create-first-template/deployment-status.png)
 
-1. You see a history of deployment for the resource group. Select **blanktemplate**.
+1. You see a history of deployment for the resource group. Select **firsttemplate**.
 
-   ![Select deployment](./media/template-tutorial-create-first-template/select-from-deployment-history.png)
+   ![Select deployment](./media/template-tutorial-bicep-create-first-template/select-from-deployment-history.png)
 
 1. You see a summary of the deployment. In this case, there's not a lot to see because no resources were deployed. Later in this series you might find it helpful to review the summary in the deployment history. Notice on the left you can view inputs, outputs, and the template used during deployment.
 
-   ![View deployment summary](./media/template-tutorial-create-first-template/view-deployment-summary.png)
+   ![View deployment summary](./media/template-tutorial-bicep-create-first-template/view-deployment-summary.png)
 
 ## Clean up resources
 
@@ -217,4 +248,4 @@ If you're stopping now, you might want to delete the resource group.
 You created a simple template to deploy to Azure. In the next tutorial, you'll add a storage account to the template and deploy it to your resource group.
 
 > [!div class="nextstepaction"]
-> [Add resource](template-tutorial-add-resource.md)
+> [Add parameters](template-tutorial-bicep-add-parameters.md)
