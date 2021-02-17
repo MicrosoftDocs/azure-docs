@@ -30,7 +30,7 @@ Azure Backup lets you easily configure operational backup for protecting block b
 A [Backup vault](backup-vault-overview.md) is a management entity that stores recovery points created over time and provides an interface to perform backup related operations. These include taking on-demand backups, performing restores, and creating backup policies. Though operational backup of blobs is a local backup and doesn't "store" data in the vault, the vault is required for various management operations.
 
 >[!NOTE]
-The Backup vault is a new resource that is used for backing up new supported workloads and is different from the already existing Recovery Services vault.
+>The Backup vault is a new resource that is used for backing up new supported workloads and is different from the already existing Recovery Services vault.
 
 For instructions on how to create a Backup vault, see the [Backup vault documentation](backup-vault-overview.md#create-a-backup-vault).
 
@@ -134,15 +134,15 @@ To start configuring backup:
 Once backup is configured, changes taking place on block blobs in the storage accounts are tracked and data is retained according to the backup policy. You'll notice the following changes in the storage accounts for which backup is configured:
 
 - The following capabilities are enabled on the storage account. These can be viewed in the **Data Protection** tab of the storage account.
-  - Point in time restore for containers: With retention as specified in the backup policy<sup>*</sup>
-  - Soft delete for blobs: With retention as specified in the backup policy +5 days<sup>*</sup>
+  - Point in time restore for containers: With retention as specified in the backup policy
+  - Soft delete for blobs: With retention as specified in the backup policy +5 days
   - Versioning for blobs
   - Blob change feed
 
-  \*  If the storage account configured for backup already had this capability enabled (before backup was configured), backup ensures that the retention is at least as defined in the backup policy. Therefore, for each property:
+    If the storage account configured for backup already had  **Point in time restore for containers** or **Soft delete for blobs** enabled (before backup was configured), Backup ensures that the retention is at least as defined in the backup policy. Therefore, for each property:
 
-  - If the retention in the backup policy is greater than the retention originally present in the storage account: The retention on the storage account is modified according to the backup policy
-  - If the retention in the backup policy is less than the retention originally present in the storage account: The retention on the storage account is left unchanged at the originally set duration.
+    - If the retention in the backup policy is greater than the retention originally present in the storage account: The retention on the storage account is modified according to the backup policy
+    - If the retention in the backup policy is less than the retention originally present in the storage account: The retention on the storage account is left unchanged at the originally set duration.
 
     ![Data protection tab](./media/blob-backup-configure-manage/data-protection.png)
 
