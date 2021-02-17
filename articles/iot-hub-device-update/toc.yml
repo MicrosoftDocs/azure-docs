@@ -31,6 +31,10 @@
     href: device-update-plug-and-play.md
   - name: Device update networking requirements
     href: device-update-networking.md
+  - name: Support for disconnected devices
+    href: disconnected-device-update.md
+  - name: Configure Microsoft Connected Cache for device update for IoT Hub
+    href: configure-mcc.md
 
 - name: How-to guides
   items:
@@ -42,6 +46,14 @@
     href: create-update-group.md
   - name: Deploy a device update
     href: deploy-update.md
+  - name: Deploy a device update
+    href: deploy-update.md
+  - name: Single level Microsoft Connected Cache setup
+    href: single-level-mcc.md
+  - name: Nested Microsoft Connected Cache setup
+    href: nested-mcc.md
+  - name: Microsoft Connected Cache for Industrial IoT (IIOT) setup
+    href: IIoT-nested-mcc.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot device updates
@@ -70,3 +82,5 @@
       href: ../azure-maps/index.yml
     - name: Time Series Insights
       href: ../time-series-insights/index.yml
+  - name: Delivery Optimization
+    href: https://github.com/microsoft/do-client
