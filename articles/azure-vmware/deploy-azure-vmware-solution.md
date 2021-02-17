@@ -1,30 +1,22 @@
 ---
 title: Deploy and configure Azure VMware Solution
-description: Learn how to use the information gathered in the planning stage to deploy the Azure VMware Solution private cloud.
+description: Learn how to use the information gathered in the planning stage to deploy and configure the Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.custom: contperf-fy21q3
+ms.date: 02/17/2021
 ---
 
 # Deploy and configure Azure VMware Solution
 
-In this article, you'll use the information from the [planning section](production-ready-deployment-steps.md) to deploy Azure VMware Solution. 
+In this article, you'll use the information from the [planning section](production-ready-deployment-steps.md) to deploy and configure Azure VMware Solution. 
 
 >[!IMPORTANT]
 >If you haven't defined the information yet, go back to the [planning section](production-ready-deployment-steps.md) before continuing.
 
-## Register the resource provider
 
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
+## Create an Azure VMware Solution private cloud
 
-
-## Deploy Azure VMware Solution
-
-Use the information you gathered in the [Planning the Azure VMware Solution deployment](production-ready-deployment-steps.md) article:
-
->[!NOTE]
->To deploy Azure VMware Solution, you must be at minimum contributor level in the subscription.
-
-[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
+Follow the prerequisites and steps in the [Create an Azure VMware Solution private cloud](tutorial-create-private-cloud.md) tutorial. You can create an Azure VMware Solution private cloud by using the [Azure portal](tutorial-create-private-cloud.md#azure-portal) or by using the [Azure CLI](tutorial-create-private-cloud.md#azure-cli).  
 
 >[!NOTE]
 >For an end-to-end overview of this step, view the [Azure VMware Solution: Deployment](https://www.youtube.com/embed/gng7JjxgayI) video.
@@ -55,7 +47,7 @@ If you didn't define a virtual network in the deployment step and your intent is
 
 The jump box is in the virtual network where Azure VMware Solution connects through its ExpressRoute circuit.  In Azure, go to the jump box's network interface and [view the effective routes](../virtual-network/manage-route-table.md#view-effective-routes).
 
-In the effective routes list, you should see the networks created as part of the Azure VMware Solution deployment. You'll see multiple networks that were derived from the [`/22` network you defined](production-ready-deployment-steps.md#ip-address-segment) during the [deployment step](#deploy-azure-vmware-solution) earlier in this article.
+In the effective routes list, you should see the networks created as part of the Azure VMware Solution deployment. You'll see multiple networks that were derived from the [`/22` network you defined](production-ready-deployment-steps.md#ip-address-segment) when you [create a private cloud](#create-an-azure-vmware-solution-private-cloud).  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Verify network routes advertised from Azure VMware Solution to Azure Virtual Network" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
