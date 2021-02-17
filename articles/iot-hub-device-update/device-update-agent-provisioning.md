@@ -8,12 +8,14 @@ ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 
-# Device Update for IoT Hub Agent
+# Device Update Agent
 
 Device Update for IoT Hub supports two forms of updates – image-based and package-based. 
 
 * Image updates provide a higher level of confidence in the end-state of the device. It is typically easier to replicate the results of an image-update between a pre-production environment and a production environment, since it doesn’t pose the same challenges as packages and their dependencies. Due to their atomic nature, one can also adopt an A/B failover model easily. 
 * Package-based updates are targeted updates that alter only a specific component or application on the device. Thus, leading to lower consumption of bandwidth and helps reduce the time to download and install the update. Package updates typically allow for less downtime of devices when applying an update and avoid the overhead of creating images. 
+
+## Provisioning Device Update Agent
 
 ### Build the Device Update Agent
 
@@ -30,7 +32,7 @@ the agent.
 Now, make the changes needed to incorporate the agent into your image.  Look at how to
 [modify](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-modify-the-agent-code.m) the Device Update Agent for guidance.
 
-## Troubleshooting Guide
+### Troubleshooting Guide
 
 If you run into issues, review the Device Update for IoT Hub [Troubleshooting Guide](troubleshoot-device-update.md) to help unblock any possible issues and collect necessary information to provide to Microsoft.
 
