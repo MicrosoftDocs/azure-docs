@@ -31,11 +31,17 @@
     href: device-update-plug-and-play.md
   - name: Device update networking requirements
     href: device-update-networking.md
+  - name: Understand Device Update for Azure IoT Hub Agent	
+    href: device-update-agent-overview.md
+  - name: Understand Device Update for Azure IoT Hub Configuration File
+    href: device-update-configuration-file.md
 
 - name: How-to guides
   items:
   - name: Create a device update account
     href: create-device-update-account.md
+  - name: Provisioning Device Update for Azure IoT Hub Agent	
+    href: device-update-agent-provisioning.md
   - name: Import an update
     href: import-update.md
   - name: Create a device update group
