@@ -41,7 +41,7 @@ Azure Front Door Standard/Premium supports both Azure managed certificate and cu
 
 1. On the **Add a domain** page, for *DNS management* select the **Azure managed DNS** option. 
 
-    :::image type="content" source="../media/how-to-configure-https-custom-domain/add-domain-Azure managed.png" alt-text="Screen shot of add a domain page with Azure managed DNS selected.":::
+    :::image type="content" source="../media/how-to-configure-https-custom-domain/add-domain-azure-managed.png" alt-text="Screen shot of add a domain page with Azure managed DNS selected.":::
 
 1. Validate and associate the custom domain to an endpoint by following the steps in enabling [custom domain](how-to-add-custom-domain.md).
 
@@ -128,4 +128,4 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
 
 ## Next steps
 
-Learn about [caching with Azure Front Door Standard/Premium](concept-caching).
+Learn about [caching with Azure Front Door Standard/Premium](concept-caching.md).
