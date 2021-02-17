@@ -1,18 +1,18 @@
 ---
-title: 'Use Multi-Document Transactions'
+title: 'Use Multi-Document Transactions in Azure Cosmos DB API for MongoDB'
 description: Create a sample mongo shell app that can execute a multi-document transaction on a fixed collection in Azure Cosmos DB API for MongoDB 4.0
 author: gahl-levy
 ms.service: cosmos-db
-ms.subservice: 
+ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: gahllevy
 
 ---
 
-# Use Multi-Document Transactions
+# Use Multi-Document Transactions in Azure Cosmos DB API for MongoDB
 
-In this quick start, you'll create a sample mongo shell app that can execute a multi-document transaction on a fixed collection in Azure Cosmos DB API for MongoDB 4.0.
+In this article, you'll create a Mongo shell app that executes a multi-document transaction on a fixed collection in Azure Cosmos DB API for MongoDB with server version 4.0.
 
 ## What are Multi-Document Transactions?
 
@@ -27,19 +27,19 @@ Multi-document transactions follow **ACID** semantics:
 
 ## Requirements
 
-Multi-document transactions are supported within a unsharded collection in 4.0. Multi-document transactions are not supported across collections or in sharded collections.
+Multi-document transactions are supported within an unsharded collection in version 4.0. Multi-document transactions are not supported across collections or in sharded collections.
 
 All drivers that support wire protocol version 4.0 or greater will support Azure Cosmos DB API for MongoDB multi-document transactions.
 
 ## Multi-Document Transactions in Mongo Shell
 
-1. Open a command prompt, go to directory of mongo shell (version 4.0+)
+1. Open a command prompt, go to the directory where Mongo shell version 4.0 and higher is installed:
 
     ```powershell
     cd <path_to_mongo_shell_>
     ```
 
-2. Create a mongo shell script connect_friends.js and add the following content
+2. Create a mongo shell script *connect_friends.js* and add the following content
 
     ```javascript
     // insert data into friends collection

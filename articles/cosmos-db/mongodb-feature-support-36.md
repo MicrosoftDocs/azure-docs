@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB's API for MongoDB (3.6 version) support
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 author: sivethe
 ms.author: sivethe
 ---
@@ -536,7 +536,7 @@ globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
 
 ## GridFS
 
-Cosmos DB supports GridFS through any GridFS-compatible MongoDB driver.
+Azure Cosmos DB supports GridFS through any GridFS-compatible MongoDB driver.
 
 ## Replication
 
@@ -548,7 +548,7 @@ Cosmos DB supports automatic, native replication at the lowest layers. This logi
 
 ## Retryable Writes
 
-Cosmos DB does not yet support retryable writes. Client drivers must add retryWrites=false to their connection string.
+Azure Cosmos DB does not yet support retryable writes. Client drivers must add `retryWrites=false` to their connection string.
 
 ## Sharding
 
@@ -568,7 +568,7 @@ Cosmos DB does not yet support users and roles. However, Cosmos DB supports Azur
 
 ## Write Concern
 
-Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) which specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication, all writes are automatically majority (strong consistency) by default. Any write concern specified by the client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
+Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) which specifies the number of responses required during a write operation. Due to how Azure Cosmos DB handles replication, all writes are automatically majority quorum by default when using strong consistency. Any write concern specified by the client code is ignored. To learn more, see [Using consistency levels to maximize availability and performance](consistency-levels.md) article.
 
 ## Next steps
 

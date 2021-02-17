@@ -6,7 +6,7 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.reviewer: sngun
 adobe-target: true
 adobe-target-activity: DocsExp-A/B-384740-MongoDB-2.8.2021
@@ -74,7 +74,7 @@ For example, consider the account shown in the **Connection String** blade. A va
 
 All drivers that support wire protocol version 3.4 or greater will support Azure Cosmos DB API for MongoDB.
 
-Specifically, client drivers must support the SNI TLS extension and/or the appName connection string option. If appName is provided, it must be included as found in the connection string as in the Portal.
+Specifically, client drivers must support the Service Name Identification (SNI) TLS extension and/or the appName connection string option. If the `appName` parameter is provided, it must be included as found in the connection string value in the Azure portal.
 
 ## Next steps
 
