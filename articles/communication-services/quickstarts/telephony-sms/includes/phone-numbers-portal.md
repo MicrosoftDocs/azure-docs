@@ -10,7 +10,7 @@ To begin provisioning numbers, go to your Communication Services resource on the
 
 :::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
 
-### Getting new phone numbers
+### Search for Available Phone Numbers
 
 Navigate to the **Phone Numbers** blade in the resource menu.
 
@@ -56,7 +56,7 @@ Choose the **Area code** from the list of available Area codes and enter the qua
 
 To view the purchase summary and place your order, click the **Next: Summary** button at the bottom of the page.
 
-### Place order
+### Purchase Phone Numbers
 
 The summary page will review the Number type, Features, Phone Numbers, and Total monthly cost to provision the phone numbers.
 
@@ -81,10 +81,18 @@ Select the Phone Numbers blade in the menu to manage your phone numbers.
 > It may take a few minutes for the provisioned numbers to be shown on this page.
 
 
-### Customizing phone numbers
+### Update Phone Number Capabilities
 
 On the **Numbers** page, you can select a phone number to configure it.
 
 :::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot showing the update features page.":::
 
 Select the features from the available options, then click **Confirm** to apply your selection.
+
+### Release Phone Number
+
+On the **Numbers** page, you can release phone numbers.
+
+:::image type="content" source="../media/manage-phone-azure-portal-release-number.png" alt-text="Screenshot showing the release phone numbers page.":::
+
+Select the phone number that you want to release and then click on the **Release** button.
