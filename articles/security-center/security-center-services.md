@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2021
+ms.date: 02/16/2021
 ms.author: memildin
 ---
 
@@ -91,10 +91,8 @@ For information about when recommendations are generated for each of these prote
 | Trend Micro – Deep Security | Windows Server Family  | No | Yes |
 | Symantec v12.1.1100+| Windows Server Family  | No | Yes |
 | McAfee v10+ | Windows Server Family  | No | Yes |
-| McAfee v10+ | Linux Server Family  | No | Yes **\*** |
-| Sophos V9+| Linux Server Family  | No | Yes  **\***  |
-
- **\*** The coverage state and supporting data is currently only available in the Log Analytics workspace associated to your protected subscriptions. It isn't reflected in the Azure Security Center portal.
+| McAfee v10+ | Linux Server Family  | No | Yes |
+| Sophos V9+| Linux Server Family  | No | Yes |
 
 > [!NOTE]
 > Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell (v3.0 or newer).
@@ -128,7 +126,7 @@ For information about when recommendations are generated for each of these prote
 |[Azure Defender for DNS](defender-for-dns-introduction.md)|-|-|
 |[Azure Defender for container registries](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
 |[Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
-|[Kubernetes workload protection](kubernetes-workload-protections.md)|-|-|
+|[Kubernetes workload protection](kubernetes-workload-protections.md)|✔|✔|
 |||
 
 (1) Requires **Azure Defender for servers**

@@ -285,7 +285,7 @@ After the settings are enabled, you can view these **Guest** counters in the **M
 
   ![Metrics namespace](./media/troubleshoot-high-cpu-issues-azure-windows-vm/19-metrics-namespace.png)
 
-For more information about how to use Azure monitor to manage Azure VMs, see [Monitoring Azure virtual machines with Azure Monitor](../../azure-monitor/insights/monitor-vm-azure.md).
+For more information about how to use Azure monitor to manage Azure VMs, see [Monitoring Azure virtual machines with Azure Monitor](../../azure-monitor/vm/monitor-vm-azure.md).
 
 ### Reactive troubleshooting
 

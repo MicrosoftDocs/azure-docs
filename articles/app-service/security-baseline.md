@@ -240,9 +240,9 @@ Review detailed security alerts and recommendations in Security Center, at the p
 
 It is recommended that you create a process with automated tools to monitor network resource configurations and quickly detect changes.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Export security alerts and recommendations](../security-center/continuous-export.md)
 
@@ -280,7 +280,7 @@ The "what, who, and when" for any write operations (PUT, POST, DELETE) performed
 
 Additionally, Azure Key Vault provides centralized secret management with access policies and audit history. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable Diagnostic Settings for Azure App Service](troubleshoot-diagnostic-logs.md)
 
@@ -293,7 +293,7 @@ Additionally, Azure Key Vault provides centralized secret management with access
 ### 2.5: Configure security log storage retention
 
 **Guidance**: In Azure Monitor, set the log retention period for the Log Analytics workspaces associated with your App Service resources according to your organization's compliance regulations.
-- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -309,7 +309,7 @@ If you have deployed a Web Application Firewall (WAF), you can monitor attacks a
 
 Use Azure Sentinel, a scalable and cloud-native security information event management (SIEM), to integrate with various data sources and connectors, as per requirements. Optionally, enable and on-board data to a third-party  security information event management solution in the Azure Marketplace.
 
-- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable Application Insights](../azure-monitor/app/app-insights-overview.md)
 
@@ -640,7 +640,7 @@ Note that while locally attached disks can be used optionally by websites as tem
 
 **Guidance**: Use Azure Monitor with Azure Activity log to create alerts upon any changes to production App Service apps and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 

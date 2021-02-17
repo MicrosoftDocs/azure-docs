@@ -1,15 +1,16 @@
 ---
-title: Configure geo-replication for a Premium Azure Cache for Redis instance
+title: Configure geo-replication for Premium Azure Cache for Redis instances
 description: Learn how to replicate your Azure Cache for Redis Premium instances across Azure regions
 author: yegu-ms
+
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
 ---
-# Configure geo-replication for a Premium Azure Cache for Redis instance
+# Configure geo-replication for Premium Azure Cache for Redis instances
 
-In this article, you'll learn how to configure a geo-replicated Azure Cache instance using the Azure portal.
+In this article, you'll learn how to configure a geo-replicated Azure Cache using the Azure portal.
 
 Geo-replication links together two Premium Azure Cache for Redis instances and creates a data replication relationship. These cache instances are usually located in different Azure regions, though they aren't required to. One instance acts as the primary, and the other as the secondary. The primary handles read and write requests and propagates changes to the secondary. This process continues until the link between the two instances is removed.
 
