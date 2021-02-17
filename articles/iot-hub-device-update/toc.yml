@@ -10,7 +10,7 @@
     href: device-update-raspberry-pi.md
   - name: Use device update on the simulator
     href: device-update-simulator.md
-  - name: Use device update ubuntu agent
+  - name: Package update on Ubuntu Server 18.04 x64
     href: device-update-ubuntu-agent.md
 - name: Concepts
   items:
