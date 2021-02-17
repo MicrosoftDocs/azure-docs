@@ -119,7 +119,7 @@ let endpoint = "<ACS_RESOURCE_ENDPOINT>"
 Replace `<ACS_RESOURCE_ENDPOINT>` with the endpoint of your ACS Resource.
 Replace `<ACCESS_TOKEN>` with a valid ACS access token.
 
-This quickstart does not cover creating a service tier for your chat application, although it is recommended. See the following documentation for more detail [Chat Architecture](../../../concepts/chat/concepts.md)
+This quickstart does not cover creating a service tier to manage tokens for your chat application, although it is recommended. See the following documentation for more detail [Chat Architecture](../../../concepts/chat/concepts.md)
 
 Learn more about [User Access Tokens](../../access-tokens.md).
 

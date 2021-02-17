@@ -59,7 +59,7 @@ To create a chat client, you'll use your Communication Services endpoint and the
 
 Learn more about [User Access Tokens](../../access-tokens.md).
 
-This quickstart does not cover creating a service tier for your chat application, although it is recommended. Learn more about [Chat Architecture](../../../concepts/chat/concepts.md)
+This quickstart does not cover creating a service tier to manage tokens for your chat application, although it is recommended. Learn more about [Chat Architecture](../../../concepts/chat/concepts.md)
 
 ```csharp
 using Azure.Communication.Identity;

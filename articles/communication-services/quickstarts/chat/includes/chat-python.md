@@ -64,7 +64,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 To create a chat client, you'll use Communications Service endpoint and the `Access Token` that was generated as part of pre-requisite steps. Learn more about [User Access Tokens](../../access-tokens.md).
 
-This quickstart does not cover creating a service tier for your chat application, although it is recommended. See the following documentation for more detail [Chat Architecture](../../../concepts/chat/concepts.md)
+This quickstart does not cover creating a service tier to manage tokens for your chat application, although it is recommended. See the following documentation for more detail [Chat Architecture](../../../concepts/chat/concepts.md)
 
 ```console
 pip install azure-communication-administration
