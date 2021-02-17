@@ -1366,22 +1366,22 @@
   - name: Azure PowerShell
     items:
     - name: Azure Monitor
-      href: powershell/module/az.monitor
+      href: /powershell/module/az.monitor
     - name: Azure Monitor Logs
-      href: powershell/module/az.operationalinsights
+      href: /powershell/module/az.operationalinsights
     - name: Application Insights
-      href: powershell/module/az.applicationinsights
+      href: /powershell/module/az.applicationinsights
   - name: Azure CLI
     items:
     - name: Azure Monitor
-      href: cli/azure/azure-cli-reference-for-monitor
+      href: /cli/azure/azure-cli-reference-for-monitor
       displayName: Action Groups, Autoscale, Diagnostic Settings, Metrics, Private Link Scope
     - name: Application Insights
-      href: cli/azure/ext/application-insights/monitor/app-insights
+      href: /cli/azure/ext/application-insights/monitor/app-insights
     - name: Activity Logs
-      href: cli/azure/monitor/activity-log
+      href: /cli/azure/monitor/activity-log
     - name: Log Analytics
-      href: cli/azure/monitor/log-analytics
+      href: /cli/azure/monitor/log-analytics
   - name: REST API
     items:
     - name: Azure Monitor
