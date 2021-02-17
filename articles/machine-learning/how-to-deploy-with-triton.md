@@ -61,7 +61,7 @@ Before attempting to use Triton for your own model, it's important to understand
 * Triton processes requests in batches to maximize GPU utilization.
 * The client uses the __Azure ML scoring URI__ to make requests. For example, `https://myservice.azureml.net/score`.
 
-:::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Deployment with Triton and Python middleware":::
+:::image type="content" source="./media/how-to-deploy-with-triton/inference-config-deploy.png" alt-text="Deployment with Triton and Python middleware":::
 
 The workflow to use Triton for your model deployment is:
 
