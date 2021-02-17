@@ -292,7 +292,7 @@ Learn more about [advanced data security for SQL machines](defender-for-sql-usag
 
 ### Two new recommendations to deploy the Log Analytics agent to Azure Arc machines (preview)
 
-Two new recommendations have been added to help deploy the [Log Analytics Agent](../azure-monitor/platform/log-analytics-agent.md) to your Azure Arc machines and ensure they're protected by Azure Security Center:
+Two new recommendations have been added to help deploy the [Log Analytics Agent](../azure-monitor/agents/log-analytics-agent.md) to your Azure Arc machines and ensure they're protected by Azure Security Center:
 
 - **Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)**
 - **Log Analytics agent should be installed on your Linux-based Azure Arc machines (Preview)**
