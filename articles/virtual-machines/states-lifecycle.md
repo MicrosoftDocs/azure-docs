@@ -27,27 +27,27 @@ To retrieve the power state of all the VMs in your subscription, use the [Virtua
 
 The power state represents the last known state of the VM.
 
-:::image type="content" source="./media/virtual-machines-common-states-lifecycle/vm-power-states.png" alt-text="Alt text that describes the content of the image.":::
+:::image type="content" source="./media/virtual-machines-common-states-lifecycle/vm-power-states.png" alt-text="Image dows diagram of the power states a VM can go through. ":::
 
 The following table provides a  description of each instance state and indicates whether it is billed for instance usage or not.
 
 | State | Description | Billing |  
 |---|---|---|
 | Starting| Virtual Machine is powering up. |Not billed* | 
-| Running | Virtual Machine is fully up. This is the standard working state. |  Billed | 
+| Running | Virtual Machine is fully up. This is the standard working state. | Billed | 
 | Stopping | This is a transitional state between running and stopped. | Billed| 
-|Stopped  | The Virtual Machine is has been shut down from within the Guest OS or using PowerOff APIs. In this state, the virtual machine is still leasing the underlying hardware. | Billed | 
+|Stopped | The Virtual Machine is has been shut down from within the Guest OS or using PowerOff APIs. In this state, the virtual machine is still leasing the underlying hardware. | Billed | 
 | Deallocating | This is the transitional state between running and deallocated. | Not billed* | 
 | Deallocated | The Virtual Machine has released the lease on the underlying hardware and is completely powered off. | Not billed* | 
 
-&#42; Some Azure resources, such as Disks and Networking, incur charges.
+&#42; Some Azure resources, such as Disks and Networking will continue to incur charges.
 
 
 ## Provisioning states
 
 A provisioning state is the status of a user-initiated, control-plane operation on the VM. These states are separate from the power state of a VM.
 
-:::image type="content" source="./media/virtual-machines-common-states-lifecycle/vm-provisioning-states.png" alt-text="Alt text that describes the content of the image.":::
+:::image type="content" source="./media/virtual-machines-common-states-lifecycle/vm-provisioning-states.png" alt-text="Image shows the provisioning states a VM can go through.":::
 
 | State | Description | Power state | 
 |---|---|---|
@@ -59,7 +59,7 @@ A provisioning state is the status of a user-initiated, control-plane operation 
 ## OS Provisioning states
 OS Provisioning states only apply to virtual machines created with an OS image. Specialized images will not display these states. 
 
-:::image type="content" source="./media/virtual-machines-common-states-lifecycle/os-provisioning-states.png" alt-text="Alt text that describes the content of the image.":::
+:::image type="content" source="./media/virtual-machines-common-states-lifecycle/os-provisioning-states.png" alt-text="Image shows the OS provisioning states a VM can go through.":::
 
 
 | State | Description | Power state | 
