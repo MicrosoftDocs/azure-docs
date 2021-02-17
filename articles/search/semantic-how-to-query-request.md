@@ -17,21 +17,21 @@ ms.date: 03/02/2021
 
 In this article, learn how to attach the semantic query subsystems of Azure Cognitive Search to use semantic ranking, semantic captions, and semantic answer. Setting **`queryType`** parameter to **`semantic`** enables these capabilities. This article explains how to structure both query requests and responses.
 
+During public preview, there is no charge for semantic search. However, as features transition to general availability, the cost of computations will be a billable event. When details become available, you'll find the information documented in the [pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
+
 ## Prerequisites
 
-+ A search service at Basic or above
++ An existing search index, containing English content
 
-+ An existing search index (the search corpus must be `"en-us"`)
++ A search client for sending queries
 
-+ REST API version 2020-06-30-Preview
+  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query.
 
-We recommend [Postman](search-get-started-rest.md) or [Visual Studio Code with the Cognitive Search extension](search-get-started-vs-code.md). You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query.
-
-There is currently no charge for semantic search while it's in public preview, but as features transition to general availability, the computational cost of running the deep learning models will be passed along as an added charge. This information will eventually be documented in the [pricing page](https://azure.microsoft.com/pricing/details/search/) and in [estimate and manage costs](search-sku-manage-costs.md).
++ [A query request](/rest/api/searchservice/preview-api/search-documents) that uses spell correction must have the following three parameters: `api-version=2020-06-30-Preview`, `queryType=semantic`, `queryLanguage=english`, `searchFields=<ordered-field-list>`.
 
 ## What's a semantic query?
 
-In Cognitive Search, a query is a parameterized specification of a round trip **`search`** operation, and a semantic query adds parameters that invoke the semantic query subsystems.
+In Cognitive Search, a query is a parameterized specification of a round trip **`search`** operation. A semantic query adds parameters that invoke the semantic query subsystems that can intuit context and meaning of matching results, and promote the more meaningful matches to the top.
 
 The following request is representative of a semantic query.
 
