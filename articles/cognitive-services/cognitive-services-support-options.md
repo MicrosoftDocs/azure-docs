@@ -114,7 +114,7 @@ To request new features, post them on UserVoice. Share your ideas for making Cog
 | Computer Vision               | https://cognitive.uservoice.com/forums/430309-computer-vision |
 | Content Moderator             | https://cognitive.uservoice.com/forums/559960-content-moderator |
 | Custom Vision                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
-| Face                          | https://cognitive.uservoice.com/forums/430315-face |
+| Face                          | https://feedback.azure.com/forums/932041-azure-cognitive-services |
 | Form Recognizer               | https://cognitive.uservoice.com/forums/921556-form-recognizer |
 | Ink Recognizer                | https://cognitive.uservoice.com/forums/921559-ink-recognizer |
 | Language Understanding (LUIS) | https://cognitive.uservoice.com/forums/551524-luis |
