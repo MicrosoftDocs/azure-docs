@@ -13,15 +13,34 @@ metadata:
   ms.date: 02/11/2021 
 
 landingContent:
-  - title: Start prototyping with Azure Percept DK
+  - title: Get started with Azure Percept DK
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Unbox and assemble your Azure Percept DK
+            url: quickstart-percept-dk-unboxing.md
+
+  - title: Prototyping with Azure Percept DK
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Percept AI models
+            url: overview-ai-models.md
+      - linkListType: tutorial
+        links:
+          - text: Create a no-code vision solution
+            url: tutorial-nocode-vision.md
       - linkListType: how-to-guide
         links:
           - text: Connect to your Azure Percept DK over serial
             url: how-to-connect-to-percept-dk-over-serial.md
           - text: Connect to your Azure Percept DK over SSH
             url: how-to-ssh-into-percept-dk.md
-      - linkListType: tutorial
+      - linkListType: reference
         links:
-          - text: Create a no-code vision solution
-            url: tutorial-nocode-vision.md
+          - text: Azure Percept DK datasheet
+            url: azure-percept-dk-datasheet.md
+          - text: Azure Percept Vision datasheet
+            url: azure-percept-vision-datasheet.md
+          - text: Azure Percept Audio datasheet
+            url: azure-percept-audio-datasheet.md
