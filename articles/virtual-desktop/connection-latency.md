@@ -23,7 +23,7 @@ We recommend customers place VM's as close to users as possible. For example if 
 
 ## Azure Front Door
 
-Windows Virtual Desktop uses [Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/) to redirect the users connection to the nearest WVD gateway based on source IP address. Windows Virtual Desktop will always use the WVD gateway chosen by the client.
+Windows Virtual Desktop uses [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) to redirect the user connection to the nearest Windows Virtual Desktop gateway based on the source IP address. Windows Virtual Desktop will always use the Windows Virtual Desktop gateway that the client chooses.
 
 ## Next steps
 
