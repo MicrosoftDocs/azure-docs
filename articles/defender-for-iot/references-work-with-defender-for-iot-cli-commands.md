@@ -11,13 +11,17 @@ ms.service: azure
 
 # Work with Defender for IoT CLI commands
 
-This article describes CLI commands for sensors and on-premises management consoles. The commands are accessible to administrators, cyberx users, and support users.
+This article describes CLI commands for sensors and on-premises management consoles. The commands are accessible to the following users:
 
-Alerts can be suppressed for specific situations where you don't need, or want alerts to be generated. Exclusion rules are useful when planning maintenance activities or for network events for which you don't want to receive alerts. 
+- Administrators 
+- CyberX 
+- Support
+
+To start working in the CLI, connect using a terminal. For example, terminal name `Putty`, and `Support` user. 
 
 ## Create local alert exclusion rules
 
-You can create an exclusion rule by entering the following command into the CLI:
+You can create a local alert exclusion rule by entering the following command into the CLI:
 
 ```azurecli-interactive
 alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
@@ -132,7 +136,7 @@ Separate arguments by dropping a row.
 
 When you include a device, channel, or subnet, the sensor processes all the valid traffic for that argument, including ports and traffic that wouldn't usually be processed.
 
-You'll then be asked the following:
+You'll then be asked the following question:
 
 >`Would you like to supply devices and subnet masks you wish to exclude from the capture filter? [Y/N]:`
 
@@ -168,7 +172,7 @@ Include or exclude UDP and TCP ports for all the traffic.
 
 ### Components
 
-You're asked the following:
+You're asked the following question:
 
 >`In which component do you wish to apply this capture filter?`
 
