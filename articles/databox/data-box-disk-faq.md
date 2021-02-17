@@ -69,7 +69,7 @@ Ship a [supported disk](../import-export/storage-import-export-requirements.md?t
 
 3. You can then use a tool like AzCopy to copy the data to a storage account in West US. This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box Disk billing.
 
-### Q. Will I be able to recover my data if an entire region fails?
+### Q. How can I recover my data if an entire region fails?
 
 A. In extreme circumstances where a region is lost due to a significant disaster, Microsoft may initiate a regional failover. In this case, no action on your part is required. Your order will be fulfilled through the failover region if it is within the same country or commerce boundary. However, some Azure regions do not have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region. For more information, see [Business continuity and disaster recovery (BCR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
