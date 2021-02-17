@@ -41,7 +41,7 @@ Most of the reports are based on access logs and are offered free of charge to c
 
 Reports support any selected date range from the previous 90 days. With data points of every 5 mins, every hour, or every day based on the date range selected. Normally, you can view data with delay of within an hour and occasionally with delay of up to a few hours. 
 
-## Access Reports using the Azure Portal
+## Access Reports using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select your Azure Front Door Standard/Premium profile.
 
@@ -81,22 +81,22 @@ Reports support any selected date range from the previous 90 days. With data poi
 
     1. **Location** - Select single or multiple client locations by country. Countries are grouped into six regions: North America, Asia, Europe, Africa, Oceania, and South America. Refer to [region/country mapping](https://en.wikipedia.org/wiki/Subregion). By default, all countries are selected.
     
-        :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-locations.png" alt-text="Screenshot of Reports for location dimension":::
+        :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-locations.png" alt-text="Screenshot of Reports for location dimension.":::
    
     1. **Protocol** - Select either HTTP or HTTPS to view traffic data.
  
-        :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-protocol.png" alt-text="Screenshot of Reports for protocol dimension":::
+        :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-protocol.png" alt-text="Screenshot of Reports for protocol dimension.":::
     
     1. **Domains** - Select single or multi Endpoints or Custom Domains. By default, all endpoints and custom domains are selected. 
     
         * If you delete an endpoint or a custom domain in one profile and then recreate the same endpoint or domain in another profile. The endpoint will be considered a second endpoint.  
         * If you're viewing reports by custom domain - when you delete one custom domain and bind it to a different endpoint. They'll be treated as one custom domain. If view by endpoint - they'll be treated as separate items. 
     
-        :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-domain.png" alt-text="Screenshot of Reports for domain dimension":::
+        :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-domain.png" alt-text="Screenshot of Reports for domain dimension.":::
 
 1. If you want to export the data to a CSV file, select the *Download CSV* link on the selected tab.
 
-    :::image type="content" source="../media/how-to-reports/front-door-reports-download-csv.png" alt-text="Screenshot of download csv file for Reports":::
+    :::image type="content" source="../media/how-to-reports/front-door-reports-download-csv.png" alt-text="Screenshot of download csv file for Reports.":::
 
 ### Key metrics for all reports
 
@@ -189,13 +189,13 @@ It excludes all of the following cases:
 
 * Origin response headers indicate that they shouldn't be cached. For example, Cache-Control: private, Cache-Control: no-cache, or Pragma: no-cache headers will prevent an asset from being cached. 
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-caching.png" alt-text="Reports for caching":::
+:::image type="content" source="../media/how-to-reports/front-door-reports-caching.png" alt-text="Screenshot of Reports for caching.":::
 
 ## Top URLs
 
 Top URLs allow you to view the amount of traffic incurred over a particular endpoint or custom domain. You'll see data for the most requested 50 assets during any period in the past 90 days. Popular URLs will be displayed with the following values. User can sort URLs by request count, request %, data transferred and data transferred %. All the metrics are aggregated by hour and may vary per the time frame selected. URL refers to the value of RequestUri in access log. 
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-top-url.png" alt-text="Create a web app in the Azure portal":::
+:::image type="content" source="../media/how-to-reports/front-door-reports-top-url.png" alt-text="Screenshot of Reports for top URL.":::
 
 * URL, refers to the full path of the requested asset in the format of `http(s)://contoso.com/index.html/images/example.jpg`. 
 * Request counts. 
@@ -226,7 +226,7 @@ Top Referrers allow customers to view the top 50 referrer that originated the mo
 * Requests with response code as 4XX
 * Requests with response code as 5XX
 
-:::image type="content" source="../media/how-to-reports/front-door-reports-top-referrer.png" alt-text="Reports for top referrer":::
+:::image type="content" source="../media/how-to-reports/front-door-reports-top-referrer.png" alt-text="Screenshot of Reports for top referrer.":::
 
 ## Top User Agent
 
