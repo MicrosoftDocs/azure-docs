@@ -46,7 +46,7 @@ Most on-prem datacenters enforce strict network rules that prevent inbound commu
         | `deployment.apps/flux-logs-agent` | Collects logs from the flux operators deployed as a part of source control configuration. |
     
 1. Once all the Azure Arc enabled Kubernetes agent pods are in `Running` state, verify that your cluster connected to Azure Arc. You should see:
-    * An Azure Arc enabled Kubernetes resource in [Azure Resource Manager](../../azure-resource-manager/management/overview.md). This resource is tracked in Azure as a projection of the customer-managed Kubernetes cluster, not the actual Kubernetes cluster itself.
+    * An Azure Arc enabled Kubernetes resource in [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Azure tracks this resource as a projection of the customer-managed Kubernetes cluster, not the actual Kubernetes cluster itself.
     * Cluster metadata (like Kubernetes version, agent version, and number of nodes) appears on the Azure Arc enabled Kubernetes resource as metadata.
 
 ## Data exchange between cluster environment and Azure
@@ -63,7 +63,7 @@ Most on-prem datacenters enforce strict network rules that prevent inbound commu
 | Resource consumption (memory/CPU) by agents | Diagnostics and supportability | Agent pushes to Azure |
 | Logs of all agent containers | Diagnostics and supportability | Agent pushes to Azure |
 | Agent upgrade availability | Agent upgrade | Agent pulls from Azure |
-| Desired state of configuration: Git repository URL, flux operator parameters, private key, known hosts content, HTTPS username, token or password | Configuration | Agent pulls from Azure |
+| Desired state of configuration: Git repository URL, flux operator parameters, private key, known hosts content, HTTPS username, token, or password | Configuration | Agent pulls from Azure |
 | Status of flux operator installation | Configuration | Agent pushes to Azure |
 | Azure Policy assignments that need Gatekeeper enforcement within cluster | Azure Policy | Agent pulls from Azure |
 | Audit and compliance status of in-cluster policy enforcements | Azure Policy | Agent pushes to Azure |
@@ -76,15 +76,15 @@ Most on-prem datacenters enforce strict network rules that prevent inbound commu
 | Connecting | Azure Arc enabled Kubernetes resource is created in Azure Resource Manager, but service hasn't received the agent heartbeat yet. |
 | Connected | Azure Arc enabled Kubernetes service received an agent heartbeat sometime within the previous 15 minutes. |
 | Offline | Azure Arc enabled Kubernetes resource was previously connected, but the service hasn't received any agent heartbeat for 15 minutes. |
-| Expired | MSI certificate has an expiration window of 90 days after it is issued. Once this certificate expires, the resource is considered `Expired` and all features such as configuration, monitoring and policy stop working on this cluster. More information on how to address expired Azure Arc enabled Kubernetes resources can be found [in the FAQ artcle](./faq.md#how-to-address-expired-azure-arc-enabled-kubernetes-resources). |
+| Expired | MSI certificate has an expiration window of 90 days after it is issued. Once this certificate expires, the resource is considered `Expired` and all features such as configuration, monitoring, and policy stop working on this cluster. More information on how to address expired Azure Arc enabled Kubernetes resources can be found [in the FAQ article](./faq.md#how-to-address-expired-azure-arc-enabled-kubernetes-resources). |
 
 ## Understand connectivity modes
 
 | Connectivity mode | Description |
 | ----------------- | ----------- |
-| Fully connected | Agents are always able to communicate with Azure with little delay in the propagation of GitOps configurations, the enforcement of Azure Policy and Gatekeeper policies, and the collection of workload metrics and logs in Azure Monitor. |
+| Fully connected | Agents can consistently communicate with Azure with little delay in propagating GitOps configurations, enforcing Azure Policy and Gatekeeper policies, and collecting workload metrics and logs in Azure Monitor. |
 | Semi-connected | The MSI certificate pulled down by the `clusteridentityoperator` is valid for up to 90 days before the certificate expires. Upon expiration, the Azure Arc enabled Kubernetes resource stops working. To reactivate all Azure Arc features on the cluster, delete and recreate the Azure Arc enabled Kubernetes resource and agents. During the 90 days, connect the cluster at least once every 30 days. |
-| Disconnected | Kubernetes clusters in disconnected environments without any access to Azure are currently not supported by Azure Arc enabled Kubernetes. If this capability is of interest to you, submit or up-vote an idea on [Azure Arc's UserVoice forum](https://feedback.azure.com/forums/925690-azure-arc).
+| Disconnected | Kubernetes clusters in disconnected environments unable to access Azure are currently unsupported by Azure Arc enabled Kubernetes. If this capability is of interest to you, submit or up-vote an idea on [Azure Arc's UserVoice forum](https://feedback.azure.com/forums/925690-azure-arc).
 
 ## Next steps
 
