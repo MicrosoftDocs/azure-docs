@@ -365,5 +365,3 @@ Replace `<participant_id>` with the Communication Services user ID of the partic
 ## Run the code
 
 In Android Studio hit the Run button to build and run the project. In the console you can view the output from the code and the logger output from the ChatClient.
-
-
