@@ -53,10 +53,8 @@ This article shows you how to connect to the Azure Media Services v3 node.js SDK
   "description": "",
   "main": "./index.ts",
   "dependencies": {
-   "@azure/arm-mediaservices": "^8.0.0",
-   "@azure/abort-controller": "^1.0.2",
-    "@azure/ms-rest-azure-js": "^2.0.2",
-    "@azure/ms-rest-js": "^2.1.0",
+    "@azure/arm-mediaservices": "^8.0.0",
+    "@azure/abort-controller": "^1.0.2",
     "@azure/ms-rest-nodeauth": "^3.0.6",
     "@azure/storage-blob": "^12.4.0",
   }
