@@ -16,3 +16,8 @@
 -->
 
 <sup>1</sup> [Supplemental terms of use for Microsoft Azure Previews][preview-tos] apply to libraries in *Public preview*.
+
+<!--Image references-->
+
+[y]: ../articles/active-directory/develop/media/common/yes.png
+[n]: ../articles/active-directory/develop/media/common/no.png

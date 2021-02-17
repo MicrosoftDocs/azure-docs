@@ -25,11 +25,7 @@ Learn how to configure the code for your web app that signs in users.
 <!-- This section can be in an include for web app and web APIs -->
 The libraries that are used to protect a web app (and a web API) are:
 
-| Platform | Library | Description |
-|----------|---------|-------------|
-| ![.NET](media/sample-v2-code/logo_NET.png) | [Identity Model Extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Used directly by ASP.NET and ASP.NET Core, Microsoft Identity Model Extensions for .NET proposes a set of DLLs running on both .NET Framework and .NET Core. From an ASP.NET or ASP.NET Core web app, you can control token validation by using the **TokenValidationParameters** class (in particular, in some partner scenarios). In practice the complexity is encapsulated in the [Microsoft.Identity.Web](https://aka.ms/ms-identity-web) library |
-| ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Support for Java web applications |
-| ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Support for Python web applications |
+[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
 
 Select the tab that corresponds to the platform you're interested in:
 

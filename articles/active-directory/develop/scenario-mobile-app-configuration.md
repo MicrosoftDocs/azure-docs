@@ -24,11 +24,7 @@ After you create your application, you'll learn how to configure the code by usi
 
 The following Microsoft Authentication Library (MSAL) types support mobile apps.
 
-MSAL | Description
------------- | ----------
-![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Used to develop portable applications. MSAL.NET supports the following platforms for building a mobile application: Universal Windows Platform (UWP), Xamarin.iOS, and Xamarin.Android.
-![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Used to develop native iOS applications by using Objective-C or Swift.
-![MSAL.Android](media/sample-v2-code/logo_android.png) <br/> MSAL.Android | Used to develop native Android applications in Java for Android.
+[!INCLUDE [active-directory-develop-libraries-mobile](../../../includes/active-directory-develop-libraries-mobile.md)]
 
 ## Instantiate the application
 
