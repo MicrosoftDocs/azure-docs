@@ -30,7 +30,7 @@
   - name: Quickstarts
     expanded: true
     items:
-    - name: Create a server
+    - name: Create a MySQL Single Server
       items:
        - name: Azure portal
          href: quickstart-create-mysql-server-database-using-azure-portal.md
@@ -419,8 +419,7 @@
   - name: Quickstarts
     expanded: true
     items:
-      - name: Create a server
-        expanded: true
+      - name: Create a MySQL Flexible Server
         items:
           - name: Azure portal
             href: flexible-server/quickstart-create-server-portal.md

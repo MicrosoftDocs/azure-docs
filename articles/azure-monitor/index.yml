@@ -36,7 +36,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Data sources Overview
-            url: platform/data-sources.md
+            url: agents/data-sources.md
           - text: Data platform Overview
             url: platform/data-platform.md
 
@@ -46,7 +46,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Monitor and alert on metrics
-            url: platform/alerts-metric.md
+            url: alerts/alerts-metric.md
           - text: Analyze logs
             url: ./log-query/log-analytics-tutorial.md
           - text: Azure VMs in Log Analytics
