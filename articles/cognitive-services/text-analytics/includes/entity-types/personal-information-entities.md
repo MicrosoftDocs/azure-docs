@@ -20,19 +20,20 @@ The following entity categories are returned when you're sending requests to the
 
 
 | Category   |  Description                          |
-|------------|-------------|--------------------------------------|
+|------------|-------------|
 | [Person](#category-person)      |  Names of people.  |
 | [PersonType](#category-persontype) | Job types or roles held by a person. |
 | [Phone number](#category-phonenumber) |Phone numbers (US and EU phone numbers only). |
-| [Organization](#category-organization)   Companies, groups, government bodies, and other organizations.  |
-| [Address](#category-address)  Full mailing addresses.  |
+| [Organization](#category-organization) |  Companies, groups, government bodies, and other organizations.  |
+| [Address](#category-address) | Full mailing addresses.  |
 | EU GPS Coordinates | GPS coordinates for locations within the European Union.  |
 | [Email](#category-email) | Email addresses.   |
 | [URL](#category-url) | URLs to websites.  |
 | [IP](#category-ip) | Network IP addresses.  |
 | [DateTime](#category-datetime) | Dates and times of day. | 
 | [Quantity](#category-quantity) | Numbers and numeric quantities.  |
-
+| [Azure information](#azure-information) | Identifiable Azure information, such as authentication information.  |
+| [Identification](#identification) | Financial and country specific identification.  |
 
 ### Category: Person
 
@@ -396,9 +397,9 @@ The entity in this category can have the following subcategories.
    :::column-end:::
 :::row-end:::
 
-## Azure information
+### Azure information
 
-This entity category includes identifiable Azure information, including authentication information and connection strings. Not returned with the `domain=phi` parameter.
+These entity categories includes identifiable Azure information, including authentication information and connection strings. Not returned with the `domain=phi` parameter.
 
 :::row:::
     :::column span="":::
@@ -591,6 +592,6 @@ This entity category includes identifiable Azure information, including authenti
    :::column-end:::
 :::row-end:::
 
-## Identification
+### Identification
 
 [!INCLUDE [supported identification entities](./identification-entities.md)]
