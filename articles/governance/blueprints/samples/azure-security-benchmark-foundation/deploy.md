@@ -160,10 +160,8 @@ The following table provides a list of the blueprint parameters:
 |Azure Virtual Network spoke template|Resource Manager template|Subnet address names (optional)|Array of subnet names to deploy to the spoke virtual network; for example, "subnet1","subnet2"|
 |Azure Virtual Network spoke template|Resource Manager template|Subnet address prefixes (optional)|Array of IP address prefixes for optional subnets for the spoke virtual network; for example, "10.0.7.0/24","10.0.8.0/24"|
 |Azure Virtual Network spoke template|Resource Manager template|Deploy spoke|Enter 'true' or 'false' to specify whether the assignment deploys the spoke components of the architecture|
-|Network Watcher resource group|Resource group|Resource group name|Locked - Uses Network Watcher resource group name|
-|Network Watcher resource group|Resource group|Resource group location|Locked - Uses hub location|
-|Azure Network Watcher template|Resource Manager template|Network Watcher location|Location for the Network Watcher resource|
-|Azure Network Watcher template|Resource Manager template|Network Watcher resource group location|Location of the Network Watcher resource group|
+|Azure Network Watcher template|Resource Manager template|Network Watcher location|If Network Watcher is already enabled, this parameter value **must** match the location of the existing Network Watcher resource group.|
+|Azure Network Watcher template|Resource Manager template|Network Watcher resource group location|If Network Watcher is already enabled, this parameter value **must** match the name of the existing Network Watcher resource group.|
 
 ## Next steps
 
