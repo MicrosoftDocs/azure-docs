@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 # Work with Azure Desired State Configuration extension version history
 
-The Azure Desired State Configuration (DSC) VM extension is updated as-needed to support enhancements and new capabilities delivered by Azure, Windows Server, and the Windows Management Framework (WMF) that includes Windows PowerShell.
+The Azure Desired State Configuration (DSC) VM [extension](../virtual-machines/extensions/dsc-overview.md) is updated as-needed to support enhancements and new capabilities delivered by Azure, Windows Server, and the Windows Management Framework (WMF) that includes Windows PowerShell.
 
 This article provides information about each version of the Azure DSC VM extension, what environments it supports, and comments and remarks on new features or changes.
 
@@ -89,9 +89,9 @@ This article provides information about each version of the Azure DSC VM extensi
 ## Supported versions
 
 > [!WARNING]
-> Versions 2.4 through 2.13 use WMF 5.0 Public Preview whose signing certificates expired in August
-> 2016. For more information about this issue, see
-> [blog post](https://devblogs.microsoft.com/powershell/azure-dsc-extension-versions-2-4-up-to-2-13-will-retire-in-august/).
+> Versions 2.4 through 2.13 use WMF 5.0 Public Preview, whose signing certificates expired in August 2016.
+> For more information about this issue, see the following
+> [blog article](https://devblogs.microsoft.com/powershell/azure-dsc-extension-versions-2-4-up-to-2-13-will-retire-in-august/).
 
 ### Version 2.75
 
@@ -103,7 +103,7 @@ This article provides information about each version of the Azure DSC VM extensi
 - **Remarks:** This version uses DSC as included in Windows Server 2016; for other Windows OSs, it
   installs the [Windows Management Framework 5.1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (installing WMF requires a reboot). For Nano Server, DSC role is installed on the VM.
 - **New features:**
-  - After GitHub's recent move to TLS 1.2, you can't onboard a VM to Azure Automation State Configuration using DIY Resource Manager templates available on Azure Marketplace or use DSC extension to retrieve any configurations hosted on GitHub. You will see an error similar to the following while deploying the extension:
+  - After GitHub's enforcement of TLS 1.2, you can't onboard a VM to Azure Automation State Configuration using DIY Resource Manager templates available on Azure Marketplace, or use DSC extension to retrieve any configurations hosted on GitHub. An error similar to the following while deploying the extension is returned:
 
     ```json
     {
@@ -130,7 +130,7 @@ This article provides information about each version of the Azure DSC VM extensi
     }
     ```
 
-  - In the new extension version, TLS 1.2 is now enforced. While deploying the extension if you
+  - In the new extension version, TLS 1.2 is now enforced. While deploying the extension, if you
     already specified `AutoUpgradeMinorVersion = true` in the Resource Manager template, the
     extension is autoupgraded to 2.75. For manual updates, specify `TypeHandlerVersion = 2.75`
     in your Resource Manager template.
