@@ -15,7 +15,7 @@ Some applications only support Windows, but most are supported on both Windows a
 
 ## Applications on latest CentOS 7 rendering image
 
-The following list applies to the CentOS rendering image, version 1.1.7.
+The following list applies to the CentOS rendering image, version 1.2.0.
 
 * Autodesk Maya I/O 2020 Update 4.6
 * Autodesk Arnold for Maya 2020 (Arnold version 6.2.0.0) MtoA-4.2.0-2020

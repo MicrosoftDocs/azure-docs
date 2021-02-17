@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Add an Azure role assignment using an Azure Resource Manager template - Azure RBAC"
+title: "Quickstart: Assign an Azure role using an Azure Resource Manager template - Azure RBAC"
 description: Learn how to grant access to Azure resources for a user at resource group scope using Azure Resource Manager templates and Azure role-based access control (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 05/21/2020
+ms.date: 02/15/2021
 ms.author: rolyon
 
 #Customer intent: As a new user, I want to see how to grant access to resources by using Azure Resource Manager template so that I can start automating role assignment processes.
 
 ---
 
-# Quickstart: Add an Azure role assignment using an ARM template
+# Quickstart: Assign an Azure role using an ARM template
 
 [Azure role-based access control (Azure RBAC)](overview.md) is the way that you manage access to Azure resources. In this quickstart, you create a resource group and grant a user access to create and manage virtual machines in the resource group. This quickstart uses an Azure Resource Manager template (ARM template) to grant the access.
 
@@ -27,11 +27,11 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-To add role assignments, you must have:
+To assign Azure roles and remove role assignments, you must have:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
-- To add a role assignment, you must specify three elements: security principal, role definition, and scope. For this quickstart, the security principal is you or another user in your directory, the role definition is [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor), and the scope is a resource group that you specify.
+- To assign a role, you must specify three elements: security principal, role definition, and scope. For this quickstart, the security principal is you or another user in your directory, the role definition is [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor), and the scope is a resource group that you specify.
 
 ## Review the template
 
