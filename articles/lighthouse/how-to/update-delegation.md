@@ -1,7 +1,7 @@
 ---
 title: Update a delegation
 description: Learn how to update a delegation for a customer previously onboarded to Azure Lighthouse.
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.topic: how-to
 ---
 
@@ -43,7 +43,7 @@ If you are updating the offer to adjust authorizations only, and keeping the sam
 Removing access to the delegation can be done by any user in the managing tenant who was granted the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) in the original delegation. If no user in your managing tenant has this role, you can ask the customer to [remove access to the offer in the Azure portal](view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 > [!TIP]
-> If you have removed the previous delegation following the steps above, and are still unable to deploy the new ARM template, you may need to [remove the registration definition completely](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). This can be done by any user with the Owner role in the customer tenant.  
+> If you have removed the previous delegation following the steps above, and are still unable to deploy the new ARM template, you may need to [remove the registration definition completely](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). This can be done by any user with a role that has the `Microsoft.Authorization/roleAssignments/write` permission, such as [Owner](../../role-based-access-control/built-in-roles.md#owner), in the customer tenant.  
 
 ## Deploy the ARM template
 
