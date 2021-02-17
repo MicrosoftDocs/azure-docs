@@ -17,6 +17,10 @@ ms.custom: references_regions
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## February 2021
+
+* The S0 through S4 pricing tiers are being retired. If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you should update it to use the Standard (S) [pricing tier](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier).
+
 ## January 2021
 
 * The `2021-01-15` model version for [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.x, which provides 
