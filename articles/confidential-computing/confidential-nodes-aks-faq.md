@@ -102,7 +102,7 @@ DCSv2 SKUs. The [DCSv2 SKUs](../virtual-machines/dcv2-series.md) are available i
 Yes. The VMs also have a regular memory that can run standard container workloads. Consider the security and threat model of your applications before you decide on the deployment models.
 <a name="16"></a>
 
-### Can I provision AKS with DCSv2 Node Pools through Azure Portal? ###
+### Can I provision AKS with DCSv2 Node Pools through Azure portal? ###
 
 Yes. Azure CLI could also be used as an alternative as documented [here](confidential-nodes-aks-get-started.md).
 
