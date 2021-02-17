@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/02/2021
 ---
 
 # Overview: Azure Logic Apps Preview
 
 > [!IMPORTANT]
 > This capability is in public preview, is provided without a service level agreement, and 
-> is not recommended for production workloads. Certain features might not be supported or might 
-> have constrained capabilities. For more information, see 
+> is not recommended for production workloads. Certain features might not be supported or 
+> might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 With Azure Logic Apps Preview, you can build automation and integration solutions across apps, data, cloud services, and systems by creating and running logic apps that include [*stateful* and *stateless* workflows](#stateful-stateless) by using the new **Logic App (Preview)** resource type. With this new logic app type, you can build multiple workflows that are powered by the redesigned Azure Logic Apps Preview runtime, which provides portability, better performance, and flexibility for deploying and running in various hosting environments, not only Azure, but also Docker containers.
@@ -147,8 +147,9 @@ Azure Logic Apps Preview includes many current and additional capabilities, for 
 
 * Regenerate access keys for managed connections used by individual workflows in a **Logic App (Preview)** resource. For this task, [follow the same steps for the **Logic Apps** resource but at the individual workflow level](logic-apps-securing-a-logic-app.md#regenerate-access-keys), not the logic app resource level.
 
-> [!NOTE]
-> For information about current known issues, review the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
+* Add parallel branches in the new designer by following the same steps as in the original designer.
+ 
+For more information, see [Changed, limited, unavailable, and unsupported capabilities](#limited-unavailable-unsupported) and the [Logic Apps Public Preview Known Issues page in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 <a name="pricing-model"></a>
 
@@ -210,11 +211,11 @@ In Azure Logic Apps Preview, these capabilities have changed, or they are curren
 
       * Inline Code Operations actions no longer require an integration account.
 
-      * If you use macOS or Linux, **Inline Code Operations** is currently unavailable when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
+      * For macOS and Linux, **Inline Code Operations** is now available when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
 
-      * If you make changes in an Inline Code Operations action, you need to restart your logic app.
+      * You no longer have to restart your logic app if you make changes in an **Inline Code Operations** action.
 
-      * Inline Code Operations actions have [updated limits](logic-apps-overview-preview.md#inline-code-limits).
+      * **Inline Code Operations** actions have [updated limits](logic-apps-overview-preview.md#inline-code-limits).
 
     * Some [built-in B2B triggers and actions for integration accounts](../connectors/apis-list.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
 
@@ -222,17 +223,15 @@ In Azure Logic Apps Preview, these capabilities have changed, or they are curren
 
 * **Hosting plan availability**: Whether you create a new **Logic App (Preview)** resource type in the Azure portal or deploy from Visual Studio Code, you can only use the Premium or App Service hosting plan in Azure. Consumption hosting plans are unavailable and unsupported for deploying this resource type. You can deploy from Visual Studio Code to a Docker container, but not to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-* **Parallel branches**: Currently, you can't add parallel branches through the new designer experience. However, you can still add these branches through the original designer experience and have them appear in the new designer.
-
-  1. At the bottom of the designer, disable the new experience by selecting the **New Canvas** control.
-
-  1. Add the parallel branches to your workflow.
-
-  1. Enable the new experience by selecting the **New Canvas** control again.
+* **Breakpoint debugging in Visual Studio Code**: Although you can add and use breakpoints inside the **workflow.json** file for a workflow, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
 
 * **Zoom control**: The zoom control is currently unavailable on the designer.
 
-* **Breakpoint debugging in Visual Studio Code**: Although you can add and use breakpoints inside the **workflow.json** file for a workflow, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create stateful and stateless workflows in Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
+* **Trigger history and run history**: For the **Logic App (Preview)** resource type, trigger history and run history in the Azure portal appears at the workflow level, not the logic app level. To find this historical data, follow these steps:
+
+   * To view the run history, open the workflow in your logic app. On the workflow menu, under **Developer**, select **Monitor**.
+
+   * To review the trigger history, open the workflow in your logic app. On the workflow menu, under **Developer**, select **Trigger Histories**.
 
 <a name="limits"></a>
 
