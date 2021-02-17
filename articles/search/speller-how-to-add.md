@@ -25,7 +25,7 @@ You can improve recall by spell-correcting individual search query terms before 
 
   The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs.
 
-+ [A query request](/rest/api/searchservice/preview-api/search-documents) that uses spell correction must have the following three parameters: `api-version=2020-06-30-Preview`, `speller=standard` `queryLanguage=english`
++ [A query request](/rest/api/searchservice/preview-api/search-documents) that uses spell correction must have the following three parameters: `api-version=2020-06-30-Preview`, `speller=lexicon` `queryLanguage=en-us`
 
 ## Spell correction with simple search
 
@@ -35,8 +35,8 @@ The following example uses the built-in hotels-sample index to demonstrate spell
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview
 {
     "search": "famly acitvites",
-    "speller": "standard",
-    "queryLanguage": "english",
+    "speller": "lexicon",
+    "queryLanguage": "en-us",
     "queryType": "simple",
     "select": "HotelId,HotelName,Description,Category,Tags",
     "count": true
@@ -57,8 +57,8 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 {
     "search": "Category:(Resort and Spa) OR Category:Suiite",
     "queryType": "full",
-    "speller": "standard",
-    "queryLanguage": "english",
+    "speller": "lexicon",
+    "queryLanguage": "en-us",
     "select": "Category",
     "count": true
 }
@@ -75,8 +75,8 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 {
     "search": "hisotoric hotell wiht great restrant nad wiifi",
     "queryType": "semantic",
-    "speller": "standard",
-    "queryLanguage": "english",
+    "speller": "lexicon",
+    "queryLanguage": "en-us",
     "searchFields": "HotelName,Tags,Description,Tags",
     "select": "HotelId,HotelName,Description,Category,Tags",
     "count": true

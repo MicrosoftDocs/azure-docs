@@ -27,7 +27,7 @@ During public preview, there is no charge for semantic search. However, as featu
 
   The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query.
 
-+ [A query request](/rest/api/searchservice/preview-api/search-documents) that uses spell correction must have the following three parameters: `api-version=2020-06-30-Preview`, `queryType=semantic`, `queryLanguage=english`, `searchFields=<ordered-field-list>`.
++ [A query request](/rest/api/searchservice/preview-api/search-documents) that uses spell correction must have the following three parameters: `api-version=2020-06-30-Preview`, `queryType=semantic`, `queryLanguage=en-us`, `searchFields=<ordered-field-list>`.
 
 ## What's a semantic query?
 
