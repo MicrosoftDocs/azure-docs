@@ -201,10 +201,8 @@ The create collection extension command creates a new MongoDB collection. The da
   customAction: "CreateCollection",
   collection: "<Collection Name>",
   shardKey: "<Shard key path>",
-  /* Choose Provisioned Throughput or Autoscale
+  // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" to use Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting.
   offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set
-  autoScaleSettings: { maxThroughput: (int) } // Autoscale enabled with required max throughput set
-  */
 }
 ```
 
@@ -295,10 +293,8 @@ The update collection extension command updates the properties associated with t
 {
   customAction: "UpdateCollection",
   collection: "<Name of the collection that you want to update>",
-  /* Choose Provisioned Throughput or Autoscale
+  // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" if using Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting. Changing between Autoscale and Provisioned throughput is only supported in the Azure Portal.
   offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set
-  autoScaleSettings: { maxThroughput: (int) } // Autoscale enabled with required max throughput set
-  */
 }
 ```
 
