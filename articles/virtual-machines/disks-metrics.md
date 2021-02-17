@@ -35,7 +35,7 @@ The following metrics are available to get insight on VM and Disk IO, throughput
 - **Disk Write Bytes/Sec**: The number of bytes that are written in a second from all disks attached to a VM.
 - **Disk Write Operations/Sec**: The number of output operations that are written in a second from all disks attached to a VM.
 
-## Bursting Metrics
+## Bursting metrics
 The following metrics help with observability into our [bursting](disk-bursting.md) feature on our premium disks:
 
 - **Data Disk Max Burst Bandwidth**: The throughput limit that the data disk(s) can burst up to.
@@ -121,7 +121,7 @@ This metric tells us the data disks attached on LUN 3 and 2 are using around 85%
 
 ![Diagram of Storage I O metrics example.](media/disks-metrics/utilization-metrics-example/metrics-diagram.jpg)
 
-## Next Steps
+## Next steps
 
 - [Azure Monitor Metrics overview](../azure-monitor/platform/data-platform-metrics.md)
 - [Metrics aggregation explained](../azure-monitor/platform/metrics-aggregation-explained.md)
