@@ -14,7 +14,7 @@ ms.author: v-demjoh
 Follow these steps to install the Speech CLI on Windows:
 
 1. On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Installing this for the first time may require a restart.
-1. Install [.NET Core 3.1](/dotnet/core/install/linux).
+1. Install [.NET Core 3.1 SDK](/dotnet/core/install/linux).
 2. Install the Speech CLI using NuGet by entering this command:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
