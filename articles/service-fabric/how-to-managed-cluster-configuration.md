@@ -11,11 +11,10 @@ In addition to selecting the [Service Fabric managed cluster SKU](overview-manag
 * Add a [virtual machine scale set extension](how-to-managed-cluster-vmss-extension.md) to a node type
 * Enable [automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) for your nodes
 * Enable [OS and data disk encryption](how-to-enable-managed-cluster-disk-encryption.md) on your nodes
-* About [Network configurations](how-to-managed-cluster-configuration.md#apply-nsg-rules.md#about-networking-configurations)
-* Apply [NSG rules](how-to-managed-cluster-configuration.md#apply-nsg-rules) to your cluster
+* About [networking configurations](how-to-managed-cluster-configuration.md#networking-configurations)
 * Configure [managed identity](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) on your node types
 
-## About networking configurations
+## Networking configurations
 
 Service Fabric managed clusters are created with a default networking configuration. This configuration consists of mandatory rules for essential cluster functionality, and a few optional rules which are intended to make customer configuration easier.
 
