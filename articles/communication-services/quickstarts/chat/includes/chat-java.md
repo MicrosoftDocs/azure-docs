@@ -79,6 +79,8 @@ The following classes and interfaces handle some of the major features of the Az
 ## Create a chat client
 To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationTokenCredential class from the Common client library to pass the token to your chat client. 
 
+See the following documentation for more detail [Chat Architecture](../../../concepts/chat/concepts.md)
+
 When adding the import statements, be sure to only add imports from the com.azure.communication.chat and com.azure.communication.chat.models namespaces, and not from the com.azure.communication.chat.implementation namespace. In the App.java file that was generated via Maven, you can use the following code to begin with:
 
 ```Java
