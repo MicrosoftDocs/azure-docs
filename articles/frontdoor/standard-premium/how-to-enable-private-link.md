@@ -7,7 +7,6 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: tyao
-
 # Customer intent: As someone with a basic network background who's new to Azure, I want to configure Front Door to connect to my origin via private link service by using Azure portal
 ---
 
@@ -47,7 +46,5 @@ In this section, you'll map the Azure Private Link service to a private endpoint
     | Request message | Customize message or choose the default message. |
 
 ## Next Steps
-
-To learn more about Azure Private endpoint, continue to:
 
 Learn about [Azure Front Door Premium Private Link](concept-private-link.md).
