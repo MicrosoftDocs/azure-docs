@@ -32,9 +32,8 @@ Confidential containers support custom applications developed with **Python, Jav
 
 Confidential containers are the fastest path to container confidentiality and will only require repackaging of the existing docker container applications and will not require application code changes. Confidential containers are docker container applications that are packaged to run in a TEE. Some confidential container enablers also offer container encryption that can help protect the container code during storage and transport and while mounted in the host. Container encryption allows you to go further and protect the code/model packaged in the container with its decryption key attached to the TEE.
 
-## Confidential Containers development and deployment flow
 Below is the process for confidential containers from development to deployment
-![The confidential container how to process](./media/confidential-containers/howto-confidentialcontainer.png)
+![The confidential container how to process.](./media/confidential-containers/how-to-confidential-container.png)
 
 ## Confidential Container Enablers
 To run an existing docker container unmodified requires an SGX software so the application calls can use special CPU instruction set made available to lower the attach surface area and take no dependency on Guest OS. Once wrapped with SGX runtime software the containers automatically launch in the protected enclaves thus removing the Guest OS, Host OS, or Hypervisor from the trust boundary. This isolated execution in a node (Virtual Machine) with in memory data encryption backed by the hardware reduces the overall surface attack areas and reduces the vulnerabilities with operating system or hypervisor layers.
