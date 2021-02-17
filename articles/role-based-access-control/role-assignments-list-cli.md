@@ -181,4 +181,4 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## Next steps
 
-- [Add or remove Azure role assignments using Azure CLI](role-assignments-cli.md)
+- [Assign Azure roles using Azure CLI](role-assignments-cli.md)
