@@ -135,7 +135,7 @@ For more information, see the documentation for the [Model class](/python/api/az
 
 ### Deploy your model
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azcli)
 
 If you have a GPU-enabled Azure Kubernetes Service cluster called "aks-gpu" created through Azure Machine Learning, you can use the following command to deploy your model.
 
@@ -176,7 +176,7 @@ See [this documentation for more details on deploying models](how-to-deploy-and-
 
 First, get your scoring URI and Bearer tokens.
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azcli)
 
 
 ```azurecli
@@ -273,7 +273,7 @@ An inference configuration allows you use an entry script, as well as the Azure 
 >
 > The Python code example clones `AzureML-Triton` into another environment called `My-Triton`. The Azure CLI code also uses this environment. For more information on cloning an environment, see the [Environment.Clone()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-) reference.
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azcli)
 
 > [!TIP]
 > For more information on creating an inference configuration, see the [inference configuration schema](./reference-azure-machine-learning-cli.md#inference-configuration-schema).
@@ -346,7 +346,7 @@ This will tell Azure ML to spin up the number of workers you specify.
 If you plan on continuing to use the Azure Machine Learning workspace, but want to get rid of the deployed service, use one of the following options:
 
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azcli)
 
 ```azurecli
 az ml service delete -n triton-densenet-onnx
