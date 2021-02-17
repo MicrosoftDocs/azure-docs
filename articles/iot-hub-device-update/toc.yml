@@ -27,7 +27,7 @@
     href: device-update-groups.md
   - name: How device update uses Plug and Play
     href: device-update-plug-and-play.md
-  - name: Device update  
+  - name: Device update networking requirements
     href: device-update-networking.md
    - name: Understand Device Update Agent
     href: device-update-agent-overview
