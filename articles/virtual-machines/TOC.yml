@@ -328,12 +328,12 @@
     - name: Create LAMP stack
       href: ./linux/tutorial-lamp-stack.md
     - name: Secure web server with TLS\SSL
-      displayname: SSL TLS
       items:
       - name: Linux
         href: ./linux/tutorial-secure-web-server.md
       - name: Windows
         href: ./windows/tutorial-secure-web-server.md
+      displayname: SSL TLS
   - name: Connect to Linux VMs
     items:
     - name: SSH for Linux VMs
@@ -362,8 +362,6 @@
       href: /azure/developer/chef/windows-vm-configure
     - name: Use Java
       href: ./windows/java.md
-    - name: Use Python
-      href: ./windows/python.md
     - name: Use ARM template
       displayName: Azure Resource Manager template
       href: ./windows/ps-template.md
