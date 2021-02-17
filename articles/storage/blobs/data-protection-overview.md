@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 02/08/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
@@ -17,17 +17,53 @@ ms.subservice: common
 
 You can configure data protection for your blob and Azure Data Lake Storage Gen2 data to prepare for scenarios where data could be compromised in the future. This guide will help you to decide which features are best for your scenario.
 
-## Understanding data protection options
+## Overview of data protection options
 
 Azure Storage includes data protection features that enable you to prevent accidental deletes or overwrites, restore data that has been deleted, track changes to data, and apply legal holds and time-based retention policies. You can implement these features for your blob data without needing to reach out to Microsoft.
 
-| Data protection scenario | Blob storage | Azure Data Lake Storage Gen2 |
+| Data protection scenario | Recommended for Blob storage | Recommended for Azure Data Lake Storage Gen2 |
 |--|--|--|
-| Maintain deleted data for a period of time | [Container soft delete (preview)](#container-soft-delete)<br />[Blob soft delete](#blob-soft-delete) | [Container soft delete (preview)](#container-soft-delete) |
-| Retain a copy of data when it is updated or deleted | [Blob versioning](#blob-versioning)<br />[Blob snapshots](#blob-snapshots) | [Blob snapshots](#blob-snapshots) (preview) |
+| [Prevent deletion or modification of the storage account](#prevent-deletion-or-modification-of-the-storage-account) | Azure Resource Manager lock | Azure Resource Manager lock |
+| Maintain deleted data for a specified period of time | [Container soft delete (preview)](#container-soft-delete)<br />[Blob soft delete](#blob-soft-delete) | [Container soft delete (preview)](#container-soft-delete) |
+| Retain a copy of the original data when a blob is updated or deleted | [Blob versioning](#blob-versioning)<br />[Blob soft delete](#blob-soft-delete) | [Blob snapshots](#blob-snapshots) (preview) |
 | Restore all or some of your data to a previous point in time | [Point-in-time restore](#point-in-time-restore) | Not yet available |
-| Prevent all updates and deletes for a specified period of time | [Immutable blob storage](#immutable-blob-storage) for Write-Once, Read-Many (WORM) workloads | [Immutable blob storage](#immutable-blob-storage) for WORM workloads (preview) |
+| Prevent updates or deletes for a specified period of time or when a legal hold is present | [Immutable blob storage](#immutable-blob-storage) for Write-Once, Read-Many (WORM) workloads | [Immutable blob storage](#immutable-blob-storage) for WORM workloads (preview) |
 | Track changes to your data | [Change feed](#change-feed) | Not yet available |
+
+## Prevent deletion or modification of the storage account
+
+To prevent users from deleting a storage account or modifying its configuration, you can apply an Azure Resource Manager lock. There are two types of resource locks available:
+
+- A **CannotDelete** lock prevents users from deleting a storage account, but permits reading and modifying its configuration.
+- A **ReadOnly** lock prevents users from deleting a storage account or modifying its configuration, but permits reading the configuration.
+
+For more information about Azure Resource Manager locks, see [Lock resources to prevent changes](../../azure-resource-manager/management/lock-resources.md).
+
+If a container is protected with a time-based retention policy or a legal hold, then the storage account cannot be deleted. For more information, see [Immutable blob storage](#immutable-blob-storage).
+
+In some cases, a deleted storage account may be recovered, although recovery is not guaranteed. For more information, see [Recover a deleted storage account](../common/storage-account-recover.md)
+
+## Maintain deleted data for a specified period of time
+
+Soft delete protects your blob data from accidental or malicious deletion or from corruption by maintaining the deleted data in the system for a period of time after it has been deleted. If needed, you can restore the deleted data during that interval. Soft delete is available for both [containers](#container-soft-delete) and [blobs](#blob-soft-delete).
+
+### Container soft delete
+
+Container soft delete (preview) is available both for Blob storage and for Azure Data Lake Storage Gen2.
+
+When you enable container soft delete (preview) for your storage account, you can quickly recover a container and its contents and metadata if the container is deleted. The container may be recovered during a retention interval that you specify, up to one year. After the retention period has expired, the container and its blobs are permanently deleted.
+
+Restoring a soft-deleted container restores all of the blobs within it to their state when the container was deleted. Microsoft recommends enabling blob versioning and blob soft delete together with container soft delete, so that you can restore an individual blob or blob version if it is deleted.
+
+For more information, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
+
+### Blob soft delete
+
+Blob soft delete protects an individual blob, its versions, and its metadata from deletion. When blob soft delete is enabled for a storage account, a deleted blob may be recovered during a retention interval that you specify, up to one year. After the retention period has expired, the blob is permanently deleted. For more information, see [Soft delete for blobs](soft-delete-blob-overview.md).
+
+## Retain a copy of the original data when a blob is updated or deleted
+
+
 
 ## Scenario: Recover deleted data
 
@@ -88,8 +124,6 @@ Azure Storage provides a set of features that you can use together or separately
 ### Soft delete
 
 Soft delete protects your blob data from accidental or malicious deletion or from corruption by maintaining the deleted data for a period of time after it has been deleted. If needed, you can restore the deleted data during that interval. Soft delete is available for both [containers](#container-soft-delete) and [blobs](#blob-soft-delete).
-
-Restoring a soft-deleted container restores all of the blobs within it to their state when the container was deleted. However, it's important to also enable blob soft delete (or versioning) so that you can restore an individual blob in the container if it is deleted.
 
 #### Container soft delete
 
