@@ -85,6 +85,24 @@ landingContent:
         links:
           - text: Configure a Rule Set
             url: how-to-configure-rule-set.md
+            
+    # Card
+  - title: Secure your application
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Private Link
+            url: concept-private-link.md
+          - text: WAF on Azure Front Door Standard/Premium
+            url: ../../web-application-firewall/afds/afds-overview.md
+          - text: DDoS protection
+            url: concept-ddos.md
+      - linkListType: how-to-guide
+        links:
+          - text: Enable Private Link
+            url: how-to-enable-private-link.md
+          - text: Configure WAF policy
+            url: ../../web-application-firewall/afds/waf-front-door-create-portal.md
 
   # Card
   - title: Reports, metrics and logs
