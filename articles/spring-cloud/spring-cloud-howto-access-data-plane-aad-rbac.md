@@ -9,19 +9,19 @@ ms.date: 02/04/2021
 ms.custom: devx-track-java
 ---
 
-# Access data plane with AAD Role Based Access Control
+# Access the data plane with Azure Active Directory and Role Based Access Control
 
-This article explains how customers can access Azure Spring Cloud config server and service registry endpoints with Azure Active Directory (AAD) role-based access control (RBAC).
+This article explains how customers can access the Azure Spring Cloud config server and service registry endpoints with Azure Active Directory (AAD) role-based access control (RBAC).
 
 ## Assign role to AAD user/group, MSI, or service principal
 
-1. Go to service overview page of your service instance.
+1. Go to the service overview page of your service instance.
 
 2. Click **Access Control (IAM)** to open the access control blade.
 
-3. Click **Add** button and **Add role assignments** (Authorization may be required to add).
+3. Click the **Add** button and **Add role assignments** (Authorization may be required to add).
 
-4. Find and select *Azure Spring Cloud Data Reader* in **Role**.
+4. Find and select *Azure Spring Cloud Data Reader* under **Role**.
 5. Assign access to `User, group, or service principal` or `User assigned managed identity` according to the user type. Search for and select user.  
 6. Click `Save`
 
@@ -29,14 +29,18 @@ This article explains how customers can access Azure Spring Cloud config server 
 
 ## Access data plane
 
-After AAD user is assigned the *Azure Spring Cloud Data Reader* role, customers can login to Azure CLI with user, service principal, or managed identity.  See [Authenticate Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) to get access token.
+After an AAD user is assigned the *Azure Spring Cloud Data Reader* role, customers can login to Azure CLI with user, service principal, or managed identity.  See [Authenticate Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) to get an access token.
 
 ```
 az login
 az account get-access-token
 ```
 
-Currently CLI supports default endpoints of the config server and service registry. For more information, see [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints). Customers can also get a full list of supported endpoints of the config server and service registry by accessing endpoints *https://SERVICE_NAME.Root_Endpoint/eureka/actuator/* and *https://SERVICE_NAME.Root_Endpoint/config/actuator/* with the access token as authorization in header. Only the "GET" method is supported.
+Currently the CLI supports default endpoints of the config server and service registry. For more information, see [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints). 
+
+Customers can also get a full list of supported endpoints of the config server and service registry by accessing endpoints:
+* *https://SERVICE_NAME.Root_Endpoint/eureka/actuator/*
+* *https://SERVICE_NAME.Root_Endpoint/config/actuator/* with the access token as authorization in header. Only the "GET" method is supported.
 
 For example, access an endpoint like *https://SERVICE_NAME.Root_Endpoint/eureka/actuator/health* to see the health status of eureka.
 
@@ -47,7 +51,11 @@ Various root endpoints are shown below according to different cloud types.
 | Public         | svc.azuremicroservices.io  |
 | Mooncake/China | svc.microservices.azure.cn |
 
-If the response is *401 Unauthorized*, check to see if role is successfully assigned.  It will take several minutes for the role take effect or verify the access token has not expired.
+If the response is *401 Unauthorized*, check to see if the role is successfully assigned.  It will take several minutes for the role take effect or verify that the access token has not expired.
+
+## Next steps
+* [Authenticate Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)
+* [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints)
 
 ## See also
 * [Create roles and permissions](spring-cloud-howto-permissions.md)
