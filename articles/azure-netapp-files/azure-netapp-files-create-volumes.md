@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/15/2020
+ms.date: 02/15/2021
 ms.author: b-juche
 ---
 # Create an NFS volume for Azure NetApp Files
