@@ -773,7 +773,7 @@
       href: data-lake-storage-integrate-with-services-tutorials.md
     - name: Optimize performance
       items:
-      - name: performance optimization overview
+      - name: Performance optimization overview
         href: data-lake-storage-performance-tuning-guidance.md
       - name: Optimize Spark on HDInsight
         href: data-lake-storage-performance-tuning-spark.md
