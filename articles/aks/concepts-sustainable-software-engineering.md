@@ -56,7 +56,7 @@ Learn more about the features of AKS mentioned in this article:
 * [Availability Zones][availability-zones]
 
 [availability-zones]: availability-zones.md
-[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md
+[azure-monitor]: ../azure-monitor/containers/container-insights-overview.md
 [azure-traffic-manager]: ../traffic-manager/traffic-manager-overview.md
 [proiximity-placement-groups]: reduce-latency-ppg.md
 [regions]: faq.md#which-azure-regions-currently-provide-aks

@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 02/01/2021
+ms.date: 02/15/2021
 ms.custom: generated
 ---
 
@@ -171,15 +171,15 @@ The following table provides a brief description and the unique ID of each built
 > | [Azure Sentinel Contributor](#azure-sentinel-contributor) | Azure Sentinel Contributor | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Azure Sentinel Reader](#azure-sentinel-reader) | Azure Sentinel Reader | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Azure Sentinel Responder](#azure-sentinel-responder) | Azure Sentinel Responder | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
-> | [Key Vault Administrator (preview)](#key-vault-administrator-preview) | Perform all data plane operations on a key vault and all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
-> | [Key Vault Certificates Officer (preview)](#key-vault-certificates-officer-preview) | Perform any action on the certificates of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | a4417e6f-fecd-4de8-b567-7b0420556985 |
+> | [Key Vault Administrator](#key-vault-administrator) | Perform all data plane operations on a key vault and all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+> | [Key Vault Certificates Officer](#key-vault-certificates-officer) | Perform any action on the certificates of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | a4417e6f-fecd-4de8-b567-7b0420556985 |
 > | [Key Vault Contributor](#key-vault-contributor) | Manage key vaults, but does not allow you to assign roles in Azure RBAC, and does not allow you to access secrets, keys, or certificates. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
-> | [Key Vault Crypto Officer (preview)](#key-vault-crypto-officer-preview) | Perform any action on the keys of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-> | [Key Vault Crypto Service Encryption User (preview)](#key-vault-crypto-service-encryption-user-preview) | Read metadata of keys and perform wrap/unwrap operations. Only works for key vaults that use the 'Azure role-based access control' permission model. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
-> | [Key Vault Crypto User (preview)](#key-vault-crypto-user-preview) | Perform cryptographic operations using keys. Only works for key vaults that use the 'Azure role-based access control' permission model. | 12338af0-0e69-4776-bea7-57ae8d297424 |
-> | [Key Vault Reader (preview)](#key-vault-reader-preview) | Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model. | 21090545-7ca7-4776-b22c-e363652d74d2 |
-> | [Key Vault Secrets Officer (preview)](#key-vault-secrets-officer-preview) | Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
-> | [Key Vault Secrets User (preview)](#key-vault-secrets-user-preview) | Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
+> | [Key Vault Crypto Officer](#key-vault-crypto-officer) | Perform any action on the keys of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+> | [Key Vault Crypto Service Encryption User](#key-vault-crypto-service-encryption-user) | Read metadata of keys and perform wrap/unwrap operations. Only works for key vaults that use the 'Azure role-based access control' permission model. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+> | [Key Vault Crypto User](#key-vault-crypto-user) | Perform cryptographic operations using keys. Only works for key vaults that use the 'Azure role-based access control' permission model. | 12338af0-0e69-4776-bea7-57ae8d297424 |
+> | [Key Vault Reader](#key-vault-reader) | Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model. | 21090545-7ca7-4776-b22c-e363652d74d2 |
+> | [Key Vault Secrets Officer](#key-vault-secrets-officer) | Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
+> | [Key Vault Secrets User](#key-vault-secrets-user) | Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
 > | [Managed HSM contributor](#managed-hsm-contributor) | Lets you manage managed HSM pools, but not access to them. | 18500a29-7fe2-46b2-a342-b16a415e101d |
 > | [Security Admin](#security-admin) | View and update permissions for Security Center. Same permissions as the Security Reader role and can also update the security policy and dismiss alerts and recommendations. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Security Assessment Contributor](#security-assessment-contributor) | Lets you push assessments to Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
@@ -191,9 +191,9 @@ The following table provides a brief description and the unique ID of each built
 > | **Monitor** |  |  |
 > | [Application Insights Component Contributor](#application-insights-component-contributor) | Can manage Application Insights components | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Gives user permission to view and download debug snapshots collected with the Application Insights Snapshot Debugger. Note that these permissions are not included in the [Owner](#owner) or [Contributor](#contributor) roles. When giving users the Application Insights Snapshot Debugger role, you must grant the role directly to the user. The role is not recognized when it is added to a custom role. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
-> | [Monitoring Contributor](#monitoring-contributor) | Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
+> | [Monitoring Contributor](#monitoring-contributor) | Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | [Monitoring Metrics Publisher](#monitoring-metrics-publisher) | Enables publishing metrics against Azure resources | 3913510d-42f4-4e42-8a64-420c390055eb |
-> | [Monitoring Reader](#monitoring-reader) | Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
+> | [Monitoring Reader](#monitoring-reader) | Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | [Workbook Contributor](#workbook-contributor) | Can save shared workbooks. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
 > | [Workbook Reader](#workbook-reader) | Can read workbooks. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 > | **Management + governance** |  |  |
@@ -2170,8 +2170,9 @@ Read, write, and delete Azure Storage containers and blobs. To learn which actio
 > | **DataActions** |  |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/delete | Delete a blob. |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/read | Return a blob or a list of blobs. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/move/action | Moves the blob from one path to another |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/write | Write to a blob. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/move/action | Moves the blob from one path to another |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/add/action | Returns the result of adding blob content |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -2195,8 +2196,9 @@ Read, write, and delete Azure Storage containers and blobs. To learn which actio
       "dataActions": [
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action",
-        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
       ],
       "notDataActions": []
     }
@@ -4394,6 +4396,8 @@ Lets you manage the security-related policies of SQL servers and databases, but 
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/read | Return the list of managed instances or gets the properties for the specified managed instance. |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/azureADOnlyAuthentications/* |  |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/sqlVulnerabilityAssessments/* |  |
+> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/administrators/read | Gets a list of managed instance administrators. |
+> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/administrators/read | Gets a specific Azure Active Directory administrator object |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -4456,7 +4460,9 @@ Lets you manage the security-related policies of SQL servers and databases, but 
         "Microsoft.Sql/servers/azureADOnlyAuthentications/*",
         "Microsoft.Sql/managedInstances/read",
         "Microsoft.Sql/managedInstances/azureADOnlyAuthentications/*",
-        "Microsoft.Security/sqlVulnerabilityAssessments/*"
+        "Microsoft.Security/sqlVulnerabilityAssessments/*",
+        "Microsoft.Sql/managedInstances/administrators/read",
+        "Microsoft.Sql/servers/administrators/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -4763,7 +4769,7 @@ Create and manage data factories, as well as child resources within them. [Learn
 
 ### Data Purger
 
-Can purge analytics data [Learn more](../azure-monitor/platform/personal-data-mgmt.md)
+Can purge analytics data [Learn more](../azure-monitor/logs/personal-data-mgmt.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4906,7 +4912,7 @@ Can Read, Create, Modify and Delete Domain Services related operations needed fo
 
 ### Log Analytics Contributor
 
-Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; creating and configuring Automation accounts; adding solutions; and configuring Azure diagnostics on all Azure resources. [Learn more](../azure-monitor/platform/manage-access.md)
+Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; creating and configuring Automation accounts; adding solutions; and configuring Azure diagnostics on all Azure resources. [Learn more](../azure-monitor/logs/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4971,7 +4977,7 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
 
 ### Log Analytics Reader
 
-Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources. [Learn more](../azure-monitor/platform/manage-access.md)
+Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources. [Learn more](../azure-monitor/logs/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -7557,7 +7563,7 @@ Azure Sentinel Responder [Learn more](../sentinel/roles.md)
 }
 ```
 
-### Key Vault Administrator (preview)
+### Key Vault Administrator
 
 Perform all data plane operations on a key vault and all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
@@ -7610,13 +7616,13 @@ Perform all data plane operations on a key vault and all objects in it, includin
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Administrator (preview)",
+  "roleName": "Key Vault Administrator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Key Vault Certificates Officer (preview)
+### Key Vault Certificates Officer
 
 Perform any action on the certificates of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
@@ -7671,7 +7677,7 @@ Perform any action on the certificates of a key vault, except manage permissions
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Certificates Officer (preview)",
+  "roleName": "Key Vault Certificates Officer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -7732,7 +7738,7 @@ Manage key vaults, but does not allow you to assign roles in Azure RBAC, and doe
 }
 ```
 
-### Key Vault Crypto Officer (preview)
+### Key Vault Crypto Officer
 
 Perform any action on the keys of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
@@ -7785,13 +7791,13 @@ Perform any action on the keys of a key vault, except manage permissions. Only w
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto Officer (preview)",
+  "roleName": "Key Vault Crypto Officer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Key Vault Crypto Service Encryption User (preview)
+### Key Vault Crypto Service Encryption User
 
 Read metadata of keys and perform wrap/unwrap operations. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
@@ -7834,13 +7840,13 @@ Read metadata of keys and perform wrap/unwrap operations. Only works for key vau
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto Service Encryption User (preview)",
+  "roleName": "Key Vault Crypto Service Encryption User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Key Vault Crypto User (preview)
+### Key Vault Crypto User
 
 Perform cryptographic operations using keys. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
@@ -7889,13 +7895,13 @@ Perform cryptographic operations using keys. Only works for key vaults that use 
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto User (preview)",
+  "roleName": "Key Vault Crypto User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Key Vault Reader (preview)
+### Key Vault Reader
 
 Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
@@ -7950,13 +7956,13 @@ Read metadata of key vaults and its certificates, keys, and secrets. Cannot read
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Reader (preview)",
+  "roleName": "Key Vault Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Key Vault Secrets Officer (preview)
+### Key Vault Secrets Officer
 
 Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
@@ -8009,13 +8015,13 @@ Perform any action on the secrets of a key vault, except manage permissions. Onl
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Secrets Officer (preview)",
+  "roleName": "Key Vault Secrets Officer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Key Vault Secrets User (preview)
+### Key Vault Secrets User
 
 Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
@@ -8050,7 +8056,7 @@ Read secret contents. Only works for key vaults that use the 'Azure role-based a
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Secrets User (preview)",
+  "roleName": "Key Vault Secrets User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -8585,7 +8591,7 @@ Gives user permission to view and download debug snapshots collected with the Ap
 
 ### Monitoring Contributor
 
-Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). [Learn more](../azure-monitor/platform/roles-permissions-security.md)
+Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). [Learn more](../azure-monitor/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -8731,7 +8737,7 @@ Enables publishing metrics against Azure resources [Learn more](../azure-monitor
 
 ### Monitoring Reader
 
-Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). [Learn more](../azure-monitor/platform/roles-permissions-security.md)
+Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). [Learn more](../azure-monitor/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

@@ -98,7 +98,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 
 * **Requests**: Select this option to collect metric data from Azure Cosmos DB to the destinations in the diagnostic setting. This is the same data collected automatically in Azure Metrics. Collect metric data with resource logs to analyze both kinds of data together and to send metric data outside of Azure Monitor.
 
-For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) article.
+For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) article.
 
 
 ## <a id="diagnostic-queries"></a> Troubleshoot issues with diagnostics queries

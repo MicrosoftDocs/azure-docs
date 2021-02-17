@@ -325,6 +325,17 @@ Maximum data churn per day supported by a Process Server | 2 TB
 - Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior.
 - These numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it is processed and a recovery point is created within five minutes.
 
+## Storage account limits
+
+As average churn on the disks increases, the number of disks that a storage account can support decreases. The below table may be used as a guide for making decisions on number of storage accounts that need to be provisioned.
+ 
+**Storage account type**    |    **Churn = 4 MBps per disk**    |    **Churn = 8 MBps per disk**
+---    |    ---    |    ---
+V1 storage account    |    600 disks    |    300 disks
+V2 storage account    |    1500 disks    |    750 disks
+
+Please note that the above limits are applicable to hybrid DR scenarios only.
+
 ## Vault tasks
 
 **Action** | **Supported**

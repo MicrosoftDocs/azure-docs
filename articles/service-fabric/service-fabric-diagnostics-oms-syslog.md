@@ -83,7 +83,7 @@ Here are the changes to call out
 ```
 
 ## Azure Monitor logs integration
-You can read these Syslog events in a monitoring tool such as Azure Monitor logs. You can create a Log Analytics workspace by using the Azure Marketplace using these [instructions].(../azure-monitor/learn/quick-create-workspace.md)
+You can read these Syslog events in a monitoring tool such as Azure Monitor logs. You can create a Log Analytics workspace by using the Azure Marketplace using these [instructions].(../azure-monitor/logs/quick-create-workspace.md)
 You also need to add the Log Analytics agent to your cluster to collect and send this data to the workspace. This is the same agent used to collect performance counters. 
 
 1. Navigate to the `Advanced Settings` blade
@@ -110,6 +110,6 @@ The example above is of a NodeDown event. You can view the full list of events [
 
 ## Next steps
 * [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
-* Get familiarized with the [log search and querying](../azure-monitor/log-query/log-query-overview.md) features offered as part of Azure Monitor logs
-* [Use View Designer to create custom views in Azure Monitor logs](../azure-monitor/platform/view-designer.md)
-* Reference for how to [Azure Monitor logs integration with Syslog](../azure-monitor/platform/data-sources-syslog.md).
+* Get familiarized with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs
+* [Use View Designer to create custom views in Azure Monitor logs](../azure-monitor/visualize/view-designer.md)
+* Reference for how to [Azure Monitor logs integration with Syslog](../azure-monitor/agents/data-sources-syslog.md).

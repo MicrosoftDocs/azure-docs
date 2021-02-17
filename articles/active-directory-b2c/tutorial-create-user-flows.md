@@ -129,7 +129,7 @@ In this article, you learned how to:
 > * Create a profile editing user flow
 > * Create a password reset user flow
 
-Next, learn about adding identity providers to your applications to enable user sign-in with providers like Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft, or Twitter.
+Next, learn how to use Azure AD B2C to sign in and sign up users in an application. Follow the ASP.NET web application linked below, or navigate to another application in the table of contents under **Authenticate users**.
 
 > [!div class="nextstepaction"]
-> [Add identity providers to your applications >](tutorial-add-identity-providers.md)
+> [Tutorial: Enable authentication in a web application using Azure AD B2C >](tutorial-web-app-dotnet.md)

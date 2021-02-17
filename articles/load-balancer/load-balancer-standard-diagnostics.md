@@ -67,7 +67,7 @@ To view the metrics for your Standard Load Balancer resources:
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
-For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account by adding a [Diagnostic Setting](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) for the 'All Metrics' category. 
+For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account by adding a [Diagnostic Setting](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) for the 'All Metrics' category. 
 
 ### Configure alerts for multi-dimensional metrics ###
 

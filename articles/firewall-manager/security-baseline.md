@@ -401,9 +401,9 @@ Currently actions surrounding Firewall Policy rule collection groups are not sup
 
 Currently actions surrounding Firewall Policy rule collection groups are not supported by the Activity Log, this is a known issue and being addressed in future updates.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -419,7 +419,7 @@ In addition, enable and onboard your log data to Azure Sentinel or a third-party
 
 Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -433,7 +433,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake, or Log Analytics workspace accounts for long-term and archival storage.
 
-- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
+- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
 - [Storing resource logs in an Azure Storage Account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
