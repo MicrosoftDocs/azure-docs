@@ -27,7 +27,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get 12-month free trial [here](https://azure.microsoft.com/en-us/free/).
+* An Azure AD subscription. If you don't have a subscription, you can get a 12-month free trial [here](https://azure.microsoft.com/en-us/free/).
 * Syncplicity single sign-on (SSO) enabled subscription.
 
 ## Scenario description
