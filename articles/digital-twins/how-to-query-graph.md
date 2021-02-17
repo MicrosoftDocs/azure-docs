@@ -221,8 +221,8 @@ The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-The query example used in this call returns results in the form of a [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) object. However, the return type of your data for each query will depend on what terms you specify with the `SELECT` statement:
-* Queries that begin with `SELECT * FROM ...` will return a list of digital twins (which can be serialized as `BasicDigitalTwin` objects).
+The query used in this call returns a list of digital twins, which the above example represents with [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) objects. The return type of your data for each query will depend on what terms you specify with the `SELECT` statement:
+* Queries that begin with `SELECT * FROM ...` will return a list of digital twins (which can be serialized as `BasicDigitalTwin` objects, or other custom digital twin types that you may have created).
 * Queries that begin in the format `SELECT <A>, <B>, <C> FROM ...` will return a dictionary with keys `<A>`, `<B>`, and `<C>`.
 * Other formats of `SELECT` statements can be crafted to return custom data. You might consider creating your own classes to handle very customized result sets. 
 
