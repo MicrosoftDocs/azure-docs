@@ -90,6 +90,10 @@
     href: service-bus-samples.md
 - name: Concepts
   items:
+  - name: Queues, topics, and subscriptions
+    href: service-bus-queues-topics-subscriptions.md
+  - name: Topic filters and actions
+    href: topic-filters.md
   - name: Premium messaging
     href: service-bus-premium-messaging.md
   - name: Compare Azure Queues and Service Bus queues
@@ -158,10 +162,10 @@
     href: service-bus-create-namespace-portal.md
   - name: Develop
     items:
+    - name: Set subscription filters and actions
+      href: service-bus-filter-examples.md    
     - name: Message handling
       items:
-      - name: Queues, topics, and subscriptions
-        href: service-bus-queues-topics-subscriptions.md
       - name: Java message service (JMS) 2.0 entities (preview)
         href: java-message-service-20-entities.md
       - name: Messages, payloads, and serialization
@@ -172,8 +176,6 @@
         href: message-sequencing.md
       - name: Message expiration (Time to Live)
         href: message-expiration.md
-    - name: Topic filters and actions
-      href: topic-filters.md
     - name: Migrate from Standard to Premium namespaces
       href: service-bus-migrate-standard-premium.md
     - name: Partitioned queues and topics
