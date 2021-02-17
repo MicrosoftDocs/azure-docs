@@ -1,5 +1,5 @@
 ---
-title: Configure security headers with Azure Front Door Standard/Premium Rule Set
+title: Configure security headers with Azure Front Door Standard/Premium (Preview) Rule Set
 description: This article provides guidance on how to use rule set to configure security headers. 
 services: frontdoor
 author: duongau
@@ -9,7 +9,7 @@ ms.date: 02/18/2021
 ms.author: yuajia
 ---
 
-# Configure security headers with Azure Front Door Standard/Premium Rule Set
+# Configure security headers with Azure Front Door Standard/Premium (Preview) Rule Set
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
