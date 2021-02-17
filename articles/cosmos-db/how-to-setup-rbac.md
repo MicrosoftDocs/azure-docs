@@ -15,7 +15,7 @@ ms.author: thweiss
 > Azure Cosmos DB role-based access control is currently in preview. This preview version is provided without a Service Level Agreement and is not recommended for production workloads. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> This article is about role-based access control for data plane operations in Azure Cosmos DB. If you are using management plane operations, see role-based access control applied to your [management plane operations](role-based-access-control.md) article.
+> This article is about role-based access control for data plane operations in Azure Cosmos DB. If you are using management plane operations, see [role-based access control](role-based-access-control.md) applied to your management plane operations article.
 
 Azure Cosmos DB exposes a built-in role-based access control (RBAC) system that lets you:
 
