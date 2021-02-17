@@ -1,6 +1,6 @@
 ---
-title: Understand Device Update Agent| Microsoft Docs
-description: Understand Device Update Agent.
+title: Understand Device Update for Azure IoT Hub Agent| Microsoft Docs
+description: Understand Device Update for Azure IoT Hub Agent.
 author: ValOlson
 ms.author: valls
 ms.date: 2/12/2021
@@ -72,8 +72,11 @@ of the update. Update Handler implementations are in `src/content_handlers`.
 The Simulator Update Handler is used by the Simulator Platform Layer and can
 be used with the Linux Platform Layer to fake interactions with a Content
 Handler. The Simulator Update Handler implements the Update Handler APIs with
-mostly no-ops. The implementation of the Simulator Update Handler is in
-[src/content_handlers/simulator_content_handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers). Note: The InstalledCriteria field in
+mostly no-ops. The implementation of the Simulator Update Handler can be found in
+* [Image update simulator](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/swupdate_handler/inc/aduc/swupdate_simulator_handler.hpp)
+* [Package update apt simulator](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/apt_handler/inc/aduc/apt_simulator_handler.hpp)
+
+Note: The InstalledCriteria field in
 the AzureDeviceUpdateCore PnP interface should be the sha256 hash of the
 content. This is the same hash that is present in the [Import Manifest
 Object](import-update.md#create-device-update-import-manifest). [Learn
