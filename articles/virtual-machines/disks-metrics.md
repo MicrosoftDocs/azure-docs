@@ -15,7 +15,7 @@ Azure offers metrics in the Azure portal that provide insight on how your virtua
 - **Disk bursting metrics** - These are the metrics provide observability into our [bursting](disk-bursting.md) feature on our premium disks.
 - **Storage IO utilization metrics** - These metrics help diagnose bottlenecks in your storage performance with disks. 
 
-All Metrics are emitted every minute, except for the bursting credit percentage metrics, which is emitted every 5 minutes.
+All metrics are emitted every minute, except for the bursting credit percentage metric, which is emitted every 5 minutes.
 
 ## Disk IO, throughput and queue depth metrics
 The following metrics are available to get insight on VM and Disk IO, throughput, and queue depth performance:
