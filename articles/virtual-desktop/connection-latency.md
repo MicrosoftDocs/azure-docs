@@ -15,7 +15,7 @@ The [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.
 
 ## Interpreting results from the Windows Virtual Desktop Experience Estimator tool
 
-In Windows Virtual Desktop latency up to 150ms shouldn’t see impact on experience (assuming no rendering/video). 150ms to 200ms should be fine for text processing. Anything above 200ms may impact experience. 
+In Windows Virtual Desktop, latency up to 150 ms shouldn’t impact user experience that doesnt' involve rendering or video. Latencies between 150 ms and 200 ms should be fine for text processing. Latency above 200 ms may impact user experience. 
 
 In addition the user’s internet connection plays a large role in the WVD connection. If latency is over 200ms and user does not have stable internet connection, circuit is saturated and/or rate limited, has bad wireless connection, etc.. users may experience intermittent disconnects and input delay. 
 
