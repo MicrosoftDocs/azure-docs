@@ -32,12 +32,12 @@ This article shows you how to connect to the Azure Media Services v3 node.js SDK
 > Review the Azure Media Services [naming conventions](media-services-apis-overview.md#naming-conventions) to understand the important naming restrictions on entities. 
 
 ## Reference documentation for @Azure/arm-mediaservices
-- [Reference documentation for Azure Media Services modules for Node.js](https://docs.microsoft.com/en-us/javascript/api/overview/azure/media-services?view=azure-node-latest)
+- [Reference documentation for Azure Media Services modules for Node.js](https://docs.microsoft.com/javascript/api/overview/azure/media-services?view=azure-node-latest)
 
 ## Additional developer documentation for Node.js on Azure
-- [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/en-us/azure/developer/javascript/?view=azure-node-latest)
+- [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
 - [Media Services source code in the @azure/azure-sdk-for-js github repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
-- [Azure Package Documentation for Node.js developers](https://docs.microsoft.com/en-us/javascript/api/overview/azure/?view=azure-node-latest)
+- [Azure Package Documentation for Node.js developers](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
 
 ## Install the Packages
 
@@ -94,7 +94,7 @@ npm install @azure/ms-rest-nodeauth@"^3.0.0"
 
 1. Create a TypeScript .ts file using your favorite editor.
 1. Open the file and paste the following code.
-1. Create a .env file and fill out the details from the Azure Portal. See [access APIs](./access-api-howto.md).
+1. Create a .env file and fill out the details from the Azure portal. See [access APIs](./access-api-howto.md).
 
 ### Sample .env file
 ```
@@ -219,8 +219,8 @@ The following additional samples are available in the [repository](https://githu
 
 - [Media Services concepts](concepts-overview.md)
 - [npm install @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
-- [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/en-us/azure/developer/javascript/?view=azure-node-latest)
-- [Media Services source code in the @azure/azure-sdk-for-js github repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
+- [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Media Services source code in the @azure/azure-sdk-for-js repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
 ## Next steps
 
