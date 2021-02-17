@@ -109,7 +109,7 @@ During the attestation workflow, the Azure SQL logical server containing your da
 
 ### Use Azure portal to assign permission
 
-To assign the identity of an Azure SQL server to the Attestation Reader role for an attestation provider, follow the general instructions in [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md). When you are in the **Add role assignment** pane:
+To assign the identity of an Azure SQL server to the Attestation Reader role for an attestation provider, follow the general instructions in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md). When you are in the **Add role assignment** pane:
 
 1. In the **Role** drop-down, select the **Attestation Reader** role.
 1. In the **Select** field, enter the name of your Azure SQL server to search for it.
@@ -138,7 +138,7 @@ $attestationResourceGroupName = "<attestation provider resource group name>"
 New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
 ```
 
-For more information, see [Add or remove Azure role assignments using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#add-role-assignment-examples).
+For more information, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#assign-role-examples).
 
 ## Next Steps
 
