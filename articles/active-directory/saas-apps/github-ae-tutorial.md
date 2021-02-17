@@ -99,7 +99,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click on **Select groups** and search for the **Group** you want to include this claim, where its members should be administrators for GHAE.
 
-1. Select **Attribute** for **Source** and enter **true** for the **Value**. 
+1. Select **Attribute** for **Source** and enter **true** for the **Value**, (that’s simply **true** without quotes). 
 
 10.	Click **Save**.
 
