@@ -771,6 +771,7 @@
         href: data-lake-storage-use-hdfs-data-lake-storage.md
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
+    - name: Optimize performance
       items:
       - name: performance optimization overview
         href: data-lake-storage-performance-tuning-guidance.md
