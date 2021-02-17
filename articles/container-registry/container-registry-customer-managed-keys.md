@@ -122,11 +122,11 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) (preview) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command:
+Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command:
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
-  --role "Key Vault Crypto Service Encryption (preview)" \
+  --role "Key Vault Crypto Service Encryption User" \
   --scope $keyvaultID
 ```
 
@@ -262,12 +262,12 @@ Configure a policy for the key vault so that the identity can access it.
 
 :::image type="content" source="media/container-registry-customer-managed-keys/add-key-vault-access-policy.png" alt-text="Create key vault access policy":::
 
-Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) (preview) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity.
+Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity.
 
 1. Navigate to your key vault.
 1. Select **Access control (IAM)** > **+Add** > **Add role assignment**.
 1. In the **Add role assignment** window:
-    1. Select **Key Vault Crypto Service Encryption (preview)** role. 
+    1. Select **Key Vault Crypto Service Encryption User** role. 
     1. Assign access to **User assigned managed identity**.
     1. Select the resource name of your user-assigned managed identity, and select **Save**.
 

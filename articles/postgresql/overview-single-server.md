@@ -63,7 +63,7 @@ In addition to native authentication, the single server service supports Azure A
 
 [Audit logging]() (in preview) is available to track all database level activity.
 
-The single server service is complaint with all the industry-leading certifications like FedRAMP, HIPAA, PCI DSS. Visit the [Azure Trust Center]() for information about Azure's platform security.
+The single server service is compliant with all the industry-leading certifications like FedRAMP, HIPAA, PCI DSS. Visit the [Azure Trust Center]() for information about Azure's platform security.
 
 For more information about Azure Database for PostgreSQL security features, see the [security overview]().
 
