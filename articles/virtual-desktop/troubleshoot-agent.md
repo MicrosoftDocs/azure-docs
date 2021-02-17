@@ -104,7 +104,7 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
 
 ## Error: 3703
 
-Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3703 that says **RD Gateway Url: is not accessible**in the description, the agent is unable to reach the gateway URLs. To successfully connect to your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](safe-url-list.md). Also, make sure your firewall or proxy settings don't block these URLs. Unblocking these URLs is required to use Windows Virtual Desktop.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3703 that says **RD Gateway Url: is not accessible** in the description, the agent is unable to reach the gateway URLs. To successfully connect to your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](safe-url-list.md). Also, make sure your firewall or proxy settings don't block these URLs. Unblocking these URLs is required to use Windows Virtual Desktop.
 
 To resolve this issue, verify that your firewall and/or DNS settings are not blocking these URLs:
 1. [Use Azure Firewall to protect Windows Virtual Desktop deployments.](../firewall/protect-windows-virtual-desktop.md).
@@ -208,7 +208,7 @@ If your server is not picking up a heartbeat from the Windows Virtual Desktop se
 - You're receiving a **CheckSessionHostDomainIsReachableAsync** error
 - You're receiving a **ConnectionBrokenMissedHeartbeatThresholdExceeded** error
 - You're receiving a **ConnectionEstablished:UnexpectedNetworkDisconnect** error
-- End user clients keep getting disconnected
+- End-user clients keep getting disconnected
 - Users keep getting disconnected from their session hosts
 
 To change the heartbeat threshold:
