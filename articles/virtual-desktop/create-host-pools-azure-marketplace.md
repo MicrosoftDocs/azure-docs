@@ -3,6 +3,7 @@ title: Windows Virtual Desktop host pool Azure portal - Azure
 description: How to create a Windows Virtual Desktop host pool by using the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
+ms.custom: references_regions
 ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross

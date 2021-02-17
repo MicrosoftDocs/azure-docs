@@ -3,6 +3,7 @@ title: Windows Virtual Desktop environment host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
+ms.custom: references_regions
 ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
@@ -49,7 +50,7 @@ If your operation goes over the quota limit, you can do one of the following thi
 
 ### I only see US when setting the location for my service objects
 
-**Cause**: Azure doesn't currently support that region for the Windows Virtual Desktop service. We'll add new regions as the service grows and supports new locations for storing service metadata. To learn about which geographies we support, check out [Data locations](data-locations.md). If Windows Virtual Desktop supports the location but it still doesn't appear when you're trying to select a location, that means your resource provider hasn't updated yet.
+**Cause**: Azure doesn't currently support that region for the Windows Virtual Desktop service. To learn about which geographies we support, check out [Data locations](data-locations.md). If Windows Virtual Desktop supports the location but it still doesn't appear when you're trying to select a location, that means your resource provider hasn't updated yet.
 
 **Fix**: To get the latest list of regions, re-register the resource provider:
 
