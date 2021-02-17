@@ -17,7 +17,7 @@ ms.custom: how-to
 
 # How to use Apache Spark in your machine learning pipeline
 
-In this article, you'll learn how to use Apache Spark pools backed by Synapse as the compute target for a data preparation step Azure Machine Learning pipeline. You will learn how a single pipeline can use compute resources suited for the specific step, such as data preparation or training. You will see how data is prepared for the Spark step and how it is passed to the next step. 
+In this article, you'll learn how to use Apache Spark pools backed by Synapse as the compute target for a data preparation step Azure Machine Learning pipeline. You'll learn how a single pipeline can use compute resources suited for the specific step, such as data preparation or training. You'll see how data is prepared for the Spark step and how it's passed to the next step. 
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ In this article, you'll learn how to use Apache Spark pools backed by Synapse as
 
 ## Create or retrieve the link between your Synapse workspace and your Azure Machine Learning workspace
 
-You create and administer your Apache Spark pools in a Synapse workspace. To integrate a Spark pool with an Azure Machine Learning workspace, you must link the services. You create the integration using Studio (see [Nina's article](tk)). You can retrieve linked services in your workspace with code such as the following:
+You create and administer your Apache Spark pools in a Synapse workspace. To integrate a Spark pool with an Azure Machine Learning workspace, you must link the services. You create the integration using Studio (see [Nina's article](tk)). You can retrieve linked services in your workspace with code such as:
 
 ```python
 from azureml.core import Workspace, LinkedService, SynapseWorkspaceLinkedServiceConfiguration
@@ -76,9 +76,9 @@ Once the configuration is created, you create a machine learning `ComputeTarget`
 
 ## Create a `SynapseSparkStep` that uses the linked Apache spark pool
 
-The sample notebook [Spark job on Synapse spark pool](tk) defines a simple machine learning pipeline. First, the notebook defines a data preparation step powered by the `synapse_compute` defined in the previous step. Then,  the notebook defines a training step powered by a compute target better suited for training. The sample notebook uses the Titanic survival database to demonstrate data input and output, but does not actually attempt to clean the data or make a viable model. Since there's no real training in this sample, the training step uses an inexpensive, CPU-based compute resource.
+The sample notebook [Spark job on Synapse spark pool](tk) defines a simple machine learning pipeline. First, the notebook defines a data preparation step powered by the `synapse_compute` defined in the previous step. Then,  the notebook defines a training step powered by a compute target better suited for training. The sample notebook uses the Titanic survival database to demonstrate data input and output; it doesn't actually clean the data or make a predictive model. Since there's no real training in this sample, the training step uses an inexpensive, CPU-based compute resource.
 
-Data flows into a machine learning pipeline by way of `DatasetConsumptionConfig` objects, which can hold tabular data or sets of files. The data often originates in files stored in blob storage in a datastore associated with the machine learning workspace. The following code shows some typical code for creating input for a machine learning pipeline:
+Data flows into a machine learning pipeline by way of `DatasetConsumptionConfig` objects, which can hold tabular data or sets of files. The data often comes from files in blob storage in a workspace's datastore. The following code shows some typical code for creating input for a machine learning pipeline:
 
 ```python
 from azureml.core import Dataset
@@ -108,7 +108,7 @@ step1_output = HDFSOutputDatasetConfig(destination=(datastore,"test")).register_
 
 In this case, the data would be stored in the `datastore` in a file called **test** and would be available within the machine learning workspace as a `Dataset` with the name `registered_dataset`.
 
-In addition to data, a pipeline step may have per-step Python dependencies. Individual `SynapseSparkStep` objects can specify their precise Synapse configuration, as well. This is shown in the following code, which specifies that the **azureml-core** package version must be at least `1.20.0`. (As mentioned previously, this is a requirement for using a `FileDataset` as an input.)
+In addition to data, a pipeline step may have per-step Python dependencies. Individual `SynapseSparkStep` objects can specify their precise Synapse configuration, as well. This is shown in the following code, which specifies that the **azureml-core** package version must be at least `1.20.0`. (As mentioned previously, this requirement for **azureml-core** is needed to use a `FileDataset` as an input.)
 
 ```python
 from azureml.core.environment import Environment
@@ -209,7 +209,7 @@ step_2 = PythonScriptStep(script_name="train.py",
                           allow_reuse=False)
 ```
 
-The code above creates the new compute resource if necessary. Then, the `step1_output` result is converted to input for the training step. The `as_download()` option means that the data will be moved onto the compute resource, resulting in faster access. If the data was so large that it would not fit on the local compute hard drive, you would use the `as_mount()` option to stream the data via the FUSE filesystem. The `compute_target` of this second step is `'cpucluster'`, not the `'link1-spark01'` resource you used in the data preparation step. This step uses a simple program **train.py** instead of the **dataprep.py** you used in the previous step. You can see the details of **train.py** in the sample notebook.
+The code above creates the new compute resource if necessary. Then, the `step1_output` result is converted to input for the training step. The `as_download()` option means that the data will be moved onto the compute resource, resulting in faster access. If the data was so large that it wouldn't fit on the local compute hard drive, you would use the `as_mount()` option to stream the data via the FUSE filesystem. The `compute_target` of this second step is `'cpucluster'`, not the `'link1-spark01'` resource you used in the data preparation step. This step uses a simple program **train.py** instead of the **dataprep.py** you used in the previous step. You can see the details of **train.py** in the sample notebook.
 
 Once you've defined all of your steps, you can create and run your pipeline. 
 
