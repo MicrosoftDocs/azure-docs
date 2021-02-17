@@ -171,7 +171,7 @@ When setting the maintenance window, each region has its own maintenance window 
 ### Discover SQL Database and elastic pool maintenance windows
 
 The following example returns the available maintenance windows for the *eastus2* region using the [az maintenance public-configuration list
-](/cli/azure/ext/maintenance/maintenance/public-configuration?view=azure-cli-latest#ext_maintenance_az_maintenance_public_configuration_list) command. For databases and elastic pools, set `maintenanceScope` to `SQLDB`.
+](/cli/azure/ext/maintenance/maintenance/public-configuration?view=azure-cli-latest&preserve-view=true#ext_maintenance_az_maintenance_public_configuration_list) command. For databases and elastic pools, set `maintenanceScope` to `SQLDB`.
 
    ```azurecli
    location="eastus2"
@@ -182,7 +182,7 @@ The following example returns the available maintenance windows for the *eastus2
 ### Discover SQL Managed Instance maintenance windows
 
 The following example returns the available maintenance windows for the *eastus2* region using the [az maintenance public-configuration list
-](/cli/azure/ext/maintenance/maintenance/public-configuration?view=azure-cli-latest#ext_maintenance_az_maintenance_public_configuration_list) command. For managed instances, set `maintenanceScope` to `SQLManagedInstance`.
+](/cli/azure/ext/maintenance/maintenance/public-configuration?view=azure-cli-latest&preserve-view=true#ext_maintenance_az_maintenance_public_configuration_list) command. For managed instances, set `maintenanceScope` to `SQLManagedInstance`.
 
    ```azurecli
    az maintenance public-configuration list --query "[?location=='eastus2'&&contains(maintenanceScope,'SQLManagedInstance')]"
@@ -377,6 +377,11 @@ The following example sets the maintenance window using [az sql mi update](/cli/
 ## Cleanup resources
 
 Be sure to delete unneeded resources after you're finished with them to avoid unnecessary charges.
+
+# [Portal](#tab/azure-portal)
+
+1. Navigate to the SQL database or elastic pool you no longer need.
+1. On the **Overview** menu, select the option to delete the resource.
 
 
 # [PowerShell](#tab/azure-powershell)
