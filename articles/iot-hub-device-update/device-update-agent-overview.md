@@ -93,7 +93,7 @@ the Raspberry Pi reference Yocto image. Find the latest Raspberry Pi reference Y
 The APT Update Handler processes an APT-specific Update Manifest and invokes APT to
 install or update the specified Debian package(s).
 
-## Getting Started with the Device Update Agent
+## Next Steps: Getting Started with the Device Update Agent
 
 ### Try out pre-built images, binaries, and packages
 
