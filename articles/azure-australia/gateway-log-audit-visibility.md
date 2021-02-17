@@ -109,7 +109,7 @@ When implementing the components listed in this article, the following general g
 |Australian Regulatory and Policy Compliance Documents|[https://aka.ms/au-irap](https://aka.ms/au-irap)|
 |Azure products - Australian regions and non-regional|[https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast](https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast)|
 |Microsoft Azure Security and Audit Log Management Whitepaper|[https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf)|
-|Microsoft Monitoring Agent Configuration|[https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent](../azure-monitor/platform/log-analytics-agent.md)|
+|Microsoft Monitoring Agent Configuration|[https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent](../azure-monitor/agents/log-analytics-agent.md)|
 |
 
 ## Component guidance
@@ -184,8 +184,8 @@ Virtual Machines are end points that send and receive network communications, pr
 |Resources|Link|
 |---|---|
 |Virtual Machines|[https://docs.microsoft.com/azure/virtual-machines](../virtual-machines/index.yml)|
-|Collect Data from Virtual Machines|[https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm](../azure-monitor/learn/quick-collect-azurevm.md)|
-|Stream Virtual Machine Logs to Event Hubs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)|
+|Collect Data from Virtual Machines|[https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm](../azure-monitor/vm/quick-collect-azurevm.md)|
+|Stream Virtual Machine Logs to Event Hubs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md)|
 |
 
 ### Domain Name Services (DNS) servers
@@ -203,7 +203,7 @@ To receive logs from Network Virtual Appliances, or custom security logs from ot
 
 |Resources|Link|
 |---|---|
-|Syslog data sources in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog](../azure-monitor/platform/data-sources-syslog.md)|
+|Syslog data sources in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog](../azure-monitor/agents/data-sources-syslog.md)|
 |Log Collection Server|Refer to vendor documentation for details on monitoring and SIEM architecture|
 |
 
@@ -224,8 +224,8 @@ Azure Activity Log, which is part of Azure Monitor, is a subscription log that p
 
 |Resources|Link|
 |---|---|
-|Azure Activity Log Documentation|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs](../azure-monitor/platform/platform-logs-overview.md)|
-|Stream the Azure Activity Log to Event Hubs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs](../azure-monitor/platform/activity-log.md#legacy-collection-methods)|
+|Azure Activity Log Documentation|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs](../azure-monitor/essentials/platform-logs-overview.md)|
+|Stream the Azure Activity Log to Event Hubs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs](../azure-monitor/essentials/activity-log.md#legacy-collection-methods)|
 |
 
 ### Azure Diagnostic Log
@@ -234,8 +234,8 @@ Azure Monitor diagnostic logs are logs emitted by an Azure service that provide 
 
 |Resources|Link|
 |---|---|
-|Azure Diagnostic Log Documentation|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs](../azure-monitor/platform/platform-logs-overview.md)|
-|Support services for Diagnostic Logs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-diagnostic-logs-schema](../azure-monitor/platform/resource-logs-schema.md)|
+|Azure Diagnostic Log Documentation|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs](../azure-monitor/essentials/platform-logs-overview.md)|
+|Support services for Diagnostic Logs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-diagnostic-logs-schema](../azure-monitor/essentials/resource-logs-schema.md)|
 |
 
 ### Azure Policy
@@ -259,7 +259,7 @@ The purpose of an Event Hub is to aggregate the log data for the various sources
 |Resources|Link|
 |---|---|
 |Event Hubs Documentation|[https://docs.microsoft.com/azure/event-hubs](../event-hubs/index.yml)|
-|Guidance on Event Hubs and External Tools|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)|
+|Guidance on Event Hubs and External Tools|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)|
 |
 
 ### Log Analytics
@@ -269,7 +269,7 @@ Log Analytics is part of Azure Monitor and is used for log analysis. Log Analyti
 |Resources|Link|
 |---|---|
 |Log Analytics Documentation|[https://docs.microsoft.com/azure/azure-monitor](../azure-monitor/index.yml)|
-|Tutorial: Analyze Data in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata](../azure-monitor/log-query/log-analytics-tutorial.md)|
+|Tutorial: Analyze Data in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata](../azure-monitor/logs/log-analytics-tutorial.md)|
 |
 
 ### Network Watcher
@@ -303,7 +303,7 @@ Azure Storage is the repository for logs for long-term retention in Azure. Azure
 |---|---|
 |Azure Storage Documentation|[https://docs.microsoft.com/azure/storage](../storage/index.yml)|
 |Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage|[https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview](../event-hubs/event-hubs-capture-overview.md)|
-|Tutorial: Archive Azure metric and log data using Azure Storage|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data](../azure-monitor/platform/platform-logs-overview.md)|
+|Tutorial: Archive Azure metric and log data using Azure Storage|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data](../azure-monitor/essentials/platform-logs-overview.md)|
 |Azure Storage Replication|[https://docs.microsoft.com/azure/storage/common/storage-redundancy](../storage/common/storage-redundancy.md)|
 |Creating a Snapshot of a Blob|[https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)|
 |
@@ -356,7 +356,7 @@ Activity Log Analytics is a Log Analytics Solution that helps analyse and search
 
 |Resources|Link|
 |---|---|
-|Collect and analyze Azure activity logs in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs](../azure-monitor/platform/activity-log.md)|
+|Collect and analyze Azure activity logs in Log Analytics|[https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs](../azure-monitor/essentials/activity-log.md)|
 |
 
 ### Security Information and Event Management (SIEM)
@@ -389,9 +389,9 @@ Azure Alerts can be used to notify support and security personnel in response to
 
 |Resources|Link|
 |---|---|
-|Overview of Alerts in Microsoft Azure|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-alerts](../azure-monitor/platform/alerts-overview.md)|
+|Overview of Alerts in Microsoft Azure|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-alerts](../azure-monitor/alerts/alerts-overview.md)|
 |Managing and responding to security alerts in Azure Security Center|[https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts](../security-center/security-center-managing-and-responding-alerts.md)|
-|Respond to events with Azure Monitor Alerts|[https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response](../azure-monitor/learn/tutorial-response.md)|
+|Respond to events with Azure Monitor Alerts|[https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response](../azure-monitor/alerts/tutorial-response.md)|
 |
 
 ### Azure Automation

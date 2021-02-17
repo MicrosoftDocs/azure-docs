@@ -35,9 +35,9 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md) 
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../../azure-monitor/vm/quick-collect-azurevm.md) 
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -49,9 +49,9 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Azure Resource Manager uses activity logs, which are automatically enabled, to include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -65,9 +65,9 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [Getting started with Log Analytics queries](../../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Getting started with Log Analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -81,7 +81,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to manage alerts in Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [How to alert on Log Analytics log data](../../azure-monitor/learn/tutorial-response.md)
+- [How to alert on Log Analytics log data](../../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -265,7 +265,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts when changes take place to critical Azure resources.
 
-- [How to create alerts for Azure Activity log events](../../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity log events](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 

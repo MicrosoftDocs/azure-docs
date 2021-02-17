@@ -92,7 +92,7 @@ You can learn more about how to enable diagnostics on all objects in the Windows
 
 ## Configure Log Analytics
 
-To start using Azure Monitor for Windows Virtual Desktop, you'll also need at least one Log Analytics workspace to collect data from the environment you plan to monitor and supply it to the workbook. If you already have one set up, skip ahead to [Set up performance counters](#set-up-performance-counters). To set up a new Log Analytics workspace for the Azure subscription containing your Windows Virtual Desktop environment, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md).
+To start using Azure Monitor for Windows Virtual Desktop, you'll also need at least one Log Analytics workspace to collect data from the environment you plan to monitor and supply it to the workbook. If you already have one set up, skip ahead to [Set up performance counters](#set-up-performance-counters). To set up a new Log Analytics workspace for the Azure subscription containing your Windows Virtual Desktop environment, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
 >[!NOTE]
 >Standard data storage charges for Log Analytics will apply. To start, we recommend you choose the pay-as-you-go model and adjust as you scale your deployment and take in more data. To learn more, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
@@ -101,7 +101,7 @@ To start using Azure Monitor for Windows Virtual Desktop, you'll also need at le
 
 You need to enable specific performance counters for collection at the corresponding sample interval in the Log Analytics workspace. These performance counters are the only counters you'll need to monitor Windows Virtual Desktop. You can disable all others to save costs.
 
-If you already have performance counters enabled and want to remove them, follow the instructions in [Configuring performance counters](../azure-monitor/platform/data-sources-performance-counters.md) to reconfigure your performance counters. While the article describes how to add counters, you can also remove them in the same location.
+If you already have performance counters enabled and want to remove them, follow the instructions in [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md) to reconfigure your performance counters. While the article describes how to add counters, you can also remove them in the same location.
 
 If you haven't already set up performance counters, here's how to configure them for Azure Monitor for Windows Virtual Desktop:
 
@@ -122,7 +122,7 @@ You can also add new performance counters after the initial configuration whenev
 >[!NOTE]
 >Input delay performance counters are only compatible with Windows 10 RS5 and later or Windows Server 2019 and later.
 
-To learn more about how to manually add performance counters that aren’t already enabled for collection, see [Configuring performance counters](../azure-monitor/platform/data-sources-performance-counters.md).
+To learn more about how to manually add performance counters that aren’t already enabled for collection, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md).
 
 ### Set up Windows Events
 
@@ -165,7 +165,7 @@ To install the Log Analytics agent:
 
 ## Optional: configure alerts
 
-You can configure Azure Monitor for Windows Virtual Desktop to notify you if any severe Azure Monitor alerts happen within your selected subscription. To do this, follow the instructions in [Respond to events with Azure Monitor Alerts](../azure-monitor/learn/tutorial-response.md).
+You can configure Azure Monitor for Windows Virtual Desktop to notify you if any severe Azure Monitor alerts happen within your selected subscription. To do this, follow the instructions in [Respond to events with Azure Monitor Alerts](../azure-monitor/alerts/tutorial-response.md).
 
 ## Diagnostic and usage data
 

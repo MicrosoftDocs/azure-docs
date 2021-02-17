@@ -59,7 +59,7 @@ When browsing the **Metrics** pane of your account, you will find a chart named 
 
 :::image type="content" source="./media/serverless/request-units-consumed.png" alt-text="Chart showing the consumed Request Units" border="false":::
 
-You can find the same chart when using Azure Monitor, as described [here](monitor-request-unit-usage.md). Note that Azure Monitor lets you setup [alerts](../azure-monitor/platform/alerts-metric-overview.md), which can be used to notify you when your Request Unit consumption has passed a certain threshold.
+You can find the same chart when using Azure Monitor, as described [here](monitor-request-unit-usage.md). Note that Azure Monitor lets you setup [alerts](../azure-monitor/alerts/alerts-metric-overview.md), which can be used to notify you when your Request Unit consumption has passed a certain threshold.
 
 ## <a id="performance"></a>Performance
 

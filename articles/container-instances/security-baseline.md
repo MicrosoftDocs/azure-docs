@@ -190,9 +190,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your container instances. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -249,7 +249,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Within Azure Monitor, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-* [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -261,9 +261,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 * [Container group and instance logging with Azure Monitor logs](./container-instances-log-analytics.md)
 
-* [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -275,7 +275,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 * [Container group and instance logging with Azure Monitor logs](./container-instances-log-analytics.md)
 
-* [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+* [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -594,7 +594,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to your container groups and container instances. 
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -748,9 +748,9 @@ Monitor Azure Container Instances logs for anomalous behavior and regularly revi
 
 * [Container group and instance logging with Azure Monitor logs](./container-instances-log-analytics.md)
 
-* [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 * [Security considerations for Azure Container Instances](./container-instances-image-security.md)
 * [Azure Container Registry integration with Security Center](../security-center/defender-for-container-registries-introduction.md)

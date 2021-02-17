@@ -219,7 +219,7 @@ The following table lists these features along with guidance for adding them to 
 | **Lifecycle management policies** | [Manage the Azure Blob storage lifecycle](../blobs/storage-lifecycle-management-concepts.md) |
 | **Static websites** | [Host a static website in Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
 | **Event subscriptions** | [Reacting to Blob storage events](../blobs/storage-blob-event-overview.md) |
-| **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md) |
+| **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md) |
 | **Content Delivery Network (CDN)** | [Use Azure CDN to access blobs with custom domains over HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE] 

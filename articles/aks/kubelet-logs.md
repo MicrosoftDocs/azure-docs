@@ -73,4 +73,4 @@ If you need additional troubleshooting information from the Kubernetes master, s
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [aks-master-logs]: view-master-logs.md
-[azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md
+[azure-container-logs]: ../azure-monitor/containers/container-insights-overview.md
