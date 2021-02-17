@@ -85,5 +85,5 @@ The versatile Java standalone agent works on any environment, there's no need to
 
 * [Application Insights Overview](./app-insights-overview.md)
 * [Application map](./app-map.md)
-* [End-to-end performance monitoring](../learn/tutorial-performance.md)
+* [End-to-end performance monitoring](../app/tutorial-performance.md)
 

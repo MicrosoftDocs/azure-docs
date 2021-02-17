@@ -179,13 +179,13 @@ We need to authorize the following operations for our roles:
 
 The following table summarizes the access permissions for our roles and application.
 
-| Role | Management plane permissions | Data plane permissions - vault access policies | Data plane permissions -Azure RBAC (preview)  |
+| Role | Management plane permissions | Data plane permissions - vault access policies | Data plane permissions -Azure RBAC  |
 | --- | --- | --- | --- |
-| Security team | [Key Vault Contributor](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificates: all operations <br> Keys: all operations <br> Secrets: all operations | [Key Vault Administrator (preview)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
+| Security team | [Key Vault Contributor](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificates: all operations <br> Keys: all operations <br> Secrets: all operations | [Key Vault Administrator](../../role-based-access-control/built-in-roles.md#key-vault-administrator) |
 | Developers and&nbsp;operators | Key Vault deploy permission<br><br> **Note**: This permission allows deployed VMs to fetch secrets from a key vault. | None | None |
-| Auditors | None | Certificates: list <br> Keys: list<br>Secrets: list<br><br> **Note**: This permission enables auditors to inspect attributes (tags, activation dates, expiration dates) for keys and secrets not emitted in the logs. | [Key Vault Reader (preview)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview) |
-| Azure Storage Account | None | Keys: get, list, wrapKey, unwrapKey <br> | [Key Vault Crypto Service Encryption User](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user-preview) |
-| Application | None | Secrets: get, list <br> Certificates: get, list | [Key Vault Reader (preview)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview), [Key Vault Secret User (preview)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
+| Auditors | None | Certificates: list <br> Keys: list<br>Secrets: list<br><br> **Note**: This permission enables auditors to inspect attributes (tags, activation dates, expiration dates) for keys and secrets not emitted in the logs. | [Key Vault Reader](../../role-based-access-control/built-in-roles.md#key-vault-reader) |
+| Azure Storage Account | None | Keys: get, list, wrapKey, unwrapKey <br> | [Key Vault Crypto Service Encryption User](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user) |
+| Application | None | Secrets: get, list <br> Certificates: get, list | [Key Vault Reader](../../role-based-access-control/built-in-roles.md#key-vault-reader), [Key Vault Secret User](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user) |
 
 The three team roles need access to other resources along with Key Vault permissions. To deploy VMs (or the Web Apps feature of Azure App Service), developers and operators need deploy access. Auditors need read access to the Storage account where the Key Vault logs are stored.
 
