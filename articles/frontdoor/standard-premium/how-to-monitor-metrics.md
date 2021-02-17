@@ -19,7 +19,7 @@ Azure Front Door Standard/Premium is integrated with Azure Monitor and has 11 me
 
 Azure Front Door Standard/Premium measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal. Metrics can be displayed in charts or grid of your choice and are accessible via portal, PowerShell, CLI, and API. For more information, see [Azure Monitor metrics](../../azure-monitor/platform/data-platform-metrics.md).  
 
-The default metrics are free of charge. You can enable additonal metrics for an extra cost. 
+The default metrics are free of charge. You can enable additional metrics for an extra cost. 
 
 You can configure alerts for each metric such as a threshold for 4XXErrorRate or 5XXErrorRate. When the error rate exceeds the threshold, it will trigger an alert as configured. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md). 
 
