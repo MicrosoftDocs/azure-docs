@@ -27,7 +27,7 @@ With pre-trained models, no coding or training data collection is required. Simp
 
 ## Pre-built solutions
 
-A [spatial analytics pre-built solution for people detection](https://github.com/george-moore/Santa-Cruz-AI-App) is also available. This is an open source AI application providing edge-based people counting with user-defined zone entry/exit events. Video and AI output from the on-premise edge device is egressed to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), with the user interface running as an Azure Website. AI inferencing is provided by an open source AI model for people detection.
+A [spatial analytics pre-built solution for people detection](https://github.com/george-moore/Santa-Cruz-AI-App) is also available. The pre-built solution is an open-source AI application providing edge-based people counting with user-defined zone entry/exit events. Video and AI output from the on-premise edge device is egressed to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), with the user interface running as an Azure Website. AI inferencing is provided by an open-source AI model for people detection.
 
 :::image type="content" source="./media/overview-ai-models/people-detector.gif" alt-text="Spatial analytics pre-built solution gif.":::
 
@@ -35,7 +35,7 @@ A [spatial analytics pre-built solution for people detection](https://github.com
 
 Through Azure Percept Studio, you can develop custom [vision](./tutorial-nocode-vision.md) and speech solutions, no coding required.
 
-For custom vision solutions, both object detection and classification AI models are available. Simply upload and tag your training images, which can be taken directly with the Azure Percept Vision SoM of the Azure Percept DK, if desired. Model training and evaluation is easily performed in [Custom Vision](https://www.customvision.ai/), which is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/#overview).
+For custom vision solutions, both object detection and classification AI models are available. Simply upload and tag your training images, which can be taken directly with the Azure Percept Vision SoM of the Azure Percept DK, if desired. Model training and evaluation are easily performed in [Custom Vision](https://www.customvision.ai/), which is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/#overview).
 
 For custom speech solutions, voice assistant templates are currently available for the following applications:
 
