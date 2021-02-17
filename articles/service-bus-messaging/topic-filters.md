@@ -7,7 +7,7 @@ ms.date: 02/17/2021
 
 # Topic filters and actions
 
-Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more named subscription rules. Each rule consists of a **filter** condition that selects particular messages, and **optionally** contain an **action** that annotates the selected message. 
+Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more named subscription rules. Each rule consists of a **filter condition** that selects particular messages, and **optionally** contain an **action** that annotates the selected message. 
 
 All rules **without actions** are combined using an `OR` condition and result in a **single message** on the subscription even if you have multiple matching rules. 
 
@@ -59,7 +59,8 @@ Partitioning uses filters to distribute messages across several existing topic s
 
 Routing uses filters to distribute messages across topic subscriptions in a predictable fashion, but not necessarily exclusive. In conjunction with the [auto forwarding](service-bus-auto-forwarding.md) feature, topic filters can be used to create complex routing graphs within a Service Bus namespace for message distribution within an Azure region. With Azure Functions or Azure Logic Apps acting as a bridge between Azure Service Bus namespaces, you can create complex global topologies with direct integration into line-of-business applications.
 
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## Examples
+For examples, see [Service Bus filter examples](service-bus-filter-examples.md).
 
 
 
