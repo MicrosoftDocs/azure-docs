@@ -11,9 +11,9 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ---
 
-# Tutorial: Send push notifications to iOS apps using Azure Notification Hubs (version 2.0.4)
+# Tutorial: Send push notifications to iOS apps using Azure Notification Hubs (Legacy API)
 
-This tutorial shows you how to use Azure Notification Hubs to send push notifications to an iOS application, using the Azure Notification Hubs SDK version 2.0.4.
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to an iOS application, using the Azure Notification Hubs SDK for Apple Legacy APIs.
 
 This tutorial covers the following steps:
 
@@ -22,7 +22,7 @@ This tutorial covers the following steps:
 - Send test push notifications.
 - Verify that your app receives notifications.
 
-You can download the complete code for this tutorial [from GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/v3-preview2/Samples).
+You can download the complete code for this tutorial [from GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/main/SampleNHAppLegacyObjC).
 
 ## Prerequisites
 
@@ -92,34 +92,22 @@ configure push credentials in your notification hub. Even if you have no prior e
 
           :::image type="content" source="media/ios-sdk/image4.png" alt-text="Add framework":::
 
-6. Add a new header file to your project named **Constants.h**. To do so, right-click the project name and select **New File...**. Then select **Header File**. This file holds the constants for your notification hub. Then select **Next**. Name the file **Constants.h**.
+6. Add the information for connecting to Azure Notification Hubs in the appropriate `<string></string>` section.  Replace the string literal placeholders `--HUB-NAME--` and `--CONNECTION-STRING--` with the hub name and the **DefaultListenSharedAccessSignature**, respectively, as you previously obtained from the portal:
 
-7. Add the following code to the Constants.h file:
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+    	<key>HUB_NAME</key>
+    	<string>--HUB-NAME--</string>
+    	<key>CONNECTION_STRING</key>
+    	<string>--CONNECTION-STRING--</string>
+    </dict>
+    </plist>
+    ```
 
-   ```objc
-   #ifndef Constants_h
-   #define Constants_h
-   extern NSString* const NHInfoConnectionString;
-   extern NSString* const NHInfoHubName;
-   extern NSString* const NHUserDefaultTags;
-   #endif /* Constants_h */
-   ```
-
-8. Add the implementation file for Constants.h. To do so, right-click the project name and select **New File...**. Select **Objective-C File**, and then select **Next**. Name the file **Constants.m**.
-
-   :::image type="content" source="media/ios-sdk/image5.png" alt-text="Add implementation file":::
-
-9. Open the **Constants.m** file and replace its contents with the following code. Replace the string literal placeholders `NotificationHubConnectionString` and `NotificationHubConnectionString` with the hub name and the **DefaultListenSharedAccessSignature**, respectively, as you previously obtained from the portal:
-
-   ```objc
-   #import <Foundation/Foundation.h>
-   #import "Constants.h"
-
-   NSString* const NHInfoConnectionString = @"NotificationHubConnectionString";
-   NSString* const NHInfoHubName = @"NotificationHubName";NSString* const NHUserDefaultTags = @"notification_tags";
-   ```
-
-10. Open your project **AppDelegate.h** file and replace its contents with the following code:
+7. Open your project **AppDelegate.h** file and replace its contents with the following code:
 
     ```objc
     #import <UIKit/UIKit.h>
@@ -136,10 +124,9 @@ configure push credentials in your notification hub. Even if you have no prior e
     @end
     ```
 
-11. In the project **AppDelegate.m** file, add the following `import` statements:
+8. In the project **AppDelegate.m** file, add the following `import` statements:
 
     ```objc
-    #import "Constants.h"
     #import "NotificationDetailViewController.h"
     ```
 
@@ -155,39 +142,39 @@ configure push credentials in your notification hub. Even if you have no prior e
     // Tells the app that a remote notification arrived that indicates there is data to be fetched.
 
     - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
-    NSLog(@"Received remote (silent) notification");
-    [self logNotificationDetails:userInfo];
-
-    //
-    // Let the system know the silent notification has been processed.
-    //
-    completionHandler(UIBackgroundFetchResultNoData);
+        NSLog(@"Received remote (silent) notification");
+        [self logNotificationDetails:userInfo];
+        
+        //
+        // Let the system know the silent notification has been processed.
+        //
+        completionHandler(UIBackgroundFetchResultNoData);
     }
 
     // Tells the delegate that the app successfully registered with Apple Push Notification service (APNs).
 
     - (void) application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    NSMutableSet *tags = [[NSMutableSet alloc] init];
-
-    // Load and parse stored tags
-    NSString *unparsedTags = [[NSUserDefaults standardUserDefaults] valueForKey:NHUserDefaultTags];
-    if (unparsedTags.length > 0) {
-        NSArray *tagsArray = [unparsedTags componentsSeparatedByString: @","];
-        [tags addObjectsFromArray:tagsArray];
-    }
-
-    // Register the device with the Notification Hub.
-    // If the device has not already been registered, this will create the registration.
-    // If the device has already been registered, this will update the existing registration.
-    //
-    SBNotificationHub* hub = [self getNotificationHub];
-    [hub registerNativeWithDeviceToken:deviceToken tags:tags completion:^(NSError* error) {
-        if (error != nil) {
-            NSLog(@"Error registering for notifications: %@", error);
-        } else {
-            [self showAlert:@"Registered" withTitle:@"Registration Status"];
+        NSMutableSet *tags = [[NSMutableSet alloc] init];
+        
+        // Load and parse stored tags
+        NSString *unparsedTags = [[NSUserDefaults standardUserDefaults] valueForKey:NHUserDefaultTags];
+        if (unparsedTags.length > 0) {
+            NSArray *tagsArray = [unparsedTags componentsSeparatedByString: @","];
+            [tags addObjectsFromArray:tagsArray];
         }
-    }];
+        
+        // Register the device with the Notification Hub.
+        // If the device has not already been registered, this will create the registration.
+        // If the device has already been registered, this will update the existing registration.
+        //
+        SBNotificationHub* hub = [self getNotificationHub];
+        [hub registerNativeWithDeviceToken:deviceToken tags:tags completion:^(NSError* error) {
+            if (error != nil) {
+                NSLog(@"Error registering for notifications: %@", error);
+            } else {
+                [self showAlert:@"Registered" withTitle:@"Registration Status"];
+            }
+        }];
     }
 
     // UNUserNotificationCenterDelegate methods
@@ -195,99 +182,105 @@ configure push credentials in your notification hub. Even if you have no prior e
     // Asks the delegate how to handle a notification that arrived while the app was running in the  foreground.
 
     - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
-    NSLog(@"Received notification while the application is in the foreground");
-
-    // The system calls this delegate method when the app is in the foreground. This allows the app to handle the notification
-    // itself (and potentially modify the default system behavior).
-
-    // Handle the notification by displaying custom UI.
-    //
-    [self showNotification:notification.request.content.userInfo];
-
-    // Use 'options' to specify which default behaviors to enable.
-    // - UNAuthorizationOptionBadge: Apply the notification's badge value to the app’s icon.
-    // - UNAuthorizationOptionSound: Play the sound associated with the notification.
-    // - UNAuthorizationOptionAlert: Display the alert using the content provided by the notification.
-    //
-    // In this case, do not pass UNAuthorizationOptionAlert because the notification was handled by the app.
-    //
-    completionHandler(UNAuthorizationOptionBadge | UNAuthorizationOptionSound);
+        NSLog(@"Received notification while the application is in the foreground");
+        
+        // The system calls this delegate method when the app is in the foreground. This allows the app to handle the notification
+        // itself (and potentially modify the default system behavior).
+        
+        // Handle the notification by displaying custom UI.
+        //
+        [self showNotification:notification.request.content.userInfo];
+        
+        // Use 'options' to specify which default behaviors to enable.
+        // - UNNotificationPresentationOptionsBadge: Apply the notification's badge value to the app’s icon.
+        // - UNNotificationPresentationOptionList: Show in the Notification Center
+        // - UNNotificationPresentationOptionsSound: Play the sound associated with the notification.
+        //
+        completionHandler(UNNotificationPresentationOptionsBadge | UNNotificationPresentationOptionsSound);
     }
 
     // Asks the delegate to process the user's response to a delivered notification.
     //
 
     - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler {
-    NSLog(@"Received notification while the application is in the background");
-
-    // The system calls this delegate method when the user taps or responds to the system notification.
-
-    // Handle the notification response by displaying custom UI
-    //
-    [self showNotification:response.notification.request.content.userInfo];
-
-    // Let the system know the response has been processed.
-    //
-    completionHandler();
+        NSLog(@"Received notification while the application is in the background");
+        
+        // The system calls this delegate method when the user taps or responds to the system notification.
+        
+        // Handle the notification response by displaying custom UI
+        //
+        [self showNotification:response.notification.request.content.userInfo];
+        
+        // Let the system know the response has been processed.
+        //
+        completionHandler();
     }
 
     // App logic and helpers
 
     - (SBNotificationHub *)getNotificationHub {
-    NSString *hubName = [[NSBundle mainBundle] objectForInfoDictionaryKey:NHInfoHubName];
-    NSString *connectionString = [[NSBundle mainBundle] objectForInfoDictionaryKey:NHInfoConnectionString];
-
-    return [[SBNotificationHub alloc] initWithConnectionString:connectionString notificationHubPath:hubName];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"DevSettings" ofType:@"plist"];
+        NSDictionary *configValues = [NSDictionary dictionaryWithContentsOfFile:path];
+        
+        NSString *connectionString = [configValues objectForKey:@"CONNECTION_STRING"];
+        NSString *hubName = [configValues objectForKey:@"HUB_NAME"];
+        
+        return [[SBNotificationHub alloc] initWithConnectionString:connectionString notificationHubPath:hubName];
     }
 
     - (void)handleRegister {
-    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        
+        UNAuthorizationOptions options =  UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
+        [center requestAuthorizationWithOptions:(options) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if (error != nil) {
+                NSLog(@"Error requesting for authorization: %@", error);
+            }
 
-    UNAuthorizationOptions options =  UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
-    [center requestAuthorizationWithOptions:(options) completionHandler:^(BOOL granted, NSError * _Nullable error) {
-        if (error != nil) {
-            NSLog(@"Error requesting for authorization: %@", error);
-        }
-    }];
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
+            if (granted) {
+                NSLog(@"Authorization granted");
+            }
+        }];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
     }
 
     - (void)handleUnregister {
-    //
-    // Unregister the device with the Notification Hub.
-    //
-    SBNotificationHub *hub = [self getNotificationHub];
-    [hub unregisterNativeWithCompletion:^(NSError* error) {
-        if (error != nil) {
-            NSLog(@"Error unregistering for push: %@", error);
-        } else {
-            [self showAlert:@"Unregistered" withTitle:@"Registration Status"];
-        }
-    }];
+        //
+        // Unregister the device with the Notification Hub.
+        //
+        SBNotificationHub *hub = [self getNotificationHub];
+        [hub unregisterNativeWithCompletion:^(NSError* error) {
+            if (error != nil) {
+                NSLog(@"Error unregistering for push: %@", error);
+            } else {
+                [self showAlert:@"Unregistered" withTitle:@"Registration Status"];
+            }
+        }];
     }
 
     - (void)logNotificationDetails:(NSDictionary *)userInfo {
-    if (userInfo != nil) {
-        UIApplicationState state = [UIApplication sharedApplication].applicationState;
-        BOOL background = state != UIApplicationStateActive;
-        NSLog(@"Received %@notification: \n%@", background ? @"(background) " : @"", userInfo);
-    }
+        if (userInfo != nil) {
+            UIApplicationState state = [UIApplication sharedApplication].applicationState;
+            BOOL background = state != UIApplicationStateActive;
+            NSLog(@"Received %@notification: \n%@", background ? @"(background) " : @"", userInfo);
+        }
     }
 
     - (void)showAlert:(NSString *)message withTitle:(NSString *)title {
-    if (title == nil) {
-        title = @"Alert";
-    }
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-    [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alert animated:YES completion:nil];
+        if (title == nil) {
+            title = @"Alert";
+        }
+
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alert animated:YES completion:nil];
     }
 
     - (void)showNotification:(NSDictionary *)userInfo {
-    [self logNotificationDetails:userInfo];
-
-    NotificationDetailViewController *notificationDetail = [[NotificationDetailViewController alloc] initWithUserInfo:userInfo];
-    [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:notificationDetail animated:YES completion:nil];
+        [self logNotificationDetails:userInfo];
+        
+        NotificationDetailViewController *notificationDetail = [[NotificationDetailViewController alloc] initWithUserInfo:userInfo];
+        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:notificationDetail animated:YES completion:nil];
     }
 
     @end
@@ -331,52 +324,52 @@ configure push credentials in your notification hub. Even if you have no prior e
    @implementation NotificationDetailViewController
 
    - (id)initWithUserInfo:(NSDictionary *)userInfo {
-    self = [super initWithNibName:@"NotificationDetail" bundle:nil];
-    if (self) {
-        _userInfo = userInfo;
-    }
-    return self;
+        self = [super initWithNibName:@"NotificationDetail" bundle:nil];
+        if (self) {
+            _userInfo = userInfo;
+        }
+        return self;
    }
 
    - (void)viewDidLayoutSubviews {
-    [self.titleLabel sizeToFit];
-    [self.bodyLabel sizeToFit];
+        [self.titleLabel sizeToFit];
+        [self.bodyLabel sizeToFit];
    }
 
    - (void)viewDidLoad {
-    [super viewDidLoad];
-
-    NSString *title = nil;
-    NSString *body = nil;
-
-    NSDictionary *aps = [_userInfo valueForKey:@"aps"];
-    NSObject *alertObject = [aps valueForKey:@"alert"];
-    if (alertObject != nil) {
-        if ([alertObject isKindOfClass:[NSDictionary class]]) {
-            NSDictionary *alertDict = (NSDictionary *)alertObject;
-            title = [alertDict valueForKey:@"title"];
-            body = [alertObject valueForKey:@"body"];
-        } else if ([alertObject isKindOfClass:[NSString class]]) {
-            body = (NSString *)alertObject;
-        } else {
-            NSLog(@"Unable to parse notification content. Unexpected format: %@", alertObject);
+        [super viewDidLoad];
+        
+        NSString *title = nil;
+        NSString *body = nil;
+        
+        NSDictionary *aps = [_userInfo valueForKey:@"aps"];
+        NSObject *alertObject = [aps valueForKey:@"alert"];
+        if (alertObject != nil) {
+            if ([alertObject isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *alertDict = (NSDictionary *)alertObject;
+                title = [alertDict valueForKey:@"title"];
+                body = [alertObject valueForKey:@"body"];
+            } else if ([alertObject isKindOfClass:[NSString class]]) {
+                body = (NSString *)alertObject;
+            } else {
+                NSLog(@"Unable to parse notification content. Unexpected format: %@", alertObject);
+            }
         }
-    }
-
-    if (title == nil) {
-        title = @"<unset>";
-    }
-
-    if (body == nil) {
-        body = @"<unset>";
-    }
-
-    self.titleLabel.text = title;
-    self.bodyLabel.text = body;
+        
+        if (title == nil) {
+            title = @"<unset>";
+        }
+        
+        if (body == nil) {
+            body = @"<unset>";
+        }
+        
+        self.titleLabel.text = title;
+        self.bodyLabel.text = body;
    }
 
    - (IBAction)handleDismiss:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
    }
 
    @end
@@ -403,8 +396,9 @@ configure push credentials in your notification hub. Even if you have no prior e
 
    ```objc
    #import "ViewController.h"
-   #import "Constants.h"
    #import "AppDelegate.h"
+
+    static NSString *const kNHUserDefaultTags = @"notification_tags";
 
    @interface ViewController ()
 
@@ -415,27 +409,27 @@ configure push credentials in your notification hub. Even if you have no prior e
    // UIViewController methods
 
    - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    // Simple method to dismiss keyboard when user taps outside of the UITextField.
-    [self.view endEditing:YES];
+        // Simple method to dismiss keyboard when user taps outside of the UITextField.
+        [self.view endEditing:YES];
    }
 
    - (void)viewDidLoad {
-    [super viewDidLoad];
-
-    // Load raw tags text from storage and initialize the text field
-    self.tagsTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:NHUserDefaultTags];
+        [super viewDidLoad];
+        
+        // Load raw tags text from storage and initialize the text field
+        self.tagsTextField.text = [[NSUserDefaults standardUserDefaults] valueForKey:kNHUserDefaultTags];
    }
 
    - (IBAction)handleRegister:(id)sender {
-    // Save raw tags text in storage
-    [[NSUserDefaults standardUserDefaults] setValue:self.tagsTextField.text forKey:NHUserDefaultTags];
-
-   // Delegate processing the register action to the app delegate.
-   [[[UIApplication sharedApplication] delegate] performSelector:@selector(handleRegister)];
+        // Save raw tags text in storage
+        [[NSUserDefaults standardUserDefaults] setValue:self.tagsTextField.text forKey:kNHUserDefaultTags];
+        
+        // Delegate processing the register action to the app delegate.
+        [[[UIApplication sharedApplication] delegate] performSelector:@selector(handleRegister)];
    }
 
    - (IBAction)handleUnregister:(id)sender {
-    [[[UIApplication sharedApplication] delegate] performSelector:@selector(handleUnregister)];
+        [[[UIApplication sharedApplication] delegate] performSelector:@selector(handleUnregister)];
    }
 
    @end

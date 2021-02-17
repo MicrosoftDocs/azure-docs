@@ -362,8 +362,8 @@ The [Azure IoT Device SDKs](https://github.com/Azure/azure-iot-sdks) already let
 
 Sending telemetry data to IoT Hub is similar to publishing on a user-defined topic, but using a specific IoT Hub topic:
 
-- For a device, telemetry is sent on topic: `devices/<device_name>/messages/events`
-- For a module, telemetry is sent on topic: `devices/<device_name>/<module_name>/messages/events`
+- For a device, telemetry is sent on topic: `devices/<device_name>/messages/events/`
+- For a module, telemetry is sent on topic: `devices/<device_name>/<module_name>/messages/events/`
 
 Additionally, create a route such as `FROM /messages/* INTO $upstream` to send telemetry from the IoT Edge MQTT broker to IoT hub. To learn more about routing, see [Declare routes](module-composition.md#declare-routes).
 
