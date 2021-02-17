@@ -50,7 +50,7 @@ The steps in this section show how to set up the template VM:
 1.	Start the template VM and connect to the machine using RDP.
 
 2.	Download and install the ArcGIS Desktop components using instructions from by ESRI.  These steps include assigning the license manager for concurrent use licensing: 
-    - [Introduction to installing and configuring ArcGIS Desktop](https://desktop.arcgis.com/arcmap/latest/get-started/installation-guide/introduction.htm)
+    - [Introduction to installing and configuring ArcGIS Desktop](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/introduction.htm)
 
 3.  Set up external backup storage for students.  Students can save files directly to their assigned VM since all changes that they make are saved across sessions.  However, we recommend that students back up their work to storage that is external from their VM for a few reasons:
     - To enable students to access their work after the class and lab ends.  

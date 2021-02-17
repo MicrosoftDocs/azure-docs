@@ -176,9 +176,9 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 Use Azure Policy to validate (and/or remediate) configurations for network resource related to Virtual Machine Scale Set.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -214,7 +214,7 @@ Use Azure Security Center to provide Security Event log monitoring for Azure Vir
 
 If your organization would like to retain the security event log data from the virtual machine, it can be stored within a Log Analytics Workspace at the desired data collection tier configured within Azure Security Center.
 
-* [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -222,7 +222,7 @@ If your organization would like to retain the security event log data from the v
 
 * [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-* [How to monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -236,11 +236,11 @@ Enable the collection of guest OS diagnostic data by deploying the diagnostic ex
 
 For advanced visibility of the applications and services supported by the Azure Virtual Machine Scale Set you can enable both Azure Monitor for VMs and Application insights. With Application Insights, you can monitor your application and capture telemetry such as HTTP requests, exceptions, etc. so you can correlate issues between the VMs and your application.
 
-* [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-* [View and retrieve Azure Activity log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [View and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 * [Application Insights overview](../azure-monitor/app/app-insights-overview.md)
 
@@ -256,7 +256,7 @@ If your organization would like to retain the security event log data from the v
 
 * [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-* [How to monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -266,9 +266,9 @@ If your organization would like to retain the security event log data from the v
 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing virtual machine logs has the log retention period set according to your organization's compliance regulations.
 
-* [How to monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
-* [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
+* [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -282,9 +282,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -300,7 +300,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+* [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -338,9 +338,9 @@ For Linux Virtual machines, you can manually configure console logging on a per-
 
 * [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-* [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
-* [Syslog data sources in Azure Monitor](../azure-monitor/platform/data-sources-syslog.md)
+* [Syslog data sources in Azure Monitor](../azure-monitor/agents/data-sources-syslog.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -428,7 +428,7 @@ For Linux Virtual machines, you can manually configure console logging on a per-
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [How to configure action groups for custom alerting and notification](../azure-monitor/platform/action-groups.md)
+* [How to configure action groups for custom alerting and notification](../azure-monitor/alerts/action-groups.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -470,13 +470,13 @@ For Linux Virtual machines, you can manually configure console logging on a per-
 
 **Guidance**: Configure diagnostic settings for Azure Active Directory to send the audit logs and sign-in logs to a Log Analytics workspace. Also, use Azure Monitor to review logs and perform queries on log data from Azure Virtual machines.
 
-* [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
-* [How to monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [How to monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -608,7 +608,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Virtual machines scale sets and related resources.
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Azure Storage analytics logging](../storage/common/storage-analytics-logging.md)
 

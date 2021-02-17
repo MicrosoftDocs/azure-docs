@@ -15,10 +15,10 @@ Learn how to import a new update into Device Update for IoT Hub.
 
 * Access to an IoT Hub with Device Update for IoT Hub enabled.
 * An IoT device (or [simulator](./device-update-simulator.md)) provisioned within the IoT Hub, running either Azure RTOS ThreadX or Ubuntu 18.04 x64.
-    * If using a real device, you’ll need an update image file (for example, Yocto image) for image update, or [APT Manifest]() file for package update.
+    * If using a real device, you’ll need an update image file (for example, Yocto image) for image update, or APT Manifest file for package update.
 * [PowerShell 5](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) or later.
 * Supported browsers:
-  * The new [Microsoft Edge](https://www.microsoft.com/edge)
+  * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome
 
 > [!NOTE]
@@ -28,8 +28,8 @@ Learn how to import a new update into Device Update for IoT Hub.
 
 1. Ensure that your update image file or APT Manifest file is located in a directory accessible from PowerShell.
 
-2. Clone [Device Update for IoT Hub repository](https://github.com/Azure/adu-private-preview), or download it as a .zip file to
-a location accessible from PowerShell (Once the zip file is downloaded, right click for `Properties` > `General` tab > check `Unblock` in the `Security` section to avoid PowerShell security warning prompts).
+2. Clone [Device Update for IoT Hub repository](https://github.com/azure/iot-hub-device-update), or download it as a .zip file to
+a location accessible from PowerShell (once the zip file is downloaded, right click for `Properties` > `General` tab > check `Unblock` in the `Security` section to avoid PowerShell security warning prompts).
 
 3. In PowerShell, navigate to `tools/AduCmdlets` directory and run:
 
@@ -49,7 +49,7 @@ a location accessible from PowerShell (Once the zip file is downloaded, right cl
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    For quick reference, the table below provides some example values for the above parameters. For full documentation, refer to [Import Manifest Schema]().
+    For quick reference, here are some example values for the above parameters. For full documentation, see the full import manifest schema below.
 
     | Parameter | Description |
     | --------- | ----------- |
@@ -59,10 +59,22 @@ a location accessible from PowerShell (Once the zip file is downloaded, right cl
     | updateName | Name part of update identity, for example, ImageUpdate
     | updateVersion | Update version, for example, 2.0
     | updateType | <ul><li>Specify `microsoft/swupdate:1` for image update</li><li>Specify `microsoft/apt:1` for package update</li></ul>
-    | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify [recommended value]() for `microsoft/apt:1` update type.
-    | updateFilePath(s) | Path to the update file(s) on your PC
+    | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify recommended value for `microsoft/apt:1` update type.
+    | updateFilePath(s) | Path to the update file(s) on your computer
 
-The update imported using import manifest generated above will be deployable to devices implementing [Device Update for IoT Hub PnP interface](device-update-plug-and-play.md) `urn:azureiot:AzureDeviceUpdateCore:1` and `urn:azureiot:AzureDeviceUpdateCore:4`.
+    Full import manifest schema
+
+    | Name | Type | Description | Restrictions |
+    | --------- | --------- | --------- | --------- |
+    | UpdateId | `UpdateId` object | Update identity. |
+    | UpdateType | string | Update type: <ul><li>Specify `microsoft/apt:1` when performing a package-based update using reference agent.</li><li>Specify `microsoft/swupdate:1` when performing an image-based update using reference agent.</li><li>Specify `microsoft/simulator:1` when using sample agent simulator.</li><li>Specify a custom type if developing a custom agent.</li></ul> | <ul><li>Format: `{provider}/{type}:{typeVersion}`</li><li>Maximum of 32 characters total</li></ul> |
+    | InstalledCriteria | string | String interpreted by the agent to determine whether the update was applied successfully:  <ul><li>Specify **value** of SWVersion for update type `microsoft/swupdate:1`.</li><li>Specify `{name}-{version}` for update type `microsoft/apt:1`, of which name and version are obtained from the APT file.</li><li>Specify hash of the update file for update type `microsoft/simulator:1`.</li><li>Specify a custom string if developing a custom agent.</li></ul> | Maximum of 64 characters |
+    | Compatibility | Array of `CompatibilityInfo` objects | Compatibility information of device compatible with this update. | Maximum of 10 items |
+    | CreatedDateTime | date/time | Date and time at which the update was created. | Delimited ISO 8601 date and time format, in UTC |
+    | ManifestVersion | string | Import manifest schema version. Specify `2.0`, which will be compatible with `urn:azureiot:AzureDeviceUpdateCore:1` interface and `urn:azureiot:AzureDeviceUpdateCore:4` interface.</li></ul> | Must be `2.0` |
+    | Files | Array of `File` objects | Update payload files | Maximum of 5 files |
+
+Note: All fields are required.
 
 ## Review Generated Import Manifest
 
@@ -113,7 +125,7 @@ Example:
 
 2. On the left-hand side of the page, select "Device Updates" under "Automatic Device Management".
 
-   ![Import Updates](media/import-update/import-updates-2.png)
+   ![Import Updates](media/import-update/import-updates-3.png)
 
 3. You will see several tabs across the top of the screen. Select the Updates tab.
 
@@ -127,7 +139,7 @@ Example:
 
    ![Select Update Files](media/import-update/select-update-files.png)
 
-6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
+6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account. The storage container is used to stage the update files temporarily.
 
    ![Storage Account](media/import-update/storage-account.png)
 
@@ -139,7 +151,7 @@ Example:
 
    ![Publish Update](media/import-update/publish-update.png)
 
-9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
+9. The import process begins, and the screen switches to to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
 
    ![Update Import Sequencing](media/import-update/update-publishing-sequence-2.png)
 

@@ -45,7 +45,7 @@ You can create managed private endpoints to connect to Azure resources that resi
 >Resources in tenants other than the workspace's tenant must not have blocking firewall rules in place for the SQL pools to connect to them. Resources within the workspace’s managed virtual network, such as Spark clusters, can connect over managed private links to firewall-protected resources.
 
 ## Known limitations
-Users can provide an environment configuration file to install Python packages from public repositories like PyPI. In data exfiltration protected workspaces, connections to outbound repositories are blocked. As a result, Python library installed from public repositories like PyPI are not supported. To remediate this, users can install packages by uploading Python wheel files to the primary storage account that is linked to their Synapse workspace. Follow the steps listed in the guide for [uploading custom Python packages](../spark/apache-spark-azure-portal-add-libraries.md#manage-a-python-wheel)
+Users can provide an environment configuration file to install Python packages from public repositories like PyPI. In data exfiltration protected workspaces, connections to outbound repositories are blocked. As a result, Python library installed from public repositories like PyPI are not supported. 
   
 ## Next steps
 
