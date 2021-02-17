@@ -27,9 +27,9 @@ This step-by-step guide explains how to secure the access to the [Azure Active D
 
 There are three primary advantages of this setup:
 
-- Azure AD Application Proxy ensures that just authenticated traffic can reach your internal network and the Sharepoint server.
+- Azure AD Application Proxy ensures that authenticated traffic can reach your internal network and the Sharepoint server.
 - Your users can access the Sharepoint sites as usual without using VPN.
-- You can control the access by user assignement on Azure AD Application Proxy level and you can increase the security with Azure AD features like Conditional Access and Multi-Factor Authentication (MFA).
+- You can control the access by user assignment on Azure AD Application Proxy level and you can increase the security with Azure AD features like Conditional Access and Multi-Factor Authentication (MFA).
 
 This process requires two Enterprise Applications. One is a SharePoint on-premises instance that you publish from the gallery to your list of managed SaaS apps. The second is an on-premises application (non-gallery application) you'll use to publish the first Enterprise Gallery Application.
 
