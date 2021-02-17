@@ -71,7 +71,7 @@ Ship a [supported disk](../import-export/storage-import-export-requirements.md?t
 
 ### Q. How can I recover my data if an entire region fails?
 
-A. In extreme circumstances where a region is lost due to a significant disaster, Microsoft may initiate a regional failover. In this case, no action on your part is required. Your order will be fulfilled through the failover region if it is within the same country or commerce boundary. However, some Azure regions do not have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region. For more information, see [Business continuity and disaster recovery (BCR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
+A. In extreme circumstances where a region is lost due to a significant disaster, Microsoft may initiate a regional failover. No action on your part is required in this case. Your order will be fulfilled through the failover region if it is within the same country or commerce boundary. However, some Azure regions do not have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region. For more information, see [Business continuity and disaster recovery (BCR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
 A. If you encounter any issues with Data Box Disks, [contact Microsoft Support](./data-box-disk-contact-microsoft-support.md).
@@ -172,7 +172,7 @@ A.  To speed up the copy process:
 - Use multiple sessions.
 - Instead of copying over network share (where you could be limited by the network speeds) ensure that you have the data residing locally on the computer to which the disks are connected.
 - Ensure that you are using USB 3.0 or later throughout the copy process. Download and use the [`USBView` tool](/windows-hardware/drivers/debugger/usbview) to identify the USB controllers and USB devices connected to the computer.
-- Benchmark the performance of the computer used to copy the data. Download and use the [Bluestop `FIO` tool](https://ci.appveyor.com/project/axboe/fio) to benchmark the performance of the server hardware. Select the latest x86 or x64 build, select the **Artifacts** tab, and download the MSI.
+- Benchmark the performance of the computer used to copy the data. Download and use the [`Bluestop` `FIO` tool](https://ci.appveyor.com/project/axboe/fio) to benchmark the performance of the server hardware. Select the latest x86 or x64 build, select the **Artifacts** tab, and download the MSI.
 
 ### Q. How to speed up the data if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:
