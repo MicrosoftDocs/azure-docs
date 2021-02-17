@@ -1,6 +1,6 @@
 ---
 title: Classify your Azure SQL data using Azure Purview labels
-description: Import your classification from Azure Purview in your Azure SQL Datbase and Azure Synpase Analytics 
+description: Import your classification from Azure Purview in your Azure SQL Database and Azure Synpase Analytics 
 services: sql-database
 ms.service: sql-database
 ms.custom: 
@@ -17,7 +17,7 @@ ms.date: 02/16/2021
 
 This document describes how to add Azure Purview labels in your Azure SQL Database and Azure Synapse Analytics (formerly SQL DW).
 
-## Create an application to connect to your Azure Purview account
+## Create an application
 
 1. From the Azure portal, open your **Azure Active Directory**.
 2. Under **Manage**, select **App registration**.
@@ -35,7 +35,7 @@ This document describes how to add Azure Purview labels in your Azure SQL Databa
    a. Application (client) ID
    b. Directory (tenant) ID
 
-## Provide permissions to the Application to your Azure Purview account
+## Provide permissions to the application
 
 1. In your Azure portal, search for **Purview accounts**.
 2. Select the Purview account where your SQL databases and Synapse are classified.
@@ -45,7 +45,7 @@ This document describes how to add Azure Purview labels in your Azure SQL Databa
 5. In the **Role** section, search for **Purview Data Reader** and select it.
 6. In the **Select** section, search for the application you previously created, select it, and hit **Save**.
 
-## Extract the classification from your Azure Purview account to T-SQL commands
+## Extract the classification from Azure Purview
 
 1. Open your Purview account, and in the Home page, search for your Azure SQL Database or Azure Synapse Analytics where you want to copy the labels.
 2. Copy the qualifiedName under **Properties**, and keep it for future use.
@@ -66,7 +66,7 @@ This document describes how to add Azure Purview labels in your Azure SQL Databa
 
 6. Copy the output of the script for future use.
 
-### For an Azure SQL Database
+### For Azure SQL database
 
 ```powershell
 # Replace the values below with the relevant values for your environment
@@ -154,7 +154,7 @@ foreach ($referredEntity in $referredEntities.psobject.Properties.GetEnumerator(
 }
 ```
 
-### For an Azure Synapse Analytics
+### For Azure Synapse Analytics
 
 ```powershell
 # Replace the values below with the relevant values for your environment
@@ -246,3 +246,9 @@ foreach ($referredEntity in $referredEntities.psobject.Properties.GetEnumerator(
 
 1. Connect to your Azure SQL Database or your Azure Synapse using your tool of choice.
 2. Run the T-SQL command you copied from the previous section.
+
+## Next steps
+
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
+
+For more information on Azure Purview, see [Azure Purview documentation](https://docs.microsoft.com/azure/purview/).
