@@ -1,13 +1,13 @@
 ---
 title: Create a scale set that uses Azure Spot VMs 
 description: Learn how to create Azure virtual machine scale sets that use Spot VMs to save on costs.
-author: cynthn
-ms.author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
-ms.reviewer: jagaveer
+ms.reviewer: cynthn
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
 
 ---
@@ -25,6 +25,24 @@ Pricing for Spot instances is variable, based on region and SKU. For more inform
 
 
 With variable pricing, you have option to set a max price, in US dollars (USD), using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the instance won't be evicted based on price. The price for the instance will be the current price for Spot or the price for a standard instance, which ever is less, as long as there is capacity and quota available.
+
+
+## Limitations
+
+The following sizes are not supported for Azure Spot:
+ - B-series
+ - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
+
+Azure Spot can be deployed to any region, except Microsoft Azure China 21Vianet.
+
+<a name="channel"></a>
+
+The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
+
+-	Enterprise Agreement
+-	Pay-as-you-go offer code 003P
+-	Sponsored
+- For Cloud Service Provider (CSP), contact your partner
 
 ## Eviction policy
 
@@ -160,22 +178,7 @@ To delete the instance after it has been evicted, change the `evictionPolicy` pa
 
 **Q:**  Does autoscale work with both eviction policies (deallocate and delete)?
 
-**A:** Yes, however it is recommended that you set your eviction policy to delete when using autoscale. This is because deallocated instances are counted against your capacity count on the scale set. When using autoscale, you will likely hit your target instance count quickly due to the deallocated, evicted instances. Also, your scaling operations could be impacted by spot evictions. For example, VMSS instances could fall below the set min count due to multiple spot evictions during scaling operations. 
-
-**Q:** What channels support Spot VMs?
-
-**A:** See the table below for Spot VM availability.
-
-<a name="channel"></a>
-
-| Azure Channels               | Azure Spot VMs Availability       |
-|------------------------------|-----------------------------------|
-| Enterprise Agreement         | Yes                               |
-| Pay As You Go                | Yes                               |
-| Cloud Service Provider (CSP) | [Contact your partner](/partner-center/azure-plan-get-started) |
-| Benefits                     | Not available                     |
-| Sponsored                    | Yes                               |
-| Free Trial                   | Not available                     |
+**A:** Yes, however it is recommended that you set your eviction policy to delete when using autoscale. This is because deallocated instances are counted against your capacity count on the scale set. When using autoscale, you will likely hit your target instance count quickly due to the deallocated, evicted instances. Also, your scaling operations could be impacted by spot evictions. For example, virtual machine scale set instances could fall below the set min count due to multiple spot evictions during scaling operations. 
 
 
 **Q:** Where can I post questions?

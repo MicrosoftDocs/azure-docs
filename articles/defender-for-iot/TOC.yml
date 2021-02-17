@@ -131,8 +131,8 @@
         displayName: Active Directory, roles, permissions
         href: how-to-create-and-manage-users.md
       - name: Define global user access control
-        displayName: business unit, site, region
         href: how-to-define-global-user-access-control.md
+        displayName: business unit, site, region, user
     - name: Control what traffic is monitored
       displayName: Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets
       href: how-to-control-what-traffic-is-monitored.md
@@ -140,8 +140,8 @@
       displayName: disconnect, connect, activation file, sensor backup
       href: how-to-manage-sensors-from-the-on-premises-management-console.md
     - name: Manage individual sensors
-      displayName: activation, certificate, connect, timezone time zone, backup, restore, software update, failure
       href: how-to-manage-individual-sensors.md
+      displayName: activation, certificate, SSL, TLS, connect, timezone time zone, backup, restore, software update, failure
     - name: Manage sensors on the cloud
       href: how-to-manage-sensors-on-the-cloud.md
     - name: Manage the on-premises management console
@@ -153,10 +153,13 @@
       items: 
       - name: Investigate all enterprise sensor detections in a device inventory
         href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+        displayName: classification
       - name: Investigate sensor detections in a device inventory
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+        displayName: classification, Windows registry
     - name: Work with the sensor device map
       href: how-to-work-with-the-sensor-device-map.md
+      displayName: connections, Purdue, zoom 
     - name: Work with alerts detected by a sensor
       items:
       - name: Work with alert on your sensor
@@ -165,28 +168,33 @@
         href: how-to-view-alerts.md
       - name: View information provided in alerts
         href: how-to-view-information-provided-in-alerts.md
+        displayName: PCAP
       - name: Manage the alert event
         href: how-to-manage-the-alert-event.md
+        displayName: PCAP, acknowledge, learn, mute, policy
       - name: Accelerate alert incident response
         href: how-to-accelerate-alert-incident-response.md
         displayName: custom, alerts, comments, groups
       - name: Forward alert information
         href: how-to-forward-alert-information-to-partners.md
-        displayName: integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email 
+        displayName: integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email
     - name: Gain insight into global, regional, and local threats
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
+      displayName: site, business unit, region, map
     - name: Work with alerts on the on-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Create reports
       items:
       - name: Create risk assessment reports
         href: how-to-create-risk-assessment-reports.md
+        displayName: vulnerability, security score, score
       - name: Create attack vector reports
         href: how-to-create-attack-vector-reports.md
       - name: Create data mining reports
         href: how-to-create-data-mining-queries.md
       - name: Create trends and statistics reports
-        href: how-to-create-data-mining-queries.md      
+        href: how-to-create-trends-and-statistics-reports.md
+        displayName: widgets, charts      
     - name: Enrich device information
       items: 
       - name: Work with device notifications

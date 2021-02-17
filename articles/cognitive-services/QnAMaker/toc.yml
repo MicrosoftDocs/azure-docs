@@ -108,7 +108,7 @@
   - name: Batch testing format
     href: reference-tsv-format-batch-testing.md
   - name: Encryption	
-    href: qna-maker-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md
   - name: REST API Reference
     items:
     - name: QnA Maker 4.0
