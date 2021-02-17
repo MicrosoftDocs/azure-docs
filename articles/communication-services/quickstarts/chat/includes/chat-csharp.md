@@ -51,11 +51,11 @@ The following classes handle some of the major features of the Azure Communicati
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | ChatClient | This class is needed for the Chat functionality. You instantiate it with your subscription information, and use it to create, get and delete threads. |
-| ChatThreadClient | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get users, send typing notifications and read receipts. |
+| ChatThreadClient | This class is needed for the Chat Thread functionality. You obtain an instance via the ChatClient, and use it to send/receive/update/delete messages, add/remove/get participants, send typing notifications and read receipts. |
 
 ## Create a chat client
 
-To create a chat client, you'll use your Communication Services endpoint and the access token that was generated as part of prerequisite steps. You need to use the `CommunicationIdentityClient` class from the `Administration` client library to create a user and issue a token to pass to your chat client. Learn more about [User Access Tokens](../../access-tokens.md).
+To create a chat client, you'll use your Communication Services endpoint and the access token that was generated as part of the prerequisite steps. You need to use the `CommunicationIdentityClient` class from the `Administration` client library to create a user and issue a token to pass to your chat client. Learn more about [User Access Tokens](../../access-tokens.md).
 
 ```csharp
 using Azure.Communication.Identity;
