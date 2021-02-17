@@ -17,7 +17,10 @@ The [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.
 
 In Windows Virtual Desktop, latency up to 150 ms shouldn’t impact user experience that doesnt' involve rendering or video. Latencies between 150 ms and 200 ms should be fine for text processing. Latency above 200 ms may impact user experience. 
 
-In addition the user’s internet connection plays a large role in the WVD connection. If latency is over 200ms and user does not have stable internet connection, circuit is saturated and/or rate limited, has bad wireless connection, etc.. users may experience intermittent disconnects and input delay. 
+In addition, the Windows Virtual Desktop connection depends on the internet connection of the machine the user is using the service from. Users may lose connection or experience input delay in one of the following situations:
+
+ - The user doesn't have a stable local internet connection and the latency is over 200 ms.
+ - The circuit is saturated or rate-limited.
 
 We recommend you choose VMs locations that are as close to your users as possible. For example, if the user is located in India but the VM is in the United States, there will be latency that will affect the overall user experience. 
 
