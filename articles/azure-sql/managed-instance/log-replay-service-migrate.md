@@ -31,7 +31,7 @@ You might want to consider using LRS cloud service in some of the following case
 > [!NOTE]
 > Recommended automated way to migrate databases from SQL Server to SQL Managed Instance is using DMS tool. This tool is using the same LRS cloud service at the back end with log shipping in no-recovery mode. You should consider manually using LRS to orchestrate migrations in cases when DMS tool does not fully support your scenarios.
 
-# How does it work
+## How does it work
 
 Building a custom solution using LRS to migrate a database to the cloud requires several orchestration steps shown in the diagram and outlined in the table below.
 
@@ -51,15 +51,15 @@ LRS can be started in auto-complete, or continuous mode. When started in auto-co
 | **2.2. Stop\abort the operation if needed**. | - In case that migration process needs to be aborted, the operation can be stopped with a choice of cmdlets: <br /> PowerShell [stop-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_stop](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop) cmdlets. <br /><br />- This will result in deletion of the being database restored on SQL Managed Instance. <br />- Once stopped, LRS cannot be continued for a database. Migration process needs to be restarted from scratch. |
 | **3. Cutover to the cloud when ready**. | - Once all backups have been restored to SQL Managed Instance, complete the cutover by initiating LRS complete operation with a choice of API call, or cmdlets: <br />PowerShell [complete-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_complete](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete) cmdlets. <br /><br />- This will cause LRS service to be stopped and database on Managed Instance will be recovered. <br />-	Repoint the application connection string from SQL Server to SQL Managed Instance. <br />- On operation completion database is available for R/W operations in the cloud. |
 
-# Requirements for getting started
+## Requirements for getting started
 
-## The following is required at the SQL Server side:
+### The following is required at the SQL Server side:
 - Full backup of databases (one or multiple files)
 - Differential backup (one or multiple files)
 - Log backup (not split for transaction log file)
 - **CHECKSUM must be enabled** as mandatory
 
-## The following is required at the Azure side:
+### The following is required at the Azure side:
 -	PowerShell Az.SQL module version 2.16.0, or above ([install](https://www.powershellgallery.com/packages/Az.Sql/), or use Azure [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/))
 -	CLI version 2.19.0, or above ([install](https://docs.microsoft.com/cli/azure/install-azure-cli))
 -	Azure Blob Storage provisioned
@@ -78,12 +78,12 @@ The following are highly recommended as best practices:
 > - Database being restored using LRS cannot be used until the migration process has been completed. This is because underlying technology is log shipping in no recovery mode.
 > - Standby mode for log shipping is not supported by LRS due to the version differences between SQL Managed Instance and latest in-market SQL Server version.
 
-# Steps to execute
+## Steps to execute
 
 ## Copy backups from SQL Server to Azure Blob storage
 
 The following two approaches can be utilized to copy backups to the blob storage in migrating databases to Managed Instance using LRS:
--	Using SQL Server native [BACKUP TO URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-ver15) functionality.
+-	Using SQL Server native [BACKUP TO URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url) functionality.
 -	Copying the backups to Blob Container using [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10), or [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer). 
 
 ## Create Azure Blob and SAS authentication token
