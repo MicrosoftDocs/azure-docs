@@ -131,7 +131,7 @@ QnA Maker needs explicit feedback about which of the answers was the best answer
 * Business logic, such as determining an acceptable score range.
 * A combination of both user feedback and business logic.
 
-Use the [Train API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/train) to send the correct answer to QnA Maker, after the user selects it.
+Use the [Train API](/rest/api/cognitiveservices/qnamaker4.0/runtime/train) to send the correct answer to QnA Maker, after the user selects it.
 
 ## Next step
 

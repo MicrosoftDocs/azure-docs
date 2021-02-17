@@ -17,8 +17,8 @@ ms.subservice: B2C
 # Tutorial: Enable authentication in a single-page application with Azure AD B2C
 
 This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign up and sign in users in a single-page application (SPA) using either:
-* [OAuth 2.0 authorization code flow](https://docs.microsoft.com/azure/active-directory-b2c/authorization-code-flow) (using [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
-* [OAuth 2.0 implicit grant flow](https://docs.microsoft.com/azure/active-directory-b2c/implicit-flow-single-page-application) (using [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
+* [OAuth 2.0 authorization code flow](./authorization-code-flow.md) (using [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser))
+* [OAuth 2.0 implicit grant flow](./implicit-flow-single-page-application.md) (using [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core))
 
 In this tutorial, the first in a two-part series:
 
@@ -47,7 +47,7 @@ Additionally, you need the following in your local development environment:
 
 ## Update the application
 
-In the [second tutorial](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-spa) that you completed as part of the prerequisites, you registered a single-page application in Azure AD B2C. To enable communication with the code sample in this tutorial, add a reply URL (also called a redirect URI) to the application registration.
+In the [second tutorial](./tutorial-register-spa.md) that you completed as part of the prerequisites, you registered a single-page application in Azure AD B2C. To enable communication with the code sample in this tutorial, add a reply URL (also called a redirect URI) to the application registration.
 
 To update an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](./app-registrations-training-guide.md).
 

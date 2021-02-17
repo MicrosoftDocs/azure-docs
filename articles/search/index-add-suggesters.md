@@ -8,13 +8,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-csharp
 ---
 
 # Create a suggester to enable autocomplete and suggested results in a query
 
-In Azure Cognitive Search, "search-as-you-type" is enabled through a **suggester** construct added to a [search index](search-what-is-an-index.md). A suggester supports two experiences: *autocomplete*, which completes a partial input for a whole term query, and *suggestions* that invite click through to a particular match. Autocomplete produces a query. Suggestions produce a matching document.
+In Azure Cognitive Search, "search-as-you-type" is enabled through a *suggester*. A suggester is an internal data structure that consists of a fields collection. The fields undergo additional tokenization, generating prefix sequences to support matches on partial terms.
+
+For example, if a suggester includes a City field, resulting prefix combinations of "sea", "seat", "seatt", and "seattl" would be created for the term "Seattle". Prefixes are stored in inverted indexes, one for each field specified in a suggester fields collection.
+
+## Typeahead experiences in Cognitive Search
+
+A suggester supports two experiences: *autocomplete*, which completes a partial input for a whole term query, and *suggestions* that invite click through to a particular match. Autocomplete produces a query. Suggestions produce a matching document.
 
 The following screenshot from [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) illustrates both. Autocomplete anticipates a potential term, finishing "tw" with "in". Suggestions are mini search results, where a field like hotel name represents a matching hotel search document from the index. For suggestions, you can surface any field that provides descriptive information.
 
@@ -27,10 +33,6 @@ You can use these features separately or together. To implement these behaviors 
 + Call a suggester-enabled query, in the form of a Suggestion request or Autocomplete request, using one of the [APIs listed below](#how-to-use-a-suggester).
 
 Search-as-you-type support is enabled on a per-field basis for string fields. You can implement both typeahead behaviors within the same search solution if you want an experience similar to the one indicated in the screenshot. Both requests target the *documents* collection of specific index and responses are returned after a user has provided at least a three character input string.
-
-## What is a suggester?
-
-A suggester is an internal data structure that supports search-as-you-type behaviors by storing prefixes for matching on partial queries. As with tokenized terms, prefixes are stored in inverted indexes, one for each field specified in a suggester fields collection.
 
 ## How to create a suggester
 

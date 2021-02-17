@@ -2,12 +2,12 @@
 title: Quickstart for Azure App Configuration with .NET Core | Microsoft Docs
 description: In this quickstart, create a .NET Core app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
-ms.author: lcozzens
+ms.author: alkemper
 
 #Customer intent: As a .NET Core developer, I want to manage all my app settings in one place.
 ---
@@ -100,7 +100,7 @@ You use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to cre
     export ConnectionString='connection-string-of-your-app-configuration-store'
     ```
 
-    Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly.
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
 
 2. Run the following command to build the console app:
 

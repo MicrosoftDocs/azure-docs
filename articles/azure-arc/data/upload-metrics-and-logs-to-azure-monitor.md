@@ -37,18 +37,18 @@ See [Install tools](./install-client-tools.md).
 
 ## Register the resource provider
 
-Prior to uploading metrics or user data to Azure, you need to ensure that your Azure subscription has the `Microsoft.AzureData` resource provider registered.
+Prior to uploading metrics or user data to Azure, you need to ensure that your Azure subscription has the `Microsoft.AzureArcData` resource provider registered.
 
 To verify the resource provider, run the following command:
 
 ```azurecli
-az provider show -n Microsoft.AzureData -o table
+az provider show -n Microsoft.AzureArcData -o table
 ```
 
 If the resource provider is not currently registered in your subscription, you can register it. To register it, run the following command.  This command may take a minute or two to complete.
 
 ```azurecli
-az provider register -n Microsoft.AzureData --wait
+az provider register -n Microsoft.AzureArcData --wait
 ```
 
 ## Create service principal
@@ -58,7 +58,7 @@ The service principal is used to upload usage and metrics data.
 Follow these commands to create your metrics upload service principal:
 
 > [!NOTE]
-> Creating a service principal requires [certain permissions in Azure](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
+> Creating a service principal requires [certain permissions in Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 To create a service principal, update the following example. Replace `<ServicePrincipalName>` with the name of your service principal and run the command:
 
@@ -188,7 +188,7 @@ Create, read, update, and delete (CRUD) operations on Azure Arc enabled data ser
 
 During preview, this process happens nightly. The general guidance is to upload the usage only once per day. When usage information is exported and uploaded multiple times within the same 24 hour period, only the resource inventory is updated in Azure portal but not the resource usage.
 
-For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
+For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
 
 ## Next steps
 

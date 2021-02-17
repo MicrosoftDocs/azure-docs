@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
@@ -18,9 +18,9 @@ ms.custom: aaddev
 
 # Microsoft identity platform application authentication certificate credentials
 
-Microsoft identity platform allows an application to use its own credentials for authentication anywhere a client secret could be used, for example, in the OAuth 2.0  [client credentials grant](v2-oauth2-client-creds-grant-flow.md) flow and the [on-behalf-of](v2-oauth2-on-behalf-of-flow.md) (OBO) flow.
+The Microsoft identity platform allows an application to use its own credentials for authentication anywhere a client secret could be used, for example, in the OAuth 2.0  [client credentials grant](v2-oauth2-client-creds-grant-flow.md) flow and the [on-behalf-of](v2-oauth2-on-behalf-of-flow.md) (OBO) flow.
 
-One form of credential that an application can use for authentication is a [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) assertion signed with a certificate that the application owns.
+One form of credential that an application can use for authentication is a [JSON Web Token](./security-tokens.md#json-web-tokens-and-claims) (JWT) assertion signed with a certificate that the application owns.
 
 ## Assertion format
 
@@ -32,7 +32,7 @@ To compute the assertion, you can use one of the many JWT libraries in the langu
 | --- | --- |
 | `alg` | Should be **RS256** |
 | `typ` | Should be **JWT** |
-| `x5t` | The X.509 certificate hash's (also known as the cert's SHA-1 *thumbprint*) Hex representation encoded as a Base64 string value. For example, given an X.509 certificate hash of `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (Hex), the `x5t` claim would be `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64). |
+| `x5t` | The X.509 certificate hash's (also known as the cert's SHA-1 *thumbprint*) Hex representation encoded as a Base64url string value. For example, given an X.509 certificate hash of `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (Hex), the `x5t` claim would be `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64url). |
 
 ### Claims (payload)
 
@@ -85,7 +85,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ## Register your certificate with Microsoft identity platform
 
-You can associate the certificate credential with the client application in Microsoft identity platform through the Azure portal using any of the following methods:
+You can associate the certificate credential with the client application in the Microsoft identity platform through the Azure portal using any of the following methods:
 
 ### Uploading the certificate file
 
@@ -97,12 +97,12 @@ In the Azure app registration for the client application:
 
 ### Updating the application manifest
 
-Having hold of a certificate, you need to compute:
+After acquiring a certificate, compute these values:
 
 - `$base64Thumbprint` - Base64-encoded value of the certificate hash
 - `$base64Value` - Base64-encoded value of the certificate raw data
 
-You also need to provide a GUID to identify the key in the application manifest (`$keyId`).
+Provide a GUID to identify the key in the application manifest (`$keyId`).
 
 In the Azure app registration for the client application:
 1. Select **Manifest** to open the application manifest.

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/11/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown
 
@@ -54,10 +54,13 @@ Azure AD lets you choose which authentication methods can be used during the sig
 To enable the authentication method for passwordless phone sign-in, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with a *global administrator* account.
-1. Search for and select *Azure Active Directory*, then browse to **Security** > **Authentication methods** > **Authentication method policy (Preview)**
-1. Under **Passwordless phone sign-in**, choose the following options:
+1. Search for and select *Azure Active Directory*, then browse to **Security** > **Authentication methods** > **Policies**.
+1. Under **Microsoft Authenticator (preview)**, choose the following options:
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users
+1. Each added group or user is enabled by default to use Microsoft Authenticator in both passwordless and push notification modes ("Any" mode). To change this, for each row:
+   1. Browse to **...** > **Configure**.
+   1. For **Authentication mode** - Any, Passwordless, or Push
 1. To apply the new policy, select **Save**.
 
 ## User registration and management of Microsoft Authenticator

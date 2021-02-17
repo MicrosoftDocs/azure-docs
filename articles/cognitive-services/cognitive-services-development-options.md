@@ -120,7 +120,7 @@ The tools that you will use to train and configure models are different than tho
 | Pillar | Service | Customization UI | Quickstart |
 |--------|---------|------------------|------------|
 | Vision | Custom Vision | https://www.customvision.ai/ | [Quickstart](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
-| Vision | Form Recognizer | Sample labeling tool | [Quickstart](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Vision | Form Recognizer | [Sample labeling tool](https://fott-preview.azurewebsites.net/) | [Quickstart](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
 | Decision | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Quickstart](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | Decision | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Quickstart](./metrics-advisor/quickstarts/web-portal.md) |
 | Decision | Personalizer | UI is available in the Azure portal under your Personalizer resource. | [Quickstart](./personalizer/quickstart-personalizer-sdk.md) |
@@ -128,7 +128,7 @@ The tools that you will use to train and configure models are different than tho
 | Language | QnA Maker | https://www.qnamaker.ai/ | [Quickstart](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
 | Language | Translator/Custom Translator | https://portal.customtranslator.azure.ai/ | [Quickstart](./translator/custom-translator/quickstart-build-deploy-custom-model.md) |
 | Speech | Custom Commands | https://speech.microsoft.com/ | [Quickstart](./speech-service/custom-commands.md) |
-| Speech | Custom Speech | https://speech.microsoft.com/ | [Quickstart](./speech-service/how-to-custom-speech.md) |
+| Speech | Custom Speech | https://speech.microsoft.com/ | [Quickstart](./speech-service/custom-speech-overview.md) |
 | Speech | Custom Voice | https://speech.microsoft.com/ | [Quickstart](./speech-service/how-to-custom-voice.md) |  
 
 ### Continuous integration and delivery with DevOps and GitHub Actions

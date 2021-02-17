@@ -70,7 +70,7 @@ When you configure SQL Server on Linux, you install the Database Engine package 
 
 * [Virtual Network overview](../../../virtual-network/virtual-networks-overview.md)
 * [IP addresses in Azure](../../../virtual-network/public-ip-addresses.md)
-* [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/windows/portal-create-fqdn.md)
+* [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/create-fqdn.md)
 
 ### SQL
 

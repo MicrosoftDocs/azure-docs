@@ -29,19 +29,22 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+ - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. If using Azure CLI, you have to install the preview extension on CLI using the following command, if not already:
+    ```azurecli-interactive
+    az extension add --name aks-preview
+    ```
 
- - Register the *AKS-IngressApplicationGatewayAddon* feature flag by using the [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command as shown in the following example. You'll need to do this only once per subscription while the add-on is still in preview.
+ - Register the *AKS-IngressApplicationGatewayAddon* feature flag by using the [az feature register](/cli/azure/feature#az-feature-register) command as shown in the following example. You'll need to do this only once per subscription while the add-on is still in preview.
     ```azurecli-interactive
     az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
     ```
 
-   It might take a few minutes for the status to show `Registered`. You can check the registration status by using the [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command:
+   It might take a few minutes for the status to show `Registered`. You can check the registration status by using the [az feature list](/cli/azure/feature#az-feature-register) command:
     ```azurecli-interactive
     az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
     ```
 
- - When you're ready, refresh the registration of the Microsoft.ContainerService resource provider by using the [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) command:
+ - When you're ready, refresh the registration of the Microsoft.ContainerService resource provider by using the [az provider register](/cli/azure/provider#az-provider-register) command:
     ```azurecli-interactive
     az provider register --namespace Microsoft.ContainerService
     ```
@@ -72,7 +75,7 @@ Deploying a new AKS cluster with the AGIC add-on enabled without specifying an e
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
-To configure additional parameters for the `az aks create` command, see [these references](/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
+To configure additional parameters for the `az aks create` command, see [these references](/cli/azure/aks#az-aks-create). 
 
 > [!NOTE]
 > The AKS cluster that you created will appear in the resource group that you created, *myResourceGroup*. However, the automatically created Application Gateway instance will be in the node resource group, where the agent pools are. The node resource group by is named *MC_resource-group-name_cluster-name_location* by default, but can be modified. 

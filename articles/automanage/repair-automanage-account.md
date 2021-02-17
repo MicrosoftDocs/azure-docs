@@ -17,8 +17,8 @@ Your [Azure Automanage Account](./automanage-virtual-machines.md#automanage-acco
 Reset the Automanage Account identity type by using the following Azure Resource Manager (ARM) template. Save the file locally as armdeploy.json or a similar name. Note your Automanage Account name and location because they're required parameters in the ARM template.
 
 1. Create a Resource Manager deployment by using the following template. Use `identityType = None`.
-    * You can create the deployment in the Azure CLI by using `az deployment sub create`. For more information, see [az deployment sub](https://docs.microsoft.com/cli/azure/deployment/sub).
-    * You can create the deployment in PowerShell by using the `New-AzDeployment` module. For more information, see [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
+    * You can create the deployment in the Azure CLI by using `az deployment sub create`. For more information, see [az deployment sub](/cli/azure/deployment/sub).
+    * You can create the deployment in PowerShell by using the `New-AzDeployment` module. For more information, see [New-AzDeployment](/powershell/module/az.resources/new-azdeployment).
 
 1. Run the same ARM template again with `identityType = SystemAssigned`.
 
@@ -58,7 +58,7 @@ The Automanage Account requires the Contributor and Resource Policy Contributor 
 
 If you're using an ARM template or the Azure CLI, you'll need the Principal ID (also known as the Object ID) of your Automanage Account. (You don't need the ID if you're using the Azure portal.) You can find this ID by using these methods:
 
-- [Azure CLI](https://docs.microsoft.com/cli/azure/ad/sp): Use the command `az ad sp list --display-name <name of your Automanage Account>`.
+- [Azure CLI](/cli/azure/ad/sp): Use the command `az ad sp list --display-name <name of your Automanage Account>`.
 
 - Azure portal: Go to **Azure Active Directory** and search for your Automanage Account by name. Under **Enterprise Applications**, select the Automanage Account name when it appears.
 

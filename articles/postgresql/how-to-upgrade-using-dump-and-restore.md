@@ -12,7 +12,7 @@ ms.date: 11/10/2020
 
 You can upgrade your PostgreSQL server deployed in Azure Database for PostgreSQL - Single Server by migrating your databases to a higher major version server using following methods.
 * **Offline** method using PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) which incurs downtime for migrating the data. This document addresses this method of upgrade/migration.
-* **Online** method using [Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). This method provides a reduced downtime migration and keeps the target database in-sync with with the source and you can choose when to cut-over. However, there are few prerequisites and restrictions to be addressed for using DMS. For details, see the [DMS documentation](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal). 
+* **Online** method using [Database Migration Service](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) (DMS). This method provides a reduced downtime migration and keeps the target database in-sync with with the source and you can choose when to cut-over. However, there are few prerequisites and restrictions to be addressed for using DMS. For details, see the [DMS documentation](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md). 
 
  The following table provides some recommendations based on database sizes and scenarios.
 
@@ -23,7 +23,7 @@ You can upgrade your PostgreSQL server deployed in Azure Database for PostgreSQL
 | Small-medium DBs (10 GB – 100 GB)	| X | X |
 | Large databases (> 100 GB) |	| X |
 | Can afford downtime to upgrade (irrespective of the database size) | X |  |
-| Can address DMS [pre-requisites](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites), including a reboot? |  | X |
+| Can address DMS [pre-requisites](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md#prerequisites), including a reboot? |  | X |
 | Can avoid DDLs and unlogged tables during the upgrade process? | |  X |
 
 This guide provides few offline migration methodologies and examples to show how you can migrate from your source server to the target server that runs a higher version of PostgreSQL.

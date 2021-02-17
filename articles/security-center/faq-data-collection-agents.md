@@ -39,7 +39,7 @@ For more information on pricing, see [Security Center pricing](https://azure.mic
 
 ## What is the Log Analytics agent?
 
-To monitor for security vulnerabilities and threats, Azure Security Center depends on the [Log Analytics Agent](../azure-monitor/platform/log-analytics-agent.md) - this is the same agent used by the Azure Monitor service. 
+To monitor for security vulnerabilities and threats, Azure Security Center depends on the [Log Analytics Agent](../azure-monitor/agents/log-analytics-agent.md) - this is the same agent used by the Azure Monitor service. 
 
 The agent is sometimes referred to as the Microsoft Monitoring Agent (or "MMA"). 
 
@@ -47,9 +47,9 @@ The agent collects various security-related configuration details and event logs
 
 Ensure your machines are running one of the supported operating systems for the agent as described on the following pages:
 
-* [Log Analytics agent for Windows supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
-* [Log Analytics agent for Linux supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 Learn more about the [data collected by the Log Analytics agent](security-center-enable-data-collection.md).
 
@@ -82,9 +82,9 @@ The location of the default workspace depends on your Azure region:
 - For VMs in Australia, the workspace location is Australia
 
 
-## What data is collected by the Log Analytics agent?
+## What security events are collected by the Log Analytics agent?
 
-For a full list of the applications and services monitored by the agent, see [What is monitored by Azure Monitor?](../azure-monitor/monitor-reference.md#azure-services).
+For a full list of the security events collected by the agent, see [What event types are stored for the "Common" and "Minimal" security events settings?](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal).
 
 > [!IMPORTANT]
 > Note that for some services, such as Azure Firewall, if you have enabled logging and chosen a chatty resource to log (for example, setting the log to *verbose*) you may see significant impacts on your Log Analytics workspace storage needs. 
@@ -251,7 +251,7 @@ You can enable data collection for your Azure subscription in the Security polic
 
 ## What happens when data collection is enabled?
 
-When automatic provisioning is enabled, Security Center provisions the Log Analytics agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is recommended but manual agent installation is also available. [Learn how to install the Log Analytics agent extension](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
+When automatic provisioning is enabled, Security Center provisions the Log Analytics agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is recommended but manual agent installation is also available. [Learn how to install the Log Analytics agent extension](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
 The agent enables the process creation event 4688 and the *CommandLine* field inside event 4688. New processes created on the VM are recorded by EventLog and monitored by Security Center's detection services. For more information on the details recorded for each new process, see [description fields in 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). The agent also collects the 4688 events created on the VM and stores them in search.
 
@@ -263,7 +263,7 @@ When Security Center detects suspicious activity on the VM, the customer is noti
 ## Will Security Center work using an OMS gateway?
 
 Yes. Azure Security Center leverages Azure Monitor to collect data from Azure VMs and servers, using the Log Analytics agent.
-To collect the data, each VM and server must connect to the Internet using HTTPS. The connection can be direct, using a proxy, or through the [OMS Gateway](../azure-monitor/platform/gateway.md).
+To collect the data, each VM and server must connect to the Internet using HTTPS. The connection can be direct, using a proxy, or through the [OMS Gateway](../azure-monitor/agents/gateway.md).
 
 
 ## Does the Monitoring Agent impact the performance of my servers?

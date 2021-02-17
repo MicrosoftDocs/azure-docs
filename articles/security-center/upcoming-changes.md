@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2020
+ms.date: 01/25/2021
 ms.author: memildin
 
 ---
@@ -27,48 +27,62 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-### "System updates should be installed on your machines" recommendation getting sub-recommendations
+- [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
+- [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)
+- [Deprecation of 11 Azure Defender alerts](#deprecation-of-11-azure-defender-alerts)
 
-#### Summary
+### Two recommendations from "Apply system updates" security control being deprecated 
 
-| Aspect | Details |
-|---------|---------|
-|Announcement date | 9 November 2020  |
-|Date for this change  |  Mid-end November 2020 |
-|Impact     | During the transition from the current version of this recommendation to its replacement, your secure score might change. |
-|  |  |
+**Estimated date for change:** February 2021
 
-We're releasing an enhanced version of the **System updates should be installed on your machines** recommendation. The new version will *replace* the current version in the apply system updates security control and brings the following improvements:
+The following two recommendations are scheduled to be deprecated in February 2021:
 
-- Sub-recommendations for each missing update
-- A redesigned experience in the Azure Security Center pages of the Azure portal
-- Enriched data for the recommendation from Azure Resource Graph
+- **Your machines should be restarted to apply system updates**. This might result in a slight impact on your secure score.
+- **Monitoring agent should be installed on your machines**. This recommendation relates to on-premises machines only and some of its logic will be transferred to another recommendation, **Log Analytics agent health issues should be resolved on your machines**. This might result in a slight impact on your secure score.
 
-#### Transition period
+We recommend checking your continuous export and workflow automation configurations to see whether these recommendations are included in them. Also, any dashboards or other monitoring tools that might be using them should be updated accordingly.
 
-There will be a transition period of 36 hrs (approximately). To minimize any potential disruption, we've scheduled the update to take place over a weekend. During the transition, your secure scores might be affected.
-
-#### Redesigned portal experience
-
-The recommendation details page for **System updates should be installed on your machines** includes the list of findings as shown below. When you select a single finding, the details pane opens with a link to the remediation information and a list of affected resources.
-
-:::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Opening one of the sub-recommendations in the portal experience for the updated recommendation":::
+Learn more about these recommendations in the [security recommendations reference page](recommendations-reference.md).
 
 
-#### Richer data from Azure Resource Graph
+### Enhancements to SQL data classification recommendation
 
-Azure Resource Graph is a service in Azure that is designed to provide efficient resource exploration. You can use ARG to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
+**Estimated date for change:** Q2 2021
 
-For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) to query a wide range of security posture data.
+The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
-If you query the current version of **System updates should be installed on your machines**, the only information available from ARG is that the recommendation needs to be remediated on a machine. When the updated version is released, the following query will return each missing system updates grouped by machine.
 
-```kusto
-securityresources
-| where type =~ "microsoft.security/assessments/subassessments"
-| where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
-| where properties.status.code == "Unhealthy"
-```
+### Deprecation of 11 Azure Defender alerts
+
+**Estimated date for change:** March 2021
+
+Next month, the eleven Azure Defender alerts listed below will be deprecated.
+
+- New alerts will replace these two alerts and provide better coverage:
+
+    | AlertType                | AlertDisplayName                                                         |
+    |--------------------------|--------------------------------------------------------------------------|
+    | ARM_MicroBurstDomainInfo | PREVIEW - MicroBurst toolkit "Get-AzureDomainInfo" function run detected |
+    | ARM_MicroBurstRunbook    | PREVIEW - MicroBurst toolkit "Get-AzurePasswords" function run detected  |
+    |                          |                                                                          |
+
+- These nine alerts relate to an Azure Active Directory Identity Protection connector that has already been deprecated:
+
+    | AlertType           | AlertDisplayName              |
+    |---------------------|-------------------------------|
+    | UnfamiliarLocation  | Unfamiliar sign-in properties |
+    | AnonymousLogin      | Anonymous IP address          |
+    | InfectedDeviceLogin | Malware linked IP address     |
+    | ImpossibleTravel    | Atypical travel               |
+    | MaliciousIP         | Malicious IP address          |
+    | LeakedCredentials   | Leaked credentials            |
+    | PasswordSpray       | Password Spray                |
+    | LeakedCredentials   | Azure AD threat intelligence  |
+    | AADAI               | Azure AD AI                   |
+    |                     |                               |
+ 
+
+
 
 ## Next steps
 

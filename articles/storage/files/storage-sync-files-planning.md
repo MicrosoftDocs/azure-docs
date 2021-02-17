@@ -4,7 +4,7 @@ description: Plan for a deployment with Azure File Sync, a service that allows y
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
@@ -45,6 +45,9 @@ Sync groups are deployed into **Storage Sync Services**, which are top-level obj
 Before you can create a sync group in a Storage Sync Service, you must first register a Windows Server with the Storage Sync Service. This creates a **registered server** object, which represents a trust relationship between your server or cluster and the Storage Sync Service. To register a Storage Sync Service, you must first install the Azure File Sync agent on the server. An individual server or cluster can be registered with only one Storage Sync Service at a time.
 
 A sync group contains one cloud endpoint, or Azure file share, and at least one server endpoint. The server endpoint object contains the settings that configure the **cloud tiering** capability, which provides the caching capability of Azure File Sync. In order to sync with an Azure file share, the storage account containing the Azure file share must be in the same Azure region as the Storage Sync Service.
+
+> [!Important]  
+> You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](storage-files-faq.md#afs-change-detection).
 
 ### Management guidance
 When deploying Azure File Sync, we recommend:
@@ -178,7 +181,7 @@ Windows Server Failover Clustering is supported by Azure File Sync for the "File
 
 ### Data Deduplication
 **Windows Server 2016 and Windows Server 2019**   
-Data Deduplication is supported on volumes with cloud tiering enabled on Windows Server 2016 and Windows Server 2019. Enabling Data Deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage. 
+Data Deduplication is supported irrespective of whether cloud tiering is enabled or disabled on one or more server endpoints on the volume for Windows Server 2016 and Windows Server 2019. Enabling Data Deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage. 
 
 When Data Deduplication is enabled on a volume with cloud tiering enabled, Dedup optimized files within the server endpoint location will be tiered similar to a normal file based on the cloud tiering policy settings. Once the Dedup optimized files have been tiered, the Data Deduplication garbage collection job will run automatically to reclaim disk space by removing unnecessary chunks that are no longer referenced by other files on the volume.
 
@@ -294,48 +297,16 @@ For more information about encryption in transit, see [requiring secure transfer
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## Azure file sync region availability
-Azure File Sync is available in the following regions:
 
-| Azure cloud | Geographic region | Azure region | Region code |
-|-------------|-------------------|--------------|-------------|
-| Public | Asia | East Asia | `eastasia` |
-| Public | Asia | Southeast Asia | `southeastasia` |
-| Public | Australia | Australia East | `australiaeast` |
-| Public | Australia | Australia Southeast | `australiasoutheast` |
-| Public | Brazil | Brazil South | `brazilsouth` |
-| Public | Canada | Canada Central | `canadacentral` |
-| Public | Canada | Canada East | `canadaeast` |
-| Public | Europe | North Europe | `northeurope` |
-| Public | Europe | West Europe | `westeurope` |
-| Public | France | France Central | `francecentral` |
-| Public | France | France South* | `francesouth` |
-| Public | India | Central India | `centralindia` |
-| Public | India | South India | `southindia` |
-| Public | Japan | Japan East | `japaneast` |
-| Public | Japan | Japan West | `japanwest` |
-| Public | Korea | Korea Central | `koreacentral` |
-| Public | Korea | Korea South | `koreasouth` |
-| Public | South Africa | South Africa North | `southafricanorth` |
-| Public | South Africa | South Africa West* | `southafricawest` |
-| Public | UAE | UAE Central* | `uaecentral` |
-| Public | UAE | UAE North | `uaenorth` |
-| Public | UK | UK South | `uksouth` |
-| Public | UK | UK West | `ukwest` |
-| Public | US | Central US | `centralus` |
-| Public | US | East US | `eastus` |
-| Public | US | East US 2 | `eastus2` |
-| Public | US | North Central US | `northcentralus` |
-| Public | US | South Central US | `southcentralus` |
-| Public | US | West Central US | `westcentralus` |
-| Public | US | West US | `westus` |
-| Public | US | West US 2 | `westus2` |
-| US Gov | US | US Gov Arizona | `usgovarizona` |
-| US Gov | US | US Gov Texas | `usgovtexas` |
-| US Gov | US | US Gov Virginia | `usgovvirginia` |
+For regional availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
-Azure File Sync supports syncing only with an Azure file share that's in the same region as the Storage Sync Service.
+The following regions require you to request access to Azure Storage before you can use Azure File Sync with them:
 
-For the regions marked with asterisks, you must contact Azure Support to request access to Azure Storage in those regions. The process is outlined in [this document](https://azure.microsoft.com/global-infrastructure/geographies/).
+- France South
+- South Africa West
+- UAE Central
+
+To request access for these regions, follow the process in [this document](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## Redundancy
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
@@ -363,7 +334,7 @@ Microsoft's in-house antivirus solutions, Windows Defender and System Center End
 > Antivirus vendors can check compatibility between their product and Azure File Sync using the [Azure File Sync Antivirus Compatibility Test Suite](https://www.microsoft.com/download/details.aspx?id=58322), which is available for download on the Microsoft Download Center.
 
 ## Backup 
-If cloud tiering is enabled, solutions that directly back up the server endpoint or a VM on which the server endpoint is located should not be used. Cloud tiering causes only a subset of your data to be stored on the server endpoint, with the full dataset residing in your Azure file share. Depending on the backup solution used, tiered files will either be skipped and not backed up (because they have the FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS attribute set), or they will be recalled to disk, resulting in high egress charges. We recommend using a cloud backup solution to back up the Azure file share directly. For more information, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) or contact your backup provider to see if they support backing up Azure file shares.
+If cloud tiering is enabled, solutions that directly back up the server endpoint or a VM on which the server endpoint is located should not be used. Cloud tiering causes only a subset of your data to be stored on the server endpoint, with the full dataset residing in your Azure file share. Depending on the backup solution used, tiered files will either be skipped and not backed up (because they have the FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS attribute set), or they will be recalled to disk, resulting in high egress charges. We recommend using a cloud backup solution to back up the Azure file share directly. For more information, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) or contact your backup provider to see if they support backing up Azure file shares.
 
 If you prefer to use an on-premises backup solution, backups should be performed on a server in the sync group that has cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will be synced to all endpoints in the sync group and existing files will be replaced with the version restored from backup.  Volume-level restores will not replace newer file versions in the Azure file share or other server endpoints.
 
@@ -379,6 +350,6 @@ If you prefer to use an on-premises backup solution, backups should be performed
 ## Next steps
 * [Consider firewall and proxy settings](storage-sync-files-firewall-and-proxy.md)
 * [Planning for an Azure Files deployment](storage-files-planning.md)
-* [Deploy Azure Files](storage-files-deployment-guide.md)
+* [Deploy Azure Files](./storage-how-to-create-file-share.md)
 * [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Monitor Azure File Sync](storage-sync-files-monitoring.md)

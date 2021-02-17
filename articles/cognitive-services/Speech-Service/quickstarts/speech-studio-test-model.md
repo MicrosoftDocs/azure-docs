@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/04/2020
+ms.date: 02/12/2021
 ms.author: v-demjoh
 ---
 
@@ -18,7 +18,7 @@ In this how-to, you use Speech Studio to convert speech from an audio file to te
 
 ## Prerequisites
 
-Before you use Speech Portal, [follow these instructions to create an Azure account and subscribe to the Speech service](../how-to-custom-speech.md#set-up-your-azure-account). This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the Custom Speech portal.
+Before you use Speech Studio, [follow these instructions to create an Azure account and subscribe to the Speech service](../custom-speech-overview.md#set-up-your-azure-account). This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the Speech Studio.
 
 ## Download an audio file
 
@@ -27,7 +27,7 @@ Follow these steps to download an audio file that contains speech and package it
 1. Download the **[sample wav file from this link](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav)** by right-clicking the link and selecting **Save link as**. Click **Save** to download the `whatstheweatherlike.wav` file.
 2. Using a file explorer or terminal window with a zip tool, create a zip file named `whatstheweatherlike.zip` that contains the `whatstheweatherlike.wav` file you downloaded. In Windows, you can open Windows Explorer, navigate to the `Downloads` folder, right-click `whatstheweatherliike.wav`, click **Send to**, click **Compressed (zipped) folder**, and press enter to accept the default filename.
 
-## Create a project in the Custom Speech portal
+## Create a project in the Speech Studio
 
 Follow these steps to create a project that contains your zip of one audio file.
 

@@ -21,7 +21,7 @@ Enable **Azure Defender for Key Vault** for Azure-native, advanced threat protec
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|General Availability (GA)|
 |Pricing:|**Azure Defender for Key Vault** is billed as shown on [the pricing page](security-center-pricing.md)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||

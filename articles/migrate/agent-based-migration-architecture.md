@@ -1,11 +1,12 @@
 ---
 title: Agent-based migration in Azure Migrate Server Migration
 description: Provides an overview of agent-based VMware VM migration in Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: raynew
+
 ---
 
 
@@ -88,14 +89,14 @@ If you're replicating VMware VMs, you can use the [Site Recovery Deployment Plan
 
 Use the values in this table to figure out whether you need an additional process server in your deployment.
 
-- If your daily change rate (churn rate) is over 2 TB, deploy an additional process server.
+- If the daily change rate (churn rate) is over 2 TB, deploy an additional process server.
 - If you're replicating more than 200 machines, deploy an additional replication appliance.
 
 **CPU** | **Memory** | **Free space-data caching** | **Churn rate** | **Replication limits**
 --- | --- | --- | --- | ---
 8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz) | 16 GB | 300 GB | 500 GB or less | < 100 machines 
 12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) | 18 GB | 600 GB | 501 GB to 1 TB	| 100-150 machines.
-16 vCPUs (2 sockets * 8 cores \@ 2.5 GHz) | 32 G1 |  1 TB | 1 TB to 2 TB | 151-200 machines.
+16 vCPUs (2 sockets * 8 cores \@ 2.5 GHz) | 32 GB |  1 TB | 1 TB to 2 TB | 151-200 machines.
 
 ### Sizing scale-out process servers
 
@@ -104,7 +105,7 @@ If you need to deploy a scale-out process server, use this table to figure out s
 **Process server** | **Free space for data caching** | **Churn rate** | **Replication limits**
 --- | --- | --- | --- 
 4 vCPUs (2 sockets * 2 cores \@ 2.5 GHz), 8-GB memory | 300 GB | 250 GB or less | Up to 85 machines 
-8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz), 12-GB memory | 600 GB | 251 GB to 1 TB	| 86-150 machines.
+8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz), 12-GB memory | 600 GB | 251 GB to 1 TB | 86-150 machines.
 12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz), 24-GB memory | 1 TB | 1-2 TB | 151-225 machines.
 
 ## Throttle upload bandwidth.

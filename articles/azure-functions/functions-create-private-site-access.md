@@ -108,7 +108,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
     | _Subnet_ | AzureBastionSubnet | The subnet in your virtual network to which the new Bastion host resource will be deployed. You must create a subnet using the name value **AzureBastionSubnet**. This value lets Azure know which subnet to deploy the Bastion resources to. You must use a subnet of at least **/27** or larger (/27, /26, and so on). |
 
     > [!NOTE]
-    > For a detailed, step-by-step guide to creating an Azure Bastion resource, refer to the [Create an Azure Bastion host](../bastion/bastion-create-host-portal.md) tutorial.
+    > For a detailed, step-by-step guide to creating an Azure Bastion resource, refer to the [Create an Azure Bastion host](../bastion/tutorial-create-host-portal.md) tutorial.
 
 1. Create a subnet in which Azure can provision the Azure Bastion host. Choosing **Manage subnet configuration** opens a new pane where you can define a new subnet.  Choose **+ Subnet** to create a new subnet.
 1. The subnet must be of the name **AzureBastionSubnet** and the subnet prefix must be at least **/27**.  Select **OK** to create the subnet.
@@ -125,7 +125,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 
 ## Create an Azure Functions app
 
-The next step is to create a function app in Azure using the [Consumption plan](functions-scale.md#consumption-plan). You deploy your function code to this resource later in the tutorial.
+The next step is to create a function app in Azure using the [Consumption plan](consumption-plan.md). You deploy your function code to this resource later in the tutorial.
 
 1. In the portal, choose **Add** at the top of the resource group view.
 1. Select **Compute > Function App**
@@ -144,7 +144,7 @@ The next step is to create a function app in Azure using the [Consumption plan](
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | _Storage account_ | Globally unique name | Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](./functions-scale.md#storage-account-requirements). |
+    | _Storage account_ | Globally unique name | Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](storage-considerations.md#storage-account-requirements). |
     | _Operating system_ | Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. |
     | _Plan_ | Consumption | The [hosting plan](./functions-scale.md) dictates how the function app is scaled and resources available to each instance. |
 1. Select **Review + Create** to review the app configuration selections.
@@ -189,9 +189,9 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
 
 1. Follow one of the following quickstarts to create and deploy your Azure Functions app.
 
-    * [Visual Studio Code](./functions-create-first-function-vs-code.md)
+    * [Visual Studio Code](./create-first-function-vs-code-csharp.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
-    * [Command line](./functions-create-first-azure-function-azure-cli.md)
+    * [Command line](./create-first-function-cli-csharp.md)
     * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. When publishing your Azure Functions project, choose the function app resource that you created earlier in this tutorial.

@@ -74,7 +74,7 @@ Consider deploying Azure Web Application Firewall (WAF) in front of critical web
 
 **Guidance**: For protections from DDoS attacks, enable Azure DDoS Standard protection on the virtual network where your Azure Service Fabric cluster is deployed. Use Azure Security Center integrated threat intelligence to deny communications with known malicious or unused Internet IP addresses.
 
-* [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+* [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
 * [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
@@ -176,9 +176,9 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Service Fabric deployments. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -222,7 +222,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 * [How to deploy the Log Analytics agent onto your nodes](./service-fabric-diagnostics-oms-agent.md)
 
-* [Log Analytics Log Searches](../azure-monitor/log-query/log-query-overview.md)
+* [Log Analytics Log Searches](../azure-monitor/logs/log-query-overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -238,7 +238,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 * [How to deploy the Log Analytics agent onto your nodes](./service-fabric-diagnostics-oms-agent.md)
 
-* [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
+* [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -254,7 +254,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 * [How to deploy the Log Analytics agent onto your nodes](./service-fabric-diagnostics-oms-agent.md)
 
-* [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
+* [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -264,7 +264,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 **Guidance**: Use Azure Log Analytics workspace queries to query Azure Service Fabric logs.
 
-* [Log Analytics Log Searches](../azure-monitor/log-query/log-query-overview.md)
+* [Log Analytics Log Searches](../azure-monitor/logs/log-query-overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -276,7 +276,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look up or
 
 * [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+* [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -378,7 +378,7 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 **Guidance**: Use PAWs (privileged access workstations) with multi-factor authentication (MFA) configured to log into and configure your Azure Service Fabric clusters and related resources.
 
-* [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -584,7 +584,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to critical Azure resources.
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -624,7 +624,7 @@ Alternately, to test OS patches first before going to production, use the manual
 
 * [How to bring VMs up-to-date with the latest scale set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
-* [Azure Automation Update Management overview](../automation/update-management/update-mgmt-overview.md)
+* [Azure Automation Update Management overview](../automation/update-management/overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1100,7 +1100,7 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
 * [How to configure continuous export](../security-center/continuous-export.md)
 

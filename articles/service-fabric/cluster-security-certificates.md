@@ -3,7 +3,6 @@ title: X.509 Certificate-based Authentication in a Service Fabric Cluster
 description: Learn about certificate-based authentication in Service Fabric clusters, and how to detect, mitigate and fix certificate-related problems.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.custom: sfrev
 ---
 # X.509 Certificate-based authentication in Service Fabric clusters
 
@@ -168,7 +167,10 @@ The node type certificates can also be declared by subject common name, as exemp
   </NodeTypes>
 ```
 
-For either type of declaration, a Service Fabric node will read the configuration at startup, locate and load the specified certificates, and sort them in descending order of their NotAfter attribute; expired certificates are ignored, and the first element of the list is selected as the client credential for any Service Fabric connection attempted by this node. (In effect, Service Fabric favors the farthest expiring certificate.)
+For either type of declaration, a Service Fabric node will read the configuration at startup, locate and load the specified certificates, and sort them in descending order of their NotBefore attribute; expired certificates are ignored, and the first element of the list is selected as the client credential for any Service Fabric connection attempted by this node. (In effect, Service Fabric favors the most recently issued certificate.)
+
+> [!NOTE]
+> Prior to version 7.2.445 (7.2 CU4), Service Fabric selected the farthest expiring certificate (the certificate with the farthest 'NotAfter' property)
 
 Note that, for common-name based presentation declarations, a certificate is considered a match if its subject common name is equal to the X509FindValue (or X509FindValueSecondary) field of the declaration as a case-sensitive, exact string comparison. This is in contrast with the validation rules, which does support wildcard matching, as well as case-insensitive string comparisons.  
 

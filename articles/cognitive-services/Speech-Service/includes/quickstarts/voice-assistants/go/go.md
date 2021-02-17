@@ -13,7 +13,7 @@ Before you get started:
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md)
-> * Create a bot connected to the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Create a bot connected to the [Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Make sure that you have access to a microphone for audio capture
 >
   > [!NOTE]
@@ -24,7 +24,7 @@ Before you get started:
 Update the go.mod file with the latest SDK version by adding this line
 ```sh
 require (
-    github.com/Microsoft/cognitive-services-speech-sdk-go v1.14.0
+    github.com/Microsoft/cognitive-services-speech-sdk-go v1.15.0
 )
 ```
 
@@ -103,7 +103,7 @@ Replace the `YOUR_SUBSCRIPTION_KEY` and `YOUR_BOT_REGION` values with actual val
    > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
    > [!NOTE]
-   > For information on configuring your bot, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > For information on configuring your bot, see the Bot Framework documentation for [the Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## Code explanation
 The Speech subscription key and region are required to create a speech configuration object. The configuration object is needed to instantiate a speech recognizer object.

@@ -3,15 +3,14 @@ title: Azure App Configuration best practices | Microsoft Docs
 description: Learn best practices while using Azure App Configuration. Topics covered include key groupings, key-value compositions, App Configuration bootstrap, and more.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: "devx-track-csharp, mvc"
 ---
 
@@ -86,6 +85,10 @@ App Configuration offers the option to bulk [import](./howto-import-export-data.
 ## Multi-region deployment in App Configuration
 
 App Configuration is regional service. For applications with different configurations per region, storing these configurations in one instance can create a single point of failure. Deploying one App Configuration instances per region across multiple regions may be a better option. It can help with regional disaster recovery, performance, and security siloing. Configuring by region also improves latency and uses separated throttling quotas, since throttling is per instance. To apply disaster recovery mitigation, you can use [multiple configuration stores](./concept-disaster-recovery.md). 
+
+## Client Applications in App Configuration 
+
+Excessive requests to App Configuration can result in throttling or overage charges. Applications take advantage of the caching and intelligent refreshing currently available to optimize the number of requests they send. This process can be mirrored in high volume client applications by avoiding direct connections to the configuration store. Instead, client applications connect to a custom service, and this service communicates with the configuration store. This proxy solution can ensure the client applications do not approach the throttling limit on the configuration store. For more information on throttling, see [the FAQ](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
 
 ## Next steps
 

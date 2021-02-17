@@ -44,14 +44,13 @@ There is a need for user consent and for web sign in.
 
 ## Implement OIDC with Azure AD
 
-* [Integrating applications with Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 
+* [Integrating applications with Azure AD](../saas-apps/tutorial-list.md) 
 
-* [OAuth 2.0 and OpenID Connect protocols on the Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) 
+* [OAuth 2.0 and OpenID Connect protocols on the Microsoft Identity Platform](../develop/active-directory-v2-protocols.md) 
 
-* [Microsoft identity platform and OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) 
+* [Microsoft identity platform and OpenID Connect protocol](../develop/v2-protocols-oidc.md) 
 
-* [Web sign-in with OpenID Connect in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/openid-connect) 
+* [Web sign-in with OpenID Connect in Azure Active Directory B2C](../../active-directory-b2c/openid-connect.md) 
 
-* [Secure your application by using OpenID Connect and Azure AD](https://docs.microsoft.com/learn/modules/secure-app-with-oidc-and-azure-ad/) 
+* [Secure your application by using OpenID Connect and Azure AD](/learn/modules/secure-app-with-oidc-and-azure-ad/) 
 
- 

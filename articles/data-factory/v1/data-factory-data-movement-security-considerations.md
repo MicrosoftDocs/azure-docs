@@ -1,20 +1,11 @@
 ---
 title: Security considerations for data movement in Azure Data Factory  
 description: 'Learn about securing data movement in Azure Data Factory.'
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
-
 robots: noindex
 ---
 
@@ -33,16 +24,16 @@ Even though Data Factory is available in only **West US**, **East US**, and **No
 Azure Data Factory itself does not store any data except for linked service credentials for cloud data stores, which are encrypted using certificates. It lets you create data-driven workflows to orchestrate movement of data between [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) and processing of data using [compute services](data-factory-compute-linked-services.md) in other regions or in an on-premises environment. It also allows you to [monitor and manage workflows](data-factory-monitor-manage-pipelines.md) using both programmatic and UI mechanisms.
 
 Data movement using Azure Data Factory has been **certified** for:
--	[HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
--	[ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--	[ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
--	[CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
-	 
+-    [HIPAA/HITECH](/compliance/regulatory/offering-hipaa-hitech)  
+-    [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
+-    [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
+-    [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+     
 If you are interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). 
 
 In this article, we review security considerations in the following two data movement scenarios: 
 
-- **Cloud scenario**- In this scenario, both your source and destination are publicly accessible through internet. These include managed cloud storage services like Azure Storage, Azure Synapse Analytics (formerly SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS services such as Salesforce, and web protocols such as FTP and OData. You can find a complete list of supported data sources [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
+- **Cloud scenario**- In this scenario, both your source and destination are publicly accessible through internet. These include managed cloud storage services like Azure Storage, Azure Synapse Analytics, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS services such as Salesforce, and web protocols such as FTP and OData. You can find a complete list of supported data sources [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 - **Hybrid scenario**- In this scenario, either your source or destination is behind a firewall or inside an on-premises corporate network or the data store is in a private network/ virtual network (most often the source) and is not publicly accessible. Database servers hosted on virtual machines also fall under this scenario.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -61,7 +52,7 @@ If the cloud data store supports HTTPS or TLS, all data transfers between data m
 Some data stores support encryption of data at rest. We suggest that you enable data encryption mechanism for those data stores. 
 
 #### Azure Synapse Analytics
-Transparent Data Encryption (TDE) in Azure Synapse Analytics helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of your data at rest. This behavior is transparent to the client. For more information, see [Secure a database in Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+Transparent Data Encryption (TDE) in Azure Synapse Analytics helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of your data at rest. This behavior is transparent to the client. For more information, see [Secure a database in Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### Azure SQL Database
 Azure SQL Database also supports transparent data encryption (TDE), which helps with protecting against the threat of malicious activity by performing real-time encryption and decryption of the data without requiring changes to the application. This behavior is transparent to the client. For more information, see [Transparent Data Encryption with Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
@@ -122,7 +113,7 @@ All data transfers are via secure channel **HTTPS** and **TLS over TCP** to prev
  
 You can also use [IPSec VPN](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) or [Express Route](../../expressroute/expressroute-introduction.md) to further secure the communication channel between your on-premises network and Azure.
 
-Virtual network is a logical representation of your network in the cloud. You can connect an on-premises network to your Azure virtual network (VNet) by setting up IPSec VPN (site-to-site) or Express Route (Private Peering)		
+Virtual network is a logical representation of your network in the cloud. You can connect an on-premises network to your Azure virtual network (VNet) by setting up IPSec VPN (site-to-site) or Express Route (Private Peering)        
 
 The following table summarizes the network and gateway configuration recommendations based on different combinations of source and destination locations for hybrid data movement.
 
@@ -144,7 +135,7 @@ The following images show the usage of Data Management Gateway for moving data b
 
 ### Firewall configurations and filtering IP address of gateway
 
-#### Firewall requirements for on-premises/private network	
+#### Firewall requirements for on-premises/private network    
 In an enterprise, a **corporate firewall** runs on the central router of the organization. And, **Windows firewall** runs as a daemon on the local machine on which the gateway is installed. 
 
 The following table provides **outbound port** and domain requirements for the **corporate firewall**.
@@ -154,7 +145,7 @@ The following table provides **outbound port** and domain requirements for the *
 | `*.servicebus.windows.net` | 443, 80 | Required by the gateway to connect to data movement services in Data Factory |
 | `*.core.windows.net` | 443 | Used by the gateway to connect to Azure Storage Account when you use the [staged copy](data-factory-copy-activity-performance.md#staged-copy) feature. | 
 | `*.frontend.clouddatahub.net` | 443 | Required by the gateway to connect to the Azure Data Factory service. | 
-| `*.database.windows.net` | 1433	| (OPTIONAL) needed when your destination is Azure SQL Database/ Azure Synapse Analytics. Use the staged copy feature to copy data to Azure SQL Database/Azure Synapse Analytics without opening the port 1433. | 
+| `*.database.windows.net` | 1433    | (OPTIONAL) needed when your destination is Azure SQL Database/ Azure Synapse Analytics. Use the staged copy feature to copy data to Azure SQL Database/Azure Synapse Analytics without opening the port 1433. | 
 | `*.azuredatalakestore.net` | 443 | (OPTIONAL) needed when your destination is Azure Data Lake store | 
 
 > [!NOTE] 

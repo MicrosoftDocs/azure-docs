@@ -139,7 +139,7 @@ You can use a custom role to grant permissions to an Azure AD user, group, or se
 - Microsoft.Batch/batchAccounts/read (for any read operation)
 - Microsoft.Batch/batchAccounts/listKeys/action (for any operation)
 
-Custom roles are for users authenticated by Azure AD, not the Batch account credentials (shared key). Note that the Batch account credentials give full permission to the Batch account. Also note that jobs using autopool require pool-level permissions.
+Custom roles are for users authenticated by Azure AD, not the Batch account credentials (shared key). Note that the Batch account credentials give full permission to the Batch account. Also note that jobs using [autopool](nodes-and-pools.md#autopools) require pool-level permissions.
 
 > [!NOTE]
 > Certain role assignments need to be specified in the Action field, whereas others need to be specified in the DataAction field. For more information, see [Azure resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftbatch).

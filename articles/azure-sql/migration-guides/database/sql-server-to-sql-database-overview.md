@@ -1,5 +1,5 @@
 ---
-title: "SQL Server to SQL Database - Migration overview"
+title: "SQL Server to SQL Database: Migration overview"
 description: Learn about the different tools and options available to migrate your SQL Server databases to Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -160,7 +160,7 @@ Manual setup of SQL Server high availability features like Always On failover cl
 Beyond the high availability architecture that is included in SQL Database, there is also the [auto-failover groups](../../database/auto-failover-group-overview.md) feature that allows you to manage the replication and failover of databases in a managed instance to another region. 
 
 #### SQL Agent jobs
-SQL Agent jobs are not directly supported in Azure SQL Database and will need to be deployed to [Elastic Database Jobs (Preview)](../../database/job-automation-overview.md#elastic-database-jobs-preview).
+SQL Agent jobs are not directly supported in Azure SQL Database and will need to be deployed to [Elastic Database Jobs (Preview)](../../database/job-automation-overview.md).
 
 #### Logins and groups
 Move SQL logins from the source SQL Server to Azure SQL Database using Database Migration Service (DMS) in offline mode.  Use the **Selected logins** blade in the **Migration Wizard** to migrate logins to your target SQL Database. 
@@ -177,7 +177,7 @@ For Azure SQL Database, the only applicable system databases are [master](/sql/r
 
 Be sure to take advantage of the advanced cloud-based features offered by SQL Database. For example, you no longer need to worry about managing backups as the service does it for you. You can restore to any [point in time within the retention period](../../database/recovery-using-backups.md#point-in-time-restore). 
 
-To strengthen security, consider using [Azure Active Directory Authentication](../../database/authentication-aad-overview.md), [auditing](../../database/auditing-overview.md), [threat detection](../../database/advanced-data-security.md), [row-level security](/sql/relational-databases/security/row-level-security), and [dynamic data masking](/sql/relational-databases/security/dynamic-data-masking).
+To strengthen security, consider using [Azure Active Directory Authentication](../../database/authentication-aad-overview.md), [auditing](../../database/auditing-overview.md), [threat detection](../../database/azure-defender-for-sql.md), [row-level security](/sql/relational-databases/security/row-level-security), and [dynamic data masking](/sql/relational-databases/security/dynamic-data-masking).
 
 In addition to advanced management and security features, SQL Database provides a set of advanced tools that can help you [monitor and tune your workload](../../database/monitor-tune-overview.md). [Azure SQL Analytics (Preview)](../../../azure-monitor/insights/azure-sql.md) is an advanced cloud monitoring solution for monitoring performance of all of your databases in Azure SQL Database at scale and across multiple subscriptions in a single view. Azure SQL Analytics collects and visualizes key performance metrics with built-in intelligence for performance troubleshooting.
 

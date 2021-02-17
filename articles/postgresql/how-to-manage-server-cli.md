@@ -3,7 +3,7 @@ title: Manage server - Azure CLI - Azure Database for PostgreSQL
 description: Learn how to manage an Azure Database for PostgreSQL server from the Azure CLI.
 author: ajlam
 ms.author: andrela
-ms.service: mysql
+ms.service: postgresql
 ms.topic: how-to
 ms.date: 9/22/2020
 ---
@@ -28,19 +28,19 @@ Select the specific subscription under your account using [az account set](/cli/
 az account set --subscription <subscription id>
 ```
 
-If you have not already created a sever , refer to this [quickstart](quickstart-create-server-database-azure-cli.md) to create one.
+If you have not already created a server, refer to this [quickstart](quickstart-create-server-database-azure-cli.md) to create one.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 ## Scale compute and storage
 
-You can scale up your pricing tier , compute and storage easily using the following command. You can see all the server operation you can perform [az postgres server overview](/cli/azure/mysql/server)
+You can scale up your pricing tier, compute, and storage easily using the following command. You can see all the server operation you can perform [az postgres server overview](/cli/azure/mysql/server)
 
 ```azurecli-interactive
 az postgres server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144
 ```
 
-Here are the details for arguments above :
+Here are the details for arguments above:
 
 **Setting** | **Sample value** | **Description**
 ---|---|---
@@ -55,7 +55,7 @@ storage-size | 6144 | The storage capacity of the server (unit is megabytes). Mi
 
 
 ## Manage PostgreSQL databases on a server.
-You can use any of these commands to create, delete , list and view database properties of a database on your server
+You can use any of these commands to create, delete, list, and view database properties of a database on your server
 
 | Cmdlet | Usage| Description |
 | --- | ---| --- |

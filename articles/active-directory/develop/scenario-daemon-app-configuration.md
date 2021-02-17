@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-# Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
+# Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
 ---
 
 # Daemon app that calls web APIs - code configuration
@@ -33,9 +33,9 @@ These Microsoft libraries support daemon apps:
 
 Daemon applications use application permissions rather than delegated permissions. So their supported account type can't be an account in any organizational directory or any personal Microsoft account (for example, Skype, Xbox, Outlook.com). There's no tenant admin to grant consent to a daemon application for a Microsoft personal account. You'll need to choose *accounts in my organization* or *accounts in any organization*.
 
-So the authority specified in the application configuration should be tenanted (specifying a tenant ID or a domain name associated with your organization).
+The authority specified in the application configuration should be tenanted (specifying a tenant ID or a domain name associated with your organization).
 
-If you're an ISV and want to provide a multitenant tool, you can use `organizations`. But keep in mind that you'll also need to explain to your customers how to grant admin consent. For details, see [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Also, there's currently a limitation in MSAL: `organizations` is allowed only when the client credentials are an application secret (not a certificate).
+Even if want to provide a multitenant tool, you should use a tenant ID or domain name, and **not** `common` or `organizations` with this flow, because the service cannot reliably infer which tenant should be used.
 
 ## Configure and instantiate the application
 
@@ -108,7 +108,7 @@ When you build a confidential client with certificates, the [parameters.json](ht
 
 ### Instantiate the MSAL application
 
-To instantiate the MSAL application, you need to add, reference, or import the MSAL package (depending on the language).
+To instantiate the MSAL application, add, reference, or import the MSAL package (depending on the language).
 
 The construction is different, depending on whether you're using client secrets or certificates (or, as an advanced scenario, signed assertions).
 
@@ -286,7 +286,7 @@ MSAL.NET has two methods to provide signed assertions to the confidential client
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-When you use `WithClientAssertion`, you need to provide a signed JWT. This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md).
+When you use `WithClientAssertion`, provide a signed JWT. This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();

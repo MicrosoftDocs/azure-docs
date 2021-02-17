@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 
 ms.author: baselden
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 
@@ -124,7 +124,7 @@ When you deploy passwordless authentication, you should first enable one or more
 
 Groups can be synced from an on-premises directory, or from Azure AD. Once you're happy with the results of your pilot, you can switch on the passwordless authentication for all users.
 
-See [Best practices for a pilot](https://aka.ms/deploymentplans) on the deployment plans page.
+See [Best practices for a pilot](../fundamentals/active-directory-deployment-plans.md) on the deployment plans page.
 
 ## Plan passwordless authentication with the Microsoft Authenticator app
 
@@ -148,7 +148,7 @@ There are three types of passwordless sign-in deployments available with securit
 -    Azure Active Directory web apps on a supported browser
 -    Azure Active Directory Joined Windows 10 devices
 -    Hybrid Azure Active Directory Joined Windows 10 devices (preview)
-     -    Provides access to both cloud-based and on premises resources. For more information about access to on-premises resources, see [SSO to on-premises resources using FIDOP2 keys](./howto-authentication-passwordless-security-key-on-premises.md)
+     -    Provides access to both cloud-based and on premises resources. For more information about access to on-premises resources, see [SSO to on-premises resources using FIDO2 keys](./howto-authentication-passwordless-security-key-on-premises.md)
 
 You must enable **Compatible FIDO2 security keys**. Microsoft announced [key partnerships with FIDO2 key vendors](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
 

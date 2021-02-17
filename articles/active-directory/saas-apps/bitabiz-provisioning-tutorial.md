@@ -87,7 +87,7 @@ To configure BitaBIZ for automatic user provisioning with Azure AD, you need to 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in BitaBIZ based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for BitaBIZ , following the instructions provided in the [BitaBIZ Single sign-on tutorial](BitaBIZ-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for BitaBIZ, following the instructions provided in the [BitaBIZ Single sign-on tutorial](BitaBIZ-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
 ### To configure automatic user provisioning for BitaBIZ in Azure AD:
 

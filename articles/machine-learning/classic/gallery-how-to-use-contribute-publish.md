@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Azure AI Gallery - Azure'
 description: Share and discover analytics resources and more in the Azure AI Gallery. Learn from others and make your own contributions to the community.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -13,7 +13,7 @@ ms.date: 01/11/2019
 ---
 # Share and discover resources in the Azure AI Gallery
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article applies to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -197,6 +197,6 @@ After you enter a tag, to enter another tag, press the Tab key.
 
 We want the Gallery to be driven by our users and for our users. Use the smiley on the right to tell us what you love or hate about the Gallery.  
 
-![Feedback](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![A feedback window lets you send a smile, send a frown, or enter text. There is a Submit button.](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[TAKE ME TO THE GALLERY >>](https://gallery.azure.ai)**

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 12/04/2020
 ms.author: b-juche
 ---
 # Metrics for Azure NetApp Files
@@ -37,10 +37,8 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 ## <a name="volumes"></a>Usage metrics for volumes
 
-<!-- ANF-5023: fixed version: 2020.08, 2020.09
 - *Percentage Volume Consumed Size*    
     The percentage of the volume consumed, including snapshots.  
--->
 - *Volume Allocated Size*   
     The provisioned size of a volume
 - *Volume Quota Size*    

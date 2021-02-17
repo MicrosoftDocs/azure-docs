@@ -51,7 +51,7 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 1. Install the Azure Active Directory identity library:
 
     ```terminal
-    pip install azure.identity
+    pip install azure-identity
     ```
 
 
@@ -83,7 +83,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS or Linux
@@ -209,5 +209,5 @@ az group delete --resource-group KeyVault-PythonQS-rg
 - [Overview of Azure Key Vault](../general/overview.md)
 - [Secure access to a key vault](../general/secure-your-key-vault.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
-- [Azure Key Vault best practices](../general/best-practices.md)
+- [Key Vault security overview](../general/security-overview.md)
 - [Authenticate with Key Vault](../general/authentication.md)

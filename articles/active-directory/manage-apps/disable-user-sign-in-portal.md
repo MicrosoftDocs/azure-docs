@@ -4,7 +4,7 @@ description: How to disable an enterprise application so that no users may sign 
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -33,7 +33,7 @@ It's easy to disable an enterprise application so no users can sign in to it in 
 
 ## Use Azure AD PowerShell to disable an unlisted app
 
-If you know the AppId of an app that doesn't appear on the Enterprise apps list (for example, because you deleted the app or the service principal hasn't yet been created due to the app being pre-authorized by Microsoft), you can manually create the service principal for the app and then disable it by using [AzureAD PowerShell cmdlet](/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
+If you know the AppId of an app that doesn't appear on the Enterprise apps list (for example, because you deleted the app or the service principal hasn't yet been created due to the app being pre-authorized by Microsoft), you can manually create the service principal for the app and then disable it by using [AzureAD PowerShell cmdlet](/powershell/module/azuread/New-AzureADServicePrincipal).
 
 ```PowerShell
 # The AppId of the app to be disabled

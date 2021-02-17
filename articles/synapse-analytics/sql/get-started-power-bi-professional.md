@@ -1,6 +1,6 @@
 ---
 title: Connect to Synapse SQL with Power BI Professional
-description: In this tutorial, we will go through steps how to connect Power BI desktop to serverless SQL pool (preview).
+description: In this tutorial, we will go through steps how to connect Power BI desktop to serverless SQL pool.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -22,7 +22,7 @@ ms.reviewer: jrasnick
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-In this tutorial, we will go through the steps for connecting Power BI desktop to serverless SQL pool (preview).
+In this tutorial, we will go through the steps for connecting Power BI desktop to serverless SQL pool.
 
 ## Prerequisites
 

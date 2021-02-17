@@ -9,7 +9,7 @@ ms.author: tomfitz
 
 # Microsoft.Common.ServicePrincipalSelector UI element
 
-A control that lets users select an existing [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) or register a new application. When you select **Create New**, you follow the steps to register a new application. When you select an existing application, the control provides a textbox to input a password or certificate thumbprint.
+A control that lets users select an existing [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) or register a new application. When you select **Create New**, you follow the steps to register a new application. When you select an existing application, the control provides a textbox to input a password or certificate thumbprint.
 
 ## UI samples
 

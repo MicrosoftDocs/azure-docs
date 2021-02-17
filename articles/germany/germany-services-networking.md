@@ -61,4 +61,4 @@ Azure VPN Gateway is generally available in Azure Germany. For more information,
 
 ## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
+[Azure Germany blog](/archive/blogs/azuregermany/).

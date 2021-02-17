@@ -31,7 +31,9 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 * [Dasv4-series](dav4-dasv4-series.md)
 * [Ddsv4-series](ddv4-ddsv4-series.md)
 * [Esv3-series](ev3-esv3-series.md)
+* [Esv4-series](ev4-esv4-series.md)
 * [Easv4-series](eav4-easv4-series.md)
+* [Edsv4-series](edv4-edsv4-series.md)
 * [Fsv2-series](fsv2-series.md)
 * [GS-series](sizes-previous-gen.md#gs-series)
 * [HB-series](hb-series.md)
@@ -44,6 +46,8 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 * [NCv3-series](ncv3-series.md)
 * [ND-series](nd-series.md)
 * [NVv3-series](nvv3-series.md)
+* [NVv4-series](nvv4-series.md)
+* [NCasT4_v3-series](nct4-v3-series.md)
 
 <sup>1</sup> Mv2-series does not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](mv2-series.md) for details.
 

@@ -5,7 +5,7 @@ author: ggailey777
 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/15/2020
+ms.date: 01/27/2021
 ms.author: glenga
 ms.reviewer: jehollan
 ---
@@ -24,6 +24,8 @@ Before you can use dependency injection, you must install the following NuGet pa
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) package version 1.0.28 or later
+
+- [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (currently, only version 3.x and earlier supported)
 
 ## Register services
 
@@ -113,8 +115,8 @@ This example uses the [Microsoft.Extensions.Http](https://www.nuget.org/packages
 
 Azure Functions apps provide the same service lifetimes as [ASP.NET Dependency Injection](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). For a Functions app, the different service lifetimes behave as follows:
 
-- **Transient**: Transient services are created upon each request of the service.
-- **Scoped**: The scoped service lifetime matches a function execution lifetime. Scoped services are created once per execution. Later requests for that service during the execution reuse the existing service instance.
+- **Transient**: Transient services are created upon each resolution of the service.
+- **Scoped**: The scoped service lifetime matches a function execution lifetime. Scoped services are created once per function execution. Later requests for that service during the execution reuse the existing service instance.
 - **Singleton**: The singleton service lifetime matches the host lifetime and is reused across function executions on that instance. Singleton lifetime services are recommended for connections and clients, for example `DocumentClient` or `HttpClient` instances.
 
 View or download a [sample of different service lifetimes](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) on GitHub.
@@ -176,6 +178,8 @@ The following example `host.json` file adds the log filter.
     }
 }
 ```
+
+For more information about log levels, see [Configure log levels](configure-monitoring.md#configure-log-levels).
 
 ## Function app provided services
 
@@ -247,6 +251,24 @@ public class HttpTrigger
 ```
 
 Refer to [Options pattern in ASP.NET Core](/aspnet/core/fundamentals/configuration/options) for more details regarding working with options.
+
+## Using ASP.NET Core user secrets
+
+When developing locally, ASP.NET Core provides a [Secret Manager tool](/aspnet/core/security/app-secrets#secret-manager) that allows you to store secret information outside the project root. It makes it less likely that secrets are accidentally committed to source control. Azure Functions Core Tools (version 3.0.3233 or later) automatically reads secrets created by the ASP.NET Core Secret Manager.
+
+To configure a .NET Azure Functions project to use user secrets, run the following command in the project root.
+
+```bash
+dotnet user-secrets init
+```
+
+Then use the `dotnet user-secrets set` command to create or update secrets.
+
+```bash
+dotnet user-secrets set MySecret "my secret value"
+```
+
+To access user secrets values in your function app code, use `IConfiguration` or `IOptions`.
 
 ## Customizing configuration sources
 

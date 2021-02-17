@@ -21,7 +21,7 @@ ms.reviewer: marsma
 
 Single sign-on (SSO) allows users to only enter their credentials once and have those credentials automatically work across applications.
 
-The [Microsoft identity platform](/azure/active-directory/develop/) and the Microsoft Authentication Library (MSAL) help you enable SSO across your own suite of apps. With the broker capability and Authenticator applications, you can extend SSO across the entire device.
+The [Microsoft identity platform](./index.yml) and the Microsoft Authentication Library (MSAL) help you enable SSO across your own suite of apps. With the broker capability and Authenticator applications, you can extend SSO across the entire device.
 
 In this how-to, you'll learn how to configure the SDKs used by your application to provide SSO to your customers.
 
@@ -29,7 +29,7 @@ In this how-to, you'll learn how to configure the SDKs used by your application 
 
 This how-to assumes you know how to:
 
-- Provision your app using the Azure portal. For more information on this topic, see the instructions for creating an app in [the Android tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#create-a-project)
+- Provision your app using the Azure portal. For more information on this topic, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
 - Integrate your application with the [Microsoft Authentication Library for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android).
 
 ## Methods for single sign-on
@@ -115,7 +115,7 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 Once you've generated a signature hash with *keytool*, use the Azure portal to generate the redirect URI:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select your Android app in **App registrations**.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and select your Android app in **App registrations**.
 1. Select **Authentication** > **Add a platform** > **Android**.
 1. In the **Configure your Android app** pane that opens, enter the **Signature hash** that you generated earlier and a **Package name**.
 1. Select the **Configure** button.

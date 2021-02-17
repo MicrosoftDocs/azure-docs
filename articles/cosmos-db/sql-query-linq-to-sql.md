@@ -29,7 +29,7 @@ The query provider supports the following scalar expressions:
     family.children[n].grade; //n is an int variable
   ```
   
-- Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values. For the complete list, see the [Azure Cosmos DB SQL specification](sql-query-system-functions.md).
+- Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values. For the complete list, see the [Azure Cosmos DB SQL specification](sql-query-aggregate-functions.md).
   
   ```
     2 * family.children[0].grade;
@@ -80,7 +80,7 @@ The LINQ provider included with the SQL .NET SDK supports the following operator
 - **Where**: Filters translate to [WHERE](sql-query-where.md), and support translation between `&&`, `||`, and `!` to the SQL operators
 - **SelectMany**: Allows unwinding of arrays to the [JOIN](sql-query-join.md) clause. Use to chain or nest expressions to filter on array elements.
 - **OrderBy** and **OrderByDescending**: Translate to [ORDER BY](sql-query-order-by.md) with ASC or DESC.
-- **Count**, **Sum**, **Min**, **Max**, and **Average** operators for [aggregation](sql-query-aggregates.md), and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
+- **Count**, **Sum**, **Min**, **Max**, and **Average** operators for [aggregation](sql-query-aggregate-functions.md), and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
 - **CompareTo**: Translates to range comparisons. Commonly used for strings, since they're not comparable in .NET.
 - **Skip** and **Take**: Translates to [OFFSET and LIMIT](sql-query-offset-limit.md) for limiting results from a query and doing pagination.
 - **Math functions**: Supports translation from .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, and `Truncate` to the equivalent [built-in mathematical functions](sql-query-mathematical-functions.md).

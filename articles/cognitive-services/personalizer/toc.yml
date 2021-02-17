@@ -94,7 +94,7 @@
     - name: Go
       items:
       - name: SDK
-        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer
+        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview
     - name: Node.js
       items:
       - name: Reference
@@ -118,7 +118,7 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
-    href: personalizer-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md
   - name: Azure Roadmap
     href: https://go.microsoft.com/fwlink/?linkid=2092153
   - name: Pricing

@@ -18,19 +18,22 @@ Isolated virtual machine sizes are best suited for workloads that require a high
 Additionally, as the Isolated size VMs are large, customers may choose to subdivide the resources of these VMs by using [Azure support for nested virtual machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
 The current Isolated virtual machine offerings include:
+* Standard_E80ids_v4
+* Standard_E80is_v4
+* Standard_F72s_v2
 * Standard_E64is_v3
 * Standard_E64i_v3
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
-* Standard_F72s_v2
+
 
 > [!NOTE]
 > Isolated VM Sizes have a hardware limited lifespan. Please see below for details
 
 ## Deprecation of Isolated VM Sizes
 
-As Isolated VM sizes are hardware bound sizes, Azure will provide reminders 12 months in advance of the official deprecation of the sizes.  Azure will also offer an updated isolated size on our next hardware version that the customer could consider moving their workload onto.
+Isolated VM sizes have a hardware limited lifespan. Azure will issue reminders 12 months in advance of the official deprecation date of the sizes and will provide an updated isolated offering for your consideration.
 
 | Size | Isolation Retirement Date | 
 | --- | --- |
@@ -41,7 +44,7 @@ As Isolated VM sizes are hardware bound sizes, Azure will provide reminders 12 m
 
 
 ## FAQ
-### Q: Is the size going to get retired or only "isolation" feature is?
+### Q: Is the size going to get retired or only its "isolation" feature?
 **A**: If the virtual machine size does not have the "i" subscript, then only "isolation" feature will be retired. If isolation is not needed, there is no action to be taken and the VM will continue to work as expected. Examples include Standard_DS15_v2, Standard_D15_v2, Standard_M128ms etc. 
 If the virtual machine size includes "i" subscript, then the size is going to get retired.
 

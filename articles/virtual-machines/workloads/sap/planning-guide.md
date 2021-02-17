@@ -1973,7 +1973,7 @@ The offline backup would basically require a shutdown of the VM through the Azur
 
 A restore of that state would consist of deleting the base VM as well as the original disks of the base VM and mounted disks, copying back the saved disks to the original Storage Account or resource group for managed disks and then redeploying the system.
 This article shows an example how to script this process in PowerShell:
-<http://www.westerndevs.com/azure-snapshots/>
+<https://www.westerndevs.com/_/azure-snapshots/>
 
 Make sure to install a new SAP license since restoring a VM backup as described above creates a new hardware key.
 

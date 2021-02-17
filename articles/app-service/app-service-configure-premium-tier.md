@@ -78,7 +78,7 @@ Some App Service plans can't scale up to the PremiumV3 tier if the underlying Ap
 If your app runs in an App Service deployment where **PremiumV3** isn't available, or if your app runs in a region that currently does not support **PremiumV3**, you need to re-deploy your app to take advantage of **PremiumV3**.  You have two options:
 
 - Create an app in a new resource group and with a new App Service plan. When creating the App Service plan, select a **PremiumV3** tier. This step ensures that the App Service plan is deployed into a deployment unit that supports **PremiumV3**. Then, redeploy your application code into the newly created app. Even if you scale the App Service plan down to a lower tier to save costs, you can always scale back up to **PremiumV3** because the deployment unit supports it.
-- If your app already runs in an existing **Premium** tier, then you can clone your app with all app settings, connection strings, and deployment configuration into a new app service plan that uses **PremiumV3**.
+- If your app already runs in an existing **Premium** tier, then you can clone your app with all app settings, connection strings, and deployment configuration into a new resource group on a new app service plan that uses **PremiumV3**.
 
     ![Screenshot showing how to clone your app.](media/app-service-configure-premium-tier/clone-app.png)
 
@@ -94,7 +94,7 @@ You can automate app creation in the **PremiumV3** tier with scripts, using the 
 
 ### Azure CLI
 
-The following command creates an App Service plan in _P1V2_. You can run it in the Cloud Shell. The options for `--sku` are P1V3, _P2V3_, and _P3V3_.
+The following command creates an App Service plan in _P1V3_. You can run it in the Cloud Shell. The options for `--sku` are P1V3, _P2V3_, and _P3V3_.
 
 ```azurecli-interactive
 az appservice plan create \
@@ -120,4 +120,4 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 ## More resources
 
 [Scale up an app in Azure](manage-scale-up.md)
-[Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md)
+[Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md)

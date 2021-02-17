@@ -8,24 +8,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 01/27/2021
 ---
 
 # Java code samples for Azure Cognitive Search
 
-Learn about the Java code samples that demonstrate the features and functionality of Azure Cognitive Search. The primary repositories are as follows:
+Learn about the Java code samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Azure Cognitive Search client library**](/java/api/overview/azure/search-documents-readme) for the [**Azure SDK for Java**](/azure/developer/java/sdk), which you can explore through the following links.
 
-| Repository | Description |
-|------------|-------------|
-| [azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/samples) | Samples produced by the Azure SDK team that ship with the Azure.Search.Documents client library in the SDK. You can also review [unit tests](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/test) for the client library to see how various APIs are called. |
-| [Azure-Samples/azure-search-java-samples](https://github.com/Azure-Samples/azure-search-java-samples) | Code samples that accompany how-to articles. **Samples in this repository are not yet updated to the use the Azure SDK for Java**. Currently, these samples call REST APIs in Java code.|
+| Target | Link |
+|--------|------|
+| Package download | [search.maven.org/artifact/com.azure/azure-search-documents](https://search.maven.org/artifact/com.azure/azure-search-documents) |
+| API reference | [com.azure.search.documents](/java/api/com.azure.search.documents)  |
+| API test cases | [github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/test](https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/test) |
+| Source code | [github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src](https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src)  |
 
-> [!Tip]
-> Try the [Samples browser](/samples/browse/?languages=csharp&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+## SDK samples
 
-## Java SDK samples
-
-The Azure SDK for Java includes numerous samples and a [getting started page](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/samples) that covers package installation. The page also lists a wide range of examples. Several of the more common operations are listed below for your convenience.
+Code samples from the Azure SDK development team demonstrate API usage. You can find these samples in [**Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/samples**](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/search/azure-search-documents/src/samples) on GitHub.
 
 | Samples | Description |
 |---------|-------------|
@@ -37,11 +36,22 @@ The Azure SDK for Java includes numerous samples and a [getting started page](ht
 | [Load documents](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/IndexContentManagementExample.java) | Demonstrates how to upload or merge documents into an index in a [data import](search-what-is-data-import.md) operation. |
 | [Query syntax](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/SearchAsyncWithFullyTypedDocumentsExample.java) | Demonstrates how to set up a [basic query](search-query-overview.md). |
 
-## Documentation samples
+## Doc samples
 
-The following samples have an associated article in [Azure Cognitive Search documentation](https://docs.microsoft.com/azure/search/).
+Code samples from the Cognitive Search team demonstrate features and workflows. Many of these samples are referenced in tutorials, quickstarts, and how-to articles. You can find these samples in [**Azure-Samples/azure-search-java-samples**](https://github.com/Azure-Samples/azure-search-java-samples) on GitHub.
 
-| Samples | Description | 
+| Samples | Article | 
 |---------|-------------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/quickstart) | Source code for [Quickstart: Create a search index in Java](search-get-started-java.md). This sample calls the REST APIs. |
-| [search-java-indexer-demo](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/search-java-indexer-demo) | Demonstrates an Azure Cosmos DB indexer in Java. This sample calls the REST APIs. |
+| [quickstart](https://github.com/Azure-Samples/azure-search-java-samples/tree/java-rest-api/quickstart) | Source code for [Quickstart: Create a search index in Java and REST](search-get-started-java.md). This sample has not been updated for the Java SDK. It calls the REST APIs. |
+
+> [!Tip]
+> Try the [Samples browser](/samples/browse/?languages=java&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+
+## Other samples
+
+The following samples are also published by the Cognitive Search team, but are not referenced in documentation. Associated readme files provide usage instructions.
+
+| Samples | Description |
+|---------|-------------|
+| [search-java-getting-started](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/search-java-getting-started) | Uses the Java SDK client library to create, load, and query a search index. This sample is currently standalone. |
+| [search-java-indexer-demo](https://github.com/Azure-Samples/azure-search-java-samples/tree/java-rest-api/search-java-indexer-demo) | Demonstrates an Azure Cosmos DB indexer in Java. This sample has not been updated for the Java SDK. It calls the REST APIs.|

@@ -34,11 +34,11 @@ Do the following steps to configure TLS 1.2 on your client.
 
 If you want to set system-wide TLS 1.2 for your environment, follow the guidelines in these documents:
 
-- [General- how to enable TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12)
-- [How to enable TLS 1.2 on clients](https://docs.microsoft.com/configmgr/core/plan-design/security/enable-tls-1-2-client)
-- [How to enable TLS 1.2 on the site servers and remote site systems](https://docs.microsoft.com/configmgr/core/plan-design/security/enable-tls-1-2-server)
-- [Protocols in TLS/SSL (Schannel SSP)](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
-- [Cipher Suites](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12): Specifically [Configuring TLS Cipher Suite Order](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order)
+- [General- how to enable TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12)
+- [How to enable TLS 1.2 on clients](/configmgr/core/plan-design/security/enable-tls-1-2-client)
+- [How to enable TLS 1.2 on the site servers and remote site systems](/configmgr/core/plan-design/security/enable-tls-1-2-server)
+- [Protocols in TLS/SSL (Schannel SSP)](/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
+- [Cipher Suites](/windows-server/security/tls/tls-registry-settings#tls-12): Specifically [Configuring TLS Cipher Suite Order](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order)
     Make sure that you list your current cipher suites and prepend any missing from the following list:
 
     - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -65,7 +65,7 @@ If you want to set system-wide TLS 1.2 for your environment, follow the guidelin
     New-ItemProperty -Path "$HklmSoftwarePath\Policies\Microsoft\Cryptography\Configuration\SSL\00010002" -Name "EccCurves" -PropertyType MultiString -Value @("NistP256", "NistP384")
     ```
     
-    - [Set min RSA key exchange size to 2048](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#keyexchangealgorithm---client-rsa-key-sizes).
+    - [Set min RSA key exchange size to 2048](/windows-server/security/tls/tls-registry-settings#keyexchangealgorithm---client-rsa-key-sizes).
 
 
 

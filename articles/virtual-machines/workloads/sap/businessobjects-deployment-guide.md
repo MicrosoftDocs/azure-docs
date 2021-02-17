@@ -263,4 +263,4 @@ For Database-as-a-Service offering, any newly created database (Azure SQL Databa
 - [SAP BusinessObjects BI Platform Deployment on Linux](businessobjects-deployment-guide-linux.md)
 - [Azure Virtual Machines planning and implementation for SAP](planning-guide.md)
 - [Azure Virtual Machines deployment for SAP](deployment-guide.md)
-- [Azure Virtual Machines DBMS deployment for SAP](dbms-guide.md)
+- [Azure Virtual Machines DBMS deployment for SAP](./dbms_guide_general.md)
