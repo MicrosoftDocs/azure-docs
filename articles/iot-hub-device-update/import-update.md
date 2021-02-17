@@ -121,42 +121,42 @@ Example:
 
 ## Import update
 
-1. Log into Azure portal using [this link](https://portal.azure.com) and navigate to your IoT Hub with Device Update.
+1. Log in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub with Device Update.
 
 2. On the left-hand side of the page, select "Device Updates" under "Automatic Device Management".
 
-   ![Import Updates](media/import-update/import-updates-3.png)
+    :::image type="content" source="media/import-update/import-updates-3.png" alt-text="Import Updates" lightbox="media/import-update/import-updates-3.png":::
 
 3. You will see several tabs across the top of the screen. Select the Updates tab.
 
-   ![Updates](media/import-update/updates-tab.png)
+:::image type="content" source="media/import-update/updates-tab.png" alt-text="Updates" lightbox="media/import-update/updates-tab.png":::
 
 4. Select "+ Import New Update" below the "Ready to Deploy" header.
 
-   ![Import New Update](media/import-update/import-new-update-2.png)
+:::image type="content" source="media/import-update/import-new-update-2.png" alt-text="Import New Update" lightbox="media/import-update/import-new-update-2.png":::
 
 5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created previously using the PowerShell cmdlet. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select your update file(s).
 
-   ![Select Update Files](media/import-update/select-update-files.png)
+:::image type="content" source="media/import-update/select-update-files.png" alt-text="Select Update Files" lightbox="media/import-update/select-update-files.png":::
 
 6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account. The storage container is used to stage the update files temporarily.
 
-   ![Storage Account](media/import-update/storage-account.png)
+:::image type="content" source="media/import-update/storage-account.png" alt-text="Storage Account" lightbox="media/import-update/storage-account.png":::
 
 7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
 
-   ![Select Container](media/import-update/container.png)
+:::image type="content" source="media/import-update/container.png" alt-text="Select Container" lightbox="media/import-update/container.png":::
 
 8. Select "Submit" to start the import process.
 
-   ![Publish Update](media/import-update/publish-update.png)
+:::image type="content" source="media/import-update/publish-update.png" alt-text="Publish Update" lightbox="media/import-update/publish-update.png":::
 
 9. The import process begins, and the screen switches to to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
 
-   ![Update Import Sequencing](media/import-update/update-publishing-sequence-2.png)
+:::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Update Import Sequencing" lightbox="media/import-update/update-publishing-sequence-2.png":::
 
 10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
 
-    ![Job Status](media/import-update/update-ready.png)
+:::image type="content" source="media/import-update/update-ready.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
 
 [Next Step: Create Groups](create-update-group.md)
