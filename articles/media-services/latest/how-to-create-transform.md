@@ -50,4 +50,4 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 ## Next steps
 
-[More about transforms and jobs](transforms-jobs-concept.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

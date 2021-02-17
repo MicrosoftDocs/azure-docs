@@ -327,6 +327,8 @@
       href: how-to-create-transform.md
     - name: Create a basic audio transform with REST
       href: how-to-create-basic-audio-transform.md
+    - name: Create thumbnail sprites
+      href: how-to-create-thumbnail-sprites.md 
     - name: Create a copyAllBitrateNonInterleaved transform with REST
       href: how-to-create-copyallbitratenoninterleaved-transform.md
     - name: Copy videos without encoding with REST
