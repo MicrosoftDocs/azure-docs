@@ -18,9 +18,9 @@ ms.date: 03/02/2021
 
 This article describes the semantic ranking algorithm and how a semantic response is shaped. You can specify semantic answers or captions in the query request to lift the most relevant answer or caption from each matching document.
 
-<!-- ## Semantic ranking
+## Prerequisites
 
-TBD -->
++ Queries formulated using the semantic query type. For more information, see [How to create a semantic query](semantic-how-to-query-request.md).
 
 ## Understanding a semantic response
 

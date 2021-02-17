@@ -21,6 +21,10 @@ During public preview, there is no charge for semantic search. However, as featu
 
 ## Prerequisites
 
++ A search service at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe
+
++ Access to semantic search preview: [sign up](https://aka.ms/TBD)
+
 + An existing search index, containing English content
 
 + A search client for sending queries
@@ -45,33 +49,43 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
 }
 ```
 
-The full specification of the REST API can be found at [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents). Internally, a semantic query is compatible with the simple query type. The operands and grouping used for **`queryType=simple`** will resolve for **`queryType=semantic`** but in general, free form text with no syntax will produce better results. The query syntax for full Lucence is not compatible.
+As with all queries in Cognitive Search, the request targets the documents collection of a single index. Furthermore, a semantic query undergoes the same sequence of parsing, analysis, and scanning as a non-semantic query. The difference lies in how relevance is computed. As defined in this preview release, a semantic query is one whose *results* are re-processed using advanced algorithms, providing a way to surface the matches deemed most relevant by the semantic ranker, rather than the scores assigned by the default similarity ranking algorithm. 
 
-All of the parameters in the request above are required for a semantic query.
+In this preview, only the top 50 matches from the initial results can be semantically ranked, and all results will include captions automatically. Optionally, you can specify an **`answer`** parameter on the request to invoke a language representation model. This model formulates up to 3 potential answers to the query, and bubbles them up to the top of the results.
+
+## Query using REST APIs
+
+The full specification of the REST API can be found at [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents).
+
+Semantic queries are intended for natural language queries, questions like "what is the best plant for pollinators" or "how to fry an egg". If you want the response to include answers, you can add an  optional **`answer`** parameter on the request.
+
+The following semantic query example uses the hotels-sample-index and an **`answer`** parameter:
+
+```http
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview      
+{    
+    "search": "newer hotel with a nice restaurant and spa",
+    "queryType": "semantic",
+    "queryLanguage": "english",
+    "searchFields": "Category,Description",
+    "answers": "extractive",
+    "select": "HotelId,HotelName,Description,Category,Tags",
+    "count": true
+}
+```
+
+The following table summarizes the query parameters used in a semantic query. For a comprehensive list of all parameters, see [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents)
 
 | Parameter | Description |
 |----------|-------------|
-| **`queryType=semantic`** | Required for semantic queries. Invokes the semantic ranking algorithm. |
+| **`queryType=semantic`** | Required for semantic queries. Invokes the semantic ranking algorithms and models. |
 | **`queryLanguage=en-us`** | Required for semantic queries. Currently, only `"en-us"` is implemented. |
-| **`searchFields=<fields>`** | Required for semantic queries. Specifies the fields over which semantic ranking occurs. In contrast with simple and full query types, when used in a semantic query, this parameter is required. </br></br>The order in which fields are listed determines precedence, with "title" having priority over "url" and so forth, in how results are ranked. If you have a title or a short field that describes your document, we recommend that to be your first field. Follow that by the url (if any), then the body of the document, and then any other relevant fields. |
+| **`searchFields=<fields>`** | Optional but recommended. Specifies the fields over which semantic ranking occurs. In contrast with simple and full query types, when used in a semantic query, this parameter is required. </br></br>The order in which fields are listed determines precedence, with "title" having priority over "url" and so forth, in how results are ranked. If you have a title or a short field that describes your document, we recommend that to be your first field. Follow that by the url (if any), then the body of the document, and then any other relevant fields. |
+| **`answers=extracted`** | Optional. Returns three possible answers to the query, derived from content in the document. |
 
-## Using semantic search with other features
+## Query with Search explorer
 
-The following table lists other query features and provides usage recommendations.
-
-| Feature | Recommendation |
-|---------|----------------|
-| [filter expressions](search-query-odata-filter.md) | Compatible |
-| [spell check](speller-how-to-add.md) | Compatible |
-| [Orderby expressions](search-query-odata-orderby.md) | Avoid. Explicit rankings will override semantic ranking |
-| Autocomplete | Avoid|
-| Suggestions | Avoid |
-| [Scoring profiles](index-add-scoring-profiles.md) | Compatible. Recall that semantic ranking and responses are built over an initial result set. Any logic that improves the quality of the initial results will carry over to semantic search. |
-| top, skip parameters | The default result set is 50 matches. You can experiment with a larger result set, up to 1000 matches, to see if semantic ranking performs better over a larger base. |
-
-## Example queries
-
-The following query targets the built-in Hotels sample index, using API version 2020-06-30-Preview, and will run in Search explorer. The `$select` clause limits the results to just a few fields, making it easier to scan in Search explorer.
+The following query targets the built-in Hotels sample index, using API version 2020-06-30-Preview, and runs in Search explorer. The `$select` clause limits the results to just a few fields, making it easier to scan in the verbose JSON in Search explorer.
 
 ### With queryType=semantic
 
@@ -162,9 +176,10 @@ For comparison, run the same query as above, removing `&queryType=semantic&query
 
 ## Next steps
 
+Recall that semantic ranking and responses are built over an initial result set. Any logic that improves the quality of the initial results will carry forward to semantic search. As a next step, review the features that contribute to initial results, including analyzers that affect how strings are tokenized, scoring profiles that can tune results, and the default relevance algorithm.
+
++ [Analyzers for text processing](search-analyzers.md)
++ [Similarity and scoring in Cognitive Search](index-similarity-and-scoring.md)
++ [Add scoring profiles](index-add-scoring-profiles.md)
 + [Semantic search overview](semantic-search-overview.md)
 + [Add spell check to query inputs](speller-how-to-add.md)
-+ [Structure a semantic response](semantic-how-to-query-response.md)
-+ [Create a basic query](search-query-create.md)
-+ [Use full Lucene query syntax](query-Lucene-syntax.md)
-+ [Use simple query syntax](query-simple-syntax.md)

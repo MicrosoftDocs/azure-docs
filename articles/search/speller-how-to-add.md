@@ -15,7 +15,7 @@ ms.date: 03/02/2021
 > [!IMPORTANT]
 > Spell correction is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can improve recall by spell-correcting individual search query terms before they are parsed. The speller is supported for all query types: [simple](query-simple-syntax.md), [full](query-lucene-syntax.md), and the new semantic option currently in public preview.
+You can improve recall by spell-correcting individual search query terms before they are parsed. The speller is supported for all query types: [simple](query-simple-syntax.md), [full](query-lucene-syntax.md), and the new [semantic](semantic-how-to-query-request.md) option currently in public preview.
 
 ## Prerequisites
 
@@ -26,6 +26,9 @@ You can improve recall by spell-correcting individual search query terms before 
   The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs.
 
 + [A query request](/rest/api/searchservice/preview-api/search-documents) that uses spell correction must have the following three parameters: `api-version=2020-06-30-Preview`, `speller=lexicon` `queryLanguage=en-us`
+
+> [!Note]
+> The `speller` parameter is available on all tiers, in all regions that provide Azure Cognitive Search.
 
 ## Spell correction with simple search
 
