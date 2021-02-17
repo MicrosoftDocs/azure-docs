@@ -70,12 +70,11 @@ ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
 
 ## Start a chat thread
 
-Use the `createChatThread` method to create a chat thread.
+Use the `createChatThread` method on the chatClient to create a chat thread
 - Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateTopic` function.
 - Use `participants` property to pass a  list of `ChatParticipant` objects to be added to the chat thread. The `ChatParticipant` object is initialized with a `CommunicationIdentifier` object. `CommunicationIdentifier` could be of type `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier`. For example, to get a `CommunicationIdentifier` object, you will need to pass an Access ID which you created by following instruction to [Create a user](../../access-tokens.md#create-an-identity)
 
-The response `chatThreadClient` is used to perform operations on the created chat thread: adding participants to the chat thread, sending a message, deleting a message, etc.
-It contains the `Id` attribute which is the unique ID of the chat thread. 
+The response object from the createChatThread method contains the chatThread details. To interact with the chat thread operations such as adding participants, sending a message, deleting a message, etc., a chatThreadClient client instance needs to instantiated using the GetChatThreadClient method on the ChatClient client. 
 
 ```csharp
 var chatParticipant = new ChatParticipant(communicationIdentifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
@@ -139,11 +138,11 @@ await foreach (ChatMessage message in allMessages)
 
 - `Html`:  A formatted text message. Note that Communication Services users currently can't send RichText messages. This message type is supported by messages sent from Teams users to Communication Services users in Teams Interop scenarios.
 
-- `TopicUpdated`: System message that indicates the topic has been updated.
+- `TopicUpdated`: System message that indicates the topic has been updated. (readonly)
 
-- `AddMember`: System message that indicates one or more members have been added to the chat thread.
+- `ParticipantAdded`: System message that indicates one or more participants have been added to the chat thread.(readonly)
 
-- `DeleteMember`: System message that indicates a member has been removed from the chat thread.
+- `ParticipantRemoved`: System message that indicates a participant has been removed from the chat thread.
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
@@ -166,9 +165,9 @@ string id = "id-of-message-to-delete";
 await chatThreadClient.DeleteMessageAsync(id);
 ```
 
-## Add a user as member to the chat thread
+## Add a user as a participant to the chat thread
 
-Once a thread is created, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the thread, and add/remove other members. Before calling `AddParticipants`, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
+Once a thread is created, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the thread, and add/remove other participant. Before calling `AddParticipants`, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
 
 Use `AddParticipants` to add one or more participants to the chat thread. The following are the supported attributes for each thread participant(s):
 - `communicationUser`, required, is the identity of the thread participant.
@@ -191,7 +190,7 @@ await chatThreadClient.AddParticipantsAsync(participants);
 ```
 ## Remove user from a chat thread
 
-Similar to adding a user to a thread, you can remove users from a chat thread. To do that, you need to track the identity `CommunicationUser` of the members you have added.
+Similar to adding a user to a thread, you can remove users from a chat thread. To do that, you need to track the identity `CommunicationUser` of the participant you have added.
 
 ```csharp
 var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
