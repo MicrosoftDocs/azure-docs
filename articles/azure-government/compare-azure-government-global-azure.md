@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 02/03/2021
+ms.date: 02/17/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -272,6 +272,11 @@ You need to open some **outgoing ports** in your server's firewall to allow the 
 |Purpose|URL|IP address|Ports|
 |-------|---|----------|-----|
 |Telemetry|dc.applicationinsights.us|23.97.4.113|443|
+
+### [Azure Lighthouse](../lighthouse.md)
+
+The following Azure Lighthouse **features are not currently available** in Azure Government:
+- Managed Service offers published to Azure Marketplace
 
 ### [Azure Monitor](../azure-monitor/logs/data-platform-logs.md)
 
