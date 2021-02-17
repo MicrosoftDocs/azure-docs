@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 02/17/2021
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -63,6 +63,10 @@ For example, in the import scenario, if you had the source data in Canada that y
 2. Once the on-prem data copy to the Data Box is done, return the device to the Azure datacenter in Canada. The data present on the Data Box then gets uploaded to the destination storage account in the Canada Azure region chosen during order creation.
 
 3. You can then use a tool like AzCopy to copy the data to a storage account in West US. This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box billing.
+
+### Q. Will I be able to recover my data if an entire region fails?
+
+A. In extreme circumstances where a region is lost due to a significant disaster, Microsoft may initiate a regional failover. In this case, no action on your part is required. Your order will be fulfilled through the failover region if it is within the same country or commerce boundary. However, some Azure regions do not have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region. For more information, see [Business continuity and disaster recovery (BCR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
 ### Q. Who should I contact if I come across any issues with Data Box?
 A. If you come across any issues with Data Box, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).

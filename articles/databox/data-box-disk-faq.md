@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 02/17/2021
 ms.author: alkohli
 ---
 
@@ -50,27 +50,28 @@ A. For 5 disks each of 8 TB (7 TB usable capacity), the maximum usable capacity 
 A.  To see where the Data Box Disks are currently available, go to the [Region availability](data-box-disk-overview.md#region-availability).  
 
 ### Q. Which regions can I store data in with Data Box Disks?
-A. Data Box Disk is supported for all regions within US, Canada, Australia, West Europe and North Europe, Korea and Japan. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
-
-### Q. Which regions can I store data in with Data Box Disks?
-A. Data Box Disk is supported for all regions within US, Canada, Australia, West Europe and North Europe, Korea and Japan. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
+A. Data Box Disk is supported for all regions within US, Canada, Australia, West Europe and North Europe, Korea, and Japan. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
 ### Q. How can I import source data present at my location in one country/region to an Azure region in a different country?
 A. Data Box Disk supports data ingestion only within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where Data Box Disks can ship to and from any EU country/region.
 
 For example, if you wanted to move data at your location in Canada to an Azure West US storage account, then you could achieve it in the following way:
 
-### Option 1: 
+#### Option 1: 
 
 Ship a [supported disk](../import-export/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) containing data using the [Azure Import/Export service](../import-export/storage-import-export-service.md) from the source location in Canada to the Azure West US datacenter.
 
-### Option 2:
+#### Option 2:
 
 1. Order Data Box Disk in Canada by choosing a storage account say in Canada Central. The SSD disk(s) are shipped from the Azure datacenter in Canada Central to the shipping address (in Canada) provided during order creation.
 
 2. After the data from your on-premises server is copied to the disks, return them to the Azure datacenter in Canada using Microsoft provided return labels. The data present on the Data Box Disk(s) then get uploaded to the destination storage account in the Canada Azure region chosen during order creation.
 
 3. You can then use a tool like AzCopy to copy the data to a storage account in West US. This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box Disk billing.
+
+### Q. Will I be able to recover my data if an entire region fails?
+
+A. In extreme circumstances where a region is lost due to a significant disaster, Microsoft may initiate a regional failover. In this case, no action on your part is required. Your order will be fulfilled through the failover region if it is within the same country or commerce boundary. However, some Azure regions do not have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region. For more information, see [Business continuity and disaster recovery (BCR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
 A. If you encounter any issues with Data Box Disks, [contact Microsoft Support](./data-box-disk-contact-microsoft-support.md).
