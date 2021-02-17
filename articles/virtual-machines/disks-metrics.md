@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 # Disk performance metrics
-Azure offers metrics in the Azure portal that provide insight on how your virtual machines (VM) and disks are performing. The metrics can also be retrieved through an API call. This article is broken into 3 subsections:
+Azure offers metrics in the Azure portal that provide insight on how your virtual machines (VM) and disks perform. The metrics can also be retrieved through an API call. This article is broken into 3 subsections:
 
 - **Disk IO, throughput and queue depth metrics** - These metrics allow you to see the storage performance from the perspective of a disk and a virtual machine.
 - **Disk bursting metrics** - These are the metrics provide observability into our [bursting](disk-bursting.md) feature on our premium disks.
