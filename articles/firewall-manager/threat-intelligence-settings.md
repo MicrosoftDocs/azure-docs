@@ -17,29 +17,29 @@ If you've configured threat intelligence-based filtering, the associated rules a
 
 :::image type="content" source="media/threat-intelligence-settings/threat-intelligence-policy.png" alt-text="Threat intelligence policy":::
 
-## Threat intelligence Mode
-Threat intelligence can be configured in the following modes. By default, threat intelligence-based filtering is enabled in alert mode.
+## Threat intelligence mode
 
-Mode |Description  |
+You can configure threat intelligence in one of the three modes that are described in the following table. By default, threat intelligence-based filtering is enabled in alert mode.
+
+|Mode |Description  |
 |---------|---------|
-|`Off`     | The Threat Intelligence feature is not enabled for your firewall |
-|`Alert only`     | You will receive high confidence alerts for traffic going through your firewall to or from known malicious IP addresses and domains |
-|`Alert and deny`     | Traffic is blocked and you will receive high confidence alerts when traffic is detected attempting to go through your firewall to or from known malicious IP addresses and domains. |
+|`Off`     | The threat intelligence feature is not enabled for your firewall. |
+|`Alert only`     | You will receive high-confidence alerts for traffic going through your firewall to or from known malicious IP addresses and domains. |
+|`Alert and deny`     | Traffic is blocked and you will receive high-confidence alerts when traffic is detected attempting to go through your firewall to or from known malicious IP addresses and domains. |
 
 > [!NOTE]
-> Threat intelligence mode is inherited from parent policies to child policies. A child policy must be configured with the same or stricter mode than the parent policy.
+> Threat intelligence mode is inherited from parent policies to child policies. A child policy must be configured with the same or a stricter mode than the parent policy.
 
+## Allowlist addresses
 
-## Allowed list addresses
+Threat intelligence might trigger false positives and block traffic that actually is valid. You can configure a list of allowed IP addresses so that threat intelligence won't filter any of the addresses, ranges, or subnets that you specify.  
 
-Threat intelligence may trigger false positives and block traffic that actually is valid. You can configure a list of allowed IP addresses so that threat intelligence won't filter any of the addresses, ranges, or subnets that you specify.  
+![Allowlist addresses](media/threat-intelligence-settings/allow-list.png)
 
-   ![Allow list addresses](media/threat-intelligence-settings/allow-list.png)
-
-The allow list can be updated with multiple entries at the same time by uploading a CSV file. The CSV can only contain IP Addresses and ranges, no headings are allowed.
+You can update the allowlist with multiple entries at once by uploading a CSV file. The CSV file can only contain IP addresses and ranges. The file can't contain headings.
 
 > [!NOTE]
-> Threat intelligence allow list addresses are inherited from parent policies to child policies. Any IP address or range added to a parent policy will apply for all child policies as well.
+> Threat intelligence allowlist addresses are inherited from parent policies to child policies. Any IP address or range added to a parent policy will apply for all child policies as well.
 
 ## Logs
 
