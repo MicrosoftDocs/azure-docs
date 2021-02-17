@@ -5,7 +5,7 @@ author: philmea
 ms.author: philmea
 ms.date: 1/11/2021
 ms.topic: troubleshooting
-ms.service: iot-hub
+ms.service: iot-hub-device-update
 ---
 
 # Device Update for IoT Hub Troubleshooting Guide

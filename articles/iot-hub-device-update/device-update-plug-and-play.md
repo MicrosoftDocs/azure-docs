@@ -5,7 +5,7 @@ author: ValOlson
 ms.author: valls
 ms.date: 2/14/2021
 ms.topic: conceptual
-ms.service: iot-hub
+ms.service: iot-hub-device-update
 ---
 
 # Device Update for IoT Hub and IoT Plug and Play
