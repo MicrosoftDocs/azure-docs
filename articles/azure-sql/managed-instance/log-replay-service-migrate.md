@@ -9,7 +9,7 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: sstein
-ms.date: 02/09/2021
+ms.date: 02/17/2021
 ---
 
 # Migrate databases from SQL Server to SQL Managed Instance using Log Replay Service
@@ -104,7 +104,7 @@ Once a blob container has been created, generate SAS authentication token with R
 6. Select the token expiry timeframe. Ensure the token is valid for duration of your migration.
 7. Ensure Read and List only permissions are selected
 8. Click create
-9. Copy-paste the token starting with "?sv=" in the URI
+9. Copy-paste the token starting with "sv=" in the URI
 
 > [!IMPORTANT]
 > Permissions for the SAS token for Azure Blob storage need to be Read and List only. In case of any other permissions granted for the SAS authentication token, starting LRS service will fail. These security requirements are by design.
