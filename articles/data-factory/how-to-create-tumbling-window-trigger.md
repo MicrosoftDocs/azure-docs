@@ -1,14 +1,10 @@
 ---
 title: Create tumbling window triggers in Azure Data Factory 
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a tumbling window.
-services: data-factory
-documentationcenter: ''
 author: chez-charlie
 ms.author: chez
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2020
 ---
@@ -32,7 +28,7 @@ Tumbling window triggers are a type of trigger that fires at a periodic time int
 
 A tumbling window has the following trigger type properties:
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {
@@ -42,29 +38,29 @@ A tumbling window has the following trigger type properties:
             "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": "<<datetime>>",
-            "endTime: <<datetime – optional>>,
+            "endTime": <<datetime – optional>>,
             "delay": <<timespan – optional>>,
             "maxConcurrency": <<int>> (required, max allowed: 50),
             "retryPolicy": {
                 "count": <<int - optional, default: 0>>,
                 "intervalInSeconds": <<int>>,
             },
-			"dependsOn": [
-				{
-					"type": "TumblingWindowTriggerDependencyReference",
-					"size": <<timespan – optional>>,
-					"offset": <<timespan – optional>>,
-					"referenceTrigger": {
-						"referenceName": "MyTumblingWindowDependency1",
-						"type": "TriggerReference"
-					}
-				},
-				{
-					"type": "SelfDependencyTumblingWindowTriggerReference",
-					"size": <<timespan – optional>>,
-					"offset": <<timespan>>
-				}
-			]
+            "dependsOn": [
+                {
+                    "type": "TumblingWindowTriggerDependencyReference",
+                    "size": <<timespan – optional>>,
+                    "offset": <<timespan – optional>>,
+                    "referenceTrigger": {
+                        "referenceName": "MyTumblingWindowDependency1",
+                        "type": "TriggerReference"
+                    }
+                },
+                {
+                    "type": "SelfDependencyTumblingWindowTriggerReference",
+                    "size": <<timespan – optional>>,
+                    "offset": <<timespan>>
+                }
+            ]
         },
         "pipeline": {
             "pipelineReference": {
@@ -112,7 +108,7 @@ The following table provides a high-level overview of the major JSON elements th
 
 You can use the **WindowStart** and **WindowEnd** system variables of the tumbling window trigger in your **pipeline** definition (that is, for part of a query). Pass the system variables as parameters to your pipeline in the **trigger** definition. The following example shows you how to pass these variables as parameters:
 
-```
+```json
 {
     "name": "MyTriggerName",
     "properties": {

@@ -95,11 +95,11 @@ landingContent:
           - text: Confidential Container Samples (unmodified containers on SGX)
             url: https://github.com/Azure-Samples/confidential-container-samples
           - text: Enclave Aware Container Samples
-            url: https://github.com/Azure-Samples/enclave-aware-container-samples
+            url: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/confidential-computing/enclave-aware-containers.md
       - linkListType: reference
         links:
           - text: Confidential nodes on AKS FAQ 
-            url: confidential-nodes-aks-overview.md
+            url: confidential-nodes-aks-faq.md
           - text: About Azure Kubernetes Service (AKS) 
             url: ../aks/intro-kubernetes.md
 
@@ -124,7 +124,7 @@ landingContent:
           - text: Confidential Healthcare Demo on AKS
             url: https://github.com/Azure-Samples/confidential-container-samples
           - text: Attested Mutual TLS with Open Enclave on AKS
-            url: https://github.com/Azure-Samples/enclave-aware-container-samples
+            url: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/confidential-computing/enclave-aware-containers.md
       - linkListType: reference
         links:
           - text: Open Enclave (OE) SDK

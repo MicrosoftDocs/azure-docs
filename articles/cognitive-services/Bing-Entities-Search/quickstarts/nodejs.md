@@ -83,7 +83,7 @@ Although this application is written in JavaScript, the API is a RESTful Web ser
     let json = JSON.stringify(JSON.parse(body), null, '  ');
     console.log (json);
     });
-        ```
+    ```
 
 ## Send a request
 

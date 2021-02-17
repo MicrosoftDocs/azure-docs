@@ -1,11 +1,12 @@
 ---
 title: Customize assessments for Azure Migrate Server Assessment | Microsoft Docs
 description: Describes how to customize assessments created with Azure Migrate Server Assessment
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 07/15/2019
-ms.author: raynew
+
 ---
 
 # Customize an assessment

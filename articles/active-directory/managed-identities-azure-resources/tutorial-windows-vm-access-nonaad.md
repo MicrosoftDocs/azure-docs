@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 #Customer intent: As a developer or administrator I want to configure a windows virtual machine to retrieve a secret from key vault using a managed identity and have a simple way to validate my configuration before using it for development
@@ -58,6 +58,20 @@ First, we need to create a Key Vault and grant our VM’s system-assigned manage
 1. Select **Review+ create**
 1. Select **Create**
 
+### Create a secret
+
+Next, add a secret to the Key Vault, so you can retrieve it later using code running in your VM. For the purpose of this tutorial, we are using PowerShell but the same concepts apply to any code executing in this virtual machine.
+
+1. Navigate to your newly created Key Vault.
+1. Select **Secrets**, and click **Add**.
+1. Select **Generate/Import**
+1. In the **Create a secret** screen from **Upload options** leave **Manual** selected.
+1. Enter a name and value for the secret.  The value can be anything you want. 
+1. Leave the activation date and expiration date clear, and leave **Enabled** as **Yes**. 
+1. Click **Create** to create the secret.
+
+   ![Create a secret](./media/msi-tutorial-windows-vm-access-nonaad/create-secret.png)
+
 ## Grant access
 
 The managed identity used by the virtual machine needs to be granted access to read the secret that we will store in the Key Vault.
@@ -73,19 +87,6 @@ The managed identity used by the virtual machine needs to be granted access to r
 1. Select **Add**
 1. Select **Save**.
 
-## Create a secret
-
-Next, add a secret to the Key Vault, so you can retrieve it later using code running in your VM. For the purpose of this tutorial, we are using PowerShell but the same concepts apply to any code executing in this virtual machine.
-
-1. Navigate to your newly created Key Vault.
-1. Select **Secrets**, and click **Add**.
-1. Select **Generate/Import**
-1. In the **Create a secret** screen from **Upload options** leave **Manual** selected.
-1. Enter a name and value for the secret.  The value can be anything you want. 
-1. Leave the activation date and expiration date clear, and leave **Enabled** as **Yes**. 
-1. Click **Create** to create the secret.
-
-   ![Create a secret](./media/msi-tutorial-windows-vm-access-nonaad/create-secret.png)
 
 ## Access data  
 

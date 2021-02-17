@@ -3,7 +3,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 01/20/2021
 ms.author: aahi
 ---
 
@@ -11,7 +11,7 @@ ms.author: aahi
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-[v3.1 Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics) | [v3.1 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[v3.1 Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics) | [v3.1 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 # [Version 3.0](#tab/version-3)
 
@@ -30,6 +30,7 @@ ms.author: aahi
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* To use the Analyze feature, you will need a Text Analytics resource with the standard (S) pricing tier.
 
 ## Setting up
 
@@ -54,6 +55,7 @@ pip install --upgrade azure-ai-textanalytics
 
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py), which contains the code examples in this quickstart. 
+
 
 # [Version 2.1](#tab/version-2)
 
@@ -165,6 +167,7 @@ client = authenticate_client()
 Create a function to instantiate the `TextAnalyticsClient` object with your `key` AND `endpoint` created above. Then create a new client. Note that `api_version=TextAnalyticsApiVersion.V3_0` should be defined for using version 3.0.
 
 ```python
+# use this code if you're using SDK version is 5.0.0
 from azure.ai.textanalytics import TextAnalyticsClient
 from azure.core.credentials import AzureKeyCredential
 
@@ -172,10 +175,27 @@ def authenticate_client():
     ta_credential = AzureKeyCredential(key)
     text_analytics_client = TextAnalyticsClient(
             endpoint=endpoint, 
-            credential=ta_credential, 
-            api_version=TextAnalyticsApiVersion.V3_0)
+            credential=ta_credential) 
     return text_analytics_client
 
+client = authenticate_client()
+```
+
+If you installed v5.1.0 of the client library using `pip install azure-ai-textanalytics --pre`, you can specify v3.0 of the Text Analytics API with the client's `api_version` parameter. Only use the following `authenticate_client()` method if your client is v5.1.0 or later.
+
+```python
+# Only use the following code sample if you're using v5.1.0 of the client library, 
+# and are looking to specify v3.0 of the Text Analytics API for your client
+from azure.ai.textanalytics import TextAnalyticsClient, TextAnalyticsApiVersion
+from azure.core.credentials import AzureKeyCredential
+def authenticate_client():
+   ta_credential = AzureKeyCredential(key)
+   text_analytics_client = TextAnalyticsClient(
+     endpoint=endpoint,
+     credential=ta_credential,
+     api_version=TextAnalyticsApiVersion.V3_0
+   )
+   
 client = authenticate_client()
 ```
 
@@ -911,5 +931,76 @@ Document ID: 4
          Key phrases:
                 fútbol
 ```
+
+---
+
+## Use the API asynchronously with the Analyze operation
+
+# [Version 3.1 preview](#tab/version-3-1)
+
+[!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
+
+Create a new function called `analyze_example()` that takes the client as an argument, then calls the `begin_analyze()` function. The result will be a long running operation which will be polled for results.
+
+```python
+    def analyze_example(client):
+        documents = [
+            "Microsoft was founded by Bill Gates and Paul Allen."
+        ]
+
+        poller = text_analytics_client.begin_analyze(
+            documents,
+            display_name="Sample Text Analysis",
+            entities_recognition_tasks=[EntitiesRecognitionTask()]
+        )
+
+        result = poller.result()
+
+        for page in result:
+            for task in page.entities_recognition_results:
+                print("Results of Entities Recognition task:")
+                
+                docs = [doc for doc in task.results if not doc.is_error]
+                for idx, doc in enumerate(docs):
+                    print("\nDocument text: {}".format(documents[idx]))
+                    for entity in doc.entities:
+                        print("Entity: {}".format(entity.text))
+                        print("...Category: {}".format(entity.category))
+                        print("...Confidence Score: {}".format(entity.confidence_score))
+                        print("...Offset: {}".format(entity.offset))
+                    print("------------------------------------------")
+
+analyze_example(client)
+```
+
+### Output
+
+```console
+Results of Entities Recognition task:
+Document text: Microsoft was founded by Bill Gates and Paul Allen.
+Entity: Microsoft
+...Category: Organization
+...Confidence Score: 0.83
+...Offset: 0
+Entity: Bill Gates
+...Category: Person
+...Confidence Score: 0.85
+...Offset: 25
+Entity: Paul Allen
+...Category: Person
+...Confidence Score: 0.9
+...Offset: 40
+------------------------------------------
+```
+
+You can also use the Analyze operation to detect PII and key phrase extraction. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples) on GitHub.
+
+# [Version 3.0](#tab/version-3)
+
+This feature is not available in version 3.0.
+
+# [Version 2.1](#tab/version-2)
+
+This feature is not available in version 2.1.
 
 ---

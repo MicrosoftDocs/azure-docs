@@ -205,7 +205,7 @@ Providing a value for a header either adds or modifies the header. Providing an 
 }
 ```
 
-In the above example, a new `content-security-policy` header is added, the `cache-control` modifies the server default value, and the `x-dns-prefectch-control` header is removed.
+In the above example, a new `content-security-policy` header is added, the `cache-control` modifies the server default value, and the `x-dns-prefetch-control` header is removed.
 
 The following considerations are important as you work with headers:
 

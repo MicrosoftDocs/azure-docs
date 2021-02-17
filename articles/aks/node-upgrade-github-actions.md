@@ -155,7 +155,7 @@ To create the steps to execute Azure CLI commands.
           - name: Upgrade node images
             uses: Azure/cli@v1.0.0
             with:
-              inlineScript: az aks upgrade -g {resourceGroupName} -n {aksClusterName} --node-image-only
+              inlineScript: az aks upgrade -g {resourceGroupName} -n {aksClusterName} --node-image-only --yes
     ```
 
     > [!TIP]
@@ -168,8 +168,8 @@ Once you create the commit, the workflow will be saved and ready for execution.
 
 > [!NOTE]
 > To upgrade a single node pool instead of all node pools on the cluster, add the `--name` parameter to the `az aks nodepool upgrade` command to specify the node pool name. For example:
-> ```
-> inlineScript: az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
+> ```azurecli-interactive
+> az aks nodepool upgrade -g {resourceGroupName} --cluster-name {aksClusterName} --name {{nodePoolName}} --node-image-only
 > ```
 
 ## Run the GitHub Action manually

@@ -3,7 +3,7 @@ title: Troubleshoot common problem adding or removing an application to Azure Ac
 description: Troubleshoot the common problems people face when adding or removing an app to Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -38,7 +38,7 @@ The delete button will be disabled in the following scenarios:
 
 - For Microsoft application, you won't be able to delete them from the UI regardless of your role.
 
-- For servicePrincipals that correspond to a managed identity. Managed identities service principals can't be deleted in the Enterprise apps blade. You need to go to the Azure resource to manage it. Lear more about [Managed Identity](../managed-identities-azure-resources/overview.md)
+- For servicePrincipals that correspond to a managed identity. Managed identities service principals can't be deleted in the Enterprise apps blade. You need to go to the Azure resource to manage it. Learn more about [Managed Identity](../managed-identities-azure-resources/overview.md)
 
 ## How to see the details of a portal notification
 You can see the details of any portal notification by following the steps below:

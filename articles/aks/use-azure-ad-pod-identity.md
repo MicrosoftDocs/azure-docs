@@ -11,6 +11,9 @@ ms.date: 12/01/2020
 
 Azure Active Directory pod-managed identities uses Kubernetes primitives to associate [managed identities for Azure resources][az-managed-identities] and identities in Azure Active Directory (AAD) with pods. Administrators create identities and bindings as Kubernetes primitives that allow pods to access Azure resources that rely on AAD as an identity provider.
 
+> [!NOTE]
+> If you have an existing installation of AADPODIDENTITY, you must remove the existing installation. Enabling this feature means that the MIC component isn't needed.
+
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Before you begin
@@ -52,7 +55,7 @@ Create an AKS cluster with a managed identity and pod-managed identity enabled. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
-az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --enable-pod-identity
+az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --enable-pod-identity --network-plugin azure
 ```
 
 Use [az aks get-credentials][az-aks-get-credentials] to sign in to your AKS cluster. This command also downloads and configures the `kubectl` client certificate on your development computer.

@@ -5,7 +5,7 @@ author: sakthi-vetrivel
 ms.custom: fasttrack-edit
 ms.author: suvetriv
 ms.topic: tutorial
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.date: 04/24/2020
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
@@ -57,4 +57,4 @@ In this part of the tutorial, you learned how to:
 > [!div class="checklist"]
 > * Delete an Azure Red Hat OpenShift 4 cluster
 
-Learn more about using OpenShift with the official [Red Hat OpenShift documentation](https://www.openshift.com/try)
+Learn more about using OpenShift with the official [Red Hat OpenShift documentation](https://docs.openshift.com/container-platform/4.6/welcome/index.html)

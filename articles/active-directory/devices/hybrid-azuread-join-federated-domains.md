@@ -95,7 +95,7 @@ If you don't use WPAD and want to configure proxy settings on your computer, you
 
 If your organization requires access to the internet via an authenticated outbound proxy, you must make sure that your Windows 10 computers can successfully authenticate to the outbound proxy. Because Windows 10 computers run device registration by using machine context, you must configure outbound proxy authentication by using machine context. Follow up with your outbound proxy provider on the configuration requirements.
 
-To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) script.
+To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/) script.
 
 ## Configure hybrid Azure AD join
 
@@ -199,7 +199,7 @@ Here are 3 ways to locate and verify the device state:
 
 ### Using PowerShell
 
-Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
+Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-msonlinev1).
 
 When you use the **Get-MSolDevice** cmdlet to check the service details:
 

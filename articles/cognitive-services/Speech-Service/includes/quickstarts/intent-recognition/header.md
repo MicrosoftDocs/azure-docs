@@ -17,3 +17,4 @@ After satisfying a few prerequisites, recognizing speech and identifying intents
 > * Create an `IntentRecognizer` object using the `SpeechConfig` object from above.
 > * Using the `IntentRecognizer` object, start the recognition process for a single utterance.
 > * Inspect the `IntentRecognitionResult` returned.
+

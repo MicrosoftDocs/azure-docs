@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot Azure Migrate projects
 description: Helps you to troubleshoot issues with creating and managing Azure Migrate projects.
-ms.topic: troubleshooting
-author: musa-57
+author: ms-psharma
+ms.author: panshar
 ms.manager: abhemraj
-ms.author: hamusa
+ms.topic: troubleshooting
 ms.date: 01/01/2020
 ---
 

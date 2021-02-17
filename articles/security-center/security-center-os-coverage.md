@@ -31,15 +31,17 @@ For an Azure environment activated on an Azure subscription, Azure Security Cent
 
 ## Supported operating systems
 
-Security Center depends on the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
+Security Center depends on the [Log Analytics Agent](../azure-monitor/agents/agents-overview.md#log-analytics-agent). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
 
-* [Log Analytics agent for Windows supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
-* [Log Analytics agent for Linux supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 Also ensure your Log Analytics agent is [properly configured to send data to Security Center](security-center-enable-data-collection.md#manual-agent)
 
-> [!TIP]
-> To learn more about the specific Security Center features available on Windows and Linux, see [Feature coverage for machines](security-center-services.md).
+To learn more about the specific Security Center features available on Windows and Linux, see [Feature coverage for machines](security-center-services.md).
+
+> [!NOTE]
+> Even though Azure Defender is designed to protect servers, most of the capabilities of **Azure Defender for servers** are supported for Windows 10 machines. One feature that isn't currently supported is [Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
 
 ## Managed virtual machine services <a name="virtual-machine"></a>
 

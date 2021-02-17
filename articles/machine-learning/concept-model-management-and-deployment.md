@@ -6,7 +6,6 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
 author: jpe316
 ms.author:  jordane
 ms.date: 03/17/2020

@@ -26,18 +26,17 @@ For an overview of the Integrated Solutions program, watch the [Overview video f
 ## Eligibility criteria
 
 * Participating partners must have an MPN ID.
-* Participating services providers should be co-sell ready.
-* Participating software vendors should be IP co-sell ready.
+* Participating services providers should be [co-sell ready](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
+* Participating software vendors should be [IP co-sell ready](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 * At least one participating partner must have Gold Competency in one of the following areas:
-
-    * Application Development
-    * Application Integration
-    * Application Lifecycle Management
-    * Cloud Platform
-    * Data Analytics
-    * Datacenter
-    * Data Platform
-    * DevOps
+    - Application Development
+    - Application Integration
+    - Application Lifecycle Management
+    - Cloud Platform
+    - Data Analytics
+    - Datacenter
+    - Data Platform
+    - DevOps
 
 * The solution must include at least two partner organizations, bringing together IP and services for a complete customer solution and experience.
 * The partner IP must be built on Azure, Dynamics 365, or Power Platform.

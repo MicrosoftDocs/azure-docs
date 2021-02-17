@@ -1,6 +1,9 @@
 ---
 title: Migrate Hyper-V VMs to Azure with Azure Migrate Server Migration 
 description: Learn how to migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration
+author: bsiva
+ms.author: bsiva
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: [ "MVC", "fasttrack-edit"]
@@ -36,7 +39,7 @@ Before you begin this tutorial, you should:
 2. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Hyper-V host requirements for migration, and the Azure URLs to which Hyper-V hosts and clusters need access for VM migration.
 3. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) the requirements for Hyper-V VMs that you want to migrate to Azure.
 4. We recommend that you  [assess Hyper-V VMs](tutorial-assess-hyper-v.md) before migrating them to Azure, but you don't have to.
-5. Go to the already created project or [create a new project](https://docs.microsoft.com/azure/migrate/create-manage-projects)
+5. Go to the already created project or [create a new project](./create-manage-projects.md)
 6. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
 ## Download and install the provider

@@ -47,8 +47,8 @@ For a single subscription, there are limitations on the number of concurrent res
 
 | **Deployment option** | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
-|**Single database (per subscription)**|10|60|
-|**Elastic pool (per pool)**|4|200|
+|**Single database (per subscription)**|30|100|
+|**Elastic pool (per pool)**|4|2000|
 
 
 There isn't a built-in method to restore the entire server. For an example of how to accomplish this task, see [Azure SQL Database: Full server recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
@@ -89,7 +89,7 @@ To recover a managed instance database to a point in time by using the Azure por
   ![Screenshot of database restore options for SQL managed instance.](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
-> To programmatically restore a database from a backup, see [Programmatically performing recovery using automated backups](recovery-using-backups.md).
+> To programmatically restore a database from a backup, see [Programmatic recovery using automated backups](recovery-using-backups.md).
 
 ## Deleted database restore
 

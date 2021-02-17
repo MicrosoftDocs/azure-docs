@@ -3,7 +3,7 @@ title: Debug Azure Stream Analytics queries locally using job diagram in Visual 
 description: This article describes how to debug queries locally using job diagram in the Azure Stream Analytics extension for Visual Studio Code.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020

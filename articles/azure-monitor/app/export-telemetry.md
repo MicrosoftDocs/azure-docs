@@ -17,7 +17,7 @@ Before you set up continuous export, there are some alternatives you might want 
 
 * The Export button at the top of a metrics or search tab lets you transfer tables and charts to an Excel spreadsheet.
 
-* [Analytics](../log-query/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
+* [Analytics](../logs/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
 * If you're looking to [explore your data in Power BI](./export-power-bi.md), you can do that without using Continuous Export.
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
 * You can also access setup [continuous export via PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
@@ -33,6 +33,9 @@ Continuous Export **does not support** the following Azure storage features/conf
 * [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="setup"></a> Create a Continuous Export
+
+> [!NOTE]
+> An application cannot export more than 3TB of data per day. If more than 3TB per day is exported, the export will be disabled. To export without a limit use [diagnostic settings based export](#diagnostic-settings-based-export).
 
 1. In the Application Insights resource for your app under configure on the left, open Continuous Export and choose **Add**:
 
@@ -203,6 +206,19 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 * [Stream Analytics sample](export-stream-analytics.md)
 * [Export to SQL using Stream Analytics][exportasa]
 * [Detailed data model reference for the property types and values.](export-data-model.md)
+
+## Diagnostic settings based export
+
+Diagnostic settings based export uses a different schema than continuous export. It also supports features that continuous export does not like:
+
+* Azure storage accounts with vnet, firewalls, and private links.
+* Export to event hub.
+
+To migrate to diagnostic settings based export:
+
+1. Disable current continuous export.
+2. [Migrate application to workspace-based](convert-classic-resource.md).
+3. [Enable diagnostic settings export](create-workspace-resource.md#export-telemetry). Select **Diagnostic settings > add diagnostic setting** from within your Application Insights resource.
 
 <!--Link references-->
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -33,7 +33,6 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 Before you set up a compute role on your Azure Stack Edge Pro device, make sure that:
-
 - You've activated your Azure Stack Edge Pro device as described in [Activate your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 
@@ -41,36 +40,36 @@ Before you set up a compute role on your Azure Stack Edge Pro device, make sure 
 
 To configure compute on your Azure Stack Edge Pro, you'll create an IoT Hub resource.
 
-1. In the Azure portal of your Azure Stack Edge resource, go to **Overview**. In the right-pane, on the **Compute** tile, select **Get started**.
+1. In the Azure portal of your Azure Stack Edge resource, go to **Overview**, and select **IoT Edge**.
 
-    ![Get started with compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
+   ![Get started with compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
 
-2. On the **Configure Edge compute** tile, select **Configure compute**.
+2. In **Enable IoT Edge service**, select **Add**.
 
-    ![Configure compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
+   ![Configure compute](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
 
-3. On the **Configure Edge compute** blade, input the following:
+3. In **Create IoT Edge service**, enter settings for your IoT Hub resource:
 
-   
-    |Field  |Value  |
-    |---------|---------|
-    |IoT Hub     | Choose from **New** or **Existing**. <br> By default, a Standard tier (S1) is used to create an IoT resource. To use a free tier IoT resource, create one and then select the existing resource. <br> In each case, the IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource.     |
-    |Name     |Enter a name for your IoT Hub resource.         |
+   |Field   |Value    |
+   |--------|---------|
+   |Subscription      | Subscription used by the Azure Stack Edge resource. |
+   |Resource group    | Resource group used by the Azure Stack Edge resource. |
+   |IoT Hub           | Choose from **Create new** or **Use existing**. <br> By default, a Standard tier (S1) is used to create an IoT resource. To use a free tier IoT resource, create one and then select the existing resource. <br> In each case, the IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource.     |
+   |Name              | If you don't want to use the default name provided for a new IoT Hub resource, enter a different name. |
 
     ![Get started with compute 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
-4. Select **Create**. The IoT Hub resource creation takes several minutes. After the IoT Hub resource is created, the **Configure compute** tile updates to show the compute configuration. 
+4. When you finish the settings, select **Review + Create**. Review the settings for your IoT Hub resource, and select **Create**.
+
+   Resource creation for an IoT Hub resource takes several minutes. After the resource is created, the **Overview** indicates the IoT Edge service is now running.
 
     ![Get started with compute 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
-5. To confirm that the Edge compute role has been configured, select **View Compute** on the **Configure compute** tile.
-    
-    ![Get started with compute 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+5. To confirm the Edge compute role has been configured, select **Properties**.
 
-    > [!NOTE]
-    > If the **Configure Compute** dialog is closed before the IoT Hub is associated with the Azure Stack Edge Pro device, the IoT Hub gets created but is not shown in the compute configuration. 
-    
-    When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource. An IoT Edge Runtime is also running on this IoT Edge device. At this point, only the Linux platform is available for your IoT Edge device.
+   ![Get started with compute 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+
+   When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource. An IoT Edge Runtime is also running on this IoT Edge device. At this point, only the Linux platform is available for your IoT Edge device.
 
 
 ## Add shares
@@ -90,11 +89,11 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
         ![Add an Edge share](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-1.png) 
 
-    If you created a local NFS share, use the following remote sync (rsync) command option to copy files onto the share:
+    If you created a local NFS share, use the following remote sync (`rsync`) command option to copy files onto the share:
 
     `rsync <source file path> < destination file path>`
 
-    For more information about the `rsync` command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm).
+    For more information about the `rsync` command, go to [`Rsync` documentation](https://www.computerhope.com/unix/rsync.htm).
 
     > [!NOTE]
     > To mount NFS share to compute, the compute network must be configured on same subnet as NFS Virtual IP address. For details on how to configure compute network, go to [Enable compute network on your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
@@ -150,15 +149,15 @@ To verify that the module is running, do the following:
  
 1. In File Explorer, connect to both the Edge local and Edge shares you created previously.
 
-    ![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
+    ![Verify data transform - 1](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
  
 1. Add data to the local share.
 
-    ![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
+    ![Verify data transform - 2](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
  
    The data gets moved to the cloud share.
 
-    ![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
+    ![Verify data transform -3](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
 
    The data is then pushed from the cloud share to the storage account. To view the data, you can use Storage Explorer.
 

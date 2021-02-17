@@ -124,8 +124,7 @@ The following authentication methods are supported for Azure AD server principal
 
 ## Next steps
 
-- For an overview of access and control in Synapse SQL, see [Synapse SQL access control](../sql/access-control.md).
+- For an overview of access and control in Synapse SQL, see [Synapse SQL access control](../security/synapse-workspace-access-control-overview.md).
 - For more information about database principals, see [Principals](/sql/relational-databases/security/authentication-access/principals-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 - For more information about database roles, see [Database roles](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
- 

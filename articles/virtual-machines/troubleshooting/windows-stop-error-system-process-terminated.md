@@ -44,6 +44,10 @@ This error occurs when a critical process, such as WinLogon (winlogon.exe) or th
 
 ### Collect the Memory Dump File
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
+
 To resolve this problem, the crash dump will need to be analyzed. Collect the memory dump file for the crash and contact support. 
 To collect the dump file, follow these steps:
 

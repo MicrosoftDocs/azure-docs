@@ -1,7 +1,7 @@
 ---
 title: Join a Windows Server VM to an Azure AD Domain Services managed domain | Microsoft Docs
 description: In this tutorial, learn how to join a Windows Server virtual machine to an Azure Active Directory Domain Services managed domain.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.service: active-directory
@@ -9,7 +9,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
+ms.author: justinha
 
 #Customer intent: As an server administrator, I want to learn how to join a Windows Server VM to an Azure Active Directory Domain Services managed domain to provide centralized identity and policy.
 ---

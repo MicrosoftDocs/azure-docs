@@ -28,6 +28,8 @@ As your needs change or requirements for automation increase you can also create
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
 
+By default, creating a workspace also creates an Azure Container Registry (ACR).  Since ACR does not currently support unicode characters in resource group names, use a resource group that does not contain these characters.
+
 ## Create a workspace
 
 # [Python](#tab/python)
@@ -150,6 +152,8 @@ If you have problems in accessing your subscription, see [Set up authentication 
  1. To view the new workspace, select **Go to resource**.
  
 ---
+
+
 
 ### Networking	
 
@@ -364,6 +368,16 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## Troubleshooting
+
+* **Supported browsers in Azure Machine Learning studio**: We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
+  * Microsoft Edge (The new Microsoft Edge, latest version. Not Microsoft Edge legacy)
+  * Safari (latest version, Mac only)
+  * Chrome (latest version)
+  * Firefox (latest version)
+
+* **Azure portal**: 
+  * If you go directly to your workspace from a share link from the SDK or the Azure portal, you can't view the standard **Overview** page that has subscription information in the extension. In this scenario, you also can't switch to another workspace. To view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
+  * All assets (Datasets, Experiments, Computes, and so on) are available only in [Azure Machine Learning studio](https://ml.azure.com). They're *not* available from the Azure portal.
 
 ### Resource provider errors
 

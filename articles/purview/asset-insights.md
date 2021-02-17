@@ -7,7 +7,6 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-
 ---
 
 # Asset insights on your data in Azure Purview
@@ -16,9 +15,10 @@ This how-to guide describes how to access, view, and filter Purview Asset insigh
 
 In this how-to guide, you'll learn how to:
 
-* View insights from your Purview account.
-* Get a bird's eye view of your data.
-* Drill down for more asset count details.
+> [!div class="checklist"]
+> * View insights from your Purview account.
+> * Get a bird's eye view of your data.
+> * Drill down for more asset count details.
 
 ## Prerequisites
 

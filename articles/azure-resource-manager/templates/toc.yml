@@ -126,6 +126,8 @@
         href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: IoT Hub
         href: ../../iot-hub/horizontal-arm-route-messages.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: IoT Hub Device Provisioning Service
+        href: ../../iot-dps/quick-setup-auto-provision-rm.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Management and Governance
       items:
       - name: Advisor
@@ -160,6 +162,8 @@
         href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Content Delivery Network
         href: ../../cdn/create-profile-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: DDoS Protection
+        href: ../../ddos-protection/manage-ddos-protection-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: DNS
         href: ../../dns/dns-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: ExpressRoute
@@ -288,14 +292,14 @@
     - name: Use health check in Deployment Manager
       displayName: adm
       href: deployment-manager-tutorial-health-check.md
+  - name: Microsoft Learn path about templates
+    href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Concepts
   items:
   - name: Template best practices
     href: template-best-practices.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
-  - name: Template Specs
-    href: template-specs.md
   - name: Templates for cloud consistency
     href: templates-cloud-consistency.md
   - name: Deployment modes
@@ -419,6 +423,12 @@
       href: test-toolkit.md
     - name: Test cases
       href: test-cases.md
+  - name: Template specs
+    items:
+    - name: Create & deploy template specs
+      href: template-specs.md
+    - name: Convert portal template gallery
+      href: convert-to-template-spec.md
   - name: CI/CD
     items:
     - name: ARM templates with pipelines
@@ -513,6 +523,8 @@
     href: /python/api/overview/azure/resources?view=azure-python
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/paths/deploy-manage-resource-manager-templates/
   - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/
   - name: Azure Roadmap

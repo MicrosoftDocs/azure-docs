@@ -20,6 +20,10 @@ SLA is not provided during the product preview as defined [here](https://azure.m
 
 Attestation is the process of demonstrating and validating that a piece of software has been properly instantiated on the specific hardware platform. It also ensures its evidence is verifiable to provide assurances that it is running in a secure platform and has not been tampered with. [Read more](attestation.md) on how attestation is done for enclave apps.
 
+## Can I enable Accelerated Networking with Azure confidential computing AKS Clusters? 
+
+No. Accelerated Networking isn't supported on confidential computing nodes on AKS. Ensure that Accelerated Networking is disabled in your deployment. 
+
 ## Can I bring my existing containerized applications and run it on AKS with Azure Confidential Computing? 
 
 Yes, review the [confidential containers page](confidential-containers.md) for more details on platform enablers.

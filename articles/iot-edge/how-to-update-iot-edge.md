@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/22/2020
+ms.date: 01/20/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -25,17 +25,11 @@ The IoT Edge security daemon is a native component that needs to be updated usin
 
 Check the version of the security daemon running on your device by using the command `iotedge version`.
 
-### Linux devices
+# [Linux](#tab/linux)
 
 On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon to the latest version.
 
 Get the latest repository configuration from Microsoft:
-
-* **Ubuntu Server 16.04**:
-
-   ```bash
-   curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
-   ```
 
 * **Ubuntu Server 18.04**:
 
@@ -93,26 +87,18 @@ curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-st
 curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
 ```
 
-### Windows devices
+# [Windows](#tab/windows)
 
-On Windows devices, use the PowerShell script to update the security daemon. The script automatically pulls the latest version of the security daemon.
+<!-- 1.1 -->
+::: moniker range="iotedge-2018-06"
 
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
-```
+With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and is managed with Microsoft Update to keep the components up to date. Currently, there are no updates available.
 
-Running the Update-IoTEdge command removes and updates the security daemon from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine (if you're using Windows containers). Keeping the configuration information means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the update process.
+::: moniker-end
 
-If you want to update to a specific version of the security daemon, find the version you want to target from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, download the **Microsoft-Azure-IoTEdge.cab** file. Then, use the `-OfflineInstallationPath` parameter to point to the local file location. For example:
+With IoT Edge for Windows, IoT Edge runs directly on the Windows device. For update instructions using the PowerShell scripts, see [Install and manage Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md).
 
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux> -OfflineInstallationPath <absolute path to directory>
-```
-
->[!NOTE]
->The `-OfflineInstallationPath` parameter looks for a file named **Microsoft-Azure-IoTEdge.cab** in the directory provided. Starting with IoT Edge version 1.0.9-rc4, there are two .cab files available to use, one for AMD64 devices and one for ARM32. Download the correct file for your device, then rename the file to remove the architecture suffix.
-
-For more information about update options, use the command `Get-Help Update-IoTEdge -full` or refer to [PowerShell script for IoT Edge on Windows](reference-windows-scripts.md).
+---
 
 ## Update the runtime containers
 
@@ -167,35 +153,6 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 
 1. Select **Review + create**, review the deployment, and select **Create**.
 
-## Update offline or to a specific version
-
-If you want to update a device offline, or update to a specific version of IoT Edge rather than the most recent version, you can do so with the `-OfflineInstallationPath` parameter.
-
-Two components are used to update an IoT Edge device:
-
-* A PowerShell script, which contains the installation instructions
-* Microsoft Azure IoT Edge cab, which contains the IoT Edge security daemon (iotedged), Moby container engine, and Moby CLI
-
-1. For the latest IoT Edge installation files along with previous versions, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
-
-2. Find the version that you want to install, and download the following files from the **Assets** section of the release notes onto your IoT device:
-
-   * IoTEdgeSecurityDaemon.ps1
-   * Microsoft-Azure-IoTEdge-amd64.cab from releases 1.0.9 or newer, or Microsoft-Azure-IoTEdge.cab from releases 1.0.8 and older.
-
-   Microsoft-Azure-IotEdge-arm32.cab is also available beginning in 1.0.9 for testing purposes only. IoT Edge is not currently supported on Windows ARM32 devices.
-
-   It's important to use the PowerShell script from the same release as the .cab file that you use because the functionality changes to support the features in each release.
-
-3. If the .cab file you downloaded has an architecture suffix on it, rename the file to just **Microsoft-Azure-IoTEdge.cab**.
-
-4. To update with offline components, [dot source](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) the local copy of the PowerShell script. Then, use the `-OfflineInstallationPath` parameter as part of the `Update-IoTEdge` command and provide the absolute path to the file directory. For example,
-
-   ```powershell
-   . <path>\IoTEdgeSecurityDaemon.ps1
-   Update-IoTEdge -OfflineInstallationPath <path>
-   ```
-
 ## Update to a release candidate version
 
 Azure IoT Edge regularly releases new versions of the IoT Edge service. Before each stable release, there is one or more release candidate (RC) versions. RC versions include all the planned features for the release, but are still going through testing and validation. If you want to test a new feature early, you can install an RC version and provide feedback through GitHub.
@@ -208,7 +165,7 @@ As previews, release candidate versions aren't included as the latest version th
 
 Use the sections in this article to learn how to update an IoT Edge device to a specific version of the security daemon or runtime modules.
 
-If you're installing IoT Edge, rather than upgrading an existing installation, use the steps in [Offline or specific version installation](how-to-install-iot-edge.md#offline-or-specific-version-installation).
+If you're installing IoT Edge, rather than upgrading an existing installation, use the steps in [Offline or specific version installation](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional).
 
 ## Next steps
 

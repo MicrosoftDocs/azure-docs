@@ -46,7 +46,7 @@ Here are the settings needed to enable the profiler:
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
-You can set these values using [Azure Resource Manager Templates](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp),  [Azure CLI](/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+You can set these values using [Azure Resource Manager Templates](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp),  [Azure CLI](/cli/azure/webapp/config/appsettings).
 
 ### Enabling Profiler for other clouds manually
 

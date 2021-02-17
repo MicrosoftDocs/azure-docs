@@ -1,9 +1,6 @@
 ---
 title: Create Apache Hadoop clusters using templates - Azure HDInsight
 description: Learn how to create clusters for HDInsight by using Resource Manager templates
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli

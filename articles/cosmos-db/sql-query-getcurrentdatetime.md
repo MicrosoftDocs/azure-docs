@@ -1,12 +1,12 @@
 ---
 title: GetCurrentDateTime in Azure Cosmos DB query language
 description: Learn about SQL system function GetCurrentDateTime in Azure Cosmos DB.
-author: ginamr
+author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/18/2020
-ms.author: girobins
+ms.date: 02/03/2021
+ms.author: tisande
 ms.custom: query-reference
 ---
 # GetCurrentDateTime (Azure Cosmos DB)
@@ -42,7 +42,8 @@ GetCurrentDateTime ()
 
 GetCurrentDateTime() is a nondeterministic function. The result returned is UTC. Precision is 7 digits, with an accuracy of 100 nanoseconds.
 
-This system function will not utilize the index.
+> [!NOTE]
+> This system function will not utilize the index. If you need to compare values to the current time, obtain the current time before query execution and use that constant string value in the `WHERE` clause.
 
 ## Examples
   

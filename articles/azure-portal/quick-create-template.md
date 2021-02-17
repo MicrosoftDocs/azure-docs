@@ -1,11 +1,8 @@
 ---
 title: Create an Azure portal dashboard by using an Azure Resource Manager template
 description: Learn how to create an Azure portal dashboard by using an Azure Resource Manager template.
-author: mgblythe
-ms.service: azure-portal
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 06/15/2020
 ---
 

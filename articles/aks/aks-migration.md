@@ -16,7 +16,7 @@ This document can be used to help support the following scenarios:
 * Migrating an AKS Cluster backed by [Availability Sets](../virtual-machines/windows/tutorial-availability-sets.md) to [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md)
 * Migrating an AKS cluster to use a [Standard SKU load balancer](./load-balancer-standard.md)
 * Migrating from [Azure Container Service (ACS) - retiring January 31, 2020](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/) to AKS
-* Migrating from [AKS engine](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) to AKS
+* Migrating from [AKS engine](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) to AKS
 * Migrating from non-Azure based Kubernetes clusters to AKS
 * Moving existing resources to a different region
 
@@ -127,7 +127,7 @@ If your application can host multiple replicas that point to the same file share
 * Point your live traffic to your new AKS cluster.
 * Disconnect the old cluster.
 
-If you want to start with an empty share and make a copy of the source data, you can use the [`az storage file copy`](/cli/azure/storage/file/copy?view=azure-cli-latest) commands to migrate your data.
+If you want to start with an empty share and make a copy of the source data, you can use the [`az storage file copy`](/cli/azure/storage/file/copy) commands to migrate your data.
 
 
 #### Migrating persistent volumes
@@ -154,7 +154,7 @@ Some open-source tools can help you create managed disks and migrate volumes bet
 
 ### Deployment of your cluster configuration
 
-We recommend that you use your existing Continuous Integration (CI) and Continuous Deliver (CD) pipeline to deploy a known-good configuration to AKS. You can use Azure Pipelines to [build and deploy your applications to AKS](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clone your existing deployment tasks and ensure that `kubeconfig` points to the new AKS cluster.
+We recommend that you use your existing Continuous Integration (CI) and Continuous Deliver (CD) pipeline to deploy a known-good configuration to AKS. You can use Azure Pipelines to [build and deploy your applications to AKS](/azure/devops/pipelines/ecosystems/kubernetes/aks-template). Clone your existing deployment tasks and ensure that `kubeconfig` points to the new AKS cluster.
 
 If that's not possible, export resource definitions from your existing Kubernetes cluster and then apply them to AKS. You can use `kubectl` to export objects.
 

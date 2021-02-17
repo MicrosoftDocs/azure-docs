@@ -1,15 +1,11 @@
 ---
 title: Monitor integration runtime in Azure Data Factory 
 description: Learn how to monitor different types of integration runtime in Azure Data Factory.  
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
-manager: anandsub
 ---
 
 # Monitor an integration runtime in Azure Data Factory
@@ -99,7 +95,7 @@ The following table provides possible statuses of a self-hosted integration runt
 | Online | Node is connected to the Data Factory service. |
 | Offline | Node is offline. |
 | Upgrading | The node is being auto-updated. |
-| Limited | Due to a connectivity issue. May be due to HTTP port 8050 issue, service bus connectivity issue, or a credential sync issue. |
+| Limited | Due to a connectivity issue. May be due to HTTP port 8060 issue, service bus connectivity issue, or a credential sync issue. |
 | Inactive | Node is in a configuration different from the configuration of other majority nodes. |
 
 A node can be inactive when it cannot connect to other nodes.

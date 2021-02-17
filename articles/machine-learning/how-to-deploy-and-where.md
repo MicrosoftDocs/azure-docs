@@ -1,21 +1,22 @@
 ---
-title: How and where to deploy models 
+title: How to deploy machine learning models 
 titleSuffix: Azure Machine Learning
-description: 'Learn how and where to deploy your Azure Machine Learning models, including Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and FPGA.'
+description: 'Learn how and where to deploy machine learning models. Deploy to Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and FPGA.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 11/02/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+adobe-target: true
 ---
 
-# Deploy models with Azure Machine Learning
+# Deploy machine learning models to Azure
 
-Learn how to deploy your machine learning model as a web service in the Azure cloud or to Azure IoT Edge devices.
+Learn how to deploy your machine learning or deep learning model as a web service in the Azure cloud. You can also deploy to Azure IoT Edge devices.
 
 The workflow is similar no matter where you deploy your model:
 
@@ -26,7 +27,7 @@ The workflow is similar no matter where you deploy your model:
 1. Deploy the model to the compute target.
 1. Test the resulting web service.
 
-For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
+For more information on the concepts involved in the machine learning deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
 
 ## Prerequisites
 
@@ -192,7 +193,7 @@ A minimal inference configuration can be written as:
 }
 ```
 
-This specifies that the deployment will use the file `score.py` in the `./working_dir` directory to process incoming requests.
+This specifies that the machine learning deployment will use the file `score.py` in the `./working_dir` directory to process incoming requests.
 
 [See this article](./reference-azure-machine-learning-cli.md#inference-configuration-schema) for a more thorough discussion of inference configurations. 
 
@@ -264,7 +265,7 @@ from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservic
 
 ---
 
-## Deploy your model
+## Deploy your machine learning model
 
 You are now ready to deploy your model. 
 
@@ -317,6 +318,8 @@ The following table describes the different service states:
 | Failed | The service has failed to deploy due to an error or crash. | Yes |
 | Healthy | The service is healthy and the endpoint is available. | Yes |
 
+> [!TIP]
+> When deploying, Docker images for compute targets are built and loaded from Azure Container Registry (ACR). By default, Azure Machine Learning creates an ACR that uses the *basic* service tier. Changing the ACR for your workspace to standard or premium tier may reduce the time it takes to build and deploy images to your compute targets. For more information, see [Azure Container Registry service tiers](../container-registry/container-registry-skus.md).
 
 ### <a id="azuremlcompute"></a> Batch inference
 Azure Machine Learning Compute targets are created and managed by Azure Machine Learning. They can be used for batch prediction from Azure Machine Learning pipelines.
@@ -344,7 +347,6 @@ To delete a registered model, use `model.delete()`.
 For more information, see the documentation for [WebService.delete()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) and [Model.delete()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
 
 ---
-
 
 ## Next steps
 

@@ -43,7 +43,7 @@ You can enable either targeting the action against a subscription and resource g
 
 2. Add a comma-separated list of VMs (without spaces) in the **VMList** parameter field. An example list is `vm1,vm2,vm3`.
 
-3. Set the **WHATIF** parameter field to True.
+3. Set the **WHATIF** parameter field to True to preview your changes.
 
 4. Configure the `External_ExcludeVMNames` variable with a comma-separated list of VMs (VM1,VM2,VM3), without spaces between comma-separated values.
 
@@ -74,7 +74,7 @@ In an environment that includes two or more components on multiple VMs supportin
 
 3. Add a comma-separated list of VMs (without spaces) in the **VMList** parameter field. An example list is `vm1,vm2,vm3`.
 
-4. Set **WHATIF** to True. 
+4. Set **WHATIF** to True to preview your changes. 
 
 5. Configure the `External_ExcludeVMNames` variable with a comma-separated list of VMs, without spaces between comma-separated values.
 
@@ -140,7 +140,7 @@ To change email notifications after Start/Stop VMs during off-hours is deployed,
 
     :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot of the Email/SMS/Push/Voice page showing an example email address updated.":::
 
-    Alternatively you can add additional actions to the action group, to learn more about action groups, see [action groups](../azure-monitor/platform/action-groups.md)
+    Alternatively you can add additional actions to the action group, to learn more about action groups, see [action groups](../azure-monitor/alerts/action-groups.md)
 
 The following is an example email that is sent when the feature shuts down virtual machines.
 

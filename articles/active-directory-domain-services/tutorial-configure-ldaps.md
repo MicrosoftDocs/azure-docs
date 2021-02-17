@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Configure LDAPS for Azure Active Directory Domain Services | Microsoft Docs
 description: In this tutorial, you learn how to configure secure lightweight directory access protocol (LDAPS) for an Azure Active Directory Domain Services managed domain.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.service: active-directory
@@ -9,7 +9,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
+ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to secure access to an Azure Active Directory Domain Services managed domain using secure lightweight directory access protocol (LDAPS)
 ---
@@ -210,6 +210,12 @@ A notification is displayed that secure LDAP is being configured for the managed
 It takes a few minutes to enable secure LDAP for your managed domain. If the secure LDAP certificate you provide doesn't match the required criteria, the action to enable secure LDAP for the managed domain fails.
 
 Some common reasons for failure are if the domain name is incorrect, the encryption algorithm for the certificate isn't *TripleDES-SHA1*, or the certificate expires soon or has already expired. You can re-create the certificate with valid parameters, then enable secure LDAP using this updated certificate.
+
+## Change an expiring certificate
+
+1. Create a replacement secure LDAP certificate by following the steps to [create a certificate for secure LDAP](#create-a-certificate-for-secure-ldap).
+1. To apply the replacement certificate to Azure AD DS, in the left menu for Azure AD DS in the Azure portal, select **Secure LDAP**, and then select **Change Certificate**.
+1. Distribute the certificate to any clients that connect by using secure LDAP. 
 
 ## Lock down secure LDAP access over the internet
 

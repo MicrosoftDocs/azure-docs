@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Use symmetric key to provision simulated device to Azure IoT Hub using C
-description: In this quickstart you will use the C device SDK to create a simulated device that uses symmetric key with the Azure IoT Hub Device Provisioning Service (DPS)
+title: Quickstart - Use symmetric key to provision devices to Azure IoT Hub using C
+description: In this quickstart, you will use the C device SDK to provision a device that uses symmetric key with the Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/14/2020
@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps 
 manager: philmea
 ms.custom: mvc
-#Customer intent: As a new IoT developer, I want simulate a device using the C SDK so that I can learn how secure provisioning works with symmetric keys.
+#Customer intent: As a new IoT developer, I want to connect a device to an IoT Hub using the C SDK so that I can learn how secure provisioning works with symmetric keys.
 ---
 
-# Quickstart: Provision a simulated device with symmetric keys
+# Quickstart: Provision a device with symmetric keys
 
-In this quickstart, you will learn how to create and run a device simulator on a Windows development machine. You will configure this simulated device to use a symmetric key to authenticate with a Device Provisioning Service instance and be assigned to an IoT hub. Sample code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be used to simulate a boot sequence for the device that initiates provisioning. The device will be recognized based on an individual enrollment with a provisioning service instance and assigned to an IoT hub.
+In this quickstart, you will learn how to run device provisioning code on a Windows development machine to connect it to an IoT Hub as an IoT device. You will configure this device to use a symmetric key authentication with a Device Provisioning Service instance and be assigned to an IoT hub. Sample code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be used to provision the device. The device will be recognized based on an individual enrollment with a provisioning service instance and assigned to an IoT hub.
 
 Although this article demonstrates provisioning with an individual enrollment, you can use enrollment groups. There are some differences when using enrollment groups. For example, you must use a derived device key with a unique registration ID for the device. Although symmetric key enrollment groups are not limited to legacy devices, [How to provision legacy devices using Symmetric key attestation](how-to-legacy-device-symm-key.md) provides an enrollment group example. For more information, see [Group Enrollments for Symmetric Key Attestation](concepts-symmetric-key-attestation.md#group-enrollments).
 
-If you're unfamiliar with the process of auto-provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. 
+If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. 
 
 Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. This quickstart requires you to have already created your Device Provisioning Service instance.
 
@@ -42,7 +42,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 In this section, you will prepare a development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). 
 
-The SDK includes the sample code for a simulated device. This simulated device will attempt provisioning during the device's boot sequence.
+The SDK includes the provisioning sample code for devices. This code attempt provisioning during the device's boot sequence.
 
 1. Download the [CMake build system](https://cmake.org/download/).
 
@@ -69,7 +69,7 @@ The SDK includes the sample code for a simulated device. This simulated device w
     cd cmake
     ```
 
-5. Run the following command, which builds a version of the SDK specific to your development client platform. A Visual Studio solution for the simulated device will be generated in the `cmake` directory. 
+5. Run the following command, which builds a version of the SDK specific to your development client platform. A Visual Studio solution for the device provisioning code will be generated in the `cmake` directory. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -119,7 +119,7 @@ The SDK includes the sample code for a simulated device. This simulated device w
 
 <a id="firstbootsequence"></a>
 
-## Simulate first boot sequence for the device
+## Run the provisioning code for the device
 
 In this section, update the sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized and assigned to an IoT hub linked to the Device Provisioning Service instance.
 
@@ -154,7 +154,7 @@ In this section, update the sample code to send the device's boot sequence to yo
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Find the call to `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** which is commented out.
+6. Find the call to `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** that is commented out.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -172,9 +172,9 @@ In this section, update the sample code to send the device's boot sequence to yo
 
 7. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. 
 
-8. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, select **Yes**, to rebuild the project before running.
+8. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the rebuild the project prompt, select **Yes** to rebuild the project before running.
 
-    The following output is an example of the simulated device successfully booting up, and connecting to the provisioning Service instance to be assigned to an IoT hub:
+    The following output is an example of the device successfully connecting to the provisioning Service instance to be assigned to an IoT hub:
 
     ```cmd
     Provisioning API Version: 1.2.8
@@ -190,7 +190,7 @@ In this section, update the sample code to send the device's boot sequence to yo
     Press enter key to exit:
     ```
 
-9. In the portal, navigate to the IoT hub your simulated device was assigned to and select the **IoT devices** tab. On successful provisioning of the simulated to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top. 
+9. In the portal, navigate to the IoT hub your device was assigned to and select the **IoT devices** tab. On successful provisioning of the device to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top. 
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device-symm-key/hub-registration.png) 
 
@@ -205,7 +205,7 @@ If you plan to continue working on and exploring the device client sample, do no
 
 ## Next steps
 
-In this quickstart, you’ve created a simulated device on your Windows machine and provisioned it to your IoT hub using Symmetric key with the Azure IoT Hub Device Provisioning Service on the portal. To learn how to enroll your device programmatically, continue to the quickstart for programmatic enrollment of X.509 devices. 
+In this quickstart, you ran device provisioning code on your Windows machine.  The device was authenticated and provisioned to your IoT hub using a symmetric key. To learn how to provision an X.509 certificate device, continue to the quickstart for X.509 devices. 
 
 > [!div class="nextstepaction"]
-> [Azure quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
+> [Azure quickstart - Provision an X.509 device using the Azure IoT C SDK](quick-create-simulated-device-x509.md)

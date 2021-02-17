@@ -5,9 +5,10 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 11/17/2020
+ms.date: 01/14/2020
 ms.topic: how-to
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
@@ -133,14 +134,15 @@ By supported we mean that the experience is as expected; specifically, that it i
 - Teams
 - Outlook (OWA)
 - SharePoint
+- Planner in Teams
+- Planner web app
 
 ### Services currently not supported
 
 Service without current support might have compatibility issues with the new guest restriction setting.
 
 - Forms
-- Planner in Teams
-- Planner app
+- Planner mobile app
 - Project
 - Yammer
 
@@ -152,7 +154,7 @@ Where do these permissions apply? | These directory level permissions are enforc
 How do restricted permissions affect which groups guests can see? | Regardless of default or restricted guest permissions, guests can't enumerate the list of groups or users. Guests can see groups they are members of in both the Azure portal and the My Apps portal depending on permissions:<li>**Default permissions**: To find the groups they are members of in the Azure portal, the guest must search for their object ID in the **All users** list, and then select **Groups**. Here they can see the list of groups that they are members of, including all the group details, including name, email, and so on. In the My Apps portal, they can see a list of groups they own and groups they are a member of.</li><li>**Restricted guest permissions**: In the Azure portal, they can still find the list of groups they are members of by searching for their object ID in the All users list, and then select Groups. They can only see very limited details about the group, notably the object ID. By design, the Name and Email columns are blank and Group Type is Unrecognized. In the My Apps portal, they are not able to access the list of groups they own or groups they are a member of.</li><br>For more detailed comparison of the directory permissions that come from the Graph API, see [Default user permissions](../fundamentals/users-default-permissions.md#member-and-guest-users).
 Which parts of the My Apps portal will this feature affect? | The groups functionality in the My Apps portal will honor these new permissions. This includes all paths to view the groups list and group memberships in My Apps. No changes were made to the group tile availability. The group tile availability is still controlled by the existing group setting in the Azure portal.
 Do these permissions override SharePoint or Microsoft Teams guest settings? | No. Those existing settings still control the experience and access in those applications. For example, if you see issues in SharePoint, double check your external sharing settings.
-What are the known compatibility issues in Planner and Yammer? | <li>With permissions set to ‘restricted’, guests logged into the Planner app or accessing the Planner in Microsoft Teams won't be able to access their plans or any tasks.<li>With permissions set to ‘restricted’, guests logged into Yammer won't be able to leave the group.
+What are the known compatibility issues in Planner and Yammer? | <li>With permissions set to ‘restricted’, guests signed into the Planner mobile app won't be able to access their plans or any tasks.<li>With permissions set to ‘restricted’, guests signed into Yammer won't be able to leave the group.
 Will my existing guest permissions be changed in my tenant? | No changes were made to your current settings. We maintain backward compatibility with your existing settings. You decide when you want make changes.
 Will these permissions be set by default? | No. The existing default permissions remain unchanged. You can optionally set the permissions to be more restrictive.
 Are there any license requirements for this feature? | No, there are no new licensing requirements with this feature.

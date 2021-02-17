@@ -317,34 +317,34 @@ Version 4.0.0b1 is the first preview of our efforts to create a user-friendly cl
 Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible.
 
 > [!WARNING]
-> After 31 August 2022, Azure Cosmos DB will no longer make bug fixes, add new features, and provide support to versions 1.x or 2.x of the Azure Cosmos DB Python SDK for SQL API. If you prefer not to upgrade, requests sent from version 1.x and 2.x of the SDK will continue to be served by the Azure Cosmos DB service.
+> After 31 August 2022, Azure Cosmos DB will no longer make bug fixes or provide support to versions 1.x and 2.x of the Azure Cosmos DB Python SDK for SQL API. If you prefer not to upgrade, requests sent from version 1.x and 2.x of the SDK will continue to be served by the Azure Cosmos DB service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
 | [4.0.0](#400) |May 20, 2020 |--- |
 | [3.0.2](#302) |Nov 15, 2018 |--- |
 | [3.0.1](#301) |Oct 04, 2018 |--- |
-| [2.3.3](#233) |Sept 08, 2018 |August 30, 2020 |
-| [2.3.2](#232) |May 08, 2018 |August 30, 2020 |
-| [2.3.1](#231) |December 21, 2017 |August 30, 2020 |
-| [2.3.0](#230) |November 10, 2017 |August 30, 2020 |
-| [2.2.1](#221) |Sep 29, 2017 |August 30, 2020 |
-| [2.2.0](#220) |May 10, 2017 |August 30, 2020 |
-| [2.1.0](#210) |May 01, 2017 |August 30, 2020 |
-| [2.0.1](#201) |October 30, 2016 |August 30, 2020 |
-| [2.0.0](#200) |September 29, 2016 |August 30, 2020 |
-| [1.9.0](#190) |July 07, 2016 |August 30, 2020 |
-| [1.8.0](#180) |June 14, 2016 |August 30, 2020 |
-| [1.7.0](#170) |April 26, 2016 |August 30, 2020 |
-| [1.6.1](#161) |April 08, 2016 |August 30, 2020 |
-| [1.6.0](#160) |March 29, 2016 |August 30, 2020 |
-| [1.5.0](#150) |January 03, 2016 |August 30, 2020 |
-| [1.4.2](#142) |October 06, 2015 |August 30, 2020 |
-| 1.4.1 |October 06, 2015 |August 30, 2020 |
-| [1.2.0](#120) |August 06, 2015 |August 30, 2020 |
-| [1.1.0](#110) |July 09, 2015 |August 30, 2020 |
-| [1.0.1](#101) |May 25, 2015 |August 30, 2020 |
-| 1.0.0 |April 07, 2015 |August 30, 2020 |
+| [2.3.3](#233) |Sept 08, 2018 |August 31, 2022 |
+| [2.3.2](#232) |May 08, 2018 |August 31, 2022 |
+| [2.3.1](#231) |December 21, 2017 |August 31, 2022 |
+| [2.3.0](#230) |November 10, 2017 |August 31, 2022 |
+| [2.2.1](#221) |Sep 29, 2017 |August 31, 2022 |
+| [2.2.0](#220) |May 10, 2017 |August 31, 2022 |
+| [2.1.0](#210) |May 01, 2017 |August 31, 2022 |
+| [2.0.1](#201) |October 30, 2016 |August 31, 2022 |
+| [2.0.0](#200) |September 29, 2016 |August 31, 2022 |
+| [1.9.0](#190) |July 07, 2016 |August 31, 2022 |
+| [1.8.0](#180) |June 14, 2016 |August 31, 2022 |
+| [1.7.0](#170) |April 26, 2016 |August 31, 2022 |
+| [1.6.1](#161) |April 08, 2016 |August 31, 2022 |
+| [1.6.0](#160) |March 29, 2016 |August 31, 2022 |
+| [1.5.0](#150) |January 03, 2016 |August 31, 2022 |
+| [1.4.2](#142) |October 06, 2015 |August 31, 2022 |
+| 1.4.1 |October 06, 2015 |August 31, 2022 |
+| [1.2.0](#120) |August 06, 2015 |August 31, 2022 |
+| [1.1.0](#110) |July 09, 2015 |August 31, 2022 |
+| [1.0.1](#101) |May 25, 2015 |August 31, 2022 |
+| 1.0.0 |April 07, 2015 |August 31, 2022 |
 | 0.9.4-prelease |January 14, 2015 |February 29, 2016 |
 | 0.9.3-prelease |December 09, 2014 |February 29, 2016 |
 | 0.9.2-prelease |November 25, 2014 |February 29, 2016 |

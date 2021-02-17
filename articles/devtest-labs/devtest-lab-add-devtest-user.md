@@ -29,7 +29,7 @@ The following table illustrates the actions that can be performed by users in ea
 | **VM base tasks** | | | |
 | Add and remove custom images |No |Yes |Yes |
 | Add, update, and delete formulas |Yes |Yes |Yes |
-| Whitelist Azure Marketplace images |No |Yes |Yes |
+| Enable Marketplace images |No |Yes |Yes |
 | **VM tasks** | | | |
 | Create VMs |Yes |Yes |Yes |
 | Start, stop, and delete VMs |Only VMs created by the user |Yes |Yes |

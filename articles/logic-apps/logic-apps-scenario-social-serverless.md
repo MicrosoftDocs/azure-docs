@@ -105,7 +105,7 @@ create a function app in your Azure subscription.
 Also, for your logic app to directly call a function, 
 the function must have an HTTP trigger binding, 
 for example, use the **HttpTrigger** template. 
-Learn [how to create your first function app and function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
+Learn [how to create your first function app and function in the Azure portal](../azure-functions/functions-get-started.md).
 
 For this scenario, use the tweet text as 
 the request body for your Azure Function. 

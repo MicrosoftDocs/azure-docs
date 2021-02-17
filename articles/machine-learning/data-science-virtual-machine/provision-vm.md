@@ -58,8 +58,6 @@ After the VM is created and provisioned, follow the steps listed to [connect to 
 
 You're ready to start using the tools that are installed and configured on the VM. Many of the tools can be accessed through **Start** menu tiles and desktop icons.
 
-You can also attach a DSVM to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Notebooks projects](../../notebooks/configure-manage-azure-notebooks-projects.md#manage-and-configure-projects).
-
 <a name="tools"></a>
 
 

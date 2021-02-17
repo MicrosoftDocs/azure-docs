@@ -1,6 +1,9 @@
 ---
 title: Assess on-premises servers using an imported CSV file with Azure Migrate Server Assessment
 description: Describes how to discover on-premises servers for migration to Azure using an imported CSV file in Azure Migrate Server Assessment
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 #Customer intent: As a server admin, I want to discover servers using an imported CSV file. 

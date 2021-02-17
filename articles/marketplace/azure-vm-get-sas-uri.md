@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 10/19/2020
+ms.date: 1/5/2021
 ---
 
 # How to generate a SAS URI for a VM image
@@ -57,21 +57,22 @@ There are two common tools used to create a SAS address (URL):
 1. Download and install [Microsoft Azure CL](/cli/azure/install-azure-cli)I. Versions are available for Windows, macOS, and various distros of Linux.
 2. Create a PowerShell file (.ps1 file extension), copy in the following code, then save it locally.
 
-    ```JSON
-    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <vhd-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
+    ```azurecli-interactive
+    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <container-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
     ```
 
 3. Edit the file to use the following parameter values. Provide dates in UTC datetime format, such as 2020-04-01T00:00:00Z.
 
     - account-name – Your Azure storage account name.
     - account-key – Your Azure storage account key.
-    - vhd-name – Your VHD name.
     - start-date – Permission start date for VHD access. Provide a date one day before the current date.
     - expiry-date – Permission expiration date for VHD access. Provide a date at least three weeks after the current date.
 
     Here's an example of proper parameter values (at the time of this writing):
 
-    `az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name vhds -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’`
+    ```azurecli-interactive
+    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name <container-name> -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’
+    ```
 
 1. Save the changes.
 2. Using one of the following methods, run this script with administrative privileges to create a SAS connection string for container-level access:
@@ -83,7 +84,7 @@ There are two common tools used to create a SAS address (URL):
 
 6. Copy the SAS connection string and save it to a text file in a secure location. Edit this string to add the VHD location information to create the final SAS URI.
 7. In the Azure portal, go to the blob storage that includes the VHD associated with the new URI.
-8. Copy the URL of thebBlob service endpoint:
+8. Copy the URL of the blob service endpoint:
 
     ![Copying the URL of the blob service endpoint.](media/vm/create-sas-uri-blob-endpoint.png)
 

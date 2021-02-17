@@ -39,7 +39,7 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
@@ -53,11 +53,11 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 
 Enable diagnostic logs for Azure Data Share, specifically the diagnostic logs for MicrosoftDataShareSentShareSnapshotsLog &amp; MicrosoftDataShareReceivedShareSnapshotsLog. These logs will enable you to capture key information like synchronization start time, end time, status and other details. These logs can be critical for later investigating security incidents and performing forensic exercises.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -67,9 +67,9 @@ Enable diagnostic logs for Azure Data Share, specifically the diagnostic logs fo
 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing Azure Data Share logs has the log retention period set according to your organization's compliance regulations.
 
-- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
+- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Storing resource logs in an Azure Storage Account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Storing resource logs in an Azure Storage Account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -83,9 +83,9 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Getting started with Log Analytics queries](../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Getting started with Log Analytics queries](../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md) 
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md) 
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -100,7 +100,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md) 
+- [How to alert on log analytics log data](../azure-monitor/alerts/tutorial-response.md) 
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -114,7 +114,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 
 **Guidance**: Azure Data Share supports SSO authentication with Azure Active Directory. Reduce the number of identities and credentials users must manage by enabling SSO for the service with your organization's pre-existing identities.
 
-- [Understand SSO with Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -138,7 +138,7 @@ Enable Azure AD MFA and follow Azure Security Center identity and access recomme
 **Guidance**: 
 Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand secure, Azure-managed workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
  
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
@@ -218,7 +218,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure Monitor with the Azure Activity Log to create Azure Monitor alerts for when changes take place to critical Azure resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md) 
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md) 
 
 **Azure Security Center monitoring**: Yes
 

@@ -3,7 +3,7 @@ title: Work with existing on-premises proxy servers and Azure Active Directory
 description: Covers how to work with existing on-premises proxy servers with Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Work with existing on-premises proxy servers
@@ -163,6 +163,9 @@ Now you should see all traffic flowing through the proxy. If you have problems, 
 The best way to identify and troubleshoot connector connectivity issues is to take a network capture while starting the connector service. Here are some quick tips on capturing and filtering network traces.
 
 You can use the monitoring tool of your choice. For the purposes of this article, we used Microsoft Message Analyzer.
+
+> [!NOTE]
+> [Microsoft Message Analyzer (MMA) was retired](/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) and its download packages removed from microsoft.com sites on November 25 2019.  There is currently no Microsoft replacement for Microsoft Message Analyzer in development at this time.  For similar functionality, please consider using a 3rd party network protocol analyzer tool such as Wireshark.
 
 The following examples are specific to Message Analyzer, but the principles can be applied to any analysis tool.
 

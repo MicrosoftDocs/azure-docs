@@ -24,6 +24,11 @@ In this tutorial, you learn how to:
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+> [!IMPORTANT]
+> Cross-region Azure Load Balancer is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
 - An Azure subscription.
@@ -33,8 +38,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Sign in to Azure portal
 
-> [!IMPORTANT]
-> Cross-region load balancer is currently in preview and hidden in the preview portal.  Sign-in to **https://preview.portal.azure.com/?feature.globallb=true** to view and deploy the feature.
+[Sign in](https://preview.portal.azure.com) to the Azure preview portal.
 
 ## Create cross-region load balancer
 

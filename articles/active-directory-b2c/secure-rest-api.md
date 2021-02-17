@@ -226,7 +226,7 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 
 ### Acquiring an access token 
 
-You can obtain an access token in one of several ways: by obtaining it [from a federated identity provider](idp-pass-through-custom.md), by calling a REST API that returns an access token, by using an [ROPC flow](../active-directory/develop/v2-oauth-ropc.md), or by using the [client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
+You can obtain an access token in one of several ways: by obtaining it [from a federated identity provider](idp-pass-through-user-flow.md), by calling a REST API that returns an access token, by using an [ROPC flow](../active-directory/develop/v2-oauth-ropc.md), or by using the [client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
 
 The following example uses a REST API technical profile to make a request to the Azure AD token endpoint using the client credentials passed as HTTP basic authentication. To configure this in Azure AD, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). You may need to modify this to interface with your Identity Provider. 
 
@@ -354,6 +354,69 @@ The following is an example of a RESTful technical profile configured with beare
       </Metadata>
       <CryptographicKeys>
         <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_RestApiBearerToken" />
+      </CryptographicKeys>
+      ...
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
+## API key authentication
+
+API key is a unique identifier used to authenticate a user to access a REST API endpoint. The key is sent in a custom HTTP header. For example, the [Azure Functions HTTP trigger](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) uses the `x-functions-key` HTTP header to identify the requester.  
+
+### Add API key policy keys
+
+To configure a REST API technical profile with API key authentication, create the following cryptographic key to store the API key:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose your Azure AD B2C directory.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. On the Overview page, select **Identity Experience Framework**.
+1. Select **Policy Keys**, and then select **Add**.
+1. For **Options**, select **Manual**.
+1. For **Name**, type **RestApiKey**.
+    The prefix *B2C_1A_* might be added automatically.
+1. In the **Secret** box, enter the REST API key.
+1. For **Key usage**, select **Encryption**.
+1. Select **Create**.
+
+
+### Configure your REST API technical profile to use API key authentication
+
+After creating the necessary key, configure your REST API technical profile metadata to reference the credentials.
+
+1. In your working directory, open the extension policy file (TrustFrameworkExtensions.xml).
+1. Search for the REST API technical profile. For example `REST-ValidateProfile`, or `REST-GetProfile`.
+1. Locate the `<Metadata>` element.
+1. Change the *AuthenticationType* to `ApiKeyHeader`.
+1. Change the *AllowInsecureAuthInProduction* to `false`.
+1. Immediately after the closing `</Metadata>` element, add the following XML snippet:
+    ```xml
+    <CryptographicKeys>
+        <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
+    </CryptographicKeys>
+    ```
+
+The **Id** of the cryptographic key defines the HTTP header. In this example, the API key is sent as **x-functions-key**.
+
+The following is an example of a RESTful technical profile configured to call an Azure Function with API key authentication:
+
+```xml
+<ClaimsProvider>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="REST-GetProfile">
+      <DisplayName>Get user extended profile Azure Function web hook</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/GetProfile?code=your-code</Item>
+        <Item Key="SendClaimsIn">Body</Item>
+        <Item Key="AuthenticationType">ApiKeyHeader</Item>
+        <Item Key="AllowInsecureAuthInProduction">false</Item>
+      </Metadata>
+      <CryptographicKeys>
+        <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
       </CryptographicKeys>
       ...
     </TechnicalProfile>

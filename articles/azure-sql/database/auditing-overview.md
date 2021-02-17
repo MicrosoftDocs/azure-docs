@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 11/08/2020
+ms.date: 02/03/2021
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Auditing for Azure SQL Database and Azure Synapse Analytics
@@ -59,6 +59,18 @@ An auditing policy can be defined for a specific database or as a default [serve
     > - You want to audit event types or categories for a specific database that differ from the rest of the databases on the server. For example, you might have table inserts that need to be audited only for a specific database.
    >
    > Otherwise, we recommended that you enable only server-level auditing and leave the database-level auditing disabled for all databases.
+
+#### Remarks
+
+- Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription
+- Audit logs are in .xel format and can be opened by using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+- To configure an immutable log store for the server or database-level audit events, follow the [instructions provided by Azure Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). Make sure you have selected **Allow additional appends** when you configure the immutable blob storage.
+- You can write audit logs to a an Azure Storage account behind a VNet or firewall. For specific instructions see, [Write audit to a storage account behind VNet and firewall](audit-write-storage-account-behind-vnet-firewall.md).
+- For details about the log format, hierarchy of the storage folder and naming conventions, see the [Blob Audit Log Format Reference](./audit-log-format.md).
+- Auditing on [Read-Only Replicas](read-scale-out.md) is automatically enabled. For further details about the hierarchy of the storage folders, naming conventions, and log format, see the [SQL Database Audit Log Format](audit-log-format.md).
+- When using Azure AD Authentication, failed logins records will *not* appear in the SQL audit log. To view failed login audit records, you need to visit the [Azure Active Directory portal](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), which logs details of these events.
+- Logins are routed by the gateway to the specific instance where the database is located.  In the case of AAD logins, the credentials are verified before attempting to use that user to login into the requested database.  In the case of failure, the requested database is never accessed, so no auditing occurs.  In the case of SQL logins, the credentials are verified on the requested data, so in this case they can be audited.  Successful logins, which obviously reach the database, are audited in both cases.
+- After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](threat-detection-overview.md).
 
 ## <a id="setup-auditing"></a>Set up auditing for your server
 
@@ -115,24 +127,13 @@ To configure writing audit logs to a storage account, select **Storage** and ope
 
   ![storage account](./media/auditing-overview/auditing_select_storage.png)
 
-#### Remarks
-
-- Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription
-- Audit logs are in .xel format and can be opened by using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
-- To configure an immutable log store for the server or database-level audit events, follow the [instructions provided by Azure Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). Make sure you have selected **Allow additional appends** when you configure the immutable blob storage.
-- You can write audit logs to a an Azure Storage account behind a VNet or firewall. For specific instructions see, [Write audit to a storage account behind VNet and firewall](audit-write-storage-account-behind-vnet-firewall.md).
-- After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](threat-detection-overview.md).
-- For details about the log format, hierarchy of the storage folder and naming conventions, see the [Blob Audit Log Format Reference](./audit-log-format.md).
-- When using Azure AD Authentication, failed logins records will *not* appear in the SQL audit log. To view failed login audit records, you need to visit the [Azure Active Directory portal](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), which logs details of these events.
-- Auditing on [Read-Only Replicas](read-scale-out.md) is automatically enabled. For further details about the hierarchy of the storage folders, naming conventions, and log format, see the [SQL Database Audit Log Format](audit-log-format.md).
-
 ### <a id="audit-log-analytics-destination"></a>Audit to Log Analytics destination
   
 To configure writing audit logs to a Log Analytics workspace, select **Log Analytics (Preview)** and open **Log Analytics details**. Select or create the Log Analytics workspace where logs will be written and then click **OK**.
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-For more details about Azure Monitor Log Analytics workspace, see [Designing your Azure Monitor Logs deployment](../../azure-monitor/platform/design-logs-deployment.md)
+For more details about Azure Monitor Log Analytics workspace, see [Designing your Azure Monitor Logs deployment](../../azure-monitor/logs/design-logs-deployment.md)
    
 ### <a id="audit-event-hub-destination"></a>Audit to Event Hub destination
 
@@ -163,7 +164,7 @@ If you chose to write audit logs to Azure Monitor logs:
     ![Log Analytics Security Insights](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
 - Alternatively, you can also access the audit logs from Log Analytics blade. Open your Log Analytics workspace and under **General** section, click **Logs**. You can start with a simple query, such as: *search "SQLSecurityAuditEvents"* to view the audit logs.
-    From here, you can also use [Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md)  to run advanced searches on your audit log data. Azure Monitor logs gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Azure Monitor logs search language and commands, see [Azure Monitor logs search reference](../../azure-monitor/log-query/log-query-overview.md).
+    From here, you can also use [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md)  to run advanced searches on your audit log data. Azure Monitor logs gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Azure Monitor logs search language and commands, see [Azure Monitor logs search reference](../../azure-monitor/logs/log-query-overview.md).
 
 If you chose to write audit logs to Event Hub:
 
@@ -266,6 +267,11 @@ Extended policy with WHERE clause support for additional filtering:
 - [Create or Update Server *Extended* Auditing Policy](/rest/api/sql/server%20auditing%20settings/createorupdate)
 - [Get Database *Extended* Auditing Policy](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Get Server *Extended* Auditing Policy](/rest/api/sql/server%20auditing%20settings/get)
+
+### Using Azure CLI
+
+- [Manage a server's auditing policy](/cli/azure/sql/server/audit-policy?view=azure-cli-latest)
+- [Manage a database's auditing policy](/cli/azure/sql/db/audit-policy?view=azure-cli-latest)
 
 ### Using Azure Resource Manager templates
 

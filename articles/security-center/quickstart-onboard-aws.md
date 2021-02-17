@@ -3,7 +3,7 @@ title: Connect your AWS account to Azure Security Center
 description: Monitoring your AWS resources from Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
@@ -29,21 +29,23 @@ Onboarding your AWS account into Security Center, integrates AWS Security Hub an
 
 In the screenshot below you can see AWS accounts displayed in Security Center's overview dashboard.
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="3 GCP projects listed on Security Center's overview dashboard" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
+:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Three GCP projects listed on Security Center's overview dashboard" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Release state:|General Availability (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
-|Required roles and permissions:|**Owner** or **Contributor** on the relevant Azure Subscription|
+|Required roles and permissions:|**Owner** on the relevant Azure subscription<br>**Contributor** can also connect an AWS account if an owner provides the service principal details|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
 
 
 ## Connect your AWS account
+
+Follow the steps below to create your AWS cloud connector. 
 
 ### Step 1. Set up AWS Security Hub:
 
@@ -130,9 +132,9 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 1. Configure the options in the **AWS authentication** tab:
     1. Enter a **Display name** for the connector.
     1. Confirm that the subscription is correct. It is the subscription that will include the connector and AWS Security Hub recommendations.
-    1. Depending on the authentication option you chose in [Step 2. Set up authentication for Security Center in AWS](#step-2-set-up-authentication-for-security-center-in-aws):
+    1. Depending on the authentication option, you chose in [Step 2. Set up authentication for Security Center in AWS](#step-2-set-up-authentication-for-security-center-in-aws):
         - Select  **Assume Role** and paste the ARN from [Create an IAM role for Security Center](#create-an-iam-role-for-security-center).
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Pasting the ARN file in the relevant field of the AWS connection wizard in the Azure Portal":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Pasting the ARN file in the relevant field of the AWS connection wizard in the Azure portal":::
 
             OR
 
@@ -156,9 +158,9 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 
         Learn more about Azure Tags in [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md).
 
-### Step 7. Confirmation
+### Step 6. Confirmation
 
-When the connector is successfully created and AWS Security Hub has been configured properly:
+When the connector is successfully created, and AWS Security Hub has been configured properly:
 
 - Security Center scans the environment for AWS EC2 instances, onboarding them to Azure Arc, enabling to install the Log Analytics agent and providing threat protection and security recommendations. 
 - The ASC service scans for new AWS EC2 instances every 6 hours and onboards them according to the configuration.
@@ -184,7 +186,7 @@ To view all the active recommendations for your resources by resource type, use 
 Supported OS for automatic onboarding to Azure Arc for AWS Machines
 
 - Ubuntu 16.04 - SSM Agent is preinstalled, by default
-- Ubuntu 18.04 -SSM Agent is preinstalled, by default
+- Ubuntu 18.04 - SSM Agent is preinstalled, by default
 - Windows server - SSM Agent is preinstalled, by default
 - CentOS Linux 7 – SSM should be installed manually or onboard separately
 - SUSE Linux Enterprise Server (SLES) 15 (x64) -SSM should be installed manually or onboarded separately
