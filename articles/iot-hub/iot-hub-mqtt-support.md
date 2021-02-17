@@ -99,6 +99,8 @@ In the [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSamp
 
 These samples use the Eclipse Mosquitto library to send messages to the MQTT Broker implemented in the IoT hub.
 
+To learn how to adapt the samples to use the [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) conventions, see [Tutorial - Use MQTT to develop an IoT Plug and Play device client](../iot-pnp/tutorial-use-mqtt.md).
+
 This repository contains:
 
 **For Windows:**
