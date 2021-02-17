@@ -385,7 +385,7 @@
             - name: Enable logs
               displayName: troubleshoot, log, files, tracing
               href: how-to-track-experiments.md
-            - name: View run logs and metrics
+            - name: View logs and metrics for runs
               displayName: troubleshoot, log, files, tracing, metrics
               href: how-to-monitor-view-training-logs.md
             - name: Visualize runs with TensorBoard
