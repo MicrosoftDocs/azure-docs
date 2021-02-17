@@ -133,5 +133,5 @@ If you plan to continue working with additional quickstarts or tutorials, don't 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Find and diagnose performance problems](../log-query/log-query-overview.md)
+> [Find and diagnose performance problems](../logs/log-query-overview.md)
 
