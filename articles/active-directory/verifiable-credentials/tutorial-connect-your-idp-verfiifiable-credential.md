@@ -16,7 +16,7 @@ ms.author: barclayn
 
 ---
 
-# Tutorial - Hook up your IDP to a new Verifiable Credential, create node app to talk with key vault
+# Connect your IDP to a new verifiable credential instance
 
 Now that you have your Azure tenant set up with the Verifiable Credential service, we will walk you through changing the configuration in your local sample code to your own Verifiable Credential service we set up in the previous section. 
 
