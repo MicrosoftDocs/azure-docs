@@ -12,7 +12,7 @@ ms.author: victorh
 
 # Use Log Analytics to examine Application Gateway Web Application Firewall (WAF) Logs
 
-Once your Application Gateway WAF is operational, you can enable logs to inspect what is happening with each request. Firewall logs give insight to what the WAF is evaluating, matching, and blocking. With Log Analytics, you can examine the data inside the firewall logs to give even more insights. For more information about creating a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md). For more information about log queries, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Once your Application Gateway WAF is operational, you can enable logs to inspect what is happening with each request. Firewall logs give insight to what the WAF is evaluating, matching, and blocking. With Log Analytics, you can examine the data inside the firewall logs to give even more insights. For more information about creating a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md). For more information about log queries, see [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## Import WAF logs
 

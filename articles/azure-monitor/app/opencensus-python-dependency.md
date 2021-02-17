@@ -169,6 +169,6 @@ config_integration.trace_integrations(['sqlalchemy'])
 * [Application Map](./app-map.md)
 * [Availability](./monitor-web-app-availability.md)
 * [Search](./diagnostic-search.md)
-* [Log (Analytics) query](../log-query/log-query-overview.md)
+* [Log (Analytics) query](../logs/log-query-overview.md)
 * [Transaction diagnostics](./transaction-diagnostics.md)
 
