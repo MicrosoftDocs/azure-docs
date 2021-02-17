@@ -1,6 +1,6 @@
 ---
-title: Implement table-based role-based access control (table-based RBAC) in Azure Sentinel | Microsoft Docs
-description: This article explains how to implement table-based, role-based access control (table-based RBAC) for Azure Sentinel. table-based RBAC enables you to provide access to specific Azure Sentinel tables only, without the entire Azure Sentinel experience.
+title: Implement table-centric role-based access control (table-centric RBAC) in Azure Sentinel | Microsoft Docs
+description: This article explains how to implement table-centric, role-based access control (table-centric RBAC) for Azure Sentinel. Table-centric RBAC enables you to provide access to specific Azure Sentinel tables only, without the entire Azure Sentinel experience.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -19,7 +19,7 @@ ms.author: bagol
 
 ---
 
-# Table-based RBAC for Azure Sentinel
+# Table-centric RBAC for Azure Sentinel
 
 Typically, users who have access to an Azure Sentinel workspace also have access to all its resources, using [Azure roles](roles.md).
 
@@ -27,9 +27,9 @@ However, you may have users who need access to specific tables collected by your
 
 For example, if your operations team manages the performance monitor workload, and needs access to performance log tables only, and not other sensitive data such as security event logs. Both the performance logs and the security event logs are stored on the same workspace.
 
-In such cases, we recommend you use the table-based, role-based access control (resource-based RBAC). Table-based RBAC enables you to provide access only to the tables required by each team.
+In such cases, we recommend you use the table-centric, role-based access control (table-centric RBAC). Table-centric RBAC enables you to provide access only to the tables required by each team.
 
-Table-based RBAC is supported for Azure Sentinel via Log Analytics.
+Table-centric RBAC is supported for Azure Sentinel via Log Analytics.
 
 ## Implementing table-base RBAC
 
@@ -54,7 +54,7 @@ Table-based RBAC is supported for Azure Sentinel via Log Analytics.
       }
     ```
 
-    For more information, see the [Azure RBAC documentation](/azure/role-based-access-control/custom-roles).
+    For more information, see the [Azure RBAC documentation](/azure/role-centric-access-control/custom-roles).
 
 1. Add the custom role to your Azure subscription. Run the [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) command, pointing to the custom JSON file you created in the previous step.
 
@@ -90,9 +90,9 @@ The following table describes other methods you can use to allow access to speci
 |Scenario  |Method  |
 |---------|---------|
 |A subsidiary has a SOC team that requires a full Azure Sentinel experience     |Use a [multi-workspace architecture](https://www.youtube.com/watch?v=_mm3GNwPBHU&feature=youtu.be) to separate your data permissions.         |
-|You want to set controls for specific resources in  Azure Sentinel     |  Use [resource-based RBAC](resource-based-rbac.md) to define permissions for specific resources.     |
+|You want to set controls for specific resources in  Azure Sentinel     |  Use [resource-centric RBAC](resource-centric-rbac.md) to define permissions for specific resources.     |
 |Provide only selected information to users     | Provide access to data using built-in integration with [Power BI dashboards and reports](/azure/azure-monitor/platform/powerbi).       |
-|  Limit access based on the specific users referenced by an event   | **Example**: Limit access to Office 365 logs based on a user's subsidiary. <br><br>Use one of the following methods: <br>- Use data-based RBAC and custom-based collection <br>- Enrich the relevant log with the subsidiary information. In this case, you can use the enriched data in workbooks to ensure that each non-SOC team gets access to a workbook that is pre-filtered to display relevant data only.  <!--not sure if we should include this-->     |
+|  Limit access based on the specific users referenced by an event   | **Example**: Limit access to Office 365 logs based on a user's subsidiary. <br><br>Use one of the following methods: <br>- Use data-centric RBAC and custom-based collection <br>- Enrich the relevant log with the subsidiary information. In this case, you can use the enriched data in workbooks to ensure that each non-SOC team gets access to a workbook that is pre-filtered to display relevant data only.  <!--not sure if we should include this-->     |
 
 ## Next steps
 

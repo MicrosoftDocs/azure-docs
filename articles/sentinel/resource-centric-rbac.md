@@ -19,8 +19,6 @@ ms.author: bagol
 
 ---
 
-objects in 
-
 # Resource-centric RBAC for Azure Sentinel
 
 Typically, users who have access to an Azure Sentinel workspace also have access to all the workspace data, such as both security and performance content. Administrators can use [Azure roles](roles.md) to configure access to specific features in Azure Sentinel, depending on the access requirements in their team.
@@ -54,6 +52,12 @@ If your team has similar access requirements to the non-SOC team described in th
 
 
 ## Manually configure resource-centric RBAC
+
+Use the following steps if you want to configure resource-centric RBAC, but your data is not an Azure resource. 
+
+For example, data in your Azure Sentinel workspace that are not Azure resources include Syslog, CEF, or AAD data, or data collected by a custom collector. 
+
+**To manually configure resource-centric RBAC**:
 
 1. In Azure Monitor, enable resource-centric RBAC as described in the [Azure Monitor documentation](/azure/azure-monitor/platform/manage-access).
 
@@ -118,17 +122,15 @@ The following list describes scenarios where other solutions for data access may
 
 - **A subsidiary has a SOC team that requires a full Azure Sentinel experience**. In this case, use a [multi-workspace architecture](https://www.youtube.com/watch?v=_mm3GNwPBHU&feature=youtu.be) to separate your data permissions.
 
-    Create multiple Azure Sentinel workspaces, and provide access
+- **You want to set access controls at the table level**. Use [table-centric RBAC](table-centric-rbac.md) to define permissions for each table.
 
-The following table describes other methods for providing access to specific data only, and ensuring that security data is available only to those who need it.
+- **You want to provide access at a more granular level, for specific data only**. Provide access to data using built-in integration with [Power BI dashboards and reports](/azure/azure-monitor/platform/powerbi).
 
-|Scenario  |Method  |
-|---------|---------|
-|A subsidiary has a SOC team that requires a full Azure Sentinel experience     |Use a [multi-workspace architecture](https://www.youtube.com/watch?v=_mm3GNwPBHU&feature=youtu.be) to separate your data permissions.         |
-|You want to set controls on each table in Azure Sentinel     |  Use [table-based RBAC](table-based-rbac.md) to define permissions for each table.     |
-|Provide only selected information to users     | Provide access to data using built-in integration with [Power BI dashboards and reports](/azure/azure-monitor/platform/powerbi).       |
-|  Limit access based on the specific users referenced by an event   | **Example**: Limit access to Office 365 logs based on a user's subsidiary. <br><br>Use one of the following methods: <br>- Use data-based RBAC and custom-based collection <br>- Enrich the relevant log with the subsidiary information. In this case, you can use the enriched data in workbooks to ensure that each non-SOC team gets access to a workbook that is pre-filtered to display relevant data only.  <!--not sure if we should include this-->     |
+- **Limit access based on the specific users referenced by an event**. For example, you might want to limit access to Office 365 logs based on a user's subsidiary. In this case, use one of the following methods:
+
+    - Use data-based RBAC and custom collection.
+    - Enrich the relevant log with the subsidiary information. In this case, you can use the enriched data in workbooks to ensure that each non-SOC team gets access to a workbook that is pre-filtered to display relevant data only.
 
 ## Next steps
 
-For more information, see [Roles and permissions in Azure Sentinel](roles.md).
+For more information, see [Permissions in Azure Sentinel](roles.md).

@@ -26,7 +26,13 @@
 - name: Concepts
   items:
   - name: Permissions in Azure Sentinel
-    href: roles.md
+    items:
+    - name: Overview
+      href: roles.md
+    - name: Resource-centric RBAC
+      href: resource-centric-rbac.md
+    - name: Table-centric RBAC
+      href: table-centric-rbac.md
   - name: Advanced multistage attack detection
     href: fusion.md
   - name: Bring your own machine learning platform
@@ -243,10 +249,7 @@
     href: offboard.md
   - name: Implement advanced RBAC
     items:
-      - name: Resource-based RBAC
-        href: resource-based-rbac.md
-      - name: Table-based RBAC
-        href: table-based-rbac.md
+
 - name: Reference
   items:
   - name: Azure RBAC roles
