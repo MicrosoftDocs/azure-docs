@@ -95,7 +95,7 @@ Azure NetApp Files is updated on a regular basis. This article provides a summar
 
 ## May 2020
 
-* [Backup policy users](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection) (Preview)
+* [Backup policy users](create-active-directory-connections.md) (Preview)
 
     Azure NetApp Files allows you to include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. The specified accounts will be allowed to change the NTFS permissions at the file or folder level. For example, you can specify a non-privileged service account used for migrating data to an SMB file share in Azure NetApp Files. The Backup policy users feature is currently in preview.
 
