@@ -362,6 +362,8 @@
       href: /azure/developer/chef/windows-vm-configure
     - name: Use Java
       href: ./windows/java.md
+    - name: Python
+      href: https://docs.microsoft.com/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/
     - name: Use ARM template
       displayName: Azure Resource Manager template
       href: ./windows/ps-template.md
