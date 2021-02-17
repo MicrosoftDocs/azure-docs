@@ -6,7 +6,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 02/17/2021
 ms.author: cherylmc
 
 ---
@@ -47,7 +47,6 @@ You can configure and view NAT rules on your VPN gateway settings at any time.
 ### Configuration considerations
 
 * The subnet size for both internal and external mapping must be the same for Static one-to-one NAT.
-* Each virtual hub’s Site-to-site VPN gateway supports up to 64 NAT rules.
 
 ## Next steps
 
