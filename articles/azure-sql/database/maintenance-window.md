@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 02/11/2021
+ms.date: 02/17/2021
 ---
 
 # Maintenance window (Preview)
@@ -31,7 +31,7 @@ The maintenance window can be configured using the Azure portal, PowerShell,
 
 By default, all Azure SQL Databases and managed instance databases are updated only during 5PM to 8AM local times daily to avoid peak business hours interruptions. Local time is determined by the [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) that hosts the resource. You can further adjust the maintenance updates to a time suitable to your database by choosing from two additional maintenance window slots:
 
-* **Default** window, 5PM to 8AM local time Mon-Sunday 
+* **Default** window, 5PM to 8AM local time Monday - Sunday 
 * Weekday window, 10PM to 6AM local time Monday – Thursday: **Requires customer opt-in** 
 * Weekend window, 10PM to 6AM local time Friday - Sunday: **Requires customer opt-in**  
 
@@ -80,6 +80,14 @@ Choosing a maintenance window other than the default is currently available in t
 - West Europe
 - West US
 - West US2
+
+## Gateway maintenance 
+
+To get the maximum benefit from maintenance windows, make sure your client applications are using the redirect connection policy. For more on client connection policy in Azure SQL Database see [Azure SQL Database Connection policy](../database/connectivity-architecture.md#connection-policy), and in Azure SQL managed instance see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md). 
+
+Redirect is the recommended connection policy, where clients establish connections directly to the node hosting the database, leading to reduced latency and improved throughput.  
+
+The maintenance window schedule for gateway nodes are not changed by the Azure SQL Database or managed instance maintenance window. The gateway nodes receive maintenance only during the default schedule, 5PM to 8AM local time Monday - Sunday. Therefore, any connections using the proxy connection policy could be affected by both the chosen maintenance window and the gateway node maintenance window. Clients using the proxy connection policy would be terminated and could immediately re-connect to a different gateway. However, client connections using the redirect connection policy would be unaffected by a gateway node maintenance failover. 
 
 ## Next steps
 
