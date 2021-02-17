@@ -97,9 +97,9 @@ Link your machine learning workspace and Synapse workspace via the Azure Machine
     Field| Description    
     ---|---
     Name| Provide a name for your linked service. This name is what will be used to reference to this particular linked service.
-    Subscription name | Select the name of your subsciption that's associated with your machine learning workspace. 
+    Subscription name | Select the name of your subscription that's associated with your machine learning workspace. 
     Synapse workspace | Select the Synapse workspace you want to link to. 
-1. Select **Next** to open the **Select Spark pools (optional)** form. On this form you select which Synapse Spark pool to attach to your workspace
+1. Select **Next** to open the **Select Spark pools (optional)** form. On this form, you select which Synapse Spark pool to attach to your workspace
 
 1. Select **Next** to open the **Review** form and check your selections. 
 1. Select **Create** to complete the linked service creation process.
