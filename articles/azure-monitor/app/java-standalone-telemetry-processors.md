@@ -29,7 +29,7 @@ Before you learn about telemetry processors, you should understand the term *spa
 * An outgoing dependency (for example, a remote call to another service).
 * An in-process dependency (for example, work being done by subcomponents of the service).
 
-For telemetry processors, these components of a span are important:
+For telemetry processors, these span components are important:
 
 * Name
 * Attributes
@@ -47,7 +47,7 @@ A span processor can update the telemetry name.
 It can also use a regular expression to extract one or more new attributes from the span name.
 
 > [!NOTE]
-> Currently, telemetry processors process only attributes of type string. They don't process attributes of type boolean or number.
+> Currently, telemetry processors process only attributes of type string. They don't process attributes of type Boolean or number.
 
 ## Getting started
 
@@ -82,23 +82,21 @@ A processor is applied only to spans that match its `include` criteria (if it's 
 _and_ don't match its `exclude` criteria (if it's provided).
 
 To configure this option, under `include` or `exclude` (or both), specify at least one `matchType` and either `spanNames` or `attributes`.
-The include/exclude configuration allows more than one specified condition.
+The include-exclude configuration allows more than one specified condition.
 All specified conditions must evaluate to true to result in a match. 
 
-**Required field**: 
-* `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
+* **Required field**: `matchType` controls how items in `spanNames` arrays and `attributes` arrays are interpreted. Possible values are `regexp` and `strict`. 
 
-**Optional fields**: 
-* `spanNames` must match at least one of the items. 
-* `attributes` specifies the list of attributes to match. All of these attributes must match exactly to result in a match.
-
+* **Optional fields**: 
+    * `spanNames` must match at least one of the items. 
+    * `attributes` specifies the list of attributes to match. All of these attributes must match exactly to result in a match.
+    
 > [!NOTE]
 > If both `include` and `exclude` are specified, the `include` properties are checked before the `exclude` properties are checked.
 
 ### Sample usage
 
 ```json
-
 "processors": [
   {
     "type": "attribute",
@@ -161,9 +159,9 @@ The `insert` action inserts a new attribute in spans where the key doesn't alrea
 ]
 ```
 The `insert` action requires the following settings:
-  * `key`
-  * Either `value` or `fromAttribute`
-  * `action`:`insert`
+* `key`
+* Either `value` or `fromAttribute`
+* `action`: `insert`
 
 ### `update`
 
@@ -184,9 +182,9 @@ The `update` action updates an attribute in spans where the key already exists.
 ]
 ```
 The `update` action requires the following settings:
-  * `key`
-  * Either `value` or `fromAttribute`
-  * `action`:`update`
+* `key`
+* Either `value` or `fromAttribute`
+* `action`: `update`
 
 
 ### `delete` 
@@ -207,8 +205,8 @@ The `delete` action deletes an attribute from a span.
 ]
 ```
 The `delete` action requires the following settings:
-  * `key`
-  * `action`: `delete`
+* `key`
+* `action`: `delete`
 
 ### `hash`
 
@@ -229,7 +227,7 @@ The `hash` action hashes (SHA1) an existing attribute value.
 ```
 The `hash` action requires the following settings:
 * `key`
-* `action` : `hash`
+* `action`: `hash`
 
 ### `extract`
 
@@ -255,7 +253,7 @@ The `extract` action extracts values by using a regular expression rule from the
 The `extract` action requires the following settings:
 * `key`
 * `pattern`
-* `action` : `extract`
+* `action`: `extract`
 
 For more information, see [Telemetry processor examples](./java-standalone-telemetry-processors-examples.md).
 
@@ -267,7 +265,7 @@ The span processor modifies either the span name or attributes of a span based o
 
 The `name` section requires the `fromAttributes` setting. This attribute value for the keys is used to create a new name in the order that the configuration specifies. When all attribute keys are specified in the span, the processor can rename the span.
 
-The `separator` setting is optional. This setting is a string. It's specified for the purpose of splitting values.
+The `separator` setting is optional. This setting is a string. It's specified to split values.
 > [!NOTE]
 > If renaming relies on the attributes processor to modify attributes, ensure the span processor is specified after the attributes processor in the pipeline specification.
 
