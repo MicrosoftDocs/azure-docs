@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Sign in to your **Syncplicity** tenant.
 
-1. In the menu on the top, click **admin**, select **settings**, and then click **Custom domain and single sign-on**.
+1. In the menu on the top, click **Admin**, select **Settings**, and then click **Custom domain and single sign-on**.
 
     ![Syncplicity](./media/syncplicity-tutorial/ic769545.png "Syncplicity")
 
@@ -107,9 +107,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     c. In the **Entity Id** textbox, Paste the **Identifier (Entity ID)** value, which you have used in the **Basic SAML Configuration** in the Azure portal.
 
-    d. In the **Sign-in page URL** textbox, Paste the **Login URL** which you have copied from Azure portal.
+    d. In the **Sign-in page URL** textbox, Paste the **Sign on URL** which you have copied from the Azure portal.
 
-    e. In the **Logout page URL** textbox, Paste the **Logout URL** which you have copied from Azure portal.
+    e. In the **Logout page URL** textbox, Paste the **Logout URL** which you have copied from the Azure portal.
 
     f. In **Identity Provider Certificate**, click **Choose file**, and then upload the certificate which you have downloaded from the Azure portal.
 
@@ -120,12 +120,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 In this section, you'll create a test user in the Azure portal called B.Simon.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+2. Select **New user** at the top of the screen.
+3. In the **User** properties, follow these steps:
+   a. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   b. In the **Name** field, enter `B.Simon`.  
+   c. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   d. Click **Create**.
 
 ### Assign the Azure AD test user
 
@@ -137,13 +137,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. Select **Add user/group**, then click **Users** in the **Add Assignment** page.
 
 	![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. In the **Add Assignment** page, click the **Assign** button.
 
 ### Create Syncplicity test user
 
@@ -153,25 +153,25 @@ For Azure AD users to be able to sign in, they must be provisioned to Syncplicit
 
 1. Sign in to your **Syncplicity** tenant (for example: `https://company.Syncplicity.com`).
 
-1. Click **admin** and select **user accounts** and then click **ADD A USER**.
+1. Click **Admin** and select **User Accounts**, then click **Add a User**.
 
     ![Manage Users](./media/syncplicity-tutorial/ic769764.png "Manage Users")
 
-1. Type the **Email addresses** of an Azure AD account you want to provision, select **User** as **Role**, and then click **NEXT**.
+1. Type the **Email addresses** of an Azure AD account you want to provision, select **User** as **Role**, and then click **Next**.
 
     ![Account Information](./media/syncplicity-tutorial/ic769765.png "Account Information")
 
     > [!NOTE]
-    > The Azure AD account holder  gets an email including a link to confirm and activate the account.
+    > The Azure AD account holder gets an email including a link to confirm and activate the account.
 
-1. Select a group in your company that your new user should become a member of, and then click **NEXT**.
+1. Select a group in your company that your new user should become a member of, and then click **Next**.
 
     ![Group Membership](./media/syncplicity-tutorial/ic769772.png "Group Membership")
 
     > [!NOTE]
-    > If there are no groups listed, click **NEXT**.
+    > If there are no groups listed, click **Next**.
 
-1. Select the folders you would like to place under Syncplicity’s control on the user’s computer, and then click **NEXT**.
+1. Select the folders you would like to place under Syncplicity’s control on the user’s computer, and then click **Next**.
 
     ![Syncplicity Folders](./media/syncplicity-tutorial/ic769773.png "Syncplicity Folders")
 
