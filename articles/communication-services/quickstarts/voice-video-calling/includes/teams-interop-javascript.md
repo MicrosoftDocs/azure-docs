@@ -50,7 +50,7 @@ Replace content of client.js file with following snippet.
 
 ```javascript
 import { CallClient } from "@azure/communication-calling";
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
@@ -61,7 +61,7 @@ const callStateElement = document.getElementById('call-state');
 
 async function init() {
     const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
     callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'ACS user'});
     teamsMeetingJoinButton.disabled = false;
 }
