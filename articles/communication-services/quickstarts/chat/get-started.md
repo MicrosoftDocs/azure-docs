@@ -30,6 +30,10 @@ Get started with Azure Communication Services by using the Communication Service
 [!INCLUDE [Chat with Java client library](./includes/chat-java.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-android"
+[!INCLUDE [Chat with Android client library](./includes/chat-android.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Chat with C# client library](./includes/chat-csharp.md)]
 ::: zone-end
