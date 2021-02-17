@@ -4,7 +4,7 @@ description: How to upgrade the MongoDB wire-protocol version for your existing 
 author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: guide
+ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: chrande
 
