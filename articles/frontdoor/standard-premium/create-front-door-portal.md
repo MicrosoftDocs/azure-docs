@@ -19,17 +19,7 @@ ms.author: duau
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
 
-Get started with Azure Front Door by using the Azure portal to configure a secure and high availability web application. When you can create an Azure Front Door profile, you can select either the *Quick Create* or *Custom Create* experience.
-
-* With *Quick Create*, you can quickly create a Front Door endpoint with basic configurations. You can add an origin, enable caching, and add a WAF policy. If you choose Azure Front Door Premium SKU, you can also enable private link for private connectivity from AFD to your origin. Origin group and route will be enabled by default with default values. Once you complete the quick create, you can explore more advanced configurations to secure and accelerate your app globally in the management experience.
-
-* With *Custom Create*, you can create an endpoint with advanced settings- add one origin with multiple origins and load-balancing rules among origins. Then you can add a Route to connect endpoint with origin group and define the routing via Route. You can also add certificates from Azure Key Vault if you want to use BYOC (Bring your own certificate) certificate for custom domains. In the last step, you can also add or create a WAF policy for this endpoint.
-
-You can also *Choose SKU by scenario* and *Explore other offerings* to help you find the best solution that fits your scenario.
-
-**Choose SKU by scenario:** Select your content delivery scenario, Static webpage, Dynamic/API caching, Media streaming, and File download.
-
-**Explore other offerings:** Continue to use existing Azure CDN offerings and Azure Front Door service.
+In this quickstart, you learn how to create an Azure Front Door Standard/Premium profile using the Azure portal. You can create your Azure Front Door Standard/Premium through *Quick Create* with a basic configuration or through *Custom create* with a more advanced configuration. 
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
@@ -42,7 +32,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ## Create Front Door profile - Quick Create
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. From the home page or the Azure menu, select **Create a resource**. Search for **Front Door Standard/Premium (Preview)**. On the **Compare offerings** page, select **Quick Create**.
 
@@ -81,7 +71,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ### Create a web app with two instances as the origin
 
-If you already have an origin or an origin group, go to Create a Front Door Standard/Premium (Preview) for your application.
+If you already have an origin or an origin group configured, skip to Create a Front Door Standard/Premium (Preview) for your application.
 
 In this example, we create a web application with two instances that run in different Azure regions. Both the web application instances run in *Active/Active* mode, so either one can take traffic. This configuration differs from an *Active/Stand-By* configuration, where one acts as a failover.
 
@@ -109,7 +99,7 @@ If you don't already have a web app, use the following steps to set up an exampl
 
 1. Select **Review + create**, review the summary, and then select **Create**. It might take several minutes to deploy to a
 
-After your deployment is complete, create a second web app. Use the same procedure with the same values, except for the following values:
+After your deployment is complete, create a second web app. Use the same same settings as above, except for the following settings:
 
 | Setting          | Value     |
 | ---              | ---  |
@@ -122,7 +112,7 @@ After your deployment is complete, create a second web app. Use the same procedu
 
 Configure Azure Front Door Standard/Premium (Preview) to direct user traffic based on lowest latency between the two web apps servers. Also secure your Front Door with Web Application Firewall. 
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. From the home page or the Azure menu, select **Create a resource**. Search for **Front Door Standard/Premium (Preview)** > **Add** > **Comparing Offerings** > **Custom Create**.
 
@@ -167,7 +157,7 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
     | **Other fields** | Leave all other fields as default. |
 
     > [!NOTE]
-    > When creating a Front Door profile, you must select an origin from the same subscription the Front Door is created in.
+    > When creating an Azure Front Door Standard/Premium profile, you must select an origin from the same subscription the Azure Front Door Standard/Premium is created in.
    
    :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-1.png" alt-text="Screenshot of add more origins.":::
 
