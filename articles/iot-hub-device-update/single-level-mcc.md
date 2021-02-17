@@ -55,7 +55,7 @@ For a validation of properly functioning Microsoft Connected Cache, execute the 
     wget "http://<IOT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
 ```
 
-# Microsoft Connected Cache Preview Deployment Scenario Sample: Single Level IoT Edge Gateway With Outbound Unauthenticated Proxy
+## Microsoft Connected Cache Preview Deployment Scenario Sample: Single Level IoT Edge Gateway With Outbound Unauthenticated Proxy
 
 In this scenario there is an IoT Edge Gateway that has access to CDN resources through an outbound unauthenticated proxy. Microsoft Connected Cache is being configured to cache content from a custom repository and the summary report has been made visible to anyone on the network. Below is an example of the MCC environment variables that would be set.
 
