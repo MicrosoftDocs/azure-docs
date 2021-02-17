@@ -41,7 +41,7 @@ Resource-centric RBAC enables users to view logs and workbooks using the followi
 
 The following table highlights the scenarios where resource-centric RBAC is most helpful. Note the differences in access requirements between security operations (SOC) teams and non-SOC teams.
 
-|  |SOC team  |Non-SOC team  |
+| Requirement type |SOC team  |Non-SOC team  |
 |---------|---------|---------|
 |**Permissions**     | The entire workspace        |   Specific resources only      |
 |**Data access**     |  All data in the workspace       | Only data for resources that the team is authorized to access        |
@@ -59,7 +59,7 @@ The following list describes scenarios where other solutions for data access may
 
 - **A subsidiary has a SOC team that requires a full Azure Sentinel experience**. In this case, use a [multi-workspace architecture](https://www.youtube.com/watch?v=_mm3GNwPBHU&feature=youtu.be) to separate your data permissions.
 
-- **You want to set access controls at the table level**. Use [table-centric RBAC](table-centric-rbac.md) to define permissions for each table.
+- **You want to set access controls at the table level**. Use [table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) to define permissions for each table.
 
 - **You want to provide access at a more granular level, for specific data only**. Provide access to data using built-in integration with [Power BI dashboards and reports](/azure/azure-monitor/platform/powerbi).
 
