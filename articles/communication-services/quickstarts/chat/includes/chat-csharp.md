@@ -99,7 +99,7 @@ ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId);
 Use `SendMessage` to send a message to a thread.
 
 - Use `content` to provide the content for the message, it is required.
-- Use `type` for the content type of the message such as 'Text' or 'Html'. If not speficied, 'Text' will be set.
+- Use `type` for the content type of the message such as 'Text' or 'Html'. If not specified, 'Text' will be set.
 - Use `senderDisplayName` to specify the display name of the sender. If not specified, empty string will be set.
 
 ```csharp
@@ -108,9 +108,9 @@ var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", t
 ## Get a message
 
 Use `GetMessage` to retrieve a message from the service.
-`messageId` is the unique id of the message.
+`messageId` is the unique ID of the message.
 
-`ChatMessage` is the response returned from getting a message, it contains an id, which is the unique identifier of the message, among other fields. Please refer to Azure.Communication.Chat.ChatMessage
+`ChatMessage` is the response returned from getting a message, it contains an ID, which is the unique identifier of the message, among other fields. Please refer to Azure.Communication.Chat.ChatMessage
 
 ```csharp
 ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId);
