@@ -25460,6 +25460,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/dms/tutorial-sql-server-azure-sql-online.md",
+      "redirect_url": "/azure/dms/tutorial-sql-server-to-azure-sql",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-logic/index.md",
       "redirect_url": "/azure/logic-apps/",
       "redirect_document_id": false
