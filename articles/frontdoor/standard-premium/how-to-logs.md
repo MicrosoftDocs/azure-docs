@@ -1,5 +1,5 @@
 ---
-title: 'Azure Front Door Logging'
+title: 'Azure Front Door Standard/Premium (Preview) Logging'
 description: This article explains how logging works in Azure Front Door Standard/Premium.
 services: front-door
 author: duongau
@@ -9,7 +9,7 @@ ms.date: 02/18/2020
 ms.author: duau
 ---
 
-# Azure Front Door Logging
+# Azure Front Door Standard/Premium (Preview) Logging
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
