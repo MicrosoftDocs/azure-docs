@@ -5,7 +5,7 @@ author: philmea
 ms.author: philmea
 ms.date: 1/11/2021
 ms.topic: quickstart
-ms.service: iot-hub
+ms.service: iot-hub-device-update
 ---
 
 # Create Groups
