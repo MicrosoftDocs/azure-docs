@@ -49,7 +49,7 @@
   items:
     - name: Security controls
       href: spring-cloud-concept-security-controls.md
-    - name: Security controls by Azure Policy
+    - name: Azure Policy Security controls
       href: ./security-controls-policy.md
     - name: Understand app status
       href: spring-cloud-concept-app-status.md
