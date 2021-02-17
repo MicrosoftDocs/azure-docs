@@ -38,7 +38,7 @@ Video Indexer now detects the following audio effects in the non-speech segments
 
 The **clapping** event type that was included in the previous audio effects model, is now extracted a part of the **crowd reaction** event type.
 
-:::image type="content" source="./media/release-notes/audio-affects.png" alt-text="Audio event detection":::
+:::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Audio event detection":::
 
 ## January 2021
 
