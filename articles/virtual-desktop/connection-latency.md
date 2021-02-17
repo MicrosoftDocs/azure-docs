@@ -19,7 +19,7 @@ In Windows Virtual Desktop, latency up to 150 ms shouldn’t impact user experie
 
 In addition the user’s internet connection plays a large role in the WVD connection. If latency is over 200ms and user does not have stable internet connection, circuit is saturated and/or rate limited, has bad wireless connection, etc.. users may experience intermittent disconnects and input delay. 
 
-We recommend customers place VM's as close to users as possible. For example if client is connecting from India and VM is in US it is expected there will be latency and user experience will be impacted. 
+We recommend you choose VMs locations that are as close to your users as possible. For example, if the user is located in India but the VM is in the United States, there will be latency that will affect the overall user experience. 
 
 ## Azure Front Door
 
