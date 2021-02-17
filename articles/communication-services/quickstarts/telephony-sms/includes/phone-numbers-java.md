@@ -94,7 +94,7 @@ PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
 
 ### Search for Available Phone Numbers
 
-In order to purchase phone numbers, you must first search for available phone numbers. To search for phone numbers, provide the area code, assignment type, phone number capabilities, phone number type, and quantity. Note that for the toll-free phone number type, providing the area code is optional.
+In order to purchase phone numbers, you must first search for available phone numbers. To search for phone numbers, provide the area code, assignment type, [phone number capabilities](../../../concepts/telephony-sms/plan-solution.md#phone-number-capabilities-in-azure-communication-services), [phone number type](../../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services), and quantity. Note that for the toll-free phone number type, providing the area code is optional.
 
 ```java
 PhoneNumberSearchRequest searchRequest = new PhoneNumberSearchRequest();
@@ -107,11 +107,9 @@ searchRequest
     .setPhoneNumberType(PhoneNumberType.GEOGRAPHIC)
     .setQuantity(1); // Quantity is optional, default is 1
 
-PhoneNumberSearchResult searchResult = phoneNumberClient
-    .beginSearchAvailablePhoneNumbers("US", searchRequest, Context.NONE)
-    .getFinalResult();
+PhoneNumberSearchResult searchResult = phoneNumberClient.beginSearchAvailablePhoneNumbers("US", searchRequest, Context.NONE).getFinalResult();
 
-System.out.println("Searched phone numbers: " + searchResult.getPhoneNumbers());
+System.out.println("Searched phone numbers: " + Arrays.toString(searchResult.getPhoneNumbers().toArray()));
 ```
 
 ### Purchase Phone Numbers
@@ -119,14 +117,13 @@ System.out.println("Searched phone numbers: " + searchResult.getPhoneNumbers());
 The result of searching for phone numbers is a PhoneNumberSearchResult. This contains a `searchId` which can be passed to the purchase numbers API to acquire the numbers in the search. Note that calling the purchase phone numbers API will result in a charge to your Azure Account.
 
 ```java
-PollResponse<PhoneNumberOperation> purchaseResponse = 
-    phoneNumberClient.beginPurchasePhoneNumbers(searchResult.getSearchId(), Context.NONE).waitForCompletion();
-System.out.println("Purchase phone numbers is: " + purchaseResponse.getStatus());
+PollResponse<PhoneNumberOperation> purchaseResponse = phoneNumberClient.beginPurchasePhoneNumbers(searchResult.getSearchId(), Context.NONE).waitForCompletion();
+System.out.println("Purchase phone numbers operation is: " + purchaseResponse.getStatus());
 ```
 
 ### Get Phone Number(s)
 
-After purchasing numbers, you can retrieve a single phone number using the client. 
+After a purchasing number, you can retrieve it from the client. 
 ```java
 AcquiredPhoneNumber phoneNumber = phoneNumberClient.getPhoneNumber("+18001234567");
 System.out.println("Phone Number Country Code: " + phoneNumber.getCountryCode());
@@ -141,13 +138,7 @@ System.out.println("Phone Number Country Code: " + phoneNumber.getCountryCode())
 
 ### Update Phone Number Capabilities
 
-You can update phone number capabilities for Calling and SMS to one of:
-
-- `PhoneNumberCapabilityValue.NONE`
-- `PhoneNumberCapabilityValue.INBOUND`
-- `PhoneNumberCapabilityValue.OUTBOUND`
-- `PhoneNumberCapabilityValue.INBOUND_OUTBOUND`
-
+With a purchased number, you can update the capabilities.
 ```java
 PhoneNumberCapabilitiesRequest capabilitiesRequest = new PhoneNumberCapabilitiesRequest();
 capabilitiesRequest
@@ -161,9 +152,49 @@ System.out.println("Phone Number SMS capabilities: " + phoneNumber.getCapabiliti
 
 ### Release Phone Number
 
-You can release an acquired phone number so that you will no longer be charged for it.
+You can release a purchased phone number.
 ```java
 PollResponse<PhoneNumberOperation> releaseResponse = 
     phoneNumberClient.beginReleasePhoneNumber("+18001234567", Context.NONE).waitForCompletion();
-System.out.println("Release phone number is: " + releaseResponse.getStatus());
+System.out.println("Release phone number operation is: " + releaseResponse.getStatus());
 ```
+
+## Run the code
+
+Navigate to the directory containing the *pom.xml* file and compile the project by using the following `mvn` command.
+
+```console
+mvn compile
+```
+
+Then, build the package.
+
+```console
+mvn package
+```
+
+Run the following `mvn` command to execute the app.
+
+```console
+mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
+```
+
+The output of the app describes each action that is completed:
+<!---cSpell:disable --->
+```console
+Azure Communication Services - Phone Numbers Quickstart
+
+Searched phone numbers: [+18001234567]
+
+Purchase phone numbers operation is: SUCCESSFULLY_COMPLETED
+
+Phone Number Country Code: US
+
+Phone Number Calling capabilities: inbound
+
+Phone Number SMS capabilities: inbound
+
+Release phone number operation is: SUCCESSFULLY_COMPLETED
+
+```
+<!---cSpell:enable --->
