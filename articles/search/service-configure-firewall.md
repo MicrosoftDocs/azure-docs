@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Configure IP control policies to restrict access to your Azure Cognitive Search service.
 
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: markheff
+ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021

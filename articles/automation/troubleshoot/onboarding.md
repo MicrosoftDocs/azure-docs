@@ -77,7 +77,7 @@ Failed to configure automation account for diagnostic logging
 
 #### Cause
 
-This error can be caused if the pricing tier doesn't match the subscription's billing model. For more information, see [Monitoring usage and estimated costs in Azure Monitor](../../azure-monitor/platform/usage-estimated-costs.md).
+This error can be caused if the pricing tier doesn't match the subscription's billing model. For more information, see [Monitoring usage and estimated costs in Azure Monitor](../../azure-monitor//usage-estimated-costs.md).
 
 #### Resolution
 

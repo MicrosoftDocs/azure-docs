@@ -17,21 +17,21 @@ ms.author: victorh
 
 Azure Firewall includes the following features:
 
-- [Built-in high availability](#built-in-high-availability)
-- [Availability Zones](#availability-zones)
-- [Unrestricted cloud scalability](#unrestricted-cloud-scalability)
-- [Application FQDN filtering rules](#application-fqdn-filtering-rules)
-- [Network traffic filtering rules](#network-traffic-filtering-rules)
-- [FQDN tags](#fqdn-tags)
-- [Service tags](#service-tags)
-- [Threat intelligence](#threat-intelligence)
-- [Outbound SNAT support](#outbound-snat-support)
-- [Inbound DNAT support](#inbound-dnat-support)
-- [Multiple public IP addresses](#multiple-public-ip-addresses)
-- [Azure Monitor logging](#azure-monitor-logging)
-- [Forced tunneling](#forced-tunneling)
-- [Web categories (preview)](#web-categories-preview)
-- [Certifications](#certifications)
+- Built-in high availability
+- Availability Zones
+- Unrestricted cloud scalability
+- Application FQDN filtering rules
+- Network traffic filtering rules
+- FQDN tags
+- Service tags
+- Threat intelligence
+- Outbound SNAT support
+- Inbound DNAT support
+- Multiple public IP addresses
+- Azure Monitor logging
+- Forced tunneling
+- Web categories (preview)
+- Certifications
 
 ## Built-in high availability
 
