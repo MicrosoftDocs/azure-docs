@@ -572,7 +572,6 @@ class AuthProvider {
      * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
      */
     async getAccount() {
-        // need to call getAccount here?
         const cache = this.clientApplication.getTokenCache();
         const currentAccounts = await cache.getAllAccounts();
 
