@@ -78,19 +78,14 @@ Okay, you're ready to start learning about templates.
 
     ![ARM Bicep template Visual Studio Code first template](./media/template-tutorial-bicep-create-first-template/resource-manager-visual-studio-code-first-template.png)
 
-    You may be wondering how to find the properties to use for each resource type. You can use the [ARM template reference](/azure/templates/) to find the resource types you want to deploy.
+    The resource declaration has four components:
 
-    Every resource you deploy has at least the following three properties:
+    - _resource_ - keyword.
+    - **symbolic name** (stg) - this is an identifier for referencing the resource throughout your bicep file. It is not what the name of the resource will be when it's deployed.
+    - **resource type** (Microsoft.Storage/storageAccounts@2019-06-01) - composed of the resource provider (Microsoft.Storage), resource type (storageAccounts), and apiVersion (2019-06-01). Each resource provider publishes its own API versions, so this value is specific to the type. You can find more types and apiVersions for various Azure resources from [ARM template reference](/azure/templates/).
+    - **properties** (everything inside = {...}) - these are the specific properties you would like to specify for the given resource type. These are exactly the same properties available to you in an ARM Template. Every resource has a name property. Most resources also have a `location` property, which sets the region where the resource is deployed. The other properties vary by resource type and API version. It's important to understand the connection between the API version and the available properties, so let's jump into more detail.
 
-    - `type`: Type of the resource. This value is a combination of the namespace of the resource provider and the resource type such as `Microsoft.Storage/storageAccounts`.
-    - `apiVersion`: Version of the REST API to use for creating the resource. Each resource provider publishes its own API versions, so this value is specific to the type.
-    - `name`: Name of the resource.
-
-    Most resources also have a `location` property, which sets the region where the resource is deployed.
-
-    The other properties vary by resource type and API version. It's important to understand the connection between the API version and the available properties, so let's jump into more detail.
-
-    In this tutorial, you added a storage account to the template. You can see that API version at [storageAccounts 2019-06-01](/azure/templates/microsoft.storage/2019-06-01/storageaccounts). Notice that you didn't add all of the properties to your template. Many of the properties are optional. The `Microsoft.Storage` resource provider could release a new API version, but the version you're deploying doesn't have to change. You can continue using that version and know that the results of your deployment will be consistent.
+    For this storage account, you can see that API version at [storageAccounts 2019-06-01](/azure/templates/microsoft.storage/2019-06-01/storageaccounts). Notice that you didn't add all of the properties to your template. Many of the properties are optional. The `Microsoft.Storage` resource provider could release a new API version, but the version you're deploying doesn't have to change. You can continue using that version and know that the results of your deployment will be consistent.
 
     If you view an older API version, such as [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), you'll see that a smaller set of properties are available.
 
@@ -211,6 +206,8 @@ The deployment command returns results. Look for `ProvisioningState` to see whet
 > If the deployment failed, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
 
 ## Verify deployment
+
+[jgao - update the screenshots]
 
 You can verify the deployment by exploring the resource group from the Azure portal.
 
