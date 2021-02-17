@@ -41,6 +41,7 @@ Container create options for MCC module deployment provide control of the settin
 
 ### Container to Host OS Drive Mappings
 Required to map the container storage location to the storage location on the disk.< Up to nine locations can be specified.
+
 [!TIP]
 >Please Note: The number of the drive must match the cache drive binding values specified in the environment variable STORAGE_*N*_SIZE_GB value.
 
@@ -59,6 +60,7 @@ This option specifies the external machine http port that MCC listens on for con
 
 ### Container Service TCP Port Mappings
 The Microsoft Connected Cache module has a .Net Core service, which is used by the caching engine for various functions.
+
 >[!TIP]
 >Please note: to support IoT Nested Edge the HostPort must not be set to 5000 because the Registry proxy module is already listening on host port 5000.
 
