@@ -7,7 +7,7 @@
   - name: Compare messaging services
     href: ../event-grid/compare-messaging-services.md
     maintainContext: true
-  - name: Use Service Bus with Java Message Service (JMS) 2.0 (preview)
+  - name: Use Service Bus with Java Message Service (JMS) 2.0
     href: how-to-use-java-message-service-20.md
 - name: Quickstarts
   items:
@@ -166,8 +166,12 @@
       href: service-bus-filter-examples.md    
     - name: Message handling
       items:
-      - name: Java message service (JMS) 2.0 entities (preview)
+      - name: Queues, topics, and subscriptions
+        href: service-bus-queues-topics-subscriptions.md
+      - name: Java message service (JMS) 2.0 entities
         href: java-message-service-20-entities.md
+      - name: Java Message Service (JMS) Developer guide.md
+        href: jms-developer-guide.md
       - name: Messages, payloads, and serialization
         href: service-bus-messages-payloads.md
       - name: Message transfers, locks, and settlement
