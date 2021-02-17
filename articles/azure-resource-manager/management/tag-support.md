@@ -1562,7 +1562,7 @@ Jump to a resource provider namespace:
 > | workspaces / onlineEndpoints / deployments | Yes | Yes |
  
 > [!NOTE]
-> Workspace tags do not propogate to Compute clusters and Compute instances. 
+> Workspace tags don't propagate to compute clusters and compute instances. 
 
 ## Microsoft.Maintenance
 
