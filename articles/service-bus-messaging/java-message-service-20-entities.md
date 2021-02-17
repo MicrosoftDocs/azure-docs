@@ -155,12 +155,12 @@ Subscriptions, as specified in the Java Message Service (JMS) 2.0 API, may or ma
 
 Once the subscription is scoped, it **can only be accessed** from client applications that have the same client id. 
 
-Any attempts to access a subscription scoped to a specific client id (say clientId1) from an application having another client id (say clientId2) will lead to the creation of another subscription scoped to the other client id (clientId2).
+Any attempts to access a subscription scoped to a specific client ID (say clientId1) from an application having another client ID (say clientId2) will lead to the creation of another subscription scoped to the other client ID (clientId2).
 
 > [!NOTE]
-> Client id can be null or empty, but it must match the client id set on the JMS client application. From the Azure Service Bus perspective, a null client id and an empty client id have the same behavior.
+> Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior.
 >
-> If the client id is set to null or empty, it is only accessible to client applications whose client id is also set to null or empty.
+> If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
 >
 
 ### Shareability
@@ -168,7 +168,7 @@ Any attempts to access a subscription scoped to a specific client id (say client
 **Shared** subscriptions permit multiple client/consumer (that is, JMSConsumer objects) to receive messages from them.
 
 >[!NOTE]
-> Shared subscriptions scoped to a specific client id can still be accessed by multiple client/consumers (i.e. JMSConsumer objects), but each of the client applications must have the same client id.
+> Shared subscriptions scoped to a specific client ID can still be accessed by multiple client/consumers (i.e. JMSConsumer objects), but each of the client applications must have the same client ID.
 >
  
 

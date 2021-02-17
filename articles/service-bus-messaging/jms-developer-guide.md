@@ -28,11 +28,11 @@ The Java Message Service API programming model is as shown below -
 
 # [JMS 2.0 Programming model](#tab/JMS-20)
 
-:::image type="content" source="./media/jms-developer-guide/JMS20_programmingmodel.png"alt-text="JMS 2.0 Programming model":::
+:::image type="content" source="./media/jms-developer-guide/java-message-service-20-programming-model.png"alt-text="JMS 2.0 Programming model":::
 
 # [JMS 1.1 Programming model](#tab/JMS-11)
 
-:::image type="content" source="./media/jms-developer-guide/JMS11_programmingmodel.png"alt-text="JMS 1.1 Programming model":::
+:::image type="content" source="./media/jms-developer-guide/java-message-service-11-programming-model.png"alt-text="JMS 1.1 Programming model":::
 
 ---
 
