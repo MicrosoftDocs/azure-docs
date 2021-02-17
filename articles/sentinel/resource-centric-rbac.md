@@ -1,5 +1,5 @@
 ---
-title: Implement resource-centric role-based access control (resource-centric RBAC) in Azure Sentinel | Microsoft Docs
+title: Resource-centric RBAC for Azure Sentinel | Microsoft Docs
 description: This article explains how to implement resource-centric, role-based access control (resource-centric RBAC) for Azure Sentinel. Resource-centric RBAC enables you to provide access to specific resources only, without the entire Azure Sentinel experience.
 services: sentinel
 cloud: na
