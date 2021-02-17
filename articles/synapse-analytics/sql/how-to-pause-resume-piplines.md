@@ -61,13 +61,13 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
     
     The following code is a simple Get request using the following call:
     
-    ```
+    ```HTTP
     GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{server-name}/sqlPools?api-version=2019-06-01-preview
     ```
     
     Which in the example above I have parameterized using the @concat string function:
     
-    ```
+    ```HTTP
     @concat('https://management.azure.com/subscriptions/',pipeline().parameters.Subscription,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.ServerName,'/sqlPools?api-version=2019-06-01-preview')
     ```
     
@@ -84,7 +84,7 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
     
     Here the command under Items is:
     
-    ```
+    ```HTTP
     @activity('Get List Databases').output.value
     ```
     
@@ -92,7 +92,7 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
     
     The command under Condition is:
     
-    ```
+    ```HTTP
     @not(startswith(item().name,'master'))
     ```
     
@@ -114,13 +114,13 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
     
     This again uses a simple Get request using the following call:
     
-    ```dotnetcli
+    ```HTTP
     GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{server-name}/sqlPools/{database-name}?api-version=2019-06-01-preview HTTP/1.1
     ```
     
     Which in the example above I have parameterized using the @concat string function:
     
-    ```dotnetcli
+    ```HTTP
     @concat('https://management.azure.com/subscriptions/',pipeline().parameters.Subscription,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.ServerName,'/sqlPools/',item().name,'?api-version=2019-06-01-preview')
     ```
     
@@ -136,7 +136,7 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
     
     Based on the desired state and the current status, only the following two combinations will require a change in state: Pause-Online or Resume-Paused.
     
-    ```
+    ```HTTP
     @concat(pipeline().parameters.PauseOrResume,'-',activity('Check State').output.properties.status)
     ```
     
@@ -155,26 +155,29 @@ Synapse Pipelines allows for the automation of pause and resume, but you can exe
     
     The example here is to resume a dedicated SQL pool, invoking a POST request using the following call:
     
-    ```
+    ```HTTP
     POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{server-name}/sqlPools/{database-name}/resume?api-version=2019-06-01-preview HTTP/1.1
     ```
     
-    Which in the example above I have parameterized using the @concat string function:
+    You can parameterize the POSt statement from above using the @concat string function:
     
-    ```
+    ```HTTP
     @concat('https://management.azure.com/subscriptions/',pipeline().parameters.Subscription,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.ServerName,'/sqlPools/',activity('Check State').output.name,'/resume?api-version=2019-06-01-preview')
     ```
     
-    In this case, we are using activity('Check State').output.name (the name of the dedicated SQL pool from Step 3a) that was passed to this activity through the Switch Condition. If you are using a single activity against a single database, you could embed the name of your dedicated SQL pool here, or use a parameter from the pipeline (for example, pipeline().parameters.DatabaseName using the example in Step 0).
+    In this case, we are using activity('Check State').output.name (the name of the dedicated SQL pool from Step 3a) that was passed to this activity through the Switch Condition. If you are using a single activity against a single database, you could embed the name of your dedicated SQL pool here, or use a parameter from the pipeline (for example, pipeline().parameters.DatabaseName using the example in Step 1).
     
-    Here is the POST request to pause a dedicated SQL pool:
-      ```
-      
+    This is the POST request to pause a dedicated SQL pool:
+    
+    ```HTTP
     POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Synapse/workspaces/{server-name}/sqlPools/{database-name}/pause?api-version=2019-06-01-preview HTTP/1.1    
     ```    
     
-    Which would be parameterized using the @concat string function:
+    The POST request can be parameterized using the @concat string function as shown:
+
+    ```HTTP
     @concat('https://management.azure.com/subscriptions/',pipeline().parameters.Subscription,'/resourceGroups/',pipeline().parameters.ResourceGroup,'/providers/Microsoft.Synapse/workspaces/',pipeline().parameters.WorkspaceName,'/sqlPools/',activity('Check State').output.name,'/pause?api-version=2019-06-01-preview')
+    ```
 
 ## Pipeline Run Output
 
@@ -185,7 +188,7 @@ When the full pipeline described above is run, you will see the output listed be
 
 ## Next steps
 
-Further details on Managed Identity for Azure Synapse, and how Managed Identity is added to your dedicated SQL Pool can be found here:
+Further details on Managed Identity for Azure Synapse, and how Managed Identity is added to your dedicated SQL pool can be found here:
 
 [Azure Synapse workspace managed identity](../security/synapse-workspace-managed-identity.md)
 
