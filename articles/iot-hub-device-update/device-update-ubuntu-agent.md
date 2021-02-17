@@ -55,7 +55,7 @@ Device Update Agent: Download [here](https://github.com/Azure/iot-hub-device-upd
    sudo nano /etc/adu/adu-conf.txt
    ```
 
-2. Provide your primary connection string in the configuration file. To find a device's connection string go to Azure Portal. Go to IoT device blade in IoT Hub. Click on device details page after clicking on the device name.
+2. Provide your primary connection string in the configuration file. To find a device's connection string go to Azure portal. Go to IoT device blade in IoT Hub. Click on device details page after clicking on the device name.
 
 3. Press Ctrl+X, Y, Enter to save and close the file
 
@@ -99,7 +99,7 @@ do-client-lite.service               loaded active running do-client-lite.servic
 
 1. Download the following apt manifest and import manifest files. This apt manifest will install v1.0.0 of foo package to your IoT device. 
 
-2. In Azure Portal, select the Device Updates option under Automatic Device Management from the left-hand navigation bar in your IoT Hub.
+2. In Azure portal, select the Device Updates option under Automatic Device Management from the left-hand navigation bar in your IoT Hub.
 
 2. Select the Updates tab.
 
