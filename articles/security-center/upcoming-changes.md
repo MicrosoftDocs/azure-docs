@@ -27,6 +27,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
+- 
 - [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)
 - [Deprecation of 11 Azure Defender alerts](#deprecation-of-11-azure-defender-alerts)
