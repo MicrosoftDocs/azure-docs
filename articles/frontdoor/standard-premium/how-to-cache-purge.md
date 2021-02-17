@@ -1,5 +1,5 @@
 ---
-title: 'Azure Front Door: Cache purge'
+title: 'Cache purging in Azure Front Door Standard/Premium (Preview)'
 description: This article helps you understand how to purge cache on an Azure Front Door Standard/Premium.
 services: frontdoor
 author: duongau
@@ -11,7 +11,7 @@ ms.date: 02/18/2021
 ms.author: duau
 ---
 
-# Cache purge
+# Cache purging in Azure Front Door Standard/Premium (Preview)
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
