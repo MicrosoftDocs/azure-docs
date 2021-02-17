@@ -29,6 +29,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 |------------------------------|---------------|---------------|
 | [Reset Documents (preview)](search-howto-run-reset-indexers.md) |  Reprocesses individually selected search documents in indexer workloads. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
 | [Availability Zones](search-performance-optimization.md#availability-zones)| Search services with two or more replicas in certain regions, as listed in [Scale for performance](search-performance-optimization.md#availability-zones), gain resiliency by having replicas in two or more distinct physical locations.  | The region and date of search service creation determine availability. See the Scale for performance article for details. |
+| [Azure CLI](/cli/azure/search) and [Azure PowerShell](/powershell/module/az.search/) | New revisions now provide the full range of operations in the Management REST API 2020-08-01, including support for IP firewall rules and private endpoint.
 
 ## January 2021
 
