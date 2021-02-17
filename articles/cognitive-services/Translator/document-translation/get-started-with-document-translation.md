@@ -44,7 +44,7 @@ https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batc
 
 The **NAME-OF-YOUR-RESOURCE** (also called *custom domain name*) parameter is the value that you entered in the **Name** field when you created your Translator resource.
 
-:::image type="content" source="../media/instance-details-azure-portal.png" alt-text="Image of the Azure portal, create resource, instant details, name field.":::
+:::image type="content" source="../media/instance-details.png" alt-text="Image of the Azure portal, create resource, instant details, name field.":::
 
 ### Get your subscription key
 
