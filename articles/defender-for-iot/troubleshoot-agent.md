@@ -105,10 +105,10 @@ Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Er
 
 ## Next steps
 
-Read the Defender for IoT service [Overview](overview.md)
-Learn more about Defender for IoT [Architecture](architecture.md)
-Enable the Defender for IoT [service](quickstart-onboard-iot-hub.md)
-Read the Defender for IoT service [FAQ](resources-frequently-asked-questions.md)
-Learn how to access [raw security data](how-to-security-data-access.md)
-Understand [recommendations](concept-recommendations.md)
-Understand security [alerts](concept-security-alerts.md)
+- Read the Defender for IoT service [Overview](overview.md)
+- Learn more about Defender for IoT [Architecture](architecture.md)
+- Enable the Defender for IoT [service](quickstart-onboard-iot-hub.md)
+- Read the Defender for IoT service [FAQ](resources-frequently-asked-questions.md)
+- Learn how to access [raw security data](how-to-security-data-access.md)
+- Understand [recommendations](concept-recommendations.md)
+- Understand security [alerts](concept-security-alerts.md)

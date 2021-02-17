@@ -83,6 +83,6 @@ When you're creating rules, be aware of the following information:
 
 - If no business unit or region is selected, users will have access to all defined business units and regions.
 
-## Next steps
+## See also
 
 [About Defender for IoT console users](how-to-create-and-manage-users.md)

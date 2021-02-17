@@ -690,6 +690,6 @@ Contact an Active Directory administrator to create an Active Directory site use
 | Camera | |
 | X-ray machine | |
 
-## Next steps
+## See also
 
 [About the Defender for IoT installation](how-to-install-software.md)

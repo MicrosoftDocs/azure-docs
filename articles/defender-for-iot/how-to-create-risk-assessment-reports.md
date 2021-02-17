@@ -98,7 +98,7 @@ To import a company logo:
 
 :::image type="content" source="media/how-to-generate-reports/import-logo-screenshot.png" alt-text="Import your logo through the risk assessment view.":::
 
-## Next steps
+## See also
 
 [Attack vector reporting](how-to-create-attack-vector-reports.md)
 

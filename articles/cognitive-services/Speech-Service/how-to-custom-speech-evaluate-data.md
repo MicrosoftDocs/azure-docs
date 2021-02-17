@@ -105,12 +105,13 @@ Audio with human-labeled transcripts offers the greatest accuracy improvements i
 
 Consider these details:
 
-* Custom Speech can only capture word context to reduce substitution errors, not insertion or deletion errors.
+* Training with audio will bring the most benefits if the audio is also hard to understand for humans. In most cases, you should start training by just using related text.
+* If you use one of the most heavily used languages such as US-English, there's a good chance that there's no need to train with audio data. For such languages, the base models offer already very good recognition results in most scenarios; it's probably enough to train with related text.
+* Custom Speech can only capture word context to reduce substitution errors, not insertion, or deletion errors.
 * Avoid samples that include transcription errors, but do include a diversity of audio quality.
 * Avoid sentences that are not related to your problem domain. Unrelated sentences can harm your model.
 * When the quality of transcripts vary, you can duplicate exceptionally good sentences (like excellent transcriptions that include key phrases) to increase their weight.
 * The Speech service will automatically use the transcripts to improve the recognition of domain-specific words and phrases, as if they were added as related text.
-* Training with audio will bring the most benefits if the audio is also hard to understand for humans. In most cases, you should start training by just using related text.
 * It can take several days for a training operation to complete. To improve the speed of training, make sure to create your Speech service subscription in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
 
 > [!NOTE]

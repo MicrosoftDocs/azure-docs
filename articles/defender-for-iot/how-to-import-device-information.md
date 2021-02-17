@@ -183,7 +183,7 @@ To import the authorization status:
 
 When the information is imported, you receive alerts about unauthorized devices for all the devices that don't appear on this list.
 
-## Next steps
+## See also
 
 [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 

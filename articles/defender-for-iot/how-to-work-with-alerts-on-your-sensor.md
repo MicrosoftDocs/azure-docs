@@ -45,10 +45,10 @@ Alerts are triggered when sensor engines detect changes in network traffic and b
 
 | Alert type | Description |
 |-|-|
-| Policy violation alerts | Triggered when the Policy Violation engine detects a deviation from traffic previously learned. For example: <br /> - A new device is detected.  <br /> - A new configuration is detected on a device. <br /> - A device not defined as a programming device carries out a programming change. <br /> - A firmware version changed. |
-| Protocol violation alerts | Triggered when the Protocol Violation engine detects packet structures or field values that don't comply with the protocol specification. | 
+| Policy violation alerts | Triggered when the Policy Violation engine detects a deviation from traffic previously learned. For example: <br /> - A new device is detected.  <br /> - A new configuration is detected on a device. <br /> - A device not defined as a programming device carries out a programming change. <br /> - A firmware version changed. |
+| Protocol violation alerts | Triggered when the Protocol Violation engine detects packet structures or field values that don't comply with the protocol specification. | 
 | Operational alerts | Triggered when the Operational engine detects network operational incidents or a device malfunctioning. For example, a network device was stopped through a Stop PLC command, or an interface on a sensor stopped monitoring traffic. |
-| Malware alerts | Triggered when the Malware engine detects malicious network activity. For example, the engine detects a known attack such as Conficker. |
+| Malware alerts | Triggered when the Malware engine detects malicious network activity. For example, the engine detects a known attack such as Conficker. |
 | Anomaly alerts | Triggered when the Anomaly engine detects a deviation. For example, a device is performing network scans but is not defined as a scanning device. |
 
 Tools are available to enable and disable sensor engines. Alerts are not triggered from engines that are disabled. See [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md).
@@ -63,9 +63,9 @@ For example:
 
   - Malware events detected on network devices are reported in Risk Assessment reports. When alerts about malware events are *muted*, affected devices won't be calculated in the Risk Assessment report.
 
-## Next steps
+## See also
 
-[Learning and Smart IT Learning modes](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
-[View information provided in alerts](how-to-view-information-provided-in-alerts.md)
-[Manage the alert event](how-to-manage-the-alert-event.md)
-[Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
+- [Learning and Smart IT Learning modes](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
+- [View information provided in alerts](how-to-view-information-provided-in-alerts.md)
+- [Manage the alert event](how-to-manage-the-alert-event.md)
+- [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)

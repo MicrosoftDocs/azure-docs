@@ -88,7 +88,7 @@ Select **Trends & Statistics** on the side menu.
 
 By default, results are displayed for detections over the last 7 days. You can use filter tools change this range. For example a free text search.
 
-## Next steps
+## See also
 
 [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
 [Sensor data mining queries](how-to-create-data-mining-queries.md)

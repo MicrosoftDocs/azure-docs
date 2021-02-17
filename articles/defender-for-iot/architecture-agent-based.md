@@ -40,7 +40,7 @@ Defender for IoT recommendations and alerts (analytics pipeline output) is writt
 
 :::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="The micro agent architecture.":::
 
-## Next steps
+## See also
 
 [Defender for IoT FAQ](resources-frequently-asked-questions.md)
 

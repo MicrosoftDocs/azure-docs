@@ -95,6 +95,6 @@ Select the down arrow **V** at the bottom of an alert box to display the alert e
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/unauthorized-internet-connectivity-detection-v3.png" alt-text="Unauthorized Internet connectivity detected":::
 
-## Next steps
+## See also
 
 [Work with alerts on your sensor](how-to-work-with-alerts-on-your-sensor.md)
