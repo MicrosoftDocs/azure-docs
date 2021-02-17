@@ -5,7 +5,7 @@ author: andbrown
 ms.author: andbrown
 ms.date: 2/17/2021
 ms.topic: conceptual
-ms.service: iot-hub
+ms.service: iot-hub-device-update
 ---
 
 
