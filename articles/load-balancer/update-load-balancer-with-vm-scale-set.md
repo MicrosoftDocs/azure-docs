@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/30/2020
+ms.date: 12/29/2020
 ms.author: irenehua
 ---
 # Update or delete a load balancer used by virtual machine scale sets
