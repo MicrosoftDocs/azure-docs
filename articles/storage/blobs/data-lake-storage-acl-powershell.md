@@ -6,7 +6,7 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet 
 ms.custom: devx-track-azurepowershell

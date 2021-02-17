@@ -3,7 +3,7 @@ title: Use JavaScript to manage data in Azure Data Lake Storage Gen2
 description: Use Azure Storage Data Lake client library for JavaScript to manage directories and files in storage accounts that has hierarchical namespace enabled.
 author: normesta
 ms.service: storage
-ms.date: 03/20/2020
+ms.date: 02/17/2021
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2

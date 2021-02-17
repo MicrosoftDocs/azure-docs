@@ -4,7 +4,7 @@ description: Find tutorials that help you learn how to use Azure services with A
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 02/02/2021
+ms.date: 02/17/2021
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ---
