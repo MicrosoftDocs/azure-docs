@@ -2,7 +2,6 @@
 title: Configure HTTPS for your custom domain in an Azure Front Door Standard/Premium SKU configuration
 description: In this article, you'll learn how to onboard a custom domain to Azure Front Door Standard/Premium SKU.
 services: frontdoor
-documentationcenter: ''
 author: duongau
 ms.service: frontdoor
 ms.topic: article
@@ -14,10 +13,10 @@ ms.author: amsriva
 
 # Configure HTTPS on a Front Door Standard/Premium SKU (Preview) custom domain using the Azure portal
 
-> [!Note]
+> [!NOTE]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-Azure Front Door Standard/Premium enables secure TLS delivery to your applications by default when a custom domain is added. By using the HTTPS protocol on your custom domain, you ensure that your sensitive data get delivered securely with TLS/SSL encryption when it's sent across the internet. When your web browser is connected to a web site via HTTPS, it validates the web site's security certificate and verifies it's issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
+Azure Front Door Standard/Premium enables secure TLS delivery to your applications by default when a custom domain is added. By using the HTTPS protocol on your custom domain, you ensure your sensitive data get delivered securely with TLS/SSL encryption when it's sent across the internet. When your web browser is connected to a web site via HTTPS, it validates the web site's security certificate and verifies it's issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
 
 Azure Front Door Standard/Premium supports both Azure managed certificate and customer-managed certificates. Azure Front Door by default automatically enables HTTPS to all your custom domains using Azure managed certificates. No additional steps are required for getting an Azure managed certificate. A certificate is created during the domain validation process. You can also use your own certificate by integrating Azure Front Door Standard/Premium with your Key Vault.
 
@@ -59,7 +58,7 @@ You can also choose to use your own TLS certificate. This certificate must be im
     > [!WARNING]
     > Azure Front Door currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Azure Front Door Standard/Premium will result in a failure.
 
-1. If you already have a certificate, you can upload it directly to your Azure Key Vault account or you can create a new certificate directly through Azure Key Vault from one of the partner Certificate Authorities that Azure Key Vault integrates with. Upload your certificate as a **certificate** object, rather than a **secret**.
+1. If you already have a certificate, you can upload it directly to your Azure Key Vault account. Otherwise, create a new certificate directly through Azure Key Vault from one of the partner Certificate Authorities that Azure Key Vault integrates with. Upload your certificate as a **certificate** object, rather than a **secret**.
 
     > [!NOTE]
     > For your own TLS/SSL certificate, Front Door doesn't support certificates with EC cryptography algorithms.
@@ -108,22 +107,22 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/successful-certificate-provisioned.png" alt-text="Screenshot of certificate successfully added to secrets.":::
 
 1. Navigate to **Domains** under *Setting* and select **+ Add** to add a new custom domain. On the **Add a domain** page, choose 
-"Bring Your Own Certificate (BYOC)" for *HTTPS*. For *Secret*, select the certificate you want to use from the drop down. 
+"Bring Your Own Certificate (BYOC)" for *HTTPS*. For *Secret*, select the certificate you want to use from the drop-down. 
 
     > [!NOTE]
     > The selected certificate must have a common name (CN) same as the custom domain being added.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/add-custom-domain-https.png" alt-text="Screenshot of add a custom domain page with HTTPS.":::
 
-1. Follow steps to validate, associate endpoint for the newly created custom domain as outlined in [creating a custom domain](how-to-add-custom-domain.md) guide.
+1. Follow the on-screen steps to validate the certificate. Then associate the newly created custom domain to an endpoint as outlined in [creating a custom domain](how-to-add-custom-domain.md) guide.
 
 #### Change from Azure managed to Bring Your Own Certificate (BYOC)
 
-1. You can change an existing Azure managed certificate to a user managed certificate by selecting the certificate state to open the **Certificate details** page.
+1. You can change an existing Azure managed certificate to a user-managed certificate by selecting the certificate state to open the **Certificate details** page.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/domain-certificate.png" alt-text="Screenshot of certificate state on domains landing page." lightbox="../media/how-to-configure-https-custom-domain/domain-certificate-expanded.png":::
 
-1. On the **Certificate details** page, you can change from "Azure managed" to "Bring Your Own Certificate (BYOC)" option. Then follow the same steps as earlier to choose a certificate. Click update to change the associated certificate with a domain.
+1. On the **Certificate details** page, you can change from "Azure managed" to "Bring Your Own Certificate (BYOC)" option. Then follow the same steps as earlier to choose a certificate. Select **Update** to change the associated certificate with a domain.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/certificate-details-page.png" alt-text="Screenshot of certificate details page.":::
 
