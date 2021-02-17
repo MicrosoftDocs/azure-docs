@@ -246,9 +246,6 @@ When you don't specify a version, you get an error with a list of the newest sup
 - 2020-10-01
 - 2020-12-01
 
-> [!NOTE]
-> Version 2020-12-01 is currently being rolled out and may not yet be available in every region.
-
 ### Swagger
 
 A full Swagger definition for IMDS is available at: https://github.com/Azure/azure-rest-api-specs/blob/master/specification/imds/data-plane/readme.md
