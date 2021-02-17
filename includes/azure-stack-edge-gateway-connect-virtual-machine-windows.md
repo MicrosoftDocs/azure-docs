@@ -14,7 +14,7 @@ Connect to your Windows VM by using the Remote Desktop Protocol (RDP) via the IP
 
    ![Screenshot of the Remote Desktop Connection pane for connecting via RDP to your Windows VM.](media/azure-stack-edge-gateway-connect-vm-windows/connect-vm-rdp-1.png)
 
-   > [! NOTE]
+   > [!NOTE]
    > You might need to approve connecting to an untrusted machine. 
 
 You’re now signed in to your VM that runs on the appliance. 
