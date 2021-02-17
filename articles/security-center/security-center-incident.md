@@ -30,7 +30,7 @@ In Security Center, a security incident is an aggregation of all alerts for a re
 
     The list is now filtered to show only incidents. Notice that security incidents have a different icon to security alerts.
 
-    :::image type="content" source="media/security-center-incident/incidents-list.png" alt-text="List of ncidents on the alerts page in Azure Security Center":::
+    :::image type="content" source="media/security-center-incident/incidents-list.png" alt-text="List of incidents on the alerts page in Azure Security Center":::
 
 1. To view details of an incident, select one from the list. A side pane appears with more details about the incident.
 
