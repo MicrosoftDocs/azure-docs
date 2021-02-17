@@ -11,16 +11,11 @@ ms.topic: how-to
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
 
 ---
 # Manage and respond to security alerts in Azure Security Center
-
-> [!TIP]
-> The information on this page refers to the new (preview) alerts experience available from the banner at the top of the security alerts page. 
->
-> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience":::
 
 This topic shows you how to view and process Security Center's alerts and protect your resources.
 
