@@ -78,7 +78,7 @@ To enable auto provisioning of the Log Analytics agent:
 
     - **Connect Azure VMs to a different workspace** - From the dropdown list, select the workspace to store collected data. The dropdown list includes all workspaces across all of your subscriptions. You can use this option to collect data from virtual machines running in different subscriptions and store it all in your selected workspace.  
 
-        If you already have an existing Log Analytics workspace, you might want to use the same workspace (requires read and write permissions on the workspace). This option is useful if you're using a centralized workspace in your organization and want to use it for security data collection. Learn more in [Manage access to log data and workspaces in Azure Monitor](../azure-monitor/platform/manage-access.md).
+        If you already have an existing Log Analytics workspace, you might want to use the same workspace (requires read and write permissions on the workspace). This option is useful if you're using a centralized workspace in your organization and want to use it for security data collection. Learn more in [Manage access to log data and workspaces in Azure Monitor](../azure-monitor/logs/manage-access.md).
 
         If your selected workspace already has a Security or SecurityCenterFree solution enabled, the pricing will be set automatically. If not, install a Security Center solution on the workspace:
 
@@ -214,7 +214,7 @@ To manually install the Log Analytics agent:
    - [Install the Log Analytics agent for Windows](../virtual-machines/extensions/oms-windows.md)
    - [Install the Log Analytics agent for Linux](../virtual-machines/extensions/oms-linux.md)
 
-1. To deploy agents on your existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md) (the section **Collect event and performance data** is optional).
+1. To deploy agents on your existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/vm/quick-collect-azurevm.md) (the section **Collect event and performance data** is optional).
 
 1. To use PowerShell to deploy the agents, use the instructions from the virtual machines documentation:
 

@@ -30,7 +30,7 @@ You can stream events from Linux-based, Syslog-supporting machines or appliances
 
 **Syslog** is an event logging protocol that is common to Linux. When the **Log Analytics agent for Linux** is installed on your VM or appliance, the installation routine configures the local Syslog daemon to forward messages to the agent on TCP port 25224. The agent then sends the message to your Log Analytics workspace over HTTPS, where it is parsed into an event log entry in the Syslog table in **Azure Sentinel > Logs**.
 
-For more information, see [Syslog data sources in Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
+For more information, see [Syslog data sources in Azure Monitor](../azure-monitor/agents/data-sources-syslog.md).
 
 ## Configure Syslog collection
 
@@ -79,7 +79,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 
 1. To query the syslog log data in **Logs**, type `Syslog` in the query window.
 
-1. You can use the query parameters described in [Using functions in Azure Monitor log queries](../azure-monitor/log-query/functions.md) to parse your Syslog messages. You can then save the query as a new Log Analytics function and use it as a new data type.
+1. You can use the query parameters described in [Using functions in Azure Monitor log queries](../azure-monitor/logs/functions.md) to parse your Syslog messages. You can then save the query as a new Log Analytics function and use it as a new data type.
 
 > [!NOTE]
 > **Using the same machine to forward both plain Syslog *and* CEF messages**
@@ -88,7 +88,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 >
 >    Having already set up [data collection from your CEF sources](connect-common-event-format.md), and having configured the Log Analytics agent as above:
 >
-> 1. On each machine that sends logs in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog. See [Configure Syslog on Linux agent](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) for detailed instructions on how to do this.
+> 1. On each machine that sends logs in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog. See [Configure Syslog on Linux agent](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent) for detailed instructions on how to do this.
 >
 > 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Azure Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
