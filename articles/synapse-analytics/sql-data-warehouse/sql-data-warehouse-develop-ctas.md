@@ -19,11 +19,11 @@ This article explains the CREATE TABLE AS SELECT (CTAS) T-SQL statement in Synap
 
 ## CREATE TABLE AS SELECT
 
-The [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (CTAS) statement is one of the most important T-SQL features available. CTAS is a parallel operation that creates a new table based on the output of a SELECT statement. CTAS is the simplest and fastest way to create and insert data into a table with a single command.
+The [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (CTAS) statement is one of the most important T-SQL features available. CTAS is a parallel operation that creates a new table based on the output of a SELECT statement. CTAS is the simplest and fastest way to create and insert data into a table with a single command.
 
 ## SELECT...INTO vs. CTAS
 
-CTAS is a more customizable version of the [SELECT...INTO](/sql/t-sql/queries/select-into-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) statement.
+CTAS is a more customizable version of the [SELECT...INTO](/sql/t-sql/queries/select-into-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement.
 
 The following is an example of a simple SELECT...INTO:
 
@@ -203,7 +203,7 @@ DROP TABLE CTAS_acs;
 
 ## ANSI join replacement for MERGE 
 
-In Azure Synapse Analytics, [MERGE](/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) (preview) with NOT MATCHED BY TARGET requires the target to be a HASH distributed table.  Users can use the ANSI JOIN with [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) or [DELETE](/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15) as a workaround to modify target table data based on the result from joining with another table.  Here is an example.
+In Azure Synapse Analytics, [MERGE](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true) (preview) with NOT MATCHED BY TARGET requires the target to be a HASH distributed table.  Users can use the ANSI JOIN with [UPDATE](/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest&preserve-view=true) or [DELETE](/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest&preserve-view=true) as a workaround to modify target table data based on the result from joining with another table.  Here is an example.
 
 ```sql
 CREATE TABLE dbo.Table1   
@@ -374,7 +374,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 You can see that type consistency and maintaining nullability properties on a CTAS is an engineering best practice. It helps to maintain integrity in your calculations, and also ensures that partition switching is possible.
 
-CTAS is one of the most important statements in Synapse SQL. Make sure you thoroughly understand it. See the [CTAS documentation](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+CTAS is one of the most important statements in Synapse SQL. Make sure you thoroughly understand it. See the [CTAS documentation](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## Next steps
 

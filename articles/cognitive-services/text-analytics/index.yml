@@ -150,7 +150,7 @@ landingContent:
         - text: Use the Text Analytics for health container
           url: How-tos/text-analytics-for-health.md
         - text: Deploy a container instance to Azure
-          url: how-tos/text-analytics-how-to-use-container-instances.md
+          url: ../containers/azure-container-instance-recipe.md
         - text: Deploy a container to Azure Kubernetes Service (AKS)
           url: how-tos/text-analytics-how-to-use-kubernetes-service.md
 

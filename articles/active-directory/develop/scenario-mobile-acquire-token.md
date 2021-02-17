@@ -14,7 +14,7 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Get a token for a mobile app that calls web APIs
@@ -23,9 +23,9 @@ Before your app can call protected web APIs, it needs an access token. This arti
 
 ## Define a scope
 
-When you request a token, you need to define a scope. The scope determines what data your app can access.
+When you request a token, define a scope. The scope determines what data your app can access.
 
-The easiest way to define a scope is to combine the desired web API's `App ID URI` with the scope `.default`. This definition tells Microsoft identity platform that your app requires all scopes that are set in the portal.
+The easiest way to define a scope is to combine the desired web API's `App ID URI` with the scope `.default`. This definition tells the Microsoft identity platform that your app requires all scopes that are set in the portal.
 
 ### Android
 ```Java
@@ -233,14 +233,14 @@ The class defines the following constants:
     This option can be useful if the token acquisition fails and you want to let the user sign in again. In this case, MSAL sends `prompt=login` to the identity provider. You might want to use this option in security-focused applications where the organization governance requires the user to sign in each time they access specific parts of the application.
 - `Never` is for only .NET 4.5 and Windows Runtime (WinRT). This constant won't prompt the user, but it will try to use the cookie that's stored in the hidden embedded web view. For more information, see [Using web browsers with MSAL.NET](./msal-net-web-browsers.md).
 
-    If this option fails, then `AcquireTokenInteractive` throws an exception to notify you that a UI interaction is needed. Then you need to use another `Prompt` parameter.
+    If this option fails, then `AcquireTokenInteractive` throws an exception to notify you that a UI interaction is needed. Then use another `Prompt` parameter.
 - `NoPrompt` doesn't send a prompt to the identity provider.
 
     This option is useful only for edit-profile policies in Azure Active Directory B2C. For more information, see [B2C specifics](https://aka.ms/msal-net-b2c-specificities).
 
 ##### WithExtraScopeToConsent
 
-Use the `WithExtraScopeToConsent` modifier in an advanced scenario where you want the user to provide upfront consent to several resources. You can use this modifier when you don't want to use incremental consent, which is normally used with MSAL.NET or Microsoft identity platform 2.0. For more information, see [Have the user consent upfront for several resources](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
+Use the `WithExtraScopeToConsent` modifier in an advanced scenario where you want the user to provide upfront consent to several resources. You can use this modifier when you don't want to use incremental consent, which is normally used with MSAL.NET or the Microsoft identity platform. For more information, see [Have the user consent upfront for several resources](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
 Here's a code example:
 

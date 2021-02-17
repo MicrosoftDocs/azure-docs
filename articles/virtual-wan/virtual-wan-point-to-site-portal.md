@@ -21,6 +21,7 @@ In this tutorial, you learn how to:
 > * Create a virtual WAN
 > * Create a P2S configuration
 > * Create a virtual hub
+> * Choose client address pools
 > * Specify DNS servers
 > * Generate VPN client profile configuration package
 > * Configure VPN clients
@@ -46,6 +47,11 @@ A point-to-site (P2S) configuration defines the parameters for connecting remote
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
+
+## <a name="chooseclientpools"></a> Choose P2S Client Address Pools
+
+[!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
+
 ## <a name="dns"></a>Specify DNS server
 
 You can configure this setting when you create the hub, or modify it at a later time. To modify, locate the virtual hub. Under **User VPN (point to site)**, select **Configure** and enter the DNS server IP address(es) in the **Custom DNS Servers** text box(es). You can specify up to 5 DNS Servers.
@@ -70,6 +76,8 @@ Once you have finished configuring your client, you can connect.
 1. Navigate to the virtual WAN.
 1. On the **Overview** page, each point on the map represents a hub.
 1. In the **Hubs and connections** section, you can view hub status, site, region, VPN connection status, and bytes in and out.
+
+
 
 ## <a name="cleanup"></a>Clean up resources
 

@@ -114,13 +114,13 @@ If you are using the neural voice training capability, you can select to train a
 
 ## Test your voice model
 
-Each training will generate 100 sample audios automatically to help you test the model. After your voice model is successfully built, you can test it before deploying it for use.
+Each training will generate 100 sample audio files automatically to help you test the model. After your voice model is successfully built, you can test it before deploying it for use.
 
 1.	Navigate to **Text-to-Speech > Custom Voice > [name of project] > Model**.
 
 2.	Click the name of the model you would like to test.
 
-3.	On the model detail page, you can find the sample audios under the **Testing** tab. 
+3.	On the model detail page, you can find the sample audio files under the **Testing** tab. 
 
 The quality of the voice depends on a number of factors, including the size of the training data, the quality of the recording, the accuracy of the transcript file, how well the recorded voice in the training data matches the personality of the designed voice for your intended use case, and more. [Check here to learn more about the capabilities and limits of our technology and the best practice to improve your model quality](https://aka.ms/CNV-limits). 
 

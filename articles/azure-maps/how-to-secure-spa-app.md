@@ -25,7 +25,7 @@ The following guide pertains to an application using Azure Active Directory (Azu
 
 Create a secured web service application which is responsible for authentication to Azure AD. 
 
-1. Create a function in the Azure portal. For more information, see [Create Azure Function](../azure-functions/functions-create-first-azure-function.md).
+1. Create a function in the Azure portal. For more information, see [Create Azure Function](../azure-functions/functions-get-started.md).
 
 2. Configure CORS policy on the Azure function to be accessible by the single page web application. This will secure browser clients to the allowed origins of your web application. See [Add CORS functionality](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
 

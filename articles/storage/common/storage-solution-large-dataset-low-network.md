@@ -64,4 +64,4 @@ The following table summarizes the differences in key capabilities.
 
     - [Transfer data with Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
     - [Transfer data with Data Box](../../databox/data-box-quickstart-portal.md).
-    - [Transfer data with Import/Export](./storage-import-export-data-to-blobs.md).
+    - [Transfer data with Import/Export](../../import-export/storage-import-export-data-to-blobs.md).

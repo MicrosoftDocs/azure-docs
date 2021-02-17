@@ -6,7 +6,7 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
-zone_pivot_groups: programming-languages-set-sixteen
+zone_pivot_groups: qnamaker-quickstart
 ---
 
 # Quickstart: QnA Maker client library
@@ -35,6 +35,10 @@ Get started with the QnA Maker client library. Follow these steps to install the
 
 ::: zone pivot="programming-language-ruby"
 [!INCLUDE [QnA Maker Ruby client library quickstart](../includes/quickstart-sdk-ruby.md)]
+::: zone-end
+
+::: zone pivot="rest"
+[!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
 ::: zone-end
 
 ## Clean up resources

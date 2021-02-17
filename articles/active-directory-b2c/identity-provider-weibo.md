@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -28,19 +28,19 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a Weibo application
 
-To enable sign-in for users with a Weibo account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Weibo developer portal](https://open.weibo.com/). If you don't already have a Weibo account, you can sign up at [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us).
+To enable sign-in for users with a Weibo account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in Weibo developer portal. If you don't already have a Weibo account, you can sign up at [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us).
 
-1. Sign in to the [Weibo developer portal](https://open.weibo.com/) with your Weibo account credentials.
+1. Sign in to the Weibo developer portal with your Weibo account credentials.
 1. After signing in, select your display name in the top-right corner.
 1. In the dropdown, select **编辑开发者信息** (edit developer information).
 1. Enter the required information and select **提交** (submit).
 1. Complete the email verification process.
-1. Go to the [identity verification page](https://open.weibo.com/developers/identity/edit).
+1. Go to the identity verification page.
 1. Enter the required information and select **提交** (submit).
 
 ### Register a Weibo application
 
-1. Go to the [new Weibo app registration page](https://open.weibo.com/apps/new).
+1. Go to the new Weibo app registration page.
 1. Enter the necessary application information.
 1. Select **创建** (create).
 1. Copy the values of **App Key** and **App Secret**. You need both of these to add the identity provider to your tenant.
@@ -199,6 +199,8 @@ The GitHub technical profile requires the **CreateIssuerUserId** claim transform
 </OrchestrationStep>
 ```
 
-[!INCLUDE [active-directory-b2c-create-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
 ::: zone-end

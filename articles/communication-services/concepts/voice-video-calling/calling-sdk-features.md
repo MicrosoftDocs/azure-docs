@@ -91,9 +91,10 @@ The Communication Services calling client library supports the following streami
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**# of outgoing streams that can be sent simultaneously** |1 video + 1 screen sharing | 1 video + 1 screen sharing|
-|**# of incoming streams that can be rendered simultaneously** |1 video + 1 screen sharing| 6 video + 1 screen sharing |
+|**# of outgoing streams that can be sent simultaneously** |1 audio/video or 1 audio/screen sharing | 1 audio/video | 
+|**# of incoming streams that can be rendered simultaneously** |1 audio/video or 1 audio/screen sharing| 6 audio/video or 1 screen sharing |
 
+Note that in group scenarios, one mixed audio stream is used to support all audio participants.
 
 ## Next steps
 
@@ -101,6 +102,6 @@ The Communication Services calling client library supports the following streami
 > [Get started with calling](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 For more information, see the following articles:
-- Familiarize yourself with general [call flows](../call-flows.md)
+- Familiarize yourself with general [call flows](../call-flows.md) 
 - Learn about [call types](../voice-video-calling/about-call-types.md)
 - [Plan your PSTN solution](../telephony-sms/plan-solution.md)

@@ -62,9 +62,10 @@ In the legacy experience, apps were always created as customer-facing applicatio
 You can also use this option  to use Azure AD B2C as a SAML service provider. [Learn more](identity-provider-adfs.md).
 
 ## Applications for DevOps scenarios
+
 You can use the other account types to create an app to manage your DevOps scenarios, like using Microsoft Graph to upload Identity Experience Framework policies or provision users. Learn [how register a Microsoft Graph application to manage Azure AD B2C resources](microsoft-graph-get-started.md).
 
-You might not see all Microsoft Graph permissions, because many of these permissions don't apply to Azure B2C consumer users. [Read more about managing users using Microsoft Graph](manage-user-accounts-graph-api.md).
+You might not see all Microsoft Graph permissions, because many of these permissions don't apply to Azure B2C consumer users. [Read more about managing users using Microsoft Graph](microsoft-graph-operations.md).
 
 ## Admin consent and offline_access+openid scopes
 <!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->
