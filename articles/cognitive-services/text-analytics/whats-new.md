@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/16/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -16,6 +16,10 @@ ms.custom: references_regions
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## February 2021
+
+* The S0 through S4 pricing tiers are being retired on March 8th, 2021. If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you should update it to use the Standard (S) [pricing tier](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier).
 
 ## January 2021
 
