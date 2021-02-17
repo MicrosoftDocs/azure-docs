@@ -29,8 +29,8 @@ The Azure Migrate: App Containerization tool helps you to -
 
 While all applications won't benefit from a straight shift to containers without significant rearchitecting, some of the benefits of moving existing apps to containers without rewriting include:
 
-- **Improved infrastructure utilization:** With containers, multiple applications can share resources and be hosted on the same infrastructure. This can help you consolidate infrastructure and improve utiliziation. 
-- **Simplified management:** By hosting your applications on a modern managed infrastructure platform like AKS, you can simplify your management practices while still retaining control over your infrastructure. This can be achieved by retiring or reducing the infrastructure maintenance and management processes that you'd traditionally perform with owned infrastructure.
+- **Improved infrastructure utilization:** With containers, multiple applications can share resources and be hosted on the same infrastructure. This can help you consolidate infrastructure and improve utilization. 
+- **Simplified management:** By hosting your applications on a modern managed infrastructure platform like AKS, you can simplify your management practices while still retaining control over your infrastructure. You can achieve this by retiring or reducing the infrastructure maintenance and management processes that you'd traditionally perform with owned infrastructure.
 - **Application portability:** With increased adoption and standardization of container specification formats and orchestration platforms, application portability is no longer a concern. 
 - **Adopt modern management with DevOps:** Helps you adopt and standardize on modern practices for management and security with Infrastructure as Code and transition to DevOps.
 
@@ -117,7 +117,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 ### Complete tool pre-requisites
 1. Accept the **license terms**, and read the third-party information.
-6. In the tool web app > **Set up prerequisites**, do the following:
+6. In the tool web app > **Set up prerequisites**, do the following steps:
    - **Connectivity**: The tool checks that the Windows machine has internet access. If the machine uses a proxy:
      - Click on **Set up proxy** to specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
      - Specify credentials if the proxy needs authentication.
@@ -150,7 +150,7 @@ The App Containerization helper tool connects remotely to the application server
     - For domain accounts (the user must be an administrator on the application server), prefix the username with the domain name in the format *<domain\username>*. 
     - You can run application discovery for upto five servers at a time. 
 
-2. Click **Validate** to verify that the application server is reachable from the machine running tool and that the credentials are valid. Upon successful validation, the status column will show the status as **Mapped**.  
+2. Click **Validate** to verify that the application server is reachable from the machine running the tool and that the credentials are valid. Upon successful validation, the status column will show the status as **Mapped**.  
 
     ![Screenshot for server IP and credentials](./media/tutorial-containerize-apps-aks/discovery-credentials.png)
 
@@ -214,20 +214,20 @@ Once the container image is built, the next step is to deploy the application as
          az aks update -n <cluster-name> -g <cluster-resource-group> --attach-acr <acr-name>
          ```  
      - If you don’t have an AKS cluster or would like to create a new AKS cluster to deploy the application to, you can choose to create on from the tool by clicking **Create new AKS cluster**.      
-          - The AKS cluster created using the tool will be created with a Windows node pool and will be configured to allow it to pull images from the Azure Container Registry that was created earlier (if create new registry option was chosen). 
+          - The AKS cluster created using the tool will be created with a Windows node pool. The cluster will be configured to allow it to pull images from the Azure Container Registry that was created earlier (if create new registry option was chosen).
      - Click **Continue** after selecting the AKS cluster.
 
-2. **Specify Azure file share**: If you had added more folders and selected the Persistent Volume option, then specify the Azure file share that should be used by Azure Migrate: App Containerization tool during the deployment process. The tool will create additional directories in this Azure file share to copy over the application folders that are configured for Persistent Volume storage. Once the application deployment is complete, the tool will clean up the Azure file share by deleting these additional directories it had created. 
+2. **Specify Azure file share**: If you had added more folders and selected the Persistent Volume option, then specify the Azure file share that should be used by Azure Migrate: App Containerization tool during the deployment process. The tool will create new directories in this Azure file share to copy over the application folders that are configured for Persistent Volume storage. Once the application deployment is complete, the tool will clean up the Azure file share by deleting the directories it had created. 
 
      - If you don't have an Azure file share or would like to create a new Azure file share, you can choose to create on from the tool by clicking **Create new Storage Account and file share**.  
 
-3. **Application deployment configuration**: Once you've selected the AKS cluster and the Azure file share to be used, you'll need to specify the deployment configuration for the application. Click **Configure** to customize the deployment for the application. In the configure step you can provide the following customizations:
+3. **Application deployment configuration**: Once you've completed the steps above, you'll need to specify the deployment configuration for the application. Click **Configure** to customize the deployment for the application. In the configure step you can provide the following customizations:
      - **Prefix string**: Specify a prefix string to use in the name for all resources that are created for the containerized application in the AKS cluster..
      - **SSL certificate**: If your application requires an https site binding, specify the PFX file that contains the certificate to be used for the binding. The PFX file shouldn't be password protected and the original site shouldn't have multiple bindings.
      - **Replica Sets**: Specify the number of application instances (pods) that should run inside the containers.
      - **Load balancer type**: Select *External* if the containerized application should be reachable from public networks. 
      - **Application Configuration**: For any application configurations that were parameterized, provide the values to use for the current deployment.
-     - **Storage**: For any application folders that were configured for Persistent Volume storage with Azure file share, specify whether the Persistent Volume should be shared across application instances (pods) or individually with each instance in the container. By default, all application folders on Persistent Volumes are configured to be shared across application instances. 
+     - **Storage**: For any application folders that were configured for Persistent Volume storage, specify whether the volume should be shared across application instances or should be initialized individually with each instance in the container. By default, all application folders on Persistent Volumes are configured as shared.  
      - Click **Apply** to save the deployment configuration.
      - Click **Continue** to deploy the application.
 
@@ -244,9 +244,9 @@ Once the container image is built, the next step is to deploy the application as
 
 ## Download generated artifacts
 
-All artifacts that are used to build and deploy the application into AKS, including the Dockerfile and Kubernetes YAML specification files are stored on the machine running the Azure Migrate: App Containerization tool at the location *C:\ProgramData\Microsoft Azure Migrate App Containerization*. 
+All artifacts that are used to build and deploy the application into AKS, including the Dockerfile and Kubernetes YAML specification files, are stored on the machine running the tool. The artifacts are located at *C:\ProgramData\Microsoft Azure Migrate App Containerization*.
 
-A single folder is created for each application server. You can view and download all intermediate artifacts used in the containerization process by navigating to this folder on the machine running the tool. The folder corresponding to the application server will be cleaned up at the start of each run of the tool for a particular server.
+A single folder is created for each application server. You can view and download all intermediate artifacts used in the containerization process by navigating to this folder. The folder, corresponding to the application server, will be cleaned up at the start of each run of the tool for a particular server.
 
 ## Troubleshoot issues
 
