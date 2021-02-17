@@ -29,6 +29,8 @@ The power state represents the last known state of the VM.
 
 :::image type="content" source="./media/virtual-machines-common-states-lifecycle/vm-power-states.png" alt-text="Image shows diagram of the power states a VM can go through. ":::
 
+:::image type="content" source="./media/virtual-machines-common-states-lifecycle/vm-power-states.png" alt-text="Image shows diagram of the power states a VM can go through. ":::
+
 The following table provides a  description of each instance state and indicates whether it is billed for instance usage or not.
 
 | State | Description | Billing |  
