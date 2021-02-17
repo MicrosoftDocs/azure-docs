@@ -33,7 +33,9 @@ You might want to consider using LRS cloud service in some of the following case
 
 # How does it work
 
-Building a custom solution using LRS to migrate a database to the cloud requires several orchestration steps shown in the diagram and outlined in the table below. The migration entails making full database backups on SQL Server and copying the backup files to Azur Blob storage. LRS service is used to restore full backups files from Azure Blob storage to SQL Managed Instance. LRS will monitor Azure Blob storage for any new differential or log backups added after the full backup has been restored, and will automatically restore any new files added. Databases being restored during the migration process will be in a restoring mode and cannot be used to read or write until the migration cutover. When all expected backup files have been restored, the migration is completed by manually initiating a cutover using the LRS service. The final cutover step will make databases available for read and write use on SQL Managed Instance. The migration process can be monitored during the procedure, and the process can also be aborted if required. 
+Building a custom solution using LRS to migrate a database to the cloud requires several orchestration steps shown in the diagram and outlined in the table below.
+
+The migration entails making full database backups on SQL Server and copying backup files to Azur Blob storage. LRS service is used to restore full backup files from Azure Blob storage to SQL Managed Instance. LRS will monitor Azure Blob storage for any new differential or log backups added after the full backup has been restored, and will automatically restore any new files added. Databases being restored during the migration process will be in a restoring mode and cannot be used to read or write until the migration cutover. When all expected backup files have been restored, the migration is completed by manually initiating a cutover using the LRS service. The final cutover step will make databases available for read and write use on SQL Managed Instance. The migration process can be monitored during the procedure, and the process can also be aborted if required. 
 
   ![Log Replay Service orchestration steps explained for SQL Managed Instance](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
 
@@ -57,27 +59,27 @@ Building a custom solution using LRS to migrate a database to the cloud requires
 -	PowerShell Az.SQL module version 2.16.0, or above ([install](https://www.powershellgallery.com/packages/Az.Sql/), or use Azure [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/))
 -	CLI version 2.19.0, or above ([install](https://docs.microsoft.com/cli/azure/install-azure-cli))
 -	Azure Blob Storage provisioned
--	SAS security token with read only and list permissions generated for the blob storage
+-	SAS security token with **read only** and **list** permissions generated for the blob storage
 
 ## Best practices
 
 The following are highly recommended as best practices:
 - Run [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) to validate your databases will have no issues being migrated to SQL Managed Instance. 
-- Split full and differential backups into multiple files, instead of a single file
-- Enable backup compression
-- Use Cloud Shell to execute scripts as it will always be updated to the latest cmdlets released
+- Split full and differential backups into multiple files, instead of a single file.
+- Enable backup compression.
+- Use Cloud Shell to execute scripts as it will always be updated to the latest cmdlets released.
 
 > [!IMPORTANT]
-> - Database being restored using LRS cannot be used until the migration process has been completed. This is because underlying technology for LRS is log shipping in no recovery mode.
-> - Standby mode for log shipping is not supported by LRS due to the version differences between SQL Managed Instance and in-market SQL Server version.
+> - Database being restored using LRS cannot be used until the migration process has been completed. This is because underlying technology is log shipping in no recovery mode.
+> - Standby mode for log shipping is not supported by LRS due to the version differences between SQL Managed Instance and latest in-market SQL Server version.
 
 # Steps to execute
 
 ## Copy backups from SQL Server to Azure Blob storage
 
-The following two approaches can be utilized to copy the backups to the blob storage in migrating databases to Managed Instance using LRS:
--	Using SQL Server native BACKUP TO URL feature 
--	Copying the backups to Blob Container. 
+The following two approaches can be utilized to copy backups to the blob storage in migrating databases to Managed Instance using LRS:
+-	Using SQL Server native [BACKUP TO URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-ver15) feature .
+-	Copying the backups to Blob Container using [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) or [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer). 
 
 ## Generate SAS authentication token
 
