@@ -9,11 +9,14 @@ ms.service: iot-hub-device-update
 ---
 
 # Microsoft Connected Cache Preview Deployment Scenario Sample: Two Level Nested IoT Edge Gateway With Outbound Unauthenticated Proxy
+
 Given the diagram below, in this scenario there is an IoT Edge gateway and a downstream IoT Edge device, one IoT Edge gateway parented to another IoT Edge gateway and a proxy server at the IT DMZ. Below is an example of the Microsoft Connected Cache environment variables that would be set in the Azure portal UX for both of the MCC modules deployed to the IoT Edge gateways. The example shown demonstrates the configuration for two-levels of IoT Edge gateways, but there is no limit to the depth of upstream hosts that Microsoft Connected Cache will support. There is no difference in MCC container create options from the previous examples.
 
 Refer to the documentation [Connect downstream IoT Edge devices - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-connect-downstream-iot-edge-device?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true) for more details on configuring layered deployments of IoT Edge gateways. Additionally note that when deploying IoT Edge, Microsoft Connected Cache, and custom modules, all modules must reside in the same container registry.
 
 The diagram below describes the scenario where one IoT Edge gateway as direct access to CDN resources is acting as the parent to another IoT Edge gateway that is acting as the parent to an IoT leaf device such as a Raspberry Pi. Only the IoT Edge gateway parent has internet connectivity to CDN resources and both the IoT Edge child and IoT device are internet isolated. 
+
+  :::image type="content" source="media/mcc-overview/nested-level-proxy.png" alt-text="Microsoft Connected Cache Nested" lightbox="media/mcc-overview/nested-level-proxy.png":::
 
 ## Parent Gateway Configuration
 
@@ -21,6 +24,7 @@ The diagram below describes the scenario where one IoT Edge gateway as direct ac
 2. Add the environment variables for the deployment. Below is an example of the environment variables.
 
 ### Environment Variables
+
 | Variable Name                 | Value                                       |
 | ----------------------------- | --------------------------------------------| 
 | CACHE_NODE_ID                 | See environment variable description above. |
@@ -36,6 +40,7 @@ The diagram below describes the scenario where one IoT Edge gateway as direct ac
 3. Add the container create options for the deployment. There is no difference in MCC container create options from the previous example. Below is an example of the container create options.
 
 ### Container Create Options
+
 ```json
 {
     "HostConfig": {
@@ -58,6 +63,7 @@ The diagram below describes the scenario where one IoT Edge gateway as direct ac
 ```
 
 ## Child Gateway Configuration
+
 >[!TIP]
 If you have replicated containers used in your configuration in your own private registry, then there will need to be a modification to the config.yaml settings and runtime settings in your module deployment. For more information, refer to [Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal#deploy-modules-to-the-lower-layer-device&preserve-view=true) for more details.
 

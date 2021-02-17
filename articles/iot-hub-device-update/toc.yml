@@ -31,20 +31,20 @@
     href: device-update-plug-and-play.md
   - name: Device update networking requirements
     href: device-update-networking.md
-  - name: Understand Device Update for Azure IoT Hub Agent	
+  - name: Understand Device Update for Azure IoT Hub Agent
     href: device-update-agent-overview.md
   - name: Understand Device Update for Azure IoT Hub Configuration File
     href: device-update-configuration-file.md
   - name: Support for disconnected devices
-    href: disconnected-device-update.md
+    href: mcc-disconnected-device-update.md
   - name: Configure Microsoft Connected Cache for device update for IoT Hub
-    href: configure-mcc.md
+    href: mcc-configure.md
 
 - name: How-to guides
   items:
   - name: Create a device update account
     href: create-device-update-account.md
-  - name: Provisioning Device Update for Azure IoT Hub Agent	
+  - name: Provisioning Device Update for Azure IoT Hub Agent
     href: device-update-agent-provisioning.md
   - name: Import an update
     href: import-update.md
@@ -55,11 +55,11 @@
   - name: Deploy a device update
     href: deploy-update.md
   - name: Single level Microsoft Connected Cache setup
-    href: single-level-mcc.md
+    href: mcc-single-level.md
   - name: Nested Microsoft Connected Cache setup
-    href: nested-mcc.md
+    href: mcc-nested-level.md
   - name: Microsoft Connected Cache for Industrial IoT (IIOT) setup
-    href: IIoT-nested-mcc.md
+    href: mcc-iiot-nested.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot device updates
