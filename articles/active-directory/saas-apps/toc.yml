@@ -982,7 +982,7 @@
         href: keeperpasswordmanager-tutorial.md
       - name: Kemp LoadMaster Azure AD integration
         href: kemp-tutorial.md
-      - name: Kendis-Scaling Agile Platform
+      - name: Kendis - Azure AD Integration
         href: kendis-scaling-agile-platform-tutorial.md
       - name: KFAdvance
         href: kfadvance-tutorial.md

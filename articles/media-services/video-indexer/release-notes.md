@@ -65,7 +65,7 @@ You will be able to sign up and sign in using one of these providers: Azure AD, 
 > [!NOTE]
 > The Video Indexer accounts connected to LinkedIn and Facebook will not be accessible after March 1st 2021. 
 > 
-> You should [invite](invite-users.md) an Azure AD, Microsoft, or Google email you own to the Video Indexer account so you will still have access.<br/>
+> You should [invite](invite-users.md) an Azure AD, Microsoft, or Google email you own to the Video Indexer account so you will still have access. You can add an additional owner of supported providers, as described in [invite](invite-users.md). <br/>
 > Alternatively, you can create a paid account and migrate the data.
 
 ## August 2020

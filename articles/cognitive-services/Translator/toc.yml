@@ -22,7 +22,7 @@
       href: character-counts.md
   - name: How-to guides
     items:
-    - name: Sign-up for Translator
+    - name: Create a Translator resource
       href: ./translator-how-to-signup.md
     - name: Migrate to V3 Text API
       href: migrate-to-v3.md
@@ -149,4 +149,5 @@
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Encryption
-      href: translator-encryption-of-data-at-rest.md
+      href: encrypt-data-at-rest.md
+

@@ -205,5 +205,5 @@ To remove the custom role, follow these steps.
 ## Next steps
 
 - [Understand Azure role definitions](role-definitions.md)
-- [Quickstart: Add an Azure role assignment using an Azure Resource Manager template](quickstart-role-assignments-template.md)
+- [Quickstart: Assign an Azure role using an Azure Resource Manager template](quickstart-role-assignments-template.md)
 - [ARM template documentation](../azure-resource-manager/templates/index.yml)
