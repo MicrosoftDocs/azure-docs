@@ -14,7 +14,7 @@
   - name: Use device update on the simulator
     href: device-update-simulator.md
   - name: Package update on Ubuntu Server 18.04 x64
-    href: device-update-ubuntu-package-agent-tutorial.md
+    href: device-update-ubuntu-agent.md
 - name: Concepts
   items:
   - name: Device update account and instance
