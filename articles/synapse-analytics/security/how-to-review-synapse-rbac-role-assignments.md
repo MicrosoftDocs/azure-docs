@@ -1,12 +1,12 @@
 ---
 title: How to review Synapse RBAC role assignments in Synapse Studio
 description: This article describes how to review Synapse RBAC role assignments using Synapse Studio
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 

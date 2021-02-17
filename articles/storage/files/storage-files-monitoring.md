@@ -584,13 +584,13 @@ The following table lists some example scenarios to monitor and the proper metri
 
 3. Click **Edit resource**, select the **File resource type** and then click **Done**. 
 
-4. Click **Select condition** and provide the following information for the alert: 
+4. Click **Add condition** and provide the following information for the alert: 
 
 	- **Metric**
 	- **Dimension name**
 	- **Alert logic**
 
-5. Click **Select action group** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+5. Click **Add action groups** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 
 6. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 
@@ -604,16 +604,31 @@ The following table lists some example scenarios to monitor and the proper metri
 1. Go to your **storage account** in the **Azure portal**.
 2. In the **Monitoring** section, click **Alerts**, and then click **+ New alert rule**.
 3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is `contoso`, select the `contoso/file` resource.
-4. Click **Select Condition** to add a condition.
+4. Click **Add condition** to add a condition.
 5. You will see a list of signals supported for the storage account, select the **Transactions** metric.
 6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **Response type**.
-7. Click the **Dimension values** drop-down and select **SuccessWithThrottling** (for SMB) or **ClientThrottlingError** (for REST).
+7. Click the **Dimension values** drop-down and select the appropriate response types for your file share.
+
+    For standard file shares, select the following response types:
+
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    For premium file shares, select the following response types:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > If the SuccessWithThrottling or ClientThrottlingError dimension value is not listed, this means the resource has not been throttled. To add the dimension value, click **Add custom value** beside the **Dimension values** drop-down, type **SuccessWithThrottling** or **ClientThrottlingError**, click **OK** and then repeat step #7.
+   > If the response types are not listed in the **Dimension values** drop-down, this means the resource has not been throttled. To add the dimension values, next to the **Dimension values** drop-down list, select **Add custom value**, enter the respone type (for example, **SuccessWithThrottling**), select **OK**, and then repeat these steps to add all applicable response types for your file share.
 
 8. Click the **Dimension name** drop-down and select **File Share**.
 9. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
+
 
    > [!NOTE]
    > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down will not list the file share(s) because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
@@ -623,8 +638,8 @@ The following table lists some example scenarios to monitor and the proper metri
     > [!TIP]
     > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
 
-11. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-12. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
+11. Click **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+12. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 13. Click **Create alert rule** to create the alert.
 
 ### How to create an alert if the Azure file share size is 80% of capacity
@@ -632,7 +647,7 @@ The following table lists some example scenarios to monitor and the proper metri
 1. Go to your **storage account** in the **Azure portal**.
 2. In the **Monitoring** section, click **Alerts** and then click **+ New alert rule**.
 3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is `contoso`, select the `contoso/file` resource.
-4. Click **Select Condition** to add a condition.
+4. Click **Add condition** to add a condition.
 5. You will see a list of signals supported for the storage account, select the **File Capacity** metric.
 6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **File Share**.
 7. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
@@ -642,8 +657,8 @@ The following table lists some example scenarios to monitor and the proper metri
 
 8. Enter the **Threshold value** in bytes. For example, if the file share size is 100 TiB and you want to receive an alert when the file share size is 80% of capacity, the threshold value in bytes is 87960930222080.
 9. Define the rest of the **alert parameters** (aggregation granularity and frequency of evaluation) and click **Done**.
-10. Click Select action group to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-11. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
+10. Click **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+11. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 12. Click **Create alert rule** to create the alert.
 
 ### How to create an alert if the Azure file share egress has exceeded 500 GiB in a day
@@ -651,7 +666,7 @@ The following table lists some example scenarios to monitor and the proper metri
 1. Go to your **storage account** in the **Azure portal**.
 2. In the Monitoring section, click **Alerts** and then click **+ New alert rule**.
 3. Click **Edit resource**, select the **File resource type** for the storage account and then click **Done**. For example, if the storage account name is contoso, select the contoso/file resource.
-4. Click **Select Condition** to add a condition.
+4. Click **Add condition** to add a condition.
 5. You will see a list of signals supported for the storage account, select the **Egress** metric.
 6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **File Share**.
 7. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
@@ -662,8 +677,8 @@ The following table lists some example scenarios to monitor and the proper metri
 8. Enter **536870912000** bytes for Threshold value. 
 9. Click the **Aggregation granularity** drop-down and select **24 hours**.
 10. Select the **Frequency of evaluation** and **click Done**.
-11. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-12. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
+11. Click **Add action groups** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+12. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 13. Click **Create alert rule** to create the alert.
 
 ## Next steps

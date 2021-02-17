@@ -5,7 +5,7 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 02/08/2021
 ms.subservice: logs
 ---
 
@@ -170,6 +170,24 @@ See [Diagnostic Settings](/rest/api/monitor/diagnosticsettings) to create or upd
 
 ## Create using Azure Policy
 Since a diagnostic setting needs to be created for each Azure resource, Azure Policy can be used to automatically create a diagnostic setting as each resource is created. See [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md) for details.
+
+## Metric category is not supported error
+When deploying a diagnostic setting, you receive the following error message:
+
+   "Metric category '*xxxx*' is not supported"
+
+For example: 
+
+   "Metric category 'ActionsFailed' is not supported"
+
+where previously your deployment succeeded. 
+
+The problem occurs when using a Resource Manager template, the diagnostic settings REST API, Azure CLI or Azure PowerShell. Diagnostic settings created via the Azure portal are not affected as only the supported category names are presented.
+
+The problem is caused by a recent change in the underlying API. Metric categories other than 'AllMetrics' are not supported and never were except for a few very specific Azure services. In the past, other category names were ignored when deploying a diagnostic setting. The Azure Monitor backend simply redirected these categories to 'AllMetrics'.  As of February 2021, the backend was updated to specifically confirm the metric category provided is accurate. This change has caused some deployments to fail.
+
+If you receive this error, update your deployments to replace any metric category names with 'AllMetrics' to fix the issue. If the deployment was previously adding multiple categories, only one with the 'AllMetrics' reference should be kept. If you continue to have the problem, please contact Azure support through the Azure portal. 
+
 
 
 ## Next steps

@@ -78,7 +78,7 @@ The following sample creates an association between an Azure virtual machine and
 
 ## Create association with Azure Arc
 
-The following sample installs the Azure Monitor agent on a Windows Azure virtual machine. An association is created between an Azure Arc-enabled server machine and a data collection rule.
+The following sample creates an association between an Azure Arc-enabled server and a data collection rule.
 
 ### Template file
 

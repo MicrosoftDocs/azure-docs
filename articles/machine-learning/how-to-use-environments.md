@@ -396,7 +396,7 @@ service = Model.deploy(
 
 ## Notebooks
 
-This [article](./how-to-run-jupyter-notebooks.md#add-new-kernels) provides information about how to install a Conda environment as a kernel in a notebook.
+This [article](./how-to-access-terminal.md#add-new-kernels) provides information about how to install a Conda environment as a kernel in a notebook.
 
 [Deploy a model using a custom Docker base image](how-to-deploy-custom-docker-image.md) demonstrates how to deploy a model using a custom Docker base image.
 

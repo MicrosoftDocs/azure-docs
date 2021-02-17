@@ -1,14 +1,17 @@
-- name: Azure IoT Central for Healthcare Documentation
+- name: Azure IoT Central for healthcare documentation
   href: index.yml
 - name: Overview
   items:
     - name: Building healthcare solutions with Azure IoT Central
       href: overview-iot-central-healthcare.md
 - name: Tutorials
+  expanded: true
   items:
     - name: Create a continuous patient monitoring app
       href: tutorial-continuous-patient-monitoring.md
-        
+    - name: Create a health data triage dashboard  
+      href: howto-health-data-triage.md 
+          
 - name: Concepts
   items:
     - name: Continuous patient monitoring architecture
@@ -20,9 +23,6 @@
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
 - name: How-to guides
   items:
-    - name: Create a health data triage dashboard  
-      href: howto-health-data-triage.md 
-  
     - name: Connect and develop devices
       items:
         - name: Prepare and connect a Rigado Cascade 500

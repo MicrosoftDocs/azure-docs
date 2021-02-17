@@ -20,7 +20,7 @@ If you're looking to improve recognition accuracy, especially issues that are ca
 A large sample of transcription data is required to improve recognition, we suggest providing between 10 and 20 hours of transcription data. On this page, we'll review guidelines designed to help you create high-quality transcriptions. This guide is broken up by locale, with sections for US English, Mandarin Chinese, and German.
 
 > [!NOTE]
-> Not all base models support customization with audio files. If a base model does not support it, training will just use the text of the transcriptions in the same way as related text is used.
+> Not all base models support customization with audio files. If a base model does not support it, training will just use the text of the transcriptions in the same way as related text is used. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data.
 
 ## US English (en-US)
 
@@ -162,6 +162,10 @@ Here are a few examples of normalization automatically performed on the transcri
 | Frankfurter Ring | frankfurter ring         |
 | ¡Eine Frage!     | eine frage               |
 | wir, haben       | wir haben                |
+
+### Text normalization for Japanese
+
+In Japanese (ja-JP), there's a maximum length of 90 characters for each sentence. Lines with longer sentences will be discarded. To add longer text, insert a period in between.
 
 ## Next Steps
 

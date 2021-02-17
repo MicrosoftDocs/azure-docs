@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli"
+ms.custom: "subject-monitoring, devx-track-csharp, devx-track-azurecli"
 ---
 
 # Monitoring Azure Blob Storage

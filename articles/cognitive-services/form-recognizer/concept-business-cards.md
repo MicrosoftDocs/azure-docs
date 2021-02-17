@@ -31,7 +31,7 @@ The prebuilt Business Card API extracts key fields from business cards and retur
 |:-----|:----|:----|:----|
 | ContactNames | array of objects | Contact name extracted from business card | [{ "FirstName": "John", "LastName": "Doe" }] |
 | FirstName | string | First (given) name of contact | "John" | 
-| LastName | string | Last (family) name of contact | 	"Doe" | 
+| LastName | string | Last (family) name of contact |     "Doe" | 
 | CompanyNames | array of strings | Company name extracted from business card | ["Contoso"] | 
 | Departments | array of strings | Department or organization of contact | ["R&D"] | 
 | JobTitles | array of strings | Listed Job title of contact | ["Software Engineer"] | 
@@ -41,7 +41,7 @@ The prebuilt Business Card API extracts key fields from business cards and retur
 | MobilePhones | array of phone numbers | Mobile phone number extracted from business card | ["+19876543210"] |
 | Faxes | array of phone numbers | Fax phone number extracted from business card | ["+19876543211"] |
 | WorkPhones | array of phone numbers | Work phone number extracted from business card | ["+19876543231"] |
-| OtherPhones	 | array of phone numbers | Other phone number extracted from business card | ["+19876543233"] |
+| OtherPhones     | array of phone numbers | Other phone number extracted from business card | ["+19876543233"] |
 
 
 The Business Card API can also return all recognized text from the Business Card. This OCR output is included in the JSON response.  

@@ -87,8 +87,7 @@ If you're not going to continue to use this application, delete the application 
 
 ## Next steps
 
-Learn more about
+Learn more about:
+
 > [!div class="nextstepaction"]
 > [micro-fulfillment center solution architecture](./architecture-micro-fulfillment-center.md)
-* Learn more about the [Azure IoT Central retail templates](./overview-iot-central-retail.md)
-* Learn more about [Azure IoT Central](../core/overview-iot-central.md)

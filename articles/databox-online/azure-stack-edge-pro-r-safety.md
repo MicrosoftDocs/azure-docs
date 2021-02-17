@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 02/04/2021
 ms.author: alkohli
 ---
 
@@ -33,7 +33,7 @@ The following hazard icons are to be observed when setting up and running your A
 | Icon | Description |
 |:--- |:--- |
 | ![Read All Instructions First](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Read All Instructions First |
-| ![Hazard Symbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Hazard Symbol |
+| ![Notice Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** | Indicates information considered important, but not hazard-related. || ![Hazard Symbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Hazard Symbol |
 | ![Tip Hazard Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png)  | Tip Hazard|
 | ![Heavy Weight Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | Heavy Weight Hazard|
 | ![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Electric Shock Hazard |
@@ -84,6 +84,7 @@ The following hazard icons are to be observed when setting up and running your A
   * Provided with adequate space to access the power supply cord(s), because they serve as the product's main power disconnect.
 * Ethernet cables are not provided with the product. To reduce electromagnetic interference, it is recommended that Cat 6 Shielded Twisted-pair (STP) cabling be used.
 * Set up the equipment in a work area allowing for adequate air circulation around the equipment; ensure that the front and back covers are fully removed while the device is running.
+* Ethernet cables are not provided with the product. To reduce electromagnetic interference, it is recommended that Cat 6 Shielded (STP) cabling be used.
 * Install the equipment in temperature-controlled area free of conductive contaminants and allow for adequate air circulation around the equipment.
 * Keep the equipment away from sources of liquid and excessively humid environments.
 * Do not allow any liquid or any foreign object to enter the system. Do not place beverages or any other liquid containers on or near the system.
@@ -203,7 +204,7 @@ A device that has a UPS installed is designed to operate in the following enviro
 > Maximum corrosive contaminant levels measured at &lt;/= 50% relative humidity. --> 
 
 
-> ![Notice Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp;Changes or modifications made to the equipment not expressly approved by Microsoft may void the user's authority to operate the equipment.
+> ![Notice Icon - 2](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp;Changes or modifications made to the equipment not expressly approved by Microsoft may void the user's authority to operate the equipment.
 
 CANADA and USA:
 

@@ -118,7 +118,7 @@ Use the `webpack-dev-server` to build and run your app. Run the following comman
 
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js
+npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
 Open your browser and navigate to `http://localhost:8080/`. You should see the following:

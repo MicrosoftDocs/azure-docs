@@ -2,7 +2,7 @@
 title: Lifecycle management of Azure VMware Solution VMs
 description: Learn to manage all aspects of the lifecycle of your Azure VMware Solution VMs with Microsoft Azure native tools.
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 02/08/2021
 ---
 
 # Lifecycle management of Azure VMware Solution VMs
@@ -105,3 +105,11 @@ Azure Monitor is a comprehensive solution for collecting, analyzing, and acting 
     - [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/platform/alerts-log.md).
     - [Action rules](../azure-monitor/platform/alerts-action-rules.md) to set automated actions and notifications.
     - [Connect Azure to ITSM tools using IT Service Management Connector](../azure-monitor/platform/itsmc-overview.md).
+    
+ ## Next steps
+
+Now that you've covered using Azure's native tools to manage your Azure VMware Solution VMs throughout their lifecycle, you may want to learn about:
+
+- [Protecting your Azure VMware Solution VMs with Azure Security Center](azure-security-integration.md).
+- [Setting up Azure Backup Server for Azure VMware Solution](set-up-backup-server-for-azure-vmware-solution.md).
+- [Integrating Azure VMware Solution in a hub and spoke architecture](concepts-hub-and-spoke.md).

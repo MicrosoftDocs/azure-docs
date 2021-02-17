@@ -131,6 +131,7 @@ We have metrics on Azure that provide insight on how your virtual machines and d
 - **Disk Write Operations/Sec**: The number of output operations that are written in a second from all disks attached to a VM.
 
 ## Storage IO utilization metrics
+The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available when using Premium enabled VM. These metrics are available for all disk types except for Ultra. 
 
 Metrics that help diagnose disk IO capping:
 

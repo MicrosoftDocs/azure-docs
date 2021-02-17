@@ -71,15 +71,6 @@ You can view this data by streaming it from the Azure Activity log into Azure Se
     ```
 
 
-
-## Vendor documentation
-
-| **Vendor**  | **Use incident in Azure Sentinel** | **Link**|
-|----|----|----|
-| GitHub| Used to access Community page| <https://github.com/Azure/Azure-Sentinel> |
-| PaloAlto| Configure CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
-| PluralSight | Kusto Query Language course| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
-
 ## Blogs and forums
 
 We love hearing from our users!
@@ -92,8 +83,6 @@ We love hearing from our users!
 
     - [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 
     - [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)
-
-For more information about Azure security and compliance, see the [Microsoft Azure Security and Compliance blog](https://techcommunity.microsoft.com/t5/microsoft-security-and/bg-p/MicrosoftSecurityandCompliance).
 
 
 ## Next steps

@@ -13,6 +13,8 @@
   items:
   - name: Set up your environment
     items:
+    - name: Find your tenant ID
+      href: how-to-set-azure-tenant.md
     - name: Find your Azure subscription
       href: how-to-set-azure-subscription.md
     - name: Create a Media Services account
@@ -70,6 +72,8 @@
       displayName: AAD, Active Directory
   - name: REST
     items:
+    - name: Enable trusted storage
+      href: tutorial-trusted-storage-rest.md
     - name: Encode and stream a remote file REST
       href: stream-files-tutorial-with-rest.md
     - name: Customer managed keys with REST API
@@ -305,6 +309,12 @@
       displayName: migration, samples    
 - name: How-to guides
   items:
+  - name: Find your tenant and subscription
+    items:
+    - name: Find your tenant ID
+      href: how-to-set-azure-tenant.md
+    - name: Find your subscription ID
+      href: how-to-set-azure-subscription.md
   - name: Create assets and upload media
     items:
     - name: Create an asset

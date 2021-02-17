@@ -65,6 +65,8 @@
     href: azure-netapp-files-faqs.md
   - name: What is Azure Application Consistent Snapshot Tool
     href: azacsnap-introduction.md
+  - name: What changing to volume hard quota means
+    href: volume-hard-quota-guidelines.md
 - name: How-to guides
   items:
   - name: Register for Azure NetApp Files
@@ -125,7 +127,7 @@
       href: troubleshoot-capacity-pools.md
     - name: Troubleshoot cross-region replication
       href: troubleshoot-cross-region-replication.md
-    - name: Troubleshoot dual-protocol volumes
+    - name: Troubleshoot SMB or dual-protocol volumes
       href: troubleshoot-dual-protocol-volumes.md
     - name: Troubleshoot NFSv4.1 Kerberos volumes
       href: troubleshoot-nfsv41-kerberos-volumes.md

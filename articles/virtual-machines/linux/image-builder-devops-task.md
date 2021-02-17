@@ -152,10 +152,10 @@ The following example explains how this works:
 
    You can reference multiple scripts, or add more commands, for example:
 
-       ```PowerShell
-       & 'c:\buildArtifacts\webapp\webconfig.ps1'
-       & 'c:\buildArtifacts\webapp\installAgent.ps1'
-       ```
+    ```PowerShell
+    & 'c:\buildArtifacts\webapp\webconfig.ps1'
+    & 'c:\buildArtifacts\webapp\installAgent.ps1'
+    ```
 * Linux - On Linux systems the build artifacts are put into the `/tmp` directory. However, on many Linux OSs, on a reboot, the /tmp directory contents are deleted. If you want the artifacts to exist in the image, you must create another directory and copy them over.  For example:
 
     ```bash

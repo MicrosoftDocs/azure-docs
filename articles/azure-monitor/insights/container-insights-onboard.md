@@ -33,6 +33,13 @@ You can enable Azure Monitor for containers for a new deployment or for one or m
 
 Before you start, make sure that you've met the following requirements:
 
+> [!IMPORTANT]
+> Log Analytics Containerized Linux Agent (replicaset pod) makes API calls to all the Windows nodes on Kubelet Secure Port (10250) within the cluster to collect Node and Container Performance related Metrics. 
+Kubelet secure port (:10250) should be opened in the cluster's virtual network for both inbound and outbound for Windows Node and container performance related metrics collection to work.
+>
+> If you have a Kubernetes cluster with Windows nodes, then please review and configure the Network Security Group and Network Policies to make sure the Kubelet secure port (:10250) is opened for both inbound and outbound in cluster's virtual network.
+
+
 - You have a Log Analytics workspace.
 
    Azure Monitor for containers supports a Log Analytics workspace in the regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).

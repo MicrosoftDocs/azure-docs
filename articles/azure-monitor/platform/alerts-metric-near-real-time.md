@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/10/2021
 ms.subservice: alerts
 ---
 
@@ -30,7 +30,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.AppConfiguration/configurationStores |Yes | No | [App Configuration](./metrics-supported.md#microsoftappconfigurationconfigurationstores) |
 |Microsoft.AppPlatform/Spring | Yes | No | [Azure Spring Cloud](./metrics-supported.md#microsoftappplatformspring) |
 |Microsoft.Automation/automationAccounts | Yes| No | [Automation Accounts](./metrics-supported.md#microsoftautomationautomationaccounts) |
-|Microsoft.AVS/privateClouds | No | No | |
+|Microsoft.AVS/privateClouds | No | No | [Azure VMware Solution](./metrics-supported.md#microsoftavsprivateclouds) |
 |Microsoft.Batch/batchAccounts | Yes | No | [Batch Accounts](./metrics-supported.md#microsoftbatchbatchaccounts) |
 |Microsoft.Cache/Redis | Yes | Yes | [Azure Cache for Redis](./metrics-supported.md#microsoftcacheredis) |
 |Microsoft.ClassicCompute/domainNames/slots/roles | No | No | [Classic Cloud Services](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
@@ -49,7 +49,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.DataBoxEdge/dataBoxEdgeDevices | Yes | Yes | [Data Box](./metrics-supported.md#microsoftdataboxedgedataboxedgedevices) |
 |Microsoft.DataFactory/datafactories| Yes| No | [Data Factories V1](./metrics-supported.md#microsoftdatafactorydatafactories) |
 |Microsoft.DataFactory/factories |Yes | No | [Data Factories V2](./metrics-supported.md#microsoftdatafactoryfactories) |
-|Microsoft.DataShare/accounts | Yes | No | |
+|Microsoft.DataShare/accounts | Yes | No | [Data Shares](./metrics-supported.md#microsoftdatashareaccounts) |
 |Microsoft.DBforMariaDB/servers | No | No | [DB for MariaDB](./metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servers | No | No |[DB for MySQL](./metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers | No | No | [DB for PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
@@ -57,7 +57,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.DBforPostgreSQL/flexibleServers | Yes | No | [DB for PostgreSQL (flexible servers)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.Devices/IotHubs | Yes | No |[IoT Hub](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft.Devices/provisioningServices| Yes | No | [Device Provisioning Services](./metrics-supported.md#microsoftdevicesprovisioningservices) |
-|Microsoft.DigitalTwins/digitalTwinsInstances | Yes | No | |
+|Microsoft.DigitalTwins/digitalTwinsInstances | Yes | No | [Digital Twins](./metrics-supported.md#microsoftdigitaltwinsdigitaltwinsinstances) |
 |Microsoft.DocumentDB/databaseAccounts | Yes | No | [Cosmos DB](./metrics-supported.md#microsoftdocumentdbdatabaseaccounts) |
 |Microsoft.EventGrid/domains | Yes | No | [Event Grid Domains](./metrics-supported.md#microsofteventgriddomains) |
 |Microsoft.EventGrid/systemTopics | Yes | No | [Event Grid System Topics](./metrics-supported.md#microsofteventgridsystemtopics) |
@@ -82,10 +82,10 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Network/expressRouteCircuits | Yes | No |[ExpressRoute Circuits](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/expressRoutePorts | Yes | No |[ExpressRoute Direct](./metrics-supported.md#microsoftnetworkexpressrouteports) |
 |Microsoft.Network/loadBalancers (only for Standard SKUs)| Yes| No | [Load Balancers](./metrics-supported.md#microsoftnetworkloadbalancers) |
-|Microsoft.Network/natGateways| No | No | |
-|Microsoft.Network/privateEndpoints| No | No | |
-|Microsoft.Network/privateLinkServices| No | No |
-|Microsoft.Network/publicipaddresses | No | No |[Public IP Addresses](./metrics-supported.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.Network/natGateways| No | No | [NAT Gateways](./metrics-supported.md#microsoftnetworknatgateways) |
+|Microsoft.Network/privateEndpoints| No | No | [Private Endpoints](./metrics-supported.md#microsoftnetworkprivateendpoints) |
+|Microsoft.Network/privateLinkServices| No | No | [Private Link Services](./metrics-supported.md#microsoftnetworkprivatelinkservices) |
+|Microsoft.Network/publicipaddresses | No | No | [Public IP Addresses](./metrics-supported.md#microsoftnetworkpublicipaddresses)|
 |Microsoft.Network/trafficManagerProfiles | Yes | No | [Traffic Manager Profiles](./metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft.OperationalInsights/workspaces| Yes | No | [Log Analytics workspaces](./metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 |Microsoft.Peering/peerings | Yes | No | [Peerings](./metrics-supported.md#microsoftpeeringpeerings) |
@@ -102,7 +102,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.Storage/storageAccounts/fileServices | Yes| No | [Storage Accounts - Files](./metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
 |Microsoft.Storage/storageAccounts/queueServices | Yes| No | [Storage Accounts - Queues](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) |
 |Microsoft.Storage/storageAccounts/tableServices | Yes| No | [Storage Accounts - Tables](./metrics-supported.md#microsoftstoragestorageaccountstableservices) |
-|Microsoft.StorageCache/caches | Yes | No | |
+|Microsoft.StorageCache/caches | Yes | No | [HPC Caches](./metrics-supported.md#microsoftstoragecachecaches) |
 |Microsoft.StorageSync/storageSyncServices | Yes | No | [Storage Sync Services](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | Yes | No | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
 |Microsoft.Synapse/workspaces | Yes | No | [Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspaces) |

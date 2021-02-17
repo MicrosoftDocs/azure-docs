@@ -143,7 +143,7 @@ Remove the resources for the following features from your workspace if you're us
 After you remove the feature resources, you can unlink your workspace. It's important to clean up any existing artifacts from these  features from your workspace and your Automation account:
 
 * For Update Management, remove **Update Deployments (Schedules)** from your Automation account.
-* For Start/Stop VMs during off-hours, remove any locks on feature components in your Automation account under **Settings** > **Locks**. For more information, see [Remove the feature](../automation-solution-vm-management.md#remove-the-feature).
+* For Start/Stop VMs during off-hours, remove any locks on feature components in your Automation account under **Settings** > **Locks**. For more information, see [Remove the feature](../automation-solution-vm-management-remove.md).
 
 ## <a name="mma-extension-failures"></a>Log Analytics for Windows extension failures
 

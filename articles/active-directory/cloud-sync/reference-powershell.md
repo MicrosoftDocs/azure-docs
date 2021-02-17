@@ -39,7 +39,7 @@ To install and use the AADCloudSyncTools module use the following steps:
 4. To verify the module was imported, enter or copy and paste the following: `Get-module AADCloudSyncTools`
 5. You should now see information about the module.
 6. Next, to install the AADCloudSyncTools module pre-requisites run: `Install-AADCloudSyncToolsPrerequisites`
-7. On the first run, the PoweShellGet module will be installed if not present. To load the new PowershellGet module close the Powershell Window and open a new PowerShell session with administrative privileges. 
+7. On the first run, the PoweShellGet module will be installed if not present. To load the new PowershellGet module close the PowerShell Window and open a new PowerShell session with administrative privileges. 
 8. Import the module again using step 3.
 9. Run `Install-AADCloudSyncToolsPrerequisites` to install the MSAL and AzureAD modules
 11. All pre-reqs should be successfully installed

@@ -103,10 +103,10 @@
     items:
     - name: Manage endpoints and routes
       items:
-      - name: APIs and CLI version
-        href: how-to-manage-routes-apis-cli.md
       - name: Portal version
         href: how-to-manage-routes-portal.md
+      - name: APIs and CLI version
+        href: how-to-manage-routes-apis-cli.md
     - name: Enable a managed identity for routing events
       href: how-to-enable-managed-identities.md
     - name: Integrate with Azure Maps
@@ -259,6 +259,8 @@
       href: /samples/azure-samples/dtdl-validator/dtdl-validator/
     - name: DTMI spec
       href: https://github.com/Azure/digital-twin-model-identifier
+  - name: 'Learn: Develop with Azure Digital Twins'
+    href: /learn/paths/develop-azure-digital-twins/
   - name: Channel 9 videos
     href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22
   - name: Customer stories

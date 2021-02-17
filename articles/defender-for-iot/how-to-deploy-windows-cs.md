@@ -17,7 +17,7 @@ ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
-# Deploy an Defender for IoT C#-based security agent for Windows
+# Deploy a Defender for IoT C#-based security agent for Windows
 
 This guide explains how to install the Defender for IoT C#-based security agent on Windows.
 
