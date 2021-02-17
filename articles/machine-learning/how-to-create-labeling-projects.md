@@ -159,10 +159,9 @@ For bounding boxes, important questions include:
 >[!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
 
-## Use ML-assisted data labeling
+## Use ML-assisted data labeling for image labeling
 
-The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate the labeling task. At the beginning of your labeling project, the images are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your images are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
-
+The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate image labeling tasks. At the beginning of your labeling project, the images are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your images are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
 
 Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling, which consists of two phases:
 
