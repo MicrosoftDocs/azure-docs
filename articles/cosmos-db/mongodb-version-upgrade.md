@@ -10,7 +10,7 @@ ms.author: chrande
 
 ---
 
-# Upgrade the MongoDB wire protocol version of your Azure Cosmos DB's API for MongoDB account
+# Upgrade the API version of your Azure Cosmos DB API for MongoDB account
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 This article describes how to upgrade the wire protocol version of your Azure Cosmos DB's API for MongoDB account. After you upgrade the wire protocol version, you can use the latest functionality in Azure Cosmos DB's API for MongoDB. The upgrade process doesn't interrupt the availability of your account and it doesn't consume RU/s or decrease the capacity of the database at any point. No existing data or indexes will be affected by this process.
@@ -18,7 +18,15 @@ This article describes how to upgrade the wire protocol version of your Azure Co
 >[!Note]
 > At this moment, only qualifying accounts using the server version 3.2 can be upgraded to version 3.6 or 4.0. If your account doesn't show the upgrade option, please [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## Upgrading from version 3.2 to (4.0 or 3.6)
+## Upgrading to 4.0 or 3.6
+
+### Benefits of upgrading to version 4.0
+
+The following are the new features included in version 4.0:
+- Support for multi-document transactions within unsharded collections.
+- New aggregation operators
+- Enhanced scan performance
+- Faster, more efficient storage
 
 ### Benefits of upgrading to version 3.6
 
@@ -32,36 +40,28 @@ The following are the new features included in version 3.6:
 - Improved performance for the following aggregate operations: $count, $skip, $limit and $group
 - Wildcard indexing is now supported
 
-### Benefits of upgrading to version 4.0
-
-The following are the new features included in version 4.0:
-- Enhanced scan performance
-- Faster, more efficient storage
-- Support for multi-document transactions in unsharded collections.
-- New aggregation operators
-
 ### Changes from version 3.2
 
-- **RequestRateIsLarge errors are optional** by default, the [Server Side Retry (SSR)](prevent-rate-limiting-errors.md)  feature is enabled, so that requests from the client application will not return 16500 error. Instead requests will resume until they complete or hit the 60 second timeout.
+- By default, the [Server Side Retry (SSR)](prevent-rate-limiting-errors.md) feature is enabled, so that requests from the client application will not return 16500 errors. Instead requests will resume until they complete or hit the 60 second timeout.
 - Per request timeout is set to 60 seconds.
 - MongoDB collections created on the new wire protocol version will only have the `_id` property indexed by default.
 
-### Action required
+### Action required when upgrading from 3.2
 
-For upgrades to version 4.0 or 3.6, the database account endpoint suffix will be updated to the following format:
+When upgrading from 3.2, the database account endpoint suffix will be updated to the following format:
 
 ```
 <your_database_account_name>.mongo.cosmos.azure.com
 ```
 
-If you are upgrading from version 3.2, you will need to replace the existing endpoint in your applications and drivers that connect with this database account. **Only connections that are using the new endpoint will have access to the features in the new server version**. The previous endpoint should have the suffix `.documents.azure.com`.
+If you are upgrading from version 3.2, you will need to replace the existing endpoint in your applications and drivers that connect with this database account. **Only connections that are using the new endpoint will have access to the features in the new API version**. The previous 3.2 endpoint should have the suffix `.documents.azure.com`.
 
 >[!Note]
 > This endpoint might have slight differences if your account was created in a Sovereign, Government or Restricted Azure Cloud.
 
-### How to upgrade
+## How to upgrade
 
-1. First, go to the Azure portal and navigate to your Azure Cosmos DB API for MongoDB account overview blade. Verify your current server version is what you expect.
+1. Go to the Azure portal and navigate to your Azure Cosmos DB API for MongoDB account overview blade. Verify your current server version is what you expect.
 
     :::image type="content" source="./media/mongodb-version-upgrade/1.png" alt-text="Azure portal with MongoDB account overview" border="false":::
 
@@ -73,7 +73,7 @@ If you are upgrading from version 3.2, you will need to replace the existing end
 
     :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Features blade with options." border="false":::
 
-4. Review the information displayed about this specific upgrade. Note that the upgrade will only be completed until your applications use the updated endpoint, as highlighted in this section. Click on `Enable` as soon as you are ready to start the process.
+4. Review the information displayed about the upgrade. Click on `Enable` as soon as you are ready to start the process.
 
     :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Expanded upgrade guidance." border="false":::
 
@@ -89,12 +89,15 @@ If you are upgrading from version 3.2, you will need to replace the existing end
 
     :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="New overview blade." border="false":::
 
->[!Note]
-> You may also downgrade your account from 4.0 to 3.6 via these same steps. If you upgraded from 3.2 to (4.0 or 3.6) and wish to downgrade back to 3.2, you can switch back to your previous connection string with the host `accountname.documents.azure.com` which remains active post-upgrade running version 3.2.
+
+## How to downgrade
+You may also downgrade your account from 4.0 to 3.6 via the same steps in the 'How to Upgrade' section. 
+
+If you upgraded from 3.2 to (4.0 or 3.6) and wish to downgrade back to 3.2, you can simply switch back to using your previous (3.2) connection string with the host `accountname.documents.azure.com` which remains active post-upgrade running version 3.2.
 
 
 ## Next steps
 
-- Learn about the supported and unsupported [features of MongoDB version 3.6](mongodb-feature-support-36.md).
 - Learn about the supported and unsupported [features of MongoDB version 4.0](mongodb-feature-support-40.md).
+- Learn about the supported and unsupported [features of MongoDB version 3.6](mongodb-feature-support-36.md).
 - For further information check [Mongo 3.6 version features](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)
