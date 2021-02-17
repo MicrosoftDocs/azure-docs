@@ -246,7 +246,6 @@ The following example creates a new managed instance and sets the maintenance wi
    az sql mi create -g mygroup -n myinstance -l mylocation -i -u myusername -p mypassword --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNETName}/subnets/{SubnetName} -m /subscriptions/{SubID}/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_{Region}_{MaintenanceConfigName}
    ```
 
-
 -----
 
 ## Set the maintenance window for an existing database, elastic pool, or managed instance
@@ -272,8 +271,6 @@ The following steps set the maintenance window on an existing database, elastic 
 1. In the **Settings** menu select **Maintenance**, then select the desired maintenance window.
 
    :::image type="content" source="media/maintenance-window-configure/maintenance.png" alt-text="SQL database Maintenance page":::
-
-
 
 
 
@@ -330,15 +327,22 @@ It's important to make sure that the `$maintenanceConfig` value must be a valid 
      -AsJob
    ```
 
-
-
 ## Cleanup resources
 
-Be sure to delete unneeded resources after you're finished with them to avoid unnecessary charges. 
-
+Be sure to delete unneeded resources after you're finished with them to avoid unnecessary charges.
 
    ```powershell-interactive
-    Remove-AzResourceGroup -Name $resourceGroupName 
+   # Delete database
+   Remove-AzSqlDatabase `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -DatabaseName $databaseName
+
+   # Delete elastic pool
+   Remove-AzSqlElasticPool `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -ElasticPoolName $poolName
    ```
 
 # [CLI](#tab/azure-cli)
@@ -384,6 +388,22 @@ The following example sets the maintenance window using [az sql mi update](/cli/
 
    ```azurecli
    az sql mi update -g mygroup  -n myinstance -m /subscriptions/{SubID}/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_{Region}_{MainteanceConfigName}
+   ```
+
+## Cleanup resources
+
+Be sure to delete unneeded resources after you're finished with them to avoid unnecessary charges. 
+
+   ```azurecli
+   az sql db delete \
+      --resource-group $resourceGroupName \
+      --server $serverName \
+      --name $databaseName
+
+   az sql elastic-pool delete \
+      --resource-group $resourceGroupName \
+      --server $serverName \
+      --name $poolName
    ```
 
 -----
