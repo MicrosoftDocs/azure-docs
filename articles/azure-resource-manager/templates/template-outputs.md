@@ -30,6 +30,28 @@ For JSON, add the `outputs` section to the template. The output value gets the f
 }
 ```
 
+If you need to output a property that has a hyphen in the name, use brackets around the name instead of dot notation. For example, use  `['property-name']` instead of `.property-name`.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
+        "user": {
+            "user-name": "Test Person"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "nameResult": {
+            "type": "string",
+            "value": "[variables('user')['user-name']]"
+        }
+    }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 For Bicep, use the `output` keyword.
@@ -38,6 +60,16 @@ In the following example, `publicIP` is the symbolic name of a public IP address
 
 ```bicep
 output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+If you need to output a property that has a hyphen in the name, use brackets around the name instead of dot notation. For example, use  `['property-name']` instead of `.property-name`.
+
+```bicep
+var user = {
+  'user-name': 'Test Person'
+}
+
+output stringOutput string = user['user-name']
 ```
 
 ---
@@ -63,6 +95,29 @@ In JSON, add the `condition` element to define whether the output is returned.
 # [Bicep](#tab/bicep)
 
 Conditional output isn't currently available for Bicep.
+
+However, you can use the `?` operator to return one of two values depending on a condition.
+
+```bicep
+param deployStorage bool = true
+param storageName string
+param location string = resourceGroup().location
+
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (deployStorage) {
+  name: storageName
+  location: location
+  kind: 'StorageV2'
+  sku:{
+    name:'Standard_LRS'
+    tier: 'Standard'
+  }
+  properties: {
+    accessTier: 'Hot'
+  }
+}
+
+output endpoint string = deployStorage ? sa.properties.primaryEndpoints.blob : ''
+```
 
 ---
 
@@ -112,15 +167,33 @@ The following example shows how to set the IP address on a load balancer by retr
 }
 ```
 
-You can't use the `reference` function in the outputs section of a [nested template](linked-templates.md#nested-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
+If the property name has a hyphen, use brackets around the name instead of dot notation.
 
-When getting an output property from a linked template, the property name can't include a dash.
+```json
+"publicIPAddress": {
+  "id": "[reference('linkedTemplate').outputs['resource-ID'].value]"
+}
+```
+
+You can't use the `reference` function in the outputs section of a [nested template](linked-templates.md#nested-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
 The [Public IP address template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) creates a public IP address and outputs the resource ID. The [Load balancer template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) links to the preceding template. It uses the resource ID in the output when creating the load balancer.
 
 ## Modules
 
-In Bicep files, you can deploy related templates by using modules. 
+In Bicep files, you can deploy related templates by using modules. To retrieve an output value from a module, use the following syntax:
+
+```bicep
+<module-name>.outputs.<property-name>
+```
+
+The following example shows how to set the IP address on a load balancer by retrieving a value from a module. The name of the module is `publicIP`.
+
+```bicep
+publicIPAddress: {
+  id: publicIP.outputs.resourceID
+}
+```
 
 ## Example template
 
