@@ -164,6 +164,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS50168 | ChromeBrowserSsoInterruptRequired - The client is capable of obtaining an SSO token through the Windows 10 Accounts extension, but the token was not found in the request or the supplied token was expired. |
 | AADSTS50169 | InvalidRequestBadRealm - The realm is not a configured realm of the current service namespace. |
 | AADSTS50170 | MissingExternalClaimsProviderMapping - The external controls mapping is missing. |
+| AADSTS50173 | FreshTokenNeeded - The provided grant has expired due to it being revoked, a fresh auth token is needed. Either an admin or a user revoked the tokens for this user, causing subsequent token refreshes to fail and require re-authentication. Have the user sign-in again. |
 | AADSTS50177 | ExternalChallengeNotSupportedForPassthroughUsers - External challenge is not supported for passthrough users. |
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers - Session control is not supported for passthrough users. |
 | AADSTS50180 | WindowsIntegratedAuthMissing - Integrated Windows authentication is needed. Enable the tenant for Seamless SSO. |
