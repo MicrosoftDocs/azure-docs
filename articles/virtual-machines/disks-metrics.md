@@ -114,3 +114,10 @@ This metric tells us that the average IOPS consumed percentage across all the di
 This metric tells us the data disks attached on LUN 3 and 2 are using around 85% of their provisioned IOPS. Here is a diagram of what the IO looks like from the VM and disks architecture:
 
 ![Diagram of Storage I O metrics example.](media/disks-metrics/utilization-metrics-example/metrics-diagram.jpg)
+
+## Next Steps
+
+Go check out some section on Azure metrics:
+
+- [Azure Monitor Metrics overview](../azure-monitor/platform/data-platform-metrics.md)
+- [Metrics aggregation explained](../azure-monitor/platform/metrics-aggregation-explained.md)
