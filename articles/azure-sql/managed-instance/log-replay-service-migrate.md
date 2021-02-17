@@ -45,7 +45,7 @@ LRS can be started in autocomplete, or continuous mode. When started in autocomp
 
 | Operation | Details |
 | :----------------------------- | :------------------------- |
-| **1. Copy database backups from SQL Server to Azure Blob storage**. | - Copy full, differential, and log backups from SQL Server to Azure Blob storage using [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) or [Azure File Explorer](https://azure.microsoft.com/features/storage-explorer/). <br />- In migrating several databases, a separate folder is required for each database. |
+| **1. Copy database backups from SQL Server to Azure Blob storage**. | - Copy full, differential, and log backups from SQL Server to Azure Blob storage using [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). <br />- In migrating several databases, a separate folder is required for each database. |
 | **2. Start the LRS service in the cloud**. | - Service can be started with a choice of cmdlets: <br /> PowerShell [start-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_start cmdlets](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start). <br /><br />- Once started, the service will take backups from the Azure Blob storage and start restoring them on SQL Managed Instance. <br /> - Once all initially uploaded backups are restored, the service will watch for any new files uploaded to the folder and will continuously apply logs based on the LSN chain, until the service is stopped. |
 | **2.1. Monitor the operation progress**. | - Progress of the restore operation can be monitored with a choice of or cmdlets: <br /> PowerShell [get-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_show cmdlets](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show). |
 | **2.2. Stop\abort the operation if needed**. | - In case that migration process needs to be aborted, the operation can be stopped with a choice of cmdlets: <br /> PowerShell [stop-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay) <br /> CLI [az_sql_midb_log_replay_stop](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop) cmdlets. <br /><br />- This will result in deletion of the being database restored on SQL Managed Instance. <br />- Once stopped, LRS cannot be continued for a database. Migration process needs to be restarted from scratch. |
@@ -53,13 +53,13 @@ LRS can be started in autocomplete, or continuous mode. When started in autocomp
 
 ## Requirements for getting started
 
-### SQL Server side:
+### SQL Server side
 - Full backup of databases (one or multiple files)
 - Differential backup (one or multiple files)
 - Log backup (not split for transaction log file)
 - **CHECKSUM must be enabled** as mandatory
 
-### Azure side:
+### Azure side
 -	PowerShell Az.SQL module version 2.16.0, or above ([install](https://www.powershellgallery.com/packages/Az.Sql/), or use Azure [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/))
 -	CLI version 2.19.0, or above ([install](https://docs.microsoft.com/cli/azure/install-azure-cli))
 -	Azure Blob Storage provisioned
@@ -83,15 +83,15 @@ The following are highly recommended as best practices:
 ## Copy backups from SQL Server to Azure Blob storage
 
 The following two approaches can be utilized to copy backups to the blob storage in migrating databases to Managed Instance using LRS:
--	Using SQL Server native [BACKUP TO URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url) functionality.
--	Copying the backups to Blob Container using [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10), or [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer). 
+- Using SQL Server native [BACKUP TO URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url) functionality.
+- Copying the backups to Blob Container using [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10), or [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer). 
 
 ## Create Azure Blob and SAS authentication token
 
 Azure Blob storage is used as an intermediary storage for backup files between SQL Server and SQL Managed Instance. Follow these steps to create Azure Blob storage container:
 
-1. [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal),
-2. [Crete a blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) inside the storage account,
+1. [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal)
+2. [Crete a blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) inside the storage account
 
 Once a blob container has been created, generate SAS authentication token with Read and List permissions only following these steps:
 
@@ -129,7 +129,7 @@ The migration is started by starting the LRS service. The service can be started
 
 ### Start LRS in autocomplete mode
 
-To start LRS service in autocomplete mode, use the following PowerShell, or CLI commands. Specify the last backup file name with $lastBackupName. Upon restoring the last backup file name specified, the service will automatically initiate a cutover.
+To start LRS service in autocomplete mode, use the following PowerShell, or CLI commands. Specify the last backup file name with -LastBackupName parameter. Upon restoring the last backup file name specified, the service will automatically initiate a cutover.
 
 Start LRS in autocomplete mode - PowerShell example:
 
@@ -137,7 +137,8 @@ Start LRS in autocomplete mode - PowerShell example:
 Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 	-InstanceName "ManagedInstance01" `
 	-Name "ManagedDatabaseName" `
-	-Collation "SQL_Latin1_General_CP1_CI_AS" -StorageContainerUri "https://test.blob.core.windows.net/testing" `
+	-Collation "SQL_Latin1_General_CP1_CI_AS" `
+	-StorageContainerUri "https://test.blob.core.windows.net/testing" `
 	-StorageContainerSasToken "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D" `
 	-AutoComplete -LastBackupName "last_backup.bak"
 ```
@@ -157,7 +158,7 @@ Start LRS in continuous mode - PowerShell example:
 ```powershell
 Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 	-InstanceName "ManagedInstance01" `
-	-Name "ManagedDatabaseName"
+	-Name "ManagedDatabaseName" `
 	-Collation "SQL_Latin1_General_CP1_CI_AS" -StorageContainerUri "https://test.blob.core.windows.net/testing" `
 	-StorageContainerSasToken "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
