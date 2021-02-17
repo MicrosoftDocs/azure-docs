@@ -55,9 +55,13 @@ This document describes how to add Azure Purview labels in your Azure SQL Databa
 5. Fill the parameters with the values you copied above:
 
    a. $TenantID: section 1, step 9
+   
    b. $ClientID: section 1, step 9
+   
    c. $SecretID: section 1, step 8
+   
    d. $purviewAccountName: section 2, step 2
+   
    e. $sqlDatabaseName: section 3, step 2
 
 6. Copy the output of the script for future use.
