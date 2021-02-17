@@ -14,7 +14,7 @@ ms.author: qixwang
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-This article helps you troubleshoot issues when using Azure Front Door Standard/Premium file compression.
+This article helps you troubleshoot Azure Front Door Standard/Premium file compression issues.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
