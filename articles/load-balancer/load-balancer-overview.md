@@ -41,7 +41,7 @@ Load balancer supports both inbound and outbound scenarios. Load balancer provid
 
 Key scenarios that you can accomplish using Standard Load Balancer include:
 
-- Load balance **[internal](./quickstart-load-balancer-standard-internal-portal.md)** and **[external](./tutorial-load-balancer-standard-manage-portal.md)** traffic to Azure virtual machines.
+- Load balance **[internal](./quickstart-load-balancer-standard-internal-portal.md)** and **[external](./quickstart-load-balancer-standard-public-portal.md)** traffic to Azure virtual machines.
 
 - Increase availability by distributing resources **[within](./tutorial-load-balancer-standard-public-zonal-portal.md)** and **[across](./tutorial-load-balancer-standard-public-zone-redundant-portal.md)** zones.
 
