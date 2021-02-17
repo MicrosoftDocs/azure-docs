@@ -53,7 +53,7 @@ Turn on diagnostic settings to start collecting logs on your Azure Digital Twins
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured target back on the **Diagnostic settings** page for your instance. 
 
-For more detailed information on diagnostic settings and their setup options, you can visit [*Create diagnostic settings to send platform logs and metrics to different destinations*](../azure-monitor/platform/diagnostic-settings.md).
+For more detailed information on diagnostic settings and their setup options, you can visit [*Create diagnostic settings to send platform logs and metrics to different destinations*](../azure-monitor/essentials/diagnostic-settings.md).
 
 ## Log categories
 
@@ -251,10 +251,10 @@ Here is how to query the logs for your instance.
     - The *Queries* tab contains the example queries that you can load into the editor.
     - The *Filter* tab lets you customize a filtered view of the data that the query returns.
 
-For more detailed information on log queries and how to write them, you can visit [*Overview of log queries in Azure Monitor*](../azure-monitor/log-query/log-query-overview.md).
+For more detailed information on log queries and how to write them, you can visit [*Overview of log queries in Azure Monitor*](../azure-monitor/logs/log-query-overview.md).
 
 ## Next steps
 
-* For more information about configuring diagnostics, see [*Collect and consume log data from your Azure resources*](../azure-monitor/platform/platform-logs-overview.md).
+* For more information about configuring diagnostics, see [*Collect and consume log data from your Azure resources*](../azure-monitor/essentials/platform-logs-overview.md).
 * For information about the Azure Digital Twins metrics, see [*Troubleshooting: View metrics with Azure Monitor*](troubleshoot-metrics.md).
 * To see how to enable alerts for your metrics, see [*Troubleshooting: Set up alerts*](troubleshoot-alerts.md).

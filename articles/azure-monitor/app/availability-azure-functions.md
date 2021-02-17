@@ -171,7 +171,7 @@ If you ran everything as is (without adding business logic), then you will see t
 
 ## Query in Logs (Analytics)
 
-You can use Logs(analytics) to view you availability results, dependencies, and more. To learn more about Logs, visit [Log query overview](../log-query/log-query-overview.md).
+You can use Logs(analytics) to view you availability results, dependencies, and more. To learn more about Logs, visit [Log query overview](../logs/log-query-overview.md).
 
 >[!div class="mx-imgBorder"]
 >![Availability results](media/availability-azure-functions/availabilityresults.png)
