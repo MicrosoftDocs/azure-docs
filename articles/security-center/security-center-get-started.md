@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
 
 ---
@@ -84,7 +84,7 @@ To enable automatic provisioning of the Log Analytics agent:
 
 1. From Security Center's menu, select **Pricing & settings**.
 1. Select the relevant subscription.
-1. In the **Data collection** page, set **Auto provisioning** to **On**.
+1. In the **Auto provisioning** page, for the **Log Analytics agent for Azure VMs** set the status to **On**.
 1. Select **Save**.
 
     :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Enabling auto-provisioning of the Log Analytics agent":::
