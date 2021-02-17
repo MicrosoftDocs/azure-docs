@@ -1,5 +1,10 @@
 {
   "redirections": [
+  {
+      "source_path": "articles/cosmos-db/create-mongodb-flask.md",
+      "redirect_url": "/azure/cosmos-db/mongodb-introduction",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/cognitive-services/Ink-Recognizer/concepts/send-ink-data.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/concepts/send-ink-data",
