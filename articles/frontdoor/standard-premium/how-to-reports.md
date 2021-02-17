@@ -41,7 +41,7 @@ Most of the reports are based on access logs and are offered free of charge to c
 
 Reports support any selected date range from the previous 90 days. With data points of every 5 mins, every hour, or every day based on the date range selected. Normally, you can view data with delay of within an hour and occasionally with delay of up to a few hours. 
 
-## Access Reports using the Azure Portal
+## Access Reports using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select your Azure Front Door Standard/Premium profile.
 
