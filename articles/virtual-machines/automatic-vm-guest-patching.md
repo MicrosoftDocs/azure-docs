@@ -33,7 +33,7 @@ The VM is assessed periodically every few days and multiple times within any 30-
 
 Patches are installed within 30 days of the monthly patch releases, following availability-first orchestration described below. Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM will be automatically assessed and applicable patches will be installed automatically during the next periodic assessment (usually within a few days) when the VM is powered on.
 
-Definition updates and other patches not classified as *Critical* or *Security* will not be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](tutorial-config-management.md#manage-windows-updates).
+Definition updates and other patches not classified as *Critical* or *Security* will not be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](.windows/tutorial-config-management.md#manage-windows-updates).
 
 ### Availability-first patching
 
@@ -121,7 +121,7 @@ VMs on Azure now support the following patch orchestration modes:
 
 ## Requirements for enabling automatic VM guest patching
 
-- The virtual machine must have the Azure VM Agent for [Windows](../extensions/agent-windows.md) or [Linux](../extensions/agent-linux.md) installed.
+- The virtual machine must have the Azure VM Agent for [Windows](./extensions/agent-windows.md) or [Linux](./extensions/agent-linux.md) installed.
 - For Windows VMs, the Windows Update service must be running on the virtual machine.
 - The virtual machine must be able to access the configured update endpoints. If your virtual machine is configured to use private repositories for Linux or Windows Server Update Services (WSUS) for Windows VMs, the relevant update endpoints must be accessible.
 - Use Compute API version 2020-12-01 or higher. Compute API version 2020-06-01 can be used for Windows VMs with limited functionality.
@@ -338,4 +338,4 @@ az vm assess-patches --resource-group myResourceGroup --name myVM
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Learn more about creating and managing Windows virtual machines](tutorial-manage-vm.md)
+> [Learn more about creating and managing Windows virtual machines](.windows/tutorial-manage-vm.md)
