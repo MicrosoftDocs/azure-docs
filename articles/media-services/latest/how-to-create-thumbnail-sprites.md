@@ -31,7 +31,7 @@ Add the code snippets for your preferred development language.
 
 ## [.NET](#tab/dotnet/)
 
-[!INCLUDE [code snippet for thumbnail sprites using REST](./includes/task-create-thumb-sprites-rest.md)]
+[!INCLUDE [code snippet for thumbnail sprites using REST](./includes/task-create-thumb-sprites-dotnet.md)]
 
 See also thumbnail sprite creation in a [complete encoding sample](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESCustomPresetAndSprite/Program.cs#L261-L287) at Azure Samples.
 
