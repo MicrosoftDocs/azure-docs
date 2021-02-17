@@ -55,7 +55,7 @@ Azure Government services operate the same way as the corresponding services in 
 ||Azure Maps|atlas.microsoft.com|atlas.azure.us||
 ||Notification Hubs|\*.servicebus.windows.net|\*.servicebus.usgovcloudapi.net||
 |**Management and Governance**|Azure Monitor logs|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
-|||*workspaceId*.ods.opinsights.azure.com|*workspaceId*.ods.opinsights.azure.us|[Data collector API](../azure-monitor/platform/data-collector-api.md)|
+|||*workspaceId*.ods.opinsights.azure.com|*workspaceId*.ods.opinsights.azure.us|[Data collector API](../azure-monitor/logs/data-collector-api.md)|
 |||\*.ods.opinsights.azure.com|\*.ods.opinsights.azure.us||
 |||\*.oms.opinsights.azure.com|\*.oms.opinsights.azure.us||
 |||portal.loganalytics.io|portal.loganalytics.us||
@@ -273,7 +273,7 @@ You need to open some **outgoing ports** in your server's firewall to allow the 
 |-------|---|----------|-----|
 |Telemetry|dc.applicationinsights.us|23.97.4.113|443|
 
-### [Azure Monitor](../azure-monitor/platform/data-platform-logs.md)
+### [Azure Monitor](../azure-monitor/logs/data-platform-logs.md)
 
 The following Azure Monitor **features are not currently available** in Azure Government:
 - Solutions that are in preview in Microsoft Azure, including:
@@ -293,13 +293,13 @@ The following Azure Monitor **features behave differently** in Azure Government:
     - System Center Operations Manager 2016
         1. Install [Update Rollup 2 for System Center Operations Manager 2016](https://support.microsoft.com/help/3209591).
         1. Import the management packs included as part of Update Rollup 2 into Operations Manager. For information about how to import a management pack from a disk, see [How to import an Operations Manager Management Pack](/previous-versions/system-center/system-center-2012-R2/hh212691(v=sc.12)).
-        1. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor](../azure-monitor/platform/om-agents.md).
+        1. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md).
     - System Center Operations Manager 2012 R2 UR3 (or later) / Operations Manager 2012 SP1 UR7 (or later)
         1. Download and save the [updated management packs](https://go.microsoft.com/fwlink/?LinkId=828749).
         1. Unzip the file that you downloaded.
         1. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see [How to import an Operations Manager Management Pack](/previous-versions/system-center/system-center-2012-R2/hh212691(v=sc.12)).
-        1. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor](../azure-monitor/platform/om-agents.md).
-- For more information about using computer groups from Configuration Manager, see [Connect Configuration Manager to Azure Monitor](../azure-monitor/platform/collect-sccm.md).
+        1. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md).
+- For more information about using computer groups from Configuration Manager, see [Connect Configuration Manager to Azure Monitor](../azure-monitor/logs/collect-sccm.md).
 
 **Frequently asked questions**
 - Can I migrate data from Azure Monitor logs in Azure to Azure Government?
