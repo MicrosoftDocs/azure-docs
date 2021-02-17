@@ -20,7 +20,7 @@ ms.custom: devx-track-js
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-This article shows you how to connect to the Azure Media Services v3 node.js SDK using the service principal sign in method.
+This article shows you how to connect to the Azure Media Services v3 node.js SDK using the service principal sign-in method.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ This article shows you how to connect to the Azure Media Services v3 node.js SDK
 ## Reference documentation for @Azure/arm-mediaservices
 - [Reference documentation for Azure Media Services modules for Node.js](https://docs.microsoft.com/javascript/api/overview/azure/media-services?view=azure-node-latest)
 
-## Additional developer documentation for Node.js on Azure
+## More developer documentation for Node.js on Azure
 - [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
 - [Media Services source code in the @azure/azure-sdk-for-js github repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 - [Azure Package Documentation for Node.js developers](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
@@ -72,7 +72,7 @@ The following packages should be specified:
 |`@azure/storage-blob`|Storage SDK. Used when uploading files into assets.|
 |`@azure/ms-rest-js`| Used to sign in.|
 |`@azure/storage-blob` | Used to upload and download files into Assets in Azure Media Services for encoding.|
-|`@azure/abort-controller`| Used along with the storage client to timeout long running download operations|
+|`@azure/abort-controller`| Used along with the storage client to time out long running download operations|
 
 
 You can run the following command to make sure you are using the latest package:
@@ -94,7 +94,7 @@ npm install @azure/ms-rest-nodeauth@"^3.0.0"
 
 1. Create a TypeScript .ts file using your favorite editor.
 1. Open the file and paste the following code.
-1. Create a .env file and fill out the details from the Azure portal. See [access APIs](./access-api-howto.md).
+1. Create an .env file and fill out the details from the Azure portal. See [access APIs](./access-api-howto.md).
 
 ### Sample .env file
 ```
@@ -146,7 +146,7 @@ export async function main() {
   const accountName = process.env.AZURE_MEDIA_ACCOUNT_NAME as string;
 
   let clientOptions: AzureMediaServicesOptions = {
-    longRunningOperationRetryTimeout: 5, // set the timeout for retries to 5 seconds
+    longRunningOperationRetryTimeout: 5, // set the time out for retries to 5 seconds
     noRetryPolicy: false // use the default retry policy.
   }
 
@@ -195,7 +195,7 @@ Change directory into the HelloWorld-ListAssets folder
 cd HelloWorld-ListAssets
 ```
 
-Launch Visual Studio Code from the AMSv3Samples Folder. This is required to launch from the folder where the .vscode folder and tsconfig.json files are located
+Launch Visual Studio Code from the AMSv3Samples Folder. This is required to launch from the folder where the vscode folder and tsconfig.json files are located
 ```dotnetcli
 cd ..
 code .
@@ -204,9 +204,9 @@ code .
 Open the folder for HellowWrold-ListAssets, and open the index.ts file in the VS Code editor.
 While in the index.ts file, press F5 to launch the debugger. You should see a list of assets displayed if you have assets already in the account. If the account is empty, you will see an empty list.  Upload a few assets in the portal to see the results.
 
-## Additional Samples
+## More Samples
 
-The following additional samples are available in the [repository](https://github.com/Azure-Samples/media-services-v3-node-tutorials)
+The following samples are available in the [repository](https://github.com/Azure-Samples/media-services-v3-node-tutorials)
 
 |Project name|Use Case|
 |---|---|
