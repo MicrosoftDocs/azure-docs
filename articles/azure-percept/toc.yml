@@ -4,6 +4,11 @@
 - name: Overview
   items:
 
+- name: Quickstarts
+  items:
+    - name: Unbox and assemble your Azure Percept DK
+      href: quickstart-percept-dk-unboxing.md         
+
 - name: Tutorials
   items:
     - name: Start prototyping with your Azure Percept DK
