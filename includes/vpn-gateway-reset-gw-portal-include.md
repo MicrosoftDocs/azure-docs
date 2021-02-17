@@ -16,4 +16,4 @@
    :::image type="content" source="./media/vpn-gateway-reset-gw-portal/menu.png" alt-text="Menu - reset gateway":::
 1. On the **Reset** page, click **Reset**. Once the command is issued, the current active instance of the Azure VPN gateway is rebooted immediately. Resetting the gateway will cause a gap in VPN connectivity, and may limit future root cause analysis of the issue.
 
-   :::image type="content" source="./media/vpn-gateway-reset-gw-portal/reset.png" alt-text="Reset gateway":::
+   :::image type="content" source="./media/vpn-gateway-reset-gw-portal/reset.png" alt-text="Reset gateway" lightbox="./media/vpn-gateway-reset-gw-portal/reset.png":::
