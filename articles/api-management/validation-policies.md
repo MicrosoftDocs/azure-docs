@@ -1,5 +1,5 @@
 ---
-title: Azure API Management access validation policies | Microsoft Docs
+title: Azure API Management validation policies | Microsoft Docs
 description: Learn about policies you can use in Azure API Management to validate requests and responses.
 services: api-management
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.date: 02/16/2021
 ms.author: apimpm
 ---
 
-# API Management validation policies
+# API Management policies to validate requests and responses
 
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
@@ -26,9 +26,11 @@ This topic provides a reference for the following API Management policies. For i
 
 ### Policy statement
 
+[Q: Does unspecified-content-type-action only apply ]
+
 ```xml
-<validate-content unspecified-content-type-action=["ignore | prevent | detect"] max-size="size in bytes" size-exceeded-action=["ignore | prevent | detect"] errors-variable-name="name">
-    <content type="[string, for example: application/json, application/hal+json" validate-as="json" action=["ignore | prevent | detect"] />
+<validate-content unspecified-content-type-action="ignore | prevent | detect" max-size="size in bytes" size-exceeded-action="ignore | prevent | detect" errors-variable-name="variable name">
+    <content type="[string, for example: application/json, application/hal+json" validate-as="json" action="ignore | prevent | detect" />
 </validate-content>
 ```
 
@@ -76,7 +78,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 ### Policy statement
 
 ```xml
-<validate-parameters specified-parameter-action"ignore | prevent | detect" unspecified-parameter-action="ignore | prevent | detect" errors-variable-name="name"> 
+<validate-parameters specified-parameter-action="ignore | prevent | detect" unspecified-parameter-action="ignore | prevent | detect" errors-variable-name="variable name"> 
     <headers specified-parameter-action="ignore | prevent | detect" unspecified-parameter-action="ignore | prevent | detect">
         <parameter name="parameter name" action="ignore | prevent | detect" />
     </headers>
@@ -91,7 +93,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ### Example
 
-In this example, all query and path parameters are validated in the prevention mode and headers in the detection mode. Validation is overriden for several headers:
+In this example, all query and path parameters are validated in the prevention mode and headers in the detection mode. Validation is overriden for several header parameters:
 
 ```xml
 <validate-parameters specified-parameter-action="prevent" unspecified-parameter-action="prevent" errors-variable-name="requestParametersValidation"> 
@@ -106,20 +108,22 @@ In this example, all query and path parameters are validated in the prevention m
 
 | Name         | Description                                                                                                                                   | Required |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-parameters | Root element.                                                                                                                               | Yes      |
-| headers | Add this element to validate header parameters in requests .  | No |
-| query | Add this element to validate query parameters in requests.  | No |
-| path | Add this element to validate path parameters in requests  | No |
-| parameter | Add one or more of these elements to override the configuration of the higher level parameter type.| No |
+| validate-parameters | Root element. Specifies default validation actions for all parameters in requests.                                                                                                                              | Yes      |
+| headers | Add one or more of these element to override default validation actions for header parameters in requests.   | No |
+| query | Add this element to override default validation actions for query parameters in requests.  | No |
+| path | Add this element to override default validation actions for URL path parameters in requests.  | No |
+| parameter | Add one or more elements for named parameters to override highler level configuration of the validation actions. | No |
 
 
 ## Attributes
 
 | Name                       | Description                                                                                                                                                            | Required | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| specified-parameter-action | [Action](#actions) to perform for request parameters specified in the API schema. |  Yes     | N/A   |
-| unspecified-parameter-action | [Action](#actions) to perform for request parameters that are not specified in the API schema.. |  Yes     | N/A   |
+| specified-parameter-action | [Action](#actions) to perform for request parameters specified in the API schema. <br/><br/> When provided in a parameter type element, the value overrides the value of specified-parameter-action in the validate-parameters element.  |  Yes     | N/A   |
+| unspecified-parameter-action | [Action](#actions) to perform for request parameters that are not specified in the API schema. <br/><br/>When provided in a parameter type element, the value overrides the value of unspecified-parameter-action in the validate-parameters element. |  Yes     | N/A   |
 | errors-variable-name | Name of the variable in context.Variables to log validation errors to.  |   Yes    | N/A   |
+| name | Name of the parameter to override validation action for. | Yes | N/A |
+| action | [Action](#actions) to perform for parameter with the matching name. Overrides higher level configuration.| Yes | N/A | 
 
 
 ### Usage
@@ -135,26 +139,96 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ### Policy statement
 
+```xml
+<validate-headers specified-header-action="ignore | prevent | detect" unspecified-header-action="ignore | prevent | detect" errors-variable-name="variable name">
+    <header name="header name" action="ignore | prevent | detect" />
+</validate-headers>
+
+```
+
 ### Example
 
+```xml
+<validate-headers specified-header-action="prevent" unspecified-header-action="prevent" errors-variable-name="responseHeadersValidation" />
+```
 ### Elements
+
+| Name         | Description                                                                                                                                   | Required |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| validate-headers | Root element. Specifies default validation actions for all headers in responses.                                                                                                                              | Yes      |
+| header | Add one or more elements for named headers to override the default validation actions for headers in responses. | No |
 
 ### Attributes
 
+| Name                       | Description                                                                                                                                                            | Required | Default |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| specified-header-action | [Action](#actions) to perform for response headers specified in the API schema.  |  Yes     | N/A   |
+| unspecified-header-action | [Action](#actions) to perform for response headers that are not specified in the API schema.  |  Yes     | N/A   |
+| errors-variable-name | Name of the variable in context.Variables to log validation errors to.  |   Yes    | N/A   |
+| name | Name of the header to override validation action for. | Yes | N/A |
+| action | [Action](#actions) to perform for header with the matching name. Overrides value of specified-header-action in validate-headers element.| Yes | N/A | 
+
 ### Usage
+
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
+
+-   **Policy sections:** outbound
+
+-   **Policy scopes:** all scopes
 
 ## Validate status code
 
 ### Policy statement
 
+```xml
+<validate-status-code unspecified-status-code-action="ignore | prevent | detect" errors-variable-name="variable name">
+    <status-code code="HTTP status code number" action="ignore | prevent | detect" />
+</validate-status-code>
+```
+
 ### Example
+
+```xml
+<validate-status-code unspecified-status-code-action="prevent" errors-variable-name="responseStatusCodeValidation" />
+```
 
 ### Elements
 
+| Name         | Description                                                                                                                                   | Required |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| validate-status-code | Root element.                                                                                                | Yes      |
+| status-code | Add one or more elements for HTTP status codes to override the default validation action for status codes in responses. | No |
+
 ### Attributes
+
+| Name                       | Description                                                                                                                                                            | Required | Default |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| unspecified-status-code-action | [Action](#actions) to perform for HTTP status codes in responses that are not specified in the API schema.  |  Yes     | N/A   |
+| errors-variable-name | Name of the variable in context.Variables to log validation errors to.  |   Yes    | N/A   |
+| code | Number of the HTTP status code to override validation action for. | Yes | N/A |
+| action | [Action](#actions) to perform for the matching status code with the matching number.| Yes | N/A | 
+
+
 
 ### Usage
 
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
+
+-   **Policy sections:** outbound
+
+-   **Policy scopes:** all scopes
+
+## Actions
+
+In a validation policy, you specify an *action* that API Management takes when evaluating a request or response against the policy's validation rules, which are based on the [OpenAPI specification](https://swagger.io/specification). You specify one of the following three actions:
+
+| Action         | Description          |                                                                                                                         
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| ignore | Skip validation. |
+| prevent | Interrupt the request or response processing with an error. |
+| detect | Log an error, without interrupting request or response processing.|
+
+### Action hierarchy
 
 ## Next steps
 
