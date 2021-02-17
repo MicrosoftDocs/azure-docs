@@ -125,7 +125,7 @@ Example:
 
 2. On the left-hand side of the page, select "Device Updates" under "Automatic Device Management".
 
-   ![Import Updates](media/import-update/import-updates-2.png)
+   ![Import Updates](media/import-update/import-updates-3.png)
 
 3. You will see several tabs across the top of the screen. Select the Updates tab.
 
