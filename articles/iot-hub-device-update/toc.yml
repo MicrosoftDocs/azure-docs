@@ -21,6 +21,8 @@
     href: device-update-resources.md
   - name: Device update user roles and access
     href: device-update-control-access.md
+  - name: Device update apt manifest
+    href: device-update-apt-manifest.md
   - name: Device update compliance
     href: device-update-compliance.md
   - name: Device update groups
@@ -29,17 +31,17 @@
     href: device-update-plug-and-play.md
   - name: Device update networking requirements
     href: device-update-networking.md
-   - name: Understand Device Update for Azure IoT Hub Agent
-    href: device-update-agent-overview.md
-   - name: Understand Device Update for Azure IoT Hub Configuration File
-    href: device-update-configuration-file.md
+  - name: Understand Device Update for Azure IoT Hub Agent	
+	  href: device-update-agent-overview.md
+	- name: Understand Device Update for Azure IoT Hub Configuration File
+	  href: device-update-configuration-file.md
 
 - name: How-to guides
   items:
   - name: Create a device update account
     href: create-device-update-account.md
-  - name: Provisioning Device Update for Azure IoT Hub Agent
-    href: device-update-agent-provisioning.md
+  - name: Provisioning Device Update for Azure IoT Hub Agent	
+  	href: device-update-agent-provisioning.md
   - name: Import an update
     href: import-update.md
   - name: Create a device update group
