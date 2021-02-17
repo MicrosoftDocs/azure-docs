@@ -10,7 +10,7 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp-java-python-swift
+zone_pivot_groups: acs-js-csharp-java-python-swift-android
 ---
 # Quickstart: Add Chat to your App
 
