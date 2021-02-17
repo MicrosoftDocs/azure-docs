@@ -347,7 +347,7 @@ Monitor attacks against your App Service apps by using a real-time Web Applicati
 
 - [How to use managed identities for App Service and Azure Functions](overview-managed-identity.md?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
 
-- [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -612,9 +612,9 @@ Microsoft manages the underlying platform and treats all customer data as sensit
 
 ### 4.6: Use Role-based access control to control access to resources
 
-**Guidance**: Use role-based access control (Azure RBAC) in Azure Active Directory (Azure AD) to control access to the App Service control plane at the Azure portal.
+**Guidance**: Use Azure role-based access control (Azure RBAC) in Azure Active Directory (Azure AD) to control access to the App Service control plane at the Azure portal.
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Currently not available
 
