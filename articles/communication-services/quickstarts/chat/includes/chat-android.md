@@ -18,7 +18,7 @@ Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Android Studio](https://developer.android.com/studio), we will be using Android Studio to create an Android application for the quickstart to install dependencies.
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
-- Create **two** ACS Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. In this quickstart we will create a thread with an initial participant and then add a second participant to the thread.
+- Create **two** Communication Services Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. In this quickstart we will create a thread with an initial participant and then add a second participant to the thread.
 
 ## Setting up
 
@@ -122,8 +122,8 @@ ChatClient client = new ChatClient.Builder()
         .build());
 ```
 
-Replace `<resource>` with your ACS Resource.
-Replace `<user_access_token>` with a valid ACS access token.
+Replace `<resource>` with your Communication Services resource.
+Replace `<user_access_token>` with a valid Communication Services access token.
 
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for JavaScript.
@@ -266,8 +266,8 @@ threadClient.addChatParticipants(threadId, participants, new Callback<Void>() {
 });
 ```
 
-Replace `<user_id>` with the ACS user ID of the user to be added.
-Replace `<thread_id>` with the thread id that user is adding to.
+Replace `<user_id>` with the Communication Services user ID of the user to be added.
+Replace `<thread_id>` with the thread ID that user is adding to.
 
 When adding a participant to a thread, the response returned the completion may contain errors. These errors represent failure to add particular participants.
 
