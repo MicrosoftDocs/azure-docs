@@ -198,7 +198,7 @@ For more details, check [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update) c
 
 Gen4 hardware is [being phased out](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) and is no longer available for new deployments. All new databases must be deployed on Gen5 hardware.
 
-Gen5 is available in most regions worldwide.
+Gen5 is available in all public regions worldwide.
 
 #### Fsv2-series
 
