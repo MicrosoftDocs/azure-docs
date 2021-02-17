@@ -31,7 +31,7 @@ The high-level steps you take to deploy an application and its services by using
 
 For more information, view [Package an application](service-fabric-package-apps.md#create-an-sfpkg).
 
-Then, you create a Resource Manager template, update the parameters file with application details, and deploy the template on the Service Fabric cluster. [Explore samples](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
+Then, you create a Resource Manager template, update the parameters file with application details, and deploy the template on the Service Fabric cluster. [Explore samples](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy/ARM-Managed-Cluster).
 
 ### Create a storage account
 
@@ -88,7 +88,7 @@ The sample application contains [Azure Resource Manager templates](https://githu
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | The name of the cluster you're deploying to | sf-cluster123                                                |                                                              |
 | application            | The name of the application                 | Voting                                                       |
-| version    | The resource ID, application type, and version of the app.       | /providers/Microsoft.ServiceFabric/managedClusters/sf-cluster-123/applicationTypes/VotingType/versions/1.0                                                | Must match ApplicationManifest.xml                 |              |
+| version    | The resource ID, application type, and version of the app.       | /providers/Microsoft.ServiceFabric/managedClusters/sf-cluster-123/applicationTypes/VotingType/versions/1.0.0                                               | Must match ApplicationManifest.xml                 |              |
 | serviceName            | The name of the service         | VotingWeb                                             | Must be in the format ServiceType            |
 | serviceTypeName        | The type name of the service                | VotingWebType                                                    | Must match ServiceManifest.xml                 |
 | appPackageUrl          | The blob storage URL of the application     | https:\//servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | The URL of the application package in blob storage (the procedure to set the URL is described later in the article) |
