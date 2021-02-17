@@ -9,7 +9,7 @@ ms.topic: sample
 author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ---
 
 # Classify your Azure SQL data using Azure Purview labels
@@ -66,7 +66,7 @@ This document describes how to add Azure Purview labels in your Azure SQL Databa
 
 6. Copy the output of the script for future use.
 
-### For Azure SQL database
+### For Azure SQL Database
 
 ```powershell
 # Replace the values below with the relevant values for your environment
@@ -85,7 +85,7 @@ $cmdletParameters = @{
   Headers = @{
     "Content-Type" = 'application/x-www-form-urlencoded'
   }
-  Body    = "client_id=$ClientID&client_secret=$SecretID&resource=https://projectbabylon.azure.net&grant_type=client_credentials"
+  Body    = "client_id=$ClientID&client_secret=$SecretID&resource=https://purview.azure.net&grant_type=client_credentials"
 }
 
 $invokeResult = Invoke-RestMethod @cmdletParameters;
@@ -173,7 +173,7 @@ $cmdletParameters = @{
   Headers = @{
     "Content-Type" = 'application/x-www-form-urlencoded'
   }
-  Body    = "client_id=$ClientID&client_secret=$SecretID&resource=https://projectbabylon.azure.net&grant_type=client_credentials"
+  Body    = "client_id=$ClientID&client_secret=$SecretID&resource=https://purview.azure.net&grant_type=client_credentials"
 }
 
 $invokeResult = Invoke-RestMethod @cmdletParameters;
