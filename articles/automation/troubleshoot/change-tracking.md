@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation Change Tracking and Inventory issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Automation Change Tracking and Inventory feature.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 02/16/2021
+ms.date: 02/15/2021
 ms.topic: troubleshooting
 ---
 
