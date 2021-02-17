@@ -115,7 +115,6 @@ Use the following PowerShell cmdlet to log in to Azure:
 
 ```powershell
 Login-AzAccount
-Select-AzSubscription <subscription ID> 
 ```
 
 Select the appropriate subscription where your SQL Managed Instance resides using the following PowerShell cmdlet:
