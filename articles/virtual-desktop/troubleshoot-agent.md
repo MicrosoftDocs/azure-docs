@@ -215,7 +215,7 @@ To change the heartbeat threshold:
 1. Open your command prompt as an administrator.
 2. Enter the **qwinsta** command and run it.
 3. There should be two stack components displayed: **rdp-tcp** and **rdp-sxs**. 
-   - Depending on the version of the OS you're using, **rdp-sxs** may be followed by the build number as shown in the following screenshot. If it is, make sure to write down this number for later.
+   - Depending on the version of the OS you're using, **rdp-sxs** may be followed by the build number. If it is, make sure to write down this number for later.
 4. Open the Registry Editor.
 5. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
 6. Under **WinStations**, you may see several folders for different stack versions. Select the folder that matches the version number from step 3.
