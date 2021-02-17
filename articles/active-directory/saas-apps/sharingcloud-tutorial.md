@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory sigle sign-on (SSO) integration with SharingCloud | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SharingCloud | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Instant Suite.
 services: active-directory
 author: jeevansd
@@ -35,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SharingCloud supports **SP and IDP** initiated SSO
-* SharingCloud supports Automatic user provisioning
+* SharingCloud supports **Just In Time** user provisioning
 
 ## Adding SharingCloud from the gallery
 
@@ -91,11 +91,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	Upload metadata file with xml file provided by SharingCloud. Contact [SharingCloud Client support team](mailto:support@sharingcloud.com) to get the file.
+	Upload the metadata file with XML file provided by SharingCloud. Contact the [SharingCloud Client support team](mailto:support@sharingcloud.com) to get the file.
 
 	![image](common/upload-metadata.png)
 	
-	Select the metadata file provided and click on **Upload**
+	Select the metadata file provided and click on **Upload**.
 
 	![image](common/browse-upload-metadata.png)
 
@@ -143,7 +143,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+   ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -151,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create SharingCloud test user
 
-In this section, a user called Britta Simon is created in SharingCloud. SharingCloud supports automatic user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in SharingCloud, a new one is created after authentication.
+In this section, a user called Britta Simon is created in SharingCloud. SharingCloud supports Just In Time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in SharingCloud, a new one is created after authentication.
 
 ## Test SSO 
 
