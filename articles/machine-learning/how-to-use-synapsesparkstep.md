@@ -94,10 +94,10 @@ titanic_file_dataset = Dataset.File.from_files(path=[(datastore, file_name)])
 step1_input2 = titanic_file_dataset.as_named_input("file_input").as_hdfs()
 ```
 
-The above code assumes that the file **Titanic.csv** is in blob storage. The code shows how to read the file as a `TabularDataset` and as a `FileDataset`. This code is for demonstration purposes only, as it would be confusing to duplicate inputs or to interpret a single data source as both a table-containing resource and just as a file.
+The above code assumes that the file `Titanic.csv` is in blob storage. The code shows how to read the file as a `TabularDataset` and as a `FileDataset`. This code is for demonstration purposes only, as it would be confusing to duplicate inputs or to interpret a single data source as both a table-containing resource and just as a file.
 
 > [!Important]
-> In order to use a `FileDataset` as input, your **azureml-core** version must be at least `1.20.0`. How to specify this using the `Environment` class is discussed below.
+> In order to use a `FileDataset` as input, your `azureml-core` version must be at least `1.20.0`. How to specify this using the `Environment` class is discussed below.
 
 When a step completes, you may choose to store output data using code similar to:
 
@@ -106,9 +106,9 @@ from azureml.data import HDFSOutputDatasetConfig
 step1_output = HDFSOutputDatasetConfig(destination=(datastore,"test")).register_on_complete(name="registered_dataset")
 ```
 
-In this case, the data would be stored in the `datastore` in a file called **test** and would be available within the machine learning workspace as a `Dataset` with the name `registered_dataset`.
+In this case, the data would be stored in the `datastore` in a file called `test` and would be available within the machine learning workspace as a `Dataset` with the name `registered_dataset`.
 
-In addition to data, a pipeline step may have per-step Python dependencies. Individual `SynapseSparkStep` objects can specify their precise Synapse configuration, as well. This is shown in the following code, which specifies that the **azureml-core** package version must be at least `1.20.0`. (As mentioned previously, this requirement for **azureml-core** is needed to use a `FileDataset` as an input.)
+In addition to data, a pipeline step may have per-step Python dependencies. Individual `SynapseSparkStep` objects can specify their precise Synapse configuration, as well. This is shown in the following code, which specifies that the `azureml-core` package version must be at least `1.20.0`. (As mentioned previously, this requirement for `azureml-core` is needed to use a `FileDataset` as an input.)
 
 ```python
 from azureml.core.environment import Environment
@@ -136,11 +136,11 @@ step_1 = SynapseSparkStep(name = 'synapse-spark',
 
 The above code specifies a single step in the Azure machine learning pipeline. This step's `environment` specifies a specific `azureml-core` version and could add other conda or pip dependencies as necessary.
 
-The `SynapseSparkStep` will zip and upload from the local computer the subdirectory `./code`. That directory will be recreated on the compute server and the step will run the file **dataprep.py** from that directory. The `inputs` and `outputs` of that step are the `step1_input1`, `step1_input2`, and `step1_output` objects previously discussed. The easiest way to access those values within the **dataprep.py** script is to associate them with named `arguments`.
+The `SynapseSparkStep` will zip and upload from the local computer the subdirectory `./code`. That directory will be recreated on the compute server and the step will run the file `dataprep.py` from that directory. The `inputs` and `outputs` of that step are the `step1_input1`, `step1_input2`, and `step1_output` objects previously discussed. The easiest way to access those values within the `dataprep.py` script is to associate them with named `arguments`.
 
 The next set of arguments to the `SynapseSparkStep` constructor control Apache spark. The `compute_target` is the `'link1-spark01'` that we attached as a compute target previously. The other parameters specify the memory and cores we'd like to use.
 
-The sample notebook uses the following code for **dataprep.py**:
+The sample notebook uses the following code for `dataprep.py`:
 
 ```python
 import os
@@ -176,7 +176,7 @@ sdf.coalesce(1).write\
 .csv(args.output_dir)
 ```
 
-This "data preparation" script doesn't do any real data transformation, but illustrates how to retrieve data, convert it to a spark dataframe, and how to do some basic spark manipulation. You can find the output in Azure Machine Learning Studio by opening the child run, choosing the **Outputs + logs** tab, and opening the **logs/azureml/driver/stdout** file, as shown in the following figure.
+This "data preparation" script doesn't do any real data transformation, but illustrates how to retrieve data, convert it to a spark dataframe, and how to do some basic spark manipulation. You can find the output in Azure Machine Learning Studio by opening the child run, choosing the **Outputs + logs** tab, and opening the `logs/azureml/driver/stdout` file, as shown in the following figure.
 
 :::image type="content" source="media/how-to-use-synapsesparkstep/synapsesparkstep-stdout.png" alt-text="Screenshot of Studio showing stdout tab of child run":::
 
@@ -209,7 +209,7 @@ step_2 = PythonScriptStep(script_name="train.py",
                           allow_reuse=False)
 ```
 
-The code above creates the new compute resource if necessary. Then, the `step1_output` result is converted to input for the training step. The `as_download()` option means that the data will be moved onto the compute resource, resulting in faster access. If the data was so large that it wouldn't fit on the local compute hard drive, you would use the `as_mount()` option to stream the data via the FUSE filesystem. The `compute_target` of this second step is `'cpucluster'`, not the `'link1-spark01'` resource you used in the data preparation step. This step uses a simple program **train.py** instead of the **dataprep.py** you used in the previous step. You can see the details of **train.py** in the sample notebook.
+The code above creates the new compute resource if necessary. Then, the `step1_output` result is converted to input for the training step. The `as_download()` option means that the data will be moved onto the compute resource, resulting in faster access. If the data was so large that it wouldn't fit on the local compute hard drive, you would use the `as_mount()` option to stream the data via the FUSE filesystem. The `compute_target` of this second step is `'cpucluster'`, not the `'link1-spark01'` resource you used in the data preparation step. This step uses a simple program `train.py` instead of the `dataprep.py` you used in the previous step. You can see the details of `train.py` in the sample notebook.
 
 Once you've defined all of your steps, you can create and run your pipeline. 
 
