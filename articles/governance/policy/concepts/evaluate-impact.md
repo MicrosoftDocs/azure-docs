@@ -107,7 +107,7 @@ security and compliance organizations to ensure there are no gaps in coverage.
 Implementing and assigning your policy definition isn't the final step. Continuously monitor the
 [compliance](../how-to/get-compliance-data.md) level of resources to your new policy definition and
 setup appropriate
-[Azure Monitor alerts and notifications](../../../azure-monitor/platform/alerts-overview.md) for
+[Azure Monitor alerts and notifications](../../../azure-monitor/alerts/alerts-overview.md) for
 when non-compliant devices are identified. It's also recommended to evaluate the policy definition
 and related assignments on a scheduled basis to validate the policy definition is meeting business
 policy and compliance needs. Policies should be removed if no longer needed. Policies also need
