@@ -29,8 +29,6 @@ The power state represents the last known state of the VM.
 
 :::image type="content" source="./media/virtual-machines-common-states-lifecycle/vm-power-states.png" alt-text="Image shows diagram of the power states a VM can go through. ":::
 
-:::image type="content" source="./media/virtual-machines-common-states-lifecycle/vm-power-states.png" alt-text="Image shows diagram of the power states a VM can go through. ":::
-
 The following table provides a  description of each instance state and indicates whether it is billed for instance usage or not.
 
 | State | Description | Billing |  
@@ -63,7 +61,6 @@ OS Provisioning states only apply to virtual machines created with an OS image. 
 
 :::image type="content" source="./media/virtual-machines-common-states-lifecycle/os-provisioning-states.png" alt-text="Image shows the OS provisioning states a VM can go through.":::
 
-
 | State | Description | Power state | 
 |---|---|---|
 | OSProvisioningInProgress | The VM is running and the installation of the Guest OS is in progress | Running | 
@@ -72,8 +69,8 @@ OS Provisioning states only apply to virtual machines created with an OS image. 
 | Failed | Represents a failed operation. Refer to the error codes to get more information and possible solutions. | Running  | 
 
 
-
-
-
 ## Next steps
 To learn more about monitoring your VM, see [Monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md).
+
+
+
