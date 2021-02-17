@@ -13,7 +13,7 @@ ms.service: azure
 
 This article describes CLI commands for sensors and on-premises management consoles. The commands are accessible to the following users:
 
-- Administrators 
+- Administrator
 - CyberX 
 - Support
 
