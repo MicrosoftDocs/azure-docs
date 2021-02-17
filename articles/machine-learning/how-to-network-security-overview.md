@@ -10,7 +10,7 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions, contperfq1
+ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
 
 ---
 
@@ -133,6 +133,15 @@ The following network diagram shows a secured Azure Machine Learning workspace w
 ### Limitations
 - AKS clusters must belong to the same VNet as the workspace and its associated resources. 
 
+## Optional: Enable public access
+
+You can secure the workspace behind a VNet using a private endpoint and still allow access over the public internet. The initial configuration is the same as [securing the workspace and associated resources](#secure-the-workspace-and-associated-resources). 
+
+After securing the workspace with a private link, you then [Enable public access](how-to-configure-private-link.md#enable-public-access). After this, you can access the workspace from both the public internet and the VNet.
+
+### Limitations
+
+- If you use Azure Machine Learning studio over the public internet, some features such as the designer may fail to access your data. This problem happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account.
 ## Optional: enable studio functionality
 
 [Secure the workspace](#secure-the-workspace-and-associated-resources) > [Secure the training environment](#secure-the-training-environment) > [Secure the inferencing environment](#secure-the-inferencing-environment) > **Enable studio functionality** > [Configure firewall settings](#configure-firewall-settings)
@@ -148,7 +157,8 @@ If your storage is in a VNet, you first must perform additional configuration st
 To enable full studio functionality while inside of a VNet, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). The studio supports storage accounts using either service endpoints or private endpoints.
 
 ### Limitations
-- [ML assisted data labeling](how-to-create-labeling-projects.md#use-ml-assisted-labeling) does not support default storage accounts secured behind a virtual network. You must use a non-default storage account for ML assisted data labeling. Note, the non-default storage account can be secured behind the virtual network. 
+
+[ML-assisted data labeling](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) does not support default storage accounts secured behind a virtual network. You must use a non-default storage account for ML assisted data labeling. Note, the non-default storage account can be secured behind the virtual network. 
 
 ## Configure firewall settings
 

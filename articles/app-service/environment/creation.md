@@ -15,10 +15,9 @@ ms.custom: seodec18
 > This article is about the App Service Environment v3 (preview)
 > 
 
-The [App Service Environment (ASE)][Intro] is a single tenant deployment of the App Service that injects into your Azure Virtual Network (VNet).  ASEv3 only supports exposing apps on a private address in your Vnet. When an ASEv3 is created during preview, three resources are added to your subscription.
+The [App Service Environment (ASE)][Intro] is a single tenant deployment of the App Service that injects into your Azure Virtual Network (VNet).  ASEv3 only supports exposing apps on a private address in your Vnet. When an ASEv3 is created during preview, these resources are added to your subscription.
 
 - App Service Environment
-- Azure DNS private zone
 - Private endpoint
 
 A deployment of an ASE will require use of two subnets.  One subnet will hold the private endpoint.  This subnet can be used for other things such as VMs.  The other subnet is used for outbound calls made from the ASE.  This subnet can't be used for anything else other than the ASE. 
@@ -82,4 +81,4 @@ The ASE is normally deployed on VMs that are provisioned on a multi-tenant hyper
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

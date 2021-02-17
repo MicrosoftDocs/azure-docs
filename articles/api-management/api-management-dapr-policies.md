@@ -106,7 +106,7 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 ### Policy statement
 
 ```xml
-<publish-to-dapr pubsub-name="pubsub-name" topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
+<publish-to-dapr pubsub-name="pubsub-name" topic="topic-name" ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template="Liquid" content-type="application/json">
     <!-- message content -->
 </publish-to-dapr>
 ```
@@ -126,7 +126,7 @@ The "backend" section is empty and the request is not forwarded to the backend.
      <inbound>
         <base />
         <publish-to-dapr
-	       pubsub-name="orders"
+           pubsub-name="orders"
                topic="new"
                response-variable-name="dapr-response">
             @(context.Request.Body.As<string>())
@@ -139,7 +139,7 @@ The "backend" section is empty and the request is not forwarded to the backend.
     </outbound>
     <on-error>
         <base />
-		<return-response response-variable-name="pubsub-response" />
+        <return-response response-variable-name="pubsub-response" />
     </on-error>
 </policies>
 ```
@@ -178,9 +178,9 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 ### Policy statement
 
 ```xml
-<invoke-dapr-binding name=”bind-name" operation="op-name" ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid content-type="application/json">
+<invoke-dapr-binding name="bind-name" operation="op-name" ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template="Liquid" content-type="application/json">
     <metadata>
-        <item key=”item-name”><!-- item-value --></item>
+        <item key="item-name"><!-- item-value --></item>
     </metadata>
     <data>
         <!-- message content -->
@@ -222,7 +222,7 @@ The "backend" section is empty and the request is not forwarded to the backend.
     </outbound>
     <on-error>
         <base />
-		<return-response response-variable-name="bind-response" />
+        <return-response response-variable-name="bind-response" />
     </on-error>
 </policies>
 ```

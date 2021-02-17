@@ -25,7 +25,7 @@ After [setting up your environment](how-to-windows-voice-assistants-get-started.
 
 #### Ensure that the microphone is available and accessible, then monitor its state
 
-MVA needs a microphone to be present and accessible to be able to detect a voice activation. Use the [AppCapability](/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability?view=winrt-18362), [DeviceWatcher](/uwp/api/windows.devices.enumeration.devicewatcher?view=winrt-18362), and [MediaCapture](/uwp/api/windows.media.capture.mediacapture?view=winrt-18362) classes to check for microphone privacy access, device presence, and device status (like volume and mute) respectively.
+MVA needs a microphone to be present and accessible to be able to detect a voice activation. Use the [AppCapability](/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability), [DeviceWatcher](/uwp/api/windows.devices.enumeration.devicewatcher), and [MediaCapture](/uwp/api/windows.media.capture.mediacapture) classes to check for microphone privacy access, device presence, and device status (like volume and mute) respectively.
 
 ### Register the application with the background service
 
@@ -33,7 +33,7 @@ In order for MVA to launch the application in the background, the application ne
 
 ### Unlock the Limited Access Feature
 
-Use your Microsoft-provided Limited Access Feature key to unlock the voice assistant feature. Use the [LimitedAccessFeature](/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-18362) class from the Windows SDK to do this.
+Use your Microsoft-provided Limited Access Feature key to unlock the voice assistant feature. Use the [LimitedAccessFeature](/uwp/api/windows.applicationmodel.limitedaccessfeatures) class from the Windows SDK to do this.
 
 ### Register the keyword for the application
 
@@ -81,7 +81,7 @@ Once a voice agent application is activated by voice, the next step is to verify
 
 ### Retrieve activation audio
 
-Create an [AudioGraph](/uwp/api/windows.media.audio.audiograph) and pass it to the `CreateAudioDeviceInputNodeAsync` of the `ConversationalAgentSession`. This will load the graph's audio buffer with the audio *starting approximately 3 seconds before the keyword was detected*. This additional leading audio is included to accommodate a wide range of keyword lengths and speaker speeds. Then, handle the [QuantumStarted](/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) event from the audio graph to retrieve the audio data.
+Create an [AudioGraph](/uwp/api/windows.media.audio.audiograph) and pass it to the `CreateAudioDeviceInputNodeAsync` of the `ConversationalAgentSession`. This will load the graph's audio buffer with the audio *starting approximately 3 seconds before the keyword was detected*. This additional leading audio is included to accommodate a wide range of keyword lengths and speaker speeds. Then, handle the [QuantumStarted](/uwp/api/windows.media.audio.audiograph.quantumstarted) event from the audio graph to retrieve the audio data.
 
 ```csharp
 var inputNode = await agentSession.CreateAudioDeviceInputNodeAsync(audioGraph);

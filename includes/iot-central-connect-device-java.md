@@ -23,7 +23,7 @@ When you run the sample to connect to IoT Central, it uses the Device Provisioni
 
 The `main` method:
 
-* Calls `initializeAndProvisionDevice` to set the `dtmi:com:example:Thermostat;1` model ID, use DPS to provision and register the device, create a **DeviceClient** instance, and connect to your IoT Central application.
+* Calls `initializeAndProvisionDevice` to set the `dtmi:com:example:Thermostat;1` model ID, use DPS to provision and register the device, create a **DeviceClient** instance, and connect to your IoT Central application. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Creates a command handler for the `getMaxMinReport` command.
 * Creates a property update handler for the writable `targetTemperature` property.
 * Starts a thread to send temperature telemetry and update the `maxTempSinceLastReboot` property every five seconds.
@@ -85,7 +85,7 @@ public static void main(String[] args) throws URISyntaxException, IOException, P
 }
 ```
 
-The `initializeAndProvisionDevice` method shows how the device uses DPS to register and connect to IoT Central. The payload includes the model ID:
+The `initializeAndProvisionDevice` method shows how the device uses DPS to register and connect to IoT Central. The payload includes the model ID that IoT Central uses to [associate the device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).:
 
 ```java
 private static void initializeAndProvisionDevice() throws ProvisioningDeviceClientException, IOException, URISyntaxException, InterruptedException {

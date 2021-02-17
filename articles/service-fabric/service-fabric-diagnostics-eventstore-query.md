@@ -108,7 +108,7 @@ Here we can see that between `2018-04-03T18:00:00Z` and `2018-04-04T18:00:00Z`, 
 
 ## Query the EventStore programmatically
 
-You can also query the EventStore programmatically, via the [Service Fabric client library](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
+You can also query the EventStore programmatically, via the [Service Fabric client library](/dotnet/api/overview/azure/service-fabric#client-library).
 
 Once you have your Service Fabric Client set up, you can query for events by accessing the EventStore like this:
 `sfhttpClient.EventStore.<request>`

@@ -13,32 +13,36 @@ ms.date: 08/17/2019
 ms.author: pafarley
 ---
 
-# Business card concepts
+# Form Recognizer prebuilt business cards model 
 
-Azure Form Recognizer can analyze and extract contact information from business cards using one of its prebuilt models. The Business Card API combines powerful Optical Character Recognition (OCR) capabilities with our Business Card Understanding model to extract key information from business cards in English. It extracts personal contact info, company name, job title, and more. The Prebuilt Business Card API is publicly available in the Form Recognizer v2.1 preview. 
+Azure Form Recognizer can analyze and extract contact information from business cards using its prebuilt business cards model. It combines powerful Optical Character Recognition (OCR) capabilities with our business card understanding model to extract key information from business cards in English. It extracts personal contact info, company name, job title, and more. The Prebuilt Business Card API is publicly available in the Form Recognizer v2.1 preview. 
 
-## What does the Business Card API do?
+## What does the Business Card service do?
 
-The Business Card API extracts key fields from business cards and returns them in an organized JSON response.
+The prebuilt Business Card API extracts key fields from business cards and returns them in an organized JSON response.
 
-![Contoso itemized image from FOTT + JSON output](./media/business-card-english.jpg)
+![Contoso itemized image from FOTT + JSON output](./media/business-card-example.jpg)
+
+
 
 ### Fields extracted:
 
-* Contact names 
-  * First names
-  * Last names
-* Company names 
-* Departments 
-* Job titles 
-* Emails 
-* Websites 
-* Addresses 
-* Phone numbers 
-  * Mobile phones 
-  * Faxes 
-  * Work phones 
-  * Other phones 
+|Name| Type | Description | Text | 
+|:-----|:----|:----|:----|
+| ContactNames | array of objects | Contact name extracted from business card | [{ "FirstName": "John", "LastName": "Doe" }] |
+| FirstName | string | First (given) name of contact | "John" | 
+| LastName | string | Last (family) name of contact |     "Doe" | 
+| CompanyNames | array of strings | Company name extracted from business card | ["Contoso"] | 
+| Departments | array of strings | Department or organization of contact | ["R&D"] | 
+| JobTitles | array of strings | Listed Job title of contact | ["Software Engineer"] | 
+| Emails | array of strings | Contact email extracted from business card | ["johndoe@contoso.com"] | 
+| Websites | array of strings | Website extracted from business card | ["https://www.contoso.com"] | 
+| Addresses | array of strings | Address extracted from business card | ["123 Main Street, Redmond, WA 98052"] | 
+| MobilePhones | array of phone numbers | Mobile phone number extracted from business card | ["+19876543210"] |
+| Faxes | array of phone numbers | Fax phone number extracted from business card | ["+19876543211"] |
+| WorkPhones | array of phone numbers | Work phone number extracted from business card | ["+19876543231"] |
+| OtherPhones     | array of phone numbers | Other phone number extracted from business card | ["+19876543233"] |
+
 
 The Business Card API can also return all recognized text from the Business Card. This OCR output is included in the JSON response.  
 
@@ -68,8 +72,11 @@ When the **status** field has the **succeeded** value, the JSON response will in
 
 ### Sample JSON output
 
+The response to the Get Analyze Business Card Result operation will be the structured representation of the business card with all the information extracted.  See here for a [sample business card file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) and its structured output [sample business card output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json).
+
 See the following example of a successful JSON response:
-The "readResults" node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The "documentResults" node contains the business-card-specific values that the model discovered. This is where you'll find useful contact information like the first name, last name, company name and more.
+* The `"readResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. 
+* The `"documentResults"` node contains the business-card-specific values that the model discovered. This is where you'll find useful contact information like the first name, last name, company name and more.
 
 ```json
 {
@@ -371,7 +378,7 @@ The "readResults" node contains all of the recognized text. Text is organized by
 }
 ```
 
-Follow the [Extract business card data](./QuickStarts/python-business-cards.md) quickstart to implement business card data extraction using Python and the REST API.
+Follow the [quickstart](./QuickStarts/client-library.md) quickstart to implement business card data extraction using Python and the REST API.
 
 ## Customer Scenarios  
 
@@ -382,11 +389,11 @@ The data extracted with the Business Card API can be used to perform a variety o
 * Keep track of sales leads.  
 * Extract contact info in bulk from existing business card images. 
 
-The Business Card API also powers the [AIBuilder Business Card Processing feature](/ai-builder/prebuilt-business-card).
+The Business Card API also powers the [AI Builder Business Card Processing feature](/ai-builder/prebuilt-business-card).
 
 ## Next steps
 
-- Follow the [Business Cards API Python quickstart](./quickstarts/python-business-cards.md) to get started recognizing business cards.
+- Follow the [quickstart](./quickstarts/client-library.md) to get started recognizing business cards.
 
 ## See also
 

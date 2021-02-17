@@ -86,15 +86,11 @@ Combining API Management provisioned in an internal Vnet with the Application Ga
 
 Note: This feature is available in the Premium and Developer tiers of API Management.
 
-Enable Azure DDoS Protection Standard on the Vnet associated with your API Management deployment to protect from distributed denial of service (DDoS) attacks.
-
 Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
 * [How to integrate API Management in an internal VNET with Application Gateway](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
 * [Understand Azure Application Gateway](../application-gateway/index.yml)
-
-* [How to configure Azure DDoS Protection Standard](../ddos-protection/manage-ddos-protection.md)
 
 * [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
@@ -180,8 +176,7 @@ Caution: When configuring an NSG on the API Management subnet, there are a set o
 
 ### 1.9: Maintain standard security configurations for network devices
 
-**Guidance**: Define and implement standard security configurations for network settings related to your Azure API Management deployments. Use Azure Policy aliases in the "Microsoft.ApiManagement" and "Microsoft.Network" namespaces to create custom policies to audit or enforce network configuration of your Azure API Management deployments and related resources. You may also make use of built-in policy definitions for Azure Virtual Networks, such as:
-- DDoS Protection Standard should be enabled
+**Guidance**: Define and implement standard security configurations for network settings related to your Azure API Management deployments. Use Azure Policy aliases in the "Microsoft.ApiManagement" and "Microsoft.Network" namespaces to create custom policies to audit or enforce network configuration of your Azure API Management deployments and related resources. 
 
 You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies in a single blueprint definition. You can easily apply the blueprint to new subscriptions, environments, and fine-tune control and management through versioning.
 
@@ -211,9 +206,9 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes to network resources associated with your Azure API Management deployments. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -239,7 +234,7 @@ In addition to Azure Monitor, Azure API Management can be integrated with one or
 
 Optionally, enable, and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).
 
-* [How to configure diagnostic settings](../azure-monitor/platform/diagnostic-settings.md#create-in-azure-portal)
+* [How to configure diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md#create-in-azure-portal)
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -259,7 +254,7 @@ Optionally, enable, and on-board data to Azure Sentinel or a third-party Securit
 
 For data plane audit logging, diagnostic logs provide rich information about operations and errors that are important for auditing as well as troubleshooting purposes. Diagnostics logs differ from activity logs. Activity logs provide insights into the operations that were performed on your Azure resources. Diagnostics logs provide insight into operations that your resource performed.
 
-* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+* [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 * [How to enable Diagnostic Settings for Azure API Management](./api-management-howto-use-azure-monitor.md#activity-logs)
 
@@ -279,9 +274,9 @@ For data plane audit logging, diagnostic logs provide rich information about ope
 
 **Guidance**: Within Azure Monitor, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage accounts for long-term/archival storage.
 
-* [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-* [How to archive logs to an Azure Storage account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+* [How to archive logs to an Azure Storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -295,9 +290,9 @@ Optionally, integrate API Management with Azure Application Insights and use it 
 
 * [How to monitor and review logs for Azure API Management](./api-management-howto-use-azure-monitor.md)
 
-* [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
-* [Understand Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Understand Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
 * [How to integrate with Azure Application Insights](./api-management-howto-app-insights.md)
 
@@ -315,7 +310,7 @@ Optionally, integrate API Management with Azure Application Insights and use it 
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
-* [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+* [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 * [How to enable diagnostic settings for Azure API Management](./api-management-howto-use-azure-monitor.md#activity-logs)
 
@@ -377,7 +372,7 @@ Follow recommendations from Azure Security Center for the management and mainten
 
 * [How to get a directory role definition in Azure AD with PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
-* [Understand identity and access recommendations from Azure Security Center](../security-center/recommendations-reference.md#recs-identity)
+* [Understand identity and access recommendations from Azure Security Center](../security-center/recommendations-reference.md#recs-identityandaccess)
 
 **Azure Security Center monitoring**: Yes
 
@@ -442,7 +437,7 @@ Alternatively, the sign-in/sign-up process can be further customized through del
 
 **Guidance**: Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
-* [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -670,7 +665,7 @@ Microsoft manages the underlying infrastructure for Azure API Management and has
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production Azure Functions apps as well as other critical or related resources.
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [How to use Azure Monitor and Azure Activity Log in Azure API Management](./api-management-howto-use-azure-monitor.md)
 

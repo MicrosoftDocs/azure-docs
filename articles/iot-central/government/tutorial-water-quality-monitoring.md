@@ -3,7 +3,7 @@ title: 'Tutorial: Create a water quality monitoring app with Azure IoT Central'
 description: 'Tutorial: Learn how to create a water quality monitoring application using Azure IoT Central application templates.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -12,8 +12,6 @@ manager: abjork
 
 
 # Tutorial: Create a water quality monitoring application in Azure IoT Central
-
-
 
 This tutorial guides you through the creation of a water quality monitoring application in Azure IoT Central. You create the application from the Azure IoT Central **Water quality monitoring** application template.
 

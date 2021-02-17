@@ -12,7 +12,7 @@ manager: clarkn
 The Windows Virtual Desktop Agent can cause connection issues because of multiple factors:
    - An error on the broker that makes the agent stop the service.
    - Problems with updates.
-   - Issues with installing the during agent installation, which disrupts connection to the session host.
+   - Issues with installing during the agent installation, which disrupts connection to the session host.
 
 This article will guide you through solutions to these common scenarios and how to address connection issues.
 
@@ -246,7 +246,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 Open a PowerShell window as an administrator and run the following cmdlet:
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object*
+Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
 If the status listed for the session host or hosts in your host pool always says **Unavailable** or **Upgrading**, the agent or stack installation may have failed.

@@ -30,14 +30,14 @@ The following diagram represents the data flow and components involved in the so
  
 1. **Data Generation:** Data simulator is used to generate retail data that represents events such as a user viewing an item, adding an item to their cart, and purchasing an item. You can generate large set of sample data by using the data generator. The generated sample data contains documents in the following format:
    
-   ```json
-   {      
- 	 "CartID": 2486,
- 	 "Action": "Viewed",
- 	 "Item": "Women's Denim Jacket",
- 	 "Price": 31.99
-   }
-   ```
+    ```json
+    {
+      "CartID": 2486,
+      "Action": "Viewed",
+      "Item": "Women's Denim Jacket",
+      "Price": 31.99
+    }
+    ```
 
 2. **Cosmos DB:** The generated data is stored in an Azure Cosmos container.  
 

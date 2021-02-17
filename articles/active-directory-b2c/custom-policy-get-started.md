@@ -107,7 +107,7 @@ Next, expose the API by adding a scope:
 Next, specify that the application should be treated as a public client:
 
 1. In the left menu, under **Manage**, select **Authentication**.
-1. Under **Advanced settings**, enable **Treat application as a public client** (select **Yes**). Ensure that **"allowPublicClient": true** is set in the application manifest. 
+1. Under **Advanced settings**, in the **Allow public client flows** section, set **Enable the following mobile and desktop flows** to **Yes**. Ensure that **"allowPublicClient": true** is set in the application manifest. 
 1. Select **Save**.
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:
@@ -209,6 +209,6 @@ As mentioned in [Prerequisites](#prerequisites), Facebook is *not* required for 
 
 ## Next steps
 
-Next, try adding Azure Active Directory (Azure AD) as an identity provider. The base file used in this getting started guide already contains some of the content that you need for adding other identity providers like Azure AD. For information about setting up Azure AD as an identity provider, see [Set up sign-up and sign-in with an Azure Active Directory account using Active Directory B2C custom policies](identity-provider-azure-ad-single-tenant-custom.md). 
+Next, try adding Azure Active Directory (Azure AD) as an identity provider. The base file used in this getting started guide already contains some of the content that you need for adding other identity providers like Azure AD. For information about setting up Azure AD as an identity provider, see [Set up sign-up and sign-in with an Azure Active Directory account using Active Directory B2C custom policies](identity-provider-azure-ad-single-tenant.md). 
 
 Visit our [partner gallery](partner-gallery.md) to learn more on how to implement ISV integration using custom policies. 

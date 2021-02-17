@@ -8,9 +8,9 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: sashan
-ms.author: sashan
-ms.reviewer: sstein, sashan
+author: emlisa
+ms.author: emlisa
+ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
 ---
 
@@ -55,7 +55,7 @@ The zone redundant version of the high availability architecture for the general
 ![Zone redundant configuration for general purpose](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> For up to date information about the regions that support zone redundant databases, see [Services support by region](../../availability-zones/az-region.md). Zone redundant configuration is only available when the Gen5 compute hardware is selected. This feature is not available in SQL Managed Instance.
+> Zone redundant configuration is only available when the Gen5 compute hardware is selected. This feature is not available in SQL Managed Instance. Zone redundant configuration for general purpose tier is only available in the following regions: East US, East US 2, West US 2, North Europe, West Europe, Southeast Asia, Australia East, Japan East, UK South, and France Central.
 
 > [!NOTE]
 > General Purpose databases with a size of 80 vcore may experience performance degradation with zone redundant configuration. Additionally, operations such as backup, restore, database copy, and setting up Geo-DR relationships may experience slower performance for any single databases larger than 1 TB. 
@@ -117,7 +117,7 @@ A failover can be initiated using PowerShell, REST API, or Azure CLI:
 
 |Deployment type|PowerShell|REST API| Azure CLI|
 |:---|:---|:---|:---|
-|Database|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Database failover](/rest/api/sql/databases(failover)/failover/)|[az rest](/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
+|Database|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Database failover](/rest/api/sql/databases/failover)|[az rest](/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
 |Elastic pool|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Elastic pool failover](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
 |Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Managed Instances - Failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 

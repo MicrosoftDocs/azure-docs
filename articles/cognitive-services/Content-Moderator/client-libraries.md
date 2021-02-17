@@ -5,12 +5,12 @@ description: The Content Moderator API offers client libraries that makes it eas
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-zone_pivot_groups: programming-languages-set-eleven
+zone_pivot_groups: programming-languages-set-conmod
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: "devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020"
 keywords: content moderator, azure content moderator, online moderator, content filtering software
@@ -34,5 +34,11 @@ keywords: content moderator, azure content moderator, online moderator, content 
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python quickstart](includes/quickstarts/python-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-rest-api"
+
+[!INCLUDE [REST API quickstart](includes/quickstarts/rest-api.md)]
 
 ::: zone-end

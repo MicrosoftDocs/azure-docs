@@ -130,7 +130,7 @@ To configure Azure AD SSO with SharePoint on-premises:
     Run the following commands to configure a new trusted identity provider.
 
     > [!TIP]
-    > If you're new to using PowerShell or want to learn more about how PowerShell works, see [SharePoint PowerShell](/powershell/sharepoint/overview?view=sharepoint-ps).
+    > If you're new to using PowerShell or want to learn more about how PowerShell works, see [SharePoint PowerShell](/powershell/sharepoint/overview).
 
 
     ```

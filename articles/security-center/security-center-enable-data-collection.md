@@ -27,6 +27,17 @@ Data is collected using:
 :::image type="content" source="./media/security-center-enable-data-collection/auto-provisioning-options.png" alt-text="Security Center's auto provisioning settings page":::
 
 
+## Availability
+
+| Aspect                  | Details                                                                                                                                                                                                                      |
+|-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Release state:          | **Feature**: Auto provisioning is generally available (GA)<br>**Agent and extensions**: Log Analytics agent for Azure VMs is GA, Microsoft Dependency agent is in preview, Policy Add-on for Kubernetes is GA                |
+| Pricing:                | Free                                                                                                                                                                                                                         |
+| Supported destinations: | ![Yes](./media/icons/yes-icon.png) Azure machines<br>![No](./media/icons/no-icon.png) Azure Arc machines<br>![No](./media/icons/no-icon.png) Kubernetes nodes<br>![No](./media/icons/no-icon.png) Virtual Machine Scale Sets |
+| Clouds:                 | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov, China Gov, Other Gov                                                                                                      |
+|                         |                                                                                                                                                                                                                              |
+
+
 ## Why use auto provisioning?
 Any of the agents and extensions described on this page *can* be installed manually (see [Manual installation of the Log Analytics agent](#manual-agent)). However, **auto provisioning** reduces management overhead by installing all required agents and extensions on existing - and new - machines to ensure faster security coverage for all supported resources. 
 
@@ -67,7 +78,7 @@ To enable auto provisioning of the Log Analytics agent:
 
     - **Connect Azure VMs to a different workspace** - From the dropdown list, select the workspace to store collected data. The dropdown list includes all workspaces across all of your subscriptions. You can use this option to collect data from virtual machines running in different subscriptions and store it all in your selected workspace.  
 
-        If you already have an existing Log Analytics workspace, you might want to use the same workspace (requires read and write permissions on the workspace). This option is useful if you're using a centralized workspace in your organization and want to use it for security data collection. Learn more in [Manage access to log data and workspaces in Azure Monitor](../azure-monitor/platform/manage-access.md).
+        If you already have an existing Log Analytics workspace, you might want to use the same workspace (requires read and write permissions on the workspace). This option is useful if you're using a centralized workspace in your organization and want to use it for security data collection. Learn more in [Manage access to log data and workspaces in Azure Monitor](../azure-monitor/logs/manage-access.md).
 
         If your selected workspace already has a Security or SecurityCenterFree solution enabled, the pricing will be set automatically. If not, install a Security Center solution on the workspace:
 
@@ -203,7 +214,7 @@ To manually install the Log Analytics agent:
    - [Install the Log Analytics agent for Windows](../virtual-machines/extensions/oms-windows.md)
    - [Install the Log Analytics agent for Linux](../virtual-machines/extensions/oms-linux.md)
 
-1. To deploy agents on your existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md) (the section **Collect event and performance data** is optional).
+1. To deploy agents on your existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/vm/quick-collect-azurevm.md) (the section **Collect event and performance data** is optional).
 
 1. To use PowerShell to deploy the agents, use the instructions from the virtual machines documentation:
 

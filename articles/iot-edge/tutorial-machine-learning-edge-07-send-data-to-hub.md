@@ -19,6 +19,14 @@ We monitor the operation of the IoT Edge device while the simulated device is se
 
 This step is typically performed by a cloud or device developer.
 
+In this section of the tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Build and run a leaf device.
+> * Verify that generated data is being stored in your Azure Blob storage.
+> * Validate that the machine learning model classified the device data.
+
 ## Prerequisites
 
 This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.

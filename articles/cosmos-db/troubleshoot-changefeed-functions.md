@@ -4,7 +4,7 @@ description: Common issues, workarounds, and diagnostic steps, when using the Az
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 03/13/2020
+ms.date: 12/29/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -80,16 +80,18 @@ The concept of a "change" is an operation on a document. The most common scenari
 
 ### Some changes are missing in my Trigger
 
-If you find that some of the changes that happened in your Azure Cosmos container are not being picked up by the Azure Function, there is an initial investigation step that needs to take place.
+If you find that some of the changes that happened in your Azure Cosmos container are not being picked up by the Azure Function or some changes are missing in the destination when you are copying them, please follow the below steps.
 
 When your Azure Function receives the changes, it often processes them, and could optionally, send the result to another destination. When you are investigating missing changes, make sure you **measure which changes are being received at the ingestion point** (when the Azure Function starts), not on the destination.
 
 If some changes are missing on the destination, this could mean that is some error happening during the Azure Function execution after the changes were received.
 
-In this scenario, the best course of action is to add `try/catch` blocks in your code and inside the loops that might be processing the changes, to detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry). 
+In this scenario, the best course of action is to add `try/catch` blocks in your code and inside the loops that might be processing the changes, to detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry).
 
 > [!NOTE]
 > The Azure Functions trigger for Cosmos DB, by default, won't retry a batch of changes if there was an unhandled exception during your code execution. This means that the reason that the changes did not arrive at the destination is because that you are failing to process them.
+
+If the destination is another Cosmos container and you are performing Upsert operations to copy the items, **verify that the Partition Key Definition on both the monitored and destination container are the same**. Upsert operations could be saving multiple source items as one in the destination because of this configuration difference.
 
 If you find that some changes were not received at all by your trigger, the most common scenario is that there is **another Azure Function running**. It could be another Azure Function deployed in Azure or an Azure Function running locally on a developer's machine that has **exactly the same configuration** (same monitored and lease containers), and this Azure Function is stealing a subset of the changes you would expect your Azure Function to process.
 

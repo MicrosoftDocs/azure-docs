@@ -234,4 +234,4 @@ For more information using a user-assigned managed identity, see the [Create a C
 
 ## Next steps
 
-For more information, see [Azure Image Builder overview](image-builder-overview.md).
+For more information, see [Azure Image Builder overview](../image-builder-overview.md).

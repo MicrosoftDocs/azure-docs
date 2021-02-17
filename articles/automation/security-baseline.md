@@ -4,7 +4,7 @@ description: Azure security baseline for Automation
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 01/07/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -178,9 +178,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes to your network resources. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-* [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -208,7 +208,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 * [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -228,9 +228,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-* [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-* [View and retrieve Azure Activity log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [View and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Azure Security Center monitoring**: Yes
 
@@ -252,7 +252,7 @@ When using the Hybrid Runbook Worker feature, Azure Security Center provides Sec
 
 **Guidance**: Within Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-* [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 * [Data retention details for Automation Accounts](./automation-managing-data.md#data-retention)
 
@@ -268,9 +268,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Understand log queries in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Understand log queries in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -286,7 +286,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 * [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [How to alert on Azure Monitor log data](../azure-monitor/learn/tutorial-response.md)
+* [How to alert on Azure Monitor log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -334,11 +334,11 @@ However, when using the Hybrid Runbook Worker feature, Azure Security Center pro
 
 **Guidance**: Use Azure Active Directory built-in administrator roles which can be explicitly assigned and can be queried. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups. Whenever using Automation Account Run As accounts for your runbooks, ensure these service principals are also tracked in your inventory since they often time have elevated permissions. Delete any unused Run As accounts to minimize your exposed attack surface.
 
-* [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-* [Delete a Run As or Classic Run As account](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Delete a Run As or Classic Run As account](./delete-run-as-account.md)
 
 * [Manage an Azure Automation Run As account](./manage-runas-account.md)
 
@@ -362,7 +362,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 * [Learn more about Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
-* [Delete a Run As or Classic Run As account](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Delete a Run As or Classic Run As account](./delete-run-as-account.md)
 
 * [Manage an Azure Automation Run As account](./manage-runas-account.md)
 
@@ -400,7 +400,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 **Guidance**: Use PAWs with multi-factor authentication configured to log into and configure Azure Automation Account resources in production environments.
 
-* [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -416,7 +416,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 * [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [How to configure action groups for custom alerting and notification](../azure-monitor/platform/action-groups.md)
+* [How to configure action groups for custom alerting and notification](../azure-monitor/alerts/action-groups.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -452,7 +452,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 * [How to use Azure identity access reviews](../active-directory/governance/access-reviews-overview.md)
 
-* [Delete a Run As or Classic Run As account](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Delete a Run As or Classic Run As account](./delete-run-as-account.md)
 
 * [Manage an Azure Automation Run As account](./manage-runas-account.md)
 
@@ -554,7 +554,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 * [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Azure Automation TLS 1.2 enforcement](https://azure.microsoft.com/updates/azure-automation-tls12-enforcement/)
+* [Azure Automation TLS 1.2 enforcement](../active-directory/hybrid/reference-connect-tls-enforcement.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -616,7 +616,7 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines are
 
 * [Diagnostic logging for a network security group](../private-link/private-link-overview.md#logging-and-monitoring)
 
-* [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -694,7 +694,7 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then y
 
 * [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 * [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -722,7 +722,7 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then y
 
 * [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
-* [Delete a Run As or Classic Run As account](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Delete a Run As or Classic Run As account](./delete-run-as-account.md)
 
 * [Manage an Azure Automation Run As account](./manage-runas-account.md)
 
@@ -834,7 +834,7 @@ Adaptive application control is an intelligent, automated, end-to-end solution f
 
 **Guidance**: When using the Hybrid Runbook Worker feature, and depending on the type of scripts, you may use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources. You can also leverage Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
-* [How to control PowerShell script execution in Windows Environments](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [How to control PowerShell script execution in Windows Environments](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 * [How to use Azure Security Center Adaptive Application Controls](../security-center/security-center-adaptive-application.md)
 
@@ -876,7 +876,7 @@ Also, Azure Resource Manager has the ability to export the template in JavaScrip
 
 You may also use recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
-* [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
 
@@ -936,11 +936,11 @@ When using the Hybrid Runbook Worker feature, there are several options for main
 
 For most scenarios, the Microsoft base VM templates combined with the Azure Automation State Configuration can assist in meeting and maintaining the security requirements.
 
-* [Information on how to download the VM template](../virtual-machines/windows/download-template.md)
+* [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Information on creating ARM templates](../virtual-machines/windows/ps-template.md)
 
-* [How to upload a custom VM VHD to Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [How to upload a custom VM VHD to Azure](/azure-stack/operator/azure-stack-add-vm-image)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -950,7 +950,7 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates, and Desired State Configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory if integrated with Azure DevOps, or Active Directory if integrated with TFS. Use the source control integration feature to keep your runbooks in your Automation account up to date with scripts in your source control repository.
 
-* [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 * [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -1132,7 +1132,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 * [Introduction to Azure Automation](./automation-intro.md)
 
-* [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 * [Use of customer-managed keys for an Automation account](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1158,7 +1158,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 * [Introduction to Azure Automation](./automation-intro.md)
 
-* [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 * [Use of customer-managed keys for an Automation account](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1174,7 +1174,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 * [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md)
 
-* [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 * [Use of customer-managed keys for an Automation account](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1188,7 +1188,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 Use the source control integration feature to keep your runbooks in your Automation account up to date with scripts in your source control repository.
 
-* [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 * [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 

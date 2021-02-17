@@ -37,10 +37,9 @@ There are few ways to use Windows virtual machines with the Azure Hybrid Benefit
 All Windows Server OS based images are supported for Azure Hybrid Benefit for Windows Server. You can use Azure platform support images or upload your own custom Windows Server images. 
 
 ### Portal
-To create a VM with Azure Hybrid Benefit for Windows Server, use the toggle under the "Save money" section.
+To create a VM with Azure Hybrid Benefit for Windows Server, scroll to the bottom of the **Basics** tab during the creation process and under **Licensing** check the box to use an existing Windows Server license. 
 
 ### PowerShell
-
 
 ```powershell
 New-AzVm `

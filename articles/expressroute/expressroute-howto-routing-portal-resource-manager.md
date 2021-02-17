@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/26/2020
+ms.date: 01/11/2021
 ms.author: duau
 
 
@@ -133,7 +133,7 @@ This section helps you create, get, update, and delete the Azure private peering
 
 2. Configure Azure private peering for the circuit. Make sure that you have the following items before you continue with the next steps:
 
-   * A pair of /30 subnets owned by you and registered in an RIR / IRR. One subnet will be used for the primary link, while the other will be used for the secondary link. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. You have three options for this pair of subnets:
+   * A pair of /30 subnets owned by you. One subnet will be used for the primary link, while the other will be used for the secondary link. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router.
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. Both Primary and Secondary links you must use the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering except for the number from 65515 to 65520, inclusively.
    * You must advertise the routes from your on-premises Edge router to Azure via BGP when you configure the private peering.

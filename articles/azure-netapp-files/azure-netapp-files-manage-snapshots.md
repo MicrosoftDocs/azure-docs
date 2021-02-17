@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 02/10/2021
 ms.author: b-juche
 ---
 # Manage snapshots by using Azure NetApp Files
@@ -182,7 +182,9 @@ If you do not want to [restore the entire snapshot to a volume](#restore-a-snaps
 
 The mounted volume contains a snapshot directory named  `.snapshot` (in NFS clients) or `~snapshot` (in SMB clients) that is accessible to the client. The snapshot directory contains subdirectories corresponding to the snapshots of the volume. Each subdirectory contains the files of the snapshot. If you accidentally delete or overwrite a file, you can restore the file to the parent read-write directory by copying the file from a snapshot subdirectory to the read-write directory. 
 
-If you do not see the snapshot directory, it might be hidden because the Hide Snapshot Path option is currently enabled. You can [edit the Hide Snapshot Path option](#edit-the-hide-snapshot-path-option) to disable it.  
+You can control access to the snapshot directories by using the [Hide Snapshot Path option](#edit-the-hide-snapshot-path-option). This option controls whether the directory should be hidden from the clients. Therefore, it also controls access to files and folders in the snapshots.  
+
+NFSv4.1 does not show the `.snapshot` directory (`ls -la`). However, when the Hide Snapshot Path option is not set, you can still access the `.snapshot` directory via NFSv4.1 by using the `cd <snapshot-path>` command from the client command line. 
 
 ### Restore a file by using a Linux NFS client 
 
@@ -265,3 +267,4 @@ You can delete snapshots that you no longer need to keep.
 * [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files Snapshots 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
+* [What is Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)

@@ -15,6 +15,8 @@
     href: cognitive-services-custom-subdomains.md
   - name: Language support
     href: language-support.md
+  - name: Plan and manage costs 
+    href: plan-manage-costs.md
 - name: Quickstarts
   items:
   - name: Create a new resource using the Azure portal
@@ -40,6 +42,8 @@
     href: authentication.md
   - name: Security baseline
     href: security-baseline.md
+  - name: Security controls by Azure Policy
+    href: ./security-controls-policy.md
 - name: Container support
   items:
   - name: Container support
@@ -47,7 +51,7 @@
   - name: Container image tags and releases notes
     href: ./containers/container-image-tags.md
   - name: Container FAQ
-    href: ./containers/container-faq.md
+    href: ./containers/container-faq.yml
   - name: Container recipes
     items:
     - name: Container Reuse

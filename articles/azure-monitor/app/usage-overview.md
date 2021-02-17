@@ -34,7 +34,7 @@ The best experience is obtained by installing Application Insights both in your 
 
     To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
 
-3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](../learn/mobile-center-quickstart.md).
+3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](../app/mobile-center-quickstart.md).
 
 4. **Get telemetry:** Run your project in debug mode for a few minutes, and then look for results in the Overview blade in Application Insights.
 
@@ -75,7 +75,9 @@ The retention controls on top allow you to define specific events and time range
 
 ## Custom business events
 
-To get a clear understanding of what users do with your app, it's useful to insert lines of code to log custom events. These events can track anything from detailed user actions such as clicking specific buttons, to more significant business events such as making a purchase or winning a game. 
+To get a clear understanding of what users do with your app, it's useful to insert lines of code to log custom events. These events can track anything from detailed user actions such as clicking specific buttons, to more significant business events such as making a purchase or winning a game.
+
+You can also use the [Click Analytics Auto-collection Plugin](javascript-click-analytics-plugin.md) to collect custom events.
 
 Although in some cases, page views can represent useful events, it isn't true in general. A user can open a product page without buying the product. 
 
@@ -173,6 +175,6 @@ All new TelemetryClients automatically add the property value you specify. Indiv
    - [Funnels](usage-funnels.md)
    - [Retention](usage-retention.md)
    - [User Flows](usage-flows.md)
-   - [Workbooks](../platform/workbooks-overview.md)
+   - [Workbooks](../visualize/workbooks-overview.md)
    - [Add user context](usage-send-user-context.md)
 

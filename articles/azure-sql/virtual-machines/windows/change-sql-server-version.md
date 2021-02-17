@@ -7,6 +7,7 @@ author: ramakoni1
 manager: ramakoni1
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server

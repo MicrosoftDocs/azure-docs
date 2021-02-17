@@ -534,7 +534,7 @@ From the consolidated crossProjection object, slice the object into multiple tab
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
         "projections": [
              {
-        		"tables": [
+                "tables": [
                     {
                         "tableName": "crossDocument",
                         "generatedKeyName": "Id",
@@ -558,7 +558,7 @@ From the consolidated crossProjection object, slice the object into multiple tab
                      
                 ],
                 "objects": [
-                	{
+                    {
                         "storageContainer": "crossobject",
                         "generatedKeyName": "crosslayout",
                         "source": null,
@@ -572,14 +572,13 @@ From the consolidated crossProjection object, slice the object into multiple tab
                     }
                 ],
                 "files": [
-                	 {
+                    {
                         "storageContainer": "crossimages",
                         "generatedKeyName": "crossimages",
                         "source": "/document/crossProjection/images/*/image"
                     }
-                	]
-                
-        	}
+                ]
+            }
         ]
     }
 ```
@@ -626,10 +625,10 @@ When building projections of different types, file and object projections are ge
                         "source": null,
                         "sourceContext": "/document/normalized_images/*/text",
                         "inputs": [
-                        	{
-                        		"name": "ocrText",
-                        		"source": "/document/normalized_images/*/text"
-                        	}
+                            {
+                                "name": "ocrText",
+                                "source": "/document/normalized_images/*/text"
+                            }
                         ]
                     },
                     {
@@ -637,10 +636,10 @@ When building projections of different types, file and object projections are ge
                         "source": null,
                         "sourceContext": "/document/normalized_images/*/layoutText",
                         "inputs": [
-                        	{
-                        		"name": "ocrLayoutText",
-                        		"source": "/document/normalized_images/*/layoutText"
-                        	}
+                            {
+                                "name": "ocrLayoutText",
+                                "source": "/document/normalized_images/*/layoutText"
+                            }
                         ]
                     }
                 ],

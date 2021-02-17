@@ -9,4 +9,4 @@ ms.author: celested
 
 ## Help and support
 
-If you need help, want to report an issue, or would like to learn about your support options, see [Help and support for developers](../articles/active-directory/develop/developer-support-help-options.md).
+If you need help, want to report an issue, or want to learn about your support options, see [Help and support for developers](../articles/active-directory/develop/developer-support-help-options.md).

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/04/2020
+ms.date: 01/18/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Citrix ShareFile
@@ -25,8 +25,8 @@ Integrating Citrix ShareFile with Azure AD provides you with the following benef
 
 To configure Azure AD integration with Citrix ShareFile, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Citrix ShareFile single sign-on enabled subscription
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* Citrix ShareFile single sign-on enabled subscription.
 
 ## Scenario description
 
@@ -45,7 +45,7 @@ To configure the integration of Citrix ShareFile into Azure AD, you need to add 
 1. In the **Add from the gallery** section, type **Citrix ShareFile** in the search box.
 1. Select **Citrix ShareFile** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD SSO
+## Configure and test Azure AD SSO for Citrix ShareFile
 
 In this section, you configure and test Azure AD single sign-on with Citrix ShareFile based on a test user called **Britta Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in Citrix ShareFile needs to be established.
@@ -54,10 +54,10 @@ To configure and test Azure AD single sign-on with Citrix ShareFile, perform the
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
 	
-	* **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-	* **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 2. **[Configure Citrix ShareFile SSO](#configure-citrix-sharefile-sso)** - to configure the Single Sign-On settings on application side.
-	* **[Create Citrix ShareFile test user](#create-citrix-sharefile-test-user)** - to have a counterpart of Britta Simon in Citrix ShareFile that is linked to the Azure AD representation of user.
+	1. **[Create Citrix ShareFile test user](#create-citrix-sharefile-test-user)** - to have a counterpart of Britta Simon in Citrix ShareFile that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO
@@ -121,14 +121,22 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Citrix ShareFile SSO
 
-1. In a different web browser window, log into your **Citrix ShareFile** company site as an administrator.
+1. To automate the configuration within **Citrix ShareFile**, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-1. In the **Dashboard**, click on **Settings** and select **Admin Settings**
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Set up Citrix ShareFile** will direct you to the Citrix ShareFile application. From there, provide the admin credentials to sign into Citrix ShareFile. The browser extension will automatically configure the application for you and automate steps 3-7.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup Citrix ShareFile manually, in a different web browser window, sign in to your Citrix ShareFile company site as an administrator.
+
+1. In the **Dashboard**, click on **Settings** and select **Admin Settings**.
 
 	![Administration](./media/sharefile-tutorial/settings.png)
 
@@ -152,7 +160,9 @@ If you are expecting a role to be assigned to the users, you can select it from 
 	
 	f. In **Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
 
-5. Click **Save** on the Citrix ShareFile management portal.
+	g. In the **Optional Settings**, choose **SP-Initiated Auth Context** as **User Name and Password** and **Exact**.
+
+5. Click **Save**.
 
 ## Create Citrix ShareFile test user
 
@@ -179,13 +189,13 @@ If you are expecting a role to be assigned to the users, you can select it from 
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-1. Click on **Test this application** in Azure portal. This will redirect to Citrix ShareFile Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Citrix ShareFile Sign-on URL where you can initiate the login flow.
 
-2. Go to Citrix ShareFile Sign-on URL directly and initiate the login flow from there.
+* Go to Citrix ShareFile Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the Citrix ShareFile tile in the Access Panel, this will redirect to Citrix ShareFile Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Citrix ShareFile tile in the My Apps, this will redirect to Citrix ShareFile Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps

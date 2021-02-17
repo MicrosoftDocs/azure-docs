@@ -83,7 +83,7 @@ One of the Azure specifics is the installation of an Azure VM extension that del
 -  [Azure Virtual Machines deployment for SAP NetWeaver](./deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
 
 ## SAP HANA installation
-With the Azure virtual machines deployed and the operating systems registered and configured, you can install SAP HANA according to the SAP install. As a good start to get to this documentation, start with this SAP website [HANA resources](https://www.sap.com/products/hana/implementation/resources.html)
+With the Azure virtual machines deployed and the operating systems registered and configured, you can install SAP HANA according to the SAP install. As a good start to get to this documentation, start with this SAP website [HANA resources](https://www.sap.com/products/s4hana-erp.html?btp=9d3e6f82-d8ab-4122-8d2d-bf4971217afd)
 
 For SAP HANA scale-out configurations using direct attached disks of Azure Premium Storage or Ultra disk, read the specifics in the document [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md#configuring-azure-infrastructure-for-sap-hana-scale-out)
 

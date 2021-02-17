@@ -37,6 +37,29 @@ The following document includes links to Azure examples showing how to connect a
 |[R](connect-query-r.md)|This quickstart demonstrates how to use R with Azure SQL Database Machine Learning Services to create a program to connect to a database in Azure SQL Database and use Transact-SQL statements to query data.|
 |||
 
+## Get server connection information
+
+Get the connection information you need to connect to the database in Azure SQL Database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Navigate to the **SQL Databases**  or **SQL Managed Instances** page.
+
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for the database in Azure SQL Database or the fully qualified server name (or IP address) next to **Host** for an Azure SQL Managed Instance or SQL Server on Azure VM. To copy the server name or host name, hover over it and select the **Copy** icon.
+
+> [!NOTE]
+> For connection information for SQL Server on Azure VM, see [Connect to a SQL Server instance](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
+
+## Get ADO.NET connection information (optional - SQL Database only)
+
+1. Navigate to the database blade in the Azure portal and, under **Settings**, select **Connection strings**.
+
+2. Review the complete **ADO.NET** connection string.
+
+    ![ADO.NET connection string](./media/connect-query-dotnet-core/adonet-connection-string2.png)
+
+3. Copy the **ADO.NET** connection string if you intend to use it.
+
 ## TLS considerations for database connectivity
 
 Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or supports for connecting to databases in Azure SQL Database or Azure SQL Managed Instance. No special configuration is necessary. For all connections to a SQL Server instance, a database in Azure SQL Database, or an instance of Azure SQL Managed Instance, we recommend that all applications set

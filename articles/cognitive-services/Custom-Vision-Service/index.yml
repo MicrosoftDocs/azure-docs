@@ -41,7 +41,7 @@ landingContent:
         links:
           - text: Using the web portal
             url: getting-started-build-a-classifier.md
-          - text: Using the Custom Vision SDK
+          - text: Using the Custom Vision SDK or REST API
             url: quickstarts/image-classification.md
       - linkListType: how-to-guide
         links:
@@ -103,10 +103,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Training API
-            url: https://go.microsoft.com/fwlink/?linkid=865446
-          - text: Prediction API
-            url: https://go.microsoft.com/fwlink/?linkid=865445
+          - text: REST API
+            url: https://docs.microsoft.com/rest/api/custom-vision/
           - text: .NET SDK
             url: /dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
           - text: Python SDK

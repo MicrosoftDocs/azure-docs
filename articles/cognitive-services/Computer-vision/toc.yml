@@ -41,17 +41,17 @@
     href: concept-generating-thumbnails.md
   - name: Adult content detection
     href: concept-detecting-adult-content.md
-- name: Responsible AI
+- name: Responsible use of AI
   items:
   - name: Spatial Analysis
     items:
-    - name: Transparency Note
+    - name: Transparency notes
       items:
       - name: Introduction to Spatial Analysis
-        href: /legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+        href: intro-to-spatial-analysis-public-preview.md
       - name: Characteristics and limitations
         href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
-    - name: Deployment Guidelines
+    - name: Integration and responsible use
       items:
       - name: Responsible use in AI deployment 
         href: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
@@ -59,7 +59,7 @@
         href: /legal/cognitive-services/computer-vision/disclosure-design?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
       - name: Research insights
         href: /legal/cognitive-services/computer-vision/research-insights?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
-    - name: Compliance, privacy, and security
+    - name: Data, privacy, and security
       href: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
 - name: Containers
   items:
@@ -77,7 +77,8 @@
       href: deploy-computer-vision-on-premises.md
       displayName: kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises
     - name: Use container instances
-      href: deploy-computer-vision-on-container-instances.md
+      maintainContext: true
+      href: ../containers/azure-container-instance-recipe.md
       displayName: container instances, container, containers, images
   - name: Spatial Analysis container
     items:
@@ -108,16 +109,8 @@
     href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: Azure PowerShell
     href: /powershell/module/azurerm.cognitiveservices/
-  - name: Computer Vision API v3.2 preview
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005
-  - name: Computer Vision API v3.1
-    href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
-  - name: Computer Vision API v3.0
-    href: https://aka.ms/computer-vision-v3-ref
-  - name: Computer Vision API v2.1
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
-  - name: Computer Vision API v1.0
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/computer-vision/
   - name: SDKs
     items:
     - name: .NET
@@ -139,7 +132,7 @@
     - name: Explore an image processing app
       href: Tutorials/CSharpTutorial.md
     - name: Other Computer Vision samples
-      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+      href: /samples/browse/?products=azure&terms=computer-vision
   - name: FAQ
     href: FAQ.md
   - name: Category taxonomy

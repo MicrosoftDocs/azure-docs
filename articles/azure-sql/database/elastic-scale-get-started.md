@@ -79,13 +79,15 @@ To download and run the sample, follow these steps:
 
 1. Download the [Elastic DB Tools for Azure SQL - Getting Started sample](https://github.com/Azure/elastic-db-tools). Unzip the sample to a location that you choose.
 
-2. To create a project, open the *ElasticScaleStarterKit.sln* solution from the *C#* directory.
+2. To create a project, open the *ElasticDatabaseTools.sln* solution from the *elastic-db-tools-master* directory. 
 
-3. In the solution for the sample project, open the *app.config* file. Then follow the instructions in the file to add your server name and your sign-in information (username and password).
+3. Set the *ElasticScaleStarterKit* project as the Startup Project.
 
-4. Build and run the application. When you are prompted, enable Visual Studio to restore the NuGet packages of the solution. This action downloads the latest version of the elastic database client library from NuGet.
+4. In the *ElasticScaleStarterKit* project, open the *App.config* file. Then follow the instructions in the file to add your server name and your sign-in information (username and password).
 
-5. To learn more about the client library capabilities, experiment with the various options. Note the steps that the application takes in the console output, and feel free to explore the code behind the scenes.
+5. Build and run the application. When you are prompted, enable Visual Studio to restore the NuGet packages of the solution. This action downloads the latest version of the elastic database client library from NuGet.
+
+6. To learn more about the client library capabilities, experiment with the various options. Note the steps that the application takes in the console output, and feel free to explore the code behind the scenes.
 
    ![Progress][4]
 

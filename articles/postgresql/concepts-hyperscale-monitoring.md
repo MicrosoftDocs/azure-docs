@@ -26,7 +26,7 @@ step by step guidance, see [How to set up
 alerts](howto-hyperscale-alert-on-metric.md).  Other tasks include setting up
 automated actions, running advanced analytics, and archiving history. For more
 information, see the [Azure Metrics
-Overview](../azure-monitor/platform/data-platform.md).
+Overview](../azure-monitor/data-platform.md).
 
 ### List of metrics
 

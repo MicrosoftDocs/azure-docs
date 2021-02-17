@@ -1,6 +1,5 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Become an on-premises encoder partner - Azure Media Services 
+title: Become an on-premises encoder partner
 description: This article discusses how to verify your on-premises live streaming encoders.
 services: media-services
 author: johndeu

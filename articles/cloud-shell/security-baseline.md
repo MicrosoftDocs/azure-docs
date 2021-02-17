@@ -284,7 +284,7 @@ Security incident contact information will be used by Microsoft to contact you i
 ### 10.5: Incorporate security alerts into your incident response system
 
 **Guidance**: 
-Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 - [How to configure continuous export](../security-center/continuous-export.md) 
 - [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md) 
 

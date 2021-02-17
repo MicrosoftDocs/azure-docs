@@ -2,6 +2,8 @@
   href: index.yml
 - name: Overview
   href: overview.md
+- name: What's new in Azure Sentinel?
+  href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -56,6 +58,8 @@
         href: connect-azure-active-directory.md
       - name: Office 365 (now with Teams!)
         href: connect-office-365.md
+      - name: Dynamics 365 (new!)
+        href: connect-dynamics-365.md
       - name: Cloud App Security
         href: connect-cloud-app-security.md
       - name: Azure Activity Log
@@ -72,16 +76,18 @@
         href: connect-azure-atp.md
       - name: Microsoft Defender for Office 365 (formerly Office 365 ATP)
         href: connect-office-365-advanced-threat-protection.md
-      - name: Azure DDoS Protection
-        href: connect-azure-ddos-protection.md
-      - name: Azure Firewall
-        href: connect-azure-firewall.md
       - name: Azure Defender alerts from ASC
         href: connect-azure-security-center.md
       - name: Azure Defender (formerly ASC) for IoT
         href: connect-asc-iot.md
+      - name: Azure DDoS Protection
+        href: connect-azure-ddos-protection.md
+      - name: Azure Firewall
+        href: connect-azure-firewall.md
       - name: Azure Web Application Firewall (WAF)
         href: connect-azure-waf.md
+      - name: Azure SQL database logs
+        href: connect-azure-sql-logs.md
       - name: Domain name server
         href: connect-dns.md
       - name: Windows firewall
@@ -90,14 +96,26 @@
         href: connect-windows-security-events.md  
     - name: Connect external solutions
       items:
+      - name: Agari Phishing Defense and Brand Protection
+        href: connect-agari-phishing-defense.md
       - name: Alcide kAudit
         href: connect-alcide-kaudit.md
+      - name: Alsid for Active Directory
+        href: connect-alsid-active-directory.md
+      - name: Apache HTTP Server
+        href: connect-apache-http-server.md
       - name: Barracuda WAF
         href: connect-barracuda.md 
       - name: Barracuda CloudGen Firewall
         href: connect-barracuda-cloudgen-firewall.md
+      - name: BETTER Mobile Threat Defense
+        href: connect-better-mtd.md
       - name: Beyond Security beSECURE
         href: connect-besecure.md
+      - name: Cisco Umbrella
+        href: connect-cisco-umbrella.md
+      - name: Cisco Unified Computing System
+        href: connect-cisco-ucs.md
       - name: Citrix Analytics (Security)
         href: connect-citrix-analytics.md
       - name: F5 BIG-IP
@@ -106,22 +124,30 @@
         href: connect-forcepoint-dlp.md
       - name: Infoblox NIOS
         href: connect-infoblox.md
+      - name: Juniper SRX
+        href: connect-juniper-srx.md
       - name: Okta SSO
         href: connect-okta-single-sign-on.md
       - name: Orca Security
         href: connect-orca-security-alerts.md
       - name: Perimeter 81
         href: connect-perimeter-81-logs.md
+      - name: Proofpoint On Demand
+        href: connect-proofpoint-pod.md
       - name: Proofpoint TAP
         href: connect-proofpoint-tap.md
       - name: Pulse Connect Secure
         href: connect-pulse-connect-secure.md
       - name: Qualys VM
         href: connect-qualys-vm.md
+      - name: Salesforce Service Cloud
+        href: connect-salesforce-service-cloud.md
       - name: Sophos XG Firewall
         href: connect-sophos-xg-firewall.md
       - name: Squadra Technologies secRMM
         href: connect-squadra-secrmm.md
+      - name: Squid Proxy
+        href: connect-squid-proxy.md
       - name: Symantec ICDX
         href: connect-symantec.md
       - name: Symantec Proxy SG
@@ -146,6 +172,8 @@
           items:  
           - name: AI Vectra Detect
             href: connect-ai-vectra-detect.md
+          - name: Akamai Security Events
+            href: connect-akamai-security-events.md
           - name: Check Point
             href: connect-checkpoint.md
           - name: Cisco ASA
@@ -164,16 +192,26 @@
             href: connect-fortinet.md
           - name: Illusive Networks AMS
             href: connect-illusive-attack-management-system.md
+          - name: Imperva WAF Gateway
+            href: connect-imperva-waf-gateway.md
           - name: One Identity Safeguard
             href: connect-one-identity.md
           - name: Palo Alto Networks
             href: connect-paloalto.md
+          - name: Thycotic Secret Server
+            href: connect-thycotic-secret-server.md
           - name: Trend Micro Deep Security
             href: connect-trend-micro.md
+          - name: Trend Micro TippingPoint
+            href: connect-trend-micro-tippingpoint.md
+          - name: WireX Systems NFP
+            href: connect-wirex-systems.md
           - name: Zscaler
             href: connect-zscaler.md   
         - name: STEP 3 Validate connectivity 
           href: connect-cef-verify.md
+    - name: Create custom connectors
+      href: create-custom-connector.md
     - name: Connect threat intelligence
       href: connect-threat-intelligence.md  
     - name: Connect Azure Stack VMs
@@ -201,22 +239,42 @@
       href: bookmarks.md
     - name: Use livestream to hunt
       href: livestream.md
-    - name: Manage hunting queries with REST-API
-      href: hunting-with-rest-api.md
   - name: Remove Azure Sentinel
     href: offboard.md
-- name: Reference (New!)
+- name: Reference
   items:
+  - name: Azure RBAC roles
+    items:
+    - name: All Azure roles
+      href: /azure/role-based-access-control/built-in-roles#all
+    - name: Azure Sentinel roles
+      href: /azure/role-based-access-control/built-in-roles#security
   - name: REST APIs
-    href: /rest/api/securityinsights/
+    items:
+    - name: Azure Sentinel REST-API
+      href: /rest/api/securityinsights/
+    - name: Manage hunting queries with REST-API
+      href: hunting-with-rest-api.md
+    - name: Manage watchlists with REST-API
+      href: watchlist-with-rest-api.md
+  - name: Azure Sentinel Logic Apps connector
+    href: /connectors/azuresentinel/
   - name: Network normalization schema
     href: normalization-schema.md
+  - name: Data source schema reference
+    href: data-source-schema-reference.md
+  - name: Kusto Query Language
+    items:
+    - name: Kusto query overview
+      href: /azure/data-explorer/kusto/query/
+    - name: Kusto Query Language quick reference
+      href: /azure/data-explorer/kql-quick-reference
+  - name: UEBA enrichments
+    href: ueba-enrichments.md
 - name: Resources
   items:
   - name: Useful resources
     href: resources.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel
   - name: Azure Security, Privacy, & Compliance blog
     href: /archive/blogs/azuresecurity/
   - name: Regional availability

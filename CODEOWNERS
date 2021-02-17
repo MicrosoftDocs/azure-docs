@@ -7,6 +7,10 @@ articles/**/policy-reference.md @DCtheGeek
 articles/**/security-controls-policy.md @DCtheGeek
 includes/policy/ @DCtheGeek
 
+# Azure Monitor
+
+articles/azure-monitor/ @bwren
+
 # Azure Active Directory
 
 articles/active-directory-b2c/ @msmimart @yoelhor
@@ -15,7 +19,7 @@ articles/active-directory/develop/ @mmacy
 articles/active-directory/manage-apps/ @CelesteDG
 
 # Cognitive Services
-articles/cognitive-services/ @erhopf @aahill @trevorbye @patrickfarley @nitinme @mrbullwinkle
+articles/cognitive-services/ @erhopf @aahill @trevorbye @patrickfarley @nitinme @mrbullwinkle @laujan
 
 # DevOps
 articles/ansible/ @TomArcherMsft
@@ -37,6 +41,13 @@ articles/governance/ @DCtheGeek
 # Security baselines
 articles/**/*security-baseline.md @msmbaldwin @mgblythe
 articles/security/benchmarks/ @msmbaldwin @mgblythe
+
+# DDOS Protection
+
+articles/ddos-protection @aletheatoh @anupamvi
+
+# Lighthouse
+articles/lighthouse/ @JnHs
 
 # Configuration
 *.json @SyntaxC4 @snoviking @martinekuan
