@@ -15,7 +15,7 @@ ms.date: 02/09/2021
 # Migrate databases from SQL Server to SQL Managed Instance using Log Replay Service
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article explains how to manually configure database migration from SQL Server to SQL Managed Instance using Log Replay Service (LRS). This is a cloud service enabled for managed instance based on the SQL Server log shipping technology in no recovery mode. LRS should be used in cases when Data Migration Service (DMS) cannot be used, when more control is needed or when there exists little tolerance for downtime.
+This article explains how to manually configure database migration from SQL Server 2008-2019 to SQL Managed Instance using Log Replay Service (LRS). This is a cloud service enabled for managed instance based on the SQL Server log shipping technology in no recovery mode. LRS should be used in cases when Data Migration Service (DMS) cannot be used, when more control is needed or when there exists little tolerance for downtime.
 
 ## When to use Log Replay Service
 
@@ -54,6 +54,7 @@ LRS can be started in autocomplete, or continuous mode. When started in autocomp
 ## Requirements for getting started
 
 ### SQL Server side
+- SQL Server 2008-2019
 - Full backup of databases (one or multiple files)
 - Differential backup (one or multiple files)
 - Log backup (not split for transaction log file)
