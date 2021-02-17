@@ -34695,6 +34695,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-quickstart-create-databricks-account.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-use-databricks-spark",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/storage/data-lake-storage/abfs-driver.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-abfs-driver",
       "redirect_document_id": false
@@ -34857,6 +34862,11 @@
     {
       "source_path_from_root": "/articles/storage/common/monitor-storage.md",
       "redirect_url": "/azure/storage/blobs/monitor-blob-storage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/recursive-access-control-lists.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-access-control#set-access-control-lists",
       "redirect_document_id": true
     },
     {
