@@ -1,5 +1,5 @@
 ---
-title: Deploy a Trusted Launch VM using PowerShell
+title: Preview: Deploy a Trusted Launch VM using PowerShell
 description: Deploy a VM that uses Trusted Launch by using Azure PowerShell. 
 author: cynthn
 ms.author: cynthn
@@ -11,8 +11,9 @@ ms.custom: template-how-to
 ---
 
 
-# Deploy a VM with Trusted Launch enabled using Azure PowerShell
+# Deploy a VM with Trusted Launch enabled using Azure PowerShell (preview)
 
+Azure offers [Trusted Launch](trusted-launch.md) as a seamless way to bolster the security of generation 2 VMs. Designed to protect against advanced and persistent attack techniques, Trusted Launch is comprised of several infrastructure technologies, including vTPM and secure boot.
 
 ## Prerequisites
 
@@ -20,8 +21,9 @@ Trusted Launch requires Azure PowerShell version x.x.x.
 
 ## Create a Linux VM
 
-$resourceGroupName = myResourceGroup
+$resourceGroupName = "myResourceGroup"
 $location = "East US"
+$vmName = "myVM"
 
 # Define a credential object
 $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
@@ -30,19 +32,40 @@ $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $secu
 # Create a virtual machine configuration
 $vmConfig = New-AzVMConfig `
   -VMName "myVM" `
-  -VMSize "Standard_D1" | `
+  -VMSize "Standard_B1s" | `
 Set-AzVMOperatingSystem `
   -Linux `
-  -ComputerName "myVM" `
+  -ComputerName $vmName `
   -Credential $cred `
-  -DisablePasswordAuthentication | `
+  -DisablePasswordAuthentication 
+  -ProvisionVMAgent `
+  -EnableAutoUpdate | `
 Set-AzVMSourceImage `
   -PublisherName "Canonical" `
   -Offer "UbuntuServer" `
   -Skus "18.04-LTS" `
   -Version "latest" | `
-Add-AzVMNetworkInterface `
-  -Id $nic.Id
+Set-AzVmUefi `
+  -VM $vm 
+  -EnableVtpm $vtpm `
+  -EnableSecureBoot $secureboot 
+
+New-AzResourceGroup -Name $resourceGroup -Location $location
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
+   -Name mySubnet -AddressPrefix 192.168.1.0/24
+$vnet = New-AzVirtualNetwork -ResourceGroupName $resourceGroup `
+   -Location $location -Name MYvNET -AddressPrefix 192.168.0.0/16 `
+   -Subnet $subnetConfig
+$pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 3389 -Access Allow
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+
 
 # Configure the SSH key
 $sshPublicKey = cat ~/.ssh/id_rsa.pub
@@ -50,11 +73,8 @@ Add-AzVMSshPublicKey `
   -VM $vmconfig `
   -KeyData $sshPublicKey `
   -Path "/home/azureuser/.ssh/authorized_keys"
-```
 
-Now, combine the previous configuration definitions to create with [New-AzVM](/powershell/module/az.compute/new-azvm):
-
-```azurepowershell-interactive
+# Create the VM
 New-AzVM `
   -ResourceGroupName "myResourceGroup" `
   -Location eastus -VM $vmConfig
@@ -101,7 +121,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $l
 $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
-# Create a virtual machine configuration and set this to be a Spot VM
+# Create a virtual machine configuration and set it to use Trusted Launch
 
 $vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1  | `
 Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `

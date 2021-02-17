@@ -1,5 +1,5 @@
 ---
-title: Trusted Launch for Azure VMs
+title: Preview: Trusted Launch for Azure VMs
 description: Learn about Trusted Launch for Azure virtual machines.
 author: cynthn
 ms.author: cynthn
@@ -11,7 +11,7 @@ ms.reviewer:
 ms.custom: template-concept
 ---
 
-# Trusted Launch for Azure virtual machines
+# Trusted Launch for Azure virtual machines (preview)
 
 Azure offers Trusted Launch as a seamless way to bolster the security of generation 2 VMs. Designed to protect against advanced and persistent attack techniques, Trusted Launch is comprised of several, coordinated infrastructure technologies.
 The underlying principle   behind Trusted Launch is ease of use. Each of the features above can be enabled independently of the others, usually with just a few clicks. Each provides an additional layer of defense against sophisticated threat actors.
