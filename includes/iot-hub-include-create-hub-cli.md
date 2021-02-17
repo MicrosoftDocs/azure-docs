@@ -13,7 +13,7 @@ In the following sections, you set up a terminal and use Azure CLI to create an 
 * To use a local terminal, skip the next section and go to [Open a local terminal](#open-a-local-terminal).
 
 ## Launch the Cloud Shell
-In this section you create a Cloud Shell session and configure your terminal environment.
+In this section, you create a Cloud Shell session and configure your terminal environment.
 
 Sign in to the Azure portal at https://portal.azure.com.  
 
@@ -26,7 +26,7 @@ To launch the Cloud Shell:
     > [!NOTE]
     > If this is the first time you've used the Cloud Shell, it prompts you to create storage, which is required to use the Cloud Shell.  Select a subscription to create a storage account and Microsoft Azure Files share. 
 
-2. Select your preferred CLI environment in the **Select environment** dropdown. This quickstart uses the **Bash** environment. All the following CLI commands work in the PowerSell environment too. 
+2. Select your preferred CLI environment in the **Select environment** dropdown. This quickstart uses the **Bash** environment. All the following CLI commands work in the PowerShell environment too. 
 
     ![Select CLI environment](media/iot-hub-include-create-hub-cli/cloud-shell-environment.png)
 
@@ -55,7 +55,7 @@ If you chose to use a local terminal rather than Cloud Shell, complete this sect
 1. Go to the next section: [Install the Azure IoT Extension](#install-the-azure-iot-extension). 
 
 ## Install the Azure IoT Extension
-In this section you install the Microsoft Azure IoT Extension for Azure CLI to your CLI shell. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+In this section, you install the Microsoft Azure IoT Extension for Azure CLI to your CLI shell. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
 > [!IMPORTANT]
 > The terminal commands in the rest of this quickstart work the same in Cloud Shell or a local terminal. To run a command, select **Copy** to copy a block of code in this quickstart. Then paste it into your CLI shell and run it.
