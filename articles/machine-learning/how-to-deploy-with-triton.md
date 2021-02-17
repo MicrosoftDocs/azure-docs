@@ -48,7 +48,7 @@ Before attempting to use Triton for your own model, it's important to understand
 
 **Deploying with Triton directly**
 
-* Requests go 
+* Requests go directly to the Triton server.
 * Triton processes requests in batches to maximize GPU utilization.
 * The client uses the __Triton URI__ to make requests. For example, `https://myservice.azureml.net/v2/models/${MODEL_NAME}/versions/${MODEL_VERSION}/infer`.
 
@@ -135,6 +135,14 @@ For more information, see the documentation for the [Model class](/python/api/az
 
 ### Deploy your model
 
+# [Azure CLI](#tab/azure-cli)
+
+If you have a GPU-enabled Azure Kubernetes Service cluster called "aks-gpu" created through Azure Machine Learning, you can use the following command to deploy your model.
+
+```azurecli
+az ml model deploy -n triton-webservice -m triton_model:1 --dc deploymentconfig.json --compute-target aks-gpu
+```
+
 # [Python](#tab/python)
 
 ```python
@@ -160,14 +168,6 @@ service = Model.deploy(
     overwrite=True,
 )
 ```
-
-# [Azure CLI](#tab/azure-cli)
-
-If you have a GPU-enabled Azure Kubernetes Service cluster called "aks-gpu" created through Azure Machine Learning, you can use the following command to deploy your model.
-
-```azurecli
-az ml model deploy -n triton-webservice -m triton_model:1 --dc deploymentconfig.json --compute-target aks-gpu
-```
 ---
 
 See [this documentation for more details on deploying models](how-to-deploy-and-where.md).
@@ -176,7 +176,12 @@ See [this documentation for more details on deploying models](how-to-deploy-and-
 
 First, get your scoring URI and Bearer tokens.
 
+# [Azure CLI](#tab/azure-cli)
 
+
+```azurecli
+az ml service show --name=triton-webservice
+```
 # [Python](#tab/python)
 
 ```python
@@ -187,12 +192,6 @@ print(service.get_keys())
 
 ```
 
-# [Azure CLI](#tab/azure-cli)
-
-
-```azurecli
-az ml service show --name=triton-webservice
-```
 ---
 
 Then, ensure your service is running by doing: 
@@ -274,6 +273,19 @@ An inference configuration allows you use an entry script, as well as the Azure 
 >
 > The Python code example clones `AzureML-Triton` into another environment called `My-Triton`. The Azure CLI code also uses this environment. For more information on cloning an environment, see the [Environment.Clone()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-) reference.
 
+# [Azure CLI](#tab/azure-cli)
+
+> [!TIP]
+> For more information on creating an inference configuration, see the [inference configuration schema](./reference-azure-machine-learning-cli.md#inference-configuration-schema).
+
+```azurecli
+az ml model deploy -n triton-densenet-onnx \
+-m densenet_onnx:1 \
+--ic inference-config.json \
+-e My-Triton --dc deploymentconfig.json \
+--overwrite --compute-target=aks-gpu
+```
+
 # [Python](#tab/python)
 
 ```python
@@ -312,19 +324,6 @@ print(local_service.state)
 print(local_service.scoring_uri)
 ```
 
-# [Azure CLI](#tab/azure-cli)
-
-> [!TIP]
-> For more information on creating an inference configuration, see the [inference configuration schema](./reference-azure-machine-learning-cli.md#inference-configuration-schema).
-
-```azurecli
-az ml model deploy -n triton-densenet-onnx \
--m densenet_onnx:1 \
---ic inference-config.json \
--e My-Triton --dc deploymentconfig.json \
---overwrite --compute-target=aks-gpu
-```
-
 ---
 
 After deployment completes, the scoring URI is displayed. For this local deployment, it will be `http://localhost:6789/score`. If you deploy to the cloud, you can use the [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI command to get the scoring URI.
@@ -346,17 +345,19 @@ This will tell Azure ML to spin up the number of workers you specify.
 
 If you plan on continuing to use the Azure Machine Learning workspace, but want to get rid of the deployed service, use one of the following options:
 
-# [Python](#tab/python)
-
-```python
-local_service.delete()
-```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az ml service delete -n triton-densenet-onnx
 ```
+# [Python](#tab/python)
+
+```python
+local_service.delete()
+```
+
+
 ---
 
 ## Next steps
