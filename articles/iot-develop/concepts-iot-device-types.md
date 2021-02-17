@@ -35,12 +35,12 @@ Below is a table showing some of the defining differences between an MCU and an 
 
 ||Microcontroller (MCU)|Microprocessor (MPU)|
 |-|-|-|
-|**CPU**|<span style="color:red">Less</span>|<span style="color:green">More</span>|
-|**RAM**|<span style="color:red">Less</span>|<span style="color:green">More</span>|
-|**Flash**|<span style="color:red">Less</span>|<span style="color:green">More</span>|
-|**OS**|<span style="color:red">No or RTOS</span>|<span style="color:green">General Purpose</span>|
-|**Development Difficulty**|<span style="color:red">Harder</span>|<span style="color:green">Easier</span>|
-|**Power Consumption**|<span style="color:green">Lower</span>|<span style="color:red">Higher</span>|
-|**Cost**|<span style="color:green">Lower</span>|<span style="color:red">Higher</span>|
-|**Deterministic**|<span style="color:green">Yes</span>|<span style="color:red">No</span> - with exceptions|
-|**Device Size**|<span style="color:green">Smaller</span>|<span style="color:red">Larger</span>|
+|**CPU**| Less | More |
+|**RAM**| Less | More |
+|**Flash**| Less | More |
+|**OS**| No or RTOS | General Purpose |
+|**Development Difficulty**| Harder |  Easier |
+|**Power Consumption**| Lower | Higher |
+|**Cost**| Lower | Higher |
+|**Deterministic**| Yes | No  - with exceptions|
+|**Device Size**| Smaller | Larger |

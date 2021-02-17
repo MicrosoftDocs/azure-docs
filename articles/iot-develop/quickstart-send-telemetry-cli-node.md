@@ -19,7 +19,8 @@ In this quickstart, you learn a basic IoT device application development workflo
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Azure CLI. You can run all commands in this quickstart using the Azure Cloud Shell, an interactive CLI shell that runs in your browser. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this quickstart requires Azure CLI version 2.0.76 or later. Run az --version to find the version. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 - [Node.js 10+](https://nodejs.org). If you are using the Azure Cloud Shell, do not update the installed version of Node.js. The Azure Cloud Shell already has the latest Node.js version.
-    - **Note: You can verify the current version of Node.js on your development machine using the following command:**
+
+    Verify the current version of Node.js on your development machine by using the following command:
 
     ```cmd/sh
         node --version
