@@ -92,14 +92,18 @@ Application Insights is recommended for monitoring your function apps. The Appli
         },
 ```
 
-In addition, the instrumentation key needs to be provided to the function app using the `APPINSIGHTS_INSTRUMENTATIONKEY` application setting. This property is specified in the `appSettings` collection in the `siteConfig` object:
+In addition, the instrumentation key needs to be provided to the function app using the `APPINSIGHTS_INSTRUMENTATIONKEY` application setting and the connectiong string needs to be set to `APPLICATIONINSIGHTS_CONNECTION_STRING`. This property is specified in the `appSettings` collection in the `siteConfig` object:
 
 ```json
 "appSettings": [
     {
         "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
         "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
-    }
+    },
+    {
+        "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+        "value": "[reference(concat('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').ConnectionString]"
+    },
 ]
 ```
 
@@ -328,6 +332,28 @@ A Premium plan is a special type of "serverfarm" resource. You can specify it by
 }
 ```
 
+To run your app on Linux, you must also set the `kind` to `Linux` and the `reserved` to `true`:
+
+```json
+{
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2018-02-01",
+    "name": "[variables('hostingPlanName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "elastic",
+    "sku": {
+        "name": "S1",
+        "tier": "Standard",
+        "size": "S1",
+        "family": "S",
+        "capacity": 1
+    },
+    "properties": {
+        "reserved": true
+    }
+}
+```
+
 ### Create a function app
 
 A function app on a Premium plan must have the `serverFarmId` property set to the resource ID of the plan created earlier. In addition, a Premium plan requires an additional setting in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). This property configures the storage account where the function app code and configuration are stored.
@@ -338,7 +364,7 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
     "type": "Microsoft.Web/sites",
     "name": "[variables('functionAppName')]",
     "location": "[resourceGroup().location]",
-    "kind": "functionapp",            
+    "kind": "functionapp",
     "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
@@ -373,7 +399,9 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
 }
 ```
 > [!IMPORTANT]
-> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting as it's generated for you when the site is first created.  
+> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting as it's generated for you when the site is first created.
+
+Linux apps should also set the `kind` to `functionapp,linux` and include a `linuxFxVersion` property under `siteConfig`.
 
 <a name="app-service-plan"></a>
 
@@ -403,7 +431,7 @@ An App Service plan is defined by a "serverfarm" resource.
 }
 ```
 
-To run your app on Linux, you must also set the `kind` to `Linux`:
+To run your app on Linux, you must also set the `kind` to `Linux` and the `reserved` to `true`:
 
 ```json
 {
@@ -418,6 +446,9 @@ To run your app on Linux, you must also set the `kind` to `Linux`:
         "size": "S1",
         "family": "S",
         "capacity": 1
+    },
+    "properties": {
+        "reserved": true
     }
 }
 ```
@@ -463,7 +494,7 @@ A function app on an App Service plan must have the `serverFarmId` property set 
 }
 ```
 
-Linux apps should also include a `linuxFxVersion` property under `siteConfig`. If you are just deploying code, the value for this is determined by your desired runtime stack in the format of ```runtime|runtimeVersion```:
+Linux apps should also set the `kind` to `functionapp,linux` and include a `linuxFxVersion` property under `siteConfig`. If you are just deploying code, the value for this is determined by your desired runtime stack in the format of ```runtime|runtimeVersion```:
 
 | Stack            | Example value                                         |
 |------------------|-------------------------------------------------------|
@@ -477,7 +508,7 @@ Linux apps should also include a `linuxFxVersion` property under `siteConfig`. I
     "type": "Microsoft.Web/sites",
     "name": "[variables('functionAppName')]",
     "location": "[resourceGroup().location]",
-    "kind": "functionapp",
+    "kind": "functionapp,linux",
     "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
