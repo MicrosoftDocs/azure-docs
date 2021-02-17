@@ -37,7 +37,17 @@ If you **don't set a preferred region**, the SDK client defaults to the primary 
 | Multiple write regions | Primary region  | Primary region  |
 
 > [!NOTE]
-> Primary region refers to the first region in the [Azure Cosmos account region list](distribute-data-globally.md)
+> Primary region refers to the first region in the [Azure Cosmos account region list](distribute-data-globally.md).
+> If the values specified as regional preference do not match with any existing Azure regions, they will be ignored. If they match an existing region but the account is not replicated to it, then the client will connect to the next preferred region that matches or to the primary region.
+
+> [!WARNING]
+> Disabling the endpoint rediscovery (that is setting it to false) on the client configuration will disable all failover and availability logic described in this document.
+> This configuration can be accessed by the following parameters in each Azure Cosmos SDK:
+>
+> * The [ConnectionPolicy.EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) property in .NET V2 SDK.
+> * The [CosmosClientBuilder.endpointDiscoveryEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) method in Java V4 SDK.
+> * The [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parameter in Python SDK.
+> * The [CosmosClientOptions.ConnectionPolicy.enableEndpointDiscovery](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) parameter in JS SDK.
 
 Under normal circumstances, the SDK client will connect to the preferred region (if a regional preference is set) or to the primary region (if no preference is set), and the operations will be limited to that region, unless any of the below scenarios occur.
 
@@ -53,7 +63,7 @@ For a comprehensive detail on SLA guarantees during these events, see the [SLAs 
 
 ## <a id="remove-region"></a>Removing a region from the account
 
-When you remove a region from an Azure Cosmos account, any SDK client that actively uses the account will detect the region removal through a backend response code. The client then marks the regional endpoint as unavailable. The client retries the current operation and all the future operations are permanently routed to the next region in order of preference.
+When you remove a region from an Azure Cosmos account, any SDK client that actively uses the account will detect the region removal through a backend response code. The client then marks the regional endpoint as unavailable. The client retries the current operation and all the future operations are permanently routed to the next region in order of preference. In case the preference list only had one entry (or was empty) but the account has other regions available, it will route to the next region in the account list.
 
 ## Adding a region to an account
 
