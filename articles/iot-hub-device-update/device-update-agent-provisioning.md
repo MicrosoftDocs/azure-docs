@@ -38,7 +38,7 @@ If you run into issues, review the Device Update for IoT Hub [Troubleshooting Gu
 
 ## Next Steps
 
-To get started ensure that your devices are running the Device Update Agent. Use below pre-built images and binaries for an easy demonstration of Device Update for IoT Hub.  
+Use below pre-built images and binaries for an easy demonstration of Device Update for IoT Hub.  
 
 [Image Update: Getting Started with Raspberry Pi 3 B+ Reference Yocto Image](device-update-raspberry-pi.md)
 
