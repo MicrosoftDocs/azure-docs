@@ -71,7 +71,7 @@ An Azure account with an active subscription. [Create an account for free](https
 1. Select **Review + Create** to get your Front Door profile up and running.
 
    > [!NOTE]
-    It may take a few mins for the configurations to be propagated to all edge POPs.
+   > It may take a few mins for the configurations to be propagated to all edge POPs.
 
 1. Then click **Create** to get your Front Door profile deployed and running.
 
@@ -149,7 +149,7 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
     
     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-endpoint.png" alt-text="Screenshot of add an endpoint.":::
 
-1. Add a custom domain in  management experience.
+1. Add a custom domain in the management experience.
 
 1. Next, add an Origin Group that contains your two web apps. Select **+** to open **Add an origin group**. For Name, enter *myOrignGroup*, then select **Add an origin**.
  
@@ -196,7 +196,7 @@ Configure Azure Front Door Standard/Premium (Preview) to direct user traffic bas
        
 
     >[!WARNING]
-    > You **must** ensure that there is a route for each endpoint. Failing to do so may result in endpoint not work.
+    > **Ensure** that there is a route for each endpoint. An absence of a route can cause an endpoint to fail.
 
     Select **Add**.
 
