@@ -1,0 +1,235 @@
+---
+title: Connect Azure Functions to Azure Cosmos DB using Visual Studio Code 
+description: Learn how to connect Azure Functions to an Azure Cosmos DB account by adding an output binding to your Visual Studio Code project. 
+author: ThomasWeiss
+ms.date: 02/16/2020
+ms.topic: quickstart
+ms.author: thweiss
+zone_pivot_groups: programming-languages-set-functions
+---
+
+# Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
+
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
+
+This article shows you how to use Visual Studio Code to connect [Azure Cosmos DB](../cosmos-db/introduction.md) to the function you created in the previous quickstart article. The output binding that you add to this function writes data from the HTTP request to a JSON document stored in an Azure Cosmos DB container. 
+
+::: zone pivot="programming-language-csharp"
+Before you start, make sure to complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-csharp.md).
+::: zone-end
+
+## Create your Azure Cosmos DB account
+
+1. In a new browser window, sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Click **Create a resource** > **Databases** > **Azure Cosmos DB**.
+   
+   ![The Azure portal Databases pane](../../includes/media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+
+3. In the **Create Azure Cosmos DB Account** page, enter the settings for your new Azure Cosmos DB account. 
+ 
+    Setting|Value|Description
+    ---|---|---
+    Subscription|*Your subscription*|Choose the Azure subscription where you created your Function App in the [previous article](./create-first-function-vs-code-csharp.md).
+    Resource Group|Create new<br><br>*Enter a unique name*|Choose the resource group where you created your Function App in the [previous article](./create-first-function-vs-code-csharp.md).
+    Account Name|*Enter a unique name*|Enter a unique name to identify your Azure Cosmos DB account.<br><br>The account name can use only lowercase letters, numbers, and hyphens (-), and must be between 3 and 31 characters long.
+    API|Core (SQL)|Select **Core (SQL)** to create a document database that you can query by using a SQL syntax. [Learn more about the SQL API](../cosmos-db/introduction.md).|
+    Location|*Select the region closest to your location*|Select a geographic location to host your Azure Cosmos DB account. Use the location that's closest to you or your users to get the fastest access to your data.
+    Capacity mode|Serverless or Provisioned throughput|Select **Serverless** to create an account in [serverless](../articles/cosmos-db/serverless.md) mode. Select **Provisioned throughput** to create an account in [provisioned throughput](../articles/cosmos-db/set-throughput.md) mode.<br><br>It is advised to choose **Serverless** if you're getting started with Azure Cosmos DB.
+
+4. Click **Review + create**. You can skip the **Network** and **Tags** section. 
+
+5. Review the summary information and click **Create**. 
+
+6. Wait for your new Azure Cosmos DB to be created, then select **Go to resource**.
+
+   ![The creation of the Azure Cosmos DB account is complete](../cosmos-db/media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png)
+
+7. Select **Keys** from the left menu and copy the **Primary connection string**.
+
+   ![Creating a new Azure Cosmos DB container from the Azure portal](./media/functions-add-output-binding-cosmos-db-vs-code/copy-connection-string.png)
+
+## Create an Azure Cosmos DB database and container
+
+From your Azure Cosmos DB account, select **Data Explorer**, then **New Container**. Create a new database named *my-database*, a new container named *my-container* and choose `/id` as the [partition key](../cosmos-db/partitioning-overview.md).
+
+![Creating a new Azure Cosmos DB container from the Azure portal](./media/functions-add-output-binding-cosmos-db-vs-code/create-container.png)
+
+## Update your function app settings
+
+In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure. In this article, you write JSON documents in the Azure Cosmos DB container you've created above. To connect to your Azure Cosmos DB account, you must add its connection string to your app settings. 
+
+1. Press the F1 key to open the command palette, then search for and run the command `Azure Functions: Add New Setting...`.
+
+1. Choose the function app you created in the previous article.
+
+1. Provide the following information at the prompts:
+
+    + **Enter new app setting name**: Type `CosmosDbConnectionString`.
+
+    + **Enter value for "CosmosDbConnectionString"**: Paste the connection string of your Azure Cosmos DB account, as copied earlier.
+
+1. Press the F1 key again to open the command palette, then search for and run the command `Azure Functions: Download Remote Settings...`. 
+
+1. Choose the function app you created in the previous article. Select **Yes to all** to overwrite the existing local settings. 
+
+## Register binding extensions
+
+Because you're using an Azure Cosmos DB output binding, you must have the corresponding bindings extension installed before you run the project. 
+
+::: zone pivot="programming-language-csharp"
+
+With the exception of HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Storage extension package to your project.
+
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB
+```
+
+::: zone-end
+
+Now, you can add the Azure Cosmos DB output binding to your project.
+
+## Add an output binding
+
+In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. The way you define these attributes depends on the language of your function app.
+
+::: zone pivot="programming-language-csharp"
+
+In a C# class library project, the bindings are defined as binding attributes on the function method. The *function.json* file required by Functions is then auto-generated based on these attributes.
+
+Open the *HttpExample.cs* project file and add the following parameter to the `Run` method definition:
+
+```csharp
+[CosmosDB(
+    databaseName: "my-database",
+    collectionName: "my-container",
+    ConnectionStringSetting = "CosmosDbConnectionString")]IAsyncCollector<dynamic> documentsOut,
+```
+
+The `documentsOut` parameter is an IAsyncCollector<T> type, which represents a collection of JSON documents that will be written to your Azure Cosmos DB container when the function completes. Specific attributes specifies the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `ConnectionStringSettingAttribute`.
+
+The Run method definition should now look like the following:  
+
+```csharp
+[FunctionName("HttpExample")]
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+    [CosmosDB(
+        databaseName: "my-database",
+        collectionName: "my-container",
+        ConnectionStringSetting = "CosmosDbConnectionString")]IAsyncCollector<dynamic> documentsOut,
+    ILogger log)
+```
+
+::: zone-end
+
+## Add code that uses the output binding
+
+::: zone pivot="programming-language-csharp"  
+
+Add code that uses the `documentsOut` output binding object to create a JSON document. Add this code before the method returns.
+
+```csharp
+if (!string.IsNullOrEmpty(name))
+{
+    // Add a JSON document to the output container.
+    await documentsOut.AddAsync(new
+    {
+        id = System.Guid.NewGuid().ToString(),
+        name = name
+    });
+}
+```
+
+At this point, your function should look as follows:
+
+```csharp
+[FunctionName("HttpExample")]
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+    [CosmosDB(
+        databaseName: "my-database",
+        collectionName: "my-container",
+        ConnectionStringSetting = "CosmosDbConnectionString")]IAsyncCollector<dynamic> documentsOut,
+    ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    string name = req.Query["name"];
+
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    dynamic data = JsonConvert.DeserializeObject(requestBody);
+    name = name ?? data?.name;
+
+    if (!string.IsNullOrEmpty(name))
+    {
+        // Add a JSON document to the output container.
+        await documentsOut.AddAsync(new
+        {
+            id = System.Guid.NewGuid().ToString(),
+            name = name
+        });
+    }
+
+    string responseMessage = string.IsNullOrEmpty(name)
+        ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
+        : $"Hello, {name}. This HTTP triggered function executed successfully.";
+
+    return new OkObjectResult(responseMessage);
+}
+```
+
+::: zone-end  
+
+## Run the function locally
+
+1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. 
+
+1. With Core Tools running, go to the **Azure: Functions** area. Under **Functions**, expand **Local Project** > **Functions**. Right-click (Ctrl-click on Mac) the `HttpExample` function and choose **Execute Function Now...**.
+
+    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Execute function now from Visual Studio Code":::
+
+1. In **Enter request body** you see the request message body value of `{ "name": "Azure" }`. Press Enter to send this request message to your function.  
+ 
+1. After a response is returned, press <kbd>Ctrl + C</kbd> to stop Core Tools.
+
+### Verify that a JSON document has been created
+
+1. On the Azure portal, go back to your Azure Cosmos DB account and select **Data Explorer**.
+
+1. Expand your database and container, and select **Items** to list the documents created in your container.
+
+1. Verify that a new JSON document has been created by the output binding.
+
+   ![Verifying that a new document has been created in the Azure Cosmos DB container](./media/functions-add-output-binding-cosmos-db-vs-code/verify-output.png)
+
+## Redeploy and verify the updated app
+
+1. In Visual Studio Code, press F1 to open the command palette. In the command palette, search for and select `Azure Functions: Deploy to function app...`.
+
+1. Choose the function app that you created in the first article. Because you're redeploying your project to the same app, select **Deploy** to dismiss the warning about overwriting files.
+
+1. After deployment completes, you can again use the **Execute Function Now...** feature to trigger the function in Azure.
+
+1. Again [check the documents created in your Azure Cosmos DB container](#verify-that-a-json-document-has-been-created) to verify that the output binding again generates a new JSON document.
+
+## Clean up resources
+
+In Azure, *resources* refer to function apps, functions, storage accounts, and so forth. They're grouped into *resource groups*, and you can delete everything in a group by deleting the group.
+
+You created resources to complete these quickstarts. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
+
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
+
+## Next steps
+
+You've updated your HTTP triggered function to write JSON documents to an Azure Cosmos DB container. Now you can learn more about developing Functions using Visual Studio Code:
+
++ [Develop Azure Functions using Visual Studio Code](functions-develop-vs-code.md)
+
++ [Azure Functions triggers and bindings](functions-triggers-bindings.md).
+::: zone pivot="programming-language-csharp"  
++ [Examples of complete Function projects in C#](/samples/browse/?products=azure-functions&languages=csharp).
+
++ [Azure Functions C# developer reference](functions-dotnet-class-library.md)  
+::: zone-end 
