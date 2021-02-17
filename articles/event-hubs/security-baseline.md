@@ -4,7 +4,7 @@ description: The Event Hubs security baseline provides procedural guidance and r
 author: msmbaldwin
 ms.service: event-hubs
 ms.topic: conceptual
-ms.date: 01/01/2000
+ms.date: 02/16/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -26,17 +26,11 @@ To see how Event Hubs completely maps to the Azure
 Security Benchmark, see the [full Event Hubs security baseline mapping
 file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
->[!WARNING]
->This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
-
 ## Network Security
 
 *For more information, see the [Azure Security Benchmark: Network Security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3073).
 
 **Guidance**: The integration of Azure Event Hubs with virtual network service endpoints enables secure access to messaging capabilities from workloads such as virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends.
 
@@ -64,9 +58,6 @@ Microsoft.EventHub:
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3074).
-
 **Guidance**: Use Azure Security Center and follow network protection recommendations to help secure your Event Hubs resources in Azure. If using Azure virtual machines to access your event hubs, enable network security group flow logs and send logs into a storage account for traffic audit.
 
 - [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
@@ -77,24 +68,7 @@ Microsoft.EventHub:
 
 **Azure Security Center monitoring**: None
 
-### 1.3: Protect critical web applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3075).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ### 1.4: Deny communications with known-malicious IP addresses
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3076).
 
 **Guidance**: Enable DDoS Protection Standard on the virtual networks associated with your event hubs to guard against distributed denial-of-service (DDoS) attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
@@ -107,9 +81,6 @@ Microsoft.EventHub:
 **Azure Security Center monitoring**: None
 
 ### 1.5: Record network packets
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3077).
 
 **Guidance**: If using Azure virtual machines to access your event hubs, enable network security group flow logs and send logs into a storage account for traffic audit. You may also send network security group flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
@@ -127,9 +98,6 @@ If required for investigating anomalous activity, enable Network Watcher packet 
 
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3078).
-
 **Guidance**: If using Azure virtual machines to access your event hubs, select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities. If intrusion detection and/or prevention based on payload inspection is not required for your organization, you may use Azure Event Hubs' built-in firewall feature. You can limit access to your Event Hubs namespace for a limited range of IP addresses, or a specific IP address by using Firewall rules.
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
@@ -140,38 +108,7 @@ If required for investigating anomalous activity, enable Network Watcher packet 
 
 **Azure Security Center monitoring**: None
 
-### 1.7: Manage traffic to web applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3079).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### 1.8: Minimize complexity and administrative overhead of network security rules
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3080).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ### 1.9: Maintain standard security configurations for network devices
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3081).
 
 **Guidance**: Define and implement standard security configurations for network resources associated with your Azure Event Hubs namespaces with Azure Policy. Use Azure Policy aliases in the **Microsoft.EventHub** and **Microsoft.Network** namespaces to create custom policy definitions to audit or enforce the network configuration of your Event Hubs namespaces. You can also make use of built-in policy definitions related to Azure Event Hubs, such as:
 
@@ -193,9 +130,6 @@ Additional information is available at the referenced links.
 
 ### 1.10: Document traffic configuration rules
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3082).
-
 **Guidance**: Use tags for virtual networks and other resources related to network security and traffic flow that are associated with your event hubs.
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
@@ -205,9 +139,6 @@ Additional information is available at the referenced links.
 **Azure Security Center monitoring**: None
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3083).
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to Azure Event Hubs. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
@@ -223,24 +154,7 @@ Additional information is available at the referenced links.
 
 *For more information, see the [Azure Security Benchmark: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
-### 2.1: Use approved time synchronization sources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3084).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Microsoft maintains the time source used for Azure resources, such as Azure Event Hubs, for timestamps in the logs.
-
-**Responsibility**: Microsoft
-
-**Azure Security Center monitoring**: None
-
 ### 2.2: Configure central security log management
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3085).
 
 **Guidance**: Within Azure Monitor, configure logs related to event hubs within the Activity Log and Event Hub diagnostic settings to send logs into a Log Analytics workspace to be queried or into a storage account for long-term archival storage.
 
@@ -253,9 +167,6 @@ Additional information is available at the referenced links.
 **Azure Security Center monitoring**: None
 
 ### 2.3: Enable audit logging for Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3086).
 
 **Guidance**: Enable Diagnostic settings for your Azure Event Hubs namespace. There are three categories of Diagnostic settings for Azure Event Hubs: Archive Logs, Operational Logs, and AutoScale Logs. Enable Operational Logs to capture information about what is happening during Event Hubs operations, specifically, the operation type, including event hub creation, resources used, and the status of the operation.
 
@@ -275,24 +186,7 @@ Microsoft.EventHub:
 
 [!INCLUDE [Resource Policy for Microsoft.EventHub 2.3](../../includes/policy/standards/asb/rp-controls/microsoft.eventhub-2-3.md)]
 
-### 2.4: Collect security logs from operating systems
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3087).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ### 2.5: Configure security log storage retention
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3088).
 
 **Guidance**: Within Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations to capture and review event hub-related incidents.
 
@@ -303,9 +197,6 @@ Microsoft.EventHub:
 **Azure Security Center monitoring**: None
 
 ### 2.6: Monitor and review logs
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3089).
 
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results related to your event hubs. Use Azure Monitor's Log Analytics to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third-party system information and event management solution.
 
@@ -320,9 +211,6 @@ Microsoft.EventHub:
 **Azure Security Center monitoring**: None
 
 ### 2.7: Enable alerts for anomalous activities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3090).
 
 **Guidance**: Within Azure Monitor, configure logs related to Azure Event Hubs within the Activity Log, and Event Hubs diagnostic settings to send logs into a Log Analytics workspace to be queried or into a storage account for long-term archival storage. Use Log Analytics workspace to create alerts for anomalous activity found in security logs and events.
 
@@ -340,56 +228,11 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 **Azure Security Center monitoring**: None
 
-### 2.8: Centralize anti-malware logging
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3091).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Event Hub does not process anti-malware logging.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### 2.9: Enable DNS query logging
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3092).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Event Hubs does not process or produce DNS-related logs.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### 2.10: Enable command-line audit logging
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3093).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this guideline is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ## Identity and Access Control
 
 *For more information, see the [Azure Security Benchmark: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3094).
 
 **Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
@@ -403,9 +246,6 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 ### 3.2: Change default passwords where applicable
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3095).
-
 **Guidance**: Control plane access to Event Hubs is controlled through Azure Active Directory (Azure AD). Azure AD does not have the concept of default passwords.
 
 Data plane access to Event Hubs is controlled through Azure AD with Managed Identities or App registrations as well as shared access signatures. Shared access signatures are used by the clients connecting to your event hubs and can be regenerated at any time.
@@ -417,9 +257,6 @@ Data plane access to Event Hubs is controlled through Azure AD with Managed Iden
 **Azure Security Center monitoring**: None
 
 ### 3.3: Use dedicated administrative accounts
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3096).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
 
@@ -443,9 +280,6 @@ Additional information is available at the referenced links.
 
 ### 3.4: Use Azure Active Directory single sign-on (SSO)
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3097).
-
 **Guidance**: Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (Azure AD). A key advantage of using Azure AD with Azure Event Hubs is that you don't need to store your credentials in the code anymore. Instead, you can request an OAuth 2.0 access token from the Microsoft Identity platform. The resource name to request a token is https:\//eventhubs.azure.net/. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If the authentication succeeds, Azure AD returns an access token to the application, and the application can then use the access token to authorize request to Azure Event Hubs resources.
 
 - [How to authenticate an application with Azure AD to access Event Hubs resources](authenticate-application.md)
@@ -457,9 +291,6 @@ Additional information is available at the referenced links.
 **Azure Security Center monitoring**: None
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3098).
 
 **Guidance**: Enable Azure Active Directory (Azure AD) multifactor authentication and follow Azure Security Center Identity and access management recommendations to help protect your Event Hub-enabled resources.
 
@@ -473,9 +304,6 @@ Additional information is available at the referenced links.
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3099).
-
 **Guidance**: Use privileged access workstations (PAW) with multifactor authentication configured to log into and configure Event Hub-enabled resources.
 
 - [Learn about Privileged Access Workstations](/security/compass/privileged-access-devices)
@@ -487,9 +315,6 @@ Additional information is available at the referenced links.
 **Azure Security Center monitoring**: None
 
 ### 3.7: Log and alert on suspicious activities from administrative accounts
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3100).
 
 **Guidance**: Use Azure Active Directory (Azure AD) Privileged Identity Management for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure AD risk detections to view alerts and reports on risky user behavior. For additional logging, send Azure Security Center risk detection alerts into Azure Monitor and configure custom alerting/notifications using action groups.
 
@@ -503,9 +328,6 @@ Additional information is available at the referenced links.
 
 ### 3.8: Manage Azure resources from only approved locations
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3101).
-
 **Guidance**: Use Conditional Access Named Locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
 
 - [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
@@ -515,9 +337,6 @@ Additional information is available at the referenced links.
 **Azure Security Center monitoring**: None
 
 ### 3.9: Use Azure Active Directory
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3102).
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for Azure resources such as Event Hubs. This allows for Azure role-based access control (Azure RBAC) to administrative sensitive resources.
 
@@ -530,9 +349,6 @@ Additional information is available at the referenced links.
 **Azure Security Center monitoring**: None
 
 ### 3.10: Regularly review and reconcile user access
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3103).
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
@@ -550,9 +366,6 @@ In addition, regularly rotate your Event Hubs' shared access signatures.
 
 ### 3.11: Monitor attempts to access deactivated credentials
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3104).
-
 **Guidance**: You have access to Azure Active Directory (Azure AD) sign-in activity, audit and risk event log sources, which allow you to integrate with any third-party system information and event management solution or a Monitoring tool.
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.
@@ -566,9 +379,6 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 **Azure Security Center monitoring**: None
 
 ### 3.12: Alert on account sign-in behavior deviation
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3105).
 
 **Guidance**: Use Identity Protection and risk detection features within Azure Active Directory (Azure AD) to configure automated responses to detected suspicious actions related to your Event Hubs-enabled resources. You should enable automated responses through Azure Sentinel to implement your organization's security responses.
 
@@ -584,9 +394,6 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3106).
-
 **Guidance**: Currently not available; Customer Lockbox is not yet supported for Event Hubs.
 
 - [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
@@ -601,9 +408,6 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ### 4.1: Maintain an inventory of sensitive Information
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3107).
-
 **Guidance**: Use tags on resources related to your Event Hubs to assist in tracking Azure resources that store or process sensitive information.
 
 - [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
@@ -613,9 +417,6 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 **Azure Security Center monitoring**: None
 
 ### 4.2: Isolate systems storing or processing sensitive information
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3108).
 
 **Guidance**: Implement separate subscriptions, optionally with management groups for development, test, and production. Event Hubs namespaces should be separated by virtual network with service endpoints enabled and tagged appropriately.
 
@@ -637,9 +438,6 @@ You may also secure your Azure Event Hubs namespace by using firewalls. Azure Ev
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3109).
-
 **Guidance**: When using virtual machines to access your event hubs, make use of virtual networks, service endpoints, Event Hubs firewall, network security groups, and service tags to mitigate the possibility of data exfiltration.
 
 Microsoft manages the underlying infrastructure for Azure Event Hubs and has implemented strict controls to prevent the loss or exposure of customer data.
@@ -658,26 +456,7 @@ Microsoft manages the underlying infrastructure for Azure Event Hubs and has imp
 
 **Azure Security Center monitoring**: None
 
-### 4.4: Encrypt all sensitive information in transit
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3110).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Azure Event Hubs enforces TLS-encrypted communications by default. TLS versions 1.0, 1.1 and 1.2 are currently supported. However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 if at all possible.
-
-- [To understand security features of Event Hubs, see Network security](network-security.md)
-
-**Responsibility**: Microsoft
-
-**Azure Security Center monitoring**: None
-
 ### 4.5: Use an active discovery tool to identify sensitive data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3111).
 
 **Guidance**: Data identification, classification, and loss prevention features are not yet available for Azure Event Hubs. Implement third-party solution if required for compliance purposes.
 
@@ -691,9 +470,6 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.6: Use Role-based access control to control access to resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3112).
-
 **Guidance**: Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize requests to Event Hubs resources. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
 
 - [Understand Azure RBAC and available roles for Azure Event Hubs](authorize-access-azure-active-directory.md)
@@ -702,28 +478,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Azure Security Center monitoring**: None
 
-### 4.7: Use host-based data loss prevention to enforce access control
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3113).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this guideline is intended for compute resources.
-
-Microsoft manages the underlying infrastructure for Event Hubs and has implemented strict controls to prevent the loss or exposure of customer data.
-
-- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ### 4.8: Encrypt sensitive information at rest
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3114).
 
 **Guidance**: Azure Event Hubs supports the option of encrypting data at rest with either Microsoft-managed keys or customer-managed keys. This feature enables you to create, rotate, disable, and revoke access to the customer-managed keys that are used for encrypting Azure Event Hubs data at rest.
 
@@ -735,9 +490,6 @@ Microsoft manages the underlying infrastructure for Event Hubs and has implement
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3115).
-
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Event Hubs and other critical or related resources.
 
 - [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
@@ -746,88 +498,11 @@ Microsoft manages the underlying infrastructure for Event Hubs and has implement
 
 **Azure Security Center monitoring**: None
 
-## Vulnerability Management
-
-*For more information, see the [Azure Security Benchmark: Vulnerability Management](../security/benchmarks/security-control-vulnerability-management.md).*
-
-### 5.1: Run automated vulnerability scanning tools
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3116).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Event Hubs.
-
-**Responsibility**: Microsoft
-
-**Azure Security Center monitoring**: None
-
-### 5.2: Deploy automated operating system patch management solution
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3117).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Microsoft performs patch management on the underlying systems that support Event Hubs.
-
-**Responsibility**: Microsoft
-
-**Azure Security Center monitoring**: None
-
-### 5.3: Deploy automated patch management solution for third-party software titles
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3118).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; benchmark is intended for compute resources.
-
-**Responsibility**: Microsoft
-
-**Azure Security Center monitoring**: None
-
-### 5.4: Compare back-to-back vulnerability scans
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3119).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Event Hubs.
-
-**Responsibility**: Microsoft
-
-**Azure Security Center monitoring**: None
-
-### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3120).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Event Hubs.
-
-**Responsibility**: Microsoft
-
-**Azure Security Center monitoring**: None
-
 ## Inventory and Asset Management
 
 *For more information, see the [Azure Security Benchmark: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3121).
 
 **Guidance**: Use Azure Resource Graph to query and discover all resources (including Azure Event Hubs namespaces) within your subscriptions. Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
@@ -843,9 +518,6 @@ Microsoft manages the underlying infrastructure for Event Hubs and has implement
 
 ### 6.2: Maintain asset metadata
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3122).
-
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
@@ -855,9 +527,6 @@ Microsoft manages the underlying infrastructure for Event Hubs and has implement
 **Azure Security Center monitoring**: None
 
 ### 6.3: Delete unauthorized Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3123).
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure Event Hubs namespaces and related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
@@ -871,24 +540,7 @@ Microsoft manages the underlying infrastructure for Event Hubs and has implement
 
 **Azure Security Center monitoring**: None
 
-### 6.4: Define and maintain inventory of approved Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3124).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources and Azure as a whole.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ### 6.5: Monitor for unapproved Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3125).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 
@@ -906,52 +558,7 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 **Azure Security Center monitoring**: None
 
-### 6.6: Monitor for unapproved software applications within compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3126).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### 6.7: Remove unapproved Azure resources and software applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3127).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources and Azure as a whole.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### 6.8: Use only approved applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3128).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ### 6.9: Use only approved Azure services
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3129).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 
@@ -969,24 +576,7 @@ Additional information is available at the referenced links.
 
 **Azure Security Center monitoring**: None
 
-### 6.10: Maintain an inventory of approved software titles
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4074).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3130).
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
@@ -996,42 +586,11 @@ Additional information is available at the referenced links.
 
 **Azure Security Center monitoring**: None
 
-### 6.12: Limit users' ability to execute scripts within compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3131).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### 6.13: Physically or logically segregate high risk applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3132).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ## Secure Configuration
 
 *For more information, see the [Azure Security Benchmark: Secure Configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3133).
 
 **Guidance**: Define and implement standard security configurations for your Azure Event Hubs deployments. Use Azure Policy aliases in the **Microsoft.EventHub** namespace to create custom policies to audit or enforce configurations. You may also make use of built-in policy definitions for Azure Event Hubs such as:
 
@@ -1051,24 +610,7 @@ Additional information is available at the referenced links.
 
 **Azure Security Center monitoring**: None
 
-### 7.2: Establish secure operating system configurations
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3134).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ### 7.3: Maintain secure Azure resource configurations
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3135).
 
 **Guidance**: Use Azure Policy [deny] and [deploy if not exist] effects to enforce secure settings across your Event Hubs-enabled resources. 
 
@@ -1081,56 +623,7 @@ Additional information is available at the referenced links.
 
 **Azure Security Center monitoring**: None
 
-### 7.4: Maintain secure operating system configurations
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3136).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### 7.5: Securely store configuration of Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3137).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: If using custom Azure Policy definitions for your Event Hubs or related resources, use Azure Repos to securely store and manage your code.
-
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
-
-- [Azure Repos Documentation](/azure/devops/repos)
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
-### 7.6: Securely store custom operating system images
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3138).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ### 7.7: Deploy configuration management tools for Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3139).
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.EventHub" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
@@ -1140,24 +633,7 @@ Additional information is available at the referenced links.
 
 **Azure Security Center monitoring**: None
 
-### 7.8: Deploy configuration management tools for operating systems
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3140).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ### 7.9: Implement automated configuration monitoring for Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3141).
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.EventHub" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatically enforce configurations for your Azure Event Hubs deployments and related resources.
 
@@ -1167,24 +643,7 @@ Additional information is available at the referenced links.
 
 **Azure Security Center monitoring**: None
 
-### 7.10: Implement automated configuration monitoring for operating systems
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3142).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ### 7.11: Manage Azure secrets securely
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3143).
 
 **Guidance**: For Azure virtual machines or web applications running on Azure App Service being used to access your event hubs, use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure shared access signature management for your Azure Event Hubs deployments. Ensure Key Vault is configured with soft-delete enabled.
 
@@ -1204,9 +663,6 @@ Additional information is available at the referenced links.
 
 ### 7.12: Manage identities securely and automatically
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3144).
-
 **Guidance**: For Azure virtual machines or web applications running on Azure App Service being used to access your event hubs, use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure Azure Event Hubs. Ensure Key Vault is configured with soft-delete enabled.
 
 Use Managed Identities to provide Azure services with an automatically managed identity in Azure Active Directory (Azure AD). Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Azure Key Vault, without any credentials in your code.
@@ -1225,9 +681,6 @@ Use Managed Identities to provide Azure services with an automatically managed i
 
 ### 7.13: Eliminate unintended credential exposure
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3145).
-
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
 - [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
@@ -1240,26 +693,7 @@ Use Managed Identities to provide Azure services with an automatically managed i
 
 *For more information, see the [Azure Security Benchmark: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
 
-### 8.1: Use centrally-managed anti-malware software
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3146).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3147).
 
 **Guidance**: Pre-scan any content being uploaded to non-compute Azure resources, such as Azure Event Hubs, App Service, Data Lake Storage, Blob Storage, Azure Database for PostgreSQL, etc. Microsoft cannot access your data in these instances.
 
@@ -1269,28 +703,11 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 **Azure Security Center monitoring**: None
 
-### 8.3: Ensure anti-malware software and signatures are updated
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3148).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Responsibility**: Not applicable
-
-**Azure Security Center monitoring**: None
-
 ## Data Recovery
 
 *For more information, see the [Azure Security Benchmark: Data Recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back-ups
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3149).
 
 **Guidance**: Configure geo-disaster recovery for Azure Event Hubs. When entire Azure regions or datacenters (if no availability zones are used) experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, Geo-disaster recovery and Geo-replication are important features for any enterprise. Azure Event Hubs supports both geo-disaster recovery and geo-replication, at the namespace level. 
 
@@ -1301,9 +718,6 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 **Azure Security Center monitoring**: None
 
 ### 9.2: Perform complete system backups and backup any customer-managed keys
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3150).
 
 **Guidance**: Azure Event Hubs provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Event Hubs relies on Azure Storage to store the data and by default, all the data that is stored with Azure Storage is encrypted using Microsoft-managed keys. If you use Azure Key Vault for storing customer-managed keys,  ensure regular automated backups of your Keys.
 
@@ -1319,9 +733,6 @@ Ensure regular automated backups of your Key Vault Secrets with the following Po
 
 ### 9.3: Validate all backups including customer-managed keys
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3151).
-
 **Guidance**: Test restoration of backed up customer-managed keys.
 
 - [How to restore key vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
@@ -1331,9 +742,6 @@ Ensure regular automated backups of your Key Vault Secrets with the following Po
 **Azure Security Center monitoring**: None
 
 ### 9.4: Ensure protection of backups and customer-managed keys
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3152).
 
 **Guidance**: Enable soft delete in Key Vault to protect keys against accidental or malicious deletion. Azure Event Hubs requires customer-managed keys to have Soft Delete and Do Not Purge configured.
 
@@ -1355,9 +763,6 @@ Configure soft delete for the Azure storage account that's used for capturing Ev
 
 ### 10.1: Create an incident response guide
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3153).
-
 **Guidance**: Ensure that there are written incident response plans that define roles of personnel as well as phases of incident handling/management.
 
 - [How to configure Workflow Automations within Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
@@ -1368,9 +773,6 @@ Configure soft delete for the Azure storage account that's used for capturing Ev
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3154).
-
 **Guidance**: Security Center assigns a severity to alerts, to help you prioritize the order in which you attend to each alert, so that when a resource is compromised, you can get to it right away. The severity is based on how confident Security Center is in the finding or the analytics used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 **Responsibility**: Customer
@@ -1378,9 +780,6 @@ Configure soft delete for the Azure storage account that's used for capturing Ev
 **Azure Security Center monitoring**: None
 
 ### 10.3: Test security response procedures
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3155).
 
 **Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
@@ -1392,9 +791,6 @@ Configure soft delete for the Azure storage account that's used for capturing Ev
 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3156).
-
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party.  Review incidents after the fact to ensure that issues are resolved. 
 
 - [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
@@ -1404,9 +800,6 @@ Configure soft delete for the Azure storage account that's used for capturing Ev
 **Azure Security Center monitoring**: None
 
 ### 10.5: Incorporate security alerts into your incident response system
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3157).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
@@ -1419,9 +812,6 @@ Configure soft delete for the Azure storage account that's used for capturing Ev
 **Azure Security Center monitoring**: None
 
 ### 10.6: Automate the response to security alerts
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3158).
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
@@ -1436,9 +826,6 @@ Configure soft delete for the Azure storage account that's used for capturing Ev
 *For more information, see the [Azure Security Benchmark: Penetration Tests and Red Team Exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3159).
 
 **Guidance**: Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications. 
 
