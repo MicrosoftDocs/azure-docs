@@ -3,7 +3,7 @@ title: Template deployment what-if
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/05/2021
 ms.author: tomfitz
 ---
 # ARM template deployment what-if operation
@@ -15,10 +15,6 @@ You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API 
 ## Install Azure PowerShell module
 
 To use what-if in PowerShell, you must have version **4.2 or later of the Az module**.
-
-But, before installing the required module, make sure you have PowerShell Core (6.x or 7.x). If you have PowerShell 5.x or earlier, [update your version of PowerShell](/powershell/scripting/install/installing-powershell). You can't install the required module on PowerShell 5.x or earlier.
-
-### Install latest version
 
 To install the module, use:
 
@@ -320,7 +316,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 The what-if operation supports using [deployment mode](deployment-modes.md). When set to complete mode, resources not in the template are deleted. The following example deploys a [template that has no resources defined](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in complete mode.
 
-To preview changes before deploying a template, use the confirm switch parameter with the deployment command. If the changes are as you expected, acknowledge that you want the deployment to complete.
+To preview changes before deploying a template, use the confirm switch parameter with the deployment command. If the changes are as you expected, respond that you want the deployment to complete.
 
 # [PowerShell](#tab/azure-powershell)
 

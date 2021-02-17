@@ -41,4 +41,4 @@ The following documents may be interesting to you:
 
 - Familiarize yourself with the [SMS client library](../telephony-sms/sdk-features.md)
 - Get an SMS capable [phone number](../../quickstarts/telephony-sms/get-phone-number.md)
-- [Plan your SMS solution](../telephony-sms/plan-solution.md)
+- [Phone number types in Azure Communication Services](../telephony-sms/plan-solution.md)

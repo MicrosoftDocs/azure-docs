@@ -3,7 +3,7 @@ title: Common application management scenarios for Azure Active Directory | Micr
 description: Centralize application management with Azure AD
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-provisioning

@@ -1,12 +1,8 @@
 ---
 title: Create an Azure data factory using the Azure Data Factory UI 
 description: Create a data factory with a pipeline that copies data from one location in Azure Blob storage to another location.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: quickstart
 ms.date: 12/14/2020
 ms.author: jingwang

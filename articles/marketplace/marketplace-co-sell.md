@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 1/29/2021
+ms.date: 2/05/2021
 ---
 
 # Co-sell partner engagement
@@ -74,6 +74,9 @@ Start your Co-sell journey directly in Partner Center following the steps below.
 
 1. Save the draft before you continue.
 1. After you've completed all the required sections of the offer, you can submit it for review and publication. In the upper right, select **Review and publish**. Review the offer details, then select **Publish**.
+
+> [!NOTE]
+> You no longer need to contact us to nominate your offer for co-sell. After you complete all required fields on the Co-sell with Microsoft page and republish your offer, we will review your offer to determine if it meets the requirements for co-sell status.
 
 ## See your offer's Co-sell status
 

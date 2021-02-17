@@ -55,6 +55,8 @@
     href: application-development.md
 - name: How To
   items:
+  - name: Fortanix Confidential Computing Manager
+    href: how-to-fortanix-confidential-computing-manager.md
   - name: Fortanix Enclave Manager
     href: how-to-fortanix-enclave-manager.md
 - name: References

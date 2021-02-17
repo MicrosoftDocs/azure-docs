@@ -23,7 +23,12 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
   * Expanded language support for [several general entity categories](named-entity-types.md). 
   * Improved AI quality of general entity categories for all supported v3 languages. 
 
-* The `2021-01-05` model-version for [language detection](how-tos/text-analytics-how-to-language-detection.md), which provides additional [language support](language-support.md?tabs=language-detection).
+* The `2021-01-05` model version for [language detection](how-tos/text-analytics-how-to-language-detection.md), which provides additional [language support](language-support.md?tabs=language-detection).
+
+These model versions are currently unavailable in the East US region. 
+
+> [!div class="nextstepaction"]
+> [Learn more about about the new NER model](https://azure.microsoft.com/updates/text-analytics-ner-improved-ai-quality)
 
 ## December 2020
 

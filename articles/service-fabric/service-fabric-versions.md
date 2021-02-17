@@ -36,7 +36,7 @@ Azure Service Fabric clusters that run on versions from 5.7 to 6.3.63.* will be 
 Upgrade to a supported Service Fabric version to prevent downtime or loss of functionality related to this change. Ensure that your clusters are running at least the following versions to prevent issues in your environment.
 
 > [!Note]
-> All released versions of 7.2 include the necessary changes.
+> **All released versions of 7.2 include the necessary changes**.
   
   | OS | Current Service Fabric runtime in the cluster | CU/Patch release |
   | --- | --- |--- |
@@ -71,9 +71,15 @@ To prevent downtime or loss of functionality, ensure that your clusters are runn
 The versions of Service Fabric in the table contain the necessary changes to prevent loss of functionality. Make sure you're using one of these versions.  
 
 > [!Note]
-> All release versions of 7.2 include the necessary changes.
+> **Azure Service Fabric clusters running on version 6.5, have to perform multiple upgrades at the same time before infrastucuture change to avoid loss of functionality to the cluster**. 
+>   -   1. Upgrade to 7.0.466. **Clusters running the Windows OS that has the Windows Containers Feature enabled CANNOT be on this intermediate version. They need to perform  next step (ii) below.i.e.  Upgrade to be on safer and compliant verion to avoid service disruptions**
+>   -   2. Upgrade to latest complaint versions in 7.0* release (7.0.478)  or any of the higher versions listed below.
 
-  | OS | Current Service Fabric runtime in the cluster | CU/Patch release |
+
+> [!Note]
+> **All release versions of 7.2 include the necessary changes**.
+
+ | OS | Current Service Fabric runtime in the cluster | CU/Patch release |
   | --- | --- |--- |
   | Windows | 7.0.* | 7.0.478.9590 |
   | Windows | 7.1.* | 7.1.503.9590 |

@@ -8,6 +8,13 @@ ms.date: 11/20/2020
 
 This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written for Node.js and is included in the Azure IoT Hub Device SDK for Node.js. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
+In this tutorial, you:
+
+> [!div class="checklist"]
+> * Download the sample code.
+> * Run the sample device application and validate that it connects to your IoT hub.
+> * Review the source code.
+
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
@@ -115,5 +122,3 @@ Keep the sample running as you complete the next steps.
 After the device client sample starts, use the Azure IoT explorer tool to verify it's working.
 
 [!INCLUDE [iot-pnp-iot-explorer.md](iot-pnp-iot-explorer.md)]
-
-[!INCLUDE [iot-pnp-clean-resources.md](iot-pnp-clean-resources.md)]

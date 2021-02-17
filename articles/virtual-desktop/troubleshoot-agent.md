@@ -12,7 +12,7 @@ manager: clarkn
 The Windows Virtual Desktop Agent can cause connection issues because of multiple factors:
    - An error on the broker that makes the agent stop the service.
    - Problems with updates.
-   - Issues with installing the during agent installation, which disrupts connection to the session host.
+   - Issues with installing during the agent installation, which disrupts connection to the session host.
 
 This article will guide you through solutions to these common scenarios and how to address connection issues.
 
@@ -178,7 +178,7 @@ To resolve this issue, change the heartbeat threshold:
 1. Open your command prompt as an administrator.
 2. Enter the **qwinsta** command and run it.
 3. There should be two stack components displayed: **rdp-tcp** and **rdp-sxs**. 
-   - Depending on the version of the OS you're using, **rdp-sxs** may be followed by the build number as shown in the following screenshot. If it is, make sure to write this number down for later.
+   - Depending on the version of the OS you're using, **rdp-sxs** may be followed by the build number. If it is, make sure to write this number down for later.
 4. Open the Registry Editor.
 5. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
 6. Under **WinStations** you may see several folders for different stack versions. Select the folder that matches the version number from step 3.
@@ -201,7 +201,7 @@ To resolve this issue, make space on your disk by:
 Open a PowerShell window as an administrator and run the following cmdlet:
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object*
+Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
 If the status listed for the session host or hosts in your host pool always says **Unavailable** or **Upgrading**, the agent or stack installation may have failed
