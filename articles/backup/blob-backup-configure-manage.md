@@ -135,7 +135,7 @@ Once backup is configured, changes taking place on block blobs in the storage ac
 
 - The following capabilities are enabled on the storage account. These can be viewed in the **Data Protection** tab of the storage account.
   - Point in time restore for containers: With retention as specified in the backup policy<sup>*</sup>
-  - Soft delete for blobs: With retention as specified in the backup policy +1 day<sup>*</sup>
+  - Soft delete for blobs: With retention as specified in the backup policy +5 days<sup>*</sup>
   - Versioning for blobs
   - Blob change feed
 

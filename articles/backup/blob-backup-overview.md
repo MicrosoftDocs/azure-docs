@@ -14,7 +14,7 @@ Operational backup for Blobs integrates with [Backup Center](backup-center-overv
 
 ## How operational backup works
 
-As a **local backup** solution, the backup data isn't transferred to the Backup vault, but is stored in the source storage account itself. However, the Backup vault still serves as the unit of managing backups. Also, this is a **continuous backup** solution, which means that you don’t need to schedule any backups and all changes will be retained and restorable from the state at a selected point in time.
+Operational backup of blobs is a **local backup** solution. So the backup data isn't transferred to the Backup vault, but is stored in the source storage account itself. However, the Backup vault still serves as the unit of managing backups. Also, this is a **continuous backup** solution, which means that you don’t need to schedule any backups and all changes will be retained and restorable from the state at a selected point in time.
 
 Operational backup uses blob platform capabilities to protect your data and allow recovery when required:
 
@@ -32,7 +32,7 @@ When you configure backup for a storage account and assign a backup policy with 
 
 - **Point-in-time restore**: Set to ‘n’ days, as defined in the backup policy. If the storage account already had point-in-time enabled with a retention of, say ‘x’ days, before configuring backup, the point-in-time restore duration will be set to the greater of the two values, that is max(n,x). If you had already enabled point-in-time restore and specified the retention to be greater than that in the backup policy, it will remain unchanged.
 
-- **Soft delete**: Set to ‘n+1’ days, that is, one day in addition to the duration specified in the backup policy. If the storage account that is being configured for operational backup already had soft delete enabled with a retention of, say ‘y’ days, then the soft delete retention will be set to the maximum of the two values, that is, max(n+1,y). If you had already enabled soft delete and specified the retention to be greater than that according to the backup policy, it will remain unchanged.
+- **Soft delete**: Set to ‘n+5’ days, that is, five days in addition to the duration specified in the backup policy. If the storage account that is being configured for operational backup already had soft delete enabled with a retention of, say ‘y’ days, then the soft delete retention will be set to the maximum of the two values, that is, max(n+5,y). If you had already enabled soft delete and specified the retention to be greater than that according to the backup policy, it will remain unchanged.
 
 - **Versioning for blobs and blob change feed**: Versioning and change feed are enabled for storage accounts that have been configured for operational backup.
 
