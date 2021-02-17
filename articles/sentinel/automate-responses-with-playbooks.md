@@ -51,8 +51,11 @@ Azure Logic Apps communicates with other systems and services using connectors. 
   - [Azure Sentinel connector documentation](/connectors/azuresentinel/)
 
 - **Trigger:** A connector component that starts a playbook. It defines the schema that the playbook expects to receive when triggered. The Azure Sentinel connector currently has two triggers:
-  - [Incident trigger](/connectors/azuresentinel/#triggers)
-  - [Alert trigger](/connectors/azuresentinel/#triggers)
+  - [Alert trigger](/connectors/azuresentinel/#triggers): the playbook receives the alert as its input.
+  - [Incident trigger](/connectors/azuresentinel/#triggers): the playbook receives the incident as its input, along with all its included alerts and entities.
+
+    > [!IMPORTANT]
+    > - The **incident trigger** feature for playbooks is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 - **Actions:** Actions are all the steps that happen after the trigger. They can be arranged sequentially, in parallel, or in a matrix of complex conditions.
 
@@ -79,13 +82,13 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 
 ## Steps for creating a playbook
 
-- [Define the automation scenario](#when-to-use-playbooks)
+- [Define the automation scenario](#use-cases-for-playbooks).
 
-- Build the Azure Logic App
+- [Build the Azure Logic App](tutorial-respond-threats-playbook.md).
 
-- [Test your Logic App](#run-a-playbook-manually-on-an-alert)
+- [Test your Logic App](#run-a-playbook-manually-on-an-alert).
 
-- Attach the playbook to an automation rule or an analytics rule, or run manually when required
+- Attach the playbook to an [automation rule](#incident-creation-automated-response) or an [analytics rule](#alert-creation-automated-response), or [run manually when required](#run-a-playbook-manually-on-an-alert).
 
 ### Use cases for playbooks
 
@@ -98,9 +101,10 @@ The Azure Logic Apps platform offers hundreds of actions and triggers, so almost
 For example:
 
 An Azure Sentinel incident was created from an alert by an analytics rule that generates IP address entities.
-The analytics rule triggers a playbook with the following steps:
 
-- Start when a [new Azure Sentinel incident is created](/connectors/azuresentinel/#triggers). <!--Why the incident trigger? The playbook is triggered by an alert, not an incident! What am I missing?--> The entities represented in the incident are stored in the incident trigger's dynamic fields.
+The incident triggers an automation rule which runs a playbook with the following steps:
+
+- Start when a [new Azure Sentinel incident is created](/connectors/azuresentinel/#triggers). The entities represented in the incident are stored in the incident trigger's dynamic fields.
 
 - For each IP address, query an external Threat Intelligence provider, such as [Virus Total](https://www.virustotal.com/), to retrieve more data.
 
@@ -114,7 +118,7 @@ For example:
 
 Create an automation rule for all incident creation, and attach a playbook that opens a ticket in ServiceNow:
 
-- Start when a new Azure Sentinel incident is created.
+- Start when a [new Azure Sentinel incident is created](/connectors/azuresentinel/#triggers).
 
 - Create a new ticket in ServiceNow.
 
@@ -127,9 +131,10 @@ Create an automation rule for all incident creation, and attach a playbook that 
 For example:
 
 An Azure Sentinel incident was created from an alert by an analytics rule that generates username and IP address entities.
-The analytics rule triggers a playbook with the following steps:
 
-- Start when a new Azure Sentinel incident is created.
+The incident triggers an automation rule which runs a playbook with the following steps:
+
+- Start when a [new Azure Sentinel incident is created](/connectors/azuresentinel/#triggers).
 
 - Send a message to your security operations channel in [Microsoft Teams](/connectors/teams/) or [Slack](/connectors/slack/) to make sure your security analysts are aware of the incident.
 
@@ -147,7 +152,7 @@ Two examples:
 
 1. Respond to an analytics rule that indicates a compromised user, as discovered by [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md):
 
-   - Start when a new Azure Sentinel incident is created.
+   - Start when a [new Azure Sentinel incident is created](/connectors/azuresentinel/#triggers).
 
    - For each user entity in the incident suspected as compromised:
 
@@ -224,9 +229,7 @@ Not supported yet. <!--make this a note instead? -->
 
 In the **Playbooks** tab, there appears a list of all the playbooks which you have access to, filtered by the subscriptions which are currently displayed in Azure. The subscriptions filter is available from the **Directory + subscription** menu in the global page header.
 
-Clicking on a playbook name directs you to the playbook's main page in Logic Apps. The **Status** column indicates if it is enabled or disabled. The **Runs** column enumerates the number of times this playbook has run. 
-
-***I DON'T SEE A RUNS COLUMN!***
+Clicking on a playbook name directs you to the playbook's main page in Logic Apps. The **Status** column indicates if it is enabled or disabled.
 
 **Trigger kind** represents the Logic Apps trigger that starts this playbook.
 
@@ -237,6 +240,8 @@ Clicking on a playbook name directs you to the playbook's main page in Logic App
 | **Other** | The playbook does not include any Sentinel components |
 | **Not initialized** | The playbook has been created, but contains no components (triggers or actions). |
 |
+
+In the playbook's Logic App page, you can see more information about the playbook, including a log of all the times it has run, and the result (success or failure, and other details). You can also enter the Logic Apps Designer and edit the playbook directly, if you have the appropriate permissions.
 
 ### API connections
 

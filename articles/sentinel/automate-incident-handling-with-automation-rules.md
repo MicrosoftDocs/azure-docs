@@ -21,6 +21,10 @@ ms.author: yelevin
 
 This article describes the Security Orchestration, Automation, and Response (SOAR) capabilities of Azure Sentinel, and shows how the use of automation rules and playbooks in response to security threats increases your SOC's effectiveness and saves you time and resources.
 
+> [!IMPORTANT]
+>
+> - The **automation rules** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Azure Sentinel as a SOAR solution
 
 Azure Sentinel, in addition to being a Security Information and Event Management (SIEM) system, is also a platform for Security Orchestration, Automation, and Response (SOAR). One of its primary purposes is to automate any recurring and predictable detection and response tasks that are the responsibility of your Security Operations Center and personnel (SOC/SecOps), freeing up time and resources for more in-depth investigation of, and hunting for, advanced threats. Automation takes a few different forms in Azure Sentinel, from playbooks that run predetermined sequences of actions in response to various triggers, to automation rules that centrally manage the automation of incident response.
@@ -114,19 +118,27 @@ You can automatically add free-text tags to incidents to group or classify them 
 
 ### Automation rules execution
 
-Automation rules are run sequentially, in an order determined by the user. Each automation rule is executed after the previous one has finished its run. Within an automation rule, all actions are run sequentially in the order in which they are defined.
+Automation rules are run sequentially, according to the order you determine. Each automation rule is executed after the previous one has finished its run. Within an automation rule, all actions are run sequentially in the order in which they are defined.
 
 For playbook actions, there is a two-minute delay between the beginning of the playbook action and the next action on the list.
 
 ### Creating and managing automation rules
 
-Automation rules are centrally managed in the new **Automation** blade (which replaces the **Playbooks** blade), under the **Automation Rules** tab. From there, users can create new automation rules and edit the existing ones. They can also drag automation rules to change the order of execution, and enable or disable them.
+Automation rules can be centrally managed in the new **Automation** blade (which replaces the **Playbooks** blade), under the **Automation rules** tab. From there, you can create new automation rules and edit the existing ones. You can also drag automation rules to change the order of execution, and enable or disable them.
 
 In the **Automation** blade, you see all the rules that are defined on the workspace, along with their status (Enabled/Disabled) and which analytics rules they are applied to.
 
 ### Create a new automation rule
 
-13:20 in presentation – from Automation blade
+You can create automation rules from different points in the Azure Sentinel experience, depending on your particular need and use case.
+
+- **Automation blade**
+
+    When you need an automation rule that will apply to many analytics rules, create it directly in the **Automation** blade. From the top menu, click **Create** and **Add new rule**, which opens the **Create new automation rule** panel. From here you have complete flexibility in configuring the rule: you can apply it to any analytics rules and define the widest range of conditions and actions.
+
+- 
+
+- where you can name and configure your rule. You define which analytics rules will trigger this automation rule, and other conditions under which it will run. You 
 
 18:45 in presentation – from Analytics rule wizard, Automated response tab
 
