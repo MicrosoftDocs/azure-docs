@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Migrate SQL Server offline to a SQL single database"
+title: "Tutorial: Migrate SQL Server offline to Azure SQL Database"
 titleSuffix: Azure Database Migration Service
 description: Learn to migrate from SQL Server to Azure SQL Database offline by using Azure Database Migration Service.
 services: dms
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.date: 01/03/2021
 ---
 
-# Tutorial: Migrate SQL Server to Azure SQL Database offline using DMS
+# Tutorial: Migrate SQL Server to Azure SQL Database using DMS
 
 You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to [Azure SQL Database](/azure/sql-database/). In this tutorial, you migrate the [Adventureworks2016](/sql/samples/adventureworks-install-configure?tabs=ssms&view=sql-server-ver15#download-backup-files) database restored to an on-premises instance of SQL Server 2016 (or later) to a single database or pooled database in Azure SQL Database by using Azure Database Migration Service.
 

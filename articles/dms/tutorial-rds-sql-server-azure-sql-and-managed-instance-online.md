@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Migrate RDS SQL Server online to SQL Database"
+title: "Tutorial: Migrate RDS SQL Server to SQL Database"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from RDS SQL Server to Azure SQL Database single database or managed instance by using the Azure Database Migration Service.
 services: dms
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.date: 01/08/2020
 ---
 
-# Tutorial: Migrate RDS SQL Server to Azure SQL Database or an Azure SQL Managed Instance online using DMS
+# Tutorial: Migrate RDS SQL Server to Azure SQL Database or SQL Managed Instance using DMS
 
 You can use the Azure Database Migration Service to migrate the databases from an RDS SQL Server instance to [Azure SQL Database](/azure/sql-database/) or an [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) with minimal downtime. In this tutorial, you migrate the **Adventureworks2012** database restored to an RDS SQL Server instance of SQL Server 2012 (or later) to SQL Database or a SQL Managed Instance by using the Azure Database Migration Service.
 
