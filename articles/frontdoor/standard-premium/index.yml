@@ -105,7 +105,7 @@ landingContent:
             url: ../../web-application-firewall/afds/waf-front-door-create-portal.md
 
   # Card
-  - title: Reports, metrics and logs
+  - title: Reports, metrics, and logs
     linkLists:
       - linkListType: how-to-guide
         links:
