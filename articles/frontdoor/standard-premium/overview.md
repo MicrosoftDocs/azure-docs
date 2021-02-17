@@ -52,7 +52,7 @@ Key features included with Azure Front Door Standard/Premium (Preview):
 
 - Define your own custom domain with flexible domain validation.
 
-- Application security with integrated Web Application Firewall (WAF).
+- Application security with integrated [Web Application Firewall (WAF)](../../web-application-firewall/afds/afds-overview.md).
 
 - SSL offload and integrated certificate management.
 
