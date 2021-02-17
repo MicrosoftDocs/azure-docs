@@ -27,7 +27,7 @@ Integrating Datadog with Azure provides the following capabilities:
 - **Single sign-on to Datadog** - You don't need a separate authentication for the Datadog portal.
 - **Log forwarder** - Enables forwarding of subscription activity and resource logs to Datadog.
 - **Metrics collection** - Automatically configure and set up Datadog crawler to send Azure resource metrics to Datadog.
-- **Datadog agent single pane of glass** - Provides a single pane of glass to install and uninstall Datadog agents on virtual machines and app services as extensions.
+- **Datadog agent deployment** - Provides a single click experience to install and uninstall Datadog agents on virtual machines and app services.
 
 ## Datadog links
 
