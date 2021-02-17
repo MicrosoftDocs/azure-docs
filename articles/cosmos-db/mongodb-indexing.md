@@ -114,6 +114,7 @@ Here's another example, this time with a slightly different set of properties in
         "pets": [
             { "givenName": "Goofy" },
             { "givenName": "Shadow" }
+            ]
       },
       {
         "familyName": "Merriam",
