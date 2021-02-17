@@ -68,7 +68,7 @@
   - name: Resource Manager templates
     items:
     - name: Overview
-      resource-manager-samples.md
+      href: resource-manager-samples.md
     - name: Agents
       href: agents/resource-manager-agent.md
     - name: Alerts
