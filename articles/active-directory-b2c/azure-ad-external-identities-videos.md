@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Microsoft Azure Active Directory external identities videos
 
-Learn the basics of external identities - Azure Active Directory B2C and Azure Active Directory B2B in the Microsoft identity platform.
+Learn the basics of external identities - Azure Active Directory B2C and Azure Active Directory B2B in the Microsoft identity platform
 
 ## Azure Active Directory B2C architecture deep dive series
 
