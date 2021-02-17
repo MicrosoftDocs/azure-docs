@@ -1,6 +1,6 @@
 ---
-title: Diagnose and solve problems
-description: Learn how to troubleshoot issues with your API in Azure API Management with the Diagnostics and solve tool in the Azure portal. 
+title: Azure API Management Diagnose and solve problems
+description: Learn how to troubleshoot issues with your API in Azure API Management with the Diagnose and Solve tool in the Azure portal. 
 author: rzhang628
 ms.service: api-management
 ms.topic: article
@@ -18,7 +18,7 @@ Although this experience is most helpful when you re having issues with your API
 
 To access API Management Diagnostics, navigate to your API Management service instance in the [Azure portal](https://portal.azure.com). In the left navigation, select **Diagnose and solve problems**.
 
-:::image type="content" source="media/diagnose-solve-problems/apimdisgnostichome.png" alt-text="Navigate to Diagnostics.":::
+:::image type="content" source="media/diagnose-solve-problems/apim-diagnostic-home.png" alt-text="Screenshot shows how to navigate to diagnostics.":::
 
 
 
@@ -26,54 +26,54 @@ To access API Management Diagnostics, navigate to your API Management service in
 
 You can search your issues or problems in the search bar on the top of the page. The search also helps you find the tools that may help to troubleshoot or resolve your issues. 
 
-:::image type="content" source="media/diagnose-solve-problems/intelligentsearch.png" alt-text="Intelligent search.":::
+:::image type="content" source="media/diagnose-solve-problems/intelligent-search.png" alt-text="screenshot of intelligent search.":::
 
 
 ## Troubleshooting categories
 
 You can troubleshoot issues under categories. Common issues that are related to your API performance, gateway, API policies, and service tier can all be analyzed within each category. Each category also provides more specific diagnostics checks. 
 
-:::image type="content" source="media/diagnose-solve-problems/troubleshootingcategory.png" alt-text="Category View.":::
+:::image type="content" source="media/diagnose-solve-problems/troubleshooting-category.png" alt-text="screenshot of category overview.":::
 
 
-### Availability and Performance
+### Availability and performance
 
 Check your API availability and performance issues under this category. After selecting this category tile, you will see a few common checks are recommended in an interactive interface. Click each check to dive deep to the specifics of each issue. The check will also provide you a graph showing your API performance and a summary of performance issues. For example, your API service may have had a 5xx error and timeout in the last hour at the backend. 
 
-:::image type="content" source="media/diagnose-solve-problems/categoryinteractivesearch1.png" alt-text="Interactive Interface check 1.":::
+:::image type="content" source="media/diagnose-solve-problems/category-interactive-search-1.png" alt-text="Screenshot 1 of interactive interface check.":::
 
 
 
-:::image type="content" source="media/diagnose-solve-problems/categoryinteractivesearch2.png" alt-text="Interactive Interface check 2.":::
+:::image type="content" source="media/diagnose-solve-problems/category-interactive-search-2.png" alt-text="Screenshot 2 of Interactive Interface check.":::
 
-### API Policies
+### API policies
 
 This category detects errors and notifies you of your policy issues. 
 
 A similar interactive interface guides you to the data metrics to help you troubleshoot your API policies configuration.
 
-:::image type="content" source="media/diagnose-solve-problems/proxypolicies.png" alt-text="API Policies .":::
+:::image type="content" source="media/diagnose-solve-problems/proxy-policies.png" alt-text="screenshot of API Policies category tile.":::
 
-### Gateway Performance 
+### Gateway performance 
 
 For gateway requests or responses or any 4xx or 5xx errors on your gateway, use this category to monitor and troubleshoot. Similarly, leverage the interactive interface to dive deep on the specific area that you want to check for your API gateway performance. 
 
-:::image type="content" source="media/diagnose-solve-problems/gatewaypreformancetile.png" alt-text="Gateway 4xx responses .":::
+:::image type="content" source="media/diagnose-solve-problems/gateway-preformance-tile.png" alt-text="screenshot of Gateway performance category tile.":::
 
-### Service Upgrade
+### Service upgrade
 
 This category checks which service tier (SKU) you are currently using and reminds you to upgrade to avoid any issues that may be related to that tier. The same interactive interface helps you go deep with more graphics and a summary check result. 
 
-:::image type="content" source="media/diagnose-solve-problems/servicesku.png" alt-text="service upgrade.":::
+:::image type="content" source="media/diagnose-solve-problems/service-sku.png" alt-text="screenshot of service upgrade category tile.":::
 
 ## Search documentation
 
 In additional to the Diagnose and solve problems tools, you can search for troubleshooting documentation related to your  issue. After running the diagnostics on your service, select **Search Documentation** in the interactive interface. 
 
- :::image type="content" source="media/diagnose-solve-problems/searchdocumentation.png" alt-text="Search Documentation.":::
+ :::image type="content" source="media/diagnose-solve-problems/search-documentation.png" alt-text="screenshot 1 of how to use Search Documentation function.":::
 
 
- :::image type="content" source="media/diagnose-solve-problems/searchdocumentation2.png" alt-text="Search Documentation 2.":::
+ :::image type="content" source="media/diagnose-solve-problems/search-documentation-2.png" alt-text="screenshot 2 of how to use Search Documentation.":::
 
 
 ## Next steps
