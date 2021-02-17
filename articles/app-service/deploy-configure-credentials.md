@@ -32,7 +32,7 @@ The JSON output shows the password as `null`.
 
 # [Azure PowerShell](#tab/powershell)
 
-You can't configure the user-scope credentials with PowerShell. Use a different method, or consider [using application-scope credentials](#appscope). 
+You can't configure the user-scope credentials with Azure PowerShell. Use a different method, or consider [using application-scope credentials](#appscope). 
 
 # [Azure portal](#tab/portal)
 
