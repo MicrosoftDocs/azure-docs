@@ -46,7 +46,7 @@ All drivers that support wire protocol version 4.0 or greater will support Azure
     db.getMongo().getDB("users").friends.insert({name:"Tom"})
     db.getMongo().getDB("users").friends.insert({name:"Mike"})
 
-    // start a transaction
+    // start transaction
     var session = db.getMongo().startSession();
     var friendsCollection = session.getDatabase("users").friends;
     session.startTransaction();
@@ -61,12 +61,12 @@ All drivers that support wire protocol version 4.0 or greater will support Azure
         throw error;
     }
 
-    // commit transaction.
+    // commit transaction
     session.commitTransaction();
 
     ```
 
-3. Run the following command to execute the multi-document transaction. This command creates a friend link between the two friends
+3. Run the following command to execute the multi-document transaction. The host, port, user and key can be found in the Azure Portal.
 
     ```powershell
     mongo "<HOST>:<PORT>" -u "<USER>" -p "KEY" --ssl connect_friends.js
