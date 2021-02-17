@@ -39,6 +39,9 @@ If you **don't set a preferred region**, the SDK client defaults to the primary 
 > [!NOTE]
 > Primary region refers to the first region in the [Azure Cosmos account region list](distribute-data-globally.md)
 
+> [!WARNING]
+> If any the values specified as regional preference do not match to any existing Azure regions, they will be ignored. If they do match an existing region but the account is not replicated to it, then the client will connect to the next preferred region that matches or to the primary region.
+
 Under normal circumstances, the SDK client will connect to the preferred region (if a regional preference is set) or to the primary region (if no preference is set), and the operations will be limited to that region, unless any of the below scenarios occur.
 
 In these cases, the client using the Azure Cosmos SDK exposes logs and includes the retry information as part of the **operation diagnostic information**:
@@ -53,7 +56,7 @@ For a comprehensive detail on SLA guarantees during these events, see the [SLAs 
 
 ## <a id="remove-region"></a>Removing a region from the account
 
-When you remove a region from an Azure Cosmos account, any SDK client that actively uses the account will detect the region removal through a backend response code. The client then marks the regional endpoint as unavailable. The client retries the current operation and all the future operations are permanently routed to the next region in order of preference.
+When you remove a region from an Azure Cosmos account, any SDK client that actively uses the account will detect the region removal through a backend response code. The client then marks the regional endpoint as unavailable. The client retries the current operation and all the future operations are permanently routed to the next region in order of preference. In case the preference list only had one entry (or was empty) but the account has other regions available, it will route to the next region in the account list.
 
 ## Adding a region to an account
 
