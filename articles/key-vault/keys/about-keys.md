@@ -49,24 +49,35 @@ For more information on geographical boundaries, see [Microsoft Azure Trust Cent
 
 ## Key types and protection methods
 
-Key Vault supports RSA, EC and symmetric keys. 
+Key Vault supports RSA and EC keys. Managed HSM supports RSA, EC and symmetric keys. 
 
 ### HSM-protected keys
 
 |Key type|Vaults (Premium SKU only)|Managed HSM pools|
-|--|--|--|--|
-**EC-HSM**: Elliptic Curve key|FIPS 140-2 Level 2 HSM|FIPS 140-2 Level 3 HSM
-**RSA-HSM**: RSA key|FIPS 140-2 Level 2 HSM|FIPS 140-2 Level 3 HSM
-**oct-HSM**: Symmetric|Not supported|FIPS 140-2 Level 3 HSM
-||||
+|--|--|--|
+|**EC-HSM**: Elliptic Curve key | Supported | Supported|
+|**RSA-HSM**: RSA key|Supported|Supported|
+|**oct-HSM**: Symmetric key|Not supported|Supported|
+|||
 
 ### Software-protected keys
 
 |Key type|Vaults|Managed HSM pools|
-|--|--|--|--|
-**RSA**: "Software-protected" RSA key|FIPS 140-2 Level 1|Not supported
-**EC**: "Software-protected" Elliptic Curve key|FIPS 140-2 Level 1|Not supported
-||||
+|--|--|--|
+**RSA**: "Software-protected" RSA key|Supported|Not supported
+**EC**: "Software-protected" Elliptic Curve key|Supported|Not supported
+|||
+
+### Compliance
+
+|Key type and destination|Compliance|
+|---|---|
+|Software-protected keys in vaults (Preimum & Standard SKUs) | FIPS 140-2 Level 1|
+|HSM-protected keys in vaults (Premium SKU)| FIPS 140-2 Level 2|
+|HSM-protected keys in Managed HSM|FIPS 140-2 Level 3|
+|||
+
+
 
 Please see [Key types, algorithms, and operations](about-keys-details.md) for details about each key type, algorithms, operations, attributes and tags.
 
