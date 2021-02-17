@@ -180,7 +180,7 @@ Add the redirect URI to the app's registration in the [Azure portal](https://por
 
 **To generate the redirect URI:**
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. Select **Azure Active Directory** > **App registrations** > your registered app
 1. Select **Authentication** > **Add a platform** > **iOS / macOS**
 1. Enter your bundle ID, and then select **Configure**.

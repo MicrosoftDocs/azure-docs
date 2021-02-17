@@ -12,6 +12,8 @@
     href: quickstarts/create-communication-resource.md
   - name: Create and manage access tokens
     href: quickstarts/access-tokens.md
+  - name: Use managed identities (.NET)
+    href: quickstarts/managed-identity.md
   - name: Chat
     items:
       - name: Add chat to your app
@@ -70,22 +72,26 @@
         href: concepts/telephony-sms/sdk-features.md
       - name: SMS concepts
         href: concepts/telephony-sms/concepts.md
-      - name: Plan your telephony and SMS solution 
+      - name: Telephony Concepts 
+        href: concepts/telephony-sms/telephony-concept.md
+      - name: Phone number types in Azure Communication Services 
         href: concepts/telephony-sms/plan-solution.md
+      - name: SIP Interface infrastructure requirements 
+        href: concepts/telephony-sms/sip-interface-infrastructure.md
   - name: Voice and video calling
     items:
       - name: Calling client library overview
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video concepts
         href: concepts/voice-video-calling/about-call-types.md
-      - name: Teams interoperability
-        href: concepts/voice-video-calling/teams-interop.md
   - name: UI Framework
     items:
       - name: UI Framework overview
         href: concepts/ui-framework/ui-sdk-overview.md
       - name: UI Framework capabilities
         href: concepts/ui-framework/ui-sdk-features.md
+  - name: Teams interoperability
+    href: concepts/teams-interop.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
   - name: Call flows

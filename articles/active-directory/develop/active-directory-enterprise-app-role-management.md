@@ -30,7 +30,7 @@ Use this feature if your application expects custom roles in the SAML response r
 
 ## Create roles for an application
 
-1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>, in the left pane, select the **Azure Active Directory** icon.
+1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, in the left pane, select the **Azure Active Directory** icon.
 
     ![Azure Active Directory icon][1]
 

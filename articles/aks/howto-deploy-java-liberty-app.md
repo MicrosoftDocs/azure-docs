@@ -11,7 +11,14 @@ keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 
-This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jakarta.ee/), or [MicroProfile](https://microprofile.io/) application on the Open Liberty or WebSphere Liberty runtime and then deploy the containerized application to an AKS cluster using the Open Liberty Operator. The Open Liberty Operator simplifies the deployment and management of applications running on Open Liberty Kubernetes clusters. You can also perform more advanced operations such as gathering traces and dumps using the operator. This article will walk you through preparing a Liberty application, building the application Docker image and running the containerized application on an AKS cluster.  For more details on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more details on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
+This article demonstrates how to:  
+* Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime.
+* Build the application Docker image using Open Liberty container images.
+* Deploy the containerized application to an AKS cluster using the Open Liberty Operator.   
+
+The Open Liberty Operator simplifies the deployment and management of applications running on Kubernetes clusters. With Open Liberty Operator, you can also perform more advanced operations, such as gathering traces and dumps. 
+
+For more details on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more details on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -19,17 +26,20 @@ This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jaka
 
 * This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 * If running the commands in this guide locally (instead of Azure Cloud Shell):
-  * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS).
+  * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, Windows Subsystem for Linux).
   * Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. Create a resource group, *java-liberty-project* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location. It will be used for creating the Azure Container Registry (ACR) instance and the AKS cluster later. 
+An Azure resource group is a logical group in which Azure resources are deployed and managed.  
+
+Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster. 
 
 ```azurecli-interactive
-az group create --name java-liberty-project --location eastus
+RESOURCE_GROUP_NAME=java-liberty-project
+az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
 ## Create an ACR instance
@@ -37,7 +47,8 @@ az group create --name java-liberty-project --location eastus
 Use the [az acr create](/cli/azure/acr#az_acr_create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
 
 ```azurecli-interactive
-az acr create --resource-group java-liberty-project --name youruniqueacrname --sku Basic --admin-enabled
+REGISTRY_NAME=youruniqueacrname
+az acr create --resource-group $RESOURCE_GROUP_NAME --name $REGISTRY_NAME --sku Basic --admin-enabled
 ```
 
 After a short time, you should see a JSON output that contains:
@@ -50,10 +61,9 @@ After a short time, you should see a JSON output that contains:
 
 ### Connect to the ACR instance
 
-To push an image to the ACR instance, you need to log into it first. Run the following commands to verify the connection:
+You will need to sign in to the ACR instance before you can push an image to it. Run the following commands to verify the connection:
 
 ```azurecli-interactive
-REGISTRY_NAME=youruniqueacrname
 LOGIN_SERVER=$(az acr show -n $REGISTRY_NAME --query 'loginServer' -o tsv)
 USER_NAME=$(az acr credential show -n $REGISTRY_NAME --query 'username' -o tsv)
 PASSWORD=$(az acr credential show -n $REGISTRY_NAME --query 'passwords[0].value' -o tsv)
@@ -68,7 +78,8 @@ You should see `Login Succeeded` at the end of command output if you have logged
 Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
 
 ```azurecli-interactive
-az aks create --resource-group java-liberty-project --name myAKSCluster --node-count 1 --generate-ssh-keys --enable-managed-identity
+CLUSTER_NAME=myAKSCluster
+az aks create --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --node-count 1 --generate-ssh-keys --enable-managed-identity
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster, including the following:
@@ -91,7 +102,7 @@ az aks install-cli
 To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group java-liberty-project --name myAKSCluster --overwrite-existing
+az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --overwrite-existing
 ```
 
 > [!NOTE]
@@ -139,6 +150,7 @@ To deploy and run your Liberty application on the AKS cluster, containerize your
 1. Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks).
 1. Change directory to `javaee-app-simple-cluster` of your local clone.
 1. Run `mvn clean package` to package the application.
+1. Run `mvn liberty:dev` to test the application. You should see `The defaultServer server is ready to run a smarter planet.` in the command output if successful. Use `CTRL-C` to stop the application.
 1. Run one of the following commands to build the application image and push it to the ACR instance.
    * Build with Open Liberty base image if you prefer to use Open Liberty as a lightweight open source Java™ runtime:
 
@@ -201,12 +213,12 @@ To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/re
 kubectl get service javaee-app-simple-cluster --watch
 
 NAME                        TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
-javaee-app-simple-cluster   LoadBalancer   10.0.251.169   52.152.189.57   9080:31732/TCP   68s
+javaee-app-simple-cluster   LoadBalancer   10.0.251.169   52.152.189.57   80:31732/TCP     68s
 ```
 
-Wait until the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
+Once the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
 
-Open a web browser to the external IP address and port of your service (`52.152.189.57:9080` for the above example) to see the application home page. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page, you will probably see a different pod name displayed due to load balancing provided by the AKS cluster.
+Open a web browser to the external IP address of your service (`52.152.189.57` for the above example) to see the application home page. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page to see a different pod name displayed due to load balancing provided by the AKS cluster.
 
 :::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="Java liberty application successfully deployed on AKS":::
 
@@ -215,10 +227,10 @@ Open a web browser to the external IP address and port of your service (`52.152.
 
 ## Clean up the resources
 
-To avoid Azure charges, you should clean up unneeded resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ```azurecli-interactive
-az group delete --name java-liberty-project --yes --no-wait
+az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 ## Next steps

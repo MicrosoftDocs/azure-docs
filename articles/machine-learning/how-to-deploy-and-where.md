@@ -11,6 +11,7 @@ ms.reviewer: larryfr
 ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+adobe-target: true
 ---
 
 # Deploy machine learning models to Azure
