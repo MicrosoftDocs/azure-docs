@@ -187,14 +187,20 @@ Follow these steps to prepare the development environment for the DevKit:
 
         ```json
         "arduino.path": "C:\\Program Files (x86)\\Arduino",
-        "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+        "arduino.additionalUrls": [
+            "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json", 
+            "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
+            ]
         ```
 
     * **macOS**:
 
         ```json
         "arduino.path": "/Applications",
-        "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+        "arduino.additionalUrls": [
+            "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json",
+            "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
+            ]
         ```
 
     * **Ubuntu**:
@@ -203,7 +209,10 @@ Follow these steps to prepare the development environment for the DevKit:
 
         ```json
         "arduino.path": "/home/{username}/Downloads/arduino-1.8.8",
-        "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
+        "arduino.additionalUrls": [
+            "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json", 
+            "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
+            ]
         ```
 
 6. Click `F1` to open the command palette, type and select **Arduino: Board Manager**. Search for **AZ3166** and install the latest version.
