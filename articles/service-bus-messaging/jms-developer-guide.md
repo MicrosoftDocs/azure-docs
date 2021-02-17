@@ -28,11 +28,11 @@ The Java Message Service API programming model is as shown below -
 
 # [JMS 2.0 Programming model](#tab/JMS-20)
 
-:::image type="content" source="./media/jms-developer-guide/java-message-service-20-programming-model.png"alt-text="JMS 2.0 Programming model":::
+:::image type="content" source="./media/jms-developer-guide/java-message-service-20-programming-model.png"alt-text="Diagram showing JMS 2.0 Programming model."border="false":::
 
 # [JMS 1.1 Programming model](#tab/JMS-11)
 
-:::image type="content" source="./media/jms-developer-guide/java-message-service-11-programming-model.png"alt-text="JMS 1.1 Programming model":::
+:::image type="content" source="./media/jms-developer-guide/java-message-service-11-programming-model.png"alt-text="Diagram showing JMS 1.1 Programming model."border="false":::
 
 ---
 
@@ -46,7 +46,7 @@ The below building blocks are available to communicate with the JMS application.
 > Referring to this tutorial is recommended for better understanding of the Java Message Service (JMS).
 >
 
-### Connection Factory
+### Connection factory
 The connection factory object is used by the client to connect with the JMS provider. The connection factory encapsulates a set of connection configuration parameters that are defined by the administrator.
 
 Each connection factory is an instance of `ConnectionFactory`, `QueueConnectionFactory` or `TopicConnectionFactory` interface.
@@ -70,7 +70,7 @@ ConnectionFactory factory = new ServiceBusJmsConnectionFactory(SERVICE_BUS_CONNE
 > Azure active directory (AAD) backed authentication is not currently supported.
 >
 
-### JMS Destination
+### JMS destination
 
 A destination is the object a client uses to specify the target of the messages it produces and the source of the messages it consumes.
 
@@ -131,7 +131,7 @@ JMSContext context = connectionFactory.createContext(JMSContext.AUTO_ACKNOWLEDGE
 
 When the mode is not specified, the **JMSContext.AUTO_ACKNOWLEDGE** is picked by default.
 
-### JMS Message Producers
+### JMS message producers
 
 A message producer is an object that is created using a JMSContext or a Session and used for sending messages to a destination.
 
@@ -147,7 +147,7 @@ or created at runtime when a message is needed to be sent.
 context.createProducer().send(destination, message);
 ```
 
-### JMS Message Consumers
+### JMS message consumers
 
 A message consumer is an object that is created by a JMSContext or a Session and used for receiving messages sent to a destination. It can be created as shown below -
 
@@ -172,7 +172,7 @@ When a non-zero positive argument is provided, the consumer blocks until that ti
 Message m = consumer.receive(1000); // time out after one second.
 ```
 
-#### Asynchronous receives with JMS Message Listeners
+#### Asynchronous receives with JMS message listeners
 
 A message listener is an object that is used for asynchronous handling of messages on a destination. It implements the `MessageListener` interface which contains the `onMessage` method where the specific business logic must live.
 

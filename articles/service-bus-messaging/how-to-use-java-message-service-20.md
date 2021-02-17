@@ -22,9 +22,9 @@ This guide assumes that you already have a Service Bus namespace. If you don't, 
 
 For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues through the Azure portal](service-bus-quickstart-portal.md).
 
-### Setup a Java Development environment
+### Set up a Java Development environment
 
-To develop Java applications, you need to setup the appropriate development environment - 
+To develop Java applications, you need to set up the appropriate development environment - 
    * Either the JDK (Java Development Kit) or the JRE (Java Runtime Environment) is installed.
    * The JDK or JRE is added to the build path and the appropriate system variables.
    * A Java IDE is installed to utilize the JDK or JRE. For example, Eclipse or IntelliJ.
