@@ -72,7 +72,7 @@ The command is executed on the master database on the Azure Germany server hosti
 - After failover, the secondary database in Azure Germany will continue to incur costs until deleted.
       
 - Using the `ALTER DATABASE` command is the only way to set up active geo-replication to migrate an Azure Germany database to global Azure. 
-- No Azure portal, Azure Resource Manager (ARM), PowerShell, or CLI is available to configure active geo-replication for this migration. 
+- No Azure portal, Azure Resource Manager, PowerShell, or CLI is available to configure active geo-replication for this migration. 
 
 To migrate a database from Azure Germany to global Azure:   
 
@@ -125,7 +125,7 @@ For more information the following tables below indicates T-SQL commands for man
 ### Limitations  
 
 - Failover Groups are not supported. This means that customers migrating Azure Germany database(s) will need to manage connection strings themselves during failover.
-- No support for Azure portal, ARM APIs, PowerShell, or CLI. This means that each Azure Germany migration will need to manage active geo-replication setup and failover through T-SQL.
+- No support for Azure portal, Azure Resource Manager APIs, PowerShell, or CLI. This means that each Azure Germany migration will need to manage active geo-replication setup and failover through T-SQL.
 - Customers cannot create multiple geo-secondaries in global Azure for databases in Azure Germany.
 - Creation of a geo secondary must be initiated from the Azure Germany region.
 - Customers can migrate databases out of Azure Germany only to global Azure. Currently no other cross-cloud migration is supported. 
