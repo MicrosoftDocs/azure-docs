@@ -30,7 +30,7 @@ Verify that the Azure Monitor agent extension and Guest VM Health agent are succ
 ![VM extensions](media/vminsights-health-troubleshoot/extensions.png)
 
 ### Verify the system assigned identity is enabled on the virtual machine
-Verify that the system assigned identity is enabled on the virtual machine. Select **Identity** from the virtual machine's menu in the Azure portal. 
+Verify that the system assigned identity is enabled on the virtual machine. Select **Identity** from the virtual machine's menu in the Azure portal. If UMI user managed identity is enabled, regardless of the status of the system managed identity, Azure Monitor agent will not be able to communicate with the configuration service, and the guest health extension will not work.
 
 ![System assigned identity](media/vminsights-health-troubleshoot/system-identity.png)
 
