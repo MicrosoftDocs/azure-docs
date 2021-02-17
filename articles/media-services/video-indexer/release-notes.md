@@ -43,6 +43,12 @@ The **clapping** event type that was included in the previous audio effects mode
 
 :::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Audio event detection":::
 
+### Named entities enhancement  
+
+The extracted list of people and location was extended and updated in general. 
+
+In addition, the model now includes people and locations in-context which are not famous, like a ‘Sam’ or ‘Home’ in the video. 
+
 ## January 2021
 
 ### Video Indexer is deployed on US Government cloud 
