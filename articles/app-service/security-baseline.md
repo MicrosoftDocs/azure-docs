@@ -4,7 +4,7 @@ description: The App Service security baseline provides procedural guidance and 
 author: msmbaldwin
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 01/01/2000
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -18,16 +18,21 @@ The Azure Security Baseline for App Service contains recommendations that will h
 
 To see how App Service completely maps to the Azure Security Benchmark, see the [full App Service security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
-## Network security
+>[!WARNING]
+>This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
 
-*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
+## Network Security
+
+*For more information, see the [Azure Security Benchmark: Network Security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
-**Guidance**: 
-When using App Service in the Isolated pricing tier, also called an App Service Environment (ASE) you can deploy directly into a subnet within your Azure Virtual Network. Use network security groups to secure your Azure App Service Environment by blocking inbound and outbound traffic to resources in your virtual network, or to restrict access to apps in an App Service Environment.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4437).
 
-By default, network security groups include an implicit deny rule at the lowest priority, which requires you to explicitly add allow rules. Add allow rules for your network security group based on a least privileged networking approach. The underlying virtual machines that are used to host the App Service Environment are not directly accessible because they are in a Microsoft-managed subscription.
+**Guidance**: When using App Service in the Isolated pricing tier, also called an App Service Environment (ASE) you can deploy directly into a subnet within your Azure Virtual Network. Use network security groups to secure your Azure App Service Environment by blocking inbound and outbound traffic to resources in your virtual network, or to restrict access to apps in an App Service Environment.
+
+By default, network security groups include an implicit deny rule at the lowest priority, and requires you to add explicit allow rules. Add allow rules for your network security group based on a least privileged networking approach. The underlying virtual machines that are used to host the App Service Environment are not directly accessible because they are in a Microsoft-managed subscription.
 
 Protect an App Service Environment by routing traffic through a Web Application Firewall (WAF) enabled Azure Application Gateway. Use service endpoints in conjunction with the Application Gateway to secure inbound publishing traffic to your app.  
 
@@ -56,11 +61,24 @@ Consider implementing an Azure Firewall to centrally create, enforce, and log ap
 
 - [How to create an internal ASE](environment/create-ilb-ase.md)
 
-**Azure Security Center monitoring**: Currently not available
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+
+**Azure Policy built-in definitions**:
+
+Resource provider namespace: Microsoft.Network.
+
+[!INCLUDE [Resource Policy for Microsoft.Network 1.1](../../includes/policy/standards/asb/rp-controls/microsoft.network-1-1.md)]
+
+Resource provider namespace: Microsoft.Web.
+
+[!INCLUDE [Resource Policy for Microsoft.Web 1.1](../../includes/policy/standards/asb/rp-controls/microsoft.web-1-1.md)]
+
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4438).
 
 **Guidance**: Implement network protection recommendations from Azure Security Center to secure network resources and configurations related to your App Service apps and APIs.
 
@@ -72,11 +90,20 @@ Use Azure Firewall to send traffic and centrally create, enforce, and log applic
 
 - [How to Enable Monitoring and Protection of App Service](../security-center/defender-for-app-service-introduction.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+
+**Azure Policy built-in definitions**:
+
+Resource provider namespace: Microsoft.Network.
+
+[!INCLUDE [Resource Policy for Microsoft.Network 1.2](../../includes/policy/standards/asb/rp-controls/microsoft.network-1-2.md)]
+
 ### 1.3: Protect critical web applications
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4439).
 
 **Guidance**: Secure an internet accessible app in an App Service Environment (ASE) by:
 - Deploying a Web Application Firewall (WAF) with Azure Application Gateway in front of an internet facing app
@@ -107,11 +134,20 @@ Additionally, review and follow recommendations in the Locking down an App Servi
 
 - [Track WAF alerts and easily monitor trends with Azure Monitor ](../azure-monitor/overview.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+
+**Azure Policy built-in definitions**:
+
+Resource provider namespace: Microsoft.Web.
+
+[!INCLUDE [Resource Policy for Microsoft.Web 1.3](../../includes/policy/standards/asb/rp-controls/microsoft.web-1-3.md)]
+
 ### 1.4: Deny communications with known-malicious IP addresses
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4440).
 
 **Guidance**: Secure the App Service Environment as described in the Locking down an App Service Environment documentation. Apply the Integrated Threat Intelligence functionality in Azure Security Center to deny communications with known-malicious or unused public IP addresses. Use Access Restrictions to secure inbound traffic to the Application Gateway. 
 
@@ -129,21 +165,59 @@ Use service endpoints to restrict access to your web app from an Azure Virtual N
 
 - [Secure the ASE as described in Locking down an App Service Environment](environment/firewall-integration.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+
+**Azure Policy built-in definitions**:
+
+Resource provider namespace: Microsoft.Network.
+
+[!INCLUDE [Resource Policy for Microsoft.Network 1.4](../../includes/policy/standards/asb/rp-controls/microsoft.network-1-4.md)]
+
 ### 1.5: Record network packets
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4441).
 
 **Guidance**: Monitors requests and responses that are sent to and from App Service apps with Security Center. Attacks against a web application can be monitored by using a real-time Application Gateway that has Web Application Firewall, enabled with integrated logging from Azure Monitor to track Web Application Firewall alerts and easily monitor trends.
 
 - [Azure Web Application Firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+
+**Azure Policy built-in definitions**:
+
+Resource provider namespace: Microsoft.Network.
+
+[!INCLUDE [Resource Policy for Microsoft.Network 1.5](../../includes/policy/standards/asb/rp-controls/microsoft.network-1-5.md)]
+
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4442).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable to App Service. This capability is not built into the platform directly. 
+
+Prevent access to a multi-tenant App Service (an app not in the Isolated tier), from selected subnets with service endpoints. Service endpoints must be enabled on both the networking side as well as the service that it is being enabled. Note that this does not work to restrict traffic to apps that are hosted in an Application Service Environment. In an Application Service Environment, you can control access to your app with IP address rules.
+
+Use a third-party application in the Azure Marketplace that offers complete IDS or IPS capabilities.
+
+- [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
+
+**Responsibility**: Not applicable
+
+**Azure Security Center monitoring**: None
+
 ### 1.7: Manage traffic to web applications
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4443).
 
 **Guidance**: Manage traffic for an app in an App Service Environment:
 
@@ -167,13 +241,16 @@ Review the referenced links for additional information.
 
 - [How to configure end-to-end TLS by using Application Gateway with the portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Secure the ASE as described in Locking down an App Service](./environment/firewall-integration.md)
-
-**Azure Security Center monitoring**: Yes
+- [Secure the ASE as described in Locking down an App Service](/azure/app-service/environment/firewall-integrationEnvironment:)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 1.8: Minimize complexity and administrative overhead of network security rules
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4444).
 
 **Guidance**: App Service has a number of endpoints that are used to manage the service. These endpoint addresses are also included in the AppServiceManagement IP service tag. The AppServiceManagement tag is only used with an App Service Environment to allow such traffic. 
 
@@ -183,11 +260,14 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 
 - [Virtual network service tags](../virtual-network/service-tags-overview.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 1.9: Maintain standard security configurations for network devices
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4445).
 
 **Guidance**: Define and implement standard security configurations for network settings related to your App Service apps. 
 
@@ -204,13 +284,16 @@ Review the referenced links for additional information.
 
 - [How to configure end-to-end TLS by using Application Gateway with the portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Secure the ASE as described in Locking down an App Service](./environment/firewall-integration.md)
-
-**Azure Security Center monitoring**: Not applicable
+- [Secure the ASE as described in Locking down an App Service](/azure/app-service/environment/firewall-integrationEnvironment:)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 1.10: Document traffic configuration rules
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4446).
 
 **Guidance**: Use tags for network security groups and other related resources, including traffic flow in App Service.
 
@@ -220,13 +303,16 @@ Apply any of the built-in Azure Policy definitions related to tagging effects, s
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
-- [Azure App Service Access Restrictions](./app-service-ip-restrictions.md)
-
-**Azure Security Center monitoring**: Not applicable
+- [Azure App Service Access Restrictions](/azure/app-service/app-service-ip-restriction)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4447).
 
 **Guidance**: Use Azure Activity log to monitor network resource configurations, and detect changes to network settings and to any resources related to App Service. 
 
@@ -240,28 +326,45 @@ Review detailed security alerts and recommendations in Security Center, at the p
 
 It is recommended that you create a process with automated tools to monitor network resource configurations and quickly detect changes.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
 
 - [Export security alerts and recommendations](../security-center/continuous-export.md)
 
-**Azure Security Center monitoring**: Currently not available
-
 **Responsibility**: Customer
 
-## Logging and monitoring
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
+## Logging and Monitoring
+
+*For more information, see the [Azure Security Benchmark: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
+
+### 2.1: Use approved time synchronization sources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4448).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
+
+**Guidance**: Microsoft maintains the time source used for Azure resources such as App Service. You may have to configure network rules to access Network Time Protocol (NTP) server over UDP port 123.
+
+**Responsibility**: Microsoft
+
+**Azure Security Center monitoring**: None
 
 ### 2.2: Configure central security log management
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4449).
 
 **Guidance**: Integrate your App Service Environment (ASE) with Azure Monitor to send logs to Azure Storage, Azure Event Hubs, or Log Analytics. 
 Enable Azure Activity log diagnostic settings for control plane audit logging. Security alerts from Security Center are published to the Azure Activity log. Audit Azure Activity log data, which let’s you determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for Azure App Service and other Azure resources. Save your queries for future use, pin query results to Azure Dashboards, and create log alerts. Also, use the Data Access REST API in Application Insights to access your telemetry programmatically.
 
 Use Microsoft Azure Sentinel, a scalable, cloud-native, security information event management (SIEM) available to connect to various data sources and connectors, based on your business requirements. You can also enable and on-board data to a third-party security information event management (SIEM) system, such as Barracuda in Azure Marketplace.
 
-- [Logging ASE Activity](environment/using-an-ase.md#logging)
+- [Logging ASE Activity](https://docs.microsoft.com/azure/app-service/environment/using-an-ase#logging)
 
 - [How to enable Diagnostic Settings for Azure App Service](troubleshoot-diagnostic-logs.md)
 
@@ -269,37 +372,67 @@ Use Microsoft Azure Sentinel, a scalable, cloud-native, security information eve
 
 - [Export telemetry from Application Insights](../azure-monitor/app/export-telemetry.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 2.3: Enable audit logging for Azure resources
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4450).
+
 **Guidance**: Enable Azure Activity log diagnostic settings for control plane audit logging of App Service. Send the logs to a Log Analytics workspace, Azure Event Hub, or an Azure Storage account.
+
 The "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level can be determined using Azure Activity log data for App Service and other Azure resources.
 
 Additionally, Azure Key Vault provides centralized secret management with access policies and audit history. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
 
 - [How to enable Diagnostic Settings for Azure App Service](troubleshoot-diagnostic-logs.md)
 
 - [Resource Manager Operations](../role-based-access-control/resource-provider-operations.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+
+**Azure Policy built-in definitions**:
+
+Resource provider namespace: Microsoft.Web.
+
+[!INCLUDE [Resource Policy for Microsoft.Web 2.3](../../includes/policy/standards/asb/rp-controls/microsoft.web-2-3.md)]
+
+### 2.4: Collect security logs from operating systems
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4451).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable; this recommendation is intended for IaaS compute resources.
+
+**Responsibility**: Not applicable
+
+**Azure Security Center monitoring**: None
 
 ### 2.5: Configure security log storage retention
 
-**Guidance**: In Azure Monitor, set the log retention period for the Log Analytics workspaces associated with your App Service resources according to your organization's compliance regulations.
-- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4452).
 
-**Azure Security Center monitoring**: Not applicable
+**Guidance**: In Azure Monitor, set the log retention period for the Log Analytics workspaces associated with your App Service resources according to your organization's compliance regulations.
+- [How to set log retention parameters](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 2.6: Monitor and review logs
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4453).
 
 **Guidance**: Review the Azure Activity log diagnostic settings in your App Service resources with the logs being sent to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the collected data.
 
@@ -309,7 +442,7 @@ If you have deployed a Web Application Firewall (WAF), you can monitor attacks a
 
 Use Azure Sentinel, a scalable and cloud-native security information event management (SIEM), to integrate with various data sources and connectors, as per requirements. Optionally, enable and on-board data to a third-party  security information event management solution in the Azure Marketplace.
 
-- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
+- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
 
 - [How to enable Application Insights](../azure-monitor/app/app-insights-overview.md)
 
@@ -317,11 +450,14 @@ Use Azure Sentinel, a scalable and cloud-native security information event manag
 
 - [How to on-board Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 2.7: Enable alerts for anomalous activities
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4454).
 
 **Guidance**: Configure Security Center in your Azure subscription and review the generated alerts. Use Azure Monitor to get your Activity log data to an Event Hub where it can be read by a security information event management (SIEM) solution, such as Azure Sentinel. 
 
@@ -331,29 +467,77 @@ Monitor attacks against your App Service apps by using a real-time Web Applicati
 
 - [Export security alerts and recommendations](../security-center/continuous-export.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
-## Identity and access control
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
+### 2.8: Centralize anti-malware logging
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4455).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable; App Service does not process or produce anti-malware related logs.
+
+**Responsibility**: Not applicable
+
+**Azure Security Center monitoring**: None
+
+### 2.9: Enable DNS query logging
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4456).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable to App Service. It does not process or produce user accessible DNS-related logs.
+
+**Responsibility**: Not applicable
+
+**Azure Security Center monitoring**: None
+
+### 2.10: Enable command-line audit logging
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4457).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable; this recommendation is intended for IaaS compute resources.
+
+**Responsibility**: Not applicable
+
+**Azure Security Center monitoring**: None
+
+## Identity and Access Control
+
+*For more information, see the [Azure Security Benchmark: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4458).
+
 **Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and query-able. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
 
-- [How to use managed identities for App Service and Azure Functions](overview-managed-identity.md?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
+- [How to use managed identities for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
 
 - [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.2: Change default passwords where applicable
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4459).
 
 **Guidance**: Azure Active Directory (Azure AD) does not have the concept of default passwords. It provides control plane access to App Service.
 
@@ -361,15 +545,18 @@ Generally, avoid implementing default passwords for user access when building yo
 
 Disable anonymous access, unless you need to support it. 
 
-- [Identity providers available by default in Azure App Service](overview-authentication-authorization.md#identity-providers)
+- [Identity providers available by default in Azure App Service](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
 
 - [Authentication and authorization in Azure App Service and Azure Functions](overview-authentication-authorization.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.3: Use dedicated administrative accounts
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4460).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use the Identity and Access Management features in Security Center to monitor and track the number of administrative accounts. 
 
@@ -387,11 +574,14 @@ Create a process to monitor network resource configurations, and detect changes 
 
 - [Learn more about granting users access to applications](../role-based-access-control/overview.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.4: Use Azure Active Directory single sign-on (SSO)
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4461).
 
 **Guidance**: Authenticate App Service through Azure Active Directory (Azure AD). It provides an OAuth 2.0 service for your identity provider and enables authorized access to mobile and web applications. 
 
@@ -406,45 +596,54 @@ App Service apps use federated identity, in which a third-party identity provide
 
 - Twitter
 
-When you enable authentication and authorization with one of these providers, its sign in endpoint is available for user authentication and for validation of authentication tokens from the provider.
+When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider.
 
-- [Understand authentication and authorization in Azure App Service](overview-authentication-authorization.md#identity-providers)
+- [Understand authentication and authorization in Azure App Service](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
 
 - [Learn about Authentication and Authorization in Azure App Service](overview-authentication-authorization.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4462).
 
 **Guidance**: Enable the multifactor authentication feature in Azure Active Directory (Azure AD) and follow Identity and Access Management recommendations in Security Center.
 
 Implement multifactor authentication for Azure AD. Administrators need to ensure that the subscription accounts in the portal are protected. The subscription is vulnerable to attacks because it manages the resources that you created. 
 
-- [Azure Security MFA](/previous-versions/azure/security/develop/secure-aad-app)
+- [Azure Security multifactor authentication](/azure/security/develop/secure-aad-app)
 
-- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [How to enable multifactor authentication in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 3.6: Use secure, Azure-managed workstations for administrative tasks
 
-**Guidance**: Use Privileged Access Workstations (PAW) with multifactor authentication configured to log into and configure Azure resources.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4463).
+
+**Guidance**: Use Privileged Access Workstations (PAW) with multifactor authentication configured to log into and configure Azure resources. 
 
 - [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Azure Security Center monitoring**: Not applicable
+- [How to enable multifactor authentication in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.7: Log and alert on suspicious activities from administrative accounts
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4464).
 
 **Guidance**: Use Privileged Identity Management (PIM) in Azure Active Directory (Azure AD) for generation of logs and alerts when suspicious or unsafe activities occur in the environment.
 
@@ -458,21 +657,27 @@ Threat protection in Security Center provides comprehensive defenses for your en
 
 - [Threat protection for Azure compute resources](../security-center/azure-defender.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.8: Manage Azure resources from only approved locations
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4465).
 
 **Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges, countries, or regions.
 
 - [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.9: Use Azure Active Directory
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4466).
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for your App Service apps. Azure AD protects data by using strong encryption for data at rest and in transit and also salts, hashes, and securely stores user credentials.
 
@@ -480,39 +685,48 @@ Threat protection in Security Center provides comprehensive defenses for your en
 
 - [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 3.10: Regularly review and reconcile user access
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4467).
+
 **Guidance**: Discover stale accounts with the logs provided by Azure Active Directory (Azure AD). Use Azure Identity Access Reviews to efficiently manage group memberships and access to enterprise applications, as well as role assignments. Review user access periodically to make sure only the intended users have continued access. 
 
-- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
+- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 3.11: Monitor attempts to access deactivated credentials
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4468).
+
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for your App Service apps. Azure AD protects data by using strong encryption for data at rest and in-transit, salts, hashes, and securely stores user credentials.
 
-Access to Azure AD sign in activity, audit, and risk event log sources allow you to integrate with Azure Sentinel or a third-party security information event management (SIEM) solution. Streamline the process by creating diagnostic settings for Azure AD user accounts and sending the audit and sign in logs to a Log Analytics workspace. Desired log alerts can be configured within Log Analytics.
+Access to Azure AD sign-in activity, audit, and risk event log sources allow you to integrate with Azure Sentinel or a third-party security information event management (SIEM) solution. Streamline the process by creating diagnostic settings for Azure AD user accounts and sending the audit and sign in logs to a Log Analytics workspace. Desired log alerts can be configured within Log Analytics.
 
 - [How to configure your Azure App Service apps to use Azure AD login](configure-authentication-provider-aad.md)
 
-- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 - [How to on-board Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Currently not available
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.12: Alert on account sign-in behavior deviation
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4469).
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for your App Service apps. 
 
@@ -524,35 +738,44 @@ Use Azure AD Identity Protection to configure automated responses to detected su
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-**Azure Security Center monitoring**: Currently not available
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
-**Guidance**: Not available for App Service. Customer Lockbox is not supported for Azure App Service.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4470).
 
-- [List of Customer Lockbox-supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
+**Guidance**: Not available; Customer Lockbox is not supported for Azure App Service.
 
-**Azure Security Center monitoring**: Not applicable
+- [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
 
 **Responsibility**: Customer
 
-## Data protection
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
+## Data Protection
+
+*For more information, see the [Azure Security Benchmark: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4471).
 
 **Guidance**: Use tags to assist in tracking App Service resources that store or process sensitive information.
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center monitoring**: Currently not available
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 4.2: Isolate systems storing or processing sensitive information
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4472).
 
 **Guidance**: For an App Service Environment, implement separate subscriptions, management groups, or both, for development, test, and production environments. You can Isolate apps that process sensitive information from other apps in the same manner. Deploy your App Service app into a Virtual Network. Use network security groups and subnets for further application isolation. 
 
@@ -570,11 +793,14 @@ For the multi-tenant App Service (an app not in the Isolated tier), use Virtual 
 
 - [How to create an internal ASE](environment/create-ilb-ase.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4473).
 
 **Guidance**: While data identification, classification, and loss prevention features are not yet available for App Service, you can reduce the data exfiltration risk from the virtual network by removing all rules where the destination uses a 'tag' for Internet or Azure services. 
 
@@ -582,21 +808,33 @@ Microsoft manages the underlying infrastructure for App Service and has implemen
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Currently not available
-
 **Responsibility**: Shared
 
+**Azure Security Center monitoring**: None
+
 ### 4.4: Encrypt all sensitive information in transit
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4474).
 
 **Guidance**: Use the default minimum version of TLS 1.2, configured in TLS/SSL settings, for encrypting all information in transit. Also ensure that all HTTP connection requests are redirected to HTTPS.
 
 - [Understand encryption in transit for Azure App Service web apps](security-recommendations.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+
+**Azure Policy built-in definitions**:
+
+Resource provider namespace: Microsoft.Web.
+
+[!INCLUDE [Resource Policy for Microsoft.Web 4.4](../../includes/policy/standards/asb/rp-controls/microsoft.web-4-4.md)]
+
 ### 4.5: Use an active discovery tool to identify sensitive data
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4475).
 
 **Guidance**: Currently not available. Data identification, classification, and loss prevention features are not yet available for App Service. 
 
@@ -606,21 +844,41 @@ Microsoft manages the underlying platform and treats all customer data as sensit
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Currently not available
-
 **Responsibility**: Shared
 
-### 4.6: Use Role-based access control to control access to resources
+**Azure Security Center monitoring**: None
+
+### 4.6: Use Azure RBAC to control access to resources 
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4476).
 
 **Guidance**: Use role-based access control (Azure RBAC) in Azure Active Directory (Azure AD) to control access to the App Service control plane at the Azure portal.
 
 - [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
 
-**Azure Security Center monitoring**: Currently not available
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
+### 4.7: Use host-based data loss prevention to enforce access control
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4477).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable; this recommendation is intended for IaaS compute resources.
+
+**Responsibility**: Not applicable
+
+**Azure Security Center monitoring**: None
+
 ### 4.8: Encrypt sensitive information at rest
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4478).
 
 **Guidance**: Web site content in an App Service app, such as files, are stored in Azure Storage, which automatically encrypts the content at rest. Choose to store application secrets in Key Vault and retrieve them at runtime.
 
@@ -628,57 +886,117 @@ Customer supplied secrets are encrypted at rest while stored in App Service conf
 
 Note that while locally attached disks can be used optionally by websites as temporary storage, (for example, D:\local and %TMP%), they are not encrypted at rest.
 
-- [Understand data protection controls for Azure App Service]()
+- [Understand data protection controls for Azure App Service](https://docs.microsoft.com/azure/app-service/security-recommendations#data-protection)
 
 - [Understand Azure Storage encryption at rest](../storage/common/storage-service-encryption.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4479).
+
 **Guidance**: Use Azure Monitor with Azure Activity log to create alerts upon any changes to production App Service apps and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
-
-**Azure Security Center monitoring**: Currently not available
+- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Responsibility**: Customer
 
-## Vulnerability management
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
+## Vulnerability Management
+
+*For more information, see the [Azure Security Benchmark: Vulnerability Management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4480).
 
 **Guidance**: Adopt a DevSecOps practice to ensure that your App Service apps are secure and remain secured throughout the duration of their lifecycle. DevSecOps incorporates your organization's security team and their capabilities into your DevOps practices making security the responsibility of everyone on the team.
 
 Review and follow recommendations from Security Center for securing your App Service apps.
 
-- [How to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?preserve-view=true&view=azure-devops)
+- [How to add continuous security validation to your CI/CD pipeline](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?preserve-view=true&amp;view=azure-devops)
 
 - [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
+### 5.2: Deploy automated operating system patch management solution
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4481).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable; this recommendation is intended for Infrastructure as a Service (IaaS) compute resources.
+
+**Responsibility**: Not applicable
+
+**Azure Security Center monitoring**: None
+
+### 5.3: Deploy automated patch management solution for third-party software titles
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4482).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable; this recommendation is intended for Infrastructure as a Service (IaaS) compute resources.
+
+**Responsibility**: Not applicable
+
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+
+**Azure Policy built-in definitions**:
+
+Resource provider namespace: Microsoft.Web.
+
+[!INCLUDE [Resource Policy for Microsoft.Web 5.3](../../includes/policy/standards/asb/rp-controls/microsoft.web-5-3.md)]
+
+### 5.4: Compare back-to-back vulnerability scans
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4483).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable; this recommendation is intended for Infrastructure as a Service (IaaS) compute resources.
+
+**Responsibility**: Not applicable
+
+**Azure Security Center monitoring**: None
+
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4484).
 
 **Guidance**: Microsoft performs vulnerability management on the underlying systems that support App Service. However, you can use the severity of the recommendations within Security Center as well as the Secure Score to measure risk within your environment. Your Secure Score is based on how many Security Center recommendations you have mitigated. To prioritize the recommendations to resolve first, consider the severity of each.
 
 - [Security recommendations reference guide](../security-center/recommendations-reference.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Shared
 
-## Inventory and asset management
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
+## Inventory and Asset Management
+
+*For more information, see the [Azure Security Benchmark: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4485).
 
 **Guidance**: Use Azure Resource Graph to query or discover all resources (such as compute, storage, network, ports, protocols, and so on) within your subscriptions. Ensure appropriate permissions are applied to your tenant and you can enumerate all Azure subscriptions as well as resources within your subscriptions.
 
@@ -686,25 +1004,31 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
+- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?preserve-view=true&amp;view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.2: Maintain asset metadata
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4486).
 
 **Guidance**: Apply tags to Azure resources using metadata to logically organize them into a taxonomy.
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.3: Delete unauthorized Azure resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4487).
 
 **Guidance**: Use tagging, management groups, and separate subscriptions as appropriate, to organize and track Azure resources. Reconcile inventory on a regular basis and ensure unauthorized resources are removed from your subscriptions as part of this process.
 
@@ -721,19 +1045,25 @@ Review the referenced links for additional information.
 
 - [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 6.4: Define and maintain inventory of approved Azure resources
 
-**Guidance**: Create an inventory of approved Azure resources and approved software for compute resources based on your organizational needs.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4488).
 
-**Azure Security Center monitoring**: Not applicable
+**Guidance**: Create an inventory of approved Azure resources and approved software for compute resources based on your organizational needs.
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.5: Monitor for unapproved Azure resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4489).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscriptions.
 
@@ -743,14 +1073,16 @@ Use Azure Resource Graph to query or discover resources within their subscriptio
 
 - [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 6.6: Monitor for unapproved software applications within compute resources
 
-**Guidance**: 
-Use Azure Resource
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4490).
+
+**Guidance**: Use Azure Resource
 Graph to query or discover resources within your subscriptions and ensure that the discovered Azure resources are approved based on your organizational policies.
 
 Use WebJobs in App Service to Monitor for unapproved software applications that are deployed within compute resources. Use WebJobs to run a program or script in the same instance as a web app, API app, or mobile app. Define WebJob configurations and monitoring with logs. In the WebJob Run Details page, select Toggle Output to see the text of the log contents. Note that WebJobs are not yet supported for App Service on Linux.
@@ -761,11 +1093,14 @@ Use WebJobs in App Service to Monitor for unapproved software applications that 
 
 - [Quickstart - Run your first Resource Graph query using Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.7: Remove unapproved Azure resources and software applications
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4491).
 
 **Guidance**: Ensure that all Azure resources present in the environment are approved. Use Azure Policy to put restrictions on the type of resources that can be created in your subscriptions. Remove any deployed software applications that have not been approved per your organizational policies.
 
@@ -775,11 +1110,14 @@ Use WebJobs in App Service to Monitor for unapproved software applications that 
 
 - [Quickstart - Run your first Resource Graph query using Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.8: Use only approved applications
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4492).
 
 **Guidance**: Ensure that all Azure resources present in the environment are approved. Use Azure Policy to put restrictions on the type of resources that can be created in your subscriptions. Remove any deployed software applications that have not been approved per your organizational policies. 
 
@@ -789,11 +1127,14 @@ Use WebJobs in App Service to Monitor for unapproved software applications that 
 
 - [Quickstart - Run your first Resource Graph query using Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.9: Use only approved Azure services
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4493).
 
 **Guidance**: Create a process to review unauthorized Azure services on a periodic basis to ensure only authorized Azure services are used in your subscriptions.
 
@@ -805,19 +1146,22 @@ Configure Azure Policy to put restrictions on the type of resources that can be 
 
 - Allowed resource types
 
-Use WebJobs in App Service to monitor for unapproved software applications deployed within computer resources . Use WebJobs to run a program or script in the same instance as a web app, API app, or mobile app. Define WebJob configurations and monitoring with logs. In the WebJob Run Details page, select Toggle Output to see the text of the log contents. Note that WebJobs are not yet supported for App Service on Linux.
+Use WebJobs in App Service to monitor for unapproved software applications deployed within computer resources. Use WebJobs to run a program or script in the same instance as a web app, API app, or mobile app. Define WebJob configurations and monitoring with logs. In the WebJob Run Details page, select Toggle Output to see the text of the log contents. Note that WebJobs are not yet supported for App Service on Linux.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
+- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 - [Run background tasks with WebJobs in Azure App Service](webjobs-create.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.10: Maintain an inventory of approved software titles
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4494).
 
 **Guidance**: Implement a process to inventory and review software titles in your subscriptions on a periodic basis to ensure only authorized Azure services are used in your subscriptions.
 
@@ -833,33 +1177,42 @@ Similarly, use WebJobs in App Service to inventory unapproved software applicati
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
-
-**Azure Security Center monitoring**: Not applicable
+- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4495).
 
 **Guidance**: Configure Azure Conditional Access to limit the ability of users to interact with Azure Resource Manager, by configuring "Block access" for the "Microsoft Azure Management" App.
 
 - [How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.12: Limit users' ability to execute scripts within compute resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4496).
 
 **Guidance**: WebJobs in App Service enable customers to run a program or script in the same instance as a web app, API app, or mobile app. You are responsible for defining your configuration to restrict or limit any scripts, which are not allowed by the organization. App Service does not provide a mechanism to limit script execution natively. Note that WebJobs are not yet supported for App Service on Linux.
 
 - [Run background tasks with WebJobs in Azure App Service](webjobs-create.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.13: Physically or logically segregate high risk applications
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4497).
 
 **Guidance**: Implement separate subscriptions or management groups to provide isolation for high risk App Service apps. Deploy a higher risk app into its own Virtual Network, since perimeter security in App Service is achieved through the usage of virtual networks. The App Service Environment is a deployment of App Service into a subnet in your Azure Virtual Network. 
 
@@ -871,37 +1224,59 @@ There are two types of Application Service Environment, External Application Ser
 
 - [Create and use an Internal Load Balancer App Service Environment](environment/create-ilb-ase.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
-## Secure configuration
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
+## Secure Configuration
+
+*For more information, see the [Azure Security Benchmark: Secure Configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4498).
 
 **Guidance**: Define and implement standard security configurations for your App Service deployed apps with Azure Policy.
 
 Use Azure Policy aliases in the "Microsoft.Web" namespace to create custom policies to audit or enforce the configuration of your App Service Web Apps.
 
 Apply built-in policy definitions such as:
+
 - App Service should use a virtual network service endpoint
+
 - Web Applications should only be accessible over HTTPS
 
 - Use the latest TLS version in your apps
 
 It is recommended that you document the process to apply the built-in policy definitions for standardized usage.   
 
-- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
+- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&amp;view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
+### 7.2: Establish secure operating system configurations
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4499).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable; this recommendation is intended for Infrastructure as a Service (IaaS) compute resources.
+
+**Responsibility**: Not applicable
+
+**Azure Security Center monitoring**: None
+
 ### 7.3: Maintain secure Azure resource configurations
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4500).
 
 **Guidance**: Use Azure Policy [deny] and [deploy if not exist] effects to enforce secure settings across your Azure App Service apps.
 
@@ -909,35 +1284,86 @@ It is recommended that you document the process to apply the built-in policy def
 
 - [Understand Azure Policy Effects](../governance/policy/concepts/effects.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
+### 7.4: Maintain secure operating system configurations
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4501).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable; this recommendation is intended for Infrastructure as a Service (IaaS) compute resources.
+
+**Responsibility**: Not applicable
+
+**Azure Security Center monitoring**: None
+
 ### 7.5: Securely store configuration of Azure resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4502).
 
 **Guidance**: Choose Azure DevOps or Azure Repos to securely store and manage your code when using custom Azure Policy definitions.
 
 Use your existing Continuous Integration (CI) and Continuous Delivery (CD) pipeline to deploy a known-secure configuration.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
+- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?preserve-view=true&amp;view=azure-devops)
 
-- [Azure Repos Documentation](/azure/devops/repos/?preserve-view=true&view=azure-devops)
-
-**Azure Security Center monitoring**: Not applicable
+- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?preserve-view=true&amp;view=azure-devops)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
+### 7.6: Securely store custom operating system images
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4503).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable; this recommendation is intended for Infrastructure as a Service (IaaS) compute resources.
+
+**Responsibility**: Not applicable
+
+**Azure Security Center monitoring**: None
+
 ### 7.7: Deploy configuration management tools for Azure resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4504).
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Web" namespace to create custom policies to alert, audit, and enforce system configurations. Develop a process and pipeline for managing policy exceptions.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
+### 7.8: Deploy configuration management tools for operating systems
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4505).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable; this recommendation is intended for Infrastructure as a Service (IaaS) compute resources.
+
+**Responsibility**: Not applicable
+
+**Azure Security Center monitoring**: None
+
 ### 7.9: Implement automated configuration monitoring for Azure resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4506).
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Web" namespace to create custom policies to alert, audit, and enforce system configurations. 
 
@@ -945,11 +1371,28 @@ Apply Azure Policy [audit], [deny], and [deploy if not exist], effects to automa
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
+### 7.10: Implement automated configuration monitoring for operating systems
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4507).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable; this recommendation is intended for Infrastructure as a Service (IaaS) compute resources.
+
+**Responsibility**: Not applicable
+
+**Azure Security Center monitoring**: None
+
 ### 7.11: Manage Azure secrets securely
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4508).
 
 **Guidance**: Use Managed Identities to provide your App Service apps with an automatically managed identity in Azure Active Directory (Azure AD). Managed Identities enable your apps to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code. Ensure soft delete is enabled in Azure Key Vault.
 
@@ -959,11 +1402,14 @@ Apply Azure Policy [audit], [deny], and [deploy if not exist], effects to automa
 
 - [How to provide Key Vault authentication with a managed identity](../key-vault/general/assign-access-policy-portal.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 7.12: Manage identities securely and automatically
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4509).
 
 **Guidance**: Use Managed Identities to provide your App Service-deployed apps with an automatically managed identity in Azure Active Directory (Azure AD). Managed Identities enables your apps to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
@@ -971,25 +1417,95 @@ Apply Azure Policy [audit], [deny], and [deploy if not exist], effects to automa
 
 - [How to provide Key Vault authentication with a managed identity](../key-vault/general/assign-access-policy-portal.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+
+**Azure Policy built-in definitions**:
+
+Resource provider namespace: Microsoft.Web.
+
+[!INCLUDE [Resource Policy for Microsoft.Web 7.12](../../includes/policy/standards/asb/rp-controls/microsoft.web-7-12.md)]
+
 ### 7.13: Eliminate unintended credential exposure
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4510).
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
 - [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
-## Data recovery
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
+## Malware Defense
+
+*For more information, see the [Azure Security Benchmark: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
+
+### 8.1: Use centrally-managed anti-malware software
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4511).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
+
+**Guidance**: App Service does not allow anti-malware solutions to be installed on top of its resources. 
+
+Microsoft manages the underlying platform components of App Service, including Azure VMs, storage, network connections, web frameworks, and management and integration features. App Service goes through vigorous compliance checks on a continuous basis to make sure that 24-hour threat management protects the infrastructure and platform against malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats.
+
+Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Functions). However, it does not run on your content.
+
+**Responsibility**: Microsoft
+
+**Azure Security Center monitoring**: None
+
+### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4512).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
+
+**Guidance**: App Service does not allow anti-malware solutions to be installed on top of its resources. 
+
+Microsoft manages the underlying platform components of App Service, including Azure VMs, storage, network connections, web frameworks, and management and integration features. App Service goes through vigorous compliance checks on a continuous basis to make sure that 24-hour threat management protects the infrastructure and platform against malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats.
+
+Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Functions). However it does not run on your content.
+
+**Responsibility**: Microsoft
+
+**Azure Security Center monitoring**: None
+
+### 8.3: Ensure anti-malware software and signatures are updated
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4513).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
+
+**Guidance**: App Service does not allow anti-malware solutions to be installed on top of its resources. 
+
+Microsoft manages the underlying platform components of App Service, including Azure VMs, storage, network connections, web frameworks, and management and integration features. App Service goes through vigorous compliance checks on a continuous basis to make sure that 24-hour threat management protects the infrastructure and platform against malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats.
+
+Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Functions). However it does not run on your content.
+
+**Responsibility**: Microsoft
+
+**Azure Security Center monitoring**: None
+
+## Data Recovery
+
+*For more information, see the [Azure Security Benchmark: Data Recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back-ups
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4514).
 
 **Guidance**: The Backup and Restore feature in App Service lets you easily create app backups manually or on a schedule. You can configure the backups to be retained up to an indefinite amount of time. You can restore the app to a snapshot of a previous state by overwriting the existing app or restoring to another app.
 
@@ -1002,16 +1518,18 @@ Ensure that regular and automated back-ups are occurring at a frequency as defin
 
 - [Understand Azure App Service backup capability](manage-backup.md)
 
-- [Customer-managed keys for Azure Storage encryption](../storage/common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
-**Azure Security Center monitoring**: Not applicable
+- [Customer-managed keys for Azure Storage encryption](../storage/common/customer-managed-keys-overview.md)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 9.2: Perform complete system backups and backup any customer-managed keys
 
-**Guidance**: 
-Use the backup and restore feature of App Service to backup your applications. The backup features require an Azure Storage Account to store your application's backup information.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4515).
+
+**Guidance**: Use the backup and restore feature of App Service to back up your applications. The backup features require an Azure Storage Account to store your application's backup information.
 
 - Azure Storage provides encryption at rest - Use system-provided keys or your own, customer-managed keys. This is where your application data is stored when it is not running in a web app in Azure.
 - Running from a deployment package is a deployment feature of App Service. It allows you to deploy your site content from an Azure Storage Account using a Shared Access Signature (SAS) URL.
@@ -1024,17 +1542,20 @@ More information is available at the referenced links.
 
 - [Restore an app running in Azure App Service](web-sites-restore.md)
 
-- [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) 
+- [Understand encryption at rest in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#encryption-at-rest-in-microsoft-cloud-services) 
 
 - [Encryption Model and key management table](../security/fundamentals/encryption-atrest.md)
 
 - [Encryption at rest using customer-managed keys](configure-encrypt-at-rest-using-cmk.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 9.3: Validate all backups including customer-managed keys
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4516).
 
 **Guidance**: Periodically test the restore process for any backups of your App Service applications.
 
@@ -1042,11 +1563,14 @@ More information is available at the referenced links.
 
 - [How to restore an Azure App Service web app](web-sites-restore.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 9.4: Ensure protection of backups and customer-managed keys
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4517).
 
 **Guidance**: App Service backups are stored within an Azure Storage account. Data in Azure Storage is encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Azure Storage encryption is similar to BitLocker encryption on Windows.
 
@@ -1058,15 +1582,18 @@ By default, data in a storage account is encrypted with Microsoft-managed keys. 
 
 - [How to enable soft delete in Azure Key Vault](../key-vault/general/key-vault-recovery.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
-## Incident response
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
+## Incident Response
+
+*For more information, see the [Azure Security Benchmark: Incident Response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4518).
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
@@ -1078,41 +1605,53 @@ By default, data in a storage account is encrypted with Microsoft-managed keys. 
 
 - [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
-**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4519).
+
+**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytics used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, clearly mark subscriptions (for example, production, non-production) and create a naming system to clearly identify and categorize Azure resources.
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 10.3: Test security response procedures
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4524).
 
 **Guidance**: Conduct exercises to test your system's incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
 - [Refer to NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4520).
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party.  Review incidents after the fact to ensure that issues are resolved.
 
 - [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 10.5: Incorporate security alerts into your incident response system
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4521).
 
 **Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. Use the Security Center data connector to stream the alerts to Azure Sentinel as per business needs.
 
@@ -1120,37 +1659,43 @@ Additionally, clearly mark subscriptions (for example, production, non-productio
 
 - [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 10.6: Automate the response to security alerts
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4522).
 
 **Guidance**: Use the Workflow Automation feature in Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
 - [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
-## Penetration tests and red team exercises
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+## Penetration Tests and Red Team Exercises
+
+*For more information, see the [Azure Security Benchmark: Penetration Tests and Red Team Exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
-**Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4523).
 
-You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
+**Guidance**: Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications. 
+
+- [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Shared
+
+**Azure Security Center monitoring**: None
 
 ## Next steps
 
-- See the [Azure security benchmark](../security/benchmarks/overview.md)
-- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)
+- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
+- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
