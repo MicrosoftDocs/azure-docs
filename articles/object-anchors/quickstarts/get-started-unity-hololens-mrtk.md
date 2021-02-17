@@ -88,7 +88,7 @@ Example `subscription.json`:
 {
   "AccountId": "<your account id>",
   "AccountKey": "<your account key>",
-  "AccountRegion": "<your account region>"
+  "AccountDomain": "<your account domain>"
 }
 ```
 
