@@ -56,9 +56,8 @@ For a validation of properly functioning Microsoft Connected Cache, execute the 
 ```
 
 # Microsoft Connected Cache Preview Deployment Scenario Sample: Single Level IoT Edge Gateway With Outbound Unauthenticated Proxy
-In this scenario there is an IoT Edge Gateway that has access to CDN resources through an outbound unauthenticated proxy. Microsoft Connected Cache is being configured to cache content from a custom repository and the summary report has been made visible to anyone on the network. Below is an example of the MCC environment variables that would be set.
 
---> BUG BUG Diagram link
+In this scenario there is an IoT Edge Gateway that has access to CDN resources through an outbound unauthenticated proxy. Microsoft Connected Cache is being configured to cache content from a custom repository and the summary report has been made visible to anyone on the network. Below is an example of the MCC environment variables that would be set.
 
 1. Add the Microsoft Connected Cache module to your IoT Edge gateway device deployment in IoT Hub (see <link>MCC concepts</link> for details on how to get the module).
 2. Add the environment variables for the deployment. Below is an example of the environment variables.

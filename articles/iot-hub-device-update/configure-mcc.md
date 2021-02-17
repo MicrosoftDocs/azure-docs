@@ -14,8 +14,7 @@ Microsoft Connected Cache is deployed to IoT Edge gateways as an IoT Edge Module
 ## Microsoft Connected Cache IoT Edge Module Deployment Details
 Naming of the Microsoft Connected Cache module is at the discretion of the administrator. There are no other module or service interactions that rely on the name of the module for communication. Additionally, the parent child relationship of the Microsoft Connected Cache servers is not dependent on this module name, but rather the FQDN or Ip address of the IoT Edge gateway that has been configured as discussed earlier.
 
-Microsoft Connected Cache IoT Edge Module Environment Variables
-Environment variables are used to pass basic module identity information and functional module settings to the container.
+Microsoft Connected Cache IoT Edge Module Environment Variables are used to pass basic module identity information and functional module settings to the container.
 
 >[!TIP]
 >Please note: This list of required environment variables may change in the future. 
@@ -23,12 +22,12 @@ Environment variables are used to pass basic module identity information and fun
 | Variable Name                 | Value Format                           | Required/Optional | Functionality                                    |
 | ----------------------------- | ---------------------------------------| ----------------- | ------------------------------------------------ |
 |                               |                                        |                   | |
-| CUSTOMER_ID                   | Azure Subscription ID GUID             | Required          | This is the customer's key which provides secure<br>authentication of the cache node to Delivery Optimization<br>Services. Required in order  for module to function. |
+| CUSTOMER_ID                   | Azure Subscription ID GUID             | Required          | This is the customer's key, which provides secure<br>authentication of the cache node to Delivery Optimization<br>Services. Required in order  for module to function. |
 | CACHE_NODE_ID                 | Cache Node ID GUID                     | Required          | Uniquely identifies the Microsoft Connected Cache<br>node to Delivery Optimization Services. Required in order<br> for module to function. |
-| CUSTOMER_KEY                  | Customer Key  GUID                     | Required          | This is the customer's key which provides secure<br>authentication of the cache node to Delivery Optimization Services.<br>Required in order for module to function.|
-| STORAGE_*N*_SIZE_GB           | Where N is the number of GB Required   | Required          | Specify up to 9 drives to cache content and specify<br>the maximum space in Gigabytes to allocate for content on each cache drive. Examples:<br>STORAGE_1_SIZE_GB = 150<br>STORAGE_2_SIZE_GB = 50<br>The number of the drive must match the cache drive binding values specified<br>in the Container Create Option MicrosoftConnectedCache*N* value|
+| CUSTOMER_KEY                  | Customer Key  GUID                     | Required          | This is the customer's key, which provides secure<br>authentication of the cache node to Delivery Optimization Services.<br>Required in order for module to function.|
+| STORAGE_*N*_SIZE_GB           | Where N is the number of GB Required   | Required          | Specify up to nine drives to cache content and specify<br>the maximum space in Gigabytes to allocate for content on each cache drive. Examples:<br>STORAGE_1_SIZE_GB = 150<br>STORAGE_2_SIZE_GB = 50<br>The number of the drive must match the cache drive binding values specified<br>in the Container Create Option MicrosoftConnectedCache*N* value|
 | UPSTREAM_HOST                 | FQDN/IP                                | Optional          | This value can specify an upstream Microsoft Connected<br>Cache node that acts as a proxy if the Connected Cache node<br> is disconnected from the internet. This setting is used to support<br> the Nested IoT scenario.<br>**Please note:** Microsoft Connected Cache listens on http default port 80.|
-| UPSTREAM_PROXY                | FQDN/IP:PORT                           | Optional          | The outbound internet proxy.<br>This could also be the OT DMZ proxy in the case of an ISA 95 network. |
+| UPSTREAM_PROXY                | FQDN/IP:PORT                           | Optional          | The outbound internet proxy.<br>This could also be the OT DMZ proxy if an ISA 95 network. |
 | CACHEABLE_CUSTOM_*N*_HOST     | HOST/IP<br>FQDN                        | Optional          | Required to support custom package repositories.<br>Repositories could be hosted locally or on the internet.<br>There is no limit to the number of custom hosts that can be configured.<br><br>Examples:<br>Name = CACHEABLE_CUSTOM_1_HOST Value = packages.foo.com<br> Name = CACHEABLE_CUSTOM_2_HOST Value = packages.bar.com    |
 | CACHEABLE_CUSTOM_*N*_CANONICAL| Alias                                  | Optional          | Required to support custom package repositories.<br>This value can be used as an alias and will be used by the cache server to reference<br>different DNS names. For example, repository content hostname may be packages.foo.com,<br>but for different regions there could be an additional prefix that is added to the hostname<br>like westuscdn.packages.foo.com and eastuscdn.packages.foo.com.<br>By setting the canonical alias, you ensure that content is not duplicated<br>for content coming from the same host, but different CDN sources.<br>The format of the canonical value is not important, but it must be unique to the host.<br>It may be easiest to set the value to match the host value.<br><br>Examples based on Custom Host examples above:<br>Name = CACHEABLE_CUSTOM_1_CANONICAL Value = foopackages<br> Name = CACHEABLE_CUSTOM_2_CANONICAL Value = packages.bar.com  |
 | IS_SUMMARY_PUBLIC             | True or False                          | Optional          | Enables viewing of the summary report on the local network or internet.<br>Use of an API key (discussed later) is required to view the summary report if set to true. |
@@ -41,7 +40,7 @@ Container create options for MCC module deployment provide control of the settin
 >Please note: the required MCC container create options may change in the future.
 
 ### Container to Host OS Drive Mappings
-Required to map the container storage location to the storage location on the disk.< Up to 9 locations can be specified.
+Required to map the container storage location to the storage location on the disk.< Up to nine locations can be specified.
 [!TIP]
 >Please Note: The number of the drive must match the cache drive binding values specified in the environment variable STORAGE_*N*_SIZE_GB value.
 
@@ -59,7 +58,7 @@ This option specifies the external machine http port that MCC listens on for con
 </pre>
 
 ### Container Service TCP Port Mappings
-The Microsoft Connected Cache module has a .Net Core service which is used by the caching enging for various functions.
+The Microsoft Connected Cache module has a .Net Core service, which is used by the caching engine for various functions.
 >[!TIP]
 >Please note: to support IoT Nested Edge the HostPort must not be set to 5000 because the Registry proxy module is already listening on host port 5000.
 
@@ -72,7 +71,7 @@ The Microsoft Connected Cache module has a .Net Core service which is used by th
 </pre>
 
 ## Microsoft Connected Cache Summary Report
-The summary report is currently the only way for a customer to view caching data for the Microsoft Connected Cache instances deployed to IoT Edge gateways. The report is generated at 15 second intervals and includes averaged stats for the period as well as aggregated stats for the lifetime of the module. The key stats that customers will be interested in are:
+The summary report is currently the only way for a customer to view caching data for the Microsoft Connected Cache instances deployed to IoT Edge gateways. The report is generated at 15-second intervals and includes averaged stats for the period as well as aggregated stats for the lifetime of the module. The key stats that customers will be interested in are:
 
 **hitBytes** - This is the sum of bytes delivered that came directly from cache.
 **missBytes** - This is the sum of bytes delivered that Microsoft Connected Cache had to download from CDN to see the cache.
