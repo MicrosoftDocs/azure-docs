@@ -14,7 +14,7 @@ ms.date: 02/04/2021
 
 This article lists recent features added for Azure Sentinel, and new features in related services that provide an enhanced user experience in Azure Sentinel.
 
-For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
+For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-ddddbel-name/What's%20New).
 
 Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -25,11 +25,51 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 > 
 
+## February 2021
+
+- [Third-party data connectors](#third-party-data-connectors)
+
+### Third-party data connectors
+
+Our collection of third-party integrations continues to grow, with thirty connectors being added since last month. Here's a list:
+
+- [Agari Phishing Defense and Brand Protection](connect-agari-phishing-defense.md)
+- [Akamai Security Events](connect-akamai-security-events.md)
+- [Alsid for Active Directory](connect-alsid-active-directory.md)
+- [Apache HTTP Server](connect-apache-http-server.md)
+- [Aruba ClearPass](connect-data-sources.md)
+- [Blackberry CylancePROTECT](connect-data-sources.md)
+- [Broadcom Symantec DLP](connect-data-sources.md)
+- [Cisco Firepower eStreamer](connect-data-sources.md)
+- [Cisco Meraki](connect-data-sources.md)
+- [Cisco Umbrella](connect-cisco-umbrella.md)
+- [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
+- [ESET Enterprise Inspector](connect-data-sources.md)
+- [ESET Security Management Center](connect-data-sources.md)
+- [Google Workspace GSuite](connect-data-sources.md)
+- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
+- [Juniper SRX](connect-juniper-srx.md)
+- [Netskope](connect-data-sources.md)
+- [NXLog DNS Logs](connect-data-sources.md)
+- [NXLog Linux Audit](connect-data-sources.md)
+- [Onapsis Platform](connect-data-sources.md)
+- [Proofpoint On Demand Email Security (POD)](connect-proofpoint-pod.md)
+- [Qualys Vulnerability Management Knowledge Base](connect-data-sources.md)
+- [Salesforce Service Cloud](connect-salesforce-service-cloud.md)
+- [SonicWall Firewall](connect-data-sources.md)
+- [Sophos Cloud Optix](connect-data-sources.md)
+- [Squid Proxy](connect-squid-proxy.md)
+- [Symantec Endpoint Protection](connect-data-sources.md)
+- [Thycotic Secret Server](connect-thycotic-secret-server.md)
+- [Trend Micro XDR](connect-data-sources.md)
+- [VMWare ESXi](connect-data-sources.md)
+
 ## January 2021
 
 - [Analytics rule wizard: Improved query editing experience (public preview)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [Az.SecurityInsights PowerShell module (Public preview)](#azsecurityinsights-powershell-module-public-preview)
 - [SQL database connector](#sql-database-connector)
+- [Dynamics 365 connector](#dynamics-365-connector)
 - [Improved incident comments](#improved-incident-comments)
 - [Dedicated Log Analytics clusters](#dedicated-log-analytics-clusters)
 - [Logic apps managed identities](#logic-apps-managed-identities)
@@ -45,7 +85,7 @@ The Azure Sentinel Scheduled analytics rule wizard now provides the following en
 -	Expanded auto-complete support.
 -	Real-time query validations. Errors in your query now show as a red block in the scroll bar, and as a red dot in the **Set rule logic** tab name. Additionally, a query with errors cannot be saved.
 
-For more information, see [Tutorial: Detect threats out-of-the-box](tutorial-detect-threats-built-in.md).
+For more information, see [Tutorial: Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
 ### Az.SecurityInsights PowerShell module (Public preview)
 
 Azure Sentinel now supports the new [Az.SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell module.
@@ -63,6 +103,12 @@ Azure Sentinel now provides an Azure SQL database connector, which you to stream
 Azure SQL is a fully managed, Platform-as-a-Service (PaaS) database engine that handles most database management functions, such as upgrading, patching, backups, and monitoring, without user involvement.
 
 For more information, see [Connect Azure SQL database diagnostics and auditing logs](connect-azure-sql-logs.md).
+
+### Dynamics 365 connector
+
+Azure Sentinel now provides a connector for Microsoft Dynamics 365, which lets you collect your Dynamics 365 applications' user, admin, and support activity logs into Azure Sentinel. You can use this data to help you audit the entirety of data processing actions taking place and analyze it for possible security breaches.
+
+For more information, see [Connect Dynamics 365 activity logs to Azure Sentinel](connect-dynamics-365.md).
 
 ### Improved incident comments
 
