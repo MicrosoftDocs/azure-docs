@@ -5,18 +5,18 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/18/2021
 ms.author: yuajia
 ---
 
-# Azure Front Door Reports
+# Azure Front Door Standard/Premium Reports
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Front Door Analytics Reports provide a built-in and all-around view of how Azure Front Door is behaving and the associated WAF metrics. You can take advantage of Access Log to do further troubleshooting and debugging. Azure Front Door Analytics reports include AFD traffic reports and security reports.
+Azure Front Door Standard/Premium Analytics Reports provide a built-in and all-around view of how you Azure Front Door behaves along with associated Web Application Firewall metrics. You can also take advantage of Access Logs to do further troubleshooting and debugging. Azure Front Door Analytics reports include traffic reports and security reports.
 
 | Reports | Details |
 |---------|---------|
@@ -41,15 +41,16 @@ Most of the reports are based on access logs and are offered free of charge to c
 
 Reports support any selected date range from the previous 90 days. With data points of every 5 mins, every hour, or every day based on the date range selected. Normally, you can view data with delay of within an hour and occasionally with delay of up to a few hours. 
 
-## Access Reports using Portal
+## Access Reports using the Azure Portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select your Azure Front Door profile.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select your Azure Front Door Standard/Premium profile.
 
 1. In the navigation pane, select **Reports or Security** under *Analytics*.
 
    :::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Screenshot of Reports landing page":::
 
 1. There are seven tabs for different dimensions, select the dimension of interest.
+
    * Traffic by domain
    * Usage 
    * Traffic by location
@@ -360,4 +361,4 @@ The seven tables are for time, rule ID, country, IP address, URL, hostname, user
 
 ## Next steps
 
-Learn about [Azure Front Door Standard/Premium (Preview) real time monitoring metrics]().
+Learn about [Azure Front Door Standard/Premium real time monitoring metrics](how-to-monitor-metrics.md).
