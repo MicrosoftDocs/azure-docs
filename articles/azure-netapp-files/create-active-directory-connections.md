@@ -156,10 +156,10 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         If you are using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
 
-    ![Join Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+        ![Join Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
     * **AES Encryption**   
-        Select this checkbox to enable AES encryption for an SMB volume. See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements. 
+        Select this checkbox if you want to enable AES encryption for an SMB volume. See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements. 
 
         ![Active Directory AES encryption](../media/azure-netapp-files/active-directory-aes-encryption.png)
 
