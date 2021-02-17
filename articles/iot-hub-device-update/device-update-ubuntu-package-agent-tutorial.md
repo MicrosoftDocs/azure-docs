@@ -55,7 +55,7 @@ sudo apt-get -y install ./<NAME_OF_PACKAGE>.deb
 sudo nano /etc/adu/adu-conf.txt
 ```
 
-2. Provide your primary connection string in the configuration file. A device's connection string can be found in Azure portal, in the IoT device blade, in the device details page after clicking on the device.
+2. Provide your primary connection string in the configuration file. To find a device's connection string go to Azure Portal. Go to IoT device blade in IoT Hub. Click on device details page after clicking on the device name.
 
 3. Press Ctrl+X, Y, Enter to save and close the file
 
@@ -117,7 +117,7 @@ do-client-lite.service               loaded active running do-client-lite.servic
 
 8. Select "Submit" to start the import process.
 
-9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
+9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
 
    ![Update Import Sequencing](media/import-update/update-publishing-sequence-2.png)
 
@@ -143,7 +143,7 @@ do-client-lite.service               loaded active running do-client-lite.servic
 
 ## Deploy update
 
-1. Once the group is created, you should see a new update available for your device group, with a link to the update under Pending Updates (you may need to Refresh once). 
+1. Once the group is created, you should see a new update available for your device group, with a link to the update under Pending Updates. You may need to Refresh once. 
 
 2. Click on the available update.
 
