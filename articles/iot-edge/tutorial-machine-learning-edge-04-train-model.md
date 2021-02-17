@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Train and deploy a model - Machine Learning on IoT Edge'
+title: 'Tutorial: Train and deploy a model - Machine Learning on Azure IoT Edge'
 description: In this tutorial, you'll train a machine learning model by using Azure Machine Learning and then package the model as a container image that can be deployed as an Azure IoT Edge module.
 author: kgremban
 manager: philmea
@@ -166,11 +166,11 @@ To verify that the notebooks have completed successfully, verify that a few item
 
     | Azure resource | Name |
     | --- | --- |
-    | Machine Learning workspace | turborfanDemo |
+    | Azure Machine Learning workspace | turborfanDemo |
     | Azure Container Registry | turbofandemoxxxxxxxx |
     | Application Insights | turbofaninsightxxxxxxxx |
     | Azure Key Vault | turbofankeyvaultbxxxxxxxx |
-    | Storage | turbofanstoragexxxxxxxxx |
+    | Azure Storage | turbofanstoragexxxxxxxxx |
 
 ### Debugging
 
@@ -186,8 +186,9 @@ This tutorial is part of a set where each article builds on the work done in the
 
 In this article, we used two Jupyter notebooks running in Machine Learning Studio to use the data from the turbofan devices to:
 
-- Train a RUL classifier.
-- Save the classifier as a model, to create a container image.
+- Train an RUL classifier.
+- Save the classifier as a model.
+- Create a container image.
 - Deploy and test the image as a web service.
 
 Continue to the next article to create an IoT Edge device.

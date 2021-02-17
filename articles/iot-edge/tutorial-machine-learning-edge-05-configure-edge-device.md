@@ -208,7 +208,7 @@ We'll deal with the leaf device later in the tutorial. In this section, download
     az login
     ```
 
-1. You'll be prompted to open a browser to a [Microsoft device sign-in](https://microsoft.com/devicelogin) and provide a unique code. You can perform these steps on your local machine. Close the browser window when you're done authenticating.
+1. You'll be prompted to open a browser to a [Microsoft device sign-in](https://microsoft.com/devicelogin) page and provide a unique code. You can perform these steps on your local machine. Close the browser window when you're done authenticating.
 
 1. When you successfully authenticate, the Linux VM will sign in and list your Azure subscriptions.
 
