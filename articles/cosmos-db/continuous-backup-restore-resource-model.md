@@ -26,14 +26,14 @@ The database account's resource model is updated with a few extra properties to 
 
 ### BackupPolicy
 
-A new property in the account level backup policy named "Type" under "backuppolicy" parameter enables continuous backup and point-in-time restore functionalities. This mode is called **continuous backup**. In the public preview, you can only set this mode when creating the account. After it's enabled, all the containers and databases created within this account will have continuous backup and point-in-time restore functionalities enabled by default.
+A new property in the account level backup policy named `Type` under `backuppolicy` parameter enables continuous backup and point-in-time restore functionalities. This mode is called **continuous backup**. In the public preview, you can only set this mode when creating the account. After it's enabled, all the containers and databases created within this account will have continuous backup and point-in-time restore functionalities enabled by default.
 
 > [!NOTE]
 > Currently the point-in-time restore feature is in public preview and it's available for Azure Cosmos DB API for MongoDB, and SQL accounts. After you create an account with continuous mode you can't switch it to a periodic mode.
 
 ### CreateMode
 
-This property indicates how the account was created. The possible values are "Default" and "Restore". To perform a restore, set this value to "Restore" and provide the appropriate values in the `RestoreParameters` property.
+This property indicates how the account was created. The possible values are *Default* and *Restore*. To perform a restore, set this value to *Restore* and provide the appropriate values in the `RestoreParameters` property.
 
 ### RestoreParameters
 
@@ -41,7 +41,7 @@ The `RestoreParameters` resource contains the restore operation details includin
 
 |Property Name |Description  |
 |---------|---------|
-|restoreMode  | The restore mode should be "PointInTime" |
+|restoreMode  | The restore mode should be *PointInTime* |
 |restoreSource   |  The instanceId of the source account from which the restore will be initiated.       |
 |restoreTimestampInUtc  | Point in time in UTC to which the account should be restored to. |
 |databasesToRestore   | List of `DatabaseRestoreSource` objects to specify which databases and containers should be restored. If this value is empty, then the entire account is restored.   |
