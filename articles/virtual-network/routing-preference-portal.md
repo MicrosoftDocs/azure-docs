@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. For SKU, select **Standard**.
 1. For **Routing preference**, select **Internet**.
 
-      ![Create a public ip address](./media/routing-preference-portal/pip-new.png)
+      ![Create a public ip address](./media/routing-preference-portal/public-ip-new.png)
 1. In the **IPv4 IP Address Configuration** section, enter or select this information:
 
     | Setting | Value |
@@ -58,4 +58,4 @@ You can associate the above created public IP address with a [Windows](../virtua
 - [Configure routing preference for a VM](tutorial-routing-preference-virtual-machine-portal.md).
 - [Configure routing preference for a public IP address using the PowerShell](routing-preference-powershell.md).
 - Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
-1. Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
+- Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).

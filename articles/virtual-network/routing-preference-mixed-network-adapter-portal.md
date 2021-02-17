@@ -37,13 +37,13 @@ If you do not have a virtual machine with a public ip already created then you c
 1. Create a [network interface](./routing-preference-overview.md) using the Azure portal with default settings. 
 1. [Associate the public ip to the network interface](./associate-public-ip-address-vm.md) created in the previous section. It may take a few seconds for an IP address to appear. View the public IP address assigned to the IP configuration, as shown below:
 
-    ![Associate the Public IP](./media/routing-preference-mix-nic-portal/rp-nic-pip.png)
+    ![Associate the Public IP](./media/routing-preference-mixed-network-adapter-portal/public-ip.png)
 
 ## Attach network interface to the virtual machine
 
 1. [Attach the network interface created in the previous section to the virtual machine](./virtual-network-network-interface-vm.md).
 2. Now you should see two virtual network interfaces associated with the virtual machine, one nic with a public IP routed via Microsoft premium global network, and other one routed via with ISP network as shown below:
-    ![Attach a network interface to a VM](./media/routing-preference-mix-nic-portal/rp-mixnic.png) 
+    ![Attach a network interface to a VM](./media/routing-preference-mixed-network-adapter-portal/mixed-network-adapter.png) 
 
 ## Next steps
 - Learn more about [public IP with routing preference](routing-preference-overview.md).

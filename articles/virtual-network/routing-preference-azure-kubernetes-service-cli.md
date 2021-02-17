@@ -70,12 +70,12 @@ az aks create \
 --load-balancer-outbound-ips "Enter the public IP ID from previous step" --generate-ssh-key
 ```
 
-![NOTE]
-It takes a few minutes to deploy the AKS cluster.
+>[!NOTE]
+>It takes a few minutes to deploy the AKS cluster.
 
 To validate, search for the public IP created in the earlier step in Azure portal, you will see the IP is associated with the load balancer that is associated with the Kubernetes cluster as shown below:
 
- ![Routing preference public IP for Kubernetes](./media/routing-preference-aks-cli/rp-kubernetes.png)
+ ![Routing preference public IP for Kubernetes](./media/routing-preference-azure-kubernetes-service-cli/routing-preference-azure-kubernetes-service.png)
 
 
 ## Next steps

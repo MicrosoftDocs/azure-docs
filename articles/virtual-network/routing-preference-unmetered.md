@@ -19,7 +19,7 @@ ms.author: mnayak
 
 Routing Preference Unmetered is available for Content Delivery Network (CDN) providers with customers hosted their origin contents in Azure. The service allows CDN providers to establish direct peering connection with Microsoft global network edge routers at various locations.
 
-![Routing Preference Unmetered](media/routing-preference-unmetered/rp-unmetered.png)
+![Routing Preference Unmetered](media/routing-preference-unmetered/unmetered.png)
 
 Your network traffic egressing from origin in Azure destined to CDN provider benefits from the direct connectivity.
 * Data transfer bill for traffic egressing from your Azure resources that are routed through these direct links is free.
@@ -33,7 +33,7 @@ Next, configure routing preference for your resources, and set the Routing Prefe
 
 You can also enable routing preference for your storage account and publish a second endpoint, that needs to be used by CDN provider to fetch data from the storage origin. For example, publishing an internet route-specific endpoint for the storage account *StorageAccountA* will publish the second end point for your storage services as shown below:
 
-![Routing Preference for storage accounts](media/routing-preference-unmetered/rp-storage-endpoints.png)
+![Routing Preference for storage accounts](media/routing-preference-unmetered/storage-endpoints.png)
 
 
 ## Next steps
