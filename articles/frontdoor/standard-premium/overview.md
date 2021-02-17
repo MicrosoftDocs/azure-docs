@@ -15,7 +15,7 @@ ms.author: duau
 > [!IMPORTANT]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
 
-Azure Front Door Standard/Premium is a fast, reliable, and secure modern cloud CDN that uses the Microsoft global edge network and integrates with intelligent threat protection. It combines the capabilities of Azure CDN Standard from Microsoft, Azure Front Door, Azure Web Application Firewall (WAF) into a single service.
+Azure Front Door Standard/Premium is a fast, reliable, and secure modern cloud CDN that uses the Microsoft global edge network and integrates with intelligent threat protection. It combines the capabilities of Azure CDN Standard from Microsoft, Azure Front Door, Azure Web Application Firewall (WAF) into a single secure cloud CDN platform.
 
 With Azure Front Door Standard/Premium, you can transform your global consumer and enterprise applications into secure and high-performing personalized modern applications with contents that reach a global audience with low latency.
 
@@ -23,7 +23,7 @@ With Azure Front Door Standard/Premium, you can transform your global consumer a
 
 Azure Front Door Standard/Premium works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split TCP and Microsoft's global network to improve global connectivity. Based on your routing method you can ensure that Azure Front Door will route your client requests to the fastest and most available origin. An application backend is any Internet-facing service hosted inside or outside of Azure. AzureFront Door Standard/Premium provides a range of traffic-routing methods and origin health monitoring options to suit different application needs and automatic failover scenarios. Similar to Traffic Manager, Front Door is resilient to failures, including failures to an entire Azure region.
 
-Azure Front Door also protect your app at the edges with Web Application Firewall, Bot Protection, and built-in lay 3/layer 4 DDoS Protection. Secure your private back-ends and harden your service using Microsoft managed and custom rule sets. Azure Front Door gives you Microsoft’s best-in-practice security at global scale.  
+Azure Front Door also protect your app at the edges with Web Application Firewall, Bot Protection, and built-in lay 3/layer 4 DDoS Protection. It also secures your private back-ends with private link service. Azure Front Door gives you Microsoft’s best-in-practice security at global scale.  
 
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios.
@@ -56,7 +56,7 @@ Key features included with Azure Front Door Standard/Premium (Preview):
 
 - SSL offload and integrated certificate management.
 
-- Secure your origins with **[Private Link](concept-private-endpoints.md)**.  
+- Secure your origins with **[Private Link](concept-private-link.md)**.  
 
 - Customizable traffic routing and optimizations via **[Rule Set](concept-rule-set.md)**.
 
@@ -70,7 +70,7 @@ Key features included with Azure Front Door Standard/Premium (Preview):
 
 ## Pricing
 
-Azure Front Door Standard/Premium has two SKUs, Standard and Premium. For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). See [SLA for Azure Front Door](https://azure.microsoft.com/support/legal/sla/frontdoor/v1_0/).
+Azure Front Door Standard/Premium has two SKUs, Standard and Premium. See [Tier Comparison](tier-comparison.md). For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). 
 
 ## What's new?
 

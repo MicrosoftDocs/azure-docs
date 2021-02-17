@@ -23,16 +23,16 @@
     href: concept-route.md
   - name: Rule Set
     href: concept-rule-set.md
-  - name: Rule Set Match Condition
+  - name: Rule Set Match Conditions
     href: concept-rule-set-match-conditions.md
-  - name: Rule Set Action
+  - name: Rule Set Actions
     href: concept-rule-set-actions.md
   - name: URL redirect and URL rewrite
     href: concept-rule-set-url-redirect-and-rewrite.md
-  - name: Health Probe
+  - name: Health probes
     href: concept-health-probes.md
-  - name: Private Endpoints
-    href: concept-private-endpoints.md
+  - name: Private Link
+    href: concept-private-link.md
   - name: Caching
     href: concept-caching.md
   - name: DDoS
@@ -56,7 +56,7 @@
   - name: Compression
     href: how-to-compression.md
   - name: Enable Private Link
-    href: how-to-enable-private-endpoint.md
+    href: how-to-enable-private-link.md
   - name: Logging
     href: how-to-logs.md
   - name: Monitoring and alerts

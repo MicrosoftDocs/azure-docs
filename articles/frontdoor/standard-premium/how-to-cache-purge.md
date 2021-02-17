@@ -16,9 +16,9 @@ ms.author: duau
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-Front Door caches assets until the asset's time-to-live (TTL) expires. Whenever a client requests an asset with expired TTL, the Front Door environment retrieves a new updated copy of the asset to serve the request and then stores the refreshed cache.
+Azure Front Door Standard/Premium caches assets until the asset's time-to-live (TTL) expires. Whenever a client requests an asset with expired TTL, the Azure Front Door environment retrieves a new updated copy of the asset to serve the request and then stores the refreshed cache.
 
-Best practice is to make sure your users always obtain the latest copy of your assets. The way to do that is to version your assets for each update and publish them as new URLs. Front Door will immediately retrieve the new assets for the next client requests. Sometimes you may wish to purge cached contents from all edge nodes and force them all to retrieve new updated assets. The reason you want to purge cached contents is because you've made new updates to your application or you want to update assets that contain incorrect information.
+Best practice is to make sure your users always obtain the latest copy of your assets. The way to do that is to version your assets for each update and publish them as new URLs. Azure Front Door Standard/Premium will immediately retrieve the new assets for the next client requests. Sometimes you may wish to purge cached contents from all edge nodes and force them all to retrieve new updated assets. The reason you want to purge cached contents is because you've made new updates to your application or you want to update assets that contain incorrect information.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
@@ -46,12 +46,8 @@ These formats are supported in the lists of paths to purge:
 * **Single path purge**: Purge individual assets by specifying the full path of the asset (without the protocol and domain), with the file extension, for example, /pictures/strasbourg.png.
 * **Root domain purge**: Purge the root of the endpoint with "/*" in the path.
 
-> [!NOTE]
-> **Purging wildcard domains**: currently, we don't support directly purging wildcard domains. You can purge paths from specific subdomains by specifying that specific subdomain and the purge path. For example, if my Front Door has `*.contoso.com`, I can purge assets of my subdomain `foo.contoso.com` by typing `foo.contoso.com/path/*`. Currently, specifying host names in the purge content path is limited to subdomains of wildcard domains, if applicable.
->
-
-Cache purges on the Front Door are case-insensitive. Additionally, they're query string agnostic, meaning purging a URL will purge all query-string variations of it. 
+Cache purges on the Azure Front Door Standard/Preium are case-insensitive. Additionally, they're query string agnostic, meaning purging a URL will purge all query-string variations of it. 
 
 ## Next steps
 
-Learn how to [create a Front Door](create-front-door-portal.md).
+Learn how to [create a Front Door Standard/Premium](create-front-door-portal.md).

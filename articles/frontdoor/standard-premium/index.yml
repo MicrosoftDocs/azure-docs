@@ -47,7 +47,15 @@ landingContent:
         links:
           - text: Configure Endpoint Manager
             url: how-to-configure-endpoint-manager.md
-          
+            
+  # Card
+  - title: Add Custom Domains
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Add a custom domain
+            url: how-to-add-custom-domain.md
+                    
   # Card
   - title: Manage your Origin Groups
     linkLists:
@@ -69,9 +77,9 @@ landingContent:
         links:
           - text: What is Rule Set?
             url: concept-rule-set.md
-          - text: Rule Set Match Condition
+          - text: Rule Set Match Conditions
             url: concept-rule-set-match-conditions.md
-          - text: Rule Set Action
+          - text: Rule Set Actions
             url: concept-rule-set-actions.md
       - linkListType: how-to-guide
         links:
