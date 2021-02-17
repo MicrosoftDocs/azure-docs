@@ -59,14 +59,14 @@ Within the application directory, install the Form Recognizer client library for
 dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
 ```
 
+> [!NOTE]
+> The Form Recognizer 3.1.0 SDK reflects API version 2.1 preview
+
 #### [v2.0](#tab/ga)
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
-
-> [!NOTE]
-> The Form Recognizer 3.1.0 SDK reflects API version 2.1 preview
 
 > [!NOTE]
 > The Form Recognizer 3.0.0 SDK reflects API v2.0
@@ -414,7 +414,6 @@ You'll use the `StartRecognizeCustomFormsFromUri` method.
 The returned value is a collection of `RecognizedForm` objects: one for each page in the submitted document. The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze_response)]
-
 
 ### Output
 

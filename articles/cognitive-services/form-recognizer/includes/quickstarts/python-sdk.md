@@ -10,8 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: lajanuar
 ---
-
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD034 -->
 > [!IMPORTANT]
+>
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. See the reference documentation below. 
 
 [Reference documentation](/python/api/azure-ai-formrecognizer) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
@@ -22,8 +26,8 @@ ms.author: lajanuar
 * [Python 3.x](https://www.python.org/)
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+  * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
 
@@ -38,7 +42,7 @@ pip install azure-ai-formrecognizer --pre
 ```
 
 > [!NOTE]
-> The Form Recognizer preview SDK reflects API version 2.1 preview
+> The Form Recognizer 3.1.0 SDK reflects API version 2.1 preview
 
 #### [v2.0](#tab/ga)
 
@@ -47,7 +51,7 @@ pip install azure-ai-formrecognizer
 ```
 
 > [!NOTE]
-> The latest Form Recognizer reflects API v2.0
+> The Form Recognizer 3.0.0 SDK reflects API v2.0
 
 ---
 
@@ -60,24 +64,24 @@ Create a new Python application in your preferred editor or IDE. Then import the
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/FormRecognizerQuickstart.py), which contains the code examples in this quickstart.
 
-
 Create variables for your resource's Azure endpoint and key. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_creds)]
 
-
-## Object model 
+## Object model
 
 With Form Recognizer, you can create two different client types. The first, `form_recognizer_client` is used to query the service to recognized form fields and content. The second, `form_training_client` is use to create and manage custom models that you can use to improve recognition. 
 
 ### FormRecognizerClient
+
 `form_recognizer_client` provides operations for:
 
- * Recognizing form fields and content using custom models trained to analyze your custom forms. 
- * Recognizing form content, including tables, lines and words, without the need to train a model. 
- * Recognizing common fields from receipts, using a pre-trained receipt model on the Form Recognizer service.
+* Recognizing form fields and content using custom models trained to analyze your custom forms.
+* Recognizing form content, including tables, lines and words, without the need to train a model.
+* Recognizing common fields from receipts, using a pre-trained receipt model on the Form Recognizer service.
 
 ### FormTrainingClient
+
 `form_training_client` provides operations for:
 
 * Training custom models to analyze all fields and values found in your custom forms. See the [service's documentation on unlabeled model training](#train-a-model-without-labels) for a more detailed explanation of creating a training data set.
@@ -121,10 +125,10 @@ Here, you'll authenticate two client objects using the subscription variables yo
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_auth)]
 
-
 ## Get assets for testing
 
 You'll need to add references to the URLs for your training and testing data.
+
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
   
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::

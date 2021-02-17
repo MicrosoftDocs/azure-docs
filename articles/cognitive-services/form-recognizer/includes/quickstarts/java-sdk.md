@@ -11,7 +11,10 @@ ms.date: 02/12/2021
 ms.custom: devx-track-java
 ms.author: lajanuar
 ---
-
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD034 -->
 > [!IMPORTANT]
 > The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
 

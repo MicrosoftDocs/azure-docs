@@ -2,18 +2,20 @@
 title: "Quickstart: Label forms, train a model, and analyze forms using the sample labeling tool - Form Recognizer"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll use the Form Recognizer sample labeling tool to manually label form documents. Then you'll train a custom document processing model with the labeled documents and use the model to extract key/value pairs.
-author: PatrickFarley
+author: laujan
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/29/2021
-ms.author: pafarley
+ms.author: lajanaur
 ms.custom: cog-serv-seo-aug-2020
 keywords: document processing
 ---
-
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD034 -->
 # Train a Form Recognizer model with labels using the sample labeling tool
 
 In this quickstart, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom document processing model with manually labeled data. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more about supervised learning with Form Recognizer.
@@ -26,8 +28,8 @@ To complete this quickstart, you must have:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+  * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
 
 ## Create a Form Recognizer resource
@@ -38,27 +40,28 @@ To complete this quickstart, you must have:
 
 To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT website](https://fott-preview.azurewebsites.net/).
 
-# [v2.0](#tab/v2-0)
-> [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://fott.azurewebsites.net/)
+### [v2.1 preview](#tab/v2-1)
 
-# [v2.1 preview](#tab/v2-1)
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
 
+### [v2.0](#tab/v2-0)
+
+> [!div class="nextstepaction"]
+> [Try Prebuilt Models](https://fott.azurewebsites.net/)
+
 ---
 
-You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service. 
-
+You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
 
 ## Set up the sample labeling tool
 
 You'll use the Docker engine to run the sample labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a TypeScript web application built using React + Redux. To learn more or contribute, see the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) repo. To try out the tool online, go to the [FOTT website](https://fott.azurewebsites.net/).   
+> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a TypeScript web application built using React + Redux. To learn more or contribute, see the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) repo. To try out the tool online, go to the [FOTT website](https://fott.azurewebsites.net/).
 
-1. First, install Docker on a host computer. This guide will show you how to use local computer as a host. If you want to use a Docker hosting service in Azure, see the [Deploy the sample labeling tool](../deploy-label-tool.md) how-to guide. 
+1. First, install Docker on a host computer. This guide will show you how to use local computer as a host. If you want to use a Docker hosting service in Azure, see the [Deploy the sample labeling tool](../deploy-label-tool.md) how-to guide.
 
    The host computer must meet the following hardware requirements:
 
@@ -66,38 +69,43 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     |:--|:--|:--|
     |Sample labeling tool|2 core, 4-GB memory|4 core, 8-GB memory|
 
-   Install Docker on your machine by following the appropriate instructions for your operating system: 
+   Install Docker on your machine by following the appropriate instructions for your operating system:
+
    * [Windows](https://docs.docker.com/docker-for-windows/)
    * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/)
 
-
-
 1. Get the sample labeling tool container with the `docker pull` command.
 
-    # [v2.0](#tab/v2-0)    
-    ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
-    ```
-    # [v2.1 preview](#tab/v2-1)    
-    ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
-    ```
+### [v2.1 preview](#tab/v2-1)
 
-    ---
+```console
+ docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
+```
 
-1. Now you're ready to run the container with `docker run`.
+### [v2.0](#tab/v2-0)
 
-    # [v2.0](#tab/v2-0)    
-    ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
-    ```
-    # [v2.1 preview](#tab/v2-1)    
-    ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept    
-    ```
+```console
+docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
+```
 
-    --- 
+---
+</br>
+  3. Now you're ready to run the container with `docker run`.
+
+### [v2.1 preview](#tab/v2-1)
+
+```console
+ docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept
+```
+
+### [v2.0](#tab/v2-0)
+
+```console
+docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
+```
+
+---
 
    This command will make the sample labeling tool available through a web browser. Go to `http://localhost:3000`.
 
@@ -112,10 +120,10 @@ First, make sure all the training documents are of the same format. If you have 
 
 Enable CORS on your storage account. Select your storage account in the Azure portal and click the **CORS** tab on the left pane. On the bottom line, fill in the following values. Then click **Save** at the top.
 
-* Allowed origins = * 
+* Allowed origins = *
 * Allowed methods = \[select all\]
 * Allowed headers = *
-* Exposed headers = * 
+* Exposed headers = *
 * Max age = 200
 
 > [!div class="mx-imgBorder"]
@@ -160,7 +168,7 @@ When you create or open a project, the main tag editor window opens. The tag edi
 
 * A resizable preview pane that contains a scrollable list of forms from the source connection.
 * The main editor pane that allows you to apply tags.
-* The tags editor pane that allows users to modify, lock, reorder, and delete tags. 
+* The tags editor pane that allows users to modify, lock, reorder, and delete tags.
 
 ### Identify text elements
 
@@ -174,7 +182,29 @@ It will also show which tables have been automatically extracted. Click on the t
 
 Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze.
 
-# [v2.0](#tab/v2-0)  
+### [v2.1 preview](#tab/v2-1)
+
+1. First, use the tags editor pane to create the tags you'd like to identify:
+   * Click **+** to create a new tag.
+   * Enter the tag name.
+   * Press Enter to save the tag.
+1. In the main editor, click to select words from the highlighted text elements. In the _v2.1 preview.2_ API, you can also click to select _Selection Marks_ like radio buttons and checkboxes as key value pairs. Form Recognizer will identify whether the selection mark is "selected" or "unselected" as the value.
+1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
+    > [!Tip]
+    > Keep the following tips in mind when you're labeling your forms:
+    >
+    > * You can only apply one tag to each selected text element.
+    > * Each tag can only be applied once per page. If a value appears multiple times on the same form, create different tags for each instance. For example: "invoice# 1", "invoice# 2" and so on.
+    > * Tags cannot span across pages.
+    > * Label values as they appear on the form; don't try to split a value into two parts with two different tags. For example, an address field should be labeled with a single tag even if it spans multiple lines.
+    > * Don't include keys in your tagged fields&mdash;only the values.
+    > * Table data should be detected automatically and will be available in the final output JSON file. However, if the model fails to detect all of your table data, you can manually tag these fields as well. Tag each cell in the table with a different label. If your forms have tables with varying numbers of rows, make sure you tag at least one form with the largest possible table.
+    > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
+    > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
+    >
+
+### [v2.0](#tab/v2-0)
+
 1. First, use the tags editor pane to create the tags you'd like to identify.
    1. Click **+** to create a new tag.
    1. Enter the tag name.
@@ -182,7 +212,8 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
 1. In the main editor, click to select words from the highlighted text elements.
 1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
     > [!Tip]
-    > Keep the following tips in mind when you're labeling your forms.
+    > Keep the following tips in mind when you're labeling your forms:
+    >
     > * You can only apply one tag to each selected text element.
     > * Each tag can only be applied once per page. If a value appears multiple times on the same form, create different tags for each instance. For example: "invoice# 1", "invoice# 2" and so on.
     > * Tags cannot span across pages.
@@ -191,31 +222,11 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
     > * Table data should be detected automatically and will be available in the final output JSON file. However, if the model fails to detect all of your table data, you can manually tag these fields as well. Tag each cell in the table with a different label. If your forms have tables with varying numbers of rows, make sure you tag at least one form with the largest possible table.
     > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
     > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
-
-
-# [v2.1 preview](#tab/v2-1) 
-1. First, use the tags editor pane to create the tags you'd like to identify.
-   1. Click **+** to create a new tag.
-   1. Enter the tag name.
-   1. Press Enter to save the tag.
-1. In the main editor, click to select words from the highlighted text elements. In the _v2.1 preview.2_ API, you can also click to select _Selection Marks_ like radio buttons and checkboxes as key value pairs. Form Recognizer will identify whether the selection mark is "selected" or "unselected" as the value.
-1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
-    > [!Tip]
-    > Keep the following tips in mind when you're labeling your forms.
-    > * You can only apply one tag to each selected text element.
-    > * Each tag can only be applied once per page. If a value appears multiple times on the same form, create different tags for each instance. For example: "invoice# 1", "invoice# 2" and so on.
-    > * Tags cannot span across pages.
-    > * Label values as they appear on the form; don't try to split a value into two parts with two different tags. For example, an address field should be labeled with a single tag even if it spans multiple lines.
-    > * Don't include keys in your tagged fields&mdash;only the values.
-    > * Table data should be detected automatically and will be available in the final output JSON file. However, if the model fails to detect all of your table data, you can manually tag these fields as well. Tag each cell in the table with a different label. If your forms have tables with varying numbers of rows, make sure you tag at least one form with the largest possible table.
-    > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
-    > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
-
+>
 
 ---
 
 :::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Main editor window of sample labeling tool.":::
-
 
 Follow the steps above to label at least five of your forms.
 
@@ -227,35 +238,43 @@ Optionally, you can set the expected data type for each tag. Open the context me
 > ![Value type selection with sample labeling tool](../media/whats-new/value-type.png)
 
 The following value types and variations are currently supported:
+
 * `string`
-    * default, `no-whitespaces`, `alphanumeric`
+  * default, `no-whitespaces`, `alphanumeric`
+
 * `number`
-    * default, `currency`
-* `date` 
-    * default, `dmy`, `mdy`, `ymd`
+  * default, `currency`
+
+* `date`
+  * default, `dmy`, `mdy`, `ymd`
+
 * `time`
 * `integer`
 * `selectionMark` – _New in v2.1-preview.1!_
 
 > [!NOTE]
 > See these rules for date formatting:
-> 
+>
 > You must specify a format (`dmy`, `mdy`, `ymd`) for date formatting to work.
 >
 > The following characters can be used as date delimiters: `, - / . \`. Whitespace cannot be used as a delimiter. For example:
+>
 > * 01,01,2020
 > * 01-01-2020
 > * 01/01/2020
 >
 > The day and month can each be written as one or two digits, and the year can be two or four digits:
+>
 > * 1-1-2020
 > * 1-01-20
 >
 > If a date string has eight digits, the delimiter is optional:
+>
 > * 01012020
 > * 01 01 2020
 >
 > The month can also be written as its full or short name. If the name is used, delimiter characters are optional. However, this format may be recognized less accurately than others.
+>
 > * 01/Jan/2020
 > * 01Jan2020
 > * 01 Jan 2020
@@ -278,22 +297,22 @@ After training finishes, examine the **Average Accuracy** value. If it's low, yo
 
 ## Compose trained models
 
-# [v2.0](#tab/v2-0)  
-
-This feature is currently available in v2.1. preview. 
-
-# [v2.1 preview](#tab/v2-1) 
+### [v2.1 preview](#tab/v2-1)
 
 With Model Compose, you can compose up to 100 models to a single model ID. When you call Analyze with this composed model ID, Form Recognizer will first classify the form you submitted, matching it to the best matching model, and then return results for that model. This is useful when incoming forms may belong to one of several templates.
 
-To compose models in the sample labeling tool, click on the Model Compose (merging arrow) icon on the left. On the left, select the models you wish to compose together. Models with the arrows icon are already composed models. 
-Click on the "Compose" button. In the pop-up, name your new composed model and click "Compose". When the operation completes, your new composed model should appear in the list. 
+To compose models in the sample labeling tool, click on the Model Compose (merging arrow) icon on the left. On the left, select the models you wish to compose together. Models with the arrows icon are already composed models.
+Click on the "Compose" button. In the pop-up, name your new composed model and click "Compose". When the operation completes, your new composed model should appear in the list.
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Model compose UX view.":::
 
+### [v2.0](#tab/v2-0)
+
+This feature is currently available in v2.1. preview.
+
 ---
 
-## Analyze a form 
+## Analyze a form
 
 Click on the Predict (light bulb) icon on the left to test your model. Upload a form document that you haven't used in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
@@ -308,13 +327,15 @@ The reported average accuracy, confidence scores, and actual accuracy can be inc
 
 ## Save a project and resume later
 
-To resume your project at another time or in another browser, you need to save your project's security token and reenter it later. 
+To resume your project at another time or in another browser, you need to save your project's security token and reenter it later.
 
 ### Get project credentials
+
 Go to your project settings page (slider icon) and take note of the security token name. Then go to your application settings (gear icon), which shows all of the security tokens in your current browser instance. Find your project's security token and copy its name and key value to a secure location.
 
 ### Restore project credentials
-When you want to resume your project, you first need to create a connection to the same blob storage container. Repeat the steps above to do this. Then, go to the application settings page (gear icon) and see if your project's security token is there. If it isn't, add a new security token and copy over your token name and key from the previous step. Then click Save Settings. 
+
+When you want to resume your project, you first need to create a connection to the same blob storage container. Repeat the steps above to do this. Then, go to the application settings page (gear icon) and see if your project's security token is there. If it isn't, add a new security token and copy over your token name and key from the previous step. Then click Save Settings.
 
 ### Resume a project
 
