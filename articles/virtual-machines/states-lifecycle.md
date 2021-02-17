@@ -74,5 +74,4 @@ OS Provisioning states only apply to virtual machines created with an OS image. 
 
 
 ## Next steps
-
 To learn more about monitoring your VM, see [Monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md).
