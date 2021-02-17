@@ -9,7 +9,13 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 # Disk performance metrics
-Azure offers metrics in the Azure portal that provide insight on how your virtual machines (VM) and disks are performing. The metrics can also be retrieved through an API call. Metrics are calculated over one-minute intervals. 
+Azure offers metrics in the Azure portal that provide insight on how your virtual machines (VM) and disks are performing. The metrics can also be retrieved through an API call. This article is broken into 3 subsections:
+
+- **Disk IO, throughput and queue depth metrics** - These are the metrics allow you to see the storage performance from the perspective of a disk and a virtual machine.
+- **Disk bursting metrics** - These are the metrics provide observability into our [bursting](disk-bursting.md) feature on our premium disks.
+- **Storage IO utilization metrics** - These metrics help diagnose bottlenecks in your storage performance with disks. 
+
+All Metrics are emitted every minute, except for the bursting credit percentage metrics, which is emitted every 5 minutes.
 
 ## Disk IO, throughput and queue depth metrics
 The following metrics are available to get insight on VM and Disk IO, throughput, and queue depth performance:
@@ -40,10 +46,10 @@ The following metrics help with observability into our [bursting](disk-bursting.
 - **OS Disk Target Bandwidth**: The throughput limit that the OS disk can achieve without bursting.
 - **Data Disk Target IOPS**: The IOPS limit that the data disk(s) can achieve without bursting.
 - **OS Disk Target IOPS**: The IOPS limit that the data disk(s) can achieve without bursting.
-- **Data Disk Used Burst BPS Credits Percentage**: The accumulated percentage of the throughput burst used for the data disk(s).
-- **OS Disk Used Burst BPS Credits Percentage**: The accumulated percentage of the throughput burst used for the OS disk.
-- **Data Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the data disk(s).
-- **OS Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the OS disk.
+- **Data Disk Used Burst BPS Credits Percentage**: The accumulated percentage of the throughput burst used for the data disk(s). Emitted on a 5 minute interval.
+- **OS Disk Used Burst BPS Credits Percentage**: The accumulated percentage of the throughput burst used for the OS disk. Emitted on a 5 minute interval.
+- **Data Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the data disk(s). Emitted on a 5 minute interval.
+- **OS Disk Used Burst IO Credits Percentage**: The accumulated percentage of the IOPS burst used for the OS disk. Emitted on a 5 minute interval.
 
 ## Storage IO utilization metrics
 The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available when using premium enabled VM. These metrics are available for all disk types except for Ultra. 
@@ -117,7 +123,6 @@ This metric tells us the data disks attached on LUN 3 and 2 are using around 85%
 
 ## Next Steps
 
-Go check out some section on Azure metrics:
-
 - [Azure Monitor Metrics overview](../azure-monitor/platform/data-platform-metrics.md)
 - [Metrics aggregation explained](../azure-monitor/platform/metrics-aggregation-explained.md)
+- [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md)
