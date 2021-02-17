@@ -1,5 +1,6 @@
 ---
 title: Agent based security custom alerts
+titleSuffix: Azure Defender for IoT
 description: Learn about customizable security alerts and recommended remediation using Defender for IoT device's features and service.
 services: defender-for-iot
 ms.service: defender-for-iot
