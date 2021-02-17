@@ -26,34 +26,34 @@ Delivery Optimization SDK: Download [here](https://github.com/microsoft/do-clien
 
 Delivery Optimization Simple Client: Download [here](https://github.com/microsoft/do-client/releases)
 
-Device Update Agent: Download [here](https://github.com/Azure/adu-private-preview/releases)
+Device Update Agent: Download [here](https://github.com/Azure/iot-hub-device-update)
 
 ## Install Device Update .deb agent packages
 
 1. Copy over your downloaded .deb packages to your IoT device from your host machine using PowerShell.
 
-```shell
-PS> scp '<PATH_TO_DOWNLOADED_FILES>\*.deb' <USERNAME>@<EDGE IP ADDRESS>:~
-```
+   ```shell
+   PS> scp '<PATH_TO_DOWNLOADED_FILES>\*.deb' <USERNAME>@<EDGE IP ADDRESS>:~
+   ```
 
 2. Use apt-get to install the packages in the specified order
 
-* Delivery Optimization Simple Client (ms-doclient-lite)
-* Delivery Optimization SDK (ms-dosdkcpp)
-* Delivery Optimization Plugin for APT (ms-dopapt)
-* ADU Agent (adu-agent)
+   * Delivery Optimization Simple Client (ms-doclient-lite)
+   * Delivery Optimization SDK (ms-dosdkcpp)
+   * Delivery Optimization Plugin for APT (ms-dopapt)
+   * ADU Agent (adu-agent)
 
-```shell
-sudo apt-get -y install ./<NAME_OF_PACKAGE>.deb
-```
+   ```shell
+   sudo apt-get -y install ./<NAME_OF_PACKAGE>.deb
+   ```
 
 ## Configure Device Update Agent
 
 1. Open the Device Update configuration file
 
-```shell
-sudo nano /etc/adu/adu-conf.txt
-```
+   ```shell
+   sudo nano /etc/adu/adu-conf.txt
+   ```
 
 2. Provide your primary connection string in the configuration file. To find a device's connection string go to Azure Portal. Go to IoT device blade in IoT Hub. Click on device details page after clicking on the device name.
 
@@ -61,15 +61,15 @@ sudo nano /etc/adu/adu-conf.txt
 
 4. Restart the Device Update Agent daemon
 
-```shell
-sudo systemctl restart adu-agent
-```
+   ```shell
+   sudo systemctl restart adu-agent
+   ```
 
 5. Optionally, you can verify that the services are running by
 
-```shell
-sudo systemctl list-units --type=service | grep 'adu-agent\.service\|do-client-lite\.service'
-```
+   ```shell
+   sudo systemctl list-units --type=service | grep 'adu-agent\.service\|do-client-lite\.service'
+   ```
 
 The output should read:
 
@@ -105,23 +105,20 @@ do-client-lite.service               loaded active running do-client-lite.servic
 
 3. Select "+ Import New Update".
 
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you downloaded previously. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the apt manifest update file you downloaded previously.
+4. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you downloaded previously. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the apt manifest update file you downloaded previously.
+   ::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
 
-   ![Select Update Files](media/import-update/select-update-files.png)
+5. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
 
-6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
+6. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
+   ::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
 
-7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
+7. Select "Submit" to start the import process.
 
-   ![Select Container](media/import-update/container.png)
+8. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
+   ::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Screenshot showing update import sequence." lightbox="media/import-update/update-publishing-sequence-2.png":::
 
-8. Select "Submit" to start the import process.
-
-9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
-
-   ![Update Import Sequencing](media/import-update/update-publishing-sequence-2.png)
-
-10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
+9. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
 
 [Learn more](import-update.md) about importing updates.
 
@@ -136,7 +133,7 @@ do-client-lite.service               loaded active running do-client-lite.servic
 4. Select the Add button to create a new group.
 
 5. Select the IoT Hub tag you created in the previous step from the list. Select Create update group.
-![Select Tag](media/create-update-group/select-tag.PNG)
+   ::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="Screenshot showing tag selection." lightbox="media/create-update-group/select-tag.PNG":::
 
 [Learn more](create-update-group.md) about adding tags and creating update groups
 
@@ -172,3 +169,9 @@ do-client-lite.service               loaded active running do-client-lite.servic
 3. Select Refresh to view the latest status details. Continue this process until the status changes to Succeeded.
 
 You have now completed a successful end-to-end package update using Device Update for IoT Hub on a Ubuntu Server 18.04 x64 device. 
+
+## Next steps
+
+[Image Update on Raspberry Pi 3 B+ tutorial](device-update-raspberry-pi.md)
+
+[Image Update on Ubuntu 18.04 x64 simulator tutorial](device-update-simulator.md)
