@@ -83,7 +83,7 @@ Choosing a maintenance window other than the default is currently available in t
 
 ## Gateway maintenance 
 
-To get the maximum benefit from maintenance windows, make sure your client applications are using the redirect connection policy. For more on client connection policy in Azure SQL Database see [Azure SQL Database Connection policy](../database/connectivity-architecture#connection-policy), and in Azure SQL managed instance see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview). 
+To get the maximum benefit from maintenance windows, make sure your client applications are using the redirect connection policy. For more on client connection policy in Azure SQL Database see [Azure SQL Database Connection policy](../database/connectivity-architecture.md#connection-policy), and in Azure SQL managed instance see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md). 
 
 Redirect is the recommended connection policy, where clients establish connections directly to the node hosting the database, leading to reduced latency and improved throughput.  
 
