@@ -30,7 +30,7 @@ Depending on your organizational needs, use the Azure Firewall service to centra
 
 - [How to configure a virtual network for Azure DevTest Labs](devtest-lab-configure-vnet.md)
 
-- [How to create a network isolated DevTest Lab](network-isolation.md)
+- [How to create a network isolated DevTest Labs instance](network-isolation.md)
 
 - [How to create a network security group with security rules](../virtual-network/tutorial-filter-network-traffic.md)
 
