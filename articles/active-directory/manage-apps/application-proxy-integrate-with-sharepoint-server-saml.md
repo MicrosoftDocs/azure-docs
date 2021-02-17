@@ -69,7 +69,7 @@ In this step, you create an application in your Azure AD tenant that uses Applic
     - Translate URLs in Headers: No
     - Translate URLs in Application Body: No
 
-      ![Screenshot that shows the options you use to create the app.](./media/application-proxy-integrate-with-sharepoint-server/create-application-azure-active-dirctory.png)
+        ![Screenshot that shows the options you use to create the app.](./media/application-proxy-integrate-with-sharepoint-server/create-application-azure-active-directory.png)
 
 2. Assign the [same groups](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial#create-an-azure-ad-security-group-in-the-azure-portal) you assigned to the on-premises SharePoint Gallery Application.
 
