@@ -19,10 +19,10 @@ This also allows for common Azure role-based access control (Azure RBAC) across 
 
 Workspace-based Application Insights allows you to take advantage of the latest capabilities of Azure Monitor and Log Analytics including:
 
-* [Customer-Managed Keys (CMK)](../platform/customer-managed-keys.md) provides encryption at rest for your data with encryption keys that only you have access to.
-* [Azure Private Link](../platform/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
+* [Customer-Managed Keys (CMK)](../logs/customer-managed-keys.md) provides encryption at rest for your data with encryption keys that only you have access to.
+* [Azure Private Link](../logs/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
 * [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) gives you full control over the encryption-at-rest policy, the lifetime management policy, and network access for all data associated with Application Insights Profiler and Snapshot Debugger. 
-* [Capacity Reservation tiers](../platform/manage-cost-storage.md#pricing-model) enable you to save as much as 25% compared to the Pay-As-You-Go price. 
+* [Capacity Reservation tiers](../logs/manage-cost-storage.md#pricing-model) enable you to save as much as 25% compared to the Pay-As-You-Go price. 
 * Faster data ingestion via Log Analytics streaming ingestion.
 
 ## Create workspace-based resource
@@ -32,7 +32,7 @@ Sign in to the [Azure portal](https://portal.azure.com), and create an Applicati
 > [!div class="mx-imgBorder"]
 > ![Workspace-based Application Insights resource](./media/create-workspace-resource/create-workspace-based.png)
 
-If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../learn/quick-create-workspace.md).
+If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../logs/quick-create-workspace.md).
 
 **Workspace-based resources are currently available in all commercial regions and Azure Government**
 
@@ -208,5 +208,5 @@ The legacy continuous export functionality is not supported for workspace-based 
 
 ## Next steps
 
-* [Explore metrics](../platform/metrics-charts.md)
-* [Write Analytics queries](../log-query/log-query-overview.md)
+* [Explore metrics](../essentials/metrics-charts.md)
+* [Write Analytics queries](../logs/log-query-overview.md)
