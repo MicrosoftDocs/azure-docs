@@ -4,7 +4,7 @@ description: The Azure Kubernetes Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 

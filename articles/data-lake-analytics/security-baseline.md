@@ -4,7 +4,7 @@ description: The Data Lake Analytics security baseline provides procedural guida
 author: msmbaldwin
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 

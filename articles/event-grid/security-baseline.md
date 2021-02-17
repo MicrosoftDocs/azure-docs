@@ -4,7 +4,7 @@ description: The Event Grid security baseline provides procedural guidance and r
 author: msmbaldwin
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 

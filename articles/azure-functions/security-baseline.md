@@ -4,7 +4,7 @@ description: The Azure Functions security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 

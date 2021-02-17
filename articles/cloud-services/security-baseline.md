@@ -4,7 +4,7 @@ description: The Azure Cloud Services security baseline provides procedural guid
 author: msmbaldwin
 ms.service: cloud-services
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 

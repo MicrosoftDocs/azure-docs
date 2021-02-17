@@ -4,7 +4,7 @@ description: The HDInsight security baseline provides procedural guidance and re
 author: msmbaldwin
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 

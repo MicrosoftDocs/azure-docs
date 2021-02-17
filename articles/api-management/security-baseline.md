@@ -4,7 +4,7 @@ description: The API Management security baseline provides procedural guidance a
 author: msmbaldwin
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 

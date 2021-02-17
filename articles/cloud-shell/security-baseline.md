@@ -4,7 +4,7 @@ description: The Cloud Shell security baseline provides procedural guidance and 
 author: msmbaldwin
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 

@@ -4,7 +4,7 @@ description: The Azure Cache for Redis security baseline provides procedural gui
 author: msmbaldwin
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
