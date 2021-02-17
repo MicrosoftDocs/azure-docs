@@ -1,6 +1,6 @@
 ---
 title: Telemetry processors examples - Azure Monitor Application Insights for Java
-description: Examples illustrating telemetry processors in Azure Monitor Application Insights for Java
+description: Examples illustrating telemetry processors in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
 ms.date: 12/29/2020
 author: kryalama
@@ -10,21 +10,22 @@ ms.author: kryalama
 
 # Telemetry processors examples - Azure Monitor Application Insights for Java
 
-## Include/Exclude Samples
+This article provides examples of telemetry processors in Application Insights for Java. You'll find samples for include and exclude configurations. You'll also find samples for attribute processors and span processors.
+## Include and exclude samples
 
-### 1. Include Spans
+In this section, you'll see how to include and exclude spans. You'll also see how to exclude multiple spans and apply selective processing.
+### Include spans
 
-The following demonstrates including spans for this attributes processor. All other spans that do no match the properties are not processed by this processor.
+This section demonstrates how to include spans for an attribute processor. Spans that don't match the properties aren't processed by the processor.
 
-The following are conditions to be met for a match:
-* The span name must be equal to "spanA" or "spanB" 
+A match requires the span name to be equal to `spanA` or `spanB`. 
 
-The following are spans that match the include properties and the processor actions are applied.
+These spans match the include properties, and the processor actions are applied:
 * Span1 Name: 'spanA' Attributes: {env: dev, test_request: 123, credit_card: 1234}
 * Span2 Name: 'spanB' Attributes: {env: dev, test_request: false}
 * Span3 Name: 'spanA' Attributes: {env: 1, test_request: dev, credit_card: 1234}
 
-The following span does not match the include properties and the processor actions are not applied.
+This span doesn't match the include properties, and the processor actions aren't applied:
 * Span4 Name: 'spanC' Attributes: {env: dev, test_request: false}
 
 ```json
@@ -53,12 +54,11 @@ The following span does not match the include properties and the processor actio
 }
 ```
 
-### 2. Exclude Spans
+### Exclude spans
 
-The following demonstrates excluding spans for this attributes processor. All spans that match the properties are not processed by this processor.
+This section demonstrates how to exclude spans for an attribute processor. Spans that match the properties aren't processed by this processor.
 
-The following are conditions to be met for a match:
-* The span name must be equal to "spanA" or "spanB" 
+A match requires the span name to be equal to `spanA` or `spanB`.
 
 The following are spans that match the exclude properties and the processor actions are not applied.
 * Span1 Name: 'spanA' Attributes: {env: dev, test_request: 123, credit_card: 1234}
@@ -94,9 +94,9 @@ The following span do not match the exclude properties and the processor actions
 }
 ```
 
-### 3. ExcludeMulti Spans
+### ExcludeMulti spans
 
-The following demonstrates excluding spans for this attributes processor. All spans that match the properties are not processed by this processor.
+The following demonstrates excluding spans for this attributes processor. Spans that match the properties aren't processed by this processor.
 
 The following are conditions to be met for a match:
 * An attribute ('env', 'dev') must exist in the span for a match.
@@ -146,7 +146,7 @@ The following span do not match the exclude properties and the processor actions
 }
 ```
 
-### 4. Selective processing
+### Selective processing
 
 The following demonstrates specifying the set of span properties to
 indicate which spans this processor should be applied to. The `include` of
@@ -200,7 +200,7 @@ The following spans do not match the include properties and processor actions ar
   }
 }
 ```
-## Attribute Processor Samples
+## Attribute processor samples
 
 ### Insert
 
@@ -396,7 +396,7 @@ and where span name does not match "login.\*".
 ```
 
 
-## Span Processor Samples
+## Span processor samples
 
 ### Name a span
 
