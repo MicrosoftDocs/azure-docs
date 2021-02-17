@@ -55,3 +55,5 @@ The UM contains URLs and file hashes of content to download and install. Once th
 It is important to ensure that Device Update-related security assets are properly secured and protected on your device. Assets such as root keys need to be protected against modification. There are various ways to do this, such as using security devices (TPM, SGX, HSM, other security devices) or even hard-coding them in the Device Update agent. The latter requires that the Device Update agent code is digitally signed and the system’s Code Integrity support is enabled to protect against malicious modification of the agent code.
 
 Additional security measures may be warranted, such as ensuring that handoff from component to component is performed in a secure way. For example, registering a specific isolated account to run the various components. And limiting network-based communications (e.g. REST API calls) to localhost only.
+
+**[Next Step: Learn more about IoT Hub security](articles\iot-hub\security-baseline.md)**

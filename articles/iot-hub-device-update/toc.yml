@@ -19,6 +19,8 @@
     href: device-update-plug-and-play.md
   - name: Device update networking requirements
     href: device-update-networking.md
+  - name: How device update is secured
+    href: device-update-security.md
 - name: How-to guides
   items:
   - name: Device update user roles and access
