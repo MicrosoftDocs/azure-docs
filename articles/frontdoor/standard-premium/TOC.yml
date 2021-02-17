@@ -45,6 +45,8 @@
     href: how-to-create-origin.md
   - name: Add a custom domain
     href: how-to-add-custom-domain.md
+  - name: Enable HTTPS for a custom domain
+    href: how-to-configure-https-custom-domain.md  
   - name: Route Association
     href: how-to-configure-route.md
   - name: Configure security headers with Rule Set
