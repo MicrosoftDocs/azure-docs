@@ -18,7 +18,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 ## 2021-02-16
 
-### Azure Machine Learning SDK for Python v1.22.0
+### Azure Machine Learning SDK for Python v1.23.0
 + **Bug fixes and improvements**
   + **automl-client-core-nativeclient**
     + AutoML will now generate two log files instead of one. Log statements will go to one or the other depending on which process the log statement was generated in.
