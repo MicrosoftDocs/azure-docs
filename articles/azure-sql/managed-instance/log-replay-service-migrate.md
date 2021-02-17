@@ -15,25 +15,25 @@ ms.date: 02/09/2021
 # Migrate databases from SQL Server to SQL Managed Instance using Log Replay Service
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article explains how to manually configure database migration from SQL Server to SQL Managed Instance using Log Replay Service (LRS). This is a cloud service enabled for managed instance based on the SQL Server log shipping technology enabled in no recovery mode. LRS should be used in cases when Data Migration Service (DMS) cannot be used, when more control is needed or when there exists very little tolerance for downtime.
+This article explains how to manually configure database migration from SQL Server to SQL Managed Instance using Log Replay Service (LRS). This is a cloud service enabled for managed instance based on the SQL Server log shipping technology in no recovery mode. LRS should be used in cases when Data Migration Service (DMS) cannot be used, when more control is needed or when there exists very little tolerance for downtime.
 
 ## When to use Log Replay Service
 
-In cases that DMS tool cannot be used for migration, LRS cloud service can be used directly with API, PowerShell or CLI cmdlets to manually build and orchestrate database migrations to the cloud. 
+In cases that DMS tool cannot be used for migration, LRS cloud service can be used directly with PowerShell, CLI cmdlets, or API, to manually build and orchestrate database migrations to SQL managed instance. 
 
 You might want to consider using LRS cloud service in some of the following cases:
 -	More control is needed for your database migration project
--	There exists a very little tolerance for downtime for migration cutover
+-	There exists a very little tolerance for downtime on migration cutover
 -	DMS tool cannot be installed in your environment
 -	DMS tool does not have file access to database backups
--	No access to host OS is available, or no administrator privileges
+-	No access to host OS is available, or no Administrator privileges
 
 > [!NOTE]
-> Recommended automated way to migrate databases from SQL Server to SQL Managed Instance is using DMS tool. This tool is using the same LRS cloud service at the back end with log shipping enabled in no-recovery mode. You should consider manually using LRS only in cases when DMS tool does not fully support your migration scenario.
+> Recommended automated way to migrate databases from SQL Server to SQL Managed Instance is using DMS tool. This tool is using the same LRS cloud service at the back end with log shipping in no-recovery mode. You should consider manually using LRS to orchestrate migrations in cases when DMS tool does not fully support your scenarios.
 
 # How does it work
 
-Building a custom solution using LRS to migrate a database to the cloud requires several orchestration steps shown in the diagram and outlined in the table below. The migration entails backing up databases on SQL Server and moving those backups to Azur Blob storage. Use LRS service to restore backups copied to Azure Blob storage to SQL Managed Instance. LRS will monitor Azure Blob storage for any new backups added after being started and will automatically restore them. Databases being restored during the migration process will be in restoring mode and cannot be used at this time. The migration is completed by initiating a cutover to the LRS service when ready. This final step will make restored databases available for R/W use on SQL Managed Instance. The LRS can also be monitored for progress and the process can be aborted if needed. 
+Building a custom solution using LRS to migrate a database to the cloud requires several orchestration steps shown in the diagram and outlined in the table below. The migration entails making a full database backup SQL Server and copying backups files to Azur Blob storage. LRS service is used to restore full backups files from Azure Blob storage to SQL Managed Instance. LRS will monitor Azure Blob storage for any new differential or log backups added after the full backup has been restored, and will automatically restore any new files added. Databases being restored during the migration process will be in restoring mode and cannot be used to read or write at this time. The migration is completed by initiating a cutover using the LRS service when ready. The final cutover step will make restored databases available for read and write use on SQL Managed Instance. The migration process can also be monitored during the procedure, and the process can also be aborted if needed. 
 
   ![Log Replay Service orchestration steps explained for SQL Managed Instance](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
 
@@ -51,7 +51,7 @@ Building a custom solution using LRS to migrate a database to the cloud requires
 - Full backup of databases (one or multiple files)
 - Differential backup (one or multiple files)
 - Log backup (not split for transaction log file)
-- **Checkum must be enabled** as mandatory
+- **CHECKSUM must be enabled** as mandatory
 
 ## The following is required at the Azure side:
 -	PowerShell Az.SQL module version 2.16.0, or above ([install](https://www.powershellgallery.com/packages/Az.Sql/), or use Azure [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/))
@@ -107,7 +107,7 @@ Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName $resourceGroupName -Inst
 ```
 
 > [!IMPORTANT]
-> Once LRS has been started, any system managed software patches will be halted for the next 47 hours. Upon passing of this window, the next automated software patch will automatically stop the ongoing LRS. In such case, migration needs to be resterted from scratch as resume is not supported.
+> Once LRS has been started, any system managed software patches will be halted for the next 47 hours. Upon passing of this window, the next automated software patch will automatically stop the ongoing LRS. In such case, migration cannot be resumed and it needs to be restarted from scratch. 
 
 ## Monitor the migration progress
 
