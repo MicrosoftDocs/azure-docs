@@ -257,7 +257,7 @@ When applying a maintenance window selection to a database, a brief failover (se
 The following steps set the maintenance window on an existing database, elastic pool, or managed instance using the Azure portal:
 
 
-## Set the maintenance window for a database or elastic pool
+## Set the maintenance window for an existing database or elastic pool
 
 1. Navigate to the SQL database or elastic pool you want to set the maintenance window for.
 1. In the **Settings** menu select **Maintenance**, then select the desired maintenance window.
@@ -265,7 +265,7 @@ The following steps set the maintenance window on an existing database, elastic 
    :::image type="content" source="media/maintenance-window-configure/maintenance.png" alt-text="SQL database Maintenance page":::
 
 
-## Set the maintenance window for a managed instance
+## Set the maintenance window for an existing managed instance
 
 1. Navigate to the managed instance you want to set the maintenance window for.
 1. In the **Settings** menu select **Maintenance**, then select the desired maintenance window.
@@ -327,24 +327,6 @@ It's important to make sure that the `$maintenanceConfig` value must be a valid 
      -AsJob
    ```
 
-## Cleanup resources
-
-Be sure to delete unneeded resources after you're finished with them to avoid unnecessary charges.
-
-   ```powershell-interactive
-   # Delete database
-   Remove-AzSqlDatabase `
-      -ResourceGroupName $resourceGroupName `
-      -ServerName $serverName `
-      -DatabaseName $databaseName
-
-   # Delete elastic pool
-   Remove-AzSqlElasticPool `
-      -ResourceGroupName $resourceGroupName `
-      -ServerName $serverName `
-      -ElasticPoolName $poolName
-   ```
-
 # [CLI](#tab/azure-cli)
 
 The following examples show how to configure the maintenance window using Azure CLI. You can [install the Azure CLI](/cli/azure/install-azure-cli), or use the Azure Cloud Shell.
@@ -390,9 +372,30 @@ The following example sets the maintenance window using [az sql mi update](/cli/
    az sql mi update -g mygroup  -n myinstance -m /subscriptions/{SubID}/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_{Region}_{MainteanceConfigName}
    ```
 
+-----
+
 ## Cleanup resources
 
-Be sure to delete unneeded resources after you're finished with them to avoid unnecessary charges. 
+Be sure to delete unneeded resources after you're finished with them to avoid unnecessary charges.
+
+
+# [PowerShell](#tab/azure-powershell)
+
+   ```powershell-interactive
+   # Delete database
+   Remove-AzSqlDatabase `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -DatabaseName $databaseName
+
+   # Delete elastic pool
+   Remove-AzSqlElasticPool `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -ElasticPoolName $poolName
+   ```
+
+# [CLI](#tab/azure-cli)
 
    ```azurecli
    az sql db delete \
