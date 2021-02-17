@@ -2,7 +2,7 @@
 title: Azure Event Hubs Firewall Rules | Microsoft Docs
 description: Use Firewall Rules to allow connections from specific IP addresses to Azure Event Hubs. 
 ms.topic: article
-ms.date: 07/16/2020
+ms.date: 02/12/2021
 ---
 
 # Allow access to Azure Event Hubs namespaces from specific IP addresses or ranges
@@ -21,8 +21,9 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 
 1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
 4. Select **Networking** under **Settings** on the left menu. You see the **Networking** tab only for **standard** or **dedicated** namespaces. 
-    > [!NOTE]
-    > By default, the **Selected networks** option is selected as shown in the following image. If you don't specify an IP firewall rule or add a virtual network on this page, the namespace can be accessed via **public internet** (using the access key).  
+    
+    > [!WARNING]
+    > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed via **public internet** (using the access key).  
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networks tab - selected networks option" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -50,24 +51,9 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 
 The following Resource Manager template enables adding an IP filter rule to an existing Event Hubs namespace.
 
-Template parameters:
+**ipMask** in the template is a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 70.37.104.0/24 represents the 256 IPv4 addresses from 70.37.104.0 to 70.37.104.255, with 24 indicating the number of significant prefix bits for the range.
 
-- **ipMask** is a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 70.37.104.0/24 represents the 256 IPv4 addresses from 70.37.104.0 to 70.37.104.255, with 24 indicating the number of significant prefix bits for the range.
-
-> [!NOTE]
-> While there are no deny rules possible, the Azure Resource Manager template has the default action set to **"Allow"** which doesn't restrict connections.
-> When making Virtual Network or Firewalls rules, we must change the
-> ***"defaultAction"***
-> 
-> from
-> ```json
-> "defaultAction": "Allow"
-> ```
-> to
-> ```json
-> "defaultAction": "Deny"
-> ```
->
+When adding virtual network or firewalls rules, set the value of `defaultAction` to `Deny`.
 
 ```json
 {
@@ -132,6 +118,9 @@ Template parameters:
 ```
 
 To deploy the template, follow the instructions for [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`.  The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
 
 ## Next steps
 
