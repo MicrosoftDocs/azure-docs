@@ -27,7 +27,7 @@ The deployment workflow is displayed in the following diagram:
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 
-## Query for built-in subscription on the device
+## Query for a built-in subscription on the device
 
 For Azure Resource Manager, only a single fixed subscription that's user-visible is supported. This subscription is unique per device, and the subscription name and subscription ID can't be changed.
 
@@ -180,7 +180,7 @@ You already added the blob URI in the hosts file for the client that you're usin
 
 ## Install certificates
 
-If you're using HTTPS, you need to install the appropriate certificates on your device. In this case, install the blob endpoint certificate. For more information, see [Use certificates with your Azure Stack Edge Pro with GPU device](azure-stack-edge-gpu-manage-certificates.md).
+If you're using HTTPS, you need to install the appropriate certificates on your device. Here, you install the blob endpoint certificate. For more information, see [Use certificates with your Azure Stack Edge Pro with GPU device](azure-stack-edge-gpu-manage-certificates.md).
 
 ## Upload a VHD
 
@@ -422,7 +422,7 @@ $pass = ConvertTo-SecureString "<Password>" -AsPlainText -Force;
 $cred = New-Object System.Management.Automation.PSCredential("<Enter username>", $pass)
 ```
 
-After you've created and powered up the VM, you will use the following username and password to sign in to it.
+After you've created and powered up the VM, you'll use the following username and password to sign in to it.
 
 ```powershell
 $VirtualMachine = New-AzureRmVMConfig -VMName <VM name> -VMSize "Standard_D1_v2"
@@ -444,7 +444,7 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 
 ## Connect to the VM
 
-Depending on whether you created a Windows or a Linux VM, the connection instructions can be different.
+Depending on whether you created a Windows VM or a Linux VM, the connection instructions can be different.
 
 ### Connect to a Linux VM
 
@@ -476,7 +476,7 @@ If you used a public IP address during VM creation, you can use that IP to conne
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-The public IP in this case is the same as the private IP that you passed during the virtual network interface creation.-->
+The public IP in this instance is the same as the private IP that you passed during the virtual network interface creation.-->
 
 
 ## Manage the VM
@@ -493,8 +493,7 @@ To return a list of all the VMs that are running on your Azure Stack Edge device
 
 ### Turn on the VM
 
-Run the following cmdlet to turn on a virtual machine that's running on your device:
-
+To turn on a virtual machine that's running on your device, run the following cmdlet:
 
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
