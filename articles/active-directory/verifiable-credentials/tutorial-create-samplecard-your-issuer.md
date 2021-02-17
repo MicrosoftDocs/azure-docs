@@ -12,7 +12,7 @@ ms.subservice: verifiable-credentials
 ms.date: 02/12/2021
 ms.author: barclayn
 
-#Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using entitlement management.
+#Customer intent: As an administrator, I want the high-level steps that I should follow so that I can learn how to issue cards using Azure verifiable credentials
 
 ---
 

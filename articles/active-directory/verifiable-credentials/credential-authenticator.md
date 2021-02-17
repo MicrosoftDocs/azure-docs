@@ -41,6 +41,6 @@ Now that you've scanned a QR code, you will go through the issuance flow based o
 
 ## Next Steps
 
-- One
+- [Credential issue flow](credential-issue-flow.md)
 - Two
 - ...
