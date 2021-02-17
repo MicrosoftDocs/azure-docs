@@ -3,7 +3,7 @@ title: "Deploy configurations using GitOps on Arc enabled Kubernetes cluster (Pr
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/09/2021
+ms.date: 02/15/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -11,39 +11,19 @@ description: "Use GitOps to configure an Azure Arc enabled Kubernetes cluster (P
 keywords: "GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, containers"
 ---
 
-# Deploy configurations using GitOps on Arc enabled Kubernetes cluster (Preview)
+# Deploy configurations using GitOps on an Arc enabled Kubernetes cluster (Preview)
 
-In relation to Kubernetes, GitOps is the practice of declaring the desired state of Kubernetes cluster configurations (deployments, namespaces, etc.) in a Git repository. This declaration is followed by a polling and pull-based deployment of these cluster configurations using an operator. 
-
-This article covers the setup of GitOps workflows on Azure Arc enabled Kubernetes clusters.
-
-The connection between your cluster and a Git repository is created as a `Microsoft.KubernetesConfiguration/sourceControlConfigurations` extension resource in Azure Resource Manager. The `sourceControlConfiguration` resource properties represent where and how Kubernetes resources should flow from Git to your cluster. The `sourceControlConfiguration` data is stored encrypted, at rest in an Azure Cosmos DB database to ensure data confidentiality.
-
-The `config-agent` running in your cluster is responsible for:
-* Tracking new or updated `sourceControlConfiguration` extension resources on the Azure Arc enabled Kubernetes resource.
-* Deploying a Flux operator to watch the Git repository for each `sourceControlConfiguration`.
-* Applying any updates made to any `sourceControlConfiguration`. 
-
-You can create multiple `sourceControlConfiguration` resources on the same Azure Arc enabled Kubernetes cluster to achieve multi-tenancy. Limit deployments to within the respective namespaces by creating each `sourceControlConfiguration` with a different `namespace` scope.
-
-The Git repository can contain:
-* YAML-format manifests describing any valid Kubernetes resources, including Namespaces, ConfigMaps, Deployments, DaemonSets, etc. 
-* Helm charts for deploying applications. 
-
-A common set of scenarios includes defining a baseline configuration for your organization, such as common Azure roles and bindings, monitoring or logging agents, or cluster-wide services.
-
-The same pattern can be used to manage a larger collection of clusters, which may be deployed across heterogeneous environments. For example, you have one repository that defines the baseline configuration for your organization, which applies to multiple Kubernetes clusters at once. [Azure Policy can automate](use-azure-policy.md) the creation of a `sourceControlConfiguration` with a specific set of parameters on all Azure Arc enabled Kubernetes resources within a scope (subscription or resource group).
-
-Walk through the following steps to learn how to apply a set of configurations with `cluster-admin` scope.
+This article demonstrates applying configurations on an Azure Arc enabled Kubernetes cluster. A conceptual overview of the same can be found [here](./conceptual-configurations.md).
 
 ## Before you begin
 
-Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./connect-cluster.md).
+* Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./connect-cluster.md).
+
+* Review the [Configurations and GitOps with Arc for Kubernetes article](./conceptual-configurations.md) to understand the benefits and architecture of this feature.
 
 ## Create a configuration
 
 The [example repository](https://github.com/Azure/arc-k8s-demo) used in this article is structured around the persona of a cluster operator who would like to provision a few namespaces, deploy a common workload, and provide some team-specific configuration. Using this repository creates the following resources on your cluster:
-
 
 * **Namespaces:** `cluster-config`, `team-a`, `team-b`
 * **Deployment:** `cluster-config/azure-vote`
