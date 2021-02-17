@@ -32,6 +32,6 @@ Make sure that you can use the following steps to access the device from your cl
    c. Under **Enable for compute** on the network interface, select **Yes**. Azure Stack Edge will create and manage a virtual switch that corresponds to that network interface. Don't enter specific IPs for Kubernetes at this time. It can take several minutes to enable compute.
 
     > [!NOTE]
-    > If you're creating GPU VMs, select a network interface that's connected to the internet. Doing so allows you to install a GPU extension on your device.
+    > If you're creating GPU VMs, select a network interface that's connected to the internet. Doing so enables you to install a GPU extension on your device.
 
 
