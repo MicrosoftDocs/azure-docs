@@ -31,8 +31,6 @@
       href: roles.md
     - name: Resource-centric RBAC
       href: resource-centric-rbac.md
-    - name: Table-centric RBAC
-      href: table-centric-rbac.md
   - name: Advanced multistage attack detection
     href: fusion.md
   - name: Bring your own machine learning platform

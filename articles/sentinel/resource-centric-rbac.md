@@ -50,6 +50,23 @@ The following table highlights the scenarios where resource-centric RBAC is most
 
 If your team has similar access requirements to the non-SOC team described in the table above, resource-centric RBAC may be a good solution for your organization.
 
+## Alternative methods for implementing resource-centric RBAC
+
+Depending on the permissions required in your organization, manually configuring a resource ID to use with resource-centric RBAC may not provide a full solution.
+
+The following list describes scenarios where other solutions for data access may fit your requirements better:
+
+
+- **A subsidiary has a SOC team that requires a full Azure Sentinel experience**. In this case, use a [multi-workspace architecture](https://www.youtube.com/watch?v=_mm3GNwPBHU&feature=youtu.be) to separate your data permissions.
+
+- **You want to set access controls at the table level**. Use [table-centric RBAC](table-centric-rbac.md) to define permissions for each table.
+
+- **You want to provide access at a more granular level, for specific data only**. Provide access to data using built-in integration with [Power BI dashboards and reports](/azure/azure-monitor/platform/powerbi).
+
+- **Limit access based on the specific users referenced by an event**. For example, you might want to limit access to Office 365 logs based on a user's subsidiary. In this case, use one of the following methods:
+
+    - Use data-based RBAC and custom collection.
+    - Enrich the relevant log with the subsidiary information. In this case, you can use the enriched data in workbooks to ensure that each non-SOC team gets access to a workbook that is pre-filtered to display relevant data only.
 
 ## Manually configure resource-centric RBAC
 
@@ -111,25 +128,8 @@ needs example
 
 When collecting using the [Log Analytics data collector API](/azure/azure-monitor/platform/data-collector-api), you can assign to events with a resource ID using the HTTP [*x-ms-AzureResourceId*](/azure/azure-monitor/platform/data-collector-api#request-headers) request header.
 
-If you are using resource-centric RBAC and want the events collected by API to be available to specific users, use the resource ID of the resource group you [created for your users](#implementing-resource-base-rbac).
+If you are using resource-centric RBAC and want the events collected by API to be available to specific users, use the resource ID of the resource group you [created for your users](#manually-configure-resource-centric-rbac).
 
-## Alternative methods for implementing resource-centric RBAC
-
-Depending on the permissions required in your organization, manually configuring a resource ID to use with resource-centric RBAC may not provide a full solution.
-
-The following list describes scenarios where other solutions for data access may fit your requirements better:
-
-
-- **A subsidiary has a SOC team that requires a full Azure Sentinel experience**. In this case, use a [multi-workspace architecture](https://www.youtube.com/watch?v=_mm3GNwPBHU&feature=youtu.be) to separate your data permissions.
-
-- **You want to set access controls at the table level**. Use [table-centric RBAC](table-centric-rbac.md) to define permissions for each table.
-
-- **You want to provide access at a more granular level, for specific data only**. Provide access to data using built-in integration with [Power BI dashboards and reports](/azure/azure-monitor/platform/powerbi).
-
-- **Limit access based on the specific users referenced by an event**. For example, you might want to limit access to Office 365 logs based on a user's subsidiary. In this case, use one of the following methods:
-
-    - Use data-based RBAC and custom collection.
-    - Enrich the relevant log with the subsidiary information. In this case, you can use the enriched data in workbooks to ensure that each non-SOC team gets access to a workbook that is pre-filtered to display relevant data only.
 
 ## Next steps
 
