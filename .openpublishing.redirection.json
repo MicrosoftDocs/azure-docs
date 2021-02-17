@@ -23228,6 +23228,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-central/healthcare/howto-health-data-triage.md",
+      "redirect_url": "/azure/iot-central/healthcare/tutorial-health-data-triage/",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md",
       "redirect_url": "/azure/iot-hub/",
       "redirect_document_id": false
