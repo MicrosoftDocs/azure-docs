@@ -19,7 +19,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## February 2021
 
-* The S0 through S4 pricing tiers are being retired. If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you should update it to use the Standard (S) [pricing tier](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier).
+* The S0 through S4 pricing tiers are being retired on March 8th, 2021. If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you should update it to use the Standard (S) [pricing tier](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier).
 
 ## January 2021
 
