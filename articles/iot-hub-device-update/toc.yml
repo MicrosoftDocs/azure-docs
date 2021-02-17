@@ -4,9 +4,6 @@
   items:
   - name: What is Device Update for IoT Hub?
     href: understand-device-update.md
-- name: Quickstarts
-  expanded: false
-  items:
 - name: Tutorials
   items:
   - name: Use device update on Raspberry Pi
