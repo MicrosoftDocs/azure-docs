@@ -2,7 +2,7 @@
 title: Outputs in templates
 description: Describes how to define output values in an Azure Resource Manager template (ARM template) and Bicep file.
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ---
 
 # Outputs in ARM templates
@@ -15,9 +15,11 @@ The format of each output value must resolve to one of the [data types](template
 
 ## Define output values
 
-The following example shows how to return the fully qualified domain name for a public IP address:
+The following example shows how to return a property from a deployed resource.
 
 # [JSON](#tab/json)
+
+For JSON, add the `outputs` section to the template. The output value gets the fully qualified domain name for a public IP address.
 
 ```json
 "outputs": {
@@ -30,7 +32,9 @@ The following example shows how to return the fully qualified domain name for a 
 
 # [Bicep](#tab/bicep)
 
-In the following example, `publicIP` is the symbolic name of a public IP address deployed in the Bicep file.
+For Bicep, use the `output` keyword.
+
+In the following example, `publicIP` is the symbolic name of a public IP address deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
 
 ```bicep
 output hostname string = publicIP.properties.dnsSettings.fqdn
@@ -94,13 +98,11 @@ For more information, see [Output iteration in ARM templates](copy-outputs.md).
 
 ## Linked templates
 
-To retrieve the output value from a linked template, use the [reference](template-functions-resource.md#reference) function in the parent template. The syntax in the parent template is:
+In JSON templates, you can deploy related templates by using [linked templates](linked-templates.md). To retrieve the output value from a linked template, use the [reference](template-functions-resource.md#reference) function in the parent template. The syntax in the parent template is:
 
 ```json
 "[reference('<deploymentName>').outputs.<propertyName>.value]"
 ```
-
-When getting an output property from a linked template, the property name can't include a dash.
 
 The following example shows how to set the IP address on a load balancer by retrieving a value from a linked template.
 
@@ -112,7 +114,13 @@ The following example shows how to set the IP address on a load balancer by retr
 
 You can't use the `reference` function in the outputs section of a [nested template](linked-templates.md#nested-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
+When getting an output property from a linked template, the property name can't include a dash.
+
 The [Public IP address template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) creates a public IP address and outputs the resource ID. The [Load balancer template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) links to the preceding template. It uses the resource ID in the output when creating the load balancer.
+
+## Modules
+
+In Bicep files, you can deploy related templates by using modules. 
 
 ## Example template
 
