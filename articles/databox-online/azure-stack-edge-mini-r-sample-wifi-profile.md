@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 02/17/2021
 ms.author: alkohli
-#Customer intent: I need to have standard WiFi profiles for staff to use for wireless access to their Azure Stack Edge Pro Mini R devices.
+#Customer intent: I need to be able to create WiFi profiles for my Azure Stack Edge Pro Mini R devices that meet my organization's requirements for wireless networking.
 
 
 # Create a WiFi profile to use with Azure Stack Edge Mini R devices
