@@ -6715,11 +6715,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/Face/APIReference.md",
-      "redirect_url": "https://docs.microsoft.com/rest/api/face/",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/deploy-form-recognizer-on-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
       "redirect_document_id": false
