@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/19/2017
+ms.date: 02/17/2021
 ms.author: apimpm
 ---
 # API Management policies
@@ -76,6 +76,11 @@ This section provides a reference for the following API Management policies. For
     - [Send request to a service](api-management-dapr-policies.md#invoke) - uses Dapr runtime to locate and reliably communicate with a Dapr microservice.
     -  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub) - uses Dapr runtime to publish a message to a Publish/Subscribe topic.
     -  [Trigger output binding](api-management-dapr-policies.md#bind) - uses Dapr runtime to invoke an external system via output binding.
+- [Validation policies](validation-policies.md)
+    - [Validate content](#validate-content) - Validates the size or content type of a request or response body against the API schema. 
+    - [Validate parameters](#validate-parameters) - Validates the request header, query, or path parameters against the API schema.
+    - [Validate headers](#validate-headers) - Validates the response header against the API schema.
+    - [Validate status code](#validate-status-code) - Validates the HTTP status codes in responses against the API schema.
 
 ## Next steps
 For more information working with policies, see:
