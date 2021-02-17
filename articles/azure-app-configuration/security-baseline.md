@@ -436,7 +436,7 @@ For more information, see the following references:
 
 - [Authorize access to Azure App Configuration using Azure Active Directory](concept-enable-rbac.md)
 
-- [App Configuration Data Encryption](faq.md#does-app-configuration-encrypt-my-data)
+- [App Configuration Data Encryption](faq.yml#does-app-configuration-encrypt-my-data)
 
 - [Azure Role Based Access Control (RBAC)](../role-based-access-control/overview.md) 
 

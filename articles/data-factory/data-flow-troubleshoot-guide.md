@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot mapping data flows
 description: Learn how to troubleshoot data flow issues in Azure Data Factory.
-services: data-factory
 ms.author: makromer
 author: kromerm
 ms.reviewer: daperlov

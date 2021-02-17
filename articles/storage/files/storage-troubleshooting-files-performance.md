@@ -17,7 +17,7 @@ This article lists some common problems related to Azure file shares. It provide
 
 ### Cause 1: Share was throttled
 
-Requests are throttled when the I/O operations per second (IOPS), ingress, or egress limits for a file share are reached. To understand the limits for standard and premium file shares, see [File share and file scale targets](./storage-files-scale-targets.md#file-share-and-file-scale-targets).
+Requests are throttled when the I/O operations per second (IOPS), ingress, or egress limits for a file share are reached. To understand the limits for standard and premium file shares, see [File share and file scale targets](./storage-files-scale-targets.md#azure-file-share-scale-targets).
 
 To confirm whether your share is being throttled, you can access and use Azure metrics in the portal.
 

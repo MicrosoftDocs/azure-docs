@@ -426,8 +426,10 @@
       - name: Linux
         displayname: diagnostics extension
         items: 
-        - name: Overview
+        - name: Version 4.0
           href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+        - name: Version 3.0
+          href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
         - name: Collect metrics with Telegraf
           href: platform/collect-custom-metrics-linux-telegraf.md   
     - name: Troubleshoot

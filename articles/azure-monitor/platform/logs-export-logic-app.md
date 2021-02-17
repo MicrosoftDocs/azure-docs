@@ -65,7 +65,7 @@ Go to **Logic Apps** in the Azure portal and click **Add**. Select a **Subscript
 Click **Review + create** and then **Create**. When the deployment is complete, click **Go to resource** to open the **Logic Apps Designer**.
 
 ## Create a trigger for the logic app
-Under **Start with a common trigger**, select **Recurrence**. This creates a logic app that automatically runs at a regular interval. In the **Frequency** box of the action, select **Hour** and in the **Interval** box, enter **1** to run the workflow once per day.
+Under **Start with a common trigger**, select **Recurrence**. This creates a logic app that automatically runs at a regular interval. In the **Frequency** box of the action, select **Day** and in the **Interval** box, enter **1** to run the workflow once per day.
 
 ![Recurrence action](media/logs-export-logicapp/recurrence-action.png)
 
