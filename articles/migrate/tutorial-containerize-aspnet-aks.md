@@ -128,7 +128,7 @@ If you just created a free Azure account, you're the owner of your subscription.
    - **Enable PowerShell remoting**: The tool will inform you to ensure that PowerShell remoting is enabled on the application servers running the ASP.NET applications to be containerized. 
    
 
-## Login to Azure
+## Log in to Azure
 
 Click **Login** to log in to your Azure account. 
 
@@ -222,7 +222,7 @@ Once the container image is built, the next step is to deploy the application as
      - If you don't have an Azure file share or would like to create a new Azure file share, you can choose to create on from the tool by clicking **Create new Storage Account and file share**.  
 
 3. **Application deployment configuration**: Once you've completed the steps above, you'll need to specify the deployment configuration for the application. Click **Configure** to customize the deployment for the application. In the configure step you can provide the following customizations:
-     - **Prefix string**: Specify a prefix string to use in the name for all resources that are created for the containerized application in the AKS cluster..
+     - **Prefix string**: Specify a prefix string to use in the name for all resources that are created for the containerized application in the AKS cluster.
      - **SSL certificate**: If your application requires an https site binding, specify the PFX file that contains the certificate to be used for the binding. The PFX file shouldn't be password protected and the original site shouldn't have multiple bindings.
      - **Replica Sets**: Specify the number of application instances (pods) that should run inside the containers.
      - **Load balancer type**: Select *External* if the containerized application should be reachable from public networks. 
