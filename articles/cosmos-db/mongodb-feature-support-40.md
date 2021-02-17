@@ -349,7 +349,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 Azure Cosmos DB's API for MongoDB supports documents encoded in MongoDB BSON format. The 4.0 API version enhances the internal usage of this format to improve performance and reduce costs. Documents written or updated through an endpoint running 4.0 benefit from this.
  
-In an upgrade scenario, documents written prior to the upgrade to version 4.0 will not benefit from the enhanced performance until they are updated via a write operation through the 4.0 endpoint.
+In an [upgrade scenario](mongodb-version-upgrade.md), documents written prior to the upgrade to version 4.0 will not benefit from the enhanced performance until they are updated via a write operation through the 4.0 endpoint.
 
 | Command | Supported |
 |---------|---------|
@@ -566,7 +566,7 @@ Azure Cosmos DB supports automatic, native replication at the lowest layers. Thi
 
 ## Retryable Writes
 
-Cosmos DB does not yet support retryable writes. Client drivers must add retryWrites=false to their connection string.
+Cosmos DB does not yet support retryable writes. Client drivers must add the 'retryWrites=false' URL parameter to their connection string. Additional URL parameters can be added by prefixing them with an '&'. 
 
 ## Sharding
 
@@ -594,7 +594,6 @@ Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/refe
 
 ## Next steps
 
-- For further information check [Mongo 3.6 version features](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)
 - Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
 - Learn how to [use Robo 3T](mongodb-robomongo.md) with Azure Cosmos DB's API for MongoDB.
 - Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.

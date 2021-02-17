@@ -1,6 +1,6 @@
 ---
 title: 'Use Multi-Document Transactions in Azure Cosmos DB API for MongoDB'
-description: Create a sample mongo shell app that can execute a multi-document transaction on a fixed collection in Azure Cosmos DB API for MongoDB 4.0
+description: Learn how to create a sample Mongo shell app that can execute a multi-document transaction (all-or-nothing semantic) on a fixed collection in Azure Cosmos DB API for MongoDB 4.0. 
 author: gahl-levy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
