@@ -37,18 +37,14 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A Hoxhunt tenant.
-* A user account in Hoxhunt with Admin permissions.
-
+* SCIM API key and SCIM endpoint URL for your organization (configured by Hoxhunt support).
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 2. Determine who will be in [scope for provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determine what data to [map between Azure AD and Hoxhunt](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
 ## Step 2. Configure Hoxhunt to support provisioning with Azure AD
-
-To configure Hoxhunt to support provisioning with Azure AD - please write an email to Hoxhunt Support (support@hoxhunt.com).
-They will provide the **Authentication Token** and **SCIM Endpoint URL**.
-
+Contact [Hoxhunt support](mailto:support@hoxhunt.com) to receive SCIM API key and SCIM endpoint URL to configure Hoxhunt to support provisioning with Azure AD.
 ## Step 3. Add Hoxhunt from the Azure AD application gallery
 
 Add Hoxhunt from the Azure AD application gallery to start managing provisioning to Hoxhunt. If you have previously setup Hoxhunt for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
