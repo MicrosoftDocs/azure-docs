@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 02/16/2021
 ms.author: juliako
 ---
 
@@ -25,6 +25,20 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## February 2021
+
+### Multiple account owners 
+
+Account owner role was added to Video Indexer. You can add, change and remove users; change their role. For details on how to share an account, see [Invite users](invite-users.md).
+
+### Audio event detection (public preview on trial) 
+
+Video Indexer now detects the following audio effects in the non-speech segments of the content: gunshot, glass shatter, alarm, siren, explosion, dog bark, screaming, laughter, growd reactions (cheering, clapping and booing) and Silence. The newly added audio affects are available when choosing the **Advanced audio** preset on indexing. Standard indexing will only include **silence** and **crowd reaction**. 
+
+The **clapping** event type that was included in the previous audio effects model, is now extracted a part of the **crowd reaction** event type.
+
+:::image type="content" source="./media/release-notes/audio-affects.png" alt-text="Audio event detection":::
 
 ## January 2021
 
