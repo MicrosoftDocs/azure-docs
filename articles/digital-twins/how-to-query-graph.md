@@ -52,6 +52,10 @@ You can also get twins based on the **type of a property**. Here is a query that
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty3":::
 
+>[!TIP]
+> If a property is of type `Map`, you can use the map keys and values directly in the query, like this:
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty4":::
+
 ## Query by model
 
 The `IS_OF_MODEL` operator can be used to filter based on the twin's [**model**](concepts-models.md).
