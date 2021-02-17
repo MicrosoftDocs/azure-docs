@@ -1,26 +1,21 @@
 ---
-title: Network topology considerations for Azure AD Application Proxy
-description: Covers network topology considerations when using Azure AD Application Proxy.
+title: Network topology considerations for Azure Active Directory Application Proxy
+description: Covers network topology considerations when using Azure Active Directory Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 02/17/2021
 ms.author: kenwith
-ms.reviewer: harshja
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
+ms.reviewer: japere
 ---
 
-# Network topology considerations when using Azure Active Directory Application Proxy
+# Optimize traffic flow with Azure Active Directory Application Proxy
 
-This article explains network topology considerations when using Azure Active Directory (Azure AD) Application Proxy for publishing and accessing your applications remotely.
+This article explains how to optimize traffic flow and network topology considerations when using Azure Active Directory (Azure AD) Application Proxy for publishing and accessing your applications remotely.
 
 ## Traffic flow
 
@@ -32,11 +27,27 @@ When an application is published through Azure AD Application Proxy, traffic fro
 
 ![Diagram showing traffic flow from user to target application](./media/application-proxy-network-topology/application-proxy-three-hops.png)
 
-## Tenant location and Application Proxy service
+## Optimize connector groups to use closest Application Proxy cloud service
 
-When you sign up for an Azure AD tenant, the region of your tenant is determined by the country/region you specify. When you enable Application Proxy, the Application Proxy service instances for your tenant are chosen or created in the same region as your Azure AD tenant, or the closest region to it.
+When you sign up for an Azure AD tenant, the region of your tenant is determined by the country/region you specify. When you enable Application Proxy, the **default** Application Proxy cloud service instances for your tenant are chosen in the same region as your Azure AD tenant, or the closest region to it.
 
-For example, if your Azure AD tenant's country or region is the United Kingdom, all your Application Proxy connectors use service instances in European data centers. When your users access published applications, their traffic goes through the Application Proxy service instances in this location.
+For example, if your Azure AD tenant's country or region is the United Kingdom, all your Application Proxy connectors at **default** will be assigned to use service instances in European data centers. When your users access published applications, their traffic goes through the Application Proxy cloud service instances in this location.
+
+If you have connectors installed in regions different from your default region, it may be beneficial to change which region your connector group is optimized for to improve performance accessing these applications. Once a region is specified for a connector group it will connected to Application Proxy cloud services in the designated region.
+
+In order to optimize the traffic flow and reduce latency to a connector group assign the connector group to the closest region. To assign a region:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) as an application administrator of the directory that uses Application Proxy. For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other admin alias on that domain.
+2. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
+3. In left navigation panel, select **Azure Active Directory**.
+4. Under **Manage**, select **Application proxy**.
+5. Select **New Connector Group**, provide a **Name** for the connector group.
+6. Next, under **Advanced Settings** and select the drop down under Optimize for a specific region and select the region closest to the connectors.
+7. Select **Create**.
+8. Once the new connector group is created, you can select which connectors to assign to this connector group. 
+   1. You can only move connectors to your connector group if it is in a connector group using the default region. The best approach is to always start with your connectors placed in the “Default group” and then move it to the appropriate connector group.
+   2. You can only change the region of a connector group if there are **no** connectors assigned to it or apps assigned to it.
+9. Next assign the connector group to your applications. When accessing the apps, traffic should now go to the Application Proxy cloud service in the region the connector group is optimized for.
 
 ## Considerations for reducing latency
 
@@ -157,13 +168,19 @@ The connector can be placed in the Azure datacenter. Since the connector still h
 
 ### Use case 5
 
-**Scenario:** The app is in an organization's network in Europe, with the Application Proxy instance and most users in the US.
+**Scenario:** The app is in an organization's network in Europe, default tenant region is US, with most users in the Europe.
 
-**Recommendation:** Place the connector near the app. Because US users are accessing an Application Proxy instance that happens to be in the same region, hop 1 is not too expensive. Hop 3 is optimized. Consider using ExpressRoute to optimize hop 2.
+**Recommendation:** Place the connector near the app. Update the connector group so it is optimized to use Europe Application Proxy service instances. For steps see, [Optimize connector groups to use closest Application Proxy cloud service](/application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service).
 
-![Diagram shows users and proxy in the US, connector and app in Europe](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
+Because Europe users are accessing an Application Proxy instance that happens to be in the same region, hop 1 is not expensive. Hop 3 is optimized. Consider using ExpressRoute to optimize hop 2.
 
-You can also consider using one other variant in this situation. If most users in the organization are in the US, then chances are that your network extends to the US as well. Place the connector in the US, and use the dedicated internal corporate network line to the application in Europe. This way hops 2 and 3 are optimized.
+### Use case 6
+
+**Scenario:** The app is in an organization's network in Europe, default tenant region is US, with most users in the US.
+
+**Recommendation:** Place the connector near the app. Update the connector group so it is optimized to use Europe Application Proxy service instances. For steps see, [Optimize connector groups to use closest Application Proxy cloud service](/application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service). Hop 1 can be more expensive since all US users must access the Application Proxy instance in Europe.
+
+You can also consider using one other variant in this situation. If most users in the organization are in the US, then chances are that your network extends to the US as well. Place the connector in the US, continue to use the default US region for your connector groups, and use the dedicated internal corporate network line to the application in Europe. This way hops 2 and 3 are optimized.
 
 ![Diagram shows users, proxy, and connector in the US, app in Europe](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
 
