@@ -58,7 +58,7 @@ A similar interactive interface guides you to the data metrics to help you troub
 
 For gateway requests or responses or any 4xx or 5xx errors on your gateway, use this category to monitor and troubleshoot. Similarly, leverage the interactive interface to dive deep on the specific area that you want to check for your API gateway performance. 
 
-:::image type="content" source="media/diagnose-solve-problems/gateway-preformance-tile.png" alt-text="screenshot of Gateway performance category tile.":::
+:::image type="content" source="media/diagnose-solve-problems/gateway-performance-tile.png" alt-text="screenshot of Gateway performance category tile.":::
 
 ### Service upgrade
 
