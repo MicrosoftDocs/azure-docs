@@ -98,10 +98,7 @@
       href: document-translation/get-started-with-document-translation.md
     - name:   Create SAS tokens 
       href: document-translation/create-sas-tokens.md
-  - name: Reference
-    items:
-    - name: Document Translation API
-- name: Custom Translator
+  - name: Custom Translator
   items:
   - name: Overview
     items:
