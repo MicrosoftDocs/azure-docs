@@ -279,13 +279,13 @@ Now, create the private endpoint for your function app.
 
 1. Select **Click here to configure** under Private Endpoint Connections.
 
-    ![Navigate to VNet Integration](./media/functions-create-vnet/14.nav-app-private-endpoint.png)
+    ![Navigate to Function App Private Endpoint](./media/functions-create-vnet/14.nav-app-private-endpoint.png)
 
 1. Click **Add**.
 
 1. On the blade that opens up, use the private endpoint settings as specified below:
 
-    ![Navigate to VNet Integration](./media/functions-create-vnet/15.create-app-private-endpoint.png)
+    ![Create Function App Private Endpoint](./media/functions-create-vnet/15.create-app-private-endpoint.png)
 
 1. Click **Ok** to add the private endpoint. Congratulations! You've successfully secured your function app, service bus, and storage account with private endpoints!
 
@@ -327,7 +327,7 @@ The following DNS zones were created in this tutorial:
 
 1. On the tab with **Live metrics** open, you should see that your Service Bus queue trigger has triggered. If it hasn't, resend the message from **Service Bus Explorer**
 
-    ![View Application Insights](./media/functions-create-vnet/18.hello-world.png)
+    ![View Message](./media/functions-create-vnet/18.hello-world.png)
 
 1. Congratulations! You have successfully tested your function app set up with private endpoints!
 
