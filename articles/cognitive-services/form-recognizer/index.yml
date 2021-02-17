@@ -150,8 +150,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Form Recognizer API v2.0
-            url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
+          - text: REST API
+            url: https://docs.microsoft.com/rest/api/formrecognizer/
           - text: .NET SDK
             url: /dotnet/api/overview/azure/ai.formrecognizer-readme
           - text: Python SDK
