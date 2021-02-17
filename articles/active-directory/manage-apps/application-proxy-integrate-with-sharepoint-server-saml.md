@@ -20,9 +20,10 @@ ms.collection: M365-identity-device-management
 
 # Integrate with SharePoint (SAML)
 
-This step-by-step guide explains how to secure the access to the [Azure Active Directory integrated on-premises Sharepoint (SAML)](https://docs.microsoft.com/en-gb/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial) using Azure AD Application Proxy, where users in your organization (Azure AD, B2B) connect to Sharepoint through the Internet.
+This step-by-step guide explains how to secure the access to the [Azure Active Directory integrated on-premises Sharepoint (SAML)](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial) using Azure AD Application Proxy, where users in your organization (Azure AD, B2B) connect to Sharepoint through the Internet.
 
-> [!NOTE] If you're new to Azure AD Application Proxy and want to learn more, see [Remote access to on-premises applications through Azure AD Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy).
+> [!NOTE] 
+> If you're new to Azure AD Application Proxy and want to learn more, see [Remote access to on-premises applications through Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
 
 There are three primary advantages of this setup:
 
