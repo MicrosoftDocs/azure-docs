@@ -27,7 +27,7 @@ If you do not have a virtual machine with a public ip already created then you c
 4. In the search results, select **Public IP address**. Next, in the **Public IP address** page, select **Create**.
 5. In the **Routing preference** options, select **Internet**.
 
-      ![Create a public ip address](./media/routing-preference-portal/pip-new.png)
+      ![Create a public ip address](./media/routing-preference-portal/public-ip-new.png)
 
     > [!NOTE]
     > Public IP addresses are created with an IPv4 or IPv6 address. However, routing preference only supports IPV4 currently.
