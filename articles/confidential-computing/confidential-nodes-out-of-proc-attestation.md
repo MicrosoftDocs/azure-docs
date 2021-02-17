@@ -8,7 +8,7 @@
  ms.author: amgowda
 ---
 
-# Platform Software Management with SGX quote helper daemon set(preview)
+# Platform Software Management with SGX quote helper daemon set (preview)
 
 [Enclave applications](confidential-computing-enclaves.md) that perform remote attestation requires a generated QUOTE. This QUOTE provides cryptographic proof of the identity and the state of the application, as well as the environment the enclave is running. The generation of the QUOTE requires trusted software components that are part of the Intel’s Platform Software Components (PSW).
 
