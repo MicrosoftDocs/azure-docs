@@ -237,18 +237,27 @@ To integrate just-in-time access requests with an AKS cluster using AKS-managed 
 
 1. At the top of the Azure portal, search for and select Azure Active Directory.
 1. Take note of the Tenant ID, referred to for the rest of these instructions as `<tenant-id>`
-1. In the menu for Azure Active Directory on the left-hand side, select *Groups* then *New Group*.
+    :::image type="content" source="./media/managed-aad/jit-get-tenant-id.png" alt-text="In a web browser, the Azure portal screen for Azure Active Directory is shown with the tenant's ID highlighted.":::
+1. In the menu for Azure Active Directory on the left-hand side, under *Manage* select *Groups* then *New Group*.
+    :::image type="content" source="./media/managed-aad/jit-create-new-group.png" alt-text="Shows the Azure portal Active Directory groups screen with the 'New Group' option highlighted.":::
 1. Make sure a Group Type of *Security* is selected and enter a group name, such as *myJITGroup*. Under *Azure AD Roles can be assigned to this group (Preview)*, select *Yes*. Finally, select *Create*.
+    :::image type="content" source="./media/managed-aad/jit-new-group-created.png" alt-text="Shows the Azure portal's new group creation screen.":::
 1. You will be brought back to the *Groups* page. Select your newly-created group and take note of the Object ID, referred to for the rest of these instructions as `<object-id>`.
+    :::image type="content" source="./media/managed-aad/jit-get-object-id.png" alt-text="Shows the Azure portal screen for the just-created group, highlighting the Object Id":::
 1. In the menu for *Activity* on the left-hand side, select *Privileged Access (Preview)* and select *Enable Privileged Access*.
-1. Select *Add Assignments* to grant targetted users and groups access. These assignments can be modified at any time. Once you're ready to proceed, select *Next*.
-1. Choose an assignment type of *Active* and assignment duration, and select *Assign*. For more on assignment types, see [Assign eligibility for a privileged access group (preview) in Privileged Identity Management][aad-assignments].
+    :::image type="content" source="./media/managed-aad/jit-enabling-priv-access.png" alt-text="The Azure portal's Privileged access (Preview) page is shown, with 'Enable privileged access' highlighted":::
+1. Select *Add Assignments* to begin granting access.
+    :::image type="content" source="./media/managed-aad/jit-add-active-assignment.png" alt-text="The Azure portal's Privileged access (Preview) screen after enabling is shown. The option to 'Add assignments' is highlighted.":::
+1. Select a role of *member*, and select the users and groups to whom you wish to grant cluster access. These can be modified at any time by a group admin. When you're ready to move on, select *Next*.
+    :::image type="content" source="./media/managed-aad/jit-adding-assignment.png" alt-text="The Azure portal's Add assignments Membership screen is shown, with a sample user selected to be added as a member. The option 'Next' is highlighted.":::
+1. Choose an assignment type of *Active*, the desired duration, and provide a justification. When you're ready to proceed select *Assign*. For more on assignment types, see [Assign eligibility for a privileged access group (preview) in Privileged Identity Management][aad-assignments].
+    :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="The Azure portal's Add assignments Setting screen is shown. An assignment type of 'Active' is selected and a sample justification has been given. The option 'Assign' is highlighted.":::
 1. Deploy an AKS cluster with AKS-managed Azure AD integration by using the `<tenant-id>` and `<object-id>` values from earlier:
     ```azurecli-interactive
     az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <object-id> --aad-tenant-id <tenant-id>
     ```
 
-Once the cluster has been deployed, verify just-in-time access is working by accessing the cluster. Make sure you are logged in on an Azure account that has been assigned to the previously-created group. For example:
+Once the cluster has been deployed, verify just-in-time access is working by accessing the cluster. For example:
 
 ```azurecli-interactive
  az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
@@ -281,7 +290,6 @@ Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a
 ```
 
 Make sure the admin of the security group has given your account an *Active* assignment.
-
 
 ## Next steps
 
