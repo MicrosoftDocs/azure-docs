@@ -4,12 +4,18 @@
   expanded: true
   items:
   - name: What are Verifiable Credentials
-    href: overview.md
+    href: verifiable-credentials-overview.md
 - name: Tutorials
   expanded: true
   items:
-    - name: Tutorial 1
-      href: tutorial1.md
+    - name: Set up Verifiable Credentials issuer in your own Azure AD
+      href: tutorial-verifiable-credentials-issuer.md
+    - name: Create a sample credential in your issuer
+      href: tutorial-create-samplecard-your-issuer.md
+    - name: Connect your verifiable credentials issuer to your own Azure AD
+      href: tutorial-sample-app-your-idp.md
+    - name: Connect your IDP to a new verifiable credential instance
+      href: tutorial-connect-your-idp-verifiable-credentials.md
 - name: Concepts
   expanded: true
   items:

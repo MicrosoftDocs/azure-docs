@@ -36,7 +36,7 @@ The Authenticating of an ID Token allows users to prove who they are before rece
 
 Any identity provider that supports the OpenID Connect protocol is supported. Examples of supported identity providers include Azure Active Directory, and Azure AD B2C. This article contains the details of the OpenID Connect protocol used during the credential issuing process.
 
-![](media/tutorial-connect-your-idp-verifiable-credential/sLqFtc9.png)
+![](media/tutorial-connect-your-idp-verifiable-credentials/sLqFtc9.png)
 
 To issue the Ninja Verifiable Credential, you need to provide the issuer service with the configuration details of your OpenID compliant identity provider. 
 
