@@ -13,7 +13,7 @@ In order to deploy an update to devices from Device Update for IoT Hub, you firs
 
 ## Import manifest
 
-An import manifest is a JSON file that defines important information about the update that you are importing into Device Update for IoT Hub. You will submit both your import manifest and associated update file or files (such as a firmware update package) as part of the import process. The metadata that is defined in the import manifest is used to ingest the content. It is also used at deployment time - for example, to validate if an update was installed correctly.
+An import manifest is a JSON file that defines important information about the update that you are importing into Device Update for IoT Hub. You will submit both your import manifest and associated update file or files (such as a firmware update package) as part of the import process. The metadata that is defined in the import manifest is used to ingest the update. The metadata is also used at deployment time - for example, to validate if an update was installed correctly.
 
 The import manifest contains several items which represent important Device Update for IoT Hub concepts. These concepts are outlined below.
 
@@ -28,11 +28,11 @@ The update identity is composed of three parts:
 
 ### Compatibility
 
-Device Update for IoT Hub simplifies the deployment experience for updates and reduces the possibility of deployment errors. It does this by using compatibility properties defined in the import manifest and comparing them with device properties.
+Device Update for IoT Hub simplifies the deployment experience for updates and reduces the possibility of deployment errors. It does this by using compatibility properties defined in the import manifest and comparing them with device properties. Only updates which match a known device type will be returned and available for deployment.
 
 ### InstalledCriteria
 
-The InstalledCriteria property is used once the update has been installed on the device to determine if the update was successful.
+The InstalledCriteria property is used once the update has been installed on the device to determine if the update was applied successfully.
 
 
 ## Next steps
