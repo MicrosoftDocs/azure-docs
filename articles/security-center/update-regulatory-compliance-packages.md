@@ -87,7 +87,7 @@ The following steps explain how to add a package to monitor your compliance with
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Regulatory compliance dashboard" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
-## Removing a standard from your dashboard
+## Remove a standard from your dashboard
 
 If any of the supplied regulatory standards isn't relevant to your organization, it's a simple process to remove them from the UI. This lets you further customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you.
 

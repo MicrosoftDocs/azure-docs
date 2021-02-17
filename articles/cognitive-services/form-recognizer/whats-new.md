@@ -145,7 +145,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
   The following image is an example of how tables are recognized and extracted:
 
   > [!div class="mx-imgBorder"]
-  > ![Table visualization using the sample labeling tool](./media/whats-new/formre-table-viz.png)
+  > ![Table visualization using the sample labeling tool](./media/whats-new/table-viz.png)
 
     The extracted tables are available in the JSON output under `"pageResults"`.
 

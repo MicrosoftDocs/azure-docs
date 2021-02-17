@@ -1,6 +1,7 @@
 - name: Azure Database for MySQL Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure DB for MySQL?
     href: overview.md
@@ -12,7 +13,6 @@
     href: concepts-version-policy.md
     displayName: version policy
 - name: Single Server
-  expanded: true
   items:
   - name: Single Server documentation
     href: single-server/index.yml
@@ -30,7 +30,7 @@
   - name: Quickstarts
     expanded: true
     items:
-    - name: Create a server
+    - name: Create a MySQL Single Server
       items:
        - name: Azure portal
          href: quickstart-create-mysql-server-database-using-azure-portal.md
@@ -419,8 +419,7 @@
   - name: Quickstarts
     expanded: true
     items:
-      - name: Create a server
-        expanded: true
+      - name: Create a MySQL Flexible Server
         items:
           - name: Azure portal
             href: flexible-server/quickstart-create-server-portal.md

@@ -1,13 +1,11 @@
 ---
 title: Troubleshoot security and access control issues
 description: Learn how to troubleshoot security and access control issues in Azure Data Factory. 
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 02/04/2021
 ms.author: lle
-ms.reviewer: craigg
 ---
 
 # Troubleshoot Azure Data Factory security and access control issues

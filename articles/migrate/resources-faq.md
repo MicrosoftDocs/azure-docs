@@ -28,18 +28,18 @@ Use Azure Migrate to discover, assess, and migrate on-premises infrastructure, a
 [Azure Migrate](migrate-services-overview.md) provides a centralized hub for assessment and migration to Azure. 
 
 - Using Azure Migrate provides interoperability and future extensibility with Azure Migrate tools, other Azure services, and third-party tools.
-- The Azure Migrate:Server Migration tool is purpose-built for server migration to Azure. It's optimized for migration. You don't need to learn about concepts and scenarios that aren't directly relevant to migration. 
-- There are no tool usage charges for migration for 180 days, from the time replication is started for a VM. This gives you time to complete migration. You only pay for the storage and network resources used in replication, and for compute charges consumed during test migrations.
-- Azure Migrate supports all migration scenarios supported by Site Recovery. In addition, for VMware VMs, Azure Migrate provides an agentless migration option.
-- We're prioritizing new migration features for the Azure Migrate:Server Migration tool only. These features aren't targeted for Site Recovery.
+- The Azure Migrate: Server Migration tool is purpose-built for server migration to Azure. It's optimized for migration. You don't need to learn about concepts and scenarios that aren't directly relevant to migration. 
+- There are no tool usage charges for migration for 180 days, from the time replication is started for a VM. It gives you time to complete migration. You only pay for the storage and network resources used in replication, and for compute charges consumed during test migrations.
+- Azure Migrate supports all migration scenarios supported by Site Recovery. Also, for VMware VMs, Azure Migrate provides an agentless migration option.
+- We're prioritizing new migration features for the Azure Migrate: Server Migration tool only. These features aren't targeted for Site Recovery.
 
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) should be used for disaster recovery only.
 
 The Azure Migrate: Server Migration tool uses some back-end Site Recovery functionality for lift-and-shift migration of some on-premises machines.
 
-## I have a project with the previous Classic experience of Azure Migrate. How do I start using the new version?
+## I have a project with the previous classic experience of Azure Migrate. How do I start using the new version?
 
-You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](./create-manage-projects.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a Classic project, you can attach it to a project of current version after you delete the Classic project.
+Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, classic version of Azure Migrate will no longer be supported and the inventory metadata in the classic project will be deleted. You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](./create-manage-projects.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a classic project, you can attach it to a project of current version after you delete the classic project.
 
 ## What's the difference between Azure Migrate: Server Assessment and the MAP Toolkit?
 

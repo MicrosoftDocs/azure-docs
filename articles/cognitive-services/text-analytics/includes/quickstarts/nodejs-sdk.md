@@ -876,7 +876,7 @@ analyze_example(textAnalyticsClient);
         - Entity Paul Allen of type Person
 ```
 
-You can also use the Analyze operation to detect PII and key phrase extraction. See the Analyze samples for [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/javascript/beginAnalyze.js) and [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/typescript/src/beginAnalyze.ts) on GitHub.
+You can also use the Analyze operation to detect PII and key phrase extraction. See the Analyze samples for [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript) and [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/typescript/src) on GitHub.
 
 # [Version 3.0](#tab/version-3)
 

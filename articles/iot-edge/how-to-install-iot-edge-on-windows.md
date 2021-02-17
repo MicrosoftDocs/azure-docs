@@ -22,6 +22,8 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
 
 >[!NOTE]
 >IoT Edge for Linux on Windows is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+>While IoT Edge for Linux on Windows is the recommended experience for using Azure IoT Edge in a Windows environment, Windows containers are still available. If you prefer to use Windows containers, see the how-to guide on [installing and managing Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md).
 
 ## Prerequisites
 

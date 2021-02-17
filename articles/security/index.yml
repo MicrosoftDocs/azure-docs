@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 02/03/2021
+  ms.date: 02/05/2021
 
 highlightedContent:
   items:
@@ -52,9 +52,9 @@ conceptualContent:
         - url: ./develop/secure-dev-overview.md
           itemType: overview
           text: Secure development best practices
-        - url: /previous-versions/azure/security/develop/secure-web-app
+        - url: ./develop/secure-develop.md
           itemType: tutorial
-          text: Develop a secure web app
+          text: Develop secure applications
         - url: ./develop/threat-modeling-tool.md
           itemType: concept
           text: Microsoft Threat Modeling tool

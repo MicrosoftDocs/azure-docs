@@ -3,8 +3,7 @@ title: Explore Linux
 titleSuffix: Azure Data Science Virtual Machine 
 description: Learn how to complete several common data science tasks by using the Linux Data Science Virtual Machine.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
 author: lobrien
 ms.author: laobri

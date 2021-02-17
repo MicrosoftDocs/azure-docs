@@ -239,74 +239,6 @@ After the resources are created, they have the same name, except for the optiona
 > [!TIP]
 > Use a naming convention to indicate pricing tiers within the name of the resource or the resource group. When you receive errors from creating a new knowledge base, or adding new documents, the Cognitive Search pricing tier limit is a common issue.
 
-### Resource purposes
-
-Each Azure resource created with QnA Maker has a specific purpose:
-
-* QnA Maker resource
-* Cognitive Search resource
-* App Service
-* App Plan Service
-* Application Insights Service
-
-
-### Cognitive Search resource
-
-The [Cognitive Search](../../../search/index.yml) resource is used to:
-
-* Store the QnA pairs
-* Provide the initial ranking (ranker #1) of the QnA pairs at runtime
-
-#### Index usage
-
-The resource keeps one index to act as the test index and the remaining indexes correlate to one published knowledge base each.
-
-A resource priced to hold 15 indexes, will hold 14 published knowledge bases, and one index is used for testing all the knowledge bases. This test index is partitioned by knowledge base so that a query using the interactive test pane will use the test index but only return results from the specific partition associated with the specific knowledge base.
-
-#### Language usage
-
-The first knowledge base created in the QnA Maker resource is used to determine the _single_ language set for the Cognitive Search resource and all its indexes. You can only have _one language set_ for a QnA Maker service.
-
-### QnA Maker resource
-
-The QnA Maker resource provides access to the authoring and publishing APIs as well as the natural language processing (NLP) based second ranking layer (ranker #2) of the QnA pairs at runtime.
-
-The second ranking applies intelligent filters that can include metadata and follow-up prompts.
-
-#### QnA Maker resource configuration settings
-
-When you create a new knowledge base in the [QnA Maker portal](https://qnamaker.ai), the **Language** setting is the only setting that is applied at the resource level. You select the language when you create the first knowledge base for the resource.
-
-### App service and App service plan
-
-The [App service](../../../app-service/index.yml) is used by your client application to access the published knowledge bases via the runtime endpoint.
-
-To query the published knowledge base, all published knowledge bases use the same URL endpoint,  but specify the **knowledge base ID** within the route.
-
-`{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
-
-### Application Insights
-
-[Application Insights](../../../azure-monitor/app/app-insights-overview.md) is used to collect chat logs and telemetry. Review the common [Kusto queries](../how-to/get-analytics-knowledge-base.md) for information about your service.
-
-## Share services with QnA Maker
-
-QnA Maker creates several Azure resources. To reduce management and benefit from cost sharing, use the following table to understand what you can and can't share:
-
-|Service|Share|Reason|
-|--|--|--|
-|Cognitive Services|X|Not possible by design|
-|App Service plan|✔|Fixed disk space allocated for an App Service plan. If other apps that sharing the same App Service plan use significant disk space, the QnAMaker App Service instance will encounter problems.|
-|App Service|X|Not possible by design|
-|Application Insights|✔|Can be shared|
-|Search service|✔|1. `testkb` is a reserved name for the QnAMaker service; it can't be used by others.<br>2. Synonym map by the name `synonym-map` is reserved for the QnAMaker service.<br>3. The number of published knowledge bases is limited by Search service tier. If there are free indexes available, other services can use them.|
-
-### Using a single Cognitive Search service
-
-If you create a QnA service and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker service. After these resources are created, you can update the App Service setting to use a previously existing Search service and remove the one you just created.
-
-Learn [how to configure](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker to use a different Cognitive Service resource than the one created as part of the QnA Maker resource creation process.
-
 # [QnA Maker managed (preview release)](#tab/v2)
 
 The resource name for the QnA Maker managed (Preview) resource, such as `qna-westus-f0-b`, is also used to name the other resources.
@@ -326,12 +258,87 @@ After the resources are created, they have the same name.
 > [!TIP]
 > Use a naming convention to indicate pricing tiers within the name of the resource or the resource group. When you receive errors from creating a new knowledge base, or adding new documents, the Cognitive Search pricing tier limit is a common issue.
 
-### Resource purposes
+---
+
+## Resource purposes
+
+# [QnA Maker GA (stable release)](#tab/v1)
+
+Each Azure resource created with QnA Maker has a specific purpose:
+
+* QnA Maker resource
+* Cognitive Search resource
+* App Service
+* App Plan Service
+* Application Insights Service
+
+### QnA Maker resource
+
+The QnA Maker resource provides access to the authoring and publishing APIs as well as the natural language processing (NLP) based second ranking layer (ranker #2) of the QnA pairs at runtime.
+
+The second ranking applies intelligent filters that can include metadata and follow-up prompts.
+
+#### QnA Maker resource configuration settings
+
+When you create a new knowledge base in the [QnA Maker portal](https://qnamaker.ai), the **Language** setting is the only setting that is applied at the resource level. You select the language when you create the first knowledge base for the resource.
+
+### Cognitive Search resource
+
+The [Cognitive Search](../../../search/index.yml) resource is used to:
+
+* Store the QnA pairs
+* Provide the initial ranking (ranker #1) of the QnA pairs at runtime
+
+#### Index usage
+
+The resource keeps one index to act as the test index and the remaining indexes correlate to one published knowledge base each.
+
+A resource priced to hold 15 indexes, will hold 14 published knowledge bases, and one index is used for testing all the knowledge bases. This test index is partitioned by knowledge base so that a query using the interactive test pane will use the test index but only return results from the specific partition associated with the specific knowledge base.
+
+#### Language usage
+
+The first knowledge base created in the QnA Maker resource is used to determine the _single_ language set for the Cognitive Search resource and all its indexes. You can only have _one language set_ for a QnA Maker service.
+
+#### Using a single Cognitive Search service
+
+If you create a QnA service and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker service. After these resources are created, you can update the App Service setting to use a previously existing Search service and remove the one you just created.
+
+Learn [how to configure](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker to use a different Cognitive Service resource than the one created as part of the QnA Maker resource creation process.
+
+### App service and App service plan
+
+The [App service](../../../app-service/index.yml) is used by your client application to access the published knowledge bases via the runtime endpoint.
+
+To query the published knowledge base, all published knowledge bases use the same URL endpoint,  but specify the **knowledge base ID** within the route.
+
+`{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
+
+### Application Insights
+
+[Application Insights](../../../azure-monitor/app/app-insights-overview.md) is used to collect chat logs and telemetry. Review the common [Kusto queries](../how-to/get-analytics-knowledge-base.md) for information about your service.
+
+### Share services with QnA Maker
+
+QnA Maker creates several Azure resources. To reduce management and benefit from cost sharing, use the following table to understand what you can and can't share:
+
+|Service|Share|Reason|
+|--|--|--|
+|Cognitive Services|X|Not possible by design|
+|App Service plan|✔|Fixed disk space allocated for an App Service plan. If other apps that sharing the same App Service plan use significant disk space, the QnAMaker App Service instance will encounter problems.|
+|App Service|X|Not possible by design|
+|Application Insights|✔|Can be shared|
+|Search service|✔|1. `testkb` is a reserved name for the QnAMaker service; it can't be used by others.<br>2. Synonym map by the name `synonym-map` is reserved for the QnAMaker service.<br>3. The number of published knowledge bases is limited by Search service tier. If there are free indexes available, other services can use them.|
+
+# [QnA Maker managed (preview release)](#tab/v2)
 
 Each Azure resource created with QnA Maker managed (Preview) has a specific purpose:
 
 * QnA Maker resource
 * Cognitive Search resource
+
+### QnA Maker resource
+
+The QnA Maker managed (Preview) resource provides access to the authoring and publishing APIs, hosts the ranking runtime as well as provides telemetry.
 
 ### Azure Cognitive Search resource
 
@@ -349,10 +356,6 @@ For example, if your tier has 15 allowed indexes, you can publish 14 knowledge b
 #### Language usage
 
 With QnA Maker managed (Preview) you have a choice to setup your QnA Maker service for knowledge bases in a single language or multiple languages. You make this choice during the creation of the first knowledge base in your QnA Maker service. See [here](#pricing-tier-considerations) how to enable language setting per knowledge base.
-
-### QnA Maker resource
-
-The QnA Maker managed (Preview) resource provides access to the authoring and publishing APIs, hosts the ranking runtime as well as provides telemetry.
 
 ---
 
