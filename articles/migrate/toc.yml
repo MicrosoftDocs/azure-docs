@@ -68,6 +68,12 @@
       href: tutorial-migrate-aws-virtual-machines.md
     - name: Migrate GCP instances
       href: tutorial-migrate-gcp-virtual-machines.md
+  - name: Containerize
+    items:
+    - name: Containerize ASP.NET apps and migrate to AKS
+      href: tutorial-containerize-aspnet-aks.md
+    - name: Containerize Java web apps and migrate to AKS
+      href: tutorial-containerize-java-aks.md
 - name: Concepts
   items:
   - name: General
