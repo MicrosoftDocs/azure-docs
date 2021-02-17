@@ -47,7 +47,7 @@ This document walks you through the changes to the Azure Monitor integration and
 
 ## Customer scenarios
 
-The following sections describe how customers can use the new Azure Monitor integration in different scenarios. The [**Activate a new Azure Monitor integration**](#activate-a-new-azure-monitor-integration) section outlines how to activate and utilize the new Azure Monitor integration. The [**Activate an existing Azure Monitor integration**](#activate-an-existing-azure-monitor-integration) section includes additional information for users that dependend on the old Azure Monitor integration.
+The following sections describe how customers can use the new Azure Monitor integration in different scenarios. The [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section outlines how to activate and utilize the new Azure Monitor integration. The [Activate an existing Azure Monitor integration](#activate-an-existing-azure-monitor-integration) section includes additional information for users that dependend on the old Azure Monitor integration.
 
 > [!NOTE]
 > Only clusters created in late-September 2020 and after are eligible for the new Azure Monitoring integration.
@@ -134,30 +134,30 @@ Since the new table format is different from the previous one, your queries need
 
 We provide a [mapping table](#appendix-1-table-mapping) between the old table to the new table to help you quickly find the new fields you need to use to migrate your dashboards and queries.
 
-**Default queries**: We created default queries that show how to use the new tables for common situations and show what information is available in each table. You can access the Default Queries by following the instructions in the [Default queries to use with new tables](#default-queries-to-use-with-new-tables)
+**Default queries**: We created default queries that show how to use the new tables for common situations and show what information is available in each table. You can access the default queries by following the instructions in the [Default queries to use with new tables](#default-queries-to-use-with-new-tables) section in this article.
 
 ### Update dashboards for HDInsight clusters
 
-If you have built multiple dashboards to monitor your HDInsight clusters, you need to adjust the query behind the table once you enable the new Azure Monitor integration. Table name/field name might change in the new integration, but all the information you have in old integration is included.
+If you have built multiple dashboards to monitor your HDInsight clusters, you need to adjust the query behind the table once you enable the new Azure Monitor integration. The table name or the field name might change in the new integration, but all the information you have in old integration is included.
 
 Please refer to the [mapping table](#appendix-1-table-mapping) between the old table/schema to the new table/schema to update the query behind the dashboards.
 
 #### Out-of-box dashboards 
 
-We also created much improved out-of-box dashboards both at the cluster-level. There is a button on the top right of every graph that allows you to see the underlying query that produces the information, which is a great way to familiarize yourself with how the new tables can be queried effectively. You can access the out-of-box dashboards by following the instructions found in the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections.
+We also improved the out-of-box dashboards both at the cluster-level. There is a button on the top right of every graph that allows you to see the underlying query that produces the information, which is a great way to familiarize yourself with how the new tables can be queried effectively. You can access the out-of-box dashboards by following the instructions found in the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections in this article.
 
 ### Use an HDInsight workload-specific monitoring dashboard in Azure Monitor
 
-If you are using the out-of-box monitoring dashboard for HDInsight clusters, like HDInsight Spark Monitoring, HDInsight HBase Monitoring, and HDInsight Interactive Monitoring, we are working on provide you the same capabilities on Azure Monitor portal.
+If you are using the out-of-box monitoring dashboard for HDInsight clusters, like HDInsight Spark Monitoring, HDInsight HBase Monitoring, and HDInsight Interactive Monitoring, we are working on provide you the same capabilities on the Azure Monitor portal.
 
-You will see an HDInsight option in Azure Monitor.
+You'll see that there is an HDInsight option in Azure Monitor.
 
 <![alt-text-description]()>
 
 The HDInsight Monitor portal provides you the capability of monitoring multiple HDInsight clusters in one place. We organize the clusters based on the workload type, so you see types like Spark, HBase, and Hive. Instead of going to multiple dashboards, now you can monitor all your HDInsight clusters in this view.
 
 > [!NOTE]
-> This feature is planned to be released by <XX of 2021>. More details in the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations)
+> This feature is planned to be released by <XX of 2021>. For more information, see the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections in this article.
 
 ## Enable both integrations to accelerate the migration
 
@@ -167,7 +167,7 @@ In this way, you can easily do a side-by-side comparison for the queries you are
 
 ### Enabling the classic integration
 
-If you are using a cluster created after mid-September 2020, you'll see the new portal experience in your cluster's portal. To enable the new pipeline, you can follow the steps outlined in the section **Enabling the New Integration** in the **New Users** section. To activate the classic integration on this cluster, go to the your cluster's portal page. Select the **Azure Monitor** blade in the **Monitoring** section of the blade menu on the left side of your cluster portal page. Select **Configure Azure Monitor for HDInsight clusters integration (classic)**. A side context appears with a toggle you can use to enable and disable the classic Azure Monitoring integration. 
+If you are using a cluster created after mid-September 2020, you'll see the new portal experience in your cluster's portal. To enable the new pipeline, you can follow the steps outlined in the [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section. To activate the classic integration on this cluster, go to the your cluster's portal page. Select the **Azure Monitor** blade in the **Monitoring** section of the blade menu on the left side of your cluster portal page. Select **Configure Azure Monitor for HDInsight clusters integration (classic)**. A side context appears with a toggle you can use to enable and disable the classic Azure Monitoring integration. 
 
 > [!NOTE]
 > The **Insights** and **Logs** blades only work with the new integration.
@@ -178,16 +178,16 @@ You won't be able to create new clusters with classic Azure Monitor integration 
 
 ## Release and support timeline
 
-- Customers can enable the New Azure Monitoring after February 20th, 2021.
+- Customers can enable the new Azure Monitoring integration after February 20th, 2021.
 - Classic Azure Monitoring integration will be unavailable after July 1st, 2021. Until then, there will be limited support for all the running clusters with classic Azure Monitoring integration
-  - Issues will be investigated once customers submit the support ticket.
+  - Issues will be investigated once customers submit a support ticket.
   - If solution requires image change, customers should move to the new integration.
-  - If the solution requires an RP change or Sibyl update, we will include the fix and deploy the mitigation along in the regular release cycle.
-  - We will not patch the classic Azure Monitoring integration clusters except critical security issues.
+  - If the solution requires an RP change or Sibyl update, we'll include the fix and deploy the mitigation along in the regular release cycle.
+  - We won't patch the classic Azure Monitoring integration clusters except for critical security issues.
 
-## Appendix 1: Table Mapping
+## Appendix 1: Table mapping
 
-The below chart shows the table mappings from the classic Azure Monitoring Integration to our new one. The **Workload** section describes which workload each table is associated with. The **New Table** section shows the name of the new table. The **Description** section describes the type of logs/metrics that will be available in this table. The **Old Table** section is a list of all the tables from the classic Azure Monitor Integration whose data will now be present in the table listed in **New Table**.
+The below chart shows the table mappings from the classic Azure Monitoring Integration to our new one. The **Workload** column describes which workload each table is associated with. The **New Table** row shows the name of the new table. The **Description** row describes the type of logs/metrics that will be available in this table. The **Old Table** row is a list of all the tables from the classic Azure Monitor integration whose data will now be present in the table listed in the **New Table** row.
 
 > [!NOTE]
 > Some tables are new and not based off of old tables.
@@ -199,6 +199,8 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
 | --- | --- |
 | General | <ul><li>**New table**: HDInsightAmbariSystemMetrics</li><li>**Old table**: metrics\_cpu\_nice\_clmetrics\_cpu\_system\_clmetrics\_cpu\_user\_cl metrics\_memory\_cache\_CLmetrics\_memory\_swap\_CLmetrics\_memory\_total\_CLmetrics\_memory\_buffer\_CLmetrics\_load\_1min\_CLmetrics\_load\_cpu\_CL metrics\_load\_nodes\_CLmetrics\_load\_procs\_CLmetrics\_network\_in\_CLmetrics\_network\_out\_CL</li><li>**Description**: This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edgenodes) instead of just the two headnodes. Each metric is no w column and each metric is reported once per record.</li></ul>|
 | General | <ul><li>**New table**: HDInsightAmbariClusterAlerts</li><li>**Old table**: metrics\_cluster\_alerts\_CL</li><li>**Description**: This table contains Ambari Cluster Alerts from each node in the cluster (except for edgenodes). Each alert is a record in this table.</li></ul>|
+
+*******************************************************
 
 
 | Workload | New Table (Azure Monitor) | Description | Old Table (Azure Monitor (Classic) |
