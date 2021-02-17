@@ -51,7 +51,7 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 
 ### Alerts
 
-Alerts proactively notify you when important conditions are found in your monitoring data. To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
+Alerts proactively notify you when important conditions are found in your monitoring data. To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 **How to create alerts for Azure File Sync**
 
