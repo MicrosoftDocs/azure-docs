@@ -226,6 +226,63 @@ In the Azure portal, navigate to Azure Active Directory, select *Enterprise appl
 
 :::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Failed sign-in entry due to Conditional Access policy":::
 
+## Configure just-in-time cluster access with Azure AD and AKS
+
+Another option for cluster access control is to leverage Privileged Identity Management (PIM) for just-in-time requests.
+
+>[!NOTE]
+> PIM is an Azure AD Premium capability requiring a Premium P2 SKU. For more on Azure AD SKUs, see the [pricing guide][aad-pricing].
+
+To integrate just-in-time access requests with an AKS cluster using AKS-managed Azure AD integration, complete the following steps:
+
+1. At the top of the Azure portal, search for and select Azure Active Directory.
+1. Take note of the Tenant ID, referred to for the rest of these instructions as `<tenant-id>`
+1. In the menu for Azure Active Directory on the left-hand side, select *Groups* then *New Group*.
+1. Make sure a Group Type of *Security* is selected and enter a group name, such as *myJITGroup*. Under *Azure AD Roles can be assigned to this group (Preview)*, select *Yes*. Finally, select *Create*.
+1. You will be brought back to the *Groups* page. Select your newly-created group and take note of the Object ID, referred to for the rest of these instructions as `<object-id>`.
+1. In the menu for *Activity* on the left-hand side, select *Privileged Access (Preview)* and select *Enable Privileged Access*.
+1. Select *Add Assignments* to grant targetted users and groups access. These assignments can be modified at any time. Once you're ready to proceed, select *Next*.
+1. Choose an assignment type of *Active* and assignment duration, and select *Assign*. For more on assignment types, see [Assign eligibility for a privileged access group (preview) in Privileged Identity Management][aad-assignments].
+1. Deploy an AKS cluster with AKS-managed Azure AD integration by using the `<tenant-id>` and `<object-id>` values from earlier:
+    ```azurecli-interactive
+    az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <object-id> --aad-tenant-id <tenant-id>
+    ```
+
+Once the cluster has been deployed, verify just-in-time access is working by accessing the cluster. Make sure you are logged in on an Azure account that has been assigned to the previously-created group. For example:
+
+```azurecli-interactive
+ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
+```
+
+Follow the steps to sign in.
+
+Use the `kubectl get nodes` command to view nodes in the cluster:
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+Note the authentication requirement and follow the steps to authenticate. If successful, you should see output similar to the following:
+
+```output
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-nodepool1-61156405-vmss000000   Ready    agent   6m36s   v1.18.14
+aks-nodepool1-61156405-vmss000001   Ready    agent   6m42s   v1.18.14
+aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
+```
+
+### Troubleshooting
+
+If `kubectl get nodes` returns an error similar to the following:
+
+```output
+Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a1-111111aaaaa" cannot list resource "nodes" in API group "" at the cluster scope
+```
+
+Make sure the admin of the security group has given your account an *Active* assignment.
+
+
 ## Next steps
 
 * Learn about [Azure RBAC integration for Kubernetes Authorization][azure-rbac-integration]
@@ -238,6 +295,7 @@ In the Azure portal, navigate to Azure Active Directory, select *Enterprise appl
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+[aad-pricing]: /azure/pricing/details/active-directory
 
 <!-- LINKS - Internal -->
 [aad-conditional-access]: ../active-directory/conditional-access/overview.md
@@ -255,3 +313,4 @@ In the Azure portal, navigate to Azure Active Directory, select *Enterprise appl
 [azure-ad-cli]: azure-ad-integration-cli.md
 [access-cluster]: #access-an-azure-ad-enabled-cluster
 [aad-migrate]: #upgrading-to-aks-managed-azure-ad-integration
+[aad-assignments]: ../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group
