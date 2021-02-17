@@ -210,7 +210,7 @@ Look for the child node named `systemEnvironment`.  This node contains your appl
 
 Go to **App management** to ensure that the application statuses are _Running_ and _UP_.
 
-Check to see weather _JMX_ is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.  
+Check to see whether _JMX_ is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.  
 
 Check to see whether the `spring-boot-actuator` dependency is enabled in your application package and that it successfully boots up.
 
