@@ -24,7 +24,7 @@ To see how Azure DevTest Labs completely maps to the Azure Security Benchmark, s
 
 ### 1.1: Protect Azure resources within virtual networks
 
-**Guidance**: When you deploy Azure DevTest Lab resources you must create or use an existing virtual network. Ensure that the chosen virtual network has a network security group applied to its subnets and network access controls configured specific to your application's trusted ports and sources. When a lab resources are configured with a virtual network, they are not publicly addressable and can only be accessed from within the virtual network. You can also choose to create a network isolated lab, where alongside lab environments, lab resources such as Storage Account and Key Vaults will also be completely isolated and only accessible through specified end points. 
+**Guidance**: When you deploy Azure DevTest Labs resources you must create or use an existing virtual network. Ensure that the chosen virtual network has a network security group applied to its subnets and network access controls configured specific to your application's trusted ports and sources. When a lab resources are configured with a virtual network, they are not publicly addressable and can only be accessed from within the virtual network. You can also choose to create a network isolated lab, where alongside lab environments, lab resources such as Storage Account and Key Vaults will also be completely isolated and only accessible through specified end points. 
 
 Depending on your organizational needs, use the Azure Firewall service to centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.
 
@@ -42,7 +42,7 @@ Depending on your organizational needs, use the Azure Firewall service to centra
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
-**Guidance**: Deploy a network security group on the network that your Azure DevTest Lab resources are deployed to. Enable network security group flow logs on your network security groups for traffic auditing.
+**Guidance**: Deploy a network security group on the network that your Azure DevTest Labs resources are deployed to. Enable network security group flow logs on your network security groups for traffic auditing.
 
 You may also send NSG flow logs to a Log Analytics Workspace and
 use Traffic Analytics to provide insights into traffic flow in your Azure
@@ -62,7 +62,7 @@ traffic flow patterns, and pinpoint network misconfigurations.
 
 ### 1.3: Protect critical web applications
 
-**Guidance**: Deploy Azure Web Application Firewall (WAF) in front of critical web applications deployed using Azure Resource Manager (ARM) templates for additional inspection of incoming traffic. Enable diagnostic setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics workspace.
+**Guidance**: Deploy Azure Web Application Firewall (WAF) in front of critical web applications deployed using Azure Resource Manager templates for additional inspection of incoming traffic. Enable diagnostic setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics workspace.
 
 - [How to deploy Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
@@ -72,7 +72,7 @@ traffic flow patterns, and pinpoint network misconfigurations.
 
 ### 1.4: Deny communications with known malicious IP addresses
 
-**Guidance**: Deploying a Azure Virtual Network (VNet) for a lab enhances security and isolation for your lab. Subnets, access control policies, and other features also aid in restricting access. When deployed in a VNet, Azure DevTest Lab is not publicly addressable and can only be accessed from virtual machines and applications within the VNet.
+**Guidance**: Deploying a Azure Virtual Network (VNet) for a lab enhances security and isolation for your lab. Subnets, access control policies, and other features also aid in restricting access. When deployed in a VNet, Azure DevTest Labs is not publicly addressable and can only be accessed from virtual machines and applications within the VNet.
 
 Enable DDoS Standard protection on your Azure Virtual Networks to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious IP addresses.
 
@@ -127,7 +127,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 ### 1.7: Manage traffic to web applications
 
-**Guidance**: When working with DevTest Lab Azure Resource Manager (ARM) based
+**Guidance**: When working with DevTest Labs Azure Resource Manager based
 environments that include web applications, deploy an Azure Application Gateway
 with HTTPS/TLS enabled for trusted certificates.
 
@@ -143,7 +143,7 @@ with HTTPS/TLS enabled for trusted certificates.
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
-**Guidance**: Use Virtual Network Service Tags to define network access controls on Network Security Groups or Azure Firewall configured for your DevTest Lab resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+**Guidance**: Use Virtual Network Service Tags to define network access controls on Network Security Groups or Azure Firewall configured for your DevTest Labs resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
 You may also use Application Security Groups to help simplify
 complex security configuration. Application security groups enable you to
@@ -182,7 +182,7 @@ control and management through versioning.
 
 ### 1.10: Document traffic configuration rules
 
-**Guidance**: Use tags for network resources associated with your Azure DevTest Lab deployment in order to logically organize them into a taxonomy. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
+**Guidance**: Use tags for network resources associated with your Azure DevTest Labs deployment in order to logically organize them into a taxonomy. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
 
 Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources.
 

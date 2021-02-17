@@ -491,7 +491,7 @@ Additional information is available at the referenced links
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
-- [How to configure Conditional Access to block access to ARM](../role-based-access-control/conditional-access-azure-management.md)
+- [How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Responsibility**: Customer
 

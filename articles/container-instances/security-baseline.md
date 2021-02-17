@@ -298,7 +298,7 @@ If using a cloud-based private registry like Azure container registry with Azure
 
 **Guidance**: Wherever possible, use Azure Active Directory (Azure AD) SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
-If using a cloud-based private registry like Azure container registry with Azure Container Instances, for individual access to the container registry, use individual sign inintegrated with Azure AD.
+If using a cloud-based private registry like Azure container registry with Azure Container Instances, for individual access to the container registry, use individual sign ins integrated with Azure AD.
 
 - [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
