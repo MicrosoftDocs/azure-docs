@@ -15,15 +15,6 @@ Device Update for IoT Hub supports two forms of updates – image-based and pack
 * Image updates provide a higher level of confidence in the end-state of the device. It is typically easier to replicate the results of an image-update between a pre-production environment and a production environment, since it doesn’t pose the same challenges as packages and their dependencies. Due to their atomic nature, one can also adopt an A/B failover model easily. 
 * Package-based updates are targeted updates that alter only a specific component or application on the device. Thus, leading to lower consumption of bandwidth and helps reduce the time to download and install the update. Package updates typically allow for less downtime of devices when applying an update and avoid the overhead of creating images. 
 
-## Try out pre-built images, binaries, and packages
-
-We have uploaded pre-built Raspberry Pi reference images, Device Update agent binaries,
-and Device Update agent packages as part of our GitHub releases. Download them to get
-started right away!
-
-If you downloaded our Raspberry Pi reference image, Learn more [here](device-update-raspberry-pi.md) on how to get
-started.
-
 ### Build the Device Update Agent
 
 Follow the instructions to [build](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md) the Device Update Agent
