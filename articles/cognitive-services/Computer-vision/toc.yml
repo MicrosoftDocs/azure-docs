@@ -47,8 +47,8 @@
     items:
     - name: Transparency notes
       items:
-      - name: Introduction to Spatial Analysis
-        href: intro-to-spatial-analysis-public-preview.md
+      - name: Spatial Analysis use cases
+        href: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
       - name: Characteristics and limitations
         href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
     - name: Integration and responsible use
@@ -82,6 +82,8 @@
       displayName: container instances, container, containers, images
   - name: Spatial Analysis container
     items:
+    - name: Overview of Spatial Analysis 
+      href: intro-to-spatial-analysis-public-preview.md  
     - name: Setup the host machine and run the container
       href: spatial-analysis-container.md
     - name: Configure operations
@@ -96,7 +98,6 @@
       href: spatial-analysis-camera-placement.md
   - name: Cognitive Services containers documentation
     href: ../containers/index.yml
-
 - name: How-to guides
   items:
   - name: Call the Computer Vision API
