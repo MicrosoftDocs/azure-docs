@@ -211,6 +211,8 @@ See the following invoice image and its corresponding JSON output. The output ha
 
 ### [v2.0](#tab/v2-0)
 
+This output has been shortened for simplicity. See the [full sample output on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout-output.json).
+
 ```json
 {
     "status": "succeeded",
