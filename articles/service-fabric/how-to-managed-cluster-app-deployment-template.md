@@ -31,7 +31,7 @@ The high-level steps you take to deploy an application and its services by using
 
 For more information, view [Package an application](service-fabric-package-apps.md#create-an-sfpkg).
 
-Then, you create a Resource Manager template, update the parameters file with application details, and deploy the template on the Service Fabric cluster. [Explore samples](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
+Then, you create a Resource Manager template, update the parameters file with application details, and deploy the template on the Service Fabric cluster. [Explore samples](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy/ARM-Managed-Cluster).
 
 ### Create a storage account
 
