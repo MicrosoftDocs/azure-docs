@@ -4,7 +4,7 @@ description: The Azure Kubernetes Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 01/01/2000
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -14,24 +14,35 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure Kubernetes Service
 
-The Azure Security Baseline for Azure Kubernetes Service contains recommendations that will help you improve the security posture of your deployment.
+This security
+baseline applies guidance from the [Azure Security Benchmark version
+1.0](../security/benchmarks/overview-v1.md) to Azure Kubernetes. The Azure Security Benchmark
+provides recommendations on how you can secure your cloud solutions on Azure.
+The content is grouped by the **security controls** defined by the Azure
+Security Benchmark and the related guidance applicable to Azure Kubernetes. **Controls** not applicable to Azure Kubernetes have been excluded.
 
-The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
+ 
+To see how Azure Kubernetes completely maps to the Azure
+Security Benchmark, see the [full Azure Kubernetes security baseline mapping
+file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
-For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
+>[!WARNING]
+>This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
 
-## Network security
+## Network Security
 
-*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
+*For more information, see the [Azure Security Benchmark: Network Security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32877).
 
 **Guidance**: By default, a network security group and route table are automatically created with the creation of a Microsoft Azure Kubernetes Service (AKS) cluster. AKS automatically modifies network security groups for appropriate traffic flow as services are created with load balancers, port mappings, or ingress routes. The network security group is automatically associated with the virtual NICs on customer nodes and the route table with the subnet on the virtual network. 
 
 Use AKS network policies to limit network traffic by defining rules for ingress and egress traffic between Linux pods in a cluster based on choice of namespaces and label selectors. Network policy usage requires the Azure CNI plug-in with defined virtual network and subnets and can only be enabled at cluster creation. They cannot be deployed on an existing AKS cluster.
 
-You can implement a private AKS cluster to ensure network traffic between your AKS API server and node pools remains only on the private network. The control plane or API server, resides in an AKS-managed Azure subscription and uses internal (RFC1918) IP addresses, while the customer's cluster or node pool is in their own subscription. The server and the cluster or node pool communicate
-with each other using the Azure Private Link service in the API server virtual network and a private endpoint that's exposed in the subnet of the customer's AKS cluster.  Alternatively, use a public endpoint for the AKS API server but restrict access with the AKS API Server's Authorized IP Ranges feature. 
+You can implement a private AKS cluster to ensure network traffic between your AKS API server and node pools remains only on the private network. The control plane or API server, resides in an AKS-managed Azure subscription and uses internal (RFC1918) IP addresses, while the customer's cluster or node pool is in their own subscription. The server and the cluster or node pool communicate with each other using the Azure Private Link service in the API server virtual network and a private endpoint that's exposed in the subnet of the customer's AKS cluster.  Alternatively, use a public endpoint for the AKS API server but restrict access with the AKS API Server's Authorized IP Ranges feature. 
 
 - [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](concepts-security.md)
 
@@ -39,11 +50,20 @@ with each other using the Azure Private Link service in the API server virtual n
 
 - [Create a private Azure Kubernetes Service cluster](private-clusters.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+
+**Azure Policy built-in definitions**:
+
+Microsoft.ContainerService:
+
+[!INCLUDE [Resource Policy for Microsoft.ContainerService 1.1](../../includes/policy/standards/asb/rp-controls/microsoft.containerservice-1-1.md)]
+
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32878).
 
 **Guidance**: Use Security Center and follow its network protection recommendations to secure the network resources being used by your Azure Kubernetes Service (AKS) clusters. 
 
@@ -55,11 +75,14 @@ Enable network security group flow logs and send the logs to an Azure Storage ac
 
 - [How to Enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 1.3: Protect critical web applications
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32879).
 
 **Guidance**: Use an Azure Application Gateway enabled Web Application Firewall (WAF) in front of an AKS cluster to provide an additional layer of security by filtering the incoming traffic to your web applications. Azure WAF uses a set of rules, provided by The Open Web Application Security Project (OWASP), for attacks, such as, cross site scripting or cookie poisoning against this traffic. 
 
@@ -71,13 +94,17 @@ Use an API gateway for authentication, authorization, throttling, caching, trans
 
 - [Use Azure API Management with microservices deployed in Azure Kubernetes Service](../api-management/api-management-kubernetes.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 1.4: Deny communications with known malicious IP addresses
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32880).
+
 **Guidance**: Enable Microsoft Distributed Denial-of-service (DDoS) Standard protection on the virtual networks where Azure Kubernetes Service (AKS) components are deployed for protections against DDoS attacks.
+
 Install the network policy engine and create Kubernetes network policies to control the flow of traffic between pods in AKS as, by default, all traffic is allowed between these pods. Network policy should only be used for Linux-based nodes and pods in AKS. Define rules that limit pod communication for improved security. 
 
 Choose to allow or deny traffic based on settings such as assigned labels, namespace, or traffic port. The required network policies can be automatically applied as pods are dynamically created in an AKS cluster. 
@@ -86,37 +113,49 @@ Choose to allow or deny traffic based on settings such as assigned labels, names
 
 - [How to configure DDoS protection](../ddos-protection/manage-ddos-protection.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 1.5: Record network packets
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32881).
+
 **Guidance**: Use Network Watcher packet capture as required for investigating anomalous activity. 
 
-Network Watcher is enabled automatically in your virtual network's region when you create or update a virtual network in your subscription. You can also create new instances of Network Watcher using PowerShell, the Azure CLI, the REST API, or ARMClient method
+Network Watcher is enabled automatically in your virtual network's region when you create or update a virtual network in your subscription. You can also create new instances of Network Watcher using PowerShell, the Azure CLI, the REST API, or the Azure Resource Manager Client method
 
 - [How to enable Network Watcher](../network-watcher/network-watcher-create.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32882).
 
 **Guidance**: Secure your Azure Kubernetes Service (AKS) cluster with an Azure Application Gateway enabled with a Web Application Firewall (WAF). 
 
 If intrusion detection and/or prevention based on payload inspection or behavior analytics is not a requirement, an Azure Application Gateway with WAF can be used and configured in "detection mode" to log alerts and threats, or "prevention mode" to actively block detected intrusions and attacks.
 
-- [Understand best practices for securing your AKS cluster with a WAF](operator-best-practices-network.md#secure-traffic-with-a-web-application-firewall-waf)
+- [Understand best practices for securing your AKS cluster with a WAF](https://docs.microsoft.com/azure/aks/operator-best-practices-network#secure-traffic-with-a-web-application-firewall-waf)
 
 - [How to deploy Azure Application Gateway (Azure WAF)](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 1.7: Manage traffic to web applications
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32883).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Use an Azure Application Gateway-enabled Web Application Firewall (WAF) in front of an AKS cluster to filter the incoming traffic. The Open Web Application Security Project (OWASP) provides a set of rules which are used in the Azure WAF to watch for attacks like cross site scripting or cookie poisoning.
 
@@ -128,11 +167,14 @@ Apply Fully Qualified Domain Name (FQDN) tags to applications for ease of use in
 
 - [How to deploy Azure Application Gateway (Azure WAF)](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Not applicable
 
+**Azure Security Center monitoring**: None
+
 ### 1.8: Minimize complexity and administrative overhead of network security rules
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32884).
 
 **Guidance**: Use virtual network service tags to define network access controls on network security groups associated with Azure Kubernetes Service (AKS) instances. Service tags can be used in place of specific IP addresses when creating security rules to allow or deny the traffic for the corresponding service by specifying the service tag name. 
 
@@ -146,34 +188,44 @@ Apply an Azure tag to node pools in your AKS cluster. They are different than th
 
 - [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](limit-egress-traffic.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 1.9: Maintain standard security configurations for network devices
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32885).
+
 **Guidance**: Define and implement standard security configurations with Azure Policy for network resources associated with your Azure Kubernetes Service (AKS) clusters. 
+
 Use Azure Policy aliases in the "Microsoft.ContainerService" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your AKS clusters. 
 
 Also, use built-in policy definitions related to AKS, such as:
 
-•	Authorized IP ranges should be defined on Kubernetes Services
+- Authorized IP ranges should be defined on Kubernetes Services
 
-•	Enforce HTTPS ingress in Kubernetes cluster
+- Enforce HTTPS ingress in Kubernetes cluster
 
-•	Ensure services listen only on allowed ports in Kubernetes cluster
+- Ensure services listen only on allowed ports in Kubernetes cluster
+
+Additional information is available at the referenced links.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
-
-**Azure Security Center monitoring**: Not applicable
+- [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 1.10: Document traffic configuration rules
 
-**Guidance**: Use tags for network security groups and other resources for  traffic flow to and from Azure Kubernetes Service (AKS) clusters. Use the "Description" field for individual network security group rules to specify business need and/or duration, and so on, for any rules that allow traffic to/from a network.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32886).
+
+**Guidance**: Use tags for network security groups and other resources for traffic flow to and from Azure Kubernetes Service (AKS) clusters. Use the "Description" field for individual network security group rules to specify business need and/or duration, and so on, for any rules that allow traffic to/from a network.
+
 Use any of the built-in Azure Policy tagging-related definitions, for example, "Require tag and its value" that ensure that all resources are created with tags and to receive notifications for existing untagged resources.
 
 Choose to allow or deny specific network paths within the cluster based on namespaces and label selectors with network policies. Use these namespaces and labels as descriptors for traffic configuration rules. Use Azure PowerShell or Azure command-line interface (CLI) to look up or perform actions on resources based on their tags.
@@ -184,11 +236,14 @@ Choose to allow or deny specific network paths within the cluster based on names
 
 - [How to create an NSG with a Security Config](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32887).
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to Azure Kubernetes Service (AKS) clusters. 
 
@@ -197,21 +252,24 @@ Create alerts within Azure Monitor that will trigger when changes to critical ne
 Use Azure Monitor logs to enable and query the logs from AKS the master components, kube-apiserver and kube-controller-manager. 
 Create and manage the nodes that run the kubelet with container runtime and deploy their applications through the managed Kubernetes API server. 
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)](view-master-logs.md)
-
-**Azure Security Center monitoring**: Not applicable
+- [Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs)
 
 **Responsibility**: Customer
 
-## Logging and monitoring
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
+## Logging and Monitoring
+
+*For more information, see the [Azure Security Benchmark: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32888).
 
 **Guidance**: Azure Kubernetes Service (AKS) nodes use ntp.ubuntu.com for time synchronization, along with UDP port 123 and Network Time Protocol (NTP). 
 
@@ -219,19 +277,22 @@ Ensure NTP servers are accessible by the cluster nodes if using custom DNS serve
 
 - [Understand NTP domain and port requirements for AKS cluster nodes](limit-egress-traffic.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Shared
+
+**Azure Security Center monitoring**: None
 
 ### 2.2: Configure central security log management
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32889).
+
 **Guidance**: Enable audit logs from Azure Kubernetes Services (AKS) master components, kube-apiserver and kube-controller-manager, which are provided as a managed service. 
 
-•	kube-auditaksService: The display name in audit log for the control plane operation (from the hcpService) 
+- kube-auditaksService: The display name in audit log for the control plane operation (from the hcpService) 
 
-•	masterclient: The display name in audit log for MasterClientCertificate, the certificate you get from az aks get-credentials 
+- masterclient: The display name in audit log for MasterClientCertificate, the certificate you get from az aks get-credentials 
 
-•	nodeclient: The display name for ClientCertificate, which is used by agent nodes
+- nodeclient: The display name for ClientCertificate, which is used by agent nodes
 
 Enable other audit logs such as kube-audit as well. 
 
@@ -239,48 +300,52 @@ Export these logs to Log Analytics or another storage platform. In Azure Monitor
 
 Enable and on-board this data to Azure Sentinel or a third-party SIEM based on your organizational business requirements.
 
-- [Review the Log schema including log roles here](view-master-logs.md)
+- [Review the Log schema including log roles here](/azure/aks/view-master-logs)
 
-- [Understand Azure Monitor for Containers](../azure-monitor/containers/container-insights-overview.md)
+- [Understand Azure Monitor for Containers](/azure/azure-monitor/insights/container-insights-overview)
 
-- [How to enable Azure Monitor for Containers](../azure-monitor/containers/container-insights-onboard.md)
+- [How to enable Azure Monitor for Containers](/azure/azure-monitor/insights/container-insights-onboard)
 
-- [Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)](view-master-logs.md)
-
-**Azure Security Center monitoring**: Yes
+- [Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 2.3: Enable audit logging for Azure resources
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32890).
+
 **Guidance**: Use Activity logs to monitor actions on Azure Kubernetes Service (AKS) resources to view all activity and their status. Determine what operations were taken on the resources in your subscription with activity logs: 
-who started the operation
 
-when the operation occurred
-
-the status of the operation
-
-the values of other properties that might help you research the operation
+- who started the operation
+- when the operation occurred
+- the status of the operation
+- the values of other properties that might help you research the operation
 
 Retrieve information from the activity log through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. 
 
 Enable audit logs on AKS master components, such as: 
 
-•	kube-auditaksService: The display name in audit log for the control plane operation (from the hcpService) 
+- kube-auditaksService: The display name in audit log for the control plane operation (from the hcpService) 
 
-•	masterclient: The display name in audit log for MasterClientCertificate, the certificate you get from az aks get-credentials 
+- masterclient: The display name in audit log for MasterClientCertificate, the certificate you get from az aks get-credentials 
 
-•	nodeclient: The display name for ClientCertificate, which is used by agent nodes
+- nodeclient: The display name for ClientCertificate, which is used by agent nodes
 
 Turn on other audit logs such as kube-audit as well. 
 
-- [How to enable and review Kubernetes master node logs in AKS](view-master-logs.md)
-
-**Azure Security Center monitoring**: Yes
+- [How to enable and review Kubernetes master node logs in AKS](/azure/aks/view-master-logs)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 2.4: Collect security logs from operating systems
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32891).
 
 **Guidance**: Enable automatic installation of Log Analytics agents for collecting data from the AKS cluster nodes. Also, turn-on automatic provisioning of the Azure Log Analytics Monitoring Agent from Azure Security Center, as by default, automatic provisioning is off. The agent can also be installed manually. With automatic provisioning on, Security Center deploys the Log Analytics agent on all supported Azure VMs and any new ones that are created. 
 Security center collects data from Azure Virtual Machines (VM), virtual machine scale sets, and IaaS containers, such as Kubernetes cluster nodes, to monitor for security vulnerabilities and threats. Data is collected using the Azure Log Analytics Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. 
@@ -289,21 +354,27 @@ Data collection is required to provide visibility into missing updates, misconfi
 
 - [How to enable automatic provisioning of the Log Analytics Agent](../security-center/security-center-enable-data-collection.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Shared
+
+**Azure Security Center monitoring**: None
 
 ### 2.5: Configure security log storage retention
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32892).
+
 **Guidance**: Onboard your Azure Kubernetes Service (AKS) instances to Azure Monitor and set the corresponding Azure Log Analytics workspace retention period according to your organization's compliance requirements. 
 
-- [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
-
-**Azure Security Center monitoring**: Not applicable
+- [How to set log retention parameters for Log Analytics Workspaces](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 2.6: Monitor and review Logs
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32893).
 
 **Guidance**: Onboard your Azure Kubernetes Service (AKS) instances to Azure Monitor and configure diagnostic settings for your cluster. 
 
@@ -311,30 +382,37 @@ Use Azure Monitor's Log Analytics workspace to review logs and perform queries o
 
 View the logs generated by AKS master components (kube-apiserver and kube-controllermanager) for troubleshooting your application and services. Enable and on-board data to Azure Sentinel or a third-party SIEM for centralized log management and monitoring.
 
-- [How to enable and review Kubernetes master node logs in AKS](view-master-logs.md)
+- [How to enable and review Kubernetes master node logs in AKS](/azure/aks/view-master-logs)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
-
-**Azure Security Center monitoring**: Yes
+- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 2.7: Enable alerts for anomalous activities
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32894).
+
 **Guidance**: Use Azure Kubernetes Service (AKS) together with Security Center to gain deeper visibility into AKS nodes. 
+
 Review Security Center alerts on threats and malicious activity detected at the host and at the cluster level. Security Center implements continuous analysis of raw security events occurring in an AKS cluster, such as network data, process creation, and the Kubernetes audit log. Determine if this activity is expected behavior or whether the application is misbehaving. Use metrics and logs in Azure Monitor to substantiate your findings. 
 
 - [Understand Azure Kubernetes Services integration with Security Center](../security-center/defender-for-kubernetes-introduction.md)
 
 - [How to enable Azure Security Center Standard Tier](../security-center/security-center-get-started.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 2.8: Centralize anti-malware logging
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32895).
 
 **Guidance**: Install and enable Microsoft Anti-malware for Azure to Azure Kubernetes Service (AKS) virtual machines and virtual machine scale set nodes. Review alerts in Security Center for remediation.
 
@@ -342,13 +420,16 @@ Review Security Center alerts on threats and malicious activity detected at the 
 
 - [Security alerts reference guide](../security-center/alerts-reference.md)
 
-- [Alerts for containers - Azure Kubernetes Service clusters](../security-center/alerts-reference.md#alerts-akscluster)
-
-**Azure Security Center monitoring**: Yes
+- [Alerts for containers - Azure Kubernetes Service clusters](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 2.9: Enable DNS query logging
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32896).
 
 **Guidance**: Azure Kubernetes Service (AKS) uses the CoreDNS project for cluster DNS management and resolution.
 
@@ -356,11 +437,14 @@ Enable DNS query logging by applying documented configuration in your coredns-cu
 
 - [Customize CoreDNS with Azure Kubernetes Service](coredns-custom.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 2.10: Enable command-line audit logging
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32897).
 
 **Guidance**: Use kubectl, a command-line client, in Azure Kubernetes Service (AKS) to manage a Kubernetes cluster and get its logs from AKS node for troubleshooting purposes. Kubectl is already installed if you use Azure Cloud Shell. To install kubectl locally, use the 'Install-AzAksKubectl' cmdlet.
 
@@ -368,33 +452,39 @@ Enable DNS query logging by applying documented configuration in your coredns-cu
 
 - [Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes](kubelet-logs.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
-## Identity and access control
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
+## Identity and Access Control
+
+*For more information, see the [Azure Security Benchmark: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
-**Guidance**: Azure Kubernetes Service (AKS) itself does not provide an identity management solution which stores regular user accounts and passwords. With Azure Active Directory (Azure AD) integration, you can grant users or groups access to Kubernetes resources within a namespace or across the cluster. 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32898).
+
+**Guidance**: Azure Kubernetes Service (AKS) itself does not provide an identity management solution which stores regular user accounts and passwords. With Azure Active Directory (Azure AD) integration, you can grant users or groups access to Kubernetes resources within a namespace or across the cluster.
 
 Perform ad hoc queries to discover accounts that are members of AKS administrative groups with the Azure AD PowerShell module
 
 Use Azure CLI for operations like ‘Get access credentials for a managed Kubernetes cluster’ to assist in reconciling access on a regular basis. Implement this process to keep an updated inventory of the service accounts, which are another primary user type in AKS. Enforce Security Center's Identity and Access Management recommendations.
 
-- [How to integrate AKS with Azure AD](./azure-ad-integration-cli.md)
+- [How to integrate AKS with Azure AD](azure-ad-integration-cli.md)
 
 - [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [How to monitor identity and access with Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.2: Change default passwords where applicable
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32899).
 
 **Guidance**: Azure Kubernetes Service (AKS) does not have the concept of common default passwords and does not provide an identity management solution where regular user accounts and passwords can be stored. With Azure Active Directory (Azure AD) integration, you can grant role-based access to AKS resources within a namespace or across the cluster. 
 
@@ -402,11 +492,14 @@ Perform ad hoc queries to discover accounts that are members of AKS administrati
 
 - [Understand access and identity options for AKS](concepts-identity.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.3: Use dedicated administrative accounts
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32900).
 
 **Guidance**: Integrate user authentication for your Azure Kubernetes Service (AKS) clusters with Azure Active Directory (Azure AD). Sign in to an AKS cluster using an Azure AD authentication token. Configure Kubernetes role-based access control (Kubernetes RBAC) for administrative access to Kubernetes configuration (kubeconfig) information and permissions, namespaces and cluster resources. 
 
@@ -418,46 +511,59 @@ Create policies and procedures around the use of dedicated administrative accoun
 
 - [Use Azure role-based access controls](control-kubeconfig-access.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32901).
+
 **Guidance**: Use single sign-on for Azure Kubernetes Service (AKS) with Azure Active Directory (Azure AD) integrated authentication for an AKS cluster.
 
-- [How to view Kubernetes logs, events, and pod metrics in real-time](../azure-monitor/containers/container-insights-livedata-overview.md)
-
-**Azure Security Center monitoring**: Not applicable
+- [How to view Kubernetes logs, events, and pod metrics in real-time](/azure/azure-monitor/insights/container-insights-livedata-overview)
 
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32902).
+
 **Guidance**: Integrate Authentication for Azure Kubernetes Service (AKS) with Azure Active Directory (Azure AD). 
 
-Enable Azure AD Multi-Factor Authentication (MFA) and follow Security Center's Identity and Access Management recommendations.
+Enable Azure AD multifactor authentication and follow Security Center's Identity and Access Management recommendations.
 
-- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [How to enable multifactor authentication in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md) 
-
-**Azure Security Center monitoring**: Yes
+- [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32903).
+
 **Guidance**: Use a Privileged Access Workstation (PAW), with Multi-Factor Authentication (MFA), configured to log into your specified Azure Kubernetes Service (AKS) clusters and related resources.
+
 - [Learn about Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Azure Security Center monitoring**: Not applicable
+- [How to enable Multi-Factor Authentication (MFA) in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.7: Log and alert on suspicious activities from administrative accounts
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32904).
 
 **Guidance**: Use Azure Active Directory (Azure AD) security reports with Azure AD-integrated authentication for Azure Kubernetes Service (AKS). Alerts can be generated when suspicious or unsafe activity occurs in the environment. Use Security Center to monitor identity and access activity.
 
@@ -465,11 +571,14 @@ Enable Azure AD Multi-Factor Authentication (MFA) and follow Security Center's I
 
 - [How to monitor users identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.8: Manage Azure resources only from approved locations
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32905).
 
 **Guidance**: Use Conditional Access Named Locations to allow access to Azure Kubernetes Service (AKS) clusters from only specific logical groupings of IP address ranges or countries/regions. This requires integrated authentication for AKS with Azure Active Directory (Azure AD).
 
@@ -479,11 +588,14 @@ Limit the access to the AKS API server from a limited set of IP address ranges, 
 
 - [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.9: Use Azure Active Directory
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32906).
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for Azure Kubernetes Service (AKS). Azure AD protects data by using strong encryption for data at rest and in transit and salts, hashes, and securely stores user credentials.
 
@@ -491,15 +603,18 @@ Use the AKS built-in roles with Azure role-based access control (Azure RBAC) - R
 
 - [Azure Policy Overview](../governance/policy/overview.md)
 
-- [How to integrate Azure AD with AKS](./azure-ad-integration-cli.md) 
+- [How to integrate Azure AD with AKS](azure-ad-integration-cli.md)
 
 - [Integrate AKS-managed Azure AD](managed-aad.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.10: Regularly review and reconcile user access
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32907).
 
 **Guidance**: Use Azure Active Directory (Azure AD) security reports with Azure AD-integrated authentication for Azure Kubernetes Service (AKS). Search Azure AD logs to help discover stale accounts. 
 
@@ -513,22 +628,28 @@ Be aware of roles used for support or troubleshooting purposes. For example, any
 
 - [How to monitor user’s identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.11: Monitor attempts to access deactivated credentials
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32908).
 
 **Guidance**: Integrate user authentication for Azure Kubernetes Service (AKS) with Azure Active Directory (Azure AD). Create Diagnostic Settings for Azure AD, sending the audit and sign-in logs to an Azure Log Analytics workspace. Configure desired Alerts (such as when a deactivated account attempts to log in) within an Azure Log Analytics workspace.
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [How to create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md)
-
-**Azure Security Center monitoring**: Not applicable
+- [How to create, view, and manage log alerts using Azure Monitor](/azure/azure-monitor/platform/alerts-log)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 3.12: Alert on account login behavior deviation
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32909).
 
 **Guidance**: Integrate user authentication for Azure Kubernetes Service (AKS) with Azure Active Directory (Azure AD). Use Azure AD's Risk Detections and Identity Protection feature to configure automated responses to detected suspicious actions related to user identities. Ingest data into Azure Sentinel for further investigations based on business needs.
 
@@ -538,24 +659,33 @@ Be aware of roles used for support or troubleshooting purposes. For example, any
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
-**Guidance**: Not applicable to Azure Kubernetes Service (AKS) as it is not supported by Customer Lockbox.
-- [List of Customer Lockbox supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32910).
 
-**Azure Security Center monitoring**: Not applicable
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
+**Guidance**: Not applicable to Azure Kubernetes Service (AKS) as it is not supported by Customer Lockbox.
+- [List of Customer Lockbox supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
 
 **Responsibility**: Not applicable
 
-## Data protection
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
+## Data Protection
+
+*For more information, see the [Azure Security Benchmark: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32911).
 
 **Guidance**: Use tags on resources related to Azure Kubernetes Service (AKS) deployments to assist in tracking Azure resources that store or process sensitive information.
 
@@ -563,11 +693,14 @@ Be aware of roles used for support or troubleshooting purposes. For example, any
 
 - [Update tags for managed clusters](/rest/api/aks/managedclusters/updatetags)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 4.2: Isolate systems storing or processing sensitive information
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32912).
 
 **Guidance**: Logically isolate teams and workloads in the same cluster with Azure Kubernetes Service (AKS) to provide the least number of privileges, scoped to the resources required by each team. 
 
@@ -581,11 +714,14 @@ Implement separate subscriptions and/or management groups for development, test,
 
 - [Understand best practices for network connectivity and security in AKS](operator-best-practices-network.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32913).
 
 **Guidance**: Use a third-party solution from Azure Marketplace on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.
 
@@ -597,11 +733,14 @@ Microsoft manages the underlying platform and treats all customer content as sen
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Shared
 
+**Azure Security Center monitoring**: None
+
 ### 4.4: Encrypt all sensitive information in transit
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32914).
 
 **Guidance**: Create an HTTPS ingress controller and use your own TLS certificates (or optionally, Let's Encrypt) for your Azure Kubernetes Service (AKS) deployments. 
 
@@ -613,11 +752,14 @@ Kubernetes egress traffic is encrypted over HTTPS/TLS by default. Review any pot
 
 - [List of potential out-going ports and protocols used by AKS](limit-egress-traffic.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 4.5: Use an active discovery tool to identify sensitive data
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32915).
 
 **Guidance**: Data identification, classification, and loss prevention features are not yet available for Azure Storage or compute resources. Implement third-party solution if required for compliance purposes.
 Microsoft manages the underlying platform and treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. 
@@ -626,11 +768,14 @@ To ensure customer data within Azure remains secure, Microsoft has implemented a
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 4.6: Use Azure RBAC to manage access to resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32916).
 
 **Guidance**: Use the Azure role-based access control (Azure RBAC) authorization system built on Azure Resource Manager to provide fine-grained access management of Azure resources.
 
@@ -640,22 +785,34 @@ Use the AKS built-in roles with Azure RBAC- Resource Policy Contributor and Owne
 
 - [How to control access to cluster resources using Azure RBAC and Azure AD Identities in AKS](azure-ad-rbac.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+
+**Azure Policy built-in definitions**:
+
+Microsoft.ContainerService:
+
+[!INCLUDE [Resource Policy for Microsoft.ContainerService 4.6](../../includes/policy/standards/asb/rp-controls/microsoft.containerservice-4-6.md)]
+
 ### 4.7: Use host-based data loss prevention to enforce access control
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32917).
 
 **Guidance**: Data identification, classification, and loss prevention features are not yet available for Azure Storage or compute resources. Implement third-party solution if required for compliance purposes.
 Microsoft manages the underlying platform and treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 4.8: Encrypt sensitive information at rest
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32918).
 
 **Guidance**: The two primary types of storage provided for volumes in Azure Kubernetes Service (AKS) are backed by Azure Disks or Azure Files. Both types of storage use Azure Storage Service Encryption (SSE), which encrypts data at rest to improve security. By default, data is encrypted with Microsoft-managed keys.
 
@@ -665,11 +822,14 @@ Encryption-at-rest using customer-managed keys is available for encrypting both 
 
 - [Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)](azure-disk-customer-managed-keys.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Shared
 
+**Azure Security Center monitoring**: None
+
 ### 4.9: Log and alert on changes to critical Azure resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32919).
 
 **Guidance**: Use Azure Monitor for containers to monitor the performance of container workloads deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). 
 
@@ -677,25 +837,28 @@ Configure alerts for proactive notification or log creation when CPU and memory 
 
 Use Azure Activity Log to monitor your AKS clusters and related resources at a high level. Integrate with Prometheus to view application and workload metrics it collects from nodes and Kubernetes using queries to create custom alerts, dashboards, and detailed perform detailed analysis.
 
-- [Understand Azure Monitor for Containers](../azure-monitor/containers/container-insights-overview.md)
+- [Understand Azure Monitor for Containers](/azure/azure-monitor/insights/container-insights-overview)
 
-- [How to enable Azure Monitor for containers](../azure-monitor/containers/container-insights-onboard.md)
+- [How to enable Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-onboard)
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
-
-**Azure Security Center monitoring**: Yes
+- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
 
 **Responsibility**: Customer
 
-## Vulnerability management
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
+## Vulnerability Management
+
+*For more information, see the [Azure Security Benchmark: Vulnerability Management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32920).
+
 **Guidance**: Use Security Center to monitor your Azure Container Registry including Azure Kubernetes Service (AKS) instances for vulnerabilities. Enable the Container Registries bundle in Security Center to ensure that Security Center is ready to scan images that get pushed to the registry.
 
-Get notified in the Security Center dashboard when issues are found after Security Center scans the image using Qualys. The Container Registries bundle feature provides deeper visibility into  vulnerabilities of the images used in Azure Resource Manager-based registries. 
+Get notified in the Security Center dashboard when issues are found after Security Center scans the image using Qualys. The Container Registries bundle feature provides deeper visibility into  vulnerabilities of the images used in Azure Resource Manager based registries. 
 
 Use Security Center for actionable recommendations for every vulnerability. These recommendations include a severity classification and guidance for remediation. 
 
@@ -705,11 +868,14 @@ Use Security Center for actionable recommendations for every vulnerability. Thes
 
 - [Understand container Registry integration with Azure Security Center](../security-center/defender-for-container-registries-introduction.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 5.2: Deploy automated operating system patch management solution
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32921).
 
 **Guidance**: Security updates are automatically applied to Linux nodes to protect customer's Azure Kubernetes Service (AKS) clusters. These updates include OS security fixes or kernel updates. 
 
@@ -717,49 +883,67 @@ Note that the process to keep Windows Server nodes up to date differs from nodes
 
 - [Understand how updates are applied to AKS cluster nodes running Linux](node-updates-kured.md)
 
-- [How to upgrade an AKS node pool for AKS clusters that use Windows Server nodes](use-multiple-node-pools.md#upgrade-a-node-pool)
+- [How to upgrade an AKS node pool for AKS clusters that use Windows Server nodes](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool)
 
 - [Azure Kubernetes Service (AKS) node image upgrades](node-image-upgrade.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 5.3: Deploy an automated patch management solution for third-party software titles
 
-**Guidance**: Implement a manual process to ensure Azure Kubernetes Service (AKS) cluster node's third-party applications remain patched for the duration of the cluster lifetime. This may require enabling automatic updates, monitoring the nodes, or performing periodic reboots.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32922).
 
-**Azure Security Center monitoring**: Not applicable
+**Guidance**: Implement a manual process to ensure Azure Kubernetes Service (AKS) cluster node's third-party applications remain patched for the duration of the cluster lifetime. This may require enabling automatic updates, monitoring the nodes, or performing periodic reboots.
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: The [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) is the default policy initiative for Security Center and is the foundation for [Security Center's recommendations](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). The Azure Policy definitions related to this control are enabled automatically by Security Center. Alerts related to this control may require an [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) plan for the related services.
+
+**Azure Policy built-in definitions**:
+
+Microsoft.ContainerService:
+
+[!INCLUDE [Resource Policy for Microsoft.ContainerService 5.3](../../includes/policy/standards/asb/rp-controls/microsoft.containerservice-5-3.md)]
+
 ### 5.4: Compare back-to-back vulnerability scans
 
-**Guidance**: Export Security Center scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated. 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32923).
+
+**Guidance**: Export Security Center scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated.
 
 Use the PowerShell cmdlet "Get-AzSecurityTask" to automate the retrieval of security tasks that Security Center recommends you to perform in order to strengthen your security posture and remediation vulnerability scan findings.
 
 - [How to use PowerShell to view vulnerabilities discovered by Azure Security Center](/powershell/module/az.security/get-azsecuritytask)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32924).
 
 **Guidance**: Use the severity rating provided by Security Center to prioritize the remediation of vulnerabilities. 
 
 Use Common Vulnerability Scoring System (CVSS) (or another scoring systems as provided by your scanning tool) if using a built-in vulnerability assessment tool (such as Qualys or Rapid7, offered by Azure).
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
 
-## Inventory and asset management
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
+## Inventory and Asset Management
+
+*For more information, see the [Azure Security Benchmark: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32925).
 
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, and so on) within your subscriptions. Ensure that you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
@@ -771,21 +955,27 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.2: Maintain asset metadata
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32926).
 
 **Guidance**: Apply tags to Azure resources with metadata to logically organize them into a taxonomy.
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.3: Delete unauthorized Azure resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32927).
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track assets. 
 
@@ -801,21 +991,27 @@ Taints, labels or tags can be used to reconcile inventory on a regular basis and
 
 - [Managed Clusters - Update Tags](/rest/api/aks/managedclusters/updatetags)
 
-- [Specify a taint, label, or tag for a node pool](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool)
-
-**Azure Security Center monitoring**: Not applicable
+- [Specify a taint, label, or tag for a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#specify-a-taint-label-or-tag-for-a-node-pool)
 
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 6.4: Define and maintain an inventory of approved Azure resources
 
-**Guidance**: Define a list of approved Azure resources and approved software for compute resources based on organizational business needs.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32928).
 
-**Azure Security Center monitoring**: Not applicable
+**Guidance**: Define a list of approved Azure resources and approved software for compute resources based on organizational business needs.
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.5: Monitor for unapproved Azure resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32929).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 -	Not allowed resource types 
@@ -828,11 +1024,14 @@ Use Azure Resource Graph to query/discover resources within your subscriptions. 
 
 - [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.6: Monitor for unapproved software applications within compute resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32930).
 
 **Guidance**: Use Azure Automation Change Tracking and Inventory features to find out software that is installed in your environment. 
 
@@ -842,11 +1041,14 @@ Track the configurations of your machines to aid in pinpointing operational issu
 
 - [How to enable Azure virtual machine Inventory](../automation/automation-tutorial-installed-software.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.7: Remove unapproved Azure resources and software applications
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32931).
 
 **Guidance**: Use Azure Automation Change Tracking and Inventory features to find out software that is installed in your environment. 
 
@@ -860,14 +1062,16 @@ Track the configurations of your machines to aid in pinpointing operational issu
 
 - [Understand Azure Change Tracking](../automation/change-tracking/overview.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 6.8: Use only approved applications
 
-**Guidance**: 
-Use Azure Automation Change Tracking and Inventory features to find out software that is installed in your environment. 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32932).
+
+**Guidance**: Use Azure Automation Change Tracking and Inventory features to find out software that is installed in your environment. 
 
 Collect and view inventory for software, files, Linux daemons, Windows services, and Windows Registry keys on your computers and monitor for unapproved software applications. 
 
@@ -877,16 +1081,16 @@ Enable Adaptive Application analysis in Security Center for applications which e
 
 - [How to enable Azure virtual machine Inventory](../automation/automation-tutorial-installed-software.md)
 
- 
-How
-to use Azure Security Center Adaptive Application
-- [Controls](../security-center/security-center-adaptive-application.md)
-
-**Azure Security Center monitoring**: Not applicable
+- [How to use Azure Security Center Adaptive Application Controls](../security-center/security-center-adaptive-application.md)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.9: Use only approved Azure services
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32933).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 
@@ -900,36 +1104,45 @@ Use Azure Resource Graph to query/discover resources within your subscriptions. 
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
-
-**Azure Security Center monitoring**: Not applicable
+- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.10: Maintain an inventory of approved software titles
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32934).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscriptions using built-in policy definitions.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32935).
 
 **Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 - [How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 6.12: Limit users' ability to execute scripts in compute resources
 
-**Guidance**: Azure Kubernetes Service (AKS) itself doesn't provide an identity management solution where regular user accounts and passwords are stored. Instead, use Azure Active Directory (Azure AD) as the integrated identity solution for your AKS clusters. 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32936).
 
-Grant users or groups access to Kubernetes resources within a namespace or across the cluster using Azure AD integration. 
+**Guidance**: Azure Kubernetes Service (AKS) itself doesn't provide an identity management solution where regular user accounts and passwords are stored. Instead, use Azure Active Directory (Azure AD) as the integrated identity solution for your AKS clusters.
+
+Grant users or groups access to Kubernetes resources within a namespace or across the cluster using Azure AD integration.
 
 Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of your AKS administrative groups and use it to reconcile access on a regular basis. Use Azure CLI for operations such as ‘Get access credentials for a managed Kubernetes cluster. Implement Security Center Identity and Access Management recommendations.
 
@@ -937,7 +1150,7 @@ Use the Azure AD PowerShell module to perform ad hoc queries to discover account
 
 - [Understand AKS and Azure AD integration](concepts-identity.md)
 
-- [How to integrate AKS with Azure AD](./azure-ad-integration-cli.md)
+- [How to integrate AKS with Azure AD](azure-ad-integration-cli.md)
 
 - [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
@@ -945,17 +1158,21 @@ Use the Azure AD PowerShell module to perform ad hoc queries to discover account
 
 - [How to monitor identity and access with Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 6.13: Physically or logically segregate high risk applications
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32937).
 
 **Guidance**: Use Azure Kubernetes Service (AKS) features to logically isolate teams and workloads in the same cluster for the least number of privileges, scoped to the resources required by each team. 
 
 Implement namespace in Kubernetes to create a logical isolation boundary. Use Azure Policy aliases in the "Microsoft.ContainerService" namespace to create custom policies to audit or enforce the configuration of your Azure Kubernetes Service (AKS) instances. 
 
-Review and implement additional Kubernetes features and considerations for isolation and multi-tenancy to include the following: scheduling, networking, authentication/authorization, and containers. Also use separate subscriptions and/or management groups for development, test, and production. Separate AKS clusters with virtual networks, subnets which are tagged appropriately, and secured with a Web Application Firewall (WAF).
+Review and implement additional Kubernetes features and considerations for isolation and multi-tenancy to include the following: scheduling, networking, authentication/authorization, and containers. Also use separate subscriptions and management groups for development, test, and production. 
+Separate AKS clusters with virtual networks, subnets which are tagged appropriately, and secured with a Web Application Firewall (WAF).
 
 - [Learn about best practices for cluster isolation in AKS](operator-best-practices-cluster-isolation.md)
 
@@ -965,27 +1182,30 @@ Review and implement additional Kubernetes features and considerations for isola
 
 - [Understand best practices for network connectivity and security in AKS](operator-best-practices-network.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
-## Secure configuration
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
+## Secure Configuration
+
+*For more information, see the [Azure Security Benchmark: Secure Configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32938).
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.ContainerService" namespace to create custom policies to audit or enforce the configuration of your Azure Kubernetes Service (AKS) instances. Use built-in Azure Policy definitions.
 
 Examples of built-in policy definitions for AKS include:
 
-•	Enforce HTTPS ingress in Kubernetes cluster
+- Enforce HTTPS ingress in Kubernetes cluster
 
-•	Authorized IP ranges should be defined on Kubernetes Services
+- Authorized IP ranges should be defined on Kubernetes Services
 
-•	Role-based access control (RBAC) should be used on Kubernetes Services
+- Role-based Access Control (RBAC) should be used on Kubernetes Services
 
-•	Ensure only allowed container images in Kubernetes cluster
+- Ensure only allowed container images in Kubernetes cluster
 
 Export a template of your AKS configuration in JavaScript Object Notation (JSON) with Azure Resource Manager. Review it periodically to ensure that these configurations meet the security requirements for your organization. Use the recommendations from Azure Security Center as a secure configuration baseline for your Azure resources. 
 
@@ -993,11 +1213,14 @@ Export a template of your AKS configuration in JavaScript Object Notation (JSON)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 7.2: Establish secure operating system configurations
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32939).
 
 **Guidance**: Azure Kubernetes Clusters (AKS) clusters are deployed on host virtual machines with a security optimized OS. The host OS has additional security hardening steps incorporated into it to reduce the surface area of attack and allows the deployment of containers in a secure fashion. 
 
@@ -1007,11 +1230,14 @@ Azure applies daily patches (including security patches) to AKS virtual machine 
 
 - [Understand security hardening in AKS virtual machine hosts](security-hardened-vm-host-image.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Shared
 
+**Azure Security Center monitoring**: None
+
 ### 7.3: Maintain secure Azure resource configurations
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32940).
 
 **Guidance**: Secure your Azure Kubernetes Service (AKS) cluster using pod security policies.  Limit what pods can be scheduled to improve the security of your cluster. 
 
@@ -1021,19 +1247,24 @@ Also use Azure Policy [deny] and [deploy if not exist] effects to enforce secure
 
 Create custom Azure Policy definitions using aliases from the following namespaces: 
 
-•	Microsoft.ContainerService
+- Microsoft.ContainerService
 
-•	Microsoft.Network
+- Microsoft.Network
+
+Additional information is available at the referenced links.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Understand Azure Policy Effects](../governance/policy/concepts/effects.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 7.4: Maintain secure operating system configurations
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32941).
 
 **Guidance**: Azure Kubernetes Service (AKS) clusters are deployed on host virtual machines with a security optimized OS. The host OS has additional security hardening steps incorporated into it to reduce the surface area of attack and allows the deployment of containers in a secure fashion. 
 
@@ -1041,41 +1272,48 @@ Refer to the list of Center for Internet Security (CIS) controls which are built
 
 - [Security hardening for AKS agent node host OS](security-hardened-vm-host-image.md)
 
-- [Understand state configuration of AKS clusters](concepts-clusters-workloads.md#control-plane)
+- [Understand state configuration of AKS clusters](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
 
 - [Understand security hardening in AKS virtual machine hosts](security-hardened-vm-host-image.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: Use Azure Repos to securely store and manage your configurations if using custom Azure Policy definitions. Export a template of your Azure Kubernetes Service (AKS) configuration in JavaScript Object Notation (JSON) with Azure Resource Manager. Periodically review it to ensure that the configurations meet the security requirements for your organization. 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32942).
+
+**Guidance**: Use Azure Repos to securely store and manage your configurations if using custom Azure Policy definitions. Export a template of your Azure Kubernetes Service (AKS) configuration in JavaScript Object Notation (JSON) with Azure Resource Manager. Periodically review it to ensure that the configurations meet the security requirements for your organization.
 
 Implement third-party solutions such as Terraform to create a configuration file that declares the resources for the Kubernetes cluster. You can harden your AKS deployment by Implement security best practices and store your configuration as code in a secured location.
 
 - [Define a Kubernetes cluster](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks#define-a-kubernetes-cluster)
 
-Security hardening for AKS agent node host OS
-
-security-hardened-vm-host-image.md
+- [Security hardening for AKS agent node host OS](security-hardened-vm-host-image.md)
 
 - [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 7.6: Securely store custom operating system images
 
-**Guidance**: Not applicable to Azure Kubernetes Service (AKS). AKS provides a security optimized host Operating System (OS) by default. There is no current option to select an alternate or custom operating system.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32943).
 
-**Azure Security Center monitoring**: Not applicable
+**Guidance**: Not applicable to Azure Kubernetes Service (AKS). AKS provides a security optimized host Operating System (OS) by default. There is no current option to select an alternate or custom operating system.
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 7.7: Deploy configuration management tools for Azure resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32944).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in subscriptions using built-in policy definitions as well as Azure Policy aliases in the "Microsoft.ContainerService" namespace. 
 
@@ -1083,13 +1321,16 @@ Create custom policies to audit, and enforce system configurations. Develop a pr
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to use aliases](../governance/policy/concepts/definition-structure.md#aliases)
-
-**Azure Security Center monitoring**: Not applicable
+- [How to use aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 7.8: Deploy configuration management tools for operating systems
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32945).
 
 **Guidance**: Azure Kubernetes Service (AKS) clusters are deployed on host virtual machines with a security optimized OS. The host OS has additional security hardening steps incorporated into it to reduce the surface area of attack and allows the deployment of containers in a secure fashion. 
 
@@ -1099,34 +1340,44 @@ Refer to the list of Center for Internet Security (CIS) controls which are built
 
 - [Understand security hardening in AKS virtual machine hosts](security-hardened-vm-host-image.md)
 
-- [Understand state configuration of AKS clusters](concepts-clusters-workloads.md#control-plane)
-
-**Azure Security Center monitoring**: Not applicable
+- [Understand state configuration of AKS clusters](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 7.9: Implement automated configuration monitoring for Azure resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32946).
 
 **Guidance**: Use Security Center to perform baseline scans for resources related to your Azure Kubernetes Service (AKS) deployments. Examples resources include but are not limited to the AKS cluster itself, the virtual network where the AKS cluster was deployed, the Azure Storage Account used to track Terraform state, or Azure Key Vault instances being used for the encryption keys for your AKS cluster's OS and data disks.
 
 - [How to remediate recommendations in Azure Security Center](../security-center/security-center-remediate-recommendations.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 7.10: Implement automated configuration monitoring for operating systems
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32947).
+
 **Guidance**: Use Security Center container recommendations under the "Compute &amp; apps" section to perform baseline scans for your Azure Kubernetes Service (AKS) clusters. 
+
 Get notified in the Security Center dashboard when configuration issues or vulnerabilities are found. This does require enabling the optional Container Registries bundle which allows Security Center to scan the image.  
 
 - [Understand Azure Security Center container recommendations](../security-center/container-security.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 7.11: Manage Azure secrets securely
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32948).
 
 **Guidance**: Integrate Azure Key Vault with an Azure Kubernetes Service (AKS) cluster using a FlexVolume drive. Use Azure Key Vault to store and regularly rotate secrets such as credentials, storage account keys, or certificates. The FlexVolume driver lets the AKS cluster natively retrieve credentials from Key Vault and securely provide them only to the requesting pod. 
 Use a pod managed identity to request access to Key Vault and retrieve the required credentials through the FlexVolume driver. Ensure Key Vault Soft Delete is enabled. 
@@ -1137,29 +1388,35 @@ Avoid the use of fixed or shared credentials.
 
 - [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](concepts-security.md)
 
-- [How to use Key Vault with your AKS cluster](developer-best-practices-pod-security.md#limit-credential-exposure)
-
-**Azure Security Center monitoring**: Not applicable
+- [How to use Key Vault with your AKS cluster](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 7.12: Manage identities securely and automatically
 
-**Guidance**: Do not define credentials in your application code as a security best practice. Use managed identities for Azure resources to let a pod authenticate itself against any service in Azure that supports it, including Azure Key Vault. The pod is assigned an Azure Identity to authenticate to Azure Active Directory (Azure AD) and receive a digital token which can be presented to other Azure services that check if the pod is authorized to access the service and perform the required actions. 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32949).
+
+**Guidance**: Do not define credentials in your application code as a security best practice. Use managed identities for Azure resources to let a pod authenticate itself against any service in Azure that supports it, including Azure Key Vault. The pod is assigned an Azure Identity to authenticate to Azure Active Directory (Azure AD) and receive a digital token which can be presented to other Azure services that check if the pod is authorized to access the service and perform the required actions.
 
 Note that Pod managed identities are intended for use with Linux pods and container images only. Provision Azure Key Vault to store and retrieve digital keys and credentials. Keys such as the ones used to encrypt OS disks, AKS cluster data can be stored in Azure Key Vault.
 
 Service principals can also be used in AKS clusters. However, clusters using service principals eventually may reach a state in which the service principal must be renewed to keep the cluster working. Managing service principals adds complexity, which is why it's easier to use managed identities instead. The same permission requirements apply for both service principals and managed identities.
 
-- [Understand Managed Identities and Key Vault with Azure Kubernetes Service (AKS)](developer-best-practices-pod-security.md#limit-credential-exposure)
+- [Understand Managed Identities and Key Vault with Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
 
-- [Azure Active Directory Pod Identity](https://github.com/Azure/aad-pod-identity)
-
-**Azure Security Center monitoring**: Not applicable
+- [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 7.13: Eliminate unintended credential exposure
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32950).
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner also encourages moving discovered credentials to more secure locations such as Azure Key Vault with recommendations.
 
@@ -1169,58 +1426,69 @@ Limit credential exposure by not defining credentials in your application code. 
 
 - [Developer best practices for pod security](developer-best-practices-pod-security.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
-## Malware defense
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
+## Malware Defense
+
+*For more information, see the [Azure Security Benchmark: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally managed antimalware software
 
-**Guidance**: 
-AKS manages the lifecycle and operations of agent nodes on your behalf - modifying the IaaS resources associated with the agent nodes is not supported. However, for Linux nodes you may use daemon sets to install custom software like an anti-malware solution.
-
-- [Security alerts reference guide](../security-center/alerts-reference.md)
-
-- [Alerts for containers - Azure Kubernetes Service clusters](../security-center/alerts-reference.md#alerts-akscluster)
-
-- [AKS shared responsibility and Daemon Sets](support-policies.md#shared-responsibility)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Shared
-
-### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
-
-**Guidance**: Pre-scan any files being uploaded to your AKS resources. Use Security Center's threat detection for data services to detect malware uploaded to storage accounts if using an Azure Storage Account as a data store or to track Terraform state for your AKS cluster. 
-
-- [Understand Azure Security Center's Threat detection for data services](../security-center/azure-defender.md)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 8.3: Ensure antimalware software and signatures are updated
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32951).
 
 **Guidance**: AKS manages the lifecycle and operations of agent nodes on your behalf - modifying the IaaS resources associated with the agent nodes is not supported. However, for Linux nodes you may use daemon sets to install custom software like an anti-malware solution.
 
 - [Security alerts reference guide](../security-center/alerts-reference.md)
 
-- [Alerts for containers - Azure Kubernetes Service clusters](../security-center/alerts-reference.md#alerts-akscluster)
+- [Alerts for containers - Azure Kubernetes Service clusters](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
 
-- [AKS shared responsibility and Daemon Sets](support-policies.md#shared-responsibility)
-
-**Azure Security Center monitoring**: Not applicable
+- [AKS shared responsibility and Daemon Sets](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
 
 **Responsibility**: Shared
 
-## Data recovery
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
+### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32952).
+
+**Guidance**: Pre-scan any files being uploaded to your AKS resources. Use Security Center's threat detection for data services to detect malware uploaded to storage accounts if using an Azure Storage Account as a data store or to track Terraform state for your AKS cluster. 
+
+- [Understand Azure Security Center's Threat detection for data services](../security-center/azure-defender.md)
+
+**Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
+
+### 8.3: Ensure antimalware software and signatures are updated
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32953).
+
+**Guidance**: AKS manages the lifecycle and operations of agent nodes on your behalf - modifying the IaaS resources associated with the agent nodes is not supported. However, for Linux nodes you may use daemon sets to install custom software like an anti-malware solution.
+
+- [Security alerts reference guide](../security-center/alerts-reference.md)
+
+- [Alerts for containers - Azure Kubernetes Service clusters](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
+
+- [AKS shared responsibility and Daemon Sets](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
+
+**Responsibility**: Shared
+
+**Azure Security Center monitoring**: None
+
+## Data Recovery
+
+*For more information, see the [Azure Security Benchmark: Data Recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32954).
 
 **Guidance**: Back up your data using an appropriate tool for your storage type such as Velero, which can back up persistent volumes along with additional cluster resources and configurations. Periodically, verify the integrity, and security, of those backups. 
 
@@ -1234,19 +1502,18 @@ Remove state from your applications prior to backup. In cases where this cannot 
 
 - [How to setup Velero on Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 9.2: Perform complete system backups and backup any customer-managed keys
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32955).
 
 **Guidance**: Back up your data using an appropriate tool for your storage type such as Velero, which can back up persistent volumes along with additional cluster resources and configurations. 
 
 Perform regular automated backups of Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with PowerShell commands. 
-
-For example:
-
-Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
 - [How to backup Key Vault Certificates](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
 
@@ -1256,37 +1523,39 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 - [How to backup Key Vault Secrets](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
 
-- [How to enable Azure Backup](../backup/index.yml)
-
-**Azure Security Center monitoring**: Not applicable
+- [How to enable Azure Backup](/azure/backup/)
 
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 9.3: Validate all backups including customer-managed keys
 
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32956).
+
 **Guidance**: Periodically perform data restoration of content within Velero Backup. If necessary, test restoring to an isolated virtual network.
 
-Periodically perform data restoration of Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with PowerShell commands. 
+Periodically perform data restoration of Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with PowerShell commands.
 
-For example:
+- [How to restore Key Vault Certificates](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultcertificate?view=azps-4.8.0&amp;preserve-view=true)
 
-Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
-
-- [How to restore Key Vault Certificates](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
-
-- [How to restore Key Vault Keys](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to restore Key Vault Keys](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
 
 - [How to restore Key Vault Managed Storage Accounts](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [How to restore Key Vault Secrets](/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0)
+- [How to restore Key Vault Secrets](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultsecret?view=azps-4.8.0&amp;preserve-view=true)
 
-- [How to recover files from Azure Virtual Machine backup](../backup/backup-azure-restore-files-from-vm.md)
-
-**Azure Security Center monitoring**: Not applicable
+- [How to recover files from Azure Virtual Machine backup](/azure/backup/backup-azure-restore-files-from-vm)
 
 **Responsibility**: Customer
 
+**Azure Security Center monitoring**: None
+
 ### 9.4: Ensure protection of backups and customer-managed keys
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32957).
 
 **Guidance**: Back up your data using an appropriate tool for your storage type such as Velero, which can back up persistent volumes along with additional cluster resources and configurations. 
 
@@ -1294,17 +1563,20 @@ Enable Soft-Delete in Key Vault to protect keys against accidental or malicious 
 
 - [Understand Azure Storage Service Encryption](../storage/common/storage-service-encryption.md)
 
-- [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
-
-**Azure Security Center monitoring**: Not applicable
+- [How to enable Soft-Delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
 
 **Responsibility**: Customer
 
-## Incident response
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
+## Incident Response
+
+*For more information, see the [Azure Security Benchmark: Incident Response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
+
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32958).
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
@@ -1314,78 +1586,102 @@ Enable Soft-Delete in Key Vault to protect keys against accidental or malicious 
 
 - [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-- [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
-
-**Azure Security Center monitoring**: Not applicable
+- [NIST's Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
-**Guidance**: Prioritize which alerts must be investigated first with Security Center assigned severity to alerts. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32959).
+
+**Guidance**: Prioritize which alerts must be investigated first with Security Center assigned severity to alerts. The severity is based on how confident Security Center is in the finding or the analytics used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 Clearly mark subscriptions (for example, production, non-production) and create a naming system to clearly identify and categorize Azure resources.
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 10.3: Test security response procedures
 
-**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Refer to the NIST's publication to identify weak points and gaps and revise plan as needed.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32964).
+
+**Guidance**: Conduct exercises to test your systems’ incident response capabilities at a regular cadence. Identify weak points and gaps and revise incident response plans as needed.
 
 - [Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
-**Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32960).
+
+**Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. 
+
+Review incidents, after the fact, to ensure that issues are resolved.
 
 - [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
 
-**Azure Security Center monitoring**: Yes
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You can also choose the Security Center data connector to stream the alerts to Azure Sentinel as based on organizational business requirements.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32961).
+
+**Guidance**: Export Security Center alerts and recommendations using its Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. 
+
+Choose the Security Center data connector to stream the alerts to Azure Sentinel, as per need and based on organizational business requirements.
 
 - [How to configure continuous export](../security-center/continuous-export.md)
 
 - [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
+
+**Azure Security Center monitoring**: None
 
 ### 10.6: Automate the response to security alerts
 
-**Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32962).
+
+**Guidance**: Use the Workflow Automation feature in Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
 - [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
-**Azure Security Center monitoring**: Not applicable
-
 **Responsibility**: Customer
 
-## Penetration tests and red team exercises
+**Azure Security Center monitoring**: None
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+## Penetration Tests and Red Team Exercises
+
+*For more information, see the [Azure Security Benchmark: Penetration Tests and Red Team Exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
-**Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+>[!TIP]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32963).
 
-- [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+**Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Additional information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, at the referenced links.
 
-**Azure Security Center monitoring**: Not applicable
+- [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+
+- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Responsibility**: Shared
 
+**Azure Security Center monitoring**: None
+
 ## Next steps
 
-- See the [Azure security benchmark](../security/benchmarks/overview.md)
-- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)
+- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
+- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)

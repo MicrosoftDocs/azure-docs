@@ -67,11 +67,11 @@ Consider implementing an Azure Firewall to centrally create, enforce, and log ap
 
 **Azure Policy built-in definitions**:
 
-Resource provider namespace: Microsoft.Network.
+Microsoft.Network:
 
 [!INCLUDE [Resource Policy for Microsoft.Network 1.1](../../includes/policy/standards/asb/rp-controls/microsoft.network-1-1.md)]
 
-Resource provider namespace: Microsoft.Web.
+Microsoft.Web:
 
 [!INCLUDE [Resource Policy for Microsoft.Web 1.1](../../includes/policy/standards/asb/rp-controls/microsoft.web-1-1.md)]
 
@@ -96,7 +96,7 @@ Use Azure Firewall to send traffic and centrally create, enforce, and log applic
 
 **Azure Policy built-in definitions**:
 
-Resource provider namespace: Microsoft.Network.
+Microsoft.Network:
 
 [!INCLUDE [Resource Policy for Microsoft.Network 1.2](../../includes/policy/standards/asb/rp-controls/microsoft.network-1-2.md)]
 
@@ -140,7 +140,7 @@ Additionally, review and follow recommendations in the Locking down an App Servi
 
 **Azure Policy built-in definitions**:
 
-Resource provider namespace: Microsoft.Web.
+Microsoft.Web:
 
 [!INCLUDE [Resource Policy for Microsoft.Web 1.3](../../includes/policy/standards/asb/rp-controls/microsoft.web-1-3.md)]
 
@@ -171,7 +171,7 @@ Use service endpoints to restrict access to your web app from an Azure Virtual N
 
 **Azure Policy built-in definitions**:
 
-Resource provider namespace: Microsoft.Network.
+Microsoft.Network:
 
 [!INCLUDE [Resource Policy for Microsoft.Network 1.4](../../includes/policy/standards/asb/rp-controls/microsoft.network-1-4.md)]
 
@@ -190,7 +190,7 @@ Resource provider namespace: Microsoft.Network.
 
 **Azure Policy built-in definitions**:
 
-Resource provider namespace: Microsoft.Network.
+Microsoft.Network:
 
 [!INCLUDE [Resource Policy for Microsoft.Network 1.5](../../includes/policy/standards/asb/rp-controls/microsoft.network-1-5.md)]
 
@@ -399,7 +399,7 @@ Additionally, Azure Key Vault provides centralized secret management with access
 
 **Azure Policy built-in definitions**:
 
-Resource provider namespace: Microsoft.Web.
+Microsoft.Web:
 
 [!INCLUDE [Resource Policy for Microsoft.Web 2.3](../../includes/policy/standards/asb/rp-controls/microsoft.web-2-3.md)]
 
@@ -827,7 +827,7 @@ Microsoft manages the underlying infrastructure for App Service and has implemen
 
 **Azure Policy built-in definitions**:
 
-Resource provider namespace: Microsoft.Web.
+Microsoft.Web:
 
 [!INCLUDE [Resource Policy for Microsoft.Web 4.4](../../includes/policy/standards/asb/rp-controls/microsoft.web-4-4.md)]
 
@@ -958,7 +958,7 @@ Review and follow recommendations from Security Center for securing your App Ser
 
 **Azure Policy built-in definitions**:
 
-Resource provider namespace: Microsoft.Web.
+Microsoft.Web:
 
 [!INCLUDE [Resource Policy for Microsoft.Web 5.3](../../includes/policy/standards/asb/rp-controls/microsoft.web-5-3.md)]
 
@@ -1423,7 +1423,7 @@ Apply Azure Policy [audit], [deny], and [deploy if not exist], effects to automa
 
 **Azure Policy built-in definitions**:
 
-Resource provider namespace: Microsoft.Web.
+Microsoft.Web:
 
 [!INCLUDE [Resource Policy for Microsoft.Web 7.12](../../includes/policy/standards/asb/rp-controls/microsoft.web-7-12.md)]
 
