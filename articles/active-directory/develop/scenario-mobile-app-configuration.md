@@ -22,7 +22,7 @@ After you create your application, you'll learn how to configure the code by usi
 
 ## Find MSAL support for mobile apps
 
-The following Microsoft Authentication Library (MSAL) types support mobile apps.
+The following Microsoft Authentication Libraries (MSAL) support mobile apps.
 
 [!INCLUDE [active-directory-develop-libraries-mobile](../../../includes/active-directory-develop-libraries-mobile.md)]
 

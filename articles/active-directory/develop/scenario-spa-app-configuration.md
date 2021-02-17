@@ -22,7 +22,7 @@ Learn how to configure the code for your single-page application (SPA).
 
 ## MSAL libraries for SPAs and supported authentication flows
 
-The Microsoft identity platform provides the following Microsoft Authentication Library for JavaScript (MSAL.js) to support implicit flow and authorization code flow with PKCE by using industry-recommended security practices:
+The Microsoft identity platform provides the following Microsoft Authentication Libraries for JavaScript (MSAL.js) to support implicit flow and authorization code flow with PKCE by using industry-recommended security practices:
 
 [!INCLUDE [active-directory-develop-libraries-spa](../../../includes/active-directory-develop-libraries-spa.md)]
 
