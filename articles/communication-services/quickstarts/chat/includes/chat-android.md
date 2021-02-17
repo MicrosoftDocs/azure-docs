@@ -24,30 +24,23 @@ Before you get started, make sure to:
 
 ### Create a new android application
 
-Open Android Studio and select `Create a new project`.
-
-On the next window, select `Empty Activity` as the project template.
-
-When choosing options enter `ChatQuickstart` as the project name.
-
-Click next and choose the directory where you want the project to be created.
+1. Open Android Studio and select `Create a new project`. 
+2. On the next window, select `Empty Activity` as the project template.
+3. When choosing options enter `ChatQuickstart` as the project name.
+4. Click next and choose the directory where you want the project to be created.
 
 ### Install the libraries
 
-We'll use Gradle to install the necessary Communication Services dependencies.
+We'll use Gradle to install the necessary Communication Services dependencies. From the command line navigate inside the root directory of the `ChatQuickstart` project. Open the app's build.gradle file and add the following dependencies to the `ChatQuickstart` target:
 
-From the command line navigate inside the root directory of the `ChatQuickstart` project.
-
-Open the app's build.gradle file and add the following dependencies to the `ChatQuickstart` target:
 ```
 implementation 'com.azure.android:azure-communication-common:1.0.0-beta.5'
 implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.5'
 ```
 
-After the settings, click 'sync now' in the android studio on top right corner.
+Click 'sync now' in Android Studio.
 
-
-#### (Alternative) To install libraries through maven
+#### (Alternative) To install libraries through Maven
 To import the library into your project using the [Maven](https://maven.apache.org/) build system, add it to the `dependencies` section of your app's `pom.xml` file, specifying its artifact ID and the version you wish to use:
 
 ```xml
@@ -61,11 +54,7 @@ To import the library into your project using the [Maven](https://maven.apache.o
 
 ### Setup the placeholders
 
-Open and edit the file `MainActivity.java`.
-
-In this Quickstart, we will add our code to `MainActivity`, and view the output in the console. This quickstart does not address building a UI.
-
-At the top of file, import the `Communication common` and `Communication chat` libraries:
+Open and edit the file `MainActivity.java`. In this Quickstart, we'll add our code to `MainActivity`, and view the output in the console. This quickstart does not address building a UI. At the top of file, import the `Communication common` and `Communication chat` libraries:
 
 ```
 import com.azure.android.communication.chat.*;
@@ -105,8 +94,6 @@ In following steps, we'll replace the placeholders with sample code using the Az
 
 Replace the comment `<CREATE A CHAT CLIENT>` with the following code (put the import statements at top of the file):
 
-Use the `AzureCommunicationChatServiceAsyncClient.Builder` to configure and create an instance of `AzureCommunicationChatClient`.
-
 ```java
 import com.azure.android.communication.chat.ChatClient;
 import com.azure.android.core.http.HttpHeader;
@@ -122,8 +109,9 @@ ChatClient client = new ChatClient.Builder()
         .build());
 ```
 
-Replace `<resource>` with your Communication Services resource.
-Replace `<user_access_token>` with a valid Communication Services access token.
+1. Use the `AzureCommunicationChatServiceAsyncClient.Builder` to configure and create an instance of `AzureCommunicationChatClient`.
+2. Replace `<resource>` with your Communication Services resource.
+3. Replace `<user_access_token>` with a valid Communication Services access token.
 
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for JavaScript.
@@ -135,7 +123,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Start a chat thread
 
-Now we will use our `ChatClient` to create a new thread with an initial user.
+We'll use our `ChatClient` to create a new thread with an initial user.
 
 Replace the comment `<CREATE A CHAT THREAD>` with the following code:
 
@@ -182,15 +170,11 @@ client.createChatThread(thread, repeatabilityRequestID, new Callback<CreateChatT
 });
 ```
 
-Replace `<user_id>` with a valid Communication Services user ID.
-
-We will use the `threadId` from the response returned to the completion handler in later steps.
+Replace `<user_id>` with a valid Communication Services user ID. We'll use the `threadId` from the response returned to the completion handler in later steps.
 
 ## Get a chat thread client
 
-Now that we have created a Chat thread we'll obtain a `ChatThreadClient` to perform operations within the thread.
-
-Replace the comment `<CREATE A CHAT THREAD CLIENT>` with the following code:
+Now that we've created a Chat thread we'll obtain a `ChatThreadClient` to perform operations within the thread. Replace the comment `<CREATE A CHAT THREAD CLIENT>` with the following code:
 
 ```
 ChatThreadClient threadClient =
@@ -266,10 +250,8 @@ threadClient.addChatParticipants(threadId, participants, new Callback<Void>() {
 });
 ```
 
-Replace `<user_id>` with the Communication Services user ID of the user to be added.
-Replace `<thread_id>` with the thread ID that user is adding to.
-
-When adding a participant to a thread, the response returned the completion may contain errors. These errors represent failure to add particular participants.
+1. Replace `<user_id>` with the Communication Services user ID of the user to be added. 
+2. Replace `<thread_id>` with the thread ID that user is adding to.
 
 ## List users in a thread
 
@@ -334,8 +316,7 @@ void listChatParticipantsNext(String nextLink,
 }
 ```
 
-Replace `<thread_id>` with the thread id that listing users for.
-
+Replace `<thread_id>` with the thread ID you're listing users for.
 
 ## Remove user from a chat thread
 
@@ -359,8 +340,8 @@ threadClient.removeChatParticipant(threadId, participantId, new Callback<Void>()
 });
 ```
 
-Replace `<thread_id>` with the thread id that removing user from.
-Replace `<participant_id>` with the Communication Services user ID of the participant being removed.
+1. Replace `<thread_id>` with the thread id that removing user from.
+1. Replace `<participant_id>` with the Communication Services user ID of the participant being removed.
 
 ## Run the code
 
