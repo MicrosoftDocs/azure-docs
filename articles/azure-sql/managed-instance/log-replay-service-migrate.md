@@ -167,9 +167,13 @@ az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb --storage
 
 ## Monitor the migration progress
 
+To monitor the migration operation progress, use the following PowerShell command:
+
 ```powershell
 Get-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstance01" -Name "ManagedDatabaseName"
 ```
+
+To monitor the migration operation progress, use the following CLI command:
 
 ```cli
 az sql midb log-replay show -g mygroup --mi myinstance -n mymanageddb
@@ -177,35 +181,37 @@ az sql midb log-replay show -g mygroup --mi myinstance -n mymanageddb
 
 ## Stop the migration
 
-Stop je da ga ubijes - delete db
+In case you need to stop the migration, use the following cmdlets. Stopping the migration will delete the restoring database on SQL managed instance due to which it will not be possible to resume the migration.
+
+To stop\abort the migration process, use the following PowerShell command:
 
 ```powershell
 Stop-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstance01" -Name "ManagedDatabaseName"
 ```
 
+To stop\abort the migration process, use the following CLI command:
+
 ```cli
 az sql midb log-replay stop -g mygroup --mi myinstance -n mymanageddb
 ```
 
-## Complete the migration
+## Complete the migration (continous mode)
 
-Complete je da podignes (recovery) bazu
+In case LRS is started in continous mode, once you have ensured that all backups have been restored, initiating the cutover will complete the migration. Upon cutover completion, database will be migrated and ready for read and write access.
+
+To complete the migration process in LRS continous mode, use the following PowerShell command:
 
 ```powershell
 Complete-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstance01" -Name "ManagedDatabaseName" -LastBackupName "last_backup.bak"
 ```
 
+To complete the migration process in LRS continous mode, use the following CLI command:
+
 ```cli
 az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last-backup-name "backup.bak"
 ```
 
-# Using API
-
-For development of cutom migration applications based on LRS, the following APIs can be used
-
-
 ## Next steps
--	Learn more about [Migrate SQL Server to SQL Managed instance](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
--	Learn more about [Differences between SQL Server and Azure SQL Managed Instance](transact-sql-tsql-differences-sql-server.md).
--	Learn more about [Best practices to cost and size workloads migrated to Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs).
-
+- Learn more about [Migrate SQL Server to SQL Managed instance](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
+- Learn more about [Differences between SQL Server and Azure SQL Managed Instance](transact-sql-tsql-differences-sql-server.md).
+- Learn more about [Best practices to cost and size workloads migrated to Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs).
