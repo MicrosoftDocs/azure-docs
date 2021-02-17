@@ -12,6 +12,8 @@
   items:
   - name: Move Azure VMs to another region
     href: tutorial-move-region-virtual-machines.md
+  - name: Move encrypted Azure VMs to another region
+    href: tutorial-move-region-encrypted-virtual-machines.md
   - name: Move SQL resources to another region
     href: tutorial-move-region-sql.md
 - name: Concepts

@@ -1,9 +1,6 @@
 ---
 title: Migrate Azure HDInsight 3.6 Apache Storm to HDInsight 4.0 Apache Spark
 description: The differences and migration flow for migrating Apache Storm workloads to Spark Streaming or Spark Structured Streaming.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019

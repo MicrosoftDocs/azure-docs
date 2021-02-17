@@ -33,7 +33,7 @@ The steps that follow explain how to create an example virtual machine with mult
 3. From a command shell, login with the command `az login` and select the subscription you're using.
 4. Create the VM by executing the script that follows on a Linux or Mac computer. The script creates a resource group, one virtual network (VNet), one NIC with three IP configurations, and a VM with the two NICs attached to it. The NIC, public IP address, virtual network, and VM resources must all exist in the same location and subscription. Though the resources don't all have to exist in the same resource group, in the following script they do.
 
-```bash
+```azurecli
 	
 #!/bin/sh
 	

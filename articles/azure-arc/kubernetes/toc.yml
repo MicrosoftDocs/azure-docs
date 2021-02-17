@@ -4,6 +4,14 @@
   items:
   - name: About Arc enabled Kubernetes
     href: overview.md
+- name: Concepts
+  items:
+  - name: Agent architecture
+    href: conceptual-agent-architecture.md
+  - name: Configurations and GitOps
+    href: conceptual-configurations.md
+  - name: Frequently Asked Questions
+    href: faq.md
 - name: How-to guides
   items:
   - name: Connect to Azure Arc
@@ -12,7 +20,7 @@
       href: connect-cluster.md
     - name: Onboarding service principal
       href: create-onboarding-service-principal.md
-  - name: Manage
+  - name: Scenarios
     items:
     - name: Deploy configurations using GitOps
       href: use-gitops-connected-cluster.md
@@ -38,4 +46,4 @@
 - name: Resources
   items:
     - name: Azure Arc jumpstart
-      href: https://github.com/microsoft/azure_arc
+      href: https://azurearcjumpstart.io

@@ -3,14 +3,14 @@ title: Use My Staff to delegate user management (preview) - Azure AD | Microsoft
 description:  Delegate user management using My Staff and administrative units
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.date: 05/08/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
 
@@ -84,7 +84,7 @@ The following roles have permission to reset a user's password:
 
 - [Authentication administrator](permissions-reference.md#authentication-administrator)
 - [Privileged authentication administrator](permissions-reference.md#privileged-authentication-administrator)
-- [Global administrator](permissions-reference.md#global-administrator--company-administrator)
+- [Global administrator](permissions-reference.md#global-administrator)
 - [Helpdesk administrator](permissions-reference.md#helpdesk-administrator)
 - [User administrator](permissions-reference.md#user-administrator)
 - [Password administrator](permissions-reference.md#password-administrator)
@@ -112,7 +112,7 @@ To manage a user's phone number, you must be assigned one of the following roles
 
 - [Authentication administrator](permissions-reference.md#authentication-administrator)
 - [Privileged authentication administrator](permissions-reference.md#privileged-authentication-administrator)
-- [Global administrator](permissions-reference.md#global-administrator--company-administrator)
+- [Global administrator](permissions-reference.md#global-administrator)
 
 ## Search
 

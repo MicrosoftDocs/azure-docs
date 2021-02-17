@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 01/21/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -253,6 +253,16 @@ No. Azure Data Box does not support Azure NetApp Files currently.
 ### Is migration with Azure Import/Export service supported?
 
 No. Azure Import/Export service does not support Azure NetApp Files currently.
+
+## Product FAQs
+
+### Can I use Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
+
+You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. You can map Azure NetApp Files SMB shares on AVS Windows VMs. For more details, see [Azure NetApp Files with Azure VMware Solution]( ../azure-vmware/netapp-files-with-azure-vmware-solution.md).  
+
+### What regions are supported for using Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
+
+Using Azure NetApp Files NFS or SMB volumes with AVS is supported in the following regions - East US, West US , West Europe, and Australia East.
 
 ## Next steps  
 

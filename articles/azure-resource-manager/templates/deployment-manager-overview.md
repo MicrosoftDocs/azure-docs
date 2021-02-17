@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
 ---
+
 # Enable safe deployment practices with Azure Deployment Manager (Public preview)
 
 To deploy your service across many regions and make sure it's running as expected in each region, you can use Azure Deployment Manager to coordinate a staged rollout of the service. Just as you would for any Azure deployment, you define the resources for your service in [Resource Manager templates](template-syntax.md). After creating the templates, you use Deployment Manager to describe the topology for your service and how it should be rolled out.
@@ -15,19 +16,19 @@ Azure Deployment Manager is in preview. Help us improve the feature by providing
 
 To use Deployment Manager, you need to create four files:
 
-* Topology template
-* Rollout template
-* Parameter file for topology
-* Parameter file for rollout
+* Topology template.
+* Rollout template.
+* Parameter file for topology.
+* Parameter file for rollout.
 
 You deploy the topology template before deploying the rollout template.
 
 Additional resources:
 
-- The [Azure Deployment Manager REST API reference](/rest/api/deploymentmanager/).
-- [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
-- [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
-- [An Azure Deployment Manager sample](https://github.com/Azure-Samples/adm-quickstart).
+* [Azure Deployment Manager REST API reference](/rest/api/deploymentmanager/).
+* [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
+* [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+* [Azure Deployment Manager sample](https://github.com/Azure-Samples/adm-quickstart).
 
 ## Identity and access
 
@@ -43,10 +44,10 @@ The topology template describes the Azure resources that make up your service an
 
 The topology template includes the following resources:
 
-* Artifact source - where your Resource Manager templates and parameters are stored
-* Service topology - points to artifact source
-  * Services - specifies location and Azure subscription ID
-    * Service units - specifies resource group, deployment mode, and path to template and parameter file
+* Artifact source - where your Resource Manager templates and parameters are stored.
+* Service topology - points to artifact source.
+  * Services - specifies location and Azure subscription ID.
+    * Service units - specifies resource group, deployment mode, and path to template and parameter files.
 
 To understand what happens at each level, it's helpful to see which values you provide.
 
@@ -81,7 +82,7 @@ For more information, see [artifactSources template reference](/azure/templates/
 
 ### Service topology
 
-The following example shows the general format of the service topology resource. You provide the resource ID of the artifact source that holds the templates and parameter files. The service topology includes all service resources. To make sure the artifact source is available, the service topology depends on it.
+The following example shows the general format of the service topology resource. You provide the resource ID of the artifact source that holds the templates and parameter files. The service topology includes all service resources. Make sure the artifact source is available because the service topology depends on it.
 
 ```json
 {
@@ -169,11 +170,11 @@ For more information, see [serviceUnits template reference](/azure/templates/Mic
 
 The rollout template describes the steps to take when deploying your service. You specify the service topology to use and define the order for deploying service units. It includes an artifact source for storing binaries for the deployment. In your rollout template, you define the following hierarchy:
 
-* Artifact source
-* Step
-* Rollout
-  * Step groups
-    * Deployment operations
+* Artifact source.
+* Step.
+* Rollout.
+  * Step groups.
+    * Deployment operations.
 
 The following image shows the hierarchy of the rollout template:
 
@@ -187,9 +188,9 @@ In the rollout template, you create an artifact source for the binaries you need
 
 ### Steps
 
-You can define a step to perform either before or after your deployment operation. Currently, only the `wait` step and the 'healthCheck' step are available.
+You can define a step to perform either before or after your deployment operation. Currently, only the `wait` step and the `healthCheck` step are available.
 
-The wait step pauses the deployment before continuing. It allows you to verify that your service is running as expected before deploying the next service unit. The following example shows the general format of a wait step.
+The `wait` step pauses the deployment before continuing. It allows you to verify that your service is running as expected before deploying the next service unit. The following example shows the general format of a `wait` step.
 
 ```json
 {
@@ -208,13 +209,13 @@ The wait step pauses the deployment before continuing. It allows you to verify t
 
 The duration property uses [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601#Durations). The preceding example specifies a one-minute wait.
 
-For more information about the health check step, see [Introduce health integration rollout to Azure Deployment Manager](./deployment-manager-health-check.md) and [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+For more information about health checks, see [Introduce health integration rollout to Azure Deployment Manager](./deployment-manager-health-check.md) and [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 For more information, see [steps template reference](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### Rollouts
 
-To make sure the artifact source is available, the rollout depends on it. The rollout defines steps groups for each service unit that is deployed. You can define actions to take before or after deployment. For example, you can specify that the deployment wait after the service unit has been deployed. You can define the order of the step groups.
+Make sure the artifact source is available because the rollout depends on it. The rollout defines steps groups for each service unit that is deployed. You can define actions to take before or after deployment. For example, you can specify the deployment to wait after the service unit has been deployed. You can define the order of the step groups.
 
 The identity object specifies the [user-assigned managed identity](#identity-and-access) that performs the deployment actions.
 
@@ -264,7 +265,7 @@ You create two parameter files. One parameter file is used when deploying the se
 
 With versioned deployments, the path to your artifacts changes with each new version. The first time you run a deployment the path might be `https://<base-uri-blob-container>/binaries/1.0.0.0`. The second time it might be `https://<base-uri-blob-container>/binaries/1.0.0.1`. Deployment Manager simplifies getting the correct root path for the current deployment by using the `$containerRoot` variable. This value changes with each version and isn't known before deployment.
 
-Use the `$containerRoot` variable in the parameter file for template to deploy the Azure resources. At deployment time, this variable is replaced with the actual values from the rollout.
+Use the `$containerRoot` variable in the parameter file for the template that deploys the Azure resources. At deployment time, this variable is replaced with the actual values from the rollout.
 
 For example, during rollout you create an artifact source for the binary artifacts.
 
@@ -290,7 +291,7 @@ For example, during rollout you create an artifact source for the binary artifac
 
 Notice the `artifactRoot` and `sasUri` properties. The artifact root might be set to a value like `binaries/1.0.0.0`. The SAS URI is the URI to your storage container with a SAS token for access. Deployment Manager automatically constructs the value of the `$containerRoot` variable. It combines those values in the format `<container>/<artifactRoot>`.
 
-Your template and parameter file need to know the correct path for getting the versioned binaries. For example, to deploy files for a web app, create the following parameter file with the $containerRoot variable. You must use two backslashes (`\\`) for the path because the first is an escape character.
+Your template and parameter file need to know the correct path for getting the versioned binaries. For example, to deploy files for a web app, create the following parameter file with the `$containerRoot` variable. You must use two backslashes (`\\`) for the path because the first is an escape character.
 
 ```json
 {
@@ -324,7 +325,7 @@ Then, use that parameter in your template:
 }
 ```
 
-You manage versioned deployments by creating new folders and passing in that root during rollout. The path flows through to the template that deploys the resources.
+You manage versioned deployments by creating new folders and passing in that root path during rollout. The path flows through to the template that deploys the resources.
 
 ## Next steps
 

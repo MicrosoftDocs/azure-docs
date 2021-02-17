@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform.
 ---
 
 # A web API that calls web APIs: Code configuration
@@ -30,7 +30,7 @@ Microsoft recommends that you use the [Microsoft.Identity.Web](https://www.nuget
 
 ## Client secrets or client certificates
 
-Given that your web API now calls a downstream web API, you need to provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that specifies:
+Given that your web API now calls a downstream web API, provide a client secret or client certificate in the *appsettings.json* file. You can also add a section that specifies:
 
 - The URL of the downstream web API
 - The scopes required for calling the API
@@ -166,7 +166,7 @@ The following image shows the various possibilities of *Microsoft.Identity.Web* 
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Block diagram showing service configuration options in startup dot C S for calling a web API and specifying a token cache implementation":::
 
 > [!NOTE]
-> To fully understand the code examples here, you need to be familiar with [ASP.NET Core fundamentals](/aspnet/core/fundamentals), and in particular with [dependency injection](/aspnet/core/fundamentals/dependency-injection) and [options](/aspnet/core/fundamentals/configuration/options).
+> To fully understand the code examples here, be familiar with [ASP.NET Core fundamentals](/aspnet/core/fundamentals), and in particular with [dependency injection](/aspnet/core/fundamentals/dependency-injection) and [options](/aspnet/core/fundamentals/configuration/options).
 
 # [Java](#tab/java)
 
@@ -249,7 +249,7 @@ You can also see an example of OBO flow implementation in [Node.js and Azure Fun
 
 ## Protocol
 
-For more information about the OBO protocol, see [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](./v2-oauth2-on-behalf-of-flow.md).
+For more information about the OBO protocol, see the [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](./v2-oauth2-on-behalf-of-flow.md).
 
 ## Next steps
 

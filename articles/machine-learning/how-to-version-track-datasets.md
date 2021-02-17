@@ -116,7 +116,7 @@ dataset2.register(workspace = workspace,
 
 You can use a dataset as the input and output of each [ML pipeline](concept-ml-pipelines.md) step. When you rerun pipelines, the output of each pipeline step is registered as a new dataset version.
 
-ML pipelines populate the output of each step into a new folder every time the pipeline reruns. This behavior allows the versioned output datasets to be reproducible. Learn more about [datasets in pipelines](how-to-create-your-first-pipeline.md#steps).
+ML pipelines populate the output of each step into a new folder every time the pipeline reruns. This behavior allows the versioned output datasets to be reproducible. Learn more about [datasets in pipelines](./how-to-create-machine-learning-pipelines.md#steps).
 
 ```Python
 from azureml.core import Dataset

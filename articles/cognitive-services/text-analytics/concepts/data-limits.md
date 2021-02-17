@@ -17,7 +17,7 @@ ms.reviewer: chtufts
 # Data and rate limits for the Text Analytics API
 <a name="data-limits"></a>
 
-Use this article to find the limits for the size, and rates that you can send data to Text Analytics API. 
+Use this article to find the limits for the size, and rates that you can send data to Text Analytics API. Note that pricing is not affected by the data limits or rate limits. Pricing is subject to your Text Analytics resource's [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
 ## Data limits
 

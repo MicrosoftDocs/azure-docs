@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Arc enabled servers Connected Machine agent.
-ms.date: 12/21/2020
+ms.date: 02/10/2021
 ms.topic: conceptual
 ---
 
@@ -29,7 +29,31 @@ For servers or machines you no longer want to manage with Azure Arc enabled serv
 
     * Using the [Azure CLI](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) or [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). For the`ResourceType` parameter use `Microsoft.HybridCompute/machines`.
 
-3. Uninstall the agent from the machine or server. Follow the steps below.
+3. [Uninstall the agent](#remove-the-agent) from the machine or server following the steps below.
+
+## Renaming a machine
+
+When you change the name of the Linux or Windows machine connected to Azure Arc enabled servers, the new name is not recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you have to delete the resource and re-create it in order to use the new name.
+
+For Arc enabled servers, before you rename the machine, it is necessary to remove the VM extensions before proceeding.
+
+> [!NOTE]
+> While installed extensions continue to run and perform their normal operation after this procedure is complete, you won't be able to manage them. If you attempt to redeploy the extensions on the machine, you may experience unpredictable behavior.
+
+> [!WARNING]
+> We recommend you avoid renaming the machine's computer name and only perform this procedure if absolutely necessary.
+
+1. Audit the VM extensions installed on the machine and note their configuration, using the [Azure CLI](manage-vm-extensions-cli.md#list-extensions-installed) or using [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed).
+
+2. Remove VM extensions installed from the [Azure portal](manage-vm-extensions-portal.md#uninstall-extension), using the [Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension), or using [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension).
+
+3. Use the **azcmagent** tool with the [Disconnect](manage-agent.md#disconnect) parameter to disconnect the machine from Azure Arc and delete the machine resource from Azure. Disconnecting the machine from Arc enabled servers does not remove the Connected Machine agent, and you do not need to remove the agent as part of this process. You can run this manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents, or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you did not use a service principal to register the machine with Azure Arc enabled servers, see the following [article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to create a service principal.
+
+4. Rename the machines computer name.
+
+5. Re-register the Connected Machine agent with Arc enabled servers. Run the `azcmagent` tool with the [Connect](manage-agent.md#connect) parameter complete this step.
+
+6. Redeploy the VM extensions that were originally deployed to the machine from Arc enabled servers. If you deployed the Azure Monitor for VMs (insights) agent or the Log Analytics agent using an Azure policy, the agents are redeployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## Upgrading agent
 
@@ -283,7 +307,7 @@ If you are planning to stop managing the machine with supporting services in Azu
 To configure the agent to communicate to the service through a proxy server or remove this configuration after deployment, or use one of the following methods to complete this task.
 
 > [!NOTE]
-> Arc enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/platform/gateway.md) as a proxy for the Connected Machine agent.
+> Arc enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
 >
 
 ### Windows
@@ -326,6 +350,6 @@ sudo azcmagent_proxy remove
 
 * Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
 
-* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-policy.md), and much more.
+* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
 
-* Learn more about the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, manage it using Automation runbooks or features like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).
+* Learn more about the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, manage it using Automation runbooks or features like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).

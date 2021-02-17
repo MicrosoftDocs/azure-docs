@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 01/26/2021
 ms.author: banders
 ms.custom: seodec18
 ---
@@ -33,7 +33,7 @@ Account administrator can grant others access to Azure billing information by as
 - Reader
 - Billing reader
 
-These roles have access to billing information in the [Azure portal](https://portal.azure.com/). People that are assigned these roles can also use the [Billing APIs](usage-rate-card-overview.md) to programmatically get invoices and usage details.
+These roles have access to billing information in the [Azure portal](https://portal.azure.com/). People that are assigned these roles can also use the [Billing APIs](consumption-api-overview.md#usage-details-api) to programmatically get invoices and usage details.
 
 To assign roles, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 

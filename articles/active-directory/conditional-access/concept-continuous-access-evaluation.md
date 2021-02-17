@@ -25,7 +25,7 @@ Timely response to policy violations or security issues really requires a “con
 
 The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online.
 
-To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](/azure/active-directory/develop/app-resilience-continuous-access-evaluation).
+To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md).
 
 ### Key benefits
 
@@ -45,7 +45,7 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 - Password for a user is changed or reset
 - Multi-factor authentication is enabled for the user
 - Administrator explicitly revokes all refresh tokens for a user
-- Elevated user risk detected by Azure AD Identity Protection
+- High user risk detected by Azure AD Identity Protection
 
 This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within mins after one of these critical events. 
 

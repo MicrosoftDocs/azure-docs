@@ -151,4 +151,4 @@ Review [best practices for AKS cluster security][best-practices-security]
 [customer-managed-keys-windows]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [customer-managed-keys-linux]: ../virtual-machines/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
-[supported-regions]: ../virtual-machines/windows/disk-encryption.md#supported-regions
+[supported-regions]: ../virtual-machines/disk-encryption.md#supported-regions

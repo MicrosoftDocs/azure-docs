@@ -40,6 +40,9 @@ There could be multiple reasons as why you would get a stop error. The most comm
 
 ## Collect memory dump file
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 To resolve this problem, you would need first to gather dump file for the crash and contact support with the dump file. To collect the Dump file, follow these steps:
 
 ### Attach the OS disk to a recovery VM

@@ -75,7 +75,7 @@
       href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
     - name: Payout statements
       href: /partner-center/payout-statement?context=/azure/marketplace/context/context
-    - name: Payout policy details
+    - name: Payout schedules and processes
       href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
     - name: Tax details
       href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
@@ -299,6 +299,8 @@
     href: partner-center-portal/downloads-dashboard.md
   - name: Ratings and reviews dashboard
     href: partner-center-portal/ratings-reviews.md
+  - name: Anomaly detection for metered billing 
+    href: anomaly-detection.md    
   - name: Analytics common questions 
     href: analytics-faq.md 
 - name: Policies and terms

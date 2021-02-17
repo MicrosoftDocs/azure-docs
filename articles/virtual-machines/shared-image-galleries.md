@@ -184,10 +184,10 @@ Image version:
 
 The following SDKs support creating Shared Image Galleries:
 
-- [.NET](/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
-- [Java](/java/azure/?view=azure-java-stable)
+- [.NET](/dotnet/api/overview/azure/virtualmachines/management)
+- [Java](/java/azure/)
 - [Node.js](/javascript/api/@azure/arm-compute)
-- [Python](/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Python](/python/api/overview/azure/virtualmachines)
 - [Go](/azure/go/)
 
 ## Templates

@@ -1,5 +1,5 @@
 ---
-title: Stream video files with Azure Media Services - Node.js | Microsoft Docs
+title: Stream video files with Azure Media Services - Node.js 
 description: Follow the steps of this tutorial to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
 services: media-services
 documentationcenter: ''
