@@ -170,7 +170,7 @@ During the installation of the synchronization service, Azure AD Connect checks 
 
 Under this registry key, Azure AD Connect will check to see if the following values are present and uncorrupted: 
 
-- [MachineAccessRestriction](https://docs.microsoft.com/en-us/windows/win32/com/machineaccessrestriction)
+- [MachineAccessRestriction](https://docs.microsoft.com/windows/win32/com/machineaccessrestriction)
 - [MachineLaunchRestriction](https://docs.microsoft.com/windows/win32/com/machinelaunchrestriction)
 - [DefaultLaunchPermission](https://docs.microsoft.com/windows/win32/com/defaultlaunchpermission)
 
