@@ -31,7 +31,7 @@ Virtual machine scale sets with Uniform orchestration use a virtual machine prof
 ## Scale sets with Flexible orchestration 
 *Achieve high availability at scale with identical or multiple virtual machine types.* 
 
-Virtual machine scale sets with Flexible orchestration provide an orchestration layer on top of standard Azure IaaS virtual machines. VM instances managed by Flexible orchestration fully support the standard Azure VM API commands, full control over instance networking and disks, ARM management and policy, and other capabilities within the Azure VM ecosystem. Flexible orchestration allows you to have fault domain high availability guarantees for up to 1000 instances. Flexible orchestration is currently in public preview. During the preview period, we will be adding additional scale set orchestration features to achieve parity between Uniform and Flexible orchestration modes. Please refer to the documentation below to understand differences between the two modes.  
+Virtual machine scale sets with Flexible orchestration provide an orchestration layer on top of standard Azure IaaS virtual machines. VM instances managed by Flexible orchestration fully support the standard Azure VM API commands, full control over instance networking and disks, ARM management and policy, and other capabilities within the Azure VM ecosystem. Flexible orchestration allows you to have fault domain high availability guarantees for up to 1000 instances. Flexible orchestration is currently in public preview. During the preview period, we will be adding additional scale set orchestration features to achieve parity between Uniform and Flexible orchestration modes. Refer to the documentation below to understand differences between the two modes.  
 
 > [!IMPORTANT]
 > Virtual machine scale sets in Flexible orchestration mode is currently in public preview. An opt-in procedure is needed to use the public preview functionality described below.
@@ -186,7 +186,7 @@ az provider register --namespace Microsoft.Compute
 ```
 
 2. Add virtual machines to the scale set.
-    1. Assign the `virtualMachineScaleSet` property to the scale set you have previously created. You must specify the `virtualMachineScaleSet` property at the time of VM creation. 
+    1. Assign the `virtualMachineScaleSet` property to the scale set you have previously created. You are required to specify the `virtualMachineScaleSet` property at the time of VM creation. 
     1. You can use the **copy()** ARM template function to create multiple VMs at the same time. See [Resource iteration](https://docs.microsoft.com/azure/azure-resource-manager/templates/copy-resources#iteration-for-a-child-resource) in ARM templates. 
 
 ```json
@@ -230,7 +230,7 @@ az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmssflexname --image Ubu
 ```
 
 ### Terraform
-Create a Flexible virtual machine scale set with Terraform. This process requires **Terraform Azurerm provider v2.15.0** or later. Please note:
+Create a Flexible virtual machine scale set with Terraform. This process requires **Terraform Azurerm provider v2.15.0** or later. Note the following parameters:
 - When no zone is specified, `platform_fault_domain_count` can be 1, 2, or 3 depending on region
 - When a zone is specified, `the fault domain count` can be 1
 - `single_placement_group` parameter must be `false` for Flexible virtual machine scale sets
