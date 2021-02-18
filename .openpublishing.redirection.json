@@ -1,5 +1,15 @@
 {
   "redirections": [
+  {
+      "source_path": "articles/cosmos-db/create-mongodb-flask.md",
+      "redirect_url": "/azure/cosmos-db/mongodb-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/python.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/python",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/cognitive-services/Ink-Recognizer/concepts/send-ink-data.md",
       "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/concepts/send-ink-data",
@@ -6712,11 +6722,6 @@
     {
       "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/deploy-face-container-on-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/Face/APIReference.md",
-      "redirect_url": "https://docs.microsoft.com/rest/api/face/",
       "redirect_document_id": false
     },
     {
@@ -25455,6 +25460,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/dms/tutorial-sql-server-azure-sql-online.md",
+      "redirect_url": "/azure/dms/tutorial-sql-server-to-azure-sql",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-logic/index.md",
       "redirect_url": "/azure/logic-apps/",
       "redirect_document_id": false
@@ -32555,6 +32565,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/security-center/security-center-investigation-user-data.md",
+      "redirect_url": "/azure/security-center/security-center-intro",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security-center/security-center-secure-score.md",
       "redirect_url": "/azure/security-center/secure-score-security-controls",
       "redirect_document_id": false
@@ -34690,6 +34705,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-quickstart-create-databricks-account.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-use-databricks-spark",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/storage/data-lake-storage/abfs-driver.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-abfs-driver",
       "redirect_document_id": false
@@ -34852,6 +34872,11 @@
     {
       "source_path_from_root": "/articles/storage/common/monitor-storage.md",
       "redirect_url": "/azure/storage/blobs/monitor-blob-storage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/recursive-access-control-lists.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-access-control#set-access-control-lists",
       "redirect_document_id": true
     },
     {
