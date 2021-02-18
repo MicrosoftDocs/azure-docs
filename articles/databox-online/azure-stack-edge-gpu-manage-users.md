@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 02/18/2021
 ms.author: alkohli
 ---
 # Use the Azure portal to manage users on your Azure Stack Edge Pro
@@ -39,11 +39,11 @@ Do the following steps in the Azure portal to add a user.
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Users**. Select **+ Add user** on the command bar.
 
-    ![Select add user](media/azure-stack-edge-j-series-manage-users/add-user-1.png)
+    ![Select add user](media/azure-stack-edge-gpu-manage-users/add-user-1.png)
 
 2. Specify the username and password for the user you want to add. Confirm the password and select **Add**.
 
-    ![Specify username and password](media/azure-stack-edge-j-series-manage-users/add-user-2.png)
+    ![Specify username and password](media/azure-stack-edge-gpu-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
     > These users are reserved by the system and should not be used: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
@@ -55,7 +55,7 @@ Do the following steps in the Azure portal to add a user.
 
 You can change the password associated with a user once the user is created. Select from the list of users. Enter and confirm the new password. Save the changes.
 
-![Modify user](media/azure-stack-edge-j-series-manage-users/modify-user-1.png)
+![Modify user](media/azure-stack-edge-gpu-manage-users/modify-user-1.png)
 
 
 ## Delete a user
@@ -65,16 +65,16 @@ Do the following steps in the Azure portal to delete a user.
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Users**.
 
-    ![Select user to delete](media/azure-stack-edge-j-series-manage-users/delete-user-1.png)
+    ![Select user to delete](media/azure-stack-edge-gpu-manage-users/delete-user-1.png)
 
 2. Select a user from the list of users and then select **Delete**. When prompted, confirm the deletion.
 
-    ![Select user to delete 2](media/azure-stack-edge-j-series-manage-users/delete-user-2.png)
+    ![Select user to delete 2](media/azure-stack-edge-gpu-manage-users/delete-user-2.png)
 
 The list of users is updated to reflect the deleted user.
 
-![Updated list of users](media/azure-stack-edge-j-series-manage-users/delete-user-4.png)
+![Updated list of users](media/azure-stack-edge-gpu-manage-users/delete-user-4.png)
 
 ## Next steps
 
-- Learn how to [Manage bandwidth](azure-stack-edge-j-series-manage-bandwidth-schedules.md).
+- Learn how to [Manage bandwidth](azure-stack-edge-gpu-manage-bandwidth-schedules.md).
