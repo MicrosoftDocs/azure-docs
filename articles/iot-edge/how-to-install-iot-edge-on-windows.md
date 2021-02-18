@@ -169,9 +169,8 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    Deploy-Eflow
    ```
 
-   <!-- Most likely temporary until cmdlet is fully documented -->
    > [!NOTE]
-   > You can run this command without parameters or optionally customize deployment with parameters. Inspect the PowerShell module AzureEFLOW.psm1 to see the parameters and their meaning (see under C:\Program Files\WindowsPowerShell\Modules\AzureEFLOW)​.
+   > You can run this command without parameters or optionally customize deployment with parameters. You can refer to [the IoT Edge for Linux on Windows PowerShell script reference](reference-iot-edge-for-linux-on-windows-scripts.md#Deploy-Eflow) to see their meaning​s.
 
 1. Enter 'Y' to accept the license terms.
 
