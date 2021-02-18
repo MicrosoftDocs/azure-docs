@@ -36,7 +36,7 @@ The information in the table above was tested for the following operating system
 
 | Operating system | Latest tested version |
 | --- | --- |
-| Windows | Windows 10 20H2 1904 |
+| Windows | Windows 10 20H2 |
 | macOS | OS X 11 Big Sur |
 | Linux | Fedora 32 Workstation |
 

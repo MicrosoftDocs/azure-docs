@@ -171,7 +171,7 @@ Consider the following example:
 The next step is to identify all instances of banned passwords in the user's normalized new password. Points are assigned based on the following criteria:
 
 1. Each banned password that's found in a user's password is given one point.
-1. Each remaining unique character is given one point.
+1. Each remaining character that is not part of a banned password is given one point.
 1. A password must be at least five (5) points to be accepted.
 
 For the next two example scenarios, Contoso is using Azure AD Password Protection and has "contoso" on their custom banned password list. Let's also assume that "blank" is on the global list.
