@@ -127,7 +127,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Sign in to Cisco Webex with your administrator credentials.
 
-1. Select **Oranization Settings** and under the **Authentication** section, click **Modify**.
+1. Select **Organization Settings** and under the **Authentication** section, click **Modify**.
 
     ![Screenshot shows Authentication Settings where you can select Modify.](./media/cisco-spark-tutorial/organization-settings.png)
   
