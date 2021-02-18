@@ -86,11 +86,7 @@ There are a few different ways to configure a bastion host. In the following ste
    :::image type="content" source="./media/quickstart-host-portal/create-subnet.png" alt-text="Screenshot of create the Bastion subnet.":::
 
 1. Click **Create Subnet** to create the AzureBastionSubnet.
-1. After the subnet creates, the page advances automatically to **Step 3**.
-
-   :::image type="content" source="./media/quickstart-host-portal/create-bastion.png" alt-text="Screenshot of Step 3.":::
-
-   For Step 3, use the following values:
+1. After the subnet creates, the page advances automatically to **Step 3**. For Step 3, use the following values:
 
    * **Name:** Name the bastion host.
    * **Public IP address:** Select **Create new**.
@@ -98,6 +94,8 @@ There are a few different ways to configure a bastion host. In the following ste
    * **Public IP address SKU:** Pre-configured as **Standard**
    * **Assignment:** Pre-configured to **Static**. You can't use a Dynamic assignment for Azure Bastion.
    * **Resource group**: The same resource group as the VM.
+
+   :::image type="content" source="./media/quickstart-host-portal/create-bastion.png" alt-text="Screenshot of Step 3.":::
 1. After completing the values, select **Create Azure Bastion using defaults**. Azure validates your settings, then creates the host. The host and its resources take about 5 minutes to create and deploy.
 
 ## <a name="connect"></a>Connect
