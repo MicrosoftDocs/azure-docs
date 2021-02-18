@@ -66,7 +66,7 @@ To create a new data lake, follow the instructions in [Create a storage account 
 
 ## Create a parameterization table
 
-Next, we'll create a metadata table in an Azure SQL database. This table will contain the non-sensitive data required by the Form Recognizer REST API. Whenever there's a new type of form in the dataset, we'll insert a new record in this table and trigger the training and scoring pipeline. (We'll implement that pipeline later.)
+Next, we'll create a metadata table in an Azure SQL database. This table will contain the non-sensitive data required by the Form Recognizer REST API. Whenever there's a new type of form in the dataset, we'll insert a new record in this table and trigger the training and scoring pipelines. (We'll implement those pipelines later.)
 
 These fields will be used in the table:
 
@@ -358,7 +358,7 @@ As we did in the training stage, we'll use Azure Data Factory to invoke the extr
     ```
 
     > [!NOTE]
-    > We mounted only the training storage account. In this case, the training files and the files we want to extract key-value pairs from are in the same storage account. If your scoring and training storage accounts are different, you'll need to mount both storage accounts here. 
+    > We mounted only the training storage account. In this case, the training files and the files we want to extract key-value pairs from are in the same storage account. If your scoring and training storage accounts are different, you'll need to mount both storage accounts. 
 
 ### Write the scoring notebook
 
@@ -462,7 +462,7 @@ The only remaining step is to set up the Azure Data Factory service to automate 
 
 ### Training pipeline
 
-The first activity in the training pipeline is a Lookup to read and return the values in the parameterization table in the Azure SQL database. All the training datasets will be in the same storage account and container (but potentially different folders). So we'll keep the default value **First row only** attribute in the Lookup activity settings. For each type of form to train the model against, we'll train the model by using all the files in **training_blob_root_folder**.
+The first activity in the training pipeline is a Lookup to read and return the values in the parameterization table in the Azure SQL database. All the training datasets will be in the same storage account and container (but potentially different folders). So we'll keep the default attribute value **First row only** in the Lookup activity settings. For each type of form to train the model against, we'll train the model by using all the files in **training_blob_root_folder**.
 
 :::image type="content" source="./media/tutorial-bulk-processing/training-pipeline.png" alt-text="Screenshot that shows a training pipeline in Data Factory.":::
 
@@ -484,11 +484,11 @@ The second pipeline will use a GetMeta activity to get the list of files in the 
 
 ### Specify a degree of parallelism
 
-In both the training and scoring pipelines, you can specify the degree of parallelism to process multiple forms simultaneously.
+In both the training and scoring pipelines, you can specify the degree of parallelism so you can process multiple forms simultaneously.
 
 To set the degree of parallelism in the Azure Data Factory pipeline:
 
-1. Select the Foreach activity.
+1. Select the **ForEach** activity.
 1. Clear the **Sequential** box.
 1. Set the degree of parallelism in the **Batch count** box. We recommend a maximum batch count of 15 for the scoring.
 
@@ -498,7 +498,7 @@ To set the degree of parallelism in the Azure Data Factory pipeline:
 
 You now have an automated pipeline to digitize your backlog of forms and run some analytics on top of it. When you add new forms of a familiar type to an existing storage folder, simply run the scoring pipelines again. They'll update all of your output files, including output files for the new forms. 
 
-If you add new forms of a new type, you'll also need to upload a training dataset to the appropriate container. Next, add a new row in the parameterization table, entering the locations of the new documents and their training dataset. Enter a value of -1 for **model_ID** to indicate that a new model needs to be trained for the forms. Then run the training pipeline in Azure Data Factory. The pipeline will read from the table, train a model, and overwrite the model ID in the table. You can then call the scoring pipelines to start writing the output files.
+If you add new forms of a new type, you'll also need to upload a training dataset to the appropriate container. Next, you'll add a new row in the parameterization table, entering the locations of the new documents and their training dataset. Enter a value of -1 for **model_ID** to indicate that a new model needs to be trained for the forms. Then run the training pipeline in Azure Data Factory. The pipeline will read from the table, train a model, and overwrite the model ID in the table. You can then call the scoring pipelines to start writing the output files.
 
 ## Next steps
 
