@@ -14,10 +14,13 @@ Learn how to deploy an update to an IoT device using Device Update for IoT Hub.
 
 ## Prerequisites
 
-* Access to an IoT Hub with Device Update for IoT Hub enabled. [Learn more](create-device-update-account.md) about enabling Device Update for Iot Hub. 
-* At least one update has been successfully imported for the provisioned device. [Learn more](import-update.md) about importing updates in Device Update for IoT Hub. 
-* An IoT device (or simulator) provisioned for Device Update within IoT Hub, running either Azure RTOS or Ubuntu 18.04 x64.
-* A tag has been assigned to the IoT device you are trying to update. The device is part of at least one update group. [Learn more](create-update-group.md) about creating update groups. 
+* [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). It is recommended that you use a S1 (Standard) tier or above for your IoT Hub. 
+* [At least one update has been successfully imported for the provisioned device.](import-update.md) 
+* An IoT device (or simulator) provisioned for Device Update within IoT Hub.
+* [A tag has been assigned to the IoT device you are trying to update. The device is part of at least one update group.](create-update-group.md)
+* Supported browsers:
+  * [Microsoft Edge](https://www.microsoft.com/edge)
+  * Google Chrome
 
 ## Deploy an update
 
@@ -31,7 +34,7 @@ Learn how to deploy an update to an IoT device using Device Update for IoT Hub.
 
   :::image type="content" source="media/deploy-update/updated-view.png" alt-text="Groups tab" lightbox="media/deploy-update/updated-view.png":::
 
-4. View the update compliance chart and groups list. You should see a new update available for your device group, with a link to the update under Pending Updates (you may need to Refresh once). [Learn More](device-update-compliance.md) about update compliance.
+4. View the update compliance chart and groups list. You should see a new update available for your device group, with a link to the update under Pending Updates (you may need to Refresh once). [Learn More about update compliance.](device-update-compliance.md) 
 
 5. Select the available update.
 
@@ -72,3 +75,6 @@ If your deployment fails for some reason, you can retry the deployment for faile
 
 3. Click on "Retry failed devices" and acknowledge the confirmation notification. 
 
+## Next steps
+
+[Troubleshoot common issues](troubleshoot-device-update.md)
