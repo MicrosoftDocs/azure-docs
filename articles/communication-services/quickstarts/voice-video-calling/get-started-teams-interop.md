@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 # Quickstart: Join your calling app to a Teams meeting
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Get started with Azure Communication Services by connecting your calling solution to Microsoft Teams using the JavaScript client library.
 
