@@ -155,13 +155,13 @@ Both ARM and ADF are using the same private zone creating a potential conflict o
 1. Find Private DNS zones **privatelink.azure.com** in Azure portal.
 ![Screenshot of finding Private DNS zones.](media/security-access-control-troubleshoot-guide/private-dns-zones.png)
 2. Check if there is a A record **adf**.
-![Screenshot of finding Private DNS zones.](media/security-access-control-troubleshoot-guide/a-record.png)
+![Screenshot of A record.](media/security-access-control-troubleshoot-guide/a-record.png)
 3.	Go to **Virtual network links**, delete all records.
-![Screenshot of finding Private DNS zones.](media/security-access-control-troubleshoot-guide/virtual-network-link.png)
+![Screenshot of virtual network link.](media/security-access-control-troubleshoot-guide/virtual-network-link.png)
 4.	Navigate to your data factory in Azure portal and recreate the private endpoint for Azure Data Factory portal.
-![Screenshot of finding Private DNS zones.](media/security-access-control-troubleshoot-guide/create-private-endpoint.png)
+![Screenshot of recreating private endpoint.](media/security-access-control-troubleshoot-guide/create-private-endpoint.png)
 5.	Go back to Private DNS zones, and check if there is a new private DNS zone **privatelink.adf.azure.com**.
-![Screenshot of finding Private DNS zones.](media/security-access-control-troubleshoot-guide/check-dns-record.png)
+![Screenshot of new DNS record.](media/security-access-control-troubleshoot-guide/check-dns-record.png)
 
 ## Next steps
 
