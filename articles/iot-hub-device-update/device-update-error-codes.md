@@ -12,7 +12,7 @@ ms.service: iot-hub-device-update
 
 This document provides a table of error codes for various Device Update components. This is meant to be used as a reference for users who want to try parsing their own error codes to diagnose and troubleshoot issues.
 
-There are two primary client-side components: the Device Update agent, and the Delivery Optimization agent.
+There are two primary client-side components that may throw error codes: the Device Update agent, and the Delivery Optimization agent.
 
 ## Device Update agent
 
@@ -81,3 +81,23 @@ The DO error code can be obtained by examining the exceptions thrown in response
 | 0x80D05010L | DO_E_INVALID_RANGE                 | HTTP                 | The specified byte range is invalid |
 | 0x80D05011L | DO_E_INSUFFICIENT_RANGE_SUPPORT    | HTTP                 | The server does not support the necessary HTTP protocol. Delivery Optimization (DO) requires that the server support the Range protocol header |
 | 0x80D05012L | DO_E_OVERLAPPING_RANGES            | HTTP                 | The list of byte ranges contains some overlapping ranges, which are not supported |
+## Device Update content service
+The following is a list of error codes pertaining to the content service component of the Device Update service. The content service component is responsible for handling importing of update content.
+
+| Error Code                                        | String Error                                                | Next steps                         |
+|---------------------------------------------------|-------------------------------------------------------------|------------------------------------|
+| ContentErrorCode.ContentAlreadyExists             | Update with the same identity already exists.               |                                    |
+| ContentErrorCode.DuplicateContentImport           | Identical content imported simultaneously multiple times.   |                                    |
+| ContentErrorCode.CannotProcessImportManifest      | Error processing import manifest.                           |                                    |
+| ContentErrorCode.ImportManifestCannotDownload     | Cannot download import manifest.                            |                                    |
+| ContentErrorCode.ImportManifestCannotParse        | Cannot parse import manifest.                               |                                    |
+| ContentErrorCode.ImportManifestUnsupportedVersion | Import manifest schema version is not supported.            |                                    |
+| ContentErrorCode.ExceedContentLimit               | Error importing update due to exceeded limit.               |                                    |
+| ContentErrorCode.ContentLimitNamespace            | Cannot import a new update provider.                        |                                    |
+| ContentErrorCode.ContentLimitName                 | Cannot import a new update name for the specified provider. |                                    |
+| ContentErrorCode.ContentLimitVersion              | Cannot import a new update version for the specified provider and name. |                                    |
+| ContentErrorCode.ContentLimitNamespaceCompatibility | Cannot import additional update provider with the specified compatibility. |                                    |
+| ContentErrorCode.ContentLimitNameCompatibility | Cannot import additional update name with the specified compatibility. |                                    |
+| ContentErrorCode.ContentLimitVersionCompatibility | Cannot import additional update version with the specified compatibility. |                                    |
+| ContentErrorCode.CannotProcessContentFile | Error processing source file. |                                    |
+| ContentErrorCode.ContentFileCannotDownload | Cannot download source file. |                                    |
