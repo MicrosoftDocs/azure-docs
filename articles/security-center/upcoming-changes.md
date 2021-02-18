@@ -42,9 +42,10 @@ Security Center passes the data for almost all security recommendations to Azure
 For two recommendations, the data is simultaneously written directly to Azure activity log. With this change, Security Center will stop writing data for these legacy security recommendations directly to activity Log. Instead, we'll export the data to Azure Advisor as we do for all the other recommendations. 
 
 The two legacy recommendations are:
+- Endpoint protection health issues should be resolved on your machines
+- Vulnerabilities in security configuration on your machines should be remediated
 
-- OS version should be updated for your cloud service roles
-- System updates should be installed on your machines
+If you've been accessing information for these two recommendations in activity log's "Recommendation of type TaskDiscovery" category, this will no longer be available.
 
 ### Two recommendations from "Apply system updates" security control being deprecated 
 
