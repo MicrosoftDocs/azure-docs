@@ -35,14 +35,13 @@ You can attach a Synapse Spark pool via Azure Machine Learning studio UI by usin
 
 You may also attach a Synapse Spark pool via SDK (as elaborated below) or via an ARM template (see this [Example ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)). 
 
-To use the command line to follow the ARM template, add the linked service, and attach the synapse pool, use:
+You can use the command line to follow the ARM template, add the linked service, and attach the synapse pool with the following code:
 
 ```bash
 az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"
 ```
 
 > [!Important]
-> The linked service will get a System Assigned Identity (SAI) when you create it. In the Synapse workspace, you must assign this SAI the "Synapse Apache Spark administrator" role so that it can submit the Spark job. You must also give the user of the Azure Machine Learning workspace the role "Contributor."  
 > To link to the Synapse workspace successfully, you must have the Owner role in the Synapse workspace resource. Check your access in the Azure portal.
 > A managed identity, `system_assigned_identity_principal_id`, is created for each linked service. An administrator must grant this managed identity the "Synapse Apache Spark Administrator" role in the Synapse workspace. Assign the "Synapse Apache Spark Administrator" role in Synapse Studio.
 
