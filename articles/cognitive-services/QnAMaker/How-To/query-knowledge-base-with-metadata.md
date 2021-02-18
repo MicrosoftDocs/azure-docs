@@ -15,6 +15,16 @@ ms.custom: "devx-track-js, devx-track-csharp"
 
 QnA Maker lets you add metadata, in the form of key and value pairs, to your pairs of questions and answers. You can then use this information to filter results to user queries, and to store additional information that can be used in follow-up conversations.
 
+<a name="qna-entity"></a>
+
+## Store questions and answers with a QnA entity
+
+It's important to understand how QnA Maker stores the question and answer data. The following illustration shows a QnA entity:
+
+![Illustration of a QnA entity](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
+
+Each QnA entity has a unique and persistent ID. You can use the ID to make updates to a particular QnA entity.
+
 ## Use metadata to filter answers by custom metadata tags
 
 Adding metadata allows you to filter the answers by these metadata tags. Add the metadata column from the **View Options** menu. Add metadata to your knowledge base by selecting the metadata **+** icon to add a metadata pair. This pair consists of one key and one value.
