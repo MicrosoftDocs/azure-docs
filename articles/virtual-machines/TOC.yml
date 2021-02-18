@@ -164,6 +164,8 @@
         href: ev4-esv4-series.md
       - name: M-series
         href: m-series.md
+      - name: Msv2-series
+        href: msv2-series.md
       - name: Mv2-series
         href: mv2-series.md
       - name: Constrained vCPUs
