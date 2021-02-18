@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 02/18/2021
 ms.author: b-juche
 ---
 # Configure NFSv4.1 Kerberos encryption for Azure NetApp Files
@@ -107,6 +107,9 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 
 ## <a name="kerberos_performance"></a>Performance impact of Kerberos on NFSv4.1 
 
+You should understand the security options available for NFSv4.1 volumes, the tested performance vectors, and the expected performance impact of kerberos. See [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md) for details.  
+
+<!-- 
 This section helps you understand the performance impact of Kerberos on NFSv4.1.
 
 ### Available security options 
@@ -164,9 +167,11 @@ Performance impact of krb5p:
     * Maximum sequential throughput decreased by 85% overall regardless of the workload mixture. 
     * Maximum random I/O decreased by 65% for pure read workloads with the overall impact decreasing to 43% as the workload shifts to pure write. 
     * Maximum metadata workload decreased 30%.
+--> 
 
 ## Next steps  
 
+* [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md)
 * [Troubleshoot NFSv4.1 Kerberos volume issues](troubleshoot-nfsv41-kerberos-volumes.md)
 * [FAQs About Azure NetApp Files](azure-netapp-files-faqs.md)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
