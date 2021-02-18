@@ -36,7 +36,7 @@ This article shows you how to connect to the Azure Media Services v3 node.js SDK
 
 ## More developer documentation for Node.js on Azure
 - [Azure for JavaScript & Node.js developers](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
-- [Media Services source code in the @azure/azure-sdk-for-js github repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
+- [Media Services source code in the @azure/azure-sdk-for-js Git Hub repo](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 - [Azure Package Documentation for Node.js developers](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
 
 ## Install the Packages
@@ -193,13 +193,13 @@ Change directory into the HelloWorld-ListAssets folder
 cd HelloWorld-ListAssets
 ```
 
-Launch Visual Studio Code from the AMSv3Samples Folder. This is required to launch from the folder where the vscode folder and tsconfig.json files are located
+Launch Visual Studio Code from the AMSv3Samples Folder. This is required to launch from the folder where the ".vscode" folder and tsconfig.json files are located
 ```dotnetcli
 cd ..
 code .
 ```
 
-Open the folder for HellowWrold-ListAssets, and open the index.ts file in the VS Code editor.
+Open the folder for HellowWrold-ListAssets, and open the index.ts file in the Visual Sudio Code editor.
 While in the index.ts file, press F5 to launch the debugger. You should see a list of assets displayed if you have assets already in the account. If the account is empty, you will see an empty list.  Upload a few assets in the portal to see the results.
 
 ## More Samples
