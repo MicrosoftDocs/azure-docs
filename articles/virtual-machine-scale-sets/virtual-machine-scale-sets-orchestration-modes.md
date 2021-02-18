@@ -25,16 +25,16 @@ Scale set orchestration modes allow you to have greater control over how virtual
 ## Scale sets with Uniform orchestration
 *Optimized for large scale stateless workloads with identical instances.* 
 
-Virtual machine scale sets with Uniform Orchestration uses a virtual machine profile or template to scale up to desired capacity. While there is some ability to manage or customize individual virtual machine instances, typically Uniform uses identical VM instances. Individual Uniform VM instances are exposed via the virtual machine scale set VM API commands, and are not compatible with the standard Azure IaaS VM API commands, Azure management features such as ARM resource tagging RBAC permissions, Azure Backup, Azure Site Recovery. Uniform orchestration provides fault domain high availability guarantees when configured with less than 100 instances. Uniform orchestration is generally available, and supports a full range of scale set management and orchestration, including metrics based autoscaling, instance protection, automatic OS upgrades. 
+Virtual machine scale sets with Uniform orchestration uses a virtual machine profile or template to scale up to desired capacity. While there is some ability to manage or customize individual virtual machine instances, typically Uniform uses identical VM instances. Individual Uniform VM instances are exposed via the virtual machine scale set VM API commands, and are not compatible with the standard Azure IaaS VM API commands, Azure management features such as ARM resource tagging RBAC permissions, Azure Backup, Azure Site Recovery. Uniform orchestration provides fault domain high availability guarantees when configured with less than 100 instances. Uniform orchestration is generally available, and supports a full range of scale set management and orchestration, including metrics based autoscaling, instance protection, automatic OS upgrades. 
 
 
 ## Scale sets with Flexible orchestration 
 *Achieve high availability at scale with identical or multiple virtual machine types.* 
 
-Virtual machine scale sets with Flexible Orchestration provides an orchestration layer on top of standard Azure IaaS virtual machines. VM instances managed by Flexible orchestration fully support the standard Azure VM API commands, full control over instance networking and disks, ARM management and policy, and other capabilities within the Azure VM ecosystem. Flexible orchestration allows you to have fault domain high availability guarantees for up to 1000 instances. Flexible orchestration is currently in public preview. During the preview period, we will be adding additional scale set orchestration features to achieve parity between Uniform and Flexible orchestration modes. Please refer to the documentation below to understand differences between the two modes.  
+Virtual machine scale sets with Flexible orchestration provides an orchestration layer on top of standard Azure IaaS virtual machines. VM instances managed by Flexible orchestration fully support the standard Azure VM API commands, full control over instance networking and disks, ARM management and policy, and other capabilities within the Azure VM ecosystem. Flexible orchestration allows you to have fault domain high availability guarantees for up to 1000 instances. Flexible orchestration is currently in public preview. During the preview period, we will be adding additional scale set orchestration features to achieve parity between Uniform and Flexible orchestration modes. Please refer to the documentation below to understand differences between the two modes.  
 
 > [!IMPORTANT]
-> Virtual machine scale sets in Flexible Orchestration mode is currently in public preview. An opt-in procedure is needed to use the public preview functionality described below.
+> Virtual machine scale sets in Flexible orchestration mode is currently in public preview. An opt-in procedure is needed to use the public preview functionality described below.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -75,18 +75,18 @@ Use the standard VM commands to start, stop, restart, delete instances, instead 
 Application health monitoring allows your application to provide Azure with a heartbeat to determine whether your application is healthy or unhealthy. Azure can automatically replace VM instances that are unhealthy. For Flexible scale set instances, you must install and configure the Application Health Extension on the virtual machine. For Uniform scale set instances, you can use either the Application Health Extension, or measure health with an Azure Load Balancer Custom Health Probe. 
 
 ### List scale sets VM API changes 
-VMSS allows you to list the instances that belong to the scale set. With VMSS Flex, the list VMSS VM command provides a list of VMSS VM IDs. You can then call the GET VMSS VM commands to get more details on how the scale set is working with the VM instance. To get the full details of the VM, use the standard GET VM commands or Azure Resource Graph. 
+Virtual Machine Scale Sets allows you to list the instances that belong to the scale set. With Flexible orchestration, the list Virtual Machine Scale Sets VM command provides a list of scale sets VM IDs. You can then call the GET Virtual Machine Scale Sets VM commands to get more details on how the scale set is working with the VM instance. To get the full details of the VM, use the standard GET VM commands or [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview). 
 
 ### Retrieve boot diagnostics data 
-Use the standard VM APIs and commands to retrieve instance Boot Diagnostics data and screenshots. The VMSS VM boot diagnostic APIs and commands are not used with VMSS Flex instances.
+Use the standard VM APIs and commands to retrieve instance Boot Diagnostics data and screenshots. The Virtual Machine Scale Sets VM boot diagnostic APIs and commands are not used with Flexible orchestration mode instances.
 
 ### VM extensions 
-Use extensions targeted for standard virtual machines, instead of extensions targeted for VMSS Uniform instances.
+Use extensions targeted for standard virtual machines, instead of extensions targeted for Uniform orchestration mode instances.
 
 
 ## Comparing Flexible, Uniform, and Availability Sets 
 
-| Feature | Supported by Flexible Orchestration (Preview) | Supported by Uniform Orchestration (General Availability) | Supported by AvSets (General Availability) |
+| Feature | Supported by Flexible orchestration (Preview) | Supported by Uniform orchestration (General Availability) | Supported by AvSets (General Availability) |
 |-|-|-|-|
 |         Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  | Scale Set specific   VMs (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM   (Microsoft.compute /virtualmachines)  |
 |         SKUs supported  |            D series, E series, F series, A series,   B series, Intel, AMD  |            All SKUs  |            All SKUs  |
@@ -122,7 +122,7 @@ Use extensions targeted for standard virtual machines, instead of extensions tar
 
 
 ## Register for Flexible orchestration mode
-Before you can deploy virtual machine scale sets in flexible orchestration mode, you must first register your subscription for the preview feature. The registration may take several minutes to complete.
+Before you can deploy virtual machine scale sets in Flexible orchestration mode, you must first register your subscription for the preview feature. The registration may take several minutes to complete.
 
 ### Azure PowerShell 
 Use the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet to enable the preview for your subscription. 
@@ -251,16 +251,16 @@ zones = ["1"]
 
 ## Frequently asked questions
 
-**How much scale does VMSS Flex support?**
+**How much scale does Flexible orchestration support?**
 You can add up to 1000 VMs to a scale set in Flexible orchestration mode.
 
-**How does availability with VMSS Flex compare to Availability Sets or VMSS Uniform?**
-|   | VMSS Flex  | VMSS Uniform  | Availability Sets  |
+**How does availability with Flexible orchestration compare to Availability Sets or Uniform orchestration?**
+|   | Flexible orchestration  | Uniform orchestration  | Availability Sets  |
 |-|-|-|-|
 | Deploy across availability zones  | Coming soon  | Yes  | No  |
 | Fault domain availability guarantees within a region  | Yes, up to 1000 instances can be spread across up to 3 fault domains in the region. Maximum fault domain count varies by region  | Yes, up to 100 instances  | Yes, up to 200 instances  |
-| Placement groups  | VMSS Flex always uses multiple placement groups (singlePlacementGroup = false)  | You can choose single Placement Group or multiple placement groups. Learn more about placement groups  | N/a  |
-| Update domains  | None. Maintenance or host updates are done fault domain by fault domain  | Up to 5 update domains  | Up to 20 update domains  |
+| Placement groups  | Flexible mode always uses multiple placement groups (singlePlacementGroup = false)  | You can choose Single Placement Group or Multiple Placement Groups | N/A  |
+| Update domains  | None, maintenance or host updates are done fault domain by fault domain  | Up to 5 update domains  | Up to 20 update domains  |
 
 
 ## Next steps
