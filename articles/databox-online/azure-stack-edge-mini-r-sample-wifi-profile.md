@@ -135,6 +135,7 @@ To create WiFi profiles for an enterprise network, do these steps:
 5. When you have the WiFi profiles and certificates that you need, go to the local web UI of your Mini R device, and do the following tasks:
 
    1. Upload the certificates to the Mini R device following the guidance in [Upload certificates](./azure-stack-edge-gpu-manage-certificates.md#upload-certificates).<!--Is this the correct topic to site? At this point, they have their certs, so we point directly to uploading?-->
+
    1. Upload the WiFi profile(s) to the Mini R device following the guidance in [Manage WiFi](./azure-stack-edge-mini-r-manage-wifi.md#add-connect-to-wi-fi-profile).
 
 ## Next steps
