@@ -249,7 +249,7 @@ Open a PowerShell window as an administrator and run the following cmdlet:
 Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
-If the status listed for the session host or hosts in your host pool always says **Unavailable** or **Upgrading**, the agent or stack installation may have failed.
+If the status listed for the session host or hosts in your host pool always says "Unavailable" or "Upgrading," the agent or stack didn't install successfully.
 
 To resolve this issue, reinstall the side-by-side stack:
 1. Open a command prompt as an administrator.
