@@ -9,7 +9,7 @@ ms.date: 03/02/2021
 ms.author: duau
 ---
 
-# Azure Route Server FAQ
+# Azure Route Server (Preivew) FAQ
 
 > [!IMPORTANT]
 > Azure Route Server (Preview) is currently in public preview.
