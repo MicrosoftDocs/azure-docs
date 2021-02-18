@@ -41,6 +41,8 @@ In the [QnA Maker portal](https://www.qnamaker.ai/), create your first knowledge
 
 ## Restrict access to App Service (QnA Runtime)
 
+You can add IPs to App service allowlist to restrict access or Configure App Service Environemnt to host QnA Maker App Service.
+
 #### Add IPs to App Service allowlist
 
 1. Allow traffic only from Cognitive Services IPs. These are already included in Service Tag `CognitiveServicesManagement`. This is required for Authoring APIs (Create/Update KB) to invoke the app service and update Azure Search service accordingly. Check out [more information about service tags.](../../../virtual-network/service-tags-overview.md)
