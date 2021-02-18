@@ -25465,6 +25465,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/dms/known-issues-azure-sql-online.md",
+      "redirect_url": "/azure/dms/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md",
+      "redirect_url": "/azure/dms/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-logic/index.md",
       "redirect_url": "/azure/logic-apps/",
       "redirect_document_id": false
