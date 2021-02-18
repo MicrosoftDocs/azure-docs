@@ -43,7 +43,7 @@ az deployment group create --name --resource-group <rg_name> --template-file "az
 
 > [!Important]
 > To link to the Synapse workspace successfully, you must have the Owner role in the Synapse workspace resource. Check your access in the Azure portal.
-> A managed identity, `system_assigned_identity_principal_id`, is created for each linked service. An administrator must grant this managed identity the "Synapse Apache Spark Administrator" role in the Synapse workspace. Assign the "Synapse Apache Spark Administrator" role in Synapse Studio.
+> The linked service will get a System Assigned Identity (SAI) when you create it. You must assign this link service SAI the "Synapse Apache Spark administrator" role from Synapse Studio so that it can submit the Spark job (see [How to manage Synapse RBAC role assignments in Synapse Studio](../synapse-analytics/security/how-to-manage-synapse-rbac-role-assignments.md)). You must also give the user of the Azure Machine Learning workspace the role "Contributor" from Azure portal of resource mangement.
 
 ## Create or retrieve the link between your Synapse workspace and your Azure Machine Learning workspace
 
