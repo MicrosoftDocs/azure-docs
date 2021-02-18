@@ -34,6 +34,8 @@
     href: device-update-configuration-file.md
   - name: Device Update for IoT Hub update manifest
     href: update-manifest.md
+  - name: How device update is secured
+    href: device-update-security.md
   - name: Support for disconnected devices
     href: connected-cache-disconnected-device-update.md
   - name: Configure Microsoft Connected Cache for Device Update for IoT Hub

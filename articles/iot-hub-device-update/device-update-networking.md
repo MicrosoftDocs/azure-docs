@@ -5,7 +5,7 @@ author: philmea
 ms.author: philmea
 ms.date: 1/11/2021
 ms.topic: conceptual
-ms.service: iot-hub
+ms.service: iot-hub-device-update
 ---
 
 # Ports Used With Device Update for IoT Hub

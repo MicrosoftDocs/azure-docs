@@ -1,14 +1,14 @@
 ---
-title: Quickstart - Create update group | Microsoft Docs
-description: Device Update for IoT Hub allows deploying an update to a group of IoT devices.
-author: philmea
-ms.author: philmea
-ms.date: 1/11/2021
-ms.topic: quickstart
-ms.service: iot-hub
+title: Create device group in Device Update for Azure IoT Hub | Microsoft Docs
+description: Create a device group in Device Update for Azure IoT Hub
+author: vimeht
+ms.author: vimeht
+ms.date: 2/17/2021
+ms.topic: how-to
+ms.service: iot-hub-device-update
 ---
 
-# Create Groups
+# Create device groups
 Device Update for IoT Hub allows deploying an update to a group of IoT devices.
 
 ## Prerequisites
@@ -72,7 +72,7 @@ Groups_tag_Device_twin
 
 * One device can only belong to one Group.
 
-## Create a group by selecting an existing IoT Hub tag
+## Create a device group by selecting an existing IoT Hub tag
 
 1. Go to the [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden&feature.devicetwin=true#home).
 

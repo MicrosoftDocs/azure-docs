@@ -1,6 +1,6 @@
 ---
-title: Getting Started Using Ubuntu (18.04 x64) Simulator Reference Agent | Microsoft Docs
-description: Getting Started Using Ubuntu (18.04 x64) Simulator Reference Agent.
+title: Device Update for Azure IoT Hub tutorial using the Ubuntu (18.04 x64) Simulator Reference Agent | Microsoft Docs
+description: Get started with Device Update for Azure IoT Hub using the Ubuntu (18.04 x64) Simulator Reference Agent.
 author: vimeht
 ms.author: vimeht
 ms.date: 2/11/2021
