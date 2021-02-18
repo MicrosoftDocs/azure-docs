@@ -87,7 +87,9 @@ Select **Existing** for Data organization, and then select **Link to Datadog org
 
 The link opens a Datadog authentication window. Sign in to Datadog.
 
-By default, Azure will link your default selected Datadog organization to your Datadog resource. If you would like to change the select organization, open **datadoghq.com** in a separate browser tab. Sign in and switch to the specific organization. Then, select **Link to Datadog org**.
+By default, Azure will link your current Datadog organization to your Datadog resource. If you would like to link to a different organization, select the appropriate organization in authentication window as shown below.
+
+:::image type="content" source="media/create/datadogselectorganization.png" alt-text="Select appropriate Datadog organization to link" border="true":::
 
 ## Configure metrics and logs
 
