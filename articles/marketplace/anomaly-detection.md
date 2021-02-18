@@ -1,6 +1,6 @@
 ---
-title: Anomaly detection for metered billing | Azure Marketplace
-description: Learn how automatic anomaly detection for metered billing helps insure your customers are billed correctly for metered usage of your commercial marketplace offer.
+title: Manage metered billing anomalies in Partner Center | Azure Marketplace
+description: Learn how automatic anomaly detection for metered billing helps insure your customers are billed correctly for metered usage of your commercial marketplace offers.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -75,3 +75,4 @@ After you mark an overage usage as an anomaly or acknowledge a model that flagge
 ## See also
 - [Metered billing for SaaS using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md)
 - [Managed application metered billing](./partner-center-portal/azure-app-metered-billing.md)
+- [Anomaly detection service for metered billing](../partner-center-portal/anomaly-detection-service-for-metered-billing.md)
