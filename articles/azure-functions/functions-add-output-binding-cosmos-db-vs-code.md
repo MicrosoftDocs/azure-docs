@@ -15,8 +15,11 @@ zone_pivot_groups: programming-languages-set-functions-temp
 This article shows you how to use Visual Studio Code to connect [Azure Cosmos DB](../cosmos-db/introduction.md) to the function you created in the previous quickstart article. The output binding that you add to this function writes data from the HTTP request to a JSON document stored in an Azure Cosmos DB container. 
 
 ::: zone pivot="programming-language-csharp"
-Before you start, make sure to complete the steps in [part 1 of the Visual Studio Code quickstart](create-first-function-vs-code-csharp.md).
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-csharp.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
 ::: zone-end
+::: zone pivot="programming-language-javascript"  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-node.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+::: zone-end   
 
 ## Create your Azure Cosmos DB account
 
@@ -90,6 +93,16 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB
 
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+
+Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
+
+Extension bundles usage is enabled in the host.json file at the root of the project, which appears as follows:
+
+:::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
+
+::: zone-end
+
 Now, you can add the Azure Cosmos DB output binding to your project.
 
 ## Add an output binding
@@ -126,6 +139,42 @@ public static async Task<IActionResult> Run(
 
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+
+Binding attributes are defined directly in the function.json file. Depending on the binding type, additional properties may be required. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding. The extension makes it easy to add bindings to the function.json file. 
+
+To create a binding, right-click (Ctrl+click on macOS) the `function.json` file in your HttpTrigger folder and choose **Add binding...**. Follow the prompts to define the following binding properties for the new binding:
+
+| Prompt | Value | Description |
+| -------- | ----- | ----------- |
+| **Select binding direction** | `out` | The binding is an output binding. |
+| **Select binding with direction "out"** | `Azure Cosmos DB` | The binding is an Azure Cosmos DB binding. |
+| **The name used to identify this binding in your code** | `outputDocument` | Name that identifies the binding parameter referenced in your code. |
+| **The Cosmos DB database where data will be written** | `my-database` | The name of the Azure Cosmos DB database containing the target container. |
+| **Database collection where data will be written** | `my-container` | The name of the Azure Cosmos DB container where the JSON documents will be written. |
+| **If true, creates the Cosmos DB database and collection** | `false` | The target database and container already exist. |
+| **Select setting from "local.setting.json"** | `CosmosDbConnectionString` | The name of an application setting that contains the connection string for the Azure Cosmos DB account. |
+| **Partition key (optional)** | *leave blank* | Only required when the output binding creates the container. |
+| **Collection throughput (optional)** | *leave blank* | Only required when the output binding creates the container. |
+
+A binding is added to the `bindings` array in your function.json, which should look like the following:
+
+:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="18-24":::
+
+```json
+{
+    "type": "cosmosDB",
+    "direction": "out",
+    "name": "outputDocument",
+    "databaseName": "my-database",
+    "collectionName": "my-container",
+    "createIfNotExists": "false",
+    "connectionStringSetting": "CosmosDbConnectionString"
+}
+```
+
+::: zone-end
+
 ## Add code that uses the output binding
 
 ::: zone pivot="programming-language-csharp"  
@@ -138,6 +187,7 @@ if (!string.IsNullOrEmpty(name))
     // Add a JSON document to the output container.
     await documentsOut.AddAsync(new
     {
+        // create a random ID
         id = System.Guid.NewGuid().ToString(),
         name = name
     });
@@ -169,6 +219,7 @@ public static async Task<IActionResult> Run(
         // Add a JSON document to the output container.
         await documentsOut.AddAsync(new
         {
+            // create a random ID
             id = System.Guid.NewGuid().ToString(),
             name = name
         });
@@ -179,6 +230,48 @@ public static async Task<IActionResult> Run(
         : $"Hello, {name}. This HTTP triggered function executed successfully.";
 
     return new OkObjectResult(responseMessage);
+}
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"  
+
+Add code that uses the `outputDocument` output binding object on `context.bindings` to create a JSON document. Add this code before the `context.res` statement.
+
+```javascript
+if (name) {
+    context.bindings.outputDocument = JSON.stringify({
+        // create a random ID
+        id: new Date().toISOString() + Math.random().toString().substr(2,8),
+        name: name
+        });
+}
+```
+
+At this point, your function should look as follows:
+
+```javascript
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    const name = (req.query.name || (req.body && req.body.name));
+    const responseMessage = name
+        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
+        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
+
+    if (name) {
+        context.bindings.outputDocument = JSON.stringify({
+            // create a random ID
+            id: new Date().toISOString() + Math.random().toString().substr(2,8),
+            name: name
+          });
+    }
+
+    context.res = {
+        // status: 200, /* Defaults to 200 */
+        body: responseMessage
+    };
 }
 ```
 
@@ -236,3 +329,8 @@ You've updated your HTTP triggered function to write JSON documents to an Azure 
 
 + [Azure Functions C# developer reference](functions-dotnet-class-library.md)  
 ::: zone-end 
+::: zone pivot="programming-language-javascript"  
++ [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
+
++ [Azure Functions JavaScript developer guide](functions-reference-node.md)  
+::: zone-end  
