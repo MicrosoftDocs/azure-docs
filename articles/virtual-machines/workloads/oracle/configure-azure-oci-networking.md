@@ -4,6 +4,7 @@ description: Connect Azure ExpressRoute with Oracle Cloud Infrastructure (OCI) F
 author: dbakevlar
 ms.service: virtual-machines
 ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: rogardle

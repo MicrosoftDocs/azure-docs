@@ -4,6 +4,7 @@ description: Quickly get Oracle Data Guard up and running in your Azure environm
 author: dbakevlar
 ms.service: virtual-machines
 ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman

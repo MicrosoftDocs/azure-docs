@@ -4,6 +4,7 @@ description: Quickly get Oracle ASM up and running in your Azure environment.
 author: dbakevlar
 ms.service: virtual-machines
 ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman

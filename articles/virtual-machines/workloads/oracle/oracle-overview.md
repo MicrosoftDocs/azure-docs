@@ -7,6 +7,7 @@ tags: azure-resource-management
 ms.assetid: 
 ms.service: virtual-machines
 ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
