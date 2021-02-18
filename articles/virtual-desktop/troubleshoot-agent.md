@@ -67,7 +67,7 @@ To resolve this issue, create a valid registration token:
 
 ## Error: Agent cannot connect to broker with INVALID_FORM
 
-Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **INVALID_FORM** in the description, something went wrong with the communication between the agent and the broker. The agent cannot connect to the broker and is unable to reach a particular URL. This may be because of your firewall or DNS settings.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 that says "INVALID_FORM" in the description, something went wrong with the communication between the agent and the broker. The agent can't connect to the broker or reach a particular URL because of certain firewall or DNS settings.
 
 To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
 1. Open the Registry Editor. 
