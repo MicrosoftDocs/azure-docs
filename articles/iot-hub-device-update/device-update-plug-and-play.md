@@ -16,7 +16,7 @@ Device Update for IoT Hub uses [IoT Plug and Play](https://docs.microsoft.com/az
 
 The 'ADUCoreInterface' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
 
-The component name for this interface should be **"azureDeviceUpdateAgent"** when implementing the Device Update Agent. [Learn more about Azure IoT PnP Components](https://docs.microsoft.com/en-us/azure/iot-pnp/concepts-components)
+The expected component name in your model is **"azureDeviceUpdateAgent"** when implementing this interface. [Learn more about Azure IoT PnP Components](https://docs.microsoft.com/en-us/azure/iot-pnp/concepts-components)
 
 ### Agent Metadata
 
@@ -75,7 +75,7 @@ Service Metadata contains fields that the Device Update services uses to communi
 
 The Device Information Interface is a concept used within [IoT Plug and Play architecture](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play). It contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update for IoT Hub uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. To learn more, see this [Device Information example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
-The component name for this interface should be  **deviceInformation** when implementing the Device Update Agent. [Learn more about Azure IoT PnP Components](https://docs.microsoft.com/en-us/azure/iot-pnp/concepts-components)
+The expected component name in your model is **deviceInformation** when implementing this interface. [Learn more about Azure IoT PnP Components](https://docs.microsoft.com/en-us/azure/iot-pnp/concepts-components)
 
 |Name|Type|Schema|Direction|Description|Example|
 |----|----|------|---------|-----------|-----------|
