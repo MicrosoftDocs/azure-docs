@@ -97,6 +97,21 @@ ms.author: aahi
 | English  |     `en`      |     ✓      |                2019-10-01                 |       |
 | Spanish  |     `es`      |    ✓      |                2019-10-01                 |       |
 
+#### [Personally Identifiable Information (PII)](#tab/pii)
+
+| Language               | Language code | v3 support | Starting with v3 model version: |       Notes        |
+|:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
+| Chinese-Simplified     |   `zh-hans`   |     ✓      |               2021-01-15        | `zh` also accepted |
+| English                |     `en`      |     ✓      |               2020-07-01        |                    |
+| French                 |     `fr`      |     ✓      |               2021-01-15        |                    |
+| German                 |     `de`      |     ✓      |               2021-01-15        |                    |
+| Italian               |     `it`      |     ✓       |               2021-01-15        |                    |
+| Japanese              |     `ja`      |     ✓       |               2021-01-15        |                    |
+| Korean                |     `ko`      |     ✓       |               2021-01-15        |                    |
+| Portuguese (Brazil)   |    `pt-BR`    |     ✓       |               2021-01-15        |                    |
+| Portuguese (Portugal) |    `pt-PT`    |     ✓       |               2021-01-15        | `pt` also accepted |
+| Spanish               |     `es`      |     ✓       |               2020-04-01        |                    |
+
 #### [Language Detection](#tab/language-detection)
 
 The Text Analytics API can detect a wide range of languages, variants, dialects, and some regional/cultural languages, and return detected languages with their name and code. Text Analytics Language Detection language code parameters conform to [BCP-47](https://tools.ietf.org/html/bcp47) standard with most of them conforming to [ISO-639-1](https://www.iso.org/iso-639-language-codes.html) identifiers. 
