@@ -7,6 +7,7 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
+ms.custom: references_regions
 ---
 
 # Redundancy options for managed disks
