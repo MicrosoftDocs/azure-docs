@@ -13,21 +13,25 @@ ms.author: alkohli
 
 # Create a Wi-Fi profile to use with Azure Stack Edge Mini R devices
 
-This article describes how to create wireless network (Wi-Fi) profiles for Azure Stack Edge Mini R devices. You may do most of your work on devices over a wired network, but you'll probably need one or more wireless connections for secondary work locations or work away from the office.
+This article describes how to create wireless network (Wi-Fi) profiles for Azure Stack Edge Mini R devices.
 
-You'll need to add a Wi-Fi profile for each wireless network to your device. On a simple home network, you may be able to download and use an existing Wi-Fi profile.
+You'll need to add a profile for each wireless network you use with your device. On a simple home network, you may be able to download and use an existing profile.
 
-In a high-security enterprise environment, each client computer will have a distinct profile and/or authentication, and you'll need to work with the network administrators to determine the required configuration. 
-
-In either case, it's very important to make sure the Wi-Fi profile complies with the security requirements of your organization before you test or use the profile with your device. <!--Terminology issue: "Profile" - Call is a Wi-Fi profile consistently? In Windows exports, it's spoken of in terms of "a profile" (could be a user profile or a group policy profile) on the Wi-Fi interface."-->
+In a high-security enterprise environment, each client computer will have a distinct profile and/or authentication, and you'll need to work with the network administrators to determine the required configuration.
+In either case, it's very important to make sure the profile complies with the security requirements of your organization before you test or use the profile with your device.
 
 ## About Wi-Fi profiles
 
-A wireless network (Wi-Fi) profile contains the SSID (network name), password key, and security information to be able to connect your Azure Stack Edge Mini R device to a wireless network. The following code snippet shows basic settings for a typical wireless network.<!--Gloss: SSID, Profile name, Network name, Autoconnect, Autoswitch.-->
+A wireless network (Wi-Fi) profile contains the Service Set Identifier (SSID) or network name, the password key, and the security information to be able to connect your Azure Stack Edge Mini R device to a wireless network. 
+
+The following code snippet shows basic settings for a profile for a typical wireless network:
+* The `SSID` is shown in hexadecimal because the network name has more than XX characters. 
+* The `name` contains the profile name. 
+* The profile is configured to autoconnect the computer to the wireless network when the computer is within network range (`connectionMode` is `auto`).
 
 ```html
 <?xml version="1.0"?>
-<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+<WLANProfile xmlns="http://www.contoso.com/networking/WLAN/profile/v1">
 	<name>ContosoWIFICORP</name>
 	<SSIDConfig>
 		<SSID>
@@ -42,7 +46,7 @@ A wireless network (Wi-Fi) profile contains the SSID (network name), password ke
 
 For more information about Wi-Fi profile settings, see **Enterprise profile** in [Add settings for Windows 10 and later Wi-Fi](/mem/intune/configuration/wifi-settings-windows#enterprise-profile) and [Configure a Cisco wireless controller and access point on your device](./azure-stack-edge-mini-r-manage-wifi.md#configure-cisco-wifi-profile).
 
-To enable wireless connections, you configure the Wi-Fi port on your device, add the Wi-Fi profile(s), and connect to the networks. For more information, see [Manage wireless connectivity on your Azure Stack Edge Mini R](./azure-stack-edge-mini-r-manage-wifi.md).
+To enable wireless connections, you configure the Wi-Fi port on your device, and then add the Wi-Fi profile(s) to the device. You can then connect to a wireless network from the local web UI for the device. For more information, see [Manage wireless connectivity on your Azure Stack Edge Mini R](./azure-stack-edge-mini-r-manage-wifi.md).
 
 ### Profile for home network
 
@@ -59,26 +63,57 @@ On this type of home network, you may be able to export a Wi-Fi profile from you
 
 If you're preparing a Wi-Fi profile to use in a high-security enterprise environment, you'll need to work with the network administrators to find out the settings that the wireless network connections require.
 
-On a high-security enterprise network, different devices may use different profiles to connect to the network. A radius server typically does server-side authentication. The network then generates a distinct profile and/or authentication for each client computer that accesses the server. The profiles and authentication have a machine-specific component.<!--Add a code snippet from -->
+On a high-security enterprise network, different devices may use different profiles to connect to the network. A radius server typically does server-side authentication. The network then generates a distinct profile with different authentication for each client computer that accesses the server.
 
-Before you create a Wi-Fi profile for your Azure Stack Edge Mini R device, you need to get the following information from your network administrator:<!--Make this a "Before your begin item?-->
+The profile will have a machine-specific component that looks similar to the code in the following example. In the `Security` section, the authentication mode (`authMode`) for the `OneX` Wi-Fi protocol is set to `machine`. The Extensible Authentication Protocol (EAP) configuration that follows (`eapConfig` component) is unique to that computer.<!--This needs verification. Not sure about the placement. It was buried in the "Check for machine-specific profiles" section, but it feels like a major interruption here.-->
+
+   ```html
+   	<MSM>
+   		<security>
+   			<authEncryption>
+   				<authentication>WPA2</authentication>
+   				<encryption>AES</encryption>
+   				<useOneX>true</useOneX>
+   			</authEncryption>
+   			<PMKCacheMode>enabled</PMKCacheMode>
+   			<PMKCacheTTL>720</PMKCacheTTL>
+   			<PMKCacheSize>128</PMKCacheSize>
+   			<preAuthThrottle>3</preAuthThrottle>
+   			<OneX xmlns="http://www.microsoft.com/networking/OneX/v1">
+   				<maxAuthFailures>1</maxAuthFailures>
+   				<authMode>machine</authMode>
+   				<EAPConfig>
+
+   -----CUT-----CUT-----CUT-----CUT-----CUT-----CUT-----CUT-----CUT----- 
+   
+                </EAPConfig>
+			</OneX>
+		</security>
+	</MSM>
+
+  ```
+
+Before you create a Wi-Fi profile for your Azure Stack Edge Mini R device, you need to get the following information from your network administrator:
 
 - Does the network generate profiles/authentication for each client? If so, the network controls all of this information.
 
 - What Wi-Fi protocol (for example, OneX) and group policies are implemented on the network?
 
-- What IT tooling is used to manage these policies?<!--What does "IT tooling" entail? Can we just say "How are group policies being managed?" Would the network admin share this type of information with the end use for this procedure, or would they just provide explicit instructions - or tell them whom to request group membership from?-->
+- How are group policies managed?
 
-- Does your organization use different wireless networks in different locations? Do you need multiple wireless profiles on your device?<!--Link to new procedure, below.-->
+- Does your organization use different wireless networks in different locations? Will you need multiple Wi-Fi profiles on your device?
 
-Use this information to create the wireless profiles and certificates that you need for the workplace.
+Use this information to create the wireless profiles and certificates that you'll need for the workplace.
 
-> [!NOTE]
-> If other people in your organization are connecting to their Azure Stack Edge devices over a wireless network, you may be able to use the Wi-Fi profile on their device as a template. For more information, see [Download Wi-Fi profile](./azure-stack-edge-mini-r-manage-wifi.md#download-wi-fi-profile).
+You may be able to use an existing wireless network profile as a template:
 
-### Download a Wi-Fi profile
+* You can download the corporate wireless network profile from your work computer. For instructions, see [Download a Wi-Fi profile](#download-a-wi-fi-profile),below.
 
-To export a Wi-Fi profile and add it to your Azure Stack Edge Mini R device, do these steps:
+* If others in your organization are already connecting to their Azure Stack Edge Mini R devices over a wireless network, they can download the Wi-Fi profile from their device. For instructions, see **Download Wi-Fi profile** in [Manage Wi-Fi](./azure-stack-edge-mini-r-manage-wifi.md#download-wi-fi-profile).
+
+## Export a Wi-Fi profile
+
+To export a profile for the Wi-Fi interface on your computer, do these steps:
 
 1. To see the wireless profiles on your computer, on the **Start** menu, open **Command prompt** (cmd.exe), and enter this command:
 
@@ -101,7 +136,7 @@ To export a Wi-Fi profile and add it to your Azure Stack Edge Mini R device, do 
        All User Profile     : GusGuests
        All User Profile     : SeaTacGUEST
        All User Profile     : Boat
-```
+   ```
 
 2. To export a profile, enter the following command:
 
@@ -115,44 +150,23 @@ To export a Wi-Fi profile and add it to your Azure Stack Edge Mini R device, do 
    Interface profile "ContosoFTINET" is saved in file "c:Downloads\ContosoFTINET.xml" successfully.
    ```
 
-## Site-specific profiles needed?
+## Check for site-specific profiles
 
-If your Azure Stack Edge Mini R device will move between sites - say, between Site A and Site B - and the sites have different WiFi networks, each network will have a distinct SSID, and you'll need a different profile for each site.<!--The link between client-specific and site-specific is not clear.-->
+If your Azure Stack Edge Mini R device will move between sites in your workplace - say, between Site A and Site B - and the sites have different WiFi networks, each network will have a distinct SSID, and you'll need a different profile for each site.<!--Discussion moves from site-specific to machine-specific. How are they linked?-->
 
 To find out whether you need a different Wi-Fi profile for each site, do these steps:
 
-1. Connect your laptop to the Wi-Fi from Site A.
+1. Connect your laptop to the wireless network from Site A.
 
-1. From a command line, run the `netsh export` command to export the profile for that wireless network. For steps, see [Download a Wi-Fi profile](#download-a-wifi-profile).  
+1. From a command line, run the `netsh export` command to export the profile for that wireless network. For steps and command parameters, see [Download a Wi-Fi profile](#download-a-wifi-profile), above.  
 
-1. Check the profile for any settings that are specific to the client computer. The client-specific information will look similar to the sample XML below. In the `Security` section, the authentication mode (`authMode`) for the `OneX` Wi-Fi protocol is set to `machine`.<!--May need to pull a larger sample, but there's no stopping point in the following lines.-->
+1. Check the profile for any settings that are specific to the client computer. For example, the authentication mode (`authMode`) for the Wi-Fi protocol is is `machine`, as shown above, in [Profiles for high-security enterprise networks](#profiles-for-high-security-enterprise-networks).
 
-   ```html
-   	<MSM>
-   		<security>
-   			<authEncryption>
-   				<authentication>WPA2</authentication>
-   				<encryption>AES</encryption>
-   				<useOneX>true</useOneX>
-   			</authEncryption>
-   			<PMKCacheMode>enabled</PMKCacheMode>
-   			<PMKCacheTTL>720</PMKCacheTTL>
-   			<PMKCacheSize>128</PMKCacheSize>
-   			<preAuthThrottle>3</preAuthThrottle>
-   			<OneX xmlns="http://www.microsoft.com/networking/OneX/v1">
-   				<maxAuthFailures>1</maxAuthFailures>
-   				<authMode>machine</authMode>
-  ```
+   - If the profile doesn't have any machine-specific component, you can use the same profile for Site B.
 
-   - If the profile doesn't have any client-specific component, you can use the same profile for Site B.
+   - If the profile has a machine-specific component, you'll need to get multiple profiles from the network administrators.
 
-   - If the profile has a client-specific component, you'll need to get multiple profiles from the network administrators.
-
-1. Enable **Autoconnect** on each network you want to connect to automatically.
-
-   You may be able to set **Autoconnect** on multiple networks if the device won't be on more than one of those networks at the same time.
-
-For more information about Wi-Fi profile settings, see **Enterprise profile** in [Add settings for Windows 10 and later Wi-Fi](/mem/intune/configuration/wifi-settings-windows#enterprise-profile) and [Configure a Cisco wireless controller and access point on your device](./azure-stack-edge-mini-r-manage-wifi.md#configure-cisco-wifi-profile).
+     You may be able to set **Autoconnect** (`connectionMode` = `auto`) on multiple wireless networks if the device won't be on more than one of those networks at the same time.
 
 ## Add Wi-Fi profiles to device
 
