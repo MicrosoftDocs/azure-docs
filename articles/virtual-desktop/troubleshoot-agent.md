@@ -119,20 +119,26 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 that says "InstallationHealthCheckFailedException" in the description, that means the stack listener isn't working because the terminal server has toggled the registry key for the stack listener.
 
 To resolve this issue:
-1. Verify that the [stack listener is working](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
-2. Manually [reinstall the stack component](#error-vms-are-stuck-in-unavailable-or-upgrading-state).
+1. Check to see if [the stack listener is working](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
+2. If the stack listener isn't working, [manually uninstall and reinstall the stack component](#error-vms-are-stuck-in-unavailable-or-upgrading-state).
 
 ## Error: ENDPOINT_NOT_FOUND
 
-Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 that says **ENDPOINT_NOT_FOUND** in the description, the broker was unable to find an endpoint to establish a connection on. This can be for various reasons including you don’t have VMs in your host pool, they are not powered on, they have all exceeded the max session limit, the agent service is not running on them, etc.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 that says "ENDPOINT_NOT_FOUND" in the description that means the broker couldn't find an endpoint to establish a connection with. This connection issue can happen for one of the following reasons:
+
+- There aren't VMs in your host pool
+- The VMs in your host pool aren't active
+- All VMs in your host pool have exceeded the max session limit
+- None of the VMs in your host pool have the agent service running on them
 
 To resolve this issue:
-1. Verify that the VM is powered on and hasn't been removed from the host pool.
-2. Verify that the max session limit hasn't been exceeded on the VM.
-3. Verify that the [agent service is running](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) and verify that the [stack listener is working](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
-4. Verify that the [agent can talk to the broker](#error-agent-cannot-connect-to-broker-with-invalid_form).
-5. Verify that your [VM is properly registered](#error-invalid_registration_token).
-6. Verify that the [VM registration token has not expired](faq.md#what-is-the-recommended-frequency-to-start-vms-to-prevent-registration-issues). 
+
+1. Make sure the VM is powered on and hasn't been removed from the host pool.
+2. Make sure that the VM hasn't exceeded the max session limit.
+3. Make sure the [agent service is running](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) and the [stack listener is working](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
+4. Make sure [the agent can connect to the broker](#error-agent-cannot-connect-to-broker-with-invalid_form).
+5. Make sure [your VM has a valid registration token](#error-invalid_registration_token).
+6. Make sure [the VM registration token hasn't expired](faq.md#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues). 
 
 ## Error: InstallMsiException
 
@@ -204,11 +210,12 @@ To resolve this issue:
 
 ## Error: Heartbeat issue where users keep getting disconnected from session hosts
 
-If your server is not picking up a heartbeat from the Windows Virtual Desktop service, you will need to change the heartbeat threshold. If one or more of the following scenarios apply to you, follow these instructions:
+If your server isn't picking up a heartbeat from the Windows Virtual Desktop service, you'll need to change the heartbeat threshold. Follow the instructions in this section if one or more of the following scenarios apply to you:
+
 - You're receiving a **CheckSessionHostDomainIsReachableAsync** error
 - You're receiving a **ConnectionBrokenMissedHeartbeatThresholdExceeded** error
 - You're receiving a **ConnectionEstablished:UnexpectedNetworkDisconnect** error
-- End-user clients keep getting disconnected
+- User clients keep getting disconnected
 - Users keep getting disconnected from their session hosts
 
 To change the heartbeat threshold:
