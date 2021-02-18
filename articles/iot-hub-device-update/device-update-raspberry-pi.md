@@ -122,4 +122,6 @@ value to represent the firmware version running on the device.
 
 Use that version number in the step below.
 
-**[Next Step:  Import New Update](import-update.md)**
+## Next steps
+> [!div class="nextstepaction"]
+> [Import New Update](import-update.md)
