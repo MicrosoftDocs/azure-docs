@@ -76,7 +76,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    ```
 
 Device Update for Azure IoT Hub software packages are subject to the following license terms:
-   * [Device update agent license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
+   * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
    * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
    
 Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use that package.
