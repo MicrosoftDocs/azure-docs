@@ -1,6 +1,6 @@
 ---
 title: Automatic VM Guest Patching for Azure VMs
-description: Learn how to automatically patch virtual machines in Azure
+description: Learn how to automatically patch virtual machines in Azure.
 author: mayanknayar
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
@@ -58,13 +58,13 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 The patch installation date for a given VM may vary month-to-month, as a specific VM may be picked up in a different batch between monthly patching cycles.
 
 ### Which patches are installed?
-Which patches are installed depends on the rollout stage for the VM. Every month, a new global rollout is started where all security and critical patches assessed for an individual VM are installed for that VM. This rollout is orchestrated across all Azure regions in batches (described in the availability-first patching section above).
+The patches installed depend on the rollout stage for the VM. Every month, a new global rollout is started where all security and critical patches assessed for an individual VM are installed for that VM. The rollout is orchestrated across all Azure regions in batches (described in the availability-first patching section above).
 
-The exact set of patches to be installed will vary based on the VM configuration (including OS type) and assessment timing. It is possible that two identical VMs in different regions might get different patches installed if there are more or less patches available when the patch orchestration reaches different regions at different times. Similarly, but less frequently, VMs within the same region but assessed at different times (due to different Availability Zone or Availability Set batches) might get different patches.
+The exact set of patches to be installed vary based on the VM configuration, including OS type, and assessment timing. It is possible for two identical VMs in different regions to get different patches installed if there are more or less patches available when the patch orchestration reaches different regions at different times. Similarly, but less frequently, VMs within the same region but assessed at different times (due to different Availability Zone or Availability Set batches) might get different patches.
 
-As the Automatic VM Guest Patching does not configure the patch source, two similar VMs configured to different patch sources (such as public repository vs private repository) may also see a difference in the exact set of patches installed.
+As the Automatic VM Guest Patching does not configure the patch source, two similar VMs configured to different patch sources, such as public repository vs private repository, may also see a difference in the exact set of patches installed.
 
-Typically for OS types that release patches on a fixed cadence, VMs configured to the public repository for the OS can expect to receive the same set of patches across the different rollout phases in a month. For example, Windows VMs configured to the public Windows Update repository.
+For OS types that release patches on a fixed cadence, VMs configured to the public repository for the OS can expect to receive the same set of patches across the different rollout phases in a month. For example, Windows VMs configured to the public Windows Update repository.
 
 As a new rollout is triggered every month, a VM will receive at least one patch rollout every month if the VM is powered on during off-peak hours. This ensures that the VM is patched with the latest available security and critical patches on a monthly basis. To ensure consistency in the set of patches installed, you can configure your VMs to assess and download patches from your own private repositories.
 
@@ -127,7 +127,7 @@ VMs on Azure now support the following patch orchestration modes:
 - The virtual machine must be able to access the configured update endpoints. If your virtual machine is configured to use private repositories for Linux or Windows Server Update Services (WSUS) for Windows VMs, the relevant update endpoints must be accessible.
 - Use Compute API version 2020-12-01 or higher. Compute API version 2020-06-01 can be used for Windows VMs with limited functionality.
 
-Enabling the preview functionality requires a one-time opt-in for the features **InGuestAutoPatchVMPreview** and **InGuestPatchVMPreview** per subscription, as detailed below.
+Enabling the preview functionality requires a one-time opt-in for the features **InGuestAutoPatchVMPreview** and **InGuestPatchVMPreview** per subscription, as detailed in the following section.
 
 ### REST API
 The following example describes how to enable the preview for your subscription:
