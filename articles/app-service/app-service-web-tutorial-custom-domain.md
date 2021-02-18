@@ -255,7 +255,7 @@ Map a wildcard name `*` to the app's default domain name (`<app-name>.azurewebsi
 | Record type | Host | Value | Comments |
 | - | - | - |
 | CNAME | `*` | `<app-name>.azurewebsites.net` | The domain mapping itself. |
-| TXT | `asuid` | [The verification ID you got earlier](#get-a-domain-verification-id) | App Service accesses the `asuid` TXT record to verify your ownership of the custom domain. |
+
 
 For the `*.contoso.com` domain example, the CNAME record will map the name `*` to `<app-name>.azurewebsites.net`.
 
