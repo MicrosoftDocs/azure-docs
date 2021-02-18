@@ -93,4 +93,4 @@ the Raspberry Pi reference image. Find the latest Raspberry Pi reference image [
 The APT Update Handler processes an APT-specific Update Manifest and invokes APT to
 install or update the specified Debian package(s).
 
-## Next Steps: Getting Started with the Device Update Agent
+## Next Steps: [Getting Started with the Device Update Agent](device-update-agent-provisioning.md)
