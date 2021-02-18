@@ -31,11 +31,11 @@ If you do not have this set up already, you can create it by following the Azure
 
 You will need the following values later in this article from when you set up your instance. If you need to gather these values again, use the links below for instructions.
 * Azure Digital Twins instance **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* Azure Event Hubs connection string **_connection string_** ([find in portal](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
+* Azure Event Hubs **_connection string_** ([find in portal](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
 This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
 
-The device simulator is based on **Node.js**, version 10.0.x or later. [*Prepare your development environment*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) describes how to install Node.js for this tutorial on either Windows or Linux.
+The device simulator is based on **Node.js**, version 10.0.x or later.
 
 ## Solution architecture
 
@@ -70,10 +70,11 @@ When a new device is provisioned using Device Provisioning Service, a new twin f
 
 Create a Device Provisioning Service instance, which will be used to provision IoT devices. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal*](../iot-dps/quick-setup-auto-provision.md).
 
-The following Azure CLI command will create a Device Provisioning Service. You will need to specify a name, resource group, and region. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+The following Azure CLI command will create a Device Provisioning Service. You will need to specify a name, resource group, and region. To see what regions support device provisioning service, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
+The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ```azurecli-interactive
-az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
+az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region>
 ```
 
 ### Create an Azure function
@@ -104,7 +105,7 @@ Ensure that the permissions and Managed Identity role assignment are configured 
 
 ### Create Device Provisioning enrollment
 
-Next, you'll need to create an enrollment in Device Provisioning Service using a **custom allocation function**. Follow the instructions to do this in the [*Create the enrollment*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) and [*Derive unique device keys*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) sections of the Device Provisioning Services article about custom allocation policies.
+Next, you'll need to create an enrollment in Device Provisioning Service using a **custom allocation function**. Follow the instructions to do this in the [*Create the enrollment*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) of the custom allocation policies article in the Device Provisioning Services documentation.
 
 While going through that flow, you will link the enrollment to the function you just created by selecting your function during the step to **Select how you want to assign devices to hubs**. After creating the enrollment, the enrollment name and primary or secondary SAS key will be used later to configure the device simulator for this article.
 
@@ -127,6 +128,11 @@ PROVISIONING_REGISTRATION_ID = "<Device Registration ID>"
 ADT_MODEL_ID = "dtmi:contosocom:DigitalTwins:Thermostat;1"
 PROVISIONING_SYMMETRIC_KEY = "<Device Provisioning Service enrollment primary or secondary SAS key>"
 ```
+PROVISIONING_IDSCOPE: To get this value, navigate to your device provisioning service in the Azure portal, then select *Overview* in the menu options and look for the field *ID Scope*.
+
+PROVISIONING_REGISTRATION_ID: You can choose a registration ID for your device.
+
+PROVISIONING_SYMMETRIC_KEY: To get this primary key, navigate to your device provisioning service in the Azure portal, select *Manage enrollments*, then select the group that you created earlier and copy the *Primary Key*.
 
 Save and close the file.
 
@@ -146,7 +152,7 @@ You should see the device being registered and connected to IoT Hub, and then st
 As a result of the flow you've set up in this article, the device will be automatically registered in Azure Digital Twins. Using the following [Azure Digital Twins CLI](how-to-use-cli.md) command to find the twin of the device in the Azure Digital Twins instance you created.
 
 ```azurecli-interactive
-az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
+az dt twin show -n <Digital Twins instance name> --twin-id "<Device Registration ID>"
 ```
 
 You should see the twin of the device being found in the Azure Digital Twins instance.
@@ -189,7 +195,7 @@ Save the project, then publish the function app again. For instructions on publi
 
 ### Configure your function
 
-Next, you'll need to set environment variables in your function app from earlier, containing the reference to the Azure Digital Twins instance you've created and the event hub. If you used the the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)), the first setting will already be configured.
+Next, you'll need to set environment variables in your function app from earlier, containing the reference to the Azure Digital Twins instance you've created and the event hub. If you used the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)), the first setting will already be configured.
 
 Add the setting with this Azure CLI command. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
