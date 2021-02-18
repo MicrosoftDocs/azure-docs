@@ -72,7 +72,7 @@ Key Vault supports RSA and EC keys. Managed HSM supports RSA, EC, and symmetric 
 
 |Key type and destination|Compliance|
 |---|---|
-|Software-protected keys in vaults (Preimum & Standard SKUs) | FIPS 140-2 Level 1|
+|Software-protected keys in vaults (Premium & Standard SKUs) | FIPS 140-2 Level 1|
 |HSM-protected keys in vaults (Premium SKU)| FIPS 140-2 Level 2|
 |HSM-protected keys in Managed HSM|FIPS 140-2 Level 3|
 |||
