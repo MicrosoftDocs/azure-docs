@@ -34,7 +34,7 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 The Azure Sentinel entity details pages provide an [Insights pane](identify-threats-with-entity-behavior-analytics.md#entity-insights), which displays behavioral insights on the entity and help to quickly identify anomalies and security threats.
 
-If you have [UEBA enabled](ueba-enrichments.md) and have allowed for at least 4 days to pass, this Insights pane will now also include the following new sections for UEBA insights:
+If you have [UEBA enabled](ueba-enrichments.md), and have selected a timeframe of at least four days, this Insights pane will now also include the following new sections for UEBA insights:
 
 |Section  |Description  |
 |---------|---------|
@@ -73,7 +73,7 @@ The Azure Sentinel Scheduled analytics rule wizard now provides the following en
 
 -	An expandable editing window, providing you with more screen space to view your query.
 -	Key word highlighting in your query code.
--	Expanded auto-complete support.
+-	Expanded autocomplete support.
 -	Real-time query validations. Errors in your query now show as a red block in the scroll bar, and as a red dot in the **Set rule logic** tab name. Additionally, a query with errors cannot be saved.
 
 For more information, see [Tutorial: Detect threats out-of-the-box](tutorial-detect-threats-built-in.md).
