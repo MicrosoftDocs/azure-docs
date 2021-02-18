@@ -5,7 +5,7 @@ author: ariye
 
 ms.author: crtreasu
 ms.date: 02/17/2021
-ms.topic: best-practices
+ms.topic: best-practice
 ms.service: azure-object-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 ---
