@@ -17,7 +17,7 @@ ms.custom: how-to
 
 # How to use Apache Spark in your machine learning pipeline with Azure Synapse (preview)
 
-In this article, you'll learn how to use Apache Spark pools backed by Synapse as the compute target for a data preparation step Azure Machine Learning pipeline. You'll learn how a single pipeline can use compute resources suited for the specific step, such as data preparation or training. You'll see how data is prepared for the Spark step and how it's passed to the next step. 
+In this article, you'll learn how to use Apache Spark pools backed by Synapse as the compute target for a data preparation step in a Azure Machine Learning pipeline. You'll learn how a single pipeline can use compute resources suited for the specific step, such as data preparation or training. You'll see how data is prepared for the Spark step and how it's passed to the next step. 
 
 ## Prerequisites
 
@@ -25,16 +25,30 @@ In this article, you'll learn how to use Apache Spark pools backed by Synapse as
 
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed.
 
-* Create a Synapse workspace and Apache Spark pool (see [Quickstart: Create a serverless Apache Spark pool using Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)). Then,
+* Create a Synapse workspace and Apache Spark pool (see [Quickstart: Create a serverless Apache Spark pool using Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)). 
 
-* Create an integration between your Apache Spark pool and Azure Machine Learning (see [Attach Synapse Spark pools for data preparation with Azure Synapse (preview)](./how-to-data-prep-synapse-spark-pool.md)).
+## Link your machine learning workspace and Synapse workspace 
+
+You create and administer your Apache Spark pools in a Synapse workspace. To integrate a Spark pool with an Azure Machine Learning workspace, you must link to the Synapse workspace. 
+
+You can attach a Synapse Spark pool via Azure Machine Learning studio UI by using the **Linked Services** page. You may also do it via the **Compute** page with the **Attach compute** option.
+
+You may also attach a Synapse Spark pool via SDK (as elaborated below) or via an ARM template (see this [Example ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json)). 
+
+To use the command line to follow the ARM template, add the linked service, and attach the synapse pool, use:
+
+```bash
+az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"
+```
 
 > [!Important]
 > The linked service will get a System Assigned Identity (SAI) when you create it. In the Synapse workspace, you must assign this SAI the "Synapse Apache Spark administrator" role so that it can submit the Spark job. You must also give the user of the Azure Machine Learning workspace the role "Contributor."  
+> To link to the Synapse workspace successfully, you must have the Owner role in the Synapse workspace resource. Check your access in the Azure portal.
+> A managed identity, `system_assigned_identity_principal_id`, is created for each linked service. An administrator must grant this managed identity the "Synapse Apache Spark Administrator" role in the Synapse workspace. Assign the "Synapse Apache Spark Administrator" role in Synapse Studio.
 
 ## Create or retrieve the link between your Synapse workspace and your Azure Machine Learning workspace
 
-You create and administer your Apache Spark pools in a Synapse workspace. To integrate a Spark pool with an Azure Machine Learning workspace, you must link the services. You create the integration using Studio (see [Attach Synapse Spark pools for data preparation with Azure Synapse (preview)](./how-to-data-prep-synapse-spark-pool.md)). You can retrieve linked services in your workspace with code such as:
+You can retrieve linked services in your workspace with code such as:
 
 ```python
 from azureml.core import Workspace, LinkedService, SynapseWorkspaceLinkedServiceConfiguration
