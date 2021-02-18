@@ -32,8 +32,8 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 Updates in February include:
 
 - [New security alerts page in the Azure portal released for General Availability (GA)](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
-- [Kubernetes workload protection recommendations released for General Availability (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
-- [Microsoft Defender for Endpoint integration with Azure Defender now supports Windows 10 Virtual Desktop (WVD) and Windows Server 2019 (in preview)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-10-virtual-desktop-wvd-and-windows-server-2019-in-preview)
+- [Kuber[Microsoft Defender for Endpoint integration with Azure Defender now supports Windows 10 Virtual Desktop (WVD) and Windows Server 2019 (in preview)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-10-virtual-desktop-wvd-and-windows-server-2019-in-preview)netes workload protection recommendations released for General Availability (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
+- 
 - [Direct link to policy from recommendation details page](#direct-link-to-policy-from-recommendation-details-page)
 - [SQL data classification recommendation no longer affects your secure score](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
 - [Workflow automations can be triggered by changes to regulatory compliance assessments (in preview)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview)
