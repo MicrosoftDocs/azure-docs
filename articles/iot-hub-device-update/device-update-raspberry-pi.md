@@ -34,8 +34,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Download image
 
 There are three images available as a part of the "Assets" in a given
-[Device Update GitHub release](https://github.com/Azure/iot-hub-device-update/releases). The base image (adu-base-image) and two update images (adu-update-image) are provided so you can try rollouts to different versions without needing to flash the SD card on the
-device.  To do so, you'll need to upload the update images to the Device Update for IoT Hub
+[Device Update GitHub release](https://github.com/Azure/iot-hub-device-update/releases). The base image (adu-base-image) and two update images (adu-update-image) are provided so you can try rollouts to different versions without needing to flash the SD card on the device.  To do so, you'll need to upload the update images to the Device Update for IoT Hub
 Service, as a part of the import.
 
 ## Flash SD card with image
@@ -76,6 +75,12 @@ device.
    ```shell
    sudo bmaptool copy <path to image> /dev/<device>
    ```
+   
+Device Update for Azure IoT Hub software is subject to the following license terms:
+   * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
+   * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+   
+Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device update for IoT Hub agent.
 
 ## Create device in IoT Hub and get connection string
 
