@@ -3,7 +3,7 @@ title: Run privileged containers in an Azure Red Hat OpenShift cluster | Microso
 description: Run privileged containers to monitor security and compliance.
 author: makdaam
 ms.author: b-lejaku
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, red hat
