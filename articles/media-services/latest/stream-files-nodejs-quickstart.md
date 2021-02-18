@@ -77,9 +77,9 @@ The sample performs the following actions:
     npm install 
     ```
 
-1. Change directory into the HelloWorld-ListAssets folder
+1. Change directory into the StreamFilesSample folder
     ```bash
-    cd HelloWorld-ListAssets
+    cd StreamFilesSample
     ```
 
 1. Launch Visual Studio Code from the AMSv3Samples Folder. This is required to launch from the folder where the ".vscode" folder and tsconfig.json files are located
@@ -89,8 +89,8 @@ The sample performs the following actions:
     code .
     ```
 
-Open the folder for HelloWorld-ListAssets, and open the index.ts file in the Visual Studio Code editor.
-While in the index.ts file, press F5 to launch the debugger. You should see a list of assets displayed if you have assets already in the account. If the account is empty, you will see an empty list.  Upload a few assets in the portal to see the results.
+Open the folder for StreamFilesSample, and open the index.ts file in the Visual Studio Code editor.
+While in the index.ts file, press F5 to launch the debugger.
 
 
 ## Test with Azure Media Player
