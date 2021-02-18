@@ -1,6 +1,6 @@
 ---
-title: Flexible Orchestration Mode for Virtual Machine Scale Sets in Azure
-description: Learn how to use Flexible Orchestration Mode for Virtual Machine Scale Sets in Azure.
+title: Orchestration modes for Virtual Machine Scale Sets in Azure
+description: Learn how to use Flexible and Uniform orchestration modes for Virtual Machine Scale Sets in Azure.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.custom: mimckitt
 
 ---
 
-# Preview: Flexible Orchestration Mode for Virtual Machine Scale Sets in Azure 
+# Preview: Orchestration modes for Virtual Machine Scale Sets in Azure 
 
 Virtual machines scale sets provide a logical grouping of platform-managed virtual machines. With scale sets, you create a virtual machine configuration model, automatically add or remove additional instances based on CPU or memory load, and automatically upgrade to the latest OS version. Traditionally, scale sets allow you to create virtual machines using a VM configuration model provided at time of scale set creation, and the scale set can only manage virtual machines that are implicitly created based on the configuration model. 
 
@@ -50,10 +50,10 @@ az vm create –vmss “myVMSS”  –-platform_fault_domain 1
 ```
 
 ### Instance naming 
-Since VMSS Flex provides orchestration over standard Azure VMs. When you create a VM and add it to a VMSS Flex, you have full control over instance names within the Azure Naming convention rules. When VMs are automatically added to the scale set via autoscaling, you provide a prefix and Azure appends unique number to the end of the name. See VMSS Instance Naming for more details. 
+When you create a VM and add it to a Flexible scale set, you have full control over instance names within the Azure Naming convention rules. When VMs are automatically added to the scale set via autoscaling, you provide a prefix and Azure appends a unique number to the end of the name.
 
 ### Query instances for power state
-The preferred method is to use Azure Resource Graph to query for all VMs in a VMSS. Azure Resource Graph provides efficient query capabilities for Azure resources at scale across subscriptions. 
+The preferred method is to use Azure Resource Graph to query for all VMs in a Virtual Machine Scale Set. Azure Resource Graph provides efficient query capabilities for Azure resources at scale across subscriptions. 
 
 ``` 
 | where type =~ 'Microsoft.Compute/virtualMachines' 
@@ -69,10 +69,10 @@ Querying resources with [Azure Resource Graph](https://docs.microsoft.com/azure/
 - Use the Get VM API and commands to get model and instance view for a single instance
 
 ### Scale sets VM Batch operations
-Use the standard VM commands to start, stop, restart, delete instances, instead of the VMSS VM APIs. The VMSS VM Batch operations (start all, stop all, reimage all, etc.) are not used with VMSS Flex. 
+Use the standard VM commands to start, stop, restart, delete instances, instead of the Virtual Machine Scale Set VM APIs. The Virtual Machine Scale Set VM Batch operations (start all, stop all, reimage all, etc.) are not used with Flexible orchestration mode. 
 
 ### Monitor application health 
-Application health monitoring allows your application to provide Azure with a heartbeat to determine whether your application is healthy or unhealthy. Azure can automatically replace VM instances that are unhealthy. For VMSS Flex instances, you must install and configure the Application Health Extension on the virtual machine. For VMSS Uniform instances, you can use either the Application Health Extension, or measure health with an Azure Load Balancer Custom Health Probe. 
+Application health monitoring allows your application to provide Azure with a heartbeat to determine whether your application is healthy or unhealthy. Azure can automatically replace VM instances that are unhealthy. For Flexible scale set instances, you must install and configure the Application Health Extension on the virtual machine. For Uniform scale set instances, you can use either the Application Health Extension, or measure health with an Azure Load Balancer Custom Health Probe. 
 
 ### List scale sets VM API changes 
 VMSS allows you to list the instances that belong to the scale set. With VMSS Flex, the list VMSS VM command provides a list of VMSS VM IDs. You can then call the GET VMSS VM commands to get more details on how the scale set is working with the VM instance. To get the full details of the VM, use the standard GET VM commands or Azure Resource Graph. 
