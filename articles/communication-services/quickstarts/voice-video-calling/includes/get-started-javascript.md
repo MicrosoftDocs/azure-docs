@@ -97,7 +97,7 @@ Add an event handler to initiate a call when the `callButton` is clicked:
 callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
-    call = callAgent.call(
+    call = callAgent.startCall(
         [{ communicationUserId: userToCall }],
         {}
     );
