@@ -97,12 +97,15 @@ If version is omitted, the latest available version of specified package will be
 
 [Learn More](https://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-version) about how Debian packages are versioned.
 
->[!NOTE]
->APT package manager ignores versioning requirements given by a package when the dependent packages to install are being automatically resolved. Unless explicit versions of dependent packages are given they will use the latest, even though the package itself may specify a strict requirement (=) on a given
+> [!NOTE]
+> APT package manager ignores versioning requirements given by a package when the dependent packages to install are being automatically resolved. Unless explicit versions of dependent packages are given they will use the latest, even though the package itself may specify a strict requirement (=) on a given
 version. This automatic resolution can lead to errors regarding an unmet dependency. [Learn More](https://unix.stackexchange.com/questions/350192/apt-get-not-properly-resolving-a-dependency-on-a-fixed-version-in-a-debian-ubunt)
 
 If you're updating a specific version of the Azure IoT Edge security daemon, then you should include the desired version of the `iotedge` package and its dependent `libiothsm-std` package in your APT manifest.
 [Learn More](https://docs.microsoft.com/azure/iot-edge/how-to-update-iot-edge#update-the-security-daemon)
+
+> [!NOTE]
+> An apt manifest can be used to update Device Update agent and its dependencies. List the device update agent name and desired version in the apt manifest, like you would for any other package. This apt manifest can then be imported and deployed through the Device Update for IoT Hub pipeline. 
 
 ## Removing packages
 
@@ -198,4 +201,6 @@ This update includes foo package, and also includes bar package.
 
 ## Next steps
 
-[Import new update](import-update.md)
+> [!div class="nextstepaction"]
+> [Import new update](import-update.md)
+
