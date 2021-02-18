@@ -1,6 +1,6 @@
 ---
-title: Data redundancy options for managed disks
-description: Learn about zone-redundant storage and locally-redundant storage for managed disks.
+title: Data redundancy options for Azure managed disks
+description: Learn about zone-redundant storage and locally-redundant storage for Azure managed disks.
 author: roygara
 ms.author: rogarana
 ms.date: 03/02/2021
@@ -11,21 +11,21 @@ ms.subservice: disks
 
 # Data redundancy options for managed disks
 
-Azure managed disks offer two storage redundancy options, zone-redundant storage (ZRS) as a preview, and locally-redundant storage. ZRS provides higher durability and availability for managed disks than locally-redundant storage (LRS) does. However, the write latency for disks that use LRS is better than disks that use ZRS because LRS disks synchronously write data to three copies in a single data center.
+Azure managed disks offer two storage redundancy options, zone-redundant storage (ZRS) as a preview, and locally-redundant storage. ZRS provides higher durability and availability for managed disks than locally-redundant storage (LRS) does. However, the write latency for LRS disks is better than ZRS disks because LRS disks synchronously write data to three copies in a single data center.
 
 ## Locally-redundant storage for managed disks
 
-Locally-redundant storage (LRS) replicates your data three times within a single data center in the selected region. LRS is the lowest-cost redundancy option and offers the least durability compared to ZRS. LRS protects your data against server rack and drive failures. However, if a disaster such as fire or flooding occurs within the data center, all replicas of a storage account using LRS may be lost or unrecoverable. LRS is recommended for workloads that value write latency over durability and availability.
+Locally-redundant storage (LRS) replicates your data three times within a single data center in the selected region. LRS is the lowest-cost redundancy option and offers the least durability compared to ZRS. LRS protects your data against server rack and drive failures. However, if a disaster such as fire or flooding occurs within the data center, all replicas of a disk using LRS may be lost or unrecoverable. LRS is recommended for workloads that value write latency over durability and availability.
 
-Better availability for VMs using LRS disks can be achieved through applications like SQL Server AlwaysOn, that can synchronously write data to two zones and automatically failover to another zone during a disaster. If your workflow doesn't support application-level synchronous writes across zones, you can use a ZRS disk for better availability.
+You can get better availability for VMs using LRS disks by using applications like SQL Server AlwaysOn, that can synchronously write data to two zones, and automatically failover to another zone during a disaster. If your workflow doesn't support application-level synchronous writes across zones, you can use a ZRS disk for better availability.
 
 ## Zone-redundant storage for managed disks (preview)
 
-Zone-redundant storage (ZRS) replicates your Azure Disk Storage data synchronously across three Azure availability zones in the selected region. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS is recommended for disks with workloads that value durability and availability over write latency.
+Zone-redundant storage (ZRS) replicates your Azure managed disk synchronously across three Azure availability zones in the selected region. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS is recommended for disks with workloads that value durability and availability over write latency.
 
-If an entire zone went down, you can still attach a ZRS disk to a VM in a different zone. You can also attach a shared ZRS disk to a standby VM in a secondary zone in a deallocated state. In the event of a failure in the primary zone, you can quickly start the standby VM and make it active using SCSI persistent reservation.  
+ZRS disks allow you to recover from failures in availability zones. If an entire zone went down, a ZRS disk can be attached to a VM in a different zone.  A shared ZRS disk can be attached to a standby VM in a secondary zone in a deallocated state. You can also attach a shared ZRS disk to a standby VM in a secondary zone in a deallocated state. If there is a failure in the primary zone, you can quickly start the standby VM and make it active using SCSI persistent reservation.  
 
-You can also use ZRS disks for shared disks attached to failover clusters where disks are shared with multiple VMs such as SQL failover cluster instance (FCI), SAP ASCS. We allow you to attach a shared ZRS disk to VMs spread on multiple zones to help you take advantage of both ZRS disks and Availability Zones for VMs for higher availability.
+You can attach a shared ZRS disk to VMs spread on multiple zones to help you take advantage of both ZRS disks and Availability Zones for VMs for higher availability.
 
 ### Limitations
 
@@ -41,11 +41,11 @@ Premium SSD and Standard SSD ZRS disks are priced 1.5X than the corresponding LR
 
 ### Comparison with other disk types
 
-Except for additional write latency, disks using ZRS are identical to disks using LRS. They have the same performance targets. ZRS is ideal when write latency is less critical than durability and availability achieved by data redundancy in multiple zones.
+Except for more write latency, disks using ZRS are identical to disks using LRS. They have the same performance targets. ZRS is ideal when write latency is less critical than durability and availability achieved by data redundancy in multiple zones.
 
 ### Create ZRS managed disks
 
-You must use the `2020-12-01` API with your Azure Resource Manager template to create a managed disk with ZRS enabled.
+You need to use the `2020-12-01` API with your Azure Resource Manager template to create a managed disk with ZRS enabled.
 
 #### Create VMs with ZRS data disks with Read caching enabled  
 
