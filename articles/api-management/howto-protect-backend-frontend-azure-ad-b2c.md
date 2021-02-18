@@ -221,7 +221,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 
    > [!NOTE]
    > Congratulations, you now have Azure AD B2C, API Management and Azure Functions working together to publish, secure AND consume an API. 
-   > You might have noticed that the API is in fact secured twice using this method, once with the API Management Ocp-Subscription-Key Header, and once with the Authorization: Bearer JWT.
+   > If you are using the API Management consumption tier then instead of rate limiting by the JWT subject or incoming IP Address, you can issue a subscription key as described [here]https://review.docs.microsoft.com/en-us/azure/api-management/api-management-howto-create-subscriptions?branch=pr-en-us-147538 and add the API Management Ocp-Subscription-Key Header to rate limit by calling client application.
    > You would be correct, as this example is a JavaScript Single Page Application, we use the API Management Key only for rate-limiting and billing calls.
    > The actual Authorization and Authentication is handled by Azure AD B2C, and is encapsulated in the JWT, which gets validated twice, once by API Management, and then by Azure Functions.
 
