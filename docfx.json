@@ -1029,7 +1029,7 @@
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability.md",
           "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md",
           "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md",
-          "articles/vmware-cloudsimple/on-premises-dns-setup.md",
+          "articles/vmware-cloudsimple/on-premises-dns-setup.md"
         ]
       },
       "sensitive-language-bl": {
