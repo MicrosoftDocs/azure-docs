@@ -437,6 +437,10 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
+  - name: Access tier
+    items:
+    - name: Archive tier
+      href: archive-tier-support.md
   - name: Troubleshoot
     items:
     - name: Azure VM
