@@ -32,14 +32,7 @@ This category contains the following entity:
         American Banker Association (ABA) transit routing numbers.
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`
-      
-   :::column-end:::
 :::row-end:::
-
 
 #### Category: SWIFT code
 
@@ -435,11 +428,6 @@ The following entities are grouped and listed by country:
         France Value Added Tax (VAT) number
 
     :::column-end:::
-    :::column span="2":::
-
-      `fr` 
-      
-   :::column-end:::
 :::row-end:::
 
 #### Germany
