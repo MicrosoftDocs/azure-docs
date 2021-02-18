@@ -376,6 +376,18 @@ The following entities are grouped and listed by country:
 
     :::column-end:::
 :::row-end:::
+:::row:::
+    :::column span="":::
+
+        EU GPS coordinates
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `pt-pt` 
+      
+   :::column-end:::
+:::row-end:::
 
 #### France
 
