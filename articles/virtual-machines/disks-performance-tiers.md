@@ -4,7 +4,7 @@ description: Learn how to change performance tiers for existing managed disks us
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 03/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
@@ -112,7 +112,7 @@ $disk.Tier
 
 ## Change the performance tier of a disk without downtime (preview)
 
-You can also change your performance tier without downtime, meaning you don't have to deallocate your VM or detach your disk to change the tier. For more information and the sign up link for the preview, see the [Changing performance tier without downtime (preview)](#changing-performance-tier-without-downtime-preview) section.
+You can also change your performance tier without downtime, so you don't have to deallocate your VM or detach your disk to change the tier. For more information and the sign up link for the preview, see the [Changing performance tier without downtime (preview)](#changing-performance-tier-without-downtime-preview) section.
 
 
 The following script will update the tier of a disk higher than the baseline tier using the sample template [CreateUpdateDataDiskWithTier.json](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json). Replace `<yourSubScriptionID>`, `<yourResourceGroupName>`, `<yourDiskName>`, `<yourDiskSize>`, and `<yourDesiredPerformanceTier>` then run the script:

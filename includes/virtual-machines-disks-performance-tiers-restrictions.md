@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 11/20/2020
+ ms.date: 02/18/2021
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -17,7 +17,7 @@
 
 ## Change performance tier without downtime (preview)
 
-You can also change your performance tier without downtime. In other words, with this preview enabled, you don't have to deallocate your VM or detach your disk to change the tier. You can sign up for the preview [here](https://aka.ms/liveperftiersignup).
+Normally, you would have to deallocate your VM or detach your disk to change your performance tier. But if you enable this preview feature you don't have to deallocate your VM or detach your disk to change the tier. You can sign up for the preview [here](https://aka.ms/liveperftiersignup).
 
 The preview has the following limitations:
 - Available in EastUS2EUAP region only.
