@@ -116,7 +116,7 @@ Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event
 
 ## Error: InstallationHealthCheckFailedException
 
-Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **InstallationHealthCheckFailedException** in the description, the stack is not listening because the terminal server has toggled the registry key for the stack listener.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 that says "InstallationHealthCheckFailedException" in the description, that means the stack listener isn't working because the terminal server has toggled the registry key for the stack listener.
 
 To resolve this issue:
 1. Verify that the [stack listener is working](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
