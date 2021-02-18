@@ -17,11 +17,11 @@ To access the Community Hub, navigate to Backup Center in the Azure portal and s
 
 Some of the resources available via the Community Hub are:
 
-1. **Microsoft Q&A**: You can use this forum to ask and discover questions about various product features and obtain guidance from the community.
+- **Microsoft Q&A**: You can use this forum to ask and discover questions about various product features and obtain guidance from the community.
 
-2. **Feature Requests**: You can navigate to UserVoice and file feature requests.
+- **Feature Requests**: You can navigate to UserVoice and file feature requests.
 
-3. **Samples for automated deployments**: Using the Community Hub, you can discover sample Azure Resource Manager(ARM) templates and Azure Policies that you can use out of the box. You can also find sample PowerShell Scripts, CLI commands, and MSDB scripts.
+- **Samples for automated deployments**: Using the Community Hub, you can discover sample Azure Resource Manager(ARM) templates and Azure Policies that you can use out of the box. You can also find sample PowerShell Scripts, CLI commands, and MSDB scripts.
 
 ## Next Steps
 
