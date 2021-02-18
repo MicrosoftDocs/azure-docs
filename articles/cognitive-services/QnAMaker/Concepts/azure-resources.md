@@ -361,6 +361,6 @@ With QnA Maker managed (Preview) you have a choice to setup your QnA Maker servi
 
 ## Next steps
 
-* Learn about the QnA Maker [knowledge base](../index.yml)
+* Learn about the QnA Maker [knowledge base](../How-To/manage-knowledge-bases.md)
 * Understand a [knowledge base life cycle](development-lifecycle-knowledge-base.md)
 * Review service and knowledge base [limits](../limits.md)
