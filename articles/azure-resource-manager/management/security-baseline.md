@@ -245,7 +245,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure AD RBAC to control access to data and resources, otherwise use service-specific access control methods.
 
-- [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
