@@ -10,7 +10,7 @@ ms.service: iot-hub
 
 # Device Update for IoT Hub and IoT Plug and Play
 
-Device Update for IoT Hub uses [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp/) to discover and manage devices that are over-the-air update capable. The Device Update service will send and receive properties and messages to and from devices using PnP interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model-id as described below.
+Device Update for IoT Hub uses [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp/) to discover and manage devices that are over-the-air update capable. The Device Update service will send and receive properties and messages to and from devices using PnP interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces, model-id and component as described below.
 
 ## ADU Core Interface
 
@@ -84,8 +84,12 @@ The Device Information Interface is a concept used within [IoT Plug and Play arc
 |totalStorage|Property|string|device to cloud|Total available storage on the device in kilobytes.|2048|
 |totalMemory|Property|string|device to cloud|Total available memory on the device in kilobytes.|256|
 
-## Model ID
+## Model ID 
 
 Model ID is how smart devices advertise their capabilities to Azure IoT applications with IoT Plug and Play.To learn more on how to build smart devices to advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c).
 
 Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID with a value of **"dtmi:AzureDeviceUpdate;1"** as part of the device connection. Learn more [how to announce a model ID](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c#model-id-announcement).
+
+## Component
+The component names should be **"azureDeviceUpdateAgent"** and **deviceInformation** when implementing the Device Update Agent.
+
