@@ -46,6 +46,10 @@ exceptions
 ## \_TimeReceived
 The **\_TimeReceived** column contains the date and time that the record was received by the Azure Monitor ingestion point in the Azure cloud. This can be useful for identifying latency issues between the data source and the cloud. An example would be a networking issue causing a delay with data being sent from an agent. See [Log data ingestion time in Azure Monitor](../logs/data-ingestion-time.md) for more details.
 
+> [!NOTE]
+> The **\_TimeReceived** column is calculate each time it is used. This process is resource intensive. Refine from using it to filter large number of records. Using this function recurrently can lead to increased query execution duration.
+
+
 The following query gives the average latency by hour for event records from an agent. This includes the time from the agent to the cloud and the total time for the record to be available for log queries.
 
 ```Kusto

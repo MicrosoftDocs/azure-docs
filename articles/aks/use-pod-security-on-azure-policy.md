@@ -60,7 +60,8 @@ The following limitations apply only to the Azure Policy Add-on for AKS:
 - [AKS Pod security policy (preview)](use-pod-security-policies.md) and the Azure Policy Add-on
   for AKS can't both be enabled. 
 - Namespaces automatically excluded by Azure Policy Add-on for evaluation: _kube-system_,
-  _gatekeeper-system_, and _aks-periscope_.
+  _gatekeeper-system_, and _aks-periscope_. If you use Calico network policy with Kubernetes Version 1.20
+  and above, 2 more namespaces are automatically excluded, which are _calico-system_ and _tigera-operator_.
 
 ### Recommendations
 
