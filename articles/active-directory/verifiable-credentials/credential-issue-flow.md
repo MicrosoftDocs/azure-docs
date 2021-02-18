@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Credential issue flow 
-description: Learn how you can set up your own verifiable credentials issuer in Azure
+description: This article describes how to get your NodeJS app or website configured to issue Verifiable Credentials VC using a verifiable credentials NPM package
 services: active-directory
 documentationCenter: ''
 author: barclayn
@@ -34,9 +34,9 @@ To authenticate a credential issuance request to the user, the issuer website wi
 | Supported account types | This organization only. |
 | Client secret | Create a new client secret in the Certificates & Secrets configuration section.  |
 
-  ![aad app registration](media/credential-issue-flow/aad-app-registration.png)
+  ![register an application](media/credential-issue-flow/aad-app-registration.png)
 
-    After creating your application in Azure AD, you need to grant the application permission to perform operations on your Key Vault. This enables the website to access and use the private keys that are stored in Key Vault.
+ After creating your application in Azure AD, you need to grant the application permission to perform operations on your Key Vault. This enables the website to access and use the private keys that are stored in Key Vault.
 
 2 - In the Azure Portal, navigate to your Azure Key Vault, and open the **Access Policies** section. Add a new access policy, using the following details:
 
@@ -68,7 +68,7 @@ The VC SDK must be used in a NodeJS server. You can use the SDK to send a creden
 2. When the QR code or deep link is opened, Authenticator will send an `HTTP GET` request to your server to retrieve the details of an issuance request. This helps keep the size of the QR code relatively small so it can be easily scanned.
 3. After retrieving an issuance request, Authenticator will execute an Verifiable Credential issuance process according to the rules described in your rules file. When credential issuance completes, Authenticator will receive and store the new verifiable credential.
 
-![aad app registration](media/credential-issue-flow/issuer-request-diagram.png)
+![issuer request diagram](media/credential-issue-flow/issuer-request-diagram.png)
 
 The APIs used to implement each of these steps are described in the sections below.
 
@@ -111,15 +111,15 @@ To generate this response, you can use the VC SDK to construct a properly format
 
 1 - First, import the necessary packages to generate an issuance request.
 
-    ```js
-    var { ClientSecretCredential } = require('@azure/identity');
-    var { CryptoBuilder, 
-          LongFormDid, 
-          RequestorBuilder,
-          KeyReference,
-          KeyUse
-        } = require('verifiablecredentials-verification-sdk-typescript');
-    ```
+```js
+   var { ClientSecretCredential } = require('@azure/identity');
+   var { CryptoBuilder, 
+         LongFormDid, 
+         RequestorBuilder,
+         KeyReference,
+         KeyUse
+       } = require('verifiablecredentials-verification-sdk-typescript');
+```
 
 2 - Next, set up the VC SDK by providing access to cryptographic keys that will be used to digitally sign the issuance request. In this case, we'll generate a new set of cryptographic keys in Azure Key Vault.
 

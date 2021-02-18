@@ -44,9 +44,9 @@ When you want to add additional user information to your tokens not available in
 
 2 - After registering your directory extension, you need to write user data to your extension attribute, populating the directory with user information you wish to include in your verifiable credentials. [This older Azure AD Graph API article](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) gives example requests for writing data to your directory extensions. You may also use the [Microsoft Graph API](https://docs.microsoft.com/graph/api/user-update) or another tool for updating user objects in your tenant.
 
-3 - Once all of your user information has been written to the directory, you can configure your tenant to use the directory extension as an optional claim. [This section in this article](../active-directory/develop/active-directory-optional-claims.md#configuring-directory-extension-optional-claims) describes how to configure your ID tokens to include values sourced from a directory extension.
+3 - Once all of your user information has been written to the directory, you can configure your tenant to use the directory extension as an optional claim. [This section in this article](../develop/active-directory-optional-claims.md#configuring-directory-extension-optional-claims) describes how to configure your ID tokens to include values sourced from a directory extension.
 
-Once you have configured your ID tokens to include all claims necessary for your verifiable credentials, you can return to [configuring your verifiable credentials](xref:e47e0237-9189-4f33-a0f3-e4c135688342).
+Once you have configured your ID tokens to include all claims necessary for your verifiable credentials, you can return to [configuring your verifiable credentials](credential-structure.md).
 
 
 ## Azure AD B2C
@@ -70,7 +70,7 @@ Similar to the section above, you can extend your Azure AD B2C tenant with addit
 
 Azure AD B2C also allows you to connect to an external REST API when issuing an ID token. The results returned from the REST API can be configured to be included as claims in ID tokens issued by your Azure AD B2C tenant.
 
-![User attributes in B2C](/media/how-to-idp-claims/customize-claims-rest.png)
+![customize claims](/media/how-to-idp-claims/customize-claims-rest.png)
 
 To connect to Azure AD B2C to an external REST API, you'll need to use an [Azure AD B2C custom policy](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview). Custom policies give you rich flexibility for customizing the Azure AD B2C authentication process. [This article](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-rest-api-claims-exchange) walks you through how to write a custom policy that connects to a REST API and uses its results as claims in an ID token. 
 

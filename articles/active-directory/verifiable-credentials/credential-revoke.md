@@ -1,6 +1,6 @@
 ---
 title: Credential revokation 
-description: 
+description: This article shows you how you can revoke a credential
 services: active-directory
 author: barclayn
 manager: davba

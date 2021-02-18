@@ -1,6 +1,6 @@
 ---
 title: Define key pair values or claims in Azure Verifiable credentials
-description: 
+description: Verifiable credentials use key pairs of attributes and values. This article helps you define properties and contents of your verifiable credentials
 services: active-directory
 author: barclayn
 manager: davba
@@ -33,18 +33,15 @@ This article will help you define the properties and contents of your Verifiable
 
 To receive a Verifiable Credential, users must first log in to your organization's identity provider. This allows the user to prove who they are before receiving their credential. When a user successfully logs in, your identity provider will return a security token that contains claims about the user. The issuer service then transforms these security tokens and their claims into Verifiable Credentials.
 
-<img style="box-shadow:none" src="../images/idp-transform-diagram.png" alt="issue process">
+![Issue process](media/credential-structure/idp-transform-diagram.png)
 
-Any identity provider that supports the OpenID Connect protocol is supported. Examples of supported identity providers include Azure Active Directory, and Azure AD B2C. [This article](xref:4d02f5ca-6114-4fad-9e87-54944b3f0610) contains the details of the OpenID Connect protocol used during the credential issuing process.
 
-To issue a Verifiable Credential, you need to provide the issuer service with the configuation details of your OpenID compliant identity provider.
+Any identity provider that supports the OpenID Connect protocol is supported. Examples of supported identity providers include Azure Active Directory, and Azure AD B2C. [This article](issuer-openid.md) contains the details of the OpenID Connect protocol used during the credential issuing process.
 
-<div class="step" style="margin-bottom:0px" >
-<div class="numberCircle">1</div>
-<div class="multiline-step">
-Register the Verifiable Credential issuer service as an application in your identity provider and obtain a client ID. Instructions are available for registering an application with [Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) or [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications). When registering, use the values below. Write down the application ID. You need this value later.
-</div>
-</div>
+To issue a Verifiable Credential, you need to provide the issuer service with the configuration details of your OpenID compliant identity provider.
+
+1- Register the Verifiable Credential issuer service as an application in your identity provider and obtain a client ID. Instructions are available for registering an application with [Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) or [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications). When registering, use the values below. Write down the application ID. You need this value later.
+
 
 <table class="table" style="padding-left: 50px;">
 <thead><tr><th>Setting</th><th>Value</th></tr></thead>
@@ -225,7 +222,7 @@ In the Azure Portal, navigate to the **Verifiable Credentials (Preview)** blade.
 </div>
 </div>
  
-![New credential select from blob storage](../images/New_Credential.jpg)
+![New credential select from blob storage](media/credential-structure/new_credential.jpg)
 
 You've now successfully defined the properties and contents of your Verifiable Credential. If you'd like to reference a working example of a rules file, please see our [code sample on GitHub](https://github.com/Azure-Samples/active-directory-verifiable-credentials).
 

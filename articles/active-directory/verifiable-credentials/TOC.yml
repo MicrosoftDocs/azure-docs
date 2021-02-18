@@ -25,8 +25,8 @@
     href: issuer-openid.md
   - name: Section 2 Title
     items:
-    - name: Article 1
-      href: article2.md
+    - name: duplicate as an example
+      href: issuer-openid.md
 - name: How-to guides
   expanded: true
   items:
