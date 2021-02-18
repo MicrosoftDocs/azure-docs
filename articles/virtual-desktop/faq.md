@@ -131,6 +131,6 @@ You also can't use CSP sandbox subscriptions with the Windows Virtual Desktop se
 
 Finally, if you enabled the resource provider from the CSP owner account, the CSP customer accounts won't be able to modify the resource provider.
 
-## What is the recommended frequency to start VMs to prevent registration issues?
+## How often should I turn my VMs on to prevent registration issues?
 
 After a VM has been registered to a host pool and to the Windows Virtual Desktop service, the Windows Virtual Desktop agent regularly refreshes the token on its own if the VM is running. The certificate that is used to sign the registration token is valid for 90 days. Consequently, we recommend you start your VMs every 90 days. Doing so will prevent the VM registration token from expiring or becoming invalid. If you have started your VM after over 90 days and are experiencing registration issues, follow the instructions in the [Windows Virtual Desktop agent troubleshooting guide](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) to remove the VM from the host pool, reinstall the agent, and reregister it to the pool.
