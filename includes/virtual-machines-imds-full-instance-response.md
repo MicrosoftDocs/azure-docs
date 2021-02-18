@@ -9,7 +9,7 @@ ms.author: chhenk
 ms.reviewer: azmetadatadev
 ---
 
-#### [Windows VM](#/tab/windows)
+#### [Windows](#tab/windows/)
 ```json
 {
     "compute": {
@@ -131,7 +131,7 @@ ms.reviewer: azmetadatadev
 }
 ```
 
-#### [Linux VM](#/tab/linux)
+#### [Linux](#tab/linux/)
 ```json
 {
     "compute": {

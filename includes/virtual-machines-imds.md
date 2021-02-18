@@ -507,7 +507,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 > [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
 
-#### [Windows VM](#tab/windows/)
+#### [Windows](#tab/windows/)
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
@@ -608,7 +608,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 }
 ```
 
-#### [Linux VM](#tab/linux/)
+#### [Linux](#tab/linux/)
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
