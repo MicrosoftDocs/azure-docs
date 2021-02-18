@@ -2,14 +2,14 @@
 title: Maintenance Window
 description: Understand how the Azure SQL Database and Managed Instance maintenance window can be configured.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
-ms.topic: reference
+ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 02/17/2021
+ms.date: 03/02/2021
 ---
 
 # Maintenance window (Preview)
@@ -86,9 +86,9 @@ Choosing a maintenance window other than the default is currently available in t
 
 To get the maximum benefit from maintenance windows, make sure your client applications are using the redirect connection policy. Redirect is the recommended connection policy, where clients establish connections directly to the node hosting the database, leading to reduced latency and improved throughput.  
 
-* In Azure SQL Database, any connections using the proxy connection policy could be affected by both the chosen maintenance window and the gateway node maintenance window. This is because the chosen database maintenance window schedule does not affect the gateway nodes maintenance schedule. The gateway nodes receive maintenance usually during the default schedule, 5PM to 8AM local time Monday - Sunday. However, client connections using the recommended redirect connection policy are unaffected by a gateway node maintenance failover. 
+* In Azure SQL Database, any connections using the proxy connection policy could be affected by both the chosen maintenance window and a gateway node maintenance window. However, client connections using the recommended redirect connection policy are unaffected by a gateway node maintenance failover. 
 
-* In Azure SQL managed instance, the gateway node maintenance window schedule are affected by the managed instance maintenance window, so using the proxy connection policy does not potentially expose connections to an additional maintenance window.
+* In Azure SQL managed instance, the gateway nodes are [within the virtual cluster](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) and have the same maintenance window as the managed instance, so using the proxy connection policy does not potentially expose connections to an additional maintenance window.
 
 For more on the client connection policy in Azure SQL Database see [Azure SQL Database Connection policy](../database/connectivity-architecture.md#connection-policy). 
 
@@ -97,8 +97,8 @@ For more on the client connection policy in Azure SQL managed instance see [Azur
 
 ## Next steps
 
-* [Configure maintenance window](maintenance-window-configure.md)
 * [Advance notifications](advance-notifications.md)
+* [Configure maintenance window](maintenance-window-configure.md)
 
 ## Learn more
 
