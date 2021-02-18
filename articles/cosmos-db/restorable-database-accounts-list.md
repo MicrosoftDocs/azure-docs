@@ -10,6 +10,11 @@ ms.author: govindk
 
 # List restorable database accounts using Azure Cosmos DB REST API
 
+> [!IMPORTANT]
+> The point-in-time restore feature(continuous backup mode) for Azure Cosmos DB is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Lists all the restorable Azure Cosmos DB database accounts available under the subscription. This call requires `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` permission.
 
 ```http

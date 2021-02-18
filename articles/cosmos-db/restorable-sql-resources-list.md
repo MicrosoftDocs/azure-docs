@@ -10,6 +10,11 @@ ms.author: govindk
 
 # List restorable SQL API resources in Azure Cosmos DB using REST API
 
+> [!IMPORTANT]
+> The point-in-time restore feature(continuous backup mode) for Azure Cosmos DB is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Return a list of database and container combo that exist on the account at the given timestamp and location. This helps in scenarios to validate what resources exist at given timestamp and location. This API requires `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission.
 
 ```http

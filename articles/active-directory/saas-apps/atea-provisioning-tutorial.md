@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Atea to support provisioning with Azure AD
 
-To configure Iris Intranet to support provisioning with Azure AD one needs to get the **Tenant URL** and **Secret Token** by dropping a mail to [Atea support team](mailto:servicedesk@atea.dk). These values will be entered in the **Secret Token** and **Tenant URL** field in the Provisioning tab of your Atea's application in Azure portal.
+To configure Atea to support provisioning with Azure AD - please write an email to Atea support team <SSO.Support@atea.com>
 
 ## Step 3. Add Atea from the Azure AD application gallery
 

@@ -1,7 +1,7 @@
 ---
 title: Send and receive events from Azure Event Hubs using .NET (old)
 description: This article provides a walkthrough for creating a .NET Core app that sends/receives events to/from Azure Event Hubs by using the old Microsoft.Azure.EventHubs package. 
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ---

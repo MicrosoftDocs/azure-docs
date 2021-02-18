@@ -10,10 +10,15 @@ ms.reviewer: sngun
 
 ---
 
-# Configure and manage continuous backup and point in time restore - using Azure portal
+# Configure and manage continuous backup and point in time restore (Preview) - using Azure portal
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Cosmos DB's point-in-time restore feature helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within the last 30 days.
+> [!IMPORTANT]
+> The point-in-time restore feature(continuous backup mode) for Azure Cosmos DB is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure Cosmos DB's point-in-time restore feature(Preview) helps you to recover from an accidental change within a container, to restore a deleted account, database, or a container or to restore into any region (where backups existed). The continuous backup mode allows you to do restore to any point of time within the last 30 days.
 
 This article describes how to identify the restore point and configure continuous backup using Azure portal.
 
@@ -65,7 +70,7 @@ For example, if you want to restore to the point before a certain container was 
 You can use Azure portal to completely restore a deleted account within 30 days of its deletion. Use the following steps to restore a deleted account:
 
 1. Sign into the [Azure portal](https://portal.azure.com/)
-1. Search for "Azure Cosmos DB" resources in the global search bar. It lists all your existing accounts.
+1. Search for *Azure Cosmos DB* resources in the global search bar. It lists all your existing accounts.
 1. Next select the **Restore** button. The Restore pane displays a list of deleted accounts that can be restored within the retention period, which is 30 days from deletion time.
 1. Choose the account that you want to restore.
 
@@ -86,7 +91,7 @@ You can use Azure portal to completely restore a deleted account within 30 days 
 
 ## <a id="track-restore-status"></a>Track the status of restore operation
 
-After initiating a restore operation, select the **Notification** bell icon at top-right corner of portal. It gives a link displaying the status of the account being restored. While restore is in progress, the status of the account will be "Creating", after the restore operation completes, the account status will change to "Online".
+After initiating a restore operation, select the **Notification** bell icon at top-right corner of portal. It gives a link displaying the status of the account being restored. While restore is in progress, the status of the account will be *Creating*, after the restore operation completes, the account status will change to *Online*.
 
 :::image type="content" source="./media/continuous-backup-restore-portal/track-restore-operation-status.png" alt-text="The status of restored account changes from creating to online when the operation is complete." border="true":::
 

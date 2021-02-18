@@ -148,6 +148,7 @@ The IP address ranges in these files are in CIDR notation.
 ### Tips 
 - You can detect updates from one publication to the next by noting increased *changeNumber* values in the JSON file. Each subsection (for example, **Storage.WestUS**) has its own *changeNumber* that's incremented as changes occur. The top level of the file's *changeNumber* is incremented when any of the subsections is changed.
 - For examples of how to parse the service tag information (for example, get all address ranges for Storage in WestUS), see the [Service Tag Discovery API PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2) documentation.
+- When new IP addresses are added to service tags, they will not be used in Azure for at least one week. This gives you time to update any systems that might need to track the IP addresses associated with service tags.
 
 ## Next steps
 - Learn how to [create a network security group](tutorial-filter-network-traffic.md).
