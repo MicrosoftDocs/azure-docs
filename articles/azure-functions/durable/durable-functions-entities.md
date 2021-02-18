@@ -20,7 +20,10 @@ Entities provide a means for scaling out applications by distributing the work a
 
 Entities behave a bit like tiny services that communicate via messages. Each entity has a unique identity and an internal state (if it exists). Like services or objects, entities perform operations when prompted to do so. When an operation executes, it might update the internal state of the entity. It might also call external services and wait for a response. Entities communicate with other entities, orchestrations, and clients by using messages that are implicitly sent via reliable queues. 
 
-To prevent conflicts, all operations on a single entity are guaranteed to execute serially, that is, one after another. 
+To prevent conflicts, all operations on a single entity are guaranteed to execute serially, that is, one after another.
+
+> [!NOTE]
+> When an entity is invoked, it processes its payload to completion and immediately schedules a new entity invocation that blocks for input. As a result, your entity execution logs might show an extra execution after each entity invocation; this is expected.
 
 ### Entity ID
 Entities are accessed via a unique identifier, the *entity ID*. An entity ID is simply a pair of strings that uniquely identifies an entity instance. It consists of an:
@@ -417,7 +420,6 @@ There are some important differences that are worth noting:
 * Request-response patterns in entities are limited to orchestrations. From within entities, only one-way messaging (also known as signaling) is permitted, as in the original actor model, and unlike grains in Orleans. 
 * Durable entities don't deadlock. In Orleans, deadlocks can occur and don't resolve until messages time out.
 * Durable entities can be used in conjunction with durable orchestrations and support distributed locking mechanisms. 
-
 
 ## Next steps
 
