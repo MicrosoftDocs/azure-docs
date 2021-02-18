@@ -96,7 +96,9 @@ On a high-security enterprise network, different devices may use different profi
 > [!NOTE]
 > If other people in your organization are connecting to their Azure Stack Edge devices over a wireless network, you may be able to use the WiFi profile on their device as a template. For more information, see [Download Wi-Fi profile](./azure-stack-edge-mini-r-manage-wifi.md#download-wi-fi-profile).
 
-To create WiFi profiles for enterprise networks, do these steps:
+### Create WiFi profiles for an enterprise network
+
+To create WiFi profiles for an enterprise network, do these steps:
 
 1. Before you create a WiFi profile for you Mini R device, you need to get the following information from your network administrator:<!--Make this a "Before your begin item?-->
 
