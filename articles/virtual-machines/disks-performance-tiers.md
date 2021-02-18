@@ -110,6 +110,36 @@ $disk.Tier
 ```
 ---
 
+## Change the performance tier of a disk without downtime
+
+You can also change your performance tier without downtime, meaning you don't have to deallocate your VM or detach your disk to change the tier. For more information and the sign up link for the preview, see the [Changing performance tier without downtime (preview)](#changing-performance-tier-without-downtime-preview) section.
+
+
+The following script will update the tier of a disk higher than the baseline tier using the sample template [CreateUpdateDataDiskWithTier.json](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json). Replace `<yourSubScriptionID>`, `<yourResourceGroupName>`, `<yourDiskName>`, `<yourDiskSize>`, and `<yourDesiredPerformanceTier>` then run the script:
+
+ ```cli
+subscriptionId=<yourSubscriptionID>
+resourceGroupName=<yourResourceGroupName>
+diskName=<yourDiskName>
+diskSize=<yourDiskSize>
+performanceTier=<yourDesiredPerformanceTier>
+region=EastUS2EUAP
+
+ az login
+
+ az account set --subscription $subscriptionId
+
+ az group deployment create -g $resourceGroupName \
+--template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateDataDiskWithTier.json" \
+--parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier" "dataDiskSizeInGb=$diskSize"
+```
+
+To confirm your disk has changed tiers, use the following command:
+
+```cli
+az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-12-01 --query [properties.tier] -o tsv
+```
+
 ## Next steps
 
 If you need to resize a disk to take advantage of the higher performance tiers, see these articles:
