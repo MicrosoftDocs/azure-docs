@@ -1,7 +1,8 @@
 ---
 title: Get started with SAP on Azure VMs | Microsoft Docs
 description: Learn about SAP solutions that run on virtual machines (VMs) in Microsoft Azure
-services: virtual-machines-linux
+services: virtual-machines-sap
+ms.service: virtual-machines-sap
 documentationcenter: ''
 author: msjuergent
 manager: bburns
@@ -9,7 +10,6 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
-ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
