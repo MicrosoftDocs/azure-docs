@@ -173,7 +173,7 @@ There are several error codes that come up when a recovery point can't be moved 
 
 **Description –** The selected recovery point has active dependencies and so can’t be moved to archive.
 
-**Recommended action** – Check eligibility of the recovery point [here](#_scope-for-preview)
+**Recommended action** – Check eligibility of the recovery point [here](#scope-for-preview)
 
 ### MinLifeSpanInStandardRequiredForArchive
 
@@ -181,7 +181,7 @@ There are several error codes that come up when a recovery point can't be moved 
 
 **Description** – The recovery point has to stay in Standard tier for a minimum of three months for Azure virtual machines, and 45 days for SQL Server in Azure virtual machines
 
-**Recommended action** – Check eligibility of the recovery point [here](#_scope-for-preview)
+**Recommended action** – Check eligibility of the recovery point [here](#scope-for-preview)
 
 ### MinRemainingLifeSpanInArchiveRequired
 
@@ -189,7 +189,7 @@ There are several error codes that come up when a recovery point can't be moved 
 
 **Description** – The minimum lifespan required for a recovery point for archive move eligibility is six months.
 
-**Recommended action** – Check eligibility of the recovery point [here](#_scope-for-preview)
+**Recommended action** – Check eligibility of the recovery point [here](#scope-for-preview)
 
 ### UserErrorRecoveryPointAlreadyInArchiveTier
 
