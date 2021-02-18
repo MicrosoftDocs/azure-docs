@@ -48,7 +48,7 @@ The Azure Synapse integration with Azure Machine Learning (preview) allows you t
 Before you can attach a Synapse Spark pool for data preparation, your Azure Machine Learning workspace must be linked with your Azure Synapse workspace. 
 
 > [!Tip]
-> To link to the Synapse workspace successfully, you must be granted **Owner** permissions of the Synapse workspace. Check your access in the [Azure portal](https://ms.portal.azure.com/).
+> To link to the Synapse workspace successfully, you must be granted the **Owner** role of the Synapse workspace. Check your access in the [Azure portal](https://ms.portal.azure.com/).
 >
 > If you are not an **Owner** of the Synapse workspace, but want to use an existing linked service, see [Get an existing linked service](#get-an-existing-linked-service).
 
@@ -166,13 +166,29 @@ ws.compute_targets['Synapse Spark pool alias']
 
 ## Launch Synapse Spark pool for data preparation tasks
 
-To begin data preparation with the Synapse Spark pool, specify the Synapse Spark pool name and provide your subscription ID, the machine learning workspace resource group and the name of the machine learning workspace.
+You can specify which software environment to use during your Synapse session. 
+
+The following code, creates the environment, `myenv`, which installs azureml-core version 1.20.0 and numpy version 1.17.0 before the session begins. You can then include this environment in your Synapse session `start` statement.
+
+```python
+
+from azureml.core import Workspace, Environment
+
+# creates environment with numpy and azureml-core dependencies
+ws = Workspace.from_config()
+env = Environment(name="myenv")
+env.python.conda_dependencies.add_pip_package("azureml-core==1.20.0")
+env.python.conda_dependencies.add_conda_package("numpy==1.17.0")
+env.register(workspace=ws)
+```
+
+To begin data preparation with the Synapse Spark pool, specify the Synapse Spark pool name and provide your subscription ID, the machine learning workspace resource group, the name of the machine learning workspace, and which environment to use during the Synapse session. 
 
 > [!IMPORTANT]
 > To continue use of the Synapse Spark pool you must indicate which compute resource to use throughout your data preparation tasks with `%synapse` for single lines of code and `%%synapse` for multiple lines. 
 
 ```python
-%synapse start -c SynapseSparkPoolAlias -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName
+%synapse start -c SynapseSparkPoolAlias -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName -e myenv
 ```
 
 After the session starts, you can check the session's metadata.
@@ -183,11 +199,12 @@ After the session starts, you can check the session's metadata.
 
 ## Load data from storage
 
-Once your Synapse Spark session starts, read in the data that you wish to prepare. You can read data in from Azure Blob storage and Azure Data Lake Storage Generations 1 and 2.
+Once your Synapse Spark session starts, read in the data that you wish to prepare. 
 
 There are two ways to load data from these storage services: 
 
-* Directly load data from storage using Hadoop Distributed Files System (HDFS).
+* Directly load data from storage using its Hadoop Distributed Files System (HDFS) path.
+    * This option only supports loading data from Azure Blob storage or Azure Data Lake Storage Generations 1 and 2. 
 * Read in data from an existing [Azure Machine Learning dataset](how-to-create-register-datasets.md).
 
 To access these storage services, you need **Storage Blob Data Reader** permissions. If you plan to write data back to these storage services, you need **Storage Blob Data Contributor** permissions. [Learn more about storage permissions and roles](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues).
