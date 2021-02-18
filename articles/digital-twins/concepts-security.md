@@ -56,7 +56,7 @@ Azure provides **two Azure built-in roles** for authorizing access to the Azure 
 | Azure Digital Twins Data Reader | Gives read-only access to Azure Digital Twins resources | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 You can assign roles in two ways:
-* via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [*Add or remove Azure role assignments using the Azure portal*](../role-based-access-control/role-assignments-portal.md))
+* via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [*Assign Azure roles using the Azure portal*](../role-based-access-control/role-assignments-portal.md))
 * via CLI commands to add or remove a role
 
 For more detailed steps on how to do this, try it out in the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md).
