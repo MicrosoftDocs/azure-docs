@@ -19,7 +19,7 @@ In this tutorial, we'll look at how to use Azure services to ingest a large batc
 
 ## Business need
 
-Most organizations are now aware of the value of the data they have in various formats (pdf, images, videos). They're looking for the best practices and most cost-effective ways to digitize those assets.
+Most organizations are now aware of the value of the data they have in various formats (PDF, images, videos). They're looking for the best practices and most cost-effective ways to digitize those assets.
 
 Also, our customers often have various types of forms that come from their many clients and customers. Unlike the [quickstarts](./quickstarts/client-library.md), this tutorial shows you how to automatically train a model with new and different types of forms by using a metadata-driven approach. If you don't have an existing model for the given form type, the system will create one and give you the model ID. 
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * An Azure subscription. [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
-* After you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After the resource deploys, select **Go to resource**.
+* After you have your Azure subscription, [create a Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. After the resource deploys, select **Go to resource**.
     * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into your code later in this quickstart.
     * You can use the free pricing tier (F0) to try the service. You can then upgrade later to a paid tier for production.
 * A set of at least five forms of the same type. Ideally, this workflow is meant to support large sets of documents. See [Build a training dataset](./build-training-data-set.md) for tips and options for putting together your training dataset. For this tutorial, you can use the files in the Train folder of the [sample dataset](https://go.microsoft.com/fwlink/?linkid=2128080).
@@ -51,7 +51,7 @@ This project stands up a set of Azure Data Factory pipelines to trigger Python n
 
 The Form Recognizer REST API requires some parameters as input. For security reasons, some of these parameters will be stored in an Azure key vault. Other, less sensitive parameters, like the storage blob folder name, will be stored in a parameterization table in an Azure SQL database.
 
-For type of form to be analyzed, data engineers or data scientists will populate a row of the parameter table. They'll then use Azure Data Factory to iterate over the list of detected form types and pass the relevant parameters to a Databricks notebook to train or retrain the Form Recognizer models. An Azure function could also be used here.
+For each type of form to be analyzed, data engineers or data scientists will populate a row of the parameter table. They'll then use Azure Data Factory to iterate over the list of detected form types and pass the relevant parameters to a Databricks notebook to train or retrain the Form Recognizer models. An Azure function could also be used here.
 
 The Azure Databricks notebook then uses the trained models to extract form data. It exports that data to an Azure SQL database.
 
@@ -81,38 +81,38 @@ These fields will be used in the table:
 
 * **file_type**. Supported form types are `application/pdf`, `image/jpeg`, `image/png`, and `image/tif`.
 
-  If you have forms of other file types, you'll need to change this value and **model_id** when you train a new form type.
+  If you have forms in other file types, you'll need to change this value and **model_id** when you train a new form type.
 * **form_batch_group_id**. Over time, you might have multiple form types that you train against the same model. The **form_batch_group_id** field will allow you to specify all the form types that have been training with a specific model.
 
 ### Create the table
 
-[Create an Azure SQL database](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), and then run this SQL script in the [query editor](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal) to create the required table:
+1. [Create an Azure SQL database](https://ms.portal.azure.com/#create/Microsoft.SQLDatabase), and then run this SQL script in the [query editor](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal) to create the required table:
 
-```sql
-CREATE TABLE dbo.ParamFormRecogniser(
-    form_description varchar(50) NULL,
-  training_container_name varchar(50) NOT NULL,
-    training_blob_root_folder varchar(50) NULL,
-    scoring_container_name varchar(50) NOT NULL,
-    scoring_input_blob_folder varchar(50) NOT NULL,
-    scoring_output_blob_folder varchar(50) NOT NULL,
-    model_id varchar(50) NULL,
-    file_type varchar(50) NULL
-) ON PRIMARY
-GO
-```
+   ```sql
+   CREATE TABLE dbo.ParamFormRecogniser(
+       form_description varchar(50) NULL,
+     training_container_name varchar(50) NOT NULL,
+       training_blob_root_folder varchar(50) NULL,
+       scoring_container_name varchar(50) NOT NULL,
+       scoring_input_blob_folder varchar(50) NOT NULL,
+       scoring_output_blob_folder varchar(50) NOT NULL,
+       model_id varchar(50) NULL,
+       file_type varchar(50) NULL
+   ) ON PRIMARY
+   GO
+   ```
 
-Run this script to create the procedure to automatically update **model_id** after it's trained:
+1. Run this script to create the procedure that automatically updates **model_id** after it's trained:
 
-```SQL
-CREATE PROCEDURE [dbo].[update_model_id] ( @form_batch_group_id  varchar(50),@model_id varchar(50))
-AS
-BEGIN 
-    UPDATE [dbo].[ParamFormRecogniser]   
-        SET [model_id] = @model_id  
-    WHERE form_batch_group_id =@form_batch_group_id
-END
-```
+   ```SQL
+   CREATE PROCEDURE [dbo].[update_model_id] ( @form_batch_group_id  varchar(50),@model_id varchar(50))
+   AS
+   BEGIN 
+       UPDATE [dbo].[ParamFormRecogniser]   
+           SET [model_id] = @model_id  
+       WHERE form_batch_group_id =@form_batch_group_id
+   END
+   ```
 
 ## Use Azure Key Vault to store sensitive credentials
 
@@ -122,11 +122,11 @@ For security reasons, we don't want to store certain sensitive information in th
 
 [Create a Key Vault resource](https://ms.portal.azure.com/#create/Microsoft.KeyVault). Then navigate to the Key Vault resource after it's created and, in the **settings** section, select **secrets** to add the parameters.
 
-A new window will appear. Select **Generate/import**. Enter the name of the parameter and its value, and then select **create**. Complete these steps for the following parameters:
+A new window will appear. Select **Generate/import**. Enter the name of the parameter and its value, and then select **create**. Complete those steps for the following parameters:
 
 * **CognitiveServiceEndpoint**. The endpoint URL of your Form Recognizer API.
 * **CognitiveServiceSubscriptionKey**. The access key for your Form Recognizer service. 
-* **StorageAccountName**. The storage account where the training dataset and the forms we want to extract key-value pairs from are stored. If these items are in different accounts, enter each account name as a separate secret. Remember that the training datasets must be in the same container for all form types. They can be in different folders.
+* **StorageAccountName**. The storage account where the training dataset and the forms you want to extract key-value pairs from are stored. If these items are in different accounts, enter each account name as a separate secret. Remember that the training datasets must be in the same container for all form types. They can be in different folders.
 * **StorageAccountSasKey**. The shared access signature (SAS) of the storage account. To retrieve the SAS URL, go to your storage resource. On the **Storage Explorer** tab, navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read** and **List** permissions are selected, and then select **Create**. Then copy the value in the **URL** section. It should have this form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ## Train your Form Recognizer model in a Databricks notebook
@@ -135,7 +135,7 @@ You'll use Azure Databricks to store and run the Python code that interacts with
 
 ### Create a notebook in Databricks
 
-[Create an Azure Databricks resource](https://ms.portal.azure.com/#create/Microsoft.Databricks) in the Azure portal. Navigate to the resource after it's created, and launch the workspace.
+[Create an Azure Databricks resource](https://ms.portal.azure.com/#create/Microsoft.Databricks) in the Azure portal. Navigate to the resource after it's created, and open the workspace.
 
 ### Create a secret scope backed by Azure Key Vault
 
