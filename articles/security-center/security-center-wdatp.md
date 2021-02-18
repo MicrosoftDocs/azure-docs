@@ -71,7 +71,7 @@ After you've configured the location, you can't change it. If you have your own 
 
 ## Enabling the Microsoft Defender for Endpoint integration
 
-1. Confirm that you are meeting the required networking requirements for Defender for Endpoint:
+1. Confirm that your machine meets the necessary requirements for Defender for Endpoint:
 
     - For **all versions of Windows**, configure the settings described in [Configure device proxy and Internet connectivity settings](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
     - In addition, for **Windows Server 2019 only**, your machine must:
