@@ -52,7 +52,7 @@ Below are the results for another category of source content, where the encoder 
 
 You can create transforms that use this preset as follows. 
 
-See the [Next steps](#next-steps) section for tutorials that use tranform outputs. The output asset can be delivered from Media Services streaming endpoints in protocols such as MPEG-DASH and HLS (as shown in the tutorials).
+See the [Next steps](#next-steps) section for tutorials that use transform outputs. The output asset can be delivered from Media Services streaming endpoints in protocols such as MPEG-DASH and HLS (as shown in the tutorials).
 
 > [!NOTE]
 > Make sure to use the **ContentAwareEncoding** preset not  ContentAwareEncodingExperimental.
