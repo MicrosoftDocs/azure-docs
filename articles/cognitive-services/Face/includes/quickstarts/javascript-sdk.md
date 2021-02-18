@@ -105,7 +105,7 @@ The code snippets below show you how to do the following tasks with the Face cli
 * [Identify a face](#identify-a-face)
 
 > [!TIP]
-> Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/sdk_quickstart.js), which contains the code examples in this quickstart.
+> Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/sdk_quickstart.js), which contains the code examples in this quickstart.
 
 ## Authenticate the client
 
