@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
+ms.custom: references_regions
 ---
 # Semantic search in Azure Cognitive Search
 
@@ -29,7 +30,7 @@ A new semantic query type enables the relevance ranking and response structures.
 
 ## Availability
 
-Initially, semantic search is operational after [preview sign-up](https://aka.ms/TBD), on Standard tier search services that run in West US 2. The number of regions providing semantic search is expected to increase weekly.
+Initially, semantic search is operational after [preview sign-up](https://aka.ms/TBD), on Standard tier search services that run in West US 2.
 
 ## Next steps
 

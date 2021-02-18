@@ -31,7 +31,7 @@ During public preview, there is no charge for semantic search. However, as featu
 
   The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query.
 
-+ [A query request](/rest/api/searchservice/preview-api/search-documents) with the semantic option uses "api-version=2020-06-30-Preview", "queryType=semantic", "queryLanguage=en-us", and "searchFields=<ordered-field-list>"
++ [A query request](/rest/api/searchservice/preview-api/search-documents) with the semantic option uses "api-version=2020-06-30-Preview", "queryType=semantic", "queryLanguage=en-us", and "searchFields=<ordered-field-list>".
 
 ## What's a semantic query?
 
@@ -79,7 +79,7 @@ In a semantic query, the order of fields in "searchFields" reflects the priority
 
 + Concise fields, such as HotelName or a title, should precede verbose fields like Description.
 
-+ If your index has a URL field that is textual (human readable such as www.domain.com/name-of-the-document-and-other-details and not machine focused such as www.domain.com/?id=23463&param=eis), put it second in the list (put it first if there is no concise title field). 
++ If your index has a URL field that is textual (human readable such as www.domain.com/name-of-the-document-and-other-details and not machine focused such as www.domain.com/?id=23463&param=eis), put it second in the list (put it first if there is no concise title field).
 
 + If there is only one field specified, then it will be considered as a descriptive field for semantic ranking of documents.  
 

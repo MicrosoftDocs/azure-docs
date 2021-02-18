@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
+ms.custom: references_regions
 ---
 
 # Semantic ranking and responses in Azure Cognitive Search
