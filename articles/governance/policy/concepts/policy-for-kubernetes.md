@@ -588,7 +588,7 @@ Some other considerations:
 As a Kubernetes controller/container, both the the _azure-policy_ and _gatekeeper_ pods keep logs in
 the Kubernetes cluster. The logs can be exposed in the **Insights** page of the Kubernetes cluster.
 For more information, see
-[Monitor your Kubernetes cluster performance with Azure Monitor for containers](../../../azure-monitor/insights/container-insights-analyze.md).
+[Monitor your Kubernetes cluster performance with Azure Monitor for containers](../../../azure-monitor/containers/container-insights-analyze.md).
 
 To view the add-on logs, use `kubectl`:
 
