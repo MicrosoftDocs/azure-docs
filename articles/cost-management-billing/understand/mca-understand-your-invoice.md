@@ -17,8 +17,9 @@ This article applies to an Azure billing account for a Microsoft Customer Agreem
 
 Your invoice provides a summary of your charges and instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [View and download your Microsoft Azure invoice](download-azure-invoice.md).
 
-Watch this short video to learn about how to use Cost Analysis.
->[!VIDEO https://www.youtube.com/watch?v=e2LGZZ7GubA]
+Watch the [Understand your Microsoft Customer Agreement invoice](https://www.youtube.com/watch?v=e2LGZZ7GubA) video to learn about your invoice and how to analyze the charges on it.
+
+>[!VIDEO https://www.youtube.com/embed/e2LGZZ7GubA]
 
 ## Billing period
 
