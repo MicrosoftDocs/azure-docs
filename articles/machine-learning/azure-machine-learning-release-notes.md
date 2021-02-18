@@ -19,6 +19,14 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 ## 2021-02-16
 
 ### Azure Machine Learning SDK for Python v1.23.0
++ **New features**
+  + **azureml-core**
+    + [Experimental feature] Add support to link synapse workspace into AML as an linked service
+    + [Experimental feature] Add support to attach synapse spark pool into AML as a compute
+  + **azureml-pipeline-steps**
+    + [Experimental feature] Add support for [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep?view=azure-ml-py)
+  + **azureml-synapse**
+    + [Experimental feature] Add support of spark magic to run interactive session in synapse spark pool.
 + **Bug fixes and improvements**
   + **automl-client-core-nativeclient**
     + AutoML will now generate two log files instead of one. Log statements will go to one or the other depending on which process the log statement was generated in.
