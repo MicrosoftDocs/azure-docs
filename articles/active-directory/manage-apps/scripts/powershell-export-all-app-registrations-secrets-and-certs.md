@@ -15,7 +15,7 @@ ms.reviewer: mifarca
 
 # Export a...
 
-This PowerShell script example allows you to assign a specific group to an Azure Active Directory (Azure AD) Application Proxy application.
+This PowerShell script example ....
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,16 +27,16 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 
 ## Sample script
 
-[!code-azurepowershell[main](~/powershell_scripts/application-proxy/assign-group-to-app.ps1 "Assign a group to a specific Azure AD Application Proxy application")]
+[!code-azurepowershell[main](~/powershell_scripts/application-management/export-all-app-registrations-secrets-and-certs.ps1 "Exports all app registrations, secrets and certificates for the specified apps in your directory.")]
 
 ## Script explanation
 
 | Command | Notes |
 |---|---|
-| [New-AzureADGroupAppRoleAssignment](/powershell/module/AzureAD/New-azureadgroupapproleassignment) | Assigns a group to an application role. |
+| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Gets... |
 
 ## Next steps
 
 For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview](/powershell/azure/active-directory/overview).
 
-For other PowerShell examples for Application Proxy, see [Azure AD PowerShell examples for Azure AD Application Proxy](../application-proxy-powershell-samples.md).
+For other PowerShell examples for Application Management, see [Azure AD PowerShell examples for Application Management](../application-management-powershell-samples.md).
