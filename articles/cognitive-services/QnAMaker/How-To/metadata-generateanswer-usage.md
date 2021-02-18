@@ -132,6 +132,19 @@ You can search through the published kb, using `isTest=false`, or in the test kb
 }
 
 ```
+## Common HTTP errors
+
+|Code|Explanation|
+|:--|--|
+|2xx|Success|
+|400|Request's parameters are incorrect meaning the required parameters are missing, malformed, or too large|
+|400|Request's body is incorrect meaning the JSON is missing, malformed, or too large|
+|401|Invalid key|
+|403|Forbidden - you do not have correct permissions|
+|404|KB doesn't exist|
+|410|This API is deprecated and is no longer available|
+
+
 ## Use QnA Maker with a bot in C#
 
 The bot framework provides access to the QnA Maker's properties with the [getAnswer API](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
@@ -169,105 +182,6 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 ```
 
 The previous JSON requested only answers that are at 30% or above the threshold score.
-
-<a name="metadata-example"></a>
-
-## Use metadata to filter answers by custom metadata tags
-
-Adding metadata allows you to filter the answers by these metadata tags. Add the metadata column from the **View Options** menu. Add metadata to your knowledge base by selecting the metadata **+** icon to add a metadata pair. This pair consists of one key and one value.
-
-![Screenshot of adding metadata](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
-
-<a name="filter-results-with-strictfilters-for-metadata-tags"></a>
-
-## Filter results with strictFilters for metadata tags
-
-Consider the user question "When does this hotel close?", where the intent is implied for the restaurant "Paradise."
-
-Because results are required only for the restaurant "Paradise", you can set a filter in the GenerateAnswer call on the metadata "Restaurant Name". The following example shows this:
-
-```json
-{
-    "question": "When does this hotel close?",
-    "top": 1,
-    "strictFilters": [ { "name": "restaurant", "value": "paradise"}]
-}
-```
-
-### Logical AND by default
-
-To combine several metadata filters in the query, add the additional metadata filters to the array of the `strictFilters` property. By default, the values are logically combined (AND). A logical combination requires all filters to matches the QnA pairs in order for the pair to be returned in the answer.
-
-This is equivalent to using the `strictFiltersCompoundOperationType` property with the value of `AND`.
-
-### Logical OR using strictFiltersCompoundOperationType property
-
-When combining several metadata filters, if you are only concerned with one or some of the filters matching, use the `strictFiltersCompoundOperationType` property with the value of `OR`.
-
-This allows your knowledge base to return answers when any filter matches but won't return answers that have no metadata.
-
-```json
-{
-    "question": "When do facilities in this hotel close?",
-    "top": 1,
-    "strictFilters": [
-      { "name": "type","value": "restaurant"},
-      { "name": "type", "value": "bar"},
-      { "name": "type", "value": "poolbar"}
-    ],
-    "strictFiltersCompoundOperationType": "OR"
-}
-```
-
-### Metadata examples in quickstarts
-
-Learn more about metadata in the QnA Maker portal quickstart for metadata:
-* [Authoring - add metadata to QnA pair](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
-* [Query prediction - filter answers by metadata](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
-
-<a name="keep-context"></a>
-
-## Use question and answer results to keep conversation context
-
-The response to the GenerateAnswer contains the corresponding metadata information of the matched question and answer pair. You can use this information in your client application to store the context of the previous conversation for use in later conversations.
-
-```json
-{
-    "answers": [
-        {
-            "questions": [
-                "What is the closing time?"
-            ],
-            "answer": "10.30 PM",
-            "score": 100,
-            "id": 1,
-            "source": "Editorial",
-            "metadata": [
-                {
-                    "name": "restaurant",
-                    "value": "paradise"
-                },
-                {
-                    "name": "location",
-                    "value": "secunderabad"
-                }
-            ]
-        }
-    ]
-}
-```
-
-## Common HTTP errors
-
-|Code|Explanation|
-|:--|--|
-|2xx|Success|
-|400|Request's parameters are incorrect meaning the required parameters are missing, malformed, or too large|
-|400|Request's body is incorrect meaning the JSON is missing, malformed, or too large|
-|401|Invalid key|
-|403|Forbidden - you do not have correct permissions|
-|404|KB doesn't exist|
-|410|This API is deprecated and is no longer available|
 
 ## Next steps
 
