@@ -8,7 +8,7 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: kegorman
 ms.reviewer: tigorman
-
+ms.collection: linux
 ---
 
 # Design and implement an Oracle database in Azure
