@@ -1,6 +1,6 @@
 ---
 title: Best Practices
-description: Learn how Azure Object Anchors helps you detect objects in the physical world.
+description: Recommended best practices to get improved results
 author: ariye
 
 ms.author: crtreasu
