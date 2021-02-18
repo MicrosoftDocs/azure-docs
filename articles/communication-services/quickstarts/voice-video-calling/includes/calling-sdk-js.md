@@ -17,7 +17,7 @@ ms.author: mikben
 ### Install the client library
 
 Use the `npm install` command to install the Azure Communication Services Calling and Common client libraries for JavaScript.
-This document is referencing types in version 1.0.0-beta.5
+This document is referencing types in version 1.0.0-beta.5 of calling library.
 
 ```console
 npm install @azure/communication-common --save
