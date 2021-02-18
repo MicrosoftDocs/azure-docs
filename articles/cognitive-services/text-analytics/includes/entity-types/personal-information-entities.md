@@ -387,11 +387,6 @@ These entity categories includes identifiable Azure information, including authe
         Connection string for a Redis cache.
       
     :::column-end:::
-    :::column span="2":::
-
-      `en`   
-      
-   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
