@@ -12,21 +12,6 @@ ms.service: iot-hub
 
 Device Update for IoT Hub uses [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp/) to discover and manage devices that are over-the-air update capable. The Device Update service will send and receive properties and messages to and from devices using PnP interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model-id as described below.
 
-## Device Information Interface
-
-The Device Information Interface is a concept used within [IoT Plug and Play architecture](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play). It contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update for IoT Hub uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. To learn more, see this [Device Information example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
-
-|Name|Type|Schema|Direction|Description|Example|
-|----|----|------|---------|-----------|-----------|
-|manufacturer|Property|string|device to cloud|Company name of the device manufacturer. This could be the same as the name of the original equipment manufacturer (OEM).|Contoso|
-|model|Property|string|device to cloud|Device model name or ID.|IoT Edge Device|
-|swVersion|Property|string|device to cloud|Version of the software on your device. swVersion could be the version of your firmware.|4.15.0-122|
-|osName|Property|string|device to cloud|Name of the operating system on the device.|Ubuntu Server 18.04|
-|processorArchitecture|Property|string|device to cloud|Architecture of the processor on the device.|ARM64|
-|processorManufacturer|Property|string|device to cloud|Name of the manufacturer of the processor on the device.|Microsoft|
-|totalStorage|Property|string|device to cloud|Total available storage on the device in kilobytes.|2048|
-|totalMemory|Property|string|device to cloud|Total available memory on the device in kilobytes.|256|
-
 ## ADU Core Interface
 
 The 'ADUCoreInterface' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
@@ -84,10 +69,23 @@ Service Metadata contains fields that the Device Update services uses to communi
 |Apply|2|Finalize the update. It signals the system to reboot if necessary.|
 |Cancel|255|Stop processing the current action and go back to `Idle`. Will also be used to tell the agent in the `Failed` state to go back to `Idle`.|
 
+## Device Information Interface
+
+The Device Information Interface is a concept used within [IoT Plug and Play architecture](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play). It contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update for IoT Hub uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. To learn more, see this [Device Information example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
+
+|Name|Type|Schema|Direction|Description|Example|
+|----|----|------|---------|-----------|-----------|
+|manufacturer|Property|string|device to cloud|Company name of the device manufacturer. This could be the same as the name of the original equipment manufacturer (OEM).|Contoso|
+|model|Property|string|device to cloud|Device model name or ID.|IoT Edge Device|
+|swVersion|Property|string|device to cloud|Version of the software on your device. swVersion could be the version of your firmware.|4.15.0-122|
+|osName|Property|string|device to cloud|Name of the operating system on the device.|Ubuntu Server 18.04|
+|processorArchitecture|Property|string|device to cloud|Architecture of the processor on the device.|ARM64|
+|processorManufacturer|Property|string|device to cloud|Name of the manufacturer of the processor on the device.|Microsoft|
+|totalStorage|Property|string|device to cloud|Total available storage on the device in kilobytes.|2048|
+|totalMemory|Property|string|device to cloud|Total available memory on the device in kilobytes.|256|
+
 ## Model ID
 
 Model ID is how smart devices advertise their capabilities to Azure IoT applications with IoT Plug and Play.To learn more on how to build smart devices to advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c).
 
 Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID with a value of **"dtmi:AzureDeviceUpdate;1"** as part of the device connection. Learn more [how to announce a model ID](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c#model-id-announcement).
-
-
