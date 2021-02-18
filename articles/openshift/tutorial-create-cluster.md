@@ -4,7 +4,7 @@ description: Learn how to create a Microsoft Azure Red Hat OpenShift cluster usi
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
@@ -22,6 +22,8 @@ In this tutorial, part one of three, you'll prepare your environment to create a
 If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md).
+
+ARO pull secret does not change the cost of the RH OpenShift license for ARO.
 
 ### Verify your permissions
 
