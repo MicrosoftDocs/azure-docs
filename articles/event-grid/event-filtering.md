@@ -52,125 +52,104 @@ To filter by values in the data fields and specify the comparison operator, use 
 * key - The field in the event data that you're using for filtering. It can be a number, boolean, or string.
 * values - The value or values to compare to the key.
 
-If you specify a single filter with multiple values, an **OR** operation is performed, so the value of the key field must be one of these values. Here is an example:
+### Key
+Key is the field in the event data that you're using for filtering. It can be a number, boolean, or string.For events in the **Event Grid schema**, use the following values for the key: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion`, or event data (like `Data.key1`).
 
-```json
-"advancedFilters": [
-    {
-        "operatorType": "StringContains",
-        "key": "Subject",
-        "values": [
-            "/providers/microsoft.devtestlab/",
-            "/providers/Microsoft.Compute/virtualMachines/"
-        ]
-    }
-]
-```
+For events in **Cloud Events schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`).
 
-If you specify multiple different filters, an **AND** operation is done, so each filter condition must be met. Here's an example: 
+For **custom input schema**, use the event data fields (like Data.key1).
 
-```json
-"advancedFilters": [
-    {
-        "operatorType": "StringContains",
-        "key": "Subject",
-        "values": [
-            "/providers/microsoft.devtestlab/"
-        ]
-    },
-    {
-        "operatorType": "StringContains",
-        "key": "Subject",
-        "values": [
-            "/providers/Microsoft.Compute/virtualMachines/"
-        ]
-    }
-]
-```
+### Values
+The values can be: number, string, boolean, or array
 
 ### Operators
 
 The available operators for **numbers** are:
 
-* NumberGreaterThan
-* NumberGreaterThanOrEquals
-* NumberLessThan
-* NumberLessThanOrEquals
-* NumberIn
-* NumberNotIn
+#### NumberIn
+
+```json
+
+"advancedFilters": [{
+    "operatorType": "NumberIn",
+    "key": "data.counter",
+    "values": [
+        5,
+        1
+    ]
+}]
+
+```
+
+#### NumberNotIn
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberNotIn",
+    "key": "data.counter",
+    "values": [
+        41,
+        0,
+        0
+    ]
+}]
+```
+
+#### NumberLessThan
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberLessThan",
+    "key": "data.counter",
+    "value": 100
+}]
+```
+
+#### NumberGreaterThan
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberGreaterThan",
+    "key": "data.counter",
+    "value": 20
+}]
+```
+
+#### NumberLessThanOrEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberLessThanOrEquals",
+    "key": "data.counter",
+    "value": 100
+}]
+```
+
+#### NumberGreaterThanOrEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberGreaterThanOrEquals",
+    "key": "data.counter",
+    "value": 30
+}]
+```
+
 
 The available operator for **booleans** is: 
-- BoolEquals
+
+### BoolEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "BoolEquals",
+    "key": "data.isEnabled",
+    "value": true
+}]
+```
+
 
 The available operators for **strings** are:
-
-* StringContains
-* StringBeginsWith
-* StringEndsWith
-* StringIn
-* StringNotIn
-
-All string comparisons are **not** case-sensitive.
-
-> [!NOTE]
-> If the event JSON doesn't contain the advanced filter key, filter is evaulated as **not matched** for the following operators: 
-> - NumberGreaterThan
-> - NumberGreaterThanOrEquals
-> - NumberLessThan
-> - NumberLessThanOrEquals
-> - NumberIn
-> - BoolEquals
-> - StringContains
-> - StringBeginsWith
-> - StringEndsWith
-> - StringIn
-> 
->The filter is evaulated as **matched** for the following operators:
-> - NumberNotIn
-> - StringNotIn
-
-### Key
-
-For events in the Event Grid schema, use the following values for the key:
-
-* ID
-* Topic
-* Subject
-* EventType
-* DataVersion
-* Event data (like Data.key1)
-
-For events in Cloud Events schema, use the following values for the key:
-
-* EventId
-* Source
-* EventType
-* EventTypeVersion
-* Event data (like Data.key1)
-
-For custom input schema, use the event data fields (like Data.key1).
-
-### Values
-
-The values can be:
-
-* number
-* string
-* boolean
-* array
-
-### Limitations
-
-Advanced filtering has the following limitations:
-
-* 5 advanced filters and 25 filter values across all the filters per event grid subscription
-* 512 characters per string value
-* Five values for **in** and **not in** operators
-* Keys with **`.` (dot)** character in them. For example: `http://schemas.microsoft.com/claims/authnclassreference` or `john.doe@contoso.com`. Currently, there's no support for escape characters in keys. 
-
-The same key can be used in more than one filter.
-
-### Examples
 
 ### StringContains
 
@@ -239,84 +218,64 @@ The same key can be used in more than one filter.
 }]
 ```
 
-### NumberIn
+All string comparisons are **not** case-sensitive.
+
+> [!NOTE]
+> If the event JSON doesn't contain the advanced filter key, filter is evaulated as **not matched** for the following operators: NumberGreaterThan, NumberGreaterThanOrEquals, NumberLessThan, NumberLessThanOrEquals, NumberIn, BoolEquals, StringContains, StringBeginsWith, StringEndsWith, StringIn.
+> 
+>The filter is evaulated as **matched** for the following operators:NumberNotIn, StringNotIn.
+
+### OR and AND
+If you specify a single filter with multiple values, an **OR** operation is performed, so the value of the key field must be one of these values. Here is an example:
 
 ```json
-
-"advancedFilters": [{
-    "operatorType": "NumberIn",
-    "key": "data.counter",
-    "values": [
-        5,
-        1
-    ]
-}]
-
+"advancedFilters": [
+    {
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/",
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
+    }
+]
 ```
 
-### NumberNotIn
+If you specify multiple different filters, an **AND** operation is done, so each filter condition must be met. Here's an example: 
 
 ```json
-"advancedFilters": [{
-    "operatorType": "NumberNotIn",
-    "key": "data.counter",
-    "values": [
-        41,
-        0,
-        0
-    ]
-}]
+"advancedFilters": [
+    {
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/"
+        ]
+    },
+    {
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
+    }
+]
 ```
 
-### NumberLessThan
 
-```json
-"advancedFilters": [{
-    "operatorType": "NumberLessThan",
-    "key": "data.counter",
-    "value": 100
-}]
-```
+### Limitations
 
-### NumberGreaterThan
+Advanced filtering has the following limitations:
 
-```json
-"advancedFilters": [{
-    "operatorType": "NumberGreaterThan",
-    "key": "data.counter",
-    "value": 20
-}]
-```
+* 5 advanced filters and 25 filter values across all the filters per event grid subscription
+* 512 characters per string value
+* Five values for **in** and **not in** operators
+* Keys with **`.` (dot)** character in them. For example: `http://schemas.microsoft.com/claims/authnclassreference` or `john.doe@contoso.com`. Currently, there's no support for escape characters in keys. 
 
-### NumberLessThanOrEquals
+The same key can be used in more than one filter.
 
-```json
-"advancedFilters": [{
-    "operatorType": "NumberLessThanOrEquals",
-    "key": "data.counter",
-    "value": 100
-}]
-```
 
-### NumberGreaterThanOrEquals
 
-```json
-"advancedFilters": [{
-    "operatorType": "NumberGreaterThanOrEquals",
-    "key": "data.counter",
-    "value": 30
-}]
-```
-
-### BoolEquals
-
-```json
-"advancedFilters": [{
-    "operatorType": "BoolEquals",
-    "key": "data.isEnabled",
-    "value": true
-}]
-```
 
 
 ## Next steps
