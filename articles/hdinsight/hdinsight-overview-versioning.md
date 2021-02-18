@@ -1,5 +1,5 @@
 ---
-title: Versioning introduction - Azure HDInsight. 
+title: Versioning introduction - Azure HDInsight
 description: Learn how versioning works in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
@@ -15,7 +15,7 @@ HDInsight service has two main components: a Resource provider and Apache Hadoop
 
 Resources in Azure are made available by a Resource provider. HDInsight Resource provider is responsible for creating, managing, and deleting clusters.
 
-## HDInsight Images
+## HDInsight images
 
 HDInsight uses images to put together open-source software (OSS) components that can be deployed on a cluster. These images contain the base Ubuntu operating system and core components such as Spark, Hadoop, Kafka, HBase or Hive.
 

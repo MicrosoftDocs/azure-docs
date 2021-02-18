@@ -9,6 +9,10 @@ ms.date: 02/08/2021
 
 # Retired HDInsight versions
 
+In this article, you learn about retired versions in HDInsight.
+
+## Retired version list
+
 The following table lists the retired versions of HDInsight.
 
 | HDInsight version | HDP version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability in the Azure portal |

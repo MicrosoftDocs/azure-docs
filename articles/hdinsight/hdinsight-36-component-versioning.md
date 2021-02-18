@@ -9,6 +9,10 @@ ms.date: 02/08/2021
 
 # HDInsight 3.6 component versions
 
+In this article, you learn about the Apache Hadoop environment components and versions in Azure HDInsight 3.6.
+
+## Support for HDInsight 3.6
+
 The table below lists the support timeframe for HDInsight 3.6 cluster types.
 
 | Cluster Type                    | Framework version | Current support expiration        | New support expiration date |
@@ -23,7 +27,7 @@ The table below lists the support timeframe for HDInsight 3.6 cluster types.
 | HDInsight 3.6 Interactive Query | 2.1               | Dec 31, 2020                      | June 30, 2021               |
 | HDInsight 3.6 Storm             | 1.1               | Dec 31, 2020                      | June 30, 2021               |
 | HDInsight 3.6  ML Services      | 9.3               | Dec 31, 2020                      | Dec 31, 2020                |
-
+## Apache components available with HDInsight version 3.6
 
 The OSS component versions associated with HDInsight 3.6 are listed in the following table.
 
