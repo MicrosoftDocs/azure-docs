@@ -87,7 +87,7 @@ For example, data in your Azure Sentinel workspace that are not Azure resources 
     When Azure resources send data to Azure Sentinel, the log records are automatically tagged with the resource ID of the data source.
 
     > [!TIP]
-    > We recommend that you group the resource uou are granting access for under a specific resource group created for the purpose.
+    > We recommend that you group the resources you are granting access for under a specific resource group created for the purpose.
     >
     > If you can't, make sure that your team has log reader permissions directly to the resources you want them to access.
     >
@@ -116,12 +116,27 @@ For example, separating your VMs ensures that Syslog events that belong to Team 
 
 ### Resource IDs with Logstash collection
 
-If you are collecting your data using the Azure Sentinel [Logstash output plugin](connect-logstash.md), use the **x-ms-AzureResourceId** header parameter to configure your custom collector to include the resource ID in your output.
+If you are collecting your data using the Azure Sentinel [Logstash output plugin](connect-logstash.md), use the **azure_resource_id** field to configure your custom collector to include the resource ID in your output.
 
-<!--For example:
-needs example
--->
+For example:
 
+``` ruby
+ input {
+     beats {
+         port => "5044"
+     }
+ }
+ filter {
+ }
+ output {
+     microsoft-logstash-output-azure-loganalytics {
+       workspace_id => "4g5tad2b-a4u4-147v-a4r7-23148a5f2c21" # <your workspace id>
+       workspace_key => "u/saRtY0JGHJ4Ce93g5WQ3Lk50ZnZ8ugfd74nk78RPLPP/KgfnjU5478Ndh64sNfdrsMni975HJP6lp==" # <your workspace key>
+       custom_log_table_name => "tableName"
+       azure_resource_id => "/subscriptions/wvvu95a2-99u4-uanb-hlbg-2vatvgqtyk7b/resourceGroups/contosotest" # <your resource ID>   
+     }
+ }
+```
 ### Resource IDs with the Log Analytics API collection
 
 When collecting using the [Log Analytics data collector API](/azure/azure-monitor/platform/data-collector-api), you can assign to events with a resource ID using the HTTP [*x-ms-AzureResourceId*](/azure/azure-monitor/platform/data-collector-api#request-headers) request header.
