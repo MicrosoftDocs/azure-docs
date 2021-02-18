@@ -27,10 +27,10 @@ Customers that are interested in manually migrating their remaining alerts can a
 
 Before you can create new metric alerts on guest metrics, the guest metrics must be sent to the Azure Monitor logs store. Follow these instructions to create alerts:
 
-- [Enabling guest metrics collection to log analytics](./agent-data-sources.md)
+- [Enabling guest metrics collection to log analytics](../agents/agent-data-sources.md)
 - [Creating log alerts in Azure Monitor](./alerts-log.md)
 
-There are more options to collect guest metrics and alert on them, [learn more](./agents-overview.md).
+There are more options to collect guest metrics and alert on them, [learn more](../agents/agents-overview.md).
 
 ### Storage and Classic Storage account metrics
 
