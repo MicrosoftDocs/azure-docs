@@ -27,6 +27,9 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## February 2021
 
+- [UEBA insights in the entity page](#ueba-insights-in-the-entity-page)
+- [Improved incident search](#improved-incident-search)
+
 ### UEBA insights in the entity page
 
 The Azure Sentinel entity details pages provide an [Insights pane](identify-threats-with-entity-behavior-analytics.md#entity-insights), which displays behavioral insights on the entity and help to quickly identify anomalies and security threats.
