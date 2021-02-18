@@ -269,8 +269,8 @@ sendMessageButton.addEventListener("click", async () =>
   {
       let message = messagebox.value;
 
-      let sendMessageRequest ={    content: message};
-      let sendMessageOptions ={    priority: 'High',    senderDisplayName : 'Jack'};
+      let sendMessageRequest = { content: message };
+      let sendMessageOptions = { senderDisplayName : 'Jack' };
       let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
       let messageId = sendChatMessageResult.id;
 
