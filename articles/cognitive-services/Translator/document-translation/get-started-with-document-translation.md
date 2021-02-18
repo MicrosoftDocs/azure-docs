@@ -93,7 +93,7 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 
 * Create a new Node.js project.
 * Install the Axios library with `npm i axios`.
-* Copy pasted the code below into your project.
+* Copy paste the code below into your project.
 * Set your endpoint, subscription key, and container URL values.
 * Run the program.
 
@@ -103,7 +103,7 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 * Copy and paste the code from one of the samples into your project.
 * Set your endpoint, subscription key, and container URL values.
 * Run the program. For example: `python translate.py`.
-  
+
 ### [Java](#tab/java)
 
 * Create a working directory for your project. For example:
@@ -122,7 +122,7 @@ mkdir sample-project
 mkdir -p src/main/java/
 ```
 
-* Java source files (for example, _sample.java_) live in src/main/**java**.
+**NOTE**: Java source files (for example, _sample.java_) live in src/main/**java**.
 
 * In your root directory (for example, *sample-project*),  initialize your project with Gradle:
 
@@ -131,6 +131,7 @@ gradle init --type basic
 ```
 
 * When prompted to choose a **DSL**, select **Kotlin**.
+
 * Update the `build.gradle.kts`  file. Keep in mind that you'll need to update your `mainClassName` depending on the sample:
 
   ```java
@@ -150,7 +151,8 @@ gradle init --type basic
   ```
 
 * Create a Java file in the **java** directory and copy/paste the code from the provided sample. Don't forget to add your subscription key and endpoint.
-**Build and run the sample from the root directory**:
+
+* **Build and run the sample from the root directory**:
 
 ```powershell
 gradle build
@@ -167,7 +169,7 @@ gradle run
 * Build the file, for example: 'go build example-code.go'.
 * Run the file, for example: 'example-code'.
 
----
+ ---
 
 ## Make Document Translation requests
 
