@@ -316,6 +316,21 @@ You can do so in the **createOptions** of each module. For example:
 
 For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
 
+
+### Each IoT Edge device should have its own unique device connection string 
+
+Please make sure device connection string is not inadvertently **shared** between 2 or more separate IoT Edge devices.
+IoT Edges devices may seem to work properly but can lead to following issues before condition is detected and fixed
+
+1.)	Huge spike in Module and device connects/disconnects.
+2.)	Huge spike in Module D2C Get Twin operation
+
+Consequence of this may result in unexpected **IoT Hub message quota exhaustion** and increase in **bill** specifically if using cellular or satellite data connection.
+To check for this condition you can monitor the connect/disconnects of modules and devices using Azure Diagnostics logs for IoT Hub.
+
+
+
+
 ## Next steps
 
 * Learn more about [IoT Edge automatic deployment](module-deployment-monitoring.md).
