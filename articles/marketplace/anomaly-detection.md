@@ -4,7 +4,7 @@ description: Learn how automatic anomaly detection for metered billing helps ins
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 2/17/2021
+ms.date: 2/18/2021
 author: sayantanroy83
 ms.author: sroy
 ---
