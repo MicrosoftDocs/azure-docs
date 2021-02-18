@@ -134,7 +134,8 @@ Before you can deploy virtual machine scale sets in Flexible orchestration mode,
 Use the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet to enable the preview for your subscription. 
 
 ```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute 
+Register-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute
+Register-AzProviderFeature -FeatureName VMOrchestratorSingleFD -ProviderNamespace Microsoft.Compute  
 ```
 
 Feature registration can take up to 15 minutes. To check the registration status: 
@@ -153,7 +154,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Use [az feature register](/cli/azure/feature#az-feature-register) to enable the preview for your subscription. 
 
 ```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name VMOrchestratorMultiFD 
+az feature register --namespace Microsoft.Compute --name VMOrchestratorMultiFD
+az feature register --namespace microsoft.compute --name VMOrchestratorSingleFD 
 ```
 
 Feature registration can take up to 15 minutes. To check the registration status: 
