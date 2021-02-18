@@ -3,7 +3,7 @@ title: Understand Device Update for Azure IoT Hub APT manifest | Microsoft Docs
 description: Understand how Device Update for IoT Hub uses apt manifest for a package-based update.
 author: vimeht
 ms.author: vimeht
-ms.date: 2/12/2021
+ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
@@ -104,6 +104,27 @@ version. This automatic resolution can lead to errors regarding an unmet depende
 If you're updating a specific version of the Azure IoT Edge security daemon, then you should include the desired version of the `iotedge` package and its dependent `libiothsm-std` package in your APT manifest.
 [Learn More](https://docs.microsoft.com/azure/iot-edge/how-to-update-iot-edge#update-the-security-daemon)
 
+## Removing packages
+
+You can also use an apt manifest to remove installed packages from your device. A single apt manifest can be used to remove, add and update multiple packages. 
+To remove a package, add a minus sign "-" after the package name. You shouldn't include a version number for the packages you are removing. 
+Removing packages through an apt manifest doesn't remove its dependencies and configurations.
+
+Example:
+
+```json
+{
+    "name": "contoso-video",
+    "version": "2.0.0.1",
+    "packages": [
+        {
+            "name" : "foo-"
+        }
+    ]
+}
+```
+This apt manifest will remove the package "foo" from the device(s) it is deployed to. 
+
 ## Recommended value for installed Criteria
 
 The Installed Criteria for an APT Manifest is `<name>-<version>` where `<name>` is the name of the APT Manifest and `<version>` is the version of the APT Manifest. For example, `contoso-iot-edge-1.0.0.0`. 
@@ -115,7 +136,7 @@ While creating the APT Manifest, there are some guidelines to keep in mind:
 - Always ensure that the APT Manifest is a well-formed json file
 - Each APT Manifest should have a unique version. Try to come up with a standardized methodology to increment the version of the APT Manifest, so that it makes sense for your scenarios and can be easily followed
 - When it comes to the desired state of each individual package, specify the exact name and version of the package that you would like to install on your device. Always validate the values against the package repository that you intend to use as the source for the package
-- Ensure that the packages in the APT Manifest are listed in the order they should be installed
+- Ensure that the packages in the APT Manifest are listed in the order they should be installed/removed
 - Always validate the installation of packages on a test device to ensure the outcome is desired
 - When installing a specific version of a package (For example, `iotedge 1.0.9-1`), it's best practice to also have in the APT Manifest the explicit versions of the dependent packages to be installed (For example, `libiothsm 1.0.9-1`)
 - While it's not mandated, always ensure your APT Manifest is cumulative to avoid getting your device into an unknown state. A cumulative update will ensure that your devices have the desired version of every package you care about even if the device has skipped an APT Update deployment because of failure in installation, or being taken offline
