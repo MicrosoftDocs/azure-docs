@@ -37,10 +37,10 @@ landingContent:
         links:
           - text: What is Azure Verifiable Credentials?
             url: verifiable-credentials-overview.md
-      - linkListType: tutorial
+      - linkListType: Verifiable Credentials in your tenant
         links:
-          - text: tutorial1
-            url: verifiable-credentials-tutorial1.md
+          - text: Set up an issuer
+            url: tutorial-verifiable-credentials-issuer.md
       - linkListType: concept
         links:
           - text: concept1

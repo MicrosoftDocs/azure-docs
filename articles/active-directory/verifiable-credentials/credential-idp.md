@@ -1,5 +1,5 @@
 ---
-title: Open ID protocol details
+title: Configure your IDP with verifiable credentials
 description: 
 services: active-directory
 author: barclayn
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 02/17/2021
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
@@ -17,7 +17,7 @@ ms.author: barclayn
 
 The Verifiable Credential issuer service transforms security tokens output by your organization's OpenID compliant identity provider. This article instructs you on how to set up your identity provider to communicate with the issuer service.
 
-![issue process](../images/idp-transform-diagram.png)
+![issue process](media/credential-idp/idp-transform-diagram.png)
 
 ## OpenID Connect protocol details
 
@@ -40,7 +40,7 @@ Examples of the HTTP requests sent to your identity provider are provided below.
 
 In order to receive the Verifiable Credential, your users will need to sign into your IDP from the Microsoft Authenticator app and accept permissions for the Verifiable Credential service.
 
-To enable this exchange, register the Verifiable Credential service with your identity provider as a client application. If you are using Azure AD you can find the instructions [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app). Use the following values when registering.
+To enable this exchange, register the Verifiable Credential service with your identity provider as a client application. If you are using Azure AD you can find the instructions [here](../develop/quickstart-register-app.md). Use the following values when registering.
 
 | Setting | Value |
 | ------- | ----- |
@@ -136,4 +136,4 @@ The ID token must use the JWT compact serialization format, and must not be encr
 
 ## Next steps
 
-Once you've configured your identity provider to support these requests, you can [continue onto the next article to define the contents of the Verifiable Credentials you'll issue](xref:e47e0237-9189-4f33-a0f3-e4c135688342).
+- Once you've configured your identity provider to support these requests, you can [continue onto the next article to define the contents of the Verifiable Credentials you'll issue](credential-structure.md).

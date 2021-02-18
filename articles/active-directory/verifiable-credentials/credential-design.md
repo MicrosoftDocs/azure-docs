@@ -1,13 +1,13 @@
 ---
-title: Open ID protocol details
-description: 
+title: How to customize your verifiable credentials
+description: This article shows you how you can customize your credentials
 services: active-directory
 author: barclayn
 manager: davba
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
