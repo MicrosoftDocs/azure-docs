@@ -112,7 +112,7 @@ of `microsoft/swupdate:1` for an image-based update and `microsoft/apt:1` for a 
 
 A string that contains information needed by Device Update Agent's Update Handler to determine whether the update is
 installed on the device. The `Update Handler Types` section documents the format of the `installedCriteria`,
-for each update type supported by ADU.
+for each update type supported by Device Update for IoT Hub.
 
 ### files
 
@@ -150,7 +150,6 @@ A string that represents the schema version.
 
 |Update Method|Update Handler Type|Update Type|Installed Criteria|Expected Files for Publishing|
 |-------------|-------------------|----------|-----------------|--------------|
-|Image-based|SWUpdate|"microsoft/swupdate:version"|`<ADU_SOFTWARE_VERSION>` |.swu file that contains SWUpdate image|
+|Image-based|SWUpdate|"microsoft/swupdate:version"|The reference image saves the hint of its version in the /etc/adu-version file.  |.swu file that contains SWUpdate image|
 |Package-based|APT|"microsoft/apt:version"|`<name>` + "-" + `<version>` (defined properties in the APT Manifest file|`<APT Update Manifest>`.json that contains the APT configuration and package list|
 
-**Note**: The `ADU_SOFTWARE_VERSION` will be saved to the `/etc/adu-version` file.
