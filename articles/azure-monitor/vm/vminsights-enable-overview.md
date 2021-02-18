@@ -83,7 +83,7 @@ The following are multiple methods for deploying these agents.
 
 ## Network requirements
 
-- See [Network requirements](../platform/log-analytics-agent.md#network-requirements) for the network requirements for the Log Analytics agent.
+- See [Network requirements](../agents/log-analytics-agent.md#network-requirements) for the network requirements for the Log Analytics agent.
 - The dependency agent requires a connection from the virtual machine to the address 169.254.169.254. This is the Azure metadata service endpoint. Ensure that firewall settings allow connections to this endpoint.
 
 
