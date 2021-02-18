@@ -39,19 +39,13 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
 
-This template includes two Azure resources and several parameters that are predefined for your convenience.
-
 <details>
-<summary>What resources are defined in the template?</summary>
+<summary>What resources and parameters are defined in the template?</summary>
 
 Two Azure resources are defined in the template:
 
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
-</details>
-
-<details>
-<summary>What parameters are predefined in the template?</summary>
 
 The following table details defaults parameters and their descriptions:
 
@@ -65,6 +59,7 @@ The following table details defaults parameters and their descriptions:
 | repoUrl    | string  | " "                          | External Git repo (optional) |
 
 ---
+
 </details>
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -75,18 +70,14 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 This template includes Azure resources and parameters that are defined for your convenience.
 
 <details>
-<summary>What resources are defined in the template?</summary>
+<summary>What resources and parameters are defined in the template?</summary>
 
 Two Azure resources are defined in the template:
 
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
-</details>
 
-<details>
-<summary>What parameters are defined in the template?</summary>
-
- The following table details defaults parameters and their descriptions:
+The following table details defaults parameters and their descriptions:
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
@@ -107,7 +98,9 @@ Two Azure resources are defined in the template:
 ## 3. Deploy the template
 
 ::: zone pivot="platform-windows"
-Run the code below to deploy a .NET framework app on Windows using Azure CLI. Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name. To learn other <abbr title="You can also use the Azure portal, Azure PowerShell, and REST API.">deployment methods</abbr>, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md). You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
+Run the code below to deploy a .NET framework app on Windows using Azure CLI. 
+
+Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name. To learn other <abbr title="You can also use the Azure portal, Azure PowerShell, and REST API.">deployment methods</abbr>, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md). You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -117,7 +110,9 @@ az deployment group create --resource-group myResourceGroup \
 ```
 ::: zone-end
 ::: zone pivot="platform-linux"
-Run the code below to create a Python app on Linux. Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name.
+Run the code below to create a Python app on Linux. 
+
+Replace <abbr title="Valid characters characters are `a-z`, `0-9`, and `-`.">`<app-name>`</abbr> with a globally unique app name.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -182,24 +177,12 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 
 <hr/>
 
-## 6. Next steps
+## Next steps
 
-> [!div class="nextstepaction"]
-> [Deploy from local Git](deploy-local-git.md)
+- [Deploy from local Git](deploy-local-git.md)
+- [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+- [Python with Postgres](tutorial-python-postgresql-app.md)
+- [PHP with MySQL](tutorial-php-mysql-app.md)
+- [Connect to Azure SQL database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
+- [Map custom domain](app-service-web-tutorial-custom-domain-uiex.md)
 
-> [!div class="nextstepaction"]
-> [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
-
-> [!div class="nextstepaction"]
-> [Python with Postgres](tutorial-python-postgresql-app.md)
-
-> [!div class="nextstepaction"]
-> [PHP with MySQL](tutorial-php-mysql-app.md)
-
-> [!div class="nextstepaction"]
-> [Connect to Azure SQL database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
-
-> [!div class="nextstepaction"]
-> [Map custom domain](app-service-web-tutorial-custom-domain.md)
-
-<hr/>
