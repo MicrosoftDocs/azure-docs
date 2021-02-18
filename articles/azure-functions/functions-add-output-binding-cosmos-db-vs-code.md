@@ -67,9 +67,7 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
 
 1. Press <kbd>F1</kbd> to open the command palette, then search for and run the command `Azure Functions: Add New Setting...`.
 
-1. Choose the function app you created in the previous article.
-
-1. Provide the following information at the prompts:
+1. Choose the function app you created in the previous article. Provide the following information at the prompts:
 
     + **Enter new app setting name**: Type `CosmosDbConnectionString`.
 
@@ -159,8 +157,6 @@ To create a binding, right-click (Ctrl+click on macOS) the `function.json` file 
 
 A binding is added to the `bindings` array in your function.json, which should look like the following:
 
-:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="18-24":::
-
 ```json
 {
     "type": "cosmosDB",
@@ -245,7 +241,7 @@ if (name) {
         // create a random ID
         id: new Date().toISOString() + Math.random().toString().substr(2,8),
         name: name
-        });
+    });
 }
 ```
 
@@ -265,7 +261,7 @@ module.exports = async function (context, req) {
             // create a random ID
             id: new Date().toISOString() + Math.random().toString().substr(2,8),
             name: name
-          });
+        });
     }
 
     context.res = {
