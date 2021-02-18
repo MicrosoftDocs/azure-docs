@@ -140,7 +140,7 @@ Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 	-Collation "SQL_Latin1_General_CP1_CI_AS" `
 	-StorageContainerUri "https://test.blob.core.windows.net/testing" `
 	-StorageContainerSasToken "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D" `
-	-AutoComplete `
+	-AutoCompleteRestore `
 	-LastBackupName "last_backup.bak"
 ```
 
