@@ -319,14 +319,13 @@ For the most efficient IoT Edge deployment scenario, consider integrating your p
 
 ### Each IoT Edge device should have its own unique device connection string 
 
-Please make sure device connection string is not inadvertently **shared** between 2 or more separate IoT Edge devices.
-IoT Edges devices may seem to work properly but can lead to following issues before condition is detected and fixed
+Please make sure unique device connection string is **not** inadvertently **shared** between 2 or more separate IoT Edge devices.
+IoT Edges devices sharing the device connection string may seem to work properly but it can lead to following issues before condition is detected and fixed
 
-1.)	Huge spike in Module and device connects/disconnects.
-2.)	Huge spike in Module D2C Get Twin operation
+- 1.)	Huge spike in module and device connects/disconnects
+- 2.)	Huge spike in module D2C Get Twin operations
 
-Consequence of this may result in unexpected **IoT Hub message quota exhaustion** and increase in **bill** specifically if using cellular or satellite data connection.
-To check for this condition you can monitor the connect/disconnects of modules and devices using Azure Diagnostics logs for IoT Hub.
+Consequence of this may result in unexpected **IoT Hub message quota exhaustion** and increase in **data usage bill** specifically if using cellular or satellite data connection. To check for this condition you can monitor the frequency of connect/disconnects of modules and devices using Azure Diagnostics logs for IoT Hub.
 
 
 
