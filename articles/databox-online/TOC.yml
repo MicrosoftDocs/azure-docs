@@ -263,7 +263,7 @@
       - name: Shares
         href: azure-stack-edge-gpu-manage-shares.md 
       - name: Users
-        href: azure-stack-edge-gpy-manage-users.md 
+        href: azure-stack-edge-gpu-manage-users.md 
       - name: Storage accounts
         href: azure-stack-edge-gpu-manage-storage-accounts.md 
       - name: Bandwidth schedules
