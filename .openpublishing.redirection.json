@@ -32565,6 +32565,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/security-center/security-center-investigation-user-data.md",
+      "redirect_url": "/azure/security-center/security-center-intro",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security-center/security-center-secure-score.md",
       "redirect_url": "/azure/security-center/secure-score-security-controls",
       "redirect_document_id": false
