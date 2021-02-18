@@ -37,14 +37,14 @@ landingContent:
         links:
           - text: What is Azure Verifiable Credentials?
             url: verifiable-credentials-overview.md
-      - linkListType: Verifiable Credentials in your tenant
+      - linkListType: tutorial
         links:
-          - text: Set up an issuer
-            url: tutorial-verifiable-credentials-issuer.md
+          - text: Set up VCs in your tenant
+            url: tutorial-sample-app-your-idp.md
       - linkListType: concept
         links:
-          - text: concept1
-            url: verifiable-credentials-concept1.md
+          - text: Define key pair values
+            url: credential-structure.md
  
   # Card
   - title: Place holder name for how-to

@@ -32,6 +32,8 @@
   items:
   - name: Customizing claims in ID tokens
     href: how-to-idp-claims.md
+  - name: How to customize your credentials
+    href: credential-design.md
 - name: Resources
   expanded: true
   items:
