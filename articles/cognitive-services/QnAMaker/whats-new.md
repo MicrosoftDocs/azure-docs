@@ -59,11 +59,11 @@ Learn what's new with QnA Maker.
 
 ### October 2019
 
-* [Explicitly setting the language](./index.yml) for all knowledge bases in the  QnA Maker service.
+* Explicitly setting the language for all knowledge bases in the  QnA Maker service.
 
 ### September 2019
 
-* Import and export with [XLS file format](./index.yml)
+* Import and export with XLS file format.
 
 ### June 2019
 

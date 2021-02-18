@@ -116,7 +116,7 @@ The following activities also require Azure permissions:
 
 ## Manage access using Azure permissions
 
-To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md). For example custom roles, see [Example custom roles](#custom-role-examples)
+To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md). For example custom roles, see [Example custom roles](#custom-role-examples)
 
 Azure has two built-in user roles for Log Analytics workspaces:
 
