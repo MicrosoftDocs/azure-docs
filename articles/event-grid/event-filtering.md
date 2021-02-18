@@ -53,11 +53,28 @@ To filter by values in the data fields and specify the comparison operator, use 
 * values - The value or values to compare to the key.
 
 ### Key
-Key is the field in the event data that you're using for filtering. It can be a number, boolean, or string.For events in the **Event Grid schema**, use the following values for the key: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion`, or event data (like `Data.key1`).
+Key is the field in the event data that you're using for filtering. It can be a number, boolean, or string. For events in the **Event Grid schema**, use the following values for the key: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion`, or event data (like `data.key1`).
 
 For events in **Cloud Events schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`).
 
-For **custom input schema**, use the event data fields (like Data.key1).
+For **custom input schema**, use the event data fields (like `data.key1`).
+
+To access fields in the data section, use the `.` (dot) notation. For example, `data.sitename`, `data.appEventTypeDetail.action` to access `sitename` or `action` for the following sample event.
+
+```json
+	"data": {
+		"appEventTypeDetail": {
+			"action": "Started"
+		},
+		"siteName": "<site-name>",
+		"clientRequestId": "None",
+		"correlationRequestId": "None",
+		"requestId": "292f499d-04ee-4066-994d-c2df57b99198",
+		"address": "None",
+		"verb": "None"
+	},
+```
+
 
 ### Values
 The values can be: number, string, boolean, or array
@@ -67,6 +84,7 @@ The values can be: number, string, boolean, or array
 The available operators for **numbers** are:
 
 #### NumberIn
+The **NumberIn** operator checks whether the key's value is one of the specified values. In the following example, it checks whether the value of the counter attribute in the data section is 5 or 1. 
 
 ```json
 
@@ -82,6 +100,7 @@ The available operators for **numbers** are:
 ```
 
 #### NumberNotIn
+The NumberNotIn operator checks whether the key's value is **not** any of the specified values. In the following example, it checks whether the value of the counter attribute in the data section is not 41 and 0. 
 
 ```json
 "advancedFilters": [{
@@ -89,13 +108,13 @@ The available operators for **numbers** are:
     "key": "data.counter",
     "values": [
         41,
-        0,
         0
     ]
 }]
 ```
 
 #### NumberLessThan
+The NumberLessThan operator checks whether the key's value is less than the specified value. In the following example, it checks whether the value of the counter attribute in the data section is less than 100. 
 
 ```json
 "advancedFilters": [{
@@ -106,6 +125,7 @@ The available operators for **numbers** are:
 ```
 
 #### NumberGreaterThan
+The NumberGreaterThan operator checks whether the key's value is greater than the specified value. In the following example, it checks whether the value of the counter attribute in the data section is greater than 20. 
 
 ```json
 "advancedFilters": [{
@@ -116,6 +136,7 @@ The available operators for **numbers** are:
 ```
 
 #### NumberLessThanOrEquals
+The NumberLessThanOrEquals operator checks whether the key's value is less than or equal to the specified value. In the following example, it checks whether the value of the counter attribute in the data section is less than or equal to 100. 
 
 ```json
 "advancedFilters": [{
@@ -126,6 +147,7 @@ The available operators for **numbers** are:
 ```
 
 #### NumberGreaterThanOrEquals
+The NumberGreaterThanOrEquals operator checks whether the key's value is greater than or equal to the specified value. In the following example, it checks whether the value of the counter attribute in the data section is greater than or equal to 30. 
 
 ```json
 "advancedFilters": [{
@@ -139,6 +161,7 @@ The available operators for **numbers** are:
 The available operator for **booleans** is: 
 
 ### BoolEquals
+The BoolEquals operator checks whether the key's value is the specified boolean value. In the following example, it checks whether the value of the isEnabled attribute in the data section is true. 
 
 ```json
 "advancedFilters": [{
@@ -152,6 +175,7 @@ The available operator for **booleans** is:
 The available operators for **strings** are:
 
 ### StringContains
+The **StringContains** operator checks whether the key's value contains of the specified values. In the following example, it checks whether the value of the key1 attribute in the data section contains one of the specified substrings: `microsoft` or `azure`. For example, `azure data factory` has `azure` in it. 
 
 ```json
 "advancedFilters": [{
@@ -165,6 +189,7 @@ The available operators for **strings** are:
 ```
 
 ### StringBeginsWith
+The **StringBeginsWith** operator checks whether the key's value begins with the specified values. In the following example, it checks whether the value of the key1 attribute in the data section begins with `event` or `grid`. For example, `event hubs` begins with `event`. 
 
 ```json
 "advancedFilters": [{
@@ -178,6 +203,8 @@ The available operators for **strings** are:
 ```
 
 ### StringEndsWith
+The **StringEndsWith** operator checks whether the key's value ends with the specified values. In the following example, it checks whether the value of the key1 attribute in the data section ends with `jpg` or `jpeg` or `png`. For example, `eventgrid.png` ends with `png`.
+
 
 ```json
 "advancedFilters": [{
@@ -192,6 +219,7 @@ The available operators for **strings** are:
 ```
 
 ### StringIn
+The **StringIn** operator checks whether the key's value exactly matches one of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section is `exact` or `string` or `matches`. 
 
 ```json
 "advancedFilters": [{
@@ -206,6 +234,7 @@ The available operators for **strings** are:
 ```
 
 ### StringNotIn
+The **StringNotIn** operator checks whether the key's value is not any of the specified values. In the following example, it checks whether the value of the `key1` attribute in the `data` section is **not** `aws` and `bridge`. 
 
 ```json
 "advancedFilters": [{
