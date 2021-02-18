@@ -40,7 +40,9 @@ Currently the CLI supports default endpoints of the config server and service re
 
 Customers can also get a full list of supported endpoints of the config server and service registry by accessing endpoints:
 * *https://SERVICE_NAME.Root_Endpoint/eureka/actuator/*
-* *https://SERVICE_NAME.Root_Endpoint/config/actuator/* with the access token as authorization in header. Only the "GET" method is supported.
+* *https://SERVICE_NAME.Root_Endpoint/config/actuator/* 
+
+The access token in header provides authorization. Only the "GET" method is supported.
 
 For example, access an endpoint like *https://SERVICE_NAME.Root_Endpoint/eureka/actuator/health* to see the health status of eureka.
 
