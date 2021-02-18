@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 02/17/2021
 ms.author: memildin
 
 ---
@@ -27,10 +27,24 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-- 
+- [Two legacy recommendations will no longer write data directly to Azure activity log](#two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log)
 - [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)
 - [Deprecation of 11 Azure Defender alerts](#deprecation-of-11-azure-defender-alerts)
+
+
+### Two legacy recommendations will no longer write data directly to Azure activity log 
+
+**Estimated date for change:** March 2021
+
+Security Center passes the data for almost all security recommendations to Azure Advisor which, in turn, writes it to [Azure activity log](../azure-monitor/essentials/activity-log.md).
+
+For two recommendations, the data is simultaneously written directly to Azure activity log. With this change, Security Center will stop writing data for these legacy security recommendations directly to activity Log. Instead, we'll export the data to Azure Advisor as we do for all the other recommendations. 
+
+The two legacy recommendations are:
+
+- OS version should be updated for your cloud service roles
+- System updates should be installed on your machines
 
 ### Two recommendations from "Apply system updates" security control being deprecated 
 

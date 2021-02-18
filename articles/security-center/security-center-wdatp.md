@@ -89,7 +89,7 @@ After you've configured the location, you can't change it. If you have your own 
 
 ## Access the Microsoft Defender for Endpoint portal
 
-1. Ensure the user account has the necessary permissions. [Learn more](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+1. Ensure the user account has the necessary permissions. Learn more in [Assign user access to Microsoft Defender Security Center](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
 1. Check whether you have a proxy or firewall that is blocking anonymous traffic. The Defender for Endpoint sensor connects from the system context, so anonymous traffic must be permitted. To ensure unhindered access to the Defender for Endpoint portal, follow the instructions in [Enable access to service URLs in the proxy server](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
