@@ -28,7 +28,7 @@
     href: device-update-plug-and-play.md
   - name: Device update networking requirements
     href: device-update-networking.md
-  - name: Device update agent	
+  - name: Device update agent
     href: device-update-agent-overview.md
   - name: Device update configuration file
     href: device-update-configuration-file.md
@@ -41,7 +41,7 @@
   items:
   - name: Create a device update account
     href: create-device-update-account.md
-  - name: Provisioning device update agent	
+  - name: Provisioning device update agent
     href: device-update-agent-provisioning.md
   - name: Import an update
     href: import-update.md
@@ -55,6 +55,8 @@
       href: troubleshoot-device-update.md
 - name: Reference
   items:
+  - name: Device update client error codes
+    href: device-update-error-codes.md
 - name: Resources
   items:
   - name: Support and help options

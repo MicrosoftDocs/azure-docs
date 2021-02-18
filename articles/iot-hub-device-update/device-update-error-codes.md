@@ -1,0 +1,83 @@
+---
+title: Client error codes for Device Update for Azure IoT Hub | Microsoft Docs
+description: This document provides a table of client error codes for various Device Update components.
+author: lichris
+ms.author: lichris
+ms.date: 2/18/2021
+ms.topic: reference
+ms.service: iot-hub-device-update
+---
+
+# Device Update for IoT Hub Error Codes
+
+This document provides a table of error codes for various Device Update components. This is meant to be used as a reference for users who want to try parsing their own error codes to diagnose and troubleshoot issues.
+
+There are two primary client-side components: the Device Update agent, and the Delivery Optimization agent.
+
+## Device Update agent
+
+### ResultCode and ExtendedResultCode
+
+The Device Update for IoT Hub Core PnP interface reports `ResultCode` and
+`ExtendedResultCode` which can be used to diagnose failures. [Learn
+More](device-update-plug-and-play.md) about the Device Update Core PnP interface.
+
+#### ResultCode
+
+`ResultCode` is a general status code and follows http status code convention.
+[Learn More](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) about http
+status codes.
+
+#### ExtendedResultCode
+
+`ExtendedResultCode` is an integer with encoded error information.
+
+You will most likely see the `ExtendedResultCode` as a signed integer in the PnP
+interface. To decode the `ExtendedResultCode`, convert the signed integer to
+unsigned hex. Only the first 4 bytes of the `ExtendedResultCode` are used and
+are of the form `F` `FFFFFFF` where the first nibble is the **Facility Code** and
+the rest of the bits are the **Error Code**.
+
+**Facility Codes**
+
+| Facility Code     | Description  |
+|-------------------|--------------|
+| D                 | Error raised from the DO SDK|
+| E                 | Error code is an errno |
+
+
+For example:
+
+`ExtendedResultCode` is `-536870781`
+
+The unsigned hex representation of `-536870781` is `FFFFFFFF E0000083`.
+
+| Ignore    | Facility Code  | Error Code   |
+|-----------|----------------|--------------|
+| FFFFFFFF  | E              | 0000083      |
+
+`0x83` in hex is `131` in decimal which is the errno value for `ENOLCK`.
+
+## Delivery Optimization agent
+The following is a list of error codes pertaining to the Delivery Optimization (DO) component of the Device Update client. The DO component is responsible for downloading update content onto the IoT device.
+
+The DO error code can be obtained by examining the exceptions thrown in response to an API call.
+
+| Error Code  | String Error                       | Type                 | Description |
+|-------------|------------------------------------|----------------------|-------------|
+| 0x80D01001L | DO_E_NO_SERVICE                    | n/a                  | Delivery Optimization was unable to provide the service |
+| 0x80D02002L | DO_E_DOWNLOAD_NO_PROGRESS          | Download Job         | Download of a file saw no progress within the defined period |
+| 0x80D02003L | DO_E_JOB_NOT_FOUND                 | Download Job         | Job was not found |
+| 0x80D02005L | DO_E_NO_DOWNLOADS                  | Download Job         | No downloads currently exist |
+| 0x80D0200CL | DO_E_JOB_TOO_OLD                   | Download Job         | Job has neither completed nor has it been cancelled prior to reaching the maximum age threshold |
+| 0x80D02011L | DO_E_UNKNOWN_PROPERTY_ID           | Download Job         | SetProperty() or GetProperty() called with an unknown property ID |
+| 0x80D02012L | DO_E_READ_ONLY_PROPERTY            | Download Job         | Unable to call SetProperty() on a read-only property |
+| 0x80D02013L | DO_E_INVALID_STATE                 | Download Job         | The requested action is not allowed in the current job state. The job might have been canceled or completed transferring. It is in a read-only state now. |
+| 0x80D02018L | DO_E_FILE_DOWNLOADSINK_UNSPECIFIED | Download Job         | Unable to start a download because no download sink (either local file or stream interface) was specified |
+| 0x80D02200L | DO_E_DOWNLOAD_NO_URI               | IDODownload Interface| The download was started without providing a URI |
+| 0x80D03805L | DO_E_BLOCKED_BY_NO_NETWORK         | Transient conditions | Download paused due to loss of network connectivity |
+| 0x80D05001L | DO_E_HTTP_BLOCKSIZE_MISMATCH       | HTTP                 | HTTP server returned a response with data size not equal to what was requested |
+| 0x80D05002L | DO_E_HTTP_CERT_VALIDATION          | HTTP                 | HTTP server certificate validation has failed |
+| 0x80D05010L | DO_E_INVALID_RANGE                 | HTTP                 | The specified byte range is invalid |
+| 0x80D05011L | DO_E_INSUFFICIENT_RANGE_SUPPORT    | HTTP                 | The server does not support the necessary HTTP protocol. Delivery Optimization (DO) requires that the server support the Range protocol header |
+| 0x80D05012L | DO_E_OVERLAPPING_RANGES            | HTTP                 | The list of byte ranges contains some overlapping ranges, which are not supported |

@@ -10,66 +10,65 @@ ms.service: iot-hub-device-update
 
 # Device Update for IoT Hub Troubleshooting Guide
 
-This document lists some common questions and issues Device Update users have reported. As Device Update progresses through Public Preview, this troubleshooting guide will be updated periodically with new questions and solutions. If you encounter an issue that does not appear in this troubleshooting guide, refer to the "Contacting Microsoft Support" section to document your situation.
+This document lists some common questions and issues Device Update users have reported. As Device Update progresses through Public Preview, this troubleshooting guide will be updated periodically with new questions and solutions. If you encounter an issue that does not appear in this troubleshooting guide, refer to the [Contacting Microsoft Support](#contact) section to document your situation.
 
-## Publishing/importing updates
+## <a name="import"></a>Importing updates
 
 ### Q: I'm having trouble connecting my Device Update instance to my IoT Hub instance.
-_Please ensure your IoT Hub message routes are configured correctly, as per the [Device update resources](./device-update-resources.md) documentation._
+_Please ensure your IoT Hub message routes are configured correctly, as per the [Device Update resources](./device-update-resources.md) documentation._
 
 ### Q: I'm encountering a role-related error (error message in Azure portal or a 403 API error).
-_You may not have access permissions configured correctly. Please ensure you have configured access permissions correctly as per the [Device update access control](./device-update-control-access.md) documentation._
-### Q: I'm encountering a 500-type error when publishing/importing content to the ADU service.
-_An error code in the 500 range may indicate an issue with the ADU service. Please wait 5 minutes, then try again. If the same error persists, please follow the instructions in the Contacting Microsoft Support section to file a support request with Microsoft._
+_You may not have access permissions configured correctly. Please ensure you have configured access permissions correctly as per the [Device Update access control](./device-update-control-access.md) documentation._
+### Q: I'm encountering a 500-type error when importing content to the Device Update service.
+_An error code in the 500 range may indicate an issue with the Device Update service. Please wait 5 minutes, then try again. If the same error persists, please follow the instructions in the [Contacting Microsoft Support](#contact) section to file a support request with Microsoft._
 
-## Device failures
+## <a name="device-failure"></a>Device failures
 
 ### Q: How can I ensure my device is connected to Device Update for IoT Hub?
 _You can verify that your device is connected to Device Update by checking if it shows up under the "Ungrouped" devices section in the compliance view of Azure portal._
 
 ### Q: One or more of my devices is failing to update.
-_There are many possible root causes for a device update failure. Please validate that the device is: 1) connected to your IoT Hub instance, 2) connected to your Device Update instance, and 3) the Delivery Optimization (DO) service is running. If all three are true for your device, please follow the instructions in the Contacting Microsoft Support section to file a support request with Microsoft._
+_There are many possible root causes for a device update failure. Please validate that the device is: 1) connected to your IoT Hub instance, 2) connected to your Device Update instance, and 3) the Delivery Optimization (DO) service is running. If all three are true for your device, please follow the instructions in the [Contacting Microsoft Support](#contact) section to file a support request with Microsoft._
 
-## Deploying an update
+## <a name="deploy"></a> Deploying an update
 
 ### Q: I've deployed an update to my device(s), but the compliance status says it isn't on the latest update. What should I do?
 _The device compliance status can take up to 5 minutes to refresh. Please wait, then check again._
 ### Q: My device's deployment status shows incompatible, what should I do?
-_The manuf model may have been changed after connecting the device to IoT Hub._
+_The manufacturer and model may have been changed after connecting the device to IoT Hub._
+
+### Q: I see my deployment is in "Active" stage but none of my devices are "In progress" with the update. What should I do?
+_Ensure that your deployment start date is not set in the future. When you create a new deployment, the deployment start date is defaulted to the next day as a safeguard unless you explicitly change it. You can either wait for the deployment start date to arrive, or cancel the ongoing deployment and create a new deployment with the desired start date._
 
 ### Q: I'm trying to group my devices, but I don't see the tag in the drop-down when creating a group.
-_Ensure that you have correctly configured the message routes in your IoT Hub as per the Device update resources documentation. You will have to tag your device again after configuring the route._
+_Ensure that you have correctly configured the message routes in your IoT Hub as per the [Device Update resources](./device-update-resources.md) documentation. You will have to tag your device again after configuring the route._
 
 _Another root cause could be that you applied the tag before connecting your device to Device Update for IoT Hub. Ensure that your device is already connected to Device Update. You can verify that your device is connected to Device Update for IoT Hub by checking if it shows up under “Ungrouped” devices in the compliance view. Temporarily add a tag of a different value, and then add your intended tag again once the device is connected._
 
 _If you are using Device Provisioning Service (DPS), then ensure that you tag your devices after they are provisioned and not during the Device creation process. If you have already tagged your device during the Device creation step, then you will have to temporarily tag your device with a different value after it is provisioned, and then add your intended tag again._
 
-
 ### Q: My deployment completed successfully, but some devices failed to update.
 _This may have been caused by a client-side error on the failed devices. Please see the Device Failures section of this troubleshooting guide._
 
 ### Q: I encountered an error in the UX when trying to initiate a deployment.
-_This may have been caused by a service/UX bug, or by an API permissions issue. Please follow the instructions in the Contacting Microsoft Support section to file a support request with Microsoft._
+_This may have been caused by a service/UX bug, or by an API permissions issue. Please follow the instructions in the [Contacting Microsoft Support](#contact) section to file a support request with Microsoft._
 
 ### Q: I started a deployment but it isn’t reaching an end state.
-_This may have been caused by a service performance issue, a service bug, or a client bug. Please retry your deployment after 10 minutes. If you encounter the same issue, please pull your device logs and refer to the Device Failures section of this troubleshooting guide. If the same issue persists, please follow the instructions in the Contacting Microsoft Support section to file a support request with Microsoft._
+_This may have been caused by a service performance issue, a service bug, or a client bug. Please retry your deployment after 10 minutes. If you encounter the same issue, please pull your device logs and refer to the Device Failures section of this troubleshooting guide. If the same issue persists, please follow the instructions in the [Contacting Microsoft Support](#contact) section to file a support request with Microsoft._
 
-## Downloading updates onto devices
-
-### Q: Why is my update content downloaded through HTTP instead of HTTPS?
-_Currently, the Linux implementation of Delivery Optimization only supports the HTTP protocol. The Device Update service takes a [wide variety of security steps](./device-update-security.md) to ensure that your devices are updated safely and securely._
+## <a name="download"></a> Downloading updates onto devices
 
 ### Q: How do I resume a download when a device has reconnected after a period of disconnection?
 _The download will self-resume when connectivity is restored within a 24-hour period. After 24 hours, the download will need to be re-initiated by the user._
-## Using Microsoft Connected Cache (MCC)
+## <a name="mcc"></a> Using Microsoft Connected Cache (MCC)
 
 ### Q: I am encountering an issue when attempting to deploy the MCC module on my IoT Edge device.
 _Refer to the [IoT Edge documentation]() for deploying Edge modules to IoT Edge devices. You can check if the MCC module is running successfully on your IoT Edge device by navigating to http://localhost:5100/Summary._
 ### Q: One of my IoT devices is attempting to download an update through MCC, but is failing.
-_There are several issues that could be causing an IoT device to fail in connecting to MCC. In order to diagnose the issue, please collect the DO client and Nginx logs from the failing device (see the “Contacting Microsoft Support” section for instructions on gathering client logs)._
+_There are several issues that could be causing an IoT device to fail in connecting to MCC. In order to diagnose the issue, please collect the DO client and Nginx logs from the failing device (see the [Contacting Microsoft Support](#contact) section for instructions on gathering client logs)._
 
 _Your device may be failing to pull content from the Internet to pass to its MCC module because the URL it’s using isn’t allowed. To determine if so, you will need to check your IoT Edge environment variables in Azure Portal._
-## Contacting Microsoft Support
+## <a name="contact"></a> Contacting Microsoft Support
 
 If you run into issues that can't be resolved using the FAQs above, you can file a support request with Microsoft Support through the Azure Portal interface. Depending on which category you indicate your issue belongs to, you may be asked to gather and share additional data to help Microsoft Support investigate your issue. 
 
@@ -113,84 +112,13 @@ If you have any of the above information available, please include it in your de
     /tmp/aduc-logs
     ```
 
-### ResultCode and ExtendedResultCode
+### Error codes
+You may be asked to provide error codes when reporting an issue related to importing an update, a device failure, or deploying an update.
 
-The Device Update for IoT Hub Core PnP interface reports `ResultCode` and
-`ExtendedResultCode` which can be used to diagnose failures. [Learn
-More](device-update-plug-and-play.md) about the Device Update Core PnP interface.
-
-#### ResultCode
-
-`ResultCode` is a general status code and follows http status code convention.
-[Learn More](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) about http
-status codes.
-
-The ResultCode can be found by examining the PnP interface.
-
-#### ExtendedResultCode
-
-`ExtendedResultCode` is an integer with encoded error information.
-
-You will most likely see the `ExtendedResultCode` as a signed integer in the PnP
-interface. To decode the `ExtendedResultCode`, convert the signed integer to
-unsigned hex. Only the first 4 bytes of the `ExtendedResultCode` are used and
-are of the form `F` `FFFFFFF` where the first nibble is the **Facility Code** and
-the rest of the bits are the **Error Code**.
-
-**Facility Codes**
-
-| Facility Code     | Description  |
-|-------------------|--------------|
-| D                 | Error raised from the DO SDK|
-| E                 | Error code is an errno |
-
-
-For example:
-
-`ExtendedResultCode` is `-536870781`
-
-The unsigned hex representation of `-536870781` is `FFFFFFFF E0000083`.
-
-| Ignore    | Facility Code  | Error Code   |
-|-----------|----------------|--------------|
-| FFFFFFFF  | E              | 0000083      |
-
-`0x83` in hex is `131` in decimal which is the errno value for `ENOLCK`.
-
-### Delivery Optimization error codes
-The following is a list of error codes pertaining to the Delivery Optimization (DO) component of the Device Update client. The DO component is responsible for downloading update content onto the IoT device.
-
-The DO error code can be obtained by examining the exceptions thrown in response to an API call.
-
-| Error Code  | String Error                       | Type                 | Description |
-|-------------|------------------------------------|----------------------|-------------|
-| 0x80D01001L | DO_E_NO_SERVICE                    | n/a                  | Delivery Optimization was unable to provide the service |
-| 0x80D02002L | DO_E_DOWNLOAD_NO_PROGRESS          | Download Job         | Download of a file saw no progress within the defined period |
-| 0x80D02003L | DO_E_JOB_NOT_FOUND                 | Download Job         | Job was not found |
-| 0x80D02005L | DO_E_NO_DOWNLOADS                  | Download Job         | No downloads currently exist |
-| 0x80D0200CL | DO_E_JOB_TOO_OLD                   | Download Job         | Job has neither completed nor has it been cancelled prior to reaching the maximum age threshold |
-| 0x80D02011L | DO_E_UNKNOWN_PROPERTY_ID           | Download Job         | SetProperty() or GetProperty() called with an unknown property ID |
-| 0x80D02012L | DO_E_READ_ONLY_PROPERTY            | Download Job         | Unable to call SetProperty() on a read-only property |
-| 0x80D02013L | DO_E_INVALID_STATE                 | Download Job         | The requested action is not allowed in the current job state. The job might have been canceled or completed transferring. It is in a read-only state now. |
-| 0x80D02018L | DO_E_FILE_DOWNLOADSINK_UNSPECIFIED | Download Job         | Unable to start a download because no download sink (either local file or stream interface) was specified |
-| 0x80D02200L | DO_E_DOWNLOAD_NO_URI               | IDODownload Interface| The download was started without providing a URI |
-| 0x80D03805L | DO_E_BLOCKED_BY_NO_NETWORK         | Transient conditions | Download paused due to loss of network connectivity |
-| 0x80D05001L | DO_E_HTTP_BLOCKSIZE_MISMATCH       | HTTP                 | HTTP server returned a response with data size not equal to what was requested |
-| 0x80D05002L | DO_E_HTTP_CERT_VALIDATION          | HTTP                 | HTTP server certificate validation has failed |
-| 0x80D05010L | DO_E_INVALID_RANGE                 | HTTP                 | The specified byte range is invalid |
-| 0x80D05011L | DO_E_INSUFFICIENT_RANGE_SUPPORT    | HTTP                 | The server does not support the necessary HTTP protocol. Delivery Optimization (DO) requires that the server support the Range protocol header |
-| 0x80D05012L | DO_E_OVERLAPPING_RANGES            | HTTP                 | The list of byte ranges contains some overlapping ranges, which are not supported |
-
-### Use getDevices() API payload response
-
-A useful management API,
-[getDevices](), returns a payload
-containing information about the download and update state on a device.
-
-This API's payload contains publicly accessible URL locations.
+Error codes can be obtained by looking at the [ADUCoreInterface](./device-update-plug-and-play.md) interface. Please refer to the [Device Update error codes](./device-update-error-codes.md) documentation for information on how to parse error codes for self-diagnosis and troubleshooting.
 
 ### Trace ID
-You may be asked to provide a trace ID when reporting an issue related to publishing or deploying an update.
+You may be asked to provide a trace ID when reporting an issue related to importing or deploying an update.
 
 The trace ID for a given user-action can be found within the API response, or in the Import History section of the Azure Portal user interface. 
 
@@ -208,15 +136,15 @@ You may be asked to provide your IoT Hub instance's name when reporting an issue
 
 The IoT Hub name is chosen by the user when first provisioned.
 
-### Account name
-You may be asked to provide your Device Update account's name when reporting an issue related to publishing an update, device failures, or deploying an update.
+### Device Update account name
+You may be asked to provide your Device Update account's name when reporting an issue related to importing an update, device failures, or deploying an update.
 
-The Device Update account name is chosen by the user when first signing up for the service.
+The Device Update account name is chosen by the user when first signing up for the service. More information can be found in the [Device Update resources](./device-update-resources.md) documentation.
 
 ### Device Update instance name
-You may be asked to provide your Device Update instance's name when reporting an issue related to publishing an update, device failures or deploying an update.
+You may be asked to provide your Device Update instance's name when reporting an issue related to importing an update, device failures or deploying an update.
 
-The Device Update instance name is chosen by the user when first provisioned.
+The Device Update instance name is chosen by the user when first provisioned. More information can be found in the [Device Update resources](./device-update-resources.md) documentation.
 
 ### Device Id
 You may be asked to provide a device ID when reporting an issue related to device failures or deploying an update.
@@ -234,9 +162,9 @@ You may be asked to provide Nginx logs when reporting an issue related to Micros
 ### ADU-conf.txt
 You may be asked to provide the Device Update configuration file ("adu-conf.txt") when reporting an issue related to deploying an update.
 
-The configuration file can be obtained by SSHing into the device and navigating to the path: 
+The configuration file is optional and created by the user following the instructions in the [Device Update configuration](./device-update-configuration-file.md) documentation.
 
 ### Import manifest
-You may be asked to provide your import manifest file when reporting an issue related to publishing or deploying an update.
+You may be asked to provide your import manifest file when reporting an issue related to importing or deploying an update.
 
-The import manifest is a file created by the customer when publishing update content to the Device Update service.
+The import manifest is a file created by the customer when importing update content to the Device Update service.
