@@ -3,7 +3,7 @@ title: Create Datadog - Azure partner solutions
 description: This article describes how to use the Azure portal to create an instance of Datadog.
 ms.service: partner-services
 ms.topic: quickstart
-ms.date: 02/16/2021
+ms.date: 02/18/2021
 author: tfitzmac
 ms.author: tomfitz
 ---
@@ -119,9 +119,9 @@ There are two types of logs that can be emitted from Azure to Datadog.
 
 To send subscription level logs to Datadog, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Datadog.
 
-To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories).  To filter the specific set of Azure resources sending logs to Datadog, you can use Azure resource tags.  
+To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md).  To filter the set of Azure resources sending logs to Datadog, use Azure resource tags.  
 
-Please note that logs sent to Datadog will be charged by Azure. Please click [here](https://azure.microsoft.com/en-us/pricing/details/monitor/) to see the pricing of platform logs sent to Azure marketplace partners.
+Please note that logs sent to Datadog will be charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure marketplace partners.
 
 Once you have completed configuring metrics and logs, select **Next: Single sign-on**.
 

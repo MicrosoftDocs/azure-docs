@@ -4,7 +4,7 @@ description: Learn about using Datadog in the Azure Marketplace.
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 02/17/2021
+ms.date: 02/18/2021
 ms.author: tomfitz
 ---
 
@@ -28,10 +28,6 @@ Integrating Datadog with Azure provides the following capabilities:
 - **Log forwarder** - Enables forwarding of subscription activity and resource logs to Datadog.
 - **Metrics collection** - Automatically configure and set up Datadog crawler to send Azure resource metrics to Datadog.
 - **Datadog agent deployment** - Provides a single click experience to install and uninstall Datadog agents on virtual machines and app services.
-
-## Datadog links
-
-For more help with using Datadog, see the following links to the [Datadog site](https://www.datadoghq.com/).
 
 ## Next steps
 
