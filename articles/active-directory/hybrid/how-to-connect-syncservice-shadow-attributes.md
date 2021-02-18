@@ -45,7 +45,7 @@ The userPrincipalName attribute is the value you see when using PowerShell.
 Since the real on-premises attribute value is stored in Azure AD, when you verify the fabrikam.com domain, Azure AD updates the userPrincipalName attribute with the value from the shadowUserPrincipalName. You do not have to synchronize any changes from Azure AD Connect for these values to be updated.
 
 ### proxyAddresses
-The same process for only including verified domains also occurs for proxyAddresses, but with some additional logic. The check for verified domains only happens for mailbox users. A mail-enabled user or contact represent a user in another Exchange organization and you can add any values in proxyAddresses to these objects.
+The same process for only including verified domains also occurs for proxyAddresses, but with some extra logic. The check for verified domains only happens for mailbox users. A mail-enabled user or contact represent a user in another Exchange organization and you can add any values in proxyAddresses to these objects.
 
 For a mailbox user, either on-premises or in Exchange Online, only values for verified domains appear. It could look like this:
 
@@ -58,7 +58,7 @@ In this case **smtp:abbie.spencer\@fabrikam.com** was removed since that domain 
 
 This logic for proxyAddresses is referred to as **ProxyCalc**. ProxyCalc is invoked with every change on a user when:
 
-- The user has been assigned a service plan that includes Exchange Online even if the user was not licensed for Exchange. For example, if the user is assigned the Office E3 SKU, but only was assigned SharePoint Online. This is true even if your mailbox is still on-premises.
+- The user has been assigned a service plan that includes Exchange Online even if the user was not licensed for Exchange. For example, if the user is assigned the Office E3 SKU, but only was assigned SharePoint Online. This condition is true even if your mailbox is still on-premises.
 - The attribute msExchRecipientTypeDetails has a value.
 - You make a change to proxyAddresses or userPrincipalName.
 
@@ -67,7 +67,7 @@ ProxyCalc will sanitize an address if ShadowProxyAddresses contains a non-verifi
 •	User has MSExchRemoteRecipientType set (not null)  
 •	User is considered a shared resource
 
-To be considered a shared resource the cloud user will have one of the following values set in CloudMSExchRecipientDisplayType 
+To be considered a shared resource, the cloud user will have one of the following values set in CloudMSExchRecipientDisplayType 
 
  |Object Display Type|Value (Decimal)|
  |-----|-----|
