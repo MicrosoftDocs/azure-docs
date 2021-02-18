@@ -70,7 +70,8 @@ const oneToOneCall = callAgent.startCall([userCallee]);
 
 To place a call to a PSTN, invoke the `startCall` method on `callAgent` and pass the callee's PhoneNumberIdentifier.
 Your Communication Services resource must be configured to allow PSTN calling.
-When calling a PSTN number, you must specify your alternate caller ID. An alternate caller Id refers to a phone number (based on the E.164 standard) identifiying the caller in a PSTN Call. For example, when you supply an alternate caller Id to the PSTN call, that phone number will be the one shown to the callee when the call is incoming.
+When calling a PSTN number, you must specify your alternate caller ID. An alternate caller ID refers to a phone number (based on the E.164 standard) identifying the caller in a PSTN Call. For example, when you supply an alternate caller ID to the PSTN call, that phone number will be the one shown to the callee when the call is incoming.
+
 > [!WARNING]
 > PSTN calling is currently in private preview. For access, [apply to early adopter program](https://aka.ms/ACS-EarlyAdopter).
 ```js
