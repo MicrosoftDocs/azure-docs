@@ -16,16 +16,14 @@ Now that you've read the benefits Azure Arc enabled Kubernetes clusters, let's c
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Prerequisites
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An up-and-running Kubernetes cluster.
-* A kubeconfig file.
-* 'Read' and 'Write' permissions for the user or service principal used with `az login` and `az connectedk8s connect` commands on the `Microsoft.Kubernetes/connectedclusters` resource type.
-* [Latest release of Helm 3](https://helm.sh/docs/intro/install).
-* [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-* If you prefer, install [Azure CLI 2.15+](/cli/azure/install-azure-cli) to run the CLI reference commands.
-* Azure Arc agents network requirements:  
+* Verify you have:
+    * An up-and-running Kubernetes cluster:
+    * A kubeconfig file.
+    * 'Read' and 'Write' permissions for the user or service principal used with `az login` and `az connectedk8s connect` commands on the `Microsoft.Kubernetes/connectedclusters` resource type.
+* Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
+* Make sure you meet the Azure Arc agents' network requirements:  
     * TCP on port 443: `https://:443`
     * TCP on port 9418: `git://:9418`
 
