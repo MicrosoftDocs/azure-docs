@@ -9,6 +9,8 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ---
 
+# Columnar table storage (preview)
+
 > [!IMPORTANT]
 > Columnar table storage in Hyperscale (Citus) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's
