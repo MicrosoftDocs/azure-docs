@@ -4,10 +4,12 @@ description: This document outlines advanced configurations for your QnA Maker r
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 18/02/2021
+ms.date: 02/18/2021
 ---
 
 # Configure QnA Maker resources
+
+The user can configure QnA Maker to use a different Cognitive search resource. They can also configure App service settings if they are using QnA Maker GA.
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
