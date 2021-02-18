@@ -140,7 +140,7 @@
       href: ./concepts/policy-for-kubernetes.md
     - name: Secure pods with Azure Policy
       displayName: aks, psp, rego, opa
-      href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Audit VMs with Guest Configuration
     displayName: provider, tools, definition
     href: ./concepts/guest-configuration.md
