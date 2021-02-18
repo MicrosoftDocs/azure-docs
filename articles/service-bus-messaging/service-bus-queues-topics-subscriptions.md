@@ -47,7 +47,7 @@ For a full working example, see the [TopicSubscriptionWithRuleOperationsSample s
 
 For more information about possible filter values, see the documentation for the [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) and [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) classes.
 
-## Java message service (JMS) 2.0 entities (Preview)
+## Java message service (JMS) 2.0 entities
 The following entities are accessible through the Java message service (JMS) 2.0 API.
 
   * Temporary queues

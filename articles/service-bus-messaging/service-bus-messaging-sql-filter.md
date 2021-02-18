@@ -264,8 +264,8 @@ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sq
   
 -   Arithmetic operators such as `+`, `-`, `*`, `/`, and `%` follow the same semantics as the C# operator binding in data type promotions and implicit conversions.
 
-
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## Examples
+For examples, see [Service Bus filter examples](service-bus-filter-examples.md).
 
 ## Next steps
 
