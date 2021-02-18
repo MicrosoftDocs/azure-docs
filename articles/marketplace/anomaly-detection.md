@@ -9,7 +9,7 @@ author: sayantanroy83
 ms.author: sroy
 ---
 
-# Anomaly detection for metered billing
+# Manage metered billing anomalies in Partner Center
 
 The custom metered billing option is currently available to [Software as a service](plan-saas-offer.md) (SaaS) offers and [Azure Applications](plan-azure-application-offer.md#types-of-plans) with a Managed application plan.
 
