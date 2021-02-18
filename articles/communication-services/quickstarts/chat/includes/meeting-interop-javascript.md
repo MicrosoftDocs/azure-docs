@@ -167,6 +167,7 @@ const chatBox = document.getElementById("chat-box");
 const sendMessageButton = document.getElementById("send-message");
 const messagebox = document.getElementById("message-box");
 
+var userId = '';
 var messages = '';
 
 async function init() {
@@ -176,6 +177,7 @@ async function init() {
   const identityClient = new CommunicationIdentityClient(connectionString);
 
   let identityResponse = await identityClient.createUser();
+  userId = identityResponse.communicationUserId;
   console.log(
     `\nCreated an identity with ID: ${identityResponse.communicationUserId}`
   );
@@ -228,7 +230,7 @@ callButton.addEventListener("click", async () => {
   chatClient.on("chatMessageReceived", (e) => {
     console.log("Notification chatMessageReceived!");
     
-    if (e.sender.communicationUserId != identityResponse.communicationUserId) {
+    if (e.sender.communicationUserId != userId) {
        renderReceivedMessage(e.content);
     }
     else {
