@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 
-# Deploy Update
+# Deploy an Update using Device Update for IoT Hub
 
 Learn how to deploy an update to an IoT device using Device Update for IoT Hub.
 
