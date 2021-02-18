@@ -31,7 +31,7 @@ The 'ADU Core' interface is the primary communication channel between Device Upd
 
 ### Device Information Interface
 
-The Device Information Interface is used to implement the Azure IoT PnP `DeviceInformation` interface. [Learn More](device-update-plug-and-play.md#device-information-interface) about this interface.
+The Device Information Interface is used to implement the `Azure IoT PnP DeviceInformation` interface. [Learn More](device-update-plug-and-play.md#device-information-interface) about this interface.
 
 ## The Platform Layer
 
@@ -69,7 +69,7 @@ of the update. Update Handler implementations are in `src/content_handlers`.
 
 ### Simulator Update Handler
 
-The Simulator Update Handlers are used by the Simulator Platform Layer and can
+The Simulator Update Handler are used by the Simulator Platform Layer and can
 be used with the Linux Platform Layer to fake interactions with a Content
 Handler. The Simulator Update Handler implements the Update Handler APIs with
 mostly no-ops. The implementation of the Simulator Update Handler can be found below:
@@ -93,4 +93,10 @@ the Raspberry Pi reference image. Find the latest Raspberry Pi reference image [
 The APT Update Handler processes an APT-specific Update Manifest and invokes APT to
 install or update the specified Debian package(s).
 
-## Next Steps: [Getting Started with the Device Update Agent](device-update-agent-provisioning.md)
+## Self-update Device update agent
+
+The device update agent and its dependencies can be updated through the Device Update for IoT Hub pipeline. If you are using an image-based update, include the latest device update agent in your new image. If you are using a package-based update, include the device update agent and its desired version in the apt manifest like any other package. [Learn more](device-update-apt-manifest.md) about apt manifest. 
+
+
+## Next Steps
+[Understand Device Update agent configuration file](device-update-configuration-file.md)
