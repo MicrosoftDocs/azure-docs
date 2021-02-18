@@ -137,7 +137,7 @@ Your QnA Maker service deals with two kinds of keys: **authoring keys** and **qu
 
 Use these keys when making requests to the service through APIs.
 
-![Key management](../media/qnamaker-how-to-key-management/key-management.png)
+![Key management](../media/authoring-key.png)
 
 |Name|Location|Purpose|
 |--|--|--|
