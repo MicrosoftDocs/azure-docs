@@ -1,5 +1,5 @@
 ---
-title: Introduction to Device Update for IoT Hub | Microsoft Docs
+title: Introduction to Device Update for Azure IoT Hub | Microsoft Docs
 description: Device Update for IoT Hub is a service that enables you to deploy over-the-air updates (OTA) for your IoT devices.
 author: vimeht
 ms.author: vimeht
@@ -8,9 +8,11 @@ ms.topic: overview
 ms.service: iot-hub-device-update
 ---
 
-# Device Update for IoT Hub Overview
+# Device Update for IoT Hub (Preview) Overview
 
-As organizations look to further enable productivity and operational efficiency, Internet of Things (IoT) solutions continue to be adopted at increasing rates. This makes it essential that the devices forming these solutions are built on a foundation of reliability and security and are easy to connect and manage at scale. Device Update for IoT Hub is an end-to-end platform that customers can use to publish, distribute, and manage over-the-air updates for everything from tiny sensors to gateway-level devices. This platform is now available in preview in the Western US, Asia, and Europe to keep devices and applications secure and up to date.
+Device Update for IoT Hub is a service that enables you to deploy over-the-air updates (OTA) for your IoT devices.
+
+As organizations look to further enable productivity and operational efficiency, Internet of Things (IoT) solutions continue to be adopted at increasing rates. This makes it essential that the devices forming these solutions are built on a foundation of reliability and security and are easy to connect and manage at scale. Device Update for IoT Hub is an end-to-end platform that customers can use to publish, distribute, and manage over-the-air updates for everything from tiny sensors to gateway-level devices. 
 
 To realize the full benefits of IoT-enabled digital transformation, customers need this ability to operate, maintain, and update devices at scale. Explore the benefits of implementing Device Update for IoT Hub, which include being able to rapidly respond to security threats and deploy new features to obtain business objectives without incurring the extra development and maintenance costs of building your own update platforms.
 
@@ -19,8 +21,8 @@ To realize the full benefits of IoT-enabled digital transformation, customers ne
 Device Update for IoT Hub is designed to offer optimized update deployment and streamlined operations through integration with [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). This integration makes it easy to adopt Device Update on any existing solution. It provides a cloud-hosted solution to connect virtually any device. Device Update supports a broad range of IoT operating systems—including Linux and [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (real-time operating system)—and is extensible via open source. 
 
 Both a Device Update Agent Simulator binary and Raspberry Pi reference Yocto images are provided.
-Device Update for IoT Hub also supports updating Azure IoT Edge devices. A Device Update Agent will be provided for Ubuntu Server 18.04 amd64
-platform. Device Update for IoT Hub will also provide open-source code if you are not
+Device Update for IoT Hub also supports updating Azure IoT Edge devices. A Device Update Agent is provided for Ubuntu Server 18.04 amd64
+platform. Device Update for IoT Hub also provides open-source code if you are not
 running one of the above platforms. This allows you to port the agent to the distribution you
 are running.
 
@@ -34,7 +36,7 @@ Device Update for IoT Hub supports two forms of updates – image-based
 and package-based.
 
 Package-based updates are targeted updates that alter only a specific component
-or application on the device. Thus, leading to lower consumption of
+or application on the device. This leads to lower consumption of
 bandwidth and helps reduce the time to download and install the update. Package
 updates typically allow for less downtime of devices when applying an update and
 avoid the overhead of creating images.
@@ -87,9 +89,9 @@ phase of updating (either Download, Install and Apply). During each phase,
 status is returned to Device Update via IoT Hub so you can view the current status of a
 deployment. If there are no updates in progress, the status is returned as “Idle”. A deployment can be canceled at any time.
 
-![Client Agent Workflow](media/understand-device-update/client-agent-workflow.png)
+:::image type="content" source="media/understand-device-update/client-agent-workflow.png" alt-text="Diagram of Device Update agent workflow." lightbox="media/understand-device-update/client-agent-workflow.png":::
 
-[Learn More]()
+[Learn More](device-update-agent-overview.md) about device update agent. 
 
 ### Importing
 
@@ -101,16 +103,14 @@ manifest to an Internet-accessible location. After that, you can use the Azure p
 REST API to initiate the asynchronous process of update import. Device Update uploads the files, processes
 them, and makes them available for distribution to IoT devices.
 
->NOTE: For sensitive content, protect the download using a shared access signature (SAS), such as an ad-hoc SAS for Azure Blob Storage.
-
-[Learn more about
+For sensitive content, protect the download using a shared access signature (SAS), such as an ad-hoc SAS for Azure Blob Storage. [Learn more about
 SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-![Import an Update](media/understand-device-update/import-update.png)
+:::image type="content" source="media/understand-device-update/import-update.png" alt-text="Diagram of Device Update for IoT Hub importing workflow." lightbox="media/understand-device-update/import-update.png":::
 
-[Learn More]()
+[Learn More](import-concepts.md) about importing updates. 
 
-### Management
+### Grouping and deployment
 
 After importing an update, you can view compatible updates for your devices and device
 classes.
@@ -124,11 +124,14 @@ right content to a specific set of compatible devices. Device Update orchestrate
 process of sending commands to each device, instructing them to download and
 install the updates and getting status back.
 
-![Manage and Deploy Updates](media/understand-device-update/manage-deploy-updates.png)
+:::image type="content" source="media/understand-device-update/manage-deploy-updates.png" alt-text="Diagram of Device Update for IoT Hub grouping and deployment workflow." lightbox="media/understand-device-update/manage-deploy-updates.png":::
 
 [Learn more](device-update-compliance.md) about deployment concepts
 
 [Learn more](device-update-groups.md) about device update groups
 
 
-[Next steps: Create device update account and instance](create-device-update-account.md)
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create device update account and instance](create-device-update-account.md)
