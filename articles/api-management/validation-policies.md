@@ -21,7 +21,10 @@ This topic provides a reference for the following API Management policies. For i
 - [Validate parameters](#validate-parameters) - Validates the request header, query, or path parameters against the API schema.
 - [Validate headers](#validate-headers) - Validates the response header against the API schema.
 - [Validate status code](#validate-status-code) - Validates the HTTP status codes in responses against the API schema.
-- 
+
+> [!NOTE]
+> The maximum size of the API schema that can be validated by a validation policy is currently 4 MB. To raise this limit please contact [support](https://azure.microsoft.com/support/options/).  
+
 ## Validate content
 
 The `validate-content` policy validates the size or content type of a request or response body against the API schema. Currently the policy validates content in JSON format specified in the schema.
@@ -30,7 +33,7 @@ The `validate-content` policy validates the size or content type of a request or
 
 ```xml
 <validate-content unspecified-content-type-action="ignore|prevent|detect" max-size="size in bytes" size-exceeded-action="ignore|prevent|detect" errors-variable-name="variable name">
-    <content type="[string, for example: application/json, application/hal+json" validate-as="json" action="ignore|prevent|detect" />
+    <content type="content type strinb, for example: application/json, application/hal+json" validate-as="json" action="ignore|prevent|detect" />
 </validate-content>
 ```
 

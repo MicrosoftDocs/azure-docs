@@ -77,10 +77,10 @@ This section provides a reference for the following API Management policies. For
     -  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub) - uses Dapr runtime to publish a message to a Publish/Subscribe topic.
     -  [Trigger output binding](api-management-dapr-policies.md#bind) - uses Dapr runtime to invoke an external system via output binding.
 - [Validation policies](validation-policies.md)
-    - [Validate content](#validate-content) - Validates the size or content type of a request or response body against the API schema. 
-    - [Validate parameters](#validate-parameters) - Validates the request header, query, or path parameters against the API schema.
-    - [Validate headers](#validate-headers) - Validates the response header against the API schema.
-    - [Validate status code](#validate-status-code) - Validates the HTTP status codes in responses against the API schema.
+    - [Validate content](validation-policies.md#validate-content) - Validates the size or content type of a request or response body against the API schema. 
+    - [Validate parameters](validation-policies.md#validate-parameters) - Validates the request header, query, or path parameters against the API schema.
+    - [Validate headers](validation-policies.md#validate-headers) - Validates the response header against the API schema.
+    - [Validate status code](validation-policies.md#validate-status-code) - Validates the HTTP status codes in responses against the API schema.
 
 ## Next steps
 For more information working with policies, see:
