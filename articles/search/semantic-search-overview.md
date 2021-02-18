@@ -29,7 +29,7 @@ A new semantic query type enables the relevance ranking and response structures.
 
 ## Availability
 
-Initially, semantic search is operational after [preview sign-up](https://aka.ms/TBD), on Standard tier search services that run in West US 2. The number of regions providing semantic search is expected to increase weekly. If you  
+Initially, semantic search is operational after [preview sign-up](https://aka.ms/TBD), on Standard tier search services that run in West US 2. The number of regions providing semantic search is expected to increase weekly.
 
 ## Next steps
 

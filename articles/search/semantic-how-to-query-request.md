@@ -15,16 +15,13 @@ ms.date: 03/02/2021
 > [!IMPORTANT]
 > Semantic query type is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, learn how to attach the semantic query subsystems of Azure Cognitive Search to use semantic ranking, semantic captions, and semantic answer. Setting **`queryType`** parameter to **`semantic`** enables these capabilities. This article explains how to structure both query requests and responses.
+In this article, learn how to attach the semantic query subsystems of Azure Cognitive Search to use semantic ranking, semantic captions, and semantic answer. Setting the queryType parameter to **semantic** enables these capabilities. 
 
-During public preview, there is no charge for semantic search. However, as features transition to general availability, the cost of computations will be a billable event. When details become available, you'll find the information documented in the [pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
+During public preview, there is no charge for semantic search. However, as features transition to general availability, the cost of computations will become a billable event. Once billing decisions are finalized, you'll find cost information documented in the [pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
 
 ## Prerequisites
 
-+ A search service at a Standard tier (S1, S2, S3), located in West US 2. Roll out is underway in other regions. Check back for updates on further availability.
-
-<!-- 
-+ A search service at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe -->
++ A search service at a Standard tier (S1, S2, S3), located in West US 2. Roll out is underway in other regions. Check back for updates about greater availability.
 
 + Access to semantic search preview: [sign up](https://aka.ms/TBD)
 
@@ -34,11 +31,11 @@ During public preview, there is no charge for semantic search. However, as featu
 
   The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query.
 
-+ [A query request](/rest/api/searchservice/preview-api/search-documents) that uses spell correction must have the following three parameters: `api-version=2020-06-30-Preview`, `queryType=semantic`, `queryLanguage=en-us`, `searchFields=<ordered-field-list>`.
++ [A query request](/rest/api/searchservice/preview-api/search-documents) with the semantic option uses "api-version=2020-06-30-Preview", "queryType=semantic", "queryLanguage=en-us", and "searchFields=<ordered-field-list>"
 
 ## What's a semantic query?
 
-In Cognitive Search, a query is a parameterized specification of a round trip **`search`** operation. A semantic query adds parameters that invoke the semantic query subsystems that can intuit context and meaning of matching results, and promote the more meaningful matches to the top.
+In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* adds parameters that invoke the semantic query subsystems that can intuit context and meaning of matching results, and promote the more meaningful matches to the top.
 
 The following request is representative of a semantic query.
 
