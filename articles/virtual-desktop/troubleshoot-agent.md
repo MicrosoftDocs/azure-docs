@@ -238,7 +238,7 @@ To resolve this issue, make space on your disk by:
 
 ## Error: Agent fails to update with MissingMethodException
 
-Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3389, that says **MissingMethodException: Method not found** in the description, the Windows Virtual Desktop agent failed to update, and was reset to the older version. This may be because the .NET framework currently installed on the VMs is lower than the mandatory version (4.7.2). To resolve this issue, you need to upgrade the .NET to version 4.7.2 or greater by following the installation instructions in the [.NET Framework documentation](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3389 that says "MissingMethodException: Method not found" in the description, that means the Windows Virtual Desktop agent didn't update successfully and reverted to an earlier version. This may be because the version number of the .NET framework currently installed on your VMs is lower than 4.7.2. To resolve this issue, you need to upgrade the .NET to version 4.7.2 or later by following the installation instructions in the [.NET Framework documentation](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 
 
 ## Error: VMs are stuck in Unavailable or Upgrading state
