@@ -46,7 +46,7 @@ As a result users can skip the initial Azure Active Directory page. This process
 In cases where the tenant is federated to another IdP for sign-in, auto-acceleration makes user sign-in more streamlined.  You can configure auto-acceleration for individual applications.
 
 >[!NOTE]
->If you configure an application for auto-acceleration, guest users cannot sign in and users with managed credentials (like FIDO) cannot use them. If you take a user straight to a federated IdP for authentication, there is no way to for them to get back to the Azure Active Directory sign-in page. Guest users, who might need to be directed to other tenants or an external IdP such as a Microsoft account, can't sign in to that application because they're skipping the Home Realm Discovery step.  
+>If you configure an application for auto-acceleration, users can't use managed credentials (like FIDO) and guest users can't sign in. If you take a user straight to a federated IdP for authentication, there is no way to for them to get back to the Azure Active Directory sign-in page. Guest users, who might need to be directed to other tenants or an external IdP such as a Microsoft account, can't sign in to that application because they're skipping the Home Realm Discovery step.  
 
 There are three ways to control auto-acceleration to a federated IdP:
 
@@ -68,7 +68,10 @@ Domain hint syntax varies depending on the protocol that's used, and it's typica
 
 **Open ID Connect**: A query string domain_hint=contoso.com.
 
-If a domain hint is included in the authentication request from the application, and the tenant is federated with that domain, Azure AD by default attempts to redirect sign-in to the IdP that's configured for that domain.
+By default, Azure AD attempts to redirect sign-in to the IdP that's configured for a domain if **both** of the following are true:
+
+* A domain hint is included in the authentication request from the application **and**
+* The tenant is federated with that domain
 
 If the domain hint doesn’t refer to a verified federated domain, it is ignored and normal Home Realm Discovery is invoked.
 
