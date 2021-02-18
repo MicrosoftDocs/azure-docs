@@ -130,7 +130,7 @@ In this section, you will see the result in action. First, configure the **sampl
 
 ### Configure the sample client web app
 
-Next, you'll configure the sample client web app. Start by gathering the **HTTP endpoint URL** of the *negotiate* function. 
+Next, you'll configure the sample client web app. Start by gathering the **HTTP endpoint URL** of the *negotiate* function, and then use it to configure the app code on your machine.
 
 1. Go to the Azure portal's [Function apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) page and select your function app from the list. In the app menu, select *Functions* and choose the *negotiate* function.
 
