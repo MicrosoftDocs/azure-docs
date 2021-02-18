@@ -7,8 +7,7 @@ ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
 ms.topic: quickstart
-ms.service: verifiable-credentials
-ms.date: 02/04/2021
+ms.date: 02/18/2021
 ---
 
 # Quickstart: Issue verifiable credentials using a sample app
