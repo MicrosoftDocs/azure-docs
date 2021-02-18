@@ -159,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. select **SAML 2.0** as **Federation Protocol**.
 
-    b. Either you can select the **SP initited** or **IDP initited** as **SSO Profile** to upload the particular metadata file and click on **Import SAML Metadata** to upload.
+    b. Either you can select the **SP initiated** or **IDP initiated** as **SSO Profile** to upload the particular metadata file and click on **Import SAML Metadata** to upload.
 
     c. Click on **Export** button to download the Service Provider Metadata file and upload it in the **Basic SAML Configuration** section on Azure portal.
 
