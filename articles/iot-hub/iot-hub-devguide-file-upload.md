@@ -36,7 +36,7 @@ To use the file upload functionality, you must first link an Azure Storage accou
 The [Upload files from your device to the cloud with IoT Hub](iot-hub-csharp-csharp-file-upload.md) how-to guides provide a complete walkthrough of the file upload process. These how-to guides show you how to use the Azure portal to associate a storage account with an IoT hub.
 
 > [!NOTE]
-> The [Azure IoT SDKs](iot-hub-devguide-sdks.md) automatically handle retrieving the SAS URI, uploading the file, and notifying IoT Hub of a completed upload. If there is **firewall** blocking access to the blob storage endpoint but allowing access to IoT Hub endpoint then the file upload process will fail with following errror
+> The [Azure IoT SDKs](iot-hub-devguide-sdks.md) automatically handle retrieving the SAS URI, uploading the file, and notifying IoT Hub of a completed upload. If there is **firewall** blocking access to the blob storage endpoint but allowing access to IoT Hub endpoint then the file upload process will fail with following error if using IoT C# device SDK.
 ``
 ---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond ``
 
