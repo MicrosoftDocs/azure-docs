@@ -24,9 +24,9 @@ To resolve this issue, either disable the other app or use the other app as the 
 
 **App not showing in Single sign-on setting page** - First, search for the application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings. 
 
-The Identifier URL must be `https://app.datadoghq.com/account/saml/metadata.xml`.
+The Identifier URL must be `https://us3.datadoghq.com/account/saml/metadata.xml`.
 
-The reply URL must be `https://app.datadoghq.com/account/saml/assertion`.
+The reply URL must be `https://us3.datadoghq.com/account/saml/assertion`.
 
 The following image shows the correct values.
   
