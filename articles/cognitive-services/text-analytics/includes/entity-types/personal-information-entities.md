@@ -26,7 +26,7 @@ The following entity categories are returned when you're sending requests to the
 | [Phone number](#category-phonenumber) |Phone numbers (US and EU phone numbers only). |
 | [Organization](#category-organization) |  Companies, groups, government bodies, and other organizations.  |
 | [Address](#category-address) | Full mailing addresses.  |
-| EU GPS Coordinates | GPS coordinates for locations within the European Union.  |
+| [EU GPS Coordinates](#category-eu-gps-coordinates) | GPS coordinates for locations within the European Union.  |
 | [Email](#category-email) | Email addresses.   |
 | [URL](#category-url) | URLs to websites.  |
 | [IP](#category-ip) | Network IP addresses.  |

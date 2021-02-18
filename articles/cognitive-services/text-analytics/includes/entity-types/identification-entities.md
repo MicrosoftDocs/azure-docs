@@ -86,7 +86,7 @@ This category contains the following entity:
     :::column span="2":::
       **Supported document languages**
 
-      `en`, `es`, `fr`, `de`, `it`, `pt-pt`, `pt-br`, `ja`	`pt-br`	`zh-hans`, `ja`, `ko`
+      `en`, `es`, `fr`, `de`, `it`, `pt-pt`, `pt-br`, `ja`,	`zh-hans`, `ja`, `ko`
       
    :::column-end:::
 :::row-end:::
@@ -725,7 +725,7 @@ The following entities are grouped and listed by country:
     :::column span="":::
         **Entity**
 
-        Hungary National Identification Number
+        Hungary Personal Identification Number
 
     :::column-end:::
     :::column span="2":::
