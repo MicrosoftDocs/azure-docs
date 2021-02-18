@@ -1,6 +1,6 @@
 ---
-title: Microsoft Connected Cache Two Level Nested IoT Edge Gateway With Outbound Unauthenticated Proxy | Microsoft Docs
-description: Microsoft Connected Cache Two Level Nested IoT Edge Gateway With Outbound Unauthenticated Proxy Tutorial
+title: Microsoft Connected Cache two level nested IoT Edge Gateway with outbound unauthenticated proxy | Microsoft Docs
+description: Microsoft Connected Cache two level nested IoT Edge Gateway with outbound unauthenticated proxy tutorial
 author: andyriv
 ms.author: andyriv
 ms.date: 2/16/2021
@@ -16,32 +16,31 @@ Refer to the documentation [Connect downstream IoT Edge devices - Azure IoT Edge
 
 The diagram below describes the scenario where one IoT Edge gateway as direct access to CDN resources is acting as the parent to another IoT Edge gateway that is acting as the parent to an IoT leaf device such as a Raspberry Pi. Only the IoT Edge gateway parent has internet connectivity to CDN resources and both the IoT Edge child and IoT device are internet isolated. 
 
-  :::image type="content" source="media/mcc-overview/nested-level-proxy.png" alt-text="Microsoft Connected Cache Nested" lightbox="media/mcc-overview/nested-level-proxy.png":::
+  :::image type="content" source="media/connected-cache-overview/nested-level-proxy.png" alt-text="Microsoft Connected Cache Nested" lightbox="media/connected-cache-overview/nested-level-proxy.png":::
 
 ## Parent Gateway Configuration
 
 1. Add the Microsoft Connected Cache module to your IoT Edge gateway device deployment in IoT Hub (see <link>MCC concepts</link> for details on how to get the module).
 2. Add the environment variables for the deployment. Below is an example of the environment variables.
 
-### Environment Variables
+    **Environment Variables**
 
-| Variable Name                 | Value                                       |
-| ----------------------------- | --------------------------------------------| 
-| CACHE_NODE_ID                 | See environment variable description above. |
-| CUSTOMER_ID                   | See environment variable description above. |
-| CUSTOMER_KEY                  | See environment variable description above. |
-| STORAGE_*N*_SIZE_GB           | N = 5                                       |
-| CACHEABLE_CUSTOM_1_HOST       | Packagerepo.com:80                          |
-| CACHEABLE_CUSTOM_1_CANONICAL  | Packagerepo.com                             |
-| IS_SUMMARY_ACCESS_UNRESTRICTED| true                                        |
-| UPSTREAM_PROXY                | Proxy server IP or FQDN                     |
+    | Name                 | Value                                       |
+    | ----------------------------- | --------------------------------------------| 
+    | CACHE_NODE_ID                 | See environment variable description above. |
+    | CUSTOMER_ID                   | See environment variable description above. |
+    | CUSTOMER_KEY                  | See environment variable description above. |
+    | STORAGE_*N*_SIZE_GB           | N = 5                                       |
+    | CACHEABLE_CUSTOM_1_HOST       | Packagerepo.com:80                          |
+    | CACHEABLE_CUSTOM_1_CANONICAL  | Packagerepo.com                             |
+    | IS_SUMMARY_ACCESS_UNRESTRICTED| true                                        |
+    | UPSTREAM_PROXY                | Proxy server IP or FQDN                     |
 
-&nbsp;
 3. Add the container create options for the deployment. There is no difference in MCC container create options from the previous example. Below is an example of the container create options.
 
 ### Container Create Options
 
-```json
+```markdown
 {
     "HostConfig": {
         "Binds": [
@@ -64,12 +63,12 @@ The diagram below describes the scenario where one IoT Edge gateway as direct ac
 
 ## Child Gateway Configuration
 
->[!TIP]
-If you have replicated containers used in your configuration in your own private registry, then there will need to be a modification to the config.yaml settings and runtime settings in your module deployment. For more information, refer to [Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal#deploy-modules-to-the-lower-layer-device&preserve-view=true) for more details.
+>[!Note]
+>If you have replicated containers used in your configuration in your own private registry, then there will need to be a modification to the config.yaml settings and runtime settings in your module deployment. For more information, refer to [Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal#deploy-modules-to-the-lower-layer-device&preserve-view=true) for more details.
 
 1. Modify the image path for the Edge agent as demonstrated in the example below:
 
-```json
+```markdown
 agent:
   name: "edgeAgent"
   type: "docker"
@@ -80,13 +79,13 @@ agent:
 ```
 2. Modify the Edge Hub and Edge agent Runtime Settings in the IoT Edge deployment as demonstrated in this example:
 	
-Under Edge Hub, in the image field, enter ```$upstream:8000/iotedge/azureiotedge-hub:1.2.0-rc2```
-
-Under Edge Agent, in the image field, enter ```$upstream:8000/iotedge/azureiotedge-agent:1.2.0-rc2```
+    * Under Edge Hub, in the image field, enter ```$upstream:8000/iotedge/azureiotedge-hub:1.2.0-rc2```
+    * Under Edge Agent, in the image field, enter ```$upstream:8000/iotedge/azureiotedge-agent:1.2.0-rc2```
 
 3. Add the Microsoft Connected Cache module to your IoT Edge gateway device deployment in IoT Hub (see <link>MCC concepts</link> for details on how to get the module).
-* Choose a name for your module: ```ConnectedCache```
-* Modify the Image URI: ```$upstream:8000/mcc/linux/iot/mcc-ubuntu-iot-amd64:latest```
+
+   * Choose a name for your module: ```ConnectedCache```
+   * Modify the Image URI: ```$upstream:8000/mcc/linux/iot/mcc-ubuntu-iot-amd64:latest```
 
 4. Add the same environment variables and container create options used in the parent deployment.
 

@@ -18,12 +18,8 @@ Naming of the Microsoft Connected Cache module is at the discretion of the admin
 
 Microsoft Connected Cache IoT Edge Module Environment Variables are used to pass basic module identity information and functional module settings to the container.
 
->[!TIP]
->Note: This list of required environment variables may change in the future. 
-
 | Variable Name                 | Value Format                           | Required/Optional | Functionality                                    |
 | ----------------------------- | ---------------------------------------| ----------------- | ------------------------------------------------ |
-|                               |                                        |                   | |
 | CUSTOMER_ID                   | Azure Subscription ID GUID             | Required          | This is the customer's key, which provides secure<br>authentication of the cache node to Delivery Optimization<br>Services. Required in order  for module to function. |
 | CACHE_NODE_ID                 | Cache Node ID GUID                     | Required          | Uniquely identifies the Microsoft Connected Cache<br>node to Delivery Optimization Services. Required in order<br> for module to function. |
 | CUSTOMER_KEY                  | Customer Key  GUID                     | Required          | This is the customer's key, which provides secure<br>authentication of the cache node to Delivery Optimization Services.<br>Required in order for module to function.|
@@ -39,52 +35,47 @@ Microsoft Connected Cache IoT Edge Module Environment Variables are used to pass
 
 Container create options for MCC module deployment provide control of the settings related to storage and ports used by the MCC module. This is the list of required container created variables used to deploy MCC.
 
->[!TIP]
->Note: the required MCC container create options may change in the future.
-
 ### Container to Host OS Drive Mappings
 
 Required to map the container storage location to the storage location on the disk.< Up to nine locations can be specified.
 
-[!TIP]
->Note: The number of the drive must match the cache drive binding values specified in the environment variable STORAGE_*N*_SIZE_GB value.
-
- ```/MicrosoftConnectedCache*N*/:/nginx/cache*N*/```
+>[!Note]
+>The number of the drive must match the cache drive binding values specified in the environment variable STORAGE_*N*_SIZE_GB value, ```/MicrosoftConnectedCache*N*/:/nginx/cache*N*/```
 
 ### Container to Host TCP Port Mappings
 
 This option specifies the external machine http port that MCC listens on for content requests. The default HostPort is port 80 and other ports are not supported at this time as the ADU client makes requests on port 80 today. TCP port 8081 is the internal container port that the MCC listens on and cannot be changed.
 
-<pre>
+```markdown
 8081/tcp": [
    {
 	   "HostPort": "80"
    }
 ]
-</pre>
+```
 
 ### Container Service TCP Port Mappings
 
 The Microsoft Connected Cache module has a .NET Core service, which is used by the caching engine for various functions.
 
->[!TIP]
->Note: to support IoT Nested Edge the HostPort must not be set to 5000 because the Registry proxy module is already listening on host port 5000.
+>[!Note]
+>To support IoT Nested Edge the HostPort must not be set to 5000 because the Registry proxy module is already listening on host port 5000.
 
-<pre>
+```markdown
 5000/tcp": [
    {
 	   "HostPort": "5001"
    }
 ]
-</pre>
+```
 
 ## Microsoft Connected Cache Summary Report
 
 The summary report is currently the only way for a customer to view caching data for the Microsoft Connected Cache instances deployed to IoT Edge gateways. The report is generated at 15-second intervals and includes averaged stats for the period as well as aggregated stats for the lifetime of the module. The key stats that customers will be interested in are:
 
-**hitBytes** - This is the sum of bytes delivered that came directly from cache.
-**missBytes** - This is the sum of bytes delivered that Microsoft Connected Cache had to download from CDN to see the cache.
-**eggressBytes** - This is the sum of hitBytes and missBytes and is the total bytes delivered to clients.
-**hitRatioBytes** - This is the ratio of hitBytes to egressBytes.  If 100% of eggressBytes delivered in a period were equal to the hitBytes this would be 1 for example.
+* **hitBytes** - This is the sum of bytes delivered that came directly from cache.
+* **missBytes** - This is the sum of bytes delivered that Microsoft Connected Cache had to download from CDN to see the cache.
+* **eggressBytes** - This is the sum of hitBytes and missBytes and is the total bytes delivered to clients.
+* **hitRatioBytes** - This is the ratio of hitBytes to egressBytes.  If 100% of eggressBytes delivered in a period were equal to the hitBytes this would be 1 for example.
 
-The summary report is available at http://<FQDN/IP of IoT Edge Gateway hosting MCC>:5001/summary (see environment variable details below for information on visibility of this report).
+The summary report is available at `http://<FQDN/IP of IoT Edge Gateway hosting MCC>:5001/summary` (see environment variable details below for information on visibility of this report).
