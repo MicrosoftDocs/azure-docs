@@ -245,21 +245,21 @@
   - name: Beginner Bicep templates
     - name: 1 - Create first template
       href: template-tutorial-bicep-create-first-template.md
-    - name: 3 - Add parameters
+    - name: 2 - Add parameters
       href: template-tutorial-bicep-add-parameters.md
-    - name: 4 - Add template functions
+    - name: 3 - Add template functions
       href: template-tutorial-bicep-add-functions.md
-    - name: 5 - Add variables
+    - name: 4 - Add variables
       href: template-tutorial-bicep-add-variables.md
-    - name: 6 - Add outputs
+    - name: 5 - Add outputs
       href: template-tutorial-bicep-add-outputs.md
-    - name: 7 - Use exported template
+    - name: 6 - Use exported template
       href: template-tutorial-bicep-export-template.md
-    - name: 8 - Use Quickstart template
+    - name: 7 - Use Quickstart template
       href: template-tutorial-bicep-quickstart-template.md
-    - name: 9 - Add tags
+    - name: 8 - Add tags
       href: template-tutorial-bicep-add-tags.md
-    - name: 10 - Use parameter file
+    - name: 9 - Use parameter file
       href: template-tutorial-bicep-use-parameter-file.md
   - name: Deployment
     items:
