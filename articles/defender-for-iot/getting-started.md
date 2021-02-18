@@ -65,8 +65,7 @@ To register:
 1. On the **Pricing** page, select a subscription or create a new one, and add the number of committed devices.
 1. Select the **Download the on-premises management console** tab and save the downloaded activation file. This file contains the aggregate committed devices that you defined. The file will be uploaded to the management console after initial sign-in.
 
-Learn how to [Offboard a sensor](how-to-manage-sensors-on-the-cloud.md#offboard-a-sensor).
-
+Learn how to [Offboard a subscription](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription).
 ## 3. Install and set up the on-premises management console
 
 After you acquire your on-premises management console appliance:
