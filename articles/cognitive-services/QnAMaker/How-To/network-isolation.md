@@ -31,13 +31,13 @@ ms.date: 11/09/2020
 
     1. Create an App Service Environment and mark it as “external”. Please follow the [tutorial](../../../app-service/environment/create-external-ase.md) for instructions.
     2.  Create an App service inside the App Service Environment.
-        * Check the configuration for the App service and add 'PrimaryEndpointKey' as an application setting. The value for 'PrimaryEndpointKey' should be set to “\<app-name\>-PrimaryEndpointKey”. The App Name is defined in the App service URL. For instance, if the App service URL is "mywebsite.myase.p.azurewebsite.net", then the app-name is "mywebsite". In this case, the value for 'PrimaryEndpointKey' should be set to “mywebsite-PrimaryEndpointKey”.
-        * Create an Azure search service.
-        * Ensure Azure Search and App Settings are appropriately configured. 
+        1. Check the configuration for the App service and add 'PrimaryEndpointKey' as an application setting. The value for 'PrimaryEndpointKey' should be set to “\<app-name\>-PrimaryEndpointKey”. The App Name is defined in the App service URL. For instance, if the App service URL is "mywebsite.myase.p.azurewebsite.net", then the app-name is "mywebsite". In this case, the value for 'PrimaryEndpointKey' should be set to “mywebsite-PrimaryEndpointKey”.
+        2. Create an Azure search service.
+        3. Ensure Azure Search and App Settings are appropriately configured. 
           Please follow this [tutorial](../reference-app-service.md?tabs=v1#app-service).
     3.  Update the Network Security Group associated with the App Service Environment
-        * Update pre-created Inbound Security Rules as per your requirements.
-        * Add a new Inbound Security Rule with source as 'Service Tag' and source service tag as 'CognitiveServicesManagement'.
+        1. Update pre-created Inbound Security Rules as per your requirements.
+        2. Add a new Inbound Security Rule with source as 'Service Tag' and source service tag as 'CognitiveServicesManagement'.
     4.  Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to the App Service     Endpoint created above (https:// mywebsite.myase.p.azurewebsite.net).
     
 * Configuring Cognitive Search as a private endpoint inside a VNET
