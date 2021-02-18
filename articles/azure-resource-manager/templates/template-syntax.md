@@ -69,8 +69,8 @@ The following template shows the format for the data types. Each type has a defa
       "defaultValue": 1
     },
     "boolParameter": {
-        "type": "bool",
-        "defaultValue": true
+      "type": "bool",
+      "defaultValue": true
     },
     "objectParameter": {
       "type": "object",
