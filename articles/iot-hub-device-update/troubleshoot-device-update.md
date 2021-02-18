@@ -71,7 +71,7 @@ _There are several issues that could be causing an IoT device to fail in connect
 _Your device may be failing to pull content from the Internet to pass to its MCC module because the URL it’s using isn’t allowed. To determine if so, you will need to check your IoT Edge environment variables in Azure Portal._
 ## Contacting Microsoft Support
 
-If you run into issues that can't be resolved using the FAQs above, you can file a support request with Microsoft Support. Depending on which category you indicate your issue belongs to, you may be asked to gather and share additional data to help Microsoft Support investigate your issue. 
+If you run into issues that can't be resolved using the FAQs above, you can file a support request with Microsoft Support through the Azure Portal interface. Depending on which category you indicate your issue belongs to, you may be asked to gather and share additional data to help Microsoft Support investigate your issue. 
 
 Please see below for instructions on how to gather each data type. You can use [getDevices]() to check for
 additional information in the payload response of the API.
@@ -125,6 +125,8 @@ More](device-update-plug-and-play.md) about the Device Update Core PnP interface
 [Learn More](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) about http
 status codes.
 
+The ResultCode can be found by examining the PnP interface.
+
 #### ExtendedResultCode
 
 `ExtendedResultCode` is an integer with encoded error information.
@@ -154,6 +156,30 @@ The unsigned hex representation of `-536870781` is `FFFFFFFF E0000083`.
 | FFFFFFFF  | E              | 0000083      |
 
 `0x83` in hex is `131` in decimal which is the errno value for `ENOLCK`.
+
+### Delivery Optimization error codes
+The following is a list of error codes pertaining to the Delivery Optimization (DO) component of the Device Update client. The DO component is responsible for downloading update content onto the IoT device.
+
+The DO error code can be obtained by examining the exceptions thrown in response to an API call.
+
+| Error Code  | String Error                       | Type                 | Description |
+|-------------|------------------------------------|----------------------|-------------|
+| 0x80D01001L | DO_E_NO_SERVICE                    | n/a                  | Delivery Optimization was unable to provide the service |
+| 0x80D02002L | DO_E_DOWNLOAD_NO_PROGRESS          | Download Job         | Download of a file saw no progress within the defined period |
+| 0x80D02003L | DO_E_JOB_NOT_FOUND                 | Download Job         | Job was not found |
+| 0x80D02005L | DO_E_NO_DOWNLOADS                  | Download Job         | No downloads currently exist |
+| 0x80D0200CL | DO_E_JOB_TOO_OLD                   | Download Job         | Job has neither completed nor has it been cancelled prior to reaching the maximum age threshold |
+| 0x80D02011L | DO_E_UNKNOWN_PROPERTY_ID           | Download Job         | SetProperty() or GetProperty() called with an unknown property ID |
+| 0x80D02012L | DO_E_READ_ONLY_PROPERTY            | Download Job         | Unable to call SetProperty() on a read-only property |
+| 0x80D02013L | DO_E_INVALID_STATE                 | Download Job         | The requested action is not allowed in the current job state. The job might have been canceled or completed transferring. It is in a read-only state now. |
+| 0x80D02018L | DO_E_FILE_DOWNLOADSINK_UNSPECIFIED | Download Job         | Unable to start a download because no download sink (either local file or stream interface) was specified |
+| 0x80D02200L | DO_E_DOWNLOAD_NO_URI               | IDODownload Interface| The download was started without providing a URI |
+| 0x80D03805L | DO_E_BLOCKED_BY_NO_NETWORK         | Transient conditions | Download paused due to loss of network connectivity |
+| 0x80D05001L | DO_E_HTTP_BLOCKSIZE_MISMATCH       | HTTP                 | HTTP server returned a response with data size not equal to what was requested |
+| 0x80D05002L | DO_E_HTTP_CERT_VALIDATION          | HTTP                 | HTTP server certificate validation has failed |
+| 0x80D05010L | DO_E_INVALID_RANGE                 | HTTP                 | The specified byte range is invalid |
+| 0x80D05011L | DO_E_INSUFFICIENT_RANGE_SUPPORT    | HTTP                 | The server does not support the necessary HTTP protocol. Delivery Optimization (DO) requires that the server support the Range protocol header |
+| 0x80D05012L | DO_E_OVERLAPPING_RANGES            | HTTP                 | The list of byte ranges contains some overlapping ranges, which are not supported |
 
 ### Use getDevices() API payload response
 
