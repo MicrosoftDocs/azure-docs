@@ -23,7 +23,7 @@ This article is part three of a five-part series that walks you through securing
 
 See the other articles in this series:
 
-[1. VNet overview](how-to-network-security-overview.md) > [Secure the workspace](how-to-secure-workspace-vnet.md) > **3. Secure the training environment** > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md)  > [5. Enable studio functionality](how-to-enable-studio-virtual-network.md)
+[1. VNet overview](how-to-network-security-overview.md) > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > **3. Secure the training environment** > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md)  > [5. Enable studio functionality](how-to-enable-studio-virtual-network.md)
 
 In this article you learn how to secure the following training compute resources in a virtual network:
 > [!div class="checklist"]
@@ -270,7 +270,7 @@ To use Azure Databricks in a virtual network with your workspace, the following 
 > * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Databricks cluster.
 > * In addition to the __databricks-private__ and __databricks-public__ subnets used by Azure Databricks, the __default__ subnet created for the virtual network is also required.
 
-For specific information on using Azure Databricks with a virtual network, see [Deploy Azure Databricks in your Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
+For specific information on using Azure Databricks with a virtual network, see [Deploy Azure Databricks in your Azure Virtual Network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
 <a id="vmorhdi"></a>
 

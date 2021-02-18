@@ -62,9 +62,6 @@ conceptualContent:
         - url: ./form-recognizer/index.yml
           itemType: overview
           text: Form Recognizer
-        - url: ./ink-recognizer/index.yml
-          itemType: overview
-          text: Ink Recognizer (Retiring)
         - url: ../media-services/video-indexer/index.yml
           itemType: overview
           text: Video Indexer

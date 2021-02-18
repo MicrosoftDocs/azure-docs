@@ -177,7 +177,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## Add custom languages
 
-You can also add languages that Microsoft currently does not provide translations for. You'll need to provide the translations for all the strings in the user flow. Language and locale codes are limited to those in the ISO 639-1 standard.
+You can also add languages that Microsoft currently does not provide translations for. You'll need to provide the translations for all the strings in the user flow. Language and locale codes are limited to those in the ISO 639-1 standard. The locale code format should be "ISO_639-1_code"-"CountryCode" For Eg: en-GB. For more information on locale ID formats, please refer to https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a
 
 1. In your Azure AD B2C tenant, select **User flows**.
 2. Click the user flow where you want to add custom languages, and then click **Languages**.

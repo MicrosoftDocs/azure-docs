@@ -21,7 +21,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 ### Read API v3.2 Public Preview with OCR support for 73 languages
 Computer Vision's Read API v3.2 public preview, available as cloud service and Docker container, includes these updates:
 * [OCR for 73 languages](./language-support.md#optical-character-recognition-ocr) including Simplified and Traditional Chinese, Japanese, Korean, and Latin languages.
-* Natural reading order for the text line output.
+* Natural reading order for the text line output (Latin languages only)
 * Handwriting style classification for text lines along with a confidence score (Latin languages only).
 * Extract text only for selected pages for a multi-page document.
 * Available as a [Distroless container](./computer-vision-how-to-install-containers.md?tabs=version-3-2) for on-premise deployment.
