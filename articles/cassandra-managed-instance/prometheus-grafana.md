@@ -10,6 +10,11 @@ ms.author: thvankra
 ---
 # Configure metrics with Grafana 
 
+> [!IMPORTANT]
+> Azure Managed Instance for Apache Cassandra is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 When you deploy an Azure Managed Instance for Apache Cassandra cluster, the service provisions a server hosting [Prometheus](https://prometheus.io/), an open-source monitoring solution. The service will emit metrics and retains 10 minutes or 10 GB of data (whichever threshold is reached first). The following guide describes how to:
 
 - Deploy a Ubuntu Virtual Machine inside your Azure Virtual Network
