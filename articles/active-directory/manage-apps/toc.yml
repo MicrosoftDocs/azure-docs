@@ -34,6 +34,8 @@
       href: application-proxy-add-on-premises-application.md
   - name: Samples
     items: 
+    - name: Azure PowerShell samples for Application Management
+      href: app-management-powershell-samples.md
     - name: Azure PowerShell samples for Application Proxy
       href: application-proxy-powershell-samples.md
   - name: Concepts
