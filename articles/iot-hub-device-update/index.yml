@@ -25,8 +25,14 @@ landingContent:
       links:
         - text: How device update uses Plug and Play
           url: device-update-plug-and-play.md
+        - text: Understand device update authentication and authorization
+          url: device-update-control-access.md
         - text: Understand device update agent
           url: device-update-agent-overview.md
+        - text: Understand device update importing
+          url: import-concepts.md
+        - text: Understand device update groups
+          url: device-update-groups.md
   - title: Explore with the tutorials
     linkLists:
       - linkListType: tutorial
@@ -39,10 +45,14 @@ landingContent:
             url: device-update-simulator.md
       - linkListType: tutorial
         links:
-          - text: Device update Ubuntu agent
+          - text: Device update on Ubuntu Server 18.04 x64 Package agent
             url: device-update-ubuntu-agent.md
-  - title: Deploy updates
+  - title: Learn how to update devices
     linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create a device update account
+            url: create-device-update-account.md
       - linkListType: how-to-guide
         links:
           - text: Import an update
@@ -55,3 +65,9 @@ landingContent:
         links:
           - text: Deploy an update
             url: deploy-update.md
+  - title: Developer guide
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Build, run and modify device update agent
+            url: device-update-agent-provisioning.md        
