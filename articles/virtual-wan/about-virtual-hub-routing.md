@@ -75,7 +75,7 @@ Route tables now have features for association and propagation. A pre-existing r
 
 ## <a name="reset"></a>Hub reset
 
-Available only in the Azure portal, this option provides the user a means to bring any failed resources such as route tables, hub router, or the virtual hub resource itself back to its rightful provisioning state. This is an additional option for user to consider prior to contacting Microsoft for support. This operation does not reset any of the gateways in a virtual hub.
+Virtual hub **Reset** is available only in the Azure portal. Resetting provides you a way to bring any failed resources such as route tables, hub router, or the virtual hub resource itself back to its rightful provisioning state. Consider resetting the hub prior to contacting Microsoft for support. This operation does not reset any of the gateways in a virtual hub.
 
 ## <a name="considerations"></a>Additional considerations
 
