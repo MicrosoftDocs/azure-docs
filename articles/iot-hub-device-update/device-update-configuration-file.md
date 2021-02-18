@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
-# Device Update Configuration File
+# Device Update for IoT Hub Configuration File
 
 The "adu-conf.txt" is an optional file that can be created to manage the following configurations.
 
