@@ -1,6 +1,6 @@
 ---
 title: Protect SPA backend with OAuth 2.0 by using Azure Active Directory B2C and Azure API Management.
-description: Protect an API with OAuth 2.0 by using Azure Active Directory B2C, Azure API Management and Easy Auth to be called from a JavaScript SPA.
+description: Protect an API with OAuth 2.0 by using Azure Active Directory B2C, Azure API Management and Easy Auth to be called from a JavaScript SPA using the PKCE enabled SPA Auth Flow.
 
 services: api-management, azure-ad-b2c, app-service
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2020
+ms.date: 02/18/2021
 ms.author: wieastbu
-ms.custom: fasttrack-new, devx-track-js
+ms.custom: fasttrack-new, fasttrack-update, devx-track-js
 ---
 
 # Protect SPA backend with OAuth 2.0, Azure Active Directory B2C and Azure API Management
 
 This scenario shows you how to configure your Azure API Management instance to protect an API.
-We'll use the OpenID Connect protocol with Azure AD B2C, alongside API Management to secure an Azure Functions backend using EasyAuth.
+We'll use the Azure AD B2C SPA (Auth Code + PKCE) flow to acquire a token, alongside API Management to secure an Azure Functions backend using EasyAuth.
 
 ## Aims
 We're going to see how API Management can be used in a simplified scenario with Azure Functions and Azure AD B2C. You will create a JavaScript (JS) app calling an API, that signs in users with Azure AD B2C. Then you'll use API Management's validate-jwt, CORS, and Rate Limit By Key policy features to protect the Backend API.
