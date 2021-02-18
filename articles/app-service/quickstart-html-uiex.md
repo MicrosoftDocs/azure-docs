@@ -157,7 +157,7 @@ This command may take a minute to run.
 
 <hr/>
 
-## 7. Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
-> [Map custom domain](app-service-web-tutorial-custom-domain.md)
+> [Map custom domain](app-service-web-tutorial-custom-domain-uiex.md)

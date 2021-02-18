@@ -134,7 +134,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 ::: zone pivot="platform-windows"
 <details>
 <summary>How do I deploy a different language stack?</summary>
-To deploy a different language stack, update <abbr title="This template is compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps.">language parameter</abbr> with appropriate values. For Java, see <a href="quickstart-java">Create Java app</a>.
+To deploy a different language stack, update <abbr title="This template is compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps.">language parameter</abbr> with appropriate values. For Java, see <a href="quickstart-java-uiex">Create Java app</a>.
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
