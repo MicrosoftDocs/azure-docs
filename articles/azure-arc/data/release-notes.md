@@ -23,7 +23,12 @@ ms.topic: conceptual
 Azure Data CLI (`azdata`) version number: 20.3.0. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
 
 Additional updates include:
-- High availability
+- SQL Managed Instance introduces support for high availability
+- Azure Data Studio intrudes support for multiple data controllers
+
+### Known issues
+
+- Connected cluster mode is disabled
 
 ## January 2021
 
