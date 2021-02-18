@@ -44,6 +44,8 @@ It is the status reported by the Device Update Agent after receiving an action f
 
 #### Device Properties
 
+It is the set of properties that contain the manufacturer and model.
+
 |Name|Schema|Direction|Description|
 |----|------|---------|-----------|
 |manufacturer|string|device to cloud|The device manufacturer of the device, reported through 'DeviceProperties'. This property is read from one of two places-the 'AzureDeviceUpdateCore' interface will first attempt to read the 'aduc_manufacturer' value from the [Configuration file](device-update-configuration-file.md) file.  If the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MANUFACTURER. This property will only be reported at boot time.|
