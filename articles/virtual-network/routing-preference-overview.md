@@ -13,6 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: mnayak
+ms.custom: references_regions
 ---
 
 # What is routing preference?
@@ -62,6 +63,9 @@ For storage, primary endpoints always use the **Microsoft global network**. You 
 
 ## Pricing
 The price difference between both options is reflected in the internet egress data transfer pricing. Routing via **Microsoft global network** data transfer price is same as current internet egress price. Visit [Azure bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/) for the latest pricing information. 
+
+## Availability
+Routing Preference is supported in majority of the Azure regions. However, it is currently not supported in Australia Central, Australia Central2, Canada East, Brazil South, Korea Central, and Korea South.
 
 ## Limitations
 
