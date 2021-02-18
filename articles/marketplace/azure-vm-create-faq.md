@@ -45,6 +45,10 @@ Every time I try to create an image from my VHDs, I get the error "VHD is alread
 
 This issue usually appears if you created a VM from a VHD that has a lock on it. Confirm that there is no VM allocated from this VHD and then retry the operation. If this issue continues, open a support ticket. See [Support for Partner Center](support.md).
 
+## How do I create a VM from a generalized vhd?
+
+For details see [Prepare an Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-image-test#prepare-an-azure-resource-manager-template) or [Deploy an Azure VM using PowerShell](https://docs.microsoft.com/en-us/azure/marketplace/azure-vm-image-test#deploy-an-azure-vm-using-powershell).
+
 ## Next steps
 
 - [VM certification troubleshooting](azure-vm-create-certification-faq.md)
