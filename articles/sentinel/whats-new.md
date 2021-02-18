@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 02/18/2021
 ---
 
 # What's new in Azure Sentinel
@@ -24,6 +24,36 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 >
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 > 
+
+## February 2021
+
+### UEBA insights in the entity page
+
+The Azure Sentinel entity details pages provide an [Insights pane](identify-threats-with-entity-behavior-analytics.md#entity-insights), which displays behavioral insights on the entity and help to quickly identify anomalies and security threats.
+
+If you have [UEBA enabled](ueba-enrichments.md) and have allowed for at least 4 days to pass, this Insights pane will now also include the following new sections for UEBA insights:
+
+|Section  |Description  |
+|---------|---------|
+|**UEBA Insights**     | Summarizes anomalous user activities: <br>- Across geographical locations, devices, and environments<br>- Across time and frequency horizons, compared to user's own history <br>- Compared to peers' behavior <br>- Compared to the organization's behavior     |
+|**User Peers Based on Security Group Membership**     |   Lists the user's peers based on Azure AD Security Groups membership, providing security operations teams with a list of other users who share similar permissions.  |
+|**User Access Permissions to Azure Subscription**     |     Shows the user's access permissions to the Azure subscriptions accessible directly, or via Azure AD groups / service principals.   |
+|**Threat Indicators Related to The User**     |  Lists a collection of known threats relating to IP addresses represented in the user’s activities. Threats are listed by threat type and family, and are enriched by Microsoft’s threat intelligence service.       |
+|     |         |
+
+### Improved incident search
+
+We've improved the Azure Sentinel incident searching experience, enabling you to navigate faster through incidents as you investigate a specific threat.
+
+:::image type="content" source="media/whats-new/improved-search.png" alt-text="Use the improved incident search.":::
+
+When searching for incidents in Azure Sentinel, you're now able to search by any of the following incident details:
+
+- ID
+- Title
+- Product
+- Owner
+- Tag
 
 ## January 2021
 
