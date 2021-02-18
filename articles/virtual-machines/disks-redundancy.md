@@ -18,7 +18,12 @@ Azure managed disks offer two storage redundancy options, zone-redundant storage
 
 Locally-redundant storage (LRS) replicates your data three times within a single data center in the selected region. LRS protects your data against server rack and drive failures. However, if a disaster such as fire or flooding occurs within the data center, all replicas of a disk using LRS may be lost or unrecoverable. LRS is recommended for workloads that value write latency over availability.
 
-You can get better availability for VMs using LRS disks by using applications like SQL Server AlwaysOn, that can synchronously write data to two zones, and automatically failover to another zone during a disaster. If your workflow doesn't support application-level synchronous writes across zones, you can use a ZRS disk for better availability. You may also achieve better availability by taking frequent backups of your disks using ZRS snapshots. You can also enable cross-zone disaster recovery for LRS disks via [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md). However, these options do not provide zero Recovery Point Objective (RPO). If your application must meet zero RPO, then ZRS disks would be ideal.
+There are a few ways you can get better availability for VMs using LRS disks:
+- Applications such as SQL Server AlwaysOn, that can synchronously write data to two zones, and automatically failover to another zone during a disaster.
+- Take frequent backups of LRS disks with ZRS snapshots.
+- Enable cross-zone disaster recovery for LRS disks via [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md). However, this doesn't provide zero Recovery Point Objective (RPO).
+
+If your workflow doesn't support application-level synchronous writes across zones, or your application must meet zero RPO, then ZRS disks would ideal.
 
 ## Zone-redundant storage for managed disks (preview)
 
