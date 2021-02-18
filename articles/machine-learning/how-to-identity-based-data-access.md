@@ -82,6 +82,7 @@ Identity-based data access only supports connections to the following storage se
 * Azure Blob Storage
 * Azure Data Lake Generation 1
 * Azure Data Lake Generation 2
+* Azure SQL database
 
 To access these storage services, you must have at minimum **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Only storage account owners can [change your access level via the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md).
 
@@ -89,15 +90,9 @@ If you are training a model on a remote compute target, the compute identity mus
 
 ## Work with virtual networks
 
-By default, Azure Machine Learning  cannot communicate with a storage account that is behind a firewall or within a virtual network.
+By default, Azure Machine Learning cannot communicate with a storage account that is behind a firewall or within a virtual network.
 
-Storage accounts can be configured to allow access only from within specific virtual networks. Which requires additional restrictions and configurations  to ensure data is not leaked outside of the network.  
-
-**For Python SDK users**, to access your data via your training script on a compute target, the compute target needs to be inside the same virtual network and subnet of the storage.  
-
-**For Azure Machine Learning studio users**, several features rely on the ability to read data from a dataset; such as dataset previews, profiles and automated machine learning. For these features to work with storage behind virtual networks, use a [workspace managed identity in the studio](how-to-enable-studio-virtual-network.md) to allow Azure Machine Learning to access the storage account from outside the virtual network. 
-
-Azure Machine Learning can receive requests from clients outside of the virtual network. To ensure that the entity requesting data from the service is safe, [set up Azure Private Link for your workspace](how-to-configure-private-link.md).
+Storage accounts can be configured to allow access only from within specific virtual networks, which requires additional configurations to ensure data is not leaked outside of the network. This behavior is the same for credential-based data access, see [what configurations are needed and how to apply them for virtual network scenarios](how-to-access-data.md#virtual-network). 
 
 <a name="python"></a>
 ## Create and register datastores with the SDK
@@ -163,7 +158,7 @@ Create a datastore with identity-based data access with the following steps. The
 1. Select **+ New datastore**.
 1. Provide a name for your new datastore.
 1. Under **Datastore type**, select the type of storage you want to connect to.
-    1. This preview functionality only supports connections to Azure Blobs and Azure Data Lake Storage Generations 1 and 2. 
+    1. This preview functionality only supports connections to Azure Blobs, Azure SQL Database, and Azure Data Lake Storage Generations 1 and 2. 
 1. Provide your **Subscription ID**.
 1. Enter the name of your storage account or data lake.
 1. For **Save credentials with the datastore for data access (Preview)**, select **No**. 
@@ -193,7 +188,7 @@ Datasets package your data into a lazily evaluated consumable object for machine
     blob_dataset = Dataset.Tabular.from_delimited_files(blob_datastore,'test.csv') 
     ```
 
-* Skip datastore creation and create datasets directly from storage urls.
+* Skip datastore creation and create datasets directly from storage urls. Currently this functionality only supports Azure Blobs and Azure Data Lake Storage Generations 1 and 2.
 
     ```python
     blob_dset = Dataset.File.from_files('https://myblob.blob.core.windows.net/may/keras-mnist-fashion/')
