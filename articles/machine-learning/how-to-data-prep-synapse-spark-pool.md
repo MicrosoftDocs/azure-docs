@@ -168,7 +168,7 @@ ws.compute_targets['Synapse Spark pool alias']
 
 You can specify which software environment to use during your Synapse session. 
 
-The following code, creates the environment, `myenv`, which installs azureml-core version 1.20.0 and numpy version 1.17.0 before the session begins. You can then include this environment in your Synapse session `start` statement.
+The following code, creates the environment, `myenv`, which installs `azureml-core` version 1.20.0 and `numpy` version 1.17.0 before the session begins. You can then include this environment in your Synapse session `start` statement.
 
 ```python
 
