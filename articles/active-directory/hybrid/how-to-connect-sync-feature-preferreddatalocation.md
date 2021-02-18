@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 02/18/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -42,6 +42,7 @@ The geos in Microsoft 365 available for Multi-Geo are:
 | Canada | CAN |
 | European Union | EUR |
 | France | FRA |
+|Germany| DEU |
 | India | IND |
 | Japan | JPN |
 | Korea | KOR |
