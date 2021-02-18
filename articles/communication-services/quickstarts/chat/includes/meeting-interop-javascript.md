@@ -32,8 +32,8 @@ The `--save` option lists the library as a dependency in your **package.json** f
 ## Add the Teams UI controls
 
 Replace the code in index.html with the following snippet.
-The text boxes at the top of the page will be used to enter the Teams meeting context and meeting thread id. The 'Join Teams Meeting' button will be used to join the specified meeting.
-A chat pop-up will appear at the bottom of the page. It can be use to send messages on the meeting thread, and it will display in real time any messages sent on the thread while the ACS user is a member.
+The text boxes at the top of the page will be used to enter the Teams meeting context and meeting thread ID. The 'Join Teams Meeting' button will be used to join the specified meeting.
+A chat pop-up will appear at the bottom of the page. It can be used to send messages on the meeting thread, and it will display in real time any messages sent on the thread while the ACS user is a member.
 
 ```html
 <!DOCTYPE html>
@@ -139,7 +139,13 @@ A chat pop-up will appear at the bottom of the page. It can be use to send messa
 
 Replace the content of the client.js file with the following snippet.
 
+Within the snippet, replace 
+- `SECRET CONNECTION STRING` with your Communication Service's connection string 
+- `ENDPOINT URL` with your Communication Service's endpoint url
+
 ```javascript
+// run using
+// npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 import { CallClient, CallAgent } from "@azure/communication-calling";
 import { AzureCommunicationUserCredential } from "@azure/communication-common";
 import { CommunicationIdentityClient } from "@azure/communication-administration";
@@ -161,13 +167,11 @@ const chatBox = document.getElementById("chat-box");
 const sendMessageButton = document.getElementById("send-message");
 const messagebox = document.getElementById("message-box");
 
-var messages = '<div class="container lighter">Welcome to the meeting, ACS user!</div>';
-
-init();
+var messages = '';
 
 async function init() {
-  const connectionString = "<ACS CONNECTION STRING>";
-  const endpointUrl = "<ACS ENDPOINT URL>";
+  const connectionString = "<SECRET CONNECTION STRING>";
+  const endpointUrl = "<ENDPOINT URL>";
 
   const identityClient = new CommunicationIdentityClient(connectionString);
 
@@ -199,6 +203,8 @@ async function init() {
   console.log('Azure Communication Chat client created!');
 }
 
+init();
+
 callButton.addEventListener("click", async () => {
   // join with meeting link
   call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
@@ -206,7 +212,6 @@ callButton.addEventListener("click", async () => {
   call.on('callStateChanged', () => {
         callStateElement.innerText = call.state;
   })
-  
   // toggle button and chat box states
   chatBox.style.display = "block";
   hangUpButton.disabled = false;
@@ -219,16 +224,28 @@ callButton.addEventListener("click", async () => {
   // open notifications channel
   await chatClient.startRealtimeNotifications();
 
-  // subscribe to new message notification
+  // subscribe to new message notifications
   chatClient.on("chatMessageReceived", (e) => {
     console.log("Notification chatMessageReceived!");
-    renderMessage(e.content);
+    
+    if (e.sender.communicationUserId != identityResponse.communicationUserId) {
+       renderReceivedMessage(e.content);
+    }
+    else {
+       renderSentMessage(e.content);
+    }
   });
   chatThreadClient = await chatClient.getChatThreadClient(threadIdInput.value);
 });
 
-async function renderMessage(message) {
+async function renderReceivedMessage(message) {
    messages += '<div class="container lighter">' + message + '</div>';
+   messagesContainer.innerHTML = messages;
+}
+
+async function renderSentMessage(message) {
+   messages += '<div class="container darker">' + message + '</div>';
+   messagesContainer.innerHTML = messages;
 }
 
 hangUpButton.addEventListener("click", async () => 
@@ -255,8 +272,6 @@ sendMessageButton.addEventListener("click", async () =>
       let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
       let messageId = sendChatMessageResult.id;
 
-      messages += '<div class="container darker">' + message + '</div>';
-      messagesContainer.innerHTML = messages; 
       messagebox.value = '';
       console.log(`Message sent!, message id:${messageId}`);
   });
@@ -264,11 +279,11 @@ sendMessageButton.addEventListener("click", async () =>
 
 ## Get a Teams meeting chat thread for a Communication Services user
 
-The Teams meeting link and chat thread id can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta). The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta)
-With the [Graph APIs](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta), you can also obtain the thread id. The response will have a `chatInfo` object that contains the `threadID`. 
+The Teams meeting link and chat  can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta). The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta)
+With the [Graph APIs](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta), you can also obtain the `threadId`. The response will have a `chatInfo` object that contains the `threadID`. 
 
-You can also get the required meeting information and thread id from the **Join Meeting** URL in the Teams meeting invite itself.
-A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. The Thread Id will be where `meeting_chat_thread_id` is in the link. Ensure that the `meeting_chat_thread_id` is unescaped before use. It should be in the following format: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`
+You can also get the required meeting information and thread ID from the **Join Meeting** URL in the Teams meeting invite itself.
+A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. The `threadId` will be where `meeting_chat_thread_id` is in the link. Ensure that the `meeting_chat_thread_id` is unescaped before use. It should be in the following format: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`
 
 
 ## Run the code
@@ -283,6 +298,6 @@ Open your browser and navigate to http://localhost:8080/. You should see the fol
 
 :::image type="content" source="../media/javascript/acs-join-teams-meeting-chat-quickstart.PNG" alt-text="Screenshot of the completed JavaScript Application.":::
 
-Insert the Teams meeting link and thread id into the text boxes. Press *Join Teams Meeting* to join the Teams meeting and chat from within your Communication Services application. Navigate to the bottom of the page to start chatting.
+Insert the Teams meeting link and thread ID into the text boxes. Press *Join Teams Meeting* to join the Teams meeting and chat from within your Communication Services application. Navigate to the bottom of the page to start chatting.
 
-**Note** - Currently only sending, receiving and editing messages is supported for interoperability scenarios with Teams. Other features like typing indicators and Communication Services users adding or removing other users from the Teams meeting are not yet supported.  
+**Note** - Currently only sending, receiving, and editing messages is supported for interoperability scenarios with Teams. Other features like typing indicators and Communication Services users adding or removing other users from the Teams meeting are not yet supported.  
