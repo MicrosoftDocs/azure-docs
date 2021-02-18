@@ -25,11 +25,11 @@ This article explains what Azure Sentinel playbooks are, and how to use them to 
 
 ## What is a playbook?
 
-SIEM/SOC teams are typically inundated with security alerts and incidents on a regular basis, at volumes so large that available personnel are overwhelmed. This results all too often in situations where many alerts aren't investigated, leaving the organization vulnerable to attacks that go unnoticed.
+SIEM/SOC teams are typically inundated with security alerts and incidents on a regular basis, at volumes so large that available personnel are overwhelmed. This results all too often in situations where many alerts are ignored and many incidents aren't investigated, leaving the organization vulnerable to attacks that go unnoticed.
 
 Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions.
 
-A playbook is a collection of these remediation actions that can be run from Azure Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts, when triggered by an analytics rule. 
+A playbook is a collection of these remediation actions that can be run from Azure Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively. 
 
 Playbooks are created and applied at the subscription level, but the **Playbooks** tab (in the new **Automation** blade) displays all the playbooks available across any selected subscriptions.
 
@@ -203,7 +203,7 @@ For playbooks that are triggered by incident creation and receive incidents as t
 
 - From the **Automation rules** tab in the **Automation** blade, create a new automation rule and specify the appropriate conditions and desired actions. This automation rule will be applied to any analytics rule that fulfills the specified conditions.
 
-See the [complete instructions for creating automation rules](create-automation-rules.md).
+See the [complete instructions for creating automation rules](tutorial-respond-threats-playbook.md).
 
 ### Run a playbook manually on an alert
 

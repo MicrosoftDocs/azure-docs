@@ -31,6 +31,8 @@
     href: fusion.md
   - name: SOAR - Automation
     items:
+    - name: SOAR in Azure Sentinel
+      href: automation-in-azure-sentinel.md
     - name: Automation rules for incident handling
       href: automate-incident-handling-with-automation-rules.md
     - name: Advanced automation with playbooks
