@@ -4,16 +4,12 @@ description: Explains how to use the StorSimple Device Manager service Backup Ca
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 05/23/2017
+ms.topic: how-to
+ms.date: 07/15/2020
 ms.author: alkohli
 
 ---
@@ -22,8 +18,6 @@ ms.author: alkohli
 ## Overview
 
 This tutorial describes the restore operation performed on a StorSimple 8000 series device using an existing backup set. Use the **Backup catalog** blade to restore a volume from a local or cloud backup. The **Backup catalog** blade displays all the backup sets that are created when manual or automated backups are taken. The restore operation from a backup set brings the volume online immediately while data is downloaded in the background.
-
-An alternate method to start restore is to go to **Devices > [Your device] > Volumes**. In the **Volumes** blade, select a volume, right-click to invoke the context menu, and then select **Restore**.
 
 ## Before you restore
 
@@ -65,9 +59,9 @@ In Update 4, Windows PowerShell cmdlets can be used to query running rehydration
 
 * `Set-HcsRehydrationJob` - This cmdlet allows you to pause, stop, resume the rehydration job, when the rehydration is in progress.
 
-For more information on rehydration cmdlets, go to [Windows PowerShell cmdlet reference for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+For more information on rehydration cmdlets, go to [Windows PowerShell cmdlet reference for StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 
-With automatic rehdyration, typically higher transient read performance is expected. The actual magniutde of improvements depends on various factors such as access pattern, data churn, and data type. 
+With automatic rehydration, typically higher transient read performance is expected. The actual magnitude of improvements depends on various factors such as access pattern, data churn, and data type. 
 
 To cancel a rehydration job, you can use the PowerShell cmdlet. If you wish to permanently disable rehydration jobs for all the future restores, [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
@@ -106,9 +100,9 @@ You can use the **Backup Catalog** blade to restore your StorSimple volume from 
    3. In the drop-down list, choose the volume or backup policy for the backup that you wish to select.
    4. Click **Apply** to execute this query.
 
-    The backups associated with the selected volume or backup policy should appear in the list of backup sets.
+      The backups associated with the selected volume or backup policy should appear in the list of backup sets.
    
-    ![Backup set list](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
+      ![Backup set list](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
      
 3. Expand the backup set to view the associated volumes. These volumes must be taken offline on the host and device before you can restore them. Access the volumes on the **Volumes** blade of your device, and then follow the steps in [Take a volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) to take them offline.
    
@@ -117,15 +111,15 @@ You can use the **Backup Catalog** blade to restore your StorSimple volume from 
    
 4. Navigate back to the **Backup Catalog** tab and select a backup set. Right-click and then from the context menu, select **Restore**.
 
-    ![Backup set list](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
+    ![Backup set list 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
 
 5. You will be prompted for confirmation. Review the restore information, and then select the confirmation check box.
    
     ![Confirmation page](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7.  Click **Restore**. This initiates a restore job that you can view by accessing the **Jobs** page.
+7. Click **Restore**. This initiates a restore job that you can view by accessing the **Jobs** page.
 
-    ![Confirmation page](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Confirmation page 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. After the restore is complete, verify that the contents of your volumes are replaced by volumes from the backup.
 
@@ -139,4 +133,3 @@ To complete the restore operation, take the volume offline on the host and retry
 ## Next steps
 * Learn how to [Manage StorSimple volumes](storsimple-8000-manage-volumes-u2.md).
 * Learn how to [use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
-

@@ -1,18 +1,18 @@
 ---
-title: Use the Azure Data Lake Storage Gen2 Preview URI
-description: Use the Azure Data Lake Storage Gen2 Preview URI
-services: storage
-author: jamesbak
+title: Use the Azure Data Lake Storage Gen2 URI
+description: Learn URI syntax for the abfs scheme identifier, which represents the Azure Blob File System driver (Hadoop Filesystem driver for Azure Data Lake Storage Gen2).
+author: normesta
 ms.topic: conceptual
-ms.author: jamesbak
+ms.author: normesta
 ms.date: 12/06/2018
 ms.service: storage
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
+ms.reviewer: jamesbak
 ---
 
 # Use the Azure Data Lake Storage Gen2 URI
 
-The [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) driver that is compatible with Azure Data Lake Storage Gen2 Preview is known by its scheme identifier `abfs` (Azure Blob File System). Consistent with other Hadoop Filesystem drivers, the ABFS driver employs a URI format to address files and directories within a Data Lake Storage Gen2 capable account.
+The [Hadoop Filesystem](https://www.aosabook.org/en/hdfs.html) driver that is compatible with Azure Data Lake Storage Gen2 is known by its scheme identifier `abfs` (Azure Blob File System). Consistent with other Hadoop Filesystem drivers, the ABFS driver employs a URI format to address files and directories within a Data Lake Storage Gen2 capable account.
 
 ## URI syntax
 
@@ -22,7 +22,7 @@ If the Data Lake Storage Gen2 capable account you wish to address **is not** set
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **Scheme identifier**: The `abfs` protocol is used as the scheme identifier. You have the option to connect with or without a secure socket layer (SSL) connection. Use `abfss` to connect with a secure socket layer connection.
+1. **Scheme identifier**: The `abfs` protocol is used as the scheme identifier. You have the option to connect with or without a Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), connection. Use `abfss` to connect with a TLS connection.
 
 2. **File system**: The parent location that holds the files and folders. This is the same as Containers in the Azure Storage Blobs service.
 
@@ -43,4 +43,4 @@ However, if the account you wish to address is set as the default file system du
 
 ## Next steps
 
-- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](data-lake-storage-use-hdi-cluster.md)
+- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

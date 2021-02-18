@@ -4,8 +4,8 @@ title: Azure Active Directory (Azure AD) audit activity reference | Microsoft Do
 description: Get an overview of the audit activities that can be logged in your audit logs in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 11/13/2018
-ms.author: priyamo
+ms.subservice: report-monitor
+ms.date: 01/24/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD audit activity reference
 
@@ -31,47 +32,49 @@ The reporting architecture in Azure AD consists of the following components:
     - [Audit logs](concept-audit-logs.md) - Provides traceability through logs for all changes done by various features within Azure AD. 
     
 - **Security reports** 
-    - [Risky sign-ins](concept-risky-sign-ins.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
-    - [Users flagged for risk](concept-user-at-risk.md) - A risky user is an indicator for a user account that might have been compromised. 
+    - [Risky sign-ins](../identity-protection/overview-identity-protection.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
+    - [Users flagged for risk](../identity-protection/overview-identity-protection.md) - A risky user is an indicator for a user account that might have been compromised. 
 
 This articles lists the audit activities that can be logged in your audit logs.
 
 ## Access reviews
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
-|Directory Management|Add administrative unit|
-|Directory Management|Add member to administrative unit|
-|Directory Management|Delete administrative unit|
-|Directory Management|Remove member from administrative unit|
-|Directory Management|Update administrative unit|
-|Directory Management|Administration|
-|User Management|Directory operation|
-|User Management|Export|
-|User Management|Import|
-|User Management|Other|
-|User Management|Process escrow|
-|User Management|Synchronization rule action|
-|User Management|Add application|
-|User Management|Delete application|
-|User Management|Update application|
-|User Management|Update application Single Sign-On Mode|
-|User Management|Automated Password Rollover|
-|User Management|Add V2 application permissions|
-|User Management|Create V1 application|
-|User Management|Create V2 application|
-|User Management|Delete V1 application|
-|User Management|Delete V2 application|
-|User Management|Delete V2 application permission grant|
-|User Management|Get V1 and V2 applications|
-|User Management|Get V1 application|
-|User Management|Get V1 applications|
-|User Management|Get V2 application|
-|User Management|Get V2 applications|
+|Access Reviews|Access review ended|
+|Access Reviews|Add approver to request approval|
+|Access Reviews|Add reviewer to access review|
+|Access Reviews|Apply access review|
+|Access Reviews|Create access review|
+|Access Reviews|Create program|
+|Access Reviews|Create request approval|
+|Access Reviews|Delete access review|
+|Access Reviews|Delete program|
+|Access Reviews|Link program control|
+|Access Reviews|Onboard to Azure AD Access Reviews|
+|Access Reviews|Remove reviewer from access review|
+|Access Reviews|Request Stop Review|
+|Access Reviews|Request apply review result|
+|Access Reviews|Review Rbac Role membership|
+|Access Reviews|Review app assignment|
+|Access Reviews|Review group membership|
+|Access Reviews|Review request approval request|
+|Access Reviews|Unlink program control|
+|Access Reviews|Update Access Review|
+|Access Reviews|Update Azure AD Access Reviews Onboarding status|
+|Access Reviews|Update access review mail notification settings|
+|Access Reviews|Update access review recurrence count setting|
+|Access Reviews|Update access review recurrence duration in days setting|
+|Access Reviews|Update access review recurrence end type setting|
+|Access Reviews|Update access review recurrence type setting|
+|Access Reviews|Update access review reminder settings|
+|Access Reviews|Update program|
+|Access Reviews|Update request approval|
+|Access Reviews|User disabled|
 
 ## Account provisioning
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Application Management|Retrieve V2 application permissions grants|
 |Application Management|Retrieve V2 application service principals in the current tenant|
@@ -83,7 +86,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Application proxy
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Application Management|Add application|
 |Application Management|Add owner to application|
@@ -104,14 +107,14 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Automated password rollover
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Application Management|Remove service principal credentials|
 
 
 ## B2C
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Application Management|Restore application|
 |Application Management|Revoke consent|
@@ -163,7 +166,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Authorization|Get V1 applications|
 |Authorization|Get V2 application|
 |Authorization|Get V2 applications|
-|Authorization|Get a B2C drectory resource|
+|Authorization|Get a B2C directory resource|
 |Authorization|Get a list of custom domains in the tenant|
 |Authorization|Get a user journey|
 |Authorization|Get allowed application claims for user journey|
@@ -228,7 +231,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Authorization|User Authorization: User granted access as 'Tenant Admin'|
 |Authorization|User Authorization: User was granted 'Authenticated Users' access rights|
 |Authorization|Verify if B2C feature is enabled|
-|Authorization|Verify if feature is enalbed|
+|Authorization|Verify if feature is enabled|
 |Authorization|Create program|
 |Authorization|Delete program|
 |Authorization|Link program control|
@@ -252,7 +255,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Directory Management|Get tenantDomains|
 |Key|Gets the type of tenant|
 |Key|Verify if B2C feature is enabled|
-|Key|Verify if feature is enalbed|
+|Key|Verify if feature is enabled|
 |Key|Add partner to company|
 |Key|Add unverified domain|
 |Key|Add verified domain|
@@ -340,12 +343,12 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Core directory
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
-|Administrative Unit Management|Download a single risk event type|
+|Administrative Unit Management|Download a single risk detection type|
 |Administrative Unit Management|Download admins and status of weekly digest opt-in|
-|Administrative Unit Management|Download all risk event types|
-|Administrative Unit Management|Download free user risk events|
+|Administrative Unit Management|Download all risk detection types|
+|Administrative Unit Management|Download free user risk detections|
 |Administrative Unit Management|Download users flagged for risk|
 |Application Management|Batch invites processed|
 |Application Management|Batch invites uploaded|
@@ -364,8 +367,8 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Application Management|Edit Terms Of Use|
 |Application Management|Publish Terms Of Use|
 |Application Management|Unpublish Terms Of Use|
-|Application Management|Add application SSL certificate|
-|Application Management|Delete SSL binding|
+|Application Management|Add application TLS/SSL certificate|
+|Application Management|Delete TLS binding|
 |Application Management|Register connector|
 |Application Management|AdminPolicyDatas-RemoveResources|
 |Application Management|AdminPolicyDatas-SetResources|
@@ -392,7 +395,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Directory Management|Get B2C directory resources in a subscription|
 |Directory Management|Get Custom IDP|
 |Directory Management|Get IDP|
-|Directory Management|Get a B2C drectory resource|
+|Directory Management|Get a B2C directory resource|
 |Directory Management|Get a user journey|
 |Directory Management|Get allowed application claims for user journey|
 |Directory Management|Get allowed self-asserted claims for user journey|
@@ -402,6 +405,14 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Directory Management|Get idps for a specific admin flow|
 |Directory Management|Get list of all admin flows|
 |Directory Management|Get list of tags for all admin flows for all users|
+|Group Management|Bulk Download group members - started|
+|Group Management|Bulk Download group members - finished|
+|Group Management|Bulk import group members - started|
+|Group Management|Bulk import group members - finished|
+|Group Management|Bulk remove group members - started|
+|Group Management|Bulk remove group members - finished|
+|Group Management|Bulk download groups - started|
+|Group Management|Bulk download groups - finished|
 |Group Management|Get list of tenants for a user|
 |Group Management|Get local accounts' self-asserted claims|
 |Group Management|Get localized resource json|
@@ -448,33 +459,47 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Role Management|Delete device configuration|
 |Role Management|Device no longer compliant|
 |Role Management|Device no longer managed|
-|User Management|Remove registered owner from device|
-|User Management|Remove registered users from device|
-|User Management|Update device|
-|User Management|Update device configuration|
-|User Management|Add eligible member to role|
-|User Management|Add member to role|
-|User Management|Add role assignment to role definition|
-|User Management|Add role from template|
-|User Management|Add scoped member to role|
-|User Management|Remove eligible member from role|
-|User Management|Remove member from role|
-|User Management|Remove role assignment from role definition|
-|User Management|Remove scoped member from role|
-|User Management|Update role|
 |User Management|AccessReview_Review|
 |User Management|AccessReview_Update|
 |User Management|ActivationAborted|
 |User Management|ActivationApproved|
 |User Management|ActivationCanceled|
 |User Management|ActivationRequested|
+|User Management|Add eligible member to role|
+|User Management|Add member to role|
+|User Management|Add role assignment to role definition|
+|User Management|Add role from template|
+|User Management|Add scoped member to role|
 |User Management|Added|
 |User Management|Assign|
+|User Management|Bulk create users - started|
+|User Management|Bulk create users - finished|
+|User Management|Bulk delete users - started|
+|User Management|Bulk delete users - finished|
+|User Management|Bulk download users - started|
+|User Management|Bulk download users - finished|
+|User Management|Bulk restore deleted users - started|
+|User Management|Bulk restore deleted users - finished|
+|User Management|Bulk invite users - started|
+|User Management|Bulk invite users - finished|
+|User Management|Remove registered owner from device|
+|User Management|Remove registered users from device|
+|User Management|Remove eligible member from role|
+|User Management|Remove member from role|
+|User Management|Remove role assignment from role definition|
+|User Management|Remove scoped member from role|
+|User Management|Update device|
+|User Management|Update device configuration|
+|User Management|Update role|
+
+
+
+
 
 
 ## Identity protection
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Directory Management|Elevate|
 |Directory Management|Removed|
@@ -493,7 +518,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Invited users
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Other|Create request approval|
 |Other|Delete access review|
@@ -507,44 +532,48 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Microsoft Identity Manager (MIM)
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Group Management|Review request approval request|
 |Group Management|Update Access Review|
 |Group Management|Update access review mail notification settings|
-|Group Management|Update access review reccurrence count setting|
-|Group Management|Update access review reccurrence duration in days setting|
-|User Management|Update access review reccurrence end type setting|
-|User Management|Update access review reccurrence type setting|
+|Group Management|Update access review recurrence count setting|
+|Group Management|Update access review recurrence duration in days setting|
+|User Management|Update access review recurrence end type setting|
+|User Management|Update access review recurrence type setting|
 
 
 
 ## Privileged Identity Management
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
-|Role Management|Update access review reminder settings|
-|Role Management|Update request approval|
-|Role Management|Add app role assignment grant to user|
-|Role Management|Add user|
-|Role Management|Add users strong authentication phone app detail|
-|Role Management|Change user license|
-|Role Management|Change user password|
-|Role Management|Convert federated user to managed|
-|Role Management|Create application password for user|
-|Role Management|Delete application password for user|
-|Role Management|Delete user|
-|Role Management|Disable account|
-|Role Management|Enable Strong Authentication|
-|Role Management|Hard Delete user|
-|Role Management|Remove app role assignment from user|
-|Role Management|Remove users strong authentication phone app detail|
-
+|PIM|ActivationAborted|
+|PIM|ActivationApproved|
+|PIM|ActivationCanceled|
+|PIM|ActivationDenied|
+|PIM|ActivationRequested|
+|PIM|Added|
+|PIM|AddedOutsidePIM|
+|PIM|Assign|
+|PIM|DismissAlert|
+|PIM|Elevate|
+|PIM|ReactivateAlert|
+|PIM|Removed|
+|PIM|RemovedOutsidePIM|
+|PIM|Request Stop Review|
+|PIM|Role Setting changes|
+|PIM|ScanAlertsNow|
+|PIM|Signup|
+|PIM|Unassign|
+|PIM|Unelevate|
+|PIM|UpdateAlertSettings|
+|PIM|UpdateCurrentState|
 
 
 ## Self-service group management
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Group Management|Reset user password|
 |Group Management|Restore user|
@@ -559,7 +588,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Self-service password management
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
 |Directory Management|Admins requires the user to reset their password|
 |Directory Management|Assign external user to application|
@@ -575,15 +604,18 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 ## Terms of use
 
-|Audit Category|Activty|
+|Audit Category|Activity|
 |---|---|
-|Policy Management|Change password (self-service)|
-|Policy Management|Reset password (by admin)|
-|Policy Management|Reset password (self-service)|
-|Policy Management|Self-serve password reset flow activity progress|
-|Policy Management|Self-service password reset flow activity progress|
-|Policy Management|Unlock user account (self-service)|
-|Policy Management|User registered for self-service password reset|
+|Terms Of Use|Accept Terms Of Use|
+|Terms Of Use|Create Terms Of Use|
+|Terms Of Use|Decline Terms Of Use|
+|Terms Of Use|Delete Consent|
+|Terms Of Use|Delete Terms Of Use|
+|Terms Of Use|Edit Terms Of Use|
+|Terms Of Use|Expire Terms Of Use|
+|Terms Of Use|Hard Delete Terms Of Use|
+|Terms Of Use|Publish Terms Of Use|
+|Terms Of Use|Unpublish Terms Of Use|
 
 
 ## Next steps

@@ -1,18 +1,18 @@
 ---
-title: Frequently Asked Questions - Custom Translator
+title: Frequently asked questions - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Provides answers to frequently asked questions about the Custom Translator.
-author: rajdeep-in
-manager: christw
+description: This article contains answers to frequently asked questions about the Azure Cognitive Services Custom Translator.
+author: laujan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: custom-translator
-ms.date: 11/13/2018
-ms.author: v-rada
+ms.subservice: translator-text
+ms.date: 08/17/2020
+ms.author: lajanuar
 ms.topic: reference
 #Customer intent: As a Custom Translator user, I want to review frequently asked questions.
 ---
 
-# Frequently asked questions
+# Custom Translator frequently asked questions
 
 This article contains answers to frequently asked questions about [Custom Translator](https://portal.customtranslator.azure.ai).
 
@@ -21,7 +21,6 @@ This article contains answers to frequently asked questions about [Custom Transl
 There are restrictions and limits with respect to file size, model training, and model deployment. Keep these restrictions in mind when setting up your training to build a model in Custom Translator.
 
 - Submitted files must be less than 100 MB in size.
-
 - Monolingual data is not supported.
 
 ## When should I request deployment for a translation system that has been trained?
@@ -52,14 +51,14 @@ The deployment generally takes less than an hour.
 Deployed systems can be accessed via the Microsoft Translator Text API V3 by
 specifying the CategoryID. More information about the Translator Text API can
 be found in the [API
-Reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+Reference](../reference/v3-0-reference.md)
 webpage.
 
 ## How do I skip alignment and sentence breaking if my data is already sentence aligned?
 
 The Custom Translator skips sentence alignment and sentence breaking for TMX
 files and for text files with the `.align` extension. `.align` files give users
-an option to Custom Translator’s sentence breaking and alignment process for the
+an option to skip Custom Translator's sentence breaking and alignment process for the
 files that are perfectly aligned, and need no further processing. We recommend
 using `.align` extension only for files that are perfectly aligned.
 
@@ -67,7 +66,8 @@ If the number of extracted sentences does not match the two files with the same
 base name, Custom Translator will still run the sentence aligner on `.align`
 files.
 
-## I tried uploading my TMX, but it says "document processing failed".
+## I tried uploading my TMX, but it says "document processing failed"
+
 
 Ensure that the TMX conforms to the TMX 1.4b Specification at
 <https://www.gala-global.org/tmx-14b>.

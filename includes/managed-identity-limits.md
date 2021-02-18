@@ -4,14 +4,17 @@
  services: active-directory
  author: daveba
  ms.service: active-directory
- ms.component: msi
+ ms.subservice: msi
  ms.topic: include
  ms.date: 05/31/2018
  ms.author: daveba
  ms.custom: include file
 ---
 
-| Category | Limit |
-| --- | --- |
-| User assigned managed identities | <ul><li>When creating user assigned managed identities, only alphanumeric characters (0-9, a-z, A-Z) and the hyphen (-) are supported. Additionally, the name should be limited to 24 characters in length for the assignment to VM/VMSS to work properly.</li><li>If using the managed identity virtual machine extension, the supported limit is 32 user assigned managed identities.  Without the managed identity virtual machine extension, the supported limit is 512 user assigned identities.</li>|
+- Each managed identity counts towards the object quota limit in an Azure AD tenant as described in [Azure AD service limits and restrictions](../articles/active-directory/enterprise-users/directory-service-limits-restrictions.md).
+-	The rate at which managed identities can be created have the following limits:
 
+    1. Per Azure AD Tenant per Azure region: 200 create operations per 20 seconds.
+    2. Per Azure Subscription per Azure region : 40 create operations per 20 seconds.
+
+- When you create user-assigned managed identities, only alphanumeric characters (0-9, a-z, and A-Z) and the hyphen (-) are supported. For the assignment to a virtual machine or virtual machine scale set to work properly, the name is limited to 24 characters.

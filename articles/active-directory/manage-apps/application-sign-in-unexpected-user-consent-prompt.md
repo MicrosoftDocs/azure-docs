@@ -3,20 +3,19 @@ title: Unexpected consent prompt when signing in to an application | Microsoft D
 description: How to troubleshoot when a user sees a consent prompt for an application you have integrated with Azure AD that you did not expect
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
-
+author: kenwith
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: kenwith
 ms.reviewer: asteen
-
+ms.collection: M365-identity-device-management
 ---
 
 # Unexpected consent prompt when signing in to an application
@@ -29,13 +28,13 @@ This results in a consent prompt being shown the first time an application is us
 
 Additional prompts can be expected in various scenarios:
 
-* The set of permissions required by the application have changed.
+* The set of permissions required by the application has changed.
 
 * The user who originally consented to the application was not an administrator, and now a different (non-admin) User is using the application for the first time.
 
 * The user who originally consented to the application was an administrator, but they did not consent on-behalf of the entire organization.
 
-* The application is using [incremental and dynamic consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent) to request additional permissions after consent was initially granted. This is often used when optional features of an application additional require permissions beyond those required for baseline functionality.
+* The application is using [incremental and dynamic consent](../azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) to request additional permissions after consent was initially granted. This is often used when optional features of an application additional require permissions beyond those required for baseline functionality.
 
 * Consent was revoked after being granted initially.
 
@@ -43,8 +42,6 @@ Additional prompts can be expected in various scenarios:
 
 ## Next steps
 
--   [Apps, permissions, and consent in Azure Active Directory (v1.0 endpoint)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
+-   [Apps, permissions, and consent in Azure Active Directory (v1.0 endpoint)](../develop/quickstart-register-app.md)
 
--   [Scopes, permissions, and consent in the Azure Active Directory (v2.0 endpoint)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+-   [Scopes, permissions, and consent in the Azure Active Directory (v2.0 endpoint)](../develop/v2-permissions-and-consent.md)

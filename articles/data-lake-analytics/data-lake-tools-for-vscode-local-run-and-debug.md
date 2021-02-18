@@ -1,13 +1,9 @@
----
-title: Run U-SQL and debug locally in Azure Data Lake Tools for Visual Studio Code
+﻿---
+title: Debug U-SQL jobs - Azure Data Lake Tools for Visual Studio Code
 description: Learn how to use Azure Data Lake Tools for Visual Studio Code to run and debug U-SQL jobs locally.
-services: data-lake-analytics
 ms.service: data-lake-analytics
-author: jejiang
-ms.author: jejiang
-ms.reviewer: jasonwhowell
-ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
-ms.topic: conceptual
+ms.reviewer: jasonh
+ms.topic: how-to
 ms.date: 07/14/2017
 ---
 # Run U-SQL and debug locally in Visual Studio Code
@@ -39,13 +35,13 @@ Only Windows installations of the Azure Data Lake Tools for Visual Studio suppor
 
 
 ## Start the local run service and submit the U-SQL job to a local account 
-For the first-time user, use **ADL: Download Local Run Package** to download local run packages, if you have not [set up U-SQL local run environment](#set-up-the-u-sql-local-run-environment).
+For the first-time user, use **ADL: Download Local Run Package** to download local run packages, if you have not [set up U-SQL local run environment](#set-up-the-u-sql-local-run-environment).
 
 1. Select Ctrl+Shift+P to open the command palette, and then enter **ADL: Start Local Run Service**.   
 2. Select **Accept** to accept the Microsoft Software License Terms for the first time. 
 
    ![Accept the Microsoft Software License Terms](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
-3. The cmd console opens. For first-time users, you need to enter **3**, and then locate the local folder path for your data input and output. For other options, you can use the default values. 
+3. The cmd console opens. For first-time users, you need to enter **3**, and then locate the local folder path for your data input and output. If you are unsuccessful defining the path with backslashes, try forward slashes. For other options, you can use the default values.
 
    ![Data Lake Tools for Visual Studio Code local run cmd](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
 4. Select Ctrl+Shift+P to open the command palette, enter **ADL: Submit Job**, and then select **Local** to submit the job to your local account.
@@ -60,13 +56,13 @@ For the first-time user, use **ADL: Download Local Run Package** to download l
 ## Start a local debug for the U-SQL job  
 For the first-time user:
 
-1. Use **ADL: Download Local Run Package** to download local run packages, if you have not [set up U-SQL local run environment](#set-up-the-u-sql-local-run-environment).
+1. Use **ADL: Download Local Run Package** to download local run packages, if you have not [set up U-SQL local run environment](#set-up-the-u-sql-local-run-environment).
 2. Install .NET Core SDK 2.0 as suggested in the message box, if not installed.
  
   ![reminder installs Dotnet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)
-3. Install C# for Visual Studio Code as suggested in the message box if not installed. Click **Install** to continue, and then restart VSCode.
+3. Install C# for Visual Studio Code as suggested in the message box if not installed. Click **Install** to continue, and then restart VSCode.
 
-    ![Reminder to install C#](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)
+![Reminder to install C#](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)
 
 Follow steps below to perform local debug:
   
@@ -83,4 +79,4 @@ Follow steps below to perform local debug:
 * [Get started with Data Lake Analytics using PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Get started with Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md)
 * [Use Data Lake Tools for Visual Studio for developing U-SQL applications](data-lake-analytics-data-lake-tools-get-started.md)
-* [Use Data Lake Analytics(U-SQL) catalog](data-lake-analytics-use-u-sql-catalog.md)
+* [Use Data Lake Analytics(U-SQL) catalog](./data-lake-analytics-u-sql-get-started.md)

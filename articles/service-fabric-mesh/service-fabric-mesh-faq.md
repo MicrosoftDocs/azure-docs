@@ -1,16 +1,16 @@
 ---
-title: Common questions for Azure Service Fabric Mesh | Microsoft Docs
+title: Common questions for Azure Service Fabric Mesh 
 description: Learn about commonly asked questions and answers for Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: 
-author: chackdan
-ms.author: chackdan
-ms.date: 12/12/2018
+ms.author: pepogors
+ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.service: service-fabric-mesh
-manager: jeanpaul.connock
 ---
 # Commonly asked Service Fabric Mesh questions
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. This article has answers to commonly asked questions.
 
@@ -22,7 +22,7 @@ Ask questions, get answers from Microsoft engineers, and report issues in the [s
 
 ### What is the cost of participating in the preview?
 
-There are no charges for deploying applications or containers to the Mesh preview currently. However,  we encourage you to delete the resources you deploy and not leave them running unless you're actively testing them.
+There are currently no charges for deploying applications or containers to the Mesh preview. Please watch for updates in May for enablement for billing. However, we encourage you to delete the resources you deploy and not leave them running unless you're actively testing them.
 
 ### Is there a quota limit of the number of cores and RAM?
 
@@ -46,8 +46,11 @@ If you see this happen, you can validate that the system shut it down by running
 
 For example: 
 
-```cli
-~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```azurecli
+az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```
+
+```output
 {
   "debugParams": null,
   "description": "Service Fabric Mesh HelloWorld Application!",
@@ -72,31 +75,41 @@ For example:
 
 To delete the resource group, use the `az group delete <nameOfResourceGroup>` command.
 
-## Supported container OS images
+## Deployments
+
+### What container images are supported?
 
 If you are developing on a Windows Fall Creators Update (version 1709) machine, you can only use Windows version 1709 docker images.
 
 If you are developing on a Windows 10 April 2018 update (version 1803) machine, you can use either Windows version 1709 or Windows version 1803 docker images.
 
 The following container OS images can be used to deploy services:
-
 - Windows - windowsservercore and nanoserver
-    - Windows Server version 1709
-    - Windows Server version 1803
+    - Windows Server 1709
+    - Windows Server 1803
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 - Linux
     - No known limitations
 
+> [!NOTE]
+> Visual Studio tooling for Mesh does not yet support deploying into Windows Server 2019 and 1809 containers.
+
+### What types of applications can I deploy? 
+
+You can deploy anything that runs in containers that fit within the restrictions placed on an application resource (see above for more info on quotas). If we detect that you are using Mesh for running illegal workloads or abusing the system (i.e. mining), then we reserve the right to terminate your deployments and blocklist your subscription from running on the service. Please reach out to us if you have any questions on running a specific workload. 
+
 ## Developer experience issues
 
-### DNS resolution from an outbound container doesn't work
+### DNS resolution from a container doesn't work
 
-Service-to-service communication may fail under certain circumstances. This is being  investigated. To mitigate:
+Outgoing DNS queries from a container to the Service Fabric DNS service may fail under certain circumstances. This is being investigated. To mitigate:
 
 - Use Windows Fall Creators update (version 1709) or higher as your base container image.
 - If the service name alone doesn't work, try the fully qualified name: ServiceName.ApplicationName.
 - In the Docker file for your service, add `EXPOSE <port>` where port is the port you are exposing your service on. For example:
 
-```DockerFile
+```Dockerfile
 EXPOSE 80
 ```
 
@@ -108,7 +121,7 @@ In your local development cluster use `{serviceName}.{applicationName}`. In Azur
 
 Azure Mesh does not currently support DNS resolution across applications.
 
-For other known DNS issues with running a Service Fabric development cluster on Windows 10, see: [Debug Windows containers](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) and [known DNS issues](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+For other known DNS issues with running a Service Fabric development cluster on Windows 10, see: [Debug Windows containers](../service-fabric/service-fabric-how-to-debug-windows-containers.md) and [known DNS issues](../service-fabric/service-fabric-dnsservice.md#known-issues).
 
 ### Networking
 
@@ -128,6 +141,10 @@ You might encounter CPU availability and limits being fixed across all applicati
 Multiple applications can't be deployed to a one-node cluster. To mitigate:
 - Use a five node cluster when deploying multiple apps to a local cluster.
 - Remove apps that you are not currently testing.
+
+### VS Tooling has limited support for Windows containers
+
+The Visual Studio tooling only supports deploying Windows Containers with a base OS version of Windows Server 1709 and 1803 today. 
 
 ## Feature gaps and other known issues
 

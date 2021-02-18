@@ -13,12 +13,8 @@ ms.author: iainfou
 >
 > We recommend that you deploy one of the following Azure Marketplace solutions:
 >
-> * Docker EE for Azure
->   * [Standard/Enterprise edition](https://azuremarketplace.microsoft.com/marketplace/apps/docker.dockerdatacenter?tab=Overview)
->   * [Basic edition](https://azuremarketplace.microsoft.com/marketplace/apps/docker.docker4azure-st?tab=Overview)
->  
 > * Mesosphere DC/OS
 >   * [Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.enterprise-dcos?tab=Overview)
 >   * [Open Source edition](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.dcos?tab=overview)
 >
-> If you want to use Kubernetes, see [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks).
+> If you want to use Kubernetes, see [Azure Kubernetes Service](../articles/aks/index.yml).

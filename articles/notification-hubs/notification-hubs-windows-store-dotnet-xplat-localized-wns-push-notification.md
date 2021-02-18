@@ -3,9 +3,9 @@ title: Send localized notifications to Windows apps using Azure Notification Hub
 description: Learn how to use Azure Notification Hubs to send localized breaking news notifications.
 services: notification-hubs
 documentationcenter: windows
-author: dimazaid
-manager: kpiteira
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: c454f5a3-a06b-45ac-91c7-f91210889b25
 ms.service: notification-hubs
@@ -13,25 +13,29 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 04/14/2018
-ms.author: dimazaid
-
+ms.custom: "mvc, devx-track-csharp"
+ms.date: 03/22/2019
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/22/2019
 ---
-# Tutorial: Push localized notifications to Windows apps by using Azure Notification Hubs
+
+# Tutorial: Send localized push notifications to Windows apps using Azure Notification Hubs
+
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
 ## Overview
-This tutorial shows you how to push localized notifications to mobile devices registered with the Notification Hubs service. In the tutorial, you update applications created in the [Tutorial: Send notifications to specific devices (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) to support the following scenarios: 
+
+This tutorial shows you how to push localized notifications to mobile devices registered with the Notification Hubs service. In the tutorial, you update applications created in the [Tutorial: Send notifications to specific devices (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) to support the following scenarios:
 
 - The Windows Store app allows client devices to specify a language, and to subscribe to different breaking news categories.
-- The back-end app broadcasts notifications, using  **tag** and **template** features of Azure Notification Hubs.
+- The back-end app broadcasts notifications, using the **tag** and **template** features of Azure Notification Hubs.
 
-When you complete the tutorial, the mobile application lets you register for categories you are interested in, and also specify a language in which to receive the notifications. The backend application sends notifications that are localized by language and device. 
+When you complete the tutorial, the mobile application lets you register for categories you are interested in, and also specify a language in which to receive the notifications. The backend application sends notifications that are localized by language and device.
 
-In this tutorial, you learn how to: 
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Update Windows app to support locale information
@@ -39,7 +43,8 @@ In this tutorial, you learn how to:
 > * Test the app
 
 ## Prerequisites
-Complete the [Tutorial: Send notifications to specific devices (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md). 
+
+Complete the [Tutorial: Send notifications to specific devices (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 
 In the [Tutorial: Send notifications to specific devices (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md), you built an app that used **tags** to subscribe to notifications for different news **categories**. In this tutorial, you use the **template** feature of Notification Hubs to easily deliver **localized** breaking news notifications.
 
@@ -65,12 +70,12 @@ The devices register with a template that refers to the correct property. For in
 </toast>
 ```
 
-To learn more about templates, see [Templates](notification-hubs-templates-cross-platform-push-messages.md) article. 
+To learn more about templates, see [Push Templates](notification-hubs-templates-cross-platform-push-messages.md).
 
 ## Update Windows app to support locale information
 
-1. Open the Visual Studio solution you created for the [Tutorial: Send notifications to specific devices (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md). 
-2. Update your **MainPage.xaml** to include a locale combobox:
+1. Open the Visual Studio solution you created for the [Tutorial: Send notifications to specific devices (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+2. Update the solution's `MainPage.xaml` file to include a locale combobox:
 
     ```xml
     <Grid Margin="120, 58, 120, 80"  
@@ -102,14 +107,14 @@ To learn more about templates, see [Templates](notification-hubs-templates-cross
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
     </Grid>
     ```
-2. In your **Notifications** class, add a locale parameter to your  **StoreCategoriesAndSubscribe** and **SubscribeToCateories** methods.
+3. In the `Notifications` class, add a locale parameter to the  `StoreCategoriesAndSubscribe` and `SubscribeToCategories` methods.
 
-    ```csharp   
+    ```csharp
     public async Task<Registration> StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
     {
         ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
         ApplicationData.Current.LocalSettings.Values["locale"] = locale;
-        return await SubscribeToCategories(categories);
+        return await SubscribeToCategories(locale, categories);
     }
 
     public async Task<Registration> SubscribeToCategories(string locale, IEnumerable<string> categories = null)
@@ -129,11 +134,11 @@ To learn more about templates, see [Templates](notification-hubs-templates-cross
     }
     ```
 
-    Instead of calling the *RegisterNativeAsync* method, you call *RegisterTemplateAsync*. You register a specific notification format in which the template depends on the locale. You also provide a name for the template ("localizedWNSTemplateExample"), because you might want to register more than one template (for instance one for toast notifications and one for tiles). You also need to name them to update or delete them.
-   
+    Instead of calling the `RegisterNativeAsync` method, call `RegisterTemplateAsync`. You register a specific notification format in which the template depends on the locale. You also provide a name for the template ("localizedWNSTemplateExample"), because you might want to register more than one template (for instance one for toast notifications and one for tiles). You also need to name them to update or delete them.
+
     If a device registers multiple templates with the same tag, an incoming message targeting that tag results in multiple notifications delivered to the device (one for each template). This behavior is useful when the same logical message has to result in multiple visual notifications, for instance showing both a badge and a toast in a Windows Store application.
-3. Add the following method to retrieve the stored locale:
-   
+4. Add the following method to retrieve the stored locale:
+
     ```csharp
     public string RetrieveLocale()
     {
@@ -142,8 +147,8 @@ To learn more about templates, see [Templates](notification-hubs-templates-cross
     }
     ```
 
-4. In your **MainPage.xaml.cs**, update your button click handler by retrieving the current value of the Locale combo box and providing it to the call to the Notifications class, as shown:
-   
+5. In the `MainPage.xaml.cs` file, update the button click handler to retrieve the current value of the Locale combo box and provide it to the call to the `Notifications` class:
+
     ```csharp
     private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
     {
@@ -166,9 +171,9 @@ To learn more about templates, see [Templates](notification-hubs-templates-cross
         await dialog.ShowAsync();
     }
     ```
-4. Finally, in your App.xaml.cs file, make sure to update your `InitNotificationsAsync` method to retrieve the locale and use it when subscribing:
+6. Finally, in the `App.xaml.cs` file, update the `InitNotificationsAsync` method to retrieve the locale and use it when subscribing:
 
-    ```csharp   
+    ```csharp
     private async void InitNotificationsAsync()
     {
         var result = await notifications.SubscribeToCategories(notifications.RetrieveLocale());
@@ -183,7 +188,22 @@ To learn more about templates, see [Templates](notification-hubs-templates-cross
     }
     ```
 
-## Send localized notifications from your back-end
+
+
+## Run the UWP application
+
+1. Run the Universal Windows Platform application. Wait until you see the **Registration successful** message.
+
+    ![Mobile application and registration](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
+2. Select the **categories** and **locale**, and click **Subscribe**. The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub.
+
+    ![Mobile application](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
+3. You see a **confirmation** message about the **subscriptions**.
+
+    ![Subscription message](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
+
+## Update console app to send localized notifications
+
 When you send template notifications you only need to provide a set of properties, in this tutorial, the backend application sends the set of properties containing the localized version of the current news, for instance:
 
 ```json
@@ -194,23 +214,21 @@ When you send template notifications you only need to provide a set of propertie
 }
 ```
 
-In this section, you update the console application project in the solution. Modify the `SendTemplateNotificationAsync` method in the console app you previously created with the following code: 
+In this section, you update the console application project in the solution. Modify the `SendTemplateNotificationAsync` method in the console app you previously created with the following code:
 
 > [!IMPORTANT]
-> Specify the name and connection string with full access for your notification hub in the code. 
-
+> Specify the name and connection string with full access for your notification hub in the code.
 
 ```csharp
 private static async void SendTemplateNotificationAsync()
 {
     // Define the notification hub.
-    NotificationHubClient hub = 
-        NotificationHubClient.CreateClientFromConnectionString(
-            "<connection string with full access>", "<hub name>");
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(
+        "<connection string with full access>", "<hub name>");
 
-    // Sending the notification as a template notification. All template registrations that contain 
-    // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications. 
-    // This includes APNS, GCM, WNS, and MPNS template registrations.
+    // Sending the notification as a template notification. All template registrations that contain
+    // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications.
+    // This includes APNS, FCM, WNS, and MPNS template registrations.
     Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
     // Create an array of breaking news categories.
@@ -235,29 +253,19 @@ private static async void SendTemplateNotificationAsync()
 }
 ```
 
-This simple call delivers the localized piece of news to **all** your devices, irrespective of the platform, as your Notification Hub builds and delivers the correct native payload to all the devices subscribed to a specific tag.
+This simple call delivers the localized piece of news to **all** devices, irrespective of the platform, as your Notification Hub builds and delivers the correct native payload to all the devices subscribed to a specific tag.
 
-## Test the app
-1. Run the Universal Windows Store application. Wait until you see the **Registration successful** message.
+## Run console app to send localized notification
+Run the **console app** to send notifications for each category and in each supported language. Verify that you only receive a notification for the categories you have subscribed to and the message is for the locale you selected.
 
-    ![Mobile application and registration](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
-1. Select the **categories** and **locale**, and click **Subscribe**. The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub.
-
-    ![Mobile application](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
-2.  You see a **confirmation** message about the **subscriptions**. 
-
-    ![Subscription message](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
-1. After receiving a confirmation, run the **console app** to send notifications for each category and in each supported language. Verify that you only receive a notification for the categories you have subscribed to and the message is for the locale you selected. 
-
-    ![Notification messages](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
- 
+![Notification messages](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
 
 ## Next steps
-In this tutorial, you learned how to push localized notifications to specific devices that have tags associated with their registrations. To learn how to push notifications to specific users who may be using more than one device, advance to the following tutorial: 
+
+In this tutorial, you learned how to push localized notifications to specific devices that have tags associated with their registrations. To learn how to push notifications to specific users who may be using more than one device, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
 >[Push notifications to specific users](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
-
 
 <!-- Anchors. -->
 [Template concepts]: #concepts
@@ -273,10 +281,9 @@ In this tutorial, you learned how to push localized notifications to specific de
 [Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Notify users with Notification Hubs: Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
@@ -284,8 +291,7 @@ In this tutorial, you learned how to push localized notifications to specific de
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
-
-[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[wns object]: /previous-versions/azure/reference/jj860484(v=azure.100)
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[Notification Hubs How-To for iOS]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[Notification Hubs How-To for Windows Store]: /previous-versions/azure/azure-services/jj927170(v=azure.100)

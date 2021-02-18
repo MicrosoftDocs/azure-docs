@@ -1,12 +1,8 @@
 ---
-title: Automate image build, test, and patch with Azure Container Registry multi-step tasks
-description: An introduction to multi-step tasks, a feature of ACR Tasks in Azure Container Registry that provides task-based workflows for building, testing, and patching container images in the cloud.
-services: container-registry
-author: dlepow
-ms.service: container-registry
+title: Multi-step task to build, test & patch image
+description: Introduction to multi-step tasks, a feature of ACR Tasks in Azure Container Registry that provides task-based workflows for building, testing, and patching container images in the cloud.
 ms.topic: article
-ms.date: 11/15/2018
-ms.author: danlep
+ms.date: 03/28/2019
 ---
 
 # Run multi-step build, test, and patch tasks in ACR Tasks
@@ -27,8 +23,6 @@ For example, you can run a task with steps that automate the following logic:
 
 All steps are performed within Azure, offloading the work to Azure's compute resources and freeing you from infrastructure management. Besides your Azure container registry, you pay only for the resources you use. For information on pricing, see the **Container Build** section in [Azure Container Registry pricing][pricing].
 
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 ## Common task scenarios
 
@@ -50,37 +44,37 @@ A multi-step task in ACR Tasks is defined as a series of steps within a YAML fil
 
 The following snippets show how to combine these task step types. Multi-step tasks can be as simple as building a single image from a Dockerfile and pushing to your registry, with a YAML file similar to:
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - build: -t $Registry/hello-world:$ID .
+  - push: ["$Registry/hello-world:$ID"]
 ```
 
 Or more complex, such as this fictitious multi-step definition which includes steps for build, test, helm package, and helm deploy (container registry and Helm repository configuration not shown):
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.1.0
 steps:
   - id: build-web
-    build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+    build: -t $Registry/hello-world:$ID .
     when: ["-"]
   - id: build-tests
-    build -t {{.Run.Registry}}/hello-world-tests ./funcTests
+    build -t $Registry/hello-world-tests ./funcTests
     when: ["-"]
   - id: push
-    push: ["{{.Run.Registry}}/helloworld:{{.Run.ID}}"]
+    push: ["$Registry/helloworld:$ID"]
     when: ["build-web", "build-tests"]
   - id: hello-world-web
-    cmd: {{.Run.Registry}}/helloworld:{{.Run.ID}}
+    cmd: $Registry/helloworld:$ID
   - id: funcTests
-    cmd: {{.Run.Registry}}/helloworld:{{.Run.ID}}
+    cmd: $Registry/helloworld:$ID
     env: ["host=helloworld:80"]
-  - cmd: {{.Run.Registry}}/functions/helm package --app-version {{.Run.ID}} -d ./helm ./helm/helloworld/
-  - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
+  - cmd: $Registry/functions/helm package --app-version $ID -d ./helm ./helm/helloworld/
+  - cmd: $Registry/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image=$Registry/helloworld:$ID
 ```
 
-See [task examples][task-examples] for complete multi-step task YAML files and Dockerfiles for several scenarios.
+See [task examples](container-registry-tasks-samples.md) for multi-step task YAML files and Dockerfiles for several scenarios.
 
 ## Run a sample task
 
@@ -96,8 +90,11 @@ az acr run --registry <acrName> -f build-push-hello-world.yaml https://github.co
 
 When you run the task, the output should show the progress of each step defined in the YAML file. In the following output, the steps appear as `acb_step_0` and `acb_step_1`.
 
-```console
-$ az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+```azurecli
+az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+```
+
+```output
 Sending context to registry: myregistry...
 Queued a run with ID: yd14
 Waiting for an agent...
@@ -146,20 +143,12 @@ Run ID: yd14 was successful after 19s
 
 For more information about automated builds on Git commit or base image update, see the [Automate image builds](container-registry-tutorial-build-task.md) and [Base image update builds](container-registry-tutorial-base-image-update.md) tutorial articles.
 
-## Preview feedback
-
-While the multi-step task feature of ACR Tasks is in preview, we invite you to provide feedback. Several feedback channels are available:
-
-* [Issues](https://aka.ms/acr/issues) - View existing bugs and issues, and log new ones
-* [UserVoice](https://aka.ms/acr/uservoice) - Vote on existing feature requests or create new requests
-* [Discuss](https://aka.ms/acr/feedback) - Engage in Azure Container Registry discussion with the Stack Overflow community
-
 ## Next steps
 
 You can find multi-step task reference and examples here:
 
 * [Task reference](container-registry-tasks-reference-yaml.md) - Task step types, their properties, and usage.
-* [Task examples][task-examples] - Example `task.yaml` files for several scenarios, simple to complex.
+* [Task examples](container-registry-tasks-samples.md) - Example `task.yaml` and Docker files for several scenarios, simple to complex.
 * [Cmd repo](https://github.com/AzureCR/cmd) - A collection of containers as commands for ACR tasks.
 
 <!-- IMAGES -->

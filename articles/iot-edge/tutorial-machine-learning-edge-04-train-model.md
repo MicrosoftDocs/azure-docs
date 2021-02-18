@@ -1,0 +1,195 @@
+---
+title: 'Tutorial: Train and deploy a model - Machine Learning on Azure IoT Edge'
+description: 'In this tutorial, you will train a machine learning model using Azure Machine Learning and then package the model as a container image that can be deployed as an Azure IoT Edge Module.'
+author: kgremban
+manager: philmea
+ms.author: kgremban
+ms.date: 3/24/2020
+ms.topic: tutorial
+ms.service: iot-edge
+services: iot-edge
+---
+# Tutorial: Train and deploy an Azure Machine Learning model
+
+In this article, we do the following tasks:
+
+* Use Azure Machine Learning Studio to train a machine learning model.
+* Package the trained model as a container image.
+* Deploy the container image as an Azure IoT Edge module.
+
+The Azure Machine Learning Studio is a foundational block used to experiment, train, and deploy machine learning models.
+
+The steps in this article might be typically performed by data scientists.
+
+In this section of the tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create Jupyter Notebooks in Azure Machine Learning Workspace to train a machine learning model.
+> * Containerize the trained machine learning model.
+> * Create an Azure IoT Edge module from the containerized machine learning model.
+
+## Prerequisites
+
+This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.
+
+## Set up Azure Machine Learning 
+
+We use Azure Machine Learning Studio to host the two Jupyter Notebooks and supporting files. Here we create and configure an Azure Machine Learning project. If you have not used Jupyter and/or Azure Machine Learning Studio , here are a couple of introductory documents:
+
+* **Jupyter Notebooks:** [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
+* **Azure Machine Learning:** [Get Started with Azure Machine Learning in Jupyter Notebooks](../machine-learning/tutorial-1st-experiment-sdk-setup.md)
+
+
+> [!NOTE]
+> Once set up, the Azure Machine Learning service can be accessed from any machine. During setup, you should use the development VM, which has all of the files that you will need.
+
+### Install Azure Machine Learning Visual Studio Code extension
+VS Code on the development VM should have this extension installed. If you are running on a different instance, please reinstall the extension as described [here.](../machine-learning/tutorial-setup-vscode-extension.md)
+
+### Create an Azure Machine Learning account  
+In order to provision resources and run workloads on Azure, you have to sign in with your Azure account credentials.
+
+1. In Visual Studio Code, open the command palette by selecting **View** > **Command Palette** from the menu bar. 
+
+1. Enter the command `Azure: Sign In` into the command palette to start the sign in process. Follow the instructions to complete sign in. 
+
+1. Create an Azure ML Compute instance to run your workload. Using Command pallet enter the command `Azure ML: Create Compute`. 
+1. Select your Azure Subscription
+1. Select **+ Create new Azure ML workspace** and enter name `turbofandemo`.
+1. Select the resource group that you have been using for this demo.
+1. You should be able to see the progress of workspace creation in the lower right hand corner of your VS Code window: **Creating Workspace: turobofandemo** (this can take a minute or two). 
+1. Please wait for the workspace to be created successfully. It should say **Azure ML workspace turbofandemo created**.
+
+
+### Upload Jupyter Notebook files
+
+We will upload sample notebook files into a new Azure ML workspace.
+
+1. Navigate to ml.azure.com and sign in.
+1. Select your Microsoft Directory, Azure Subscription and the newly created Azure ML workspace.
+
+    :::image type="content" source="media/tutorial-machine-learning-edge-04-train-model/select-studio-workspace.png" alt-text="Select your Azure ML workspace." :::
+
+1. Once logged into your Azure ML workspace, navigate to the **Notebooks** section using the left side menu.
+1. Select the **My files** tab.
+
+1. Select **Upload** (the up arrow icon) 
+
+
+1. Navigate to **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Select all the files in the list and click **Open**.
+
+1. Check the **I trust the content of these files** box.
+
+1. Select **Upload** to begin uploading and then select **Done** once the process is complete.
+
+### Jupyter Notebook files
+
+Let's review the files you uploaded into your Azure ML workspace. The activities in this portion of the tutorial span across two notebook files, which use a few supporting files.
+
+* **01-turbofan\_regression.ipynb:** This notebook uses the Machine Learning service workspace to create and run a machine learning experiment. Broadly, the notebook does the following steps:
+
+  1. Downloads data from the Azure Storage account that was generated by the device harness.
+  1. Explores and prepares the data, then uses the data to train the classifier model.
+  1. Evaluate the model from the experiment using a test dataset (Test\_FD003.txt).
+  1. Publishes the best classifier model to the Machine Learning service workspace.
+
+* **02-turbofan\_deploy\_model.ipynb:** This notebook takes the model created in the previous notebook and uses it to create a container image ready to be deployed to an Azure IoT Edge device. The notebook performs the following steps:
+
+  1. Creates a scoring script for the model.
+  1. Produces a container image using the classifier model that was saved in the Machine Learning service workspace.
+  1. Deploys the image as a web service on Azure Container Instance.
+  1. Uses the web service to validate the model and the image work as expected. The validated image will be deployed to our IoT Edge device in the [Create and deploy custom IoT Edge modules](tutorial-machine-learning-edge-06-custom-modules.md) portion of this tutorial.
+
+* **Test\_FD003.txt:** This file contains the data we will use as our test set when validating our trained classifier. We chose to use the test data, as provided for the original contest, as our test set for its simplicity.
+
+* **RUL\_FD003.txt:** This file contains the Remaining Useful Life (RUL) for the last cycle of each device in the Test\_FD003.txt file. See the readme.txt and the Damage Propagation Modeling.pdf files in the C:\\source\\IoTEdgeAndMlSample\\data\\Turbofan for a detailed explanation of the data.
+
+* **Utils.py:** Contains a set of Python utility functions for working with data. The first notebook contains a detailed explanation of the functions.
+
+* **README.md:** Readme describing the use of the notebooks.  
+
+## Run Jupyter Notebooks
+
+Now that the workspace is created, you can run the notebooks. 
+
+1. From your **My files** page, select **01-turbofan\_regression.ipynb**.
+
+    :::image type="content" source="media/tutorial-machine-learning-edge-04-train-model/select-turbofan-notebook.png" alt-text="Select first notebook to run. ":::
+
+1. If the notebook is listed as **Not Trusted**, click on the **Not Trusted** widget in the top right of the notebook. When the dialog comes up, select **Trust**.
+
+1. For best results, read the documentation for each cell and run it individually. Select **Run** on the toolbar. Later on, you will find it expedient to run multiple cells. You can disregard upgrade and deprecation warnings.
+
+    When a cell is running, it displays an asterisk between the square brackets ([\*]). When the cell's operation is complete, the asterisk is replaced with a number and relevant output may appear. The cells in a notebook build sequentially and only one can be running at a time.
+
+    You can also use run options from the **Cell** menu, `Ctrl` + `Enter` to run a cell, and `Shift` + `Enter` to run a cell and advance to the next cell.
+
+    > [!TIP]
+    > For consistent cell operations, avoid running the same notebook from multiple tabs in your browser.
+
+1. In the cell that follows the **Set global properties** instructions, write in the values for your Azure subscription, settings, and resources. Then run the cell.
+
+    ![Set global properties in the notebook](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
+
+1. In the cell previous to **Workspace details**, after it has run, look for the link that instructs you to sign in to authenticate:
+
+    ![Sign in prompt for device authentication](media/tutorial-machine-learning-edge-04-train-model/sign-in-prompt.png)
+
+    Open the link and enter the specified code. This sign-in procedure authenticates the Jupyter notebook to access Azure resources using the Microsoft Azure Cross-Platform Command Line Interface.  
+
+    ![Authenticate application on device confirmation](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
+
+1. In the cell that precedes **Explore the results**, copy the value from the run ID and paste it for the run ID in the cell that follows **Reconstitute a run**.
+
+   ![Copy the run ID between cells](media/tutorial-machine-learning-edge-04-train-model/automl-id.png)
+
+1. Run the remaining cells in the notebook.
+
+1. Save the notebook and return to your project page.
+
+1. Open **02-turbofan\_deploy\_model.ipynb** and run each cell. You will need to sign-into to authenticate in the cell that follows **Configure workspace**.
+
+1. Save the notebook and return to your project page.
+
+### Verify success
+
+To verify that the notebooks have completed successfully, verify that a few items were created.
+
+1. On your Azure ML Notebooks**My files** tab, select **refresh**.
+
+1. Verify that the following files were created:
+
+    | File | Description |
+    | --- | --- |
+    | ./aml_config/.azureml/config.json | Configuration file used to create the Azure Machine Learning Workspace. |
+    | ./aml_config/model_config.json | Configuration file that we will need to deploy the model in the **turbofanDemo** Machine Learning workspace in Azure. |
+    | myenv.yml| Provides information about the dependencies for the deployed Machine Learning model.|
+
+1. Verify that the following Azure resources were created. Some resources names are appended with random characters.
+
+    | Azure resource | Name |
+    | --- | --- |
+    | Machine Learning workspace | turborfanDemo |
+    | Container Registry | turbofandemoxxxxxxxx |
+    | Applications Insights | turbofaninsightxxxxxxxx |
+    | Key Vault | turbofankeyvaultbxxxxxxxx |
+    | Storage | turbofanstoragexxxxxxxxx |
+
+### Debugging
+
+You can insert Python statements into the notebook for debugging, such as the `print()` command to show values. If you see variables or objects that are not defined, run the cells where they are first declared or instantiated.
+
+You may have to delete previously created files and Azure resources if you need to redo the notebooks.
+
+## Clean up resources
+
+This tutorial is part of a set where each article builds on the work done in the previous ones. Please wait to clean up any resources until you complete the final tutorial.
+
+## Next steps
+
+In this article, we used two Jupyter Notebooks running in Azure ML Studio to use the data from the turbofan devices to train a remaining useful life (RUL) classifier, to save the classifier as a model, to create a container image, and to deploy and test the image as a web service.
+
+Continue to the next article to create an IoT Edge device.
+
+> [!div class="nextstepaction"]
+> [Configure an IoT Edge device](tutorial-machine-learning-edge-05-configure-edge-device.md)

@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple 8000 series as backup target with Backup Exec | Microsoft Docs
 description: Describes the StorSimple backup target configuration with Veritas Backup Exec.
 services: storsimple
@@ -10,11 +10,11 @@ editor: ''
 ms.assetid:
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
-ms.author: hkanna
+ms.author: matd
 ---
 
 # StorSimple as a backup target with Backup Exec
@@ -33,7 +33,7 @@ The information in this article will be most helpful to backup administrators, s
 
 ## Supported versions
 
--   [Backup Exec 16 and later versions](http://backupexec.com/compatibility)
+-   [Backup Exec 16 and later versions](https://www.veritas.com/content/support/en_US/article.100040087)
 -   [StorSimple Update 3 and later versions](storsimple-overview.md#storsimple-workload-summary)
 
 
@@ -75,7 +75,7 @@ StorSimple offers these benefits:
 
 Although StorSimple presents two main deployment scenarios (primary backup target and secondary backup target), fundamentally, it's a plain, block storage device. StorSimple does all the compression and deduplication. It seamlessly sends and retrieves data between the cloud and the application and file system.
 
-For more information about StorSimple, see [StorSimple 8000 series: Hybrid cloud storage solution](storsimple-overview.md). Also, you can review the [technical StorSimple 8000 series specifications](storsimple-technical-specifications-and-compliance.md).
+For more information about StorSimple, see [StorSimple 8000 series: Hybrid cloud storage solution](storsimple-overview.md). Also, you can review the [technical StorSimple 8000 series specifications](./storsimple-8000-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Using a StorSimple device as a backup target is supported only for StorSimple 8000 Update 3 and later versions.
@@ -90,6 +90,7 @@ The following tables show the device model-to-architecture initial guidance.
 |------------------------|---------------|-----------------|
 | Local storage capacity | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Cloud storage capacity | &gt; 200 TiB\* | &gt; 500 TiB\* |
+
 \* Storage size assumes no deduplication or compression.
 
 **StorSimple capacities for primary and secondary backups**
@@ -165,7 +166,7 @@ For the solution to perform optimally, we recommend that you follow these networ
 
 ### Deploy StorSimple
 
-For a step-by-step StorSimple deployment guidance, see [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
+For a step-by-step StorSimple deployment guidance, see [Deploy your on-premises StorSimple device](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ### Deploy Backup Exec
 
@@ -180,7 +181,7 @@ In this section, we demonstrate some configuration examples. The following examp
 | StorSimple deployment tasks  | Additional comments |
 |---|---|
 | Deploy your on-premises StorSimple device. | Supported versions: Update 3 and later versions. |
-| Turn on the backup target. | Use these commands to turn on or turn off backup target mode, and to get status. For more information, see [Connect remotely to a StorSimple device](storsimple-remote-connect.md).</br> To turn on backup mode: `Set-HCSBackupApplianceMode -enable`. </br> To turn off backup mode: `Set-HCSBackupApplianceMode -disable`. </br> To get the current state of backup mode settings: `Get-HCSBackupApplianceMode`. |
+| Turn on the backup target. | Use these commands to turn on or turn off backup target mode, and to get status. For more information, see [Connect remotely to a StorSimple device](./storsimple-8000-remote-connect.md).</br> To turn on backup mode: `Set-HCSBackupApplianceMode -enable`. </br> To turn off backup mode: `Set-HCSBackupApplianceMode -disable`. </br> To get the current state of backup mode settings: `Get-HCSBackupApplianceMode`. |
 | Create a common volume container for your volume that stores the backup data. All data in a volume container is deduplicated. | StorSimple volume containers define deduplication domains.  |
 | Create StorSimple volumes. | Create volumes with sizes as close to the anticipated usage as possible, because volume size affects cloud snapshot duration time. For information about how to size a volume, read about [retention policies](#retention-policies).</br> </br> Use StorSimple tiered volumes, and select the **Use this volume for less frequently accessed archival data** check box. </br> Using only locally pinned volumes is not supported. |
 | Create a unique StorSimple backup policy for all the backup target volumes. | A StorSimple backup policy defines the volume consistency group. |
@@ -202,20 +203,20 @@ Set up your solution according to the guidelines in the following sections.
 
 ### Operating system best practices
 
--   Disable Windows Server encryption and deduplication for the NTFS file system.
--   Disable Windows Server defragmentation on the StorSimple volumes.
--   Disable Windows Server indexing on the StorSimple volumes.
--   Run an antivirus scan at the source host (not against the StorSimple volumes).
--   Turn off the default [Windows Server maintenance](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Task Manager. Do this in one of the following ways:
-   - Turn off the Maintenance configurator in Windows Task Scheduler.
-   - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) from Windows Sysinternals. After you download PsExec, run Azure PowerShell as an administrator, and type:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Disable Windows Server encryption and deduplication for the NTFS file system.
+- Disable Windows Server defragmentation on the StorSimple volumes.
+- Disable Windows Server indexing on the StorSimple volumes.
+- Run an antivirus scan at the source host (not against the StorSimple volumes).
+- Turn off the default [Windows Server maintenance](/windows/win32/w8cookbook/automatic-maintenance) in Task Manager. Do this in one of the following ways:
+  - Turn off the Maintenance configurator in Windows Task Scheduler.
+  - Download [PsExec](/sysinternals/downloads/psexec) from Windows Sysinternals. After you download PsExec, run Azure PowerShell as an administrator, and type:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### StorSimple best practices
 
-  -   Be sure that the StorSimple device is updated to [Update 3 or later](storsimple-install-update-3.md).
+  -   Be sure that the StorSimple device is updated to [Update 3 or later](./index.yml).
   -   Isolate iSCSI and cloud traffic. Use dedicated iSCSI connections for traffic between StorSimple and the backup server.
   -   Be sure that your StorSimple device is a dedicated backup target. Mixed workloads are not supported because they affect your RTO and RPO.
 
@@ -255,6 +256,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 | Yearly full | 1  | 10 | 10 |
 | GFS requirement |   | 38 |   |
 | Additional quota  | 4  |   | 42 total GFS requirement  |
+
 \* The GFS multiplier is the number of copies you need to protect and retain to meet your backup policy requirements.
 
 ## Set up Backup Exec storage
@@ -308,7 +310,7 @@ Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly
 |---|---|---|
 | Weekly (weeks 1-4) | Saturday | Monday-Friday |
 | Monthly  | Saturday  |   |
-| Yearly | Saturday  |   |   |
+| Yearly | Saturday  |   |
 
 
 ### Assign StorSimple volumes to a Backup Exec backup job
@@ -369,6 +371,7 @@ The following table shows how to set up backups to run on the local and StorSimp
 | Monthly full |StorSimple disk (long-term) | 1 | 12 | 12 |
 | Yearly full |StorSimple disk (long-term) | 1 | 1 | 1 |
 |GFS volumes size requirement |  |  |  | 18*|
+
 \* Total capacity includes 17 TiB of StorSimple disks and 1 TiB of local RAID volume.
 
 
@@ -381,7 +384,7 @@ The following table shows how to set up backups to run on the local and StorSimp
 | Week 3 | StorSimple weeks 2-4 |   |   |   |   |   |
 | Week 4 | StorSimple weeks 2-4 |   |   |   |   |   |
 | Monthly | StorSimple monthly |   |   |   |   |   |
-| Yearly | StorSimple yearly  |   |   |   |   |   |   |
+| Yearly | StorSimple yearly  |   |   |   |   |   |
 
 
 ### Assign StorSimple volumes to a Backup Exec archive and deduplication job
@@ -402,15 +405,15 @@ The following table shows how to set up backups to run on the local and StorSimp
 
 4.  In the **Storage** drop-down list, select the StorSimple volume where you want the archive job to store the data.
 
-    ![Backup Exec management console, backup definitions properties and duplicate options](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
+    ![Screenshot that shows the list where you need to select Storage.](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
 
 5.  Select **Verify**, and then select the **Do not verify data for this job** check box.
 
-    ![Backup Exec management console, backup definitions properties and duplicate options](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
+    ![Screenshot that shows where you select the Do not verify data for this job option.](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
 
 6.  Select **OK**.
 
-    ![Backup Exec management console, backup definitions properties and duplicate options](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
+    ![Screenshot that shows the backup definition properties.](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
 7.  In the **Backup** column, add a new stage. For the source, use **incremental**. For the target, choose the StorSimple volume where the incremental backup job is archived. Repeat steps 1-6.
 
@@ -426,7 +429,7 @@ The following section describes how to create a short script to start and delete
 ### Start and delete cloud snapshots by using a script
 
 > [!NOTE]
-> Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information about how to run a post-backup script, see the [Backup Exec documentation](https://www.veritas.com/support/en_US/15047.html).
+> Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information about how to run a post-backup script, see the [Backup Exec documentation](https://www.veritas.com/support/en_US/article.100032497.html).
 
 ### Backup lifecycle
 
@@ -441,15 +444,15 @@ The following section describes how to create a short script to start and delete
 
 ### To start or delete a cloud snapshot
 
-1.  [Install Azure PowerShell](/powershell/azure/overview).
+1. [Install Azure PowerShell](/powershell/azure/).
 2. Download and setup [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell script.
 3. On the server that runs the script, run PowerShell as an administrator. Ensure that you run the script with `-WhatIf $true` to see what changes the script will make. Once the validation is complete, pass `-WhatIf $false`. Run the below command:
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
-4.  Add the script to your backup job in Backup Exec by editing your Backup Exec job options' pre-processing and post-processing commands.
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
+4. Add the script to your backup job in Backup Exec by editing your Backup Exec job options' pre-processing and post-processing commands.
 
-    ![Backup Exec console, backup options, pre- and post-processing commands tab](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
+   ![Backup Exec console, backup options, pre- and post-processing commands tab](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
 > [!NOTE]
 > We recommend that you run your StorSimple cloud snapshot backup policy as a post-processing script at the end of your daily backup job. For more information about how to back up and restore your backup application environment to help you meet your RPO and RTO, please consult with your backup architect.
@@ -467,7 +470,7 @@ A disaster can be caused by a variety of factors. The following table lists comm
 
 | Scenario | Impact | How to recover | Notes |
 |---|---|---|---|
-| StorSimple device failure | Backup and restore operations are interrupted. | Replace the failed device and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery.md). | If you need to perform a restore after device recovery, full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. The indexing and cataloging rescanning process might cause all backup sets to be scanned and pulled from the cloud tier to the local device tier, which might be a time-consuming process. |
+| StorSimple device failure | Backup and restore operations are interrupted. | Replace the failed device and perform [StorSimple failover and disaster recovery](./storsimple-8000-device-failover-disaster-recovery.md). | If you need to perform a restore after device recovery, full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. The indexing and cataloging rescanning process might cause all backup sets to be scanned and pulled from the cloud tier to the local device tier, which might be a time-consuming process. |
 | Backup Exec server failure | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore as detailed in [How to do a manual Backup and Restore of Backup Exec (BEDB) database](http://www.veritas.com/docs/000041083). | You must rebuild or restore the Backup Exec server at the disaster recovery site. Restore the database to the most recent point. If the restored Backup Exec database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process might cause all backup sets to be scanned and pulled from the cloud tier to the local device tier. This makes it further time-intensive. |
 | Site failure that results in the loss of both the backup server and StorSimple | Backup and restore operations are interrupted. | Restore StorSimple first, and then restore Backup Exec. | Restore StorSimple first, and then restore Backup Exec. If you need to perform a restore after device recovery, the full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. |
 
@@ -475,12 +478,12 @@ A disaster can be caused by a variety of factors. The following table lists comm
 
 The following documents were referenced for this article:
 
-- [StorSimple multipath I/O setup](storsimple-configure-mpio-windows-server.md)
-- [Storage scenarios: Thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [Using GPT drives](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [Set up shadow copies for shared folders](https://technet.microsoft.com/library/cc771893.aspx)
+- [StorSimple multipath I/O setup](./storsimple-8000-configure-mpio-windows-server.md)
+- [Storage scenarios: Thin provisioning](/windows-hardware/drivers/storage/thin-provisioning)
+- [Using GPT drives](/previous-versions/windows/hardware/design/dn653580(v=vs.85)#EHD)
+- [Set up shadow copies for shared folders](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771893(v=ws.11))
 
 ## Next steps
 
-- Learn more about how to [restore from a backup set](storsimple-restore-from-backup-set-u2.md).
-- Learn more about how to perform [device failover and disaster recovery](storsimple-device-failover-disaster-recovery.md).
+- Learn more about how to [restore from a backup set](./storsimple-8000-restore-from-backup-set-u2.md).
+- Learn more about how to perform [device failover and disaster recovery](./storsimple-8000-device-failover-disaster-recovery.md).

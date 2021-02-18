@@ -1,26 +1,18 @@
 ---
-title: Monitor Linux cluster events in Azure Service Fabric | Microsoft Docs
-description: Learn how to monitor Linux cluster events from Syslog
-services: service-fabric
-documentationcenter: .net
+title: Monitor Linux cluster events in Azure Service Fabric 
+description: Learn how to monitor a Service Fabric Linux cluster events by writing Service Fabric platform events to Syslog.
 author: srrengar
-manager: timlt
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-
 ---
 
 # Service Fabric Linux cluster events in Syslog
 
 Service Fabric exposes a set of platform events to inform you of important activity in your cluster. The full list of events that are exposed is available [here](service-fabric-diagnostics-event-generation-operational.md). There are variety of ways through which these events can be consumed. In this article, we are going to discuss how to configure Service Fabric to write these events to Syslog.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Introduction
 
@@ -32,7 +24,7 @@ Each Syslog event has 4 components
 * Message
 * Severity
 
-The SyslogConsumer writes all platform events using Facility `Local0`. You can update to any valid facility by changing the config  config. The Identity used is `ServicFabric`. The Message field contains the whole event serialized in JSON so that it can be queried and consumed by a variety of tools. 
+The SyslogConsumer writes all platform events using Facility `Local0`. You can update to any valid facility by changing the config  config. The Identity used is `ServiceFabric`. The Message field contains the whole event serialized in JSON so that it can be queried and consumed by a variety of tools. 
 
 ## Enable SyslogConsumer
 
@@ -81,7 +73,7 @@ To enable the SyslogConsumer, you need to perform an upgrade of your cluster. Th
 Here are the changes to call out
 1. In the Common section, there is a new parameter called `LinuxStructuredTracesEnabled`. **This is required to have Linux events structured and serialized when sent to Syslog.**
 2. In the Diagnostics section, a new ConsumerInstance: SyslogConsumer has been added. This tells the platform there is another consumer of the events. 
-3. The new section SyslogConsumer needs to have `IsEnabled` as `true`. It is configurd to use the Local0 facility automatically. You can override this by adding another parameter.
+3. The new section SyslogConsumer needs to have `IsEnabled` as `true`. It is configured to use the Local0 facility automatically. You can override this by adding another parameter.
 
 ```json
     {
@@ -90,8 +82,8 @@ Here are the changes to call out
     }
 ```
 
-## Log Analytics integration
-You can read these Syslog events in a monitoring tool such as Log Analytics. You can create a Log Analytics workspace by using the Azure Marketplace using these [instructions].(../azure-monitor/learn/quick-create-workspace.md)
+## Azure Monitor logs integration
+You can read these Syslog events in a monitoring tool such as Azure Monitor logs. You can create a Log Analytics workspace by using the Azure Marketplace using these [instructions].(../azure-monitor/logs/quick-create-workspace.md)
 You also need to add the Log Analytics agent to your cluster to collect and send this data to the workspace. This is the same agent used to collect performance counters. 
 
 1. Navigate to the `Advanced Settings` blade
@@ -118,6 +110,6 @@ The example above is of a NodeDown event. You can view the full list of events [
 
 ## Next steps
 * [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics
-* [Use View Designer to create custom views in Log Analytics](../log-analytics/log-analytics-view-designer.md)
-* Reference for how to [Log Analytics integration with Syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Get familiarized with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs
+* [Use View Designer to create custom views in Azure Monitor logs](../azure-monitor/visualize/view-designer.md)
+* Reference for how to [Azure Monitor logs integration with Syslog](../azure-monitor/agents/data-sources-syslog.md).

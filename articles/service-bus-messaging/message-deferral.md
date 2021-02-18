@@ -1,20 +1,9 @@
 ---
-title: Azure Service Bus message deferral | Microsoft Docs
-description: Defer delivery of Service Bus messages
-services: service-bus-messaging
-documentationcenter: ''
-author: clemensv
-manager: timlt
-editor: ''
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Service Bus - message deferral
+description: This article explains how to defer delivery of Azure Service Bus messages. The message remains in the queue or subscription, but it is set aside.
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: spelluru
-
+ms.date: 06/23/2020
+ms.custom: fasttrack-edit
 ---
 
 # Message deferral
@@ -27,9 +16,12 @@ A simple illustrative example is an order processing sequence in which a payment
 
 Ultimately, deferral aids in reordering messages from the arrival order into an order in which they can be processed, while leaving those messages safely in the message store for which processing needs to be postponed.
 
+> [!NOTE]
+> Deferred messages will not be automatically moved to the dead-letter queue [after they expire](./service-bus-dead-letter-queues.md#exceeding-timetolive). This behaviour is by design.
+
 ## Message deferral APIs
 
-The API is [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) or [BrokeredMessage.DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) in the .NET Framework client, [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) in the .NET Standard client, and **mesageReceiver.defer** or **messageReceiver.deferSync** in the Java client. 
+The API is [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) or [BrokeredMessage.DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) in the .NET Framework client, [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) in the .NET Standard client, and [IMessageReceiver.defer](/java/api/com.microsoft.azure.servicebus.imessagereceiver.defer) or [IMessageReceiver.deferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.deferasync) in the Java client. 
 
 Deferred messages remain in the main queue along with all other active messages (unlike dead-letter messages that live in a subqueue), but they can no longer be received using the regular Receive/ReceiveAsync functions. Deferred messages can be discovered via [message browsing](message-browsing.md) if an application loses track of them.
 

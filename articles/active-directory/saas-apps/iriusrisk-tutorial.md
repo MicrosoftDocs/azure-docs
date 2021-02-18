@@ -1,225 +1,192 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with IriusRisk | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and IriusRisk.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: d2c854d5-101d-4d67-80e0-87749e1a0352
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/21/2017
+ms.topic: tutorial
+ms.date: 04/05/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with IriusRisk
 
 In this tutorial, you learn how to integrate IriusRisk with Azure Active Directory (Azure AD).
-
 Integrating IriusRisk with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to IriusRisk.
-- You can enable your users to automatically get signed-on to IriusRisk (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* You can control in Azure AD who has access to IriusRisk.
+* You can enable your users to be automatically signed-in to IriusRisk (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with IriusRisk, you need the following items:
 
-- An Azure AD subscription
-- A IriusRisk single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
+* IriusRisk single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding IriusRisk from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+
+* IriusRisk supports **SP** initiated SSO
+* IriusRisk supports **Just In Time** user provisioning
 
 ## Adding IriusRisk from the gallery
+
 To configure the integration of IriusRisk into Azure AD, you need to add IriusRisk from the gallery to your list of managed SaaS apps.
 
 **To add IriusRisk from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![The New application button][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-1. In the search box, type **IriusRisk**, select **IriusRisk** from result panel then click **Add** button to add the application.
+	![The New application button](common/add-new-app.png)
 
-	![IriusRisk in the results list](./media/iriusrisk-tutorial/tutorial_iriusrisk_addfromgallery.png)
+4. In the search box, type **IriusRisk**, select **IriusRisk** from result panel then click **Add** button to add the application.
+
+	![IriusRisk in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with IriusRisk based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in IriusRisk is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in IriusRisk needs to be established.
-
-In IriusRisk, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In this section, you configure and test Azure AD single sign-on with IriusRisk based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in IriusRisk needs to be established.
 
 To configure and test Azure AD single sign-on with IriusRisk, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a IriusRisk test user](#create-a-iriusrisk-test-user)** - to have a counterpart of Britta Simon in IriusRisk that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+2. **[Configure IriusRisk Single Sign-On](#configure-iriusrisk-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create IriusRisk test user](#create-iriusrisk-test-user)** - to have a counterpart of Britta Simon in IriusRisk that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your IriusRisk application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with IriusRisk, perform the following steps:**
+To configure Azure AD single sign-on with IriusRisk, perform the following steps:
 
-1. In the Azure portal, on the **IriusRisk** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **IriusRisk** application integration page, select **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/iriusrisk-tutorial/tutorial_iriusrisk_samlbase.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-1. On the **IriusRisk Domain and URLs** section, perform the following steps:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![IriusRisk Domain and URLs single sign-on information](./media/iriusrisk-tutorial/tutorial_iriusrisk_url.png)
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.iriusrisk.com/ui#!login`
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	b. In the **Identifier** textbox, type the value: `iriusrisk-sp`
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	> [!NOTE] 
-	> The Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [IriusRisk Client support team](mailto:info@continuumsecurity.net) to get this value. 
+    ![IriusRisk Domain and URLs single sign-on information](common/sp-identifier.png)
 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<companyname>.iriusrisk.com/ui#!login`
 
-	![The Certificate download link](./media/iriusrisk-tutorial/tutorial_iriusrisk_certificate.png) 
+    b. In the **Identifier (Entity ID)** text box, type the value:
+    `iriusrisk-sp`
 
-1. Click **Save** button.
+	> [!NOTE]
+	> The Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [IriusRisk Client support team](mailto:info@continuumsecurity.net) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-	![Configure Single Sign-On Save button](./media/iriusrisk-tutorial/tutorial_general_400.png)
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-1. To configure single sign-on on **IriusRisk** side, you need to send the downloaded **Metadata XML** to [IriusRisk support team](mailto:info@continuumsecurity.net). They set this setting to have the SAML SSO connection set properly on both sides.
+	![The Certificate download link](common/metadataxml.png)
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+6. On the **Set up IriusRisk** section, copy the appropriate URL(s) as per your requirement.
+
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+	a. Login URL
+
+	b. Azure AD Identifier
+
+	c. Logout URL
+
+### Configure IriusRisk Single Sign-On
+
+To configure single sign-on on **IriusRisk** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [IriusRisk support team](mailto:info@continuumsecurity.net). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-   ![Create an Azure AD test user][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+2. Select **New user** at the top of the screen.
 
-    ![The Azure Active Directory button](./media/iriusrisk-tutorial/create_aaduser_01.png)
+    ![New user Button](common/new-user.png)
 
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
+3. In the User properties, perform the following steps.
 
-    ![The "Users and groups" and "All users" links](./media/iriusrisk-tutorial/create_aaduser_02.png)
+    ![The User dialog box](common/user-properties.png)
 
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
-    ![The Add button](./media/iriusrisk-tutorial/create_aaduser_03.png)
-
-1. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/iriusrisk-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
- 
-### Create a IriusRisk test user
-
-The objective of this section is to create a user called Britta Simon in IriusRisk. IriusRisk supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access IriusRisk if it doesn't exist yet.
-
-> [!Note]
-> If you need to create a user manually, contact [IriusRisk support team](mailto:info@continuumsecurity.net).
 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to IriusRisk.
 
-![Assign the user role][200] 
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **IriusRisk**.
 
-**To assign Britta Simon to IriusRisk, perform the following steps:**
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+2. In the applications list, select **IriusRisk**.
 
-	![Assign User][201] 
+	![The IriusRisk link in the Applications list](common/all-applications.png)
 
-1. In the applications list, select **IriusRisk**.
+3. In the menu on the left, select **Users and groups**.
 
-	![The IriusRisk link in the Applications list](./media/iriusrisk-tutorial/tutorial_iriusrisk_app.png)  
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. In the menu on the left, click **Users and groups**.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The "Users and groups" link][202]
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-	![The Add Assignment pane][203]
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-1. Click **Select** button on **Users and groups** dialog.
+### Create IriusRisk test user
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
+In this section, a user called Britta Simon is created in IriusRisk. IriusRisk supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in IriusRisk, a new one is created after authentication.
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the IriusRisk tile in the Access Panel, you should get automatically signed-on to your IriusRisk application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+When you click the IriusRisk tile in the Access Panel, you should be automatically signed in to the IriusRisk for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-[1]: ./media/iriusrisk-tutorial/tutorial_general_01.png
-[2]: ./media/iriusrisk-tutorial/tutorial_general_02.png
-[3]: ./media/iriusrisk-tutorial/tutorial_general_03.png
-[4]: ./media/iriusrisk-tutorial/tutorial_general_04.png
-
-[100]: ./media/iriusrisk-tutorial/tutorial_general_100.png
-
-[200]: ./media/iriusrisk-tutorial/tutorial_general_200.png
-[201]: ./media/iriusrisk-tutorial/tutorial_general_201.png
-[202]: ./media/iriusrisk-tutorial/tutorial_general_202.png
-[203]: ./media/iriusrisk-tutorial/tutorial_general_203.png
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

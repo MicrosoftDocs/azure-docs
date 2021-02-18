@@ -1,18 +1,9 @@
 ---
-title: Use Azure Automation Runbook to manage StorSimple devices | Microsoft Docs
-description: Learn how to use Azure Automation Runbook to automate StorSimple jobs
-services: storsimple
-documentationcenter: NA
+title: Use Azure Automation Runbook to manage StorSimple devices
+description: Learn how to use Azure Automation Runbook to manage your StorSimple 8000 series device in Azure portal.
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid:
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
 ---
@@ -32,9 +23,7 @@ Before you begin, ensure that you have:
 
 * an active Azure subscription associated with your StorSimple Device Manager service registered with a StorSimple 8000 series device.
 
-
 * Windows PowerShell 5.0 installed on your computer (Or, your Windows Server host for your StorSimple if using one).
-
 
 ### Create automation runbook module in Windows PowerShell
 
@@ -42,158 +31,158 @@ To create an automation module for the StorSimple 8000 series device management,
 
 1. Launch Windows PowerShell. Create a new folder and change directory to the new folder.
 
-    ```
+    ```powershell
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
-    ```    
-2. [Download NuGet CLI](http://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser.
+    ```
+
+2. [Download NuGet CLI](https://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser.
 
     You can also run the following command to download and store the script in the same folder that you created earlier.
-    
+
     ```
         wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
     ```
+
 3. Download the dependent SDK.
 
     ```
         C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Azure.Management.Storsimple8000series
         C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.3
         C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.2.9-preview
-    ```    
+    ```
+
 4. Download the script from the sample GitHub project.
 
     ```
         wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1 -Out Monitor-Backups.ps1
-
     ```
+
 5. Create an Azure Automation Runbook Module for StorSimple 8000 Series device management. On the Windows Powershell window, type the following commands:
 
-    ```
-            # set path variables
-            $downloadDir = "C:\scripts\StorSimpleSDKTools"
-            $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.StorSimple8000Series"
+    ```powershell
+        # set path variables
+        $downloadDir = "C:\scripts\StorSimpleSDKTools"
+        $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.StorSimple8000Series"
 
-            #don't change the folder name "Microsoft.Azure.Management.StorSimple8000Series"
-            mkdir "$moduleDir"
-            copy "$downloadDir\Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory*.dll" $moduleDir
-            copy "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\Microsoft.Rest.ClientRuntime.Azure*.dll" $moduleDir
-            copy "$downloadDir\Microsoft.Rest.ClientRuntime.2.3.8\lib\net452\Microsoft.Rest.ClientRuntime*.dll" $moduleDir
-            copy "$downloadDir\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json*.dll" $moduleDir
-            copy "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.Authentication.2.2.9-preview\lib\net45\Microsoft.Rest.ClientRuntime.Azure.Authentication*.dll" $moduleDir
-            copy "$downloadDir\Microsoft.Azure.Management.Storsimple8000series.1.0.0\lib\net452\Microsoft.Azure.Management.Storsimple8000series*.dll" $moduleDir
+        #don't change the folder name "Microsoft.Azure.Management.StorSimple8000Series"
+        mkdir "$moduleDir"
+        Copy-Item "$downloadDir\Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory*.dll" $moduleDir
+        Copy-Item "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\Microsoft.Rest.ClientRuntime.Azure*.dll" $moduleDir
+        Copy-Item "$downloadDir\Microsoft.Rest.ClientRuntime.2.3.8\lib\net452\Microsoft.Rest.ClientRuntime*.dll" $moduleDir
+        Copy-Item "$downloadDir\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json*.dll" $moduleDir
+        Copy-Item "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.Authentication.2.2.9-preview\lib\net45\Microsoft.Rest.ClientRuntime.Azure.Authentication*.dll" $moduleDir
+        Copy-Item "$downloadDir\Microsoft.Azure.Management.Storsimple8000series.1.0.0\lib\net452\Microsoft.Azure.Management.Storsimple8000series*.dll" $moduleDir
 
-            #Don't change the name of the Archive
-            compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
-
+        #Don't change the name of the Archive
+        compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
     ```
 
 6. Verify that an automation module zip file is created in `C:\scripts\StorSimpleSDKTools`.
 
-    ![verify-automation-module](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
+    ![Screenshot shows the StorSimpleSDKTools folder with the automation module zip file](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
 
-7. The following output is presented when the automation module is created via the Windows PowerShell. 
+7. The following output is presented when the automation module is created via the Windows PowerShell.
 
+    ```powershell
+    mkdir C:\scripts\StorSimpleSDKTools
     ```
-    -----------------------------------------
-    Windows PowerShell
-    Copyright (C) 2016 Microsoft Corporation. All rights reserved.
 
-    PS C:\WINDOWS\system32> mkdir C:\scripts\StorSimpleSDKTools
-
+    ```Output
         Directory: C:\scripts
 
     Mode                LastWriteTime         Length Name
     ----                -------------         ------ ----
     d-----       10/18/2017   8:43 AM                StorSimpleSDKTools
+    ```
 
+    ```powershell
+    wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
+    ```
 
-    PS C:\WINDOWS\system32> cd c:\scripts\StorSimpleSDKTools
-    PS C:\scripts\StorSimpleSDKTools> wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorS
-    impleSDKTools\nuget.exe
-    PS C:\scripts\StorSimpleSDKTools> C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Azure.Management.Storsimple8
-    000series
+    ```powershell
+    C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Azure.Management.Storsimple8000series
+    ```
 
+    ```Output
     -------------------------------------------
-    CUT              CUT  
+    CUT              CUT
     -------------------------------------------
     Successfully installed 'Microsoft.Azure.Management.Storsimple8000series 1.0.0' to C:\scripts\StorSimpleSDKTools
     Executing nuget actions took 1.77 sec
-    PS C:\scripts\StorSimpleSDKTools> C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.IdentityModel.Clients.Active
-    Directory -Version 2.28.3
+    ```
 
+    ```powershell
+    C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.3
+    ```
+
+    ```Output
     -------------------------------------------
-    CUT              CUT  
+    CUT              CUT
     -------------------------------------------
     Successfully installed 'Microsoft.IdentityModel.Clients.ActiveDirectory 2.28.3' to C:\scripts\StorSimpleSDKTools
     Executing nuget actions took 927.64 ms
-    PS C:\scripts\StorSimpleSDKTools> C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Rest.ClientRuntime.Azure.Aut
-    hentication -Version 2.2.9-preview
+    ```
 
+    ```powershell
+    C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.2.9-preview
+    ```
+
+    ```Output
     -------------------------------------------
-    CUT              CUT  
+    CUT              CUT
     -------------------------------------------
-    Successfully installed 'Microsoft.Rest.ClientRuntime.Azure.Authentication 2.2.9-preview' to C:\scripts\StorSimpleSDKTool
-    s
+    Successfully installed 'Microsoft.Rest.ClientRuntime.Azure.Authentication 2.2.9-preview' to C:\scripts\StorSimpleSDKTools
     Executing nuget actions took 717.48 ms
-    PS C:\scripts\StorSimpleSDKTools> wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Mo
-    nitor-Backups.ps1 -Out Monitor-Backups.ps1
-    PS C:\scripts\StorSimpleSDKTools> # set path variables
-    PS C:\scripts\StorSimpleSDKTools>             $downloadDir = "C:\scripts\StorSimpleSDKTools"
-    PS C:\scripts\StorSimpleSDKTools>             $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.Sto
-    rSimple8000Series"
-    PS C:\scripts\StorSimpleSDKTools>
-    PS C:\scripts\StorSimpleSDKTools>             #don't change the folder name "Microsoft.Azure.Management.StorSimple8000Se
-    ries"
-    PS C:\scripts\StorSimpleSDKTools>             mkdir "$moduleDir"
+    ```
 
+    ```powershell
+    wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1 -Out Monitor-Backups.ps1
+    # set path variables
+    $downloadDir = "C:\scripts\StorSimpleSDKTools"
+    $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.StorSimple8000Series"
+    #don't change the folder name "Microsoft.Azure.Management.StorSimple8000Series"
+    mkdir "$moduleDir"
+    ```
+
+    ```Output
         Directory: C:\scripts\StorSimpleSDKTools\AutomationModule
-
 
     Mode                LastWriteTime         Length Name
     ----                -------------         ------ ----
     d-----       10/18/2017   8:48 AM                Microsoft.Azure.Management.StorSimple8000Series
+    ```
 
-    PS C:\scripts\StorSimpleSDKTools>             copy "$downloadDir\Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\
-    lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory*.dll" $moduleDir
-    PS C:\scripts\StorSimpleSDKTools>             copy "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\Mic
-    rosoft.Rest.ClientRuntime.Azure*.dll" $moduleDir
-    PS C:\scripts\StorSimpleSDKTools>             copy "$downloadDir\Microsoft.Rest.ClientRuntime.2.3.8\lib\net452\Microsoft
-    .Rest.ClientRuntime*.dll" $moduleDir
-    PS C:\scripts\StorSimpleSDKTools>             copy "$downloadDir\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json*.dll" $
-    moduleDir
-    PS C:\scripts\StorSimpleSDKTools>             copy "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.Authentication.2.2.9
-    -preview\lib\net45\Microsoft.Rest.ClientRuntime.Azure.Authentication*.dll" $moduleDir
-    PS C:\scripts\StorSimpleSDKTools>             copy "$downloadDir\Microsoft.Azure.Management.Storsimple8000series.1.0.0\l
-    ib\net452\Microsoft.Azure.Management.Storsimple8000series*.dll" $moduleDir
-    PS C:\scripts\StorSimpleSDKTools>
-    PS C:\scripts\StorSimpleSDKTools>             #Don't change the name of the Archive
-    PS C:\scripts\StorSimpleSDKTools>             compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Manag
-    ement.StorSimple8000Series.zip
-    PS C:\scripts\StorSimpleSDKTools>
-
-    -------------------------------------------
-
+    ```powershell
+    Copy-Item "$downloadDir\Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory*.dll" $moduleDir
+    Copy-Item "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\Microsoft.Rest.ClientRuntime.Azure*.dll" $moduleDir
+    Copy-Item "$downloadDir\Microsoft.Rest.ClientRuntime.2.3.8\lib\net452\Microsoft.Rest.ClientRuntime*.dll" $moduleDir
+    Copy-Item "$downloadDir\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json*.dll" $moduleDir
+    Copy-Item "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.Authentication.2.2.9-preview\lib\net45\Microsoft.Rest.ClientRuntime.Azure.Authentication*.dll" $moduleDir
+    Copy-Item "$downloadDir\Microsoft.Azure.Management.Storsimple8000series.1.0.0\lib\net452\Microsoft.Azure.Management.Storsimple8000series*.dll" $moduleDir
+    #Don't change the name of the Archive
+    compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
     ```
 
 ### Import, publish, and run Automation runbook
 
 1. Create an Azure Run As automation account in the Azure portal. To do so, go
-to **Azure marketplace > Everything** and then search for **Automation**. Select **Automation accounts**.
+   to **Azure marketplace > Everything** and then search for **Automation**. Select **Automation accounts**.
 
     ![search-automation](./media/storsimple-8000-automation-azurerm-runbook/automation1.png)
 
 2. In the **Add Automation Account** blade:
 
-    1. Supply the **Name** of your Automation account.
-    2. Select the **Subscription** linked to your StorSimple Device Manager service.
-    3. Create a new resource group or select from an existing resource group.
-    4. Select a **Location** (if possible the same as where your service is running).
-    5. Leave the default **Create Run As account** option selected.
-    5. Optionally check **Pin to dashboard**. Click **Create**.
+   1. Supply the **Name** of your Automation account.
+   2. Select the **Subscription** linked to your StorSimple Device Manager service.
+   3. Create a new resource group or select from an existing resource group.
+   4. Select a **Location** (if possible the same as where your service is running).
+   5. Leave the default **Create Run As account** option selected.
+   6. Optionally check **Pin to dashboard**. Click **Create**.
 
-        ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
+       ![Screenshot shows the Add Automation Account pane with values for Subscription, Create Azure Run as account, and Create 2](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
-    After the automation account is successfully created, you are notified. For more information on how to create an Automation account, go to [Create a Run As account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+      After the automation account is successfully created, you are notified. For more information on how to create an Automation account, go to [Create a Run As account](../automation/manage-runas-account.md).
 
 3. To ensure that the automation account created can access the StorSimple Device Manager service, you need to assign appropriate permissions to the automation account. Go to **Access control** in your StorSimple Device Manager service. Click **+ Add** and provide the name of your Azure Automation Account. **Save** the settings.
 
@@ -203,7 +192,7 @@ to **Azure marketplace > Everything** and then search for **Automation**. Select
 
 5. In the **Add module** blade, browse to the location of the zipped module, and select and open the module. Click **OK**.
 
-    ![add-module](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
+    ![Screenshot shows the Add Module pane with an Upload File value and OK](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
 6. Go to **Process Automation > Runbooks and click + Add a runbook**. In the **Add runbook** blade, click **Import an existing runbook**. Point to the Windows PowerShell script file for the **Runbook file**. The runbook type is automatically selected. Provide a name and an optional description for the runbook. Click **Create**.
 
@@ -213,14 +202,13 @@ to **Azure marketplace > Everything** and then search for **Automation**. Select
 
     ![click-new-runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-8. Edit the runbook and click **Test pane**. Provide the parameters such as name of your StorSimple Device Manager service, name of the StorSimple device and the subscription. **Start** the test. The report is generated when the run is complete. For more information, go to [how to test a runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+8. Edit the runbook and click **Test pane**. Provide the parameters such as name of your StorSimple Device Manager service, name of the StorSimple device and the subscription. **Start** the test. The report is generated when the run is complete. For more information, go to [how to test a runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook).
 
-    ![test-runbook](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
+    ![Screenshot shows the Test pan where you canenter parameter values and start a test](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 
 9. Inspect the output from the runbook in the test pane. If satisfied, close the pane. Click **Publish** and when prompted for confirmation, confirm, and publish the runbook.
 
-    ![publish-runbook](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
-
+    ![Screenshot shows The Edit PowerShell Runbook pane which prompts you to proceed to publish the runbook](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
 
 ## Next steps
 

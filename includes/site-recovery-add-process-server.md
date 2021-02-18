@@ -8,14 +8,14 @@ ms.author: raynew
 1. Launch the Azure Site Recovery UnifiedSetup.exe
 2. In **Before you begin**, select **Add additional process servers to scale out deployment**.
 
-  ![Add process server](./media/site-recovery-add-process-server/ps-page-1.png)
+   ![Add process server](./media/site-recovery-add-process-server/ps-page-1.png)
 
 3. In **Configuration Server Details**, specify the IP address of the Configuration Server, and the passphrase.
 
-  ![Add process server 2](./media/site-recovery-add-process-server/ps-page-2.png)
+   ![Add process server 2](./media/site-recovery-add-process-server/ps-page-2.png)
 4. In **Internet Settings**, specify how the Provider running on the Configuration Server connects to Azure Site Recovery over the Internet.
 
-  ![Add process server 3](./media/site-recovery-add-process-server/ps-page-3.png)
+   ![Add process server 3](./media/site-recovery-add-process-server/ps-page-3.png)
 
    * If you want to connect with the proxy that's currently set up on the machine, select **Connect with existing proxy settings**.
    * If you want the Provider to connect directly, select **Connect directly without a proxy**.
@@ -33,7 +33,7 @@ ms.author: raynew
      ![Add process server 5](./media/site-recovery-add-process-server/ps-page-5.png)
 
 7. In **Install Location**, select where you want to install the binaries and store the cache. The drive you select must have at least 5 GB of disk space available, but we recommend a cache drive with at least 600 GB of free space.
-     ![Add process server 5](./media/site-recovery-add-process-server/ps-page-6.png)
+     ![Screenshot that shows the installation location for the binaries and cache storage.](./media/site-recovery-add-process-server/ps-page-6.png)
 
 8. In **Network Selection**, specify the listener (network adapter and SSL port) on which the Configuration Server sends and receives replication data. Port 9443 is the default port used for sending and receiving replication traffic, but you can modify this port number to suit your environment's requirements. In addition to the port 9443, we also open port 443, which is used by a web server to orchestrate replication operations. Do not use Port 443 for sending or receiving replication traffic.
 

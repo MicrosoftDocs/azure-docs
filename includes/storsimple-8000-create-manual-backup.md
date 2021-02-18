@@ -6,8 +6,6 @@ ms.date: 10/26/2018
 ms.author: alkohli
 ---
 
-<!--author=alkohli last changed: 01/20/2017-->
-
 #### To create a manual backup
 
 1. Go to your StorSimple Device Manager service and then click **Devices**. From the tabular listing of devices, select your device. Go to **Settings > Manage > Backup policies**.
@@ -20,11 +18,11 @@ ms.author: alkohli
 
     1. Choose the appropriate **Snapshot type** from the dropdown list: **Local** snapshot or **Cloud** snapshot. Select local snapshot for fast backups or restores, and cloud snapshot for data resiliency.
 
-        ![Create manual backup](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
+        ![Create manual backup 2](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 
     2. Click **OK** to start a job to create a snapshot. You will see a notification at the top of the page after the job is successfully created.
 
-        ![Create manual backup](./media/storsimple-8000-create-manual-backup/createmanualbu4.png)
+        ![Create manual backup 3](./media/storsimple-8000-create-manual-backup/createmanualbu4.png)
 
     3. To monitor the job, click the notification. This takes you to the **Jobs** blade where you can view the job progress.
 

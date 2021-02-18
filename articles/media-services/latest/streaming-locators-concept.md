@@ -1,107 +1,108 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Streaming Locators in Azure Media Services | Microsoft Docs
+title: Streaming Locators in Azure Media Services 
 description: This article gives an explanation of what Streaming Locators are, and how they are used by Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 12/20/2018
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 03/04/2020
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
 
 # Streaming Locators
 
-You need to provide your clients with a URL that they can use to play back encoded video or audio files, you need to create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) and build the streaming URLs. For more information, see [Stream a file](stream-files-dotnet-quickstart.md).
+To make videos in the output Asset available to clients for playback, you have to create a [Streaming Locator](/rest/api/media/streaminglocators) and then build streaming URLs. To build a URL, you need to concatenate the Streaming Endpoint host name and the Streaming Locator path. For .NET sample, see [Get a Streaming Locator](stream-files-tutorial-with-api.md#get-a-streaming-locator).
 
-## StreamingLocator definition
+The process of creating a **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-The following table shows the StreamingLocator's properties and gives their definitions.
+When creating a **Streaming Locator**, you must specify an **Asset** name and a **Streaming Policy** name. For more information, see the following topics:
 
-|Name|Description|
-|---|---|
-|id	|Fully qualified resource ID for the resource.|
-|name|The name of the resource.|
-|properties.alternativeMediaId|Alternative Media ID of this Streaming Locator.|
-|properties.assetName|Asset name|
-|properties.contentKeys|The ContentKeys used by this Streaming Locator.|
-|properties.created|The creation time of the Streaming Locator.|
-|properties.defaultContentKeyPolicyName|Name of the default ContentKeyPolicy used by this Streaming Locator.|
-|properties.endTime|The end time of the Streaming Locator.|
-|properties.startTime|The start time of the Streaming Locator.|
-|properties.streamingLocatorId|The StreamingLocatorId of the Streaming Locator.|
-|properties.streamingPolicyName	|Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'|
-|type|The type of the resource.|
+* [Assets](assets-concept.md)
+* [Streaming Policies](streaming-policy-concept.md)
+* [Content Key Policies](content-key-policy-concept.md)
 
-For the full definition, see [Streaming Locators](https://docs.microsoft.com/rest/api/media/streaminglocators).
+You can also specify the start and end time on your Streaming Locator, which will only let your user play the content between these times (for example, between 5/1/2019 to 5/5/2019).  
 
-## Filtering, ordering, paging
+## Considerations
 
-Media Services supports the following OData query options for Streaming Locators: 
+* **Streaming Locators** are not updatable. 
+* Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
+* You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limits](limits-quotas-constraints.md).
 
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
+## Create Streaming Locators  
 
-Operator description:
+### Not encrypted
 
-* Eq = equal to
-* Ne = not equal to
-* Ge = Greater than or equal to
-* Le = Less than or equal to
-* Gt = Greater than
-* Lt = Less than
-
-### Filtering/ordering
-
-The following table shows how these options may be applied to the StreamingLocator properties: 
-
-|Name|Filter|Order|
-|---|---|---|
-|id	|||
-|name|Eq, ne, ge, le, gt, lt|Ascending and descending|
-|properties.alternativeMediaId	|||
-|properties.assetName	|||
-|properties.contentKeys	|||
-|properties.created	|Eq, ne, ge, le,  gt, lt|Ascending and descending|
-|properties.defaultContentKeyPolicyName	|||
-|properties.endTime	|Eq, ne, ge, le, gt, lt|Ascending and descending|
-|properties.startTime	|||
-|properties.streamingLocatorId	|||
-|properties.streamingPolicyName	|||
-|type	|||
-
-### Pagination
-
-Pagination is supported for each of the four enabled sort orders. Currently, the page size is 10.
-
-> [!TIP]
-> You should always use the next link to enumerate the collection and not depend on a particular page size.
-
-If a query response contains many items, the service returns an "\@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. You cannot configure the page size. 
-
-If StreamingLocators are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded.) 
-
-The following C# example shows how to enumerate through all StreamingLocators in the account.
+If you want to stream your file in-the-clear (non-encrypted), set the predefined clear streaming policy: to 'Predefined_ClearStreamingOnly' (in .NET, you can use the PredefinedStreamingPolicy.ClearStreamingOnly enum).
 
 ```csharp
-var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingLocators.ListNextAsync(currentPage.NextPageLink);
-}
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly
+    });
 ```
 
-For REST examples, see [Streaming Locators - List](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+### Encrypted 
+
+If you need to encrypt your content with the CENC encryption, set your policy to 'Predefined_MultiDrmCencStreaming'. The  Widevine encryption will be applied to a DASH stream and PlayReady to Smooth. The key will be delivered to a playback client based on the configured DRM licenses.
+
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = "Predefined_MultiDrmCencStreaming",
+        DefaultContentKeyPolicyName = contentPolicyName
+    });
+```
+
+If you also want to encrypt your HLS stream with CBCS (FairPlay), use 'Predefined_MultiDrmStreaming'.
+
+> [!NOTE]
+> Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
+## Associate filters with Streaming Locators
+
+See [Filters: associate with Streaming Locators](filters-concept.md#associating-filters-with-streaming-locator).
+
+## Filter, order, page Streaming Locator entities
+
+See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
+
+## List Streaming Locators by Asset name
+
+To get Streaming Locators based on the associated Asset name, use the following operations:
+
+|Language|API|
+|---|---|
+|REST|[liststreaminglocators](/rest/api/media/assets/liststreaminglocators)|
+|CLI|[az ams asset list-streaming-locators](/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
+|.NET|[ListStreamingLocators](/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
+|Java|[AssetStreamingLocator](/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
+|Node.js|[listStreamingLocators](/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
+
+## See also
+
+* [Assets](assets-concept.md)
+* [Streaming Policies](streaming-policy-concept.md)
+* [Content Key Policies](content-key-policy-concept.md)
+* [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
 
 ## Next steps
 
-[Stream a file](stream-files-dotnet-quickstart.md)
+[How to create a streaming locator and build URLs](create-streaming-locator-build-url.md)

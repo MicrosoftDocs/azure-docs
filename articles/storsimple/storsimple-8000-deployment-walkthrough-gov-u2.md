@@ -19,10 +19,12 @@ ms.author: alkohli
 ---
 # Deploy your on-premises StorSimple device in the Government portal
 
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## Overview
 Welcome to Microsoft Azure StorSimple device deployment. These deployment tutorials apply to the StorSimple 8000 Series running Update 3 software or later in the Azure Government portal. This series of tutorials includes a configuration checklist, a list of configuration prerequisites, and detailed configuration steps for your StorSimple device.
 
-The information in these tutorials assumes that you have reviewed the safety precautions, and unpacked, racked, and cabled your StorSimple device. If you still need to perform those tasks, start with reviewing the [safety precautions](storsimple-safety.md). Follow the device-specific instructions to unpack, rack mount, and cable your device.
+The information in these tutorials assumes that you have reviewed the safety precautions, and unpacked, racked, and cabled your StorSimple device. If you still need to perform those tasks, start with reviewing the [safety precautions](storsimple-8000-safety.md). Follow the device-specific instructions to unpack, rack mount, and cable your device.
 
 * [Unpack, rack mount, and cable your 8100](storsimple-8100-hardware-installation.md)
 * [Unpack, rack mount, and cable your 8600](storsimple-8600-hardware-installation.md)
@@ -147,7 +149,7 @@ Perform these steps on your Windows Server host.
 
 > [!IMPORTANT]
 > * For the high availability of your StorSimple solution, we recommend that you configure MPIO on your host servers (optional) prior to configuring iSCSI. MPIO configuration on host servers will ensure that the servers can tolerate a link, network, or interface failure.
-> * For MPIO and iSCSI installation and configuration instructions on Windows Server host, go to [Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md). These will also include the steps to mount, initialize and format StorSimple volumes.
+> * For MPIO and iSCSI installation and configuration instructions on Windows Server host, go to [Configure MPIO for your StorSimple device](./storsimple-8000-configure-mpio-windows-server.md). These will also include the steps to mount, initialize and format StorSimple volumes.
 > * For MPIO and iSCSI installation and configuration instructions on a Linux host, go to [Configure MPIO for your StorSimple Linux host](storsimple-configure-mpio-on-linux.md)
 
 If you decide not to configure MPIO, perform the following steps to mount, initialize, and format your StorSimple volumes on a Windows Server host.
@@ -166,7 +168,7 @@ You can take a manual backup at any time. For procedures, go to [Create a manual
 ## Configure a new storage account for the service
 This is an optional step that you need to perform only if you did not enable the automatic creation of a storage account with your service. A Microsoft Azure storage account is required to create a StorSimple volume container.
 
-If you need to create an Azure storage account in a different region, see [About Azure Storage Accounts](../storage/common/storage-create-storage-account.md) for step-by-step instructions.
+If you need to create an Azure storage account in a different region, see [About Azure Storage Accounts](../storage/common/storage-account-create.md) for step-by-step instructions.
 
 Perform the following steps in the Government portal, on the **StorSimple Device Manager service** page.
 
@@ -193,4 +195,3 @@ Perform the following steps in the Government portal to create an on-demand manu
 ## Next steps
 * Configure a [virtual device](storsimple-8000-cloud-appliance-u2.md).
 * Use the [StorSimple Device Manager service](storsimple-8000-manager-service-administration.md) to manage your StorSimple device.
-

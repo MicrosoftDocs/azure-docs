@@ -1,38 +1,34 @@
 ---
-title: Rewrite HTTP headers in Azure Application Gateway
+title: Create an Azure Application Gateway & rewrite HTTP headers
 description: This article provides information on how to create an Azure Application Gateway and rewrite HTTP headers using Azure PowerShell
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 12/20/2018
+ms.topic: how-to
+ms.date: 11/19/2019
 ms.author: absha
 ---
-# Tutorial: Create an application gateway and rewrite HTTP headers
+
+# Create an application gateway and rewrite HTTP headers
 
 You can use Azure PowerShell to
-configure [rules to rewrite HTTP request and response headers](rewrite-http-headers.md) when you create the new [autoscaling and zone-redundant application gateway SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+configure [rules to rewrite HTTP request and response headers](rewrite-http-headers.md) when you create the new [autoscaling and zone-redundant application gateway SKU](./application-gateway-autoscaling-zone-redundant.md)
 
-> [!IMPORTANT] 
-> The autoscaling and zone-redundant application gateway SKU is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details. 
+In this article, you learn how to:
 
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
->
-> * Create an autoscale virtual network
-> * Create a reserved public IP
-> * Set up your application gateway infrastructure
-> * Specify your http header rewrite rule configuration
-> * Specify autoscale
-> * Create the application gateway
-> * Test the application gateway
+* Create an autoscale virtual network
+* Create a reserved public IP
+* Set up your application gateway infrastructure
+* Specify your http header rewrite rule configuration
+* Specify autoscale
+* Create the application gateway
+* Test the application gateway
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-This tutorial requires that you run Azure PowerShell locally. You must have Az module version 1.0.0 or later installed. Run `Import-Module Az` and then`Get-Module Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
+This article requires that you run Azure PowerShell locally. You must have Az module version 1.0.0 or later installed. Run `Import-Module Az` and then`Get-Module Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
 
 ## Sign in to Azure
 
@@ -87,7 +83,7 @@ $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork
 
 ## Configure the infrastructure
 
-Configure the IP config, front-end IP config, back-end pool, HTTP settings, certificate, port and listener in an identical format to the existing Standard application gateway. The new SKU follows the same object model as the Standard SKU.
+Configure the IP config, front-end IP config, back-end pool, HTTP settings, certificate, port, and listener in an identical format to the existing Standard application gateway. The new SKU follows the same object model as the Standard SKU.
 
 ```azurepowershell
 $ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
@@ -107,7 +103,7 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
 
 Configure the new objects required to rewrite the http headers:
 
-- RequestHeaderConfiguration**: this object is used to specify the request header fields that you intend to rewrite and the new value that the original headers need to be rewritten to.
+- **RequestHeaderConfiguration**: this object is used to specify the request header fields that you intend to rewrite and the new value that the original headers need to be rewritten to.
 - **ResponseHeaderConfiguration**: this object is used to specify the response header fields that you intend to rewrite and the new value that the original headers need to be rewritten to.
 - **ActionSet**: this object contains the configurations of the request and response headers specified above. 
 - **RewriteRule**: this object contains all the *actionSets* specified above. 
@@ -157,7 +153,7 @@ $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 -Resource
 
 ## Test the application gateway
 
-Use Get-AzureRmPublicIPAddress to get the public IP address of the application gateway. Copy the public IP address or DNS name, and then paste it into the address bar of your browser.
+Use Get-AzPublicIPAddress to get the public IP address of the application gateway. Copy the public IP address or DNS name, and then paste it into the address bar of your browser.
 
 ```azurepowershell
 Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP
@@ -173,5 +169,4 @@ First explore the resources that were created with the application gateway. Then
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create an application gateway with URL path-based routing rules](./tutorial-url-route-powershell.md)
+- [Create an application gateway with URL path-based routing rules](./tutorial-url-route-powershell.md)

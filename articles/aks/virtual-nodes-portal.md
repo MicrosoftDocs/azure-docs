@@ -2,19 +2,41 @@
 title: Create virtual nodes using the portal in Azure Kubernetes Services (AKS)
 description: Learn how to use the Azure portal to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 services: container-service
-author: iainfoulds
-
-ms.service: container-service
-ms.date: 12/03/2018
-ms.author: iainfou
+ms.topic: conceptual
+ms.date: 05/06/2019
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes in the Azure portal
 
-To quickly deploy workloads in an Azure Kubernetes Service (AKS) cluster, you can use virtual nodes. With virtual nodes, you have fast provisioning of pods, and only pay per second for their execution time. In a scaling scenario, you don't need to wait for the Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. This article shows you how to create and configure the virtual network resources and an AKS cluster with virtual nodes enabled.
+This article shows you how to use the Azure portal to create and configure the virtual network resources and an AKS cluster with virtual nodes enabled.
 
-> [!IMPORTANT]
-> Virtual nodes for AKS are currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+> [!NOTE]
+> [This article](virtual-nodes.md) gives you an overview of the region availability and limitations using virtual nodes.
+
+## Before you begin
+
+Virtual nodes enable network communication between pods that run in Azure Container Instances (ACI) and the AKS cluster. To provide this communication, a virtual network subnet is created and delegated permissions are assigned. Virtual nodes only work with AKS clusters created using *advanced* networking (Azure CNI). By default, AKS clusters are created with *basic* networking (kubenet). This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
+
+If you have not previously used ACI, register the service provider with your subscription. You can check the status of the ACI provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
+
+```azurecli-interactive
+az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
+```
+
+The *Microsoft.ContainerInstance* provider should report as *Registered*, as shown in the following example output:
+
+```output
+Namespace                    RegistrationState    RegistrationPolicy
+---------------------------  -------------------  --------------------
+Microsoft.ContainerInstance  Registered           RegistrationRequired
+```
+
+If the provider shows as *NotRegistered*, register the provider using the [az provider register][az-provider-register] as shown in the following example:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerInstance
+```
 
 ## Sign in to Azure
 
@@ -28,13 +50,16 @@ On the **Basics** page, configure the following options:
 
 - *PROJECT DETAILS*: Select an Azure subscription, then select or create an Azure resource group, such as *myResourceGroup*. Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
 - *CLUSTER DETAILS*: Select a region, Kubernetes version, and DNS name prefix for the AKS cluster.
-- *SCALE*: Select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed.
-    - Select the number of nodes to deploy into the cluster. For this article, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
-    - Under **Virtual nodes**, select *Enabled*.
+- *PRIMARY NODE POOL*: Select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed.
+     - Select the number of nodes to deploy into the cluster. For this article, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
+
+Click **Next: Scale**.
+
+On the **Scale** page, select *Enabled* under **Virtual nodes**.
 
 ![Create AKS cluster and enable the virtual nodes](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
-By default, an Azure Active Directory service principal is created. This service principal is used for cluster communication and integration with other Azure services.
+By default, an Azure Active Directory service principal is created. This service principal is used for cluster communication and integration with other Azure services. Alternatively, you can use a managed identity for permissions instead of a service principal. For more information, see [Use managed identities](use-managed-identity.md).
 
 The cluster is also configured for advanced networking. The virtual nodes are configured to use their own Azure virtual network subnet. This subnet has delegated permissions to connect Azure resources between the AKS cluster. If you don't already have delegated subnet, the Azure portal creates and configures the Azure virtual network and subnet for use with the virtual nodes.
 
@@ -56,15 +81,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 The following example output shows the single VM node created and then the virtual node for Linux, *virtual-node-aci-linux*:
 
-```
-$ kubectl get nodes
-
+```output
 NAME                           STATUS    ROLES     AGE       VERSION
 virtual-node-aci-linux         Ready     agent     28m       v1.11.2
 aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
@@ -91,7 +114,7 @@ spec:
     spec:
       containers:
       - name: aci-helloworld
-        image: microsoft/aci-helloworld
+        image: mcr.microsoft.com/azuredocs/aci-helloworld
         ports:
         - containerPort: 80
       nodeSelector:
@@ -101,8 +124,6 @@ spec:
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Exists
-      - key: azure.com/aci
-        effect: NoSchedule
 ```
 
 Run the application with the [kubectl apply][kubectl-apply] command.
@@ -113,40 +134,43 @@ kubectl apply -f virtual-node.yaml
 
 Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods and the scheduled node. Notice that the `virtual-node-helloworld` pod has been scheduled on the `virtual-node-linux` node.
 
+```console
+kubectl get pods -o wide
 ```
-$ kubectl get pods -o wide
 
+```output
 NAME                                     READY     STATUS    RESTARTS   AGE       IP           NODE
 virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.0.4   virtual-node-aci-linux
 ```
 
 The pod is assigned an internal IP address from the Azure virtual network subnet delegated for use with virtual nodes.
 
+> [!NOTE]
+> If you use images stored in Azure Container Registry, [configure and use a Kubernetes secret][acr-aks-secrets]. A current limitation of virtual nodes is that you can't use integrated Azure AD service principal authentication. If you don't use a secret, pods scheduled on virtual nodes fail to start and report the error `HTTP response status code 400 error code "InaccessibleImage"`.
+
 ## Test the virtual node pod
 
 To test the pod running on the virtual node, browse to the demo application with a web client. As the pod is assigned an internal IP address, you can quickly test this connectivity from another pod on the AKS cluster. Create a test pod and attach a terminal session to it:
 
-```azurecli-interactive
+```console
 kubectl run -it --rm virtual-node-test --image=debian
 ```
 
 Install `curl` in the pod using `apt-get`:
 
-```azurecli-interactive
+```console
 apt-get update && apt-get install -y curl
 ```
 
 Now access the address of your pod using `curl`, such as *http://10.241.0.4*. Provide your own internal IP address shown in the previous `kubectl get pods` command:
 
-```azurecli-interactive
+```console
 curl -L http://10.241.0.4
 ```
 
 The demo application is displayed, as shown in the following condensed example output:
 
-```
-$ curl -L 10.241.0.4
-
+```output
 <html>
 <head>
   <title>Welcome to Azure Container Instances!</title>
@@ -164,6 +188,8 @@ Virtual nodes are one component of a scaling solution in AKS. For more informati
 
 - [Use the Kubernetes horizontal pod autoscaler][aks-hpa]
 - [Use the Kubernetes cluster autoscaler][aks-cluster-autoscaler]
+- [Check out the Autoscale sample for Virtual Nodes][virtual-node-autoscale]
+- [Read more about the Virtual Kubelet open source library][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
@@ -172,10 +198,16 @@ Virtual nodes are one component of a scaling solution in AKS. For more informati
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[aks-github]: https://github.com/azure/aks/issues]
+[virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
+[virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
+[acr-aks-secrets]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 
 <!-- LINKS - internal -->
-[aks-network]: ./networking-overview.md
+[aks-network]: ./configure-azure-cni.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [aks-hpa]: tutorial-kubernetes-scale.md
-[aks-cluster-autoscaler]: autoscaler.md
+[aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
+[az-provider-list]: /cli/azure/provider?view=azure-cli-latest#az-provider-list
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest&preserve-view=true#az-provider-register

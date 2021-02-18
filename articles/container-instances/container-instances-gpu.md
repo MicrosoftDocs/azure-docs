@@ -1,21 +1,15 @@
 ---
-title: Deploy GPU-enabled Azure container instances 
-description: Learn how to deploy Azure container instances to run on GPU resources.
-services: container-instances
-author: dlepow
-manager: jeconnoc
-
-ms.service: container-instances
+title: Deploy GPU-enabled container instance 
+description: Learn how to deploy Azure container instances to run compute-intensive container apps using GPU resources.
 ms.topic: article
-ms.date: 11/29/2018
-ms.author: danlep
+ms.date: 07/22/2020
 ---
 
 # Deploy container instances that use GPU resources
 
-To run certain compute-intensive workloads on Azure Container Instances, deploy your container groups with *GPU resources*. The container instances can access one or more NVIDIA Tesla GPUs while running container workloads such as CUDA and deep learning applications.
+To run certain compute-intensive workloads on Azure Container Instances, deploy your [container groups](container-instances-container-groups.md) with *GPU resources*. The container instances in the group can access one or more NVIDIA Tesla GPUs while running container workloads such as CUDA and deep learning applications.
 
-As shown in this article, you can add GPU resources when you deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md) or [Resource Manager template](container-instances-multi-container-group.md).
+This article shows how to add GPU resources when you deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md) or [Resource Manager template](container-instances-multi-container-group.md). You can also specify GPU resources when you deploy a container instance using the Azure portal.
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -24,15 +18,7 @@ As shown in this article, you can add GPU resources when you deploy a container 
 
 In preview, the following limitations apply when using GPU resources in container groups. 
 
-**Supported regions**:
-
-* East US (eastus)
-* West US 2 (westus2)
-* South Central US (southcentralus)
-* West Europe (westeurope)
-* North Europe (northeurope)
-* East Asia (eastasia)
-* Central India (centralindia)
+[!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 
 Support will be added for additional regions over time.
 
@@ -51,25 +37,16 @@ To use GPUs in a container instance, specify a *GPU resource* with the following
 
   | SKU | VM family |
   | --- | --- |
-  | K80 | [NC](../virtual-machines/linux/sizes-gpu.md#nc-series) |
-  | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
-  | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
+  | K80 | [NC](../virtual-machines/nc-series.md) |
+  | P100 | [NCv2](../virtual-machines/ncv2-series.md) |
+  | V100 | [NCv3](../virtual-machines/ncv3-series.md) |
 
-### CPU and memory
+[!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-When deploying GPU resources, set CPU and memory resources appropriate for the workload, up to the maximum values shown in the following table. These values are currently larger than the CPU and memory limits in container instances without GPU resources.  
+When deploying GPU resources, set CPU and memory resources appropriate for the workload, up to the maximum values shown in the preceding table. These values are currently larger than the CPU and memory resources available in container groups without GPU resources.  
 
-| GPU SKU | GPU count | CPU |  Memory (GB) |
-| --- | --- | --- | --- |
-| K80 | 1 | 6 | 56 |
-| K80 | 2 | 12 | 112 |
-| K80 | 4 | 24 | 224 |
-| P100 | 1 | 6 | 112 |
-| P100 | 2 | 12 | 224 |
-| P100 | 4 | 24 | 448 |
-| V100 | 1 | 6 | 112 |
-| V100 | 2 | 12 | 224 |
-| V100 | 4 | 24 | 448 |
+> [!IMPORTANT]
+> Default [subscription limits](container-instances-quotas.md) (quotas) for GPU resources differ by SKU. The default CPU limits for the P100 and V100 SKUs are initially set to 0. To request an increase in an available region, please submit an [Azure support request][azure-support].
 
 ### Things to know
 
@@ -77,17 +54,21 @@ When deploying GPU resources, set CPU and memory resources appropriate for the w
 
 * **Pricing** - Similar to container groups without GPU resources, Azure bills for resources consumed over the *duration* of a container group with GPU resources. The duration is calculated from the time to pull your first container's image until the container group terminates. It does not include the time to deploy the container group.
 
-  Pricing is higher for container groups with GPU resources than for container groups without. See [pricing details](https://azure.microsoft.com/pricing/details/container-instances/).
+  See [pricing details](https://azure.microsoft.com/pricing/details/container-instances/).
 
 * **CUDA drivers** - Container instances with GPU resources are pre-provisioned with NVIDIA CUDA drivers and container runtimes, so you can use container images developed for CUDA workloads.
 
+  We support only CUDA 9.0 at this stage. For example, you can use the following base images for your Docker file:
+  * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+    
 ## YAML example
 
-Copy the following YAML into a new file named *gpu-deploy-aci.yaml*, then save the file. This YAML creates a container group named *gpucontainergroup* specifying a container instance with a K80 GPU. The instance runs a sample CUDA vector addition application. The resource requests are sufficient to run the workload.
+One way to add GPU resources is to deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md). Copy the following YAML into a new file named *gpu-deploy-aci.yaml*, then save the file. This YAML creates a container group named *gpucontainergroup* specifying a container instance with a K80 GPU. The instance runs a sample CUDA vector addition application. The resource requests are sufficient to run the workload.
 
 ```YAML
 additional_properties: {}
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 name: gpucontainergroup
 properties:
   containers:
@@ -130,7 +111,7 @@ Done
 
 ## Resource Manager template example
 
-Start by creating a file named `gpudeploy.json`, then copy the following JSON into it. This example deploys a container instance with a V100 GPU that runs a [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) training job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/). The resource requests are sufficient to run the workload.
+Another way to deploy a container group with GPU resources is by using a [Resource Manager template](container-instances-multi-container-group.md). Start by creating a file named `gpudeploy.json`, then copy the following JSON into it. This example deploys a container instance with a V100 GPU that runs a [TensorFlow](https://www.tensorflow.org/) training job against the MNIST dataset. The resource requests are sufficient to run the workload.
 
 ```JSON
 {
@@ -147,13 +128,13 @@ Start by creating a file named `gpudeploy.json`, then copy the following JSON in
     },
     "variables": {
       "containername": "gpucontainer",
-      "containerimage": "microsoft/samples-tf-mnist-demo:gpu"
+      "containerimage": "mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu"
     },
     "resources": [
       {
         "name": "[parameters('containerGroupName')]",
         "type": "Microsoft.ContainerInstance/containerGroups",
-        "apiVersion": "2018-10-01",
+        "apiVersion": "2019-12-01",
         "location": "[resourceGroup().location]",
         "properties": {
             "containers": [
@@ -182,16 +163,16 @@ Start by creating a file named `gpudeploy.json`, then copy the following JSON in
 }
 ```
 
-Deploy the template with the [az group deployment create][az-group-deployment-create] command. You need to supply the name of a resource group that was created in a region such as *eastus* that supports GPU resources.
+Deploy the template with the [az deployment group create][az-deployment-group-create] command. You need to supply the name of a resource group that was created in a region such as *eastus* that supports GPU resources.
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file gpudeploy.json
+az deployment group create --resource-group myResourceGroup --template-file gpudeploy.json
 ```
 
 The deployment takes several minutes to complete. Then, the container starts and runs the TensorFlow job. Run the [az container logs][az-container-logs] command to view the log output:
 
 ```azurecli
-az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
+az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer
 ```
 
 Output:
@@ -239,7 +220,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 ## Next steps
 
 * Learn more about deploying a container group using a [YAML file](container-instances-multi-container-yaml.md) or [Resource Manager template](container-instances-multi-container-group.md).
-* Learn more about [GPU optimized VM sizes](../virtual-machines/linux/sizes-gpu.md) in Azure.
+* Learn more about [GPU optimized VM sizes](../virtual-machines/sizes-gpu.md) in Azure.
 
 
 <!-- IMAGES -->
@@ -247,10 +228,11 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
 [az-container-show]: /cli/azure/container#az-container-show
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create

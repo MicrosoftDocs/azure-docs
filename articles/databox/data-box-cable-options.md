@@ -1,12 +1,12 @@
 ---
 title: Azure Data Box cabling options | Microsoft Docs 
-description: Describes the various cabling options for your Azure Data Box.
+description: Learn about the different the ways to cable your Azure Data Box for data transfer by using MGMT port or DATA port.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
 ---
@@ -28,7 +28,7 @@ Do the following steps to cable your device.
 
 1. Use an RJ45 cable to connect the MGMT port to the server that has the data.
 
-    ![One port setup](media/data-box-cable-options/cabling-mgmt-only.png)
+    ![One-port setup](media/data-box-cable-options/cabling-mgmt-only.png)
 
 2. On the server, set:
 
@@ -58,10 +58,10 @@ Do the following steps to cable your device.
 2. Use an RJ45 for DATA 3 or SFP+ cables to connect DATA 1 or DATA 2 to the server acting  as data source. We recommend that you use 10-GbE DATA 1 or DATA 2 ports for good performance.
 3. On the server, set:
 
-    - **IP address** to 192.168.100.5
-    - **Subnet** to 255.255.255.0
+   - **IP address** to 192.168.100.5
+   - **Subnet** to 255.255.255.0
 
-    ![Two port setup](media/data-box-cable-options/cabling-2-port-setup.png)
+     ![Two-port setup](media/data-box-cable-options/cabling-2-port-setup.png)
 
 3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
 4. Assign static IPs to the data ports that you've configured.
@@ -70,14 +70,14 @@ Do the following steps to cable your device.
 
 Do the following steps to cable your device.
 
-1. Use an RJ45 Ethernet cable from the server directly to the MGMT port for configuration.
+1. Use an RJ45 Ethernet cable from the separate computer directly to the MGMT port for configuration.
 2. Use an RJ45 for DATA 3 or SFP+ cables to connect DATA 1 or DATA 2 to the server. We recommend that you use 10-GbE DATA 1 or DATA 2 ports for good performance. The data ports are connected via a 10-GbE switch to the server with data.
 3. Configure the Ethernet adapter of the laptop you're using to connect to the device with:
 
-    - **IP address** of 192.168.100.5
-    - **Subnet** of 255.255.255.0.
-
-    ![Two port setup with a switch](media/data-box-cable-options/cabling-with-static-ip.png)
+   - **IP address** of 192.168.100.5
+   - **Subnet** of 255.255.255.0.
+  
+   ![Two-port setup with a switch](media/data-box-cable-options/cabling-with-static-ip.png)
 
 3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
 4. Identify the IP addresses assigned by the DHCP server.
@@ -98,10 +98,10 @@ Do the following steps to cable your device.
 2. Use an RJ45 for DATA 3 or SFP+ cables to connect DATA 1 or DATA 2 to the server. We recommend that you use 10-GbE DATA 1 or DATA 2 ports for good performance.
 3. Configure the Ethernet adapter of the laptop you're using to connect to the device with:
 
-    - **IP address** of 192.168.100.5
-    - **Subnet** of 255.255.255.0.
+   - **IP address** of 192.168.100.5
+   - **Subnet** of 255.255.255.0.
 
-    ![Two port setup with a switch](media/data-box-cable-options/cabling-with-switch-static-ip.png)
+     ![Two-port setup with a switch 2](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
 3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
 4. Assign static IPs to the data ports that you've configured.
@@ -121,7 +121,8 @@ Do the following steps to cable your device.
 
 1. Use an RJ45 or SFP+ cable via a switch (where DHCP server is accessible) to the server.
 
-    ![Two port setup with a switch](media/data-box-cable-options/cabling-dhcp-data-only.png)
+    ![Two port setup with a switch 3](media/data-box-cable-options/cabling-dhcp-data-only.png)
+
 2. Use DHCP server or DNS server to identify the IP address.
 3. From a server on the same network, access the local web UI of the device using the IP address assigned by the DHCP server. Sign in and unlock the Data Box using the unlock password from the Azure portal.
 

@@ -1,253 +1,188 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with FirmPlay - Employee Advocacy for Recruiting | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and FirmPlay - Employee Advocacy for Recruiting.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: a6799629-7546-43f8-a966-956db32864b1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/15/2017
+ms.topic: tutorial
+ms.date: 04/01/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with FirmPlay - Employee Advocacy for Recruiting
 
 In this tutorial, you learn how to integrate FirmPlay - Employee Advocacy for Recruiting with Azure Active Directory (Azure AD).
-
 Integrating FirmPlay - Employee Advocacy for Recruiting with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to FirmPlay - Employee Advocacy for Recruiting
-- You can enable your users to automatically get signed-on to FirmPlay - Employee Advocacy for Recruiting (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Management portal
+* You can control in Azure AD who has access to FirmPlay - Employee Advocacy for Recruiting.
+* You can enable your users to be automatically signed-in to FirmPlay - Employee Advocacy for Recruiting (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with FirmPlay - Employee Advocacy for Recruiting, you need the following items:
 
-- An Azure AD subscription
-- A FirmPlay - Employee Advocacy for Recruiting single-sign on enabled subscription
-
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
+* FirmPlay - Employee Advocacy for Recruiting single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding FirmPlay - Employee Advocacy for Recruiting from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
+* FirmPlay - Employee Advocacy for Recruiting supports **SP** initiated SSO
 
 ## Adding FirmPlay - Employee Advocacy for Recruiting from the gallery
+
 To configure the integration of FirmPlay - Employee Advocacy for Recruiting into Azure AD, you need to add FirmPlay - Employee Advocacy for Recruiting from the gallery to your list of managed SaaS apps.
 
 **To add FirmPlay - Employee Advocacy for Recruiting from the gallery, perform the following steps:**
 
-1. In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![Active Directory][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![Applications][2]
-	
-1. Click **Add** button on the top of the dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![Applications][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-1. In the search box, type **FirmPlay - Employee Advocacy for Recruiting**.
+	![The New application button](common/add-new-app.png)
 
-	![Creating an Azure AD test user](./media/firmplay-tutorial/tutorial_firmplay_001.png)
+4. In the search box, type **FirmPlay - Employee Advocacy for Recruiting**, select **FirmPlay - Employee Advocacy for Recruiting** from result panel then click **Add** button to add the application.
 
-1. In the results panel, select **FirmPlay - Employee Advocacy for Recruiting**, and then click **Add** button to add the application.
+	 ![FirmPlay - Employee Advocacy for Recruiting in the results list](common/search-new-app.png)
 
-	![Creating an Azure AD test user](./media/firmplay-tutorial/tutorial_firmplay_0001.png)
+## Configure and test Azure AD single sign-on
 
-
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with FirmPlay - Employee Advocacy for Recruiting based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in FirmPlay - Employee Advocacy for Recruiting is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in FirmPlay - Employee Advocacy for Recruiting needs to be established.
-
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in FirmPlay - Employee Advocacy for Recruiting.
+In this section, you configure and test Azure AD single sign-on with FirmPlay - Employee Advocacy for Recruiting based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in FirmPlay - Employee Advocacy for Recruiting needs to be established.
 
 To configure and test Azure AD single sign-on with FirmPlay - Employee Advocacy for Recruiting, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a FirmPlay - Employee Advocacy for Recruiting test user](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)** - to have a counterpart of Britta Simon in FirmPlay: Employee Advocacy for Recruiting that is linked to the Azure AD representation of her.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure FirmPlay - Employee Advocacy for Recruiting Single Sign-On](#configure-firmplay---employee-advocacy-for-recruiting-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create FirmPlay - Employee Advocacy for Recruiting test user](#create-firmplay---employee-advocacy-for-recruiting-test-user)** - to have a counterpart of Britta Simon in FirmPlay - Employee Advocacy for Recruiting that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure Management portal and configure single sign-on in your FirmPlay - Employee Advocacy for Recruiting application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with FirmPlay - Employee Advocacy for Recruiting, perform the following steps:**
+To configure Azure AD single sign-on with FirmPlay - Employee Advocacy for Recruiting, perform the following steps:
 
-1. In the Azure Management portal, on the **FirmPlay - Employee Advocacy for Recruiting** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **FirmPlay - Employee Advocacy for Recruiting** application integration page, select **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, as **Mode** select **SAML-based Sign-on** to enable single sign on.
- 
-	![Configure Single Sign-On](./media/firmplay-tutorial/tutorial_firmplay_01.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-1. On the **FirmPlay - Employee Advocacy for Recruiting Domain and URLs** section, in the **Sign On URL** textbox, type a URL using the following pattern: `https://<your-subdomain>.firmplay.com/`
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![Configure Single Sign-On](./media/firmplay-tutorial/tutorial_firmplay_02.png)
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	> [!NOTE] 
-	> Please note that this is not the real value. You have to update this value with the actual Sign On URL. Contact [FirmPlay - Employee Advocacy for Recruiting support team](mailto:engineering@firmplay.com) to get this value. 
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **SAML Signing Certificate** section, click **Create new certificate**.
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/firmplay-tutorial/tutorial_firmplay_03.png) 	
+    ![FirmPlay - Employee Advocacy for Recruiting Domain and URLs single sign-on information](common/sp-signonurl.png)
 
-1. On the **Create New Certificate** dialog, click the calendar icon and select an **expiry date**. Then click **Save** button.
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<your-subdomain>.firmplay.com/`
 
-	![Configure Single Sign-On](./media/firmplay-tutorial/tutorial_general_300.png)
+	> [!NOTE]
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [FirmPlay - Employee Advocacy for Recruiting Client support team](mailto:engineering@firmplay.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **SAML Signing Certificate** section, select **Make new certificate active** and click **Save** button.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![Configure Single Sign-On](./media/firmplay-tutorial/tutorial_firmplay_04.png)
+	![The Certificate download link](common/certificatebase64.png)
 
-1. On the pop-up **Rollover certificate** window, click **OK**.
+6. On the **Set up FirmPlay - Employee Advocacy for Recruiting** section, copy the appropriate URL(s) as per your requirement.
 
-	![Configure Single Sign-On](./media/firmplay-tutorial/tutorial_general_400.png)
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-1. On the **SAML Signing Certificate** section, click **Certificate (base64)** and then save the certificate file on your computer. 
+	a. Login URL
 
-	![Configure Single Sign-On](./media/firmplay-tutorial/tutorial_firmplay_05.png) 
+	b. Azure AD Identifier
 
-1. On the **FirmPlay - Employee Advocacy for Recruiting Configuration** section, click **Configure FirmPlay - Employee Advocacy for Recruiting** to open **Configure sign-on** dialog.
+	c. Logout URL
 
-	![Configure Single Sign-On](./media/firmplay-tutorial/tutorial_firmplay_06.png) 
+### Configure FirmPlay - Employee Advocacy for Recruiting Single Sign-On
 
-	![Configure Single Sign-On](./media/firmplay-tutorial/tutorial_firmplay_07.png)
+To configure single sign-on on **FirmPlay - Employee Advocacy for Recruiting** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [FirmPlay - Employee Advocacy for Recruiting support team](mailto:engineering@firmplay.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-1. To get SSO configured for your application, contact [FirmPlay - Employee Advocacy for Recruiting support team](mailto:engineering@firmplay.com) and provide them with the following: 
+### Create an Azure AD test user 
 
-	•  The downloaded **Certificate file**
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-	•  The **SAML Single Sign-On Service URL**
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-	•  The **SAML Entity ID**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-	•  The **Sign-Out URL**
+2. Select **New user** at the top of the screen.
+
+    ![New user Button](common/new-user.png)
+
+3. In the User properties, perform the following steps.
+
+    ![The User dialog box](common/user-properties.png)
+
+    a. In the **Name** field enter **BrittaSimon**.
   
+    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
-![Create Azure AD User][100]
+    d. Click **Create**.
 
-**To create a test user in Azure AD, perform the following steps:**
+### Assign the Azure AD test user
 
-1. In the **Azure Management portal**, on the left navigation pane, click **Azure Active Directory** icon.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to FirmPlay - Employee Advocacy for Recruiting.
 
-	![Creating an Azure AD test user](./media/firmplay-tutorial/create_aaduser_01.png) 
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **FirmPlay - Employee Advocacy for Recruiting**.
 
-1. Go to **Users and groups** and click **All users** to display the list of users.
-	
-	![Creating an Azure AD test user](./media/firmplay-tutorial/create_aaduser_02.png) 
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-1. At the top of the dialog click **Add** to open the **User** dialog.
- 
-	![Creating an Azure AD test user](./media/firmplay-tutorial/create_aaduser_03.png) 
+2. In the applications list, select **FirmPlay - Employee Advocacy for Recruiting**.
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/firmplay-tutorial/create_aaduser_04.png) 
+	![The FirmPlay - Employee Advocacy for Recruiting link in the Applications list](common/all-applications.png)
 
-    a. In the **Name** textbox, type **BrittaSimon**.
+3. In the menu on the left, select **Users and groups**.
 
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-	c. Select **Show Password** and write down the value of the **Password**.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-    d. Click **Create**. 
+    ![The Add Assignment pane](common/add-assign-user.png)
 
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-### Creating a FirmPlay - Employee Advocacy for Recruiting test user
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-In this section, you create a user called Britta Simon in FirmPlay - Employee Advocacy for Recruiting. Please work with [FirmPlay - Employee Advocacy for Recruiting support team](mailto:engineering@firmplay.com) to add the users in the FirmPlay - Employee Advocacy for Recruiting platform.
+### Create FirmPlay - Employee Advocacy for Recruiting test user
 
+In this section, you create a user called Britta Simon in FirmPlay - Employee Advocacy for Recruiting. Work with [FirmPlay - Employee Advocacy for Recruiting support team](mailto:engineering@firmplay.com) to add the users in the FirmPlay - Employee Advocacy for Recruiting platform. Users must be created and activated before you use single sign-on.
 
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to FirmPlay - Employee Advocacy for Recruiting.
-
-![Assign User][200] 
-
-**To assign Britta Simon to FirmPlay - Employee Advocacy for Recruiting, perform the following steps:**
-
-1. In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-1. In the applications list, select **FirmPlay - Employee Advocacy for Recruiting**.
-
-	![Configure Single Sign-On](./media/firmplay-tutorial/tutorial_firmplay_50.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-
-
-### Testing single sign-on
+### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the FirmPlay - Employee Advocacy for Recruiting tile in the Access Panel, you should get automatically signed-on to your FirmPlay - Employee Advocacy for Recruiting application.
+When you click the FirmPlay - Employee Advocacy for Recruiting tile in the Access Panel, you should be automatically signed in to the FirmPlay - Employee Advocacy for Recruiting for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
+## Additional Resources
 
-## Additional resources
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-
-
-<!--Image references-->
-
-[1]: ./media/firmplay-tutorial/tutorial_general_01.png
-[2]: ./media/firmplay-tutorial/tutorial_general_02.png
-[3]: ./media/firmplay-tutorial/tutorial_general_03.png
-[4]: ./media/firmplay-tutorial/tutorial_general_04.png
-
-[100]: ./media/firmplay-tutorial/tutorial_general_100.png
-
-[200]: ./media/firmplay-tutorial/tutorial_general_200.png
-[201]: ./media/firmplay-tutorial/tutorial_general_201.png
-[202]: ./media/firmplay-tutorial/tutorial_general_202.png
-[203]: ./media/firmplay-tutorial/tutorial_general_203.png
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

@@ -1,6 +1,6 @@
 ---
 title: Connected Factory solution FAQ - Azure | Microsoft Docs
-description: Frequently asked questions for the Connected Factory solution accelerator
+description: This article answers the frequently asked questions for the Connected Factory solution accelerator. It includes links to the GitHub repository.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -106,7 +106,7 @@ The simulation self registers the following devices:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Using the [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) or [the IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) tool, you can check which devices are registered with the IoT hub your solution is using. To use device explorer, you need the connection string for the IoT hub in your deployment. To use the IoT extension for Azure CLI, you need your IoT Hub name.
+Using the [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/) or [the IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) tool, you can check which devices are registered with the IoT hub your solution is using. To use device explorer, you need the connection string for the IoT hub in your deployment. To use the IoT extension for Azure CLI, you need your IoT Hub name.
 
 ### How can I get log data from the simulation components?
 
@@ -120,7 +120,7 @@ Alternatively log in to the VM via SSH and inspect the log files at runtime.
 
 ### How can I check if the simulation is sending data to the cloud?
 
-With the [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) or the [Azure IoT CLI Extension monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events) command, you can inspect the data sent to IoT Hub from certain devices. To use these tools, you need to know the connection string for the IoT hub in your deployment. See [How do I find out the connection string of the IoT hub used by my solution?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+With the [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) or the [Azure IoT CLI Extension monitor-events](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events&preserve-view=true) command, you can inspect the data sent to IoT Hub from certain devices. To use these tools, you need to know the connection string for the IoT hub in your deployment. See [How do I find out the connection string of the IoT hub used by my solution?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Inspect the data sent by one of the publisher devices:
 
@@ -143,7 +143,7 @@ When you deploy using the `build.ps1` script in the Connected Factory GitHub rep
 
 You can also add an Azure Maps account key to your solution accelerator after deployment. Navigate to the Azure portal and access the App Service resource in your Connected Factory deployment. Navigate to **Application settings**, where you find a section **Application settings**. Set the **MapApiQueryKey** to the [key of your Azure Maps account](../azure-maps/how-to-manage-account-keys.md). Save the settings and then navigate to **Overview** and restart the App Service.
 
-### How do I create a Azure Maps account?
+### How do I create an Azure Maps account?
 
 See, [How to manage your Azure Maps account and keys](../azure-maps/how-to-manage-account-keys.md).
 
@@ -169,15 +169,15 @@ To send telemetry data from non OPC UA devices to Connected Factory:
 
     ```json
     [
-      {
-        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
-        "DisplayName": "<name_of_the_datapoint>",
-        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
-        "Value": {
-          "Value": <datapoint_value>,
-          "SourceTimestamp": "<timestamp>"
-        }
-      }
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
     ]
     ```
 
@@ -189,6 +189,5 @@ To send telemetry data from non OPC UA devices to Connected Factory:
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
 * [Deploy Connected Factory solution accelerator](quickstart-connected-factory-deploy.md)
-* [IoT security from the ground up](/azure/iot-fundamentals/iot-security-ground-up)
+* [IoT security from the ground up](../iot-fundamentals/iot-security-ground-up.md)

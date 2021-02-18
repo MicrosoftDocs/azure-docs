@@ -1,6 +1,6 @@
----
+﻿---
 title: Deploy Azure virtual network container networking | Microsoft Docs
-description: Learn how to deploy the Azure Virtual Network container network interface (CNI) plug-in for Kubernetes clusters that you deploy yourself, that you deploy using the ACS-Engine, and for Docker containers.
+description: Learn how to deploy the Azure Virtual Network container network interface (CNI) plug-in for Kubernetes clusters.
 services: virtual-network
 documentationcenter: na
 author: aanandr
@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: overview
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 9/18/2018
@@ -22,7 +22,7 @@ ms.custom:
 
 # Deploy the Azure Virtual Network container network interface plug-in
 
-The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine and brings virtual network capabilities to Kubernetes Pods and Docker containers. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). Additionally, the plug-in can be used with the Azure Kubernetes Service (AKS) by choosing the [Advanced Networking](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) option, which automatically places AKS containers in a virtual network.
+The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine and brings virtual network capabilities to Kubernetes Pods and Docker containers. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). Additionally, the plug-in can be used with the Azure Kubernetes Service (AKS) by choosing the [Advanced Networking](../aks/configure-azure-cni.md?toc=%2fazure%2fvirtual-network%2ftoc.json) option, which automatically places AKS containers in a virtual network.
 
 ## Deploy plug-in for ACS-Engine Kubernetes cluster
 
@@ -95,7 +95,7 @@ Complete the following steps to install the plug-in on every Azure virtual machi
    - **CLI**: [Assign multiple IP addresses using the Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
    - **PowerShell**: [Assign multiple IP addresses using PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
    - **Portal**: [Assign multiple IP addresses using the Azure portal](virtual-network-multiple-ip-addresses-portal.md)
-   - **Azure Resource Manager template**: [Assign multiple IP addresses using templates](virtual-network-multiple-ip-addresses-template.md)
+   - **Azure Resource Manager template**: [Assign multiple IP addresses using templates](./template-samples.md)
 
    Ensure that you add enough IP addresses for all of the Pods that you expect to bring up on the virtual machine.
 
@@ -109,7 +109,7 @@ Complete the following steps to install the plug-in on every Azure virtual machi
 
    The rules NAT traffic that is not destined to the specified IP ranges. The assumption is that all traffic outside the previous ranges is internet traffic. You can choose to specify the IP ranges of the virtual machine's virtual network, that of peered virtual networks, and on-premises networks.
 
-  Windows virtual machines automatically source NAT traffic that has a destination outside the subnet to which the virtual machine belongs. It is not possible to specify custom IP ranges.
+   Windows virtual machines automatically source NAT traffic that has a destination outside the subnet to which the virtual machine belongs. It is not possible to specify custom IP ranges.
 
 After completing the previous steps, Pods brought up on the Kubernetes Agent virtual machines are automatically assigned private IP addresses from the virtual network.
 
@@ -156,10 +156,10 @@ The CNI network configuration file is described in JSON format. It is, by defaul
 
 - **cniVersion**: The Azure Virtual Network CNI plug-ins support versions 0.3.0 and 0.3.1 of the [CNI spec](https://github.com/containernetworking/cni/blob/master/SPEC.md).
 - **name**: Name of the network. This property can be set to any unique value.
-- **type**: Name of the network plug-in. Set to *azure-vnet*.
+- **type**: Name of the network plug-in. Set to *azure-vnet*.
 - **mode**: Operational mode. This field is optional. The only mode supported is "bridge". For more information, see [operational modes](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
 - **bridge**: Name of the bridge that will be used to connect containers to a virtual network. This field is optional. If omitted, the plugin automatically picks a unique name, based on the master interface index.
-- **ipam type**: Name of the IPAM plug-in. Always set to *azure-vnet-ipam*.
+- **ipam type**: Name of the IPAM plug-in. Always set to *azure-vnet-ipam*.
 
 ## Download and install the plug-in
 

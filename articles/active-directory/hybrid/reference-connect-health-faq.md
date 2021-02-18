@@ -4,16 +4,18 @@ description: This FAQ answers questions about Azure AD Connect Health. This FAQ 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect Health frequently asked questions
 This article includes answers to frequently asked questions (FAQs) about Azure Active Directory (Azure AD) Connect Health. These FAQs cover questions about how to use the service, which includes the billing model, capabilities, limitations, and support.
@@ -21,7 +23,7 @@ This article includes answers to frequently asked questions (FAQs) about Azure A
 ## General questions
 **Q: I manage multiple Azure AD directories. How do I switch to the one that has Azure Active Directory Premium?**
 
-To switch between different Azure AD tenants, select the currently signed-in **User Name** on the upper-right corner, and then choose the appropriate account. If the account is not listed here, select **Sign out**, and then use the global admin credentials of the directory that has Azure Active Directory Premium enabled to sign in.
+To switch between different Azure AD tenants, select the currently signed-in **User Name** on the upper-right corner, and then choose the appropriate account. If the account is not listed here, select **Sign out**, and then use the global admin credentials of the directory that has Azure Active Directory Premium (P1 or P2) enabled to sign in.
 
 **Q: What version of identity roles are supported by Azure AD Connect Health?**
 
@@ -29,16 +31,18 @@ The following table lists the roles and supported operating system versions.
 
 |Role| Operating system / Version|
 |--|--|
-|Active Directory Federation Services (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Active Directory Federation Services (AD FS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
 |Azure AD Connect | Version 1.0.9125 or higher|
-|Active Directory Domain Services (AD DS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|Active Directory Domain Services (AD DS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+
+Windows Server Core installations are not supported.
 
 Note that the features provided by the service may differ based on the role and the operating system. In other words, all the features may not be available for all operating system versions. See the feature descriptions for details.
 
 **Q: How many licenses do I need to monitor my infrastructure?**
 
-* The first Connect Health Agent requires at least one Azure AD Premium license.
-* Each additional registered agent requires 25 additional Azure AD Premium licenses.
+* The first Connect Health Agent requires at least one Azure AD Premium (P1 or P2) license.
+* Each additional registered agent requires 25 additional Azure AD Premium (P1 or P2) licenses.
 * Agent count is equivalent to the total number of agents that are registered across all monitored roles (AD FS, Azure AD Connect, and/or AD DS).
 * AAD Connect Health licensing does not require you to assign the license to specific users. You only need to have the requisite number of valid licenses.
 
@@ -56,7 +60,7 @@ Example:
 
 **Q: Does Azure AD Connect Health support Azure Germany Cloud?**
 
-Azure AD Connect Health is not supported in Germany Cloud except for the [sync errors report feature](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
+Azure AD Connect Health is not supported in Germany Cloud except for the [sync errors report feature](how-to-connect-health-sync.md#object-level-synchronization-error-report).
 
 | Roles | Features | Supported in German Cloud |
 | ------ | --------------- | --- |
@@ -65,7 +69,7 @@ Azure AD Connect Health is not supported in Germany Cloud except for the [sync e
 | Connect Health for ADFS | Monitoring / Insight / Alerts / Analysis | No |
 | Connect Health for ADDS | Monitoring / Insight / Alerts / Analysis | No |
 
-To ensure the agent connectivity of Connect Health for sync, please configure the [installation requirement](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) accordingly.   
+To ensure the agent connectivity of Connect Health for sync, please configure the [installation requirement](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) accordingly.
 
 ## Installation questions
 
@@ -119,6 +123,10 @@ You might reimage a server or create a new server with the same details (such as
 
 In this case, manually delete the entry that belongs to the older server. The data for this server should be out of date.
 
+**Q: Can I install the Azure AD Connect health agent on Windows Server Core?**
+
+No.  Installation on Server Core is not supported.
+
 ## Health Agent registration and data freshness
 
 **Q: What are common reasons for the Health Agent registration failures and how do I troubleshoot issues?**
@@ -126,8 +134,8 @@ In this case, manually delete the entry that belongs to the older server. The da
 The health agent can fail to register due to the following possible reasons:
 
 * The agent cannot communicate with the required endpoints because a firewall is blocking traffic. This is particularly common on web application proxy servers. Make sure that you have allowed outbound communication to the required endpoints and ports. See the [requirements section](how-to-connect-health-agent-install.md#requirements) for details.
-* Outbound communication is subjected to an SSL inspection by the network layer. This causes the certificate that the agent uses to be replaced by the inspection server/entity, and the steps to complete the agent registration fail.
-* The user does not have access to perform the registration of the agent. Global admins have access by default. You can use [Role Based Access Control](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) to delegate access to other users.
+* Outbound communication is subjected to an TLS inspection by the network layer. This causes the certificate that the agent uses to be replaced by the inspection server/entity, and the steps to complete the agent registration fail.
+* The user does not have access to perform the registration of the agent. Global admins have access by default. You can use [Azure role-based access control (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) to delegate access to other users.
 
 **Q: I am getting alerted that "Health Service data is not up to date." How do I troubleshoot the issue?**
 
@@ -148,7 +156,7 @@ Azure AD Connect Health for AD FS generates this alert when the Health Agent ins
 
 Most often this test fails because the Health Agent is unable to resolve the AD FS farm name. This can happen if the AD FS servers are behind a network load balancers and the request gets initiated from a node that's behind the load balancer (as opposed to a regular client that is in front of the load balancer). This can be fixed by updating the "hosts" file located under "C:\Windows\System32\drivers\etc" to include the IP address of the AD FS server or a loopback IP address (127.0.0.1) for the AD FS farm name (such as sts.contoso.com). Adding the host file will short-circuit the network call, thus allowing the Health Agent to get the token.
 
-**Q: I got an email indicating my machines are NOT patched for the recent ransomeware attacks. Why did I receive this email?**
+**Q: I got an email indicating my machines are NOT patched for the recent ransomware attacks. Why did I receive this email?**
 
 Azure AD Connect Health service scanned all the machines it monitors to ensure the required patches were installed. The email was sent to the tenant administrators if at least one machine did not have the critical patches. The following logic was used to make this determination.
 1. Find all the hotfixes installed on the machine.
@@ -157,7 +165,7 @@ Azure AD Connect Health service scanned all the machines it monitors to ensure t
 
 You can use the following PowerShell script to perform this check manually. It implements the above logic.
 
-```
+```powershell
 Function CheckForMS17-010 ()
 {
     $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215", "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217", "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554", "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474", "KB4015219", "KB4019473"
@@ -180,15 +188,19 @@ CheckForMS17-010
 
 **Q: Why does the PowerShell cmdlet <i>Get-MsolDirSyncProvisioningError</i> show less sync errors in the result?**
 
-<i>Get-MsolDirSyncProvisioningError</i> will only return DirSync provisioning errors. Besides that, Connect Health portal also shows other sync error types such as export errors. This is consistent with Azure AD Connect delta result. Read more about [Azure AD Connect Sync errors](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
+<i>Get-MsolDirSyncProvisioningError</i> will only return DirSync provisioning errors. Besides that, Connect Health portal also shows other sync error types such as export errors. This is consistent with Azure AD Connect delta result. Read more about [Azure AD Connect Sync errors](./tshoot-connect-sync-errors.md).
 
 **Q: Why are my ADFS audits not being generated?**
 
-Please use PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure audit logs is not in disabled state. Read more about [ADFS audit logs](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notice if there are advanced audit settings pushed to the ADFS server, any changes with auditpol.exe will be overwritten (event if Application Generated is not configured). In this case, please set the local security policy to log Application Generated failures and success. 
+Please use PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure audit logs is not in disabled state. Read more about [ADFS audit logs](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notice if there are advanced audit settings pushed to the ADFS server, any changes with auditpol.exe will be overwritten (event if Application Generated is not configured). In this case, please set the local security policy to log Application Generated failures and success.
+
+**Q: When will the agent certificate be automatic renewed before expiration?**
+The agent certification will be automatic renewed **6 months** before its expiration date. If it is not renewed, please ensure the network connection of the agent is stable. Restart the agent services or update to the latest version may also solve the issue.
+
 
 
 ## Related links
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent installation](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health operations](how-to-connect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)

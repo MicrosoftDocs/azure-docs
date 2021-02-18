@@ -1,28 +1,28 @@
 ---
-title: Media Services and Apple FairPlay license support - Azure | Microsoft Docs
-description: This topic gives an overview of a Apple FairPlay license requirements and configuration.
-author: juliako
+title: Media Services Apple FairPlay license support
+description: This topic gives an overview of an Apple FairPlay license requirements and configuration.
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/08/2018
-ms.author: juliako
-ms.custom: seodec18
-
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: seodec18, devx-track-csharp
 ---
 
-# Apple FairPlay license requirements and configuration 
+# Apple FairPlay license requirements and configuration
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services enables you to encrypt your HLS content with **Apple FairPlay** (AES-128 CBC). Media Services also provides a service for delivering FairPlay licenses. When a player tries to play your FairPlay-protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license that is sent to the client and is used to decrypt and play the specified content.
 
-Media Services also provides APIs that you can use to configure your FairPlay licenses. This topic discusses FairPlay license requirements and demonstrates how you can configure a **FairPlay** license using Media Sercies APIs. 
+Media Services also provides APIs that you can use to configure your FairPlay licenses. This topic discusses FairPlay license requirements and demonstrates how you can configure a **FairPlay** license using Media Services APIs. 
 
 ## Requirements
 
@@ -32,7 +32,7 @@ The following are required when using Media Services to encrypt your HLS content
 * Apple requires the content owner to obtain the [deployment package](https://developer.apple.com/contact/fps/). State that you already implemented Key Security Module (KSM) with Media Services, and that you are requesting the final FPS package. There are instructions in the final FPS package to generate certification and obtain the Application Secret Key (ASK). You use ASK to configure FairPlay.
 * The following things must be set on Media Services key/license delivery side:
 
-    * **App Cert (AC)**: This is a .pfx file that contains the private key. You create this file and encrypt it with a password. The .pfx file shoul be in Base64 format.
+    * **App Cert (AC)**: This is a .pfx file that contains the private key. You create this file and encrypt it with a password. The .pfx file should be in Base64 format.
 
         The following steps describe how to generate a .pfx certificate file for FairPlay:
 
@@ -58,6 +58,9 @@ The following are required when using Media Services to encrypt your HLS content
   * .der file
   * .pfx file
   * password for the .pfx
+  
+> [!NOTE]
+> Azure Media Services doesn't check the certificate expiration date during packaging or key delivery. It will continue to work after the certificate expires.
 
 ## FairPlay and player apps
 
@@ -78,7 +81,7 @@ You can use Media Services API to configure FairPlay licenses. When the player t
 > [!NOTE]
 > Usually, you would want to configure FairPlay policy options only once, because you will only have one set of a certification and an ASK.
 
-The following example uses [Media Services .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) to configure the license.
+The following example uses [Media Services .NET SDK](/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) to configure the license.
 
 ```csharp
 private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOptions()
@@ -105,7 +108,7 @@ private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOpti
         RentalAndLeaseKeyType =
                 ContentKeyPolicyFairPlayRentalAndLeaseKeyType
                 .PersistentUnlimited,
-        RentalDuration = 2249
+        RentalDuration = 2249 // in seconds
     };
 
     return fairPlayConfiguration;

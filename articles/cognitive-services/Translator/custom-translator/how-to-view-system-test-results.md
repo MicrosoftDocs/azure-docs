@@ -2,19 +2,19 @@
 title: View system test results and deployment - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: When your training is successful, review system tests to analyze your training results. If you're satisfied with the training results, place a deployment request for the trained model.
-author: rajdeep-in
-manager: christw
+author: laujan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: custom-translator
-ms.date: 11/13/2018
-ms.author: v-rada
-ms.topic: article
+ms.subservice: translator-text
+ms.date: 08/17/2020
+ms.author: lajanuar
+ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to view system test results, so that I can review test results and analyze my training.
 ---
 
 # View system test results
 
-When your training is successful, review system tests to analyze your training results. If you're satisfied with the training results, place a deployment request for the trained model. 
+When your training is successful, review system tests to analyze your training results. If you're satisfied with the training results, place a deployment request for the trained model.
 
 ## System test results page
 
@@ -22,7 +22,7 @@ Select a project, then select the models tab of that project, locate the model y
 
 The test tab shows you:
 
-1.  **System Test Results:**The result of the test process in the trainings. The test process produces the BLEU score.
+1.  **System Test Results:** The result of the test process in the trainings. The test process produces the BLEU score.
 
     **Sentence Count:** How many parallel sentences were used in the test set.
 
@@ -72,14 +72,17 @@ To request a deployment:
 
 2. For a successfully trained model, it shows “Deploy” button, if not deployed.
 
-    ![Deploy model](media/how-to/how-to-deploy-model.png)
+    ![Screenshot that highlights the Deploy button for deploying a model.](media/how-to/how-to-deploy-model.png)
 
 3.  Click on Deploy.
 4.  Select **Deployed** for the region(s) where you want your model to be deployed, and click Save. You can select **Deployed** for multiple regions.
 
-    ![Deploy model](media/how-to/how-to-deploy-model-regions.png)
+    ![Screenshot that shows where you can deploy or undeploy a model.](media/how-to/how-to-deploy-model-regions.png)
 
 5.  You can view the status of your model in the “Status” column.
+
+>[!Note]
+>Custom Translator supports 10 deployed models within a workspace at any point in time.
 
 ## Update deployment settings
 
@@ -89,7 +92,7 @@ To update deployment settings:
 
 2. For a successfully deployed model, it shows an **Update** button.
 
-    ![Deploy model](media/how-to/how-to-update-undeploy-model.png)
+    ![Screenshot that highlights the Update button for updating deployment settings.](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Select **Update**.
 4.  Select **Deployed** or **Undeployed** for the region(s) where you want your model deployed or undeployed, then click **Save**.
@@ -101,6 +104,6 @@ To update deployment settings:
 
 ## Next steps
 
-- Start using your deployed custom translation model via [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Start using your deployed custom translation model via [Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl).
 - Learn [how to manage settings](how-to-manage-settings.md) to share your workspace, manage subscription key.
 - Learn [how to migrate your workspace and project](how-to-migrate.md) from [Microsoft Translator Hub](https://hub.microsofttranslator.com)

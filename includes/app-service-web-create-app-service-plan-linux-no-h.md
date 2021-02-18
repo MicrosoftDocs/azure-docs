@@ -5,7 +5,7 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: "include"
-ms.date: 10/24/2018
+ms.date: 12/20/2019
 ms.author: cephalin
 ms.custom: "include file"
 ---
@@ -13,10 +13,10 @@ In the Cloud Shell, create an App Service plan in the resource group with the [`
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-The following example creates an App Service plan named `myAppServicePlan` in the **Basic** pricing tier (`--sku B1`) and in a Linux container (`--is-linux`).
+The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier (`--sku F1`) and in a Linux container (`--is-linux`).
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux
 ```
 
 When the App Service plan has been created, the Azure CLI shows information similar to the following example:
@@ -32,7 +32,7 @@ When the App Service plan has been created, the Azure CLI shows information simi
   "location": "West Europe",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  < JSON data removed for brevity. >
+  <JSON data removed for brevity.>
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null

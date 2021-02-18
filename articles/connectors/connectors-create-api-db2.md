@@ -1,47 +1,44 @@
 ---
-title: Connect to IBM DB2 - Azure Logic Apps | Microsoft Docs
-description: Manage resources with IBM DB2 REST APIs and Azure Logic Apps
+title: Access and manage IBM DB2 resources
+description: Read, edit, update, and manage IBM DB2 resources by building automated workflows using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: plarsen, LADocs
 ms.suite: integration
-ms.topic: article
-ms.date: 08/23/2018
+ms.reviewer: plarsen, logicappspm
+ms.topic: conceptual
+ms.date: 11/19/2020
 tags: connectors
 ---
 
-# Manage IBM DB2 resources with Azure Logic Apps
+# Access and manage IBM DB2 resources by using Azure Logic Apps
 
-With Azure Logic Apps and the IBM DB2 connector, you can create automated 
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the 
+[IBM DB2 connector](/connectors/db2/), you can create automated 
 tasks and workflows based on the resources stored in your DB2 database. 
 Your workflows can connect to the resources in your database, read and 
 list your database tables, add rows, change rows, delete rows, and more. 
 You can include actions in your logic apps that get responses 
-from your database and make the output available for other actions. 
+from your database and make the output available for other actions.
 
 This article shows how you can create a logic app that performs 
 various database operations. If you're new to logic apps, review 
-[What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
+[What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## Supported platforms and versions
 
 The DB2 connector includes a Microsoft client that 
 communicates with remote DB2 servers across a TCP/IP network. 
 You can use this connector for accessing cloud databases such 
-as IBM Bluemix dashDB or IBM DB2 for Windows running in Azure virtualization. 
+as IBM DB2 for Windows running in Azure virtualization. 
 You can also access on-premises DB2 databases after you 
-[install and set up the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). 
+[install and set up the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md).
 
 The IBM DB2 connector supports these IBM DB2 platforms and versions along 
-with IBM DB2 compatible products, such as IBM Bluemix dashDB, 
-that support Distributed Relational Database Architecture (DRDA) 
+with IBM DB2 compatible products that support Distributed Relational Database Architecture (DRDA) 
 SQL Access Manager (SQLAM) versions 10 and 11:
 
 | Platform | Version | 
 |----------|---------|
-| IBM DB2 for z/OS | 11.1, 10.1 |
+| IBM DB2 for z/OS | 12, 11.1, 10.1 |
 | IBM DB2 for i | 7.3, 7.2, 7.1 |
 | IBM DB2 for LUW | 11, 10.5 |
 |||
@@ -51,20 +48,20 @@ SQL Access Manager (SQLAM) versions 10 and 11:
 The IBM DB2 connector supports these database operations, 
 which map to the corresponding actions in the connector:
 
-| Database operation | Connector action | 
+| Database operation | Connector action |
 |--------------------|------------------|
-| List database tables | Get tables | 
-| Read one row using SELECT | Get row | 
-| Read all rows using SELECT | Get rows | 
-| Add one row using INSERT | Insert row | 
-| Edit one row using UPDATE | Update row | 
-| Remove one row using DELETE | Delete row | 
+| List database tables | Get tables |
+| Read one row using SELECT | Get row |
+| Read all rows using SELECT | Get rows |
+| Add one row using INSERT | Insert row |
+| Edit one row using UPDATE | Update row |
+| Remove one row using DELETE | Delete row |
 |||
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * An IBM DB2 database, either cloud-based or on-premises
 
@@ -87,10 +84,10 @@ logic app in the Logic App Designer, if not already open.
 
 1. In the search box, enter "db2" as your filter. For this example, 
 under the actions list, select this action: **Get tables (Preview)**
-   
+
    ![Select action](./media/connectors-create-api-db2/select-db2-action.png)
 
-   You're now prompted to provide connection details for your DB2 database. 
+   You're now prompted to provide connection details for your DB2 database.
 
 1. Follow the steps for creating connections for [cloud databases](#cloud-connection) 
 or [on-premises databases](#on-premises-connection).
@@ -102,15 +99,15 @@ or [on-premises databases](#on-premises-connection).
 To set up your connection, provide these connection details when prompted, 
 choose **Create**, and then save your logic app:
 
-| Property | Required | Description | 
-|----------|----------|-------------| 
-| **Connect via on-premise gateway** | No | Applies only for on-premises connections. | 
+| Property | Required | Description |
+|----------|----------|-------------|
+| **Connect via on-premises gateway** | No | Applies only for on-premises connections. |
 | **Connection Name** | Yes | The name for your connection, for example, "MyLogicApp-DB2-connection" |
 | **Server** | Yes | The address or alias colon port number for your DB2 server, for example, "myDB2server.cloudapp.net:50000" <p><p>**Note**: This value is a string that represents a TCP/IP address or alias, either in IPv4 or IPv6 format, followed by a colon and a TCP/IP port number. |
 | **Database** | Yes | The name for your database <p><p>**Note**: This value is a string that represents a DRDA Relational Database Name (RDBNAM): <p>- DB2 for z/OS accepts a 16-byte string where the database is known as an "IBM DB2 for z/OS" location. <br>- DB2 for i accepts an 18-byte string where the database is known as an "IBM DB2 for i" relational database. <br>- DB2 for LUW accepts an 8-byte string. |
-| **Username** | Yes | Your user name for the database <p><p>**Note**: This value is a string whose length is based on the specific database: <p><p>- DB2 for z/OS accepts an 8-byte string. <br>- DB2 for i accepts a 10-byte string. <br>- DB2 for Linux or UNIX accepts an 8-byte string. <br>- DB2 for Windows accepts a 30-byte string. | 
-| **Password** | Yes | Your password for the database | 
-|||| 
+| **Username** | Yes | Your user name for the database <p><p>**Note**: This value is a string whose length is based on the specific database: <p><p>- DB2 for z/OS accepts an 8-byte string. <br>- DB2 for i accepts a 10-byte string. <br>- DB2 for Linux or UNIX accepts an 8-byte string. <br>- DB2 for Windows accepts a 30-byte string. |
+| **Password** | Yes | Your password for the database |
+||||
 
 For example:
 
@@ -124,17 +121,17 @@ Before creating your connection, you must already have your on-premises data gat
 Otherwise, you can't finish setting up your connection. If you have your gateway installation, 
 continue with providing these connection details, and then choose **Create**.
 
-| Property | Required | Description | 
-|----------|----------|-------------| 
-| **Connect via on-premise gateway** | Yes | Applies when you want an on-premises connection and shows the on-premises connection properties. | 
+| Property | Required | Description |
+|----------|----------|-------------|
+| **Connect via on-premises gateway** | Yes | Applies when you want an on-premises connection and shows the on-premises connection properties. |
 | **Connection Name** | Yes | The name for your connection, for example, "MyLogicApp-DB2-connection" | 
-| **Server** | Yes | The address or alias colon port number for your DB2 server, for example, "myDB2server:50000" <p><p>**Note**: This value is a string that represents a TCP/IP address or alias, either in IPv4 or IPv6 format, followed by a colon and a TCP/IP port number. | 
-| **Database** | Yes | The name for your database <p><p>**Note**: This value is a string that represents a DRDA Relational Database Name (RDBNAM): <p>- DB2 for z/OS accepts a 16-byte string where the database is known as an "IBM DB2 for z/OS" location. <br>- DB2 for i accepts an 18-byte string where the database is known as an "IBM DB2 for i" relational database. <br>- DB2 for LUW accepts an 8-byte string. | 
-| **Authentication** | Yes | The authentication type for your connection, for example, "Basic" <p><p>**Note**: Select this value from the list, which includes Basic or Windows (Kerberos). | 
-| **Username** | Yes | Your user name for the database <p><p>**Note**: This value is a string whose length is based on the specific database: <p><p>- DB2 for z/OS accepts an 8-byte string. <br>- DB2 for i accepts a 10-byte string. <br>- DB2 for Linux or UNIX accepts an 8-byte string. <br>- DB2 for Windows accepts a 30-byte string. | 
-| **Password** | Yes | Your password for the database | 
-| **Gateway** | Yes | The name for your installed on-premises data gateway <p><p>**Note**: Select this value from the list, which includes all the installed data gateways within your Azure subscription and resource group. | 
-|||| 
+| **Server** | Yes | The address or alias colon port number for your DB2 server, for example, "myDB2server:50000" <p><p>**Note**: This value is a string that represents a TCP/IP address or alias, either in IPv4 or IPv6 format, followed by a colon and a TCP/IP port number. |
+| **Database** | Yes | The name for your database <p><p>**Note**: This value is a string that represents a DRDA Relational Database Name (RDBNAM): <p>- DB2 for z/OS accepts a 16-byte string where the database is known as an "IBM DB2 for z/OS" location. <br>- DB2 for i accepts an 18-byte string where the database is known as an "IBM DB2 for i" relational database. <br>- DB2 for LUW accepts an 8-byte string. |
+| **Authentication** | Yes | The authentication type for your connection, for example, "Basic" <p><p>**Note**: Select this value from the list, which includes Basic or Windows (Kerberos). |
+| **Username** | Yes | Your user name for the database <p><p>**Note**: This value is a string whose length is based on the specific database: <p><p>- DB2 for z/OS accepts an 8-byte string. <br>- DB2 for i accepts a 10-byte string. <br>- DB2 for Linux or UNIX accepts an 8-byte string. <br>- DB2 for Windows accepts a 30-byte string. |
+| **Password** | Yes | Your password for the database |
+| **Gateway** | Yes | The name for your installed on-premises data gateway <p><p>**Note**: Select this value from the list, which includes all the installed data gateways within your Azure subscription and resource group. |
+||||
 
 For example:
 
@@ -145,25 +142,25 @@ For example:
 To run your logic app manually, on the designer toolbar, choose **Run**. 
 After your logic app finishes running, you can view the output from the run.
 
-1. On your logic app menu, select **Overview**. 
+1. On your logic app menu, select **Overview**.
 
 1. Under **Summary**, in the **Runs history** section, 
-select the most recent run, which is the first item in the list. 
+select the most recent run, which is the first item in the list.
 
    ![View run history](./media/connectors-create-api-db2/run-history.png)
 
 1. Under **Logic app run**, you can now review the status, 
-inputs, and outputs for each step in your logic app. 
+inputs, and outputs for each step in your logic app.
 Expand the **Get tables** action.
 
    ![Expand action](./media/connectors-create-api-db2/expand-action-step.png)
 
-1. To view the inputs, choose **Show raw inputs**. 
+1. To view the inputs, choose **Show raw inputs**.
 
-1. To view the outputs, choose **Show raw outputs**. 
+1. To view the outputs, choose **Show raw outputs**.
 
-   The outputs include a list of tables. 
-   
+   The outputs include a list of tables.
+
    ![View output tables](./media/connectors-create-api-db2/db2-connector-get-tables-outputs.png)
 
 ## Get row
@@ -174,7 +171,7 @@ This action runs a DB2 `SELECT WHERE` statement, for example,
 
 1. If you've never used DB2 actions before in your logic app, 
 review the steps in the [Add DB2 action - Get tables](#add-db2-action) 
-section, but add the **Get row** action instead, and then return here to continue. 
+section, but add the **Get row** action instead, and then return here to continue.
 
    After you add the **Get row** action, here is how your example logic app appears:
 
@@ -184,36 +181,36 @@ section, but add the **Get row** action instead, and then return here to continu
 After you select a table, the action shows the relevant 
 properties that are specific to records in that table.
 
-   | Property | Required | Description | 
-   |----------|----------|-------------| 
-   | **Table name** | Yes | The table that has the record you want, such as "AREA" in this example | 
-   | **Area ID** | Yes | The ID for the record you want, such as "99999" in this example | 
-   |||| 
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Table name** | Yes | The table that has the record you want, such as "AREA" in this example |
+   | **Area ID** | Yes | The ID for the record you want, such as "99999" in this example |
+   ||||
 
-   ![Select table](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![Screenshot that shows the "Get row (Preview)" action with the opened "Table name" list and the "AREA" value selected.](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
-1. When you're done, on the designer toolbar, choose **Save**. 
+1. When you're done, on the designer toolbar, choose **Save**.
 
 ### View output row
 
 To run your logic app manually, on the designer toolbar, choose **Run**. 
 After your logic app finishes running, you can view the output from the run.
 
-1. On your logic app menu, select **Overview**. 
+1. On your logic app menu, select **Overview**.
 
 1. Under **Summary**, in the **Runs history** section, 
-select the most recent run, which is the first item in the list. 
+select the most recent run, which is the first item in the list.
 
 1. Under **Logic app run**, you can now review the status, 
-inputs, and outputs for each step in your logic app. 
+inputs, and outputs for each step in your logic app.
 Expand the **Get row** action.
 
-1. To view the inputs, choose **Show raw inputs**. 
+1. To view the inputs, choose **Show raw inputs**.
 
-1. To view the outputs, choose **Show raw outputs**. 
+1. To view the outputs, choose **Show raw outputs**.
 
-   The outputs include your specified row. 
-   
+   The outputs include your specified row.
+
    ![View output row](./media/connectors-create-api-db2/db2-connector-get-row-outputs.png)
 
 ## Get rows
@@ -223,41 +220,41 @@ This action runs a DB2 `SELECT` statement, for example, `SELECT * FROM AREA`.
 
 1. If you've never used DB2 actions before in your logic app, 
 review the steps in the [Add DB2 action - Get tables](#add-db2-action) 
-section, but add the **Get rows** action instead, and then return here to continue. 
+section, but add the **Get rows** action instead, and then return here to continue.
 
    After you add the **Get rows** action, here is how your example logic app appears:
 
    ![Get rows action](./media/connectors-create-api-db2/db2-get-rows-action.png)
 
 1. Open the **Table name** list, and then select the table you want, 
-which is "AREA" in this example: 
+which is "AREA" in this example:
 
-   ![Select table](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![Screenshot that shows the "Get row (Preview)" action with the "AREA" value selected in the "Table name" list.](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. To specify a filter or query for results, choose **Show advanced options**.
 
-1. When you're done, on the designer toolbar, choose **Save**. 
+1. When you're done, on the designer toolbar, choose **Save**.
 
 ### View output rows
 
 To run your logic app manually, on the designer toolbar, choose **Run**. 
 After your logic app finishes running, you can view the output from the run.
 
-1. On your logic app menu, select **Overview**. 
+1. On your logic app menu, select **Overview**.
 
 1. Under **Summary**, in the **Runs history** section, 
-select the most recent run, which is the first item in the list. 
+select the most recent run, which is the first item in the list.
 
 1. Under **Logic app run**, you can now review the status, 
-inputs, and outputs for each step in your logic app. 
+inputs, and outputs for each step in your logic app.
 Expand the **Get rows** action.
 
-1. To view the inputs, choose **Show raw inputs**. 
+1. To view the inputs, choose **Show raw inputs**.
 
-1. To view the outputs, choose **Show raw outputs**. 
+1. To view the outputs, choose **Show raw outputs**.
 
    The outputs include all the records in your specified table.
-   
+
    ![View output rows](./media/connectors-create-api-db2/db2-connector-get-rows-outputs.png)
 
 ## Insert row
@@ -269,7 +266,7 @@ This action runs a DB2 `INSERT` statement, for example,
 
 1. If you've never used DB2 actions before in your logic app, 
 review the steps in the [Add DB2 action - Get tables](#add-db2-action) 
-section, but add the **Insert row** action instead, and then return here to continue. 
+section, but add the **Insert row** action instead, and then return here to continue.
 
    After you add the **Insert row** action, here is how your example logic app appears:
 
@@ -277,44 +274,44 @@ section, but add the **Insert row** action instead, and then return here to cont
 
 1. Specify values for all the required properties (*). 
 After you select a table, the action shows the relevant 
-properties that are specific to records in that table. 
+properties that are specific to records in that table.
 
    For this example, here are the properties:
 
-   | Property | Required | Description | 
-   |----------|----------|-------------| 
-   | **Table name** | Yes | The table where to add the record, such as "AREA" | 
-   | **Area ID** | Yes | The ID for the area to add, such as "99999" | 
-   | **Area description** | Yes | The description for the area to add, such as "Area 99999" | 
-   | **Region ID** | Yes | The ID for the region to add, such as "102" | 
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Table name** | Yes | The table where to add the record, such as "AREA" |
+   | **Area ID** | Yes | The ID for the area to add, such as "99999" |
+   | **Area description** | Yes | The description for the area to add, such as "Area 99999" |
+   | **Region ID** | Yes | The ID for the region to add, such as "102" |
    |||| 
 
    For example:
 
-   ![Select table](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![Screenshot that shows the Logic Apps Designer with the "Insert row (Preview)" action and example property values.](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
-1. When you're done, on the designer toolbar, choose **Save**. 
+1. When you're done, on the designer toolbar, choose **Save**.
 
 ### View insert row outputs
 
 To run your logic app manually, on the designer toolbar, choose **Run**. 
 After your logic app finishes running, you can view the output from the run.
 
-1. On your logic app menu, select **Overview**. 
+1. On your logic app menu, select **Overview**.
 
 1. Under **Summary**, in the **Runs history** section, 
-select the most recent run, which is the first item in the list. 
+select the most recent run, which is the first item in the list.
 
 1. Under **Logic app run**, you can now review the status, 
-inputs, and outputs for each step in your logic app. 
+inputs, and outputs for each step in your logic app.
 Expand the **Insert row** action.
 
-1. To view the inputs, choose **Show raw inputs**. 
+1. To view the inputs, choose **Show raw inputs**.
 
-1. To view the outputs, choose **Show raw outputs**. 
+1. To view the outputs, choose **Show raw outputs**.
 
    The outputs include the record you added to your specified table.
-   
+
    ![View output with inserted row](./media/connectors-create-api-db2/db2-connector-insert-row-outputs.png)
 
 ## Update row
@@ -326,7 +323,7 @@ This action runs a DB2 `UPDATE` statement, for example,
 
 1. If you've never used DB2 actions before in your logic app, 
 review the steps in the [Add DB2 action - Get tables](#add-db2-action) 
-section, but add the **Update row** action instead, and then return here to continue. 
+section, but add the **Update row** action instead, and then return here to continue.
 
    After you add the **Update row** action, here is how your example logic app appears:
 
@@ -334,45 +331,45 @@ section, but add the **Update row** action instead, and then return here to cont
 
 1. Specify values for all the required properties (*). 
 After you select a table, the action shows the relevant 
-properties that are specific to records in that table. 
+properties that are specific to records in that table.
 
    For this example, here are the properties:
 
-   | Property | Required | Description | 
-   |----------|----------|-------------| 
-   | **Table name** | Yes | The table where to update the record, such as "AREA" | 
-   | **Row ID** | Yes | The ID for the record to update, such as "99999" | 
-   | **Area ID** | Yes | The new area ID, such as "99999" | 
-   | **Area description** | Yes | The new area description, such as "Updated 99999" | 
-   | **Region ID** | Yes | The new region ID, such as "102" | 
-   |||| 
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Table name** | Yes | The table where to update the record, such as "AREA" |
+   | **Row ID** | Yes | The ID for the record to update, such as "99999" |
+   | **Area ID** | Yes | The new area ID, such as "99999" |
+   | **Area description** | Yes | The new area description, such as "Updated 99999" |
+   | **Region ID** | Yes | The new region ID, such as "102" |
+   ||||
 
    For example:
 
-   ![Select table](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![Screenshot that shows the Logic Apps Designer with the "Update row (Preview)" action where you select a table.](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
-1. When you're done, on the designer toolbar, choose **Save**. 
+1. When you're done, on the designer toolbar, choose **Save**.
 
 ### View update row outputs
 
 To run your logic app manually, on the designer toolbar, choose **Run**. 
 After your logic app finishes running, you can view the output from the run.
 
-1. On your logic app menu, select **Overview**. 
+1. On your logic app menu, select **Overview**.
 
 1. Under **Summary**, in the **Runs history** section, 
-select the most recent run, which is the first item in the list. 
+select the most recent run, which is the first item in the list.
 
 1. Under **Logic app run**, you can now review the status, 
-inputs, and outputs for each step in your logic app. 
+inputs, and outputs for each step in your logic app.
 Expand the **Update row** action.
 
-1. To view the inputs, choose **Show raw inputs**. 
+1. To view the inputs, choose **Show raw inputs**.
 
-1. To view the outputs, choose **Show raw outputs**. 
+1. To view the outputs, choose **Show raw outputs**.
 
    The outputs include the record you updated in your specified table.
-   
+
    ![View output with updated row](./media/connectors-create-api-db2/db2-connector-update-row-outputs.png)
 
 ## Delete row
@@ -384,7 +381,7 @@ This action runs a DB2 `DELETE` statement, for example,
 
 1. If you've never used DB2 actions before in your logic app, 
 review the steps in the [Add DB2 action - Get tables](#add-db2-action) 
-section, but add the **Delete row** action instead, and then return here to continue. 
+section, but add the **Delete row** action instead, and then return here to continue.
 
    After you add the **Delete row** action, here is how your example logic app appears:
 
@@ -392,55 +389,53 @@ section, but add the **Delete row** action instead, and then return here to cont
 
 1. Specify values for all the required properties (*). 
 After you select a table, the action shows the relevant 
-properties that are specific to records in that table. 
+properties that are specific to records in that table.
 
    For this example, here are the properties:
 
-   | Property | Required | Description | 
-   |----------|----------|-------------| 
-   | **Table name** | Yes | The table where to delete the record, such as "AREA" | 
-   | **Row ID** | Yes | The ID for the record to delete, such as "99999" | 
-   |||| 
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Table name** | Yes | The table where to delete the record, such as "AREA" |
+   | **Row ID** | Yes | The ID for the record to delete, such as "99999" |
+   ||||
 
    For example:
 
-   ![Select table](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![Screenshot that shows the Logic Apps Designer with the "Delete row (Preview)" action where you select a table to delete.](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
-1. When you're done, on the designer toolbar, choose **Save**. 
+1. When you're done, on the designer toolbar, choose **Save**.
 
 ### View delete row outputs
 
 To run your logic app manually, on the designer toolbar, choose **Run**. 
 After your logic app finishes running, you can view the output from the run.
 
-1. On your logic app menu, select **Overview**. 
+1. On your logic app menu, select **Overview**.
 
 1. Under **Summary**, in the **Runs history** section, 
-select the most recent run, which is the first item in the list. 
+select the most recent run, which is the first item in the list.
 
 1. Under **Logic app run**, you can now review the status, 
-inputs, and outputs for each step in your logic app. 
+inputs, and outputs for each step in your logic app.
 Expand the **Delete row** action.
 
-1. To view the inputs, choose **Show raw inputs**. 
+1. To view the inputs, choose **Show raw inputs**.
 
-1. To view the outputs, choose **Show raw outputs**. 
+1. To view the outputs, choose **Show raw outputs**.
 
    The outputs no longer include the record you deleted from your specified table.
-   
+
    ![View output without deleted row](./media/connectors-create-api-db2/db2-connector-delete-row-outputs.png)
 
 ## Connector reference
 
-For technical details, such as triggers, actions, and limits, 
-as described by the connector's Swagger file, 
-see the [connector's reference page](/connectors/db2/). 
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/db2/).
 
-## Get support
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+

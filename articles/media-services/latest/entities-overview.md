@@ -1,37 +1,187 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services entities overview - Azure | Microsoft Docs
-description: This article gives an overview of Azure Media Services entities.  
+title: Filtering, ordering, and paging of entities
+description: Learn about filtering, ordering, and paging of Azure Media Services v3 entities.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 12/20/2018
-ms.author: juliako
-ms.custom: seodec18
-
+ms.topic: overview
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: seodec18, devx-track-csharp
 ---
 
-# Azure Media Services entities overview
+# Filtering, ordering, and paging of Media Services entities
 
-This article gives a brief overview of Azure Media Services entities and points to an article for more information about each entity. 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-| Topic | Description |
-|---|---|
-| [Account filters and Asset filters](filters-dynamic-manifest-overview.md)|When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default Asset's manifest file. Azure Media Services enables you to define [Account Filters](https://docs.microsoft.com/rest/api/media/accountfilters) and [Asset Filters](https://docs.microsoft.com/rest/api/media/assetfilters). Then, use **Dynamic Manifests** based on the predefined filters. |
-| [Assets](assets-concept.md)|An [Asset](https://docs.microsoft.com/rest/api/media/assets) entity contains digital files (including video, audio, images, thumbnail collections, text tracks, and closed caption files) and the metadata about these files. After the digital files are uploaded into an Asset, they can be used in the Media Services encoding, streaming, analyzing content workflows.|
-| [Content Key Policies](content-key-policy-concept.md)|You can use Media Services to secure your media from the time it leaves your computer through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients.|
-| [LiveEvents and LiveOutputs](live-events-outputs-concept.md)|Media Services enables you to deliver live events to your customers on the Azure cloud. To configure your live streaming events in Media Services v3, you need to learn about [Live Events](https://docs.microsoft.com/rest/api/media/liveevents) and [Live Outputs](https://docs.microsoft.com/rest/api/media/liveoutputs).|
-| [Streaming Endpoints](streaming-endpoint-concept.md)|A [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) entity represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a Streaming Endpoint service can be a live stream, or a video on-demand Asset in your Media Services account. When you create a Media Services account, a **default** Streaming Endpoint is created for you in a stopped state. You cannot delete the  **default** Streaming Endpoint. Additional Streaming Endpoints can be created under the account. To start streaming videos, you need to start the Streaming Endpoint from which you want to atream your video. |
-| [Streaming Locators](streaming-locators-concept.md)|You need to provide your clients with a URL that they can use to play back encoded video or audio files, you need to create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) and build the streaming URLs.|
-| [Streaming Policies](streaming-policy-concept.md)| [Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies) enable you to define streaming protocols and encryption options for your StreamingLocators. You can either specify the name of a custom Streaming Policy you created or use one of the predefined Streaming Policies offered by Media Services. <br/><br/>When using a custom Streaming Policy, you should design a limited set of such policies for your Media Service account, and reuse them for your Streaming Locators whenever the same encryption options and protocols are needed. You should not be creating a new Streaming Policy for each Streaming Locator.|
-| [Transforms and Jobs](transforms-jobs-concept.md)|Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files.<br/><br/>A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Azure Media Services to apply the **Transform** to a given input video or audio content. The **Job** specifies information such as the location of the input video, and the location for the output. You can specify the location of your input video using: HTTPS URLs, SAS URLs, or an Asset.|
+This topic discusses the OData query options and pagination support available when you're listing Azure Media Services v3 entities.
+
+## Considerations
+
+* Properties of entities that are of the `Datetime` type are always in UTC format.
+* White space in the query string should be URL-encoded before you send a request.
+
+## Comparison operators
+
+You can use the following operators to compare a field to a constant value:
+
+Equality operators:
+
+- `eq`: Test whether a field is *equal to* a constant value.
+- `ne`: Test whether a field is *not equal to* a constant value.
+
+Range operators:
+
+- `gt`: Test whether a field is *greater than* a constant value.
+- `lt`: Test whether a field is *less than* a constant value.
+- `ge`: Test whether a field is *greater than or equal to* a constant value.
+- `le`: Test whether a field is *less than or equal to* a constant value.
+
+## Filter
+
+Use `$filter` to supply an OData filter parameter to find only the objects you're interested in.
+
+The following REST example filters on the `alternateId` value of an asset:
+
+```
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
+```
+
+The following C# example filters on the asset's created date:
+
+```csharp
+var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
+var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
+```
+
+## Order by
+
+Use `$orderby` to sort the returned objects by the specified parameter. For example:  
+
+```
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
+```
+
+To sort the results in ascending or descending order, append either `asc` or `desc` to the field name, separated by a space. For example: `$orderby properties/created desc`.
+
+## Skip token
+
+If a query response contains many items, the service returns a `$skiptoken` (`@odata.nextLink`) value that you use to get the next page of results. Use it to page through the entire result set.
+
+In Media Services v3, you can't configure the page size. The page size varies by the type of entity. Read the individual sections that follow for details.
+
+If entities are created or deleted while you're paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that hasn't been downloaded).
+
+> [!TIP]
+> Always use `nextLink` to enumerate the collection and don't depend on a particular page size.
+>
+> The `nextLink` value will be present only if there's more than one page of entities.
+
+Consider the following example of where `$skiptoken` is used. Make sure you replace *amstestaccount* with your account name and set the *api-version* value to the latest version.
+
+If you request a list of assets like this:
+
+```
+GET  https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
+x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
+Content-Type: application/json; charset=utf-8
+```
+
+You'll get back a response similar to this one:
+
+```
+HTTP/1.1 200 OK
+
+{
+"value":[
+{
+"name":"Asset 0","id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-0000-0000-0000-000000000000","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-00000000-0000-0000-0000-0000000000000","storageAccountName":"amsacctname","storageEncryptionFormat":"None"
+}
+},
+// lots more assets
+{
+"name":"Asset 517","id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-0000-0000-0000-000000000000","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-00000000-0000-0000-0000-000000000000","storageAccountName":"amsacctname","storageEncryptionFormat":"None"
+}
+}
+],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
+}
+```
+
+You would then request the next page by sending a get request for:
+
+```
+https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
+```
+
+The following C# example shows how to enumerate through all streaming locators in the account.
+
+```csharp
+var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.StreamingLocators.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+## Using logical operators to combine query options
+
+Media Services v3 supports **OR** and **AND** logical operators. 
+
+The following REST example checks the job's state:
+
+```
+https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/qbtest/providers/Microsoft.Media/mediaServices/qbtest/transforms/VideoAnalyzerTransform/jobs?$filter=properties/state%20eq%20Microsoft.Media.JobState'Scheduled'%20or%20properties/state%20eq%20Microsoft.Media.JobState'Processing'&api-version=2018-07-01
+```
+
+You construct the same query in C# like this: 
+
+```csharp
+var odataQuery = new ODataQuery<Job>("properties/state eq Microsoft.Media.JobState'Scheduled' or properties/state eq Microsoft.Media.JobState'Processing'");
+client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransformName, odataQuery);
+```
+
+## Filtering and ordering options of entities
+
+The following table shows how you can apply the filtering and ordering options to different entities:
+
+|Entity name|Property name|Filter|Order|
+|---|---|---|---|
+|[Assets](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` and `desc`|
+||properties.alternateId |`eq`||
+||properties.assetId |`eq`||
+||properties.created| `eq`, `gt`, `lt`| `asc` and `desc`|
+|[Content key policies](/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
+||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.policyId|`eq`, `ne`||
+|[Jobs](/rest/api/media/jobs)| name  | `eq`            | `asc` and `desc`|
+||properties.state        | `eq`, `ne`        |                         |
+||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
+||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` and `desc`| 
+|[Streaming locators](/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` and `desc`|
+||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+|[Streaming policies](/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+|[Transforms](/rest/api/media/transforms)| name | `eq`            | `asc` and `desc`|
+|| properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
+|| properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 
 ## Next steps
 
-[Stream a file](stream-files-dotnet-quickstart.md)
+* [List Assets](/rest/api/media/assets/list)
+* [List Content Key Policies](/rest/api/media/contentkeypolicies/list)
+* [List Jobs](/rest/api/media/jobs/list)
+* [List Streaming Policies](/rest/api/media/streamingpolicies/list)
+* [List Streaming Locators](/rest/api/media/streaminglocators/list)
+* [Stream a file](stream-files-dotnet-quickstart.md)
+* [Quotas and limits](limits-quotas-constraints.md)

@@ -1,24 +1,34 @@
 ---
-title: Getting started Azure Multi-Factor Authentication Server | Microsoft Docs
+title: Getting started Azure MFA Server - Azure Active Directory
 description: Step-by-step get started with Azure MFA Server on-premises
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
-ms.topic: conceptual
-ms.date: 07/11/2018
+ms.subservice: authentication
+ms.topic: how-to
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: justinha
+author: justinha
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Getting started with the Azure Multi-Factor Authentication Server
 
-<center>![MFA on-premises](./media/howto-mfaserver-deploy/server2.png)</center>
+<center>
 
-Now that we have determined to use on-premises Multi-Factor Authentication Server, let’s get going. This page covers a new installation of the server and setting it up with on-premises Active Directory. If you already have the MFA server installed and are looking to upgrade, see [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md). If you're looking for information on installing just the web service, see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md).
+![Getting started with MFA Server on-premises](./media/howto-mfaserver-deploy/server2.png)</center>
+
+This page covers a new installation of the server and setting it up with on-premises Active Directory. If you already have the MFA server installed and are looking to upgrade, see [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md). If you're looking for information on installing just the web service, see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md).
+
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure AD Multi-Factor Authentication.
+>
+> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual.
 
 ## Plan your deployment
 
@@ -45,7 +55,7 @@ Make sure the server  that you're using for Azure Multi-Factor Authentication me
 | Azure Multi-Factor Authentication Server Requirements | Description |
 |:--- |:--- |
 | Hardware |<li>200 MB of hard disk space</li><li>x32 or x64 capable processor</li><li>1 GB or greater RAM</li> |
-| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, all editions</li><li>Windows 8, all editions</li><li>Windows 7, all editions</li><li>Windows Vista, all editions, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 or greater if installing the user portal or web service SDK</li> |
+| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008/R2 (with [ESU](/lifecycle/faq/extended-security-updates) only)</li><li>Windows 10</li><li>Windows 8.1, all editions</li><li>Windows 8, all editions</li><li>Windows 7, all editions (with [ESU](/lifecycle/faq/extended-security-updates) only)</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 or greater if installing the user portal or web service SDK</li> |
 | Permissions | Domain Administrator or Enterprise Administrator account to register with Active Directory |
 
 ### Azure MFA Server Components
@@ -72,26 +82,45 @@ If outbound firewalls are restricted on port 443, open the following IP address 
 |:---: |:---: |:---: |
 | 134.170.116.0/25 |255.255.255.128 |134.170.116.1 – 134.170.116.126 |
 | 134.170.165.0/25 |255.255.255.128 |134.170.165.1 – 134.170.165.126 |
-| 70.37.154.128/25 |255.255.255.128 |70.37.154.129 – 70.37.154.254 |
+| 70.37.154.128/25 |255.255.255.128 |70.37.154.129 – 70.37.154.254   |
+| 52.251.8.48/28   | 255.255.255.240 | 52.251.8.48 - 52.251.8.63     |
+| 52.247.73.160/28 | 255.255.255.240 | 52.247.73.160 - 52.247.73.175 |
+| 52.159.5.240/28  | 255.255.255.240 | 52.159.5.240 - 52.159.5.255   |
+| 52.159.7.16/28   | 255.255.255.240 | 52.159.7.16 - 52.159.7.31     |
+| 52.250.84.176/28 | 255.255.255.240 | 52.250.84.176 - 52.250.84.191 |
+| 52.250.85.96/28  | 255.255.255.240 | 52.250.85.96 - 52.250.85.111  |
 
 If you aren't using the Event Confirmation feature, and your users aren't using mobile apps to verify from devices on the corporate network, you only need the following ranges:
 
 | IP Subnet | Netmask | IP Range |
 |:---: |:---: |:---: |
-| 134.170.116.72/29 |255.255.255.248 |134.170.116.72 – 134.170.116.79 |
-| 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
-| 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
+| 134.170.116.72/29 |255.255.255.248 |134.170.116.72 – 134.170.116.79|
+| 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79|
+| 70.37.154.200/29 |255.255.255.248  |70.37.154.201 – 70.37.154.206  |
+| 52.251.8.48/28   | 255.255.255.240 | 52.251.8.48 - 52.251.8.63     |
+| 52.247.73.160/28 | 255.255.255.240 | 52.247.73.160 - 52.247.73.175 |
+| 52.159.5.240/28  | 255.255.255.240 | 52.159.5.240 - 52.159.5.255   |
+| 52.159.7.16/28   | 255.255.255.240 | 52.159.7.16 - 52.159.7.31     |
+| 52.250.84.176/28 | 255.255.255.240 | 52.250.84.176 - 52.250.84.191 |
+| 52.250.85.96/28  | 255.255.255.240 | 52.250.85.96 - 52.250.85.111  |
 
 ## Download the MFA Server
 
 Follow these steps to download the Azure Multi-Factor Authentication Server from the Azure portal:
 
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers who would like to require multi-factor authentication (MFA) from their users should use cloud-based Azure AD Multi-Factor Authentication.
+>
+> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual. The following steps only work if you were an existing MFA Server customer.
+
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Select **Azure Active Directory** > **MFA Server**.
-3. Select **Server settings**.
+2. Search for and select *Azure Active Directory*. Select **Security** > **MFA**.
+3. Under **Manager MFA Server**, select **Server settings**.
 4. Select **Download** and follow the instructions on the download page to save the installer. 
 
-   ![Download MFA Server](./media/howto-mfaserver-deploy/downloadportal.png)
+   ![Download MFA Server from the Azure portal](./media/howto-mfaserver-deploy/downloadportal.png)
 
 5. Keep this page open as we will refer to it after running the installer.
 
@@ -104,9 +133,12 @@ Now that you have downloaded the server you can install and configure it. Be sur
 3. Once the installation is complete, click **Finish**. The configuration wizard launches.
 4. On the configuration wizard welcome screen, check **Skip using the Authentication Configuration Wizard** and click **Next**. The wizard closes and the server starts.
 
-   ![Cloud](./media/howto-mfaserver-deploy/skip2.png)
+   ![Skip using the Authentication Configuration Wizard](./media/howto-mfaserver-deploy/skip2.png)
 
 5. Back on the page that you downloaded the server from, click the **Generate Activation Credentials** button. Copy this information into the Azure MFA Server in the boxes provided and click **Activate**.
+
+> [!NOTE]
+> Only global administrators are able to generate activation credentials in the Azure portal.
 
 ## Send users an email
 
@@ -124,7 +156,7 @@ Click the email icon on the left to set up the settings for sending these emails
 
 On the Email Content tab, you can see the email templates that are available to choose from. Depending on how you have configured your users to perform two-step verification, choose the template that best suits you.
 
-![MFA Server Email templates](./media/howto-mfaserver-deploy/email2.png)
+![MFA Server Email templates in the console](./media/howto-mfaserver-deploy/email2.png)
 
 ## Import users from Active Directory
 
@@ -137,7 +169,7 @@ Now that the server is installed you want to add users. You can choose to create
 3. Now you can either search for individual users or search the AD directory for OUs with users in them. In this case, we specify the users OU.
 4. Highlight all the users on the right and click **Import**. You should receive a pop-up telling you that you were successful. Close the import window.
 
-   ![MFA Server user import](./media/howto-mfaserver-deploy/import2.png)
+   ![MFA Server user import from Active Directory](./media/howto-mfaserver-deploy/import2.png)
 
 ### Automated synchronization with Active Directory
 
@@ -149,7 +181,7 @@ Now that the server is installed you want to add users. You can choose to create
 
 ## How the Azure Multi-Factor Authentication Server handles user data
 
-When you use the Multi-Factor Authentication (MFA) Server on-premises, a user’s data is stored in the on-premises servers. No persistent user data is stored in the cloud. When the user performs a two-step verification, the MFA Server sends data to the Azure MFA cloud service to perform the verification. When these authentication requests are sent to the cloud service, the following fields are sent in the request and logs so that they are available in the customer's authentication/usage reports. Some of the fields are optional so they can be enabled or disabled within the Multi-Factor Authentication Server. The communication from the MFA Server to the MFA cloud service uses SSL/TLS over port 443 outbound. These fields are:
+When you use the Multi-Factor Authentication (MFA) Server on-premises, a user's data is stored in the on-premises servers. No persistent user data is stored in the cloud. When the user performs a two-step verification, the MFA Server sends data to the Azure MFA cloud service to perform the verification. When these authentication requests are sent to the cloud service, the following fields are sent in the request and logs so that they are available in the customer's authentication/usage reports. Some of the fields are optional so they can be enabled or disabled within the Multi-Factor Authentication Server. The communication from the MFA Server to the MFA cloud service uses SSL/TLS over port 443 outbound. These fields are:
 
 * Unique ID - either username or internal MFA server ID
 * First and last name (optional)
@@ -163,6 +195,9 @@ When you use the Multi-Factor Authentication (MFA) Server on-premises, a user’
 * Client IP – if available
 
 In addition to the fields above, the verification result (success/denial) and reason for any denials is also stored with the authentication data and available through the authentication/usage reports.
+
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA Server users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
 
 ## Back up and restore Azure MFA Server
 
@@ -182,7 +217,7 @@ The new server is now up and running with the original backed-up configuration a
 
 ## Managing the TLS/SSL Protocols and Cipher Suites
 
-Once you have upgraded to or installed MFA Server version 8.x or higher, it is recommended that older and weaker cipher suites be disabled or removed unless required by your organization. Information on how to complete this task can be found in the article [Managing SSL/TLS Protocols and Cipher Suites for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
+Once you have upgraded to or installed MFA Server version 8.x or higher, it is recommended that older and weaker cipher suites be disabled or removed unless required by your organization. Information on how to complete this task can be found in the article [Managing SSL/TLS Protocols and Cipher Suites for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ## Next steps
 

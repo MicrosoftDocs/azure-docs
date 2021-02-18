@@ -1,20 +1,20 @@
 ---
-title: Node.Js, Angular app using MongoB API (Part3)
-titleSuffix: Azure Cosmos DB
+title: Create the Angular app UI with Azure Cosmos DB's API for MongoDB (Part3)
 description: Part 3 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB. 
 author: johnpapa
-
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-js
+ms.reviewer: sngun
 ---
-# Create a MongoDB app with Angular and Azure Cosmos DB - Part 3: Build the UI with Angular
+# Create an Angular app with Azure Cosmos DB's API for MongoDB - Build the UI with Angular
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-This multi-part tutorial demonstrates how to create a new app written in Node.js with Express and Angular and then connect it to your [Cosmos account configured for MongoDB API](mongodb-introduction.md).
+This multi-part tutorial demonstrates how to create a new app written in Node.js with Express and Angular and then connect it to your [Cosmos account configured with Cosmos DB's API for MongoDB](mongodb-introduction.md).
 
 Part 3 of the tutorial builds on [Part 2](tutorial-develop-mongodb-nodejs-part2.md) and covers the following tasks:
 
@@ -36,7 +36,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Build the UI
 
-1. In Visual Studio Code, click the Stop button ![Stop button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png) to stop the Node app.
+1. In Visual Studio Code, click the Stop button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png"::: to stop the Node app. 
 
 2. In your Windows Command Prompt or Mac Terminal window, enter the following command to generate a heroes component. In this code g=generate, c=component, heroes=name of component, and it's using a flat file structure (--flat) so that a subfolder isn't created for it.
 
@@ -46,7 +46,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
     The terminal window displays confirmation of the new components.
 
-    ![Installing hero component](./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png" alt-text="Installing hero component":::
 
     Let's take a look at the files that were created and updated. 
 
@@ -57,7 +57,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 4. In the same folder, open the **app.module.ts** file, and notice that it added the `HeroesComponent` to the declarations on line 5 and it imported it as well on line 10.
 
-    ![Open the app-module.ts file](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png" alt-text="Open the app-module.ts file":::
 
 5. Go back to the **heroes.component.html** file and copy in this code. The `<div>` is the container for the entire page. Inside of the container there is a list of heroes which we need to create so that when you click on one you can select it and edit it or delete it in the UI. Then in the HTML we've got some styling so you know which one has been selected. There's also an edit area so that you can add a new hero or edit an existing one. 
 
@@ -389,7 +389,7 @@ Now that we have the component, how do we get it to show up on the screen? Let's
 
 5. Left-click the term `Hero`, and Visual Studio displays a lightbulb icon on the left side of the code block. 
 
-    ![Light bulb in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png" alt-text="Light bulb in Visual Studio Code":::
 
 6. Click the lightbulb and then click **Import Hero from "/app/hero".** or **Import Hero from "./hero".** (The message changes depending on your setup)
 
@@ -411,7 +411,7 @@ Now that we have the component, how do we get it to show up on the screen? Let's
 
 2. In Visual Studio Code, go back to **heroes.components.ts**. Notice that on the `constructor(private heroService: HeroService) {}` line (line 13), `HeroService` has a red line underneath. Click `HeroService`, and you'll get the lightbulb on the left side of code block. Click the light bulb and then click **Import HeroService from "./hero.service ".** or **Import HeroService from "/app/hero.service ".**
 
-    Clicking the light bulb inserts a new line of code on line 2. If line 2 references the /app/hero.service folder, modify it so that it references the hero file from the local folder (./hero.serivce). Line 2 should look like this:
+    Clicking the light bulb inserts a new line of code on line 2. If line 2 references the /app/hero.service folder, modify it so that it references the hero file from the local folder (./hero.service). Line 2 should look like this:
     
     ```javascript
     import { HeroService } from "./hero.service"
@@ -481,11 +481,11 @@ Now that we have the component, how do we get it to show up on the screen? Let's
 
     Now let's run the app.
 
-2. In Visual Studio Code, click the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) on the left side, then click the **Start Debugging** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png).
+2. In Visual Studio Code, click the **Debug** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png"::: on the left side, then click the **Start Debugging** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png":::.
 
 3. Now open an internet browser and navigate to **localhost:3000** and see the app running locally.
 
-     ![Hero application running locally](./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png)
+     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="Hero application running locally":::
 
 ## Next steps
 

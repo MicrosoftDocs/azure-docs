@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--alkohli 02/21/2017 cloud appliance security-->
 
 Keep the following security considerations in mind when you use the StorSimple Cloud Appliance:
 

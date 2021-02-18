@@ -1,26 +1,18 @@
 ---
-title: Azure CLI Samples - Zone-redundant scale set | Microsoft Docs
-description: Azure CLI Samples
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: zr-msft
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
-ms.service: virtual-machine-scale-sets
-ms.devlang: azurecli
+title: Azure CLI Samples - Zone-redundant scale set
+description: This script creates an Azure virtual machine scale set running Ubuntu across multiple Availability Zones.
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
 ms.date: 03/27/2018
-ms.author: zarhoads
-ms.custom: mvc
+ms.reviewer: jushiman
+ms.custom: mimckitt, devx-track-azurecli
 
 ---
 
-# Create a zone-redundant virtual machine scale set with PowerShell
+# Create a zone-redundant virtual machine scale set with Azure CLI
 This script creates a virtual machine scale set running Ubuntu across multiple Availability Zones. After running the script, you can access the virtual machine over RDP.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -42,11 +34,9 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/ad/group#az_ad_group_create) | Creates a resource group in which all resources are stored. |
-| [az vmss create](/cli/azure/vmss#az_vmss_create) | Creates the virtual machine scale set and connects it to the virtual network, subnet, and network security group. A load balancer is also created to distribute traffic to multiple VM instances. This command also specifies the VM image to be used and administrative credentials.  |
-| [az group delete](/cli/azure/ad/group#delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/ad/group) | Creates a resource group in which all resources are stored. |
+| [az vmss create](/cli/azure/vmss) | Creates the virtual machine scale set and connects it to the virtual network, subnet, and network security group. A load balancer is also created to distribute traffic to multiple VM instances. This command also specifies the VM image to be used and administrative credentials.  |
+| [az group delete](/cli/azure/ad/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
-
-Additional virtual machine scale set Azure CLI script samples can be found in the [Azure virtual machine scale set documentation](../cli-samples.md).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).

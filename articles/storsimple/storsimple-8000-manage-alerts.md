@@ -1,19 +1,10 @@
 ---
-title: View and manage alerts for StorSimple 8000 series device | Microsoft Docs
+title: View and manage alerts for StorSimple 8000 series device
 description: Describes StorSimple alert conditions and severity, how to configure alert notifications, and how to use the StorSimple Device Manager service to manage alerts.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/09/2018
+ms.topic: how-to
+ms.date: 03/14/2019
 ms.author: alkohli
 
 ---
@@ -52,7 +43,7 @@ You can choose whether you want to be notified by email of alert conditions for 
 > [!NOTE]
 > You can enter a maximum of 20 email addresses per device.
 
-After you enable email notification for a device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
+After you enable email notification for a device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply\@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
 
 #### To enable email notification of alerts for a device
 1. Go to your StorSimple Device Manager service. From the list of devices, select and click the device that you wish to configure.
@@ -64,7 +55,7 @@ After you enable email notification for a device, members of the notification li
    
    1. In the **Send email notification** field, select **YES**.
    2. In the **Email service administrators** field, select **YES** to have the service administrator and all co-administrators receive the alert notifications.
-   3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
+   3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone\@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
       
 3. To send a test email notification, click **Send test email**. The StorSimple Device Manager service will display status messages as it forwards the test notification.
 
@@ -79,7 +70,7 @@ After you enable email notification for a device, members of the notification li
 
 5. Once you have completed the configuration, click **Save**. When prompted for confirmation, click **Yes**.
 
-     ![Alerts test notification email sent](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
+     ![Alerts test notification email sent 2](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
 
 ## View and track alerts
 
@@ -124,6 +115,7 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 * [Performance alerts](#performance-alerts)
 * [Security alerts](#security-alerts)
 * [Support package alerts](#support-package-alerts)
+* [Enclosure environment alerts](#enclosure-environment-alerts)
 
 ### Cloud connectivity alerts
 
@@ -156,7 +148,7 @@ If cloud connectivity fails on your StorSimple production device, then depending
 | Device failed over to <*device name*>. |Other/unknown cause. |If you see a large number of these alerts, contact Microsoft Support. After the issue is resolved, clear this alert from the alerts page. |
 | A critical device service reports status as failed. |Datapath service failure. |Contact Microsoft Support for assistance. |
 | Virtual IP address for network interface <*DATA #*> reports status as failed. |Other/unknown cause. |Sometimes temporary conditions can cause these alerts. If this is the case, then this alert will be automatically cleared after some time. If the issue persists, contact Microsoft Support. |
-| Virtual IP address for network interface <*DATA #*> reports status as failed. |Interface name: <*DATA #*> IP address <IP address> cannot be brought online because a duplicate IP address was detected on the network. |Ensure that the duplicate IP address is removed from the network or reconfigure the interface with a different IP address. |
+| Virtual IP address for network interface <*DATA #*> reports status as failed. |Interface name: <*DATA #*> IP address `<IP address>` cannot be brought online because a duplicate IP address was detected on the network. |Ensure that the duplicate IP address is removed from the network or reconfigure the interface with a different IP address. |
 
 ### Disaster recovery alerts
 
@@ -196,15 +188,16 @@ If cloud connectivity fails on your StorSimple production device, then depending
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
 | Could not start StorSimple service(s). |Datapath error |If the problem persists, contact Microsoft Support. |
-| Duplicate IP address detected for 'Data0'. | |The system has detected a conflict for IP address '10.0.0.1'. The network resource 'Data0' on the device *<device1>* is offline. Ensure that this IP address is not used by any other entity in this network. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Contact your network administrator for help resolving this issue. If the problem persists, contact Microsoft Support. |
-| IPv4 (or IPv6) address for 'Data0' is offline. | |The network resource 'Data0' with IP address '10.0.0.1.' and prefix length '22' on the device *<device1>* is offline. Ensure that the switch ports to which this interface is connected are operational. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Could not connect to the authentication service. |Datapath error |The URLthat is used to authenticate is not reachable. Ensure that your firewall rules include the URL patterns specified for the StorSimple device. For more information on URL patterns in Azure portal, go to https://aka.ms/ss-8000-network-reqs. If using Azure Government Cloud, go to the URL patterns in https://aka.ms/ss8000-gov-network-reqs.|
+| Duplicate IP address detected for 'Data0'. | |The system has detected a conflict for IP address '10.0.0.1'. The network resource 'Data0' on the device *\<device1>* is offline. Ensure that this IP address is not used by any other entity in this network. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Contact your network administrator for help resolving this issue. If the problem persists, contact Microsoft Support. |
+| IPv4 (or IPv6) address for 'Data0' is offline. | |The network resource 'Data0' with IP address '10.0.0.1.' and prefix length '22' on the device *\<device1>* is offline. Ensure that the switch ports to which this interface is connected are operational. To troubleshoot network issues, go to [Troubleshoot with the Get-NetAdapter cmdlet](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Could not connect to the authentication service. |Datapath error |The URLthat is used to authenticate is not reachable. Ensure that your firewall rules include the URL patterns specified for the StorSimple device. For more information on URL patterns in Azure portal, go to https:\//aka.ms/ss-8000-network-reqs. If using Azure Government Cloud, go to the URL patterns in https:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### Performance alerts
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| The device load has exceeded <*threshold*>. |Slower than expected response times. |Your device reports utilization under a heavy input/output load. This could cause your device to not work as well as it should. Review the workloads that you have attached to the device, and determine if there are any that could be moved to another device or that are no longer necessary.| Could not start StorSimple service(s). |Datapath error |If the problem persists, contact Microsoft Support. |and the current status, go to [Use the StorSimple Device Manager service to monitor your device](storsimple-8000-monitor-device.md) |
+| The device load has exceeded <*threshold*>. |Slower than expected response times. |Your device reports utilization under a heavy input/output load. This could cause your device to not work as well as it should. Review the workloads that you have attached to the device, and determine if there are any that could be moved to another device or that are no longer necessary.|
+| Could not start StorSimple service(s). |Datapath error |If the problem persists, contact Microsoft Support. |
 
 ### Security alerts
 
@@ -222,7 +215,12 @@ If cloud connectivity fails on your StorSimple production device, then depending
 |:--- |:--- |:--- |
 | Creation of support package failed. |StorSimple couldn't generate the package. |Retry this operation. If the issue persists, contact Microsoft Support. After you have resolved the issue, clear this alert from the alerts page. |
 
+### Enclosure environment alerts
+
+| Alert text | Event | More information / recommended actions |
+|:--- |:--- |:--- |
+| Hardware component Ambient temperature sensor reports status as failed.  | Enclosure type: Main enclosure | This alert is triggered when the ambient outside temperature around StorSimple is above an acceptable range. Check the ambient outside temperature or the airflow from the AC vent in the datacenter. When the temperature returns to normal, the alert is automatically cleared after some time has elapsed. If the issue persists, contact Microsoft support.   |
+
 ## Next steps
 
 Learn more about [StorSimple errors and troubleshooting device deployment issues](storsimple-8000-troubleshoot-deployment.md).
-

@@ -1,18 +1,12 @@
 ---
-title: Optimize your System Center Operations Manager environment with Azure Log Analytics | Microsoft Docs
+title: Assess System Center Operations Manager with Azure Monitor
 description: You can use the System Center Operations Manager Health Check solution to assess the risk and health of your environments on a regular interval.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+author: bwren
+ms.author: bwren
 ms.date: 06/25/2018
-ms.author: magoedte
+
 ---
 
 # Optimize your environment with the System Center Operations Manager Health Check (Preview) solution
@@ -35,26 +29,26 @@ After you've added the solution and an assessment is performed, summary informat
 
 ## Installing and configuring the solution
 
-The solution works with Microsoft System Operations Manager 2012 Service Pack (SP) 1 and 2012 R2.
+The solution works with Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager and Microsoft System Center Operations Manager 1807. A supported version of .NET Framework 4.6.2 must be installed on each management server.
 
 Use the following information to install and configure the solution.
 
- - Before you can use the Health Check solution in Log Analytics, you must have the solution installed. Install the solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
+- Before you can use the Health Check solution in Log Analytics, you must have the solution installed. Install the solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
- - After adding the solution to the workspace, the **System Center Operations Manager Health Check** tile on the dashboard displays an additional configuration required message. Click on the tile and follow the configuration steps mentioned in the page
+- After adding the solution to the workspace, the **System Center Operations Manager Health Check** tile on the dashboard displays an additional configuration required message. Click on the tile and follow the configuration steps mentioned in the page
 
- ![System Center Operations Manager dashboard tile](./media/scom-assessment/scom-configrequired-tile.png)
+  ![System Center Operations Manager dashboard tile](./media/scom-assessment/scom-configrequired-tile.png)
 
 > [!NOTE]
 > Configuration of System Center Operations Manager can be done using a script by following the steps mentioned in the configuration page of the solution in Log Analytics.
 
  To configure the assessment through Operations Manager Operations console, perform the steps below in the following order:
 1. [Set the Run As account for System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
-2. [Configure the System Center Operations Manager Health Check rule](#configure-the-assessment-rule)
+2. Configure the System Center Operations Manager Health Check rule
 
-## System Center Operations Manager assessment data collection details
+## System Center Operations Manager Health Check data collection details
 
-The System Center Operations Manager assessment collects data from the following sources:
+The System Center Operations Manager Health Check solution collects data from the following sources:
 
 * Registry
 * Windows Management Instrumentation (WMI)
@@ -66,7 +60,7 @@ Data is collected on the management server and forwarded to Log Analytics every 
 
 ## Operations Manager run-as accounts for Log Analytics
 
-Log Analytics builds on management packs for workloads to provide value-add services. Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain user account. Configure an Operations Manager Run As account with privileged credentials. For additional information, see [How to create a Run As account](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) in the Operations Manager documentation.
+Log Analytics builds on management packs for workloads to provide value-add services. Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain user account. Configure an Operations Manager Run As account with privileged credentials. For additional information, see [How to create a Run As account](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) in the Operations Manager documentation.
 
 Use the following information to set the Operations Manager Run As account for System Center Operations Manager Health Check.
 
@@ -92,7 +86,7 @@ Now that the Run As account is created, it needs to target management servers in
 2. On the **Distribution** tab, click **Add** for the **Selected computers** box and add the management server to distribute the account to.  Click **OK** twice to save your changes.
 3. Under **Run As Configuration**, click **Profiles**.
 4. Search for the *SCOM Assessment Profile*.
-5. The profile name should be: *Microsoft System Center Advisor SCOM Assessment Run As Profile*.
+5. The profile name should be: *Microsoft System Center Operations Manager Health Check Run As Profile*.
 6. Right-click and update its properties and add the recently created Run As Account you created earlier.
 
 ### SQL script to grant granular permissions to the Run As account
@@ -147,13 +141,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### Configure the health check rule
 
-The System Center Operations Manager Health Check solution’s management pack includes a rule named *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule*. This rule is responsible for running the health check. To enable the rule and configure the frequency, use the procedures below.
+The System Center Operations Manager Health Check solution’s management pack includes a rule named *Microsoft System Center Operations Manager Run Health Check Rule*. This rule is responsible for running the health check. To enable the rule and configure the frequency, use the procedures below.
 
-By default, the Microsoft System Center Advisor SCOM Assessment Run Assessment Rule is disabled. To run the health check, you must enable the rule on a management server. Use the following steps.
+By default, the Microsoft System Center Operations Manager Run Health Check Rule is disabled. To run the health check, you must enable the rule on a management server. Use the following steps.
 
 #### Enable the rule for a specific management server
 
-1. In the **Authoring** workspace of the Operations Manager Operations console, search for the rule *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* in the **Rules** pane.
+1. In the **Authoring** workspace of the Operations Manager Operations console, search for the rule *Microsoft System Center Operations Manager Run Health Check Rule* in the **Rules** pane.
 2. In the search results, select the one that includes the text *Type: Management Server*.
 3. Right-click the rule and then click **Overrides** > **For a specific object of class: Management Server**.
 4.	In the available management servers list, select the management server where the rule should run.  This should be the same management server you configured earlier to associate the Run As account with.
@@ -165,7 +159,7 @@ By default, the Microsoft System Center Advisor SCOM Assessment Run Assessment R
 
 The assessment is configured to run every 10,080 minutes (or seven days) by default. You can override the value to a minimum value of 1440 minutes (or one day). The value represents the minimum time gap required between successive assessment runs. To override the interval, use the steps below.
 
-1. In the **Authoring** workspace of the Operations Manager console, search for the rule *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* in the **Rules** section.
+1. In the **Authoring** workspace of the Operations Manager console, search for the rule *Microsoft System Center Operations Manager Run Health Check Rule* in the **Rules** section.
 2. In the search results, select the one that includes the text *Type: Management Server*.
 3. Right-click the rule and then click **Override the Rule** > **For all objects of class: Management Server**.
 4. Change the **Interval** parameter value to your desired interval value. In the example below, the value is set to 1440 minutes (one day).<br><br> ![interval parameter](./media/scom-assessment/interval.png)<br>  
@@ -205,7 +199,7 @@ Every recommendation includes guidance about why it is important. Use this guida
 
 ## Use health check focus area recommendations
 
-Before you can use a health check solution in Log Analytics, you must have the solution installed. To read more about installing solutions, see [Install a management solution](../../azure-monitor/insights/solutions.md). After it is installed, you can view the summary of recommendations by using the System Center Operations Manager Health Check tile on the **Overview** page for your workspace in the Azure portal.
+Before you can use a health check solution in Log Analytics, you must have the solution installed. To read more about installing solutions, see [Install a management solution](./solutions.md). After it is installed, you can view the summary of recommendations by using the System Center Operations Manager Health Check tile on the **Overview** page for your workspace in the Azure portal.
 
 View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
 
@@ -231,11 +225,11 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 
     >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](../../azure-monitor/log-query/log-query-overview.md), then the above query would change to the following.
+    > If your workspace has been upgraded to the [new Log Analytics query language](../logs/log-query-overview.md), then the above query would change to the following.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Here's a screen shot showing the Log Search query:<br><br> ![log search](./media/scom-assessment/scom-log-search.png)<br>
+    Here's a screenshot showing the Log Search query:<br><br> ![log search](./media/scom-assessment/scom-log-search.png)<br>
 
 3. Choose recommendations that you want to ignore. You'll use the values for RecommendationId in the next procedure.
 
@@ -256,7 +250,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 
     >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](../../azure-monitor/log-query/log-query-overview.md), then the above query would change to the following.
+    > If your workspace has been upgraded to the [new Log Analytics query language](../logs/log-query-overview.md), then the above query would change to the following.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -272,7 +266,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 *Is there a way to configure how often the check runs?* Yes. See [Configure the run frequency](#configure-the-run-frequency).
 
-*If another server is discovered after I’ve added the System Center Operations Manager Assessment solution, will it be checked?* Yes, after discovery it is checked from then on, by default every seven days.
+*If another server is discovered after I’ve added the System Center Operations Manager Health Check solution, will it be checked?* Yes, after discovery it is checked from then on, by default every seven days.
 
 *What is the name of the process that does the data collection?* AdvisorAssessment.exe
 
@@ -292,9 +286,10 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 *Why display only the top 10 recommendations?* Instead of giving you an exhaustive, overwhelming list of tasks, we recommend that you focus on addressing the prioritized recommendations first. After you address them, additional recommendations will become available. If you prefer to see the detailed list, you can view all recommendations using Log Search.
 
-*Is there a way to ignore a recommendation?* Yes, see the [Ignore recommendations](#Ignore-recommendations).
+*Is there a way to ignore a recommendation?* Yes, see the [Ignore recommendations](#ignore-recommendations).
 
 
 ## Next steps
 
-- [Search logs](../../azure-monitor/log-query/log-query-overview.md) to learn how to analyze detailed System Center Operations Manager Health Check data and recommendations.
+- [Search logs](../logs/log-query-overview.md) to learn how to analyze detailed System Center Operations Manager Health Check data and recommendations.
+

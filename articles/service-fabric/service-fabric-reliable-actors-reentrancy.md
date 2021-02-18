@@ -1,21 +1,9 @@
 ---
-title: Reentrancy in Azure Service Fabric actors | Microsoft Docs
-description: Introduction to reentrancy for Service Fabric Reliable Actors.
-services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: timlt
-editor: amanbha
-
-ms.assetid: be23464a-0eea-4eca-ae5a-2e1b650d365e
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Reentrancy in Azure Service Fabric actors 
+description: Introduction to reentrancy for Service Fabric Reliable Actors, a way to logically avoid blocking based on call context.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
-ms.author: vturecek
-
+ms.custom: devx-track-csharp
 ---
 # Reliable Actors reentrancy
 The Reliable Actors runtime, by default, allows logical call context-based reentrancy. This allows for actors to be reentrant if they are in the same call context chain. For example, Actor A sends a message to Actor B, who sends a message to Actor C. As part of the message processing, if Actor C calls Actor A, the message is reentrant, so it will be allowed. Any other messages that are part of a different call context will be blocked on Actor A until it finishes processing.
@@ -107,4 +95,4 @@ static class Program
 
 
 ## Next steps
-* Learn more about reentrancy in the [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* Learn more about reentrancy in the [Actor API reference documentation](/dotnet/api/microsoft.servicefabric.actors))

@@ -13,29 +13,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 03/19/2019
 ms.author: juliako
 
 ---
 # Monitor encoding job progress with the Azure portal
-> [!div class="op_single_selector"]
-> * [Portal](media-services-portal-check-job-progress.md)
-> * [.NET](media-services-check-job-progress.md)
-> * [REST](media-services-rest-check-job-progress.md)
-> 
-> 
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 ## Overview
-> [!NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
-> 
-> 
 
 When you run jobs, you often require a way to track job progress. 
 
 To monitor the progress of the encoding job, click **Settings** (at the top of the page) and then select **Jobs**.
 
-![Jobs](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![Screenshot that shows "Jobs" selected from the "Settings" menu.](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 You can click the job to see more details.
 
@@ -49,4 +44,3 @@ After your encoding job is one, you can publish and play your assets, as describ
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

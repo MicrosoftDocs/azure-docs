@@ -5,6 +5,13 @@
   items:
   - name: About Azure Blockchain Workbench
     href: overview.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Create blockchain app
+    href: create-app.md
+  - name: Use blockchain app
+    href: use.md
 - name: Concepts
   items:
   - name: Architecture
@@ -13,15 +20,13 @@
     href: integration-patterns.md
 - name: How-to guides
   expanded: true
-  items: 
+  items:
   - name: Deploy Workbench
     href: deploy.md
-  - name: Create blockchain app
-    href: create-app.md
   - name: Manage Workbench users
     href: manage-users.md
-  - name: Use blockchain app
-    href: use.md
+  - name: Versioning apps
+    href: version-app.md
   - name: Use Workbench API
     href: use-api.md
   - name: Troubleshoot apps
@@ -47,24 +52,24 @@
   - name: Messaging API
     href: messages-overview.md
   - name: REST API
-    href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
+    href: /rest/api/azure-blockchain-workbench
 - name: Resources
   items:
-  - name: Blog
-    href: https://azure.microsoft.com/blog/topics/blockchain/
   - name: Code samples
     href: https://github.com/Azure-Samples/blockchain
-  - name: Community
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/blockchain/
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-blockchain-workbench.html
+  - name: Community support
     href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
-  - name: Forum
-    href: https://aka.ms/workbenchforum
+  - name: Stack Overflow support
+    href: https://stackoverflow.com/questions/tagged/azure-blockchain-workbench
   - name: Product feedback
     href: https://aka.ms/blockchainuservoice
 - name: Solution templates
   items:
-  - name: Ethereum Proof-of-Authority Consortium
+  - name: Ethereum Proof-of-Authority consortium
     href: ../templates/ethereum-poa-deployment.md
-  - name: Ethereum Proof-of-Work Consortium
-    href: ../templates/ethereum-deployment.md
-  - name: Hyperledger Fabric Consortium
-    href: ../templates/hyperledger-fabric-single-member-blockchain.md
+  - name: Hyperledger Fabric consortium Azure Kubernetes Service
+    href: ../templates/hyperledger-fabric-consortium-azure-kubernetes-service.md

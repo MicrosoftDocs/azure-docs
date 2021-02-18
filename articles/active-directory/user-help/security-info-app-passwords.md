@@ -1,82 +1,83 @@
 ---
-title: Set up app passwords using security info - Azure Active Directory | Microsoft Docs
-description: Set up auto-generated passwords (app passwords) to use with each non-browser app, separate from a normal password, using security info.
+title: Create app passwords from Security info (preview) page - Azure AD
+description: Create auto-generated passwords (app passwords) to use with any non-browser app, or any app that doesn't support two-factor verification, in your organization. This app password is separate from a normal password and can be set up from the Security info page.
 services: active-directory
-author: eross-msft
-manager: mtillman
+author: curtand
+manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
-ms.topic: conceptual
-ms.date: 07/30/2018
-ms.author: lizross
+ms.subservice: user-help
+ms.topic: end-user-help
+ms.date: 02/13/2018
+ms.author: curtand
 ---
 
-# Manage app passwords using security info (preview)
+# Create app passwords from the Security info (preview) page
+
+Certain apps, such as Outlook 2010, don't support two-step verification. This lack of support means that if you're using two-step verification in your organization, the app won't work. To get around this problem, you can create an auto-generated password to use with each non-browser app, separate from your normal password.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Certain non-browser apps, such as Outlook 2010, doesn't support two-step verification. This lack of support means that if you're using two-step verification, the app won't work. To get around this problem, you can create an auto-generated password to use with each non-browser app, separate from your normal password.
+>[!Important]
+>Your administrator may not allow you to use app passwords. If you don't see **App passwords** as an option, they're not available in your organization.
 
 When using app passwords, it's important to remember:
 
-- App passwords are auto-generated and only entered once per app.
+- App passwords are auto-generated, and should be created and entered once per app.
 
 - There's a limit of 40 passwords per user. If you try to create one after that limit, you'll be prompted to delete an existing password before being allowed to create the new one.
-
-- Use one app password per device, not per app. For example, create a single password for all the apps on your laptop, and then another single password for all the apps on your desktop.
 
     >[!Note]
     >Office 2013 clients (including Outlook) support new authentication protocols and can be used with two-step verification. This support means that after two-step verification is turned on, you'll no longer need app passwords for Office 2013 clients. For more info, see the [How modern authentication works for Office 2013 and Office 2016 client apps](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) article.
 
-## Create and delete app passwords using security info
+## Create new app passwords
 
-If you use two-step verification with your work or school account and your administrator has turned on the security info experience, you can create and delete your app passwords using the My Apps portal.
+If you use two-step verification with your work or school account and your administrator has turned on the security info experience, you can create and delete your app passwords using the **Security info** page.
 
-If your administrator hasn't turned on the security info experience, you must follow the instructions and information in the [Manage app passwords for two-step verification](multi-factor-authentication-end-user-app-passwords.md) section.
+>[!Note]
+>If your administrator hasn't turned on the security info experience, you must follow the instructions and information in the [Manage app passwords for two-step verification](multi-factor-authentication-end-user-app-passwords.md) section.
 
-### To create app passwords using the My Apps portal
+### To create a new app password
 
-1. Sign in to your work or school account.
+1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
-2. Go to myapps.microsoft.com, select your name from the upper right corner of the page, and then select **Profile**.
+    ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 
-3. In the **Manage account** area, select **Edit security info**.
+2. Select **Security info** from the left navigation pane or from the link in the **Security info** block, and then select **Add method** from the **Security info** page.
 
-    ![Profile screen with Edit security info link highlighted](media/security-info/security-info-profile.png)
+    ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-4. In the **Keep your account secure** screen, select **Add security info**.
+3. On the **Add a method** page, select **App password** from the drop-down list, and then select **Add**.
 
-    ![Security info screen with existing, editable info](media/security-info/security-info-edit-add-info.png)
+    ![Add method box, with App password selected](media/security-info/securityinfo-myprofile-addpassword.png)
 
-5. In the **Add security info** screen, select **App password**.
+4. Type the name of the app that requires the app password, and then select **Next**.
 
-6. In the **Create your app password** screen, type a name for your app password, and then select **Next**.
+    ![Screenshot that shows the "App password" page, with the name of the app entered.](media/security-info/securityinfo-myprofile-password-appname.png)
 
-    ![Screen where you name your app password](media/security-info/security-info-name-app-password.png)
+5. Copy the text from the **Password** box, paste the password in the password area of the app (in this example, Outlook 2010), and then select **Done**.
 
-7. Select **Copy** to copy the password to clipboard, and then select **Next**.
+    ![App password page, with name of app](media/security-info/securityinfo-myprofile-password-copytext.png)
 
-    ![Screen with app password for copying](media/security-info/security-info-create-app-password.png)
-    
-8. Make sure the app password appears on the **Keep your account secure** screen.
+    The password is added and you can successfully log in to your app going forward.
 
-    ![Keep secure screen, with app password](media/security-info/security-info-keep-secure-app-password.png)
+## Delete your app passwords
 
-### To delete app passwords using the My Apps portal
+If you no longer need to use an app that requires an app password, you can delete the associated app password. Deleting the app password frees up one of the available app password spots for use in the future.
 
-1. On the **Keep your account secure** screen, select the **X** next to the app password to delete.
+>[!Important]
+>If you delete an app password by mistake, there's no way to undo it. You'll have to create a new app password and re-enter it into the app, following the steps in the [Create new app passwords](#create-new-app-passwords) section of this article.
 
-    ![Keep secure screen, delete app password](media/security-info/security-info-keep-secure-delete-app-password.png)
+### To delete an app password
 
-2. In the **Delete application password** screen, select **Delete**.
+1. On the **Security info** page, select the **Delete** link next to the **App password** option for the specific app.
 
-    ![Delete app password screen](media/security-info/security-info-keep-secure-delete-app-password2.png)
+    ![Link to delete the app password method from security info](media/security-info/securityinfo-myprofile-password-appdelete.png)
 
-## Next steps
+2. Select **Yes** from the confirmation box to delete the **App password**. After the app password is deleted, it's removed from your security info and it disappears from the **Security info** page.
 
-- If you need to update your security info, follow the instructions in the [Manage your security info](security-info-manage-settings.md) article.
+## For more information
 
-- For more general info about security info and what you can do, see [Security info overview](user-help-security-info-overview.md) 
+- For more information about the **Security info** page and how to set it up, see [Security info overview](./security-info-setup-signin.md)

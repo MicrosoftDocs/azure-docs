@@ -1,24 +1,14 @@
 ---
-title: Run a script when an Azure Service Fabric service starts | Microsoft Docs
+title: Run a script when an Azure Service Fabric service starts 
 description: Learn how to configure a policy for a Service Fabric service setup entry point and run a script at service start up time.
-services: service-fabric
-documentationcenter: .net
-author: msfussell
-manager: timlt
-editor: ''
+author: athinanthny
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/21/2018
-ms.author: mfussell
-
+ms.author: atsenthi
 ---
 # Run a service startup script as a local user or system account
-Before a Service Fabric service executable starts up it may be necessary to run some configuration or setup work.  For example, configuring environment variables. You can specify a script to run before the service executable starts up in the service manifest for the service. By configuring a RunAs policy for the service setup entry point you can change which account the setup executable runs under.  A separate setup entry point allows you to run high-privilged configuration for a short period of time so the service host executable doesn't need to run with high privileges for extended periods of time.
+Before a Service Fabric service executable starts up it may be necessary to run some configuration or setup work.  For example, configuring environment variables. You can specify a script to run before the service executable starts up in the service manifest for the service. By configuring a RunAs policy for the service setup entry point you can change which account the setup executable runs under.  A separate setup entry point allows you to run high-privileged configuration for a short period of time so the service host executable doesn't need to run with high privileges for extended periods of time.
 
 The setup entry point (**SetupEntryPoint** in the [service manifest](service-fabric-application-and-service-manifests.md)) is a privileged entry point that by default runs with the same credentials as Service Fabric (typically the *NetworkService* account) before any other entry point. The executable that is specified by **EntryPoint** is typically the long-running service host. The **EntryPoint** executable is run after the **SetupEntryPoint** executable exits successfully. The resulting process is monitored and restarted, and begins again with **SetupEntryPoint** if it ever terminates or crashes. 
 
@@ -30,8 +20,8 @@ The following is a simple service manifest example for a stateless service that 
 <ServiceManifest Name="MyStatelessServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Description>An example service manifest.</Description>
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="MyStatelessServiceType" />
@@ -70,7 +60,7 @@ The following application manifest example shows how to configure the service se
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="MyStatelessService_InstanceCount" DefaultValue="-1" />
   </Parameters>
@@ -109,7 +99,7 @@ Often, it's preferable to run the startup script using a local system account ra
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="MyStatelessService_InstanceCount" DefaultValue="-1" />
   </Parameters>

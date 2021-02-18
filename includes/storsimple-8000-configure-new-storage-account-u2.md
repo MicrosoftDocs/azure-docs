@@ -5,14 +5,12 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=alkohli last changed: 01/20/17-->
-
 
 #### To add a storage account credential in the same Azure subscription as the StorSimple Device Manager service
 
 1. Go to your StorSimple Device Manager service. In the **Configuration** section, click **Storage account credentials**.
 
-    ![Storage account credentials](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
+    ![Go to storage account credentials](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
 
 2. On the **Storage account credentials** blade, click **+ Add**.
 
@@ -36,5 +34,5 @@ ms.author: alkohli
 
 The newly created storage account credential will be displayed under the list of **Storage account credentials**.
 
-![List of storage account credentials](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct6.png)
+![List the storage account credentials](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct6.png)
 

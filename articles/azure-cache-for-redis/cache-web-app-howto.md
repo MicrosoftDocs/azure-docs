@@ -1,40 +1,25 @@
 ---
-title: Create an ASP.NET web app with Azure Cache for Redis | Microsoft Docs
+title: Create an ASP.NET web app with Azure Cache for Redis
 description: In this quickstart, you learn how to create an ASP.NET web app with Azure Cache for Redis
-services: azure-cache-for-redis
-documentationcenter: ''
-author: wesmc7777
-manager: cfowler
-editor: ''
+author: yegu-ms
 
-ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/26/2018
-ms.author: wesmc
-ms.custom: mvc
+ms.date: 09/29/2020
+ms.author: yegu
+ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to create a new ASP.NET web app that uses Azure Cache for Redis.
 
 ---
-# Quickstart: Create an ASP.NET web app 
+# Quickstart: Use Azure Cache for Redis with an ASP.NET web app 
 
-## Introduction
-
-This quickstart shows how to create and deploy an ASP.NET web application to Azure App Service by using Visual Studio 2017. The sample application connects to Azure Cache for Redis to store and retrieve data from the cache. After you finish the quickstart, you'll have a running web app, hosted in Azure, that reads and writes to Azure Cache for Redis.
-
-![Simple test completed Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+In this quickstart, you use Visual Studio 2019 to create an ASP.NET web application that connects to Azure Cache for Redis to store and retrieve data from the cache. You then deploy the app to Azure App Service.
 
 ## Prerequisites
 
-To complete the quickstart, you need to install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following environments:
-* ASP.NET and web development
-* Azure development
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** and **Azure development** workloads.
 
 ## Create the Visual Studio project
 
@@ -72,33 +57,33 @@ Next, you create the cache for the app.
 
 #### To edit the *CacheSecrets.config* file
 
-3. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
+1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
 
-4. Edit the *CacheSecrets.config* file. Then add the following content:
+1. Edit the *CacheSecrets.config* file. Then add the following content:
 
     ```xml
     <appSettings>
-        <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<access-key>"/>
+        <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
     </appSettings>
     ```
 
-5. Replace `<cache-name>` with your cache host name.
+1. Replace `<cache-name>` with your cache host name.
 
-6. Replace `<access-key>` with the primary key for your cache.
+1. Replace `<access-key>` with the primary key for your cache.
 
     > [!TIP]
     > You can use the secondary access key during key rotation as an alternate key while you regenerate the primary access key.
->
-7. Save the file.
+   >
+1. Save the file.
 
 ## Update the MVC application
 
 In this section, you update the application to support a new view that displays a simple test against Azure Cache for Redis.
 
-* [Update the web.config file with an app setting for the cache](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
-* [Configure the application to use the StackExchange.Redis client](#configure-the-application-to-use-stackexchangeredis)
-* [Update the HomeController and Layout](#update-the-homecontroller-and-layout)
-* [Add a new RedisCache view](#add-a-new-rediscache-view)
+* [Update the web.config file with an app setting for the cache](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
+* Configure the application to use the StackExchange.Redis client
+* Update the HomeController and Layout
+* Add a new RedisCache view
 
 ### Update the web.config file with an app setting for the cache
 
@@ -114,7 +99,7 @@ Because the file *CacheSecrets.config* isn't deployed to Azure with your applica
 2. In the *web.config* file, find the `<appSetting>` element. Then add the following `file` attribute. If you used a different file name or location, substitute those values for the ones that are shown in the example.
 
 * Before: `<appSettings>`
-* After: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* After:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file can't be found. Your secrets (the connection string to your cache) aren't included as part of the source code for the application. When you deploy your web app to Azure, the *CacheSecrets.config* file isn't deployed.
 
@@ -144,45 +129,62 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 3. Add the following method to the `HomeController` class to support a new `RedisCache` action that runs some commands against the new cache.
 
     ```csharp
-        public ActionResult RedisCache()
+    public ActionResult RedisCache()
+    {
+        ViewBag.Message = "A simple example with Azure Cache for Redis on ASP.NET.";
+            
+        IDatabase cache = Connection.GetDatabase();
+
+        // Perform cache operations using the cache object...
+
+        // Simple PING command
+        ViewBag.command1 = "PING";
+        ViewBag.command1Result = cache.Execute(ViewBag.command1).ToString();
+
+        // Simple get and put of integral data types into the cache
+        ViewBag.command2 = "GET Message";
+        ViewBag.command2Result = cache.StringGet("Message").ToString();
+
+        ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
+        ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
+
+        // Demonstrate "SET Message" executed as expected...
+        ViewBag.command4 = "GET Message";
+        ViewBag.command4Result = cache.StringGet("Message").ToString();
+
+        // Get the client list, useful to see if connection list is growing...
+        ViewBag.command5 = "CLIENT LIST";
+        StringBuilder sb = new StringBuilder();
+
+        var endpoint = (System.Net.DnsEndPoint)Connection.GetEndPoints()[0];
+        var server = Connection.GetServer(endpoint.Host, endpoint.Port);
+        var clients = server.ClientList();
+
+        sb.AppendLine("Cache response :");
+        foreach (var client in clients)
         {
-            ViewBag.Message = "A simple example with Azure Cache for Redis on ASP.NET.";
-
-            var lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-            {
-                string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-                return ConnectionMultiplexer.Connect(cacheConnection);
-            });
-
-            // Connection refers to a property that returns a ConnectionMultiplexer
-            // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
-
-            // Perform cache operations using the cache object...
-
-            // Simple PING command
-            ViewBag.command1 = "PING";
-            ViewBag.command1Result = cache.Execute(ViewBag.command1).ToString();
-
-            // Simple get and put of integral data types into the cache
-            ViewBag.command2 = "GET Message";
-            ViewBag.command2Result = cache.StringGet("Message").ToString();
-
-            ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
-            ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
-
-            // Demonstrate "SET Message" executed as expected...
-            ViewBag.command4 = "GET Message";
-            ViewBag.command4Result = cache.StringGet("Message").ToString();
-
-            // Get the client list, useful to see if connection list is growing...
-            ViewBag.command5 = "CLIENT LIST";
-            ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
-
-            lazyConnection.Value.Dispose();
-
-            return View();
+            sb.AppendLine(client.Raw);
         }
+
+        ViewBag.command5Result = sb.ToString();
+
+        return View();
+    }
+                
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    {
+        string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+        return ConnectionMultiplexer.Connect(cacheConnection);
+    });
+
+    public static ConnectionMultiplexer Connection
+    {
+        get
+        {
+            return lazyConnection.Value;
+        }
+    }
+
     ```
 
 4. In **Solution Explorer**, expand the **Views** > **Shared** folder. Then open the *_Layout.cshtml* file.
@@ -245,7 +247,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 
 ## Run the app locally
 
-By default, the project is configured to host the app locally in [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) for testing and debugging.
+By default, the project is configured to host the app locally in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) for testing and debugging.
 
 ### To run the app locally
 1. In Visual Studio, select **Debug** > **Start Debugging** to build and start the app locally for testing and debugging.

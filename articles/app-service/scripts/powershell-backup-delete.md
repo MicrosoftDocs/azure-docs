@@ -1,22 +1,14 @@
 ---
-title: Azure PowerShell Script Sample - Delete a backup for a web app | Microsoft Docs
-description: Azure PowerShell Script Sample - Delete a backup for a web app
-services: app-service\web
-documentationcenter: 
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'PowerShell: Delete an app backup'
+description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to delete a an app backup.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: ebcadb49-755d-4202-a5eb-f211827a9168
-ms.service: app-service-web
-ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18, devx-track-azurepowershell
 ---
 
 # Delete a backup for a web using Azure PowerShell
@@ -27,6 +19,8 @@ To run this script, you need an existing backup for a web app. To create one, se
 
 ## Sample script
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/backup-delete/backup-delete.ps1?highlight=1-2,11 "Delete a backup for a web app")]
 
 ## Clean up deployment 
@@ -34,7 +28,7 @@ To run this script, you need an existing backup for a web app. To create one, se
 After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Script explanation
@@ -43,11 +37,11 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [Get-AzureRmWebAppBackupList](/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | Gets a list of backups for a web app. |
-| [Remove-AzureRmWebAppBackup](/powershell/module/azurerm.websites/remove-azurermwebappbackup) | Removes the specified backup of a web app. |
+| [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Gets a list of backups for a web app. |
+| [Remove-AzWebAppBackup](/powershell/module/az.websites/remove-azwebappbackup) | Removes the specified backup of a web app. |
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../samples-powershell.md).

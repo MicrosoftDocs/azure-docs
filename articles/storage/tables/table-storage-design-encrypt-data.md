@@ -1,13 +1,13 @@
 ---
 title: Encrypt Azure storage table data | Microsoft Docs
-description: Learn about table data encryption in Azure storage.
+description: Learn about table data encryption in Azure storage. The .NET Azure Storage Client Library lets you encrypt string entities for insert and replace operations.
 services: storage
-author: MarkMcGeeAtAquent
+author: tamram
+ms.author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/11/2018
-ms.author: sngun
-ms.component: tables
+ms.subservice: tables
 ---
 # Encrypt table data
 The .NET Azure Storage Client Library supports encryption of string entity properties for insert and replace operations. The encrypted strings are stored on the service as binary properties, and they are converted back to strings after decryption.    

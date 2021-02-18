@@ -1,13 +1,14 @@
 ---
 title: Security endpoints in IoT Device Provisioning Service | Microsoft Docs
-description: Concepts - how to control access to IoT Device Provisioning Service for backend apps. Includes information about security tokens.
+description: Concepts - how to control access to IoT Device Provisioning Service (DPS) for backend apps. Includes information about security tokens.
 author: wesmc7777
-manager: timlt
+manager: philmea
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 04/09/2019
 ms.author: wesmc
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Control access to Azure IoT Hub Device Provisioning Service
@@ -81,7 +82,7 @@ Here are the expected values:
 
 The following Node.js snippet shows a function called **generateSasToken** that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections detail how to initialize the different inputs for the different token use cases.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -152,7 +153,7 @@ As an example, a service generated using a pre-created shared access policy call
 
 ![Create a shared access policy for your Device Provisioning service instance in the portal][img-add-shared-access-policy]
 
-```nodejs
+```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";
 var policyName = 'enrollmentread'; 
 var policyKey = '...';
@@ -185,5 +186,5 @@ The following table lists the permissions you can use to control access to your 
 [img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.PNG
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-management-portal]: https://portal.azure.com
-[lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
-[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps/
+[lnk-azure-resource-manager]: ../azure-resource-manager/management/overview.md
+[lnk-resource-provider-apis]: /rest/api/iot-dps/

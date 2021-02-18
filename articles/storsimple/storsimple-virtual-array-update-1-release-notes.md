@@ -1,18 +1,9 @@
 ---
-title: StorSimple Virtual Array Update 1.0 release notes| Microsoft Docs
+title: StorSimple Virtual Array Update 1.0 release notes
 description: Describes critical open issues and resolutions for the StorSimple Virtual Array running Update 1.0.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: alkohli
 
@@ -94,4 +85,4 @@ Looking for an older release note? Go to:
 * [StorSimple Virtual Array Update 0.4 Release Notes](storsimple-virtual-array-update-04-release-notes.md)
 * [StorSimple Virtual Array Update 0.3 Release Notes](storsimple-ova-update-03-release-notes.md)
 * [StorSimple Virtual Array Update 0.1 and 0.2 Release Notes](storsimple-ova-update-01-release-notes.md)
-* [StorSimple Virtual Array General Availability Release Notes](storsimple-ova-pp-release-notes.md)
+* [StorSimple Virtual Array General Availability Release Notes](./storsimple-virtual-array-update-06-release-notes.md)

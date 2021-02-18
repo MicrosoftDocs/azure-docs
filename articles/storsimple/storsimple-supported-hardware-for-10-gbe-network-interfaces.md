@@ -18,6 +18,9 @@ ms.author: alkohli
 
 ---
 # Supported hardware for the 10 GbE network interfaces on your StorSimple device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## Overview
 This article provides information about supplementary hardware that works with your Microsoft Azure StorSimple device.
 
@@ -118,5 +121,4 @@ The following table lists the switches supported by Mellanox. These have not bee
 | 7. |1GbE |6120G |HP ProCurve 6120G/XG 1GbE switch blade |HP |
 
 ## Next steps
-[Learn more about StorSimple hardware components and status](storsimple-monitor-hardware-status.md).
-
+[Learn more about StorSimple hardware components and status](./storsimple-8000-monitor-hardware-status.md).

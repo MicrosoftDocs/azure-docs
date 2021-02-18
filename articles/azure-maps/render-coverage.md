@@ -1,9 +1,9 @@
 ---
-title: Render coverage in Azure Maps | Microsoft Docs
-description: Learn about Render coverage in Azure Maps
-author: jingjing-z
-ms.author: jinzh
-ms.date: 03/07/2018
+title: Render coverage | Microsoft Azure Maps
+description: Learn whether Azure Maps renders various regions with detailed or simplified data. See the level it uses for raster-tile and vector-tile maps in those regions.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -13,9 +13,9 @@ manager:
 
 # Azure Maps render coverage
 
-Azure Maps uses both raster tiles and vector tiles to create maps. At its lowest resolution, the entire world fits on a single tile. At its highest resolution, a single tile represents 38 square meters. As you zoom in on a map, therefore, you can see increasingly more details about continents, regions, cities, and individual streets. For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
+Azure Maps uses both raster tiles and vector tiles to create maps. At the lowest resolution, the entire world fits in a single tile. At the highest resolution, a single tile represents 38 square meters. You'll see more details about continents, regions, cities, and individual streets as you zoom in the map. For more information about tiles, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 
-However, Maps does not have the same level of information and accuracy for all regions. The following tables provide information about what level of rendered detail you can expect from each region.
+However, Maps doesn't have the same level of information and accuracy for all regions. The following tables detail the level of information you can render for each region.
 
 ## Legend
 
@@ -28,7 +28,7 @@ However, Maps does not have the same level of information and accuracy for all r
 ## Africa 
 
 
-| Region | Raster Tiles Unified | Vector Tiles Unified |
+| Country/Region | Raster Tiles Unified | Vector Tiles Unified |
 | ------ | :------------------: | :------------------: |
 | Algeria                          | ✓ | ✓ |
 | Angola                           | ✓ | ✓ |
@@ -36,29 +36,28 @@ However, Maps does not have the same level of information and accuracy for all r
 | Botswana                         | ✓ | ✓ |
 | Burkina Faso                     | ✓ | ✓ |
 | Burundi                          | ✓ | ✓ |
-| Cabo Verde                       |   | ✓ |
+| Cabo Verde                       | ✓ | ✓ |
 | Cameroon                         | ✓ | ✓ |
-| Central African Republic         |   | Ø |
-| Chad                             |   | Ø |
-| Comoros                          |   | Ø |
-| Congo                            | ✓ | ✓ |
+| Central African Republic         | ✓ | Ø |
+| Chad                             | ✓ | Ø |
+| Comoros                          | ✓ | Ø |
 | Democratic Republic of the Congo | ✓ | ✓ |
-| Côte d'Ivoire                    |   | Ø |
-| Djibouti                         |   | Ø |
+| Côte d'Ivoire                    | ✓ | Ø |
+| Djibouti                         | ✓ | Ø |
 | Egypt                            | ✓ | ✓ |
-| Equatorial Guinea                |   | Ø |
-| Eritrea                          |   | Ø |
-| Ethiopia                         |   | Ø |
+| Equatorial Guinea                | ✓ | Ø |
+| Eritrea                          | ✓ | Ø |
+| Ethiopia                         | ✓ | Ø |
 | Gabon                            | ✓ | ✓ |
-| Gambia                           |   | Ø |
+| Gambia                           | ✓ | Ø |
 | Ghana                            | ✓ | ✓ |
-| Guinea                           |   | Ø |
-| Guinea-Bissau                    |   | Ø |
+| Guinea                           | ✓ | Ø |
+| Guinea-Bissau                    | ✓ | Ø |
 | Kenya                            | ✓ | ✓ |
 | Lesotho                          | ✓ | ✓ |
-| Liberia                          |   | Ø |
-| Libya                            |   | Ø |
-| Madagascar                       |   | Ø |
+| Liberia                          | ✓ | Ø |
+| Libya                            | ✓ | Ø |
+| Madagascar                       | ✓ | Ø |
 | Malawi                           | ✓ | ✓ |
 | Mali                             | ✓ | ✓ |
 | Mauritania                       | ✓ | ✓ |
@@ -71,14 +70,14 @@ However, Maps does not have the same level of information and accuracy for all r
 | Nigeria                          | ✓ | ✓ |
 | Réunion                          | ✓ | ✓ |
 | Rwanda                           | ✓ | ✓ |
-| Saint Helena, Ascension and Tristan da Cunha |   | Ø |
-| Sao Tome and Principe            |   | Ø |
+| Saint Helena, Ascension and Tristan da Cunha | ✓ | Ø |
+| São Tomé and Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
-| Sierra Leone                     |   | Ø |
-| Somalia                          |   | Ø |
+| Sierra Leone                     | ✓ | ✓ |
+| Somalia                          | ✓ | ✓ |
 | South Africa                     | ✓ | ✓ |
-| South Sudan                      |   | Ø |
-| Sudan                            |   | Ø |
+| South Sudan                      | ✓ | ✓ |
+| Sudan                            | ✓ | ✓ |
 | Swaziland                        | ✓ | ✓ |
 | United Republic of Tanzania      | ✓ | ✓ |
 | Togo                             | ✓ | ✓ |
@@ -89,7 +88,7 @@ However, Maps does not have the same level of information and accuracy for all r
 
 ## Americas
 
-| Region | Raster Tiles Unified | Vector Tiles Unified |
+| Country/Region | Raster Tiles Unified | Vector Tiles Unified |
 | ------ | :------------------: | :------------------: |
 | Anguilla                  | ✓ | ✓ |
 | Antigua and Barbuda       | ✓ | ✓ |
@@ -98,27 +97,26 @@ However, Maps does not have the same level of information and accuracy for all r
 | Bahamas                   | ✓ | ✓ |
 | Barbados                  | ✓ | ✓ |
 | Belize                    | ✓ | ✓ |
-| Bermuda                   |   | ✓ |
-| Plurinational State of Bolivia |   | ✓ |
-| Bonaire, Sint Eustatius, and Saba |   | ✓ |
+| Bermuda                   | ✓ | ✓ |
+| Plurinational State of Bolivia | ✓ | ✓ |
+| Bonaire, Sint Eustatius, and Saba | ✓ | ✓ |
 | Brazil                    | ✓ | ✓ |
 | Canada                    | ✓ | ✓ |
 | Cayman Islands            | ✓ | ✓ |
 | Chile                     | ✓ | ✓ |
-| Clipperton Island         |   | ✓ |
 | Colombia                  | ✓ | ✓ |
-| Costa Rica                |   | ✓ |
+| Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |
 | Curaçao                   | ✓ | ✓ |
 | Dominica                  | ✓ | ✓ |
 | Dominican Republic        | ✓ | ✓ |
-| Ecuador                   |   | ✓ |
-| Falkland Islands (Malvinas) |   | ✓ |
+| Ecuador                   | ✓ | ✓ |
+| Falkland Islands (Malvinas) | ✓ | ✓ |
 | French Guiana             | ✓ | ✓ |
-| Greenland                 |   | Ø |
+| Greenland                 | ✓ | Ø |
 | Grenada                   | ✓ | ✓ |
 | Guadeloupe                | ✓ | ✓ |
-| Guatemala                 |   | ✓ |
+| Guatemala                 | ✓ | ✓ |
 | Guyana                    | ✓ | ✓ |
 | Haiti                     | ✓ | ✓ |
 | Honduras                  | ✓ | ✓ |
@@ -127,21 +125,21 @@ However, Maps does not have the same level of information and accuracy for all r
 | Mexico                    | ✓ | ✓ |
 | Montserrat                | ✓ | ✓ |
 | Nicaragua                 | ✓ | ✓ |
-| Northern Mariana Islands  |   | ✓ |
+| Northern Mariana Islands  | ✓ | ✓ |
 | Panama                    | ✓ | ✓ | 
-| Paraguay                  |   | ✓ |
+| Paraguay                  | ✓ | ✓ |
 | Peru                      | ✓ | ✓ |
 | Puerto Rico               | ✓ | ✓ |
-| Quebec (Canada)           |   | ✓ |
+| Quebec (Canada)           | ✓ | ✓ |
 | Saint Barthélemy          | ✓ | ✓ |
 | Saint Kitts and Nevis     | ✓ | ✓ |
 | Saint Lucia               | ✓ | ✓ |
 | Saint Martin (French)     | ✓ | ✓ |
-| Saint Pierre and Miquelon |   | ✓ |
+| Saint Pierre and Miquelon | ✓ | ✓ |
 | Saint Vincent and the Grenadines | ✓ | ✓ |
 | Sint Maarten (Dutch)      | ✓ | ✓ |
-| South Georgia and the South Sandwich Islands |   | ✓ |
-| Suriname                  |   | ✓ |
+| South Georgia and the South Sandwich Islands | ✓ | ✓ |
+| Suriname                  | ✓ | ✓ |
 | Trinidad and Tobago       | ✓ | ✓ |
 | Turks and Caicos Islands  | ✓ | ✓ |
 | United States             | ✓ | ✓ |
@@ -152,7 +150,7 @@ However, Maps does not have the same level of information and accuracy for all r
 
 ## Asia 
 
-| Region | Raster Tiles Unified | Vector Tiles Unified |
+| Country/Region | Raster Tiles Unified | Vector Tiles Unified |
 | ------ | :------------------: | :------------------: |
 | Afghanistan               |   | Ø |
 | Bahrain                   | ✓ | ✓ |
@@ -164,8 +162,8 @@ However, Maps does not have the same level of information and accuracy for all r
 | China                     |   | Ø |
 | Cocos (Keeling) Islands   |   | Ø |
 | Democratic People's Republic of Korea |   | Ø |
-| Dokdo and Takeshima       |   | Ø |
-| Hong Kong                 | ✓ | ✓ |
+| Hong Kong SAR             | ✓ | ✓ |
+| India                     | Ø | ✓ | 
 | Indonesia                 | ✓ | ✓ |
 | Iran                      |   | Ø |
 | Iraq                      | ✓ | ✓ |
@@ -177,12 +175,12 @@ However, Maps does not have the same level of information and accuracy for all r
 | Kyrgyzstan                |   | Ø |
 | Lao People's Democratic Republic |   | Ø |
 | Lebanon                   | ✓ | ✓ |
-| Macao                     | ✓ | ✓ |
+| Macao SAR                 | ✓ | ✓ |
 | Malaysia                  | ✓ | ✓ |
 | Maldives                  |   | Ø |
 | Mongolia                  |   | Ø |
 | Myanmar                   |   | Ø |
-| Napal                     |   | Ø |
+| Nepal                     |   | Ø |
 | Oman                      | ✓ | ✓ |
 | Pakistan                  |   | Ø |
 | Philippines               | ✓ | ✓ |
@@ -206,7 +204,7 @@ However, Maps does not have the same level of information and accuracy for all r
 
 ## Oceania
 
-| Region | Raster Tiles Unified | Vector Tiles Unified |
+| Country/Region | Raster Tiles Unified | Vector Tiles Unified |
 | ------ | :------------------: | :------------------: |
 | American Samoa            |   | ✓ |
 | Australia                 | ✓ | ✓ |
@@ -236,13 +234,13 @@ However, Maps does not have the same level of information and accuracy for all r
 
 ## Europe
 
-| Region | Raster Tiles Unified | Vector Tiles Unified |
+| Country/Region | Raster Tiles Unified | Vector Tiles Unified |
 | ------ | :------------------: | :------------------: |
 | Albania                   | ✓ | ✓ |
 | Andorra                   | ✓ | ✓ |
-| Armenia                   |   | Ø |
+| Armenia                   | ✓ | Ø |
 | Austria                   | ✓ | ✓ |
-| Azerbaijan                |   | Ø |
+| Azerbaijan                | ✓ | Ø |
 | Belarus                   | Ø | ✓ |
 | Belgium                   | ✓ | ✓ |
 | Bosnia-Herzegovina        | ✓ | ✓ |
@@ -252,26 +250,26 @@ However, Maps does not have the same level of information and accuracy for all r
 | Czech Republic            | ✓ | ✓ |
 | Denmark                   | ✓ | ✓ |
 | Estonia                   | ✓ | ✓ |
-| Faroe Islands             |   | Ø |
+| Faroe Islands             | ✓ | Ø |
 | Finland                   | ✓ | ✓ |
 | France                    | ✓ | ✓ |
-| Georgia                   |   | Ø |
-| Germany                   | ✓ |✓ |
-| Gibraltar                 | ✓ |   |
+| Georgia                   | ✓ | Ø |
+| Germany                   | ✓ | ✓ |
+| Gibraltar                 | ✓ | ✓ |
 | Greece                    | ✓ | ✓ |
-| Guernsey                  |   | ✓ |
+| Guernsey                  | ✓ | ✓ |
 | Hungary                   | ✓ | ✓ |
 | Iceland                   | ✓ | ✓ |
-| Ireland (Republic of)     | ✓ | ✓ |
-| Isle of Man               |   | ✓ |
+| Ireland                   | ✓ | ✓ |
+| Isle of Man               | ✓ | ✓ |
 | Italy                     | ✓ | ✓ |
-| Jan Mayen                 |   | ✓ |
-| Jersey                    |   | ✓ |
+| Jan Mayen                 | ✓ | ✓ |
+| Jersey                    | ✓ | ✓ |
 | Latvia                    | ✓ | ✓ |
 | Liechtenstein             | ✓ | ✓ |
 | Lithuania                 | ✓ | ✓ |
 | Luxembourg                | ✓ | ✓ |
-| Macedonia                 | ✓ | ✓ |
+| North Macedonia           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
 | Monaco                    | ✓ | ✓ |
@@ -286,10 +284,10 @@ However, Maps does not have the same level of information and accuracy for all r
 | Serbia                    | ✓ | ✓ |
 | Slovakia                  | ✓ | ✓ |
 | Slovenia                  | ✓ | ✓ |
-| Southern Kurils           |   | ✓ |
+| Southern Kurils           | ✓ | ✓ |
 | Spain                     | ✓ | ✓ |
-| Svalbard                  |   | ✓ |
-| Sweden                    | ✓ |   |
+| Svalbard                  | ✓ | ✓ |
+| Sweden                    | ✓ | ✓ |
 | Switzerland               | ✓ | ✓ |
 | Turkey                    | ✓ | ✓ |
 | Ukraine                   | ✓ | ✓ |

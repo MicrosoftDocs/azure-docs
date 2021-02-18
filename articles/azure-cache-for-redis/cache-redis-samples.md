@@ -1,21 +1,12 @@
 ---
-title: Azure Cache for Redis samples | Microsoft Docs
-description: Learn how to use Azure Cache for Redis
-services: azure-cache-for-redis
-documentationcenter: ''
-author: wesmc7777
-manager: cfowler
-editor: ''
-
-ms.assetid: 1f8d210c-ee09-4fe2-b63f-1e69246a27d8
+title: Azure Cache for Redis samples
+description: 'Learn how to use Azure Cache for Redis with these code samples: connecting to a cache, reading and writing data in a cache, ASP.NET Azure Cache for Redis providers.'
+author: yegu-ms
+ms.author: yegu
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
-ms.devlang: multiple
-ms.topic: article
+ms.custom: devx-track-dotnet
+ms.topic: sample
 ms.date: 01/23/2017
-ms.author: wesmc
-
 ---
 # Azure Cache for Redis samples
 This topic provides a list of Azure Cache for Redis samples, covering scenarios such as connecting to a cache, reading and writing data to and from a cache, and using the ASP.NET Azure Cache for Redis providers. Some of the samples are downloadable projects, and some provide step-by-step guidance and include code snippets but do not link to a downloadable project.
@@ -36,14 +27,14 @@ This sample shows how to:
 * Use Redis sets to implement tagging
 * Work with Redis Cluster
 
-For more information, see the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) documentation on GitHub, and for more usage scenarios see the [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) unit tests.
+For more information, see the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) documentation on GitHub, and for more usage scenarios see the [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests) unit tests.
 
 [How to use Azure Cache for Redis with Python](cache-python-get-started.md) shows how to get started with Azure Cache for Redis using Python and the [redis-py](https://github.com/andymccurdy/redis-py) client.
 
 [Work with .NET objects in the cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) shows you one way to serialize .NET objects so you can write them to and read them from an Azure Cache for Redis instance. 
 
 ## Use Azure Cache for Redis as a Scale out Backplane for ASP.NET SignalR
-The [Use Azure Cache for Redis as a Scale out Backplane for ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) sample demonstrates how you can use Azure Cache for Redis as a SignalR backplane. For more information about backplane, see [SignalR Scaleout with Redis](http://www.asp.net/signalr/overview/performance/scaleout-with-redis).
+The [Use Azure Cache for Redis as a Scale out Backplane for ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) sample demonstrates how you can use Azure Cache for Redis as a SignalR backplane. For more information about backplane, see [SignalR Scaleout with Redis](https://www.asp.net/signalr/overview/performance/scaleout-with-redis).
 
 ## Azure Cache for Redis customer query sample
 This sample demonstrates compares performance between accessing data from a cache and accessing data from persistence storage. This sample has two projects.
@@ -65,4 +56,3 @@ The [Retwis](https://github.com/SyntaxC4-MSFT/retwis) sample is the Redis Hello 
 
 ## Bandwidth monitor
 The [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) sample allows you to monitor the bandwidth used on the client. To measure the bandwidth, run the sample on the cache client machine, make calls to the cache, and observe the bandwidth reported by the bandwidth monitor sample.
-

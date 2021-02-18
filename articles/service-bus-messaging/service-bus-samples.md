@@ -1,37 +1,43 @@
 ---
-title: Azure Service Bus messaging samples overview | Microsoft Docs
-description: Describes Service Bus messaging samples with links to each
-services: service-bus-messaging
-documentationcenter: na
+title: Azure Service Bus messaging samples overview
+description: The Service Bus messaging samples demonstrate key features in Azure Service Bus messaging. Provides links to samples on GitHub. 
 author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: 0b420343-2d2a-4c65-98f1-ee0e39ef55c8
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/21/2018
+ms.date: 10/14/2020
 ms.author: spelluru
-
 ---
+
 # Service Bus messaging samples
+The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/). Currently, you can find the samples in the following places:
 
-The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/). Currently, you can find the samples in two places:
+## .NET samples
 
-- [.NET and Java](https://github.com/Azure/azure-service-bus/tree/master/samples) . See the [.NET readme](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) in the repo for descriptions of the  .NET samples, and the [Java readme](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) for the descriptions of the Java samples.
-- [Typescript](https://github.com/Azure/azure-service-bus-node/tree/master/examples)
+| Package | Samples location | 
+| ------- | ---------------- | 
+| Azure.Messaging.ServiceBus (latest) | https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/ | 
+| Microsoft.Azure.ServiceBus (legacy) |  https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus |
 
-## Service Bus Explorer
+## Java samples
+| Package | Samples location | 
+| ------- | ---------------- | 
+| azure-messaging-servicebus (latest) | https://docs.microsoft.com/samples/azure/azure-sdk-for-java/servicebus-samples/ |
+| azure-servicebus (legacy) | https://github.com/Azure/azure-service-bus/tree/master/samples/Java |
 
-In addition, the [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) is a sample hosted on GitHub that enables you to connect to a Service Bus service namespace and easily manage messaging entities. The tool provides advanced features such as import/export functionality, and the ability to test messaging entities and relay services. You can find the full Service Bus Explorer source and documentation on [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
+## Python samples
+| Package | Samples location |
+| -------------------- | ----------------------- |
+| azure.servicebus | https://docs.microsoft.com/samples/azure/azure-sdk-for-python/servicebus-samples/ |
 
-## Next steps
+## JavaScript samples
+| Package | Samples location | 
+| ------- | ---------------- | 
+| azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/ | 
 
-See the following topics for conceptual overviews of Service Bus.
+## Go samples
+| Package | Samples location | 
+| ------- | ---------------- | 
+| azure-service-bus-go | https://github.com/Azure/azure-service-bus-go/ |
 
-* [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Service Bus architecture](service-bus-architecture.md)
+## Management samples
+You can find management samples on GitHub at https://github.com/Azure/azure-service-bus/tree/master/samples/Management.
 

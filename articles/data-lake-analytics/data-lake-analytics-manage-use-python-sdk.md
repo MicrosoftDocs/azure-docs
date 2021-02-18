@@ -1,15 +1,11 @@
 ---
 title: Manage Azure Data Lake Analytics using Python
 description: This article describes how to use Python to manage Data Lake Analytics accounts, data sources, users, & jobs.
-services: data-lake-analytics
 ms.service: data-lake-analytics
-author: matt1883
-ms.author: saveenr
-
-ms.reviewer: jasonwhowell
-ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
-ms.topic: conceptual
+ms.reviewer: jasonh
+ms.topic: how-to
 ms.date: 06/08/2018
+ms.custom: devx-track-python
 ---
 # Manage Azure Data Lake Analytics using Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -34,7 +30,7 @@ Install the following modules:
 
 First, ensure you have the latest `pip` by running the following command:
 
-```
+```console
 python -m pip install --upgrade pip
 ```
 
@@ -42,7 +38,7 @@ This document was written using `pip version 9.0.1`.
 
 Use the following `pip` commands to install the modules from the commandline:
 
-```
+```console
 pip install azure-mgmt-resource
 pip install azure-datalake-store
 pip install azure-mgmt-datalake-store
@@ -54,36 +50,40 @@ pip install azure-mgmt-datalake-analytics
 Paste the following code into the script:
 
 ```python
-## Use this only for Azure AD service-to-service authentication
+# Use this only for Azure AD service-to-service authentication
 #from azure.common.credentials import ServicePrincipalCredentials
 
-## Use this only for Azure AD end-user authentication
+# Use this only for Azure AD end-user authentication
 #from azure.common.credentials import UserPassCredentials
 
-## Required for Azure Resource Manager
+# Required for Azure Resource Manager
 from azure.mgmt.resource.resources import ResourceManagementClient
 from azure.mgmt.resource.resources.models import ResourceGroup
 
-## Required for Azure Data Lake Store account management
+# Required for Azure Data Lake Store account management
 from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
 from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-## Required for Azure Data Lake Store filesystem management
+# Required for Azure Data Lake Store filesystem management
 from azure.datalake.store import core, lib, multithread
 
-## Required for Azure Data Lake Analytics account management
+# Required for Azure Data Lake Analytics account management
 from azure.mgmt.datalake.analytics.account import DataLakeAnalyticsAccountManagementClient
-from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeStoreAccountInfo
+from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeStoreAccountInformation
 
-## Required for Azure Data Lake Analytics job management
+# Required for Azure Data Lake Analytics job management
 from azure.mgmt.datalake.analytics.job import DataLakeAnalyticsJobManagementClient
 from azure.mgmt.datalake.analytics.job.models import JobInformation, JobState, USqlJobProperties
 
-## Required for Azure Data Lake Analytics catalog management
+# Required for Azure Data Lake Analytics catalog management
 from azure.mgmt.datalake.analytics.catalog import DataLakeAnalyticsCatalogManagementClient
 
-## Use these as needed for your application
-import logging, getpass, pprint, uuid, time
+# Use these as needed for your application
+import logging
+import getpass
+import pprint
+import uuid
+import time
 ```
 
 Run this script to verify that the modules can be imported.
@@ -97,7 +97,8 @@ This method is not supported.
 ### Interactive user authentication with a device code
 
 ```python
-user = input('Enter the user to authenticate with that has permission to subscription: ')
+user = input(
+    'Enter the user to authenticate with that has permission to subscription: ')
 password = getpass.getpass()
 credentials = UserPassCredentials(user, password)
 ```
@@ -105,7 +106,8 @@ credentials = UserPassCredentials(user, password)
 ### Noninteractive authentication with SPI and a secret
 
 ```python
-credentials = ServicePrincipalCredentials(client_id = 'FILL-IN-HERE', secret = 'FILL-IN-HERE', tenant = 'FILL-IN-HERE')
+credentials = ServicePrincipalCredentials(
+    client_id='FILL-IN-HERE', secret='FILL-IN-HERE', tenant='FILL-IN-HERE')
 ```
 
 ### Noninteractive authentication with API and a certificate
@@ -117,9 +119,9 @@ This method is not supported.
 These variables are used in the samples.
 
 ```python
-subid= '<Azure Subscription ID>'
+subid = '<Azure Subscription ID>'
 rg = '<Azure Resource Group Name>'
-location = '<Location>' # i.e. 'eastus2'
+location = '<Location>'  # i.e. 'eastus2'
 adls = '<Azure Data Lake Store Account Name>'
 adla = '<Azure Data Lake Analytics Account Name>'
 ```
@@ -129,13 +131,15 @@ adla = '<Azure Data Lake Analytics Account Name>'
 ```python
 resourceClient = ResourceManagementClient(credentials, subid)
 adlaAcctClient = DataLakeAnalyticsAccountManagementClient(credentials, subid)
-adlaJobClient = DataLakeAnalyticsJobManagementClient( credentials, 'azuredatalakeanalytics.net')
+adlaJobClient = DataLakeAnalyticsJobManagementClient(
+    credentials, 'azuredatalakeanalytics.net')
 ```
 
 ## Create an Azure Resource Group
 
 ```python
-armGroupResult = resourceClient.resource_groups.create_or_update( rg, ResourceGroup( location=location ) )
+armGroupResult = resourceClient.resource_groups.create_or_update(
+    rg, ResourceGroup(location=location))
 ```
 
 ## Create Data Lake Analytics account
@@ -155,13 +159,13 @@ Then create an ADLA account that uses that store.
 
 ```python
 adlaAcctResult = adlaAcctClient.account.create(
-	rg,
-	adla,
-	DataLakeAnalyticsAccount(
-		location=location,
-		default_data_lake_store_account=adls,
-		data_lake_store_accounts=[DataLakeStoreAccountInfo(name=adls)]
-	)
+    rg,
+    adla,
+    DataLakeAnalyticsAccount(
+        location=location,
+        default_data_lake_store_account=adls,
+        data_lake_store_accounts=[DataLakeStoreAccountInformation(name=adls)]
+    )
 ).wait()
 ```
 
@@ -183,13 +187,13 @@ OUTPUT @a
 
 jobId = str(uuid.uuid4())
 jobResult = adlaJobClient.job.create(
-	adla,
-	jobId,
-	JobInformation(
-		name='Sample Job',
-		type='USql',
-		properties=USqlJobProperties(script=script)
-	)
+    adla,
+    jobId,
+    JobInformation(
+        name='Sample Job',
+        type='USql',
+        properties=USqlJobProperties(script=script)
+    )
 )
 ```
 
@@ -198,11 +202,12 @@ jobResult = adlaJobClient.job.create(
 ```python
 jobResult = adlaJobClient.job.get(adla, jobId)
 while(jobResult.state != JobState.ended):
-	print('Job is not yet done, waiting for 3 seconds. Current state: ' + jobResult.state.value)
-	time.sleep(3)
-	jobResult = adlaJobClient.job.get(adla, jobId)
+    print('Job is not yet done, waiting for 3 seconds. Current state: ' +
+          jobResult.state.value)
+    time.sleep(3)
+    jobResult = adlaJobClient.job.get(adla, jobId)
 
-print ('Job finished with result: ' + jobResult.result.value)
+print('Job finished with result: ' + jobResult.result.value)
 ```
 
 ## List pipelines and recurrences
@@ -211,11 +216,11 @@ Depending whether your jobs have pipeline or recurrence metadata attached, you c
 ```python
 pipelines = adlaJobClient.pipeline.list(adla)
 for p in pipelines:
-	print('Pipeline: ' + p.name + ' ' + p.pipelineId)
+    print('Pipeline: ' + p.name + ' ' + p.pipelineId)
 
 recurrences = adlaJobClient.recurrence.list(adla)
 for r in recurrences:
-	print('Recurrence: ' + r.name + ' ' + r.recurrenceId)
+    print('Recurrence: ' + r.name + ' ' + r.recurrenceId)
 ```
 
 ## Manage compute policies
@@ -229,7 +234,8 @@ The following code retrieves a list of compute policies for a Data Lake Analytic
 ```python
 policies = adlaAccountClient.computePolicies.listByAccount(rg, adla)
 for p in policies:
-	print('Name: ' + p.name + 'Type: ' + p.objectType + 'Max AUs / job: ' + p.maxDegreeOfParallelismPerJob + 'Min priority / job: ' + p.minPriorityPerJob)
+    print('Name: ' + p.name + 'Type: ' + p.objectType + 'Max AUs / job: ' +
+          p.maxDegreeOfParallelismPerJob + 'Min priority / job: ' + p.minPriorityPerJob)
 ```
 
 ### Create a new compute policy
@@ -238,8 +244,10 @@ The following code creates a new compute policy for a Data Lake Analytics accoun
 
 ```python
 userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde"
-newPolicyParams = ComputePolicyCreateOrUpdateParameters(userAadObjectId, "User", 50, 250)
-adlaAccountClient.computePolicies.createOrUpdate(rg, adla, "GaryMcDaniel", newPolicyParams)
+newPolicyParams = ComputePolicyCreateOrUpdateParameters(
+    userAadObjectId, "User", 50, 250)
+adlaAccountClient.computePolicies.createOrUpdate(
+    rg, adla, "GaryMcDaniel", newPolicyParams)
 ```
 
 ## Next steps

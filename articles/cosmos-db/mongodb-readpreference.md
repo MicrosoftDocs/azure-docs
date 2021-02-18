@@ -1,24 +1,25 @@
 ---
-title: Using MongoDB Read Preference with the Azure Cosmos DB for MongoDB API 
-description: Learn how to use MongoDB Read Preference with the Azure Cosmos DB for MongoDB API
-services: cosmos-db
-author: vidhoonv
-ms.author: sclyon
+title: Use Read preference with the Azure Cosmos DB's API for MongoDB 
+description: Learn how to use MongoDB Read Preference with the Azure Cosmos DB's API for MongoDB
+author: sivethe
+ms.author: sivethe
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
-ms.date: 02/26/2018
+ms.topic: how-to
+ms.date: 02/26/2019
+ms.custom: devx-track-js
 ---
-# How to globally distribute reads using Read Preference while using MongoDB API
+# How to globally distribute reads using Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-This article shows how to globally distribute read operations using [MongoDB Read Preference](https://docs.mongodb.com/manual/core/read-preference/) settings with Azure Cosmos DB for MongoDB API.
+This article shows how to globally distribute read operations with [MongoDB Read Preference](https://docs.mongodb.com/manual/core/read-preference/) settings using Azure Cosmos DB's API for MongoDB.
 
 ## Prerequisites 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
-Refer to this [Quickstart](tutorial-global-distribution-mongodb.md) article for instructions on using the Azure portal to set up Azure Cosmos DB account with global distribution and then connect to it.
+Refer to this [Quickstart](tutorial-global-distribution-mongodb.md) article for instructions on using the Azure portal to set up a Cosmos account with global distribution and then connect to it.
 
 ## Clone the sample application
 
@@ -46,10 +47,10 @@ cd mean
 npm install
 node index.js
 ```
-The application tries to connect to a MongoDB source and fails because the connection string is invalid. Follow the steps in the README to update the connection string `url`. Also, update the `readFromRegion` to a read region in your Azure Cosmos DB account. The following instructions are from the NodeJS sample:
+The application tries to connect to a MongoDB source and fails because the connection string is invalid. Follow the steps in the README to update the connection string `url`. Also, update the `readFromRegion` to a read region in your Cosmos account. The following instructions are from the NodeJS sample:
 
 ```
-* Next, substitute the `url`, `readFromRegion` in App.Config with your Cosmos DB account's values. 
+* Next, substitute the `url`, `readFromRegion` in App.Config with your Cosmos account's values. 
 ```
 
 After following these steps, the sample application runs and produces the following output:
@@ -68,7 +69,7 @@ readFromSecondaryfunc query completed!
 
 ## Read using Read Preference mode
 
-MongoDB provides the following Read Preference modes for clients to use:
+MongoDB protocol provides the following Read Preference modes for clients to use:
 
 1. PRIMARY
 2. PRIMARY_PREFERRED
@@ -76,12 +77,12 @@ MongoDB provides the following Read Preference modes for clients to use:
 4. SECONDARY_PREFERRED
 5. NEAREST
 
-Refer to the detailed [MongoDB Read Preference behavior](https://docs.mongodb.com/manual/core/read-preference-mechanics/#replica-set-read-preference-behavior) documentation for details on the behavior of each of these read preference modes. In Azure Cosmos DB, primary maps to WRITE region and secondary maps to READ region.
+Refer to the detailed [MongoDB Read Preference behavior](https://docs.mongodb.com/manual/core/read-preference-mechanics/#replica-set-read-preference-behavior) documentation for details on the behavior of each of these read preference modes. In Cosmos DB, primary maps to WRITE region and secondary maps to READ region.
 
 Based on common scenarios, we recommend using the following settings:
 
 1. If **low latency reads** are required, use the **NEAREST** read preference mode. This setting directs the read operations to the nearest available region. Note that if the nearest region is the WRITE region, then these operations are directed to that region.
-2. If **high availability and geo distribution of reads** are required (latency is not a constraint), then use the **SECONDARY PREFERRED** read preference mode. This setting directs read operations to an available READ region. If no READ region is available, then requests are directed to the WRITE region.
+2. If **high availability and geo distribution of reads** are required (latency is not a constraint), then use the **PRIMARY PREFERRED** or **SECONDARY PREFERRED** read preference mode. This setting directs read operations to an available WRITE or READ region respectively. If the region is not available, then requests are directed to the next available region as per the read preference behavior.
 
 The following snippet from the sample application shows how to configure NEAREST Read Preference in NodeJS:
 
@@ -131,7 +132,7 @@ Refer to the corresponding sample application repos for other platforms, such as
 
 ## Read using tags
 
-In addition to the Read Preference mode, MongoDB allows use of tags to direct read operations. In Azure Cosmos DB for MongoDB API, the `region` tag is included by default as a part of the `isMaster` response:
+In addition to the Read Preference mode, MongoDB protocol allows the use of tags to direct read operations. In Cosmos DB's API for MongoDB, the `region` tag is included by default as a part of the `isMaster` response:
 
 ```json
 "tags": {
@@ -139,7 +140,7 @@ In addition to the Read Preference mode, MongoDB allows use of tags to direct re
       }
 ```
 
-Hence, MongoClient can use the `region` tag along with the region name to direct read operations to specific regions. For Azure Cosmos DB accounts, region names can be found in Azure portal on the left under **Settings->Replica data globally**. This setting is useful for achieving **read isolation** - cases in which client application want to direct read operations to a specific region only. This setting is ideal for non-production/analytics type scenarios, which run in the background and are not production critical services.
+Hence, MongoClient can use the `region` tag along with the region name to direct read operations to specific regions. For Cosmos accounts, region names can be found in Azure portal on the left under **Settings->Replica data globally**. This setting is useful for achieving **read isolation** - cases in which client application want to direct read operations to a specific region only. This setting is ideal for non-production/analytics type scenarios, which run in the background and are not production critical services.
 
 The following snippet from the sample application shows how to configure the Read Preference with tags in NodeJS:
 
@@ -154,7 +155,7 @@ The following snippet from the sample application shows how to configure the Rea
 
 Refer to the corresponding sample application repos for other platforms, such as [.NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference) and [Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference).
 
-In this article, you've learned how to globally distribute read operations using Read Preference with Azure Cosmos DB for MongoDB API.
+In this article, you've learned how to globally distribute read operations using Read Preference with Azure Cosmos DB's API for MongoDB.
 
 ## Clean up resources
 
@@ -165,6 +166,6 @@ If you're not going to continue to use this app, delete all resources created by
 
 ## Next steps
 
-* [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
-* [Setup a globally replicated Azure Cosmos DB for MongoDB API account](tutorial-global-distribution-mongodb.md)
-* [Develop locally with the emulator](local-emulator.md)
+* [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
+* [Setup a globally distributed database with Azure Cosmos DB's API for MongoDB](tutorial-global-distribution-mongodb.md)
+* [Develop locally with the Azure Cosmos DB emulator](local-emulator.md)

@@ -1,21 +1,18 @@
 ---
 title: Network Performance Monitor solution in Azure Log Analytics | Microsoft Docs
 description: Use the ExpressRoute Monitor capability in Network Performance Monitor to monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.
-services: log-analytics
-documentationcenter: ''
-author: abshamsft
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: abshamsft
+ms.author: absha
 ms.date: 11/27/2018
-ms.author: abshamsft
+
 ---
 
 # ExpressRoute Monitor
+
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher before 29 February 2024.
 
 You can use the Azure ExpressRoute Monitor capability in [Network Performance Monitor](network-performance-monitor.md) to monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute. Key advantages are: 
 
@@ -50,7 +47,7 @@ For more information about NSGs, see [Network security groups](../../virtual-n
 
     ![ExpressRoute Monitor configuration](media/network-performance-monitor-expressroute/expressroute-configure.png)
  
- After the discovery is complete, the discovered private peering connections are listed in a table. The monitoring for these peerings is initially in a disabled state. 
+   After the discovery is complete, the discovered private peering connections are listed in a table. The monitoring for these peerings is initially in a disabled state. 
 
 ### Enable monitoring of the ExpressRoute peering connections 
 
@@ -113,23 +110,12 @@ You can see the notification codes and set alerts on them via **LogAnalytics**. 
 
 | Notification Code (Logs) | Description |
 | --- | --- |
-| 5101 | Microsoft Edge subinterfaces shows high latency |
-| 5102 | Microsoft Edge subinterfaces is dropping the package | 
-| 5103 | ExpressRoute gateway is unhealthy | 
-| 5201 | Service provider's link shows high latency |
-| 5202 | Packets are not flowing from intended ExpressRoute circuit |
-| 5301 | Customer edge router shows high latency | 
-| 5302 | The latency is caused due to device/link in customer's environment. The issue doesn't seem to be in ExpressRoute circuit | 
 | 5501 | Unable to traverse through secondary connection of ExpressRoute circuit |
 | 5502 | Unable to traverse through primary connection of ExpressRoute circuit |
 | 5503 | No circuit is found for subscription linked to the workspace | 
-| 5506 | Utilization is reaching its maximum capacity | 
-| 5507 | Utilization is low |
 | 5508 | Not able to determine whether traffic is passing through any circuit(s) for path |
 | 5510 | The traffic is not passing through the intended circuit | 
 | 5511 | The traffic is not passing through the intended virtual network | 
-| 5512 | Unable to determine whether the traffic is passing through the intended circuit |
-
 
 **Circuit is down.** Network Performance Monitor notifies you as soon as the connectivity between your on-premises resources and Azure virtual networks is lost. This notification helps you take proactive action before you receive user escalations and reduce downtime.
 
@@ -153,4 +139,5 @@ You can see the notification codes and set alerts on them via **LogAnalytics**. 
  
 
 ## Next steps
-[Search logs](../../azure-monitor/log-query/log-query-overview.md) to view detailed network performance data records.
+[Search logs](../logs/log-query-overview.md) to view detailed network performance data records.
+

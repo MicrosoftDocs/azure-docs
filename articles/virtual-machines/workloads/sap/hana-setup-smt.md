@@ -4,16 +4,15 @@ description: How to set up SMT server for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
 author: hermanndms
-manager: jeconnoc
+manager: juergent
 editor:
-
 ms.service: virtual-machines-linux
-ms.devlang: NA
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
-ms.author: rclaus
+ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -41,7 +40,7 @@ The deployed virtual machine is smaller, and got the internal IP address in the 
 
 Add a disk to the virtual machine. You use this disk to hold the updates, and the boot disk itself could be too small. Here, the disk got mounted to /srv/www/htdocs, as shown in the following screenshot. A 100-GB disk should suffice.
 
-![Screenshot of virtual machine deployment for SMT server](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
+![Screenshot shows the added disk in the PuTTy window.](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
 
 Sign in to the HANA Large Instance unit or units, maintain /etc/hosts, and check whether you can reach the Azure virtual machine that is supposed to run the SMT server over the network.
 
@@ -80,7 +79,7 @@ You can also use the YAST tool to install the smt packages. In YAST, go to **Sof
 ![Screenshot of SMT in YAST](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Accept the selection for installation on the smtserver. After the installation completes, go to the SMT server configuration. Enter the organizational credentials from the SUSE Customer Center you retrieved earlier. Also enter your Azure virtual machine hostname as the SMT Server URL. In this demonstration, it's https://smtserver.
+Accept the selection for installation on the smtserver. After the installation completes, go to the SMT server configuration. Enter the organizational credentials from the SUSE Customer Center you retrieved earlier. Also enter your Azure virtual machine hostname as the SMT Server URL. In this demonstration, it's https:\//smtserver.
 
 ![Screenshot of SMT server configuration](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

@@ -11,17 +11,19 @@ ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 11/27/2018
+ms.topic: conceptual
+ms.date: 11/13/2020
 ms.author: apimpm
 
 ---
 
 # Add caching to improve performance in Azure API Management
 
-Operations in API Management can be configured for response caching. Response caching can significantly reduce API latency, bandwidth consumption, and web service load for data that does not change frequently.
- 
+APIs and operations in API Management can be configured with response caching. Response caching can significantly reduce latency for API callers and backend load for API providers.
+
+> [!IMPORTANT]
+> Built-in cache is volatile and is shared by all units in the same region in the same API Management service.
+
 For more detailed information about caching, see [API Management caching policies](api-management-caching-policies.md) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
 ![cache policies](media/api-management-howto-cache/cache-policies.png)
@@ -56,24 +58,28 @@ With caching policies shown in this example, the first request to the **GetSpeak
 6. On the top of the screen, select **Design** tab.
 7. In the **Inbound processing** section, click the **</>** icon.
 
-    ![code editor](media/api-management-howto-cache/code-editor.png) 
+    ![code editor](media/api-management-howto-cache/code-editor.png)
 
 8. In the **inbound** element, add the following policy:
 
-        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-            <vary-by-header>Accept</vary-by-header>
-            <vary-by-header>Accept-Charset</vary-by-header>
-            <vary-by-header>Authorization</vary-by-header>
-        </cache-lookup>
+   ```
+   <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+       <vary-by-header>Accept</vary-by-header>
+       <vary-by-header>Accept-Charset</vary-by-header>
+       <vary-by-header>Authorization</vary-by-header>
+   </cache-lookup>
+   ```
 
 9. In the **outbound** element, add the following policy:
 
-        <cache-store caching-mode="cache-on" duration="20" />
+   ```
+   <cache-store duration="20" />
+   ```
 
     **Duration** specifies the expiration interval of the cached responses. In this example, the interval is **20** seconds.
 
 > [!TIP]
-> If you are using an external cache, as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md), you may want to specify the `cache-preference` attribute of the caching policies. See [API Management caching policies](api-management-caching-policies.md) for more details.
+> If you are using an external cache, as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md), you may want to specify the `caching-type` attribute of the caching policies. See [API Management caching policies](api-management-caching-policies.md) for more details.
 
 ## <a name="test-operation"> </a>Call an operation and test the caching
 To see the caching in action, call the operation from the developer portal.
@@ -102,15 +108,15 @@ To see the caching in action, call the operation from the developer portal.
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
 
-[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-caching-policies.md
 
 [Create an API Management service instance]: get-started-create-service-instance.md
 

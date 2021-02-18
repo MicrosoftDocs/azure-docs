@@ -1,16 +1,15 @@
 ---
-title: Verify Azure Traffic Manager settings | Microsoft Docs
-description: This article will help you verify your Traffic Manager settings
+title: Verify Azure Traffic Manager settings
+description: In this article, learn how to verify your Traffic Manager settings and test the traffic routing method.
 services: traffic-manager
-documentationcenter: ''
-author: kumudd
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: kumud
+ms.author: duau
 ---
 
 # Verify Traffic Manager settings
@@ -31,7 +30,9 @@ The following examples help you test your Traffic Manager profile.
 2. Type `ipconfig /flushdns` to flush the DNS resolver cache.
 3. Type `nslookup <your Traffic Manager domain name>`. For example, the following command checks the domain name with the prefix *myapp.contoso*
 
-        nslookup myapp.contoso.trafficmanager.net
+    ```powershell
+    nslookup myapp.contoso.trafficmanager.net
+    ```
 
     A typical result shows the following information:
 

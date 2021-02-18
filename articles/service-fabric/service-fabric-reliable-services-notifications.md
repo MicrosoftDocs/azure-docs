@@ -1,21 +1,12 @@
 ---
-title: Reliable Services notifications | Microsoft Docs
-description: Conceptual documentation for Service Fabric Reliable Services notifications
-services: service-fabric
-documentationcenter: .net
+title: Reliable Services notifications 
+description: Conceptual documentation for Service Fabric Reliable Services notifications for Reliable State Manager and Reliable Dictionary
 author: mcoskun
-manager: timlt
-editor: masnider,vturecek
 
-ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-
+ms.custom: devx-track-csharp
 ---
 # Reliable Services notifications
 Notifications allow clients to track the changes that are being made to an object that they're interested in. 
@@ -174,7 +165,7 @@ Use the action property in **NotifyDictionaryChangedEventArgs** to cast **Notify
 
 * **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
 * **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
-* **NotifyDictionaryChangedAction.Add** and **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemAddedEventArgs**
+* **NotifyDictionaryChangedAction.Add**: **NotifyDictionaryItemAddedEventArgs**
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
@@ -226,5 +217,4 @@ Here are some things to keep in mind:
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
-* [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
+* [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

@@ -1,170 +1,168 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Moxtra | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Moxtra | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Moxtra.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-
-ms.assetid: 2aed2d4b-1dcd-4839-8fed-9419d107c61c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/29/2017
+ms.topic: tutorial
+ms.date: 12/05/2019
 ms.author: jeedes
-
 ---
-# Tutorial: Azure Active Directory integration with Moxtra
 
-In this tutorial, you learn how to integrate Moxtra with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Moxtra
 
-Integrating Moxtra with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Moxtra with Azure Active Directory (Azure AD). When you integrate Moxtra with Azure AD, you can:
 
-- You can control in Azure AD who has access to Moxtra
-- You can enable your users to automatically get signed-on to Moxtra (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* Control in Azure AD who has access to Moxtra.
+* Enable your users to be automatically signed-in to Moxtra with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Moxtra, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Moxtra single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Moxtra single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Moxtra from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD SSO in a test environment.
+
+* Moxtra supports **SP** initiated SSO
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding Moxtra from the gallery
+
 To configure the integration of Moxtra into Azure AD, you need to add Moxtra from the gallery to your list of managed SaaS apps.
 
-**To add Moxtra from the gallery, perform the following steps:**
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Moxtra** in the search box.
+1. Select **Moxtra** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+## Configure and test Azure AD single sign-on for Moxtra
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+Configure and test Azure AD SSO with Moxtra using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Moxtra.
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+To configure and test Azure AD SSO with Moxtra, complete the following building blocks:
 
-	![Applications][3]
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Moxtra SSO](#configure-moxtra-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Moxtra test user](#create-moxtra-test-user)** - to have a counterpart of B.Simon in Moxtra that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-1. In the search box, type **Moxtra**.
+## Configure Azure AD SSO
 
-	![Creating an Azure AD test user](./media/moxtra-tutorial/tutorial_moxtra_search.png)
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the results panel, select **Moxtra**, and then click **Add** button to add the application.
+1. In the [Azure portal](https://portal.azure.com/), on the **Moxtra** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-	![Creating an Azure AD test user](./media/moxtra-tutorial/tutorial_moxtra_addfromgallery.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Moxtra based on a test user called "Britta Simon".
+1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Moxtra is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Moxtra needs to be established.
+    In the **Sign-on URL** text box, type a URL:
+    `https://www.moxtra.com/service/#login`
 
-In Moxtra, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+1. Moxtra application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-To configure and test Azure AD single sign-on with Moxtra, you need to complete the following building blocks:
+	![image](common/edit-attribute.png)
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Moxtra test user](#creating-a-moxtra-test-user)** - to have a counterpart of Britta Simon in Moxtra that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. In addition to above, Moxtra application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
-### Configuring Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Moxtra application.
-
-**To configure Azure AD single sign-on with Moxtra, perform the following steps:**
-
-1. In the Azure portal, on the **Moxtra** application integration page, click **Single sign-on**.
-
-	![Configure Single Sign-On][4]
-
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_samlbase.png)
-
-1. On the **Moxtra Domain and URLs** section, perform the following step:
-
-	![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_url.png)
-
-    In the **Sign-on URL** textbox, type a URL as: `https://www.moxtra.com/service/#login`
-
-1. Moxtra application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this configuration. 
-
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_attributes.png)
-    
-1. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the image and perform the following steps:
-	
-	| Attribute Name | Attribute Value |
+	| Name | Source Attribute|
 	| ------------------- | -------------------- |    
 	| firstname | user.givenname |
 	| lastname | user.surname |
-	| idpid    | < SAML Entity ID > 
+	| idpid    | < Azure AD Identifier >
 
 	> [!Note]
-	> The value of **idpid** attribute is not real. You can get the actual value from **Quick reference** section under **Moxtra Configuration**.
-	
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+	> The value of **idpid** attribute is not real. You can get the actual value from **Set up Moxtra** section from step#8. 
 
-	![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_attribute_04.png)
+	1. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+	1. In the **Name** textbox, type the attribute name shown for that row.
 
-	![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_attribute_05.png)
+	1. Leave the **Namespace** blank.
 
-	c. From the **Value** list, type the attribute value shown for that row.
+	1. Select Source as **Attribute**.
 
-	d. Click **Ok**.
-    
-1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+	1. From the **Source attribute** list, type the attribute value shown for that row.
 
-	![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_certificate.png) 
+	1. Click **Ok**
 
-1. Click **Save** button.
+	1. Click **Save**.
 
-	![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_general_400.png)
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-1. On the **Moxtra Configuration** section, click **Configure Moxtra** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+	![The Certificate download link](common/certificatebase64.png)
 
-	![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_configure.png) 
+1. On the **Set up Moxtra** section, copy the appropriate URL(s) based on your requirement.
+
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+### Create an Azure AD test user
+
+In this section, you'll create a test user in the Azure portal called B.Simon.
+
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
+
+### Assign the Azure AD test user
+
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Moxtra.
+
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Moxtra**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+
+   ![The "Users and groups" link](common/users-groups-blade.png)
+
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+
+	![The Add User link](common/add-assign-user.png)
+
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure Moxtra SSO
 
 1. In another browser window, sign on to your Moxtra company site as an administrator.
 
-1. In the toolbar on the left, click **Admin Console > SAML Single Sign-on**, and then click **New**.
+2. In the toolbar on the left, click **Admin Console > SAML Single Sign-on**, and then click **New**.
    
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
+    ![Screenshot shows the SAML Single Sign-on page with the option to create a new SAML Single Sign-on.](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
-1. On the **SAML** page, perform the following steps:
+3. On the **SAML** page, perform the following steps:
    
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
+    ![Screenshot shows the SAML page where you can enter the values described.](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
     a. In the **Name** textbox, type a name for your configuration (e.g.: *SAML*). 
   
-    b. In the **IdP Entity ID** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal. 
+    b. In the **IdP Entity ID** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal. 
  
-    c. In **Login URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal. 
+    c. In **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal. 
  
     d. In the **AuthnContextClassRef** textbox, type **urn:oasis:names:tc:SAML:2.0:ac:classes:Password**. 
  
@@ -179,59 +177,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     h. Click **Update**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+### Create Moxtra test user
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+The objective of this section is to create a user called B.simon in Moxtra.
 
-![Create Azure AD User][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/moxtra-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/moxtra-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/moxtra-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/moxtra-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a Moxtra test user
-
-The objective of this section is to create a user called Britta Simon in Moxtra.
-
-**To create a user called Britta Simon in Moxtra, perform the following steps:**
+**To create a user called B.simon in Moxtra, perform the following steps:**
 
 1. Sign on to your Moxtra company site as an administrator.
 
 1. In the toolbar on the left, click **Admin Console > User Management**, and then **Add User**.
    
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
+    ![Screenshot shows the User Management page with Add User selected.](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 1. On the **Add User** dialog, perform the following steps:
   
-    a. In the **First Name** textbox, type **Britta**.
+    a. In the **First Name** textbox, type **B**.
   
     b. In the **Last Name** textbox, type **Simon**.
   
-    c. In the **Email** textbox, type Britta's email address same as on Azure portal.
+    c. In the **Email** textbox, type B.simon's email address same as on Azure portal.
   
     d. In the **Division** textbox, type **Dev**.
   
@@ -241,61 +205,18 @@ The objective of this section is to create a user called Britta Simon in Moxtra.
   
     g. Click **Add**.
 
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Moxtra.
-
-![Assign User][200] 
-
-**To assign Britta Simon to Moxtra, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-1. In the applications list, select **Moxtra**.
-
-	![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
+## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Moxtra tile in the Access Panel, you should get automatically signed-on to your Moxtra application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+When you click the Moxtra tile in the Access Panel, you should be automatically signed in to the Moxtra for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-<!--Image references-->
-
-[1]: ./media/moxtra-tutorial/tutorial_general_01.png
-[2]: ./media/moxtra-tutorial/tutorial_general_02.png
-[3]: ./media/moxtra-tutorial/tutorial_general_03.png
-[4]: ./media/moxtra-tutorial/tutorial_general_04.png
-
-[100]: ./media/moxtra-tutorial/tutorial_general_100.png
-
-[200]: ./media/moxtra-tutorial/tutorial_general_200.png
-[201]: ./media/moxtra-tutorial/tutorial_general_201.png
-[202]: ./media/moxtra-tutorial/tutorial_general_202.png
-[203]: ./media/moxtra-tutorial/tutorial_general_203.png
-
+- [Try Moxtra with Azure AD](https://aad.portal.azure.com/)

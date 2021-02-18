@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot storage resource deletion errors on Linux VMs in Azure | Microsoft Docs
-description: How to troubleshoot problems when deleting storage resources containing attached VHDs.
+description: Learn how to troubleshoot problems on Linux VMs when deleting storage resources containing attached VHDs.
 keywords: 
 services: virtual-machines
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 tags: top-support-issue,azure-service-management,azure-resource-manager
 
 ms.service: virtual-machines
@@ -18,18 +18,18 @@ ms.author: genli
 
 In certain scenarios, you may encounter one of the following errors occur while you are trying to delete an Azure storage account, container, or blob in an Azure Resource Manager deployment:
 
->**Failed to delete storage account 'StorageAccountName'. Error: The storage account cannot be deleted due to its artifacts being in use.**
+> **Failed to delete storage account 'StorageAccountName'. Error: The storage account cannot be deleted due to its artifacts being in use.**
+> 
+> **Failed to delete # out of # container(s):<br>vhds: There is currently a lease on the container and no lease ID was specified in the request.**
+> 
+> **Failed to delete # out of # blobs:<br>BlobName.vhd: There is currently a lease on the blob and no lease ID was specified in the request.**
 
->**Failed to delete # out of # container(s):<br>vhds: There is currently a lease on the container and no lease ID was specified in the request.**
-
->**Failed to delete # out of # blobs:<br>BlobName.vhd: There is currently a lease on the blob and no lease ID was specified in the request.**
-
-The VHDs used in Azure VMs are .vhd files stored as page blobs in a standard or premium storage account in Azure. For more information about Azure disks, see [About unmanaged and managed disk storage for Microsoft Azure Linux VMs](../linux/about-disks-and-vhds.md). 
+The VHDs used in Azure VMs are .vhd files stored as page blobs in a standard or premium storage account in Azure. For more information about Azure disks, see our [Introduction to managed disks](../managed-disks-overview.md).
 
 Azure prevents deletion of a disk that is attached to a VM to prevent corruption. It also prevents deletion of containers and storage accounts that have a page blob that is attached to a VM. 
 
 The process to delete a storage account, container, or blob when receiving one of these errors is: 
-1. [Identify blobs attached to a VM](#step-1-identify-blobs-attached-to-a-vm)
+1. Identify blobs attached to a VM
 2. [Delete VMs with attached **OS disk**](#step-2-delete-vm-to-detach-os-disk)
 3. [Detach all **data disk(s)** from remaining VM(s)](#step-3-detach-data-disk-from-the-vm)
 
@@ -57,7 +57,7 @@ Retry deleting the storage account, container, or blob after these steps are com
 ### Scenario 2: Deleting a container - identify all blob(s) within container that are attached to VMs
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Hub menu, select **All resources**. Go to the storage account, under **Blob Service** select **Containers**, and find the container to be deleted.
-3. Click to open the container and the list of blobs inside it will appear. Identify all the blobs with Blob Type = **Page blob** and Lease State = **Leased** from this list. Follow [Scenario 1](#step-1-identify-blobs-attached-to-a-vm) to identify the VM associated with each of these blobs.
+3. Click to open the container and the list of blobs inside it will appear. Identify all the blobs with Blob Type = **Page blob** and Lease State = **Leased** from this list. Follow Scenario 1 to identify the VM associated with each of these blobs.
 
     ![Screenshot of the portal, with the Storage account blobs and the "Lease State" with "Leased" highlighted](./media/troubleshoot-vhds/utd-disks-sm.png)
 
@@ -91,7 +91,7 @@ If the VHD is a data disk, detach the VHD from the VM to remove the lease:
 7. Select **Edit** on the top of **Disks** pane.
 8. Click **detach icon** of the data disk to be deleted.
 
-     ![Screenshot of the portal, with the storage "Blob Metadata" pane open](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
+     ![Screenshot of the portal, with the storage "Blob Metadata" pane open and it highlights the detach icon of the data disk to be deleted.](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
 
 9. Select **Save**. The disk is now detached from the VM, and the VHD is no longer leased. It may take a few minutes for the lease to be released. To verify that the lease has been released, browse to the blob location and in the **Blob properties** pane, the **Lease Status** value should be **Unlocked** or **Available**.
 

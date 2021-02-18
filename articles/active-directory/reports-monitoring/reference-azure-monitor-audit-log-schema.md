@@ -1,10 +1,10 @@
 ---
-title: Interpret the Azure Active Directory audit log schema in Azure Monitor (preview) | Microsoft Docs
-description: Describe the Azure AD audit log schema for use in Azure Monitor (preview)
+title: Interpret the Azure Active Directory audit log schema in Azure Monitor | Microsoft Docs
+description: Describe the Azure AD audit log schema for use in Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 12/14/2018
-ms.author: priyamo
+ms.subservice: report-monitor
+ms.date: 04/18/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
 # Interpret the Azure AD audit logs schema in Azure Monitor (preview)
@@ -175,5 +176,5 @@ This article describes the Azure Active Directory (Azure AD) audit log schema in
 ## Next steps
 
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Azure diagnostics logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+* [Azure diagnostics logs](../../azure-monitor/essentials/platform-logs-overview.md)
 * [Frequently asked questions and known issues](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

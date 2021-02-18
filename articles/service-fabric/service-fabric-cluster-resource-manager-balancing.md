@@ -1,21 +1,11 @@
 ---
-title: Balance your Azure Service Fabric cluster | Microsoft Docs
+title: Balance your Azure Service Fabric cluster 
 description: An introduction to balancing your cluster with the Service Fabric Cluster Resource Manager.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: timlt
-editor: ''
 
-ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
-ms.service: Service-Fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-
 ---
 # Balancing your service fabric cluster
 The Service Fabric Cluster Resource Manager supports dynamic load changes, reacting to additions or removals of nodes or services. It also automatically corrects constraint violations, and proactively rebalances the cluster. But how often are these actions taken, and what triggers them?
@@ -32,9 +22,9 @@ The first set of controls around balancing are a set of timers. These timers gov
 Each of these different types of corrections the Cluster Resource Manager can make is controlled by a different timer that governs its frequency. When each timer fires, the task is scheduled. By default the Resource Manager:
 
 * scans its state and applies updates (like recording that a node is down) every 1/10th of a second
-* sets the placement check flag 
+* sets the placement check flag every second
 * sets the constraint check flag every second
-* sets the balancing flag every five seconds.
+* sets the balancing flag every five seconds
 
 Examples of the configuration governing these timers are below:
 
@@ -118,6 +108,7 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 ```
 
 <center>
+
 ![Balancing Threshold Example][Image1]
 </center>
 
@@ -126,6 +117,7 @@ In this example, each service is consuming one unit of some metric. In the top e
 In the bottom example, the maximum load on a node is 10, while the minimum is two, resulting in a ratio of five. Five is greater than the designated balancing threshold of three for that metric. As a result, a rebalancing run will be scheduled next time the balancing timer fires. In a situation like this some load is usually distributed to Node3. Because the Service Fabric Cluster Resource Manager doesn't use a greedy approach, some load could also be distributed to Node2. 
 
 <center>
+
 ![Balancing Threshold Example Actions][Image2]
 </center>
 
@@ -141,6 +133,7 @@ Sometimes, although nodes are relatively imbalanced, the *total* amount of load 
 Let’s say that we retain our Balancing Threshold of three for this metric. Let's also say we have an Activity Threshold of 1536. In the first case, while the cluster is imbalanced per the Balancing Threshold there's no node meets that Activity Threshold, so nothing happens. In the bottom example, Node1 is over the Activity Threshold. Since both the Balancing Threshold and the Activity Threshold for the metric are exceeded, balancing is scheduled. As an example, let's look at the following diagram: 
 
 <center>
+
 ![Activity Threshold Example][Image3]
 </center>
 
@@ -190,7 +183,8 @@ Occasionally though, a service that wasn’t itself imbalanced gets moved (remem
 Surely you can see where we’re going here: There's a chain! We don’t really have four independent services, we have three services that are related and one that is off on its own.
 
 <center>
-![Balancing Services Together][Image4]
+
+![Diagram that shows how to balance services together.][Image4]
 </center>
 
 Because of this chain, it's possible that an imbalance in metrics 1-4 can cause replicas or instances belonging to services 1-3 to move around. We also know that an imbalance in Metrics 1, 2, or 3 can't cause movements in Service4. There would be no point since moving the replicas or instances belonging to Service4 around can do absolutely nothing to impact the balance of Metrics 1-3.
@@ -198,13 +192,15 @@ Because of this chain, it's possible that an imbalance in metrics 1-4 can cause 
 The Cluster Resource Manager automatically figures out what services are related. Adding, removing, or changing the metrics for services can impact their relationships. For example, between two runs of balancing Service2 may have been updated to remove Metric2. This breaks the chain between Service1 and Service2. Now instead of two groups of related services, there are three:
 
 <center>
-![Balancing Services Together][Image5]
+
+![Diagram that shows that Cluster Resource Manager determines what services are related.][Image5]
 </center>
 
 ## Next steps
 * Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about metrics and how to configure them, check out [this article](service-fabric-cluster-resource-manager-metrics.md)
 * Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. For more about movement cost, refer to [this article](service-fabric-cluster-resource-manager-movement-cost.md)
 * The Cluster Resource Manager has several throttles that you can configure to slow down churn in the cluster. They're not normally necessary, but if you need them you can learn about them [here](service-fabric-cluster-resource-manager-advanced-throttling.md)
+* The Cluster Resource Manager can recognize and handle subclustering (a situation that sometimes arises when you use placement constraints and balancing). To learn how subclustering can affect balancing and how you can handle it, see [here](cluster-resource-manager-subclustering.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

@@ -2,51 +2,40 @@
 title: 'Tutorial: Azure Active Directory integration with Comeet Recruiting Software | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Comeet Recruiting Software.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: 75f51dc9-9525-4ec6-80bf-28374f0c8adf
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/29/2018
+ms.topic: tutorial
+ms.date: 01/22/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Comeet Recruiting Software
 
 In this tutorial, you learn how to integrate Comeet Recruiting Software with Azure Active Directory (Azure AD).
-
 Integrating Comeet Recruiting Software with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Comeet Recruiting Software.
-- You can enable your users to automatically get signed-on to Comeet Recruiting Software (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* You can control in Azure AD who has access to Comeet Recruiting Software.
+* You can enable your users to be automatically signed-in to Comeet Recruiting Software (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with Comeet Recruiting Software, you need the following items:
 
-- An Azure AD subscription
-- A Comeet Recruiting Software single sign-on enabled subscription
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* Comeet Recruiting Software single sign-on enabled subscription
 
 ## Scenario description
 
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-1. Adding Comeet Recruiting Software from the gallery
-2. Configuring and testing Azure AD single sign-on
+* Comeet Recruiting Software supports **SP and IDP** initiated SSO
 
 ## Adding Comeet Recruiting Software from the gallery
 
@@ -54,187 +43,186 @@ To configure the integration of Comeet Recruiting Software into Azure AD, you ne
 
 **To add Comeet Recruiting Software from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button][1]
+    ![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade][2]
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **Comeet Recruiting Software**, select **Comeet Recruiting Software** from result panel then click **Add** button to add the application.
 
-	![Comeet Recruiting Software in the results list](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_addfromgallery.png)
+    ![Comeet Recruiting Software in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Comeet Recruiting Software based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Comeet Recruiting Software is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Comeet Recruiting Software needs to be established.
+In this section, you configure and test Azure AD single sign-on with Comeet Recruiting Software based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Comeet Recruiting Software needs to be established.
 
 To configure and test Azure AD single sign-on with Comeet Recruiting Software, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a Comeet Recruiting Software test user](#create-a-comeet-recruiting-software-test-user)** - to have a counterpart of Britta Simon in Comeet Recruiting Software that is linked to the Azure AD representation of user.
+2. **[Configure Comeet Recruiting Software Single Sign-On](#configure-comeet-recruiting-software-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+5. **[Create Comeet Recruiting Software test user](#create-comeet-recruiting-software-test-user)** - to have a counterpart of Britta Simon in Comeet Recruiting Software that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Comeet Recruiting Software application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Comeet Recruiting Software, perform the following steps:**
+To configure Azure AD single sign-on with Comeet Recruiting Software, perform the following steps:
 
-1. In the Azure portal, on the **Comeet Recruiting Software** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Comeet Recruiting Software** application integration page, select **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-	![Single sign-on dialog box](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_samlbase.png)
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Comeet Recruiting Software Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Comeet Domain and URLs single sign-on information](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_url1.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
+4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
+    ![Screenshot that shows the "Basic S A M L Configuration" section with the "Save" action, "Identifier" field, and "Reply U R L" field highlighted.](common/idp-intiated.png)
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL. You will get these values from the Comeet Recruiting Software portal as shown in the [support page](https://support.comeet.co/knowledgebase/adfs-single-sign-on/).
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
-	![Comeet Recruiting Software Domain and URLs single sign-on information](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_url2.png)
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, and Reply URL. Contact [Comeet Recruiting Software Client support team](https://support.comeet.co/knowledgebase/adfs-single-sign-on/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-    In the **Sign-on URL** textbox, type the URL: `https://app.comeet.co`
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-5. Comeet Recruiting Software application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **User Identifier** is **user.userprincipalname** but **Comeet Recruiting Software** expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
+    ![Comeet Recruiting Software Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
-	![Configure Single Sign-On](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_attribute.png)
+    In the **Sign-on URL** text box, type a URL:
+    `https://app.comeet.co`
 
-6. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Perform the following steps on each of the displayed attributes-
+5. Comeet Recruiting Software application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-	| Attribute Name | Attribute Value |
-	| ---------------| --------------- |
-	| comeet_id | user.userprincipalname |
+    ![Screenshot that shows the "User Attributes" section with the "Edit" button selected.](common/edit-attribute.png)
 
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+6. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps: 
 
-	![Configure Single Sign-On](./media/comeetrecruitingsoftware-tutorial/tutorial_attribute_04.png)
+    | Name |  Source Attribute|
+    | ---------------| --------------- |
+    | nameidentifier | user.mail |
+    | comeet_id | user.userprincipalname |
 
-	![Configure Single Sign-On](./media/comeetrecruitingsoftware-tutorial/tutorial_attribute_05.png)
+    a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	b. In the **Name** textbox, type the **attribute name** shown for that row.
+    ![Screenshot that shows the "User claims" section with the "Add new claim" and "Save" actions highlighted.](common/new-save-attribute.png)
 
-	c. From the **Value** list, type the attribute value shown for that row.
+    ![image](common/new-attribute-details.png)
 
-	d. Click **Ok**.
+    b. In the **Name** textbox, type the attribute name shown for that row.
 
-7. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+    c. Leave the **Namespace** blank.
 
-	![The Certificate download link](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_certificate.png)
+    d. Select Source as **Attribute**.
 
-8. Click **Save** button.
+    e. From the **Source attribute** list, type the attribute value shown for that row.
 
-	![Configure Single Sign-On Save button](./media/comeetrecruitingsoftware-tutorial/tutorial_general_400.png)
+    f. Click **Ok**
 
-9. To configure single sign-on on **Comeet Recruiting Software** side, paste the content of the downloaded Metadata XML into Comeet Recruiting Software, as shown in the [Support Page](https://support.comeet.co/knowledgebase/adfs-single-sign-on/).
+    g. Click **Save**.
 
-### Create an Azure AD test user
+4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+
+    ![The Certificate download link](common/metadataxml.png)
+
+6. On the **Set up Comeet Recruiting Software** section, copy the appropriate URL(s) as per your requirement.
+
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
+
+    a. Login URL
+
+    b. Azure Ad Identifier
+
+    c. Logout URL
+
+### Configure Comeet Recruiting Software Single Sign-On
+
+To configure single sign-on on **Comeet Recruiting Software** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Comeet Recruiting Software support team](https://support.comeet.co/knowledgebase/adfs-single-sign-on/). They set this setting to have the SAML SSO connection set properly on both sides.
+
+### Create an Azure AD test user 
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-   ![Create an Azure AD test user][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+2. Select **New user** at the top of the screen.
 
-    ![The Azure Active Directory button](./media/comeetrecruitingsoftware-tutorial/create_aaduser_01.png)
+    ![New user Button](common/new-user.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+3. In the User properties, perform the following steps.
 
-    ![The "Users and groups" and "All users" links](./media/comeetrecruitingsoftware-tutorial/create_aaduser_02.png)
+    ![The User dialog box](common/user-properties.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+    a. In the **Name** field enter **BrittaSimon**.
 
-    ![The Add button](./media/comeetrecruitingsoftware-tutorial/create_aaduser_03.png)
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
 
-4. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/comeetrecruitingsoftware-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
-
-### Create a Comeet Recruiting Software test user
-
-In this section, you create a user called Britta Simon in Comeet Recruiting Software. Work with [Comeet Recruiting Software support team](mailto:support@comeet.co) to add the users in the Comeet Recruiting Software platform. Users must be created and activated before you use single sign-on.
 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Comeet Recruiting Software.
 
-![Assign the user role][200]
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Comeet Recruiting Software**.
 
-**To assign Britta Simon to Comeet Recruiting Software, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201]
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Comeet Recruiting Software**.
 
-	![The Comeet Recruiting Software link in the Applications list](./media/comeetrecruitingsoftware-tutorial/tutorial_comeetrecruitingsoftware_app.png)  
+    ![The Comeet Recruiting Software link in the Applications list](common/all-applications.png)
 
-3. In the menu on the left, click **Users and groups**.
+3. In the menu on the left, select **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. Click **Select** button on **Users and groups** dialog.
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Test single sign-on
+### Create Comeet Recruiting Software test user
+
+In this section, you create a user called Britta Simon in Comeet Recruiting Software. Work with [Comeet Recruiting Software support team](mailto:support@comeet.co) to add the users in the Comeet Recruiting Software platform. Users must be created and activated before you use single sign-on.
+
+### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Comeet Recruiting Software tile in the Access Panel, you should get automatically signed-on to your Comeet Recruiting Software application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+When you click the Comeet Recruiting Software tile in the Access Panel, you should be automatically signed in to the Comeet Recruiting Software for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-[1]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_01.png
-[2]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_02.png
-[3]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_03.png
-[4]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_04.png
-
-[100]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_100.png
-
-[200]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_200.png
-[201]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_201.png
-[202]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_202.png
-[203]: ./media/comeetrecruitingsoftware-tutorial/tutorial_general_203.png
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

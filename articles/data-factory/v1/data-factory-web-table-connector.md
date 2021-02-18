@@ -1,21 +1,11 @@
 ---
-title: Move data from Web Table using Azure Data Factory | Microsoft Docs
+title: Move data from Web Table using Azure Data Factory 
 description: Learn about how to move data from a table in a Web page using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-
-
-ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from a Web table source using Azure Data Factory
@@ -54,7 +44,7 @@ To use this Web table connector, you need to set up a Self-hosted Integration Ru
 You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 
 
 - The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
-- You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+- You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -236,7 +226,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **WebSource** and **sink** type is set to **BlobSink**.
 
-See [WebSource type properties](#copy-activity-type-properties) for the list of properties supported by the WebSource.
+See WebSource type properties for the list of properties supported by the WebSource.
 
 ```json
 {  

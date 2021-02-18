@@ -1,21 +1,21 @@
 ---
-title: Design Azure storage tables for data modification | Microsoft Docs
-description: Design tables for data modification in Azure table storage.
+title: Design Azure Table storage for data modification | Microsoft Docs
+description: Design tables for data modification in Azure Table storage. Optimize insert, update, and delete operations. Ensure consistency in your stored entities.
 services: storage
-author: MarkMcGeeAtAquent
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
-ms.component: tables
+ms.subservice: tables
 ---
 # Design for data modification
-This article focuses on the design considerations for optimizing inserts, updates, and deletes. In some cases, you will need to evaluate the trade-off between designs that optimize for querying against designs that optimize for data modification just as you do in designs for relational databases (although the techniques for managing the design trade-offs are different in a relational database). The section [Table Design Patterns](#table-design-patterns) describes some detailed design patterns for the Table service and highlights some these trade-offs. In practice, you will find that many designs optimized for querying entities also work well for modifying entities.  
+This article focuses on the design considerations for optimizing inserts, updates, and deletes. In some cases, you will need to evaluate the trade-off between designs that optimize for querying against designs that optimize for data modification just as you do in designs for relational databases (although the techniques for managing the design trade-offs are different in a relational database). The section Table Design Patterns describes some detailed design patterns for the Table service and highlights some these trade-offs. In practice, you will find that many designs optimized for querying entities also work well for modifying entities.  
 
 ## Optimize the performance of insert, update, and delete operations
 To update or delete an entity, you must be able to identify it by using the **PartitionKey** and **RowKey** values. In this respect, your choice of **PartitionKey** and **RowKey** for modifying entities should follow similar criteria to your choice to support point queries because you want to identify entities as efficiently as possible. You do not want to use an inefficient partition or table scan to locate an entity in order to discover the **PartitionKey** and **RowKey** values you need to update or delete it.  
 
-The following patterns in the section [Table design patterns](#table-design-patterns) address optimizing the performance or your insert, update, and delete operations:  
+The following patterns in the section Table design patterns address optimizing the performance or your insert, update, and delete operations:  
 
 * [High volume delete pattern](table-storage-design-patterns.md#high-volume-delete-pattern) - Enable the deletion of a high volume of entities by storing all the entities for simultaneous deletion in their own separate table; you delete the entities by deleting the table.  
 * [Data series pattern](table-storage-design-patterns.md#data-series-pattern) - Store complete data series in a single entity to minimize the number of requests you make.  

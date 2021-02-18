@@ -4,15 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: A list of natural languages, countries and regions that are supported by the Bing Visual Search API. The Bing Visual Search API supports more than three dozen countries/regions, many with more than one language.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-visual-search
-ms.topic: article
+ms.subservice: bing-visual-search
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
 ---
 # Language and region support for the Bing Visual Search API
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Bing Visual Search API supports more than three dozen countries/regions, many with more than one language. Each request should include the user's country/region and language of choice. Knowing the user's market helps Bing return appropriate results. If you don't specify a country/region and language, Bing makes a best effort to determine the user's country/region and language. Because the results may contain links to Bing, knowing the country/region and language may provide a preferred localized Bing user experience if the user clicks the Bing links.
 
@@ -29,7 +34,7 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 > - Recipe, shopping, and pages-including insights are available in the en-US market only.
 
 
-## Countries
+## Countries/Regions
 
 |Country/region|Code|
 |-------|----|
@@ -44,7 +49,7 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 |Finland|FI|
 |France|FR|
 |Germany|DE|
-|Hong Kong|HK|
+|Hong Kong SAR|HK|
 |India|IN|
 |Indonesia|ID|
 |Italy|IT|
@@ -88,7 +93,7 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 |Finland|Finnish|fi-FI|
 |France|French|fr-FR|
 |Germany|German|de-DE|
-|Hong Kong|Traditional Chinese|zh-HK|
+|Hong Kong SAR|Traditional Chinese|zh-HK|
 |India|English|en-IN|
 |Indonesia|English|en-ID|
 |Italy|Italian|it-IT|

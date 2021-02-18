@@ -2,234 +2,162 @@
 title: 'Tutorial: Azure Active Directory integration with Infor CloudSuite | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Infor CloudSuite.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
-ms.assetid: a2f4f843-00d2-4522-a29d-6496cc5a781a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2018
+ms.topic: tutorial
+ms.date: 02/05/2021
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Infor CloudSuite
 
-In this tutorial, you learn how to integrate Infor CloudSuite with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate Infor CloudSuite with Azure Active Directory (Azure AD). When you integrate Infor CloudSuite with Azure AD, you can:
 
-Integrating Infor CloudSuite with Azure AD provides you with the following benefits:
-
-- You can control in Azure AD who has access to Infor CloudSuite.
-- You can enable your users to automatically get signed-on to Infor CloudSuite (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+* Control in Azure AD who has access to Infor CloudSuite.
+* Enable your users to be automatically signed-in to Infor CloudSuite with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To configure Azure AD integration with Infor CloudSuite, you need the following items:
 
-- An Azure AD subscription
-- Infor CloudSuite single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* Infor CloudSuite single sign-on enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-1. Adding Infor CloudSuite from the gallery
-2. Configuring and testing Azure AD single sign-on
+* Infor CloudSuite supports **SP and IDP** initiated SSO
+* Infor CloudSuite supports **Just In Time** user provisioning
 
-## Adding Infor CloudSuite from the gallery
+## Add Infor CloudSuite from the gallery
 
 To configure the integration of Infor CloudSuite into Azure AD, you need to add Infor CloudSuite from the gallery to your list of managed SaaS apps.
 
-**To add Infor CloudSuite from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Infor CloudSuite** in the search box.
+1. Select **Infor CloudSuite** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD SSO for Infor CloudSuite
 
-	![The Azure Active Directory button][1]
+Configure and test Azure AD SSO with Infor CloudSuite using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Infor CloudSuite.
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with Infor CloudSuite, perform the following steps:
 
-	![The Enterprise applications blade][2]
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Infor CloudSuite SSO](#configure-infor-cloudsuite-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Infor CloudSuite test user](#create-infor-cloudsuite-test-user)** - to have a counterpart of B.Simon in Infor CloudSuite that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-3. To add new application, click **New application** button on the top of dialog.
+## Configure Azure AD SSO
 
-	![The New application button][3]
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-4. In the search box, type **Infor CloudSuite**, select **Infor CloudSuite** from result panel then click **Add** button to add the application.
+1. In the Azure portal, on the **Infor CloudSuite** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-	![Infor CloudSuite in the results list](./media/inforcloudsuite-tutorial/tutorial-inforcloudsuite-addfromgallery.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-## Configure and test Azure AD single sign-on
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-In this section, you configure and test Azure AD single sign-on with Infor CloudSuite based on a test user called "Britta Simon".
+    a. In the **Identifier** text box, type the URL using one of the following patterns:
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Infor CloudSuite is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Infor CloudSuite needs to be established.
+    ```http
+    http://mingle-sso.inforcloudsuite.com
+    http://mingle-sso.se1.inforcloudsuite.com
+    http://mingle-sso.eu1.inforcloudsuite.com
+    http://mingle-sso.se2.inforcloudsuite.com
+    ```
 
-To configure and test Azure AD single sign-on with Infor CloudSuite, you need to complete the following building blocks:
+    b. In the **Reply URL** text box, type the URL using one of the following patterns:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating Infor CloudSuite test user](#creating-infor-cloudsuite-test-user)** - to have a counterpart of Britta Simon in Infor CloudSuite that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
-
-### Configuring Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Infor CloudSuite application.
-
-**To configure Azure AD single sign-on with Infor CloudSuite, perform the following steps:**
-
-1. In the Azure portal, on the **Infor CloudSuite** application integration page, click **Single sign-on**.
-
-	![Configure single sign-on link][4]
-
-2. On the **Select a Single sign-on method** dialog, Click **Select** for **SAML** mode to enable single sign-on.
-
-    ![Configure Single Sign-On](common/tutorial-general-301.png)
-
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Configure Single Sign-On](common/editconfigure.png)
-
-4. On the **Basic SAML Configuration** section, perform the following steps, if you wish to configure the application in **IDP** initiated mode:
-
-	![Infor CloudSuite Domain and URLs single sign-on information](./media/inforcloudsuite-tutorial/tutorial-inforcloudsuite-url1.png)
-
-    a. In the **Identifier** textbox, type a URL:
-	
-	| | |
-	|-|-|
-	| `	http://mingle-sso.inforcloudsuite.com`|
-	| `http://mingle-sso.se1.inforcloudsuite.com`|
-	| `http://mingle-sso.eu1.inforcloudsuite.com`|
-	| `http://mingle-sso.se2.inforcloudsuite.com`|
-	| |
-
-	b. In the **Reply URL** textbox, type a URL:
-
-	| | |
-	|-|-|
-	| `	https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2 `|
-	| `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2 `|
-	| `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2 `|
-	| `https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2`|
-	| |
+    ```http
+    https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Infor CloudSuite Domain and URLs single sign-on information](./media/inforcloudsuite-tutorial/tutorial-inforcloudsuite-url2.png)
+    In the **Sign-on URL** text box, type a URL using one of the following patterns:
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern:
-	
-	| | |
-	|-|-|
-	| `https://mingle-portal.inforcloudsuite.com/Tenant-Name/`|
-	| `https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/`|
-	| `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/ `|
-	| `https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/`| 
+    ```http
+    https://mingle-portal.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/
+    ```
 
 	> [!NOTE]
-	> The Sign-On URL value is not real. Update this value with the actual Sign-On URL. Contact [Infor CloudSuite Client support team](mailto:support@infor.com) to get this value.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Infor CloudSuite Client support team](mailto:support@infor.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-6. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and then save metadata file on your computer.
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](./media/inforcloudsuite-tutorial/tutorial-inforcloudsuite-certificate.png)
+	![The Certificate download link](common/metadataxml.png)
 
-7. To configure single sign-on on **Infor CloudSuite** side, you need to send the downloaded **Federation Metadata XML** to [Infor CloudSuite support team](mailto:support@infor.com). They set this setting to have the SAML SSO connection set properly on both sides.
+7. On the **Set up Infor CloudSuite** section, copy the appropriate URL(s) as per your requirement.
 
-### Creating an Azure AD test user
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+### Create an Azure AD test user
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-	![Create Azure AD User][100]
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-2. Select **New user** at the top of the screen.
+### Assign the Azure AD test user
 
-	![Creating an Azure AD test user](common/create-aaduser-01.png) 
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Infor CloudSuite.
 
-3. In the User properties, perform the following steps.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Infor CloudSuite**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![Creating an Azure AD test user](common/create-aaduser-02.png)
+## Configure Infor CloudSuite SSO
 
-    a. In the **Name** field, enter **BrittaSimon**.
-  
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+To configure single sign-on on **Infor CloudSuite** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Infor CloudSuite support team](mailto:support@infor.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-    c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.
+### Create Infor CloudSuite test user
 
-    d. Select **Create**.
+In this section, a user called Britta Simon is created in Infor CloudSuite. Infor CloudSuite supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Infor CloudSuite, a new one is created after authentication. If you need to create a user manually, contact [Infor CloudSuite support team](mailto:support@infor.com).
 
-### Creating Infor CloudSuite test user
+## Test SSO 
 
-The objective of this section is to create a user called Britta Simon in Infor CloudSuite. Infor CloudSuite supports just-in-time provisioning which can be enabled by the tenant admin. There is no action item for you in this section. A new user is created during an attempt to access Infor CloudSuite if it doesn't exist yet.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-> [!Note]
-> If you need to create a user manually, contact [Infor CloudSuite support team](mailto:support@infor.com).
+#### SP initiated:
 
-### Assigning the Azure AD test user
+* Click on **Test this application** in Azure portal. This will redirect to Infor CloudSuite Sign on URL where you can initiate the login flow.  
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Infor CloudSuite.
+* Go to Infor CloudSuite Sign-on URL directly and initiate the login flow from there.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**.
+#### IDP initiated:
 
-	![Assign User][201]
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Infor CloudSuite for which you set up the SSO. 
 
-2. In the applications list, select **Infor CloudSuite**.
+You can also use Microsoft My Apps to test the application in any mode. When you click the Infor CloudSuite tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Infor CloudSuite for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-	![Configure Single Sign-On](./media/inforcloudsuite-tutorial/tutorial-inforcloudsuite-app.png) 
+## Next steps
 
-3. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202]
-
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. In the **Add Assignment** dialog select the **Assign** button.
-
-### Testing single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the Infor CloudSuite tile in the Access Panel, you should get automatically signed-on to your Infor CloudSuite application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: common/tutorial-general-01.png
-[2]: common/tutorial-general-02.png
-[3]: common/tutorial-general-03.png
-[4]: common/tutorial-general-04.png
-
-[100]: common/tutorial-general-100.png
-
-[201]: common/tutorial-general-201.png
-[202]: common/tutorial-general-202.png
-[203]: common/tutorial-general-203.png
+Once you configure Infor CloudSuite you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -1,77 +1,120 @@
 ---
-title: Attach Cognitive Services to your skillset - Azure Search
-description: Instructions for attaching a Cognitive Services All-in-One subscription to a Cognitive Skillset
-manager: cgronlun
-author: HeidiSteen
-services: search
-ms.service: search
-ms.devlang: NA
-ms.topic: conceptual
-ms.date: 12/05/2018
+title: Attach Cognitive Services to a skillset
+titleSuffix: Azure Cognitive Search
+description: Learn how to attach a Cognitive Services all-in-one subscription to an AI enrichment pipeline in Azure Cognitive Search.
+
+author: LuisCabrer
 ms.author: luisca
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 02/16/2021
 ---
-# Associate Cognitive Services resource with a skillset 
+# Attach a Cognitive Services resource to a skillset in Azure Cognitive Search
+
+When configuring an [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable "all-in-one" Cognitive Services resource. An "all-in-one" subscription references "Cognitive Services" as the offering, rather than individual services, with access granted through a single API key.
+
+An "all-in-one" Cognitive Services resource drives the [predefined skills](cognitive-search-predefined-skills.md) that you can include in a skillset:
+
++ [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for image analysis and optical character recognition (OCR)
++ [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for language detection, entity recognition, sentiment analysis, and key phrase extraction
++ [Text Translation](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
+
+An "all-in-one" Cognitive Services key is optional in a skillset definition. When the daily transactions number less than 20 per day, the cost is absorbed. However, when transactions exceed that number, a valid resource key is required in order for processing to continue.
+
+Any "all-in-one" resource key is valid. Internally, a search service will use the resource that's co-located in the same physical region, even if the "all-in-one" key is for a resource in a different region. The [product availability](https://azure.microsoft.com/global-infrastructure/services/?products=search) page shows regional availability side by side.
 
 > [!NOTE]
-> Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost.
->
-> The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
-. Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> If you omit predefined skills in a skillset, then Cognitive Services is not accessed, and you won't be charged, even if the skillset specifies a key.
 
+## How billing works
 
-Cognitive search extracts and enriches data to make it searchable in Azure Search. We call extraction and enrichment steps *cognitive skills*. The set of skills called during indexing of content are defined in a *skillset*. A skillset can use [predefined skills](cognitive-search-predefined-skills.md) or custom skills (see [Example: create a custom skill](cognitive-search-create-custom-skill-example.md) for more information).
++ Azure Cognitive Search uses the Cognitive Services resource key you provide on a skillset to bill for image and text enrichment. Execution of billable skills is at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-In this article, you learn how to associate the [Cognitive Services ](https://azure.microsoft.com/services/cognitive-services/) resource to your cognitive skillset.
++ Image extraction is an Azure Cognitive Search operation that occurs when documents are cracked prior to enrichment. Image extraction is billable. For image extraction pricing, see the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
-The Cognitive Services resource you select will power the built-in cognitive skills. This resource will also be used for billing purposes. Any enrichments you perform using the built-in cognitive skills will be billed against the Cognitive Services resource you select. They will be billed at the same rate as if you had performed the same task using a Cognitive Services resource. See [Cognitive Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
++ Text extraction also occurs during the document cracking phrase. It is not billable.
 
-## Limits when no Cognitive Services resource is selected
-Starting Feb 1, 2019, if you do not associate a Cognitive Services subscription with your skillset, you will only be able to enrich a small number of documents for free (20 documents per day). 
++ Skills that do not call Cognitive Services, including Conditional, Shaper, Text Merge, and Text Split skills, are not billable.
 
-## Associating a Cognitive Services resource with a new skillset
+## Same-region requirement
 
-1. As part of the *Import data* experience, after you have Connected to your data source you will navigate to the *Add cognitive search* optional step. 
+Both Cognitive Search and Cognitive Services must exist within the same physical region, as indicated on the [product availability](https://azure.microsoft.com/global-infrastructure/services/?products=search) page. Most regions that offer Cognitive Search also offer Cognitive Services.
 
-1. Expand the *Attach Cognitive Services* section. This will show you any Cognitive Service resources you have in the same regions as your Search Service. 
-![Expanded Attach Cognitive Service](./media/cognitive-search-attach-cognitive-services/attach1.png "Expanded Attach Cognitive Services")
+If you attempt AI enrichment in region that doesn't have both services, you'll see this message: "Provided key is not a valid CognitiveServices type key for the region of your search service."
 
-1. Select an existing Cognitive Services resource, or *Create a new Cognitive Services resource*. If you select the *Free (Limited Enrichments) resource*, you will only be able to enrich a small number of documents for free (20 documents per day). If you clicked on *Create a new Cognitive Services resource*, a new tab will open that will allow you to create the Cognitive Services resource. 
+> [!NOTE]
+> Some built-in skills are based on non-regional Cognitive Services (for example, the [Text Translation Skill](cognitive-search-skill-text-translation.md)). Using a non-regional skill means that your request might be serviced in a region other than the Azure Cognitive Search region. For more information non-regional services, see the [Cognitive Services product by region](https://aka.ms/allinoneregioninfo) page.
 
-1. If you created a new resource, click *Refresh* to refresh the list of Cognitive Services resources, and select the resource. 
-![Selected Cognitive Service Resource](./media/cognitive-search-attach-cognitive-services/attach2.png "Selected Cognitive Service Resource")
+## Use Free resources
 
-1. Once you have done this, you can expand the *Add Enrichments* section to select the specific cognitive skills you want to run over your data and proceed with the rest of the flow.
+You can use a limited, free processing option to complete the AI enrichment tutorial and quickstart exercises.
 
-## Associating a Cognitive Services resource with an existing skillset
+Free (Limited enrichments) resources are restricted to 20 documents per day, per indexer. You can [reset the indexer](search-howto-run-reset-indexers.md) to reset the counter.
 
-1. On the Service Overview page, select the *Skillsets* tab.
-![Skillsets tab](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Skillsets tab")
+If you are using the **Import data** wizard for AI enrichment, you'll find the "Attach Cognitive Services" options on the **Add AI enrichment (Optional)** page.
 
-1. *Click* on the skillset you would like to modify. This will open a blade that will allow you to edit a skillset.
+![Expanded Attach Cognitive Services section](./media/cognitive-search-attach-cognitive-services/attach1.png "Expanded Attach Cognitive Services section")
 
-1. Select an existing Cognitive Services resource or *Create a new Cognitive Services resource*. If you select the *Free (Limited Enrichments) resource*, you will only be able to enrich a small number of documents for free (20 documents per day). If you clicked on *Create a new Cognitive Services resource*, a new tab will open that will allow you to create the Cognitive Services resource. <n/> 
-<img src="./media/cognitive-search-attach-cognitive-services/attach-existing2.png" width="350">
+## Use billable resources
 
-1. If you created a new resource, click *Refresh* to refresh the list of Cognitive Services resources, and select the resource.
-1. Click *OK* to confirm your changes
+For workloads that create more than 20 enrichments per day, make sure to attach a billable Cognitive Services resource. We recommend that you always attach a billable Cognitive Services resource, even if you never intend to call Cognitive Services APIs. Attaching a resource overrides the daily limit.
 
-## Associating a Cognitive Services resource programmatically
+You're charged only for skills that call the Cognitive Services APIs. You're not billed for [custom skills](cognitive-search-create-custom-skill-example.md), or skills like [text merger](cognitive-search-skill-textmerger.md), [text splitter](cognitive-search-skill-textsplit.md), and [shaper](cognitive-search-skill-shaper.md), which aren't API-based.
 
-When defining the skillset programmatically, add a `cognitiveServices` section. The section should include the key of the Cognitive Services resource you would like to associate with the skillset, as well as the @odata.type, which should be set to "#Microsoft.Azure.Search.CognitiveServicesByKey". This pattern is shown in the example below.
+If you're using the **Import data** wizard, you can configure a billable resource from the **Add AI enrichment (Optional)** page.
+
+1. Expand **Attach Cognitive Services** and then select **Create new Cognitive Services resource**. A new tab opens so that you can create the resource:
+
+   ![Create a Cognitive Services resource](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Create a Cognitive Services resource")
+
+1. In the **Location** list, select the same region that has your search service.
+
+1. In the **Pricing tier** list, select **S0** to get the all-in-one collection of Cognitive Services features, including the Vision and Language features that back the built-in skills provided by Azure Cognitive Search.
+
+   For the S0 tier, you can find rates for specific workloads on the [Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/).
+  
+   + In the **Select Offer** list, make sure **Cognitive Services** is selected.
+   + Under **Language** features, the rates for **Text Analytics Standard** apply to AI indexing.
+   + Under **Vision** features, the rates for **Computer Vision S1** apply.
+
+1. Select **Create** to provision the new Cognitive Services resource.
+
+1. Return to the previous tab. Select **Refresh** to show the Cognitive Services resource, and then select the resource:
+
+   ![Select the Cognitive Services resource](./media/cognitive-search-attach-cognitive-services/attach2.png "Select the Cognitive Services resource")
+
+1. Expand the **Add cognitive skills** section to select the specific cognitive skills that you want to run on your data. Complete the rest of the wizard.
+
+## Attach an existing skillset to a Cognitive Services resource
+
+If you have an existing skillset, you can attach it to a new or different Cognitive Services resource.
+
+1. On the search service overview page, select **Skillsets**:
+
+   ![Skillsets tab](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "Skillsets tab")
+
+1. Select the name of the skillset, and then select an existing resource or create a new one. Select **OK** to confirm your changes.
+
+   ![Skillset resource list](./media/cognitive-search-attach-cognitive-services/attach-existing2.png "Skillset resource list")
+
+   Remember that the **Free (Limited enrichments)** option limits you to 20 documents daily, and that you can use **Create new Cognitive Services resource** to provision a new billable resource. If you create a new resource, select **Refresh** to refresh the list of Cognitive Services resources, and then select the resource.
+
+## Attach Cognitive Services programmatically
+
+When you're defining the skillset programmatically, add a `cognitiveServices` section to the skillset. In that section, include the key of the Cognitive Services resource that you want to associate with the skillset. Remember that the resource must be in the same region as your Azure Cognitive Search resource. Also include `@odata.type`, and set it to `#Microsoft.Azure.Search.CognitiveServicesByKey`.
+
+The following example shows this pattern. Notice the `cognitiveServices` section at the end of the definition.
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
-```
-```json
 {
     "name": "skillset name",
     "skills": 
     [
       {
-        "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
         "categories": [ "Organization" ],
         "defaultLanguageCode": "en",
         "inputs": [
@@ -87,37 +130,37 @@ Content-Type: application/json
       }
     ],
     "cognitiveServices": {
-    	"@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey"
-    	"description": "mycogsvcs",
-    	"key": "your key goes here"
+        "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
+        "description": "mycogsvcs",
+        "key": "<your key goes here>"
     }
 }
 ```
-## Example: Estimating the cost of document cracking and enrichment
-You may want to estimate how much it costs to enrich a given type of document. The exercise below is an example only, but it may be helpful to you.
 
-Imagine that we have 1000 PDFs and we estimate that on average each of those documents have 6 pages each. Let's say that each of them has one image per page for this exercise. Let's also imagine that on average, there are about 3,000 characters per page. 
+## Example: Estimate costs
 
-Now, let's assume that we want to perform the following steps as part of the enrichment pipeline:
-1. As part of document cracking, extract the content and images from the document.
-1. As part of enrichment, OCR each of the pages extracted, combine the text for all pages, and then extract each of the organizations in the combined text of all images.
+To estimate the costs associated with cognitive search indexing, start with an idea of what an average document looks like so you can run some numbers. For example, you might approximate:
 
-Let's estimate how much it would cost to ingest those documents, step by step.
++ 1,000 PDFs.
++ Six pages each.
++ One image per page (6,000 images).
++ 3,000 characters per page.
 
-For the 1000 documents:
+Assume a pipeline that consists of document cracking of each PDF, image and text extraction, optical character recognition (OCR) of images, and entity recognition of organizations.
 
-1. Document Cracking, we would extract a combined number of 6,000 images. Assuming $1 for every 1000 images extracted, that would cost us $6.00.
+The prices shown in this article are hypothetical. They're used to illustrate the estimation process. Your costs could be lower. For the actual prices of transactions, see See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services).
 
-2. We would extract the text from each of those 6,000 images. In English, the OCR cognitive skill uses the best algorithm (DescribeText). Assuming a cost of $2.50 per 1,000 images to be analyzed, we would pay $15.00 for this step.
+1. For document cracking with text and image content, text extraction is currently free. For 6,000 images, assume $1 for every 1,000 images extracted. That's a cost of $6.00 for this step.
 
-3. For entity extraction, we would have a total of 3 text records per page (each record is 1,000 characters). 3 text records/page * 6,000 pages = 18,000 text records. Assuming $2.00 / 1000 text records, this step would cost us $36.00.
+2. For OCR of 6,000 images in English, the OCR cognitive skill uses the best algorithm (DescribeText). Assuming a cost of $2.50 per 1,000 images to be analyzed, you would pay $15.00 for this step.
 
-Putting it all together, we would pay $57.00 to ingest 1000 pdf documents of this nature with the skillset described.  In this exercise we assumed the most expensive price per transaction, it could have been lower due to graduating pricing. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services).
+3. For entity extraction, you'd have a total of three text records per page. Each record is 1,000 characters. Three text records per page multiplied by 6,000 pages equals 18,000 text records. Assuming $2.00 per 1,000 text records, this step would cost $36.00.
 
-
+Putting it all together, you'd pay about $57.00 to ingest 1,000 PDF documents of this type with the described skillset.
 
 ## Next steps
-+ [Azure Search Pricing page](https://azure.microsoft.com/pricing/details/search/)
+
++ [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Create Skillset (REST)](/rest/api/searchservice/create-skillset)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

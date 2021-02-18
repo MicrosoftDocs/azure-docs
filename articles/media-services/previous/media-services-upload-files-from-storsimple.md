@@ -4,7 +4,7 @@ description: This article gives a brief overview of Azure StorSimple Data Manage
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 1dd09328-262b-43ef-8099-73241b49a925
@@ -12,17 +12,19 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.topic: conceptual
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Upload files into an Azure Media Services account from Azure StorSimple
+# Upload files into an Azure Media Services account from Azure StorSimple 
 
-This article gives a brief overview of Azure StorSimple Data Manager. The article also links to tutorials that show you how to extract data from StorSimple and upload this data as assets to an Azure Media Services (AMS) account.
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
-> 
 > [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
+>
+> 
 > Azure StorSimple Data Manager is currently in private preview. 
 > 
 
@@ -30,7 +32,7 @@ This article gives a brief overview of Azure StorSimple Data Manager. The articl
 
 In Media Services, you upload your digital files into an asset. The Asset  can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.) Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.
 
-[Azure StorSimple](https://docs.microsoft.com/azure/storsimple/) uses cloud storage as an extension of the on-premises solution and automatically tiers data across the on-premises storage and cloud storage. The StorSimple device dedupes and compresses your data before sending it to the cloud making it very efficient for sending large files to the cloud. The [StorSimple Data Manager](../../storsimple/storsimple-data-manager-overview.md) service provides APIs that enable you to extract data from StorSimple and present it as AMS assets.
+[Azure StorSimple](../../storsimple/index.yml) uses cloud storage as an extension of the on-premises solution and automatically tiers data across the on-premises storage and cloud storage. The StorSimple device dedupes and compresses your data before sending it to the cloud making it very efficient for sending large files to the cloud. The [StorSimple Data Manager](../../storsimple/storsimple-data-manager-overview.md) service provides APIs that enable you to extract data from StorSimple and present it as AMS assets.
 
 ## Get started
 
@@ -43,7 +45,7 @@ In Media Services, you upload your digital files into an asset. The Asset  can c
 
 ## See also
 
-[Use the .Net SDK to trigger jobs in the Data Manager](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
+[Use the .NET SDK to trigger jobs in the Data Manager](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

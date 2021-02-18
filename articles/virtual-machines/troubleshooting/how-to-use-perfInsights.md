@@ -1,23 +1,23 @@
 ---
 title: How to use PerfInsights in Microsoft Azure| Microsoft Docs
 description: Learns how to use PerfInsights to troubleshoot Windows VM performance problems.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: anandhms
-manager: cshepard
+manager: dcscontentpm
 editor: na
 tags: ''
 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 
 ---
-# How to use PerfInsights
+# How to use PerfInsights in Azure
 
 [PerfInsights](https://aka.ms/perfinsightsdownload) is a self-help diagnostics tool that collects and analyzes the diagnostic data, and provides a report to help troubleshoot Windows virtual machine performance problems in Azure. PerfInsights can be run on virtual machines as a standalone tool, directly from the portal by using [Performance Diagnostics for Azure virtual machines](performance-diagnostics.md), or by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md).
 
@@ -63,7 +63,7 @@ This scenario runs the [Diskspd](https://github.com/Microsoft/diskspd) benchmark
 
 ### Performance analysis
 
-This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace by using the counters that are specified in the RuleEngineConfig.json file. If the VM is identified as a server that is running SQL Server, a performance counter trace is run. It does so by using the counters that are found in the RuleEngineConfig.json file. This scenario also includes performance diagnostics data.
+This scenario runs a [performance counter](/windows/win32/perfctrs/performance-counters-portal) trace by using the counters that are specified in the RuleEngineConfig.json file. If the VM is identified as a server that is running SQL Server, a performance counter trace is run. It does so by using the counters that are found in the RuleEngineConfig.json file. This scenario also includes performance diagnostics data.
 
 ### Azure Files analysis
 
@@ -99,9 +99,8 @@ When you run an advanced performance analysis, you select traces to run in paral
 
 Information about Windows VM, disks or storage pools configuration, performance counters, logs, and various traces are collected. It depends on the performance scenario you are using. The following table provides details:
 
-|Data collected                              |  |  | Performance scenarios |  |  | |
-|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Quick performance analysis | Benchmarking | Performance analysis | Azure Files analysis | Advanced performance analysis |
+| Data collected | Quick performance analysis | Benchmarking | Performance analysis | Azure Files analysis | Advanced performance analysis |
+|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|
 | Information from event logs       | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
 | System information                | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
 | Volume map                        | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
@@ -164,7 +163,15 @@ Diskspd I/O workload tests (OS Disk [write] and pool drives [read/write])
 
 -  This tool must be run on the VM that has the performance issue. 
 
--  The following operating systems are supported: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016; Windows 8.1 and Windows 10.
+-  The following operating systems are supported:
+   * Windows Server 2019
+   * Windows Server 2016
+   * Windows Server 2012 R2
+   * Windows Server 2012
+   * Windows Server 2008 R2
+   * Windows 10
+   * Windows 8.1
+   * Windows 8
 
 #### Possible problems when you run the tool on production VMs
 
@@ -191,7 +198,7 @@ To run the PerfInsights tool, follow these steps:
 
 2. Unblock the PerfInsights.zip file. To do this, right-click the PerfInsights.zip file, and select **Properties**. In the **General** tab, select **Unblock**, and then select **OK**. This ensures that the tool runs without any additional security prompts.  
 
-    ![Screenshot of PerfInsights Properties, with Unblock highlighted](media/how-to-use-perfInsights/unlock-file.png)
+    ![Screenshot of PerfInsights Properties, with Unblock highlighted](media/how-to-use-perfInsights/pi-unlock-file.png)
 
 3.  Expand the compressed PerfInsights.zip file into your temporary drive (by default, this is usually the D drive). 
 
@@ -201,7 +208,7 @@ To run the PerfInsights tool, follow these steps:
     cd <the path of PerfInsights folder>
     PerfInsights
     ```
-    ![Screenshot of PerfInsights commandline output](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
+    ![Screenshot of PerfInsights commandline output](media/how-to-use-perfInsights/pi-commandline.png)
     
     The basic syntax for running PerfInsights scenarios is:
     
@@ -250,8 +257,8 @@ Within the **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file, you ca
 
 Select the **Findings** tab.
 
-![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/findingtab.png)
-![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/findings.PNG)
+![Screenshot of Overview tab of the PerfInsights Report.](media/how-to-use-perfInsights/pi-finding-tab.png)
+![Screenshot of Storage tab of the PerfInsights Report.](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > Findings categorized as high are known issues that might cause performance issues. Findings categorized as medium represent non-optimal configurations that do not necessarily cause performance issues. Findings categorized as low are informative statements only.
@@ -266,17 +273,17 @@ The **Disk Map** and **Volume Map** sections describe how logical volumes and ph
 
 In the physical disk perspective (Disk Map), the table shows all logical volumes that are running on the disk. In the following example, **PhysicalDrive2** runs two logical volumes created on multiple partitions (J and H):
 
-![Screenshot of disk tab](media/how-to-use-perfInsights/disktab.png)
+![Screenshot of disk tab](media/how-to-use-perfInsights/pi-disk-tab.png)
 
 In the volume perspective (Volume Map), the tables show all the physical disks under each logical volume. Notice that for RAID/Dynamic disks, you might run a logical volume on multiple physical disks. In the following example, *C:\\mount* is a mount point configured as *SpannedDisk* on physical disks 2 and 3:
 
-![Screenshot of volume tab](media/how-to-use-perfInsights/volumetab.png)
+![Screenshot of volume tab](media/how-to-use-perfInsights/pi-volume-tab.png)
 
 ### SQL tab
 
 If the target VM hosts any SQL Server instances, you see an additional tab in the report, named **SQL**:
 
-![Screenshot of SQL tab](media/how-to-use-perfInsights/sqltab.png)
+![Screenshot of SQL tab](media/how-to-use-perfInsights/pi-sql-tab.png)
 
 This section contains a **Findings** tab, and additional tabs for each of the SQL Server instances hosted on the VM.
 
@@ -284,7 +291,7 @@ The **Findings** tab contains a list of all the SQL related performance issues f
 
 In the following example, **PhysicalDrive0** (running the C drive) is displayed. This is because both the **modeldev** and **modellog** files are located on the C drive, and they are of different types (such as data file and transaction log, respectively).
 
-![Screenshot of log information](media/how-to-use-perfInsights/loginfo.png)
+![Screenshot of log information](media/how-to-use-perfInsights/pi-log-info.png)
 
 The tabs for specific instances of SQL Server contain a general section that displays basic information about the selected instance. The tabs also contain additional sections for advanced information, including settings, configurations, and user options.
 
@@ -299,7 +306,7 @@ Diskspd is a storage load generator and performance test tool from Microsoft. Fo
 
 ### Xperf
 
-Xperf is a command-line tool to capture traces from the Windows Performance Toolkit. For more information, see [Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
+Xperf is a command-line tool to capture traces from the Windows Performance Toolkit. For more information, see [Windows Performance Toolkit – Xperf](/archive/blogs/ntdebugging/windows-performance-toolkit-xperf).
 
 ## Next steps
 
@@ -307,9 +314,8 @@ You can upload diagnostics logs and reports to Microsoft Support for further rev
 
 The following screenshot shows a message similar to what you might receive:
 
-![Screenshot of sample message from Microsoft Support](media/how-to-use-perfInsights/supportemail.png)
+![Screenshot of sample message from Microsoft Support](media/how-to-use-perfInsights/pi-support-email.png)
 
 Follow the instructions in the message to access the file transfer workspace. For additional security, you have to change your password on first use.
 
 After you sign in, you will find a dialog box to upload the **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file that was collected by PerfInsights.
-

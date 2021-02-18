@@ -1,29 +1,25 @@
 ---
-title: Create a virtual network - quickstart - Azure CLI | Microsoft Docs
-description: In this quickstart, you learn to create a virtual network using the Azure CLI. A virtual network lets Azure resources, like virtual machines, communicate privately with each other, and with the internet.
+title: Create a virtual network - quickstart - Azure CLI
+titlesuffix: Azure Virtual Network
+description: In this quickstart, learn to create a virtual network using the Azure CLI. A virtual network lets Azure resources communicate with each other and with the internet.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
+author: KumudD
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 12/12/2018
-ms.author: jdial
-ms.custom: mvc
+ms.date: 01/22/2019
+ms.author: kumud 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create a virtual network using the Azure CLI
 
 A virtual network enables Azure resources, like virtual machines (VMs), to communicate privately with each other, and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to the VMs from the internet, and communicate privately over the new virtual network.
-
+## Prerequisites
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -32,13 +28,13 @@ If you decide to install and use Azure CLI locally instead, this quickstart requ
 
 ## Create a resource group and a virtual network
 
-Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [az group create](/cli/azure/group#az_group_create). This example creates a resource group named *myResourceGroup* in the *eastus* location:
+Before you can create a virtual network, you have to create a resource group to host the virtual network. Create a resource group with [az group create](/cli/azure/group). This example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). This example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*:
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet). This example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -53,7 +49,7 @@ Create two VMs in the virtual network.
 
 ### Create the first VM
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). If SSH keys don't already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the VM in the background, so that you can continue to the next step. This example creates a VM named *myVm1*:
+Create a VM with [az vm create](/cli/azure/vm). If SSH keys don't already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The `--no-wait` option creates the VM in the background, so that you can continue to the next step. This example creates a VM named *myVm1*:
 
 ```azurecli-interactive
 az vm create \
@@ -80,7 +76,7 @@ az vm create \
 
 The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI returns output like this:
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm2",
@@ -90,6 +86,7 @@ The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI
   "privateIpAddress": "10.0.0.5",
   "publicIpAddress": "40.68.254.142",
   "resourceGroup": "myResourceGroup"
+  "zones": ""
 }
 ```
 
@@ -117,7 +114,7 @@ Exit the SSH session with the *myVm2* VM.
 
 ## Clean up resources
 
-When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all the resources it has:
+When no longer needed, you can use [az group delete](/cli/azure/group) to remove the resource group and all the resources it has:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -125,6 +122,7 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and communicated privately between the two VMs. To learn more about virtual network settings, see [Manage a virtual network](manage-virtual-network.md).
-
-Azure lets unrestricted private communication between VMs. By default, Azure only lets inbound remote desktop connections to Windows VMs from the internet. To learn more about configuring different types of VM network communications, go to the [Filter network traffic](tutorial-filter-network-traffic.md) tutorial.
+In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and communicated privately between the two VMs.
+Azure lets unrestricted private communication between VMs. By default, Azure only lets inbound remote desktop connections to Windows VMs from the internet. Advance to the next article to learn more about configuring different types of VM network communications:
+> [!div class="nextstepaction"]
+> [Filter network traffic](tutorial-filter-network-traffic.md)

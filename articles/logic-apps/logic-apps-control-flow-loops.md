@@ -1,48 +1,27 @@
 ---
-# required metadata
-title: Add loops that repeat actions or process arrays - Azure Logic Apps | Microsoft Docs
-description: How to create loops that repeat workflow actions or process arrays in Azure Logic Apps
+title: Add loops to repeat actions
+description: Create loops that repeat workflow actions or process arrays in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
-
-# optional metadata
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 01/05/2019
 ---
 
 # Create loops that repeat workflow actions or process arrays in Azure Logic Apps
 
-To iterate through arrays in your logic app, 
-you can use a ["Foreach" loop](#foreach-loop) or a 
-[sequential "Foreach" loop](#sequential-foreach-loop). 
-The iterations for a standard "Foreach" loop run in parallel, 
-while the iterations for a sequential "Foreach" loop run one at a time. 
-For the maximum number of array items that "Foreach" loops 
-can process in a single logic app run, see 
-[Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
+To process an array in your logic app, you can create a ["Foreach" loop](#foreach-loop). This loop repeats one or more actions on each item in the array. 
+For the limit on the number of array items that a "Foreach" loop can process, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-> [!TIP] 
-> If you have a trigger that receives an array 
-> and want to run a workflow for each array item, 
-> you can *debatch* that array with the 
-> [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
-  
-To repeat actions until a condition is met or some state has changed, 
-use an ["Until" loop](#until-loop). Your logic app first performs all 
-the actions inside the loop and then checks the condition as the last step. 
-If the condition is met, the loop stops. Otherwise, the loop repeats. 
-For the maximum number of "Until" loops in a single logic app run, see 
-[Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
+To repeat actions until a condition gets met or a state changes, you can create an ["Until" loop](#until-loop). Your logic app first runs all the actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the default and maximum limits on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+
+> [!TIP]
+> If you have a trigger that receives an array and want to run a workflow for each array item, you can *debatch* that array 
+> with the [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/). 
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -50,38 +29,47 @@ For the maximum number of "Until" loops in a single logic app run, see
 
 ## "Foreach" loop
 
-To repeat actions for each item in an array, 
-use a "Foreach" loop in your logic app workflow. 
-You can include multiple actions in a "Foreach" loop, 
-and you can nest "Foreach" loops inside each other. 
-By default, cycles in a standard "Foreach" loop run in parallel. 
-For the maximum number of parallel cycles that 
-"Foreach" loops can run, see [Limits and config](../logic-apps/logic-apps-limits-and-config.md).
+A "Foreach" loop repeats one or more actions on each array item and works only on arrays. Here are some considerations when you use "Foreach" loops:
 
-> [!NOTE] 
-> A "Foreach" loop works only with an array, 
-> and actions in the loop use the `@item()` 
-> reference to process each item in the array. 
-> If you specify data that's not in an array, 
-> the logic app workflow fails. 
+* The "Foreach" loop can process a limited number of array items. For this limit, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-For example, this logic app sends you a 
-daily summary from a website's RSS feed. 
-The app uses a "Foreach" loop that sends 
-an email for each new item found.
+* By default, iterations in a "Foreach" loop run at the same time, or in parallel. This behavior differs from [Power Automate's **Apply to each** loop](/power-automate/apply-to-each) where iterations run one at a time, or sequentially. However, you can [set up sequential "Foreach" loop iterations](#sequential-foreach-loop). For example, if you want to pause the next iteration in a "Foreach" loop by using the [Delay action](../connectors/connectors-native-delay.md), you need to set the loop to run sequentially.
+
+  The exception to the default behavior are nested loops where iterations always run sequentially, not in parallel. To run operations in parallel for items in a nested loop, create and [call a child logic app](../logic-apps/logic-apps-http-endpoint.md).
+
+* To get predictable results from operations on variables during each loop iteration, 
+run those loops sequentially. For example, when a concurrently running loop ends, 
+the increment, decrement, and append to variable operations return predictable results. 
+However, during each iteration in the concurrently running loop, these operations might 
+return unpredictable results. 
+
+* Actions in a "Foreach" loop use the 
+[`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
+expression to reference and process each item in the array. 
+If you specify data that's not in an array, 
+the logic app workflow fails. 
+
+This example logic app sends a daily summary for a website RSS feed. 
+The app uses a "Foreach" loop that sends an email for each new item.
 
 1. [Create this sample logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-with an Outlook.com or Office 365 Outlook account.
+with an Outlook.com account or a work or school account.
 
 2. Between the RSS trigger and send email action, 
 add a "Foreach" loop. 
 
-   To add a loop between steps, move the pointer over 
-   the arrow where you want to add the loop. 
+   1. To add a loop between steps, move your 
+   pointer over the arrow between those steps. 
    Choose the **plus sign** (**+**) that appears, 
-   then choose **Add a for each**.
+   then select **Add an action**.
 
-   ![Add a "Foreach" loop between steps](media/logic-apps-control-flow-loops/add-for-each-loop.png)
+      ![Select "Add an action"](media/logic-apps-control-flow-loops/add-for-each-loop.png)
+
+   1. Under the search box, choose **All**. In the search box, 
+   type "for each" as your filter. From the actions list, 
+   select this action: **For each - Control**
+
+      ![Add "For each" loop](media/logic-apps-control-flow-loops/select-for-each.png)
 
 3. Now build the loop. Under **Select an output from previous steps** 
 after the **Add dynamic content** list appears, 
@@ -96,8 +84,8 @@ select the **Feed links** array, which is output from the RSS trigger.
 
    ![Select array](media/logic-apps-control-flow-loops/for-each-loop-select-array.png)
 
-4. To perform an action on each array item, 
-drag the **Send an email** action into the **For each** loop. 
+4. To run an action on each array item, 
+drag the **Send an email** action into the loop. 
 
    Your logic app might look something like this example:
 
@@ -116,100 +104,106 @@ logic app's JSON definition instead, for example:
 
 ``` json
 "actions": {
-    "myForEachLoopName": {
-        "type": "Foreach",
-        "actions": {
-            "Send_an_email": {
-                "type": "ApiConnection",
-                "inputs": {
-                    "body": {
-                        "Body": "@{item()}",
-                        "Subject": "New CNN post @{triggerBody()?['publishDate']}",
-                        "To": "me@contoso.com"
-                    },
-                    "host": {
-                        "api": {
-                            "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
-                        },
-                        "connection": {
-                            "name": "@parameters('$connections')['office365']['connectionId']"
-                        }
-                    },
-                    "method": "post",
-                    "path": "/Mail"
-                },
-                "runAfter": {}
-            }
-        },
-        "foreach": "@triggerBody()?['links']",
-        "runAfter": {},
-    }
-},
+   "myForEachLoopName": {
+      "type": "Foreach",
+      "actions": {
+         "Send_an_email": {
+            "type": "ApiConnection",
+            "inputs": {
+               "body": {
+                  "Body": "@{item()}",
+                  "Subject": "New CNN post @{triggerBody()?['publishDate']}",
+                  "To": "me@contoso.com"
+               },
+               "host": {
+                  "api": {
+                     "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
+                  },
+                  "connection": {
+                     "name": "@parameters('$connections')['office365']['connectionId']"
+                  }
+               },
+               "method": "post",
+               "path": "/Mail"
+            },
+            "runAfter": {}
+         }
+      },
+      "foreach": "@triggerBody()?['links']",
+      "runAfter": {}
+   }
+}
 ```
 
 <a name="sequential-foreach-loop"></a>
 
 ## "Foreach" loop: Sequential
 
-By default, each cycle in a "Foreach" loop runs in parallel for each array item. 
-To run each cycle sequentially, set the **Sequential** option in your "Foreach" loop.
+By default, cycles in a "Foreach" loop run in parallel. 
+To run each cycle sequentially, set the loop's **Sequential** option. 
+"Foreach" loops must run sequentially when you have nested 
+loops or variables inside loops where you expect predictable results. 
 
 1. In the loop's upper right corner, choose **ellipses** (**...**) > **Settings**.
 
    ![On "Foreach" loop, choose "..." > "Settings"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-2. Turn on the **Sequential** setting, then choose **Done**.
+1. Under **Concurrency Control**, turn the 
+**Concurrency Control** setting to **On**. 
+Move the **Degree of Parallelism** slider to **1**, 
+and choose **Done**.
 
-   ![Turn on "Foreach" loop's Sequential setting](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
+   ![Turn on concurrency control](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
-You can also set the **operationOptions** parameter to 
-`Sequential` in your logic app's JSON definition. For example:
+If you're working with your logic app's JSON definition, 
+you can use the `Sequential` option by adding the 
+`operationOptions` parameter, for example:
 
 ``` json
 "actions": {
-    "myForEachLoopName": {
-        "type": "Foreach",
-        "actions": {
-            "Send_an_email": {               
-            }
-        },
-        "foreach": "@triggerBody()?['links']",
-        "runAfter": {},
-        "operationOptions": "Sequential"
-    }
-},
+   "myForEachLoopName": {
+      "type": "Foreach",
+      "actions": {
+         "Send_an_email": { }
+      },
+      "foreach": "@triggerBody()?['links']",
+      "runAfter": {},
+      "operationOptions": "Sequential"
+   }
+}
 ```
 
 <a name="until-loop"></a>
 
 ## "Until" loop
   
-To repeat actions until a condition is met or some state has changed, 
-use an "Until" loop in your logic app workflow. Here are some 
-common use cases where you can use an "Until" loop:
+To run and repeat actions until a condition gets met or a state changes, put those actions in an "Until" loop. Your logic app first runs any and all actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the default and maximum limits on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-* Call an endpoint until you get the response that you want.
-* Create a record in a database, 
-wait until a specific field in that record gets approved, 
-and continue processing. 
+Here are some common scenarios where you can use an "Until" loop:
 
-For example, at 8:00 AM each day, this logic app increments a variable 
-until the variable's value equals 10. Then, the logic app sends an email 
-that confirms the current value. Although this example uses Office 365 Outlook, 
-you can use any email provider supported by Logic Apps ([review the connectors list here](https://docs.microsoft.com/connectors/)). 
-If you use another email account, the overall steps are the same, 
-but your UI might slightly differ. 
+* Call an endpoint until you get the response you want.
 
-1. Create a blank logic app. 
-In Logic App Designer, search for "recurrence", 
-and select this trigger: **Schedule - Recurrence** 
+* Create a record in a database. Wait until a specific field in that record gets approved. Continue processing. 
 
-   ![Add "Schedule - Recurrence" trigger](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
+Starting at 8:00 AM each day, this example logic app increments a variable until the variable's value equals 10. The logic app then sends an email that confirms the current value. 
 
-2. Specify when the trigger fires by setting the interval, frequency, 
-and hour of the day. To set the hour, choose **Show advanced options**.
+> [!NOTE]
+> These steps use Office 365 Outlook, but you can 
+> use any email provider that Logic Apps supports. 
+> [Check the connectors list here](/connectors/). 
+> If you use another email account, the general steps stay the same, 
+> but your UI might look slightly different. 
 
-   ![Add "Schedule - Recurrence" trigger](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
+1. Create a blank logic app. In Logic App Designer, 
+   under the search box, choose **All**. Search for "recurrence". 
+   From the triggers list, select this trigger: **Recurrence - Schedule**
+
+   ![Add "Recurrence - Schedule" trigger](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
+
+1. Specify when the trigger fires by setting the interval, frequency, 
+   and hour of the day. To set the hour, choose **Show advanced options**.
+
+   ![Set up recurrence schedule](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
    | Property | Value |
    | -------- | ----- |
@@ -218,12 +212,13 @@ and hour of the day. To set the hour, choose **Show advanced options**.
    | **At these hours** | 8 |
    ||| 
 
-3. Under the trigger, choose **New step** > **Add an action**. 
-Search for "variables", and then select this action: **Variables - Initialize variable**
+1. Under the trigger, choose **New step**. 
+   Search for "variables", and select this action: 
+   **Initialize variable - Variables**
 
-   ![Add "Variables - Initialize variable" action](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
+   ![Add "Initialize variable - Variables" action](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
-4. Set up your variable with these values:
+1. Set up your variable with these values:
 
    ![Set variable properties](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
@@ -234,67 +229,75 @@ Search for "variables", and then select this action: **Variables - Initialize va
    | **Value** | 0 | Your variable's starting value | 
    |||| 
 
-5. Under the **Initialize variable** action, 
-choose **New step** > **More**. Select this loop: **Add a do until**
+1. Under the **Initialize variable** action, choose **New step**. 
 
-   ![Add "do until" loop](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
+1. Under the search box, choose **All**. Search for "until", 
+   and select this action: **Until - Control**
 
-6. Build the loop's exit condition by selecting 
-the **Limit** variable and the **is equal** operator. 
-Enter **10** as the comparison value.
+   ![Add "Until" loop](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
+
+1. Build the loop's exit condition by selecting 
+   the **Limit** variable and the **is equal** operator. 
+   Enter **10** as the comparison value.
 
    ![Build exit condition for stopping loop](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
-7. Inside the loop, choose **Add an action**. 
-Search for "variables", and then add this action: 
-**Variables - Increment variable**
+1. Inside the loop, choose **Add an action**. 
+
+1. Under the search box, choose **All**. Search for "variables", 
+   and select this action: **Increment variable - Variables**
 
    ![Add action for incrementing variable](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-8. For **Name**, select the **Limit** variable. For **Value**, 
-enter "1". 
+1. For **Name**, select the **Limit** variable. For **Value**, 
+     enter "1". 
 
-   ![Increment "Limit" by 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+     ![Increment "Limit" by 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
-9. Under but outside the loop, add an action that sends email. 
-If prompted, sign in to your email account.
+1. Outside and under the loop, choose **New step**. 
 
-   ![Add action that sends email](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+1. Under the search box, choose **All**. 
+     Find and add an action that sends email, 
+     for example: 
 
-10. Set the email's properties. Add the **Limit** 
-variable to the subject. That way, you can confirm the 
-variable's current value meets your specified condition, 
-for example:
+     ![Add action that sends email](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
-    ![Set up email properties](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+1. If prompted, sign in to your email account.
 
-    | Property | Value | Description |
-    | -------- | ----- | ----------- | 
-    | **To** | *<email-address@domain>* | The recipient's email address. For testing, use your own email address. | 
-    | **Subject** | Current value for "Limit" is **Limit** | Specify the email subject. For this example, make sure that you include the **Limit** variable. | 
-    | **Body** | <*email-content*> | Specify the email message content you want to send. For this example, enter whatever text you like. | 
-    |||| 
+1. Set the email action's properties. Add the **Limit** 
+     variable to the subject. That way, you can confirm the 
+     variable's current value meets your specified condition, 
+     for example:
 
-11. Save your logic app. To manually test your logic app, 
-on the designer toolbar, choose **Run**.
+      ![Set up email properties](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-    After your logic starts running, you get an email with the content that you specified:
+      | Property | Value | Description |
+      | -------- | ----- | ----------- | 
+      | **To** | *\<email-address\@domain>* | The recipient's email address. For testing, use your own email address. | 
+      | **Subject** | Current value for "Limit" is **Limit** | Specify the email subject. For this example, make sure that you include the **Limit** variable. | 
+      | **Body** | <*email-content*> | Specify the email message content you want to send. For this example, enter whatever text you like. | 
+      |||| 
 
-    ![Received email](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+1. Save your logic app. To manually test your logic app, 
+     on the designer toolbar, choose **Run**.
+
+      After your logic starts running, you get an email with the content that you specified:
+
+      ![Received email](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+
+<a name="prevent-endless-loops"></a>
 
 ## Prevent endless loops
 
-An "Until" loop has default limits that stop execution 
-if any of these conditions happen:
+The "Until" loop stops execution based on these properties, so make sure that you set their values accordingly:
 
-| Property | Default value | Description | 
-| -------- | ------------- | ----------- | 
-| **Count** | 60 | The maximum number of loops that run before the loop exits. The default is 60 cycles. | 
-| **Timeout** | PT1H | The maximum amount of time to run a loop before the loop exits. The default is one hour and is specified in ISO 8601 format. <p>The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop, but the next cycle doesn't start because the limit condition isn't met. | 
-|||| 
+* **Count**: This value is the highest number of loops that run before the loop exits. For the default and maximum limits on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-To change these default limits, 
-choose **Show advanced options** in the loop action shape.
+* **Timeout**: This value is the most amount of time that the loop runs before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). For the default and maximum limits on the **Timeout** value, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+
+  The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met.
+
+To change these limits, in the loop action, select **Change limits**.
 
 <a name="until-json"></a>
 
@@ -306,86 +309,86 @@ JSON definition instead, for example:
 
 ``` json
 "actions": {
-    "Initialize_variable": {
-        // Definition for initialize variable action
-    },
-    "Send_an_email": {
-        // Definition for send email action
-    },
-    "Until": {
-        "type": "Until",
-        "actions": {
-            "Increment_variable": {
-                "type": "IncrementVariable",
-                "inputs": {
-                    "name": "Limit",
-                    "value": 1
-                },
-                "runAfter": {}
-            }
-        },
-        "expression": "@equals(variables('Limit'), 10)",
-        // To prevent endless loops, an "Until" loop 
-        // includes these default limits that stop the loop. 
-        "limit": { 
-            "count": 60,
-            "timeout": "PT1H"
-        },
-        "runAfter": {
-            "Initialize_variable": [
-                "Succeeded"
-            ]
-        },
-    }
-},
+   "Initialize_variable": {
+      // Definition for initialize variable action
+   },
+   "Send_an_email": {
+      // Definition for send email action
+   },
+   "Until": {
+      "type": "Until",
+      "actions": {
+         "Increment_variable": {
+            "type": "IncrementVariable",
+            "inputs": {
+               "name": "Limit",
+               "value": 1
+            },
+            "runAfter": {}
+         }
+      },
+      "expression": "@equals(variables('Limit'), 10)",
+      // To prevent endless loops, an "Until" loop 
+      // includes these default limits that stop the loop. 
+      "limit": { 
+         "count": 60,
+         "timeout": "PT1H"
+      },
+      "runAfter": {
+         "Initialize_variable": [
+            "Succeeded"
+         ]
+      }
+   }
+}
 ```
 
-In another example, this "Until" loop calls an HTTP 
-endpoint that creates a resource and stops when the 
-HTTP response body returns with "Completed" status. 
+This example "Until" loop calls an HTTP endpoint, 
+which creates a resource. The loop stops when the 
+HTTP response body returns with `Completed` status. 
 To prevent endless loops, the loop also stops 
 if any of these conditions happen:
 
-* The loop has run 10 times as specified by the `count` attribute. 
+* The loop ran 10 times as specified by the `count` attribute. 
 The default is 60 times. 
-* The loop has tried to run for two hours 
-as specified by the `timeout` attribute in ISO 8601 format. 
+
+* The loop ran for two hours as specified by the `timeout` attribute in ISO 8601 format. 
 The default is one hour.
   
 ``` json
 "actions": {
-    "myUntilLoopName": {
-        "type": "Until",
-        "actions": {
-            "Create_new_resource": {
-                "type": "Http",
-                "inputs": {
-                    "body": {
-                        "resourceId": "@triggerBody()"
-                    },
-                    "url": "https://domain.com/provisionResource/create-resource",
-                    "body": {
-                        "resourceId": "@triggerBody()"
-                    }
-                },
-                "runAfter": {},
-                "type": "ApiConnection"
-            }
-        },
-        "expression": "@equals(triggerBody(), 'Completed')",
-        "limit": {
-            "count": 10,
-            "timeout": "PT2H"
-        },
-        "runAfter": {}
-    }
-},
+   "myUntilLoopName": {
+      "type": "Until",
+      "actions": {
+         "Create_new_resource": {
+            "type": "Http",
+            "inputs": {
+               "body": {
+                  "resourceId": "@triggerBody()"
+               },
+               "url": "https://domain.com/provisionResource/create-resource",
+               "body": {
+                  "resourceId": "@triggerBody()"
+               }
+            },
+            "runAfter": {},
+            "type": "ApiConnection"
+         }
+      },
+      "expression": "@equals(triggerBody(), 'Completed')",
+      "limit": {
+         "count": 10,
+         "timeout": "PT2H"
+      },
+      "runAfter": {}
+   }
+}
 ```
 
 ## Get support
 
 * For questions, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+[Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * To submit or vote on features and suggestions, 
 [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 

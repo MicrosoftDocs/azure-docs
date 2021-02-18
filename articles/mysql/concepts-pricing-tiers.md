@@ -1,24 +1,23 @@
 ---
-title: Pricing tiers for Azure Database for MySQL
-description: This article describes the pricing tiers for Azure Database for MySQL.
-author: jan-eng
-ms.author: janeng
+title: Pricing tiers - Azure Database for MySQL
+description: Learn about the various pricing tiers for Azure Database for MySQL including compute generations, storage types, storage size, vCores, memory, and backup retention periods.
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 10/14/2020
 ---
 
 # Azure Database for MySQL pricing tiers
 
 You can create an Azure Database for MySQL server in one of three different pricing tiers: Basic, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the MySQL server level. A server can have one or many databases.
 
-|    | **Basic** | **General Purpose** | **Memory Optimized** |
+| Attribute   | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memory per vCore | 2 GB | 5 GB | 10 GB |
-| Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
-| Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
+| Storage size | 5 GB to 1 TB | 5 GB to 16 TB | 5 GB to 16 TB |
 | Database backup retention period | 7 to 35 days | 7 to 35 days | 7 to 35 days |
 
 To choose a pricing tier, use the following table as a starting point.
@@ -33,73 +32,55 @@ After you create a server, the number of vCores, hardware generation, and pricin
 
 ## Compute generations and vCores
 
-Compute resources are provided as vCores, which represent the logical CPU of the underlying hardware. Currently, you can choose from two compute generations, Gen 4 and Gen 5. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors. Gen 4 and Gen 5 are available in the following regions ("X" denotes available).
-
-> [!IMPORTANT]
-> Beginning December 12, 2018, new customers will not be able to provision compute generation 4 servers in Brazil South, Canada Central, Canada East, East Asia, East US 2, Central India, West India, Japan West, North Central US, West US. Previously created compute generation 4 servers will be migrated to compute generation 5 starting February 1, 2019 in these regions.
-
-| **Azure region** | **Gen 4** | **Gen 5** |
-|:---|:----------:|:--------------------:|
-| Central US |  | X |
-| East US |  | X |
-| East US 2 | X | X |
-| North Central US | X | X |
-| South Central US | X | X |
-| West US | X | X |
-| West US 2 |  | X |
-| Canada Central | X | X |
-| Canada East | X | X |
-| Brazil South | X | X |
-| North Europe | X | X |
-| West Europe |  | X |
-| France Central |  | X |
-| UK West |  | X |
-| UK South |  | X |
-| East Asia | X | X |
-| Southeast Asia | X | X |
-| Australia East |  | X |
-| Australia Central |  | X |
-| Australia Central 2 |  | X |
-| Australia Southeast |  | X |
-| Central India | X | X |
-| West India | X | X |
-| South India |  | X |
-| Japan East | X | X |
-| Japan West | X | X |
-| Korea Central |  | X |
-| Korea South |  | X |
-| Germany Central |  | X |
-| US DoD Central  | X |  |
-| US DoD East  | X |  |
-| US Gov Arizona |  | X |
-| US Gov Texas |  | X |
+Compute resources are provided as vCores, which represent the logical CPU of the underlying hardware. China East 1, China North 1, US DoD Central, and US DoD East utilize Gen 4 logical CPUs that are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors. All other regions utilize Gen 5 logical CPUs that are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors.
 
 ## Storage
 
 The storage you provision is the amount of storage capacity available to your Azure Database for MySQL server. The storage is used for the database files, temporary files, transaction logs, and the MySQL server logs. The total amount of storage you provision also defines the I/O capacity available to your server.
 
-|    | **Basic** | **General Purpose** | **Memory Optimized** |
+| Storage attribute   | Basic | General purpose | Memory optimized |
 |:---|:----------|:--------------------|:---------------------|
-| Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
+| Storage type | Basic Storage | General Purpose Storage | General Purpose Storage |
+| Storage size | 5 GB to 1 TB | 5 GB to 16 TB | 5 GB to 16 TB |
 | Storage increment size | 1 GB | 1 GB | 1 GB |
-| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS |
+| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
 
-You can add additional storage capacity during and after the creation of the server. The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
+> [!NOTE]
+> Storage up to 16TB and 20,000 IOPS is supported in the following regions: East US, East US 2, Central US, Brazil South, West US, North Central US, South Central US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East, West US 2, West Central US, Canada East, and Canada Central.
+>
+> All other regions support up to 4TB of storage and up to 6000 IOPS.
+>
+
+You can add additional storage capacity during and after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload. 
+
+>[!NOTE]
+> Storage can only be scaled up, not down.
+
+The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
 
 ### Reaching the storage limit
 
-The server is marked read-only when the amount of free storage reaches less than 5 GB or 5% of provisioned storage, whichever is less. For example, if you have provisioned 100 GB of storage, and the actual utilization goes over 95 GB, the server is marked read-only. Alternatively, if you have provisioned 5 GB of storage, the server is marked read-only when the free storage reaches less than 250 MB.  
+Servers with less than equal to 100 GB provisioned storage are marked read-only if the free storage is less than 5% of the provisioned storage size. Servers with more than 100 GB provisioned storage are marked read only when the free storage is less than 5 GB.
+
+For example, if you have provisioned 110 GB of storage, and the actual utilization goes over 105 GB, the server is marked read-only. Alternatively, if you have provisioned 5 GB of storage, the server is marked read-only when the free storage reaches less than 256 MB.
 
 While the service attempts to make the server read-only, all new write transaction requests are blocked and existing active transactions will continue to execute. When the server is set to read-only, all subsequent write operations and transaction commits fail. Read queries will continue to work uninterrupted. After you increase the provisioned storage, the server will be ready to accept write transactions again.
 
-We recommend that you set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).
+We recommend that you turn on storage auto-grow or to set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).
 
-## Backup
+### Storage auto-grow
 
-The service automatically takes backups of your server. The minimum retention period for backups is seven days. You can set a retention period of up to 35 days. The retention can be adjusted at any point during the lifetime of the server. You can choose between locally redundant and geo-redundant backups. Geo-redundant backups also are stored in the [geo-paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) of the region where your server is created. This redundancy provides a level of protection in the event of a disaster. You also gain the ability to restore your server to any other Azure region in which the service is available with geo-redundant backups. It's not possible to change between the two backup storage options after the server is created.
+Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. For servers with less than equal to 100 GB provisioned storage, the provisioned storage size is increased by 5 GB when the free storage is below 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 10 GB of the provisioned storage size. Maximum storage limits as specified above apply.
+
+For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 990 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 10 GB of storage, the storage size is increase to 15 GB when less than 1 GB of storage is free.
+
+Remember that storage can only be scaled up, not down.
+
+## Backup storage 
+
+Azure Database for MySQL provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any backup storage you use in excess of this amount is charged in GB per month. For example, if you provision a server with 250 GB of storage, you’ll have 250 GB of additional storage available for server backups at no charge. Storage for backups in excess of the 250 GB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/mysql/). To understand factors influencing backup storage usage, monitoring and controlling backup storage cost, you can refer to the [backup documentation](concepts-backup.md).
 
 ## Scale resources
 
@@ -116,5 +97,5 @@ For the most up-to-date pricing information, see the service [pricing page](http
 ## Next steps
 
 - Learn how to [create a MySQL server in the portal](howto-create-manage-server-portal.md).
-- Learn how to [monitor and scale an Azure Database for MySQL server by using Azure CLI](scripts/sample-scale-server.md).
-- Learn about the [service limitations](concepts-limits.md).
+- Learn about [service limits](concepts-limits.md).
+- Learn how to [scale out with read replicas](howto-read-replicas-portal.md).

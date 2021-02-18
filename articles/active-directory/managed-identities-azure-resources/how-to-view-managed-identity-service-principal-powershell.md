@@ -1,20 +1,22 @@
 ---
-title: How to view the service principal of a managed identity using PowerShell
+title: View the service principal of a managed identity using PowerShell - Azure AD
 description: Step-by-step instructions for viewing the service principal of a managed identity using PowerShell.
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: barclayn
+manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2018
-ms.author: daveba
+ms.date: 09/30/2020
+ms.author: barclayn
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 
 # View the service principal of a managed identity using PowerShell
@@ -23,28 +25,25 @@ Managed identities for Azure resources provides Azure services with an automatic
 
 In this article, you learn how to view the service principal of a managed identity using PowerShell.
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
-- Enable [system assigned identity on a virtual machine](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) or [application](/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity).
-- If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 5.7.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
-- If you are running PowerShell locally, you also need to: 
-    - Run `Login-AzureRmAccount` to create a connection with Azure.
-    - Install the [latest version of PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
-    - Run `Install-Module -Name PowerShellGet -AllowPrerelease` to get the pre-release version of the `PowerShellGet` module (you may need to `Exit` out of the current PowerShell session after you run this command to install the `AzureRM.ManagedServiceIdentity` module).
-    - Run `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` to install the prerelease version of the `AzureRM.ManagedServiceIdentity` module to perform the user-assigned managed identity operations in this article.
+- Enable [system assigned identity on a virtual machine](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) or [application](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
+- To run the example scripts, you have two options:
+    - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
+    - Run scripts locally by installing the latest version of [Azure PowerShell](/powershell/azure/install-az-ps), then sign in to Azure using `Connect-AzAccount`.
 
 ## View the service principal
 
-This following command demonstrates how to view the service principal of a VM or application with system assigned identity enabled. Replace `<VM or application name>` with your own values.
+This following command demonstrates how to view the service principal of a VM or application with system assigned identity enabled. Replace `<Azure resource name>` with your own values.
 
-```PowerShell
-Get-AzureRmADServicePrincipal -DisplayName <VM or application name>
+```azurepowershell-interactive
+Get-AzADServicePrincipal -DisplayName <Azure resource name>
 ```
 
 ## Next steps
 
-For more information on viewing Azure AD service principals using PowerShell, see [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal).
-
-
+For more information on viewing Azure AD service principals using PowerShell, see [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).

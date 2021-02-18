@@ -1,24 +1,20 @@
 ---
-title: Tutorial- Deploy a Service Fabric Mesh application  | Microsoft Docs
+title: Tutorial- Deploy a Service Fabric Mesh application  
 description: Learn how to use Visual Studio to publish an Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service.
-services: service-fabric-mesh
-documentationcenter: .net
-author: TylerMSFT
-manager: jeconnoc
-editor: ''
-ms.assetid:  
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
+author: georgewallace
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
-ms.author: twhitney
+ms.author: gwallace
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want learn how to publish a Service Fabric Mesh app to Azure.
 ---
 
 # Tutorial: Deploy a Service Fabric Mesh application
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 This tutorial is part three of a series and shows you how to publish an Azure Service Fabric Mesh web application directly from Visual Studio.
 
@@ -91,28 +87,37 @@ In the publish dialog, press the **Publish** button to deploy your Service Fabri
 
 When you publish to Azure for the first time, the docker image is pushed to the Azure Container Registry (ACR) which takes time depending on the size of the image. Subsequent publishes of the same project will be faster. You can monitor the progress of the deployment by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. Once the deployment has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
 
-```json
+```
 Packaging Application...
 Building Images...
 Web1 -> C:\Code\ServiceFabricMeshApp\ToDoService\bin\Any CPU\Release\netcoreapp2.0\ToDoService.dll
-Uploading the images to Azure Container Registy...
+Uploading the images to Azure Container Registry...
 Deploying application to remote endpoint...
 The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
 ```
 
 Open a web browser and navigate to the URL to see the website running in Azure.
 
-## Set up Service Fabric Mesh CLI 
+## Set up Service Fabric Mesh CLI
+
 You can use the Azure Cloud Shell or a local installation of the Azure CLI for the remaining steps. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
 ## Check application deployment status
 
 At this point, your application has been deployed. You can check to see its status by using the `app show` command. 
 
-The application name for the tutorial app is `ServiceMeshApp`. Gather the details on the application with the following command:
+The application name for the tutorial app is `todolistapp`. Gather the details on the application with the following command:
 
 ```azurecli-interactive
-az mesh app show --resource-group $rg --name ServiceMeshApp
+az mesh app show --resource-group $rg --name todolistapp
+```
+
+## Get the IP address of your deployment
+
+If you want to get the IP address for your application, use the following command:
+  
+```azurecli-interactive
+az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 ```
 
 ## See all applications currently deployed to your subscription
@@ -135,4 +140,4 @@ Advance to the next tutorial:
 > [!div class="nextstepaction"]
 > [Upgrade a Service Fabric Mesh app](service-fabric-mesh-tutorial-upgrade.md)
 
-[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: /cli/azure/install-azure-cli?view=azure-cli-latest

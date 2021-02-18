@@ -1,19 +1,22 @@
 ---
-title: Create and manage Azure Database for MariaDB firewall rules using Azure CLI
+title: Manage firewall rules - Azure CLI - Azure Database for MariaDB
 description: This article describes how to create and manage Azure Database for MariaDB firewall rules using Azure CLI command-line.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 11/10/2018
+ms.topic: how-to
+ms.date: 3/18/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Create and manage Azure Database for MariaDB firewall rules by using the Azure CLI
-Server-level firewall rules allow administrators to manage access to an Azure Database for MariaDB Server from a specific IP address or a range of IP addresses. Using convenient Azure CLI commands, you can create, update, delete, list, and show firewall rules to manage your server. For an overview of Azure Database for MariaDB firewalls, see [Azure Database for MariaDB server firewall rules](./concepts-firewall-rules.md)
+Server-level firewall rules can be used to manage access to an Azure Database for MariaDB Server from a specific IP address or a range of IP addresses. Using convenient Azure CLI commands, you can create, update, delete, list, and show firewall rules to manage your server. For an overview of Azure Database for MariaDB firewalls, see [Azure Database for MariaDB server firewall rules](./concepts-firewall-rules.md).
+
+Virtual Network (VNet) rules can also be used to secure access to your server. Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure CLI](howto-manage-vnet-cli.md).
 
 ## Prerequisites
-* [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Install Azure CLI](/cli/azure/install-azure-cli).
 * An [Azure Database for MariaDB server and database](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 ## Firewall rule commands:
@@ -26,18 +29,18 @@ Commands:
 - **show**: Show the details of an Azure MariaDB server firewall rule.
 - **update**: Update an Azure MariaDB server firewall rule.
 
-## Log in to Azure and list your Azure Database for MariaDB Servers
+## Sign in to Azure and list your Azure Database for MariaDB Servers
 Securely connect Azure CLI with your Azure account by using the **az login** command.
 
 1. From the command-line, run the following command:
-```azurecli
-az login
-```
-This command outputs a code to use in the next step.
+   ```azurecli
+   az login
+   ```
+   This command outputs a code to use in the next step.
 
 2. Use a web browser to open the page [https://aka.ms/devicelogin](https://aka.ms/devicelogin), and then enter the code.
 
-3. At the prompt, log in using your Azure credentials.
+3. At the prompt, sign in using your Azure credentials.
 
 4. After your login is authorized, a list of subscriptions is printed in the console. Copy the ID of the desired subscription to set the current subscription to use. Use the [az account set](/cli/azure/account#az-account-set) command.
    ```azurecli-interactive
@@ -114,3 +117,4 @@ Upon success, there is no output. Upon failure, error message text displays.
 ## Next steps
 - Understand more about [Azure Database for MariaDB Server firewall rules](./concepts-firewall-rules.md).
 - [Create and manage Azure Database for MariaDB firewall rules using the Azure portal](./howto-manage-firewall-portal.md).
+- Further secure access to your server by [creating and managing Virtual Network service endpoints and rules using the Azure CLI](howto-manage-vnet-cli.md).

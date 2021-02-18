@@ -1,21 +1,10 @@
 ---
-title: Connect securely to an Azure Service Fabric cluster | Microsoft Docs
+title: Connect securely to an Azure Service Fabric cluster 
 description: Describes how to authenticate client access to a Service Fabric cluster and how to secure communication between clients and a cluster.
-services: service-fabric
-documentationcenter: .net
-author: rwike77
-manager: timlt
-editor: ''
 
-ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/18/2018
-ms.author: ryanwi
-
+ms.date: 01/29/2019
+ms.custom: devx-track-csharp
 ---
 # Connect to a secure cluster
 
@@ -31,12 +20,18 @@ certificate has Certificate Authorities (CAs), you need to additionally specify 
 
 You can connect to a cluster using the `sfctl cluster select` command.
 
-Client certificates can be specified in two different fashions, either as a cert and key pair, or as a single pem
-file. For password protected `pem` files, you will be prompted automatically to enter the password.
+Client certificates can be specified in two different fashions, either as a cert and key pair, or as a single PFX
+file. For password protected PEM files, you will be prompted automatically to enter the password. If you obtained the client certificate as a PFX file, first convert the PFX file to a PEM file using the following command. 
+
+```shell
+openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
+```
+
+If your .pfx file is not password protected, use -passin pass: for the last parameter.
 
 To specify the client certificate as a pem file, specify the file path in the `--pem` argument. For example:
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
@@ -45,7 +40,7 @@ Password protected pem files will prompt for password prior to running any comma
 To specify a cert, key pair use the `--cert` and `--key` arguments to specify the file paths to each respective
 file.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
@@ -55,14 +50,14 @@ verification, specify the `--no-verify` option. For example:
 > [!WARNING]
 > Do not use the `no-verify` option when connecting to production Service Fabric clusters.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 In addition, you can specify paths to directories of trusted CA certs, or individual certs. To specify these
 paths, use the `--ca` argument. For example:
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 
@@ -153,7 +148,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 <a id="connectsecureclusterfabricclient"></a>
 
 ## Connect to a cluster using the FabricClient APIs
-The Service Fabric SDK provides the [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) class for cluster management. To use the FabricClient APIs, get the Microsoft.ServiceFabric NuGet package.
+The Service Fabric SDK provides the [FabricClient](/dotnet/api/system.fabric.fabricclient) class for cluster management. To use the FabricClient APIs, get the Microsoft.ServiceFabric NuGet package.
 
 ### Connect to an unsecure cluster
 
@@ -171,7 +166,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### Connect to a secure cluster using a client certificate
 
-The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) set on [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Following this process enables mutual authentication between the client and the cluster nodes.
+The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](/dotnet/api/system.fabric.x509credentials) set on [FabricClient](/dotnet/api/system.fabric.fabricclient). Following this process enables mutual authentication between the client and the cluster nodes.
 
 ```csharp
 using System.Fabric;
@@ -239,7 +234,7 @@ catch (Exception e)
 
 The following example relies on Microsoft.IdentityModel.Clients.ActiveDirectory, Version: 2.19.208020213.
 
-For more information on AAD token acquisition, see [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
+For more information on AAD token acquisition, see [Microsoft.IdentityModel.Clients.ActiveDirectory](/dotnet/api/microsoft.identitymodel.clients.activedirectory).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
@@ -344,7 +339,7 @@ To reach [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) f
 
 The full URL is also available in the cluster essentials pane of the Azure portal.
 
-For connecting to a secure cluster on Windows or OS X using a browser, you can import the client certificate, and the browser will prompt you for the certificate to use for connecting to the cluster.  On Linux machines, the certificate will have to be imported using advanced browser settings (each browser has different mechanisms) and point it to the certificate location on disk.
+For connecting to a secure cluster on Windows or OS X using a browser, you can import the client certificate, and the browser will prompt you for the certificate to use for connecting to the cluster.  On Linux machines, the certificate will have to be imported using advanced browser settings (each browser has different mechanisms) and point it to the certificate location on disk. Read [Set up a client certificate](#connectsecureclustersetupclientcert) for more information.
 
 ### Connect to a secure cluster using Azure Active Directory
 
@@ -352,7 +347,7 @@ To connect to a cluster that is secured with AAD, point your browser to:
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-You are automatically be prompted to log in with AAD.
+You are automatically be prompted to sign in with AAD.
 
 ### Connect to a secure cluster using a client certificate
 
@@ -363,24 +358,28 @@ To connect to a cluster that is secured with certificates, point your browser to
 You are automatically be prompted to select a client certificate.
 
 <a id="connectsecureclustersetupclientcert"></a>
+
 ## Set up a client certificate on the remote computer
+
 At least two certificates should be used for securing the cluster, one for the cluster and server certificate and another for client access.  We recommend that you also use additional secondary certificates and client access certificates.  To secure the communication between a client and a cluster node using certificate security, you first need to obtain and install the client certificate. The certificate can be installed into the Personal (My) store of the local computer or the current user.  You also need the thumbprint of the server certificate so that the client can authenticate the cluster.
 
-Run the following PowerShell cmdlet to set up the client certificate on the computer from which you access the cluster.
+* On Windows: Double-click the PFX file and follow the prompts to install the certificate in your personal store, `Certificates - Current User\Personal\Certificates`. Alternatively, you can use the PowerShell command:
 
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-        -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
 
-If it is a self-signed certificate, you need to import it to your machine's "trusted people" store before you can use this certificate to connect to a secure cluster.
+    If it is a self-signed certificate, you need to import it to your machine's "trusted people" store before you can use this certificate to connect to a secure cluster.
 
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
--FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
--Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
+    -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+    -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
+
+* On Mac: Double-click the PFX file and follow the prompts to install the certificate in your Keychain.
 
 ## Next steps
 

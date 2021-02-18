@@ -1,24 +1,20 @@
 ---
-title: Configure a Gateway to route requests | Microsoft Docs
+title: Configure a Gateway to route requests 
 description: Learn how to configure the gateway that handles incoming traffic for your application(s) running on Service Fabric Mesh.
-services: service-fabric-mesh
-documentationcenter: .net
-author: dkkapur
-manager: jeconnoc
-editor: ''
+author: georgewallace
 
-ms.assetid: 
-ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/28/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter 
 ---
 
 # Configure a Gateway resource to route requests
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 A Gateway resource is used to route incoming traffic to the network that houses your application. Configure it to specify rules through which requests are directed to specific services or endpoints based on the structure of the request. See [Introduction to networking in Service Fabric Mesh](service-fabric-mesh-networks-and-gateways.md) for more information on networks and gateways in Mesh. 
 
@@ -45,7 +41,7 @@ Here's how it looks in an Azure Resource Manager (JSON) deployment template:
   "name": "myGateway",
   "type": "Microsoft.ServiceFabricMesh/gateways",
   "location": "[parameters('location')]",
-  "dependsOn": [  
+  "dependsOn": [
     "Microsoft.ServiceFabricMesh/networks/myNetwork"
   ],
   "properties": {
@@ -162,53 +158,53 @@ Here is an example HTTP routing rule that would apply to requests coming on port
 Here is what a full Gateway resource config looks like (this is adapted from the ingress sample available in the [Mesh samples repo](https://github.com/Azure-Samples/service-fabric-mesh/blob/2018-09-01-preview/templates/ingress/meshingress.linux.json)):
 
 ```json
-{  
+{
   "apiVersion": "2018-09-01-preview",
   "name": "ingressGatewayLinux",
   "type": "Microsoft.ServiceFabricMesh/gateways",
   "location": "[parameters('location')]",
-  "dependsOn": [  
+  "dependsOn": [
     "Microsoft.ServiceFabricMesh/networks/meshNetworkLinux"
   ],
-  "properties": {  
+  "properties": {
     "description": "Service Fabric Mesh Gateway for Linux mesh samples.",
-    "sourceNetwork": {  
+    "sourceNetwork": {
       "name": "Open"
     },
-    "destinationNetwork": {  
+    "destinationNetwork": {
       "name": "[resourceId('Microsoft.ServiceFabricMesh/networks', 'meshNetworkLinux')]"
     },
-    "http": [  
-      {  
+    "http": [
+      {
         "name": "web",
         "port": 80,
-        "hosts": [  
-          {  
+        "hosts": [
+          {
             "name": "*",
-            "routes": [  
-              {  
-                "match": {  
-                  "path": {  
+            "routes": [
+              {
+                "match": {
+                  "path": {
                     "value": "/hello",
                     "rewrite": "/",
                     "type": "Prefix"
                   }
                 },
-                "destination": {  
+                "destination": {
                   "applicationName": "meshAppLinux",
                   "serviceName": "helloWorldService",
                   "endpointName": "helloWorldListener"
                 }
               },
-              {  
-                "match": {  
-                  "path": {  
+              {
+                "match": {
+                  "path": {
                     "value": "/counter",
                     "rewrite": "/",
                     "type": "Prefix"
                   }
                 },
-                "destination": {  
+                "destination": {
                   "applicationName": "meshAppLinux",
                   "serviceName": "counterService",
                   "endpointName": "counterServiceListener"
@@ -224,8 +220,8 @@ Here is what a full Gateway resource config looks like (this is adapted from the
 ```
 
 This gateway is configured for a Linux application, "meshAppLinux", that consists of at least two services, "helloWorldService" and "counterService", which listens on port 80. Depending on the URL structure of the incoming request, it will route the request to one of these services. 
-* "<IPAddress>:80/helloWorld/\<request\>" would result in a request being directed to the "helloWorldListener" in the helloWorldService. 
-* "<IPAddress>:80/counter/\<request\>" would result in a request being directed to the "counterListener" in the counterService. 
+* "\<IPAddress>:80/helloWorld/\<request\>" would result in a request being directed to the "helloWorldListener" in the helloWorldService. 
+* "\<IPAddress>:80/counter/\<request\>" would result in a request being directed to the "counterListener" in the counterService. 
 
 ## Next steps
 * Deploy the [Ingress sample](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) to see gateways in action

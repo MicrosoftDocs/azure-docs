@@ -6,7 +6,7 @@ services: networking
 author: rambk
 manager: tracsman
 
-ms.service: expressroute,vpn-gateway,virtual-network
+ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
@@ -24,7 +24,7 @@ The following figure shows the Azure Virtual Network peering details of a spoke 
 
 [![1]][1]
 
-The following figure shows the VNet peering details of the hub VNet. If you want the spoke VNet to use the hub VNet gateways, select **Use remote gateways**.
+The following figure shows the VNet peering details of the hub VNet. If you want the hub VNet to permit the spoke VNet to use the hub's gateways, select **Allow gateway transit**.
 
 [![2]][2]
 
@@ -50,100 +50,104 @@ The following figure shows the connection configuration between the ExpressRoute
 
 The following list shows the primary CE router configuration for ExpressRoute private peering connectivity. (Cisco ASR1000 routers are used as CE routers in the test setup.) When site-to-site VPN and ExpressRoute circuits are configured in parallel to connect an on-premises network to Azure, Azure prioritizes the ExpressRoute circuit by default. To avoid asymmetrical routing, the on-premises network also should prioritize ExpressRoute connectivity over site-to-site VPN connectivity. The following configuration establishes prioritization by using the BGP **local-preference** attribute:
 
-	interface TenGigabitEthernet0/0/0.300
-	 description Customer 30 private peering to Azure
-	 encapsulation dot1Q 30 second-dot1q 300
-	 ip vrf forwarding 30
-	 ip address 192.168.30.17 255.255.255.252
-	!
-	interface TenGigabitEthernet1/0/0.30
-	 description Customer 30 to south bound LAN switch
-	 encapsulation dot1Q 30
-	 ip vrf forwarding 30
-	 ip address 192.168.30.0 255.255.255.254
-	 ip ospf network point-to-point
-	!
-	router ospf 30 vrf 30
-	 router-id 10.2.30.253
-	 redistribute bgp 65021 subnets route-map BGP2OSPF
-	 network 192.168.30.0 0.0.0.1 area 0.0.0.0
-	default-information originate always
-	 default-metric 10
-	!
-	router bgp 65021
-	 !
-	 address-family ipv4 vrf 30
-	  network 10.2.30.0 mask 255.255.255.128
-	  neighbor 192.168.30.18 remote-as 12076
-	  neighbor 192.168.30.18 activate
-	  neighbor 192.168.30.18 next-hop-self
-	  neighbor 192.168.30.18 soft-reconfiguration inbound
-	  neighbor 192.168.30.18 route-map prefer-ER-over-VPN in
-	  neighbor 192.168.30.18 prefix-list Cust30_to_Private out
-	 exit-address-family
-	!
-	route-map prefer-ER-over-VPN permit 10
-	 set local-preference 200
-	!
-	ip prefix-list Cust30_to_Private seq 10 permit 10.2.30.0/25
-	!
+```config
+interface TenGigabitEthernet0/0/0.300
+ description Customer 30 private peering to Azure
+ encapsulation dot1Q 30 second-dot1q 300
+ ip vrf forwarding 30
+ ip address 192.168.30.17 255.255.255.252
+!
+interface TenGigabitEthernet1/0/0.30
+ description Customer 30 to south bound LAN switch
+ encapsulation dot1Q 30
+ ip vrf forwarding 30
+ ip address 192.168.30.0 255.255.255.254
+ ip ospf network point-to-point
+!
+router ospf 30 vrf 30
+ router-id 10.2.30.253
+ redistribute bgp 65021 subnets route-map BGP2OSPF
+ network 192.168.30.0 0.0.0.1 area 0.0.0.0
+default-information originate always
+ default-metric 10
+!
+router bgp 65021
+ !
+ address-family ipv4 vrf 30
+  network 10.2.30.0 mask 255.255.255.128
+  neighbor 192.168.30.18 remote-as 12076
+  neighbor 192.168.30.18 activate
+  neighbor 192.168.30.18 next-hop-self
+  neighbor 192.168.30.18 soft-reconfiguration inbound
+  neighbor 192.168.30.18 route-map prefer-ER-over-VPN in
+  neighbor 192.168.30.18 prefix-list Cust30_to_Private out
+ exit-address-family
+!
+route-map prefer-ER-over-VPN permit 10
+ set local-preference 200
+!
+ip prefix-list Cust30_to_Private seq 10 permit 10.2.30.0/25
+!
+```
 
 ### Site-to-site VPN configuration details
 
 The following list shows the primary CE router configuration for site-to-site VPN connectivity:
 
-	crypto ikev2 proposal Cust30-azure-proposal
-	 encryption aes-cbc-256 aes-cbc-128 3des
-	 integrity sha1
-	 group 2
-	!
-	crypto ikev2 policy Cust30-azure-policy
-	 match address local 66.198.12.106
-	 proposal Cust30-azure-proposal
-	!
-	crypto ikev2 keyring Cust30-azure-keyring
-	 peer azure
-	  address 52.168.162.84
-	  pre-shared-key local IamSecure123
-	  pre-shared-key remote IamSecure123
-	!
-	crypto ikev2 profile Cust30-azure-profile
-	 match identity remote address 52.168.162.84 255.255.255.255
-	 identity local address 66.198.12.106
-	 authentication local pre-share
-	 authentication remote pre-share
-	 keyring local Cust30-azure-keyring
-	!
-	crypto ipsec transform-set Cust30-azure-ipsec-proposal-set esp-aes 256 esp-sha-hmac
-	 mode tunnel
-	!
-	crypto ipsec profile Cust30-azure-ipsec-profile
-	 set transform-set Cust30-azure-ipsec-proposal-set
-	 set ikev2-profile Cust30-azure-profile
-	!
-	interface Loopback30
-	 ip address 66.198.12.106 255.255.255.255
-	!
-	interface Tunnel30
-	 ip vrf forwarding 30
-	 ip address 10.2.30.125 255.255.255.255
-	 tunnel source Loopback30
-	 tunnel mode ipsec ipv4
-	 tunnel destination 52.168.162.84
-	 tunnel protection ipsec profile Cust30-azure-ipsec-profile
-	!
-	router bgp 65021
-	 !
-	 address-family ipv4 vrf 30
-	  network 10.2.30.0 mask 255.255.255.128
-	  neighbor 10.10.30.254 remote-as 65515
-	  neighbor 10.10.30.254 ebgp-multihop 5
-	  neighbor 10.10.30.254 update-source Tunnel30
-	  neighbor 10.10.30.254 activate
-	  neighbor 10.10.30.254 soft-reconfiguration inbound
-	 exit-address-family
-	!
-	ip route vrf 30 10.10.30.254 255.255.255.255 Tunnel30
+```config
+crypto ikev2 proposal Cust30-azure-proposal
+ encryption aes-cbc-256 aes-cbc-128 3des
+ integrity sha1
+ group 2
+!
+crypto ikev2 policy Cust30-azure-policy
+ match address local 66.198.12.106
+ proposal Cust30-azure-proposal
+!
+crypto ikev2 keyring Cust30-azure-keyring
+ peer azure
+  address 52.168.162.84
+  pre-shared-key local IamSecure123
+  pre-shared-key remote IamSecure123
+!
+crypto ikev2 profile Cust30-azure-profile
+ match identity remote address 52.168.162.84 255.255.255.255
+ identity local address 66.198.12.106
+ authentication local pre-share
+ authentication remote pre-share
+ keyring local Cust30-azure-keyring
+!
+crypto ipsec transform-set Cust30-azure-ipsec-proposal-set esp-aes 256 esp-sha-hmac
+ mode tunnel
+!
+crypto ipsec profile Cust30-azure-ipsec-profile
+ set transform-set Cust30-azure-ipsec-proposal-set
+ set ikev2-profile Cust30-azure-profile
+!
+interface Loopback30
+ ip address 66.198.12.106 255.255.255.255
+!
+interface Tunnel30
+ ip vrf forwarding 30
+ ip address 10.2.30.125 255.255.255.255
+ tunnel source Loopback30
+ tunnel mode ipsec ipv4
+ tunnel destination 52.168.162.84
+ tunnel protection ipsec profile Cust30-azure-ipsec-profile
+!
+router bgp 65021
+ !
+ address-family ipv4 vrf 30
+  network 10.2.30.0 mask 255.255.255.128
+  neighbor 10.10.30.254 remote-as 65515
+  neighbor 10.10.30.254 ebgp-multihop 5
+  neighbor 10.10.30.254 update-source Tunnel30
+  neighbor 10.10.30.254 activate
+  neighbor 10.10.30.254 soft-reconfiguration inbound
+ exit-address-family
+!
+ip route vrf 30 10.10.30.254 255.255.255.255 Tunnel30
+```
 
 ## On-premises Location 2 connectivity by using ExpressRoute
 
@@ -183,7 +187,7 @@ In VNet peering within a region, spoke VNets can use hub VNet gateways (both VPN
 
 ### Branch VNet connectivity by using site-to-site VPN
 
-You might want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet. The native Azure solution for this cofiguration is site-to-site VPN connectivity by using a VPN. An alternative is to use a network virtual appliance (NVA) for routing in the hub.
+You might want branch VNets, which are in different regions, and on-premises networks to communicate with each other via a hub VNet. The native Azure solution for this configuration is site-to-site VPN connectivity by using a VPN. An alternative is to use a network virtual appliance (NVA) for routing in the hub.
 
 For more information, see [What is VPN Gateway?][VPN] and [Deploy a highly available NVA][Deploy-NVA].
 
@@ -210,18 +214,15 @@ See the [ExpressRoute FAQ][ExR-FAQ] to:
 [8]: ./media/backend-interoperability/ExR2-Remote-Connection.png "Connection configuration of ExpressRoute 2 to a remote VNet ExR gateway"
 
 <!--Link References-->
-[Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface
-[ExpressRoute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-[VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
-[VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
-[Configuration]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-configuration
-[Control-Analysis]:https://docs.microsoft.com/azure/networking/connectivty-interoperability-control-plane
-[Data-Analysis]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-data-plane
-[ExR-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
-[S2S-Over-ExR]: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
-[ExR-S2S-CoEx]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager
-[Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-[Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
-[VNet-Config]: https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering
-
-
+[Setup]: ./connectivty-interoperability-preface.md
+[ExpressRoute]: ../expressroute/expressroute-introduction.md
+[VPN]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+[VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
+[Control-Analysis]: ./connectivty-interoperability-control-plane.md
+[Data-Analysis]: ./connectivty-interoperability-data-plane.md
+[ExR-FAQ]: ../expressroute/expressroute-faqs.md
+[S2S-Over-ExR]: ../expressroute/site-to-site-vpn-over-microsoft-peering.md
+[ExR-S2S-CoEx]: ../expressroute/expressroute-howto-coexist-resource-manager.md
+[Hub-n-Spoke]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+[Deploy-NVA]: /azure/architecture/reference-architectures/dmz/nva-ha
+[VNet-Config]: ../virtual-network/virtual-network-manage-peering.md

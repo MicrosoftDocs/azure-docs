@@ -2,11 +2,11 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/12/2018
+ms.date: 10/15/2020
 ms.author: erhopf
 ---
 
-1. Start Visual Studio 2017.
+1. Start Visual Studio 2019.
 
 1. Make sure the **.NET cross-platform development** workload is available. Choose **Tools** > **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio installer. If this workload is already enabled, close the dialog box.
 
@@ -24,7 +24,7 @@ ms.author: erhopf
 
 1. In the upper-right corner, in the **Package Source** field, select **nuget.org**. Search for the `Microsoft.CognitiveServices.Speech` package, and install it into the **helloworld** project.
 
-   ![Screenshot of Manage Packages for Solution dialog box](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "Install NuGet package")
+   ![Screenshot that shows the "Manage Packages for Solution" dialog box.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "Install NuGet package")
 
 1. Accept the displayed license to begin installation of the NuGet package.
 

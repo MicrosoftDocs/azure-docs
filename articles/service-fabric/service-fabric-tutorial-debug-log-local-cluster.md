@@ -1,31 +1,15 @@
 ---
-title: Debug a Java app on a local Service Fabric cluster | Microsoft Docs
+title: Debug a Java app on a local Service Fabric cluster 
 description: In this tutorial, learn how to debug and get logs from a Service Fabric Java application running on a local cluster.
-services: service-fabric
-documentationcenter: java
-author: suhuruli
-manager: mfussell
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
-ms.author: suhuruli
-ms.custom: mvc
-
+ms.custom: mvc, devx-track-java
 ---
+
 # Tutorial: Debug a Java application deployed on a local Service Fabric cluster
 
 This tutorial is part two of a series. You learn how to attach a remote debugger using Eclipse for the Service Fabric application. Additionally, you learn how to redirect logs from the running applications to a location convenient for the developer.
-
-In part two of the series, you learn how to:
-> [!div class="checklist"]
-> * Debug Java application using Eclipse
-> * Redirect logs to a configurable location
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
@@ -34,6 +18,13 @@ In this tutorial series you learn how to:
 > * [Deploy application to an Azure cluster](service-fabric-tutorial-java-deploy-azure.md)
 > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-java-elk.md)
 > * [Set up CI/CD](service-fabric-tutorial-java-jenkins.md)
+
+
+In part two of the series, you learn how to:
+> [!div class="checklist"]
+> * Debug Java application using Eclipse
+> * Redirect logs to a configurable location
+
 
 ## Prerequisites
 
@@ -49,7 +40,7 @@ If you did not build the Voting sample application in [part one of this tutorial
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 ```
 
-[Build and deploy](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) the appliction to the local development cluster.
+[Build and deploy](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) the application to the local development cluster.
 
 ## Debug Java application using Eclipse
 
@@ -85,13 +76,15 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 10. In the Eclipse IDE, select **Run -> Debug Configurations -> Remote Java Application**, click on the **Voting** configuration you created and click **Debug**.
 
-11. Go to your web browser and access **localhost:8080** to hit the breakpoint and enter the **Debug perspective** in Eclipse.
+11. Go to your web browser and access **localhost:8080**. This will automatically hit the breakpoint and Eclipse will enter the **Debug perspective**.
+
+Now you can apply these same steps to debug any Service Fabric application in Eclipse.
 
 ## Redirect application logs to custom location
 
 The following steps walk through how to redirect the application logs from the default */var/log/syslog* location to a custom location.
 
-1. Currently, applications running in Service Fabric Linux clusters support picking up a single log file. As a result, the logs always go to */tmp/mysfapp0.0.log*. Create a file named logging.properties in the following location *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* and add the following content.
+1. Currently, applications running in Service Fabric Linux clusters only support picking up a single log file. To set up an application so that the logs always go to */tmp/mysfapp0.0.log*, create a file named logging.properties in the following location *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* and add the following content.
 
     ```
     handlers = java.util.logging.FileHandler
@@ -99,7 +92,8 @@ The following steps walk through how to redirect the application logs from the d
     java.util.logging.FileHandler.level = ALL
     java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 
-    # This value specifies your custom location. You will have to ensure this path has read and write access by the process running the SF Application
+    # This value specifies your custom location.
+    # You will have to ensure this path has read and write access by the process running the SF Application
     java.util.logging.FileHandler.pattern = /tmp/mysfapp0.0.log
     ```
 
@@ -109,7 +103,7 @@ The following steps walk through how to redirect the application logs from the d
     -Djava.util.logging.config.file=logging.properties
     ```
 
-    The following example shows a sample execution:
+    The following example shows a sample execution with the debugger attached, similar to the execution in the previous section.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar

@@ -1,95 +1,61 @@
 ---
-title: Create a Linux Service Fabric cluster in Azure | Microsoft Docs
-description: In this tutorial, you learn how to deploy a Linux Service Fabric cluster into an existing Azure virtual network using Azure CLI.
-services: service-fabric
-documentationcenter: .net
-author: rwike77
-manager: timlt
-editor: ''
+title: Create a Linux Service Fabric cluster in Azure 
+description: Learn how to deploy a Linux Service Fabric cluster into an existing Azure virtual network using Azure CLI.
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotNet
-ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/27/2018
-ms.author: ryanwi
-ms.custom: mvc
-
+ms.topic: conceptual
+ms.date: 02/14/2019
+ms.custom: mvc, devx-track-azurecli
 ---
-# Tutorial: Deploy a Linux Service Fabric cluster into an Azure virtual network
+# Deploy a Linux Service Fabric cluster into an Azure virtual network
 
-This tutorial is part one of a series. You will learn how to deploy a Linux Service Fabric cluster into an [Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md) using Azure CLI and a template. When you're finished, you have a cluster running in the cloud that you can deploy applications to. To create a Windows cluster using PowerShell, see [Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Create a VNET in Azure using Azure CLI
-> * Create a secure Service Fabric cluster in Azure using Azure CLI
-> * Secure the cluster with an X.509 certificate
-> * Connect to the cluster using Service Fabric CLI
-> * Remove a cluster
-
-In this tutorial series you learn how to:
-> [!div class="checklist"]
-> * Create a secure cluster on Azure
-> * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
-> * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)
+In this article you learn how to deploy a Linux Service Fabric cluster into an [Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md) using Azure CLI and a template. When you're finished, you have a cluster running in the cloud that you can deploy applications to. To create a Windows cluster using PowerShell, see [Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 ## Prerequisites
 
-Before you begin this tutorial:
+Before you begin:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Install the [Service Fabric CLI](service-fabric-cli.md)
 * Install the [Azure CLI](/cli/azure/install-azure-cli)
+* To learn the key concepts of clusters, read [Overview of Azure clusters](service-fabric-azure-clusters-overview.md)
+* [Plan and prepare](service-fabric-cluster-azure-deployment-preparation.md) for a production cluster deployment.
 
-The following procedures create a five-node Service Fabric cluster. To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
-
-## Key concepts
-
-A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines. A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties.
-
-A node type defines the size, number, and properties for a set of virtual machines in the cluster. Every defined node type is set up as a [virtual machine scale set](/azure/virtual-machine-scale-sets/), an Azure compute resource you use to deploy and manage a collection of virtual machines as a set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. Node types are used to define roles for a set of cluster nodes, such as "front end" or "back end".  Your cluster can have more than one node type, but the primary node type must have at least five VMs for production clusters (or at least three VMs for test clusters).  [Service Fabric system services](service-fabric-technical-overview.md#system-services) are placed on the nodes of the primary node type.
-
-The cluster is secured with a cluster certificate. A cluster certificate is an X.509 certificate used to secure node-to-node communication and authenticate the cluster management endpoints to a management client.  The cluster certificate also provides an SSL for the HTTPS management API and for Service Fabric Explorer over HTTPS. Self signed certificates are useful for test clusters.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate.
-
-The cluster certificate must:
-
-* contain a private key.
-* be created for key exchange, which is exportable to a Personal Information Exchange (.pfx) file.
-* have a subject name that matches the domain that you use to access the Service Fabric cluster. This matching is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the .cloudapp.azure.com domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
-
-Azure Key Vault is used to manage certificates for Service Fabric clusters in Azure.  When a cluster is deployed in Azure, the Azure resource provider responsible for creating Service Fabric clusters pulls certificates from Key Vault and installs them on the cluster VMs.
-
-This tutorial deploys a cluster with five nodes in a single node type. For any production cluster deployment, however, [capacity planning](service-fabric-cluster-capacity.md) is an important step. Here are some things to consider as a part of that process.
-
-* The number of nodes and node types that your cluster needs
-* The properties of each of node type (for example size, primary, internet facing, and number of VMs)
-* The reliability and durability characteristics of the cluster
+The following procedures create a seven-node Service Fabric cluster. To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Download and explore the template
 
 Download the following Resource Manager template files:
 
+For Ubuntu 16.04 LTS:
+
 * [AzureDeploy.json][template]
 * [AzureDeploy.Parameters.json][parameters]
 
-This template deploys a secure cluster of five virtual machines and a single node type into a virtual network.  Other sample templates can be found on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). The [AzureDeploy.json][template] deploys a number resources, including the following.
+For Ubuntu 18.04 LTS:
+
+* [AzureDeploy.json][template2]
+* [AzureDeploy.Parameters.json][parameters2]
+
+For Ubuntu 18.04 LTS the difference between the two templates are 
+* the **vmImageSku** attribute being set to "18.04-LTS"
+* each node's **typeHandlerVersion** being set to 1.1
+* Microsoft.ServiceFabric/clusters resource's
+   - **apiVersion** being set to "2019-03-01" or higher
+   - **vmImage** property being set to "Ubuntu18_04"
+
+This template deploys a secure cluster of seven virtual machines and three node types into a virtual network.  Other sample templates can be found on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). The [AzureDeploy.json][template] deploys a number resources, including the following.
 
 ### Service Fabric cluster
 
 In the **Microsoft.ServiceFabric/clusters** resource, a Linux cluster is deployed with the following characteristics:
 
-* a single node type
-* five nodes in the primary node type (configurable in the template parameters)
-* OS: Ubuntu 16.04 LTS (configurable in the template parameters)
+* three node types
+* five nodes in the primary node type (configurable in the template parameters), one node in each of the other node types
+* OS: (Ubuntu 16.04 LTS / Ubuntu 18.04 LTS) (configurable in the template parameters)
 * certificate secured (configurable in the template parameters)
 * [DNS service](service-fabric-dnsservice.md) is enabled
-* [Durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters)
-* [Reliability level](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters)
+* [Durability level](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters)
+* [Reliability level](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters)
 * client connection endpoint: 19000 (configurable in the template parameters)
 * HTTP gateway endpoint: 19080 (configurable in the template parameters)
 
@@ -113,7 +79,7 @@ If any other application ports are needed, then you will need to adjust the Micr
 
 ## Set template parameters
 
-The [AzureDeploy.Parameters][parameters] parameters file declares many values used to deploy the cluster and associated resources. Some of the parameters that you might need to modify for your deployment:
+The **AzureDeploy.Parameters** file declares many values used to deploy the cluster and associated resources. Some of the parameters that you might need to modify for your deployment:
 
 |Parameter|Example value|Notes|
 |---|---||
@@ -122,18 +88,20 @@ The [AzureDeploy.Parameters][parameters] parameters file declares many values us
 |clusterName|mysfcluster123| Name of the cluster. |
 |location|southcentralus| Location of the cluster. |
 |certificateThumbprint|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate SHA1 thumbprint value. For example, "6190390162C988701DB5676EB81083EA608DCCF3". </p>|
-|certificateUrlValue|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the source vault value. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 
 ## Deploy the virtual network and cluster
 
-Next, set up the network topology and deploy the Service Fabric cluster. The [AzureDeploy.json][template] Resource Manager template creates a virtual network (VNET) and a subnet for Service Fabric. The template also deploys a cluster with certificate security enabled.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. A self-signed certificate can be used to secure test clusters.
+Next, set up the network topology and deploy the Service Fabric cluster. The **AzureDeploy.json** Resource Manager template creates a virtual network (VNET) and a subnet for Service Fabric. The template also deploys a cluster with certificate security enabled.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. A self-signed certificate can be used to secure test clusters.
+
+The template in this article deploy a cluster that uses the certificate thumbprint to identify the cluster certificate.  No two certificates can have the same thumbprint, which makes certificate management more difficult. Switching a deployed cluster from using certificate thumbprints to using certificate common names makes certificate management much simpler.  To learn how to update the cluster to use certificate common names for certificate management, read [change cluster to certificate common name management](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 ### Create a cluster using an existing certificate
 
-The following script uses the [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command and template to deploy a new cluster secured with an existing certificate. The command also creates a new key vault in Azure and uploads your certificate.
+The following script uses the [az sf cluster create](/cli/azure/sf/cluster) command and template to deploy a new cluster secured with an existing certificate. The command also creates a new key vault in Azure and uploads your certificate.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -159,7 +127,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### Create a cluster using a new, self-signed certificate
 
-The following script uses the [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) command and a template to deploy a new cluster in Azure. The cmcommand also creates a new key vault in Azure, adds a new self-signed certificate to the key vault, and downloads the certificate file locally.
+The following script uses the [az sf cluster create](/cli/azure/sf/cluster) command and a template to deploy a new cluster in Azure. The command also creates a new key vault in Azure, adds a new self-signed certificate to the key vault, and downloads the certificate file locally.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -170,42 +138,39 @@ VaultName="linuxclusterkeyvault"
 VaultGroupName="linuxclusterkeyvaultgroup"
 CertPath="C:\MyCertificates"
 
-az sf cluster create --resource-group $ResourceGroupName --location $Location --cluster-name $ClusterName --template-file C:\temp\cluster\AzureDeploy.json --parameter-file C:\temp\cluster\AzureDeploy.Parameters.json --certificate-password $Password --certificate-output-folder $CertPath --certificate-subject-name $ClusterName.$Location.cloudapp.azure.com --vault-name $VaultName --vault-resource-group $ResourceGroupName
+az sf cluster create --resource-group $ResourceGroupName --location $Location \
+   --cluster-name $ClusterName --template-file C:\temp\cluster\AzureDeploy.json \
+   --parameter-file C:\temp\cluster\AzureDeploy.Parameters.json --certificate-password $Password \
+   --certificate-output-folder $CertPath --certificate-subject-name $ClusterName.$Location.cloudapp.azure.com \
+   --vault-name $VaultName --vault-resource-group $ResourceGroupName
 ```
 
 ## Connect to the secure cluster
 
 Connect to the cluster using the Service Fabric CLI command `sfctl cluster select` with your key.  Note, only use the **--no-verify** option for a self-signed certificate.
 
-```azurecli
+```console
 sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
 Check that you are connected and the cluster is healthy using the `sfctl cluster health` command.
 
-```azurecli
+```console
 sfctl cluster health
 ```
 
 ## Clean up resources
 
-The other articles in this tutorial series use the cluster you just created. If you're not immediately moving on to the next article, you might want to [delete the cluster](service-fabric-cluster-delete.md) to avoid incurring charges.
+If you're not immediately moving on to the next article, you might want to [delete the cluster](./service-fabric-tutorial-delete-cluster.md) to avoid incurring charges.
 
 ## Next steps
 
-In this tutorial, you learned how to:
+Learn how to [scale a Cluster](service-fabric-tutorial-scale-cluster.md).
 
-> [!div class="checklist"]
-> * Create a VNET in Azure using Azure CLI
-> * Create a secure Service Fabric cluster in Azure using Azure CLI
-> * Secure the cluster with an X.509 certificate
-> * Connect to the cluster using Service Fabric CLI
-> * Remove a cluster
+The template in this article deploy a cluster that uses the certificate thumbprint to identify the cluster certificate.  No two certificates can have the same thumbprint, which makes certificate management more difficult. Switching a deployed cluster from using certificate thumbprints to using certificate common names makes certificate management much simpler.  To learn how to update the cluster to use certificate common names for certificate management, read [change cluster to certificate common name management](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
-Next, advance to the following tutorial to learn how to scale your cluster.
-> [!div class="nextstepaction"]
-> [Scale a Cluster](service-fabric-tutorial-scale-cluster.md)
-
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Ubuntu-1-NodeTypes-Secure/AzureDeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Ubuntu-1-NodeTypes-Secure/AzureDeploy.Parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json
+[template2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.json
+[parameters2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.Parameters.json

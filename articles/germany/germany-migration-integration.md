@@ -1,29 +1,31 @@
 ---
-title: Migrate Azure integration resources from Azure Germany to global Azure
+title: Migrate Azure integration resource, Azure Germany to global Azure
 description: This article provides information about migrating your Azure integration resources from Azure Germany to global Azure.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 8/15/2018
-ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate integration resources to global Azure
 
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 This article has information that can help you migrate Azure integration resources from Azure Germany to global Azure.
 
 ## Service Bus
 
-Azure Service Bus services don't have data export or import capabilities. To migrate Service Bus resources from Azure Germany to global Azure, you can export the resources [as an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template-powershell.md). Then, adapt the exported template for global Azure and re-create the resources.
+Azure Service Bus services don't have data export or import capabilities. To migrate Service Bus resources from Azure Germany to global Azure, you can export the resources [as an Azure Resource Manager template](../azure-resource-manager/templates/export-template-portal.md). Then, adapt the exported template for global Azure and re-create the resources.
 
 > [!NOTE]
 > Exporting a Resource Manager template doesn't copy the data (for example, messages). Exporting a template only re-creates the metadata.
 
 > [!IMPORTANT]
 > Change location, Azure Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### Service Bus metadata
 
@@ -38,20 +40,20 @@ The following Service Bus metadata elements are re-created when you export a Res
 
 ### Keys
 
-The preceding steps to export and re-create don't copy the shared access signature keys that are associated with authorization rules. If you need to preserve the shared access signature keys, use the `New-AzureRmServiceBuskey` cmdlet with the optional parameter `-Keyvalue` to accept the key as a string. The updated cmdlet is available in the [PowerShell Gallery release 6.4.0 (July 2018)](https://www.powershellgallery.com/packages/AzureRM/6.4.0) or on [GitHub](https://github.com/Azure/azure-powershell/releases/tag/v6.4.0-July2018).
+The preceding steps to export and re-create don't copy the shared access signature keys that are associated with authorization rules. If you need to preserve the shared access signature keys, use the `New-AzServiceBuskey` cmdlet with the optional parameter `-Keyvalue` to accept the key as a string. The updated cmdlet is available in [Azure PowerShell Az module](/powershell/azure/install-az-ps).
 
 ### Usage example
 
 ```powershell
-New-AzureRmServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace> -Name <name of Authorization rule> -RegenerateKey <PrimaryKey/SecondaryKey> -KeyValue <string - key value>
+New-AzServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace> -Name <name of Authorization rule> -RegenerateKey <PrimaryKey/SecondaryKey> -KeyValue <string - key value>
 ```
 
 ```powershell
-New-AzureRmServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace> -Queue <queuename> -Name <name of Authorization rule> -RegenerateKey <PrimaryKey/SecondaryKey> -KeyValue <string - key value>
+New-AzServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace> -Queue <queuename> -Name <name of Authorization rule> -RegenerateKey <PrimaryKey/SecondaryKey> -KeyValue <string - key value>
 ```
 
 ```powershell
-New-AzureRmServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace> -Topic <topicname> -Name <name of Authorization rule> -RegenerateKey <PrimaryKey/SecondaryKey> -KeyValue <string - key value>
+New-AzServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace> -Topic <topicname> -Name <name of Authorization rule> -RegenerateKey <PrimaryKey/SecondaryKey> -KeyValue <string - key value>
 ```
 
 > [!NOTE]
@@ -73,18 +75,17 @@ Endpoint=sb://myProdnamespaceName.**servicebus.windows.net**/;SharedAccessKeyNam
 
 For more information:
 
-- Refresh your knowledge by completing the [Service Bus tutorials](https://docs.microsoft.com/azure/service-bus-messaging/#step-by-step-tutorials).
-- Become familiar with how to [export a Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Refresh your knowledge by completing the [Service Bus tutorials](../service-bus-messaging/index.yml).
+- Become familiar with how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read the overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Review the [Service Bus overview](../service-bus-messaging/service-bus-messaging-overview.md).
-- Learn how to [export a Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template).
 
 ## Logic Apps
 
-The Azure Logic Apps service isn't available in Azure Germany. However, Azure Scheduler, which is available, is being deprecated. Use Logic Apps to create scheduling jobs in global Azure.
+Azure Logic Apps isn't available in Azure Germany, but you can create scheduling jobs by using Logic Apps in global Azure instead. Although previously available in Azure Germany, Azure Scheduler is being retired.
 
 For more information:
 
-- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/#step-by-step-tutorials).
+- Learn more by completing the [Azure Logic Apps tutorials](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md).
 - Review the [Azure Logic Apps overview](../logic-apps/logic-apps-overview.md).
 
 ## Next steps

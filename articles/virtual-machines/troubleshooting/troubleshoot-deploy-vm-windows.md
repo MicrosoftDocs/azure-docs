@@ -1,10 +1,10 @@
-﻿---
+---
 title: Troubleshoot deploying Windows virtual machine issues in Azure | Microsoft Docs
-description: Troubleshoot deploying Windows virtual machine issues in Azurethe Resource Manager deployment model.
+description: Troubleshoot deploying Windows virtual machine issues in the Azure Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
@@ -28,7 +28,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## The cluster cannot support the requested VM size
-<properties
+\<properties
 supportTopicIds="123456789"
 resourceTags="windows"
 productPesIds="1234, 5678"
@@ -41,7 +41,7 @@ productPesIds="1234, 5678"
 
 
 ## The cluster does not have free resources
-<properties
+\<properties
 supportTopicIds="123456789"
 resourceTags="windows"
 productPesIds="1234, 5678"
@@ -69,13 +69,13 @@ For Enterprise agreement:
 
 For more information, see the following resources:
 
- - [Azure Hybrid Use Benefit overview ](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+ - [Azure Hybrid Use Benefit overview](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
  - [Downloadable FAQ](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 
  - [Azure Hybrid Use Benefit for Windows Server and Windows Client](../windows/hybrid-use-benefit-licensing.md).
 
- - [How can I use the Hybrid Use Benefit in Azure](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
+ - [How can I use the Hybrid Use Benefit in Azure](/archive/blogs/azureedu/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
 ## How do I activate my monthly credit for Visual studio Enterprise (BizSpark)
 
@@ -87,13 +87,13 @@ The ability to create subscriptions based on the Enterprise Dev/Test offer is re
 
 ## My drivers are missing for my Windows N-Series VM
 
-Drivers for Windows-based VMs are located [here](../windows/n-series-driver-setup.md).
+Instructions to install drivers for Windows-based VMs are located [here](../sizes-gpu.md#supported-operating-systems-and-drivers).
 
 ## I can’t find a GPU instance within my N-Series VM
 
-To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](../windows/n-series-driver-setup.md) and [Linux VMs](../linux/n-series-driver-setup.md).
+To take advantage of the GPU capabilities of Azure N-series VMs, you must install graphics drivers on each VM after deployment. Driver setup information is available [here](../sizes-gpu.md#supported-operating-systems-and-drivers).
 
-## Is N-Series VMs available in my region?
+## Are N-Series VMs available in my region?
 
 You can check the availability from the [Products available by region table](https://azure.microsoft.com/regions/services), and pricing [here](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
 
@@ -101,7 +101,7 @@ You can check the availability from the [Products available by region table](htt
 
 You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios provided you have an appropriate Visual Studio (formerly MSDN) subscription. 
 
-- Windows 10 images are available from the Azure Gallery within [eligible dev/test offers](../windows/client-images.md#eligible-offers). 
+- Windows 10 images are available from the Azure Gallery within [eligible dev/test offers](../windows/client-images.md). 
 - Visual Studio subscribers within any type of offer can also [adequately prepare and create](../windows/prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](../windows/upload-generalized-managed.md). The use remains limited to dev/test by active Visual Studio subscribers.
 
 This [article](../windows/client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
@@ -112,6 +112,8 @@ When a VM is running, it is deployed to a physical server. The physical servers 
 
 - VMs deployed in Classic deployment model, the cloud service deployment must be removed and redeployed to change the VMs to a size in another size family.
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 - VMs deployed in Resource Manager deployment model, you must stop all VMs in the availability set before changing the size of any VM in the availability set.
 
 ## The listed VM size is not supported while deploying in Availability Set.
@@ -120,7 +122,7 @@ Choose a size that is supported on the availability set's cluster. It is recomme
 
 ## Can I add an existing Classic VM to an availability set?
 
-Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../windows/classic/configure-availability-classic.md#addmachine).
+Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
 
 ## Next steps

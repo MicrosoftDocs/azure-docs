@@ -1,13 +1,12 @@
 ---
-title: Build advanced job schedules and recurrences - Azure Scheduler
+title: Build advanced job schedules and recurrences
 description: Learn how to create advanced schedules and recurrences for jobs in Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
+ms.reviewer: klam, estfan
 ms.suite: infrastructure-services
-ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
 ---
@@ -15,9 +14,14 @@ ms.date: 11/14/2018
 # Build advanced schedules and recurrences for jobs in Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-> is replacing Azure Scheduler, which is being retired. 
-> To schedule jobs, [try Azure Logic Apps instead](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
+> [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
+> To continue working with the jobs that you set up in Scheduler, please 
+> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible. 
+>
+> Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
+> and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
+> at this time so that you can manage your jobs and job collections.
 
 Within an [Azure Scheduler](../scheduler/scheduler-intro.md) job, 
 the schedule is the core that determines when and how the Scheduler 
@@ -71,15 +75,15 @@ To create a basic schedule with the
 follow these steps:
 
 1. Register your Azure subscription with a resource provider 
-by using the [Register operation - Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). 
+by using the [Register operation - Resource Manager REST API](/rest/api/resources/providers). 
 The provider name for the Azure Scheduler service is **Microsoft.Scheduler**. 
 
 1. Create a job collection by using the 
-[Create or Update operation for job collections](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate) 
+[Create or Update operation for job collections](/rest/api/scheduler/jobcollections) 
 in the Scheduler REST API. 
 
 1. Create a job by using the 
-[Create or Update operation for jobs](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
+[Create or Update operation for jobs](/rest/api/scheduler/jobs/createorupdate). 
 
 ## Job schema elements
 
@@ -88,13 +92,13 @@ you can use when setting up recurrences and schedules for jobs.
 
 | Element | Required | Description | 
 |---------|----------|-------------|
-| **startTime** | No | A DateTime string value in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601) that specifies when the job first starts in a basic schedule. <p>For complex schedules, the job starts no sooner than **startTime**. | 
+| **startTime** | No | A DateTime string value in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601) that specifies when the job first starts in a basic schedule. <p>For complex schedules, the job starts no sooner than **startTime**. | 
 | **recurrence** | No | The recurrence rules for when the job runs. The **recurrence** object supports these elements: **frequency**, **interval**, **schedule**, **count**, and **endTime**. <p>If you use the **recurrence** element, you must also use the **frequency** element, while other **recurrence** elements are optional. |
 | **frequency** | Yes, when you use **recurrence** | The time unit between occurrences and supports these values: "Minute", "Hour", "Day", "Week", "Month", and "Year" | 
 | **interval** | No | A positive integer that determines the number of time units between occurrences based on **frequency**. <p>For example, if **interval** is 10 and **frequency** is "Week", the job recurs every 10 weeks. <p>Here is the most number of intervals for each frequency: <p>- 18 months <br>- 78 weeks <br>- 548 days <br>- For hours and minutes, the range is 1 <= <*interval*> <= 1000. | 
 | **schedule** | No | Defines changes to the recurrence based on the specified minute-marks, hour-marks, days of the week, and days of the month | 
 | **count** | No | A positive integer that specifies the number of times that the job runs before finishing. <p>For example, when a daily job has **count** set to 7, and the start date is Monday, the job finishes running on Sunday. If the start date has already passed, the first run is calculated from the creation time. <p>Without **endTime** or **count**, the job runs infinitely. You can't use both **count** and **endTime** in the same job, but the rule that finishes first is honored. | 
-| **endTime** | No | A Date or DateTime string value in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601) that specifies when the job stops running. You can set a value for **endTime** that's in the past. <p>Without **endTime** or **count**, the job runs infinitely. You can't use both **count** and **endTime** in the same job, but the rule that finishes first is honored. |
+| **endTime** | No | A Date or DateTime string value in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601) that specifies when the job stops running. You can set a value for **endTime** that's in the past. <p>Without **endTime** or **count**, the job runs infinitely. You can't use both **count** and **endTime** in the same job, but the rule that finishes first is honored. |
 |||| 
 
 For example, this JSON schema describes a basic schedule and recurrence for a job: 
@@ -118,10 +122,10 @@ For example, this JSON schema describes a basic schedule and recurrence for a jo
 *Dates and DateTime values*
 
 * Dates in Scheduler jobs include only the date and follow the 
-[ISO 8601 specification](http://en.wikipedia.org/wiki/ISO_8601).
+[ISO 8601 specification](https://en.wikipedia.org/wiki/ISO_8601).
 
 * Date-times in Scheduler jobs include both date and time, 
-follow the [ISO 8601 specification](http://en.wikipedia.org/wiki/ISO_8601), 
+follow the [ISO 8601 specification](https://en.wikipedia.org/wiki/ISO_8601), 
 and are assumed to be UTC when no UTC offset is specified. 
 
 For more information, see [Concepts, terminology, and entities](../scheduler/scheduler-concepts-terms.md).
@@ -244,8 +248,9 @@ These schedules assume that **interval** is set to 1\. The examples also assume 
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |Run every 15 minutes on the last Friday of the month. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` |Run at 5:15 AM, 5:45 AM, 5:15 PM, and 5:45 PM on the third Wednesday of every month. |
 
-## See also
+## Next steps
 
-* [What is Azure Scheduler?](scheduler-intro.md)
 * [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+* [Azure Scheduler REST API reference](/rest/api/scheduler)
+* [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 * [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)

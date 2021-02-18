@@ -12,7 +12,7 @@
 ---
 
 ## How to create a virtual network using a network config file from PowerShell
-Azure uses an xml file to define all virtual networks available to a subscription. You can download this file, edit it to modify or delete existing virtual networks, and create new virtual networks. In this tutorial, you learn how to download this file, referred to as network configuration (or netcfg) file, and edit it to create a new virtual network. To learn more about the network configuration file, see the [Azure virtual network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+Azure uses an xml file to define all virtual networks available to a subscription. You can download this file, edit it to modify or delete existing virtual networks, and create new virtual networks. In this tutorial, you learn how to download this file, referred to as network configuration (or netcfg) file, and edit it to create a new virtual network. To learn more about the network configuration file, see the [Azure virtual network configuration schema](/previous-versions/azure/reference/jj157100(v=azure.100)).
 
 To create a virtual network with a netcfg file using PowerShell, complete the following steps:
 
@@ -31,8 +31,8 @@ To create a virtual network with a netcfg file using PowerShell, complete the fo
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. Open the file you saved in step 2 using any XML or text editor application, and look for the **<VirtualNetworkSites>** element. If you have any networks already created, each network is displayed as its own **<VirtualNetworkSite>** element.
-4. To create the virtual network described in this scenario, add the following XML just under the **<VirtualNetworkSites>** element:
+3. Open the file you saved in step 2 using any XML or text editor application, and look for the **\<VirtualNetworkSites>** element. If you have any networks already created, each network is displayed as its own **\<VirtualNetworkSite>** element.
+4. To create the virtual network described in this scenario, add the following XML just under the **\<VirtualNetworkSites>** element:
 
    ```xml
          <?xml version="1.0" encoding="utf-8"?>

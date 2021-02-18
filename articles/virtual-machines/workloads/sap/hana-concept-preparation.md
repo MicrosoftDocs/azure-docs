@@ -4,11 +4,10 @@ description: Disaster recovery principles and preparation on SAP HANA on Azure (
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor:
-
 ms.service: virtual-machines-linux
-ms.devlang: NA
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -44,7 +43,7 @@ In cases where you use HANA System Replication as high-availability functionalit
 
 
 >[!NOTE]
->The HANA Large Instance storage replication functionality is mirroring and replicating storage snapshots. If you don't perform storage snapshots as introduced in the [Backup and restore](#backup-and-restore) section of this article, there can't be any replication to the disaster recovery site. Storage snapshot execution is a prerequisite to storage replication to the disaster recovery site.
+>The HANA Large Instance storage replication functionality is mirroring and replicating storage snapshots. If you don't perform storage snapshots as introduced in the Backup and restore section of this article, there can't be any replication to the disaster recovery site. Storage snapshot execution is a prerequisite to storage replication to the disaster recovery site.
 
 
 
@@ -65,7 +64,7 @@ The next step is for you to install the second SAP HANA instance on the HANA Lar
 - Stop the newly installed SAP HANA instance on the HANA Large Instance unit in the DR Azure region.
 - Unmount these PRD volumes and contact SAP HANA on Azure Service Management. The volumes can't stay mounted to the unit because they can't be accessible while functioning as storage replication target.  
 
-![DR setup step before establishing replication](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
+![Diagram that shows the replication relationship between the PRD volumes in the production Azure region and the PRD volumes in the DR Azure region.](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
 
 The operations team establishes the replication relationship between the PRD volumes in the production Azure region and the PRD volumes in the DR Azure region.
 

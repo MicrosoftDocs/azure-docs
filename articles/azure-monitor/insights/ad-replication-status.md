@@ -1,33 +1,49 @@
 ---
-title: Monitor Active Directory replication status with Azure Log Analytics | Microsoft Docs
+title: Monitor Active Directory replication status
 description: The Active Directory Replication Status solution pack regularly monitors your Active Directory environment for any replication failures.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.subservice: logs
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 01/24/2018
-ms.author: magoedte
+
 ---
 
-# Monitor Active Directory replication status with Log Analytics
+# Monitor Active Directory replication status with Azure Monitor
 
 ![AD Replication Status symbol](./media/ad-replication-status/ad-replication-status-symbol.png)
 
 Active Directory is a key component of an enterprise IT environment. To ensure high availability and high performance, each domain controller has its own copy of the Active Directory database. Domain controllers replicate with each other in order to propagate changes across the enterprise. Failures in this replication process can cause a variety of problems across the enterprise.
 
-The AD Replication Status solution pack regularly monitors your Active Directory environment for any replication failures.
+The AD Replication Status solution regularly monitors your Active Directory environment for any replication failures.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
 
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
-* You must install agents on domain controllers that are members of the domain to be evaluated. Or, you must install agents on member servers and configure the agents to send AD replication data to Log Analytics. To understand how to connect Windows computers to Log Analytics, see [Connect Windows computers to Log Analytics](../../azure-monitor/platform/agent-windows.md). If your domain controller is already part of an existing System Center Operations Manager environment that you want to connect to Log Analytics, see [Connect Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md).
-* Add the Active Directory Replication Status solution to your Log Analytics workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).  There is no further configuration required.
+### Prerequisites
+
+* The AD Replication Status solution requires a supported version of .NET Framework 4.6.2 or above installed on each computer that has the Log Analytics agent for Windows (also referred to as the Microsoft Monitoring Agent (MMA)) installed.  The agent is used by System Center 2016 - Operations Manager, Operations Manager 2012 R2, and Azure Monitor.
+* The solution supports domain controllers running Windows Server 2008 and 2008 R2, Windows Server 2012 and 2012 R2, and Windows Server 2016.
+* A Log Analytics workspace to add the Active Directory Health Check solution from the Azure marketplace in the Azure portal. There is no additional configuration required.
+
+
+### Install agents on domain controllers
+You must install agents on domain controllers that are members of the domain to be evaluated. Or, you must install agents on member servers and configure the agents to send AD replication data to Azure Monitor. To understand how to connect Windows computers to Azure Monitor, see [Connect Windows computers to Azure Monitor](../agents/agent-windows.md). If your domain controller is already part of an existing System Center Operations Manager environment that you want to connect to Azure Monitor, see [Connect Operations Manager to Azure Monitor](../agents/om-agents.md).
+
+### Enable non-domain controller
+If you don't want to connect any of your domain controllers directly to Azure Monitor, you can use any other computer in your domain connected to Azure Monitor to collect data for the AD Replication Status solution pack and have it send the data.
+
+1. Verify that the computer is a member of the domain that you wish to monitor using the AD Replication Status solution.
+2. [Connect the Windows computer to Azure Monitor](../agents/om-agents.md) or [connect it using your existing Operations Manager environment to Azure Monitor](../agents/om-agents.md), if it is not already connected.
+3. On that computer, set the following registry key:<br>Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Value: **IsTarget**<br>Value Data: **true**
+
+   > [!NOTE]
+   > These changes do not take effect until you restart the Microsoft Monitoring Agent service (HealthService.exe).
+   > ### Install solution
+   > Follow the process described in [Install a monitoring solution](solutions.md#install-a-monitoring-solution) to add the **Active Directory Replication Status** solution to your Log Analytics workspace. There is no further configuration required.
+
 
 ## AD Replication Status data collection details
 The following table shows data collection methods and other details about how data is collected for AD Replication Status.
@@ -36,28 +52,15 @@ The following table shows data collection methods and other details about how da
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |every five days |
 
-## Optionally, enable a non-domain controller to send AD data to Log Analytics
-If you don't want to connect any of your domain controllers directly to Log Analytics, you can use any other computer in your domain connected to Log Analytics to collect data for the AD Replication Status solution pack and have it send the data.
 
-### To enable a non-domain controller to send AD data to Log Analytics
-1. Verify that the computer is a member of the domain that you wish to monitor using the AD Replication Status solution.
-2. [Connect the Windows computer to Log Analytics](../../azure-monitor/platform/om-agents.md) or [connect it using your existing Operations Manager environment to Log Analytics](../../azure-monitor/platform/om-agents.md), if it is not already connected.
-3. On that computer, set the following registry key:
-
-   * Key: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-   * Value: **IsTarget**
-   * Value Data: **true**
-
-   > [!NOTE]
-   > These changes do not take effect until your restart the Microsoft Monitoring Agent service (HealthService.exe).
-   >
-   >
 
 ## Understanding replication errors
-Once you have AD replication status data sent to Log Analytics, you see a tile similar to the following image in Log Analytics indicating how many replication errors you currently have.  
-![AD Replication Status tile](./media/ad-replication-status/oms-ad-replication-tile.png)
 
-**Critical Replication Errors** are errors that are at or above 75% of the [tombstone lifetime](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) for your Active Directory forest.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
+The AD Replication Status tile displays how many replication errors you currently have. **Critical Replication Errors** are errors that are at or above 75% of the [tombstone lifetime](/previous-versions/windows/it-pro/windows-server-2003/cc784932(v=ws.10)) for your Active Directory forest.
+
+![AD Replication Status tile](./media/ad-replication-status/oms-ad-replication-tile.png)
 
 When you click the tile, you can view more information about the errors.
 ![AD Replication Status dashboard](./media/ad-replication-status/oms-ad-replication-dash.png)
@@ -99,11 +102,11 @@ As noted earlier, the dashboard tile for the AD Replication Status solution show
 >
 
 ### AD Replication status details
-When you click any item in one of the lists, you see additional details about it using Log Search. The results are filtered to show only the errors related to that item. For example, if you click on the first domain controller listed under **Destination Server Status (ADDC02)**, you see search results filtered to show errors with that domain controller listed as the destination server:
+When you click any item in one of the lists, you see additional details about it using a log query. The results are filtered to show only the errors related to that item. For example, if you click on the first domain controller listed under **Destination Server Status (ADDC02)**, you see query results filtered to show errors with that domain controller listed as the destination server:
 
-![AD replication status errors in search results](./media/ad-replication-status/oms-ad-replication-search-details.png)
+![AD replication status errors in query results](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-From here, you can filter further, modify the search query, and so on. For more information about using the Log Search, see [Log searches](../../azure-monitor/log-query/log-query-overview.md).
+From here, you can filter further, modify the log query, and so on. For more information about using the log queries in Azure Monitor, see [Analyze log data in Azure Monitor](../logs/log-query-overview.md).
 
 The **HelpLink** field shows the URL of a TechNet page with additional details about that specific error. You can copy and paste this link into your browser window to see information about troubleshooting and fixing the error.
 
@@ -119,10 +122,11 @@ A: The information is updated every five days.
 A: Not at this time.
 
 **Q: Do I need to add all of my domain controllers to my Log Analytics workspace in order to see replication status?**
-A: No, only a single domain controller must be added. If you have multiple domain controllers in your Log Analytics workspace, data from all of them is sent to Log Analytics.
+A: No, only a single domain controller must be added. If you have multiple domain controllers in your Log Analytics workspace, data from all of them is sent to Azure Monitor.
 
 **Q: I don't want to add any domain controllers to my Log Analytics workspace. Can I still use the AD Replication Status solution?**
-A: Yes. You can set the value of a registry key to enable it. See [To enable a non-domain controller to send AD data to Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+
+A: Yes. You can set the value of a registry key to enable it. See [Enable non-domain controller](#enable-non-domain-controller).
 
 **Q: What is the name of the process that does the data collection?**
 A: AdvisorAssessment.exe
@@ -142,9 +146,10 @@ A: Normal user permissions to Active Directory are sufficient.
 ## Troubleshoot data collection problems
 In order to collect data, the AD Replication Status solution pack requires at least one domain controller to be connected to your Log Analytics workspace. Until you connect a domain controller, a message appears indicating that **data is still being collected**.
 
-If you need assistance connecting one of your domain controllers, you can view documentation at [Connect Windows computers to Log Analytics](../../azure-monitor/platform/om-agents.md). Alternatively, if your domain controller is already connected to an existing System Center Operations Manager environment, you can view documentation at [Connect System Center Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md).
+If you need assistance connecting one of your domain controllers, you can view documentation at [Connect Windows computers to Azure Monitor](../agents/om-agents.md). Alternatively, if your domain controller is already connected to an existing System Center Operations Manager environment, you can view documentation at [Connect System Center Operations Manager to Azure Monitor](../agents/om-agents.md).
 
-If you don't want to connect any of your domain controllers directly to Log Analytics or to System Center Operations Manager, see [To enable a non-domain controller to send AD data to Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+If you don't want to connect any of your domain controllers directly to Azure Monitor or to System Center Operations Manager, see [Enable non-domain controller](#enable-non-domain-controller).
 
 ## Next steps
-* Use [Log searches in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) to view detailed Active Directory Replication status data.
+* Use [Log queries in Azure Monitor](../logs/log-query-overview.md) to view detailed Active Directory Replication status data.
+

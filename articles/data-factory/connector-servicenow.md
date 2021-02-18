@@ -1,26 +1,25 @@
 ---
-title: Copy data from ServiceNow using Azure Data Factory | Microsoft Docs
+title: Copy data from ServiceNow
 description: Learn how to copy data from ServiceNow to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
-
-ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 12/07/2018
 ms.author: jingwang
-
+author: linda33wj
+ms.service: data-factory
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 08/01/2019
 ---
+
 # Copy data from ServiceNow using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from ServiceNow. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
+
+This ServiceNow connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from ServiceNow to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -46,8 +45,8 @@ The following properties are supported for ServiceNow linked service:
 | clientId | The client ID for OAuth2 authentication.  | No |
 | clientSecret | The client secret for OAuth2 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
-| useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
-| usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |
+| useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over TLS. The default value is true.  | No |
+| usePeerVerification | Specifies whether to verify the identity of the server when connecting over TLS. The default value is true.  | No |
 
 **Example:**
 
@@ -87,11 +86,12 @@ To copy data from ServiceNow, set the type property of the dataset to **ServiceN
     "name": "ServiceNowDataset",
     "properties": {
         "type": "ServiceNowObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<ServiceNow linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -112,7 +112,7 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 Note the following when specifying the schema and column for ServiceNow in query, and **refer to [Performance tips](#performance-tips) on copy performance implication**.
 
 - **Schema:** specify the schema as `Actual` or `Display` in the ServiceNow query, which you can look at it as the parameter of `sysparm_display_value` as true or false when calling [ServiceNow restful APIs](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Column:** the column name for actual value under `Actual` schema is `[columne name]_value`, while for display value under `Display` schema is `[columne name]_display_value`. Note the column name need map to the schema being used in the query.
+- **Column:** the column name for actual value under `Actual` schema is `[column name]_value`, while for display value under `Display` schema is `[column name]_display_value`. Note the column name need map to the schema being used in the query.
 
 **Sample query:**
 `SELECT col_value FROM Actual.alm_asset`
@@ -161,6 +161,11 @@ If you have a filter in your query, use "Actual" schema which has better copy pe
 ### Index
 
 ServiceNow table index can help improve query performance, refer to [Create a table index](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html).
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

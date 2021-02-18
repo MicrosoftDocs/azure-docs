@@ -4,7 +4,7 @@ description: Troubleshoot allocation failures when you create, restart, or resiz
 services: azure-service-management
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-resource-manager,azure-service-management
 
@@ -16,6 +16,8 @@ ms.author: genli
 
 ---
 # Troubleshooting steps specific to allocation failure scenarios in the classic deployment model
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 The following are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
 

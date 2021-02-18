@@ -1,28 +1,19 @@
 ---
-title: Tutorial for creating a Web App with Azure Cache for Redis that uses the Cache-Aside pattern | Microsoft Docs
-description: Learn how to create a Web App with Azure Cache for Redis that uses the Cache-Aside pattern
-services: azure-cache-for-redis
-documentationcenter: ''
-author: wesmc7777
-manager: cfowler
-editor: ''
-
-ms.assetid: 
+title: 'Tutorial: Create a Web App (cache-aside) - Azure Cache for Redis'
+description: Learn how to create a Web App with Azure Cache for Redis that uses the cache-aside pattern.
+author: yegu-ms
+ms.author: yegu
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 ms.date: 03/30/2018
-ms.author: wesmc
 
 #Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to use Azure Cache for Redis to improve performance and reduce back-end database load.
 
 ---
 # Tutorial: Create a cache-aside leaderboard on ASP.NET
 
-In this tutorial you will update the *ContosoTeamStats* ASP.NET web app, created in the [ASP.NET quickstart for Azure Cache for Redis](cache-web-app-howto.md), to include a leaderboard that uses the [cache-aside pattern](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) with Azure Cache for Redis. The sample application displays a list of team statistics from a database and demonstrates different ways to use Azure Cache for Redis to store and retrieve data from the cache to improve performance. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Cache for Redis, and hosted in Azure.
+In this tutorial you will update the *ContosoTeamStats* ASP.NET web app, created in the [ASP.NET quickstart for Azure Cache for Redis](cache-web-app-howto.md), to include a leaderboard that uses the [cache-aside pattern](/azure/architecture/patterns/cache-aside) with Azure Cache for Redis. The sample application displays a list of team statistics from a database and demonstrates different ways to use Azure Cache for Redis to store and retrieve data from the cache to improve performance. When you complete the tutorial you have a running web app that reads and writes to a database, optimized with Azure Cache for Redis, and hosted in Azure.
 
 In this tutorial, you learn how to:
 
@@ -39,7 +30,7 @@ In this tutorial, you learn how to:
 To complete this tutorial, you must have the following prerequisites:
 
 * This tutorial continues where you left off in [ASP.NET quickstart for Azure Cache for Redis](cache-web-app-howto.md). If you haven't already, follow the quickstart first.
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
+* Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following workloads:
     * ASP.NET and web development
     * Azure Development
     * .NET desktop development with SQL Server Express LocalDB or [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express).
@@ -77,7 +68,7 @@ For more information about this package, see the [EntityFramework](https://www.n
     using System.Data.Entity.SqlServer;
     ```
 
-1. Replace the definition of the `Team` class with the following code snippet that contains an updated `Team` class definition as well as some other Entity Framework helper classes. This tutorial is using the code first approach with Entity Framework. This approach allows Entity Framework to create the database from your code. For more information on the code first approach to Entity Framework that's used in this tutorial, see [Code first to a new database](https://msdn.microsoft.com/data/jj193542).
+1. Replace the definition of the `Team` class with the following code snippet that contains an updated `Team` class definition as well as some other Entity Framework helper classes. This tutorial is using the code first approach with Entity Framework. This approach allows Entity Framework to create the database from your code. For more information on the code first approach to Entity Framework that's used in this tutorial, see [Code first to a new database](/ef/ef6/modeling/code-first/workflows/new-database).
 
     ```csharp
     public class Team
@@ -154,7 +145,7 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 1. Add the following `connectionStrings` section inside the `configuration` section. The name of the connection string must match the name of the Entity Framework database context class, which is `TeamContext`.
 
-    This connection string assumes you have met the [Prerequisites](#prerequisites) and installed SQL Server Express LocalDB, which is part of the *.NET desktop development* workload installed with Visual Studio 2017.
+    This connection string assumes you have met the [Prerequisites](#prerequisites) and installed SQL Server Express LocalDB, which is part of the *.NET desktop development* workload installed with Visual Studio 2019.
 
     ```xml
     <connectionStrings>
@@ -518,7 +509,7 @@ The scaffolding code that was generated as part of this sample includes methods 
     ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
@@ -542,7 +533,7 @@ The scaffolding code that was generated as part of this sample includes methods 
     ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
@@ -648,9 +639,9 @@ To run the app locally:
 
 ## Publish and run in Azure
 
-### Provision a SQL Azure database for the app
+### Provision a database for the app
 
-In this section, you will provision a new SQL Azure database for the app to use while hosted in Azure.
+In this section, you will provision a new database in SQL Database for the app to use while hosted in Azure.
 
 1. In the [Azure portal](https://portal.azure.com/), Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
@@ -660,7 +651,7 @@ In this section, you will provision a new SQL Azure database for the app to use 
 
    | Setting       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Database name** | *ContosoTeamsDatabase* | For valid database names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Database name** | *ContosoTeamsDatabase* | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). |
    | **Subscription** | *Your subscription*  | Select the same subscription you used to create the cache and host the App Service. |
    | **Resource group**  | *TestResourceGroup* | Click **Use existing** and use the same resource group where you placed your cache and App Service. |
    | **Select source** | **Blank database** | Start with a blank database. |
@@ -669,8 +660,8 @@ In this section, you will provision a new SQL Azure database for the app to use 
 
    | Setting       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
+   | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). |
    | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
    | **Location** | *East US* | Select the same region where you created the cache and App Service. |
 
@@ -686,8 +677,8 @@ In this section, you will provision a new SQL Azure database for the app to use 
 
     | Placeholder | Suggested value |
     | --- | --- |
-    | *{your_username}* | Use the **server admin login** for the database server you just created. |
-    | *{your_password}* | Use the password for the database server you just created. |
+    | *{your_username}* | Use the **server admin login** for the server you just created. |
+    | *{your_password}* | Use the password for the server you just created. |
 
     By adding the username and password as an Application Setting, your username and password are not included in your code. This approach helps protect those credentials.
 

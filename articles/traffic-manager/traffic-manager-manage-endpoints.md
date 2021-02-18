@@ -3,14 +3,14 @@ title: Manage endpoints in Azure Traffic Manager | Microsoft Docs
 description: This article will help you add, remove, enable and disable endpoints from Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
-ms.author: kumud
+ms.author: duau
 ---
 
 # Add, disable, enable, or delete endpoints
@@ -24,7 +24,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 ## To add a cloud service or an App service endpoint to a Traffic Manager profile
 
-1. From a browser, sign in to the [Azure portal](http://portal.azure.com).
+1. From a browser, sign in to the [Azure portal](https://portal.azure.com).
 2. In the portal’s search bar, search for the **Traffic Manager profile** name that you want to modify, and then click the Traffic Manager profile in the results that the displayed.
 3. In the **Traffic Manager profile** blade, in the **Settings** section, click **Endpoints**.
 4. In the **Endpoints** blade that is displayed, click **Add**.
@@ -40,40 +40,39 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 7.	When the addition of both endpoints is complete, they are displayed in the **Traffic Manager profile** blade along with their monitoring status as **Online**.
 
 > [!NOTE]
-> After you add or remove an endpoint from a profile using the *Failover* traffic routing method, the failover priority list may not be ordered the way you want. You can adjust the order of the Failover Priority List on the Configuration page. For more information, see [Configure Failover traffic routing](traffic-manager-configure-failover-routing-method.md).
+> After you add or remove an endpoint from a profile using the *Failover* traffic routing method, the failover priority list may not be ordered the way you want. You can adjust the order of the Failover Priority List on the Configuration page. For more information, see [Configure Failover traffic routing](./traffic-manager-configure-priority-routing-method.md).
 
 ## To disable an endpoint
 
-1. From a browser, sign in to the [Azure portal](http://portal.azure.com).
+1. From a browser, sign in to the [Azure portal](https://portal.azure.com).
 2. In the portal’s search bar, search for the  **Traffic Manager profile** name that you want to modify, and then click the Traffic Manager profile in the results that are displayed.
 3. In the **Traffic Manager profile** blade, in the **Settings** section, click **Endpoints**. 
-4. Click the endpoint that you want to disable, and then on the **Endpoint** blade that is displayed, click **Edit**.
+4. Click the endpoint that you want to disable.
 5. In the **Endpoint** blade, change the endpoint status to **Disabled**, and then click **Save**.
 6. Clients continue to send traffic to the endpoint for the duration of Time-to-Live (TTL). You can change the TTL on the Configuration page of the Traffic Manager profile.
 
 ## To enable an endpoint
 
-1. From a browser, sign in to the [Azure portal](http://portal.azure.com).
+1. From a browser, sign in to the [Azure portal](https://portal.azure.com).
 2. In the portal’s search bar, search for the  **Traffic Manager profile** name that you want to modify, and then click the Traffic Manager profile in the results that are displayed.
 3. In the **Traffic Manager profile** blade, in the **Settings** section, click **Endpoints**. 
-4. Click the endpoint that you want to disable, and then on the **Endpoint** blade that is displayed, click **Edit**.
+4. Click the endpoint that you want to enable.
 5. In the **Endpoint** blade, change the endpoint status to **Enabled**, and then click **Save**.
 6. Clients continue to send traffic to the endpoint for the duration of Time-to-Live (TTL). You can change the TTL on the Configuration page of the Traffic Manager profile.
 
 ## To delete an endpoint
 
-1. From a browser, sign in to the [Azure portal](http://portal.azure.com).
+1. From a browser, sign in to the [Azure portal](https://portal.azure.com).
 2. In the portal’s search bar, search for the  **Traffic Manager profile** name that you want to modify, and then click the Traffic Manager profile in the results that are displayed.
 3. In the **Traffic Manager profile** blade, in the **Settings** section, click **Endpoints**. 
-4. Click the endpoint that you want to disable, and then on the **Endpoint** blade that is displayed, click **Edit**.
-5. In the **Endpoint** blade, change the endpoint status to **Enabled**, and then click **Save**.
+4. Click the endpoint that you want to delete.
+5. In the **Endpoint** blade, click **Delete**
 
 
 ## Next steps
 
 * [Manage Traffic Manager profiles](traffic-manager-manage-profiles.md)
-* [Configure routing methods](traffic-manager-configure-routing-method.md)
+* [Configure routing methods](./traffic-manager-configure-priority-routing-method.md)
 * [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
 * [Traffic Manager performance considerations](traffic-manager-performance-considerations.md)
-* [Operations on Traffic Manager (REST API Reference)](https://go.microsoft.com/fwlink/p/?LinkID=313584)
-
+* [Operations on Traffic Manager (REST API Reference)](/previous-versions/azure/reference/hh758255(v=azure.100))

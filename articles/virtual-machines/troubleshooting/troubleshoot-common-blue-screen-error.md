@@ -4,25 +4,22 @@ title: Blue screen errors when booting an Azure VM| Microsoft Docs
 description: Learn how to troubleshoot the issue that the blue screen error is received when booting| Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
-manager: cshepard
+author: genlin
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 00/19/2018
+ms.date: 09/28/2018
 ms.author: genli
 ---
 
 # Windows shows blue screen error when booting an Azure VM
 This article describes blue screen errors that you may encounter when you boot a Windows Virtual Machine (VM) in Microsoft Azure. It provides steps to help you collect data for a support ticket. 
 
-> [!NOTE] 
-> Azure has two different deployment models for creating and working with resources: 
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article describes using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
 
 ## Symptom 
 
@@ -43,18 +40,21 @@ There could be multiple reasons as why you would get a stop error. The most comm
 
 ## Collect memory dump file
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 To resolve this problem, you would need first to gather dump file for the crash and contact support with the dump file. To collect the Dump file, follow these steps:
 
 ### Attach the OS disk to a recovery VM
 
 1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
-2. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md). 
+2. [Attach the OS disk to a recovery VM](./troubleshoot-recovery-disks-portal-windows.md). 
 3. Remote desktop to the recovery VM.
 
 ### Locate dump file and submit a support ticket
 
 1. On the recovery VM, go to windows folder in the attached OS disk. If the driver letter that is assigned to the attached OS disk is F, you need to go to F:\Windows.
-2. Locate th memory.dmp file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the dump file. 
+2. Locate the memory.dmp file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the dump file. 
 
 If you cannot find the dump file, move the next step to enable dump log and Serial Console.
 
@@ -92,16 +92,15 @@ To enable dump log and Serial Console, run the following script.
     1. Make sure that there's enough space on the disk to allocate as much memory as the RAM, which depends on the size that you are selecting for this VM.
     2. If there's not enough space or this is a large size VM (G, GS or E series), you could then change the location where this file will be created and refer that to any other data disk which is attached to the VM. To do this, you will need to change the following key:
 
-            reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+    ```config-reg
+    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
-            REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
-            REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
 
-            reg unload HKLM\BROKENSYSTEM
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
-3. [Detach the OS disk and then Re-attach the OS disk to the affected VM](../windows/troubleshoot-recovery-disks-portal.md).
+3. [Detach the OS disk and then Re-attach the OS disk to the affected VM](./troubleshoot-recovery-disks-portal-windows.md).
 4. Start the VM to reproduce the issue, then a dump file will be generated.
 5. Attach the OS disk to a recovery VM, collect dump file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the dump file.
-
-
-

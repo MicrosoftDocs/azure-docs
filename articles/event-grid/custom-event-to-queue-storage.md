@@ -1,26 +1,24 @@
 ---
-title: Send custom events to storage queue - Event Grid, Azure CLI
-description: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A storage queue is used for the endpoint. 
-services: event-grid 
-keywords: 
-author: tfitzmac
-ms.author: tomfitz
-ms.date: 12/07/2018
-ms.topic: quickstart
-ms.service: event-grid
-ms.custom: seodec18
+title: 'Quickstart: Send custom events to storage queue - Event Grid, Azure CLI'
+description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A storage queue is used for the endpoint.' 
+ms.date: 02/02/2021
+ms.topic: quickstart 
+ms.custom: devx-track-azurecli
 ---
+
 # Quickstart: Route custom events to Azure Queue storage with Azure CLI and Event Grid
 
 Azure Event Grid is an eventing service for the cloud. Azure Queue storage is one of the supported event handlers. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to the Queue storage.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## Install preview feature
+- This article requires version 2.0.56 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+- If you are using Azure PowerShell on your local machine instead of using Cloud Shell in the Azure portal, ensure that you have Azure PowerShell version 1.1.0 or greater. Download the latest version of Azure PowerShell on your Windows machine from [Azure downloads - Command-line tools](https://azure.microsoft.com/downloads/). 
+
+This article gives you commands for using Azure CLI. 
 
 ## Create a resource group
 
@@ -41,10 +39,6 @@ az group create --name gridResourceGroup --location westus2
 An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<topic_name>` with a unique name for your custom topic. The event grid topic name must be unique because it's represented by a DNS entry.
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 
@@ -117,6 +111,11 @@ done
 Navigate to the Queue storage in the portal, and notice that Event Grid sent those three events to the queue.
 
 ![Show messages](./media/custom-event-to-queue-storage/messages.png)
+
+> [!NOTE]
+> If you use an [Azure Queue storage trigger for Azure Functions](../azure-functions/functions-bindings-storage-queue-trigger.md) for a queue that receives messages from Event Grid, you may see the following error message on the function execution: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
+> 
+> The reason is that when you use an [Azure Queue storage trigger](../azure-functions/functions-bindings-storage-queue-trigger.md), Azure Functions expect a **base64 encoded string**, but Event Grid sends messages to a storage queue in a plain text format. Currently, it's not possible to configure the queue trigger for Azure Functions to accept plain text. 
 
 
 ## Clean up resources

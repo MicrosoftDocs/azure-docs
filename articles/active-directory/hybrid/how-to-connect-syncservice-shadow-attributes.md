@@ -4,7 +4,7 @@ description: Describes how shadow attributes work in Azure AD Connect sync servi
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid:
@@ -12,11 +12,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync service shadow attributes
 Most attributes are represented the same way in Azure AD as they are in your on-premises Active Directory. But some attributes have some special handling and the attribute value in Azure AD might be different than what Azure AD Connect synchronizes.
@@ -27,7 +28,7 @@ Some attributes have two representations in Azure AD. Both the on-premises value
 You cannot see the shadow attributes using the Azure portal or with PowerShell. But understanding the concept helps you to troubleshoot certain scenarios where the attribute has different values on-premises and in the cloud.
 
 To better understand the behavior, look at this example from Fabrikam:  
-![Domains](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
+![Screenshot shows the Active Directory UPN Suffix for several examples with a corresponding Azure AD Domain value of Not Added, Not Verified, and Verified.](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
 They have multiple UPN suffixes in their on-premises Active Directory, but they have only verified one.
 
 ### userPrincipalName
@@ -53,7 +54,7 @@ For a mailbox user, either on-premises or in Exchange Online, only values for ve
 | on-premises proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-In this case **smtp:abbie.spencer@fabrikam.com** was removed since that domain has not been verified. But Exchange also added **SIP:abbie.spencer@fabrikamonline.com**. Fabrikam has not used Lync/Skype on-premises, but Azure AD and Exchange Online prepare for it.
+In this case **smtp:abbie.spencer\@fabrikam.com** was removed since that domain has not been verified. But Exchange also added **SIP:abbie.spencer\@fabrikamonline.com**. Fabrikam has not used Lync/Skype on-premises, but Azure AD and Exchange Online prepare for it.
 
 This logic for proxyAddresses is referred to as **ProxyCalc**. ProxyCalc is invoked with every change on a user when:
 

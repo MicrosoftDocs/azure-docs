@@ -1,19 +1,13 @@
 ---
-title: Troubleshoot an Azure site-to-site VPN connection that cannot connect| Microsoft Docs
+title: 'Troubleshoot an Azure site-to-site VPN connection that cannot connect
+titleSuffix: Azure VPN Gateway'
 description: Learn how to troubleshoot a site-to-site VPN connection that suddenly stops working and cannot be reconnected. 
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: cshepard
-editor: ''
-tags: ''
 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 09/16/2019
 ms.author: genli
 ---
 
@@ -25,7 +19,7 @@ After you configure a site-to-site VPN connection between an on-premises network
 
 ## Troubleshooting steps
 
-To resolve the problem, first try to [reset the Azure VPN gateway](vpn-gateway-resetgw-classic.md) and reset the tunnel from the on-premises VPN device. If the problem persists, follow these steps to identify the cause of the problem.
+To resolve the problem, first try to [reset the Azure VPN gateway](./reset-gateway.md) and reset the tunnel from the on-premises VPN device. If the problem persists, follow these steps to identify the cause of the problem.
 
 ### Prerequisite step
 
@@ -59,13 +53,19 @@ To view the shared key for the Azure VPN connection, use one of the following me
 
 **Azure PowerShell**
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 For the Azure Resource Manager deployment model:
 
-    Get-AzureRmVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
+```azurepowershell
+Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
+```
 
 For the classic deployment model:
 
-    Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
+```azurepowershell
+Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
+```
 
 ### Step 3. Verify the VPN peer IPs
 
@@ -96,8 +96,10 @@ Check for and remove user-defined routing (UDR) or Network Security Groups (NSGs
 2. Click through the certificate warning.
 3. If you receive a response, the VPN gateway is considered healthy. If you don't receive a response, the gateway might not be healthy or an NSG on the gateway subnet is causing the problem. The following text is a sample response:
 
-    &lt;?xml version="1.0"?>
-    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
+    ```xml
+    <?xml version="1.0"?>
+    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
+    ```
 
 ### Step 8. Check whether the on-premises VPN device has the perfect forward secrecy feature enabled
 
@@ -105,5 +107,5 @@ The perfect forward secrecy feature can cause disconnection problems. If the VPN
 
 ## Next steps
 
--	[Configure a site-to-site connection to a virtual network](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-	[Configure a site-to-site connection to a virtual network](./tutorial-site-to-site-portal.md)
 -	[Configure an IPsec/IKE policy for site-to-site VPN connections](vpn-gateway-ipsecikepolicy-rm-powershell.md)

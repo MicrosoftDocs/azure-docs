@@ -1,27 +1,37 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Microsoft Genomics Documentation
+### YamlMime:Landing
+
+title: Microsoft Genomics documentation
+summary: Learn how Microsoft Genomics can power genome sequencing using a cloud implementation of the Burrows-Wheeler Aligner (BWA) and the Genome Analysis Toolkit (GATK) for secondary analysis.
+
 metadata:
-  title: Microsoft Genomics Documentation
-  meta.description: Learn how Microsoft Genomics can power genome sequencing using a cloud implementation of the Burrows-Wheeler Aligner (BWA) and the Genome Analysis Toolkit (GATK) for secondary analysis.
+  title: Microsoft Genomics documentation
+  description: Learn how Microsoft Genomics can power genome sequencing using a cloud implementation of the Burrows-Wheeler Aligner (BWA) and the Genome Analysis Toolkit (GATK) for secondary analysis.
   services: genomics
-  author: grhuynh
-  manager: cgronlun
-  ms.author: grhuynh
   ms.service: genomics
   ms.topic: landing-page
-  ms.date: 12/07/2017
-abstract:
-  description: Learn how Microsoft Genomics can power genome sequencing using a cloud implementation of the Burrows-Wheeler Aligner (BWA) and the Genome Analysis Toolkit (GATK) for secondary analysis.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Submit a workflow through the Microsoft Genomics service.'
-  - type: list
-    style: icon48
-    items:
-    - image:
-       src: media/index/helix-blue-orange.svg
-      text: Submit a workflow
-      href: quickstart-run-genomics-workflow-portal
+  author: grhuynh
+  ms.author: grhuynh
+  ms.date: 03/11/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Microsoft Genomics?
+            url: overview-what-is-genomics.md
+          - text: Common questions
+            url: frequently-asked-questions-genomics.md
+      - linkListType: quickstart
+        links:
+          - text: Run a sample workflow
+            url: quickstart-run-genomics-workflow-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use FASTQ file inputs
+            url: quickstart-input-pair-fastq.md
+          - text: Use a BAM file input
+            url: quickstart-input-bam.md

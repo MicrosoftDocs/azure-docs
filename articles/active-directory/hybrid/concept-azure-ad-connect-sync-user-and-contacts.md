@@ -4,18 +4,19 @@ description: Explains users, groups, and contacts in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 
 ms.assetid: 8d204647-213a-4519-bd62-49563c421602
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Understanding Users, Groups, and Contacts
 There are several different reasons why you would have multiple Active Directory forests and there are several different deployment topologies. Common models include an account-resource deployment and GAL sync’ed forests after a merger & acquisition. But even if there are pure models, hybrid models are common as well. The default configuration in Azure AD Connect sync does not assume any particular model but depending on how user matching was selected in the installation guide, different behaviors can be observed.
@@ -34,9 +35,9 @@ Important points to be aware of when synchronizing groups from Active Directory 
 
 * Azure AD Connect excludes built-in security groups from directory synchronization.
 
-* Azure AD Connect does not support synchronizing [Primary Group memberships](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx) to Azure AD.
+* Azure AD Connect does not support synchronizing [Primary Group memberships](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11)) to Azure AD.
 
-* Azure AD Connect does not support synchronizing [Dynamic Distribution Group memberships](https://technet.microsoft.com/library/bb123722(v=exchg.160).aspx) to Azure AD.
+* Azure AD Connect does not support synchronizing [Dynamic Distribution Group memberships](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups) to Azure AD.
 
 * To synchronize an Active Directory group to Azure AD as a mail-enabled group:
 
@@ -46,9 +47,9 @@ Important points to be aware of when synchronizing groups from Active Directory 
     
       * An Active Directory group whose proxyAddress attribute has value *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* will not be mail-enabled in Azure AD. It does not have an SMTP address.
       
-      * An Active Directory group whose proxyAddress attribute has values *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* will be mail-enabled in Azure AD.
+      * An Active Directory group whose proxyAddress attribute has values *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe\@contoso.com"}* will be mail-enabled in Azure AD.
       
-      * An Active Directory group whose proxyAddress attribute has values *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* will also be mail-enabled in Azure AD.
+      * An Active Directory group whose proxyAddress attribute has values *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe\@contoso.com"}* will also be mail-enabled in Azure AD.
 
 ## Contacts
 Having contacts representing a user in a different forest is common after a merger & acquisition where a GALSync solution is bridging two or more Exchange forests. The contact object is always joining from the connector space to the metaverse using the mail attribute. If there is already a contact object or user object with the same mail address, the objects are joined together. This is configured in the rule **In from AD – Contact Join**. There is also a rule named **In from AD – Contact Common** with an attribute flow to the metaverse attribute **sourceObjectType** with the constant **Contact**. This rule has very low precedence so if any user object is joined to the same metaverse object, then the rule **In from AD – User Common** will contribute the value User to this attribute. With this rule, this attribute will have the value Contact if no user has been joined and the value User if at least one user has been found.
@@ -71,4 +72,3 @@ When an object has been exported to Azure AD then it is not allowed to change th
 ## Additional Resources
 * [Azure AD Connect Sync: Customizing Synchronization options](how-to-connect-sync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)
-

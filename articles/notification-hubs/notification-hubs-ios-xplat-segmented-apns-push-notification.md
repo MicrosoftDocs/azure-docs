@@ -1,22 +1,23 @@
 ---
-title: Push notifications to specific iOS devices using Azure Notification Hubs | Microsoft Docs
+title: Send push notifications to specific iOS devices using Azure Notification Hubs | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to specific iOS devices. 
 services: notification-hubs
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
-editor: spelluru
+author: sethmanheim
+manager: femila
 
-ms.assetid: 6ead4169-deff-4947-858c-8c6cf03cc3b2
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
+ms.date: 11/07/2019
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 11/07/2019
 ---
-# Tutorial: Push notifications to specific iOS devices using Azure Notification Hubs
+
+# Tutorial: Send push notifications to specific iOS devices using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -44,17 +45,18 @@ The first step is to add the UI elements to your existing storyboard that enable
 
 1. In your **MainStoryboard_iPhone.storyboard** add the following components from the object library:
 
-    * A label with "Breaking News" text,
-    * Labels with category texts "World", "Politics", "Business", "Technology", "Science", "Sports",
-    * Six switches, one per category, set each switch **State** to be **Off** by default.
-    * One button labeled "Subscribe"
+   * A label with "Breaking News" text,
+   * Labels with category texts "World", "Politics", "Business", "Technology", "Science", "Sports",
+   * Six switches, one per category, set each switch **State** to be **Off** by default.
+   * One button labeled "Subscribe"
 
-    Your storyboard should look as follows:
+     Your storyboard should look as follows:
 
-    ![Xcode interface builder][3]
+     ![Xcode interface builder][3]
 
 2. In the assistant editor, create outlets for all the switches and call them "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
-3. Create an Action for your button called **subscribe**. Your ViewController.h should contain the following code:
+
+3. Create an Action for your button called `subscribe`; your `ViewController.h` should contain the following code:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
@@ -119,8 +121,6 @@ The first step is to add the UI elements to your existing storyboard that enable
 
     - (void)subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion
     {
-        //[hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
-
         NSString* templateBodyAPNS = @"{\"aps\":{\"alert\":\"$(messageParam)\"}}";
 
         [hub registerTemplateWithDeviceToken:self.deviceToken name:@"simpleAPNSTemplate" 
@@ -130,7 +130,7 @@ The first step is to add the UI elements to your existing storyboard that enable
 
     This class uses local storage to store and retrieve the categories of news that this device receives. Also, it contains a method to register for these categories using a [Template](notification-hubs-templates-cross-platform-push-messages.md) registration.
 
-7. In the AppDelegate.h file, add an import statement for Notifications.h and add a property for an instance of the Notifications class:
+7. In the `AppDelegate.h` file, add an import statement for `Notifications.h` and add a property for an instance of the `Notifications` class:
 
     ```objc
     #import "Notifications.h"
@@ -138,9 +138,8 @@ The first step is to add the UI elements to your existing storyboard that enable
     @property (nonatomic) Notifications* notifications;
     ```
 
-8. In the **didFinishLaunchingWithOptions** method in AppDelegate.m, add the code to initialize the notifications instance at the beginning of the method.  
-
-    `HUBNAME` and `HUBLISTENACCESS` (defined in hubinfo.h) should already have the `<hub name>` and `<connection string with listen access>` placeholders replaced with your notification hub name and the connection string for *DefaultListenSharedAccessSignature* that you obtained earlier
+8. In the `didFinishLaunchingWithOptions` method in `AppDelegate.m`, add the code to initialize the notifications instance at the beginning of the method.  
+    `HUBNAME` and `HUBLISTENACCESS` (defined in `hubinfo.h`) should already have the `<hub name>` and `<connection string with listen access>` placeholders replaced with your notification hub name and the connection string for *DefaultListenSharedAccessSignature* that you obtained earlier
 
     ```objc
     self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
@@ -149,10 +148,10 @@ The first step is to add the UI elements to your existing storyboard that enable
     > [!NOTE]
     > Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.
 
-9. In the **didRegisterForRemoteNotificationsWithDeviceToken** method in AppDelegate.m, replace the code in the method with the following code to pass the device token to the notifications class. The notifications class performs the registering for notifications with the categories. If the user changes category selections, call the `subscribeWithCategories` method in response to the **subscribe** button to update them.
+9. In the `didRegisterForRemoteNotificationsWithDeviceToken` method in `AppDelegate.m`, replace the code in the method with the following code to pass the device token to the `notifications` class. The `notifications` class performs the registering for notifications with the categories. If the user changes category selections, call the `subscribeWithCategories` method in response to the **subscribe** button to update them.
 
     > [!NOTE]
-    > Because the device token assigned by the Apple Push Notification Service (APNS) can chance at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.
+    > Because the device token assigned by the Apple Push Notification Service (APNS) can change at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.
 
     ```objc
     self.notifications.deviceToken = deviceToken;
@@ -168,12 +167,12 @@ The first step is to add the UI elements to your existing storyboard that enable
     }];
     ```
 
-    At this point, there should be no other code in the **didRegisterForRemoteNotificationsWithDeviceToken** method.
+    At this point, there should be no other code in the `didRegisterForRemoteNotificationsWithDeviceToken` method.
 
-10. The following methods should already be present in AppDelegate.m from completing the [Get started with Notification Hubs][get-started] tutorial. If not, add them.
+10. The following methods should already be present in `AppDelegate.m` from completing the [Get started with Notification Hubs][get-started] tutorial. If not, add them.
 
     ```objc
-    -(void)MessageBox:(NSString *)title message:(NSString *)messageText
+    - (void)MessageBox:(NSString *)title message:(NSString *)messageText
     {
 
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
@@ -181,7 +180,7 @@ The first step is to add the UI elements to your existing storyboard that enable
         [alert show];
     }
 
-    * (void)application:(UIApplication *)application didReceiveRemoteNotification:
+    - (void)application:(UIApplication *)application didReceiveRemoteNotification:
        (NSDictionary *)userInfo {
        NSLog(@"%@", userInfo);
        [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
@@ -190,7 +189,7 @@ The first step is to add the UI elements to your existing storyboard that enable
 
     This method handles notifications received when the app is running by displaying a simple **UIAlert**.
 
-11. In ViewController.m, add an import statement for AppDelegate.h and copy the following code into the XCode-generated **subscribe** method. This code updates the notification registration to use the new category tags the user has chosen in the user interface.
+11. In `ViewController.m`, add an `import` statement for `AppDelegate.h` and copy the following code into the XCode-generated `subscribe` method. This code updates the notification registration to use the new category tags the user has chosen in the user interface.
 
     ```objc
     #import "Notifications.h"
@@ -208,16 +207,18 @@ The first step is to add the UI elements to your existing storyboard that enable
 
     [notifications storeCategoriesAndSubscribeWithCategories:categories completion: ^(NSError* error) {
         if (!error) {
-            [(AppDelegate*)[[UIApplication sharedApplication]delegate] MessageBox:@"Notification" message:@"Subscribed!"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:"Notification" message:"Subscribed" delegate:self
+            cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
         } else {
             NSLog(@"Error subscribing: %@", error);
         }
     }];
     ```
 
-    This method creates an **NSMutableArray** of categories and uses the **Notifications** class to store the list in the local storage and registers the corresponding tags with your notification hub. When categories are changed, the registration is recreated with the new categories.
+    This method creates an `NSMutableArray` of categories and uses the `Notifications` class to store the list in the local storage and registers the corresponding tags with your notification hub. When categories are changed, the registration is recreated with the new categories.
 
-3. In ViewController.m, add the following code in the **viewDidLoad** method to set the user interface based on the previously saved categories.
+12. In `ViewController.m`, add the following code in the `viewDidLoad` method to set the user interface based on the previously saved categories.
 
     ```objc
     // This updates the UI on startup based on the status of previously saved categories.
@@ -234,11 +235,11 @@ The first step is to add the UI elements to your existing storyboard that enable
     if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
     ```
 
-The app can now store a set of categories in the device local storage used to register with the notification hub whenever the app starts. The user can change the selection of categories at runtime and click the **subscribe** method to update the registration for the device. Next, you update the app to send the breaking news notifications directly in the app itself.
+The app can now store a set of categories in the device local storage used to register with the notification hub whenever the app starts. The user can change the selection of categories at runtime and click the `subscribe` method to update the registration for the device. Next, you update the app to send the breaking news notifications directly in the app itself.
 
 ## (optional) Send tagged notifications
 
-If you don't have access to Visual Studio, you can skip to the next section and send notifications from the app itself. You can also send the proper template notification from the [Azure portal] using the debug tab for your notification hub. 
+If you don't have access to Visual Studio, you can skip to the next section and send notifications from the app itself. You can also send the proper template notification from the [Azure portal] using the debug tab for your notification hub.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -307,7 +308,7 @@ Normally notifications would be sent by a backend service but, you can send brea
     }
     ```
 
-2. In `ViewController.m`, update the **Send Notification** action as shown in the code that follows. So that it sends the notifications using each tag individually and sends to multiple platforms.
+2. In `ViewController.m`, update the `Send Notification` action as shown in the code that follows. So that it sends the notifications using each tag individually and sends to multiple platforms.
 
     ```objc
     - (IBAction)SendNotificationMessage:(id)sender
@@ -317,7 +318,7 @@ Normally notifications would be sent by a backend service but, you can send brea
         NSArray* categories = [NSArray arrayWithObjects: @"World", @"Politics", @"Business",
                                 @"Technology", @"Science", @"Sports", nil];
 
-        // Lets send the message as breaking news for each category to WNS, GCM, and APNS
+        // Lets send the message as breaking news for each category to WNS, FCM, and APNS
         // using a template.
         for(NSString* category in categories)
         {
@@ -344,30 +345,22 @@ Normally notifications would be sent by a backend service but, you can send brea
 
 ## Next steps
 
-In this tutorial, you sent broadcast notifications to specific iOS devices that have registered for the categories. To learn how to push localized notifications, advance to the following tutorial: 
+In this tutorial, you sent broadcast notifications to specific iOS devices that have registered for the categories. To learn how to push localized notifications, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
 >[Push localized notifications](notification-hubs-ios-xplat-localized-apns-push-notification.md)
-
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-subscribed.png
 [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
 
-
-
-
-
-
-
-
 <!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/dn530749(v=azure.100)
+[Notification Hubs How-To for iOS]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[get-started]: ios-sdk-get-started.md
 [Azure portal]: https://portal.azure.com

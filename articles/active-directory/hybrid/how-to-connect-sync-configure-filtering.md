@@ -4,27 +4,27 @@ description: Explains how to configure filtering in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
-
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/12/2017
-ms.component: hybrid
+ms.topic: how-to
+ms.date: 03/26/2019
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD Connect sync: Configure filtering
-By using filtering, you can control which objects appear in Azure Active Directory (Azure AD) from your on-premises directory. The default configuration takes all objects in all domains in the configured forests. In general, this is the recommended configuration. Users using Office 365 workloads, such as Exchange Online and Skype for Business, benefit from a complete Global Address List so they can send email and call everyone. With the default configuration, they would have the same experience that they would have with an on-premises implementation of Exchange or Lync.
+By using filtering, you can control which objects appear in Azure Active Directory (Azure AD) from your on-premises directory. The default configuration takes all objects in all domains in the configured forests. In general, this is the recommended configuration. Users using Microsoft 365 workloads, such as Exchange Online and Skype for Business, benefit from a complete Global Address List so they can send email and call everyone. With the default configuration, they would have the same experience that they would have with an on-premises implementation of Exchange or Lync.
 
 In some cases however, you're required make some changes to the default configuration. Here are some examples:
 
 * You plan to use the [multi-Azure AD directory topology](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Then you need to apply a filter to control which objects are synchronized to a particular Azure AD directory.
-* You run a pilot for Azure or Office 365 and you only want a subset of users in Azure AD. In the small pilot, it's not important to have a complete Global Address List to demonstrate the functionality.
+* You run a pilot for Azure or Microsoft 365 and you only want a subset of users in Azure AD. In the small pilot, it's not important to have a complete Global Address List to demonstrate the functionality.
 * You have many service accounts and other nonpersonal accounts that you don't want in Azure AD.
 * For compliance reasons, you don't delete any user accounts on-premises. You only disable them. But in Azure AD, you only want active accounts to be present.
 
@@ -42,7 +42,7 @@ Because filtering can remove many objects at the same time, you want to make sur
 
 To protect you from deleting many objects by accident, the feature "[prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-deletes.md)" is on by default. If you delete many objects due to filtering (500 by default), you need to follow the steps in this article to allow the deletes to go through to Azure AD.
 
-If you use a build before November 2015 ([1.0.9125](reference-connect-version-history.md#1091250)), make a change to a filter configuration, and use password hash synchronization, then you need to trigger a full sync of all passwords after you've completed the configuration. For steps on how to trigger a password full sync, see [Trigger a full sync of all passwords](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). If you're on build 1.0.9125 or later, then the regular **full synchronization** action also calculates whether passwords should be synchronized and if this extra step is no longer required.
+If you use a build before November 2015 ([1.0.9125](reference-connect-version-history.md)), make a change to a filter configuration, and use password hash synchronization, then you need to trigger a full sync of all passwords after you've completed the configuration. For steps on how to trigger a password full sync, see [Trigger a full sync of all passwords](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). If you're on build 1.0.9125 or later, then the regular **full synchronization** action also calculates whether passwords should be synchronized and if this extra step is no longer required.
 
 If **user** objects were inadvertently deleted in Azure AD because of a filtering error, you can recreate the user objects in Azure AD by removing your filtering configurations. Then you can synchronize your directories again. This action restores the users from the recycle bin in Azure AD. However, you can't undelete other object types. For example, if you accidentally delete a security group and it was used to ACL a resource, the group and its ACLs can't be recovered.
 
@@ -89,11 +89,17 @@ You should only follow these steps if you're unable to run the installation wiza
 
 Domain-based filtering configuration consists of these steps:
 
-1. [Select the domains](#select-domains-to-be-synchronized) that you want to include in the synchronization.
-2. For each added and removed domain, adjust the [run profiles](#update-run-profiles).
+1. Select the domains that you want to include in the synchronization.
+2. For each added and removed domain, adjust the run profiles.
 3. [Apply and verify changes](#apply-and-verify-changes).
 
 ### Select the domains to be synchronized
+There are two ways to select the domains to be synchronized:
+	- Using the Synchronization Service
+	- Using the Azure AD Connect wizard.
+
+
+#### Select the domains to be synchronized using the Synchronization Service
 To set the domain filter, do the following steps:
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
@@ -102,11 +108,22 @@ To set the domain filter, do the following steps:
    ![Connector properties](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Click **Configure Directory Partitions**.
 5. In the **Select directory partitions** list, select and unselect domains as needed. Verify that only the partitions that you want to synchronize are selected.  
-   ![Partitions](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
+   ![Screenshot that shows the directory partitions in the "Properties" window.](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
    If you've changed your on-premises Active Directory infrastructure and added or removed domains from the forest, then click the **Refresh** button to get an updated list. When you refresh, you're asked for credentials. Provide any credentials with read access to Windows Server Active Directory. It doesn't have to be the user that is prepopulated in the dialog box.  
    ![Refresh needed](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. When you're done, close the **Properties** dialog by clicking **OK**. If you removed domains from the forest, a message pop-up says that a domain was removed and that configuration will be cleaned up.
-7. Continue to adjust the [run profiles](#update-run-profiles).
+7. Continue to adjust the run profiles.
+
+#### Select the domains to be synchronized using the Azure AD Connect wizard
+To set the domain filter, do the following steps:
+
+1.  Start the Azure AD Connect wizard
+2.  Click **Configure**.
+3.  Select **Customize Synchronization Options** and click **Next**.
+4.  Enter your Azure AD credentials
+5.  On the **Connected Directories** screen click **Next**.
+6.  On the **Domain and OU filtering page** click **Refresh**.  New domains will now appear and deleted domains will disappear.
+   ![Partitions](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### Update the run profiles
 If you've updated your domain filter, you also need to update the run profiles.
@@ -180,7 +197,10 @@ You can configure the sync engine to not synchronize new OUs after the filtering
 With this configuration, a new OU that was created under ManagedObjects isn't synchronized.
 
 ## Attribute-based filtering
-Make sure that you're using the November 2015 ([1.0.9125](reference-connect-version-history.md#1091250)) or later build for these steps to work.
+Make sure that you're using the November 2015 ([1.0.9125](reference-connect-version-history.md)) or later build for these steps to work.
+
+> [!IMPORTANT]
+>Microsoft recommends to not modify the default rules created by **Azure AD Connect**. If you want to modify the rule, then clone it, and disable the original rule. Make any changes to the cloned rule. Please note that by doing so (disabling original rule) you will miss any bug fixes or features enabled through that rule.
 
 Attribute-based filtering is the most flexible way to filter objects. You can use the power of [declarative provisioning](concept-azure-ad-connect-sync-declarative-provisioning.md) to control almost every aspect of when an object is synchronized to Azure AD.
 
@@ -192,7 +212,7 @@ Inbound filtering uses the default configuration, where objects going to Azure A
 In inbound filtering, you use the power of **scope** to determine which objects to synchronize or not synchronize. This is where you make adjustments to fit your own organization's requirements. The scope module has a **group** and a **clause** to determine when a sync rule is in scope. A group contains one or many clauses. There is a logical "AND" between multiple clauses, and a logical "OR" between multiple groups.
 
 Let us look at an example:  
-![Scope](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![A screenshot showing an example of adding scoping filters.](./media/how-to-connect-sync-configure-filtering/scope.png)  
 This should be read as **(department = IT) OR (department = Sales AND c = US)**.
 
 In the following samples and steps, you use the user object as an example, but you can use this for all object types.
@@ -250,10 +270,10 @@ In this example, you change the filtering so that only users that have both thei
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Rules Editor** from the **Start** menu.
 3. Under **Rules Type**, click **Outbound**.
-4. Depending on the version of Connect you use, either find the rule named **Out to AAD – User Join** or **Out to AAD - User Join SOAInAD**, and click **Edit**.
+4. Depending on the version of Connect you use, either find the rule named **Out to Azure AD – User Join** or **Out to Azure AD - User Join SOAInAD**, and click **Edit**.
 5. In the pop-up, answer **Yes** to create a copy of the rule.
 6. On the **Description** page, change **Precedence** to an unused value, such as 50.
-7. Click **Scoping filter** on the left-hand navigation, and then click **Add clause**. In **Attribute**, select **mail**. In **Operator**, select **ENDSWITH**. In **Value**, type **@contoso.com**, and then click **Add clause**. In **Attribute**, select **userPrincipalName**. In **Operator**, select **ENDSWITH**. In **Value**, type **@contoso.com**.
+7. Click **Scoping filter** on the left-hand navigation, and then click **Add clause**. In **Attribute**, select **mail**. In **Operator**, select **ENDSWITH**. In **Value**, type **\@contoso.com**, and then click **Add clause**. In **Attribute**, select **userPrincipalName**. In **Operator**, select **ENDSWITH**. In **Value**, type **\@contoso.com**.
 8. Click **Save**.
 9. To complete the configuration, you need to run a **Full sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
 
@@ -273,9 +293,9 @@ Do the following steps:
 
 After the synchronization, all changes are staged to be exported. Before you actually make the changes in Azure AD, you want to verify that all these changes are correct.
 
-1. Start a command prompt, and go to `%Program Files%\Microsoft Azure AD Sync\bin`.
+1. Start a command prompt, and go to `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
 2. Run `csexport "Name of Connector" %temp%\export.xml /f:x`.  
-   The name of the Connector is in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
+   The name of the Connector is in Synchronization Service. It has a name similar to "contoso.com – Azure AD" for Azure AD.
 3. Run `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
 4. You now have a file in %temp% named export.csv that can be examined in Microsoft Excel. This file contains all the changes that are about to be exported.
 5. Make the necessary changes to the data or configuration, and run these steps again (Import, Synchronize, and Verify) until the changes that are about to be exported are what you expect.

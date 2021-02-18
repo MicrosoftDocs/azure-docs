@@ -5,38 +5,36 @@ services: active-directory
 keywords: AD Recycle Bin, accidental deletion, source anchor
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/17/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Enable AD recycle bin
 It is recommended that you enable the AD Recycle Bin feature for your on-premises Active Directories, which are synchronized to Azure AD. 
 
-If you accidentally deleted an on-premises AD user object and restore it using the feature, Azure AD restores the corresponding Azure AD user object.  For information about the AD Recycle Bin feature, refer to article [Scenario Overview for Restoring Deleted Active Directory Objects](https://technet.microsoft.com/library/dd379542.aspx).
+If you accidentally deleted an on-premises AD user object and restore it using the feature, Azure AD restores the corresponding Azure AD user object.  For information about the AD Recycle Bin feature, refer to article [Scenario Overview for Restoring Deleted Active Directory Objects](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd379542(v=ws.10)).
 
 ## Benefits of enabling the AD recycle bin
 This feature helps with restoring Azure AD user objects by doing the following:
 
 * If you accidentally deleted an on-premises AD user object, the corresponding Azure AD user object will be deleted in the next sync cycle. By default, Azure AD keeps the deleted Azure AD user object in soft-deleted state for 30 days.
 
-* If you have on-premises AD Recycle Bin feature enabled, you can restore the deleted on-premises AD user object without changing its Source Anchor value. When the recovered on-premises AD user object is synchronized to Azure AD, Azure AD will restore the corresponding soft-deleted Azure AD user object. For information about Source Anchor attribute, refer to article [Azure AD Connect: Design concepts](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor).
+* If you have on-premises AD Recycle Bin feature enabled, you can restore the deleted on-premises AD user object without changing its Source Anchor value. When the recovered on-premises AD user object is synchronized to Azure AD, Azure AD will restore the corresponding soft-deleted Azure AD user object. For information about Source Anchor attribute, refer to article [Azure AD Connect: Design concepts](./plan-connect-design-concepts.md#sourceanchor).
 
 * If you do not have on-premises AD Recycle Bin feature enabled, you may be required to create an AD user object to replace the deleted object. If Azure AD Connect Synchronization Service is configured to use system-generated AD attribute (such as ObjectGuid) for the Source Anchor attribute, the newly created AD user object will not have the same Source Anchor value as the deleted AD user object. When the newly created AD user object is synchronized to Azure AD, Azure AD creates a new Azure AD user object instead of restoring the soft-deleted Azure AD user object.
 
 > [!NOTE]
 > By default, Azure AD keeps deleted Azure AD user objects in soft-deleted state for 30 days before they are permanently deleted. However, administrators can accelerate the deletion of such objects. Once the objects are permanently deleted, they can no longer be recovered, even if on-premises AD Recycle Bin feature is enabled.
-
->[!NOTE]
->Previously when a user was removed from the on-premises synchronization scope, and deleted in the cloud, the DirSyncEnabled status of the account was erroneously set to "False". If afterwards, that user was manually restored from Azure AD Recycle Bin, it showed an incorrect state of “Cloud-Only” account. This has now been fixed and the value of the DirSyncEnabled status is always kept “True” when a user is removed from sync scope, then soft-deleted, and manually restored from Azure AD Recycle Bin.
 
 ## Next steps
 **Overview topics**

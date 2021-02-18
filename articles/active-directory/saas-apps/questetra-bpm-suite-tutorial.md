@@ -2,156 +2,151 @@
 title: 'Tutorial: Azure Active Directory integration with Questetra BPM Suite | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Questetra BPM Suite.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: joflore
-
-ms.assetid: fb6d5b73-e491-4dd2-92d6-94e5aba21465
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/29/2017
+ms.topic: tutorial
+ms.date: 03/27/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Questetra BPM Suite
 
 In this tutorial, you learn how to integrate Questetra BPM Suite with Azure Active Directory (Azure AD).
-
 Integrating Questetra BPM Suite with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Questetra BPM Suite
-- You can enable your users to automatically get signed-on to Questetra BPM Suite (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* You can control in Azure AD who has access to Questetra BPM Suite.
+* You can enable your users to be automatically signed-in to Questetra BPM Suite (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with Questetra BPM Suite, you need the following items:
 
-- An Azure AD subscription
-- A Questetra BPM Suite single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* Questetra BPM Suite single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Add Questetra BPM Suite from the gallery
-1. Configure and test Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-## Add Questetra BPM Suite from the gallery
+* Questetra BPM Suite supports **SP** initiated SSO
+
+## Adding Questetra BPM Suite from the gallery
+
 To configure the integration of Questetra BPM Suite into Azure AD, you need to add Questetra BPM Suite from the gallery to your list of managed SaaS apps.
 
 **To add Questetra BPM Suite from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![Active Directory][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![Applications][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-1. In the search box, type **Questetra BPM Suite**, select **Questetra BPM Suite** from result panel and then click **Add** button to add the application.
+	![The New application button](common/add-new-app.png)
 
-	![Add from gallery](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_addfromgallery.png)
+4. In the search box, type **Questetra BPM Suite**, select **Questetra BPM Suite** from result panel then click **Add** button to add the application.
 
-##  Configure and test Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Questetra BPM Suite based on a test user called "Britta Simon".
+	 ![Questetra BPM Suite in the results list](common/search-new-app.png)
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Questetra BPM Suite is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Questetra BPM Suite needs to be established.
+## Configure and test Azure AD single sign-on
 
-In Questetra BPM Suite, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In this section, you configure and test Azure AD single sign-on with Questetra BPM Suite based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Questetra BPM Suite needs to be established.
 
 To configure and test Azure AD single sign-on with Questetra BPM Suite, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a Questetra BPM Suite test user](#create-a-questetra-bpm-suite-test-user)** - to have a counterpart of Britta Simon in Questetra BPM Suite that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test Single Sign-On](#test-single-sign-on)** - to verify whether the configuration works.
+2. **[Configure Questetra BPM Suite Single Sign-On](#configure-questetra-bpm-suite-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Questetra BPM Suite test user](#create-questetra-bpm-suite-test-user)** - to have a counterpart of Britta Simon in Questetra BPM Suite that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Questetra BPM Suite application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Questetra BPM Suite, perform the following steps:**
+To configure Azure AD single sign-on with Questetra BPM Suite, perform the following steps:
 
-1. In the Azure portal, on the **Questetra BPM Suite** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Questetra BPM Suite** application integration page, select **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![SAML-based Sign-on](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_samlbase.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-1. On the **Questetra BPM Suite Domain and URLs** section, perform the following steps:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![Questetra BPM Suite Domain and URLs section](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_url.png)
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.questetra.net/`
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. You can get these values from **SP Information** section on your **Questetra BPM Suite** company site, which is explained later in the tutorial or contact [Questetra BPM Suite Client support team](https://www.questetra.com/contact/). 
- 
-1. On the **SAML Signing Certificate** section, click **Certificate (Base 64)** and then save the certificate file on your computer.
+    ![Questetra BPM Suite Domain and URLs single sign-on information](common/sp-identifier.png)
 
-	![SAML Signing Certificate section](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_certificate.png) 
+	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
 
-1. Click **Save** button.
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://<subdomain>.questetra.net/`
 
-	![Save Button](./media/questetra-bpm-suite-tutorial/tutorial_general_400.png)
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. You can get these values from **SP Information** section on your **Questetra BPM Suite** company site, which is explained later in the tutorial or contact [Questetra BPM Suite Client support team](https://www.questetra.com/contact/). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Questetra BPM Suite Configuration** section, click **Configure Questetra BPM Suite** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![Questetra BPM Suite Configuration section](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_configure.png) 
+	![The Certificate download link](common/certificatebase64.png)
 
-1. In a different web browser window, log into your **Questetra BPM Suite** company site as an administrator.
+6. On the **Set up Questetra BPM Suite** section, copy the appropriate URL(s) as per your requirement.
 
-1. In the menu on the top, click **System Settings**. 
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+	a. Login URL
+
+	b. Azure AD Identifier
+
+	c. Logout URL
+
+### Configure Questetra BPM Suite Single Sign-On
+
+1. In a different web browser window, Sign in to your **Questetra BPM Suite** company site as an administrator.
+
+2. In the menu on the top, click **System Settings**. 
    
-    ![Azure AD Single Sign-On][10]
+    ![Screenshot shows System Settings selected from your Questetra BPM Suite company site.][10]
 
-1. To open the **SingleSignOnSAML** page, click **SSO (SAML)**. 
+3. To open the **SingleSignOnSAML** page, click **SSO (SAML)**. 
    
-    ![Azure AD Single Sign-On][11]
+    ![Screenshot shows S S O (SAML) selected.][11]
 
-1. On your **Questetra BPM Suite** company site, in the **SP Information** section, perform the following steps:
+4. On your **Questetra BPM Suite** company site, in the **SP Information** section, perform the following steps:
 
-	a. Copy the **ACS URL**, and then paste it into the **Sign On URL** textbox in the **Questetra BPM Suite Domain and URLs** section from Azure portal.
+	a. Copy the **ACS URL**, and then paste it into the **Sign On URL** textbox in the **Basic SAML Configuration** section from Azure portal.
 	
-	b. Copy the **Entity ID**, and then paste it into the **Identifier** textbox in the **Questetra BPM Suite Domain and URLs** section from Azure portal.
+	b. Copy the **Entity ID**, and then paste it into the **Identifier** textbox in the **Basic SAML Configuration** section from Azure portal.
 
-1. On your **Questetra BPM Suite** company site, perform the following steps: 
+5. On your **Questetra BPM Suite** company site, perform the following steps: 
    
     ![Configure Single Sign-On][15]
    
 	a. Select **Enable Single Sign-On**.
    
-	b. In **Entity ID** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
+	b. In **Entity ID** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal.
 	
-	c. In **Sign-in page URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+	c. In **Sign-in page URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 	
-	d. In **Sign-out page URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
+	d. In **Sign-out page URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
 	
 	e. In the **NameID format** textbox, type `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
 
@@ -159,120 +154,95 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     g. Click **Save**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### Create an Azure AD test user 
 
-### Create an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create Azure AD User][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+2. Select **New user** at the top of the screen.
 
-	![Creating an Azure AD test user](./media/questetra-bpm-suite-tutorial/create_aaduser_01.png) 
+    ![New user Button](common/new-user.png)
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/questetra-bpm-suite-tutorial/create_aaduser_02.png) 
+3. In the User properties, perform the following steps.
 
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/questetra-bpm-suite-tutorial/create_aaduser_03.png) 
+    ![The User dialog box](common/user-properties.png)
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/questetra-bpm-suite-tutorial/create_aaduser_04.png) 
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
 
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
- 
-### Create a Questetra BPM Suite test user
-
-The objective of this section is to create a user called Britta Simon in Questetra BPM Suite.
-
-**To create a user called Britta Simon in Questetra BPM Suite, perform the following steps:**
-
-1. Sign on to your Questetra BPM Suite company site as an administrator.
-1. Go to **System Settings > User List > New User**. 
-1. On the New User dialog, perform the following steps: 
-   
-	![Create test user][300] 
-   
-    a. In the **Name** textbox, type **name** of the user **britta.simon@contoso.com**.
-   
-    b. In the **Email** textbox, type **email** of the user **britta.simon@contoso.com**
-   
-    c. In the **Password** textbox, type a **password** of the user.
-	
-	d. Click **Add new user**.
 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Questetra BPM Suite.
 
-![Assign User][200] 
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Questetra BPM Suite**.
 
-**To assign Britta Simon to Questetra BPM Suite, perform the following steps:**
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+2. In the applications list, select **Questetra BPM Suite**.
 
-	![Assign User][201] 
+	![The Questetra BPM Suite link in the Applications list](common/all-applications.png)
 
-1. In the applications list, select **Questetra BPM Suite**.
+3. In the menu on the left, select **Users and groups**.
 
-	![Questetra BPM Suite in apps list](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_app.png) 
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. In the menu on the left, click **Users and groups**.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![Assign User][202] 
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-	![Assign User][203]
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-1. Click **Select** button on **Users and groups** dialog.
+### Create Questetra BPM Suite test user
 
-1. Click **Assign** button on **Add Assignment** dialog.
+The objective of this section is to create a user called Britta Simon in Questetra BPM Suite.
+
+**To create a user called Britta Simon in Questetra BPM Suite, perform the following steps:**
+
+1. Sign in to your Questetra BPM Suite company site as an administrator.
+
+2. Go to **System Settings > User List > New User**.
+ 
+3. On the New User dialog, perform the following steps: 
+   
+	![Create test user][300] 
+   
+    a. In the **Name** textbox, type **name** of the user britta.simon@contoso.com.
+   
+    b. In the **Email** textbox, type **email** of the user britta.simon@contoso.com.
+   
+    c. In the **Password** textbox, type a **password** of the user.
 	
-### Test single sign-on
+	d. Click **Add new user**.
+
+### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Questetra BPM Suite tile in the Access Panel, you should get automatically signed-on to your Questetra BPM Suite application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+When you click the Questetra BPM Suite tile in the Access Panel, you should be automatically signed in to the Questetra BPM Suite for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
 
 <!--Image references-->
 
-[1]: ./media/questetra-bpm-suite-tutorial/tutorial_general_01.png
-[2]: ./media/questetra-bpm-suite-tutorial/tutorial_general_02.png
-[3]: ./media/questetra-bpm-suite-tutorial/tutorial_general_03.png
-[4]: ./media/questetra-bpm-suite-tutorial/tutorial_general_04.png
 [10]: ./media/questetra-bpm-suite-tutorial/questera_bpm_suite_03.png
 [11]: ./media/questetra-bpm-suite-tutorial/questera_bpm_suite_04.png
 [15]: ./media/questetra-bpm-suite-tutorial/questera_bpm_suite_08.png
-
-[100]: ./media/questetra-bpm-suite-tutorial/tutorial_general_100.png
-
-[200]: ./media/questetra-bpm-suite-tutorial/tutorial_general_200.png
-[201]: ./media/questetra-bpm-suite-tutorial/tutorial_general_201.png
-[202]: ./media/questetra-bpm-suite-tutorial/tutorial_general_202.png
-[203]: ./media/questetra-bpm-suite-tutorial/tutorial_general_203.png
-[300]: ./media/questetra-bpm-suite-tutorial/questera_bpm_suite_11.png 
-
+[300]: ./media/questetra-bpm-suite-tutorial/questera_bpm_suite_11.png

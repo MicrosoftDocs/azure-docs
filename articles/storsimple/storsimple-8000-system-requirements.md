@@ -13,13 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/28/2017
+ms.date: 02/11/2021
 ms.author: alkohli
 
 ---
 # StorSimple 8000 series software, high availability, and networking requirements
 
 ## Overview
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 Welcome to Microsoft Azure StorSimple. This article describes important system requirements and best practices for your StorSimple device and for the storage clients accessing the device. We recommend that you review the information carefully before you deploy your StorSimple system, and then refer back to it as necessary during deployment and subsequent operation.
 
@@ -35,7 +37,7 @@ The following software requirements are for the storage clients that access your
 
 | Supported operating systems | Version required | Additional requirements/notes |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li><li>Simple and mirrored volume on dynamic disk</li></ul>Only the software iSCSI initiators present natively in the operating system are supported. Hardware iSCSI initiators are not supported.<br></br>Windows Server 2012 and 2016 thin provisioning and ODX features are supported if you are using a StorSimple iSCSI volume.<br><br>StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes.<br><br>Reformatting a thinly provisioned volume may take a long time. We recommend deleting the volume and then creating a new one instead of reformatting. However, if you still prefer to reformat a volume:<ul><li>Run the following command before the reformat to avoid space reclamation delays: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>After the formatting is complete, use the following command to re-enable space reclamation:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Apply the Windows Server 2012 hotfix as described in [KB 2878635](https://support.microsoft.com/kb/2870270) to your Windows Server computer.</li></ul></li></ul></ul> If you are configuring StorSimple Snapshot Manager or StorSimple Adapter for SharePoint, go to [Software requirements for optional components](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li><li>Simple and mirrored volume on dynamic disk</li></ul>Only the software iSCSI initiators present natively in the operating system are supported. Hardware iSCSI initiators are not supported.<br></br>Windows Server 2012 and 2016 thin provisioning and ODX features are supported if you are using a StorSimple iSCSI volume.<br><br>StorSimple can create thinly provisioned and fully provisioned volumes. It cannot create partially provisioned volumes.<br><br>Reformatting a thinly provisioned volume may take a long time. We recommend deleting the volume and then creating a new one instead of reformatting. However, if you still prefer to reformat a volume:<ul><li>Run the following command before the reformat to avoid space reclamation delays: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>After the formatting is complete, use the following command to re-enable space reclamation:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Apply the Windows Server 2012 hotfix as described in [KB 2878635](https://support.microsoft.com/kb/2870270) to your Windows Server computer.</li></ul></li></ul></ul> If you are configuring StorSimple Snapshot Manager or StorSimple Adapter for SharePoint, go to [Software requirements for optional components](#software-requirements-for-optional-components). <br> If your Windows Server client is using the SMB protocol to access the StorSimple device, go to [Performance tuning for SMB file servers](/windows-server/administration/performance-tuning/role/file-server/smb-file-server) for guidance on increasing parallel processing.|
 | VMware ESX |5.5 and 6.0 |Supported with VMware vSphere as iSCSI client. VAAI-block feature is supported with VMware vSphere on StorSimple devices. |
 | Linux RHEL/CentOS |5, 6, and 7 |Support for Linux iSCSI clients with open-iSCSI initiator versions 5, 6, and 7. |
 | Linux |SUSE Linux 11 | |
@@ -75,7 +77,7 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 <sup>3</sup> The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet directly or via the configured web proxy. The fixed IP addresses are used for servicing the updates to the device and for garbage collection. If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device and garbage collection will not work properly.
 
 > [!IMPORTANT]
-> Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.
+> Ensure that the firewall does not modify or decrypt any TLS traffic between the StorSimple device and Azure.
 
 
 ### URL patterns for firewall rules
@@ -94,9 +96,9 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 | --- | --- | --- |
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service |Cloud-enabled network interfaces |
 | `https://*.backup.windowsazure.com` |Device registration |DATA 0 only |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage accounts and monitoring |Cloud-enabled network interfaces |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update servers<br> |Controller fixed IPs only |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update servers<br> |Controller fixed IPs only |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |Controller fixed IPs only |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Support package |Cloud-enabled network interfaces |
 
@@ -106,9 +108,9 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 | --- | --- | --- |
 | `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service |Cloud-enabled network interfaces |
 | `https://*.backup.windowsazure.us` |Device registration |DATA 0 only |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Certificate revocation |Cloud-enabled network interfaces |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage accounts and monitoring |Cloud-enabled network interfaces |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update servers<br> |Controller fixed IPs only |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update servers<br> |Controller fixed IPs only |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |Controller fixed IPs only |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Support package |Cloud-enabled network interfaces |
 
@@ -116,7 +118,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 
 A routing metric is associated with the interfaces and the gateway that route the data to the specified networks. Routing metric is used by the routing protocol to calculate the best path to a given destination, if it learns multiple paths exist to the same destination. The lower the routing metric, the higher the preference.
 
-In the context of StorSimple, if multiple network interfaces and gateways are configured to channel traffic, the routing metrics will come into play to determine the relative order in which the interfaces will get used. The routing metrics cannot be changed by the user. You can however use the `Get-HcsRoutingTable` cmdlet to print out the routing table (and metrics) on your StorSimple device. More information on Get-HcsRoutingTable cmdlet in [Troubleshooting StorSimple deployment](storsimple-troubleshoot-deployment.md).
+In the context of StorSimple, if multiple network interfaces and gateways are configured to channel traffic, the routing metrics will come into play to determine the relative order in which the interfaces will get used. The routing metrics cannot be changed by the user. You can however use the `Get-HcsRoutingTable` cmdlet to print out the routing table (and metrics) on your StorSimple device. More information on Get-HcsRoutingTable cmdlet in [Troubleshooting StorSimple deployment](./storsimple-8000-troubleshoot-deployment.md).
 
 The routing metric algorithm used for Update 2 and later versions can be explained as follows.
 
@@ -237,7 +239,7 @@ StorSimple device model 8600 includes an Extended Bunch of Disks (EBOD) enclosur
 Carefully review these best practices to ensure the high availability of hosts connected to your StorSimple device.
 
 * Configure StorSimple with [two-node file server cluster configurations][1]. By removing single points of failure and building in redundancy on the host side, the entire solution becomes highly available.
-* Use Continuously available (CA) shares available with Windows Server 2012 (SMB 3.0) for high availability during failover of the storage controllers. For additional information for configuring file server clusters and Continuously Available shares with Windows Server 2012, refer to this [video demo](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
+* Use Continuously available (CA) shares available with Windows Server 2012 (SMB 3.0) for high availability during failover of the storage controllers. For additional information for configuring file server clusters and Continuously Available shares with Windows Server 2012, refer to this [video demo](https://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
 ## Next steps
 
@@ -245,4 +247,4 @@ Carefully review these best practices to ensure the high availability of hosts c
 * [Learn how to deploy your StorSimple solution](storsimple-8000-deployment-walkthrough-u2.md).
 
 <!--Reference links-->
-[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731844(v=ws.10)
