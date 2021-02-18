@@ -4,6 +4,10 @@
   items:
   - name: About Arc enabled Kubernetes
     href: overview.md
+- name: Quickstarts
+  items:
+  - name: Connect a cluster to Azure Arc
+    href: quickstart-connect-cluster.md
 - name: Concepts
   items:
   - name: Agent architecture
