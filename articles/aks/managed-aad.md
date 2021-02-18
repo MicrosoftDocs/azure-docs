@@ -228,7 +228,7 @@ In the Azure portal, navigate to Azure Active Directory, select *Enterprise appl
 
 ## Configure just-in-time cluster access with Azure AD and AKS
 
-Another option for cluster access control is to leverage Privileged Identity Management (PIM) for just-in-time requests.
+Another option for cluster access control is to use Privileged Identity Management (PIM) for just-in-time requests.
 
 >[!NOTE]
 > PIM is an Azure AD Premium capability requiring a Premium P2 SKU. For more on Azure AD SKUs, see the [pricing guide][aad-pricing].
@@ -242,7 +242,7 @@ To integrate just-in-time access requests with an AKS cluster using AKS-managed 
     :::image type="content" source="./media/managed-aad/jit-create-new-group.png" alt-text="Shows the Azure portal Active Directory groups screen with the 'New Group' option highlighted.":::
 1. Make sure a Group Type of *Security* is selected and enter a group name, such as *myJITGroup*. Under *Azure AD Roles can be assigned to this group (Preview)*, select *Yes*. Finally, select *Create*.
     :::image type="content" source="./media/managed-aad/jit-new-group-created.png" alt-text="Shows the Azure portal's new group creation screen.":::
-1. You will be brought back to the *Groups* page. Select your newly-created group and take note of the Object ID, referred to for the rest of these instructions as `<object-id>`.
+1. You will be brought back to the *Groups* page. Select your newly created group and take note of the Object ID, referred to for the rest of these instructions as `<object-id>`.
     :::image type="content" source="./media/managed-aad/jit-get-object-id.png" alt-text="Shows the Azure portal screen for the just-created group, highlighting the Object Id":::
 1. Deploy an AKS cluster with AKS-managed Azure AD integration by using the `<tenant-id>` and `<object-id>` values from earlier:
     ```azurecli-interactive
@@ -252,9 +252,9 @@ To integrate just-in-time access requests with an AKS cluster using AKS-managed 
     :::image type="content" source="./media/managed-aad/jit-enabling-priv-access.png" alt-text="The Azure portal's Privileged access (Preview) page is shown, with 'Enable privileged access' highlighted":::
 1. Select *Add Assignments* to begin granting access.
     :::image type="content" source="./media/managed-aad/jit-add-active-assignment.png" alt-text="The Azure portal's Privileged access (Preview) screen after enabling is shown. The option to 'Add assignments' is highlighted.":::
-1. Select a role of *member*, and select the users and groups to whom you wish to grant cluster access. These can be modified at any time by a group admin. When you're ready to move on, select *Next*.
+1. Select a role of *member*, and select the users and groups to whom you wish to grant cluster access. These assignments can be modified at any time by a group admin. When you're ready to move on, select *Next*.
     :::image type="content" source="./media/managed-aad/jit-adding-assignment.png" alt-text="The Azure portal's Add assignments Membership screen is shown, with a sample user selected to be added as a member. The option 'Next' is highlighted.":::
-1. Choose an assignment type of *Active*, the desired duration, and provide a justification. When you're ready to proceed select *Assign*. For more on assignment types, see [Assign eligibility for a privileged access group (preview) in Privileged Identity Management][aad-assignments].
+1. Choose an assignment type of *Active*, the desired duration, and provide a justification. When you're ready to proceed, select *Assign*. For more on assignment types, see [Assign eligibility for a privileged access group (preview) in Privileged Identity Management][aad-assignments].
     :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="The Azure portal's Add assignments Setting screen is shown. An assignment type of 'Active' is selected and a sample justification has been given. The option 'Assign' is highlighted.":::
 
 Once the assignments have been made, verify just-in-time access is working by accessing the cluster. For example:
