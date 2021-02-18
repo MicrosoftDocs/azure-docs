@@ -55,6 +55,9 @@ Azure Advisor checks for any VPN gateways that use a Basic SKU and recommends th
 - Custom Ipsec/IKE policy. 
 - Higher stability and availability.
 
+## Ensure reliable outbound connectivity with VNet NAT
+Using default outbound connecitivty provided by a Standard Load Balancer or other Azure resources is not recommended for production workloads as this causes connection failures (also called SNAT port exhaustion). The recommended approach is using a VNet NAT which will prevent any failires of connecitivty in this regard. NAT can scale seamlessly to ensure your application is never out ports. [Learn more about VNet NAT](https://docs.microsoft.com/en-us/azure/virtual-network/nat-overview).
+
 ## Ensure virtual machine fault tolerance (temporarily disabled)
 
 To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies virtual machines that aren't part of an availability set and recommends moving them into one. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create an availability set for the virtual machine or to add the virtual machine to an existing availability set.
