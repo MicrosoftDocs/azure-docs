@@ -20,43 +20,51 @@ This article shows you how to apply policy definitions to your cluster and verif
 
 ## Assign a built-in policy definition or initiative
 
-> [!TIP]
-> All policy definitions default to an audit effect. Effects can be updated to deny at any time through Azure Policy.
+To apply a policy definition or initiative, use the Azure portal.
 
-To apply the baseline initiative, we can assign through the Azure portal.
-
-1. Navigate to the Azure Policy service in Azure portal
-1. In the left pane of the Azure Policy page, select **Definitions**
-1. Search for "Baseline Profile" on the search pane to the right of the page
-1. Select `Kubernetes Pod Security Standards Baseline Profile for Linux-based workloads` from the `Kubernetes` category
-1. Set the **Scope** to the subscription level or only the resource group holding AKS clusters with the Azure Policy Add-on enabled
-1. Select the **Parameters** page and update the **Effect** from `audit` to `deny` to block new deployments violating the baseline initiative
-1. Add additional namespaces to exclude from evaluation during create, update, and audit. Some namespaces, such as _kube-system_, _gatekeeper-system_, and _aks-periscope_ are automatically excluded from policy evaluation.
-    ![update effect](media/use-pod-security-on-azure-policy/update-effect.png)
-1. Select **Review + create** to submit the policy assignment.
+1. Navigate to the Azure Policy service in Azure portal.
+1. In the left pane of the Azure Policy page, select **Definitions**.
+1. Under **Categories** select `Kubernetes`.
+1. Choose the policy definition or initiative you want to apply. For this example, select the `Kubernetes cluster pod security baseline standards for Linux-based workloads` initiative.
+1. Select **Assign**.
+1. Set the **Scope** to the resource group of the AKS cluster with the Azure Policy Add-on enabled.
+1. Select the **Parameters** page and update the **Effect** from `audit` to `deny` to block new deployments violating the baseline initiative. You can also add additional namespaces to exclude from evaluation. For this example, keep the default values.
+1. Select **Review + create** then **Create** to submit the policy assignment.
 
 ## Validate a Azure Policy is running
 
-Confirm the policy assignments are applied to your cluster by running `kubectl get constrainttemplates`.
+Confirm the policy assignments are applied to your cluster by running the following:
+
+```azurecli-interactive
+kubectl get constrainttemplates
+```
 
 > [!NOTE]
-> Policy assignments can take [up to 20 minutes to sync](../governance/policy/concepts/policy-for-kubernetes.md#assign-a-built-in-policy-definition) into each cluster.
+> Policy assignments can take [up to 20 minutes to sync][azure-policy-assign-policy] into each cluster.
 
 The output should be similar to:
 
 ```console
 $ kubectl get constrainttemplate
 NAME                                     AGE
-k8sazureallowedcapabilities              30m
-k8sazureblockhostnamespace               30m
-k8sazurecontainernoprivilege             30m
-k8sazurehostfilesystem                   30m
-k8sazurehostnetworkingports              30m
+k8sazureallowedcapabilities              23m
+k8sazureallowedusersgroups               23m
+k8sazureblockhostnamespace               23m
+k8sazurecontainerallowedimages           23m
+k8sazurecontainerallowedports            23m
+k8sazurecontainerlimits                  23m
+k8sazurecontainernoprivilege             23m
+k8sazurecontainernoprivilegeescalation   23m
+k8sazureenforceapparmor                  23m
+k8sazurehostfilesystem                   23m
+k8sazurehostnetworkingports              23m
+k8sazurereadonlyrootfilesystem           23m
+k8sazureserviceallowedports              23m
 ```
 
 ### Validate rejection of a privileged pod
 
-Let's first test what happens when you schedule a pod with the security context of `privileged: true`. This security context escalates the pod's privileges. The baseline initiative disallows privileged pods, so the request will be denied resulting in the deployment being rejected.
+Let's first test what happens when you schedule a pod with the security context of `privileged: true`. This security context escalates the pod's privileges. The initiative disallows privileged pods, so the request will be denied resulting in the deployment being rejected.
 
 Create a file named `nginx-privileged.yaml` and paste the following YAML manifest:
 
@@ -91,7 +99,7 @@ The pod doesn't reach the scheduling stage, so there are no resources to delete 
 
 ### Test creation of an unprivileged pod
 
-In the previous example, the container image automatically tried to use root to bind NGINX to port 80. This request was denied by the baseline policy initiative, so the pod fails to start. Let's try now running that same NGINX pod without privileged access.
+In the previous example, the container image automatically tried to use root to bind NGINX to port 80. This request was denied by the policy initiative, so the pod fails to start. Let's try now running that same NGINX pod without privileged access.
 
 Create a file named `nginx-unprivileged.yaml` and paste the following YAML manifest:
 
@@ -133,18 +141,16 @@ kubectl delete -f nginx-unprivileged.yaml
 
 To remove the baseline initiative:
 
-1. Navigate to the Policy pane on the Azure portal
-1. Select **Assignments** from the left pane
-1. Click the "..." button next to the Baseline Profile
-1. Select "Delete assignment"
-
-![Delete assignment](media/use-pod-security-on-azure-policy/delete-assignment.png)
+1. Navigate to the Policy pane on the Azure portal.
+1. Select **Assignments** from the left pane.
+1. Click the **...** button next to the `Kubernetes cluster pod security baseline standards for Linux-based workloads` initiative.
+1. Select **Delete assignment**.
 
 ## Next steps
 
 For more information about how Azure Policy works:
 
-- [Azure Policy Overview][azure-policies]
+- [Azure Policy Overview][azure-policy]
 - [Azure Policy initiatives and polices for AKS][aks-policies]
 - Remove the [Azure Policy Add-on][azure-policy-addon-remove].
 
@@ -163,5 +169,6 @@ For more information about how Azure Policy works:
 [azure-policy]: ../governance/policy/overview.md
 [azure-policy-addon]: ../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks
 [azure-policy-addon-remove]: ../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on-from-aks
+[azure-policy-assign-policy]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-built-in-policy-definition
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
