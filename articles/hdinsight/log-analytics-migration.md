@@ -43,7 +43,7 @@ This document walks you through the changes to the Azure Monitor integration and
 
 **Insights cluster portal integration**: The **Insights** pane is also new to the HDInsight Cluster portal. After enabling the new Azure Monitor integration, you can select the **Insights** pane and an out-of-box logs and metrics dashboard specific to the cluster's type will automatically populate for you. These dashboards have been revamped from our previous Azure solutions. They give you deep insights into your cluster's performance and health.
 
-**At-scale insights**: Monitor cluster health and performance across different subscriptions through our new **At-Scale Insights** workbook in the **Azure Monitor** portal.
+**At-scale insights**: You can use the new **At-Scale Insights** workbook in the **Azure Monitor** portal to monitor your clusters' health and performance across different subscriptions.
 
 ## Customer scenarios
 
@@ -76,7 +76,7 @@ The first way to access the new tables is through the Log Analytics workspace.
 The second way to access the new tables is through Cluster portal access.
  
 1. Navigate to your Cluster's portal page and scroll down the menu on the left side until you see the **Monitoring** section. In this section, you'll see the **Logs** pane. 
-2. Select **Logs** and a Logs query editor appears. The editor contains all logs that are associated with the cluster resource. You sent the logs to the Log Analytics workspace when you enabled integration. These logs provide resource-based access (RBAC). RBAC means that users who have access to the cluster but not to the workspace can still see logs that are associated with the cluster.
+2. Select **Logs** and a Logs query editor appears. The editor contains all logs that are associated with the cluster resource. You sent the logs to the Log Analytics workspace when you enabled integration. These logs provide resource-based access (RBAC). RBAC allows users who have access to the cluster but not to the workspace to still see logs that are associated with the cluster.
 
 For comparison, the following screenshots show the legacy integration workspace view and the new integration workspace view:
 
@@ -93,7 +93,7 @@ In your Logs query editor, set the toggle to **Queries** above the table list. M
 
 <![alt-text-description]()>
 
-#### Ad hoc queries
+#### Create your own queries
 
 You can enter your own queries in the Logs query editor. Queries used on the old tables won't be valid on the new tables as many of the new tables have new, refined schemas. The default queries are great references for shaping queries on the new tables.
 
@@ -144,7 +144,7 @@ Refer to the [mapping table](#appendix-1-table-mapping) between the old table/sc
 
 #### Out-of-box dashboards 
 
-We also improved the out-of-box dashboards both at the cluster-level. There's a button on the top right of every graph that allows you to see the underlying query that produces the information. The graph is a great way to familiarize yourself with how the new tables can be queried effectively. You can access the out-of-box dashboards by following the instructions that are found in the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections in this article.
+We also improved the out-of-box dashboards both at the cluster-level. There's a button on the top right of every graph that allows you to see the underlying query that produces the information. The graph is a great way to familiarize yourself with how the new tables can be queried effectively. You can access the out-of-box dashboards by following the instructions that you'll find in the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections in this article.
 
 ### Use an HDInsight workload-specific monitoring dashboard in Azure Monitor
 
@@ -161,9 +161,9 @@ The HDInsight Monitor portal provides you the capability of monitoring multiple 
 
 ## Enable both integrations to accelerate the migration
 
-To help you quickly migrate to the new Azure Monitor integration, you can have both the classic and the new Azure Monitor integrations that are activated at the same time on a cluster that is eligible for both integrations. The new integration is available for all clusters created after mid-September 2020.
+To help you quickly migrate to the new Azure Monitor integration, you can activate both the classic and the new Azure Monitor integrations at the same time on a cluster that is eligible for both integrations. The new integration is available for all clusters created after mid-September 2020.
 
-In this way, you can easily do a side-by-side comparison for the queries you are using.
+In this way, you can easily do a side-by-side comparison for the queries you're using.
 
 ### Enabling the classic integration
 
