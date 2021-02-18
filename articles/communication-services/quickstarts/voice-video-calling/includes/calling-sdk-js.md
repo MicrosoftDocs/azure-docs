@@ -97,7 +97,8 @@ as an item within the `localVideoStream` array to the `startCall` method.
 Once your call connects it'll automatically start sending a video stream from the selected camera to the other participant(s). This also applies to the Call.Accept() video options and CallAgent.join() video options.
 ```js
 const deviceManager = await callClient.getDeviceManager();
-const videoDeviceInfo = await deviceManager.getCameras()[0];
+const cameras = await deviceManager.getCameras();
+videoDeviceInfo = cameras[0];
 localVideoStream = new LocalVideoStream(videoDeviceInfo);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
 const call = callAgent.startCall(['acsUserId'], placeCallOptions);
@@ -284,8 +285,8 @@ await call.stopVideo(localVideoStream);
 You can switch to a different camera device while video is being sent by invoking `switchSource` on a `localVideoStream` instance:
 
 ```js
-const source = await callClient.getDeviceManager().getCameras()[1];
-localVideoStream.switchSource(source);
+const cameras = await callClient.getDeviceManager().getCameras();
+localVideoStream.switchSource(cameras[1]);
 
 ```
 
@@ -531,7 +532,8 @@ await deviceManager.selectSpeaker(AudioDeviceInfo);
 You can use `DeviceManager` and `Renderer` to begin rendering streams from your local camera. This stream won't be sent to other participants; it's a local preview feed. This is an asynchronous action.
 
 ```js
-const localVideoDevice = await deviceManager.getCameras()[0];
+const cameras = await deviceManager.getCameras();
+const localVideoDevice = cameras[0];
 const localCameraStream = new LocalVideoStream(localVideoDevice);
 const renderer = new Renderer(localCameraStream);
 const view = await renderer.createView();
