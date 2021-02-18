@@ -1,5 +1,5 @@
 ---
-title: Understand concepts of the device model repository | Microsoft Docs
+title: Understand concepts of the device models repository | Microsoft Docs
 description: As a solution developer or an IT professional, learn about the basic concepts of the device model repository.
 author: rido-min
 ms.author: rmpablos
@@ -9,13 +9,13 @@ ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# Device model repository
+# Device Models Repository
 
-The device model repository (DMR) enables device builders to manage and share IoT Plug and Play device models. The device models are JSON LD documents defined using the [Digital Twins Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+The Device Models Repository (DMR) enables device builders to manage and share IoT Plug and Play device models. The device models are JSON LD documents defined using the [Digital Twins Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 The DMR defines a pattern to store DTDL interfaces in a folder structure based on the device twin model identifier (DTMI). You can locate an interface in the DMR by converting the DTMI to a relative path. For example, the `dtmi:com:example:Thermostat;1` DTMI translates to `/dtmi/com/example/thermostat-1.json`.
 
-## Public device model repository
+## Public Device Models Repository
 
 Microsoft hosts a public DMR with these characteristics:
 
@@ -23,7 +23,7 @@ Microsoft hosts a public DMR with these characteristics:
 - Immutability.  After it's published, an interface can't be updated.
 - Hyper-scale. Microsoft provides the required infrastructure to create a secure, scalable endpoint where you can publish and consume device models.
 
-## Custom device model repository
+## Custom Device Models Repository
 
 Use the same DMR pattern to create a custom DMR in any storage medium, such as local file system or custom HTTP web servers. You can retrieve device models from the custom DMR in the same way as from the public DMR by changing the base URL used to access the DMR.
 
