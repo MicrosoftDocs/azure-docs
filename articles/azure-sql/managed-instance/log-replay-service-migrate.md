@@ -73,7 +73,7 @@ The following are highly recommended as best practices:
 - Split full and differential backups into multiple files, instead of a single file.
 - Enable backup compression.
 - Use Cloud Shell to execute scripts as it will always be updated to the latest cmdlets released.
-- Plan to complete the migration within 47 hours since LRS service has been started.
+- Plan to complete the migration within 47 hours since LRS service has been started. This is a grace period preventing system managed software patches once LRS has been started.
 
 > [!IMPORTANT]
 > - Database being restored using LRS cannot be used until the migration process has been completed. This is because underlying technology is log shipping in NORECOVERY mode.
