@@ -357,7 +357,7 @@ input1 = train_ds.as_mount()
 
 ## Example notebook
 
-See this [end to end notebook]() for a detailed code example of how to perform data preparation and model training from a single notebook with Azure Synapse and Azure Machine Learning.
+See this [end to end notebook](../synapse-analytics/overview-what-is.md) for a detailed code example of how to perform data preparation and model training from a single notebook with Azure Synapse and Azure Machine Learning.
 
 ## Next steps
 
