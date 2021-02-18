@@ -46,6 +46,8 @@ In this section, you'll map the Private Link service to a private endpoint creat
     | Target sub resource | sites |
     | Request message | Customize message or choose the default. |
 
+1. Then select **Add** to save your configuration.
+
 ## Approve Azure Front Door Premium private endpoint connection from Web App
 
 1. Go to the Web App you configure Private Link for in the last section. Select **Networking** under **Settings**.
