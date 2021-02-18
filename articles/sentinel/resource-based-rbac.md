@@ -57,19 +57,13 @@ Depending on the permissions required in your organization, manually configuring
 
 The following list describes scenarios where other solutions for data access may fit your requirements better:
 
-- **A subsidiary has a SOC team that requires a full Azure Sentinel experience**. In this case, use a multi-workspace architecture to separate your data permissions. For more information, see:
-
-    - [Work with incidents in many workspaces at once](multiple-workspace-view.md)
-    - [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)
-
-- **You want to set access controls at the table level**. Use [table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) to define permissions for each table.
-
-- **You want to provide access at a more granular level, for specific data only**. Provide access to data using built-in integration with [Power BI dashboards and reports](/azure/azure-monitor/platform/powerbi).
-
-- **Limit access based on the specific users referenced by an event**. For example, you might want to limit access to Office 365 logs based on a user's subsidiary. In this case, use one of the following methods:
-
-    - Use data-based RBAC and custom collection.
-    - Enrich the relevant log with the subsidiary information. In this case, you can use the enriched data in workbooks to ensure that each non-SOC team gets access to a workbook that is pre-filtered to display relevant data only.
+|Scenario  |Solution  |
+|---------|---------|
+|**A subsidiary has a SOC team that requires a full Azure Sentinel experience**.     |  In this case, use a multi-workspace architecture to separate your data permissions. <br><br>For more information, see: <br>    - [Work with incidents in many workspaces at once](multiple-workspace-view.md)<br>    - [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)       |
+|**You want to set access controls at the table level**.     |  Use [table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) to define permissions for each table.       |
+|**You want to provide access at a more granular level, for specific data only**.     | Provide access to data using built-in integration with [Power BI dashboards and reports](/azure/azure-monitor/platform/powerbi).        |
+|**Limit access based on the specific users referenced by an event**.     |    For example, you might want to limit access to Office 365 logs based on a user's subsidiary. <br><br>In this case, use one of the following methods:<br>    - Use data-based RBAC and custom collection.<br>    - Enrich the relevant log with the subsidiary information. In this case, you can use the enriched data in workbooks to ensure that each non-SOC team gets access to a workbook that is pre-filtered to display relevant data only.     |
+|     |         |
 
 ## Manually configure resource-based RBAC
 
