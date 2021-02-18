@@ -42,7 +42,7 @@ Premium SSD and Standard SSD ZRS disks are priced 1.5X than the corresponding LR
 
 ### Comparison with other disk types
 
-Except for more write latency, disks using ZRS are identical to disks using LRS. They have the same performance targets. ZRS is ideal when write latency is less critical than durability and availability achieved by data redundancy in multiple zones.
+Except for more write latency, disks using ZRS are identical to disks using LRS. They have the same performance targets.
 
 ### Create ZRS managed disks
 
