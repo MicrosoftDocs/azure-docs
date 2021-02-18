@@ -15,7 +15,7 @@ Azure managed disks offer two storage redundancy options, zone-redundant storage
 
 ## Locally-redundant storage for managed disks
 
-LRS replicates your data three times within a single data center in the selected region. LRS is the lowest-cost redundancy option and offers the least durability compared to ZRS. LRS protects your data against server rack and drive failures. However, if a disaster such as fire or flooding occurs within the data center, all replicas of a storage account using LRS may be lost or unrecoverable. LRS is recommended for workloads that value write latency over durability and availability.
+Locally-redundant storage (LRS) replicates your data three times within a single data center in the selected region. LRS is the lowest-cost redundancy option and offers the least durability compared to ZRS. LRS protects your data against server rack and drive failures. However, if a disaster such as fire or flooding occurs within the data center, all replicas of a storage account using LRS may be lost or unrecoverable. LRS is recommended for workloads that value write latency over durability and availability.
 
 Better availability for VMs using LRS disks can be achieved through applications like SQL Server AlwaysOn, that can synchronously write data to two zones and automatically failover to another zone during a disaster. If your workflow doesn't support application-level synchronous writes across zones, you can use a ZRS disk for better availability.
 
