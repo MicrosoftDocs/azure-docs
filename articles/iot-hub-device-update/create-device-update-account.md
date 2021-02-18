@@ -12,6 +12,12 @@ ms.service: iot-hub-device-update
 
 To get started with Device Update you'll need to create a Device Update account, instance and set access control roles. 
 
+## Prerequisites
+
+* Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above. 
+* Supported browsers:
+  * [Microsoft Edge](https://www.microsoft.com/edge)
+  * Google Chrome
 
 ## Create a device update account
 
