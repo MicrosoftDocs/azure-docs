@@ -1,34 +1,37 @@
 ---
 title: Introduction to Azure Managed Instance for Apache Cassandra
-description: Learn about Azure Managed Instance for Apache Cassandra. Built by the Azure Cosmos DB team, this service manages deployment and scaling of native open-source instances of Apache Cassandra in Azure. 
+description: Learn about Azure Managed Instance for Apache Cassandra. This service manages the deployment and scaling of native open-source instances of Apache Cassandra in Azure.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cassandra-managed-instance
 ms.topic: overview
-ms.date: 01/18/2021
+ms.date: 03/02/2021
 
 ---
 
-# Welcome to Azure Managed Instance for Apache Cassandra
+# What is Azure Managed Instance for Apache Cassandra? (Preview)
 
-The service provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters, accelerating hybrid scenarios and reducing ongoing maintenance. Delivered by the Azure Cosmos DB team, this service will also have deep integration and data movement capabilities with [Azure Cosmos DB Cassandra API](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction) upon its general release.
+> [!IMPORTANT]
+> Azure Managed Instance for Apache Cassandra is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+The Azure Managed Instance for Apache Cassandra service provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance. It will have deep integration and data movement capabilities with [Azure Cosmos DB Cassandra API](../cosmos-db/cassandra-introduction.md) upon its general release.
 
 :::image type="content" source="./media/introduction/icon.gif" alt-text="Azure Managed Instance for Apache Cassandra is a managed service for Apache Cassandra." border="false":::
 
-## Key Benefits
+## Key benefits
 
-### Hybrid Deployments
+### Hybrid deployments
 
-You can use the service to easily inject managed instances of Apache Cassandra datacenters (deployed automatically as virtual machine scale sets), into a new or existing Azure VNET. These datacenters can be added to your existing Apache Cassandra ring running on-premises (via [Azure ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute)), in Azure, or another cloud environment. 
+You can use this service to easily place managed instances of Apache Cassandra datacenters, which are deployed automatically as virtual machine scale sets, into a new or existing Azure VNET. These data centers can be added to your existing Apache Cassandra ring running on-premises via [Azure ExpressRoute](../architecture/reference-architectures/hybrid-networking/expressroute.md) in Azure, or another cloud environment.
 
-- Simplified deployment (once hybrid connectivity is established through gossip protocol).
-- Hosted metrics in [Prometheus](https://prometheus.io/docs/introduction/overview/) to monitor activity across your cluster.
+- **Simplified deployment:** After the hybrid connectivity is established deployment is easy through the gossip protocol.
+- **Hosted metrics:** The metrics are hosted in [Prometheus](https://prometheus.io/docs/introduction/overview/) to monitor activity across your cluster.
 
+### Simplified scaling
 
-### Simplified Scaling
-
-In Azure Managed Instance for Apache Cassandra, scaling up and scaling down nodes in a datacenter is fully managed. You enter how many nodes you need, and our scaling orchestrator takes care of establishing their proper operation within the Cassandra ring.
-
+In the managed instance, scaling up and scaling down nodes in a datacenter is fully managed. You enter the number of nodes you need, and the scaling orchestrator takes care of establishing their operation within the Cassandra ring.
 
 ### Managed and cost-effective
 
@@ -43,10 +46,10 @@ The service provides management operations for the following common Apache Cassa
 - Setting up backups
 - Maintaining audit logs
 
-Our flexible, on-demand, instance-based pricing model (with no licensing fees) allows you to adjust to your specific workloads needs, by defining number of cores, VM SKU, and memory/disk space.
+Our flexible, on-demand, instance-based pricing model with no licensing fees allows you to adjust to your specific workload needs, by defining many cores, VM SKU, and memory, disk space.
 
 ## Next steps
 
 Get started with one of our quickstarts:
 
-- [Get started](quickstart.md)
+- [Create a managed instance cluster from the Azure portal](quickstart.md)
