@@ -86,7 +86,7 @@ Finally click `Review + Create` to create your Grafana server.
 
     :::image type="content" source="./media/prometheus-grafana/grafana.png" alt-text="View Grafana" border="false":::
 
-    You can choose from open-source dashboards created for Apache Cassandra in Grafana such as <a id="raw-url" href="https://raw.githubusercontent.com/TheovanKraay/cassandra-dashboards/main/cluster.json" download>this</a>. Download and import the dashboard's JSON definition into Grafana:
+    You can choose from open-source dashboards created for Apache Cassandra in Grafana such as [this](https://github.com/TheovanKraay/cassandra-exporter/blob/master/grafana/instaclustr/cluster-overview.json). Download and import the dashboard's JSON definition into Grafana:
 
     :::image type="content" source="./media/prometheus-grafana/grafana-import.png" alt-text="Import Grafana" border="false":::
     :::image type="content" source="./media/prometheus-grafana/grafana-import-json.png" alt-text="Import Grafana JSON" border="false":::
