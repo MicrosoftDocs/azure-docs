@@ -7,7 +7,7 @@ author: mjudeikis
 ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
-ms.service: container-service
+ms.service: azure-redhat-openshift
 #Customer intent: As a developer, I need to understand how to manage Openshift projects and development resources
 ---
 
