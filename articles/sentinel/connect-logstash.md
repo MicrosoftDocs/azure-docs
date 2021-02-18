@@ -75,7 +75,7 @@ Use the information in the Logstash [Structure of a config file](https://www.ela
 | `azure_resource_id` | string | Optional field. Defines the ID of the Azure resource where the data resides. <br>The resource ID value is especially useful if you are using [resource-based RBAC](resource-based-rbac.md) to provide access to specific data only. |
 | | | |
 
-\* You can find the workspace ID and primary key in the workspace resource, under **Agents management**.
+* You can find the workspace ID and primary key in the workspace resource, under **Agents management**.
 
 #### Sample configurations
 
