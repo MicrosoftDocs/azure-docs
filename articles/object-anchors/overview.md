@@ -26,12 +26,9 @@ Some example use cases enabled by Azure Object Anchors include:
 
 - **Asset Finding**. If you already have a 3D model of some object in your physical space, Object Anchors can enable you to locate and track instances of that object in your physical environment.
 
-
-The following sections provide information about getting started with using and building apps with Azure Object Anchors.
-
 ## Next steps
 
-Get started with Object Anchors.
+The following sections provide information about getting started with using and building apps with Azure Object Anchors.
 
 > [!div class="nextstepaction"]
 > [Model Ingestion](quickstarts/get-started-model-ingestion.md)
