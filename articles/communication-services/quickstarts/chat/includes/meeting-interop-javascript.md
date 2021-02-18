@@ -163,6 +163,8 @@ const messagebox = document.getElementById("message-box");
 
 var messages = '<div class="container lighter">Welcome to the meeting, ACS user!</div>';
 
+init();
+
 async function init() {
   const connectionString = "<ACS CONNECTION STRING>";
   const endpointUrl = "<ACS ENDPOINT URL>";
@@ -195,10 +197,7 @@ async function init() {
   );
 
   console.log('Azure Communication Chat client created!');
-
 }
-
-init();
 
 callButton.addEventListener("click", async () => {
   // join with meeting link
@@ -207,6 +206,7 @@ callButton.addEventListener("click", async () => {
   call.on('callStateChanged', () => {
         callStateElement.innerText = call.state;
   })
+  
   // toggle button and chat box states
   chatBox.style.display = "block";
   hangUpButton.disabled = false;
@@ -219,7 +219,7 @@ callButton.addEventListener("click", async () => {
   // open notifications channel
   await chatClient.startRealtimeNotifications();
 
-  // subscribe to new notification
+  // subscribe to new message notification
   chatClient.on("chatMessageReceived", (e) => {
     console.log("Notification chatMessageReceived!");
     renderMessage(e.content);
@@ -234,7 +234,7 @@ async function renderMessage(message) {
 hangUpButton.addEventListener("click", async () => 
   {
     // end the current call
-    await call.hangUp({ forEveryone: true });
+    await call.hangUp();
 
     // toggle button states
     hangUpButton.disabled = true;
@@ -245,7 +245,6 @@ hangUpButton.addEventListener("click", async () =>
     chatBox.style.display = "none";
     messages = "";
   });
-
 
 sendMessageButton.addEventListener("click", async () =>
   {
@@ -284,6 +283,6 @@ Open your browser and navigate to http://localhost:8080/. You should see the fol
 
 :::image type="content" source="../media/javascript/acs-join-teams-meeting-chat-quickstart.PNG" alt-text="Screenshot of the completed JavaScript Application.":::
 
-Insert the Teams meeting link and thread id into the text boxes. Press *Join Teams Meeting* to join the Teams meeting and chat from within your Communication Services application. Navigate to the bottom of the page and you can start chatting.
+Insert the Teams meeting link and thread id into the text boxes. Press *Join Teams Meeting* to join the Teams meeting and chat from within your Communication Services application. Navigate to the bottom of the page to start chatting.
 
 **Note** - Currently only sending, receiving and editing messages is supported for interoperability scenarios with Teams. Other features like typing indicators and Communication Services users adding or removing other users from the Teams meeting are not yet supported.  
