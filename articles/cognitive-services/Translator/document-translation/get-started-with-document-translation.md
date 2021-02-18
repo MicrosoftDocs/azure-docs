@@ -196,26 +196,7 @@ The following headers are included with each Document Translator API request:
 >[!NOTE]
 > If a file with the same name already exists in the destination, it will be overwritten.
 
-### POST a translation request
-
-> [!IMPORTANT]
->
-> * For the code samples, below, you may need to update the following fields, depending upon the operation:
-
->> [!div class="checklist"]
->>
->> * `endpoint`
->> * `subscriptionKey`
->> * `sourceURL`
->> * `targetURL`
->> * `glossaryURL`
->> * `id`  (job ID)
->>
-> * You can find the job `id`  in the The POST method's  response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**.  
-> * You can also use a GET Jobs request to retrieve the  job `id`  for a Document Translation operation.
-> * For the samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  
->
-> See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
+## POST a translation request
 
 <!-- markdownlint-disable MD024 -->
 ### POST request body without optional glossaryURL
@@ -280,6 +261,25 @@ The following headers are included with each Document Translator API request:
   ]
 }
 ```
+
+> [!IMPORTANT]
+>
+> For the code samples, below, you may need to update the following fields, depending upon the operation:
+>>>
+>> * `endpoint`
+>> * `subscriptionKey`
+>> * `sourceURL`
+>> * `targetURL`
+>> * `glossaryURL`
+>> * `id`  (job ID)
+>>
+> Where to finding the `id` value:
+> * You can find the job `id`  in the The POST method's  response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**.  
+> * You can also use a GET Jobs request to retrieve the  job `id`  for a Document Translation operation.
+>
+> For the code samples below, you'll hard-code your key and endpoint where indicated; remember to remove the key from your code when you're done, and never post it publicly.  
+>
+> See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
 
 ## _POST Document Translation_ request code samples
 
