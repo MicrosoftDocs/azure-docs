@@ -1,12 +1,10 @@
 ---
 title: Set up Verifiable Credentials issuer in your own Azure AD
 description: Set up your own verifiable credentials issuer in Azure
-services: active-directory
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: active-directory
-ms.workload: identity
+ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 02/12/2021

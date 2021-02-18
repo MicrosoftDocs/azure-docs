@@ -1,10 +1,9 @@
 ---
 title: Issuer service communication examples
 description: Details of communication between identity provider and issuer service
-services: active-directory
 author: barclayn
 manager: davba
-ms.service: active-directory
+ms.service: identity
 ms.subservice: verifiable-credentials
 ms.workload: identity
 ms.topic: conceptual

@@ -1,12 +1,10 @@
 ---
 title: Tutorial - Create Sample Ninja Credential in your Issuer
 description: Modify the sample app to work with your issuer
-services: active-directory
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: active-directory
-ms.workload: identity
+ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 02/12/2021

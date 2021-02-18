@@ -5,8 +5,7 @@ services: active-directory
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: active-directory
-ms.workload: identity
+ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 02/17/2021

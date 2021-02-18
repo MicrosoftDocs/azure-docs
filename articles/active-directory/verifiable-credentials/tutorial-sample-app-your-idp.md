@@ -1,12 +1,10 @@
 ---
 title: Set up Verifiable Credentials issuer in your own Azure AD how is this different?
 description: Change the Verifiable Credential code sample to work with your Azure tenant
-services: active-directory
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: active-directory
-ms.workload: identity
+ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 02/16/2021

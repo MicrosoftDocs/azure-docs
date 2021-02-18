@@ -1,10 +1,9 @@
 ---
 title: Azure Active Directory Verifiable Credentials
 description: An overview Azure Verifiable Credentials.
-services: active-directory
 author: barclayn
 manager: daveba
-ms.service: active-directory
+ms.service: identity
 ms.subservice: verifiable-credentials
 ms.topic: overview
 ms.date: 02/16/2021

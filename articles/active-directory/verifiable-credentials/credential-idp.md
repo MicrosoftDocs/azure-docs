@@ -4,9 +4,8 @@ description: This article shows you how to set up your identity provider with yo
 services: active-directory
 author: barclayn
 manager: davba
-ms.service: active-directory
+ms.service: identity
 ms.subservice: verifiable-credentials
-ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: barclayn

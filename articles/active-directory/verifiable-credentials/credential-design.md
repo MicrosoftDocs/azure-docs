@@ -4,9 +4,8 @@ description: This article shows you how you can customize your credentials
 services: active-directory
 author: barclayn
 manager: davba
-ms.service: active-directory
+ms.service: identity
 ms.subservice: verifiable-credentials
-ms.workload: identity
 ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: barclayn

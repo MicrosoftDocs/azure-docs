@@ -1,12 +1,10 @@
 ---
 title: Tutorial - Modify the verifiable credential sample app to work with your identity provider
 description: Change the sample app to connect to your own verifiable credentials issuer in Azure
-services: active-directory
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: active-directory
-ms.workload: identity
+ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 02/17/2021

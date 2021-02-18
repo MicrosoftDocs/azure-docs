@@ -4,9 +4,8 @@ description: Download and install the Microsoft Authenticator app with Azure Ver
 services: active-directory
 author: barclayn
 manager: davba
-ms.service: active-directory
+ms.service: identity
 ms.subservice: verifiable-credentials
-ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: barclayn

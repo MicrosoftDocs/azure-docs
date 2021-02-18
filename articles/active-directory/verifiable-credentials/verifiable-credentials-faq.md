@@ -1,12 +1,10 @@
 ---
 title: Frequently asked questions - Azure Verifiable Credentials
 description: Find answers to common questions about Verifiable Credentials
-services: active-directory
 author: barclayn
 manager: davba
-ms.service: active-directory
+ms.service: identity
 ms.subservice: verifiable-credentials
-ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: barclayn

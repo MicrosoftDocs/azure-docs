@@ -1,12 +1,10 @@
 ---
 title: Define key pair values or claims in Azure Verifiable credentials
 description: Verifiable credentials use key pairs of attributes and values. This article helps you define properties and contents of your verifiable credentials
-services: active-directory
 author: barclayn
 manager: davba
-ms.service: active-directory
+ms.service: identity
 ms.subservice: verifiable-credentials
-ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: barclayn

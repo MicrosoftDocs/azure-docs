@@ -1,8 +1,7 @@
 ---
 title: Issue verifiable credentials using a sample app
 description: Issue Verifiable Credentials using a sample app
-services: active-directory
-ms.service: active-directory
+ms.service: identity
 ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn

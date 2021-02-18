@@ -1,12 +1,10 @@
 ---
 title: Troubleshooting - Azure Verifiable Credentials
 description: Find answers to common errors when working with Azure Verifiable Credentials
-services: active-directory
 author: barclayn
 manager: davba
-ms.service: active-directory
+ms.service: identity
 ms.subservice: verifiable-credentials
-ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: barclayn
