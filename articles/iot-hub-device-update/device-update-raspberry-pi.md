@@ -15,7 +15,7 @@ and package-based.
 
 Image updates provide a higher level of confidence in the end-state of the device. It is typically easier to replicate the results of an image-update between a pre-production environment and a production environment, since it doesn’t pose the same challenges as packages and their dependencies. Due to their atomic nature, one can also adopt an A/B failover model easily.
 
-This tutorial walks you through the steps to complete an end-to-end image-based update through Device Update for IoT Hub. 
+This tutorial walks you through the steps to complete an end-to-end image-based update using Device Update for IoT Hub. 
 
 In this tutorial you will learn how to:
 > [!div class="checklist"]
@@ -23,7 +23,7 @@ In this tutorial you will learn how to:
 > * Add a tag to your IoT device
 > * Import an update
 > * Create a device group
-> * Deploy a package update
+> * Deploy an image update
 > * Monitor the update deployment
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -140,7 +140,8 @@ value to represent the firmware version running on the device.
    adu-<image type>-image-<machine>-<version number>.<extension>
    ```
 
-Use that version number in the step below.
+Use that version number in the Import Update step below.
+
 ## Add a tag to your device
 
 1. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
@@ -232,7 +233,7 @@ Use that version number in the step below.
 
 3. Select Refresh to view the latest status details. Continue this process until the status changes to Succeeded.
 
-You have now completed a successful end-to-end package update using Device Update for IoT Hub on a Ubuntu Server 18.04 x64 device. 
+You have now completed a successful end-to-end impage update using Device Update for IoT Hub on a Raspberry Pi 3 B+ device. 
 
 ## Clean up resources
 
