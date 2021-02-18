@@ -30,6 +30,17 @@ This table shows support for authenticating Azure Active Directory (Azure AD) an
 | **macOS**  | ![Chrome supports USB on macOS for AAD accounts.][y] | ![Chrome does not support NFC on macOS for AAD accounts.][n] | ![Chrome does not support BLE on macOS for AAD accounts.][n] | ![Edge supports USB on macOS for AAD accounts.][y] | ![Edge does not support NFC on macOS for AAD accounts.][n] | ![Edge does not support BLE on macOS for AAD accounts.][n] | ![Firefox does not support USB on macOS for AAD accounts.][n] | ![Firefox does not support NFC on macOS for AAD accounts.][n] | ![Firefox does not support BLE on macOS for AAD accounts.][n] |
 | **Linux**  | ![Chrome supports USB on Linux for AAD accounts.][y] | ![Chrome does not support NFC on Linux for AAD accounts.][n] | ![Chrome does not support BLE on Linux for AAD accounts.][n] | ![Edge does not support USB on Linux for AAD accounts.][n] | ![Edge does not support NFC on Linux for AAD accounts.][n] | ![Edge does not support BLE on Linux for AAD accounts.][n] | ![Firefox does not support USB on Linux for AAD accounts.][n] | ![Firefox does not support NFC on Linux for AAD accounts.][n] | ![Firefox does not support BLE on Linux for AAD accounts.][n] |
 
+## Currently unsupported browsers
+
+The following operating system and browser combinations are not supported, but future support and testing is being investigated. If you would like to see additional operating system and browser support, please leave feedback using the product feedback tool at the bottom of the page.
+
+| Operating system | Browser |
+| ---- | ---- |
+| iOS | Safari, Brave |
+| macOS | Safari |
+| Android | Chrome |
+| ChromeOS | Chrome |
+
 ## Operating system versions tested
 
 The information in the table above was tested for the following operating system versions.
