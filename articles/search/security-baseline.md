@@ -495,7 +495,7 @@ Microsoft manages the underlying platform and treats all customer content as sen
 
 **Guidance**: 
 For service administration, use Azure role-based access control (Azure RBAC) to manage access to keys and configuration. For content operations, such as indexing and queries, Cognitive Search uses keys instead of an identity-based access control model. Use Azure RBAC to control access to keys.
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
  
 - [How to use roles for administrative access to Cognitive Search](./search-security-rbac.md)
