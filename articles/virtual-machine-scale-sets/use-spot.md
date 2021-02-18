@@ -6,9 +6,9 @@ ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.date: 03/25/2020
+ms.date: 02/17/2021
 ms.reviewer: cynthn
-ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
@@ -46,15 +46,29 @@ The following [offer types](https://azure.microsoft.com/support/legal/offer-deta
 
 ## Eviction policy
 
-When creating Azure Spot Virtual machine scale sets, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
+When creating Azure Spot Virtual Machine scale sets, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
 
 The *Deallocate* policy moves your evicted instances to the stopped-deallocated state allowing you to redeploy evicted instances. However, there is no guarantee that the allocation will succeed. The deallocated VMs will count against your scale set instance quota and you will be charged for your underlying disks. 
 
-If you would like your instances in your Azure Spot Virtual machine scale set to be deleted when they are evicted, you can set the eviction policy to *delete*. With the eviction policy set to delete, you can create new VMs by increasing the scale set instance count property. The evicted VMs are deleted together with their underlying disks, and therefore you will not be charged for the storage. You can also use the auto-scaling feature of scale sets to automatically try and compensate for evicted VMs, however, there is no guarantee that the allocation will succeed. It is recommended you only use the autoscale feature on Azure Spot Virtual machine scale sets when you set the eviction policy to delete to avoid the cost of your disks and hitting quota limits. 
+If you would like your instances in your Azure Spot Virtual Machine scale set to be deleted when they are evicted, you can set the eviction policy to *delete*. With the eviction policy set to delete, you can create new VMs by increasing the scale set instance count property. The evicted VMs are deleted together with their underlying disks, and therefore you will not be charged for the storage. You can also use the auto-scaling feature of scale sets to automatically try and compensate for evicted VMs, however, there is no guarantee that the allocation will succeed. It is recommended you only use the autoscale feature on Azure Spot Virtual machine scale sets when you set the eviction policy to delete to avoid the cost of your disks and hitting quota limits. 
 
 Users can opt in to receive in-VM notifications through [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 
+## Try-restore (preview)
+
+This new platform-level feature will use AI to automatically try to restore evicted Spot instances inside a Virtual Machine Scale Sets (VMSS) to maintain the target instance count. 
+
+Try-restore benefits:
+- Enables by default when deploying Azure Spot Virtual Machines in a scale set.
+- Attempts to restore Azure Spot Virtual Machines evicted due to capacity.
+- Restored Azure Spot Virtual Machines are expected to run for a longer duration with a lower probability of a capacity triggered eviction.
+- Improves the lifespan of an Azure Spot Virtual Machine, so workloads run for a longer duration.
+- Helps Virtual Machine Scale Sets to maintain the target count for Azure Spot Virtual Machines, similar to maintain target count feature that already exist for Pay-As-You-Go VMs.
+
+For the preview, Try-restore only works with manual scaling. You cannot use Try-restore with auto-scale at this time.
+
 ## Placement Groups
+
 Placement group is a construct similar to an Azure availability set, with its own fault domains and upgrade domains. By default, a scale set consists of a single placement group with a maximum size of 100 VMs. If the scale set property called `singlePlacementGroup` is set to *false*, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs. 
 
 > [!IMPORTANT]
