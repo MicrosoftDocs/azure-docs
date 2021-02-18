@@ -1,6 +1,6 @@
 ---
-title: Getting Started with Raspberry Pi 3 B+ Reference Yocto Image | Microsoft Docs
-description: Getting Started with Raspberry Pi 3 B+ Reference Yocto Image.
+title: Getting Started with Raspberry Pi 3 B+ Reference Image | Microsoft Docs
+description: Getting Started with Raspberry Pi 3 B+ Reference Image.
 author: vimeht
 ms.author: vimeht
 ms.date: 2/11/2021
@@ -8,19 +8,19 @@ ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
 
-# Getting Started with Raspberry Pi 3 B+ Reference Yocto Image
-Device Update for IoT Hub provides Yocto reference images for testing and rollout.
+# Getting Started with Raspberry Pi 3 B+ Reference Image
+Device Update for IoT Hub provides reference images for testing and rollout.
 
-## Download Yocto image
+## Download image
 
-There are three Yocto images available as a part of the "Assets" in a given
+There are three images available as a part of the "Assets" in a given
 [Device Update GitHub release](https://github.com/Azure/iot-hub-device-update/releases). The base image (adu-base-image) and two update images (adu-update-image) are provided so you can try rollouts to different versions without needing to flash the SD card on the
 device.  To do so, you'll need to upload the update images to the Device Update for IoT Hub
 Service, as a part of the import.
 
 ## Flash SD card with image
 
-Using your favorite OS flashing tool, install the Yocto Device Update base image
+Using your favorite OS flashing tool, install the Device Update base image
 (adu-base-image) on the SD Card that will be used in the Raspberry Pi 3 B+
 device.
 
