@@ -1,6 +1,6 @@
 ---
-title: Set up Verifiable Credentials issuer in your own Azure AD
-description: Learn how you can set up your own verifiable credentials issuer in Azure
+title: Set up Verifiable Credentials issuer in your own Azure AD how is this different?
+description: Change the Verifiable Credential code sample to work with your Azure tenant
 services: active-directory
 documentationCenter: ''
 author: barclayn
@@ -110,7 +110,7 @@ https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a
 
 To authenticate a credential issuance request to the user, the issuer website will use your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website will need a client ID and client secret that can be used to authenticate to Azure Key Vault.
 
-![](/media/tutorial-sample-app-your-idp/cvkOIRk.png)
+![Register node app](/media/tutorial-sample-app-your-idp/cvkOIRk.png)
 
 Copy down your Application (client) ID as you will need this later to update your Sample Node app.
 
@@ -118,7 +118,7 @@ Copy down your Application (client) ID as you will need this later to update you
 622d0251-9735-4ce2-b9cd-c09f69c2ff00
 ```
 
-![](/media/tutorial-sample-app-your-idp/JQ6a7lv.png)
+![application client id](/media/tutorial-sample-app-your-idp/JQ6a7lv.png)
 
 
 ### Generate a client secret

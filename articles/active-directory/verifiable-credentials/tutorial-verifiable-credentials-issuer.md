@@ -1,6 +1,6 @@
 ---
 title: Set up Verifiable Credentials issuer in your own Azure AD
-description: Learn how you can set up your own verifiable credentials issuer in Azure
+description: Set up your own verifiable credentials issuer in Azure
 services: active-directory
 documentationCenter: ''
 author: barclayn
@@ -31,7 +31,7 @@ Building on the work we did getting the Sample code running on your own machine.
 To issue Verifiable Credentials, you need the following services.
 
 - Complete the Getting Started Guide
-- An Azure account
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure AD with a premium license
 - An instance of Azure Key Vault where you have rights to create keys and secrets
 - Access to  Azure Blob storage that you can use to create containers and blobs
@@ -39,10 +39,7 @@ To issue Verifiable Credentials, you need the following services.
 
 ## Create your directory
 
-To get started, you first need an Azure AD tenant. In the world of Verifiable Credentials, your Azure AD tenant will represent your organization. When your tenant is enabled for the Verifiable Credentials preview, it will be assigned a decentralized identifier (DID) and be equipped with an issuer service for issuing credentials. Any credential you issue will be issued by your tenant and its DID. You will also use the DID when verifying Verifiable Credentials (VCs). At this time, the Verifiable Credentials preview also requires an Azure AD Premium license.
-
-- Use an existing Azure AD tenant, or [create a tenant](aa6cee96-1a85-4601-a641-92f2fa3a9222) if you do not already have one. Your directory does not need to be populated with user accounts; the tenant can be empty. 
-- Activate a [free trial](https://azure.microsoft.com/trial/get-started-active-directory/) of Azure AD Premium P1 or P2 in your tenant. If you have already purchased Azure AD Premium in your tenant, no action is required.
+To get started, you first need an Azure AD tenant. In the world of Verifiable Credentials, your Azure AD tenant will represent your organization. When your tenant is enabled for the Verifiable Credentials preview, it will be assigned a decentralized identifier (DID) and be equipped with an issuer service for issuing credentials. Any credential you issue will be issued by your tenant and its DID. You will also use the DID when verifying Verifiable Credentials (VCs). At this time, the Verifiable Credentials preview also requires an Azure AD Premium license. if you are newly created tenant your directory does not need to be populated with user accounts; the tenant can be empty.
 
 At this point, your tenant has been successfully enabled for the Verifiable Credentials preview. Continue onto the next section to set up your credential issuer service.
 

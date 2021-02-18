@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create Sample Ninja Credential in your Issuer
-description: Learn how you can set up your own verifiable credentials issuer in Azure
+description: Modify the sample app to work with your issuer
 services: active-directory
 documentationCenter: ''
 author: barclayn
@@ -16,13 +16,13 @@ ms.author: barclayn
 
 ---
 
-# Create Sample Ninja Credential in your Issuer 
+# Create Sample Ninja Credential in your Issuer
 
 Now that we have our Verifiable Credentials service set up in AAD. Let's use the Sample Code's Ninja Credential and use that with our Issuer. 
 
 ## Create the Rules and Display Files
 
-Open up Visual Studio Code and create the Rules JSON file with the following modifications. Save it as SampleNinjaRules.json so we can differentiate it in the future. 
+Open up Visual Studio Code and create the Rules JSON file with the following modifications. Save it as SampleNinjaRules.json so we can differentiate it in the future.
 
 ### Rules File
 

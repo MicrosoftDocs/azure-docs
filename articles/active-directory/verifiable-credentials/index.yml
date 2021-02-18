@@ -52,4 +52,4 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Some more complex scenario
-            url: how-to1.md
+            url: how-to-idp-claims.md
