@@ -2171,6 +2171,6 @@ Usage Summary Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: 
 
 ## Next steps
 
-* To learn more about how to assign a user as an administrator of an Azure subscription, see [Add or remove Azure role assignments (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* To learn more about how to assign a user as an administrator of an Azure subscription, see [Assign a user as an administrator of an Azure subscription](../../role-based-access-control/role-assignments-portal-subscription-admin.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understand the different roles](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * For details on the relationship between subscriptions and an Azure AD tenant, or for instructions to associate or add a subscription, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
