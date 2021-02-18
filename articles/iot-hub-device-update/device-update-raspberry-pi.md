@@ -233,7 +233,7 @@ Use that version number in the Import Update step below.
 
 3. Select Refresh to view the latest status details. Continue this process until the status changes to Succeeded.
 
-You have now completed a successful end-to-end impage update using Device Update for IoT Hub on a Raspberry Pi 3 B+ device. 
+You have now completed a successful end-to-end image update using Device Update for IoT Hub on a Raspberry Pi 3 B+ device. 
 
 ## Clean up resources
 
