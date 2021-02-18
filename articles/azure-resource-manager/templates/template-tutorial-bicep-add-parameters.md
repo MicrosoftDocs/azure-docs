@@ -183,4 +183,4 @@ If you're stopping now, you might want to clean up the resources you deployed by
 You improved the template created in the [first tutorial](template-tutorial-create-first-template.md) by adding parameters. In the next tutorial, you'll learn about template functions.
 
 > [!div class="nextstepaction"]
-> [Add template functions](template-tutorial-add-functions.md)
+> [Add template functions](template-tutorial-bicep-add-functions.md)

@@ -16,7 +16,7 @@ In this tutorial, you learn how to add [template functions](template-functions.m
 
 We recommend that you complete the [tutorial about parameters](template-tutorial-bicep-add-parameters.md), but it's not required.
 
-You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-bicep-create-first-template.md#get-tools).
+You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-bicep-create-first-template.md#get-tools).
 
 ## Review template
 
@@ -96,4 +96,4 @@ If you're stopping now, you might want to clean up the resources you deployed by
 In this tutorial, you used a function when defining the default value for a parameter. In this tutorial series, you'll continue using functions. By the end of the series, you'll add functions to every section of the template.
 
 > [!div class="nextstepaction"]
-> [Add variables](template-tutorial-add-variables.md)
+> [Add variables](template-tutorial-bicep-add-variables.md)
