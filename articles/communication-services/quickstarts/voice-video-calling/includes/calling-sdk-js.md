@@ -136,6 +136,9 @@ The `CallAgent` instance emits an `incomingCall` event when the logged in identi
 
 ```js
 const incomingCallHander = async (args: { incomingCall: IncomingCall }) => {
+	//Get information about caller
+	var callerInfo = incomingCall.callerInfo
+	
 	//accept the call
 	var call = await incomingCall.accept();
 
@@ -165,12 +168,10 @@ const callId: string = call.id;
 const remoteParticipants = call.remoteParticipants;
 ```
 
-* The identity of caller if the call is incoming. Identity is one of the `CommunicationIdentifier` types
+* The identifier of caller if the call is incoming. Identifier is one of the `CommunicationIdentifier` types
 ```js
 
-const callerIdentity = call.callerInfo.identity;
-
-```
+const callerIdentity = call.callerInfo.identifier;
 
 * Get the state of the Call.
 ```js
@@ -456,12 +457,12 @@ renderer.dispose()
 
 
 ### RendererView methods and properties
-When creating a `RendererView` you can specify `scalingMode` and `mirrored` properties.
+When creating a `RendererView` you can specify `scalingMode` and `isMirrored` properties.
 Scaling mode can be 'Stretch', 'Crop', or 'Fit'
-If `Mirrored` is specified, the rendered stream will be flipped vertically.
+If `isMirrored` is specified, the rendered stream will be flipped vertically.
 
 ```js
-const rendererView: RendererView = renderer.createView({ scalingMode, mirrored });
+const rendererView: RendererView = renderer.createView({ scalingMode, isMirrored });
 ```
 Any given `RendererView` instance has a `target` property that represents the rendering surface. This has to be attached in the application UI:
 ```js
@@ -543,7 +544,7 @@ document.body.appendChild(view.target);
 Prompt a user to grant camera/microphone permissions with the following:
 
 ```js
-const result = await deviceManager.askDevicePermission(audio: true, video: true);
+const result = await deviceManager.askDevicePermission({audio: true, video: true});
 ```
 This will resolve asynchronously with an object indicating if `audio` and `video` permissions were granted:
 ```js
