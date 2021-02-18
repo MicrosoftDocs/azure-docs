@@ -67,18 +67,7 @@ To view the metrics for your Standard Load Balancer resources:
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
-For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account by adding a [Diagnostic Setting](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) for the 'All Metrics' category. 
-
-### Configure alerts for multi-dimensional metrics ###
-
-Azure Standard Load Balancer supports easily configurable alerts for multi-dimensional metrics. Configure custom thresholds for specific metrics to trigger alerts with varying levels of severity to empower a touchless resource monitoring experience.
-
-To configure alerts:
-1. Go to the alert sub-blade for the load balancer
-1. Create new alert rule
-    1.  Configure alert condition
-    1.  (Optional) Add action group for automated repair
-    1.  Assign alert severity, name and description that enables intuitive reaction
+For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). These metrics can be written to a storage account by adding a [Diagnostic Setting](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) for the 'All Metrics' category. 
 
 ### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
 
@@ -223,6 +212,32 @@ The chart displays the following information:
 The chart allows customers to troubleshoot the deployment on their own without having to guess or ask support whether other issues are occurring. The service was unavailable because health probes were failing due to either a misconfiguration or a failed application.
 </details>
 
+## Configure alerts for multi-dimensional metrics ###
+
+Azure Standard Load Balancer supports easily configurable alerts for multi-dimensional metrics. Configure custom thresholds for specific metrics to trigger alerts with varying levels of severity to empower a touchless resource monitoring experience.
+
+To configure alerts:
+1. Go to the alert sub-blade for the load balancer
+1. Create new alert rule
+    1.  Configure alert condition
+    1.  (Optional) Add action group for automated repair
+    1.  Assign alert severity, name and description that enables intuitive reaction
+
+### Inbound availability alerting
+To alert for inbound availability,  you can create two separate alerts using the data path availability and health probe status metrics. Customers may have different scenarios that require specific alerting logic, but the below examples will be helpful for most configurations.
+
+Using data path availability, you can fire alerts whenever a specific load balancing rule becomes unavailable. You can configure this alert by setting an alert condition for the data path availability and splitting by all current values and future values for both Frontend Port and Frontend IP Address. Setting the alert logic to be less than or equal to 0 will cause this alert to be fired whenever any load balancing rule becomes unresponsive. Set the aggregation granularity and frequency of evaluation according to your desired evaluation. 
+
+With health probe status you can alert when a given backend instance fails to respond to the health probe for a significant amount of time. Set up your alert condition to use the health probe status metric and split by Backend IP Address and Backend Port. This will ensure that you can alert separately for each individual backend instance’s ability to serve traffic on a specific port. Use the **Average** aggregation type and set the threshold value according to how frequently your backend instance is probed and what you consider to be your healthy threshold. 
+
+You can also alert on a backend pool level by not splitting by any dimensions and using the **Average** aggregation type. This will allow you to set up alert rules such as alert when 50% of my backend pool members are unhealthy.
+
+### Outbound availability alerting
+To configure for outbound availability, you can configure two separate alerts using the SNAT Connection Count and Used SNAT Port metrics.
+
+To detect outbound connection failures, configure an alert using SNAT Connection Count and filtering to Connection State = Failed. Use the **Total** aggregation. You can then also split this by Backend IP Address set to all current and future values to alert separately for each backend instance experiencing failed connections. Set the threshold to be greater than zero or a higher number if you expect to see some outbound connection failures.
+
+Through Used SNAT Ports you can alert on a higher risk of SNAT exhaustion and outbound connection failure. Ensure you are splitting by Backend IP address and Protocol when using this alert and use the **Average** aggregation. Set the threshold to be greater than a percentage(s) of the number of ports you have allocated per instance that you deem unsafe. For example, you may configure a low severity alert when a backend instance uses 75% of its allocated ports and a high severity when it uses 90% or 100% of its allocated ports.  
 ## <a name = "ResourceHealth"></a>Resource health status
 
 Health status for the Standard Load Balancer resources is exposed via the existing **Resource health** under **Monitor > Service Health**. It is evaluated every **two minutes** by measuring Data Path Availability which determines whether your Frontend Load Balancing endpoints are available.

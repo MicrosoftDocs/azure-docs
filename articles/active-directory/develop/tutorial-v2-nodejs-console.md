@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 02/17/2021
 ms.author: v-doeris
 ---
 
@@ -121,9 +121,9 @@ Inside the *bin* folder, create another file named *auth.js* and add the followi
 const msal = require('@azure/msal-node');
 
 /**
- * Configuration object to be passed to MSAL instance on creation. 
+ * Configuration object to be passed to MSAL instance on creation.
  * For a full list of MSAL Node configuration parameters, visit:
- * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md 
+ * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md
  */
 const msalConfig = {
     auth: {
@@ -135,8 +135,8 @@ const msalConfig = {
 
 /**
  * With client credentials flows permissions need to be granted in the portal by a tenant administrator.
- * The scope is always in the format '<resource>/.default'. For more, visit: 
- * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow 
+ * The scope is always in the format '<resource>/.default'. For more, visit:
+ * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
  */
 const tokenRequest = {
     scopes: [process.env.GRAPH_ENDPOINT + '.default'],
@@ -154,7 +154,7 @@ const cca = new msal.ConfidentialClientApplication(msalConfig);
 
 /**
  * Acquires token with client credentials.
- * @param {object} tokenRequest 
+ * @param {object} tokenRequest
  */
 async function getToken(tokenRequest) {
     return await cca.acquireTokenByClientCredential(tokenRequest);
@@ -208,8 +208,8 @@ const axios = require('axios');
 
 /**
  * Calls the endpoint with authorization bearer token.
- * @param {string} endpoint 
- * @param {string} accessToken 
+ * @param {string} endpoint
+ * @param {string} accessToken
  */
 async function callApi(endpoint, accessToken) {
 

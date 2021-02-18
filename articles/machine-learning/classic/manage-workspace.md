@@ -43,7 +43,7 @@ To manage the web services associated with this Studio (classic) workspace, use 
 > [!NOTE]
 > To deploy or manage New web services you must be assigned a contributor or administrator role on the subscription to which the web service is deployed. If you invite another user to a machine learning Studio (classic) workspace, you must assign them to a contributor or administrator role on the subscription before they can deploy or manage web services. 
 > 
->For more information on setting access permissions, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+>For more information on setting access permissions, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Next steps
 * Learn more about [deploy Machine Learning with Azure Resource Manager Templates](deploy-with-resource-manager-template.md).
