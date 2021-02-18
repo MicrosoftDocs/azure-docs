@@ -119,7 +119,9 @@ There are two types of logs that can be emitted from Azure to Datadog.
 
 To send subscription level logs to Datadog, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Datadog.
 
-To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in Azure Monitor Resource Log categories.  To filter the specific set of Azure resources sending logs to Datadog, you can use Azure resource tags.  
+To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories).  To filter the specific set of Azure resources sending logs to Datadog, you can use Azure resource tags.  
+
+Please note that logs sent to Datadog will be charged by Azure. Please click [here](https://azure.microsoft.com/en-us/pricing/details/monitor/) to see the pricing of platform logs sent to Azure marketplace partners.
 
 Once you have completed configuring metrics and logs, select **Next: Single sign-on**.
 
