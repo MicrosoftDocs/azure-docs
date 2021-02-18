@@ -29,7 +29,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API
-            url: compare-cassandra-api-and-managed-instance.md
+            url: compare-cosmosdb-managed-instance.md
       - linkListType: quickstart
         links:
           - text: Create a managed instance cluster
@@ -55,4 +55,4 @@ landingContent:
       - linkListType: how-to-guide
         links: 
           - text: Manage resources with Azure CLI
-            url: manage-with-cli.md 
+            url: manage-resources-cli.md 

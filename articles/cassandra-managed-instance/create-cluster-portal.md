@@ -26,11 +26,11 @@ An Azure subscription or free Azure Cosmos DB trial account
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). Search for and select **Managed Instance for Apache Cassandra**.
 
-   :::image type="content" source="./media/create-cluster-portal/search-portal.png" alt-text="Search Azure portal" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/search-portal.png" alt-text="Search for Managed Instance for Apache Cassandra." lightbox="./media/create-cluster-portal/search-portal.png" border="true":::
 
 1. Select **Create Managed Instance for Apache Cassandra cluster** button.
 
-   :::image type="content" source="./media/create-cluster-portal/create-cluster.png" alt-text="Create Cluster" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/create-cluster.png" alt-text="Create the cluster." lightbox="./media/create-cluster-portal/create-cluster.png" border="true":::
 
 1. On the **Create Managed Instance for Apache Cassandra** page, The click on **Next: Networking**.
 
@@ -45,25 +45,25 @@ An Azure subscription or free Azure Cosmos DB trial account
    * **Initial Cassandra admin password** - This password will be used to create the cluster.
    * **Confirm Cassandra admin password** - Reenter the password.
 
-   :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Create Cluster Page" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Fill out the create cluster form." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 
 1. Select **Next: Networking**.
 
 1. On the **Networking** page, select an existing Virtual Network or create a new one. Then click **Review+create**.
 
-   :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="Networking Page" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="Configure networking details." lightbox="./media/create-cluster-portal/networking.png" border="true":::
 
 1. Review and click create.
 
-   :::image type="content" source="./media/create-cluster-portal/review-create.png" alt-text="Create Cluster Review Page" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/review-create.png" alt-text="Review summary to create the cluster." lightbox="./media/create-cluster-portal/review-create.png" border="true":::
 
 1. After the resources are created, the overview page will show the cluster name and the number of nodes.
 
-   :::image type="content" source="./media/create-cluster-portal/overview.png" alt-text="Created Cluster Overview Page" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/overview.png" alt-text="Overview page after the cluster is created." lightbox="./media/create-cluster-portal/overview.png" border="true":::
 
-1. You can then review the cluster nodes within your existing or newly created VNET:
+1. You can then review the cluster nodes within your existing or newly created Azure Virtual Network:
 
-   :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="View Resources" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/resources.png" border="true":::
 
 ## Next steps
 

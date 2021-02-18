@@ -9,7 +9,7 @@
     - name: FAQ
       href: faq.md  
     - name: Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API
-      href: compare-cassandra-api-and-managed-instance.md                
+      href: compare-cosmosdb-managed-instance.md                
 - name: Quickstarts
   items:
     - name: Create a Cassandra cluster
@@ -19,5 +19,5 @@
 - name: How-to guides
   items:
     - name: Manage with Azure CLI
-      href: manage-with-cli.md
+      href: manage-resources-cli.md
           

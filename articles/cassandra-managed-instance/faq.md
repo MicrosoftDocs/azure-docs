@@ -9,7 +9,7 @@ ms.date: 03/02/2021
 ---
 # Frequently asked questions about Azure Managed Instance for Apache Cassandra (Preview)
 
-This article addresses frequently asked questions about Azure Managed Instance for Apache Cassandra. You will learn answers to questions like when to use managed instances, their benefits, throughput limits, supported regions, and other configuration details.
+This article addresses frequently asked questions about Azure Managed Instance for Apache Cassandra. You will learn when to use managed instances, their benefits, throughput limits, supported regions, and their configuration details.
 
 > [!IMPORTANT]
 > Azure Managed Instance for Apache Cassandra is currently in public preview.
@@ -22,11 +22,11 @@ This article addresses frequently asked questions about Azure Managed Instance f
 
 The Apache Cassandra database is the right choice when you need scalability and high availability without compromising performance. It's a great platform for mission-critical data due to the linear scalability and proven fault-tolerance on commodity hardware or cloud infrastructure. Azure Managed Instance for Apache Cassandra is a service to manage instances of open-source Apache Cassandra datacenters deployed in Azure.
 
-It can be used either entirely in the cloud or as a part of a hybrid cloud and on-premises cluster. This service is a great choice when you want all of the fine-grained configuration and control you have in open-source Apache Cassandra, without any maintenance overhead.
+It can be used either entirely in the cloud or as a part of a hybrid cloud and on-premises cluster. This service is a great choice when you want fine-grained configuration and control you have in open-source Apache Cassandra, without any maintenance overhead.
 
 ### Why should I use this service instead of Azure Cosmos DB Cassandra API?
 
-Azure Managed Instance for Apache Cassandra is delivered by the Azure Cosmos DB team. It is a standalone managed service for deploying, maintaining, and scaling open-source Apache Cassandra data-centers and clusters. [Azure Cosmos DB Cassandra API](../cosmos-db/cassandra-introduction.md) on the other hand is a Platform-as-a-Service, providing an interoperability layer for the Apache Cassandra wire protocol. If your expectation is for the platform to behave in exactly the same way as any Apache Cassandra cluster, you should choose the managed instance service. To learn more, see the [Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API](compare-cassandra-api-and-managed-instance.md) article.
+Azure Managed Instance for Apache Cassandra is delivered by the Azure Cosmos DB team. It is a standalone managed service for deploying, maintaining, and scaling open-source Apache Cassandra data-centers and clusters. [Azure Cosmos DB Cassandra API](../cosmos-db/cassandra-introduction.md) on the other hand is a Platform-as-a-Service, providing an interoperability layer for the Apache Cassandra wire protocol. If your expectation is for the platform to behave in exactly the same way as any Apache Cassandra cluster, you should choose the managed instance service. To learn more, see the [Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API](compare-cosmosdb-managed-instance.md) article.
 
 ### Is Azure Managed Instance for Apache Cassandra dependent on Azure Cosmos DB?
 
@@ -62,7 +62,7 @@ Azure Managed Instance for Apache Cassandra supports all of the features in Apac
 
 ### Can I pair an on-premises Apache Cassandra cluster with the Azure Managed Instance for Apache Cassandra?
 
-Yes, you can configure a hybrid cluster with VNET injected data-centers deployed by the service. Managed Instance data-centers can communicate with on-premise data-centers within the same cluster ring.
+Yes, you can configure a hybrid cluster with Azure Virtual Network injected data-centers deployed by the service. Managed Instance data-centers can communicate with on-premise data-centers within the same cluster ring.
 
 ### Where can I give feedback on Azure Managed Instance for Apache Cassandra features?
 
