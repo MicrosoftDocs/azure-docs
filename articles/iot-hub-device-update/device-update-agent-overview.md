@@ -31,7 +31,7 @@ The 'ADU Core' interface is the primary communication channel between Device Upd
 
 ### Device Information Interface
 
-The Device Information Interface is used to implement the Azure IoT PnP `DeviceInformation` interface. [Learn More](device-update-plug-and-play.md#device-information-interface) about this interface.
+The Device Information Interface is used to implement the `Azure IoT PnP DeviceInformation` interface. [Learn More](device-update-plug-and-play.md#device-information-interface) about this interface.
 
 ## The Platform Layer
 
@@ -93,4 +93,12 @@ the Raspberry Pi reference Yocto image. Find the latest Raspberry Pi reference Y
 The APT Update Handler processes an APT-specific Update Manifest and invokes APT to
 install or update the specified Debian package(s).
 
-## Next Steps: Getting Started with the Device Update Agent
+## Self-update Device update agent
+
+The device update agent and its dependencies can be updated through the Device Update for IoT Hub pipeline. If you are using an image-based update, include the device update agent in your image. If you are using a package-based update, include the device update agent and its desired version in the apt manifest like any other package. [Learn more](device-update-apt-manifest.md) about apt manifest. 
+
+
+## Next Steps
+
+> [!div class="nextstepaction"]
+> [Understand Device Update agent configuration file](device-update-configuration-file.md)
