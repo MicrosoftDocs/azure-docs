@@ -44,10 +44,11 @@ Only resources listed in the Azure Monitor resource log categories emit logs to 
 
 ## Metrics not being emitted
 
-The Datadog resource is assigned a **Monitoring Reader** role in the appropriate Azure subscription. This enables the Datadog resource to collect metrics and send it to Datadog. Please click on the subscription name and open the **Access Control (IAM)** in the left navigation and search for the Datadog resource name. Verify that the Datadog resource has the **Monitoring Reader** role assignment as shown below.
+The Datadog resource is assigned a **Monitoring Reader** role in the appropriate Azure subscription. This role enables the Datadog resource to collect metrics and send those metrics to Datadog.
+
+To verify the resource has the correct role assignment, open the Azure portal and select the subscription. In the left pane, select **Access Control (IAM)**. Search for the Datadog resource name. Confirm that the Datadog resource has the **Monitoring Reader** role assignment, as shown below.
 
 :::image type="content" source="media/troubleshoot/datadogroleassignment.png" alt-text="Datadog role assignment in the Azure subscription" border="true":::
-
 
 ## Datadog agent installation fails
 
