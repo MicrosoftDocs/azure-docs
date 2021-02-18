@@ -23,13 +23,13 @@ This tutorial walks you through the steps to complete an end-to-end package-base
 
 In this tutorial you will learn how to:
 > [!div class="checklist"]
-> *Configure device update package repository
-> *Download and install device update agent and its dependencies
-> *Add a tag to your IoT device
-> *Import an update
-> *Create a device group
-> *Deploy a package update
-> *Monitor the update deployment
+> * Configure device update package repository
+> * Download and install device update agent and its dependencies
+> * Add a tag to your IoT device
+> * Import an update
+> * Create a device group
+> * Deploy a package update
+> * Monitor the update deployment
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
