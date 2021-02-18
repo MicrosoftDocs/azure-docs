@@ -29,14 +29,14 @@ This article describes common commands to automate the management of your Azure 
 
 The following sections demonstrate how to manage Azure Managed Instance for Apache Cassandra clusters, including:
 
-* [Create a managed instance cluster](#create-a-managed-cassandra-cluster)
-* [Delete a managed instance cluster](#delete-a-managed-cassandra-cluster)
+* [Create a managed instance cluster](#create-cluster)
+* [Delete a managed instance cluster](#delete-cluster)
 * [Get the cluster details](#get-cluster-details)
-* [Update an existing managed instance cluster](#update-an-existing-managed-cassandra-cluster)
-* [List clusters by resource group](#list-clusters-by-resource-group)
-* [List clusters by subscription ID](#list-clusters-by-subscription-id)
+* [Update an existing managed instance cluster](#update-cluster)
+* [List clusters by resource group](#list-clusters-resource-group)
+* [List clusters by subscription ID](#list-clusters-subscription)
 
-### Create a managed instance cluster
+### <a id="create-cluster"></a>Create a managed instance cluster
 
 Create an Azure Managed Instance for Apache Cassandra cluster:
 
@@ -62,7 +62,7 @@ az cassandra-mi cluster create \
     --externalGossipCertificates 'BEGIN CERTIFICATE-----\n...Base64 encoded certificate 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...Base64 encoded certificate 2...\n-----END CERTIFICATE-----' \
 ```
 
-### Delete a managed instance cluster
+### <a id="delete-cluster"></a>Delete a managed instance cluster
 
 Delete a cluster:
 
@@ -75,7 +75,7 @@ az cassandra-mi cluster delete \
     --resourceGroupName $resourceGroupName \
 ```
 
-### Get the cluster details
+### <a id="get-cluster-details"></a>Get the cluster details
 
 Get cluster details:
 
@@ -88,7 +88,7 @@ az cassandra-mi cluster get \
     --resourceGroupName $resourceGroupName \
 ```
 
-### Update an existing managed instance cluster
+### <a id="update-cluster"></a>Update an existing managed instance cluster
 
 Update an existing managed Cassandra cluster:
 
@@ -100,7 +100,7 @@ az cassandra-mi cluster update \
     --subscriptionId $subscriptionId 
 ```
 
-### List the clusters by resource group
+### <a id="list-clusters-resource-group"></a>List the clusters by resource group
 
 List clusters by resource group:
 
@@ -113,7 +113,7 @@ az cassandra-mi list-clusters \
     --resourceGroupName $resourceGroupName \
 ```
 
-### List clusters by subscription ID
+### <a id="list-clusters-subscription"></a>List clusters by subscription ID
 
 List clusters by subscription ID:
 
@@ -124,18 +124,17 @@ az cassandra-mi list-clusters \
     --subscriptionId $subscriptionId \
 ```
 
-## The managed instance datacenters
+## <a id="managed-instance-datacenter"></a>The managed instance datacenters
 
 The following sections demonstrate how to manage Azure Managed Instance for Apache Cassandra datacenters, including:
 
-* [Create a datacenter](#create-a-datacenter)
-* [Delete a datacenter](#delete-a-datacenter)
+* [Create a datacenter](#create-datacenter)
+* [Delete a datacenter](#delete-datacenter)
 * [Get datacenter details](#get-datacenter-details)
-* [Update or scale a datacenter](#update-or-scale-a-datacenter)
-* [Get datacenters in a cluster](#get-datacenters-in-a-cluster)
+* [Update or scale a datacenter](#update-datacenter)
+* [Get datacenters in a cluster](#get-datacenters-cluster)
 
-
-### Create a datacenter
+### <a id="create-datacenter"></a>Create a datacenter
 
 Create a datacenter:
 
@@ -155,7 +154,7 @@ az cassandra-mi datacenter create \
     --nodeCount 9 
 ```
 
-### Delete a datacenter
+### <a id="delete-datacenter"></a>Delete a datacenter
 
 Delete a datacenter:
 
@@ -170,7 +169,7 @@ az cassandra-mi datacenter delete \
     --dataCenterName $dataCenterName 
 ```
 
-### Get datacenter details
+### <a id="get-datacenter-details"></a>Get datacenter details
 
 Get datacenter details:
 
@@ -185,7 +184,7 @@ az cassandra-mi datacenter get \
     --dataCenterName $dataCenterName 
 ```
 
-### Update or scale a datacenter
+### <a id="update-datacenter"></a>Update or scale a datacenter
 
 Update or scale a datacenter (to scale change nodeCount value):
 
@@ -203,7 +202,7 @@ az cassandra-mi datacenter update \
     --nodeCount 13 
 ```
 
-### Get the datacenters in a cluster
+### <a id="get-datacenters-cluster"></a>Get the datacenters in a cluster
 
 Get datacenters in a cluster:
 

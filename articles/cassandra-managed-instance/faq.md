@@ -26,7 +26,7 @@ It can be used either entirely in the cloud or as a part of a hybrid cloud and o
 
 ### Why should I use this service instead of Azure Cosmos DB Cassandra API?
 
-Azure Managed Instance for Apache Cassandra is delivered by the Azure Cosmos DB team. It is a standalone managed service for deploying, maintaining, and scaling open-source Apache Cassandra data-centers and clusters. [Azure Cosmos DB Cassandra API](../cosmos-db/cassandra-introduction.md) on the other hand is a Platform-as-a-Service, providing an interoperability layer for the Apache Cassandra wire protocol. If your expectation is for the platform to behave in exactly the same way as any Apache Cassandra cluster, you should choose the managed instance service. To learn more, see the [Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API](cassandra-api-vs-cassandra-mi.md) article.
+Azure Managed Instance for Apache Cassandra is delivered by the Azure Cosmos DB team. It is a standalone managed service for deploying, maintaining, and scaling open-source Apache Cassandra data-centers and clusters. [Azure Cosmos DB Cassandra API](../cosmos-db/cassandra-introduction.md) on the other hand is a Platform-as-a-Service, providing an interoperability layer for the Apache Cassandra wire protocol. If your expectation is for the platform to behave in exactly the same way as any Apache Cassandra cluster, you should choose the managed instance service. To learn more, see the [Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API](compare-cassandra-api-and-managed-instance.md) article.
 
 ### Is Azure Managed Instance for Apache Cassandra dependent on Azure Cosmos DB?
 
@@ -34,7 +34,7 @@ No, there is no architectural dependency between Azure Managed Instance for Apac
 
 #### Can I deploy Azure Managed Instance for Apache Cassandra in any region?
 
-The service will be available in a limited number of regions during preview.
+The managed instance will be available in a limited number of regions during preview.
 
 ### What are the storage and throughput limits of Azure Managed Instance for Apache Cassandra?
 
@@ -46,11 +46,11 @@ The managed instance charges are based on the underlying VM cost, with a small m
 
 ### Can I use YAML file settings to configure behavior?
 
-Yes, you can embed YAML file configurations as part of an ARM template deployment.
+Yes, you can embed YAML file configurations as part of an Azure Resource Manager template deployment.
 
 ### How can I monitor infrastructure along with throughput?
 
-The [Prometheus](https://prometheus.io/docs/introduction/overview/) server is hosted to monitor activity across your cluster, and it exposes an endpoint. This maintains 10 minutes or 10 GB of data (whichever threshold is reached first). To use this monitoring, you need to set up a [federation](https://prometheus.io/docs/prometheus/latest/federation/) and an appropriate dashboard tool such as Grafana.
+The [Prometheus](https://prometheus.io/docs/introduction/overview/) server is hosted to monitor activity across your cluster, and it exposes an endpoint. This maintains 10 minutes or 10 GB of data (whichever threshold is reaches first). To use this monitoring, you need to set up a [federation](https://prometheus.io/docs/prometheus/latest/federation/) and an appropriate dashboard tool such as Grafana.
 
 ### Does Azure Managed Instance for Apache Cassandra provide full backups?
 
@@ -66,7 +66,7 @@ Yes, you can configure a hybrid cluster with VNET injected data-centers deployed
 
 ### Where can I give feedback on Azure Managed Instance for Apache Cassandra features?
 
-Provide feedback via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db) using the category "Managed Apache Cassandra".
+Provide feedback via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db?category_id=398548) using the category "Managed Apache Cassandra".
 
 To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 
@@ -74,7 +74,7 @@ To fix an issue with your account, file a [support request](https://ms.portal.az
 
 ### Will the managed instance support node addition, cluster status, and node status commands?
 
-All the *read-only* Nodetool commands such as `status` are available through Azure CLI. However, operations such as *node addition* are not available, because we manage the health of nodes in the managed instance. In the Hybrid mode, you can connect to the cluster with *Nodetool*. However, this mode is not recommended, as it could destabilize the cluster. It may also invalidate any production support SLA relating to the health of the managed instance datacenters in the cluster.
+All the *read-only* Nodetool commands such as `status` are available through Azure CLI. However, operations such as *node addition* are not available, because we manage the health of nodes in the managed instance. In the Hybrid mode, you can connect to the cluster with *Nodetool*. However, using Nodetool is not recommended, as it could destabilize the cluster. It may also invalidate any production support SLA relating to the health of the managed instance datacenters in the cluster.
 
 ### What happens with various settings for table metadata?
 

@@ -20,7 +20,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: Azure Managed Instance for Apache Cassandra
+  - title: About Azure Managed Instance for Apache Cassandra
     linkLists:
       - linkListType: overview
         links:
@@ -32,23 +32,27 @@ landingContent:
             url: compare-cassandra-api-and-managed-instance.md
       - linkListType: quickstart
         links:
-          - text: Create an Azure Managed Instance for Apache Cassandra
+          - text: Create a managed instance cluster
             url: create-cluster-portal.md
-          - text: Deploy a Managed Apache Spark Cluster with Azure Databricks
-            url: deploy-cluster-databricks.md            
-      - linkListType: video
-        links:
-          - text: Modernize your existing applications with a Cassandra managed instance in the cloud
-            url: https://tbc 
-
-  # Card 
-  - title: Use Azure Managed Instance for Apache Cassandra
-    linkLists:  
+          - text: Deploy a Spark cluster with Azure Databricks
+            url: deploy-cluster-databricks.md 
       - linkListType: concept
         links:   
           - text: Frequently asked questions
-            url: faq.md                
+            url: faq.md 
+      - linkListType: video
+        links:
+          - text: Modernize your applications with the managed instance
+            url: https://tbc 
+
+  # Card 
+  - title: Deploy and manage the managed instance
+    linkLists:  
+      - linkListType: quickstart
+        links:
+          - text: Deploy a Spark cluster with Azure Databricks
+            url: deploy-cluster-databricks.md 
       - linkListType: how-to-guide
         links: 
           - text: Manage resources with Azure CLI
-            url: manage-with-cli.md                           
+            url: manage-with-cli.md 
