@@ -77,7 +77,7 @@ The following are highly recommended as best practices:
 
 > [!IMPORTANT]
 > - Database being restored using LRS cannot be used until the migration process has been completed. This is because underlying technology is log shipping in NORECOVERY mode.
-> - STANDBY mode for log shipping is not supported by LRS due to the version differences between SQL Managed Instance and latest in-market SQL Server version.
+> - STANDBY mode for log shipping is not supported by LRS due to the version differences between SQL Managed Instance and in-market SQL Servers.
 
 ## Steps to execute
 
