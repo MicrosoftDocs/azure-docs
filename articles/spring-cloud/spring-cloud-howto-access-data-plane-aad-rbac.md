@@ -1,6 +1,6 @@
 ---
 title:  "Access data plane with AAD, RBAC"
-description: How to access data plane with Azure Active Directory role based access control.
+description: How to access data plane with Azure Active Directory role-based access control.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
@@ -29,7 +29,7 @@ This article explains how customers can access the Azure Spring Cloud config ser
 
 ## Access data plane
 
-After an AAD user is assigned the *Azure Spring Cloud Data Reader* role, customers can login to Azure CLI with user, service principal, or managed identity.  See [Authenticate Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) to get an access token.
+After an AAD user is assigned the *Azure Spring Cloud Data Reader* role, customers can log in to Azure CLI with user, service principal, or managed identity.  See [Authenticate Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) to get an access token.
 
 ```
 az login
