@@ -45,8 +45,6 @@ If you have [UEBA enabled](ueba-enrichments.md) and have allowed for at least 4 
 
 We've improved the Azure Sentinel incident searching experience, enabling you to navigate faster through incidents as you investigate a specific threat.
 
-:::image type="content" source="media/whats-new/improved-search.png" alt-text="Use the improved incident search.":::
-
 When searching for incidents in Azure Sentinel, you're now able to search by any of the following incident details:
 
 - ID
