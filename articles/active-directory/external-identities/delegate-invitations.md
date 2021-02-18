@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 02/12/2021
 
 ms.author: mimart
 author: msmimart
@@ -43,8 +43,6 @@ By default, all users, including guests, can invite guest users.
 
 4. Under **Guest user access restrictions (Preview)**, choose the level of access you want guest users to have:
   
-    ![Guest user access restrictions settings](./media/delegate-invitations/guest-user-access.png)
-
    - **Guest users have the same access as members (most inclusive)**: This option gives guests the same access to Azure AD resources and directory data as member users.
 
    - **Guest users have limited access to properties and memberships of directory objects**: (Default) This setting blocks guests from certain directory tasks, like enumerating users, groups, or other directory resources. Guests can see membership of all non-hidden groups.
@@ -67,13 +65,11 @@ By default, all users, including guests, can invite guest users.
 
 6. Under **Email one-time passcode for guests**, choose the appropriate settings (for more information, see [Email one-time passcode authentication](one-time-passcode.md)):
 
-   ![Email one-time passcode settings](./media/delegate-invitations/email-otp-settings.png)
-
-   - **Automatically enable email one-time passcode for guests in March 2021**. (Default) If the email one-time passcode feature is not already enabled for your tenant, it will be automatically turned on in March 2021. No further action is necessary if you want the feature enabled at that time. If you've already enabled or disabled the feature, this option will be unavailable.
+   - **Automatically enable email one-time passcode for guests in October 2021**. (Default) If the email one-time passcode feature is not already enabled for your tenant, it will be automatically turned on in October 2021. No further action is necessary if you want the feature enabled at that time. If you've already enabled or disabled the feature, this option will be unavailable.
 
    - **Enable email one-time passcode for guests effective now**. Turns on the email one-time passcode feature for your tenant.
 
-   - **Disable email one-time passcode for guests**. Turns off the email one-time passcode feature for your tenant, and prevents the feature from turning on in March 2021.
+   - **Disable email one-time passcode for guests**. Turns off the email one-time passcode feature for your tenant, and prevents the feature from turning on in October 2021.
 
    > [!NOTE]
    > Instead of the options above, you'll see the following toggle if you've enabled or disabled this feature or if you've previously opted in to the preview:

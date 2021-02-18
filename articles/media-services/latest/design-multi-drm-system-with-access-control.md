@@ -60,8 +60,8 @@ To make your selection, keep in mind:
 * Widevine is natively implemented in every Android device, in Chrome, and in some other devices. Widevine is also supported in Firefox and Opera browsers over DASH.
 * FairPlay is available on iOS, macOS and tvOS.
 
-
 ## A reference design
+
 This section presents a reference design that is agnostic to the technologies used to implement it.
 
 A DRM subsystem can contain the following components:

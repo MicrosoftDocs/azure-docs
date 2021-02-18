@@ -129,7 +129,7 @@ To create SQL pools, Apache Spark pools and Integration runtimes, users must hav
 
 ## STEP 6: Assign SQL Active Directory Admin role
 
-The workstation creator is automatically set up as the SQL Active Directory Admin for the workspace.  Only a single user or group can be granted this role. In this step, you assign the SQL Active Directory Admin on the workspace  to the `workspace1_SQLAdmins` security group.  Assigning this role gives this group highly privileged admin access to all SQL pools and databases in the workspace.   
+The workspace creator is automatically set up as the SQL Active Directory Admin for the workspace.  Only a single user or group can be granted this role. In this step, you assign the SQL Active Directory Admin on the workspace  to the `workspace1_SQLAdmins` security group.  Assigning this role gives this group highly privileged admin access to all SQL pools and databases in the workspace.   
 
 - Open the Azure portal
 - Navigate to `workspace1`
