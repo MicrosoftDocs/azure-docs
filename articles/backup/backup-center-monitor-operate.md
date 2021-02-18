@@ -5,13 +5,13 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ---
 
-# Monitor and operate backups using Backup Center (Preview)
+# Monitor and operate backups using Backup Center
 
 As a backup admin, you can use Backup Center as a single pane of glass to monitor your jobs and backup inventory on a day-to-day basis. You can also use Backup Center to perform your regular operations, such as responding to on-demand backup requests, restoring backups, creating backup policies, and so on.
 
 ## Supported scenarios
 
-* Backup Center is currently supported for Azure VM backup, SQL in Azure VM backup, SAP HANA in Azure VM backup, Azure Files backup, and Azure Database for PostgreSQL Server backup.
+* Backup Center is currently supported for Azure VM backup, SQL in Azure VM backup, SAP HANA in Azure VM backup, Azure Files backup, Azure Blobs backup, Azure Managed Disks backup and Azure Database for PostgreSQL Server backup.
 * Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
 ## Backup instances

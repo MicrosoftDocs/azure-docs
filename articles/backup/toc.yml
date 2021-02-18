@@ -132,6 +132,8 @@
       href: backup-center-govern-environment.md
     - name: Perform actions
       href: backup-center-actions.md
+    - name: Community resources
+      href: backup-center-community.md
   - name: Azure VM backup
     items:
     - name: Overview

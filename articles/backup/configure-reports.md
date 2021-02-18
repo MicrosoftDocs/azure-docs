@@ -4,7 +4,7 @@ description: Configure and view reports for Azure Backup by using Log Analytics 
 ms.topic: conceptual
 ms.date: 02/10/2020
 ---
-# Configure Azure Backup reports (Preview)
+# Configure Azure Backup reports
 
 A common requirement for backup admins is to obtain insights on backups based on data that spans a long period of time. Use cases for such a solution include:
 
@@ -104,7 +104,7 @@ Use this tab to view information on all of your active policies, such as the num
 
 Use this tab to gain visibility into potential cost-optimization opportunities for your backups. Following are the scenarios for which the Optimize tab currently provides insights:
 
-###### Inactive Resources
+###### Inactive resources
 
 Using this view, you can identify those backup items that haven't had a successful backup for a significant duration of time. This could either mean that the underlying machine that's being backed up doesn't exist anymore (and so is resulting in failed backups), or there's some issue with the machine that's preventing backups from being taken reliably.
 
@@ -133,6 +133,20 @@ Selecting the **Policy Optimizations** tile followed by the **Backup Schedule Op
 The **Backup Management Type** filter at the top of the tab should have the items **SQL in Azure VM** and **SAP HANA in Azure VM** selected, for the grid to be able to display database workloads as expected.
 
 ![Optimize tab - Backup Schedule Optimizations](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
+
+###### Policy adherence
+
+Using this tab, you can identify whether all of your backup instances have had at least one successful backup every day. You can view policy adherence by time period, or by backup instance.
+
+###### Email Azure Backup reports
+
+Using the **Email Report** feature available in Backup Reports, you can create automated tasks to receive periodic reports via email. This feature works by deploying a logic app in your Azure environment that queries data from your selected Log Analytics (LA) workspaces, based on the inputs that you provide.
+
+Once the logic app is created, you'll need to authorize connections to Azure Monitor Logs and Office 365. To do this, navigate to **Logic Apps** in the Azure portal and search for the name of the task you've created. Selecting the **API connections** menu item opens up the list of API connections that you need to authorize.
+
+###### Customize Azure Backup reports
+
+Backup Reports uses functions on Azure Monitor logs. These functions operate on data in the raw Azure Backup tables in LA and return formatted data that helps you easily retrieve information of all your backup-related entities, using simple queries.
 
 ## Export to Excel
 
