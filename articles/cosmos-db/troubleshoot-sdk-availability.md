@@ -41,7 +41,7 @@ If you **don't set a preferred region**, the SDK client defaults to the primary 
 > If the values specified as regional preference do not match with any existing Azure regions, they will be ignored. If they match an existing region but the account is not replicated to it, then the client will connect to the next preferred region that matches or to the primary region.
 
 > [!WARNING]
-> The failover and availability logic described in this document can be disabled on the client configuration, which is not advised unless the user application is going to handle availability errors itself. This can be achieved by:
+> The failover and availability logic described in this document can be disabled on the client configuration, which is not advised unless the user application is going to handle availability errors itself . This can be achieved by:
 >
 > * Setting the [ConnectionPolicy.EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) property in .NET V2 SDK to false.
 > * Setting the [CosmosClientOptions.LimitToEndpoint](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.limittoendpoint) property in .NET V3 SDK to true.
