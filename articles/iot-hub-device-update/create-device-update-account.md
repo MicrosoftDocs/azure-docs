@@ -12,9 +12,12 @@ ms.service: iot-hub-device-update
 
 To get started with Device Update you'll need to create a Device Update account, instance and set access control roles. 
 
-[Learn More](device-update-resources.md) about Device update account and instance.
+## Prerequisites
 
-[Learn More](device-update-control-access.md) about Device update access control roles. 
+* Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above. 
+* Supported browsers:
+  * [Microsoft Edge](https://www.microsoft.com/edge)
+  * Google Chrome
 
 ## Create a device update account
 
@@ -33,7 +36,7 @@ To get started with Device Update you'll need to create a Device Update account,
    :::image type="content" source="media/create-device-update-account/account-details.png" alt-text="Screenshot of account details." lightbox="media/create-device-update-account/account-details.png":::
 
  > [!NOTE]
- > Device Update for IoT Hub is currently supported in West US2, North Europe and Southeast Asia. If Device Update for IoT Hub is not available in your region you can choose to create an account in an available region closest to you. 
+ > You can go to [Azure Products-by-region page](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub) to discover the regions where Device Update for IoT Hub is available. If Device Update for IoT Hub is not available in your region you can choose to create an account in an available region closest to you. 
 
 6. Click "Next: Review + create>"
 
@@ -88,7 +91,7 @@ To configure IoT Hub
 
 3. Click "Update"
 
-[Learn More](device-update-resources.md) about the message routes that are configured. 
+[Learn  about the message routes that are configured.](device-update-resources.md) 
 
 
 ## Configure access control roles
@@ -111,7 +114,7 @@ In order for other users to have access to Device Update, users must be granted 
      
    :::image type="content" source="media/create-device-update-account/role-assignment.png" alt-text="Screenshot of access Control role assignments within Device Update account." lightbox="media/create-device-update-account/role-assignment.png":::
     
-    [Learn more](device-update-control-access.md) about Role-based access control in Device Update for IoT Hub
+    [Learn about Role-based access control in Device Update for IoT Hub](device-update-control-access.md) 
     
 4. Assign access to a user or Azure AD group
 5. Click Save
@@ -119,6 +122,9 @@ In order for other users to have access to Device Update, users must be granted 
 
 ## Next steps
 
-[Import an update using Device Update for IoT Hub](import-update.md)
+[Import an update using Device Update for IoT Hub.](import-update.md)
 
+[Learn about Device update account and instance.](device-update-resources.md) 
+
+[Learn about Device update access control roles. ](device-update-control-access.md) 
 

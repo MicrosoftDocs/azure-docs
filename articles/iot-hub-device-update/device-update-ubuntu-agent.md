@@ -8,12 +8,35 @@ ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
 
-# Getting Started using Ubuntu Server 18.04 x64 Package agent
-This tutorial walks you through the steps to complete an end-to-end package-based update through Device Update for IoT Hub. We will use a sample package agent for Ubuntu Server 18.04 x64 for this tutorial. 
+# Device Update for Azure IoT Hub tutorial using the Ubuntu Server 18.04 x64 Package agent
 
-Pre-requisites:
+Device Update for IoT Hub supports two forms of updates – image-based
+and package-based.
+
+Package-based updates are targeted updates that alter only a specific component
+or application on the device. This leads to lower consumption of
+bandwidth and helps reduce the time to download and install the update. Package
+updates typically allow for less downtime of devices when applying an update and
+avoid the overhead of creating images.
+
+This tutorial walks you through the steps to complete an end-to-end package-based update through Device Update for IoT Hub. We will use a sample package agent for Ubuntu Server 18.04 x64 for this tutorial. This OS platform was chosen because it's the most common scenario for Azure IoT solutions. Even if you plan on using a different OS platform configuration, this tutorial is still useful to learn about the tools and concepts in Device Update for IoT Hub. Complete this introduction to an end-to-end update process, then choose your preferred form of updating and OS platform to dive into the details.
+
+In this tutorial you will learn how to:
+> [!div class="checklist"]
+> * Configure device update package repository
+> * Download and install device update agent and its dependencies
+> * Add a tag to your IoT device
+> * Import an update
+> * Create a device group
+> * Deploy a package update
+> * Monitor the update deployment
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+* Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
 * A VM or an IoT device running Ubuntu Server 18.04 x64, connected to IoT Hub. 
-* Device Update account and instance linked to the same IoT Hub as above. [Learn more](create-device-update-account.md) about creating device update account
+* [Device Update account and instance linked to the same IoT Hub as above.](create-device-update-account.md)
 
 ## Download update agent packages
 
@@ -174,8 +197,12 @@ do-client-lite.service               loaded active running do-client-lite.servic
 
 You have now completed a successful end-to-end package update using Device Update for IoT Hub on a Ubuntu Server 18.04 x64 device. 
 
+## Clean up resources
+
+When no longer needed, clean up your device update account, instance, IoT Hub and IoT device. 
+
 ## Next steps
 
-[Image Update on Raspberry Pi 3 B+ tutorial](device-update-raspberry-pi.md)
+> [!div class="nextstepaction"]
+> [Image Update on Raspberry Pi 3 B+ tutorial](device-update-raspberry-pi.md)
 
-[Image Update on Ubuntu 18.04 x64 simulator tutorial](device-update-simulator.md)

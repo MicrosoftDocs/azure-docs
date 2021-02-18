@@ -21,8 +21,8 @@ To realize the full benefits of IoT-enabled digital transformation, customers ne
 Device Update for IoT Hub is designed to offer optimized update deployment and streamlined operations through integration with [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). This integration makes it easy to adopt Device Update on any existing solution. It provides a cloud-hosted solution to connect virtually any device. Device Update supports a broad range of IoT operating systems—including Linux and [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (real-time operating system)—and is extensible via open source. 
 
 Both a Device Update Agent Simulator binary and Raspberry Pi reference Yocto images are provided.
-Device Update for IoT Hub also supports updating Azure IoT Edge devices. A Device Update Agent will be provided for Ubuntu Server 18.04 amd64
-platform. Device Update for IoT Hub will also provide open-source code if you are not
+Device Update for IoT Hub also supports updating Azure IoT Edge devices. A Device Update Agent is provided for Ubuntu Server 18.04 amd64
+platform. Device Update for IoT Hub also provides open-source code if you are not
 running one of the above platforms. This allows you to port the agent to the distribution you
 are running.
 
@@ -36,7 +36,7 @@ Device Update for IoT Hub supports two forms of updates – image-based
 and package-based.
 
 Package-based updates are targeted updates that alter only a specific component
-or application on the device. Thus, leading to lower consumption of
+or application on the device. This leads to lower consumption of
 bandwidth and helps reduce the time to download and install the update. Package
 updates typically allow for less downtime of devices when applying an update and
 avoid the overhead of creating images.

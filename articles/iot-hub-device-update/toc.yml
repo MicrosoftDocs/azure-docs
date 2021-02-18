@@ -6,9 +6,9 @@
     href: understand-device-update.md
 - name: Tutorials
   items:
-  - name: Use device update on Raspberry Pi
+  - name: Image update on Raspberry Pi
     href: device-update-raspberry-pi.md
-  - name: Use device update on the simulator
+  - name: Use device update on a simulator
     href: device-update-simulator.md
   - name: Package update on Ubuntu Server 18.04 x64
     href: device-update-ubuntu-agent.md
@@ -28,11 +28,11 @@
     href: device-update-plug-and-play.md
   - name: Device update networking requirements
     href: device-update-networking.md
-  - name: Understand Device Update for Azure IoT Hub Agent
+  - name: Device update agent	
     href: device-update-agent-overview.md
-  - name: Understand Device Update for Azure IoT Hub Configuration File
+  - name: Device update configuration file
     href: device-update-configuration-file.md
-  - name: Device Update for IoT Hub update manifest
+  - name: Device update manifest
     href: update-manifest.md
   - name: How device update is secured
     href: device-update-security.md
@@ -41,7 +41,7 @@
   items:
   - name: Create a device update account
     href: create-device-update-account.md
-  - name: Provisioning Device Update for Azure IoT Hub Agent
+  - name: Provisioning device update agent	
     href: device-update-agent-provisioning.md
   - name: Import an update
     href: import-update.md
