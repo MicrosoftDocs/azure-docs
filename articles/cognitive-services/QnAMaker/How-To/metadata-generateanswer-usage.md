@@ -11,21 +11,9 @@ ms.date: 11/09/2020
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
-# Get an answer with the GenerateAnswer API and metadata
+# Get an answer with the GenerateAnswer API
 
 To get the predicted answer to a user's question, use the GenerateAnswer API. When you publish a knowledge base, you can see information about how to use this API on the **Publish** page. You can also configure the API to filter answers based on metadata tags, and test the knowledge base from the endpoint with the test query string parameter.
-
-QnA Maker lets you add metadata, in the form of key and value pairs, to your pairs of questions and answers. You can then use this information to filter results to user queries, and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../index.yml).
-
-<a name="qna-entity"></a>
-
-## Store questions and answers with a QnA entity
-
-It's important to understand how QnA Maker stores the question and answer data. The following illustration shows a QnA entity:
-
-![Illustration of a QnA entity](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
-
-Each QnA entity has a unique and persistent ID. You can use the ID to make updates to a particular QnA entity.
 
 <a name="generateanswer-api"></a>
 
