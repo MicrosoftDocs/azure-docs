@@ -36,11 +36,9 @@ Copy the whole file and replace your template with its contents.
 
 ## Deploy template
 
-Let's deploy the template. The following example deploys the template with Azure CLI or PowerShell. Notice that you provide the storage account name as one of the values in the deployment command. For the storage account name, provide the same name you used in the previous tutorial.
+Let's deploy the Bicep template. The following example deploys the template with Azure CLI or PowerShell. Notice that you provide the storage account name as one of the values in the deployment command. For the storage account name, provide the same name you used in the previous tutorial.
 
 If you haven't created the resource group, see [Create resource group](template-tutorial-bicep-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-bicep-create-first-template.md#deploy-template).
-
-[jgao - update powershell and cli]
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -85,8 +83,6 @@ The previous template always deployed a **Standard_LRS** storage account. You mi
 The `storageSKU` parameter has a default value. This value is used when a value isn't specified during the deployment. It also has a list of allowed values. These values match the values that are needed to create a storage account. You don't want users of your template to pass in SKUs that don't work.
 
 ## Redeploy template
-
-[jgao - update the powershell and cli]
 
 You're ready to deploy again. Because the default SKU is set to **Standard_LRS**, you don't need to provide a value for that parameter.
 
