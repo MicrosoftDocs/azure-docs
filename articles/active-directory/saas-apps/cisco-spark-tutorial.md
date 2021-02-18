@@ -33,7 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Cisco Webex supports **SP** initiated SSO.
-* Cisco Webex supports **Automated** user provisioning.
+* Cisco Webex supports [**Automated user provisioning**](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial).
 
 ## Adding Cisco Webex from the gallery
 
@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| uid | user.userprincipalname |
 
 	> [!NOTE]
-	>  The source attribute value need to be match with the email address or UserPrincipalName or on-primise UserPrincipalName value of the Cisco Webex.
+	>  The source attribute value is by default mapped to userpricipalname. This can be changed to user.mail or user.onpremiseuserprincipalname or any other value as per the setting in Webex.
 
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
