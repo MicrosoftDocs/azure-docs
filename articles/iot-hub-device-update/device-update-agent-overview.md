@@ -60,7 +60,7 @@ The Linux Platform Layer implementation can be found in the
 This layer can integrate with different Update Handlers to implement the
 installer. For
 instance, the `SWUpdate` Update Handler invokes a shell script to call into the
-`SWUpdate` executable to do an update.
+`SWUpdate` executable to perform an update.
 
 ## Update Handlers
 
@@ -69,7 +69,7 @@ of the update. Update Handler implementations are in `src/content_handlers`.
 
 ### Simulator Update Handler
 
-The Simulator Update Handler is used by the Simulator Platform Layer and can
+The Simulator Update Handlers are used by the Simulator Platform Layer and can
 be used with the Linux Platform Layer to fake interactions with a Content
 Handler. The Simulator Update Handler implements the Update Handler APIs with
 mostly no-ops. The implementation of the Simulator Update Handler can be found below:
