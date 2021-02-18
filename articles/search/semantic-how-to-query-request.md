@@ -17,13 +17,13 @@ ms.date: 03/02/2021
 
 In this article, learn how to attach the semantic query subsystems of Azure Cognitive Search to use semantic ranking, semantic captions, and semantic answer. Setting the queryType parameter to **semantic** enables these capabilities. 
 
-During public preview, there is no charge for semantic search. However, as features transition to general availability, the cost of computations will become a billable event. Once billing decisions are finalized, you'll find cost information documented in the [pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
+During the initial preview launch, there is no charge for semantic search. For up-to-date information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 ## Prerequisites
 
-+ A search service at a Standard tier (S1, S2, S3), located in West US 2. Roll out is underway in other regions. Check back for updates about greater availability.
-
 + Access to semantic search preview: [sign up](https://aka.ms/TBD)
+
++ A search service at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe, West Europe
 
 + An existing search index, containing English content
 
@@ -31,7 +31,7 @@ During public preview, there is no charge for semantic search. However, as featu
 
   The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query.
 
-+ [A query request](/rest/api/searchservice/preview-api/search-documents) with the semantic option uses "api-version=2020-06-30-Preview", "queryType=semantic", "queryLanguage=en-us", and "searchFields=<ordered-field-list>".
++ [A query request](/rest/api/searchservice/preview-api/search-documents) with the semantic option. A semantic query uses "api-version=2020-06-30-Preview", "queryType=semantic", "queryLanguage=en-us", and "searchFields=<ordered-field-list>".
 
 ## What's a semantic query?
 
