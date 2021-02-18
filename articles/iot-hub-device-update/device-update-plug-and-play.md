@@ -10,11 +10,13 @@ ms.service: iot-hub
 
 # Device Update for IoT Hub and IoT Plug and Play
 
-Device Update for IoT Hub uses [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp/) to discover and manage devices that are over-the-air update capable. The Device Update service will send and receive properties and messages to and from devices using PnP interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces, model-id and component as described below.
+Device Update for IoT Hub uses [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp/) to discover and manage devices that are over-the-air update capable. The Device Update service will send and receive properties and messages to and from devices using PnP interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model-id as described below.
 
 ## ADU Core Interface
 
 The 'ADUCoreInterface' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
+
+The component name for this interface should be **"azureDeviceUpdateAgent"** when implementing the Device Update Agent. [Learn more about Azure IoT PnP Components](https://docs.microsoft.com/en-us/azure/iot-pnp/concepts-components)
 
 ### Agent Metadata
 
@@ -73,6 +75,8 @@ Service Metadata contains fields that the Device Update services uses to communi
 
 The Device Information Interface is a concept used within [IoT Plug and Play architecture](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play). It contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update for IoT Hub uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. To learn more, see this [Device Information example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
+The component name for this interface should be  **deviceInformation** when implementing the Device Update Agent. [Learn more about Azure IoT PnP Components](https://docs.microsoft.com/en-us/azure/iot-pnp/concepts-components)
+
 |Name|Type|Schema|Direction|Description|Example|
 |----|----|------|---------|-----------|-----------|
 |manufacturer|Property|string|device to cloud|Company name of the device manufacturer. This could be the same as the name of the original equipment manufacturer (OEM).|Contoso|
@@ -89,7 +93,3 @@ The Device Information Interface is a concept used within [IoT Plug and Play arc
 Model ID is how smart devices advertise their capabilities to Azure IoT applications with IoT Plug and Play.To learn more on how to build smart devices to advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c).
 
 Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID with a value of **"dtmi:AzureDeviceUpdate;1"** as part of the device connection. Learn more [how to announce a model ID](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c#model-id-announcement).
-
-## Component
-The component names should be **"azureDeviceUpdateAgent"** and **deviceInformation** when implementing the Device Update Agent.
-
