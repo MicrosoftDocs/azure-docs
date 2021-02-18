@@ -9,7 +9,7 @@ ms.date: 11/09/2020
 
 # Recommended settings for network isolation
 
-# [QnA Maker GA (stable release)](#tab/v1)
+## [QnA Maker GA (stable release)](#tab/v1)
 
 * Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
 * Protect App Service (QnA Runtime) from public access.
@@ -20,9 +20,9 @@ ms.date: 11/09/2020
     2. Make sure you also allow other entry points like Azure Bot Service, QnA Maker portal, etc. for prediction "GenerateAnswer" API access.
     3. Please follow these steps to add the IP Address ranges to an allowlist:
 
-     * Download [IP Ranges for all service tags](https://www.microsoft.com/download/details.aspx?id=56519).
-     * Select the IPs of "CognitiveServicesManagement".
-     * Navigate to the networking section of your App Service resource, and click on "Configure Access Restriction" option to add the IPs to an allowlist.
+     1. Download [IP Ranges for all service tags](https://www.microsoft.com/download/details.aspx?id=56519).
+     2. Select the IPs of "CognitiveServicesManagement".
+     3. Navigate to the networking section of your App Service resource, and click on "Configure Access Restriction" option to add the IPs to an allowlist.
 
     We also have an automated script to do the same for your App Service. You can find the [PowerShell script to configure an allowlist](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) on GitHub. You need to input subscription id, resource group and actual App Service name as script parameters. Running the script will automatically add the IPs to App Service allowlist.
 
@@ -60,7 +60,7 @@ ms.date: 11/09/2020
     
     In the [QnA Maker portal](https://www.qnamaker.ai/), create your first knowledge base.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+## [QnA Maker managed (preview release)](#tab/v2)
 
 * Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
 * [Create Private endpoints](../reference-private-endpoint.md) to the Azure Search resource.
