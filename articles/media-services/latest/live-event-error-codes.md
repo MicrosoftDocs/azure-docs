@@ -61,7 +61,7 @@ event.
 >| Suggested solution|Check encoder preset to lower video resolution so it doesn't exceed the limit. |
 >|**MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV** |
 >| Description|The live event has received a large amount of audio data at once, or a large amount of video data without any key frames. We have disconnected the encoder to give it a chance to retry with correct data. |
->| Suggested solution|Ensure that the encoder sends a key frame for every key frame interval(GOP).  Enable settings like "Constant bitrate(CBR)" or "Align Key Frames". Some times, resetting the contributing encoder may help. If it doesn't help, contact encoder vendor. |
+>| Suggested solution|Ensure that the encoder sends a key frame for every key frame interval(GOP).  Enable settings like "Constant bitrate(CBR)" or "Align Key Frames". Resetting the contributing encoder may help. |
 
 ## LiveEventEncoderDisconnected
 
@@ -76,8 +76,8 @@ event.
 >| Description|RTMP session timed out after being idle for allowed time limit. |
 >|Suggested solution|This typically happens when an encoder stops receiving the input feed so that the session becomes idle because there is no data to push out. Check if the encoder or input feed status is in a healthy state. |
 >|**MPE_CAPACITY_LIMIT_REACHED** |
->| Description|Encoder sending data too fast. |
->| Suggested solution|This happens when the encoder sends out a large set of fragments in a brief period.  This can theoretically happen when the encoder could not push data for while due to a network issue and then sends all the delayed fragments at once when the network becomes available. Find the reason please check the encoder logs. |
+>| Description|Encoder is sending too much data at once. |
+>| Suggested solution|This happens when the encoder sends out a large set of fragments in a brief period.  This could happen when the encoder could not push data due to a network issue and then sends all the delayed fragments at once when the network becomes available. Please check the encoder logs for more details. |
 
 
 ## Other error codes
@@ -90,13 +90,13 @@ event.
 >|Suggested solution| None.||
 >|**MPI_SYSTEM_MAINTENANCE** ||Yes|
 >| Description|The encoder disconnected due to service update or system maintenance. ||
->|Suggested solution|Make sure the 'auto connect' is enabled for the contribution encoder. This allows the encoder to reconnect to the redundant live event endpoint that is not in maintenance. ||
+>|Suggested solution|Make sure the 'auto connect' feature is enabled for the contribution encoder. It allows the encoder to reconnect to the redundant live event endpoint that is not in maintenance. ||
 >|**MPE_BAD_URL_SYNTAX** ||Yes|
 >| Description|The ingest URL is incorrectly formatted. ||
 >|Suggested solution|Make sure the ingest URL is correctly formatted. Please refer to the live event's input endpoints' URLs on the API. ||
 >|**MPE_CLIENT_TERMINATED_SESSION** ||Yes|
 >| Description|The encoder disconnected the session.  ||
->|Suggested solution|This is not an error. This is the case where encoder initiated disconnection, including graceful disconnection. If this is an unexpected disconnect, check the encoder logs. |
+>|Suggested solution|This is not an error. The encoder initiated the disconnection which could indicate a graceful shutdown. If this is an unexpected disconnection, please check the encoder logs. |
 >|**MPE_INGEST_BITRATE_NOT_MATCH** ||No|
 >| Description|The incoming data rate does not match with expected bitrate. ||
 >|Suggested solution|This is a warning which happens when incoming data rate is too slow or fast. Check the encoder logs.||
