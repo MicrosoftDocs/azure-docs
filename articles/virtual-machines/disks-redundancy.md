@@ -1,5 +1,5 @@
 ---
-title: Data redundancy options for Azure managed disks
+title: Redundancy options for Azure managed disks
 description: Learn about zone-redundant storage and locally-redundant storage for Azure managed disks.
 author: roygara
 ms.author: rogarana
@@ -9,7 +9,7 @@ ms.service: virtual-machines
 ms.subservice: disks
 ---
 
-# Data redundancy options for managed disks
+# Redundancy options for managed disks
 
 Azure managed disks offer two storage redundancy options, zone-redundant storage (ZRS) as a preview, and locally-redundant storage. ZRS provides higher durability and availability for managed disks than locally-redundant storage (LRS) does. However, the write latency for LRS disks is better than ZRS disks because LRS disks synchronously write data to three copies in a single data center.
 
