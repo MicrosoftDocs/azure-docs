@@ -261,13 +261,13 @@
       - name: Add, connect to storage accounts
         href: azure-stack-edge-j-series-deploy-add-storage-accounts.md         
       - name: Shares
-        href: azure-stack-edge-j-series-manage-shares.md 
+        href: azure-stack-edge-gpu-manage-shares.md 
       - name: Users
-        href: azure-stack-edge-j-series-manage-users.md 
+        href: azure-stack-edge-gpy-manage-users.md 
       - name: Storage accounts
-        href: azure-stack-edge-j-series-manage-storage-accounts.md 
+        href: azure-stack-edge-gpu-manage-storage-accounts.md 
       - name: Bandwidth schedules
-        href: azure-stack-edge-j-series-manage-bandwidth-schedules.md 
+        href: azure-stack-edge-gpu-manage-bandwidth-schedules.md 
     - name: Manage device
       items:
       - name: Power, access, connectivity
