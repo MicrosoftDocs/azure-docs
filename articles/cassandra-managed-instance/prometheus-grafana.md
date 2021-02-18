@@ -92,7 +92,7 @@ Finally click `Review + Create` to create your Grafana server.
     :::image type="content" source="./media/prometheus-grafana/grafana-import-json.png" alt-text="Import Grafana JSON" border="false":::
 
 4. You can then monitor your cassandra cluster with your chosen dashboard:
-    :::image type="content" source="./media/prometheus-grafana/cassandra-monitor.gif" alt-text="Import Grafana JSON" border="false":::
+    :::image type="content" source="./media/prometheus-grafana/cassandra-monitor.gif" alt-text="View Cassandra Dashboard" border="false":::
 
 ## Next steps
 
