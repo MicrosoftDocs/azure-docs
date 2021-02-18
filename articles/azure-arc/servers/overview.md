@@ -52,7 +52,7 @@ For example, if the machine is registered with Azure Arc in the East US region, 
 
 ### Supported environments
 
-Arc enabled servers supports the management of physical servers and virtual machines hosted *outside* of Azure. For virtual machines running in a hybrid cloud environment, only [Azure Stack HCI](/azure-stack/hci/overview) is supported.
+Arc enabled servers supports the management of physical servers and virtual machines hosted *outside* of Azure. For virtual machines running in a Microsoft hybrid cloud environment, only [Azure Stack HCI](/azure-stack/hci/overview) is supported.
 
 > [!NOTE]
 > Arc enabled servers is not designed or supported to enable management of virtual machines running in Azure.
