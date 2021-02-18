@@ -281,7 +281,7 @@ The following headers are included with each Document Translator API request:
 >
 > See [Azure Cognitive Services security](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) for ways to securely store and access your credentials.
 
-## _POST Document Translation_ request code samples
+## _POST Document Translation_ request
 
 Submit a batch Document Translation request to the translation service.
 
@@ -514,7 +514,7 @@ if err != nil {
 
 ---
 
-## _GET file formats_ code samples
+## _GET file formats_ 
 
 Retrieve a list of supported file formats. If successful, this method returns a `200 OK` response code.
 
@@ -691,7 +691,7 @@ func main() {
 
 ---
 
-## _GET job status_ code samples
+## _GET job status_ 
 
 Get the current status for a single job and a summary of all jobs in a Document Translation request. If successful, this method returns a `200 OK` response code.
 <!-- markdownlint-disable MD024 -->
@@ -870,7 +870,7 @@ func main() {
 
 ---
 
-## _GET document status_ code samples
+## _GET document status_
 
 ### Brief overview
 
@@ -1050,7 +1050,7 @@ func main() {
 
 ---
 
-## _DELETE job_ code samples
+## _DELETE job_ 
 
 ### Brief overview
 
