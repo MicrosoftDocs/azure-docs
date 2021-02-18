@@ -75,7 +75,7 @@ Arc enabled servers supports the management of physical servers and virtual mach
 |Azure Stack HCI | Yes |
 
 > [!NOTE]
-> Arc enabled servers is not designed to enable management of virtual machines in Azure.
+> Arc enabled servers is not designed or supported to enable management of virtual machines running in Azure.
 
 ### Supported operating systems
 
