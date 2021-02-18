@@ -108,8 +108,6 @@
       href: ../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
     - name: Co-location
       href: ../virtual-machines/co-location.md
-    - name: Flexible orchestration mode 
-      href: virtual-machine-scale-sets-orchestration-modes.md
     - name: Network performance
       href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
     - name: Manage fault domains in scale sets
@@ -166,6 +164,8 @@
   - name: Endorsed Linux distros
     href: ../virtual-machines/linux/endorsed-distros.md
     maintainContext: true
+  - name: Orchestration modes (preview) 
+    href: virtual-machine-scale-sets-orchestration-modes.md
   - name: Maintenance and updates
     href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
     maintainContext: true
