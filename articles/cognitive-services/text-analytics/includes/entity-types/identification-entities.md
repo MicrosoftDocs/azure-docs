@@ -382,11 +382,6 @@ The following entities are grouped and listed by country:
         EU GPS coordinates
 
     :::column-end:::
-    :::column span="2":::
-
-      `en`, `es`, `fr`, `de`, `it`, `pt-pt` 
-      
-   :::column-end:::
 :::row-end:::
 
 #### France
