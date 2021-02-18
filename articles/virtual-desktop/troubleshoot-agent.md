@@ -226,7 +226,7 @@ To change the heartbeat threshold:
 8. Restart your VM.
 
 >[!NOTE]
->If changing the heartbeat threshold does not resolve your issue, you may have an underlying network issue that you need to consult with the Azure Networking team about.
+>If changing the heartbeat threshold doesn't resolve your issue, you may have an underlying network issue that you'll need need to contact the Azure Networking team about.
 
 ## Error: DownloadMsiException
 
