@@ -112,7 +112,7 @@ To resolve this issue, verify that your firewall and/or DNS settings are not blo
 
 ## Error: 3019
 
-Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3019, the agent is unable to reach the web socket transport URLs. To successfully connect to your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](safe-url-list.md). Work with the Azure Networking team to check your firewall, proxy, and DNS settings to ensure that these URLs are not being blocked. Looking at your network trace logs can help identify where the Windows Virtual Desktop service is being blocked as well. If you open a support request for this particular issue, make sure to attach these network traces.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3019, this means the agent can't reach the web socket transport URLs. To successfully connect to your session host and allow network traffic to bypass these restrictions, you must unblock the URLs listed in the the [Required URL list](safe-url-list.md). Work with the Azure Networking team to make sure your firewall, proxy, and DNS settings aren't blocking these URLs. You can also check your network trace logs to identify where the Windows Virtual Desktop service is being blocked. If you open a support request for this particular issue, make sure to attach your network trace logs to the request.
 
 ## Error: InstallationHealthCheckFailedException
 
