@@ -62,13 +62,11 @@ For storage, primary endpoints always use the **Microsoft global network**. You 
 * Azure DataLake
 
 ## Pricing
-The price difference between both options is reflected in the internet egress data transfer pricing. Routing via **Microsoft global network** data transfer price is same as current internet egress price. Visit [Azure bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/) for the latest pricing information. 
-
-## Availability
-Routing Preference is supported in majority of the Azure regions. However, it is currently not supported in Australia Central, Australia Central2, Canada East, Brazil South, Korea Central, and Korea South.
+The price difference between both options is reflected in the internet egress data transfer pricing. Routing via **Microsoft global network** data transfer price is same as current internet egress price. Visit [Azure bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/) for the latest pricing information.
 
 ## Limitations
 
+* Routing preference is currently not supported in Australia Central, Australia Central2, Canada East, Brazil South, Korea Central, and Korea South.
 * Routing preference is only compatible with zone-redundant standard SKU of public IP address. Basic SKU of public IP address is not supported.
 * Routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses are not supported.
 
