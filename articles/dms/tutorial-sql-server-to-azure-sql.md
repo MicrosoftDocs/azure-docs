@@ -201,7 +201,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
      ![Locate your instance of Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
 
-4. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **SQL Server**, in the **Target server type** text box, select **Azure SQL Database**, and then for **Choose type of activity**, select **Offline data migration**.
+4. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **SQL Server**, in the **Target server type** text box, select **Azure SQL Database**, and then for **Choose Migration activity type **, select **Data migration**.
 
     ![Create Database Migration Service Project](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)
 
@@ -224,8 +224,13 @@ After the service is created, locate it within the Azure portal, open it, and th
     > If you use SSIS, DMS does not currently support the migration of source SSISDB, but you can redeploy your SSIS projects/packages to the destination SSISDB hosted by Azure SQL Database. For more information about migrating SSIS packages, see the article [Migrate SQL Server Integration Services packages to Azure](./how-to-migrate-ssis-packages.md).
 
    ![Source Details](media/tutorial-sql-server-to-azure-sql/dms-source-details2.png)
+   
+3. Select **Next: Select databases**.
+## Select databases for migration
 
-3. Select **Next: Select target**.
+Select either all databases or specific databases that you want to migrate to Azure SQL DB.  DMS provide you expected migration time for selected databases, if the migration downtimes are acceptable continue with migration.  If migration downtime not acceptable, we recomend migrating to SQL Managed Instance with near-zero downtime [link Migrate SQL Server to an Azure SQL Managed Instance online using DMS] Add bitmap.
+
+4. Select **Next: Select target**.
 
 ## Specify target details
 
