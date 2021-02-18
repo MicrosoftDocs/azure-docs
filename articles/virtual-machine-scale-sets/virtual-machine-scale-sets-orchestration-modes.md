@@ -1,13 +1,13 @@
 ---
 title: Orchestration modes for Virtual Machine Scale Sets in Azure
 description: Learn how to use Flexible and Uniform orchestration modes for Virtual Machine Scale Sets in Azure.
-author: ju-shim
-ms.author: jushiman
+author: fitzgeraldsteele
+ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
 ms.date: 02/12/2021
-ms.reviewer: avverma
+ms.reviewer: jushiman
 ms.custom: mimckitt
 
 ---
@@ -88,23 +88,23 @@ Use extensions targeted for standard virtual machines, instead of extensions tar
 
 | Feature | Supported by Flexible Orchestration (Preview) | Supported by Uniform Orchestration (General Availability) | Supported by AvSets (General Availability) |
 |-|-|-|-|
-| Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  | Scale Set specific   VMs (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM   (Microsoft.compute /virtualmachines)  |
+|         Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  | Scale Set specific   VMs (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM   (Microsoft.compute /virtualmachines)  |
 |         SKUs supported  |            D series, E series, F series, A series,   B series, Intel, AMD  |            All SKUs  |            All SKUs  |
 |         Availability Zones  |            Optionally specify all instances land in   a single availability zone |            Specify instances land across 1, 2 or 3   availability zones  |            Not supported  |
 |         Full control over VM, NICs, Disks  |            Yes  |            Limited control with virtual machien scale sets VM   API  |            Yes  |
 |         Automatic Scaling  |            Coming soon  |            Yes  |            No  |
 |         Assign VM to a   Specific Fault Domain  |            Yes  |             No   |            No  |
 |         Remove NICs and Disks when deleting   VM instances  |            Yes  |            Yes  |            No  |
-|         Upgrade Policy (VM scale sets) |            Automatic  |            Automatic, Rolling, Manual  |            N/A  |
+|         Upgrade Policy (VM scale sets) |            Planned  |            Automatic, Rolling, Manual  |            N/A  |
 |         Automatic OS Updates (VM scale sets) |            Planned  |            Yes  |            N/A  |
 |         In Guest Security Patching  |            Yes  |            Coming soon  |            Yes  |
-|         erminate Notifications (VM scale sets) |            Coming soon  |            Yes  |            N/A  |
+|         Terminate Notifications (VM scale sets) |            Coming soon  |            Yes  |            N/A  |
 |         Instance Repair (VM scale sets) |            Coming soon  |            Yes   |            N/A  |
 |         Accelerated networking  |            Yes  |            Yes  |            Yes  |
 |         Spot instances and pricing   |            Yes, you can have both Spot and Regular   priority instances  |            Yes, instances must either be all Spot or all   Regular  |            Yes, you can have both Spot and regular   priority instances  |
 |         Mix operating systems  |            Yes, Linux and Windows can reside in the   same Flexible scale set |            No, instances are the same operating   system  |               Yes, Linux and Windows can reside in the same Flexible scale set |
 |         Monitor Application Health  |            Application health extension  |            Application health extension or Azure Load balancer   probe  |            Application health extension  |
-|         UltraSSD Disks   |            Yes  |            Yes  |            Yes  |
+|         UltraSSD Disks   |            Yes  |            Yes, for zonal deployments only  |            No  |
 |         Infiniband   |            No  |            Yes, single placement group only  |            Yes  |
 |         Write Accelerator   |            No  |            Yes  |            Yes  |
 |         Proximity Placement Groups   |            Yes  |            Yes  |            Yes  |
@@ -171,7 +171,7 @@ az provider register --namespace Microsoft.Compute
     1. API version 2019-12-01 (or greater) 
     1. Single placement group must be `false` when creating a Flexible scale set
 
-``` 
+```json
 {
 "type": "Microsoft.Compute/virtualMachineScaleSets",
 "name": "[parameters('virtualMachineScaleSetName')]",
@@ -189,7 +189,7 @@ az provider register --namespace Microsoft.Compute
     1. Assign the `virtualMachineScaleSet` property to the scale set you have previously created. You must specify the `virtualMachineScaleSet` property at the time of VM creation. 
     1. You can use the **copy()** ARM template function to create multiple VMs at the same time. See [Resource iteration](https://docs.microsoft.com/azure/azure-resource-manager/templates/copy-resources#iteration-for-a-child-resource) in ARM templates. 
 
-```
+```json
 {
 "type": "Microsoft.Compute/virtualMachines",
 "name": "[concat(parameters('virtualMachineNamePrefix'), copyIndex(1))]",
@@ -236,7 +236,7 @@ Create a Flexible virtual machine scale set with Terraform. This process require
 - `single_placement_group` parameter must be `false` for Flexible virtual machine scale sets
 - If you are doing a regional deployment, no need to specify `zones`
 
-```
+```terraform
 resource "azurerm orchestrated_virtual_machine_scale_set" "tf_vmssflex" {
 name = "tf_vmssflex"
 location = azurerm_resource_group.myterraformgroup.location
