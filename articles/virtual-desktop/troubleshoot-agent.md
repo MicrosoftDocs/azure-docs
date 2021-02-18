@@ -17,7 +17,7 @@ The Windows Virtual Desktop Agent can cause connection issues because of multipl
 This article will guide you through solutions to these common scenarios and how to address connection issues.
 
 >[!NOTE]
->For troubleshooting issues related to session connectivity and the Windows Virtual Desktop agent, we recommend you review the event logs in **Event Viewer** > **Windows Logs** > **Application**. Look for events that have one of the following sources:
+>For troubleshooting issues related to session connectivity and the Windows Virtual Desktop agent, we recommend you review the event logs in **Event Viewer** > **Windows Logs** > **Application**. Look for events that have one of the following sources to identify your issue:
 >
 >- WVD-Agent
 >- WVD-Agent-Updater
