@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/13/2017
+ms.date: 07/13/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -61,6 +61,59 @@ This logic for proxyAddresses is referred to as **ProxyCalc**. ProxyCalc is invo
 - The user has been assigned a service plan that includes Exchange Online even if the user was not licensed for Exchange. For example, if the user is assigned the Office E3 SKU, but only was assigned SharePoint Online. This is true even if your mailbox is still on-premises.
 - The attribute msExchRecipientTypeDetails has a value.
 - You make a change to proxyAddresses or userPrincipalName.
+
+ProxyCalc will sanitize an address if ShadowProxyAddresses contains a non-verified domain and the cloud user has one of the following properties configured. 
+•	User is licensed with an EXO service type plan enabled (Excluding MyAnalytics)  
+•	User has MSExchRemoteRecipientType set (not null)  
+•	User is considered a shared resource
+
+To be considered a shared resource the cloud user will have one of the following values set in CloudMSExchRecipientDisplayType 
+
+ |Object Display Type|Value (Decimal)|
+ |-----|-----|
+ |MailboxUser|	0|
+ |DistributionGroup|	1|
+ |PublicFolder|	2|
+ |DynamicDistributionGroup|	3|
+ |Organization|	4|
+ |PrivateDistributionList|	5|
+ |RemoteMailUser|	6|
+ |ConferenceRoomMailbox|	7|
+ |EquipmentMailbox|	8|
+ |ArbitrationMailbox|	10|
+ |MailboxPlan|	11|
+ |LinkedUser|	12|
+ |RoomList|	15|
+ |SyncedMailboxUser|	-2147483642|
+ |SyncedUDGasUDG|	-2147483391|
+ |SyncedUDGasContact|	-2147483386|
+ |SyncedPublicFolder|	-2147483130|
+ |SyncedDynamicDistributionGroup|	-2147482874|
+ |SyncedRemoteMailUser|	-2147482106|
+ |SyncedConferenceRoomMailbox|	-2147481850|
+ |SyncedEquipmentMailbox|	-2147481594|
+ |SyncedUSGasUDG|	-2147481343|
+ |SyncedUSGasContact|	-2147481338|
+ |ACLableSyncedMailboxUser|	-1073741818|
+ |ACLableSyncedRemoteMailUser|	-1073740282|
+ |ACLableSyncedUSGasContact|	-1073739514|
+ |SyncedUSGasUSG|	-1073739511|
+ |SecurityDistributionGroup|	1043741833|
+ |SyncedUSGasUSG|	1073739511|
+ |ACLableSyncedUSGasContact|	1073739514|
+ |RBAC Role Group|	1073741824|
+ |ACLableMailboxUser|	1073741824|
+ |ACLableRemoteMailUser|	1073741830|
+
+
+>[!NOTE]
+> CloudMSExchRecipientDisplayType is not visible from the Azure AD side and can only be viewed by using something like the Exchange Online cmdlet [Get-Recipient](https://docs.microsoft.com/powershell/module/exchange/get-recipient?view=exchange-ps).  
+>
+>Example:
+> ```PowerShell
+>   Get-Recipient admin | fl *type*
+> ```
+>
 
 ProxyCalc might take some time to process a change on a user and is not synchronous with the Azure AD Connect export process.
 
