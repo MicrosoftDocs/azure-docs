@@ -69,7 +69,7 @@ LRS can be started in autocomplete, or continuous mode. When started in autocomp
 ## Best practices
 
 The following are highly recommended as best practices:
-- Run [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) to validate your databases will have no issues being migrated to SQL Managed Instance. 
+- Run [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) to validate your databases are ready to be migrated to SQL Managed Instance. 
 - Split full and differential backups into multiple files, instead of a single file.
 - Enable backup compression.
 - Use Cloud Shell to execute scripts as it will always be updated to the latest cmdlets released.
