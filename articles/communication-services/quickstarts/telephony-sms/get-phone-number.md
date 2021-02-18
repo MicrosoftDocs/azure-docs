@@ -10,7 +10,7 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-
+zone_pivot_groups: acs-portal-js-csharp-java-python
 ---
 # Quickstart: Manage Phone Numbers
 

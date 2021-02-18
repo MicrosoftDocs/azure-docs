@@ -2,25 +2,25 @@
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [An active Communication Services resource.](../create-communication-resource.md)
+- [An active Communication Services resource.](../../create-communication-resource.md)
 
 ## Get a phone number
 
 To begin provisioning numbers, go to your Communication Services resource on the [Azure portal](https://portal.azure.com).
 
-:::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
+:::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
 
 ### Search for Available Phone Numbers
 
 Navigate to the **Phone Numbers** blade in the resource menu.
 
-:::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Screenshot showing a Communication Services resource's phone page.":::
+:::image type="content" source="../../media/manage-phone-azure-portal-phone-page.png" alt-text="Screenshot showing a Communication Services resource's phone page.":::
 
 Press the **Get** button to launch the wizard. The wizard on the **Phone numbers** blade will walk you through a series of questions that helps you choose the phone number that best fits your scenario. 
 
 You will first need to choose the **Country/region** where you would like to provision the phone number. After selecting the Country/region, you will then need to select the **Use case** which best suites your needs. 
 
-:::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Screenshot showing the Get phone numbers view.":::
+:::image type="content" source="../../media/manage-phone-azure-portal-get-numbers.png" alt-text="Screenshot showing the Get phone numbers view.":::
 
 ### Select your phone number features
 
@@ -33,7 +33,7 @@ You can select from two phone number types: **Geographic**, and **Toll-free**. W
 
 In our example, we've selected a **Toll-free** number type with the **Outbound calling** and **Inbound and Outbound SMS** features.
 
-:::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Screenshot showing the Select features view.":::
+:::image type="content" source="../../media/manage-phone-azure-portal-select-plans.png" alt-text="Screenshot showing the Select features view.":::
 
 From here, click the **Next: Numbers** button at the bottom of the page to customize the phone number(s) you would like to provision.
 
@@ -41,14 +41,14 @@ From here, click the **Next: Numbers** button at the bottom of the page to custo
 
 On the **Numbers** page, you will customize the phone number(s) which you'd like to provision.
 
-:::image type="content" source="../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="Screenshot showing the Numbers selection page.":::
+:::image type="content" source="../../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="Screenshot showing the Numbers selection page.":::
 
 > [!NOTE]
 > This quickstart is showing the **Toll-free** Number type customization flow. The experience may be slightly different if you have chosen the **Geographic** Number type, but the end-result will be the same.
 
 Choose the **Area code** from the list of available Area codes and enter the quantity which you'd like to provision, then click **Search** to find numbers which meet your selected requirements. The phone numbers which meet your needs will be shown along with their monthly cost.
 
-:::image type="content" source="../media/manage-phone-azure-portal-found-numbers.png" alt-text="Screenshot showing the Numbers selection page with reserved numbers.":::
+:::image type="content" source="../../media/manage-phone-azure-portal-found-numbers.png" alt-text="Screenshot showing the Numbers selection page with reserved numbers.":::
 
 > [!NOTE]
 > Availability depends on the Number type, location, and the features that you have selected.
@@ -65,17 +65,17 @@ The summary page will review the Number type, Features, Phone Numbers, and Total
 
 Finally, click **Place order** at the bottom of the page to confirm.
 
-:::image type="content" source="../media/manage-phone-azure-portal-get-numbers-summary.png" alt-text="Screenshot showing the Summary page with the Number type, Features, Phone Numbers, and Total monthly cost shown.":::
+:::image type="content" source="../../media/manage-phone-azure-portal-get-numbers-summary.png" alt-text="Screenshot showing the Summary page with the Number type, Features, Phone Numbers, and Total monthly cost shown.":::
 
 ## Find your phone numbers on the Azure portal
 
 Navigate to your Azure Communication Resource on the [Azure portal](https://portal.azure.com):
 
-:::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services Resource's main page.":::
+:::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services Resource's main page.":::
 
 Select the Phone Numbers blade in the menu to manage your phone numbers.
 
-:::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Screenshot showing a Communication Services Resource's phone number page.":::
+:::image type="content" source="../../media/manage-phone-azure-portal-phones.png" alt-text="Screenshot showing a Communication Services Resource's phone number page.":::
 
 > [!NOTE]
 > It may take a few minutes for the provisioned numbers to be shown on this page.
@@ -85,7 +85,7 @@ Select the Phone Numbers blade in the menu to manage your phone numbers.
 
 On the **Numbers** page, you can select a phone number to configure it.
 
-:::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot showing the update features page.":::
+:::image type="content" source="../../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot showing the update features page.":::
 
 Select the features from the available options, then click **Confirm** to apply your selection.
 
@@ -93,6 +93,6 @@ Select the features from the available options, then click **Confirm** to apply 
 
 On the **Numbers** page, you can release phone numbers.
 
-:::image type="content" source="../media/manage-phone-azure-portal-release-number.png" alt-text="Screenshot showing the release phone numbers page.":::
+:::image type="content" source="../../media/manage-phone-azure-portal-release-number.png" alt-text="Screenshot showing the release phone numbers page.":::
 
 Select the phone number that you want to release and then click on the **Release** button.
