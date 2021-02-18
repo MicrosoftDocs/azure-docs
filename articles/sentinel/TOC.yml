@@ -25,11 +25,11 @@
     href: tutorial-respond-threats-playbook.md
 - name: Concepts
   items:
-  - name: Permissions in Azure Sentinel
+  - name: Manage access
     items:
-    - name: Overview
+    - name: Permissions in Azure Sentinel
       href: roles.md
-    - name: Resource-centric RBAC
+    - name: Manage access to resource data
       href: resource-centric-rbac.md
   - name: Advanced multistage attack detection
     href: fusion.md

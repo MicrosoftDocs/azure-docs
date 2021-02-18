@@ -1,6 +1,6 @@
 ---
-title: Resource-centric RBAC for Azure Sentinel | Microsoft Docs
-description: This article explains how to implement resource-centric, role-based access control (resource-centric RBAC) for Azure Sentinel. Resource-centric RBAC enables you to provide access to specific resources only, without the entire Azure Sentinel experience.
+title: Manage access to Azure Sentinel data by resource | Microsoft Docs
+description: This article explains how to manage access to Azure Sentinel data by the resources a user can access. Managing access by resource enables you to provide access to specific data only, without the entire Azure Sentinel experience. This method is also known as resource-based RBAC.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -19,27 +19,28 @@ ms.author: bagol
 
 ---
 
-# Resource-centric RBAC for Azure Sentinel
+# Manage access to Azure Sentinel data by resource
 
 Typically, users who have access to an Azure Sentinel workspace also have access to all the workspace data, such as both security and performance content. Administrators can use [Azure roles](roles.md) to configure access to specific features in Azure Sentinel, depending on the access requirements in their team.
 
 However, you may have some users who need to access only specific data in your Azure Sentinel workspace, but shouldn't have access to the entire Azure Sentinel environment. For example, you may want to allow your performance team to view performance data only.
 
-In such cases, we recommend that you configure your role-based access control (RBAC) based on the resources allowed to your users instead of providing them with access to the Azure Sentinel workspace or specific Azure Sentinel features. Users are able to view data only in resources or resource groups where the users have access.
+In such cases, we recommend that you configure your role-based access control (RBAC) based on the resources that are allowed to your users, instead of providing them with access to the Azure Sentinel workspace or specific Azure Sentinel features. This method is also known as **resource-based RBAC**.
 
-Resource-centric RBAC enables users to view logs and workbooks using the following methods, instead of via Azure Sentinel:
+When users have access to Azure Sentinel data via the resources they can access instead of the Azure Sentinel workspace, they can view logs and workbooks using the following methods:
 
 - **Via the resource itself**, such as an Azure Virtual Machine. Use this method to view logs and workbooks for a specific resource only.
+
 - **Via Azure Monitor**. Use this method when you want to create queries that span multiple resources and/or resource groups. When navigating to logs and workbooks in Azure Monitor, define your scope to one or more specific resource groups or resources.
 
 > [!NOTE]
 > If your data is not an Azure resource, such as Syslog, CEF, or AAD data, or data collected by a custom collector, you'll need to manually configure the resource ID that's used to identify the data and enable access.
 >
-> For more information, see [Manually configure resource-centric RBAC](#manually-configure-resource-centric-rbac).
+> For more information, see [Manually configure resource-based RBAC](#manually-configure-resource-based-rbac).
 >
-## Scenarios for resource-centric RBAC
+## Scenarios for resource-based RBAC
 
-The following table highlights the scenarios where resource-centric RBAC is most helpful. Note the differences in access requirements between security operations (SOC) teams and non-SOC teams.
+The following table highlights the scenarios where resource-based RBAC is most helpful. Note the differences in access requirements between security operations (SOC) teams and non-SOC teams.
 
 | Requirement type |SOC team  |Non-SOC team  |
 |---------|---------|---------|
@@ -48,14 +49,13 @@ The following table highlights the scenarios where resource-centric RBAC is most
 |**Experience**     |  The full Azure Sentinel experience, possibly limited by the [functional permissions](roles.md) assigned to the user       |  Log queries and Workbooks only       |
 |     |         |         |
 
-If your team has similar access requirements to the non-SOC team described in the table above, resource-centric RBAC may be a good solution for your organization.
+If your team has similar access requirements to the non-SOC team described in the table above, resource-based RBAC may be a good solution for your organization.
 
-## Alternative methods for implementing resource-centric RBAC
+## Alternative methods for implementing resource-based RBAC
 
-Depending on the permissions required in your organization, manually configuring a resource ID to use with resource-centric RBAC may not provide a full solution.
+Depending on the permissions required in your organization, manually configuring a resource ID to use with resource-based RBAC may not provide a full solution.
 
 The following list describes scenarios where other solutions for data access may fit your requirements better:
-
 
 - **A subsidiary has a SOC team that requires a full Azure Sentinel experience**. In this case, use a [multi-workspace architecture](https://www.youtube.com/watch?v=_mm3GNwPBHU&feature=youtu.be) to separate your data permissions.
 
@@ -68,15 +68,15 @@ The following list describes scenarios where other solutions for data access may
     - Use data-based RBAC and custom collection.
     - Enrich the relevant log with the subsidiary information. In this case, you can use the enriched data in workbooks to ensure that each non-SOC team gets access to a workbook that is pre-filtered to display relevant data only.
 
-## Manually configure resource-centric RBAC
+## Manually configure resource-based RBAC
 
-Use the following steps if you want to configure resource-centric RBAC, but your data is not an Azure resource. 
+Use the following steps if you want to configure resource-based RBAC, but your data is not an Azure resource.
 
-For example, data in your Azure Sentinel workspace that are not Azure resources include Syslog, CEF, or AAD data, or data collected by a custom collector. 
+For example, data in your Azure Sentinel workspace that are not Azure resources include Syslog, CEF, or AAD data, or data collected by a custom collector.
 
-**To manually configure resource-centric RBAC**:
+**To manually configure resource-based RBAC**:
 
-1. In Azure Monitor, enable resource-centric RBAC as described in the [Azure Monitor documentation](/azure/azure-monitor/platform/manage-access).
+1. In Azure Monitor, enable resource-based RBAC as described in the [Azure Monitor documentation](/azure/azure-monitor/platform/manage-access).
 
 1. [Create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) for each team of users who needs to access your resources without the entire Azure Sentinel environment.
 
@@ -98,8 +98,6 @@ For example, data in your Azure Sentinel workspace that are not Azure resources 
     - [Resource IDs with Logstash collection](#resource-ids-with-logstash-collection)
     - [Resource IDs with the Log Analytics API collection](#resource-ids-with-the-log-analytics-api-collection)
 
-Users with resource-centric RBAC can access logs and workbooks via a parent resource group or via Azure Monitor. Azure Monitor also enables users to select the scope of the query or workbook, spanning multiple resource groups, and optionally selecting specific resources.
-
 ### Resource IDs with log forwarding
 
 When events are collected using [Common Event Format (CEF](connect-common-event-format.md) or [Syslog](connect-syslog.md), log forwarding is used to collect events from multiple source systems.
@@ -113,7 +111,7 @@ For example, separating your VMs ensures that Syslog events that belong to Team 
 > [!TIP]
 > When using an on-premises VM or a separate cloud VM as your log forwarder, ensure that it has a resource ID by implementing [Azure Arc](/azure/azure-arc/servers/overview).
 >
-> To scale your log fowarding VM environment, consider creating a [VM scale set](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854) to collect your CEF and Sylog logs.
+> To scale your log forwarding VM environment, consider creating a [VM scale set](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854) to collect your CEF and Sylog logs.
 
 
 ### Resource IDs with Logstash collection
@@ -128,7 +126,7 @@ needs example
 
 When collecting using the [Log Analytics data collector API](/azure/azure-monitor/platform/data-collector-api), you can assign to events with a resource ID using the HTTP [*x-ms-AzureResourceId*](/azure/azure-monitor/platform/data-collector-api#request-headers) request header.
 
-If you are using resource-centric RBAC and want the events collected by API to be available to specific users, use the resource ID of the resource group you [created for your users](#manually-configure-resource-centric-rbac).
+If you are using resource-based RBAC and want the events collected by API to be available to specific users, use the resource ID of the resource group you [created for your users](#manually-configure-resource-based-rbac).
 
 
 ## Next steps
