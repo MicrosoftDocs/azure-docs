@@ -38,8 +38,8 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | vnetType | **Transparent** or **ICS** | The type of virtual switch. **Default value**: Transparent. |
 | vnetName | No longer than 64 characters | The name of the virtual switch. **Default value**: External. |
 | enableVtpm | None | **Switch parameter**. Create the virtual machine with TPM enabled or disabled. |
-| iotedgePackageVersion | No longer than 30 characters |  Version of Moby package to be verified or installed on the virtual machine; whether it is only verified as present or installed can be toggled using the **installPackages** switch parameter.  **Default value:** 19.03.11. |
-| iotedgePackageVersion | No longer than 30 characters | Version of IoE Edge package to be verified or installed on the virtual machine; whether it is only verified as present or installed can be toggled using the **installPackages** switch parameter. **Default value:** 1.0.10. |
+| iotedgePackageVersion | No longer than 30 characters |  Version of Moby package to be verified or installed on the virtual machine.  **Default value:** 19.03.11. |
+| iotedgePackageVersion | No longer than 30 characters | Version of IoE Edge package to be verified or installed on the virtual machine. **Default value:** 1.0.10. |
 | mobyPackageVersion | No longer than 30 characters |  |
 | installPackages | None | **Switch parameter**. When toggled, the script will attempt to install the Moby and IoT Edge packages rather than only verifying the packages are present. |
 
