@@ -9,9 +9,9 @@ ms.date: 02/16/2020
 
 # HDInsight Customer Log Analytics Migration Guidance
 
-Azure HDInsight is an enterprise-ready, managed-cluster service for running open-source analytics frameworks like Apache Spark, Hadoop, and Kafka on Azure. Azure HDInsight has integrated with other Azure services to enable customers to better manage their big data analytics applications, like Azure Active Directory, Azure Data Factory, and Log Analytics.
+Azure HDInsight is an enterprise-ready, managed-cluster service. This service runs open-source analytics frameworks like Apache Spark, Hadoop, and Kafka on Azure. Azure HDInsight has integrated with other Azure services to enable customers to better manage their big data analytics applications.
 
-Log Analytics provides a tool in the Azure portal to edit and run log queries from data collected by Azure Monitor Logs and interactively analyze their results. Customers can use Log Analytics queries to retrieve records matching criteria, identify trends, analyze patterns, and provide a variety of insights into their data.
+Log Analytics provides a tool in the Azure portal to edit and run log queries. The queries come from data collected by Azure Monitor Logs and interactively analyze their results. Customers can use Log Analytics queries to retrieve records that match specific criteria. They can also use queries to identify trends, analyze patterns, and provide insights into their data.
 
 Azure HDInsight enabled integration with Log Analytics in 2017. HDInsight customers quickly adopted this feature to monitor their HDInsight clusters and query the logs in the clusters. While adoption of this feature has increased, customers have provided feedback about the integration:
 
@@ -22,7 +22,7 @@ Azure HDInsight enabled integration with Log Analytics in 2017. HDInsight custom
 
 ## Solution Overview
 
-As a result of the customer feedback, the HDInsight team invested in the new Azure Monitor integration. This integration enables:
+Because of customer feedback, the HDInsight team invested in the new Azure Monitor integration. This integration enables:
 
 - A new set of tables in customers' Log Analytics workspace. The new tables are delivered through a new Log Analytics pipeline.
 - Higher reliability
@@ -37,17 +37,17 @@ This document walks you through the changes to the Azure Monitor integration and
 
 **Redesigned schemas**: The schema formatting for the new Azure Monitor integration is better organized and easy to understand. There are two-thirds fewer schemas to remove as much ambiguity in the legacy schemas as possible.
 
-**Selective Logging (releasing soon)**: There are a variety of logs and metrics available through Log Analytics. To help you save on monitoring costs, we will be releasing a new selective logging feature soon that you can use to turn on and off different logs and metric sources. With this feature, you'll only have to pay for what you use.
+**Selective Logging (releasing soon)**: There are logs and metrics available through Log Analytics. To help you save on monitoring costs, we'll be releasing a new selective logging feature. Use this feature to turn on and off different logs and metric sources. With this feature, you'll only have to pay for what you use.
 
-**Logs cluster portal integration**: The **Logs** blade is new to the HDInsight Cluster portal. Anyone with access to the cluster can go to this blade to query any table that the cluster resource sends records to. Users don't need access to the Log Analytics workspace anymore to see the records for a specific cluster resource.
+**Logs cluster portal integration**: The **Logs** pane is new to the HDInsight Cluster portal. Anyone with access to the cluster can go to this pane to query any table that the cluster resource sends records to. Users don't need access to the Log Analytics workspace anymore to see the records for a specific cluster resource.
 
-**Insights cluster portal integration**: The **Insights** blade is also new to the HDInsight Cluster portal. After enabling the new Azure Monitor integration, you can select the **Insights** blade and an out-of-box logs and metrics dashboard specific to the cluster's type will automatically populate for you. These dashboards have been revamped from our previous Azure solutions. They give you deep insights into your cluster's performance and health.
+**Insights cluster portal integration**: The **Insights** pane is also new to the HDInsight Cluster portal. After enabling the new Azure Monitor integration, you can select the **Insights** pane and an out-of-box logs and metrics dashboard specific to the cluster's type will automatically populate for you. These dashboards have been revamped from our previous Azure solutions. They give you deep insights into your cluster's performance and health.
 
-**At-scale insights**: Monitor the health and performance of multiple clusters across different subscriptions through our new **At-Scale Insights** workbook available in the **Azure Monitor** portal.
+**At-scale insights**: Monitor cluster health and performance across different subscriptions through our new **At-Scale Insights** workbook in the **Azure Monitor** portal.
 
 ## Customer scenarios
 
-The following sections describe how customers can use the new Azure Monitor integration in different scenarios. The [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section outlines how to activate and utilize the new Azure Monitor integration. The [Activate an existing Azure Monitor integration](#activate-an-existing-azure-monitor-integration) section includes additional information for users that dependend on the old Azure Monitor integration.
+The following sections describe how customers can use the new Azure Monitor integration in different scenarios. The [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section outlines how to activate and use the new Azure Monitor integration. The [Activate an existing Azure Monitor integration](#activate-an-existing-azure-monitor-integration) section includes additional information for users that depend on the old Azure Monitor integration.
 
 > [!NOTE]
 > Only clusters created in late-September 2020 and after are eligible for the new Azure Monitoring integration.
@@ -57,7 +57,7 @@ The following sections describe how customers can use the new Azure Monitor inte
 > [!NOTE]
 > You must have a Log Analytics workspace created in a subscription you have access to before doing enabling the new integration. For more information about how to create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-Activate the new integration by going to your cluster's portal page, scrolling down the menu on the left until you reach the **Monitoring** section, and selecting the **Azure Monitor** blade. There will be a button to enable the pipeline. Once you select **Enable**, you can choose the Log Analytics workspace that you want your logs to be sent to. Select **Save** once you have chosen your workspace. 
+Activate the new integration by going to your cluster's portal page and scrolling down the menu on the left until you reach the **Monitoring** section. In the **Monitoring** section, select **Azure Monitor**. Then, select **Enable** and you can choose the Log Analytics workspace that you want your logs to be sent to. Select **Save** once you have chosen your workspace. 
 
 ### Accessing the new tables
 
@@ -71,12 +71,12 @@ The first way to access the new tables is through the Log Analytics workspace.
 4. If you group the tables by **Resource Type**, the tables are under the **HDInsight Clusters** section as shown in the image below. 
 
 > [!NOTE]
-> This is how the logs were accessed in the old integration. This requires the user to have access to the workspace.
+> This process describes how the logs were accessed in the old integration. This requires the user to have access to the workspace.
 
 The second way to access the new tables is through Cluster portal access.
  
-1. Navigate to your Cluster's portal page and scroll down the menu on the left side until you see the **Monitoring** section. In this section you'll see the **Logs** blade. 
-2. Select **Logs** and a Logs query editor appears. This editor contains all logs associated with the cluster resource that are sent to the Log Analytics workspace you selected when enabling the integration. This provides resource-based access (RBAC) so that users who have access to the cluster but not to the workspace can still see logs associated with the cluster.
+1. Navigate to your Cluster's portal page and scroll down the menu on the left side until you see the **Monitoring** section. In this section, you'll see the **Logs** pane. 
+2. Select **Logs** and a Logs query editor appears. The editor contains all logs that are associated with the cluster resource. You sent the logs to the Log Analytics workspace when you enabled integration. These logs provide resource-based access (RBAC). RBAC means that users who have access to the cluster but not to the workspace can still see logs that are associated with the cluster.
 
 For comparison, the following screenshots show the legacy integration workspace view and the new integration workspace view:
 
@@ -89,44 +89,44 @@ These integrations can help you use the new tables:
 
 #### Default queries to use with new tables
 
-In your Logs query editor, set the toggle to **Queries** above the table list. Make sure that the queries are grouped by **Resource Type** and that there's no filter set for a resource type other than **HDInsight Clusters**. The following image shows how the results look when grouped by **Resource Type** and filtered for **HDInsight Clusters**. Just select one and it appear in the Logs query editor. Be sure to read the comments included in the queries, as some require you to enter some information, like your cluster name, for the query to run successfully.
+In your Logs query editor, set the toggle to **Queries** above the table list. Make sure that you group the queries by **Resource Type** and that there's no filter set for a resource type other than **HDInsight Clusters**. The following image shows how the results look when grouped by **Resource Type** and filtered for **HDInsight Clusters**. Just select one and it appears in the Logs query editor. Be sure to read the comments included in the queries, as some require you to enter some information, like your cluster name, for the query to run successfully.
 
 <![alt-text-description]()>
 
-#### Ad-hoc queries
+#### Ad hoc queries
 
 You can enter your own queries in the Logs query editor. Queries used on the old tables won't be valid on the new tables as many of the new tables have new, refined schemas. The default queries are great references for shaping queries on the new tables.
 
 #### Insights
 
-Insights are cluster-specific visualization dashboards made using [Azure Workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). These dashboards give you detailed graphs and visualizations of how your cluster is running. The dashboards have sections for each cluster type, YARN, system metrics, and component logs. You can access the dashboard for your cluster by visiting your cluster's page in the portal, scrolling down to the **Monitoring** section, and selecting the **Insights** blade. The dashboard loads automatically if you have enabled the new integration. Please allow a few seconds for the graphs to load as they query the logs.
+Insights are cluster-specific visualization dashboards made using [Azure Workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). These dashboards give you detailed graphs and visualizations of how your cluster is running. The dashboards have sections for each cluster type, YARN, system metrics, and component logs. You can access your cluster's dashboard by visiting your cluster's page in the portal, scrolling down to the **Monitoring** section, and selecting the **Insights** pane. The dashboard loads automatically if you've enabled the new integration. Allow a few seconds for the graphs to load as they query the logs.
 
 <![alt-text-description]()>
 
 #### Custom Azure workbooks
 
-You can create your own Azure workbooks with custom graphs and visualizations. In your cluster's portal page, scroll down to the **Monitoring** section and select the **Workbooks** blade in the menu on the left. You can either start using a blank template or use one of the templates under the **HDInsight Clusters** section. There is a template for each cluster type. This is useful if you want to save specific customizations that the default HDInsight Insights don't provide. Feel free to send in requests for new features in the HDInsight Insights if you feel they're lacking something.
+You can create your own Azure workbooks with custom graphs and visualizations. In your cluster's portal page, scroll down to the **Monitoring** section and select the **Workbooks** pane in the menu on the left. You can either start using a blank template or use one of the templates under the **HDInsight Clusters** section. There's a template for each cluster type. Templates are useful if you want to save specific customizations that the default HDInsight Insights don't provide. Feel free to send in requests for new features in the HDInsight Insights if you feel they're lacking something.
 
 #### At-scale workbooks for new Azure Monitor integrations
 
-Use our new at-scale workbook <add link> to get a multi-cluster monitoring experience for your clusters. Our at-scale workbook shows you which of your clusters have our monitoring pipeline enabled and gives you a straightforward way to quickly check the health of multiple clusters at once. It contains different views, including one for each cluster type and one for YARN-based clusters. To view this workbook:
+Use our new at-scale workbook <add link> to get a multi-cluster monitoring experience for your clusters. Our at-scale workbook shows you which of your clusters that have our monitoring pipeline enabled and gives you a straightforward way to check the health of multiple clusters at once. It contains different views, including one for each cluster type and one for YARN-based clusters. To view this workbook:
 
-1. Go to **Aure Monitor** page in from the Azure Portal home page
-2. Once on the **Azure Monitor** page, look at the menu on the left for the section, **Insights**, and click under the **HDInsight** blade.
+1. Go to the **Azure Monitor** page in from the Azure portal home page
+2. Once on the **Azure Monitor** page, look at the menu on the left for the section, **Insights**, and select the workbook under the **HDInsight** pane.
 
    <Add picture of at scale workbook>
 
 #### Alerts
 
-You can add custom alerts to your clusters and workspaces in the Log query editor. Go to the Logs query editor by selecting the **Logs** blade from either your cluster or workspace portal. Run a query and then select **New Alert Rule** as shown in the following screenshot. For more information, read about [configuring alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+You can add custom alerts to your clusters and workspaces in the Log query editor. Go to the Logs query editor by selecting the **Logs** pane from either your cluster or workspace portal. Run a query and then select **New Alert Rule** as shown in the following screenshot. For more information, read about [configuring alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
 
 <![alt-text-description]()>
 
 ## Activate an existing Azure Monitor integration
 
-If are using the classic Azure Monitor integration, you'll need to make some adjustments to the new table formats after you switch to the new Azure Monitor integration.
+If you're using the classic Azure Monitor integration, you need to make some adjustments to the new table formats after you switch to the new Azure Monitor integration.
 
-To enable the new Azure Monitor integration, please follow the steps outlined in the [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section.
+To enable the new Azure Monitor integration, follow the steps outlined in the [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section.
 
 ### Run queries in Log Analytics
 
@@ -134,23 +134,23 @@ Since the new table format is different from the previous one, your queries need
 
 We provide a [mapping table](#appendix-1-table-mapping) between the old table to the new table to help you quickly find the new fields you need to use to migrate your dashboards and queries.
 
-**Default queries**: We created default queries that show how to use the new tables for common situations and show what information is available in each table. You can access the default queries by following the instructions in the [Default queries to use with new tables](#default-queries-to-use-with-new-tables) section in this article.
+**Default queries**: We created default queries that show how to use the new tables for common situations. The default queries also show what information is available in each table. You can access the default queries by following the instructions in the [Default queries to use with new tables](#default-queries-to-use-with-new-tables) section in this article.
 
 ### Update dashboards for HDInsight clusters
 
 If you have built multiple dashboards to monitor your HDInsight clusters, you need to adjust the query behind the table once you enable the new Azure Monitor integration. The table name or the field name might change in the new integration, but all the information you have in old integration is included.
 
-Please refer to the [mapping table](#appendix-1-table-mapping) between the old table/schema to the new table/schema to update the query behind the dashboards.
+Refer to the [mapping table](#appendix-1-table-mapping) between the old table/schema to the new table/schema to update the query behind the dashboards.
 
 #### Out-of-box dashboards 
 
-We also improved the out-of-box dashboards both at the cluster-level. There is a button on the top right of every graph that allows you to see the underlying query that produces the information, which is a great way to familiarize yourself with how the new tables can be queried effectively. You can access the out-of-box dashboards by following the instructions found in the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections in this article.
+We also improved the out-of-box dashboards both at the cluster-level. There's a button on the top right of every graph that allows you to see the underlying query that produces the information. The graph is a great way to familiarize yourself with how the new tables can be queried effectively. You can access the out-of-box dashboards by following the instructions that are found in the [Insights](#insights) and [At-scale workbooks for new Azure Monitor integrations](#at-scale-workbooks-for-new-azure-monitor-integrations) sections in this article.
 
 ### Use an HDInsight workload-specific monitoring dashboard in Azure Monitor
 
-If you are using the out-of-box monitoring dashboard for HDInsight clusters, like HDInsight Spark Monitoring, HDInsight HBase Monitoring, and HDInsight Interactive Monitoring, we are working on provide you the same capabilities on the Azure Monitor portal.
+If you're using the out-of-box monitoring dashboard for HDInsight clusters, like HDInsight Spark Monitoring, HDInsight HBase Monitoring, and HDInsight Interactive Monitoring, we're working on provide you the same capabilities on the Azure Monitor portal.
 
-You'll see that there is an HDInsight option in Azure Monitor.
+You'll see that there's an HDInsight option in Azure Monitor.
 
 <![alt-text-description]()>
 
@@ -161,25 +161,25 @@ The HDInsight Monitor portal provides you the capability of monitoring multiple 
 
 ## Enable both integrations to accelerate the migration
 
-To help you quickly migrate to the new Azure Monitor integration, you can have both the classic and the new Azure Monitor integrations activated at the same time on a cluster that is eligible for both integrations. The new integration is available for all clusters created after mid-September 2020.
+To help you quickly migrate to the new Azure Monitor integration, you can have both the classic and the new Azure Monitor integrations that are activated at the same time on a cluster that is eligible for both integrations. The new integration is available for all clusters created after mid-September 2020.
 
 In this way, you can easily do a side-by-side comparison for the queries you are using.
 
 ### Enabling the classic integration
 
-If you are using a cluster created after mid-September 2020, you'll see the new portal experience in your cluster's portal. To enable the new pipeline, you can follow the steps outlined in the [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section. To activate the classic integration on this cluster, go to the your cluster's portal page. Select the **Azure Monitor** blade in the **Monitoring** section of the blade menu on the left side of your cluster portal page. Select **Configure Azure Monitor for HDInsight clusters integration (classic)**. A side context appears with a toggle you can use to enable and disable the classic Azure Monitoring integration. 
+If you're using a cluster created after mid-September 2020, you'll see the new portal experience in your cluster's portal. To enable the new pipeline, you can follow the steps outlined in the [Activate a new Azure Monitor integration](#activate-a-new-azure-monitor-integration) section. To activate the classic integration on this cluster, go to your cluster's portal page. Select the **Azure Monitor** pane in the **Monitoring** section of the menu on the left side of your cluster portal page. Select **Configure Azure Monitor for HDInsight clusters integration (classic)**. A side context appears with a toggle you can use to enable and disable the classic Azure Monitoring integration. 
 
 > [!NOTE]
 > The **Insights** and **Logs** blades only work with the new integration.
 
 <Include image circling the link to old pipeline>
 
-You won't be able to create new clusters with classic Azure Monitor integration after July 1st, 2021.
+Creating new clusters with classic Azure Monitor integration is available after July 1, 2021.
 
 ## Release and support timeline
 
-- Customers can enable the new Azure Monitoring integration after February 20th, 2021.
-- Classic Azure Monitoring integration will be unavailable after July 1st, 2021. Until then, there will be limited support for all the running clusters with classic Azure Monitoring integration
+- Customers can enable the new Azure Monitoring integration after February 20, 2021.
+- Classic Azure Monitoring integration will be unavailable after July 1, 2021. Until then, there will be limited support for all the running clusters with classic Azure Monitoring integration
   - Issues will be investigated once customers submit a support ticket.
   - If solution requires image change, customers should move to the new integration.
   - If the solution requires an RP change or Sibyl update, we'll include the fix and deploy the mitigation along in the regular release cycle.
@@ -195,7 +195,7 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
 ## General
 
 
-| Workload | Detais |
+| Workload | Details |
 | --- | --- |
 | General | <ul><li>**New table**: HDInsightAmbariSystemMetrics</li><li>**Old table**: metrics\_cpu\_nice\_clmetrics\_cpu\_system\_clmetrics\_cpu\_user\_cl metrics\_memory\_cache\_CLmetrics\_memory\_swap\_CLmetrics\_memory\_total\_CLmetrics\_memory\_buffer\_CLmetrics\_load\_1min\_CLmetrics\_load\_cpu\_CL metrics\_load\_nodes\_CLmetrics\_load\_procs\_CLmetrics\_network\_in\_CLmetrics\_network\_out\_CL</li><li>**Description**: This table contains system metrics collected from Ambari. The metrics now come from each node in the cluster (except for edgenodes) instead of just the two headnodes. Each metric is no w column and each metric is reported once per record.</li></ul>|
 | General | <ul><li>**New table**: HDInsightAmbariClusterAlerts</li><li>**Old table**: metrics\_cluster\_alerts\_CL</li><li>**Description**: This table contains Ambari Cluster Alerts from each node in the cluster (except for edgenodes). Each alert is a record in this table.</li></ul>|
@@ -211,7 +211,7 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
  |
 | **General** | **HDInsightSecurityLogs** | This table contains records from the Ambari Audit and Auth Logs. | log\_ambari\_audit\_CLlog\_auth\_CL |
 | **General** | **HDInsightRangerAuditLogs** | This table contains all records from the Ranger Audit log for ESP clusters | ranger\_audit\_logs\_CL |
-| **General** | **HDInsightGatewayAuditLogs\_CL** | This table contains the Gateway nodes audit information. It is the same format as the table in Old Tables column. **It is still located in the Custom Logs section.** | log\_gateway\_Audit\_CL |
+| **General** | **HDInsightGatewayAuditLogs\_CL** | This table contains the Gateway nodes audit information. It's the same format as the table in Old Tables column. **It's still located in the Custom Logs section.** | log\_gateway\_Audit\_CL |
     
 ## Spark
 
@@ -274,14 +274,14 @@ The below chart shows the table mappings from the classic Azure Monitoring Integ
 | Workload | New Table (Azure Monitor) | Description | Old Table (Azure Monitor (Classic) |
 | --- | --- | --- | --- |
 | **Storm** | **HDInsightStormMetrics** | This table contains the same JMX metrics as the tables in the Old Tables section. Its rows contain one metric per record. | metrics\_stormnimbus\_CLmetrics\_stormsupervisor\_CL |
-| **Storm** | **HDInsightStormTopologyMetrics** | This table contains topology level metrics from Storm. It is the same shape as the table listed in Old Tables section | metrics\_stormrest\_CL |
+| **Storm** | **HDInsightStormTopologyMetrics** | This table contains topology level metrics from Storm. It's the same shape as the table listed in Old Tables section | metrics\_stormrest\_CL |
 | **Storm** | **HDInsightStormLogs** | This table contains all logs generated from Storm. | log\_supervisor\_CL,log\_nimbus\_CL |
 
 ## Hadoop/Yarn
 
 | Workload | New Table (Azure Monitor) | Description | Old Table (Azure Monitor (Classic) |
 | --- | --- | --- | --- |
-| **Hadoop/Yarn** | **HDInsightHadoopAndYarnMetrics** | this table contains JMX metrics from the Hadoop and YARN frameworks. It contains all the same JMX metrics as the old Custom Logs tables, plus more metrics we deemed are important. We added Timeline Server, Node Manager, and Job History Server metrics. It contains one metric per record. | metrics\_resourcemanager\_clustermetrics\_CLmetrics\_resourcemanager\_jvm\_CLmetrics\_resourcemanager\_queue\_root\_CLmetrics\_resourcemanager\_queue\_root\_joblauncher\_CLmetrics\_resourcemanager\_queue\_root\_default\_CLmetrics\_resourcemanager\_queue\_root\_thriftsvr\_CL
+| **Hadoop/Yarn** | **HDInsightHadoopAndYarnMetrics** | this table contains JMX metrics from the Hadoop and YARN frameworks. It contains all the same JMX metrics as the old Custom Logs tables, plus more metrics that are important. We added Timeline Server, Node Manager, and Job History Server metrics. It contains one metric per record. | metrics\_resourcemanager\_clustermetrics\_CLmetrics\_resourcemanager\_jvm\_CLmetrics\_resourcemanager\_queue\_root\_CLmetrics\_resourcemanager\_queue\_root\_joblauncher\_CLmetrics\_resourcemanager\_queue\_root\_default\_CLmetrics\_resourcemanager\_queue\_root\_thriftsvr\_CL
  |
 | **Hadoop/Yarn** | **HDInsightHadoopAndYarnLogs** | This table contains all logs generated from the Hadoop and YARN frameworks. | log\_mrjobsummary\_CLlog\_resourcemanager\_CLlog\_timelineserver\_CLlog\_nodemanager\_CL
  |
