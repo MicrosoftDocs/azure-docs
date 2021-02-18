@@ -18,7 +18,7 @@ The commands described in this article are from the `AzureEFLOW.psm1` file, whic
 
 ## Deploy-Eflow
 
-The **Deploy-Eflow** command is the main deployment method. The deployment command provisions files and deploy the IoT Edge agent module. While none of the parameters are required, they can be used to provision your IoT Edge device during the deployment and modify settings for the virtual machine during creation. For additional information, use the command `Get-Help Deploy-Eflow -full`.  
+The **Deploy-Eflow** command is the main deployment method. The deployment command provisions files and deploy the IoT Edge agent module. While none of the parameters are required, they can be used to provision your IoT Edge device during the deployment and modify settings for the virtual machine during creation. For a full list, use the command `Get-Help Deploy-Eflow -full`.  
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
