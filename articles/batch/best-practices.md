@@ -18,11 +18,11 @@ This article discusses a collection of best practices and useful tips for using 
 
 ### Pool configuration and naming
 
-- **Pool allocation mode**
+- **Pool allocation mode:**
     When creating a Batch account, you can choose between two pool allocation modes: **Batch service** or **user subscription**. For most cases, you should use the default Batch service mode, in which pools are allocated behind the scenes in Batch-managed subscriptions. In the alternative user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. User subscription accounts are primarily used to enable an important, but small subset of scenarios. You can read more about user subscription mode at [Additional configuration for user subscription mode](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
-- **'cloudServiceConfiguration' or 'virtualMachineConfiguration'.**
-    'virtualMachineConfiguration' should be used. All Batch features are supported by 'virtualMachineConfiguration' pools. Not all features are supported for 'cloudServiceConfiguration' pools and no new capabilities are being planned.
+- **`cloudServiceConfiguration` or `virtualMachineConfiguration` pools:**
+    `virtualMachineConfiguration` should be used. All Batch features are supported by `virtualMachineConfiguration` pools, but not `cloudServiceConfiguration` pools. `cloudServiceConfiguration` pools are deprecated and will no longer be supported at a future date.
 
 - **Consider job and task run time when determining job to pool mapping.**
     If you have jobs comprised primarily of short-running tasks, and the expected total task counts are small, so that the overall expected run time of the job is not long, do not allocate a new pool for each job. The allocation time of the nodes will diminish the run time of the job.
@@ -36,7 +36,7 @@ This article discusses a collection of best practices and useful tips for using 
 - **Continuity during pool maintenance and failure.**
     It's best to have your jobs use pools dynamically. If your jobs use the same pool for everything, there's a chance that your jobs won't run if something goes wrong with the pool. This is especially important for time-sensitive workloads. To fix this, select or create a pool dynamically when you schedule each job, or have a way to override the pool name so that you can bypass an unhealthy pool.
 
-- **Business continuity during pool maintenance and failure**
+- **Business continuity during pool maintenance and failure:**
     There are many possible causes that may prevent a pool from growing to the required size you desire, such as internal errors, capacity constraints, etc. For this reason, you should be ready to retarget jobs at a different pool (possibly with a different VM size - Batch supports this via [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)) if necessary. Avoid using a static pool ID with the expectation that it will never be deleted and never change.
 
 ### Pool lifetime and billing
@@ -46,10 +46,10 @@ Pool lifetime can vary depending upon the method of allocation and options appli
 - **Keep pools fresh.**
     Resize your pools to zero every few months to ensure you get the [latest node agent updates and bug fixes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Your pool won't receive node agent updates unless it's recreated, or resized to 0 compute nodes. Before you recreate or resize your pool, it's recommended to download any node agent logs for debugging purposes, as discussed in the [Nodes](#nodes) section.
 
-- **Pool re-creation**
+- **Pool re-creation:**
     On a similar note, it's not recommended to delete and re-create your pools on a daily basis. Instead, create a new pool, update your existing jobs to point to the new pool. Once all of the tasks have been moved to the new pool, then delete the old pool.
 
-- **Pool efficiency and billing**
+- **Pool efficiency and billing:**
     Batch itself incurs no extra charges, but you do incur charges for the compute resources used. You're billed for every compute node in the pool, regardless of the state it's in. This includes any charges required for the node to run such as storage and networking costs. To learn more best practices, see [Cost analysis and budgets for Azure Batch](budget.md).
 
 ### Pool allocation failures
@@ -228,6 +228,8 @@ Windows:
 Linux:
 
 - A user named **_azbatch**
+
+Note that these are considered implementation details of the Azure Batch service and taking dependencies on these details is not recommended.
 
 ### File cleanup
 
