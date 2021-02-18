@@ -17,9 +17,9 @@ the link in the **Version** column to view the source on the
 
 ## Initiatives
 
-[!INCLUDE [azure-policy-reference-policysets-kubernetes](../../includes/policy/reference/byrp/policysets-kubernetes.md)]
+[!INCLUDE [azure-policy-reference-policysets-kubernetes](../../includes/policy/reference/bycat/policysets-kubernetes.md)]
 
-## Policies
+## Policy definitions
 
 ### Microsoft.ContainerService
 

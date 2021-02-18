@@ -9,9 +9,9 @@ ms.custom: template-how-to
 
 # Secure your cluster with Azure Policy
 
-To improve the security of your Azure Kubernetes Service (AKS) cluster, you can apply and enforce built-in security policies on your cluster using Azure Policy. [Azure Policy][azure-policy] helps to enforce organizational standards and to assess compliance at-scale. After installing the [Azure Policy Add-on for AKS][kubernetes-policy-reference], you can apply individual policies or groups or policies called initiatives to your cluster. See [Azure Policy built-in definitions for AKS][aks-policies] for a complete list of AKS polices and initiatives.
+To improve the security of your Azure Kubernetes Service (AKS) cluster, you can apply and enforce built-in security policies on your cluster using Azure Policy. [Azure Policy][azure-policy] helps to enforce organizational standards and to assess compliance at-scale. After installing the [Azure Policy Add-on for AKS][kubernetes-policy-reference], you can apply individual policy definitions or groups of policy definitions called initiatives (sometimes called policysets) to your cluster. See [Azure Policy built-in definitions for AKS][aks-policies] for a complete list of AKS policy and initiative definitions.
 
-This article shows you how to apply policies to your cluster and verify those polices are being enforced.
+This article shows you how to apply policy definitions to your cluster and verify those assignments are being enforced.
 
 ## Prerequisites
 
@@ -21,11 +21,11 @@ This article shows you how to apply policies to your cluster and verify those po
 ## Assign a built-in policy definition or initiative
 
 > [!TIP]
-> All policies default to an audit effect. Effects can be updated to deny at any time through Azure Policy.
+> All policy definitions default to an audit effect. Effects can be updated to deny at any time through Azure Policy.
 
 To apply the baseline initiative, we can assign through the Azure portal.
 
-1. Navigate to the Policy service in Azure portal
+1. Navigate to the Azure Policy service in Azure portal
 1. In the left pane of the Azure Policy page, select **Definitions**
 1. Search for "Baseline Profile" on the search pane to the right of the page
 1. Select `Kubernetes Pod Security Standards Baseline Profile for Linux-based workloads` from the `Kubernetes` category
@@ -33,14 +33,14 @@ To apply the baseline initiative, we can assign through the Azure portal.
 1. Select the **Parameters** page and update the **Effect** from `audit` to `deny` to block new deployments violating the baseline initiative
 1. Add additional namespaces to exclude from evaluation during create, update, and audit. Some namespaces, such as _kube-system_, _gatekeeper-system_, and _aks-periscope_ are automatically excluded from policy evaluation.
     ![update effect](media/use-pod-security-on-azure-policy/update-effect.png)
-1. Select **Review + create** to submit the policies
+1. Select **Review + create** to submit the policy assignment.
 
 ## Validate a Azure Policy is running
 
-Confirm policies are applied to your cluster by running `kubectl get constrainttemplates`.
+Confirm the policy assignments are applied to your cluster by running `kubectl get constrainttemplates`.
 
 > [!NOTE]
-> Policies can take [up to 20 minutes to sync](../governance/policy/concepts/policy-for-kubernetes.md#assign-a-built-in-policy-definition) into each cluster.
+> Policy assignments can take [up to 20 minutes to sync](../governance/policy/concepts/policy-for-kubernetes.md#assign-a-built-in-policy-definition) into each cluster.
 
 The output should be similar to:
 
