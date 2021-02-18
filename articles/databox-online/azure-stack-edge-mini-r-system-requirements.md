@@ -33,7 +33,7 @@ The system requirements for the Azure Stack Edge Mini R include:
 
 ## Supported Edge storage accounts
 
-The following Edge storage accounts are supported with REST interface of the device. The Edge storage accounts are created on the device. For more information, see [Edge storage accounts](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts)
+The following Edge storage accounts are supported with REST interface of the device. The Edge storage accounts are created on the device. For more information, see [Edge storage accounts](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts)
 
 |Type  |Storage account  |Comments  |
 |---------|---------|---------|
