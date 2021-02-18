@@ -203,6 +203,8 @@
       href: partner-center-portal/azure-iot-edge-module-creation.md
     - name: Prepare IoT Edge module technical assets
       href: partner-center-portal/create-iot-edge-module-asset.md
+    - name: Pre-certification checklist
+      href: iot-edge-checklist.md
   - name: Managed Service offers
     items:
     - name: Plan a Managed Service offer
