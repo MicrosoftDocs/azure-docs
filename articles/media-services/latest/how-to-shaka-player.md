@@ -28,6 +28,7 @@ We recommend using [Mux.js](https://github.com/videojs/mux.js/) as, without it, 
 Its official documentation can be found at [Shaka player documentation](https://shaka-player-demo.appspot.com/docs/api/tutorial-welcome.html).
 
 ## Sample code
+
 Sample code for this article is available at [Azure-Samples/media-services-3rdparty-player-samples](https://github.com/Azure-Samples/media-services-3rdparty-player-samples).
 
 ## Implementing the player
