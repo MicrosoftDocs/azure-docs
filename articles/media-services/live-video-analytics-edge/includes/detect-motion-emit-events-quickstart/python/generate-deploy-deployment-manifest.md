@@ -37,6 +37,6 @@ The RTSP simulator module simulates a live video stream by using a video file th
 mkdir /home/edgeuser/samples      
 mkdir /home/edgeuser/samples/input    
 curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/edgeuser/samples/input/camera-300s.mkv  
-chown -R lvaadmin /home/edgeuser/samples/  
+chown -R edgeuser:localuser /home/edgeuser/samples/  
 ```
 At this stage, the modules are deployed but no media graphs are active.

@@ -64,7 +64,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
         mkdir /home/edgeuser/samples
         mkdir /home/edgeuser/samples/input    
         curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/edgeuser/samples/input/camera-300s.mkv  
-        chown -R lvaadmin /home/edgeuser/samples/  
+        chown -R edgeuser:localuser /home/edgeuser/samples/  
         ```
     * The **yolov3** module, which is the YOLOv3 object detection model that applies computer vision to the images and returns multiple classes of object types
  

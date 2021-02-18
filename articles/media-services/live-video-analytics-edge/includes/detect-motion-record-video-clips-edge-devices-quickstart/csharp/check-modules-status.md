@@ -12,5 +12,5 @@ In the [Generate and deploy the IoT Edge deployment manifest](../../../detect-mo
 mkdir /home/edgeuser/samples
 mkdir /home/edgeuser/samples/input    
 curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/edgeuser/samples/input/camera-300s.mkv  
-chown -R lvaadmin /home/edgeuser/samples/  
+chown -R edgeuser:localuser /home/edgeuser/samples/  
 ```
