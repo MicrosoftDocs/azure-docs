@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine Windows agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 02/16/2021
+ms.date: 02/18/2021
 ms.topic: conceptual
 ---
 
@@ -63,6 +63,19 @@ You can download the Azure Connected Machine agent package for Windows and L
 The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. For more information, see [here](manage-agent.md).
 
 ## Prerequisites
+
+### Supported environments
+
+Arc enabled servers supports the management of physical servers and virtual machines hosted *outside* of Azure. The following table specifies which Microsoft hybrid cloud environments are supported.
+
+|Platform |Supported |
+|---------|----------|
+|Azure Stack Edge | No |
+|Azure Stack Hub | No |
+|Azure Stack HCI | Yes |
+
+> [!NOTE]
+> Arc enabled servers is not designed to enable management of virtual machines in Azure.
 
 ### Supported operating systems
 
