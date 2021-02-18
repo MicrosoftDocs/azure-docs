@@ -217,6 +217,5 @@ az cassandra-mi list-datacenters \
 
 ## Next steps
 
-For more information on the Azure CLI, see:
-
-* [Install Azure CLI](/cli/azure/install-azure-cli)
+* [Create a managed instance cluster from the Azure portal](create-cluster-portal.md)
+* [Deploy a Managed Apache Spark Cluster with Azure Databricks](deploy-cluster-databricks.md)

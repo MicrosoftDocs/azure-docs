@@ -84,4 +84,6 @@ The settings for table metadata such as bloom filter, caching, read repair chanc
 
 To learn about frequently asked questions in other APIs, see:
 
-- [Create a managed instance cluster from the Azure portal](create-cluster-portal.md)
+* [Create a managed instance cluster from the Azure portal](create-cluster-portal.md)
+* [Deploy a Managed Apache Spark Cluster with Azure Databricks](deploy-cluster-databricks.md)
+* [Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI](manage-resources-cli.md)

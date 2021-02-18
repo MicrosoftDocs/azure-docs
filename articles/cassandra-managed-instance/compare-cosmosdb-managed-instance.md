@@ -41,4 +41,4 @@ The following table shows the common scenarios, workload requirements, and aspir
 
 Get started with one of our quickstarts:
 
-- [Get started](create-cluster-portal.md)
+* [Create a managed instance cluster from the Azure portal](create-cluster-portal.md)
