@@ -38,7 +38,7 @@ During the preview, ZRS for managed disks has the following restrictions:
 
 ### Billing implications
 
-Premium SSD and Standard SSD ZRS disks are priced 1.5X than the corresponding LRS disks. For details see the [Azure pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
+Premium SSD and standard SSD ZRS disks are priced 1.5X than corresponding LRS disks. For details see the [Azure pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ### Comparison with other disk types
 
