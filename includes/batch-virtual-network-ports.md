@@ -61,13 +61,13 @@ You don't have to specify NSGs at the virtual network subnet level, because Batc
 Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need to permit remote access to the compute nodes from outside sources. You may need to enable port 22 rules on Linux if you require support for multi-instance tasks with certain MPI runtimes. Allowing traffic on these ports is not strictly required for the pool compute nodes to be usable.
 
 > [!WARNING]
-> Batch service IP addresses can change over time. Therefore, it is highly recommended to use the `BatchNodeManagement` service tag (or regional variant) for NSG rules indicated below. Avoid populating NSG rules with specific Batch service IP addresses.
+> Batch service IP addresses can change over time. Therefore, we highly recommend that you use the `BatchNodeManagement` service tag (or a regional variant) for the NSG rules indicated in the following tables. Avoid populating NSG rules with specific Batch service IP addresses.
 
 **Inbound security rules**
 
 | Source IP addresses | Source service tag | Source ports | Destination | Destination ports | Protocol | Action |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/A | `BatchNodeManagement` [Service tag](../articles/virtual-network/network-security-groups-overview.md#service-tags) (if using regional variant, in the same region as your Batch account) | * | Any | 29876-29877 | TCP | Allow |
+| N/A | `BatchNodeManagement` [service tag](../articles/virtual-network/network-security-groups-overview.md#service-tags) (if using a regional variant, in the same region as your Batch account) | * | Any | 29876-29877 | TCP | Allow |
 | User source IPs for remotely accessing compute nodes and/or compute node subnet for Linux multi-instance tasks, if required. | N/A | * | Any | 3389 (Windows), 22 (Linux) | TCP | Allow |
 
 **Outbound security rules**
