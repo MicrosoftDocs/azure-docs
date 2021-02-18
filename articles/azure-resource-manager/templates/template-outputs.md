@@ -2,7 +2,7 @@
 title: Outputs in templates
 description: Describes how to define output values in an Azure Resource Manager template (ARM template) and Bicep file.
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 02/18/2021
 ---
 
 # Outputs in ARM templates
@@ -94,9 +94,7 @@ In JSON, add the `condition` element to define whether the output is returned.
 
 # [Bicep](#tab/bicep)
 
-Conditional output isn't currently available for Bicep.
-
-However, you can use the `?` operator to return one of two values depending on a condition.
+To specify a conditional output in Bicep, use the `?` operator. The following example either returns an endpoint URL or an empty string depending on a condition.
 
 ```bicep
 param deployStorage bool = true
