@@ -110,7 +110,7 @@ $disk.Tier
 ```
 ---
 
-## Change the performance tier of a disk without downtime
+## Change the performance tier of a disk without downtime (preview)
 
 You can also change your performance tier without downtime, meaning you don't have to deallocate your VM or detach your disk to change the tier. For more information and the sign up link for the preview, see the [Changing performance tier without downtime (preview)](#changing-performance-tier-without-downtime-preview) section.
 
