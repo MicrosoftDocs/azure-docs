@@ -45,8 +45,8 @@ A new version of the [spatial analysis container](spatial-analysis-container.md)
 * **Breaking change**: The *personZoneEvent* event has been renamed to *personZoneEnterExitEvent*. This event is raised by the *personcrossingpolygon* operation when a person enters or exits the zone and provides directional info with the numbered side of the zone that was crossed.
 * Video URL can be provided as "Private Parameter/obfuscated" in all operations. Obfuscation is optional now and it will only work if `KEY` and `IV` are provided as environment variables.
 * Calibration is enabled by default for all operations. Set the `do_calibration: false` to disable it.
-* Added support for auto recalibration (by default disabled) via the `enable_recalibration` parameter, please refer to [Spatial analysis operations](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) for details
-* Camera calibration parameters to the `DETECTOR_NODE_CONFIG`. Refer to [Spatial analysis operations](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) for details.
+* Added support for auto recalibration (by default disabled) via the `enable_recalibration` parameter, please refer to [Spatial analysis operations](./spatial-analysis-operations.md) for details
+* Camera calibration parameters to the `DETECTOR_NODE_CONFIG`. Refer to [Spatial analysis operations](./spatial-analysis-operations.md) for details.
 
 
 ## October 2020

@@ -16,15 +16,15 @@ This article describes the available virtual machine sizes for Cloud Services (e
 
 | SKU Family |  ACU/ Core | 
 |---|---|
-| [A5-7](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#a-series)| 100 |
-|[A8-A11](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#a-series---compute-intensive-instances) | 225* |
-|[Av2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | 100 | 
-|[D](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#d-series) | 160 | 
-|[Dv2](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series) | 160 - 190* |
-|[Dv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) | 160 - 190* |
-|[Ev3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) | 160 - 190*
-|[G](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#g-series) | 180-240* |
-|[H](https://docs.microsoft.com/azure/virtual-machines/h-series) | 290 - 300* | 
+| [A5-7](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#a-series)| 100 |
+|[A8-A11](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#a-series---compute-intensive-instances) | 225* |
+|[Av2](../virtual-machines/av2-series.md) | 100 | 
+|[D](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#d-series) | 160 | 
+|[Dv2](../virtual-machines/dv2-dsv2-series.md) | 160 - 190* |
+|[Dv3](../virtual-machines/dv3-dsv3-series.md) | 160 - 190* |
+|[Ev3](../virtual-machines/ev3-esv3-series.md) | 160 - 190*
+|[G](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#g-series) | 180-240* |
+|[H](../virtual-machines/h-series.md) | 290 - 300* | 
 
 >[!NOTE]
 > ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost. The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
@@ -46,7 +46,7 @@ To change the size of an existing role, change the virtual machine size in the s
 
 ## Get a list of available sizes 
 
-To retrieve a list of available sizes see [Resource Skus - List](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and apply the following filters:
+To retrieve a list of available sizes see [Resource Skus - List](/rest/api/compute/resourceskus/list) and apply the following filters:
 
 
 `ResourceType = virtualMachines ` <br>
