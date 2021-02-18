@@ -118,7 +118,7 @@
     - name: Prepare your sensors
       items:
       - name: Onboard sensors
-        displayName: onboard, cloud, register, activate
+        displayName: onboard, cloud, register, activate, offboard, subscription, subscriptions
         href: how-to-manage-sensors-on-the-cloud.md
       - name: Activate and set up your sensor
         displayName: onboard, register, activation, certificate, cloud connected, sign in, login, setup, learning mode, initial
