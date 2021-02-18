@@ -22,7 +22,7 @@ You can get better availability for VMs using LRS disks by using applications li
 
 ## Zone-redundant storage for managed disks (preview)
 
-Zone-redundant storage (ZRS) replicates your Azure managed disk synchronously across three Azure availability zones in the selected region. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS is recommended for disks with workloads that value durability and availability over write latency.
+Zone-redundant storage (ZRS) replicates your Azure managed disk synchronously across three Azure availability zones in the selected region. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS is recommended for workloads that value durability and availability over write latency.
 
 ZRS disks allow you to recover from failures in availability zones. If an entire zone went down, a ZRS disk can be attached to a VM in a different zone.  A shared ZRS disk can be attached to a standby VM in a secondary zone in a deallocated state. You can also attach a shared ZRS disk to a standby VM in a secondary zone in a deallocated state. If there is a failure in the primary zone, you can quickly start the standby VM and make it active using SCSI persistent reservation.  
 
