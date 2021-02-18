@@ -33,13 +33,13 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | identityPkLocVm |  | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity private key on your virtual machine for provisioning an IoT Edge device (**dps**, **x509**). |
 | identityPkLocWin | Directory path | Absolute source path of the identity private key in Windows for provisioning an IoT Edge device (**dps**, **x509**). |
 | vmSizeDefintion | No longer than 30 characters | Definition of the number of cores and available RAM for the virtual machine. **Default value**: Standard_K8S_v1. |
-| vmDiskSize | Between 8 and 256 GB | Maximum disk size of the dynamically expanding virtual hard disk. **Default value**: 16 GB. |
-| vmUser | No longer than 30 characters | Username for logging onto the virtual machine. |
+| vmDiskSize | Between 8 GB and 256 GB | Maximum disk size of the dynamically expanding virtual hard disk. **Default value**: 16 GB. |
+| vmUser | No longer than 30 characters | Username for logging on to the virtual machine. |
 | vnetType | **Transparent** or **ICS** | The type of virtual switch. **Default value**: Transparent. |
 | vnetName | No longer than 64 characters | The name of the virtual switch. **Default value**: External. |
-| enableVtpm | None | **Switch paramater**. Create the virtual machine with TPM enabled or disabled. |
+| enableVtpm | None | **Switch parameter**. Create the virtual machine with TPM enabled or disabled. |
 | iotedgePackageVersion | No longer than 30 characters |  Version of Moby package to be verified or installed on the virtual machine; whether it is only verified as present or installed can be toggled using the **installPackages** switch parameter.  **Default value:** 19.03.11. |
-| iotedgePackageVersion | No longer than 30 characters | Version of Iot Edge package to be verified or installed on the virtual machine; whether it is only verified as present or installed can be toggled using the **installPackages** switch parameter. **Default value:** 1.0.10. |
+| iotedgePackageVersion | No longer than 30 characters | Version of IoE Edge package to be verified or installed on the virtual machine; whether it is only verified as present or installed can be toggled using the **installPackages** switch parameter. **Default value:** 1.0.10. |
 | mobyPackageVersion | No longer than 30 characters |  |
 | installPackages | None | **Switch parameter**. When toggled, the script will attempt to install the Moby and IoT Edge packages rather than only verifying the packages are present. |
 
@@ -49,11 +49,11 @@ The **Verify-EflowVm** command is an exposed function to check that the IoT Edge
 
 ## Provision-EflowVm
 
-The **Provision-EflowVm** command adds the provisioning information for your IoT Edge device the the virtual machine's IoT Edge `config.yaml` file. Provisioning can also be done during the deployment phase by setting parameters in the **Deploy-Eflow** command. For additional information, use the command `Get-Help Provision-EflowVm -full`.
+The **Provision-EflowVm** command adds the provisioning information for your IoT Edge device to the virtual machine's IoT Edge `config.yaml` file. Provisioning can also be done during the deployment phase by setting parameters in the **Deploy-Eflow** command. For additional information, use the command `Get-Help Provision-EflowVm -full`.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| vmUser | No longer than 30 characters | Username for logging onto the virtual machine. |
+| vmUser | No longer than 30 characters | Username for logging on to the virtual machine. |
 | provisioningType | **manual**, **tpm**, **x509**, or **symmetric** |  Defines the type of provisioning you wish to use for your IoT Edge device. |
 | devConnString | The device connection string of an existing IoT Edge device | Device connection string for manually provisioning an IoT Edge device (**manual**). |
 | symmKey | The primary key for an existing DPS enrollment or the primary key of an existing IoT Edge device registered using symmetric keys | Symmetric key for provisioning an IoT Edge device (**dps**, **symmetric**). |
@@ -74,67 +74,67 @@ The **Get-EflowLogs** command is used to collect and bundle logs from the IoT Ed
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| vmUser | No longer than 30 characters | Username for logging onto the virtual machine. |
+| vmUser | No longer than 30 characters | Username for logging on to the virtual machine. |
 
 ## Get-EflowVmTpmProvisioningInfo
 
-The **Get-EflowVmTpmProvisioningInfo** is used to collect and display the virtual machine's vTPM provisioning information. If the virtual machine was created without vTPM, the command will return that it was unable to find TPM provisioning information. For additional information, use the command `Get-Help Get-EflowVmTpmProvisioningInfo -full`.
+The **Get-EflowVmTpmProvisioningInfo** command is used to collect and display the virtual machine's vTPM provisioning information. If the virtual machine was created without vTPM, the command will return that it was unable to find TPM provisioning information. For additional information, use the command `Get-Help Get-EflowVmTpmProvisioningInfo -full`.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| vmUser | No longer than 30 characters | Username for logging onto the virtual machine. |
+| vmUser | No longer than 30 characters | Username for logging on to the virtual machine. |
 
 ## Get-EflowVmAddr
 
-The **Get-EflowVmAddr** is used to find and display the virtual machine's IP and MAC addresses. It takes only common parameters. For additional information, use the command `Get-Help Get-EflowVmAddr -full`.
+The **Get-EflowVmAddr** command is used to find and display the virtual machine's IP and MAC addresses. It takes only common parameters. For additional information, use the command `Get-Help Get-EflowVmAddr -full`.
 
 ## Get-EflowVmSystemInformation
 
-The **Get-EflowVmSystemInformation** is used to collect and display system information from the virtual machine, such as memory and storage usage. For additional information, use the command `Get-Help Get-EflowVmSystemInformation -full`.
+The **Get-EflowVmSystemInformation** command is used to collect and display system information from the virtual machine, such as memory and storage usage. For additional information, use the command `Get-Help Get-EflowVmSystemInformation -full`.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| vmUser | No longer than 30 characters | Username for logging onto the virtual machine. |
+| vmUser | No longer than 30 characters | Username for logging on to the virtual machine. |
 
 ## Get-EflowVmEdgeInformation
 
-The **Get-EflowVmSystemInformation** is used to collect and display IoT Edge information from the virtual machine, such as the version of IoT Edge the virtual machine is running. For additional information, use the command `Get-Help Get-EflowVmEdgeInformation -full`.
+The **Get-EflowVmEdgeInformation** command is used to collect and display IoT Edge information from the virtual machine, such as the version of IoT Edge the virtual machine is running. For additional information, use the command `Get-Help Get-EflowVmEdgeInformation -full`.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| vmUser | No longer than 30 characters | Username for logging onto the virtual machine. |
+| vmUser | No longer than 30 characters | Username for logging on to the virtual machine. |
 
 ## Get-EflowVmEdgeModuleList
 
-The **Get-EflowVmEdgeModuleList** is used to query and display the list of IoT Edge modules running on the virtual machine. For additional information, use the command `Get-Help Get-EflowVmEdgeModuleList -full`.
+The **Get-EflowVmEdgeModuleList** command is used to query and display the list of IoT Edge modules running on the virtual machine. For additional information, use the command `Get-Help Get-EflowVmEdgeModuleList -full`.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| vmUser | No longer than 30 characters | Username for logging onto the virtual machine. |
+| vmUser | No longer than 30 characters | Username for logging on to the virtual machine. |
 
 ## Get-EflowVmEdgeStatus
 
-The **Get-EflowVmEdgeStatus** is used to query and display the status of IoT Edge runtime on the virtual machine. For additional information, use the command `Get-Help Get-EflowVmEdgeStatus -full`.
+The **Get-EflowVmEdgeStatus** command is used to query and display the status of IoT Edge runtime on the virtual machine. For additional information, use the command `Get-Help Get-EflowVmEdgeStatus -full`.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| vmUser | No longer than 30 characters | Username for logging onto the virtual machine. |
+| vmUser | No longer than 30 characters | Username for logging on to the virtual machine. |
 
 ## Get-EflowVmUserName
 
-The **Get-EflowVmUserName** is used to query and display the virtual machine username that was used to create the virtual machine from the registry. It takes only common parameters. For additional information, use the command `Get-Help Get-EflowVmUserName -full`.
+The **Get-EflowVmUserName** command is used to query and display the virtual machine username that was used to create the virtual machine from the registry. It takes only common parameters. For additional information, use the command `Get-Help Get-EflowVmUserName -full`.
 
 ## Get-EflowVmSshKey
 
-The **Get-EflowVmSshKey** is used to query and display the SSH key used by the virtual machine. It takes only common parameters. For additional information, use the command `Get-Help Get-EflowVmSshKey -full`.
+The **Get-EflowVmSshKey** command is used to query and display the SSH key used by the virtual machine. It takes only common parameters. For additional information, use the command `Get-Help Get-EflowVmSshKey -full`.
 
 ## Ssh-EflowVm
 
-The **Ssh-EflowVm** is used to SSH into the virtual machine. For additional information, use the command `Get-Help Get-EflowVmEdgeStatus -full`.
+The **Ssh-EflowVm** command is used to SSH into the virtual machine. For additional information, use the command `Get-Help Ssh-EflowVm -full`.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| vmUser | No longer than 30 characters | Username for logging onto the virtual machine. |
+| vmUser | No longer than 30 characters | Username for logging on to the virtual machine. |
 
 ## Next steps
 
