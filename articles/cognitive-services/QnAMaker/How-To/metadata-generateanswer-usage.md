@@ -117,24 +117,20 @@ The [response](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswe
 
 The previous JSON responded with an answer with a score of 38.5%.
 
-## Use QnA Maker with a bot in C#
+## Match questions only, by text
 
-The bot framework provides access to the QnA Maker's properties with the [getAnswer API](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
+By default, QnA Maker searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the GenerateAnswer request.
 
-```csharp
-using Microsoft.Bot.Builder.AI.QnA;
-var metadata = new Microsoft.Bot.Builder.AI.QnA.Metadata();
-var qnaOptions = new QnAMakerOptions();
+You can search through the published kb, using `isTest=false`, or in the test kb using `isTest=true`.
 
-metadata.Name = Constants.MetadataName.Intent;
-metadata.Value = topIntent;
-qnaOptions.StrictFilters = new Microsoft.Bot.Builder.AI.QnA.Metadata[] { metadata };
-qnaOptions.Top = Constants.DefaultTop;
-qnaOptions.ScoreThreshold = 0.3F;
-var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
+```json
+{
+  "question": "Hi",
+  "top": 30,
+  "isTest": true,
+  "RankerType":"QuestionOnly"
+}
 ```
-
-The previous JSON requested only answers that are at 30% or above the threshold score.
 
 ## Use QnA Maker with a bot in Node.js
 
@@ -238,21 +234,6 @@ The response to the GenerateAnswer contains the corresponding metadata informati
             ]
         }
     ]
-}
-```
-
-## Match questions only, by text
-
-By default, QnA Maker searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the GenerateAnswer request.
-
-You can search through the published kb, using `isTest=false`, or in the test kb using `isTest=true`.
-
-```json
-{
-  "question": "Hi",
-  "top": 30,
-  "isTest": true,
-  "RankerType":"QuestionOnly"
 }
 ```
 
