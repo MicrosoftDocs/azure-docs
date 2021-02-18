@@ -9,7 +9,7 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
+ms.date: 02/18/2020
 ---
 # Migration overview: SQL Server to SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
