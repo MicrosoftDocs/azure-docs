@@ -126,17 +126,17 @@ Get-AzRecoveryservicesBackupJob -VaultId $targetVault.ID
 
 You can now view all the recovery points that have been moved to archive.
 
-![All recovery points](./media/archive-tier-support/restore-points.png)
+![All recovery points.](./media/archive-tier-support/restore-points.png)
 
 ### Restore in the portal
 
 For recovery points that have been moved to archive, restore requires you add the parameters for rehydration duration and rehydration priority.
 
-![Restore in portal](./media/archive-tier-support/restore-in-portal.png)
+![Restore in portal.](./media/archive-tier-support/restore-in-portal.png)
 
 ### View jobs in the portal
 
-![View jobs in portal](./media/archive-tier-support/view-jobs-portal.png)
+![View jobs in portal.](./media/archive-tier-support/view-jobs-portal.png)
 
 ### Modify protection
 
@@ -155,7 +155,7 @@ Recovery points that haven't stayed in archive for a minimum of six months will 
 
 Stop protection and delete data deletes all the recovery points. For recovery points in archive that haven't stayed for a duration of 180 days in archive tier, deletion of recovery points will lead to early deletion cost.
 
-## Error codes And troubleshooting steps
+## Error codes and troubleshooting steps
 
 There are several error codes that come up when a recovery point can't be moved to archive.
 
