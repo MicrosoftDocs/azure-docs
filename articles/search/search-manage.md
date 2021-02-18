@@ -135,7 +135,7 @@ To help with future planning, you might want to check storage (using [Get Index 
 
 ## Next steps
 
-* Automate with [PowerShell](search-manage-powershell.md) or the [Azure CLI](search-manage-cli.md)
+* Automate with [PowerShell](search-manage-powershell.md) or the [Azure CLI](search-manage-azurecli.md)
 
 * Review [performance and optimization](search-performance-optimization.md) techniques
 

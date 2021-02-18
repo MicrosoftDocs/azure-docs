@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ---
 
-# Manage your Azure Cognitive Search service with PowerShell
+# Manage your Azure Cognitive Search service with the Azure CLI
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [Azure CLI](search-manage-azurecli-interactive.md)
+> * [Azure CLI](search-manage-azurecli.md)
 > * [REST API](/rest/api/searchmanagement/)
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
@@ -390,6 +390,8 @@ az search service update \
     --partition-count 6 \
     --replica-count 6
 ```
+
+In addition to updating replica and partition counts, you can also update `ip-rules`, `public-access`, and `identity-type`.
 
 ## Create a shared private link resource
 
