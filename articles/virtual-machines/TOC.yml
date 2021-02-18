@@ -791,8 +791,6 @@
     href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
   - name: States and lifecycle
     href: states-lifecycle.md
-  - name: Autoscale
-    href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
   - name: High availability
     href: manage-availability.md
   - name: Availability sets
