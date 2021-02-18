@@ -208,7 +208,7 @@ The value for this setting indicates a custom package index URL for Python apps.
 
 To learn more, see [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
 
-## SCALE\_CONTROLLER\_LOGGING\_ENABLE
+## SCALE\_CONTROLLER\_LOGGING\_ENABLED
 
 _This setting is currently in preview._  
 
@@ -216,7 +216,7 @@ This setting controls logging from the Azure Functions scale controller. For mor
 
 |Key|Sample value|
 |-|-|
-|SCALE_CONTROLLER_LOGGING_ENABLE|AppInsights:Verbose|
+|SCALE_CONTROLLER_LOGGING_ENABLED|AppInsights:Verbose|
 
 The value for this key is supplied in the format `<DESTINATION>:<VERBOSITY>`, which is defined as follows:
 

@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 02/14/2021
 ms.author: danis
 
 ---
@@ -131,6 +131,10 @@ package_upgrade: true
 packages:
   - httpd
 ```
+> [!NOTE]
+> cloud-init has multiple [input types](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init will use first line of the customData/userData to indicate how it should process the input, for example `#cloud-config` indicates a the content should be processed as a cloud-init config.
+
+
 Press `ctrl-X` to exit the file, type `y` to save the file and press `enter` to confirm the file name on exit.
 
 The final step is to create a VM with the [az vm create](/cli/azure/vm) command. 

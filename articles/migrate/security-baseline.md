@@ -217,7 +217,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 
 - [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -358,9 +358,9 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 
 Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure Migrate resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -376,7 +376,7 @@ In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.
 
 Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 

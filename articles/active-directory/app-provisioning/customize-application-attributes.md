@@ -8,13 +8,17 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 1/25/2021
+ms.date: 02/08/2021
 ms.author: kenwith
 ---
 
 # Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory
 
 Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, G Suite and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute-mappings.
+
+Before you get started, make sure you are familiar with app management and **Single Sign-On (SSO)** concepts. Check out the following links:
+- [Quickstart Series on App Management in Azure AD](../manage-apps/view-applications-portal.md)
+- [What is Single Sign-On (SSO)?](../manage-apps/what-is-single-sign-on.md)
 
 There's a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects along with Users, such as Groups.
 

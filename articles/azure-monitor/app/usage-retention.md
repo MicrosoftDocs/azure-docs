@@ -59,6 +59,6 @@ Or in ASP.NET server code:
     - [Users, Sessions, Events](usage-segmentation.md)
     - [Funnels](usage-funnels.md)
     - [User Flows](usage-flows.md)
-    - [Workbooks](../platform/workbooks-overview.md)
+    - [Workbooks](../visualize/workbooks-overview.md)
     - [Add user context](usage-send-user-context.md)
 
