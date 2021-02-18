@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
 
-# Microsoft Connected Cache Preview Deployment Scenario Sample: Microsoft Connected Cache within an Azure IoT Edge for Industrial IoT Configuration
+# Microsoft Connected Cache preview deployment scenario sample: Microsoft Connected Cache within an Azure IoT Edge for Industrial IoT configuration
 
 Manufacturing networks are often organized in hierarchical layers following the [Purdue network model](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture) (included in the [ISA 95](https://en.wikipedia.org/wiki/ANSI/ISA-95) and [ISA 99](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa99) standards). In these networks, only the top layer has connectivity to the cloud and the lower layers in the hierarchy can only communicate with adjacent north and south layers.
 
@@ -16,7 +16,7 @@ This GitHub sample, [Azure IoT Edge for Industrial IoT](https://github.com/Azure
 
 * Simulated Purdue network in Azure
 * Industrial assets 
-* Hierarchy of IoT Edge gateways
+* Hierarchy of Azure IoT Edge gateways
   
 These components will be used to acquire industrial data and securely upload it to the cloud without compromising the security of the network. Microsoft Connected Cache can be deployed to support the download of content at all levels within the ISA 95 compliant network.
 

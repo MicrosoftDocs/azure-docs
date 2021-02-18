@@ -1,5 +1,6 @@
 ---
 title: Microsoft Connected Cache preview deployment scenario samples | Microsoft Docs
+titleSuffix:  Device Update for Azure IoT Hub
 description: Microsoft Connected Cache preview deployment scenario samples tutorials
 author: andyriv
 ms.author: andyriv
@@ -8,15 +9,15 @@ ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
 
-# Microsoft Connected Cache Preview Deployment Scenario Samples
+# Microsoft Connected Cache preview deployment scenario samples
 
-## Single Level IoT Edge Gateway No Proxy
+## Single level Azure IoT Edge gateway no proxy
 
-The diagram below describes the scenario where an IoT Edge gateway that has direct access to CDN resources and there is an IoT leaf device such as a Raspberry PI that is an internet isolated child devices of the IoT Edge gateway. 
+The diagram below describes the scenario where an Azure IoT Edge gateway that has direct access to CDN resources and there is an Azure IoT leaf device such as a Raspberry PI that is an internet isolated child devices of the Azure IoT Edge gateway. 
 
   :::image type="content" source="media/connected-cache-overview/disconnected-device-update.png" alt-text="Microsoft Connected Cache Disconnected Device Update" lightbox="media/connected-cache-overview/disconnected-device-update.png":::
 
-1. Add the Microsoft Connected Cache module to your IoT Edge gateway device deployment in IoT Hub (see `MCC concepts` for details on how to get the module).
+1. Add the Microsoft Connected Cache module to your Azure IoT Edge gateway device deployment in Azure IoT Hub (see `MCC concepts` for details on how to get the module).
 2. Add the environment variables for the deployment. Below is an example of the environment variables.
 
     **Environment Variables**
@@ -30,7 +31,7 @@ The diagram below describes the scenario where an IoT Edge gateway that has dire
 
 3. Add the container create options for the deployment. Below is an example of the container create options.
 
-### Container Create Options
+### Container create options
 
 ```markdown
 {
@@ -59,13 +60,13 @@ For a validation of properly functioning Microsoft Connected Cache, execute the 
     wget "http://<IOT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
 ```
 
-## Single Level IoT Edge Gateway With Outbound Unauthenticated Proxy
+## Single level Azure IoT Edge gateway with outbound unauthenticated proxy
 
-In this scenario there is an IoT Edge Gateway that has access to CDN resources through an outbound unauthenticated proxy. Microsoft Connected Cache is being configured to cache content from a custom repository and the summary report has been made visible to anyone on the network. Below is an example of the MCC environment variables that would be set.
+In this scenario there is an Azure IoT Edge Gateway that has access to CDN resources through an outbound unauthenticated proxy. Microsoft Connected Cache is being configured to cache content from a custom repository and the summary report has been made visible to anyone on the network. Below is an example of the MCC environment variables that would be set.
 
   :::image type="content" source="media/connected-cache-overview/single-level-proxy.png" alt-text="Microsoft Connected Cache Single Level Proxy" lightbox="media/connected-cache-overview/single-level-proxy.png":::
 
-1. Add the Microsoft Connected Cache module to your IoT Edge gateway device deployment in IoT Hub (see <link>MCC concepts</link> for details on how to get the module).
+1. Add the Microsoft Connected Cache module to your Azure IoT Edge gateway device deployment in Azure IoT Hub.
 2. Add the environment variables for the deployment. Below is an example of the environment variables.
 
     **Environment Variables**
@@ -83,7 +84,7 @@ In this scenario there is an IoT Edge Gateway that has access to CDN resources t
 
 3. Add the container create options for the deployment. There is no difference in MCC container create options from the previous example. Below is an example of the container create options.
 
-### Container Create Options
+### Container create options
 
 ```json
 {
@@ -106,8 +107,8 @@ In this scenario there is an IoT Edge Gateway that has access to CDN resources t
     }
 ```
 
-For a validation of properly functioning Microsoft Connected Cache, execute the following command in the terminal of the IoT Edge device hosting the module or any device on the network.
+For a validation of properly functioning Microsoft Connected Cache, execute the following command in the terminal of the Azure IoT Edge device hosting the module or any device on the network.
 
 ```bash
-    wget "http://<IOT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
+    wget "http://<Azure IOT Edge Gateway IP>/mscomtest/wuidt.gif?cacheHostOrigin=au.download.windowsupdate.com
 ```

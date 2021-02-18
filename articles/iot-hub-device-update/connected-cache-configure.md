@@ -1,6 +1,7 @@
 ---
-title: Configure Microsoft Connected Cache for Device Update for IoT Hub | Microsoft Docs
-description: Overview of Microsoft Connected Cache for Device Update for IoT Hub
+title: Configure Microsoft Connected Cache for Device Update for Azure IoT Hub | Microsoft Docs
+titleSuffix:  Device Update for Azure IoT Hub
+description: Overview of Microsoft Connected Cache for Device Update for Azure IoT Hub
 author: andyriv
 ms.author: andyriv
 ms.date: 2/16/2021
@@ -8,15 +9,15 @@ ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
-# Configure Microsoft Connected Cache for Device Update for IoT Hub
+# Configure Microsoft Connected Cache for Device Update for Azure IoT Hub
 
-Microsoft Connected Cache is deployed to IoT Edge gateways as an IoT Edge Module. Like other IoT Edge modules, MCC module deployment environment variables and container create options are used to configure Microsoft Connected Cache modules.  This section defines the environment variables and container create options that are required for a customer to successfully deploy the Microsoft Connected Cache module for use by Device Update for IoT Hub.
+Microsoft Connected Cache is deployed to Azure IoT Edge gateways as an Azure IoT Edge Module. Like other Azure IoT Edge modules, MCC module deployment environment variables and container create options are used to configure Microsoft Connected Cache modules.  This section defines the environment variables and container create options that are required for a customer to successfully deploy the Microsoft Connected Cache module for use by Device Update for Azure IoT Hub.
 
-## Microsoft Connected Cache IoT Edge Module Deployment Details
+## Microsoft Connected Cache Azure IoT Edge module deployment details
 
-Naming of the Microsoft Connected Cache module is at the discretion of the administrator. There are no other module or service interactions that rely on the name of the module for communication. Additionally, the parent child relationship of the Microsoft Connected Cache servers is not dependent on this module name, but rather the FQDN or Ip address of the IoT Edge gateway that has been configured as discussed earlier.
+Naming of the Microsoft Connected Cache module is at the discretion of the administrator. There are no other module or service interactions that rely on the name of the module for communication. Additionally, the parent child relationship of the Microsoft Connected Cache servers is not dependent on this module name, but rather the FQDN or Ip address of the Azure IoT Edge gateway that has been configured as discussed earlier.
 
-Microsoft Connected Cache IoT Edge Module Environment Variables are used to pass basic module identity information and functional module settings to the container.
+Microsoft Connected Cache Azure IoT Edge Module Environment Variables are used to pass basic module identity information and functional module settings to the container.
 
 | Variable Name                 | Value Format                           | Required/Optional | Functionality                                    |
 | ----------------------------- | ---------------------------------------| ----------------- | ------------------------------------------------ |
@@ -31,18 +32,18 @@ Microsoft Connected Cache IoT Edge Module Environment Variables are used to pass
 | IS_SUMMARY_PUBLIC             | True or False                          | Optional          | Enables viewing of the summary report on the local network or internet.<br>Use of an API key (discussed later) is required to view the summary report if set to true. |
 | IS_SUMMARY_ACCESS_UNRESTRICTED| True or False                          | Optional          | Enables viewing of summary report on the local network or internet without<br>use of API key from any device in the network. Use if you don't want to lock down access<br>to viewing cache server summary data via the browser. |
 			
-## MCC IoT Edge Module Container Create Options
+## Microsoft Connected Cache Azure IoT Edge module container create options
 
 Container create options for MCC module deployment provide control of the settings related to storage and ports used by the MCC module. This is the list of required container created variables used to deploy MCC.
 
-### Container to Host OS Drive Mappings
+### Container to host OS drive mappings
 
 Required to map the container storage location to the storage location on the disk.< Up to nine locations can be specified.
 
 >[!Note]
 >The number of the drive must match the cache drive binding values specified in the environment variable STORAGE_*N*_SIZE_GB value, ```/MicrosoftConnectedCache*N*/:/nginx/cache*N*/```
 
-### Container to Host TCP Port Mappings
+### Container to host TCP port mappings
 
 This option specifies the external machine http port that MCC listens on for content requests. The default HostPort is port 80 and other ports are not supported at this time as the ADU client makes requests on port 80 today. TCP port 8081 is the internal container port that the MCC listens on and cannot be changed.
 
@@ -54,12 +55,12 @@ This option specifies the external machine http port that MCC listens on for con
 ]
 ```
 
-### Container Service TCP Port Mappings
+### Container service TCP port mappings
 
 The Microsoft Connected Cache module has a .NET Core service, which is used by the caching engine for various functions.
 
 >[!Note]
->To support IoT Nested Edge the HostPort must not be set to 5000 because the Registry proxy module is already listening on host port 5000.
+>To support Azure IoT Nested Edge the HostPort must not be set to 5000 because the Registry proxy module is already listening on host port 5000.
 
 ```markdown
 5000/tcp": [
@@ -69,13 +70,13 @@ The Microsoft Connected Cache module has a .NET Core service, which is used by t
 ]
 ```
 
-## Microsoft Connected Cache Summary Report
+## Microsoft Connected Cache summary report
 
-The summary report is currently the only way for a customer to view caching data for the Microsoft Connected Cache instances deployed to IoT Edge gateways. The report is generated at 15-second intervals and includes averaged stats for the period as well as aggregated stats for the lifetime of the module. The key stats that customers will be interested in are:
+The summary report is currently the only way for a customer to view caching data for the Microsoft Connected Cache instances deployed to Azure IoT Edge gateways. The report is generated at 15-second intervals and includes averaged stats for the period as well as aggregated stats for the lifetime of the module. The key stats that customers will be interested in are:
 
 * **hitBytes** - This is the sum of bytes delivered that came directly from cache.
 * **missBytes** - This is the sum of bytes delivered that Microsoft Connected Cache had to download from CDN to see the cache.
 * **eggressBytes** - This is the sum of hitBytes and missBytes and is the total bytes delivered to clients.
 * **hitRatioBytes** - This is the ratio of hitBytes to egressBytes.  If 100% of eggressBytes delivered in a period were equal to the hitBytes this would be 1 for example.
 
-The summary report is available at `http://<FQDN/IP of IoT Edge Gateway hosting MCC>:5001/summary` (see environment variable details below for information on visibility of this report).
+The summary report is available at `http://<FQDN/IP of Azure IoT Edge Gateway hosting MCC>:5001/summary` (see environment variable details below for information on visibility of this report).
