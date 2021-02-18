@@ -42,6 +42,13 @@ Only resources listed in the Azure Monitor resource log categories emit logs to 
 
 :::image type="content" source="media/troubleshoot/diagnosticsetting.png" alt-text="Datadog diagnostic setting on the Azure resource" border="true":::
 
+## Metrics not being emitted
+
+The Datadog resource is assigned a **Monitoring Reader** role in the appropriate Azure subscription. This enables the Datadog resource to collect metrics and send it to Datadog. Please click on the subscription name and open the **Access Control (IAM)** in the left navigation and search for the Datadog resource name. Verify that the Datadog resource has the **Monitoring Reader** role assignment as shown below.
+
+:::image type="content" source="media/troubleshoot/datadogroleassignment.png" alt-text="Datadog role assignment in the Azure subscription" border="true":::
+
+
 ## Datadog agent installation fails
 
 The Azure Datadog integration provides you the ability to install Datadog agent on a virtual machine or app service. For configuring the Datadog agent, the API key selected as **Default Key** in the API Keys screen is used. If a default key isn't selected, the Datadog agent installation will fail.
