@@ -58,7 +58,7 @@ LRS can be started in autocomplete, or continuous mode. When started in autocomp
 - Full backup of databases (one or multiple files)
 - Differential backup (one or multiple files)
 - Log backup (not split for transaction log file)
-- **CHECKSUM must be enabled** as mandatory
+- **CHECKSUM must be enabled** for backups (mandatory)
 
 ### Azure side
 - PowerShell Az.SQL module version 2.16.0, or above ([install](https://www.powershellgallery.com/packages/Az.Sql/), or use Azure [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/))
