@@ -35,4 +35,4 @@ ms.date: 07/16/2020
 
 Learn more about metadata:
 * [Authoring - add metadata to QnA pair](../How-To/edit-knowledge-base.md#add-metadata)
-* [Query prediction - filter answers by metadata](../How-To/metadata-generateanswer-usage.md#use-metadata-to-filter-answers-by-custom-metadata-tags)
+* [Query prediction - filter answers by metadata](../How-To/query-knowledge-base-with-metadata.md)
