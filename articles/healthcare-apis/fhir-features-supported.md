@@ -113,6 +113,8 @@ All the operations that are supported that extend the RESTful API.
 | $export (whole system) | Yes       | Yes       | Yes       |         |
 | Patient/$export        | Yes       | Yes       | Yes       |         |
 | Group/$export          | Yes       | Yes       | Yes       |         |
+| $convert-data          | Yes       | Yes       | Yes       |         |
+
 
 ## Persistence
 

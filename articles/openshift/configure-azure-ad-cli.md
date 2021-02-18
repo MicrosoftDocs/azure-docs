@@ -1,7 +1,7 @@
 ---
 title: Azure Red Hat OpenShift running OpenShift 4  - Configure Azure Active Directory authentication using the command line
 description: Learn how to configure Azure Active Directory authentication for an Azure Red Hat OpenShift cluster running OpenShift 4 using the command line
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
 author: sabbour

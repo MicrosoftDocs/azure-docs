@@ -208,7 +208,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 | User assigned | Not available | Not available | Not available | Not available |
 
-Refer to the following list to configure managed identity for Azure Data Factory V2 (in regions where available):
+Refer to the following list to configure managed identity for Azure IoT Hub (in regions where available):
 
 - [Azure portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
@@ -302,8 +302,8 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 |Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | ![Available][check] | Preview | ![Available][check] |
-| User assigned | ![Available][check] | ![Available][check] | Preview | ![Available][check] |
+| System assigned | ![Available][check] | ![Available][check] | ![Available][check] | ![Available][check] |
+| User assigned | ![Available][check] | ![Available][check] | ![Available][check] | ![Available][check] |
 
 Refer to the following list to configure managed identity for Azure Virtual Machine Scale Sets (in regions where available):
 
@@ -319,8 +319,8 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | ![Available][check] | Preview | ![Available][check] |
-| User assigned | ![Available][check] | ![Available][check] | Preview | ![Available][check] |
+| System assigned | ![Available][check] | ![Available][check] | ![Available][check] | ![Available][check] |
+| User assigned | ![Available][check] | ![Available][check] | ![Available][check] | ![Available][check] |
 
 Refer to the following list to configure managed identity for Azure Virtual Machines (in regions where available):
 
@@ -350,6 +350,17 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 Refer to the following list to configure managed identity for Azure SignalR Service (in regions where available):
 
 - [Azure Resource Manager template](../../azure-signalr/howto-use-managed-identity.md)
+
+### Azure Resource Mover
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | Available in the regions where Azure Resource Mover service is available | Not available | Not available | Not available |
+| User assigned | Not available | Not available | Not available | Not available |
+
+Refer to the following document to use Azure Resource Mover:
+
+- [Azure Resource Mover](../../resource-mover/overview.md)
 
 ## Azure services that support Azure AD authentication
 
