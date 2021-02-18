@@ -15,17 +15,21 @@ ms.date: 03/02/2021
 > [!IMPORTANT]
 > Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Semantic search is a collection of query-side features that bring Bing's deep neural network learning models to the query pipeline. Results from the full text search engine can be ranked, analyzed, and structured using Bing's AI to produce more intuitive results. Bing integration is built-into the search infrastructure. To use it, you'll need small modifications to query syntax, but otherwise no configuration is required to use it. Semantic search consists of these features:
+Semantic search is a collection of query-side features that bind deep neural network learning models to the query pipeline in Azure Cognitive Search. In this first iteration of semantic search functionality, results from the full text search engine can be re-ranked to produce more intuitive results.
+
+The underlying technology is borrowed from Bing and Microsoft Research, and integrated into the Cognitive Search infrastructure. To use it, you'll need small modifications to query syntax, but no additional configuration or reindexing is required.
+
+Public preview features include:
 
 + Semantic ranking
 + Semantic captions
 + Semantic answers
 
-All new parameters can be specified at query time, on existing indexes.
+A new semantic query type enables the relevance ranking and response structures. [Create a semantic query](semantic-how-to-query-request.md) explains how to get started.
 
-## Sign up for access
+## Availability
 
-Sign up for the semantic search preview by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). You will receive a confirmation email once you have been accepted into the preview.
+Initially, semantic search is operational after [preview sign-up](https://aka.ms/TBD), on Standard tier search services that run in West US 2. The number of regions providing semantic search is expected to increase weekly. If you  
 
 ## Next steps
 

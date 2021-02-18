@@ -22,6 +22,8 @@ This article describes the semantic ranking algorithm and how a semantic respons
 
 + Queries formulated using the semantic query type. For more information, see [How to create a semantic query](semantic-how-to-query-request.md).
 
+## TBD
+
 ## Understanding a semantic response
 
 A semantic response includes new properties for answers, captions, and scoring. A semantic response is built from the standard response, using an initial set of results returned by the search engine, which are then re-ranked using the semantic ranker, and optionally restructured to include semantic answers or semantic captions.

@@ -21,7 +21,10 @@ During public preview, there is no charge for semantic search. However, as featu
 
 ## Prerequisites
 
-+ A search service at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe
++ A search service at a Standard tier (S1, S2, S3), located in West US 2. Roll out is underway in other regions. Check back for updates on further availability.
+
+<!-- 
++ A search service at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe -->
 
 + Access to semantic search preview: [sign up](https://aka.ms/TBD)
 
@@ -59,7 +62,9 @@ The full specification of the REST API can be found at [Search Documents (REST p
 
 Semantic queries are intended for natural language queries, questions like "what is the best plant for pollinators" or "how to fry an egg". If you want the response to include answers, you can add an  optional **`answer`** parameter on the request.
 
-The following semantic query example uses the hotels-sample-index and an **`answer`** parameter:
+### Formulate the request
+
+The following semantic query request uses the hotels-sample-index:
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview      
@@ -67,21 +72,54 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
     "search": "newer hotel with a nice restaurant and spa",
     "queryType": "semantic",
     "queryLanguage": "english",
-    "searchFields": "Category,Description",
-    "answers": "extractive",
+    "searchFields": "HotelName, Category,Description",
     "select": "HotelId,HotelName,Description,Category,Tags",
     "count": true
 }
 ```
 
+In a semantic query, the order of fields in "searchFields" reflects the priority or relative importance of the field in semantic rankings. Only string fields or the top-level field in a collection can be used. 
+
++ Concise fields, such as HotelName or a title, should precede verbose fields like Description.
+
++ If your index has a URL field that is textual (human readable such as www.domain.com/name-of-the-document-and-other-details and not machine focused such as www.domain.com/?id=23463&param=eis), put it second in the list (put it first if there is no concise title field). 
+
++ If there is only one field specified, then it will be considered as a descriptive field for semantic ranking of documents.  
+
++ If there are no fields specified, then all searchable fields will be considered for semantic ranking of documents. However, this is not recommended since it may not yield the most optimal results for your search index. 
+
+### Review the response
+
+Response for the above query returns the following match as the top pick. For more information about semantic responses, see [Semantic ranking and responses](semantic-how-to-query-response.md).
+
+```json
+"@odata.count": 29,
+"value": [
+    {
+        "@search.score": 2.19843,
+        "@search.semanticScore": 1.0491532748565078,
+        "HotelId": "12",
+        "HotelName": "Winter Panorama Resort",
+        "Description": "Newly-renovated with large rooms, free 24-hr airport shuttle & a new restaurant. Rooms/suites offer mini-fridges & 49-inch HDTVs.",
+        "Category": "Resort and Spa",
+        "Tags": [
+            "laundry service",
+            "view",
+            "coffee in lobby"
+        ]
+    },
+```
+
+### Parameters used in a semantic query
+
 The following table summarizes the query parameters used in a semantic query. For a comprehensive list of all parameters, see [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents)
 
 | Parameter | Description |
 |----------|-------------|
-| **`queryType=semantic`** | Required for semantic queries. Invokes the semantic ranking algorithms and models. |
-| **`queryLanguage=en-us`** | Required for semantic queries. Currently, only `"en-us"` is implemented. |
-| **`searchFields=<fields>`** | Optional but recommended. Specifies the fields over which semantic ranking occurs. In contrast with simple and full query types, when used in a semantic query, this parameter is required. </br></br>The order in which fields are listed determines precedence, with "title" having priority over "url" and so forth, in how results are ranked. If you have a title or a short field that describes your document, we recommend that to be your first field. Follow that by the url (if any), then the body of the document, and then any other relevant fields. |
-| **`answers=extracted`** | Optional. Returns three possible answers to the query, derived from content in the document. |
+| "queryType": "semantic" | Required for semantic queries. Invokes the semantic ranking algorithms and models. |
+| "queryLanguage": "english" | Required for semantic queries. Currently, only `"en-us"` is implemented. |
+| "searchFields": "<fields>" | Optional but recommended. Specifies the fields over which semantic ranking occurs. In contrast with simple and full query types, when used in a semantic query, this parameter is required. </br></br>The order in which fields are listed determines precedence, with "title" having priority over "url" and so forth, in how results are ranked. If you have a title or a short field that describes your document, we recommend that to be your first field. Follow that by the url (if any), then the body of the document, and then any other relevant fields. |
+| "answers": "extractive" | Optional. Returns three possible answers to the query, derived from content in the document. |
 
 ## Query with Search explorer
 
