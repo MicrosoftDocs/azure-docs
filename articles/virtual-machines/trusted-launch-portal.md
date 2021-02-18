@@ -1,18 +1,18 @@
 ---
-title: Preview: Deploy a Trusted Launch VM using the portal
+title: "Preview: Deploy a Trusted Launch VM using the portal"
 description: Deploy a VM that uses Trusted Launch by using the portal. 
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to 
-ms.date: 02/16/2020
+ms.date: 02/18/2021
 ms.custom: template-how-to 
 ---
 
 # Deploy a VM with Trusted Launch enabled using the portal (preview)
 
-Azure offers [Trusted Launch](trusted-launch.md) as a seamless way to bolster the security of generation 2 VMs. Designed to protect against advanced and persistent attack techniques, Trusted Launch is comprised of several infrastructure technologies, including vTPM and secure boot.
+Azure offers [Trusted Launch](trusted-launch.md) as a seamless way to bolster the security of [generation 2](generation-2.md) VMs. Designed to protect against advanced and persistent attack techniques, Trusted Launch is comprised of several infrastructure technologies, including vTPM and secure boot.
 
 ## Deploy a VM
 Create virtual machine with Trusted Launch Enabled
@@ -110,4 +110,4 @@ $vmss.VirtualMachineProfile.SecurityProfile.UefiSettings
 
 # Next steps
 
-Learn more about [Trusted Launch](trusted-launch.md)
+Learn more about [Trusted Launch](trusted-launch.md).

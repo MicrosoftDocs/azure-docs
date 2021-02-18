@@ -1,24 +1,24 @@
 ---
-title: Preview: Trusted Launch for Azure VMs
+title: "Preview: Trusted Launch for Azure VMs"
 description: Learn about Trusted Launch for Azure virtual machines.
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/18/2021
 ms.reviewer: 
 ms.custom: template-concept
 ---
 
 # Trusted Launch for Azure virtual machines (preview)
 
-Azure offers Trusted Launch as a seamless way to bolster the security of generation 2 VMs. Designed to protect against advanced and persistent attack techniques, Trusted Launch is comprised of several, coordinated infrastructure technologies.
+Azure offers Trusted Launch as a seamless way to bolster the security of [generation 2](generation-2.md) VMs. Designed to protect against advanced and persistent attack techniques, Trusted Launch is comprised of several, coordinated infrastructure technologies.
 The underlying principle   behind Trusted Launch is ease of use. Each of the features above can be enabled independently of the others, usually with just a few clicks. Each provides an additional layer of defense against sophisticated threat actors.
 Please note that using Trusted Launch requires the creation of new virtual machines. You can't enable Trusted Launch on existing virtual machines that were initially created without it.
 
 ## Secure boot
-At the root of Trusted Launch is Secure Boot for your VM. This mode, which is implemented in platform firmware, protects against the installation of malware-based rootkits and bootkits. Secure Boot works to ensure that only signed OSes and drivers can boot. It establishes a “root of trust” for the software stack on your VM. With Secure Boot enabled, all OS boot components (boot loader, kernel, kernel drivers) must be signed by trusted publishers. Both Windows and select Linux distrubutions support Secure Boot. If Secure Boot fails to authenticate that the image was signed by a trusted publisher, the VM is prevented from booting. Read more about Secure Boot here.
+At the root of Trusted Launch is Secure Boot for your VM. This mode, which is implemented in platform firmware, protects against the installation of malware-based rootkits and bootkits. Secure Boot works to ensure that only signed OSes and drivers can boot. It establishes a “root of trust” for the software stack on your VM. With Secure Boot enabled, all OS boot components (boot loader, kernel, kernel drivers) must be signed by trusted publishers. Both Windows and select Linux distributions support Secure Boot. If Secure Boot fails to authenticate that the image was signed by a trusted publisher, the VM is prevented from booting. Read more about Secure Boot here.
 
 ## vTPM
 Trusted Launch also introduces s vTPM for Azure VMs. This is a virtualized version of a hardware [Trusted Platform Module](/windows/security/information-protection/tpm/trusted-platform-module-overview) (compliant with the TPM2.0 spec). It serves as a dedicated secure vault for keys and measurements. Specifically, Trusted Launch provides your VM with its own dedicated TPM instance running in a secure environment outside the reach of any VM. Among other things, this vTPM enables [attestation](/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation) by measuring the entire boot chain of your VM (UEFI, OS, system, and drivers). 
@@ -87,9 +87,11 @@ In addition, for trusted launch with secure boot enabled, it’s possible for bo
 - Is this the exact version of the driver I am expecting? Are the driver binaries intact? If the driver originates with a 3rd party, did the vendor pass the OS compliance tests to get it signed?
   
 ### How does Trusted Launch compared to Hyper-V Shielded VM?
-Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in conjunction with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or virtual machine scale sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on Azure Portal.  
+Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in conjunction with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or virtual machine scale sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.  
 
 ### How can I convert existing VMs to Trusted Launch?
 For Generation 2 VM, migration path to convert to trusted launch is targeted at GA.
 
 ## Next steps
+
+Deploy a [Trusted Launch VM using the portal](trusted-launch-portal.md).
