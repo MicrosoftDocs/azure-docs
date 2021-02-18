@@ -199,7 +199,7 @@ cd ..
 code .
 ```
 
-Open the folder for HellowWrold-ListAssets, and open the index.ts file in the Visual Sudio Code editor.
+Open the folder for HelloWorld-ListAssets, and open the index.ts file in the Visual Studio Code editor.
 While in the index.ts file, press F5 to launch the debugger. You should see a list of assets displayed if you have assets already in the account. If the account is empty, you will see an empty list.  Upload a few assets in the portal to see the results.
 
 ## More Samples
