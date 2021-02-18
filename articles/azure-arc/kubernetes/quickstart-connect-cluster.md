@@ -12,24 +12,22 @@ keywords: "Kubernetes, Arc, Azure, cluster"
 
 # Quickstart: Connect an existing Kubernetes cluster to Azure Arc 
 
-Now that you've read the benefits Azure Arc enabled Kubernetes clusters, let's connect an existing Kubernetes cluster to Azure Arc. For a conceptual take on connecting clusters to Azure Arc, see the [Azure Arc enabled Kubernetes Agent Architecture article](./conceptual-agent-architecture.md).
+In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and connect an existing Kubernetes cluster to Azure Arc. For a conceptual take on connecting clusters to Azure Arc, see the [Azure Arc enabled Kubernetes Agent Architecture article](./conceptual-agent-architecture.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 * Verify you have:
-    * An up-and-running Kubernetes cluster:
-    * A kubeconfig file.
+    * An up-and-running Kubernetes cluster.
+    * A `kubeconfig` file.
     * 'Read' and 'Write' permissions for the user or service principal used with `az login` and `az connectedk8s connect` commands on the `Microsoft.Kubernetes/connectedclusters` resource type.
 * Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
-* Make sure you meet the Azure Arc agents' network requirements:  
-    * TCP on port 443: `https://:443`
-    * TCP on port 9418: `git://:9418`
 
 ## Install the Azure Arc enabled Kubernetes CLI extensions
 
-1. Enter the following commands:
+Enter the following commands:  
+
     ```azurecli
     az extension add --name connectedk8s
     az extension add --name k8sconfiguration
@@ -50,7 +48,8 @@ Now that you've read the benefits Azure Arc enabled Kubernetes clusters, let's c
 
 ## Create a resource group
 
-1. Create a resource group:
+Create a resource group:  
+
     ```console
     az group create --name AzureArcTest -l EastUS -o table
     ```
@@ -117,7 +116,8 @@ Now that you've read the benefits Azure Arc enabled Kubernetes clusters, let's c
 
 ## Verify cluster connection
 
-1. View a list of your connected clusters with the following command:
+View a list of your connected clusters with the following command:  
+
     ```console
     az connectedk8s list -g AzureArcTest -o table
     ```
@@ -135,17 +135,9 @@ Now that you've read the benefits Azure Arc enabled Kubernetes clusters, let's c
 > After onboarding the cluster, it takes around 5 to 10 minutes for the cluster metadata (cluster version, agent version, number of nodes, etc.) to surface on the overview page of the Azure Arc enabled Kubernetes resource in Azure portal.
 
 
-## Connect you Kubernetes cluster using an outbound proxy server
+## Connect your Kubernetes cluster using an outbound proxy server
 
 If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc enabled Kubernetes agents need to route their requests via the [outbound proxy server](../connect-cluster#connect-using-an-outbound-proxy-server). 
-
-
-
-
-<!-- 7. Clean up resources
-Required. If resources were created during the quickstart. If no resources were created, 
-state that there are no resources to clean up in this section.
--->
 
 ## Clean up resources
 
@@ -165,7 +157,8 @@ You can remove the `Microsoft.Kubernetes/connectedcluster` resource, any associa
 
 Deleting using Azure portal removes the `Microsoft.Kubernetes/connectedcluster` resource and any associated `sourcecontrolConfiguration` resources, but *does not* remove any agents running on the cluster.
 
-1. Run the following command:
+Run the following command:  
+
     ```console
     az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
     ```
