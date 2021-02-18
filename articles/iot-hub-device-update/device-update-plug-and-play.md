@@ -75,9 +75,9 @@ Service Metadata contains fields that the Device Update services uses to communi
 
 ## Device Information Interface
 
-The Device Information Interface is a concept used within [IoT Plug and Play architecture](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play). It contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update for IoT Hub uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. To learn more, see this [Device Information example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
+The Device Information Interface is a concept used within [IoT Plug and Play architecture](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play). It contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update for IoT Hub uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. To learn more about Device Information interface, see this [example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
-The expected component name in your model is **deviceInformation** when implementing this interface. [Learn more about Azure IoT PnP Components](https://docs.microsoft.com/en-us/azure/iot-pnp/concepts-components)
+The expected component name in your model is **deviceInformation** when implementing this interface. [Learn about Azure IoT PnP Components](https://docs.microsoft.com/en-us/azure/iot-pnp/concepts-components)
 
 |Name|Type|Schema|Direction|Description|Example|
 |----|----|------|---------|-----------|-----------|
@@ -94,4 +94,4 @@ The expected component name in your model is **deviceInformation** when implemen
 
 Model ID is how smart devices advertise their capabilities to Azure IoT applications with IoT Plug and Play.To learn more on how to build smart devices to advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c).
 
-Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID with a value of **"dtmi:AzureDeviceUpdate;1"** as part of the device connection. Learn more [how to announce a model ID](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c#model-id-announcement).
+Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID with a value of **"dtmi:AzureDeviceUpdate;1"** as part of the device connection. [Learn how to announce a model ID](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device-c#model-id-announcement).
