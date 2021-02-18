@@ -1,1 +1,78 @@
+---
+title: Msv2-series (Preview) - Azure Virtual Machines
+description: Specifications for the Msv2-series VMs.
+author: ayshakeen
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: conceptual
+ms.date: 04/07/2020
+ms.author: jushiman
+---
 
+# Msv2-series (Preview)
+
+The Msv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280 (Cascade Lake) processor with an all core base frequency of 2.5 GHz and a max turbo frequency of 3.8 GHz. With these VMs, customers achieve increased flexibility with local disk and diskless options. Customers also have access to a set of new isolated VM sizes with more CPU and memory that go up to 192 vCPU with 4TiB of memory. 
+
+> [!IMPORTANT]
+> Join the preview by filling out the form at **https://aka.ms/Mv2MedMemoryPreview**.  
+
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 2<br>
+[Write Accelerator](./how-to-enable-write-accelerator.md): Supported<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+<br>
+ 
+## Msv2 Medium Memory with Disk  
+
+| Size<sup>1</sup> | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max cached disk throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Expected network bandwidth (Mbps) | 
+|---|---|---|---|---|---|---|
+| Standard_M32dms_v2 | 32 | 875 | 1024 | 40000/400 | 20000/500 | 8000 | 
+| Standard_M64ds_v2 | 64 | 1024 | 2048 | 80000/800 | 40000/1000 | 16000 | 
+| Standard_M64dms_v2 | 64 | 1792 | 2048 | 80000/800 | 40000/1000 | 16000 | 
+| Standard_M128ds_v2 | 128 | 2048 | 4096 | 160000/1600 | 80000/2000 | 30000 | 
+| Standard_M128dms_v2 | 128 | 3892 | 4096 | 160000/1600 | 80000/2000 | 30000 | 
+| Standard_M192ids_v2 | 192 | 2048 | 4096 | 160000/1600 | 80000/2000 | 30000 | 
+| Standard_M192idms_v2 | 192 | 4096 | 4096 | 160000/1600 | 80000/2000 | 30000 | 
+
+
+## Msv2 Medium Memory Diskless 
+
+| Size<sup>1</sup> | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max cached disk throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Expected network bandwidth (Mbps) | 
+|---|---|---|---|---|---|---|
+| Standard_M32dms_v2 | 32 | 875 | 0 | 40000/400 | 20000/500 | 8000 | 
+| Standard_M64ds_v2 | 64 | 1024 | 0 | 80000/800 | 40000/1000 | 16000 | 
+| Standard_M64dms_v2 | 64 | 1792 | 0 | 80000/800 | 40000/1000 | 16000 | 
+| Standard_M128ds_v2 | 128 | 2048 | 0 | 160000/1600 | 80000/2000 | 30000 | 
+| Standard_M128dms_v2 | 128 | 3892 | 0 | 160000/1600 | 80000/2000 | 30000 | 
+| Standard_M192ids_v2 | 192 | 2048 | 0 | 160000/1600 | 80000/2000 | 30000 | 
+| Standard_M192idms_v2 | 192 | 4096 | 0 | 160000/1600 | 80000/2000 | 30000 | 
+
+
+
+<sup>1</sup> Msv2-series VMs are generation 2 only and support  a subset of generation 2 supported Images. Please see below for the complete list of supported images for Msv2-series. If you're using Linux, see [Support for generation 2 VMs on Azure](./generation-2.md) for instructions on how to find and select an image. If you're using Windows, see [Support for generation 2 VMs on Azure](./generation-2.md) for instructions on how to find and select an image. 
+
+- Windows Server 2019 or later
+- SUSE Linux Enterprise Server 12 SP4 and later or SUSE Linux Enterprise Server 15 SP1 and later
+- Red Hat Enterprise Linux 7.6, 7.7, 8.1 or later 
+- Oracle Enterprise Linux 7.7 or later
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## Other sizes and information
+
+- [General purpose](sizes-general.md)
+- [Memory optimized](sizes-memory.md)
+- [Storage optimized](sizes-storage.md)
+- [GPU optimized](sizes-gpu.md)
+- [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+## Next steps
+
+Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
