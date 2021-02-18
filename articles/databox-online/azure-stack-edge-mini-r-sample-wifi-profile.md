@@ -7,15 +7,17 @@ author: v-dalc@microsoft.com
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 02/18/2021
 ms.author: alkohli
 ---
 
 # Create a WiFi profile to use with Azure Stack Edge Mini R devices
 
-This article describes how to create wireless network (WiFi) profiles for Azure Stack Edge Mini R devices. You may do most of your work on Min R devices over a wired network, but you'll probably need one or more wireless connections for secondary work locations or work done away from the office.
+This article describes how to create wireless network (WiFi) profiles for Azure Stack Edge Mini R devices. You may do most of your work on Min R devices over a wired network, but you'll probably need one or more wireless connections for secondary work locations or work away from the office.
 
-You'll need to add a WiFi profile for each location to your Mini R device. On a simple home network, you may be able to download and use an existing WiFi profile. In a high-security enterprise environment, each client computer will have a distinct profile and/or authentication, and you'll need to work with the network administrator to determine the required configuration.
+You'll need to add a WiFi profile for each wireless network to your Mini R device. On a simple home network, you may be able to download and use an existing WiFi profile.
+
+In a high-security enterprise environment, each client computer will have a distinct profile and/or authentication, and you'll need to work with the network administrators to determine the required configuration. 
 
 In either case, it's very important to make sure the WiFi profile complies with the security requirements of your organization before you test or use the profile with your Mini R device. <!--Terminology issue: "Profile" - Call is a WiFi profile consistently? In Windows exports, it's spoken of in terms of "a profile" (could be a user profile or a group policy profile) on the WiFi interface."-->
 
@@ -23,7 +25,7 @@ In either case, it's very important to make sure the WiFi profile complies with 
 
 A wireless network (WiFi) profile contains the SSID (network name), password key, and security information to be able to connect your Azure Stack Edge Mini R device to a wireless network.
 
-To enable wireless networking, you configure the WiFi port on your Mini R device, and then add the WiFi profile(s) and connect the device to them.
+To enable wireless connections, you configure the WiFi port on your Mini R device, add the WiFi profile(s), and connect to the networks.
 
 For more information, see [Manage wireless connectivity on your Azure Stack Edge Mini R](./azure-stack-edge-mini-r-manage-wifi.md).
 
@@ -57,7 +59,6 @@ To export a WiFi profile and add it to your Azure Stack Edge Mini R device, do t
 
    User profiles
    -------------
-       All User Profile     : ContosoCONNECT
        All User Profile     : ContosoCORP
        All User Profile     : ContosoFTINET
        All User Profile     : GusIS2809
@@ -92,7 +93,10 @@ If you're preparing a WiFi profile to use in a high-security enterprise environm
 
 On a high-security enterprise network, different devices may use different profiles to connect to the network. A radius server typically does server-side authentication. The network then generates a distinct profile and/or authentication for each client computer that accesses the server. The profiles and authentication have a machine-specific component.<!--By "component," we literally are talking about a group of settings identified by an ID for the computer in the profile?-->
 
-To generate WiFi profiles for enterprise networks, do these steps:
+> [!NOTE]
+> If other people in your organization are connecting to their Azure Stack Edge devices over a wireless network, you may be able to use the WiFi profile on their device as a template. For more information, see [Download Wi-Fi profile](./azure-stack-edge-mini-r-manage-wifi.md#download-wi-fi-profile).
+
+To create WiFi profiles for enterprise networks, do these steps:
 
 1. Before you create a WiFi profile for you Mini R device, you need to get the following information from your network administrator:<!--Make this a "Before your begin item?-->
 
@@ -102,33 +106,29 @@ To generate WiFi profiles for enterprise networks, do these steps:
 
    - What IT tooling is used to manage these policies?<!--What does "IT tooling" entail? Can we just say "How are group policies being managed?" Would the network admin share this type of information with the end use for this procedure, or would they just provide explicit instructions - or tell them whom to request group membership from?-->
 
- 2. Based on this information, generate the wireless profiles and certificates that are needed for your network. 
+ 2. Based on this information, generate the wireless profiles and certificates that are needed for your network.
  
-   <!--This is a how-to. Can we be any more specific about what they actually do? 
+    Enable **Autoconnect** on each network you want to connect to automatically.
 
-   * Presumably, the network admin will provide the certs, or we are assuming they will be asked to generate their own certs? Do we care? 
-   * Separate steps for configuring a wireless profile and for procuring certificates?
-   * If an employee already has a WiFi profile that she uses for work, can they download a copy of that profile as a starting point? What will they be editing in ?-->
+    For more information about WiFi settings, see **Enterprise profile** in [Add settings for Windows 10 and later WiFi](/mem/intune/configuration/wi-fi-settings-windows#enterprise-profile) and [Configure a Cisco wireless controller and access point on your device](./azure-stack-edge-mini-r-manage-wifi.md#configure-cisco-wi-fi-profile).
 
-   For information about WiFi settings, see **Enterprise profile** in [Add settings for Windows 10 and later WiFi](/mem/intune/configuration/wi-fi-settings-windows#enterprise-profile) and [Configure a Cisco wireless controller and access point on your device](./azure-stack-edge-mini-r-manage-wifi.md#configure-cisco-wi-fi-profile).<!--Will this be helpful if we keep the discussion as general as it currently is?-->
-
-3. If your Mini R will move between sites, and the sites have different WiFi networks, each network will have a distinct Service Set Identifier (SSID), and you'll need a different profile for each site.
+3. If your Mini R device will move between sites - say, between Site A and Site B - and the sites have different WiFi networks, each network will have a distinct SSID, and you'll need a different profile for each site.<!--Should we make this a separate procedure and section?-->
  
-   To find out whether you need different WiFi profiles for each site, do these steps:
+   To find out whether you need a different WiFi profile for each site, do these steps:
 
    1. Connect your laptop to the WiFi from Site A.
 
    1. From a command line, run the `netsh export` command to export the profile for that wireless network. For steps, see [Download a WiFi profile](#download-a-wifi-profile).  
 
-   1. Check the profile for any settings that are specific to the client. For example, ...XXX.<!--How do they identify a client-specific component? Provide an example.--> 
+   1. Check the profile for any settings that are specific to the client computer. For example, ...XXX.<!--How do they identify a client-specific component? Provide an example.--> 
 
       - If the profile doesn't have any client-specific component, you can use the same profile for Site B.
 
       - If the profile has a client-specific component, you'll need to get multiple profiles from your network administrator.
 
-4. Enable **Autoconnect** on each network you want to connect to automatically.
+   1. Enable **Autoconnect** on each network you want to connect to automatically.
 
-   You may be able to set **Autoconnect** on multiple networks if the device won't be on more than one of those networks at the same time.
+      You may be able to set **Autoconnect** on multiple networks if the device won't be on more than one of those networks at the same time.
 
 5. When you have the WiFi profiles and certificates that you need, go to the local web UI of your Mini R device, and do the following tasks:
 
@@ -137,5 +137,5 @@ To generate WiFi profiles for enterprise networks, do these steps:
 
 ## Next steps
 
-- Learn how to [Configure network for Azure Stack Edge Mini R](azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy.md)
+- Learn how to [Configure network for Azure Stack Edge Mini R].(azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy.md)
 - Learn how to [Manage WiFi on your Azure Stack Edge Mini R](azure-stack-edge-mini-r-manage-wifi.md).
