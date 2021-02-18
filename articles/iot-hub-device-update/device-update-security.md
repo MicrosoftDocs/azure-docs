@@ -56,4 +56,4 @@ It is important to ensure that Device Update-related security assets are properl
 
 Additional security measures may be warranted, such as ensuring that handoff from component to component is performed in a secure way. For example, registering a specific isolated account to run the various components. And limiting network-based communications (e.g. REST API calls) to localhost only.
 
-**[Next Step: Learn more about IoT Hub security](articles\iot-hub\security-baseline.md)**
+**[Next Step: Learn more about how Device Update uses Azure RBAC](.\device-update-control-access.md)**
