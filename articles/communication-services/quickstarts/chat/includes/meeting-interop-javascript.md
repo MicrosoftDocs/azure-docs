@@ -9,7 +9,7 @@ ms.service: azure-communication-services
 
 ## Joining the meeting chat 
 
-Once Teams interoperability is enabled, a Communication Services user can join the Teams call as a guest user using the calling client library. Joining the call will add them as a participant to the meeting chat as well, where they can send and receive messages with other users on the call. The user will not have access to chat messages that were sent before they joined the call. To join the meeting and start chatting, you can follow the next steps.
+Once Teams interoperability is enabled, a Communication Services user can join the Teams call as an external user using the calling client library. Joining the call will add them as a participant to the meeting chat as well, where they can send and receive messages with other users on the call. The user will not have access to chat messages that were sent before they joined the call. To join the meeting and start chatting, you can follow the next steps.
 
 ## Install the chat packages
 
