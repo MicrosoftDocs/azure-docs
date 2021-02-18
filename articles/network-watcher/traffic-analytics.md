@@ -66,34 +66,36 @@ You can use traffic analytics for NSGs in any of the following supported regions
       Central India  
       Central US  
       China East 2  
-      China North 2  
+      China North 2
+	  East Asia 	  
    :::column-end:::
    :::column span="":::
-      East Asia  
       East US  
       East US 2  
       East US 2 EUAP  
       France Central  
-      Japan East  
+      Germany West Central
+	  Japan East  
       Japan West  
       Korea Central  
       Korea South  
-      North Central US  
+      North Central US 
+	  North Europe 	  
    :::column-end:::
    :::column span="":::
-      North Europe  
       South Africa North  
       South Central US  
       South India  
       Southeast Asia  
       Switzerland North  
-      Switzerland West  
+      Switzerland West
+	  UAE North
       UK South  
       UK West  
       USGov Arizona  
+	  USGov Texas
    :::column-end:::
    :::column span="":::
-      USGov Texas  
       USGov Virginia  
       USNat East  
       USNat West  
@@ -139,15 +141,16 @@ The Log Analytics workspace must exist in the following regions:
       Switzerland North  
       Switzerland West  
       UAE Central  
+	  UAE North
       UK South  
       UK West  
       USGov Arizona  
       USGov Virginia  
-      USNat East  
-      USNat West  
+      USNat East   
    :::column-end:::
    :::column span="":::
-      USSec East  
+      USNat West 
+	  USSec East  
       USSec West  
       West Central US  
       West Europe  
