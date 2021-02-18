@@ -31,7 +31,13 @@ Virtual machine scale sets with Uniform orchestration use a virtual machine prof
 ## Scale sets with Flexible orchestration 
 *Achieve high availability at scale with identical or multiple virtual machine types.* 
 
-Virtual machine scale sets with Flexible orchestration provide an orchestration layer on top of standard Azure IaaS virtual machines. VM instances managed by Flexible orchestration fully support the standard Azure VM API commands, full control over instance networking and disks, ARM management and policy, and other capabilities within the Azure VM ecosystem. Flexible orchestration allows you to have fault domain high availability guarantees for up to 1000 instances. Flexible orchestration is currently in public preview. During the preview period, we will be adding additional scale set orchestration features to achieve parity between Uniform and Flexible orchestration modes. Refer to the documentation below to understand differences between the two modes.  
+With Flexible orchestration, Azure provides a unified experience across the Azure VM ecosystem offering Availability Sets like high availability guarantees at VM scale set scale (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone. This enables you to scale out your application while maintaining fault domain isolation that is essential to run quorum-based or stateful workloads, including:
+- Quorum-based workloads
+- Open-Source databases
+- Stateful applications
+- Services that require High Availability and large scale
+- Services that want to mix virtual machine types, or leverage Spot and on-demand VMs together
+- Existing Availability Set applications  
 
 > [!IMPORTANT]
 > Virtual machine scale sets in Flexible orchestration mode is currently in public preview. An opt-in procedure is needed to use the public preview functionality described below.
@@ -165,7 +171,64 @@ az provider register --namespace Microsoft.Compute
 
 ## Get started with Flexible orchestration mode
 
-### Create a scale set in Flexible orchestration mode
+### Azure portal
+
+Create a virtual machine scale set in Flexible orchestration mode through the Azure portal.
+
+1. Log into the Azure portal.
+1. In the search bar, search for and select **Virtual machine scale sets**. 
+1. Select **Create** on the **Virtual machine scale sets** page.
+1. On the **Create a virtual machine scale set** page, view the **Orchestration** section.
+1. For the **Orchestration mode**, select the **Flexible** option.
+1. Set the **Fault domain count**.
+1. Finish creating your scale set. See [create a scale set in the Azure portal](quick-create-portal.md#create-virtual-machine-scale-set) for more information on how to create a scale set.
+
+:::image type="content" source="./media/virtual-machine-scale-sets-orchestration-modes/vmss-portal-create-orchestration-mode-flexible.png" alt-text="Orchestration mode in Portal when creating a scale set":::
+
+Add a virtual machine to the scale set in Flexible orchestration mode.
+
+1. In the search bar, search for and select **Virtual machines**.
+1. Select **Add** on the **Virtual machines** page.
+1. In the **Basics** tab, view the **Instance details** section.
+1. Add your VM to the scale set in Flexible orchestration mode by selecting the scale set in the **Availability options**. You can add the virtual machine to a scale set in the same region, zone, and resource group.
+1. Finish creating your virtual machine. 
+
+:::image type="content" source="./media/virtual-machine-scale-sets-orchestration-modes/vm-portal-orchestration-mode-flexible.png" alt-text="Add VM to the Flexible orchestration mode scale set":::
+
+
+### Azure CLI 2.0
+Create a Flexible virtual machine scale set with Azure CLI. The following example shows the creation of a Flexible scale set where the fault domain count is set to 3, a virtual machine is created and then added to the Flexible scale set. 
+
+```azurecli-interactive
+vmssflexname="my-vmss-vmssflex"  
+vmname="myVM"  
+rg="my-resource-group"  
+
+az group create -n "$rg" -l $location  
+az vmss create -n "$vmssflexname" -g "$rg" -l $location --orchestration-mode vm --platform-fault-domain-count 3  
+az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmssflexname --image UbuntuLTS 
+```
+
+### Terraform
+Create a Flexible virtual machine scale set with Terraform. This process requires **Terraform Azurerm provider v2.15.0** or later. Note the following parameters:
+- When no zone is specified, `platform_fault_domain_count` can be 1, 2, or 3 depending on region
+- When a zone is specified, `the fault domain count` can be 1
+- `single_placement_group` parameter must be `false` for Flexible virtual machine scale sets
+- If you are doing a regional deployment, no need to specify `zones`
+
+```terraform
+resource "azurerm orchestrated_virtual_machine_scale_set" "tf_vmssflex" {
+name = "tf_vmssflex"
+location = azurerm_resource_group.myterraformgroup.location
+resource_group_name = azurerm_resource_group.myterraformgroup.name
+platform_fault_domain_count = 1
+single_placement_group = false
+zones = ["1"]
+}
+```
+
+
+### REST API
 
 1. Create an empty scale set. The following parameters are required:
     1. API version 2019-12-01 (or greater) 
@@ -216,38 +279,6 @@ az provider register --namespace Microsoft.Compute
 
 See [Azure quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-vmss-flexible-orchestration-mode) for a full example.
 
-### Azure CLI 2.0
-Create a Flexible virtual machine scale set with Azure CLI. The following example shows the creation of a Flexible scale set where the fault domain count is set to 3, a virtual machine is created and then added to the Flexible scale set. 
-
-```azurecli-interactive
-vmssflexname="my-vmss-vmssflex"  
-vmname="myVM"  
-rg="my-resource-group"  
-
-az group create -n "$rg" -l $location  
-az vmss create -n "$vmssflexname" -g "$rg" -l $location --orchestration-mode vm --platform-fault-domain-count 3  
-az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmssflexname --image UbuntuLTS 
-```
-
-### Terraform
-Create a Flexible virtual machine scale set with Terraform. This process requires **Terraform Azurerm provider v2.15.0** or later. Note the following parameters:
-- When no zone is specified, `platform_fault_domain_count` can be 1, 2, or 3 depending on region
-- When a zone is specified, `the fault domain count` can be 1
-- `single_placement_group` parameter must be `false` for Flexible virtual machine scale sets
-- If you are doing a regional deployment, no need to specify `zones`
-
-```terraform
-resource "azurerm orchestrated_virtual_machine_scale_set" "tf_vmssflex" {
-name = "tf_vmssflex"
-location = azurerm_resource_group.myterraformgroup.location
-resource_group_name = azurerm_resource_group.myterraformgroup.name
-platform_fault_domain_count = 1
-single_placement_group = false
-zones = ["1"]
-}
-```
-
-
 
 ## Frequently asked questions
 
@@ -261,6 +292,40 @@ You can add up to 1000 VMs to a scale set in Flexible orchestration mode.
 | Fault domain availability guarantees within a region  | Yes, up to 1000 instances can be spread across up to 3 fault domains in the region. Maximum fault domain count varies by region  | Yes, up to 100 instances  | Yes, up to 200 instances  |
 | Placement groups  | Flexible mode always uses multiple placement groups (singlePlacementGroup = false)  | You can choose Single Placement Group or Multiple Placement Groups | N/A  |
 | Update domains  | None, maintenance or host updates are done fault domain by fault domain  | Up to 5 update domains  | Up to 20 update domains  |
+
+
+## Troubleshooting scale sets with Flexible orchestration
+
+```
+InvalidParameter. The value 'False' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: True
+```
+
+**Cause:** The subscription is not registered for the Flexible orchestration mode Public Preview. 
+
+**Solution:** Follow the instructions above to register for the Flexible orchestration mode Public Preview. 
+
+```
+InvalidParameter. The specified fault domain count 2 must fall in the range 1 to 1.
+```
+
+**Cause:** The `platformFaultDomainCount` parameter is invalid for the region or zone selected. 
+
+**Solution:** You must select a valid `platformFaultDomainCount` value. For zonal deployments, the maximum `platformFaultDomainCount` value is 1. For regional deployments where no zone is specified, the maximum `platformFaultDomainCount` varies depending on the region. See [Manage the availability of VMs for scripts](../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) to determine the maximum fault domain count per region. 
+
+```
+OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it contains one or more VMs. Please delete or detach the VM(s) before deleting the Virtual Machine Scale Set.
+```
+
+**Cause:** Trying to delete a scale set in Flexible orchestration mode that is associated with one or more virtual machines. 
+
+**Solution:** Delete all of the virtual machines associated with the scale set in Flexible orchestration mode, then you can delete the scale set.
+
+```
+InvalidParameter. The value 'True' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: False.
+```
+**Cause:** The subscription is registered for the Flexible orchestration mode preview; however, the `singlePlacementGroup` parameter is set to *True*. 
+
+**Solution:** The `singlePlacementGroup` must be set to *False*. 
 
 
 ## Next steps
