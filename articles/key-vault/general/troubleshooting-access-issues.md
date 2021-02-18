@@ -14,7 +14,7 @@ ms.topic: how-to
 ## Frequently asked questions
 
 ### I am not able to list or get secrets/keys/certificate. I am seeing "something went wrong.." Error.
-If you are having problem with listing/getting/creating or accessing secret, make sure that you have access policy defined to do that operation: [Key Vault Access Policies](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps)
+If you are having problem with listing/getting/creating or accessing secret, make sure that you have access policy defined to do that operation: [Key Vault Access Policies](./assign-access-policy-cli.md)
 
 ### How can I identify how and when key vaults are accessed?
 

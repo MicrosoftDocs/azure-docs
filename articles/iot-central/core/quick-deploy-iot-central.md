@@ -56,6 +56,10 @@ To create a new Azure IoT Central application from the **Custom application** te
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentral-application.png" alt-text="Azure IoT Central application":::
 
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## Next steps
 
 In this quickstart, you created an IoT Central application. Here's the suggested next step to continue learning about IoT Central:

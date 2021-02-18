@@ -147,7 +147,7 @@ conceptualContent:
           url: speech-container-howto-on-premises.md
         - itemType: how-to-guide
           text: Speech service containers on Azure Container Instances
-          url: deploy-speech-on-container-instances.md
+          url: ../containers/azure-container-instance-recipe.md
       footerLink:
         text: More
         url: index-hosting.yml
@@ -212,8 +212,6 @@ additionalContent:
           url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
       - title: Resources
         links:
-        - text: What's new in docs?
-          url: whats-new.md
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
         - text: Regions

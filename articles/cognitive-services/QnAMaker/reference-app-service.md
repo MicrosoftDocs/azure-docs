@@ -29,6 +29,7 @@ You can set an individual setting either through the Application Settings list, 
 |UserAppInsightsAppId|Chat log and telemetry|
 |UserAppInsightsKey|Chat log and telemetry|
 |UserAppInsightsName|Chat log and telemetry|
+|QNAMAKER_EXTENSION_VERSION|Always set to _latest_. This setting will initialize the QnAMaker Site Extension in the App Service.|
 
 You need to **restart** the service from the **Overview** page of the Azure portal, once you are done making changes.
 

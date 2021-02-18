@@ -31,6 +31,9 @@ There could be multiple reasons for a VM to be stuck waiting for Local Session M
 
 ## Solution
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 In some cases, simply waiting for the process to finish will resolve the issue. If your VM doesn't respond and remains on the wait screen for over an hour, you should collect a memory dump and then contact Microsoft support.
 
 ### Attach the OS disk to a new repair VM

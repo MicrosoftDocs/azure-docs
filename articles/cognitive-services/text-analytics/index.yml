@@ -118,6 +118,38 @@ landingContent:
         - text: Entity recognition
           url: how-tos/text-analytics-how-to-entity-linking.md
 
+- title: Responsible use of AI
+  linkLists:
+    - linkListType: overview
+      links:
+        - text: Transparency note for Text Analytics
+          url: /legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context
+        - text: Transparency note for Health
+          url: /legal/cognitive-services/text-analytics/transparency-note-health?context=/azure/cognitive-services/text-analytics/context/context
+        - text: Transparency note for PII
+          url: /legal/cognitive-services/text-analytics/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/text-analytics/context/context
+        - text: Transparency note for Sentiment Analysis
+          url: /legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis?context=/azure/cognitive-services/text-analytics/context/context
+    - linkListType: concept
+      links:
+        - text: Integration and responsible use
+          url: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
+
+- title: Use Docker containers
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Install and run Text Analytics containers
+          url: how-tos/text-analytics-how-to-install-containers.md
+        - text: Configure Text Analytics containers
+          url: text-analytics-resource-container-config.md
+        - text: Use the Text Analytics for health container
+          url: How-tos/text-analytics-for-health.md
+        - text: Deploy a container instance to Azure
+          url: ../containers/azure-container-instance-recipe.md
+        - text: Deploy a container to Azure Kubernetes Service (AKS)
+          url: how-tos/text-analytics-how-to-use-kubernetes-service.md
+
 - title: Reference
   linkLists:
     - linkListType: reference
@@ -138,21 +170,6 @@ landingContent:
           url: /powershell/module/az.cognitiveservices
         - text: Azure CLI 
           url: /cli/azure/cognitiveservices?view=azure-cli-latest
-
-- title: Use Docker containers
-  linkLists:
-    - linkListType: how-to-guide
-      links:
-        - text: Install and run Text Analytics containers
-          url: how-tos/text-analytics-how-to-install-containers.md
-        - text: Configure Text Analytics containers
-          url: text-analytics-resource-container-config.md
-        - text: Use the Text Analytics for health container
-          url: How-tos/text-analytics-for-health.md
-        - text: Deploy a container instance to Azure
-          url: how-tos/text-analytics-how-to-use-container-instances.md
-        - text: Deploy a container to Azure Kubernetes Service (AKS)
-          url: how-tos/text-analytics-how-to-use-kubernetes-service.md
 
 - title: Help and feedback
   linkLists:

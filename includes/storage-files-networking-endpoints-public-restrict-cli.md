@@ -79,7 +79,7 @@ fi
 
 The final step in restricting traffic to the storage account is to create a networking rule and add to the storage account's network rule set.
 
-```bash
+```azurecli
 az storage account network-rule add \
         --resource-group $storageAccountResourceGroupName \
         --account-name $storageAccountName \

@@ -35,6 +35,9 @@ If an NTFS error is found in the file system, Windows will check and repair the 
 
 ## Solution 
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 Windows will boot normally after the Check Disk process is completed. If the VM is stuck in the Check Disk process, try to run the Check Disk on the VM offline:
 1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 2. [Attach the OS disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md).  

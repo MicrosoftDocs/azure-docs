@@ -97,7 +97,7 @@ To begin the return process, take the following steps.
 To schedule a pickup, take the following steps.
 
 1. Shut down the device. In the local web UI, go to **Maintenance > Power settings**.
-2. Select **Shut down**. When prompted for confirmation, click **Yes** to continue. For more information, see [Manage power](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
+2. Select **Shut down**. When prompted for confirmation, click **Yes** to continue. For more information, see [Manage power](../databox-gateway/data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
 3. Unplug the power cables and remove all the network cables from the device.
 4. Prepare the shipment package by using your own box or the empty box you received from Azure. Place the device and the power cords that were shipped with the device in the box.
 5. Affix the shipping label that you received from Azure on the package.

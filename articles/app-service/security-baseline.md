@@ -70,7 +70,7 @@ Use Azure Firewall to send traffic and centrally create, enforce, and log applic
 
 - [Understand Network Security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [How to Enable Monitoring and Protection of App Service](/azure/security-center/defender-for-app-service-introduction)
+- [How to Enable Monitoring and Protection of App Service](../security-center/defender-for-app-service-introduction.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -167,7 +167,7 @@ Review the referenced links for additional information.
 
 - [How to configure end-to-end TLS by using Application Gateway with the portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Secure the ASE as described in Locking down an App Service](/azure/app-service/environment/firewall-integration)
+- [Secure the ASE as described in Locking down an App Service](./environment/firewall-integration.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -204,7 +204,7 @@ Review the referenced links for additional information.
 
 - [How to configure end-to-end TLS by using Application Gateway with the portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Secure the ASE as described in Locking down an App Service](/azure/app-service/environment/firewall-integration)
+- [Secure the ASE as described in Locking down an App Service](./environment/firewall-integration.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -220,7 +220,7 @@ Apply any of the built-in Azure Policy definitions related to tagging effects, s
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
-- [Azure App Service Access Restrictions](/azure/app-service/app-service-ip-restrictions)
+- [Azure App Service Access Restrictions](./app-service-ip-restrictions.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -240,9 +240,9 @@ Review detailed security alerts and recommendations in Security Center, at the p
 
 It is recommended that you create a process with automated tools to monitor network resource configurations and quickly detect changes.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Export security alerts and recommendations](../security-center/continuous-export.md)
 
@@ -280,7 +280,7 @@ The "what, who, and when" for any write operations (PUT, POST, DELETE) performed
 
 Additionally, Azure Key Vault provides centralized secret management with access policies and audit history. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable Diagnostic Settings for Azure App Service](troubleshoot-diagnostic-logs.md)
 
@@ -293,7 +293,7 @@ Additionally, Azure Key Vault provides centralized secret management with access
 ### 2.5: Configure security log storage retention
 
 **Guidance**: In Azure Monitor, set the log retention period for the Log Analytics workspaces associated with your App Service resources according to your organization's compliance regulations.
-- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -309,7 +309,7 @@ If you have deployed a Web Application Firewall (WAF), you can monitor attacks a
 
 Use Azure Sentinel, a scalable and cloud-native security information event management (SIEM), to integrate with various data sources and connectors, as per requirements. Optionally, enable and on-board data to a third-party  security information event management solution in the Azure Marketplace.
 
-- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable Application Insights](../azure-monitor/app/app-insights-overview.md)
 
@@ -347,7 +347,7 @@ Monitor attacks against your App Service apps by using a real-time Web Applicati
 
 - [How to use managed identities for App Service and Azure Functions](overview-managed-identity.md?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
 
-- [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -612,9 +612,9 @@ Microsoft manages the underlying platform and treats all customer data as sensit
 
 ### 4.6: Use Role-based access control to control access to resources
 
-**Guidance**: Use role-based access control (Azure RBAC) in Azure Active Directory (Azure AD) to control access to the App Service control plane at the Azure portal.
+**Guidance**: Use Azure role-based access control (Azure RBAC) in Azure Active Directory (Azure AD) to control access to the App Service control plane at the Azure portal.
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -640,7 +640,7 @@ Note that while locally attached disks can be used optionally by websites as tem
 
 **Guidance**: Use Azure Monitor with Azure Activity log to create alerts upon any changes to production App Service apps and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1114,7 +1114,7 @@ Additionally, clearly mark subscriptions (for example, production, non-productio
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. Use the Security Center data connector to stream the alerts Sentinel as per business needs.
+**Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. Use the Security Center data connector to stream the alerts to Azure Sentinel as per business needs.
 
 - [How to configure continuous export](../security-center/continuous-export.md)
 

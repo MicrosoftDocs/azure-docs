@@ -1,4 +1,4 @@
-﻿- name: IoT Hub Documentation
+﻿- name: IoT Hub documentation
   href: index.yml
 - name: Overview
   items:
@@ -481,6 +481,8 @@
           href: iot-hub-migrate-to-diagnostics-settings.md
         - name: TLS 1.0 and 1.1 deprecation
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
+        - name: Classic IP filter
+          href: iot-hub-ip-filter-classic.md
 - name: Resources
   items:
     - name: Support and help options
@@ -495,10 +497,10 @@
         href: /microsoft-iot-central/
       - name: IoT Edge
         href: ../iot-edge/index.yml
-      - name: IoT solution accelerators
-        href: ../iot-accelerators/index.yml
       - name: IoT Plug and Play
         href: ../iot-pnp/index.yml
+      - name: IoT solution accelerators
+        href: ../iot-accelerators/index.yml
       - name: Azure Maps
         href: ../azure-maps/index.yml
       - name: Time Series Insights

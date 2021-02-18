@@ -581,7 +581,7 @@ groupTime                       average
 
 Then get the aggregated output result to Delta. Because anomaly detection requires a longer history window, we're using Delta to keep the history data for the point you want to detect.
 Replace the "[Placeholder: table name]" with a qualified Delta table name to be created (for example, "tweets"). Replace "[Placeholder: folder name for checkpoints]" with a string value that's unique each time you run this code (for example, "etl-from-eventhub-20190605").
-To learn more about Delta Lake on Azure Databricks, please refer to [Delta Lake Guide](https://docs.azuredatabricks.net/delta/index.html)
+To learn more about Delta Lake on Azure Databricks, please refer to [Delta Lake Guide](/databricks/delta/)
 
 
 ```scala

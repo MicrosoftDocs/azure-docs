@@ -75,7 +75,7 @@ $gallery = New-AzGallery `
 
 ## Create an image definition 
 
-Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
+Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](../virtual-machines/shared-image-galleries.md#image-definitions).
 
 Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). In this example, the gallery image is named *myGalleryImage* and is created for a specialized image. 
 
@@ -251,7 +251,7 @@ Remove-AzResourceGroup -Name myResoureceGroup
 
 ## Azure Image Builder
 
-Azure also offers a service, built on Packer, [Azure VM Image Builder](../virtual-machines/windows/image-builder-overview.md). Simply describe your customizations in a template, and it will handle the image creation. 
+Azure also offers a service, built on Packer, [Azure VM Image Builder](../virtual-machines/image-builder-overview.md). Simply describe your customizations in a template, and it will handle the image creation. 
 
 ## Next steps
 In this tutorial, you learned how to create and use a custom VM image for your scale sets with Azure PowerShell:

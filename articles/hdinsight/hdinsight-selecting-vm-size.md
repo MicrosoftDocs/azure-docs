@@ -2,9 +2,6 @@
 title: How to select the right VM size for your Azure HDInsight cluster
 description: Learn how to select the right VM size for your HDInsight cluster.
 keywords: vm sizes, cluster sizes, cluster configuration
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
