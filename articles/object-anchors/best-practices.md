@@ -11,7 +11,7 @@ ms.service: azure-object-anchors
 ---
 # Best Practices
 
-We recommend trying some of these steps to get the best results in the shortest time.
+We recommend trying some of these steps to get the best results.
 
 ## Ingestion
 - Check the dimensions of your physical objects. Object anchors works best for objects whose smallest dimension is in the range of the recommended 1m-10m.
