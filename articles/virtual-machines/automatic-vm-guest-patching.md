@@ -16,7 +16,7 @@ Enabling automatic VM guest patching for your Azure VMs helps ease update manage
 Automatic VM guest patching has the following characteristics:
 - Patches classified as *Critical* or *Security* are automatically downloaded and applied on the VM.
 - Patches are applied during off-peak hours in the VM's time zone.
-- Patch orchestration is managed by Azure and patches are applied following availability-first principles (described below).
+- Patch orchestration is managed by Azure and patches are applied following [availability-first principles](#availability-first-patching).
 - Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
 - Works for all VM sizes.
 
@@ -178,14 +178,14 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Use [az feature register](/cli/azure/feature#az-feature-register) to enable the preview for your subscription.
 
 ```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview
+az feature register --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview `
 az feature register --namespace Microsoft.Compute --name InGuestPatchVMPreview
 ```
 
 Feature registration can take up to 15 minutes. To check the registration status:
 
 ```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview
+az feature show --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview `
 az feature show --namespace Microsoft.Compute --name InGuestPatchVMPreview
 ```
 
@@ -272,12 +272,18 @@ When automatic VM guest patching is enabled for a VM, a VM extension of type `Mi
 
 It can take more than three hours to enable automatic VM guest updates on a VM, as the enablement is completed during the VM's off-peak hours. The extension is also installed and updated during off-peak hours for the VM. If the VM's off-peak hours end before enablement can be completed, the enablement process will resume during the next available off-peak time.
 
-Automatic updates are disabled (caveats below) and patch installation is done through the extension going forward.
+Automatic updates are disabled in most scenarios, and patch installation is done through the extension going forward. The following conditions apply.
 - If a Windows VM previously had Automatic Windows Update turned on through the AutomaticByOS patch mode, then Automatic Windows Update is turned off for the VM when the extension is installed.
 - For Ubuntu VMs, the default automatic updates are disabled automatically when Automatic VM Guest Patching completes enablement.
-- For RHEL, automatic updates need to be manually disabled (this is a preview limitation). Execute
-i.	`systemctl stop packagekit`
-ii.	`systemctl mask packagekit`
+- For RHEL, automatic updates need to be manually disabled (this is a preview limitation). Execute:
+
+```
+systemctl stop packagekit
+```
+
+```
+systemctl mask packagekit
+```
 
 To verify whether automatic VM guest patching has completed and the patching extension is installed on the VM, you can review the VM's instance view. If the enablement process is complete, the extension will be installed and the assessment results for the VM will be available under `patchStatus`. The VM's instance view can be accessed through multiple ways as described below.
 
