@@ -52,12 +52,6 @@ This category contains the following entity:
         Names of people. Also returned with `domain=phi`.
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`     
-      
-   :::column-end:::
 :::row-end:::
 
 ### Category: PersonType
@@ -78,12 +72,6 @@ This category contains the following entity:
         Job types or roles held by a person.
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
-      
-   :::column-end:::
 :::row-end:::
 
 ### Category: PhoneNumber
@@ -103,12 +91,6 @@ This category contains the following entity:
         Phone numbers (US and EU phone numbers only). Also returned with `domain=phi`.
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt` `pt-br`
-      
-   :::column-end:::
 :::row-end:::
 
 
@@ -129,12 +111,6 @@ This category contains the following entity:
         Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type.
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`     
-      
-   :::column-end:::
 :::row-end:::
 
 #### Subcategories
@@ -154,12 +130,6 @@ The entity in this category can have the following subcategories.
         Medical companies and groups.
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`   
-      
-   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -172,11 +142,6 @@ The entity in this category can have the following subcategories.
         Stock exchange groups. 
       
     :::column-end:::
-    :::column span="2":::
-
-      `en`   
-      
-   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -189,11 +154,7 @@ The entity in this category can have the following subcategories.
         Sports-related organizations.
       
     :::column-end:::
-    :::column span="2":::
 
-      `en`   
-      
-   :::column-end:::
 :::row-end:::
 
 
@@ -214,12 +175,6 @@ This category contains the following entity:
         Full mailing address.
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
-      
-   :::column-end:::
 :::row-end:::
 
 ### Category: Email
@@ -239,12 +194,6 @@ This category contains the following entity:
         Email addresses.
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
-      
-   :::column-end:::
 :::row-end:::
 
 ### Category: URL
@@ -264,12 +213,6 @@ This category contains the following entity:
         URLs to websites. 
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
-      
-   :::column-end:::
 :::row-end:::
 
 ### Category: IP
@@ -289,12 +232,6 @@ This category contains the following entity:
         network IP addresses. 
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
-      
-   :::column-end:::
 :::row-end:::
 
 ### Category: DateTime
@@ -314,12 +251,6 @@ This category contains the following entities:
         Dates and times of day. 
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
-      
-   :::column-end:::
 :::row-end:::
 
 #### Subcategories
@@ -339,12 +270,6 @@ The entity in this category can have the following subcategories.
         Calender dates.
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
-      
-   :::column-end:::
 :::row-end:::
 
 ### Category: Quantity
@@ -364,12 +289,6 @@ This category contains the following entities:
         Numbers and numeric quantities.
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
-      
-   :::column-end:::
 :::row-end:::
 
 #### Subcategories
@@ -389,12 +308,6 @@ The entity in this category can have the following subcategories.
         Ages.
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
-      
-   :::column-end:::
 :::row-end:::
 
 ### Azure information
@@ -414,12 +327,6 @@ These entity categories includes identifiable Azure information, including authe
         Authorization key for an Azure Cosmos DB server.   
       
     :::column-end:::
-    :::column span="2":::
-      **Supported document languages**
-
-      `en`
-      
-   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -432,11 +339,6 @@ These entity categories includes identifiable Azure information, including authe
         Connection string for an Azure infrastructure as a service (IaaS) database, and SQL connection string.
       
     :::column-end:::
-    :::column span="2":::
-
-      `en`   
-      
-   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -449,11 +351,7 @@ These entity categories includes identifiable Azure information, including authe
         Connection string for a database in Azure SQL Database.
       
     :::column-end:::
-    :::column span="2":::
 
-      `en`   
-      
-   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -466,11 +364,6 @@ These entity categories includes identifiable Azure information, including authe
         Connection string for Azure IoT. 
       
     :::column-end:::
-    :::column span="2":::
-
-      `en`   
-      
-   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -483,11 +376,6 @@ These entity categories includes identifiable Azure information, including authe
         Password for Azure publish settings.
       
     :::column-end:::
-    :::column span="2":::
-
-      `en`   
-      
-   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -517,11 +405,6 @@ These entity categories includes identifiable Azure information, including authe
         Connection string for Azure software as a service (SaaS).
       
     :::column-end:::
-    :::column span="2":::
-
-      `en`   
-      
-   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -534,11 +417,6 @@ These entity categories includes identifiable Azure information, including authe
         Connection string for an Azure service bus.
       
     :::column-end:::
-    :::column span="2":::
-
-      `en`   
-      
-   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -551,11 +429,6 @@ These entity categories includes identifiable Azure information, including authe
        Account key for an Azure storage account. 
       
     :::column-end:::
-    :::column span="2":::
-
-      `en`   
-      
-   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -568,11 +441,6 @@ These entity categories includes identifiable Azure information, including authe
        Generic account key for an Azure storage account.
       
     :::column-end:::
-    :::column span="2":::
-
-      `en`   
-      
-   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -585,11 +453,6 @@ These entity categories includes identifiable Azure information, including authe
        Connection string for a computer running SQL Server.
       
     :::column-end:::
-    :::column span="2":::
-
-      `en`   
-      
-   :::column-end:::
 :::row-end:::
 
 ### Identification
