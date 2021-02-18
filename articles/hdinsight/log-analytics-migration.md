@@ -76,7 +76,7 @@ The first way to access the new tables is through the Log Analytics workspace.
 The second way to access the new tables is through Cluster portal access.
  
 1. Navigate to your Cluster's portal page and scroll down the menu on the left side until you see the **Monitoring** section. In this section, you'll see the **Logs** pane. 
-2. Select **Logs** and a Logs query editor appears. The editor contains all logs that are associated with the cluster resource. You sent the logs to the Log Analytics workspace when you enabled integration. These logs provide resource-based access (RBAC). RBAC allows users who have access to the cluster but not to the workspace to still see logs that are associated with the cluster.
+2. Select **Logs** and a Logs query editor appears. The editor contains all logs that are associated with the cluster resource. You sent the logs to the Log Analytics workspace when you enabled integration. These logs provide resource-based access (RBAC). RBAC allows users who have access to the cluster, but not to the workspace, to see logs that are associated with the cluster.
 
 For comparison, the following screenshots show the legacy integration workspace view and the new integration workspace view:
 
@@ -148,7 +148,7 @@ We also improved the out-of-box dashboards both at the cluster-level. There's a 
 
 ### Use an HDInsight workload-specific monitoring dashboard in Azure Monitor
 
-If you're using the out-of-box monitoring dashboard for HDInsight clusters, like HDInsight Spark Monitoring, HDInsight HBase Monitoring, and HDInsight Interactive Monitoring, we're working on provide you the same capabilities on the Azure Monitor portal.
+If you're using the out-of-box monitoring dashboard for HDInsight clusters, like HDInsight Spark Monitoring, HDInsight HBase Monitoring, and HDInsight Interactive Monitoring, we're working to provide you the same capabilities on the Azure Monitor portal.
 
 You'll see that there's an HDInsight option in Azure Monitor.
 
