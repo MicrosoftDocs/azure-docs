@@ -80,7 +80,7 @@ Finally click `Review + Create` to create your Grafana server.
     $SSH sudo systemctl restart grafana-server
     ```
 
-Press ctrl + X to save the file with a name like `grafana.sh`, and then run the script by typing `./grafana.sh` then enter.
+    Press ctrl + X to save the file with a name like `grafana.sh`, and then run the script by typing `./grafana.sh` then enter.
 
 3. When installed, Grafana will be available at port 3000 in the server's IP address:
 
