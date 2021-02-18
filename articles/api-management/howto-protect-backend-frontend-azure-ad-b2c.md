@@ -283,10 +283,10 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
     		var config = {
     			msal: {
     				auth: {
-    					clientId: "d876bfc2-81c0-453c-a6f3-702b251903b2", // This is the client ID of your FRONTEND application that you registered with the SPA type in AAD B2C
-    					authority:  "https://tailspintoysinternational.b2clogin.com/tfp/tailspintoysinternational.onmicrosoft.com/b2c_1_defaultsigninsignup", // Formatted as https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantguid or full tenant name including onmicrosoft.com}/{signuporinpolicyname}
-    					redirectUri: "https://tailspintoys.z33.web.core.windows.net", // The storage hosting address of the SPA, a web-enabled v2 storage account
-    					knownAuthorities: ["tailspintoysinternational.b2clogin.com"] // {b2ctenantname}.b2clogin.com
+    					clientId: "{CLIENTID}", // This is the client ID of your FRONTEND application that you registered with the SPA type in AAD B2C
+    					authority:  "{YOURAUTHORITYB2C}", // Formatted as https://{b2ctenantname}.b2clogin.com/tfp/{b2ctenantguid or full tenant name including onmicrosoft.com}/{signuporinpolicyname}
+    					redirectUri: "{SPAHOSTINGADDRESS}", // The storage hosting address of the SPA, a web-enabled v2 storage account
+    					knownAuthorities: ["{B2CTENANTDOMAIN}"] // {b2ctenantname}.b2clogin.com
     				},
     				cache: {
     					cacheLocation: "sessionStorage",
@@ -294,8 +294,8 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
     				}
     			},
     			api: {
-    				scopes: ["https://tailspintoysinternational.onmicrosoft.com/dbe094f6-cd96-4b42-a9f2-1bf45d9256f4/CallMe"], // The scope that we request for the API from B2C, this should be the API scope you created on the BACKEND API.
-    				backend: "https://willapimb2ctest.azure-api.net/willapimb2ctest/hello" // The location that we will call for the backend api, this should be hosted in API Management
+    				scopes: ["{APISCOPEWITHFULLURI}"], // The scope that we request for the API from B2C, this should be the API scope you created on the BACKEND API.
+    				backend: "{APIMBACKENDADDRESS}" // The location that we will call for the backend api, this should be hosted in API Management
     			},
     			runtime: {
     				account: "" // This is used at runtime, leave it blank.
