@@ -1,11 +1,11 @@
 ---
 title: Monitor Cloud Tiering | Microsoft Docs
 description: Details on metrics to use to monitor your cloud tiering policies.
-author: mtalasila
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 1/4/2021
-ms.author: mtalasila
+ms.author: rogarana
 ms.subservice: files
 ---
 

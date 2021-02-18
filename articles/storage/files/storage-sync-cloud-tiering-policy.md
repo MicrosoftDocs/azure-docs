@@ -1,11 +1,11 @@
 ---
 title: Cloud Tiering Policies | Microsoft Docs
 description: Details on how the date and volume free space policies work together for different scenarios.
-author: mtalasila
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 1/4/2021
-ms.author: mtalasila
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -15,7 +15,7 @@ Cloud tiering has two policies that determine which files are tiered to the clou
 
 The **volume free space policy** ensures that a specified percentage of the local volume the server endpoint is located on is always kept free. 
 
-The **date policy** tiers files last accessed x days ago or later. The volume free space policy will always take precedence; when there isn't enough free space on the volume to store as many days worth of files as described by the date policy, Azure File Sync will continue tiering the coldest files until the volume free space percentage is met.
+The **date policy** tiers files last accessed x days ago or later. The volume free space policy will always take precedence; when there isn't enough free space on the volume to store as many days worth of files as described by the date policy, Azure File Sync will override the date policy and continue tiering the coldest files until the volume free space percentage is met.
 
 ## How both policies work together
 
@@ -58,7 +58,7 @@ With this configuration, only files 1 through 4 would be stored in the local cac
 In this case, files 1, 2 and 5 would be locally cached and files 3 and 4 would be tiered. Because the date policy is 60 days, files 3 and 4 are tiered, even though the volume free space policy allows for up to 400 GB locally.
 
 > [!NOTE] 
-> When customers change the volume free space policy to a smaller value, files are not automatically recalled.
+> Files are not automatically recalled when customers change the volume free space policy to a smaller value (for example, from 20% to 10%) or change the date policy to a larger value (for example, from 20 days to 50 days).
 
 ## Multiple server endpoints on a local volume
 

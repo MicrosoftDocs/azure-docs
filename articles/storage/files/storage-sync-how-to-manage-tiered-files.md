@@ -1,11 +1,11 @@
 ---
 title: How to manage tiered files | Microsoft Docs
 description: Tips and PowerShell commandlets to help you manage tiered files
-author: mtalasila
+author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 1/4/2021
-ms.author: mtalasila
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -98,7 +98,7 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ```
 
-## How to recall a tiered file to disk to use it locally
+## How to recall a tiered file to disk
 
 The easiest way to recall a file to disk is to open the file. The Azure File Sync file system filter (StorageSync.sys) seamlessly downloads the file from your Azure file share without any work on your part. For file types that can be partially read or streamed, such as multimedia or .zip files, simply opening a file doesn't ensure the entire file is downloaded.
 
@@ -123,7 +123,6 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCoun
 ``` 
 
 > [!Note]  
-> - The Invoke-StorageSyncFileRecall cmdlet can also be used to improve file download performance when adding a new server endpoint to an existing sync group.  
 >- If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  
 
 > [!Note]

@@ -1,11 +1,11 @@
 ---
 title: Understanding Azure File Sync Cloud Tiering | Microsoft Docs
 description: Understand cloud tiering, an optional Azure File Sync feature. Frequently accessed files are cached locally on the server; others are tiered to Azure Files.
-author: mtalasila
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 1/4/2021
-ms.author: mtalasila
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -24,7 +24,7 @@ When you enable cloud tiering, there are two policies that you can set to inform
 #### Volume free space policy
 The **volume free space policy** tells Azure File Sync to tier cool files to the cloud when a certain amount of space is taken up on your local disk. 
 
-For example, if your local disk capacity is 200 GB and you want at least 40 GB of your local disk capacity to always remain free, you should set the volume free space policy to 20%. In this case, up to 80% of the volume space will be occupied by the most recently accessed files, with any remaining files that don't fit into this space tiered up to Azure. Volume free space applies at the volume level rather than at the level of individual directories or server endpoints. 
+For example, if your local disk capacity is 200 GB and you want at least 40 GB of your local disk capacity to always remain free, you should set the volume free space policy to 20%. Volume free space applies at the volume level rather than at the level of individual directories or server endpoints. 
 
 To learn how the volume free space policy affects files initially downloaded when a new server endpoint is added, (see the [Sync policies that affect cloud tiering](#sync-policies-that-affect-cloud-tiering)) section.
 
@@ -32,6 +32,9 @@ To learn how the volume free space policy affects files initially downloaded whe
 With the **date policy**, cool files are tiered to the cloud if they haven't been accessed (that is, read or written to) for x number of days. For example, if you noticed that files that have gone more than 15 days without being accessed are typically archival files, you should set your date policy to 15 days. 
 
 For more examples on how the date policy and volume free space policy work together, see [Choosing a cloud tiering policy](storage-sync-choosing-cloud-tiering-policies.md).
+
+### Windows Server data deduplication
+Data deduplication is supported on volumes that have cloud tiering enabled beginning with Windows Server 2016. For more details, please see [Planning for an Azure File Sync deployment](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication).
 
 ### Cloud tiering heatmap
 Azure File Sync monitors file access (read and write operations) over time and, based on how frequent and recent access is, assigns a heat score to every file. It uses these scores to build a "heatmap" of your namespace on each server endpoint. This heatmap is a list of all syncing files in a location with cloud tiering enabled, ordered by their heat score. Frequently accessed files that were recently opened are considered hot, while files that were barely touched and haven't been accessed for some time are considered cool. 
@@ -53,11 +56,11 @@ With Azure File Sync agent version 11, there are two additional Azure File Sync 
 
 When a server is connecting to an Azure file share with files in it, you can now decide how you want the server to initially download the file share data. When cloud tiering is enabled, you have two options. 
 
-The first option is to recall the namespace first, and then recall the file content by last-modified timestamp, until local disk capacity is reached. If you have enough disk space and you know that files that are last modified should be cached locally, this option is ideal.       
+![A screenshot of initial download when cloud tiering is enabled](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-3.png)  
 
-![A screenshot of initial download when cloud tiering is enabled](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-3.png)   
+The first option is to recall the namespace first, and then recall the file content by last-modified timestamp, until local disk capacity is reached. If you have enough disk space and you know that files that are last modified should be cached locally, this option is ideal. Files that are unable to be stored locally due to lack of disk space will be tiered.        
 
-The second option is to initially recall the namespace only, and recall the file content only when accessed. This option is best if you want to minimize the capacity used on your local disk and want users to decide which files should be cached locally.
+The second option is to initially recall the namespace only, and recall the file content only when accessed. This option is best if you want to minimize the capacity used on your local disk and want users to decide which files should be cached locally. All files will start off as tiered files with this option.
 
 ![A screenshot of initial download when cloud tiering is disabled](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-4.png)
 
@@ -67,7 +70,7 @@ When cloud tiering is disabled, you have a third option, which is to avoid tiere
 
 When a file is created or modified, you can proactively recall a file to servers that you specify. This makes the new or modified file readily available for consumption in each specified server. 
 
-For example, say you have a global company, with offices in the US and India. If the US server endpoint and India server endpoint are in the same sync group, by enabling proactive recalling for India’s server endpoint, any new/modified files uploaded via the US server endpoint will be readily available for consumption on India's server. Without selecting this option, these files will appear as tiered files on India's server, and will have to be manually recalled. 
+For example, a globally distributed company has branch offices in the US and in India. In the morning (US time) information workers create a new folder and new files for a brand new project and work all day on it. Azure File Sync will sync folder and files to the Azure file share (cloud endpoint). Information workers in India will continue working on the project in their timezone. When they arrive in the morning, the local Azure File Sync enabled server in India needs to have these new files available locally, such that the India team can efficiently work off of a local cache. Enabling this mode prevents the initial file access to be slower because of on-demand recall and enables the server to proactively recall the files as soon as they were changed or created in the Azure file share.
 
 If files recalled to the server are not actually needed locally, then the unnecessary recall can increase your egress traffic and costs. Therefore, only enable proactive recalling when you know that pre-populating a server's cache with recent changes from the cloud will have a positive effect on users or applications using the files on that server. 
 
@@ -75,7 +78,7 @@ Enabling proactive recalling may also result in increased bandwidth usage on the
 
 :::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="An image showing the Azure file share download behavior for a server endpoint currently in effect and a button to open a menu that allows to change it.":::
 
-For more details on both of these options, see [Deploy Azure File Sync](storage-sync-files-deployment-guide.md).
+For more details on proactive recalling, see [Deploy Azure File Sync](storage-sync-files-deployment-guide.md#proactively-recall-new-and-changed-files-from-an-azure-file-share).
 
 ## Tiered vs. locally cached file behavior
 
@@ -99,5 +102,6 @@ It's also possible for a file to be partially tiered (or partially recalled). In
 > Size represents the logical size of the file. Size on disk represents the physical size of the file stream that's stored on the disk.
 
 ## Next Steps
-* [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
 * [Choosing cloud tiering policies](storage-sync-choosing-cloud-tiering-policies.md)
+* [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+
