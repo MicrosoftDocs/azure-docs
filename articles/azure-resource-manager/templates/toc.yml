@@ -243,6 +243,7 @@
     - name: 10 - Use parameter file
       href: template-tutorial-use-parameter-file.md
   - name: Beginner Bicep templates
+    items:
     - name: 1 - Create first template
       href: template-tutorial-bicep-create-first-template.md
     - name: 2 - Add parameters
