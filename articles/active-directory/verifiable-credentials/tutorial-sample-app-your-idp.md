@@ -36,7 +36,7 @@ The Authenticating of an ID Token allows users to prove who they are before rece
 
 Any identity provider that supports the OpenID Connect protocol is supported. Examples of supported identity providers include Azure Active Directory, and Azure AD B2C. This article contains the details of the OpenID Connect protocol used during the credential issuing process.
 
-![](/media/tutorial-sample-app-your-idp/sLqFtc9.png)
+![credential issuance process](/media/tutorial-sample-app-your-idp/sLqFtc9.png)
 
 To issue the Ninja Verifiable Credential, you need to provide the issuer service with the configuration details of your OpenID compliant identity provider. 
 
@@ -47,18 +47,18 @@ To issue a Verifiable Credential, you need to provide the issuer service with th
 Register the Verifiable Credential issuer service as an application in your identity provider and obtain a client ID. Instructions are available for registering an application with [Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) or [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications). When registering, use the values below.
 
 - Name: "Tenant VC Issuer"
-- Suported account types: Accounts in this organizational directory only
+- Supported account types: Accounts in this organizational directory only
 - Redirect URI: vcclient://openid
 
-![](/media/tutorial-sample-app-your-idp/MUnp9lS.png)
+![register an application](/media/tutorial-sample-app-your-idp/MUnp9lS.png)
 
 Now that you've completed registering the application, write down the Application (client) ID. You need this value later.
 
-![](/media/tutorial-sample-app-your-idp/aWyalLO.png)
+![application client ID](/media/tutorial-sample-app-your-idp/aWyalLO.png)
 
 Now select the Endpoints button and copy the OpenID Connect metadata document URI. You will need this for the next section. 
 
-![](/media/tutorial-sample-app-your-idp/aGCw9I7.png)
+![issuer endpoints](/media/tutorial-sample-app-your-idp/aGCw9I7.png)
 
 ## Your IDP with the Ninja Credential 
 
@@ -138,7 +138,7 @@ Copy down the SECRET as you will need this to update your Sample Node app.
 tP1WN~872_4GQR42nGL~GAgx__ASKdAbp6
 ```
 
-![](/media/tutorial-sample-app-your-idp/NFsKid8.png)
+![Certificates and secrets](/media/tutorial-sample-app-your-idp/NFsKid8.png)
 
 
 After creating your application and client secret in Azure AD, you need to grant the application permission to perform operations on your Key Vault. This enables the website to access and use the private keys that are stored in Key Vault.
@@ -152,8 +152,8 @@ After creating your application and client secret in Azure AD, you need to grant
 
 Don't forget to press SAVE.
 
-![](/media/tutorial-sample-app-your-idp/Si53eL7.png)
+![assign key vault permissions](/media/tutorial-sample-app-your-idp/Si53eL7.png)
 
 ## Summary and next steps
 
-You should have created a new VC that has your own IDP and copied the contract URL. You should have also generated a Client ID for the node app along with a client secret. We will need these values in the next section to turn your Sample code to start using your own keys from keyvault. 
+You should have created a new VC that has your own IDP and copied the contract URL. You should have also generated a Client ID for the node app along with a client secret. We will need these values in the next section to turn your Sample code to start using your own keys from key vault. 

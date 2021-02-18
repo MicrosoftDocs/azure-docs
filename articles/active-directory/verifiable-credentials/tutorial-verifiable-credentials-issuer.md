@@ -48,7 +48,7 @@ At this point, your tenant has been successfully enabled for the Verifiable Cred
 
 ## Set up Verifiable Credentials Preview
 
-![](media/tutorial-verifiable-credentials-issuer/lfHkhnL.png)
+![set up your organizational identity](media/tutorial-verifiable-credentials-issuer/lfHkhnL.png)
 
 Search for Verifiable Credentials and you see the blade.
 
@@ -60,7 +60,7 @@ This is how you will reference your business within the Verifiable Credential se
 
 The domain entered will be added to a service endpoint in your DID document. Microsoft Authenticator and other VC Wallets will validate that your DID is linked to your domain and display to the user a Verified symbol or tell the user this is an untrusted session. The domain is what binds your DID to something tangible that the user may know about your business. See the example Presentation screen below. 
 
-![](media/tutorial-verifiable-credentials-issuer/e5EKExG.png)
+![new permission request](media/tutorial-verifiable-credentials-issuer/e5EKExG.png)
 
 ## Key Vault
 
@@ -71,7 +71,7 @@ To issue and verify credentials, you must provide Azure AD with access to your o
 If you have not created a Key Vault yet, continue by choosing 'select key vault'.
 
 >[!NOTE]
-> Each Key Vault transaction will incur a cost to your Azure subscription. Review the Key Vault pricing details here.
+> Each Key Vault transaction results in additional Azure subscription costs. Review the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/) for more details.
 
 ## Create a Key Vault
 
@@ -83,7 +83,7 @@ If you have not created a Key Vault yet, continue by choosing 'select key vault'
 - Days to retain deleted vaults: 90 (Recommendation)
 - Purge Protection: Disable (Recommendation)
 
-![](media/tutorial-verifiable-credentials-issuer/bX6AEe3.png)
+![create a key vault](media/tutorial-verifiable-credentials-issuer/bX6AEe3.png)
 
 ## Key Vault Access Policy for Verifiable Credentials Admin
 
@@ -99,7 +99,7 @@ Under Key permissions select the following:
 
 Select a principle, which should be your user account.
 
-![](media/tutorial-verifiable-credentials-issuer/Pcx9QWl.png)
+![assign permissions to the vault](media/tutorial-verifiable-credentials-issuer/Pcx9QWl.png)
 
 >[!IMPORTANT]
 > During the Verifiable Credentials preview, keys and secrets created in your vault should not be modified once created. Deleting, disabling, or updating your keys and secrets will invalidate any credentials issued in the future. Do not modify your keys or secrets during the preview.

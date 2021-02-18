@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Connect your IDP to a new verifiable credential instance
-description: Learn how you can set up your own verifiable credentials issuer in Azure
+title: Tutorial - Modify the verifiable credential sample app to work with your identity provider
+description: Change the sample app to connect to your own verifiable credentials issuer in Azure
 services: active-directory
 documentationCenter: ''
 author: barclayn
@@ -16,7 +16,7 @@ ms.author: barclayn
 
 ---
 
-# Tutorial - Hook up your IDP to a new Verifiable Credential, create node app to talk with key vault
+# Tutorial - Modify the verifiable credential sample app to work with your identity provider
 
 Now that you have your Azure tenant set up with the Verifiable Credential service, we will walk you through changing the configuration in your local sample code to your own Verifiable Credential service we set up in the previous section. 
 

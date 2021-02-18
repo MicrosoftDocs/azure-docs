@@ -1,6 +1,6 @@
 ---
-title: Open ID protocol details
-description: 
+title: Issuer service communication examples
+description: Details of communication between identity provider and issuer service
 services: active-directory
 author: barclayn
 manager: davba
@@ -14,7 +14,7 @@ ms.author: barclayn
 ---
 
 
-# OpenID Connect Protocol Details
+# Issuer service communication examples
 
 Updated: June 23, 2020
 
@@ -22,7 +22,7 @@ Updated: June 23, 2020
 
 The Verifiable Credential issuer service transforms security tokens output by your organization's OpenID compliant identity provider. This article instructs you on how to set up your identity provider to communicate with the issuer service.
 
-![issue process](../images/idp-transform-diagram.png)
+![issue process](media/issuer-openid/idp-transform-diagram.png)
 
 To issue a Verifiable Credential, you must allow the verifiable credential issuer service to federate with your identity provider using the OpenID Connect protocol. The claims in the resulting ID token are used to populate the contents of your Verifiable Credential.
 
@@ -43,7 +43,7 @@ Examples of the HTTP requests sent to your identity provider are provided below.
 
 To receive the Verifiable Credential, your users will need to sign into your IDP from the Microsoft Authenticator app and accept permissions for the Verifiable Credential service.
 
-To enable this exchange, register the Verifiable Credential service with your identity provider as a client application. If you are using Azure AD you can find the instructions [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app). Use the following values when registering.
+To enable this exchange, register the Verifiable Credential service with your identity provider as a client application. If you are using Azure AD you can find the instructions [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Use the following values when registering.
 
 | Setting | Value |
 | ------- | ----- |

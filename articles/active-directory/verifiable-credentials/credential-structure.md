@@ -226,4 +226,4 @@ In the Azure Portal, navigate to the **Verifiable Credentials (Preview)** blade.
 
 You've now successfully defined the properties and contents of your Verifiable Credential. If you'd like to reference a working example of a rules file, please see our [code sample on GitHub](https://github.com/Azure-Samples/active-directory-verifiable-credentials).
 
-Before you can finish creating your credential, you need to define the look and feel of your Verifiable Credentials. [Continue onto the next article to design the appearance of your Verifiable Credentials](xref:484cd922-2a86-41cb-a85a-87794cdd49c2).
+Before you can finish creating your credential, you need to define the look and feel of your Verifiable Credentials. [Continue onto the next article to design the appearance of your Verifiable Credentials](credential-design.md).

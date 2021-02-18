@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Issue verifiable credentials using a sample app'
+title: Issue verifiable credentials using a sample app
 description: Issue Verifiable Credentials using a sample app
 services: active-directory
 ms.service: active-directory
@@ -11,13 +11,13 @@ ms.service: verifiable-credentials
 ms.date: 02/04/2021
 ---
 
-# Quickstart: Issue verfiable credentials using our sample app
+# Quickstart: Issue verifiable credentials using a sample app
 
 Get started with Azure Active Directory Verifiable Credentials by using the Verifiable Credentials sample app to issue your first verifiable credential.
 
 ## Prerequisites
 
-- [Visual Studio](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2019)
+- [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2019)
 - NodeJS version 10.14 or higher installed on the system that will be hosting the sample app.
 - If you want to clone the repository that hosts the sample app you need [GIT](https://git-scm.com/downloads) installed.
 - An Android device with Microsoft Authenticator version 6.2005.3599 or higher installed.
@@ -30,7 +30,7 @@ Get started with Azure Active Directory Verifiable Credentials by using the Veri
 
 Welcome to Verifiable Credentials, powered by Azure. In this hello world tutorial, we'll teach you to issue your first verifiable credential: a Verified Credential Ninja Card. You can then use this card to prove to a verifier that you are a Verified Credential Ninja, mastered in the art of digital credentialing.
 
-![ninja-card](../images/ninja-card.png)
+![This is an example card](/media/quickstart-verifiable-credentials/ninja-card.png)
 
 In order to complete this tutorial, you'll need the following:
 
@@ -91,22 +91,13 @@ If you navigate to the ngrok forwarding URL on your android device, you should b
 
 ## Issue a credential
 
-Before you can receive your verifiable credential, you'll need the Microsoft Authenticator app. Microsoft Authenticator will be used to receive, store, and present your verifiable credentials to interested parties.
+Before you can receive your verifiable credential, you'll need the Microsoft Authenticator app. Microsoft Authenticator will be used to receive, store, and present your verifiable credentials to interested parties. Install Microsoft Authenticator on your device.
 
-<div class="step" style="margin-bottom:10px">
-<div class="numberCircle">4</div>
-<div class="multiline-step">
-Install Microsoft Authenticator on your android device. Instructions for installing Authenticator are available [here](xref:1c41fd0f-3ae7-4a0a-8f12-8ae624f9887d).</div>
-</div>
+Next, issue yourself a verifiable credential. The sample website displays a QR code, which can be scanned using Authenticator. The website also displays a deep link, which you can tap if you visit the website in your device's mobile browser.
 
-Finally, issue yourself a verifiable credential. The sample website displays a QR code, which can be scanned using Authenticator following the instructions [here](xref:1c41fd0f-3ae7-4a0a-8f12-8ae624f9887d). The website also displays a deep link, which you can tap if you visit the website in your device's mobile browser. 
 
-<div class="step" style="margin-bottom:10px">
-<div class="numberCircle">5</div>
-<div class="multiline-step">
-Scan the website's QR code using Authenticator, or tap the website's deep link. To get your Ninja Card, you'll be prompted to sign in with your Credential Ninja account. Don't worry, you can quickly create an account if necessary. After you've signed in, accept your Verified Credential Ninja Card. </div>
-</div>
+Scan the website's QR code using Authenticator, or tap the website's deep link. To get your Ninja Card, you'll be prompted to sign in with your Credential Ninja account. Don't worry, you can quickly create an account if necessary. After you've signed in, accept your Verified Credential Ninja Card.
 
 ## Next steps
 
-Congratulations! You are now a verified credentialing Ninja. But this is just the beginning of your Verifiable Credentials journey. Next, you can [implement a sample verifier](https://github.com/Azure-Samples/active-directory-verifiable-credentials) that accesses your Ninja Card and verfies your current Ninja status. Or, you can proceed to our [issuer tutorial](xref:fe20e7ef-519a-4aa0-a7be-f7d4dabda15e) to learn how to issue your own type of verifiable credential. Good luck ninjas!
+Congratulations! You are now a verified credentialing Ninja. But this is just the beginning of your Verifiable Credentials journey. Next, you can [implement a sample verifier](https://github.com/Azure-Samples/active-directory-verifiable-credentials) that accesses your Ninja Card and verifies your current Ninja status. Or, you can proceed to our [issuer tutorial](tutorial-connect-your-idp-verifiable-credential.md) to learn how to issue your own type of verifiable credential. Good luck ninjas!
