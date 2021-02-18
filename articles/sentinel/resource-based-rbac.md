@@ -57,7 +57,10 @@ Depending on the permissions required in your organization, manually configuring
 
 The following list describes scenarios where other solutions for data access may fit your requirements better:
 
-- **A subsidiary has a SOC team that requires a full Azure Sentinel experience**. In this case, use a [multi-workspace architecture](https://www.youtube.com/watch?v=_mm3GNwPBHU&feature=youtu.be) to separate your data permissions.
+- **A subsidiary has a SOC team that requires a full Azure Sentinel experience**. In this case, use a multi-workspace architecture to separate your data permissions. For more information, see:
+
+    - [Work with incidents in many workspaces at once](multiple-workspace-view.md)
+    - [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)
 
 - **You want to set access controls at the table level**. Use [table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) to define permissions for each table.
 
@@ -100,7 +103,7 @@ For example, data in your Azure Sentinel workspace that are not Azure resources 
 
 ### Resource IDs with log forwarding
 
-When events are collected using [Common Event Format (CEF](connect-common-event-format.md) or [Syslog](connect-syslog.md), log forwarding is used to collect events from multiple source systems.
+When events are collected using [Common Event Format (CEF)](connect-common-event-format.md) or [Syslog](connect-syslog.md), log forwarding is used to collect events from multiple source systems.
 
 For example, when a Syslog forwarding VM listens for the sources sending Syslog events, and forwards them to Azure Sentinel, the log forwarding resource ID is assigned to all the events they forward.
 
