@@ -84,7 +84,7 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 }
 ```
 
-- You have full control over role names; there's no master list to which your roles must adhere.
+- You have full control over role names; there's no list to which your roles must adhere.
 - Individual users are associated to roles through [invitations](authentication-authorization.md).
 
 ## Wildcards
