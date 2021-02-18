@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # Quickstart: Create App Service app using an ARM template
 
-Get started with [Azure App Service](overview.md) by deploying a app to the cloud using an <abbr title="An Azure Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project.">ARM template</abbr> and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart. <abbr title="In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.">The template uses declarative syntax.</abbr>
+Get started with [Azure App Service](overview.md) by deploying a app to the cloud using an <abbr title="A JSON file that declaratively defines one or more Azure resources and dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly.">ARM template</abbr> and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart. <abbr title="In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.">The template uses declarative syntax.</abbr>
 
  If your environment meets the prerequisites and you're familiar with using [ARM templates](../azure-resource-manager/templates/overview.md), select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -125,8 +125,8 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <summary>What's the code doing?</summary>
 <p>The commands do the following actions:</p>
 <ul>
-<li>Create a default <abbr title="Contains all of the Azure resources for the service.">resource group</abbr>.</li>
-<li>Create a default <abbr title="Specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr>.</li>
+<li>Create a default <abbr title="A logical container for related Azure resources that you can manage as a unit.">resource group</abbr>.</li>
+<li>Create a default <abbr title="The plan that specifies the location, size, and features of the web server farm that hosts your app.">App Service plan</abbr>.</li>
 <li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Create an <abbr title="The representation of your web app, which contains your app code, DNS hostnames, certificates, and related resources.">App Service app</abbr></a> with the specified name.</li>
 </ul>
 </details>

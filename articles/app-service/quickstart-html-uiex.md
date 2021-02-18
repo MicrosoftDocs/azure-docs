@@ -12,7 +12,7 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 
 # Create a static HTML web app in Azure
 
-This quickstart shows how to deploy a basic HTML+CSS site to <abbr title="Azure App Service provides a highly scalable, self-patching web hosting service">Azure App Service</abbr>. You'll complete this quickstart in [Cloud Shell](../cloud-shell/overview.md), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
+This quickstart shows how to deploy a basic HTML+CSS site to <abbr title="An HTTP-based service for hosting web applications, REST APIs, and mobile back-end applications.">Azure App Service</abbr>. You'll complete this quickstart in [Cloud Shell](../cloud-shell/overview.md), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
 
 ## 1. Prepare your environment
 
