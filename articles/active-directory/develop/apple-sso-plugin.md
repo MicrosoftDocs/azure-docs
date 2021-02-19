@@ -81,7 +81,7 @@ If you're not using Microsoft Intune for mobile device management, use the follo
 - **Extension ID**: `com.microsoft.CompanyPortalMac.ssoextension`
 - **Team ID**: `UBF8T346G9`
 
-### Common settings:
+#### Common settings:
 
 - **Type**: Redirect
   - `https://login.microsoftonline.com`
