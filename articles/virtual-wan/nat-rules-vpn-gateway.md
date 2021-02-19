@@ -42,11 +42,12 @@ You can configure and view NAT rules on your VPN gateway settings at any time.
       * EgressSnat mode (also known as Egress Source NAT) is applicable to traffic leaving the Azure hub’s Site-to-site VPN gateway.
    * **InternalMapping:** An address prefix range of source IPs on the inside network that will be mapped to a set of external IPs. In other words, your pre-NAT address prefix range.
    * **ExternalMapping:** An address prefix range of destination IPs on the outside network that source IPs will be mapped to. In other words, your post-NAT address prefix range.
-   * **Link Connection:** Connection resource that virtually connects a VPN Site to the Azure hub’s Site-to-site VPN gateway.
+   * **Link Connection:** Connection resource that virtually connects a VPN site to the Azure hub’s Site-to-site VPN gateway.
 
 ### Configuration considerations
 
 * The subnet size for both internal and external mapping must be the same for Static one-to-one NAT.
+* Be sure to edit the VPN site in the Azure portal to add **ExternalMapping** prefixes in the 'Private Address Space' field. Currently, sites that have BGP enabled need to ensure that the on-premises BGP announcer (device BGP settings) include an entry for the external mapping prefixes.
 
 ## Next steps
 
