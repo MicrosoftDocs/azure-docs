@@ -31,7 +31,7 @@ Within Linux system, in the partition or disk called `adu`, create a text file c
 
 |Name|Description|
 |-----------|--------------------|
-|connection_string|Pre-provisioned connection string the device can use to connect to the IoT Hub. Note: Not required if you are provisioing Device Update Agent through the [Azure IoT Identity Service](https://azure.github.io/iot-identity-service/)|
+|connection_string|Pre-provisioned connection string the device can use to connect to the IoT Hub. Note: Not required if you are provisioning Device Update Agent through the [Azure IoT Identity Service](https://azure.github.io/iot-identity-service/)|
 |aduc_manufacturer|Reported by the `AzureDeviceUpdateCore:4.ClientMetadata:4` interface to classify the device for targeting the update deployment.|
 |aduc_model|Reported by the `AzureDeviceUpdateCore:4.ClientMetadata:4` interface to classify the device for targeting the update deployment.|
 |manufacturer|Reported by the Device Update Agent as part of the `DeviceInformation` interface.|
