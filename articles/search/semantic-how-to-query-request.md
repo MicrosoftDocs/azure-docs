@@ -15,7 +15,7 @@ ms.date: 03/02/2021
 > [!IMPORTANT]
 > Semantic query type is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, learn how to attach the semantic query subsystems of Azure Cognitive Search to use semantic ranking, semantic captions, and semantic answer. Setting the queryType parameter to **semantic** enables these capabilities. 
+In this article, learn how to attach the semantic query subsystems of Azure Cognitive Search to use semantic ranking, semantic captions, and semantic answers. Setting the queryType parameter to **semantic** enables these capabilities. 
 
 During the initial preview launch, there is no charge for semantic search. For up-to-date information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
@@ -31,7 +31,7 @@ During the initial preview launch, there is no charge for semantic search. For u
 
   The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query.
 
-+ [A query request](/rest/api/searchservice/preview-api/search-documents) with the semantic option. A semantic query uses "api-version=2020-06-30-Preview", "queryType=semantic", "queryLanguage=en-us", and "searchFields=<ordered-field-list>".
++ A [Search Documents](/rest/api/searchservice/preview-api/search-documents) request with the semantic option. A semantic query uses "api-version=2020-06-30-Preview", "queryType=semantic", "queryLanguage=en-us", and "searchFields=<ordered-field-list>".
 
 ## What's a semantic query?
 
@@ -70,8 +70,8 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
     "queryType": "semantic",
     "searchFields": "HotelName,Category,Description",
     "queryLanguage": "en-us",
-    "speller": "standard",
-     "answers": "extractive|count-3",
+    "speller": "lexicon",
+    "answers": "extractive|count-3",
     "highlightPreTag": "<strong>",
     "highlightPostTag": "</strong>",
     "select": "HotelId,HotelName,Description,Category",
@@ -87,7 +87,11 @@ In a semantic query, the order of fields in "searchFields" reflects the priority
 
 + If there is only one field specified, then it will be considered as a descriptive field for semantic ranking of documents.  
 
-+ If there are no fields specified, then all searchable fields will be considered for semantic ranking of documents. However, this is not recommended since it may not yield the most optimal results from your search index. 
++ If there are no fields specified, then all searchable fields will be considered for semantic ranking of documents. However, this is not recommended since it may not yield the most optimal results from your search index.
+
+Answers and captions can apply highlight formatting to passages in the document that answer the query or summarize the response. Answers are optional, but all semantic responses will include a caption. If you include highlightPreTag and highlightPostTag, both answers and captions will incorporate formatting into the results.
+
+Other parameters (such as speller, select, and count) improve the quality of the request and readability of the response. None of them are required.
 
 ### Review the response
 

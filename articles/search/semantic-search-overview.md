@@ -31,7 +31,7 @@ Public preview features include:
 
 Components of semantic search attach to the existing query pipeline. Spell correction (not shown in the diagram) improves precision by correcting typos in individual query terms as they pass through the query pipeline. After all parsing and analysis are complete, the search engine scans for matches, using any scoring logic that you have provided. As expected, the engine returns the top 50 matching documents, where top matches are determined by the [similarity ranking algorithm](index-similarity-and-scoring.md#similarity-ranking-algorithms).
 
-Having received the top 50 matches, the [semantic ranking algorithm](semantic-how-to-query-response.md) re-evaluates the document corpus and uses language models and transfer learning to re-score the documents based on how well each one matches the intent of the query. The algorithm also structures the response to include "captions" that put focus on which passages in the document provide the best summary, and optionally, "answers" to the query itself.
+Having received the top 50 matches, the [semantic ranking algorithm](semantic-how-to-query-response.md) re-evaluates the document corpus and uses language models and transfer learning to re-score the documents based on how well each one matches the intent of the query. The algorithm then uses language representation to structure responses to include "captions" that put highlight which passages in the document provide the best summary, and optionally, "answers" to the query itself.
 
 :::image type="content" source="media/semantic-search-overview/semantic-query-architecture.png" alt-text="Semantic components in a query pipeline" border="true":::
 
@@ -41,11 +41,11 @@ Spell correction is available in the same regions as semantic ranking, at no ext
 
 Semantic ranking is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup), on search services created at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe, West Europe.
 
-Between preview launch on March 2 and April 2, semantic ranking is offered free of charge. After April 2, the computational costs of running the semantic algorithm will become a billable event. Once billing details are finalized, you'll find cost information documented in the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
+Between preview launch on March 2 and April 2, semantic ranking is offered free of charge. After April 2, the computational costs of running the semantic algorithm will become a billable event. The expected cost is about USD $500/month for 250,000 queries. Once billing details are finalized, you'll find cost information documented in the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
 
 ## Next steps
 
-A new query type enables the relevance ranking and response structures of semantic search. [Create a semantic query](semantic-how-to-query-request.md) explains how to get started. Or, review either of the following articles for related information.
+A new query type enables the relevance ranking and response structures of semantic search. [Create a semantic query](semantic-how-to-query-request.md) to get started. Or, review either of the following articles for related information.
 
 + [Add spell check to query inputs](speller-how-to-add.md)
 + [Semantic algorithms and structuring a semantic response](semantic-how-to-query-response.md)

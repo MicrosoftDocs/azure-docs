@@ -16,7 +16,7 @@ ms.custom: references_regions
 > [!IMPORTANT]
 > Spell correction is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can improve recall by spell-correcting individual search query terms before they are parsed. The **speller** parameter is supported for all query types: [simple](query-simple-syntax.md), [full](query-lucene-syntax.md), and the new [semantic](semantic-how-to-query-request.md) option currently in public preview.
+You can improve recall by spell-correcting individual search query terms before they reach the search engine. The **speller** parameter is supported for all query types: [simple](query-simple-syntax.md), [full](query-lucene-syntax.md), and the new [semantic](semantic-how-to-query-request.md) option currently in public preview.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ You can improve recall by spell-correcting individual search query terms before 
 
 + [A query request](/rest/api/searchservice/preview-api/search-documents) that uses spell correction has "api-version=2020-06-30-Preview", "speller=lexicon", and "queryLanguage=en-us".
 
-  The queryLanguage is required for speller, and currently only "en-us" is supported.
+  The queryLanguage is required for speller, and currently "en-us" is the only valid value.
 
 > [!Note]
 > The speller parameter is available on all tiers, at no extra charge, on all regions that provide semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
@@ -75,7 +75,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 This query, with typos in every term except one, undergoes spelling corrections to return relevant results. In a semantic query, the order of fields in the `searchFields` parameter informs search rank. To learn more, see [Create a semantic query](semantic-how-to-query-request.md).
 
 ```http
-POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30     
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview     
 {
     "search": "hisotoric hotell wiht great restrant nad wiifi",
     "queryType": "semantic",
@@ -89,7 +89,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Language considerations
 
-The queryLanguage parameter required for speller is independent of any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. Specified in a query request, the queryLanguage determines which dictionaries are used for spell check, and is also used as an input to the [semantic ranking algorithm](semantic-how-to-query-response.md) if you are using it. In contrast, language analyzers are used when indexing and retrieving strings in the search index.
+The queryLanguage parameter required for speller is independent of any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. Specified in a query request, the queryLanguage determines which dictionaries are used for spell check, and is also used as an input to the [semantic ranking algorithm](semantic-how-to-query-response.md) if you are using it. In contrast, language analyzers are used during indexing, and while retrieving matching documents in the search index.
 
 In a query request, the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts. 
 
