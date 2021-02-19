@@ -24,7 +24,7 @@ The Azure Managed Instance for Apache Cassandra service provides automated deplo
 
 ### Hybrid deployments
 
-You can use this service to easily place managed instances of Apache Cassandra datacenters, which are deployed automatically as virtual machine scale sets, into a new or existing Azure Virtual Network. These data centers can be added to your existing Apache Cassandra ring running on-premises via [Azure ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute) in Azure, or another cloud environment.
+You can use this service to easily place managed instances of Apache Cassandra datacenters, which are deployed automatically as virtual machine scale sets, into a new or existing Azure Virtual Network. These data centers can be added to your existing Apache Cassandra ring running on-premises via [Azure ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute) in Azure, or another cloud environment.
 
 - **Simplified deployment:** After the hybrid connectivity is established deployment is easy through the gossip protocol.
 - **Hosted metrics:** The metrics are hosted in [Prometheus](https://prometheus.io/docs/introduction/overview/) to monitor activity across your cluster.
@@ -46,7 +46,7 @@ The service provides management operations for the following common Apache Cassa
 - Setting up backups
 - Maintaining audit logs
 
-Our flexible, on-demand, instance-based pricing model with no licensing fees allows you to adjust to your specific workload needs, by defining many cores, VM SKU, and memory, disk space.
+The pricing model is flexible, on-demand, instance-based, and has no licensing fees. This pricing model allows you to adjust to your specific workload needs. You choose how many cores, which VM SKU, what memory size, and the disk space size you need.
 
 ## Next steps
 
