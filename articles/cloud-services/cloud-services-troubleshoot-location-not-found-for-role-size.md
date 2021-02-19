@@ -112,7 +112,7 @@ You can use the [Resource Skus - List](https://docs.microsoft.com/rest/api/compu
       ],
       "restrictions": []
     },
-      // The rest of your file is located here...
+      <<The rest of your file is located here>>
   ]
 }
     
