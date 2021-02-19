@@ -96,14 +96,11 @@ eastus      AzureArcTest
 
 ## Connect an existing Kubernetes cluster
 
-1. Connect your Kubernetes cluster using the following command:
-    ```azurecli
-    az connectedk8s connect
-    ```
 1. Verify connectivity to your Kubernetes cluster using one of the following:
    * `KUBECONFIG`
    * `~/.kube/config`
    * `--kube-config`
+
 1. Deploy Azure Arc agents for Kubernetes using Helm 3 into the `azure-arc` namespace.
     ```console
     az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
@@ -201,8 +198,7 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc 
 
 > [!NOTE]
 > * Specify `excludedCIDR` under `--proxy-skip-range` to ensure in-cluster communication is not broken for the agents.
-> * `--proxy-http`, `--proxy-https`, and `--proxy-skip-range` are expected for most outbound proxy environments. `--proxy-cert` is *only* required you need to inject trusted certificates from proxy into trusted certificate store of agent pods.
-> * The above proxy specification is currently applied only for Azure Arc agents, not for the flux pods used in `sourceControlConfiguration`. The Azure Arc enabled Kubernetes team is actively working on this feature.
+> * `--proxy-http`, `--proxy-https`, and `--proxy-skip-range` are expected for most outbound proxy environments. `--proxy-cert` is *only* required if you need to inject trusted certificates expected by proxy into the trusted certificate store of agent pods.
 
 ## View Azure Arc agents for Kubernetes
 
@@ -238,27 +234,14 @@ Azure Arc enabled Kubernetes deploys a few operators into the `azure-arc` namesp
 
 ## Clean up resources
 
-You can delete the `Microsoft.Kubernetes/connectedcluster` using the Azure CLI or Azure portal.
+You can delete the `Microsoft.Kubernetes/connectedcluster` resource, any associated `sourcecontrolConfiguration` resources, *and* any agents running on the cluster using Azure CLI using the following command:
 
-### Using Azure CLI
+```azurecli
+az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
+```
 
-You can remove the `Microsoft.Kubernetes/connectedcluster` resource, any associated `sourcecontrolConfiguration` resources, *and* any agents running on the cluster using Azure CLI.
-
-1. Delete the Azure Arc enabled Kubernetes resource:
-    ```azurecli
-    az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
-    ```
-1. Use `helm uninstall` to remove agents running on the cluster.
-
-### Using Azure portal
-
-Deleting the `Microsoft.Kubernetes/connectedcluster` resource using Azure portal removes any associated `sourcecontrolConfiguration` resources, but *does not* remove any agents running on the cluster.
-
-Run the following command:  
-
-    ```console
-    az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
-    ```
+>[!NOTE]
+>Deleting the `Microsoft.Kubernetes/connectedcluster` resource using Azure portal removes any associated `sourcecontrolConfiguration` resources, but *does not* remove any agents running on the cluster. Best practice is to delete the Azure Arc enabled Kubernetes resource using `az connectedk8s delete` instead of Azure portal.
 
 ## Next steps
 
