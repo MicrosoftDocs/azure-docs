@@ -56,6 +56,7 @@ To configure and test Azure AD SSO with Syncplicity, complete the following buil
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 5. **[Create Syncplicity test user](#create-syncplicity-test-user)** - to have a counterpart of B.Simon in Syncplicity that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+7. **[Update SSO](#update-sso)**) - to make the necessary changes in Syncplicity if you have changed the SSO settings in Azure AD.
 
 ### Configure Azure AD SSO
 
@@ -184,6 +185,12 @@ For Azure AD users to be able to sign in, they must be provisioned to Syncplicit
 ### Test SSO
 
 When you select the Syncplicity tile in the Access Panel, you should be automatically signed in to the Syncplicity for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+
+### Update SSO
+
+Whenever you need to make changes to the SSO, you need to check the **SAML Signing Certificate** being used. If the certificate has changed, make sure to upload the new one to Syncplicity as described in **[Configure Syncplicity SSO](#configure-syncplicity-sso)**.
+
+If you are using the Syncplicity Mobile app, please contact the Syncplicity Customer Support (support@syncplicity.com) for assistance.
 
 ## Additional Resources
 
