@@ -263,9 +263,9 @@ Although catching failures from a scope is useful, you might also want context t
 > [!NOTE]
 > The `result()` function returns the results from *only* the first-level actions and not from deeper nested actions such as switch or condition actions.
 
-To get context about the actions that failed in the scope, you can use the `@result()` function and the `runAfter` property. To filter down the returned array to actions that have `Failed` status, you can add the [**Filter Array** action](logic-apps-perform-data-operations.md#filter-array-action). To run an action for a returned failed action, take the returned filtered array and use a [**For each** loop](../logic-apps/logic-apps-control-flow-loops.md).
+To get context about the actions that failed in a scope, you can use the `@result()` expression with the scope's name and the `runAfter` property. To filter down the returned array to actions that have `Failed` status, you can add the [**Filter Array** action](logic-apps-perform-data-operations.md#filter-array-action). To run an action for a returned failed action, take the returned filtered array and use a [**For each** loop](../logic-apps/logic-apps-control-flow-loops.md).
 
-Here's an example, followed by a detailed explanation, that sends an HTTP POST request with the response body for any actions that failed within the scope "My_Scope":
+Here's an example, followed by a detailed explanation, that sends an HTTP POST request with the response body for any actions that failed within the scope action named "My_Scope":
 
 ```json
 "Filter_array": {
