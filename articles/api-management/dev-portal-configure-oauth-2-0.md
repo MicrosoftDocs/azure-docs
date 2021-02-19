@@ -1,5 +1,5 @@
 ---
-title: Configure OAuth 2.0
+title: Configure OAuth 2.0 for self-hosted portal
 titleSuffix: Azure API Management
 description: Learn how to configure OAuth 2.0 to work with your self-hosted portal.
 author: dlepow
@@ -9,9 +9,9 @@ ms.service: api-management
 ms.topic: how-to
 ---
 
-# Configure OAuth 2.0
+# Configure OAuth 2.0 for self-hosted portal
 
-This article provides an example of what your Azure Active Directory endpoints and scope will look like as well as the callback URLs.
+This article provides an example of what your Azure Active Directory endpoints and scope will look like as well as the callback URLs when you configure OAuth 2.0 for your self-hosted portal.
 
 ## Azure Active Directory example
 
