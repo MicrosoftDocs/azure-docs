@@ -9,17 +9,12 @@ ms.date: 02/18/2021
 ms.author: yuajia
 ---
 
-# Configure a Rule Set
+# Configure a Rule Set with Azure Front Door Standard/Premium (Preview)
 
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-This tutorial shows how to create a Rule Set and your first set of rules in the Azure portal. 
-
-In this tutorial, you learn how to:
-> [!div class="checklist"]
-> - Configure Rule Set using the portal.
-> - Delete Rule Set from your AFD profile using the portal
+This article shows how to create a Rule Set and your first set of rules in the Azure portal. 
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
@@ -28,7 +23,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Before you can complete the steps in this tutorial, you must first create an Azure Front Door Standard/Premium. For more information, see [Quickstart: Create an Azure Front Door Standard/Premium profile](create-front-door-portal.md).
+* Before you can configure a Rule Set, you must first create an Azure Front Door Standard/Premium. For more information, see [Quickstart: Create an Azure Front Door Standard/Premium profile](create-front-door-portal.md).
 
 ## Configure Rule Set in Azure portal
 
@@ -121,13 +116,4 @@ In the preceding steps, you configured and associated a Rule Set to your Route. 
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-* Create a Rule set
-* Associate a rule set to your AFD route.
-* Delete a rule set from your AFD profile
-
-To learn how to add security headers with Rule Set, continue to the next tutorial.
-
-> [!div class="nextstepaction"]
-> [Security headers with Rules Set]()
+Learn how to add [Security headers with Rules Set](how-to-add-security-headers.md).
