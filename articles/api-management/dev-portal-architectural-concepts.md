@@ -1,5 +1,5 @@
 ---
-title: Architectural concepts
+title: "Architectural concepts - developer portal"
 titleSuffix: Azure API Management
 description: "Learn about these two portal architectural components: code and content."
 author: erikadoyle
