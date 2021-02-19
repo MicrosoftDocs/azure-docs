@@ -55,8 +55,8 @@
     href: how-to-cache-purge.md
   - name: Compression
     href: how-to-compression.md
-  - name: Enable Private Link
-    href: how-to-enable-private-link.md
+  - name: Enable Private Link to Web App
+    href: how-to-enable-private-link-web-app.md
   - name: Logging
     href: how-to-logs.md
   - name: Monitoring and alerts

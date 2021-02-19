@@ -40505,6 +40505,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-enable-private-link.md",
+      "redirect_url": "/azure/frontdoor/standard-premium/how-to-enable-private-link-web-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/application-gateway/application-gateway-webapplicationfirewall-overview.md",
       "redirect_url": "/azure/web-application-firewall/ag/ag-overview",
       "redirect_document_id": false
