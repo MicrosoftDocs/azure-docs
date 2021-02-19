@@ -6,6 +6,8 @@ ms.topic: conceptual
 ---
 # Understand Azure Policy's Guest Configuration
 
+[Watch a video overview of this page (12 minutes)](https://youtu.be/Y6ryD3gTHOs)
+
 Azure Policy can audit settings inside a machine, both for machines running in Azure and
 [Arc Connected Machines](../../../azure-arc/servers/overview.md). The validation is performed by the
 Guest Configuration extension and client. The extension, through the client, validates settings such
