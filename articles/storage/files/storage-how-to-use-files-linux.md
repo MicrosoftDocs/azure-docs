@@ -1,5 +1,5 @@
 ---
-title: Use Azure Files with Linux | Microsoft Docs
+title: Use Azure Files SMB with Linux | Microsoft Docs
 description: Learn how to mount an Azure file share over SMB on Linux. See the list of prerequisites. Review SMB security considerations on Linux clients.
 author: roygara
 ms.service: storage
@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.subservice: files
 ---
 
-# Use Azure Files with Linux
+# Use Azure Files SMB with Linux
 [Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS). This article shows two ways to mount an Azure file share: on-demand with the `mount` command and on-boot by creating an entry in `/etc/fstab`.
 
 The recommended way to mount an Azure file share on Linux is using SMB 3.0. By default, Azure Files requires encryption in transit, which is only supported by SMB 3.0. Azure Files also supports SMB 2.1, which does not support encryption in transit, but you may not mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, there is little reason to use it since most popular, recently released Linux distributions support SMB 3.0:  
