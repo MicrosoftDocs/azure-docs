@@ -23,9 +23,6 @@ The text box will be used to enter the Teams meeting context and the button will
 
 ```swift
 
-// Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
-
 import SwiftUI
 import AzureCommunicationCalling
 import AVFoundation
