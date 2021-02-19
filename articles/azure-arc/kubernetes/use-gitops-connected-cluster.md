@@ -3,7 +3,7 @@ title: "Deploy configurations using GitOps on Arc enabled Kubernetes cluster (Pr
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/09/2021
+ms.date: 02/19/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -11,39 +11,19 @@ description: "Use GitOps to configure an Azure Arc enabled Kubernetes cluster (P
 keywords: "GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, containers"
 ---
 
-# Deploy configurations using GitOps on Arc enabled Kubernetes cluster (Preview)
+# Deploy configurations using GitOps on an Arc enabled Kubernetes cluster (Preview)
 
-In relation to Kubernetes, GitOps is the practice of declaring the desired state of Kubernetes cluster configurations (deployments, namespaces, etc.) in a Git repository. This declaration is followed by a polling and pull-based deployment of these cluster configurations using an operator. 
-
-This article covers the setup of GitOps workflows on Azure Arc enabled Kubernetes clusters.
-
-The connection between your cluster and a Git repository is created as a `Microsoft.KubernetesConfiguration/sourceControlConfigurations` extension resource in Azure Resource Manager. The `sourceControlConfiguration` resource properties represent where and how Kubernetes resources should flow from Git to your cluster. The `sourceControlConfiguration` data is stored encrypted, at rest in an Azure Cosmos DB database to ensure data confidentiality.
-
-The `config-agent` running in your cluster is responsible for:
-* Tracking new or updated `sourceControlConfiguration` extension resources on the Azure Arc enabled Kubernetes resource.
-* Deploying a Flux operator to watch the Git repository for each `sourceControlConfiguration`.
-* Applying any updates made to any `sourceControlConfiguration`. 
-
-You can create multiple `sourceControlConfiguration` resources on the same Azure Arc enabled Kubernetes cluster to achieve multi-tenancy. Limit deployments to within the respective namespaces by creating each `sourceControlConfiguration` with a different `namespace` scope.
-
-The Git repository can contain:
-* YAML-format manifests describing any valid Kubernetes resources, including Namespaces, ConfigMaps, Deployments, DaemonSets, etc. 
-* Helm charts for deploying applications. 
-
-A common set of scenarios includes defining a baseline configuration for your organization, such as common Azure roles and bindings, monitoring or logging agents, or cluster-wide services.
-
-The same pattern can be used to manage a larger collection of clusters, which may be deployed across heterogeneous environments. For example, you have one repository that defines the baseline configuration for your organization, which applies to multiple Kubernetes clusters at once. [Azure Policy can automate](use-azure-policy.md) the creation of a `sourceControlConfiguration` with a specific set of parameters on all Azure Arc enabled Kubernetes resources within a scope (subscription or resource group).
-
-Walk through the following steps to learn how to apply a set of configurations with `cluster-admin` scope.
+This article demonstrates applying configurations on an Azure Arc enabled Kubernetes cluster. For a conceptual take on this process, see the [Configurations and GitOps - Azure Arc enabled Kubernetes article](./conceptual-configurations.md).
 
 ## Before you begin
 
-Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./connect-cluster.md).
+* Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./quickstart-connect-cluster.md).
+
+* Review the [Configurations and GitOps with Arc for Kubernetes article](./conceptual-configurations.md) to understand the benefits and architecture of this feature.
 
 ## Create a configuration
 
 The [example repository](https://github.com/Azure/arc-k8s-demo) used in this article is structured around the persona of a cluster operator who would like to provision a few namespaces, deploy a common workload, and provide some team-specific configuration. Using this repository creates the following resources on your cluster:
-
 
 * **Namespaces:** `cluster-config`, `team-a`, `team-b`
 * **Deployment:** `cluster-config/azure-vote`
@@ -101,22 +81,22 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
   "type": "Microsoft.KubernetesConfiguration/sourceControlConfigurations"
   ```
 
-#### Use a public Git repo
+#### Use a public Git repository
 
 | Parameter | Format |
 | ------------- | ------------- |
 | `--repository-url` | http[s]://server/repo[.git] or git://server/repo[.git]
 
-#### Use a private Git repo with SSH and Flux-created keys
+#### Use a private Git repository with SSH and Flux-created keys
 
 | Parameter | Format | Notes
 | ------------- | ------------- | ------------- |
 | `--repository-url` | ssh://user@server/repo[.git] or user@server:repo[.git] | `git@` may replace `user@`
 
 > [!NOTE]
-> The public key generated by Flux must be added to the user account in your Git service provider. If the key is added to the repo instead of the user account, use `git@` in place of `user@` in the URL. Jump to the [Apply configuration from a private Git repository](#apply-configuration-from-a-private-git-repository) section for more details.
+> The public key generated by Flux must be added to the user account in your Git service provider. If the key is added to the repository instead of the user account, use `git@` in place of `user@` in the URL. Jump to the [Apply configuration from a private Git repository](#apply-configuration-from-a-private-git-repository) section for more details.
 
-#### Use a private Git repo with SSH and user-provided keys
+#### Use a private Git repository with SSH and user-provided keys
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
@@ -125,7 +105,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 | `--ssh-private-key-file` | full path to local file | Provide full path to local file that contains the PEM-format key
 
 > [!NOTE]
-> Provide your own private key directly or in a file. The key must be in [PEM format](https://aka.ms/PEMformat) and end with newline (\n).  The associated public key must be added to the user account in your Git service provider. If the key is added to the repo instead of the user account, use `git@` in place of `user@`. Jump to the [Apply configuration from a private Git repository](#apply-configuration-from-a-private-git-repository) section for more details.
+> Provide your own private key directly or in a file. The key must be in [PEM format](https://aka.ms/PEMformat) and end with newline (\n).  The associated public key must be added to the user account in your Git service provider. If the key is added to the repository instead of the user account, use `git@` in place of `user@`. Jump to the [Apply configuration from a private Git repository](#apply-configuration-from-a-private-git-repository) section for more details.
 
 #### Use a private Git host with SSH and user-provided known hosts
 
@@ -136,9 +116,9 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 | `--ssh-known-hosts-file` | full path to local file | Provide known hosts content in a local file |
 
 > [!NOTE]
-> In order to authenticate the Git repo before establishing the SSH connection, the Flux operator maintains a list of common Git hosts in its known hosts file. If you are using an uncommon Git repo or your own Git host, you may need to supply the host key to ensure that Flux can identify your repo. You can provide your known_hosts content directly or in a file. Use the [known_hosts content format specifications](https://aka.ms/KnownHostsFormat) in conjunction with one of the SSH key scenarios described above when providing your own content.
+> In order to authenticate the Git repository before establishing the SSH connection, the Flux operator maintains a list of common Git hosts in its known hosts file. If you are using an uncommon Git repository or your own Git host, you may need to supply the host key to ensure that Flux can identify your repo. You can provide your known_hosts content directly or in a file. Use the [known_hosts content format specifications](https://aka.ms/KnownHostsFormat) in conjunction with one of the SSH key scenarios described above when providing your own content.
 
-#### Use a private Git repo with HTTPS
+#### Use a private Git repository with HTTPS
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
@@ -149,7 +129,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > HTTPS Helm release private auth is supported only with Helm operator chart version 1.2.0+ (default).
 > HTTPS Helm release private auth is not supported currently for Azure Kubernetes Services-managed clusters.
-> If you need Flux to access the Git repo through your proxy, then you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./connect-cluster.md#connect-using-an-outbound-proxy-server).
+> If you need Flux to access the Git repository through your proxy, then you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
 
 #### Additional Parameters
 
@@ -167,17 +147,17 @@ Customize the configuration with the following optional parameters:
 
 | Option | Description |
 | ------------- | ------------- |
-| `--git-branch`  | Branch of Git repo to use for Kubernetes manifests. Default is 'master'. Newer repositories have root branch named `main`, in which case you need to set `--git-branch=main`. |
-| `--git-path`  | Relative path within the Git repo for Flux to locate Kubernetes manifests. |
-| `--git-readonly` | Git repo will be considered read-only; Flux will not attempt to write to it. |
+| `--git-branch`  | Branch of Git repository to use for Kubernetes manifests. Default is 'master'. Newer repositories have root branch named `main`, in which case you need to set `--git-branch=main`. |
+| `--git-path`  | Relative path within the Git repository for Flux to locate Kubernetes manifests. |
+| `--git-readonly` | Git repository will be considered read-only; Flux will not attempt to write to it. |
 | `--manifest-generation`  | If enabled, Flux will look for .flux.yaml and run Kustomize or other manifest generators. |
-| `--git-poll-interval`  | Period at which to poll Git repo for new commits. Default is `5m` (5 minutes). |
+| `--git-poll-interval`  | Period at which to poll Git repository for new commits. Default is `5m` (5 minutes). |
 | `--sync-garbage-collection`  | If enabled, Flux will delete resources that it created, but are no longer present in Git. |
 | `--git-label`  | Label to keep track of sync progress. Used to tag the Git branch.  Default is `flux-sync`. |
 | `--git-user`  | Username for Git commit. |
 | `--git-email`  | Email to use for Git commit. 
 
-If you don't want Flux to write to the repo and `--git-user` or `--git-email` are not set, then `--git-readonly` will automatically be set.
+If you don't want Flux to write to the repository and `--git-user` or `--git-email` are not set, then `--git-readonly` will automatically be set.
 
 For more information, see the [Flux documentation](https://aka.ms/FluxcdReadme).
 
@@ -253,7 +233,7 @@ While the provisioning process happens, the `sourceControlConfiguration` will mo
 
 ## Apply configuration from a private Git repository
 
-If you are using a private Git repo, you need to configure the SSH public key in your repo. The SSH public key will either be the one that Flux generates or the one you provide. You can configure the public key either on the specific Git repo or on the Git user that has access to the repo. 
+If you are using a private Git repository, you need to configure the SSH public key in your repository. The SSH public key will either be the one that Flux generates or the one you provide. You can configure the public key either on the specific Git repository or on the Git user that has access to the repository. 
 
 ### Get your own public key
 
@@ -282,7 +262,7 @@ The following is useful if Flux generates the keys.
 
 Use one of the following options:
 
-* Option 1: Add the public key to your user account (applies to all repos in your account):  
+* Option 1: Add the public key to your user account (applies to all repositories in your account):  
     1. Open GitHub and click on your profile icon at the top-right corner of the page.
     2. Click on **Settings**.
     3. Click on **SSH and GPG keys**.
@@ -291,8 +271,8 @@ Use one of the following options:
     6. Paste the public key without any surrounding quotes.
     7. Click on **Add SSH key**.
 
-* Option 2: Add the public key as a deploy key to the Git repo (applies to only this repo):  
-    1. Open GitHub and navigate to your repo.
+* Option 2: Add the public key as a deploy key to the Git repository (applies to only this repository):  
+    1. Open GitHub and navigate to your repository.
     1. Click on **Settings**.
     1. Click on **Deploy keys**.
     1. Click on **Add deploy key**.
@@ -365,7 +345,7 @@ Delete a `sourceControlConfiguration` using the Azure CLI or Azure portal.  Afte
 
 > [!NOTE]
 > After a `sourceControlConfiguration` with `namespace` scope is created, users with `edit` role binding on the namespace can deploy workloads on this namespace. When this `sourceControlConfiguration` with namespace scope gets deleted, the namespace is left intact and will not be deleted to avoid breaking these other workloads. If needed, you can delete this namespace manually with `kubectl`.  
-> Any changes to the cluster that were the result of deployments from the tracked Git repo are not deleted when the `sourceControlConfiguration` is deleted.
+> Any changes to the cluster that were the result of deployments from the tracked Git repository are not deleted when the `sourceControlConfiguration` is deleted.
 
 ```azurecli
 az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters

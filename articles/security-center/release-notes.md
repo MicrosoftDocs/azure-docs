@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 02/18/2021
 ms.author: memildin
 
 ---
@@ -31,11 +31,30 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 Updates in February include:
 
+- [New security alerts page in the Azure portal released for General Availability (GA)](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
 - [Kubernetes workload protection recommendations released for General Availability (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
+- [Microsoft Defender for Endpoint integration with Azure Defender now supports Windows 10 Virtual Desktop (WVD) and Windows Server 2019 (in preview)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-10-virtual-desktop-wvd-and-windows-server-2019-in-preview)
 - [Direct link to policy from recommendation details page](#direct-link-to-policy-from-recommendation-details-page)
 - [SQL data classification recommendation no longer affects your secure score](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
-- [Workflow automations can be triggered by changes to regulatory compliance assessments (preview)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
+- [Workflow automations can be triggered by changes to regulatory compliance assessments (in preview)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview)
 - [Asset inventory page enhancements](#asset-inventory-page-enhancements)
+
+
+### New security alerts page in the Azure portal released for General Availability (GA)
+
+Azure Security Center's security alerts page has been redesigned to provide:
+
+- **Improved triage experience for alerts** - helping to reduce alerts fatigue and focus on the most relevant threats easier, the list includes customizable filters and grouping options.
+- **More information in the alerts list** - such as MITRE ATT&ACK tactics.
+- **Button to create sample alerts** - to evaluate Azure Defender capabilities and test your alerts. configuration (for SIEM integration, email notifications, and workflow automations), you can create sample alerts from all Azure Defender plans.
+- **Alignment with Azure Sentinel's incident experience** - for customers who use both products, switching between them is now a more straightforward experience and it's easy to learn one from the other.
+- **Better performance** for large alerts lists.
+- **Keyboard navigation** through the alert list.
+- **Alerts from Azure Resource Graph** - you can query alerts in Azure Resource Graph, the Kusto-like API for all of your resources. This is also useful if you're building your own alerts dashboards. [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
+- **Create sample alerts feature** - To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
+
 
 ### Kubernetes workload protection recommendations released for General Availability (GA)
 
@@ -53,6 +72,17 @@ Learn more in [Workload protection best-practices using Kubernetes admission con
 > While the recommendations were in preview, they didn't render an AKS cluster resource unhealthy, and they weren't included in the calculations of your secure score. with this GA announcement these will be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score. Remediate them wherever possible as described in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
 
+### Microsoft Defender for Endpoint integration with Azure Defender now supports Windows 10 Virtual Desktop (WVD) and Windows Server 2019 (in preview)
+
+Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. It provides risk-based vulnerability management and assessment as well as endpoint detection and response (EDR). For a full list of the benefits of using Defender for Endpoint together with Azure Security Center, see [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
+
+When you enable Azure Defender for servers on a Windows server, a license for Defender for Endpoint is included with the plan.
+
+Support has now been expanded to include Windows Server 2019 and [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
+
+> [!NOTE]
+> If you're enabling Defender for Endpoint on a Windows Server 2019 machine, ensure it meets the prerequisites described in [Enabling the Microsoft Defender for Endpoint integration](security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration).
+
 ### Direct link to policy from recommendation details page
 
 When you're reviewing the details of a recommendation, it's often helpful to be able to see the underlying policy. For every recommendation supported by a policy, there's a new link from the recommendation details page:
@@ -69,9 +99,12 @@ If you're reviewing the list of recommendations on our [Security recommendations
 ### SQL data classification recommendation no longer affects your secure score
 The recommendation **Sensitive data in your SQL databases should be classified** no longer affects your secure score. This is the only recommendation in the **Apply data classification** security control, so that control now has a secure score value of 0.
 
+For a full list of all security controls in Security Center, together with their scores and a list of the recommendations in each, see [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
-### Workflow automations can be triggered by changes to regulatory compliance assessments (preview)
+### Workflow automations can be triggered by changes to regulatory compliance assessments (in preview)
 We've added a third data type to the trigger options for your workflow automations: changes to regulatory compliance assessments.
+
+Learn how to use the workflow automation tools in [Automate responses to Security Center triggers](workflow-automation.md).
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Using changes to regulatory compliance assessments to trigger a workflow automation" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
