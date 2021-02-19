@@ -44,15 +44,15 @@ To begin the return process, take the following steps.
 
     1. Provide the serial number of the device. To get the device serial number, go the local web UI of the device and then go to **Overview**.  
     
-    ![Device serial number 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
+       ![Device serial number 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
 
-    2. Enter the service tag number. The service tag number is an identifier with five or more characters that is unique to your device. The service tag is located on the bottom-right corner of the device (as you face the device). Pull out the information tag (it is a slide-out label panel). This panel contains system information such as service tag, NIC, MAC address, and so on. 
+    2. Enter the service tag number. The service tag number is an identifier with five or more characters, which is unique to your device. The service tag is located on the bottom-right corner of the device (as you face the device). Pull out the information tag (it is a slide-out label panel). This panel contains system information such as service tag, NIC, MAC address, and so on. 
     
-    ![Service tag number 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
+       ![Service tag number 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
 
     3. From the dropdown list, choose a reason for the return.
 
-    ![Return device 2](media/azure-stack-edge-return-device/return-device-2.png) 
+       ![Return device 2](media/azure-stack-edge-return-device/return-device-2.png) 
 
 3. Under **Shipping details**:
 
@@ -61,7 +61,7 @@ To begin the return process, take the following steps.
 
     ![Return device 3](media/azure-stack-edge-return-device/return-device-3.png)
 
-4. Review the **Privacy terms** and select the checkbox against the note that you have reviewed and agree to the privacy terms.
+4. Review the **Privacy terms**, and select the checkbox by the note that you have reviewed and agree to the privacy terms.
 
 5. Select **Initiate return**.
 
@@ -100,8 +100,8 @@ After the device is received at the Azure datacenter, the device is inspected fo
 
 You can delete the device in the Azure portal:
 
-- After you have placed the order and before the device is prepared by Microsoft.
-- After you've returned the device to Microsoft, it passes the physical inspection at the Azure datacenter, and Azure Stack Edge Pro operations team calls to confirm that the device was returned.
+- After you place an order, and before the device is prepared by Microsoft.
+- After you return a device to Microsoft, and the Azure Stack Edge Pro operations team has called to confirm that the device was returned. The operations team doesn't call until the returned device passes the physical inspection at the Azure datacenter.
 
 If you've activated the device against another subscription or location, Microsoft will move your order to the new subscription or location within one business day. After the order is moved, you can delete this resource.
 
