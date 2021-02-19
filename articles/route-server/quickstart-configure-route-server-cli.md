@@ -41,7 +41,7 @@ az network vnet create -g “RouteServerRG” -n “myVirtualNetwork” --addres
 
 ### Add a subnet 
 
-1. Add a subnet named *RouteServerSubnet* to deploy the Azure Route Server into. This subnet is a dedicated subnet only for Azure Route Server. 
+1. Add a subnet named *RouteServerSubnet* to deploy the Azure Route Server into. This subnet is a dedicated subnet only for Azure Route Server. The RouteServerSubnet must be /27 or a shorter prefix (such as /26, /25), or you'll receive an error message when you add the Azure Route Server.
 
 ```azurecli-interactive 
 az network vnet subnet create -g “RouteServerRG” --vnet-name “myVirtualNetwork” --name “RouteServerSubnet” --address-prefix “10.0.0.0/24”  

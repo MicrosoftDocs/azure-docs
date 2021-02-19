@@ -41,7 +41,7 @@ New-AzVirtualNetwork –ResourceGroupName “RouteServerRG -Location “West US�
 
 ### Add a subnet
 
-1. Add a subnet named *RouteServerSubnet* to deploy the Azure Route Server into. This subnet is a dedicated subnet only for Azure Route Server.
+1. Add a subnet named *RouteServerSubnet* to deploy the Azure Route Server into. This subnet is a dedicated subnet only for Azure Route Server. The RouteServerSubnet must be /27 or a shorter prefix (such as /26, /25), or you'll receive an error message when you add the Azure Route Server.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork –Name “myVirtualNetwork” - ResourceGroupName “RouteServerRG”
@@ -56,7 +56,7 @@ $vnet = Get-AzVirtualNetwork –Name “vnet_name” -ResourceGroupName “
 $vnet.Subnets
 ```
 
-The RouteServerSubnet ID looks like the following:
+The RouteServerSubnet ID looks like the following one:
 
 `/subscriptions/<subscriptionID>/resourceGroups/RouteServerRG/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/RouteServerSubnet`
 
