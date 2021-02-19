@@ -31,13 +31,13 @@ You will learn how to:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-This article describes an offline migration from SQL Server to a database in Azure SQL Database. 
-In our continued effort to provide you with the best migration experience, we replaced SQL Server to Azure SQL DB online migration with robust and reliable offline (aka onetime) migration. With this method you may incur migration downtime during the database migration. 
+This article describes an offline migration from SQL Server to a database in Azure SQL Database.
 
-The DMS service provide estimated downtimes for the selected databases, if those downtimes are not acceptable, we recommend you consider migrating to Azure SQL DB Managed Instance that provide online migration, minimize your downtime to migration cutover time. 
+In our continued effort to provide you with the best migration experience, we replaced SQL Server to Azure SQL Database online migration with robust and reliable offline (that is, onetime) migration. With this method, you might incur migration downtime during the database migration. 
+
+Azure Database Migration Service provides estimated downtimes for the selected databases. If the downtimes don't fit within your constraints, we recommend that you consider migrating to Azure SQL Managed Instance, which provides online migration, to minimize your downtime and migration cutover time. 
  
-If you still plan to migrate to Azure SQL DB and minimize migration downtime, please contact us at DMSfeedback@microsoft.com that we can help optimizing your migration approach to meet your migration downtimes.
-
+If you still plan to migrate to Azure SQL Database and minimize migration downtime, please contact us at DMSfeedback@microsoft.com so that we can help optimize your migration approach to meet your migration downtimes.
 
 ## Prerequisites
 
