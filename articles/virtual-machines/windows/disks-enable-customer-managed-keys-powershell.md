@@ -11,7 +11,7 @@ ms.subservice: disks
 
 # Azure PowerShell - Enable customer-managed keys with server-side encryption - managed disks
 
-Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer managed keys, as well as other managed disk encryption types, see the [Customer-managed keys](../disk-encryption.md#customer-managed-keys) section of our disk encryption article.
+Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer-managed keys, and other managed disk encryption types, see the [Customer-managed keys](../disk-encryption.md#customer-managed-keys) section of our disk encryption article.
 
 ## Restrictions
 
@@ -47,7 +47,7 @@ To use customer-managed keys with SSE, you must set up an Azure Key Vault and a 
     $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
     ```
 
-1.  Create a DiskEncryptionSet by using the API version `2020-12-01` and setting the property `rotationToLatestKeyVersionEnabled` to true via the ARM template [CreateDiskEncryptionSetWithAutoKeyRotation.json](https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/AutoKeyRotation/CreateDiskEncryptionSetWithAutoKeyRotation.json)
+1.  Create a DiskEncryptionSet by using the API version `2020-12-01` and setting the property `rotationToLatestKeyVersionEnabled` to true via the Azure Resource Manager template [CreateDiskEncryptionSetWithAutoKeyRotation.json](https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/AutoKeyRotation/CreateDiskEncryptionSetWithAutoKeyRotation.json)
     
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
