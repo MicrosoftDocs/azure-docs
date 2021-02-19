@@ -1,6 +1,6 @@
 ---
-title: Connect MongoDB application to Azure Cosmos DB
-description: Learn how to connect a MongoDB app to Azure Cosmos DB by obtaining the connection string from Azure portal.
+title: Connect a MongoDB application to Azure Cosmos DB
+description: Learn how to connect a MongoDB app to Azure Cosmos DB by getting the connection string from Azure portal
 author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
