@@ -134,7 +134,7 @@ region=EastUS2EUAP
 --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier" "dataDiskSizeInGb=$diskSize"
 ```
 
-To confirm your disk has changed tiers, use the following command:
+A performance tier change can take up to 15 minutes to complete. To confirm your disk has changed tiers, use the following command:
 
 ```cli
 az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-12-01 --query [properties.tier] -o tsv

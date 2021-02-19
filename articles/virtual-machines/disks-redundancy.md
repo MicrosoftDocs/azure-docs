@@ -66,7 +66,7 @@ $resourceGroupName = "yourResourceGroupName"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $region
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
--TemplateUri "https://raw.githubusercontent.com/ramankumarlive/zrsdisks/main/ARMTemplates/CreateVMWithZRSDataDisks.json" `
+-TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/ZRSDisks/CreateVMWithZRSDataDisks.json" `
 -resourceName $vmName `
 -adminUsername $adminUsername `
 -adminPassword $adminPassword `
@@ -75,7 +75,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 -dataDiskType $dataDiskType
 ```
 
-#### Create VMs with a shared ZRS disk attached to the VMs
+#### Create VMs with a shared ZRS disk attached to the VMs in different zones
 
 ```
 $vmNamePrefix = "yourVMNamePrefix"
@@ -87,7 +87,7 @@ $region = "eastus2euap"
 $resourceGroupName = "zrstesting1"
 
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
--TemplateUri "https://raw.githubusercontent.com/ramankumarlive/zrsdisks/main/ARMTemplates/CreateVMsWithASharedDisk.json" `
+-TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/ZRSDisks/CreateVMsWithASharedDisk.json" `
 -vmNamePrefix $vmNamePrefix `
 -adminUsername $adminUsername `
 -adminPassword $adminPassword `
@@ -107,7 +107,7 @@ $osDiskType="StandardSSD_LRS"
 $dataDiskType="Premium_ZRS"
 
 New-AzResourceGroupDeployment -ResourceGroupName zrstesting `
--TemplateUri "https://raw.githubusercontent.com/ramankumarlive/zrsdisks/main/ARMTemplates/CreateVMSSWithZRSDisks.json" `
+-TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/ZRSDisks/CreateVMSSWithZRSDisks.json" `
 -vmssName "yourVMSSName" `
 -adminUsername "yourAdminName" `
 -adminPassword $password `
