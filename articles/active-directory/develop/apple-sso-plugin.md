@@ -67,7 +67,9 @@ First, configure the [Single sign-on app extension](/mem/intune/configuration/de
 
 The profile settings that enable the SSO plug-in are automatically applied to the group's devices the next time each device checks in with Intune.
 
-If you not using Intune, use the following parameters to configure the Microsoft Enterprise SSO plug-in for Apple devices:
+### Manual configuration for other MDM services
+
+If you're not using Microsoft Intune for mobile device management, use the following parameters to configure the Microsoft Enterprise SSO plug-in for Apple devices.
 
 - **Type**: Redirect
 ### iOS settings:
