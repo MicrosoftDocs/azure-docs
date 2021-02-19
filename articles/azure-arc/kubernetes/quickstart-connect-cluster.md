@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Connect an existing Kubernetes cluster to Azure Arc'
 description: "In this quickstart, learn how to connect an Azure Arc enabled Kubernetes cluster." 
-author: v-hhunter
-ms.author: v-hhunter
+author: shashankbarsin
+ms.author: shasb
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 02/18/2021
@@ -163,7 +163,7 @@ AzureArcTest1  eastus      AzureArcTest
 > [!NOTE]
 > After onboarding the cluster, it takes around 5 to 10 minutes for the cluster metadata (cluster version, agent version, number of nodes, etc.) to surface on the overview page of the Azure Arc enabled Kubernetes resource in Azure portal.
 
-## Connect your Kubernetes cluster using an outbound proxy server
+## Connect using an outbound proxy server
 
 If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc enabled Kubernetes agents need to route their requests via the outbound proxy server. 
 
