@@ -176,7 +176,7 @@ are met on the machine. The requirements are described in section
 
 When an Azure Policy is assigned, if it's in the category "Guest Configuration"
 there's metadata included to describe a Guest Assignment.
-You can think of a Guest Assignment as a link between a machine and a Policy scenario.
+You can think of a Guest Assignment as a link between a machine and an Azure Policy scenario.
 For example, the snippet below associates the Azure Windows Baseline configuration
 with minimum version `1.0.0` to any machines in scope of the policy. By default,
 the Guest Assignment will only perform an audit of the machine.
