@@ -70,7 +70,7 @@ The following list presents the set of features which are currently available in
 
 ## JavaScript calling client library support by OS and browser
 
-The following table represents the set of supported browsers and versions which are currently available. We support the most recent three versions unless otherwise indicated.
+The following table represents the set of supported browsers which are currently available. We support the most recent three versions of the browser unless otherwise indicated.
 
 |                                  | Chrome | Safari*  | Edge(Chromium) | 
 | -------------------------------- | -------| ------  | --------------  |
@@ -80,15 +80,13 @@ The following table represents the set of supported browsers and versions which 
 | Windows***                       |  ✔️    | ❌     | ✔️             |
 | Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
 
+*Safari versions 13.1+ are supported. 
 
+**Safari 14+/macOS 11+ needed for outgoing video support. 
 
-*Safari versions 13.1+ are supported. 1:1 and group calls are currently not available on Safari, regardless of the platform. 
+***Outgoing screen sharing is only supported on desktop platforms (Windows, macOS and Linux) regardless of the browser version and is not supported on any mobile platform (Android, iOS, ipad and tablets).
 
-**Outgoing video for Safari on macOS is not yet supported, but it is supported for Safari on iOS.
-
-***Outgoing screen sharing is only supported on Windows and macOS, regardless of the browser version and is not supported on any other platform.
-
-****Safari on iOS app can't enumerate/select mic/speaker devices (e.g. Bluetooth) it's a limitation of OS and there's always only 1 device. 
+****Safari on iOS app can't enumerate/select mic/speaker devices (e.g. Bluetooth) it's a limitation of OS and there's always only 1 device.
 
 
 ## Calling client - browser security model
