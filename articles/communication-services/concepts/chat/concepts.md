@@ -21,12 +21,13 @@ See the [Communication Services Chat client library Overview](./sdk-features.md)
 
 ## Chat overview 
 
-Chat conversations happen within chat threads. A chat thread can contain many messages and many users. Every message belongs to a single thread, and a user can be a part of one or many threads. Each user in the chat thread is called a participant. Only thread participants can send and receive messages or add/remove other users to a chat thread. Communication Services stores chat history until you execute a delete operation on the chat thread or message, or until no participants are remaining in the chat thread at which point it is orphaned and queued for deletion. 
+Chat conversations happen within chat threads. A chat thread can contain many messages and many users. Every message belongs to a single thread, and a user can be a part of one or many threads. Each user in the chat thread is called a participant. Only thread participants can send and receive messages and add or remove other users in a chat thread. Communication Services stores chat history until you execute a delete operation on the chat thread or message, or until no participants are remaining in the chat thread, at which point, the chat thread is orphaned and queued for deletion. 
 
-## Service limits 
-- Maximum number of participants allowed in a chat thread is 250.
-- Maximum message size allowed is approximately 28KB. 
-- For chat threads with more than 20 participants, read receipts and typing indicator features are not supported. 
+## Service limits
+
+- The maximum number of participants allowed in a chat thread is 250.
+- The maximum message size allowed is approximately 28 KB. 
+- For chat threads with more than 20 participants, read receipts and typing indicator features aren't supported. 
 
 ## Chat architecture
 
@@ -34,7 +35,7 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
 
 :::image type="content" source="../../media/chat-architecture.png" alt-text="Diagram showing Communication Services' chat architecture.":::
 
- - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services using your resource connection string. This service is responsible for creating chat threads, managing thread participant list, and providing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/access-tokens.md) quickstart.
+ - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, managing thread participant lists, and providing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/access-tokens.md) quickstart.
 
  - **Client app:**  The client application connects to your trusted service and receives the access tokens that are used to connect directly to Communication Services. After this connection is made, your client app can send and receive messages.
 
@@ -120,10 +121,10 @@ The Chat JavaScript client library includes real-time signaling. This allows cli
  - `ChatMessageEdited` - when a message is edited in a chat thread.
  - `ChatMessageDeleted` - when a message is deleted in a chat thread.
  - `TypingIndicatorReceived` - when another participant is typing a message in a chat thread. 
- - `ReadReceiptReceived` - when another participant has read the message that user sent in a chat thread. 
+ - `ReadReceiptReceived` - when another participant has read the message that a user sent in a chat thread. 
  - `ChatThreadCreated` - when a chat thread is created by a communication user.
  - `ChatThreadDeleted` - when a chat thread is deleted by a communication user.
- - `ChatThreadPropertiesUpdated` - when a chat thread properties are updated. Currently we only support updating the topic for the thread.
+ - `ChatThreadPropertiesUpdated` - when chat thread properties are updated; currently, we support only updating the topic for the thread.
  - `ParticipantsAdded` - when a user is added as participant to a chat thread. 
  - `ParticipantsRemoved` - when an existing participant is removed from the chat thread. 
 
