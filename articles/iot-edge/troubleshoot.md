@@ -235,7 +235,7 @@ By default, the `agent` element will look like the following example:
      type: docker
      env: {}
      config:
-       image: mcr.microsoft.com/azureiotedge-agent:1.0
+       image: mcr.microsoft.com/azureiotedge-agent:1.1
        auth: {}
    ```
 
@@ -247,7 +247,7 @@ Replace `env: {}` with:
    ```
 
    > [!WARNING]
-   > YAML files cannot contain tabs as identation. Use 2 spaces instead. Top-level items cannot have leading whitespace.
+   > YAML files cannot contain tabs as indentation. Use 2 spaces instead. Top-level items cannot have leading whitespace.
 
 Save the file and restart the IoT Edge security manager.
 

@@ -269,7 +269,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 
 - [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -422,7 +422,7 @@ In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.
 
 Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
