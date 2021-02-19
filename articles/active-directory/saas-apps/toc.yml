@@ -672,6 +672,8 @@
         href: fortes-change-cloud-tutorial.md
       - name: FortiGate SSL VPN
         href: fortigate-ssl-vpn-tutorial.md
+      - name: FortiSASE SIA
+        href: fortisase-sia-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
