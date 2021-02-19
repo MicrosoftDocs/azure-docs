@@ -1,13 +1,9 @@
 ---
 title: Copy data in bulk with PowerShell
 description: Use Azure Data Factory with Copy Activity to copy data from a source data store to a destination data store in bulk.
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018

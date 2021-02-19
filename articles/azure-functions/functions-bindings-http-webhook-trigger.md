@@ -444,7 +444,7 @@ Here's the *function.json* file:
         {
             "type": "http",
             "direction": "out",
-            "name": "res"
+            "name": "$return"
         }
     ]
 }

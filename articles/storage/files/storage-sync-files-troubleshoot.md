@@ -4,7 +4,7 @@ description: Troubleshoot common issues in a deployment on Azure File Sync, whic
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 1/15/2021
+ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -206,18 +206,10 @@ On the server that is showing as "Appears offline" in the portal, look at Event 
         - To use TLS cmdlets, see [Configuring TLS Cipher Suite Order by using TLS PowerShell Cmdlets](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     
         Azure File Sync currently supports the following cipher suites for TLS 1.2 protocol:  
-        - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384  
-        - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256  
-        - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P384  
-        - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P256  
-        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256  
-        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256  
-        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256  
-        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256  
-        - TLS_RSA_WITH_AES_256_GCM_SHA384  
-        - TLS_RSA_WITH_AES_128_GCM_SHA256  
-        - TLS_RSA_WITH_AES_256_CBC_SHA256  
-        - TLS_RSA_WITH_AES_128_CBC_SHA256  
+        - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256  
 
 - If **GetNextJob completed with status: -2134347764** is logged, the server is unable to communicate with the Azure File Sync service due to an expired or deleted certificate.  
     - Run the following PowerShell command on the server to reset the certificate used for authentication:

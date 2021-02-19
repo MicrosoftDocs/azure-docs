@@ -66,14 +66,20 @@
           href: automation-create-standalone-account.md
         - name: Create Automation account with Resource Manager template
           href: quickstart-create-automation-account-template.md
+        - name: Run As account
+          items:
+            - name: Create Run As account
+              href: create-run-as-account.md
+            - name: Delete Run As account
+              href: delete-run-as-account.md
+            - name: Manage Run As account
+              href: manage-runas-account.md
         - name: Configure authentication with Amazon Web Services
           href: automation-config-aws-account.md
         - name: Configure authentication with Azure AD
           href: automation-use-azure-ad.md
-        - name: Manage DNS record used by Automation
+        - name: Manage DNS records used by Automation
           href: how-to/automation-region-dns-records.md
-        - name: Manage an Automation Run As account
-          href: manage-runas-account.md
         - name: Connect privately to Automation account
           href: how-to/private-link-security.md
         - name: Manage role permissions and security
@@ -246,6 +252,8 @@
           href: automation-solution-vm-management-config.md
         - name: Query logs from Start/Stop VMs during off-hours
           href: automation-solution-vm-management-logs.md
+        - name: Remove Start/Stop VMs during off-hours
+          href: automation-solution-vm-management-remove.md
         - name: Troubleshoot Stop/Start VMs during off-hours
           href: troubleshoot/start-stop-vm.md
     - name: Update Management

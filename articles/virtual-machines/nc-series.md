@@ -19,6 +19,7 @@ NC-series VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/conte
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 Nvidia NVLink Interconnect: Not Supported<br>
 <br>
 

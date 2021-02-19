@@ -1,13 +1,9 @@
 ---
 title: Copy data to and from Azure Table storage
 description: Learn how to copy data from supported source stores to Azure Table storage, or from Table storage to supported sink stores, by using Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/20/2020
