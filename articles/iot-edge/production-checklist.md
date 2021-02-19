@@ -78,6 +78,7 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
   * Set up host storage for system modules
   * Reduce memory space used by the IoT Edge hub
   * Do not use debug versions of module images
+  * Do not share the unique device id with other IoT Edge device 
 
 ### Be consistent with upstream protocol
 
@@ -126,6 +127,17 @@ The default value of the timeToLiveSecs parameter is 7200 seconds, which is two 
 ### Do not use debug versions of module images
 
 When moving from test scenarios to production scenarios, remember to remove debug configurations from deployment manifests. Check that none of the module images in the deployment manifests have the **\.debug** suffix. If you added create options to expose ports in the modules for debugging, remove those create options as well.
+
+### Do not share the unique device id  with other IoT Edge device 
+
+Please make sure unique IoT Edge device id (identity) is **not** inadvertently **shared** between 2 or more separate IoT Edge devices for any authentication type.
+IoT Edges devices sharing the same device id may appear to work properly but it can lead to following issues before condition is detected and fixed
+
+* Huge spike in module and device connects/disconnects
+* Huge spike in module D2C Get Twin operations
+* Duplication of module messages depending of how the route is setup
+
+Consequence of this may result in unexpected **IoT Hub message quota exhaustion** on IoT Hub side and increase in **data usage bill** specifically if using cellular or satellite data connection. IoT Hub message quota exhaustion may stall the entire solution as IoT Hub will stop accepting new messages till quota is reset or there is increase in quota. To check for this condition you can monitor the frequency of connect/disconnects of modules and devices using Azure Diagnostics logs for IoT Hub.
 
 ## Container management
 
@@ -315,17 +327,6 @@ You can do so in the **createOptions** of each module. For example:
 ### Consider tests and CI/CD pipelines
 
 For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
-
-
-### Each IoT Edge device should have its own unique device connection string 
-
-Please make sure unique device connection string is **not** inadvertently **shared** between 2 or more separate IoT Edge devices.
-IoT Edges devices sharing the device connection string may seem to work properly but it can lead to following issues before condition is detected and fixed
-
-- 1.)	Huge spike in module and device connects/disconnects
-- 2.)	Huge spike in module D2C Get Twin operations
-
-Consequence of this may result in unexpected **IoT Hub message quota exhaustion** and increase in **data usage bill** specifically if using cellular or satellite data connection. To check for this condition you can monitor the frequency of connect/disconnects of modules and devices using Azure Diagnostics logs for IoT Hub.
 
 
 
