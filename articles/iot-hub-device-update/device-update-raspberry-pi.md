@@ -102,33 +102,21 @@ IoT Hub, a connection string will be generated for the device.
 
 ## Provision connection string on SD card
 
-1. Remove the SD card from the Raspberry Pi3, put it in your PC, and open it in
-   'File Explorer'.
-
-   > [!NOTE]
-   > You may see multiple prompts that the card is unformatted. **Cancel all of them (do not format the card)**.
-
-2. In the remaining window, verify you see a partition or disk called `adu`.
-3. **Optional**. In the `adu` partition directory, create the Device Update Configuration file "adu-conf.txt" and open it. [Learn more](device-update-configuration-file.md) about configuring "adu-conf.txt".
-4. Paste your previously saved device connection string into the text file.
-
-   **Example**:  (replace your IoT Hub name, DeviceId, and shared access key with
-   those from your device connection string)
-
+1. Make sure that the Raspberry Pi3 is conencted to the network.
+2. In PowerShell, use this command to ssh into the device: 
    ```markdown
-   connection_string=HostName=<yourIoTHubName>;DeviceId=<yourDeviceId>;SharedAccessKey=<yourSharedAccessKey>
+   ssh raspberrypi3 -l root
+      ```
+4. The login is root, and password you can leave empty.
+5. After successfully ssh into the device, run:
+ 
+ ```markdown
+	echo "connection_string=<Place your Azure IoT device connection string here>" > adu-conf.txt
+	echo 'aduc_manufacturer=ADUTeam' >> adu-conf.txt
+	echo 'aduc_model=RefDevice' >> adu-conf.txt
    ```
-
-5. Save the text file and then remove the SD card from your PC.
-6. Insert the SD card into the Raspberry Pi3 and use the power switch on the
-   cord, which is plugged into the device to turn on the device.
-
-Wait 1-2 mins to ensure the device is fully booted up.  If you have a
-monitor connected to the Raspberry Pi3, it will boot to a login screen.  This behavior is
-expected.  The agent will be running in the background.  There is no need for you
-to log in.
-
-## Connect to device in Device Update IoT Hub
+   
+## Connect the device in Device Update IoT Hub
 
 1. On the left-hand side of the page, select 'IoT Devices' under 'Explorers'.
 2. Select the link with your device name.
