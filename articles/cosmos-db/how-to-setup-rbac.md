@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 02/19/2021
 ms.author: thweiss
 ---
 
@@ -352,6 +352,10 @@ This additional information flows in the **DataPlaneRequests** log category and 
 ### Which Azure Cosmos DB APIs are supported by RBAC?
 
 Only the SQL API is currently supported.
+
+### Is it possible to manage role definitions and role assignments from the Azure portal?
+
+Azure portal support for role management is not available yet.
 
 ### Which SDKs in Azure Cosmos DB SQL API support RBAC?
 
