@@ -21,7 +21,7 @@ ms.custom: aaddev
 >[!IMPORTANT]
 > This feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
-The *Microsoft Enterprise SSO plug-in for Apple devices* is a breakthrough feature that provides single sign-on (SSO) for Azure Active Directory (Azure AD) accounts on macOS, iOS, and iPasOS across all applications that support Apple's [Enterprise Single Sign-On](https://developer.apple.com/documentation/authenticationservices) feature. This can include older applications that your business depends on but don't support the latest identity libraries or protocols. Microsoft worked closely with Apple to develop this plug-in to increase your application's usability while providing the best protection that Apple and Microsoft can provide.
+The *Microsoft Enterprise SSO plug-in for Apple devices* provides single sign-on (SSO) for Azure Active Directory (Azure AD) accounts on macOS, iOS, and iPadOS across all applications that support Apple's [Enterprise Single Sign-On](https://developer.apple.com/documentation/authenticationservices) feature. This includes older applications your business might depend on but that don't yet support the latest identity libraries or protocols. Microsoft worked closely with Apple to develop this plug-in to increase your application's usability while providing the best protection that Apple and Microsoft can provide.
 
 In this Public Preview release, the Enterprise SSO plug-in is available for iOS, iPadOS, and macOS devices and is currently distributed in the Microsoft Authenticator app for iOS and iPadOS or Intune Company Portal app on macOS.
 
