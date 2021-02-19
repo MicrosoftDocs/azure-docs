@@ -19,7 +19,7 @@ Windows Virtual Desktop is currently available for all geographical locations. A
 >Microsoft doesn't control or limit the regions where you or your users can access your user and app-specific data.
 
 >[!IMPORTANT]
->Windows Virtual Desktop stores global metadata information like tenant names, host pool names, app group names, and user principal names in a datacenter. Whenever a customer creates a service object, they must enter a location for the service object. The location they enter determines where the metadata for the object will be stored. The customer will choose an Azure region and the metadata will be stored in the related geography. For a list of all Azure regions and related geographies, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
+>Windows Virtual Desktop stores global metadata information like workspace names, host pool names, app group names, and user principal names in a datacenter. Whenever a customer creates a service object, they must enter a location for the service object. The location they enter determines where the metadata for the object will be stored. The customer will choose an Azure region and the metadata will be stored in the related geography. For a list of all Azure regions and related geographies, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 We currently support storing metadata in the following geographies:
 
