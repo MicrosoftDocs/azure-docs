@@ -152,7 +152,7 @@ Customize the configuration with the following optional parameters:
 | `--helm-operator-params` | Chart values for Helm operator (if enabled). For example, `--set helm.versions=v3`. |
 | `--helm-operator-version` | Chart version for Helm operator (if enabled). Use version 1.2.0+. Default: '1.2.0'. |
 | `--operator-namespace` | Name for the operator namespace. Default: 'default'. Max: 23 characters. |
-| `--operator-params` | Parameters for operator. Must be given within single quotes. For example, ```--operator-params='--git-readonly --sync-garbage-collection --git-branch=main' ``` 
+| `--operator-params` | Parameters for operator. Must be given within single quotes. For example, ```--operator-params='--git-readonly --sync-garbage-collection --git-branch=main'``` 
 
 ### Options supported in  `--operator-params`:
 
