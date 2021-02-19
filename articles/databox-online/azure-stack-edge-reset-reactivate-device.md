@@ -1,36 +1,33 @@
 ---
-title: Return your Azure Stack Edge Pro device | Microsoft Docs 
-description: Learn how to wipe the data and return your Azure Stack Edge Pro device, and then delete the resource associated with the device.
+title: Reset and reactivate your Azure Stack Edge Pro device | Microsoft Docs 
+description: Learn how to wipe the data from and then reactivate your Azure Stack Edge Pro device.
 services: databox
-author: alkohli
+author: v-dalc
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/19/2020
 ms.author: alkohli
 ---
 
-# Return your Azure Stack Edge Pro device
+# Reset and reactive your Azure Stack Edge Pro device
 
-This article describes how to wipe the data and then return your Azure Stack Edge Pro device. After you've returned the device, you can also delete the resource associated with the device.
+This article describes how to wipe the data from your Azure Stack Edge Pro device and then reset it.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 >
 > * Wipe the data off the data disks on the device
-> * Initiate device return in Azure portal
-> * Pack up the device and schedule a pickup
-> * Delete the resource in Azure portal
+> * Reactivate the device by creating a new order for the existing device
 
-## Erase data from the device
+## Reset data from the device
 
 [!INCLUDE] [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)
 
 > [!NOTE]
-> - If you're exchanging or upgrading to a new device, we recommend that you reset your device only after you've received the new device.
-> - The device reset only deletes all the local data off the device. The data that is in the cloud isn't deleted and collects [charges](https://azure.microsoft.com/pricing/details/storage/). This data needs to be deleted separately using a cloud storage management tool like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+> The device reset only deletes all the local data off the device. The data that is in the cloud isn't deleted and collects [charges](https://azure.microsoft.com/pricing/details/storage/). This data needs to be deleted separately using a cloud storage management tool like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).<!--Is this relevant in the reset and reactivate scenario?-->
 
 ## Initiate device return
 
