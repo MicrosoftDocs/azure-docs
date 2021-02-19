@@ -50,14 +50,14 @@ This article is intended to be a copy and paste exercise.
           "runElevated": true,
           "runAsSystem": true,
           "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/14_Building_Images_WVD/0_installConfFsLogix.ps1"
-```
+    ```
 1. Comment your code. The AIB build log (customization.log) is extremely verbose, if you comment your scripts using 'write-host' these will be sent to the logs, and make troubleshooting easier.
 
     ```PowerShell
      write-host 'AIB Customization: Starting OS Optimizations script'
     ```
 
-4. Emit Exit Codes. AIB expects all scripts to return a 0 exit code, any non zero exit code will result in AIB failing the customization and stopping the build. If you have complex scripts, add instrumentation and emit exit codes, these will be shown in the customization.log.
+4. Emit Exit Codes. AIB expects all scripts to return a 0 exit code, any non-zero exit code will result in AIB failing the customization and stopping the build. If you have complex scripts, add instrumentation and emit exit codes, these will be shown in the customization.log.
 
     ```PowerShell
      Write-Host "Exit code: " $LASTEXITCODE
