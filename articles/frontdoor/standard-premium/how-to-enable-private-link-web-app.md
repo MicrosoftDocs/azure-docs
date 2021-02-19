@@ -26,7 +26,7 @@ This article will guide you through how to configure Azure Front Door Premium SK
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Enable Private Link to Web App in Azure Front Door service
+## Enable Private Link to a Web App in Azure Front Door Premium
  
 In this section, you'll map the Private Link service to a private endpoint created in Azure Front Door's private network. 
 
