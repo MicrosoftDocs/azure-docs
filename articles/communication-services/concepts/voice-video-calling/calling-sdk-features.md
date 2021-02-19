@@ -72,7 +72,7 @@ The following list presents the set of features which are currently available in
 
 The following table represents the set of supported browsers which are currently available. We support the most recent three versions of the browser unless otherwise indicated.
 
-|                                  | Chrome | Safari*  | Edge(Chromium) | 
+|                                  | Chrome | Safari*  | Edge (Chromium) | 
 | -------------------------------- | -------| ------  | --------------  |
 | Andriod                          |  ✔️    | ❌     | ❌             |
 | iOS                              |  ❌    | ✔️**** | ❌             |
@@ -84,9 +84,9 @@ The following table represents the set of supported browsers which are currently
 
 **Safari 14+/macOS 11+ needed for outgoing video support. 
 
-***Outgoing screen sharing is only supported on desktop platforms (Windows, macOS and Linux) regardless of the browser version and is not supported on any mobile platform (Android, iOS, ipad and tablets).
+***Outgoing screen sharing is supported only on desktop platforms (Windows, macOS, and Linux), regardless of the browser version, and is not supported on any mobile platform (Android, iOS, iPad, and tablets).
 
-****Safari on iOS app can't enumerate/select mic/speaker devices (e.g. Bluetooth) it's a limitation of OS and there's always only 1 device.
+****An iOS app on Safari can't enumerate/select mic and speaker devices (for example, Bluetooth); this is a limitation of the OS, and there's always only one device.
 
 
 ## Calling client - browser security model
