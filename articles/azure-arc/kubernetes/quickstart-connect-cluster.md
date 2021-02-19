@@ -104,7 +104,7 @@ eastus      AzureArcTest
    * `KUBECONFIG`
    * `~/.kube/config`
    * `--kube-config`
-1. Deploy Azure Arc agents for Kubernetes using Helm 3 into the `azure-arc` namespace.
+1. Connect your Kubernetes cluster to Azure Arc using the following command:
     ```console
     az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
     ```
@@ -265,4 +265,3 @@ Run the following command:
 Advance to the next article to learn how to deploy configurations to your connected Kubernetes cluster using GitOps.
 > [!div class="nextstepaction"]
 > [Deploy configurations using Gitops](use-gitops-connected-cluster.md)
-
