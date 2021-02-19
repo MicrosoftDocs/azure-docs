@@ -104,4 +104,4 @@ Note that in group scenarios, one mixed audio stream is used to support all audi
 For more information, see the following articles:
 - Familiarize yourself with general [call flows](../call-flows.md) 
 - Learn about [call types](../voice-video-calling/about-call-types.md)
-- [Plan your PSTN solution](../telephony-sms/plan-solution.md)
+- Learn about [phone number types](../telephony-sms/plan-solution.md)
