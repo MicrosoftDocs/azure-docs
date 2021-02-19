@@ -38,7 +38,7 @@ Follow the steps below to create a new scoped resource set configuration:
 
 When creating scoped resource set rules, use the following syntax to specify which assets rules apply to.
 
-### Static replacers (single brackets)
+### Dynamic replacers (single brackets)
 
 Single brackets are used as **dynamic replacers** in a scoped resource set rule. Specify a dynamic replacer in the qualified name using format `{<replacerName:<replacerType>}`. If matched, dynamic replacers are used as a grouping condition that indicate assets should be represented as a resource set. If the assets are grouped into a resource set, the resource set qualified path would contain `{replacerName}` where the replacer was specified.
 
@@ -87,7 +87,7 @@ Below is the order of operations for applying scoped resource set rules:
 
 SAP data extraction into full and delta loads
 
-*Inputs*
+#### Inputs
 
 Files:
 -	`https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
@@ -97,7 +97,7 @@ Files:
 -	`https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
 
-*Scoped Resource Set Rule*
+#### Scoped Resource Set Rule 
 
 **Scope:** https://myazureblob.blob.core.windows.net/bar/
 
@@ -107,7 +107,7 @@ Files:
 
 **Resource Set:** true
 
-*Output*
+#### Output 
 
 One resource set asset
 
@@ -119,7 +119,7 @@ One resource set asset
 
 IoT data in avro format
 
-*Inputs*
+#### Inputs 
 
 Files:
 -	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -127,7 +127,7 @@ Files:
 -	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Scoped Resource Set Rules*
+#### Scoped Resource Set Rules 
 
 **Scope:** https://myazureblob.blob.core.windows.net/bar/
 
@@ -145,9 +145,9 @@ Rule 2
 
 **Qualified Name:** `raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-**Resource Set: true**
+#### *Resource Set: true* 
 
-*Outputs*
+#### Outputs 
 
 2 resource sets 
 
@@ -167,7 +167,7 @@ Resource Set 2
 
 IoT data in avro format
 
-*Inputs*
+#### Inputs 
 
 Files:
 -	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -175,7 +175,7 @@ Files:
 -	`https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Scoped Resource Set Rule*
+#### Scoped Resource Set Rule 
 
 **Scope:** https://myazureblob.blob.core.windows.net/bar/
 
@@ -185,7 +185,7 @@ Files:
 
 **Resource Set:** true
 
-*Outputs*
+#### Outputs 
 
 Resource Set 1
 
@@ -203,7 +203,7 @@ Resource Set 2
 
 Don’t group into resource sets
 
-*Inputs*
+#### Inputs 
 
 Files:
 -	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
@@ -211,7 +211,7 @@ Files:
 -	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
 -	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-*Scoped Resource Set Rule*
+#### Scoped Resource Set Rule 
 
 **Scope:** https://myazureblob.blob.core.windows.net/bar/
 
@@ -221,7 +221,7 @@ Files:
 
 **Resource Set:** false
 
-*Outputs*
+#### Outputs 
 
 4 individual assets
 
