@@ -59,8 +59,6 @@
     items:
     - name: Migration overview
       href: in-place-migration-overview.md
-    - name: Plan for migration
-      href: ../virtual-machines/migration-classic-resource-manager-plan.md?context=/azure/cloud-services-extended-support/context/context
     - name: Migration technical details
       href: in-place-migration-technical-details.md
     - name: Migrate using the Azure portal
