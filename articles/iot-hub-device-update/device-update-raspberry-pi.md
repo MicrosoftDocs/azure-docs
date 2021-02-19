@@ -110,11 +110,11 @@ IoT Hub, a connection string will be generated for the device.
 4. Enter login as 'root', and password should be left as empty.
 5. After you successfully ssh into the device, run the below commands
  
- Replace this <Add Azure IoT device connection string here> with your connection string
+Replace `<device connection string>` with your connection string
  ```markdown
-	echo "connection_string=<Add Azure IoT device connection string here>" > adu-conf.txt  
-	echo 'aduc_manufacturer=ADUTeam' >> adu-conf.txt
-	echo 'aduc_model=RefDevice' >> adu-conf.txt
+	echo "connection_string=<device connection string>" > adu-conf.txt  
+	echo "aduc_manufacturer=ADUTeam" >> adu-conf.txt
+	echo "aduc_model=RefDevice" >> adu-conf.txt
    ```
 
 ## Connect the device in Device Update IoT Hub
