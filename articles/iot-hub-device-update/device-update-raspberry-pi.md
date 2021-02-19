@@ -34,7 +34,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Download image
 
 There are three images available as a part of the "Assets" in a given
-[Device Update GitHub release](https://github.com/Azure/iot-hub-device-update/releases). The base image (adu-base-image) and two update images (adu-update-image) are provided so you can try rollouts to different versions without needing to flash the SD card on the device.  To do so, you'll need to upload the update images to the Device Update for IoT Hub
+[Device Update GitHub release](https://github.com/Azure/iot-hub-device-update/releases). The base image (adu-base-image) and one update image (adu-update-image) are provided so you can try rollouts to different versions without needing to flash the SD card on the device. To do so, you'll need to upload the update images to the Device Update for IoT Hub
 Service, as a part of the import.
 
 ## Flash SD card with image
@@ -103,19 +103,20 @@ IoT Hub, a connection string will be generated for the device.
 ## Provision connection string on SD card
 
 1. Make sure that the Raspberry Pi3 is conencted to the network.
-2. In PowerShell, use this command to ssh into the device: 
+2. In PowerShell, use the below command to ssh into the device
    ```markdown
    ssh raspberrypi3 -l root
       ```
-4. The login is root, and password you can leave empty.
-5. After successfully ssh into the device, run:
+4. Enter login as 'root', and password should be left as empty.
+5. After you successfully ssh into the device, run the below commands
  
+ Replace this <Add Azure IoT device connection string here> with your connection string
  ```markdown
-	echo "connection_string=<Place your Azure IoT device connection string here>" > adu-conf.txt
+	echo "connection_string=<Add Azure IoT device connection string here>" > adu-conf.txt  
 	echo 'aduc_manufacturer=ADUTeam' >> adu-conf.txt
 	echo 'aduc_model=RefDevice' >> adu-conf.txt
    ```
-   
+
 ## Connect the device in Device Update IoT Hub
 
 1. On the left-hand side of the page, select 'IoT Devices' under 'Explorers'.
