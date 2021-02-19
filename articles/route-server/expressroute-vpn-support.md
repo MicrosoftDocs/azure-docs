@@ -1,5 +1,5 @@
 ---
-title: 'About Azure Route Server supports for ExpressRoute and Azure VPN'
+title: 'About Azure Route Server support for ExpressRoute and Azure VPN'
 description: Learn about how Azure Route Server interacts with ExpressRoute and Azure VPN gateways.
 services: route-server
 author: duongau
@@ -20,7 +20,7 @@ Azure Route Server supports not only third-party network virtual appliances (NVA
 
 ## How does it work?
 
-When you deploy an Azure Route Server along with an ExpressRoute gateway, and an NVA in a virtual network. By default, Azure Route Server doesn’t propagate the routes it receives from the NVA and ExpressRoute gateway to each other. Once you enable the route exchange, ExpressRoute and the NVA will learn each other’s routes.
+When you deploy an Azure Route Server along with an ExpressRoute gateway and an NVA in a virtual network by default Azure Route Server doesn’t propagate the routes it receives from the NVA and ExpressRoute gateway between each other. Once you enable the route exchange, ExpressRoute and the NVA will learn each other’s routes.
 
 For example, in the following diagram:
 
@@ -37,7 +37,6 @@ You can also replace the SDWAN appliance with Azure VPN gateway. Since Azure VPN
 >
 
 ![Diagram showing ExpressRoute and VPN gateway configured with Route Server.](./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png)
-
 
 ## Next steps
 
