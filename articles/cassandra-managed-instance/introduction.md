@@ -37,14 +37,14 @@ In the managed instance, scaling up and scaling down nodes in a datacenter is fu
 
 The service provides management operations for the following common Apache Cassandra tasks:
 
-- Provisioning a cluster
-- Provisioning a datacenter
-- Scaling a datacenter
-- Deleting a datacenter
-- Starting a repair action on a keyspace
-- Changing configuration of a datacenter
-- Setting up backups
-- Maintaining audit logs
+- Provision a cluster
+- Provision a datacenter
+- Scale a datacenter
+- Delete a datacenter
+- Start a repair action on a keyspace
+- Change configuration of a datacenter
+- Setup backups
+- Maintain audit logs
 
 The pricing model is flexible, on-demand, instance-based, and has no licensing fees. This pricing model allows you to adjust to your specific workload needs. You choose how many cores, which VM SKU, what memory size, and the disk space size you need.
 
