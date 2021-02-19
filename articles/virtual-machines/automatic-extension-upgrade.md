@@ -36,21 +36,6 @@ The extension upgrade process works by replacing the existing extension version 
 
 A failed extension update is automatically retried. A retry is attempted every few days automatically without user intervention.
 
-
-## Upgrade process for Virtual Machine Scale Sets
-1. Before beginning the upgrade process, the orchestrator will ensure that no more than 20% of VMs in the entire scale set are unhealthy (for any reason).
-
-2. The upgrade orchestrator identifies the batch of VM instances to upgrade, with any one batch having a maximum of 20% of the total VM count, subject to a minimum batch size of one virtual machine.
-
-3. For scale sets with configured application health probes or Application Health extension, the upgrade waits up to 5 minutes (or the defined health probe configuration) for the VM to become healthy, before moving on to upgrade the next batch. If a VM does not recover its health after an upgrade, then by default the previous extension version for the VM is reinstalled.
-
-4. The upgrade orchestrator also tracks the percentage of VMs that become unhealthy after an upgrade. The upgrade will stop if more than 20% of upgraded instances become unhealthy during the upgrade process.
-
-The above process continues until all instances in the scale set have been upgraded.
-
-The scale set upgrade orchestrator checks for the overall scale set health before upgrading every batch. While upgrading a batch, there could be other concurrent planned or unplanned maintenance activities that could impact the health of your scale set virtual machines. In such cases, if more than 20% of the scale set's instances become unhealthy, then the scale set upgrade stops at the end of current batch.
-
-
 ### Availability-first Updates
 The availability-first model for platform orchestrated updates will ensure that availability configurations in Azure are respected across multiple availability levels.
 
@@ -71,6 +56,18 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 - VMs in a common availability set are updated within Update Domain boundaries and VMs across multiple Update Domains are not updated concurrently.  
 - VMs in a common virtual machine scale set are grouped in batches and updated within Update Domain boundaries.
 
+### Upgrade process for Virtual Machine Scale Sets
+1. Before beginning the upgrade process, the orchestrator will ensure that no more than 20% of VMs in the entire scale set are unhealthy (for any reason).
+
+2. The upgrade orchestrator identifies the batch of VM instances to upgrade, with any one batch having a maximum of 20% of the total VM count, subject to a minimum batch size of one virtual machine.
+
+3. For scale sets with configured application health probes or Application Health extension, the upgrade waits up to 5 minutes (or the defined health probe configuration) for the VM to become healthy, before moving on to upgrade the next batch. If a VM does not recover its health after an upgrade, then by default the previous extension version for the VM is reinstalled.
+
+4. The upgrade orchestrator also tracks the percentage of VMs that become unhealthy after an upgrade. The upgrade will stop if more than 20% of upgraded instances become unhealthy during the upgrade process.
+
+The above process continues until all instances in the scale set have been upgraded.
+
+The scale set upgrade orchestrator checks for the overall scale set health before upgrading every batch. While upgrading a batch, there could be other concurrent planned or unplanned maintenance activities that could impact the health of your scale set virtual machines. In such cases, if more than 20% of the scale set's instances become unhealthy, then the scale set upgrade stops at the end of current batch.
 
 ## Supported extensions
 The preview of Automatic Extension Upgrade supports the following extensions (and more are added periodically):
