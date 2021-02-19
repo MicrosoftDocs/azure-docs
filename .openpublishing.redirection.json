@@ -16675,6 +16675,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-users.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-users"
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-shares.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-shares"
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-storage-accounts.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-storage-accounts"
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-bandwidth-schedules.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-bandwidth-schedules"
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/databox-online/data-box-edge-limits.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-limits",
       "redirect_document_id": false
