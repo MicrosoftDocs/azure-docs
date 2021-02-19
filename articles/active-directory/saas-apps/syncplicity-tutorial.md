@@ -126,9 +126,13 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 2. Select **New user** at the top of the screen.
 3. In the **User** properties, follow these steps:
+
    a. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+
    b. In the **Name** field, enter `B.Simon`.  
+   
    c. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   
    d. Click **Create**.
 
 ### Assign the Azure AD test user
