@@ -1375,7 +1375,7 @@ productDirectory:
     # Card
     - title: Azure Route Server (Preview)
       summary: Simplify operations management of your network appliances
-      imageSrc: ./media/index/azure_route-server.svg
+      imageSrc: ./media/index/azure-route-server.svg
       azureCategories:
         - networking
       url: route-server/index.yml
