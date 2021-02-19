@@ -40,7 +40,7 @@ When inviting guest user, use the home tenant UPN. By using the UPN, you keep th
 
 Only resources listed in the Azure Monitor resource log categories emit logs to Datadog. To verify whether the resource is emitting logs to Datadog, navigate to Azure diagnostic setting for the specific resource. Verify that there's a Datadog diagnostic setting.
 
-:::image type="content" source="media/troubleshoot/diagnosticsetting.png" alt-text="Datadog diagnostic setting on the Azure resource" border="true":::
+:::image type="content" source="media/troubleshoot/diagnostic-setting.png" alt-text="Datadog diagnostic setting on the Azure resource" border="true":::
 
 ## Metrics not being emitted
 
@@ -48,7 +48,7 @@ The Datadog resource is assigned a **Monitoring Reader** role in the appropriate
 
 To verify the resource has the correct role assignment, open the Azure portal and select the subscription. In the left pane, select **Access Control (IAM)**. Search for the Datadog resource name. Confirm that the Datadog resource has the **Monitoring Reader** role assignment, as shown below.
 
-:::image type="content" source="media/troubleshoot/datadogroleassignment.png" alt-text="Datadog role assignment in the Azure subscription" border="true":::
+:::image type="content" source="media/troubleshoot/datadog-role-assignment.png" alt-text="Datadog role assignment in the Azure subscription" border="true":::
 
 ## Datadog agent installation fails
 

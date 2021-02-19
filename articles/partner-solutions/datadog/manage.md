@@ -16,7 +16,7 @@ This article shows how to manage the settings for your Azure integration with Da
 
 To see details of your Datadog resource, select **Overview** in the left pane.
 
-:::image type="content" source="media/manage/resourceoverview.png" alt-text="Datadog resource overview" border="true":::
+:::image type="content" source="media/manage/resource-overview.png" alt-text="Datadog resource overview" border="true" lightbox="media/manage/resource-overview.png":::
 
 The details include:
 
@@ -41,7 +41,7 @@ The overview screen provides a summary of the resources sending logs and metrics
 
 To change the configuration rules for metrics and logs, select **Metrics and Logs** in the left pane.
 
-:::image type="content" source="media/manage/reconfiguremetricsandlogs.png" alt-text="Modify the configuration of logs and metrics for the Datadog resource." border="true":::
+:::image type="content" source="media/manage/reconfigure-metrics-and-logs.png" alt-text="Modify the configuration of logs and metrics for the Datadog resource." border="true":::
 
 For more information, see [Configure metrics and logs](create.md#configure-metrics-and-logs).
 
@@ -49,7 +49,7 @@ For more information, see [Configure metrics and logs](create.md#configure-metri
 
 To see the list of resources emitting logs to Datadog, select **Monitored Resources** in the left pane.
 
-:::image type="content" source="media/manage/viewmonitoredresources.png" alt-text="View resources monitored by Datadog" border="true":::
+:::image type="content" source="media/manage/view-monitored-resources.png" alt-text="View resources monitored by Datadog" border="true":::
 
 You can filter the list of resources by resource type, resource group name, location, and whether the resource is sending logs and metrics.
 
@@ -123,7 +123,7 @@ To establish single sign-on through Azure Active directory, select **Enable sing
 
 The portal retrieves the appropriate Datadog application from Azure Active Directory. The app comes from the enterprise app name you selected when setting up integration. Select the Datadog app name as shown below:
  
-:::image type="content" source="media/manage/reconfiguresinglesignon.png" alt-text="Reconfigure single sign-on application." border="true":::
+:::image type="content" source="media/manage/reconfigure-single-sign-on.png" alt-text="Reconfigure single sign-on application." border="true":::
  
 ## Disable or enable integration
 
@@ -151,7 +151,7 @@ If more than one Datadog resource is mapped to the Datadog organization, deletin
 
 To contact support about the Azure Datadog integration, select **New Support request** in the left pane. Select the link to the Datadog portal.
 
-:::image type="content" source="media/manage/supportrequest.png" alt-text="Create a new Datadog support request" border="true":::
+:::image type="content" source="media/manage/support-request.png" alt-text="Create a new Datadog support request" border="true":::
 
 ## Next steps
 

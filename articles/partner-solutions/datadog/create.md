@@ -6,6 +6,7 @@ ms.topic: quickstart
 ms.date: 02/19/2021
 author: tfitzmac
 ms.author: tomfitz
+ms.custom: references_regions
 ---
 
 # QuickStart: Get started with Datadog
@@ -25,19 +26,19 @@ Use the following steps to set up the enterprise application:
 1. Select **New Application**.
 1. In **Add from the gallery**, search for *Datadog*. Select the search result then select **Add**.
 
-   :::image type="content" source="media/create/datadogaadappgallery.png" alt-text="Datadog application in the AAD enterprise gallery." border="true":::
+   :::image type="content" source="media/create/datadog-aad-app-gallery.png" alt-text="Datadog application in the AAD enterprise gallery." border="true":::
 
 1. Once the app is created, go to properties from the side panel. Set **User assignment required?** to **No**, and select **Save**.
 
-   :::image type="content" source="media/create/userassignmentrequired.png" alt-text="Set properties for the Datadog application" border="true":::
+   :::image type="content" source="media/create/user-assignment-required.png" alt-text="Set properties for the Datadog application" border="true":::
 
 1. Go to **Single sign-on** from the side panel. Then select **SAML**.
 
-   :::image type="content" source="media/create/samlsso.png" alt-text="SAML authentication." border="true":::
+   :::image type="content" source="media/create/saml-sso.png" alt-text="SAML authentication." border="true":::
 
 1. Select **Yes** when prompted to **Save single sign-on settings**.
 
-   :::image type="content" source="media/create/savesso.png" alt-text="Save single-sign on for the Datadog app" border="true":::
+   :::image type="content" source="media/create/save-sso.png" alt-text="Save single-sign on for the Datadog app" border="true":::
 
 1. The setup of single sign-on is now complete.
 
@@ -55,13 +56,13 @@ Use the Azure portal to find Datadog.
 
 1. In the plan overview screen, select **Set up + subscribe**.
 
-   :::image type="content" source="media/create/datadogapp.png" alt-text="Datadog application in Azure Marketplace.":::
+   :::image type="content" source="media/create/datadog-app.png" alt-text="Datadog application in Azure Marketplace.":::
 
 ## Create a Datadog resource in Azure
 
 The portal displays a form for creating the Datadog resource.
 
-:::image type="content" source="media/create/datadogcreateresource.png" alt-text="Create Datadog resource" border="true":::
+:::image type="content" source="media/create/datadog-create-resource.png" alt-text="Create Datadog resource" border="true":::
 
 Provide the following values.
 
@@ -83,13 +84,13 @@ You can link your new Datadog resource in Azure to an existing Datadog organizat
 
 Select **Existing** for Data organization, and then select **Link to Datadog org**.
 
-:::image type="content" source="media/create/linktoexisting.png" alt-text="Link to existing Datadog organization." border="true":::
+:::image type="content" source="media/create/link-to-existing.png" alt-text="Link to existing Datadog organization." border="true":::
 
 The link opens a Datadog authentication window. Sign in to Datadog.
 
 By default, Azure links your current Datadog organization to your Datadog resource. If you would like to link to a different organization, select the appropriate organization in the authentication window, as shown below.
 
-:::image type="content" source="media/create/datadogselectorganization.png" alt-text="Select appropriate Datadog organization to link" border="true":::
+:::image type="content" source="media/create/datadog-select-organization.png" alt-text="Select appropriate Datadog organization to link" border="true":::
 
 ## Configure metrics and logs
 
@@ -111,7 +112,7 @@ Tag rules for sending **logs** are:
 
 For example, the screenshot below shows a tag rule where only those virtual machines, virtual machine scale sets, and app service plans tagged as *Datadog = True* send metrics to Datadog.
 
-:::image type="content" source="media/create/configmetricslogs.png" alt-text="Configure Logs and Metrics." border="true":::
+:::image type="content" source="media/create/config-metrics-logs.png" alt-text="Configure Logs and Metrics." border="true":::
 
 There are two types of logs that can be emitted from Azure to Datadog.
 
@@ -133,7 +134,7 @@ If your organization uses Azure Active Directory as its identity provider, you c
 
 If you're linking the Datadog resource to an existing Datadog organization, you can't set up single sign-on at this step. Instead, you set up single sign-on after creating the Datadog resource. For more information, see [Reconfigure single sign-on](manage.md#reconfigure-single-sign-on).
 
-:::image type="content" source="media/create/linkingsso.png" alt-text="Single sign-on for linking to existing Datadog organization." border="true":::
+:::image type="content" source="media/create/linking-sso.png" alt-text="Single sign-on for linking to existing Datadog organization." border="true":::
 
 To establish single sign-on through Azure Active directory, select the checkbox for **Enable single sign-on through Azure Active Directory**.
 
@@ -157,13 +158,13 @@ When you've finished adding tags, select **Next: Review+Create**.
 
 Review your selections and the terms of use. After validation completes, select **Create**.
 
-:::image type="content" source="media/create/reviewcreate.png" alt-text="Review and Create Datadog resource." border="true":::
+:::image type="content" source="media/create/review-create.png" alt-text="Review and Create Datadog resource." border="true":::
 
 Azure deploys the Datadog resource.
 
 When the process completes, select **Go to Resource** to see the Datadog resource.
 
-:::image type="content" source="media/create/gotoresource.png" alt-text="Datadog resource deployment." border="true":::
+:::image type="content" source="media/create/go-to-resource.png" alt-text="Datadog resource deployment." border="true":::
 
 ## Next steps
 

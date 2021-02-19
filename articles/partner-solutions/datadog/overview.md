@@ -18,8 +18,6 @@ Datadog's offering in the Azure Marketplace enables you to manage Datadog in the
 
 You provision the Datadog resources through a resource provider named `Microsoft.Datadog`. You can create, provision, and manage Datadog organization resources through the [Azure portal](https://portal.azure.com/). Datadog owns and runs the software as a service (SaaS) application including the organization and API keys.
 
-For more information, see the [Datadog site](https://www.datadoghq.com/).
-
 ## Capabilities
 
 Integrating Datadog with Azure provides the following capabilities:
@@ -30,6 +28,14 @@ Integrating Datadog with Azure provides the following capabilities:
 - **Log forwarder** - Enables automated forwarding of subscription activity and resource logs to Datadog.
 - **Metrics collection** - Automatically send all Azure resource metrics to Datadog.
 - **Datadog agent deployment** - Provides a unified management experience of Datadog agents. Install and uninstall Datadog agents as extensions on Virtual Machines and Azure App Services.
+
+## Datadog links
+
+For more help using the Datadog service, see the following links to the [Datadog website](https://www.datadoghq.com/):
+
+- [Azure solution guide](https://www.datadoghq.com/solutions/azure/)
+- [Blog announcing the Datadog <> Azure Partnership](https://www.datadoghq.com/blog/azure-datadog-partnership/)
+- [Datadog Pricing Page](https://www.datadoghq.com/pricing/)
 
 ## Next steps
 
