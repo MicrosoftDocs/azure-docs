@@ -29,7 +29,7 @@ The following list presents the set of features which are currently available in
 |                   | Choose whether to share chat message history with the participant being added                                   | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   |
 |                   | Get a list of participants in a chat thread                                                                          | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |
 |                   | Delete a chat thread                                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |
-|                   | Given a communication user, get list of chat threads the user is part of                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |
+|                   | Given a communication user, get the list of chat threads the user is part of                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |
 |                   | Get info for a particular chat thread                                                                              | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |
 |                   | Send and receive messages in a chat thread                                                                            | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   |
 |                   | Edit the content of a sent message                                                                                | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |
@@ -38,10 +38,10 @@ The following list presents the set of features which are currently available in
 |                   | Get notified when participants are actively typing a message in a chat thread <br/> *Not available when there are more than 20 members in a chat thread*      | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   |
 |                   | Get all messages in a chat thread <br/>                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |
 |                   | Send unicode emojis as part of message content                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |
-|Real-time signaling (enabled by proprietary signalling package**)|  Subscribe to get real-time updates for incoming messages & other operations in your chat app. To see a list of supported updates, refer to chat concepts [here](https://docs.microsoft.com/en-us/azure/communication-services/concepts/chat/concepts#real-time-signaling)                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  |
+|Real-time signaling (enabled by proprietary signaling package**)|  Subscribe to get real-time updates for incoming messages & other operations in your chat app. To see a list of supported updates, refer to chat concepts [here](https://docs.microsoft.com/en-us/azure/communication-services/concepts/chat/concepts#real-time-signaling)                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  |
 | Event Grid support             | Use the integration with Azure Event Grid and configure your communication service to execute business logic based on chat activity or to plug in a custom push notification service   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |
 | Monitoring        | Use the API request metrics emitted Azure portal to build dashboards, monitor health of your chat app, and set alerts to detect abnormalities      | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |
-|                   | Configure your ACS resource to recieve chat operational logs for monitoring and diagnostic purposes          | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |
+|                   | Configure your Communication Services resource to receive chat operational logs for monitoring and diagnostic purposes          | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |
 
 
 **The proprietary signalling package is implemented using web sockets. It will fallback to long polling if web sockets are unsupported.
