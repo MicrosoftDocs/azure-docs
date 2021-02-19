@@ -99,9 +99,11 @@ Select a principle, which should be your user account.
 >[!IMPORTANT]
 > During the Verifiable Credentials preview, keys and secrets created in your vault should not be modified once created. Deleting, disabling, or updating your keys and secrets will invalidate any credentials issued in the future. Do not modify your keys or secrets during the preview.
 
+Once you've selected the Key Vault and pressed the continue button, you will be dropped into the Create Credential flow.
+
 ## Next Steps
 
-Once you've selected the Key Vault and pressed the continue button, you will be dropped into the Create Credential flow. If you want to complete the credential, please go to this [tutorial.](tutorial-create-samplecard-your-issuer.md)
+ - If you want to complete the credential, please go to this [tutorial.](tutorial-create-samplecard-your-issuer.md)
 
 
 

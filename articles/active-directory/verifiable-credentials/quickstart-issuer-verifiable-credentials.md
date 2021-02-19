@@ -75,7 +75,10 @@ Scan the website's QR code using Authenticator, or tap the website's deep link. 
 
 
 Congratulations! You are now a verified credentialing Ninja. But this is just the beginning of your Verifiable Credentials journey.
+
 ## Next steps
 
-- You can [implement a sample verifier](https://github.com/Azure-Samples/active-directory-verifiable-credentials) that accesses your Ninja Card and verifies your current Ninja status.
-- Or, you can proceed to our [issuer tutorial](tutorial-connect-your-idp-verifiable-credentials.md) to learn how to issue your own type of verifiable credential. Good luck ninjas!
+> [!div class="nextstepaction"]
+> [Implement a sample verifier](https://github.com/Azure-Samples/active-directory-verifiable-credentials)
+> [Issuer tutorial](tutorial-connect-your-idp-verifiable-credentials.md)
+

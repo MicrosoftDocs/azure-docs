@@ -6,7 +6,7 @@ manager: daveba
 ms.service: identity
 ms.subservice: verifiable-credentials
 ms.topic: overview
-ms.date: 02/16/2021
+ms.date: 02/19/2021
 ms.author: barclayn
 # As a developer, IT professional or decision maker I'd like to learn about options that help create solutions that allow customers to manage information about themselves
 ---
