@@ -27,7 +27,7 @@ You might want to consider using LRS cloud service in some of the following case
 - DMS executable cannot be installed in your environment
 - DMS executable does not have file access to database backups
 - No access to host OS is available, or no Administrator privileges
-- Unable to open additional networking ports from your environment to Azure
+- Unable to open networking ports from your environment to Azure
 
 > [!NOTE]
 > Recommended automated way to migrate databases from SQL Server to SQL Managed Instance is using Azure DMS. This service is using the same LRS cloud service at the back end with log shipping in NORECOVERY mode. You should consider manually using LRS to orchestrate migrations in cases when Azure DMS does not fully support your scenarios.
