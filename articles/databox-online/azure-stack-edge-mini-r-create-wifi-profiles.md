@@ -81,7 +81,7 @@ The profile will have a machine-specific component that looks similar to the cod
    			<PMKCacheTTL>720</PMKCacheTTL>
    			<PMKCacheSize>128</PMKCacheSize>
    			<preAuthThrottle>3</preAuthThrottle>
-   			<OneX xmlns="http://www.microsoft.com/networking/OneX/v1">
+   			<OneX xmlns="http://www.contoso.com/networking/OneX/v1">
    				<maxAuthFailures>1</maxAuthFailures>
    				<authMode>machine</authMode>
    				<EAPConfig>
@@ -92,7 +92,6 @@ The profile will have a machine-specific component that looks similar to the cod
 			</OneX>
 		</security>
 	</MSM>
-
   ```
 
 Before you create a Wi-Fi profile for your Azure Stack Edge Mini R device, you need to get the following information from your network administrator:
