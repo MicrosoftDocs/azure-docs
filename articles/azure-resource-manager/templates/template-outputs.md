@@ -2,7 +2,7 @@
 title: Outputs in templates
 description: Describes how to define output values in an Azure Resource Manager template (ARM template) and Bicep file.
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 02/19/2021
 ---
 
 # Outputs in ARM templates
@@ -30,7 +30,21 @@ For JSON, add the `outputs` section to the template. The output value gets the f
 }
 ```
 
+# [Bicep](#tab/bicep)
+
+For Bicep, use the `output` keyword.
+
+In the following example, `publicIP` is the identifier of a public IP address deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+---
+
 If you need to output a property that has a hyphen in the name, use brackets around the name instead of dot notation. For example, use  `['property-name']` instead of `.property-name`.
+
+# [JSON](#tab/json)
 
 ```json
 {
@@ -53,16 +67,6 @@ If you need to output a property that has a hyphen in the name, use brackets aro
 ```
 
 # [Bicep](#tab/bicep)
-
-For Bicep, use the `output` keyword.
-
-In the following example, `publicIP` is the symbolic name of a public IP address deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
-
-```bicep
-output hostname string = publicIP.properties.dnsSettings.fqdn
-```
-
-If you need to output a property that has a hyphen in the name, use brackets around the name instead of dot notation. For example, use  `['property-name']` instead of `.property-name`.
 
 ```bicep
 var user = {
