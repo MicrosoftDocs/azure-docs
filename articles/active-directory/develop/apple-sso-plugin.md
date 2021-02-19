@@ -76,7 +76,7 @@ If you're not using Microsoft Intune for mobile device management, use the follo
 - **Extension ID**: `com.microsoft.azureauthenticator.ssoextension`
 - **Team ID**: (this field is not needed for iOS)
 
-### macOS settings:
+#### macOS settings:
 
 - **Extension ID**: `com.microsoft.CompanyPortalMac.ssoextension`
 - **Team ID**: `UBF8T346G9`
