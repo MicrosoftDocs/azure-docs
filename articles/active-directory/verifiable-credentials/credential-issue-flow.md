@@ -8,7 +8,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can learn how to issue cards using Azure verifiable credentials
@@ -21,7 +21,7 @@ Updated: September 25, 2020
 
 This article describes how to get your NodeJS app or website configured to issue Verifiable Credentials VC using a verifiable credentials NPM package. A [code sample](https://github.com/Azure-Samples/active-directory-verifiable-credentials) is also available on GitHub for your reference.
 
-## Setup access to Azure Key Vault
+## Set up access to Azure Key Vault
 
 To authenticate a credential issuance request to the user, the issuer website will use your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website will need a client ID and client secret that can be used to authenticate to Azure Key Vault.
 
@@ -35,9 +35,9 @@ To authenticate a credential issuance request to the user, the issuer website wi
 
   ![register an application](media/credential-issue-flow/aad-app-registration.png)
 
- After creating your application in Azure AD, you need to grant the application permission to perform operations on your Key Vault. This enables the website to access and use the private keys that are stored in Key Vault.
+ After creating your application in Azure AD, you need to grant the application permission to perform operations on your Key Vault. This step enables the website to access and use the private keys stored in Key Vault.
 
-2 - In the Azure Portal, navigate to your Azure Key Vault, and open the **Access Policies** section. Add a new access policy, using the following details:
+2 - In the Azure portal, navigate to your Azure Key Vault, and open the **Access Policies** section. Add a new access policy, using the following details:
 
 | Detail | Required |
 |--------|---------------|
@@ -46,7 +46,7 @@ To authenticate a credential issuance request to the user, the issuer website wi
 
 ![key vault access policy](media/credential-issue-flow/key-vault-access-policy.png)
 
-At this point you should have a Key Vault and an application with a client ID and client secret. Your application has been granted access to your Azure Key Vault.
+At this point, you should have a Key Vault and an application with a client ID and client secret. Your application has been granted access to your Azure Key Vault.
 
 ## Install the Verifiable Credentials SDK
 
@@ -65,7 +65,7 @@ The VC SDK must be used in a NodeJS server. You can use the SDK to send a creden
 
 1. Issuance requests are sent by displaying a QR code and/or a deep link, which the user can open using Microsoft Authenticator.
 2. When the QR code or deep link is opened, Authenticator will send an `HTTP GET` request to your server to retrieve the details of an issuance request. This helps keep the size of the QR code relatively small so it can be easily scanned.
-3. After retrieving an issuance request, Authenticator will execute an Verifiable Credential issuance process according to the rules described in your rules file. When credential issuance completes, Authenticator will receive and store the new verifiable credential.
+3. After retrieving an issuance request, Authenticator will execute a Verifiable Credential issuance process according to the rules described in your rules file. When credential issuance completes, Authenticator will receive and store the new verifiable credential.
 
 ![issuer request diagram](media/credential-issue-flow/issuer-request-diagram.png)
 
@@ -86,7 +86,7 @@ openid://vc/?request_uri=https%3A%2F%2Fmyserver.com%2Fissue-request
 | --------- | ----------- |
 | `request_uri` | A URL that points to your server, where an issuance request can be retrieved. The example given here is `https://myserver.com/issue-request`. |
 
-You don't need the VC SDK to construct this string. Use an open source QR code generator to convert the request into a QR code. This can be done on the server or in client side using javascript in the browser.
+You don't need the VC SDK to construct this string. Use an open-source QR code generator to convert the request into a QR code. This can be done on the server or in client side using JavaScript in the browser.
 
 ## Generate the issuance request
 
@@ -173,7 +173,7 @@ var jwt = issueRequest.request;
 | --------- | ----------- |
 | `crypto` | The crypto object created above. |
 | `...schema.uri` | The `type` of your Verifiable Credential you are going to issue that you added to your rules file. | 
-| `...manifest` | The **Issue credential URL** for your credential, which you copied from the Azure Portal in previous steps. |
+| `...manifest` | The **Issue credential URL** for your credential, which you copied from the Azure portal in previous steps. |
 | `.allowIssuance()` | Include credential issuance requests. |
 
 Once you've implemented the steps above, you're ready to issue yourself a Verifiable Credential. You are now well on your way to building a more trustworthy internet. [Continue onto the next article to use Microsoft Authenticator to get your Verifiable Credential](credential-authenticator.md).

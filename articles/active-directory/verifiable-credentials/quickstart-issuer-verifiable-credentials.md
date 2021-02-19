@@ -6,12 +6,16 @@ ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
 ms.topic: quickstart
-ms.date: 02/18/2021
+ms.date: 02/19/2021
 ---
 
 # Quickstart: Issue verifiable credentials using a sample app
 
 Get started with Azure Active Directory Verifiable Credentials by using the Verifiable Credentials sample app to issue your first verifiable credential.
+
+In this quickstart, we go over the steps needed to issue your first verifiable credential: a Verified Credential Ninja Card. You can then use this card to prove to a verifier that you are a Verified Credential Ninja, mastered in the art of digital credentialing.
+
+![This is an example card](/media/quickstart-verifiable-credentials/ninja-card.png)
 
 ## Prerequisites
 
@@ -22,31 +26,11 @@ Get started with Azure Active Directory Verifiable Credentials by using the Veri
 - [Python](https://www.python.org/downloads/)
 - [NGROK](https://ngrok.com/)
 
-##
-
-
-
-Welcome to Verifiable Credentials, powered by Azure. In this hello world tutorial, we'll teach you to issue your first verifiable credential: a Verified Credential Ninja Card. You can then use this card to prove to a verifier that you are a Verified Credential Ninja, mastered in the art of digital credentialing.
-
-![This is an example card](/media/quickstart-verifiable-credentials/ninja-card.png)
-
-In order to complete this tutorial, you'll need the following:
-
-- NodeJS version `10.14` or higher installed on your machine.
-- Git installed on your machine.
-- An Android device.
-- [ngrok](https://ngrok.com/) installed on your machine.
-
 ## Download the sample code
 
-To issue yourself a Verified Credential Ninja Card, you'll need to run a simple website on your local machine. The website will be used to initiate a verifiable credential issuance process. We've provided a simple website, written in NodeJS, that we'll use througout this tutorial.
+To issue yourself a Verified Credential Ninja Card, you'll need to run a website on your local machine. The website will be used to initiate a verifiable credential issuance process. We've provided a simple website, written in NodeJS, that we'll use throughout this tutorial.
 
-<div class="step" style="margin-bottom:10px">
-<div class="numberCircle">1</div>
-<div class="singleline-step">
 First, download our sample code from GitHub [here](https://github.com/Azure-Samples/active-directory-verifiable-credentials), or clone the repository to your local machine:
-</div>
-</div>
 
 ```bash
 git clone https://github.com/Azure-Samples/active-directory-verifiable-credentials.git
@@ -58,11 +42,8 @@ You may want to familiarize yourself with the code in the sample websites. The `
 
 When you run the sample website, your android device will need to communicate with the Node server running on your local machine. To do this, we recommend using [ngrok](https://ngrok.com/). Ngrok is an easy way to expose your local development server though the public web. 
 
-<div class="step" style="margin-bottom:10px">
-<div class="numberCircle">2</div>
-<div class="multiline-step">
-After you've installed ngrok, expose your local Node webiste over https using ngrok. By default the sample website runs on port `8081`. Ngrok will output two forwarding URLs for your server. Copy the URL with the `https://` prefix.</div>
-</div>
+After you've installed ngrok, expose your local Node website over https using ngrok. By default the sample website runs on port `8081`. Ngrok will output two forwarding URLs for your server. Copy the URL with the `https://` prefix.
+
 
 ```bash
 ngrok http 8081
@@ -73,11 +54,7 @@ Now that your local port is exposed through ngrok, the sample automatically uses
 
 You're now ready to run the sample website and issue yourself a Verified Credential Ninja Card. 
 
-<div class="step" style="margin-bottom:10px">
-<div class="numberCircle">3</div>
-<div class="multiline-step">
-Make sure you've navigated to the `issuer` folder. Install all necessary packages, and start the node server. Navigate to the website's homepage, which runs on port `8081` by default.</div>
-</div>
+Make sure you've navigated to the `issuer` folder. Install all necessary packages, and start the node server. Navigate to the website's homepage, which runs on port `8081` by default.
 
 ```bash
 cd ./issuer
@@ -96,6 +73,9 @@ Next, issue yourself a verifiable credential. The sample website displays a QR c
 
 Scan the website's QR code using Authenticator, or tap the website's deep link. To get your Ninja Card, you'll be prompted to sign in with your Credential Ninja account. Don't worry, you can quickly create an account if necessary. After you've signed in, accept your Verified Credential Ninja Card.
 
+
+Congratulations! You are now a verified credentialing Ninja. But this is just the beginning of your Verifiable Credentials journey.
 ## Next steps
 
-Congratulations! You are now a verified credentialing Ninja. But this is just the beginning of your Verifiable Credentials journey. Next, you can [implement a sample verifier](https://github.com/Azure-Samples/active-directory-verifiable-credentials) that accesses your Ninja Card and verifies your current Ninja status. Or, you can proceed to our [issuer tutorial](tutorial-connect-your-idp-verifiable-credentials.md) to learn how to issue your own type of verifiable credential. Good luck ninjas!
+- You can [implement a sample verifier](https://github.com/Azure-Samples/active-directory-verifiable-credentials) that accesses your Ninja Card and verifies your current Ninja status.
+- Or, you can proceed to our [issuer tutorial](tutorial-connect-your-idp-verifiable-credentials.md) to learn how to issue your own type of verifiable credential. Good luck ninjas!

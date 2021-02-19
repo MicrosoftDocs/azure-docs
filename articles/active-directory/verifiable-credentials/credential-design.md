@@ -26,7 +26,12 @@ Cards also contain customizable fields that you can use to let users know the pu
 
 ## Create a credential display file
 
-Much like the rules file, the display file is a simple JSON file that describes how the contents of your Verifiable Credentials should be displayed in the Microsoft Authenticator app. Note that this display model is only used by Microsoft Authenticator at this time. Over time we'll be working with standards communities to define new display models that are supported by many identity wallet apps. The display file has the following structure.
+Much like the rules file, the display file is a simple JSON file that describes how the contents of your Verifiable Credentials should be displayed in the Microsoft Authenticator app. 
+
+>[!NOTE]
+> At this time, this display model is only used by Microsoft Authenticator.
+
+The display file has the following structure.
 
 ```json
 {

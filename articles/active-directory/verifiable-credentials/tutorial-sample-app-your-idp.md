@@ -18,7 +18,7 @@ ms.author: barclayn
 
 Now that you have your Azure tenant set up with the Verifiable Credential service, we will walk you through changing the configuration in your local sample code to your own Verifiable Credential service we set up in the previous section. 
 
-In this article you will learn how to:
+In this article you learn how to:
 
 - Connect your identity provider
 - Create the Ninja Credential Rules and Display File
@@ -54,7 +54,7 @@ Now that you've completed registering the application, write down the Applicatio
 
 ![application client ID](/media/tutorial-sample-app-your-idp/aWyalLO.png)
 
-Now select the Endpoints button and copy the OpenID Connect metadata document URI. You will need this for the next section. 
+Now select the Endpoints button and copy the OpenID Connect metadata document URI. You will need this information for the next section. 
 
 ![issuer endpoints](/media/tutorial-sample-app-your-idp/aGCw9I7.png)
 
@@ -62,9 +62,9 @@ Now select the Endpoints button and copy the OpenID Connect metadata document UR
 
 Now let's create a new Ninja credential with your own IDP. 
 
-Replace the client_id and configuration with the two objects we copied in the previoues section. 
+Replace the client_id and configuration with the two objects we copied in the previous section. 
 
-Configuration equates to the OpenID Conect metadata document URI. 
+Configuration equates to the OpenID Connect metadata document URI. 
 
 :::info
 **ISSUE** By using the Oauth 2.0 endpoint we can only include first and last name from our IDP. For this portion of the tutorial that is ok for now. Check out the Customize ID token claims for more information. 
@@ -96,7 +96,7 @@ Configuration equates to the OpenID Conect metadata document URI.
 
 Follow same instructions from before and get the contract URL.
 
-Save the contract URL, we will need that in the next section. 
+Save the contract URL, we will need it in the next section. 
 
 ```
 https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a33457/portableIdentities/contracts/MyIDPNinja
@@ -108,7 +108,7 @@ https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a
 
 To authenticate a credential issuance request to the user, the issuer website will use your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website will need a client ID and client secret that can be used to authenticate to Azure Key Vault.
 
-![Register node app](/media/tutorial-sample-app-your-idp/cvkOIRk.png)
+![Register node app](/media/tutorial-sample-app-your-idp/cvkoirk.png)
 
 Copy down your Application (client) ID as you will need this later to update your Sample Node app.
 
@@ -116,7 +116,7 @@ Copy down your Application (client) ID as you will need this later to update you
 622d0251-9735-4ce2-b9cd-c09f69c2ff00
 ```
 
-![application client id](/media/tutorial-sample-app-your-idp/JQ6a7lv.png)
+![application client id](/media/tutorial-sample-app-your-idp/jq6a7lv.png)
 
 
 ### Generate a client secret
@@ -124,20 +124,19 @@ Copy down your Application (client) ID as you will need this later to update you
 - Certificates & secrets
 - New client secret
 - Add description: "Node app client secret"
-- Expires: in 1 year
+- Expires: in one year
 
 Copy down the SECRET as you will need this to update your Sample Node app. 
 
-:::info
-**ISSUE** YOU HAVE ONE SHOT TO COPY DOWN THE SECRET. THEN THE SECRET IS ONE WAY HASHED. DON'T COPY THE ID.
-::::
+>[!WARNING]
+> You have one chance to copy down the secret. The secret is one way hashed after this. Do not copy the ID. 
+
 
 ```
 tP1WN~872_4GQR42nGL~GAgx__ASKdAbp6
 ```
 
-![Certificates and secrets](/media/tutorial-sample-app-your-idp/NFsKid8.png)
-
+![Certificates and secrets](/media/tutorial-sample-app-your-idp/nfskid8.png)
 
 After creating your application and client secret in Azure AD, you need to grant the application permission to perform operations on your Key Vault. This enables the website to access and use the private keys that are stored in Key Vault.
 
@@ -150,7 +149,7 @@ After creating your application and client secret in Azure AD, you need to grant
 
 Don't forget to press SAVE.
 
-![assign key vault permissions](/media/tutorial-sample-app-your-idp/Si53eL7.png)
+![assign key vault permissions](/media/tutorial-sample-app-your-idp/si53el7.png)
 
 ## Summary and next steps
 

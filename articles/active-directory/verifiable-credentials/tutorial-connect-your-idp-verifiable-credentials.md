@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I want to connect verifiable credentials to work with my identity provider
@@ -110,7 +110,7 @@ To authenticate a credential issuance request to the user, the issuer website wi
 
 ![register your node app](media/tutorial-connect-your-idp-verifiable-credentials/cvkOIRk.png)
 
-Copy down your Application (client) ID as you will need this later to update your Sample Node app.
+Copy down your Application (client) ID as you will need it later to update your Sample Node app.
 
 ```
 622d0251-9735-4ce2-b9cd-c09f69c2ff00
@@ -124,13 +124,12 @@ Copy down your Application (client) ID as you will need this later to update you
 - Certificates & secrets
 - New client secret
 - Add description: "Node app client secret"
-- Expires: in 1 year
+- Expires: in one year
 
-Copy down the SECRET as you will need this to update your Sample Node app. 
+Copy down the SECRET as you will need it to update your Sample Node app. 
 
-:::info
-**ISSUE** YOU HAVE ONE SHOT TO COPY DOWN THE SECRET. THEN THE SECRET IS ONE WAY HASHED. DON'T COPY THE ID.
-::::
+>[!WARNING]
+> You have one chance to copy the secret. The secret is one way hashed. Do not copy the ID.
 
 ```
 tP1WN~872_4GQR42nGL~GAgx__ASKdAbp6
@@ -139,7 +138,7 @@ tP1WN~872_4GQR42nGL~GAgx__ASKdAbp6
 ![Certificates and secrets](media/tutorial-connect-your-idp-verifiable-credentials/NFsKid8.png)
 
 
-After creating your application and client secret in Azure AD, you need to grant the application permission to perform operations on your Key Vault. This enables the website to access and use the private keys that are stored in Key Vault.
+After creating your application and client secret in Azure AD, you need to grant the application permission to perform operations on your Key Vault. This step enables the website to access and use the private keys that are stored in Key Vault.
 
 - Go to Key Vault.
 - Access Policies on left nav

@@ -34,7 +34,7 @@ If you don't have any accounts configured, there will be a blue button on the mi
 
 ## Issuance flow
 
-Now that you've scanned a QR code, you will go through the issuance flow based on the rules file that was set up in the earlier articles. The following is an example of what you should see in Authenticator.
+Now that you've scanned a QR code, you will go through the issuance flow based on the rules file that was set up in the earlier articles. The following image is an example of what you should see in Authenticator.
 
 ![Add a card](/media/credential-authenticator/add-card.png)
 

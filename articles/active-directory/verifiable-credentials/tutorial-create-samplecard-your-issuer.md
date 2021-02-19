@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 02/12/2021
+ms.date: 02/19/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can learn how to issue cards using Azure verifiable credentials
@@ -46,7 +46,7 @@ Open up Visual Studio Code and create the Rules JSON file with the following mod
 }
 ```
 
-Create another file for the Display file. You don't need to change anything here, please follow the how to article on how to create your own custom Verifiable Credential design. 
+Create another file for the Display file. You don't need to change anything here,  follow the how to article on how to create your own [custom Verifiable Credential design](credential-design.md).
 
 ```json=
 {
@@ -95,7 +95,7 @@ Select rules file upload. If you haven't created a blob storage resource lets do
 - account kind: Storage V2
 Why did we choose this?
 - performance: Standard
-- replication: Locally-redundant  
+- replication: Locally redundant  
 - location: US East 
 - resource group: Choose the resource group for this project. 
 
@@ -213,15 +213,14 @@ $ node ./app.js
 
 Open up your url from ngrok and test issuing the VC to yourself.
 
-:::info
-**ISSUE** If you haven't done DNS Binding we are experiencing and failure and this is not working. Need to make sure Nithya's fix is in both iOS and Android. 
-::::
+>[!IMPORTANT]
+> If you haven't done DNS Binding we are experiencing and failure and this is not working. Need to make sure Nithya's fix is in both iOS and Android.
 
 ![NGROK forwarding endpoints](media/tutorial-create-samplecard-your-issuer/nL4PleI.png)
 
 ## Test Verifying the VC with Sample Code
 
-Open up Settings in the Verifiable Credentials blade in Azure Portal. Copy the Issuer identifier.
+Open up Settings in the Verifiable Credentials blade in Azure portal. Copy the Issuer identifier.
 
 ![copy the tenant identifier](media/tutorial-create-samplecard-your-issuer/ovlIGdJ.png)
 

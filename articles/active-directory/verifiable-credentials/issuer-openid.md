@@ -42,7 +42,7 @@ Examples of the HTTP requests sent to your identity provider are provided below.
 
 To receive the Verifiable Credential, your users will need to sign into your IDP from the Microsoft Authenticator app and accept permissions for the Verifiable Credential service.
 
-To enable this exchange, register the Verifiable Credential service with your identity provider as a client application. If you are using Azure AD you can find the instructions [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Use the following values when registering.
+To enable this exchange, register the Verifiable Credential service with your identity provider as a client application. If you are using Azure AD, you can find the instructions [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Use the following values when registering.
 
 | Setting | Value |
 | ------- | ----- |
@@ -71,7 +71,7 @@ Connection: Keep-Alive
 | `state` | Must be returned to the client according to the OpenID Connect standard. |
 | `nonce` | Must be returned as a claim in the ID token according to the OpenID Connect standard. |
 
-Upon receiving the authorization request, your identity provider should authenticate the user and perform any steps that must occur before a Verifiable Credential is issued. You may customize the credential issuance process to meet your needs. You may ask the user to provide additional information, accept terms of service, pay for their credential, and more. Once all steps have been completed, respond to the authorization request by redirecting to the redirect URI as follows.
+When it receives an authorization request, your identity provider should authenticate the user and perform any steps that must occur before a Verifiable Credential is issued. You may customize the credential issuance process to meet your needs. You may ask the user to provide additional information, accept terms of service, pay for their credential, and more. Once all steps have been completed, respond to the authorization request by redirecting to the redirect URI as follows.
 
 ```HTTP
 portableidentity://verify?code=nbafhjbh1ub1yhbj1h4jr1&state=12345
@@ -135,4 +135,4 @@ The ID token must use the JWT compact serialization format, and must not be encr
 | `exp` | Must contain the expiry time of the ID token. |
 | `iat` | Must contain the time at which the ID token was issued. |
 | `nonce` | The value included in the authorization request. |
-| Additional claims | The ID token should contain any additional claims whose values will be included in the Verifiable Credential that will be issued. This is where you should include any attributes about the user, such as their name. |
+| Additional claims | The ID token should contain any additional claims whose values will be included in the Verifiable Credential that will be issued. This section is where you should include any attributes about the user, such as their name. |
