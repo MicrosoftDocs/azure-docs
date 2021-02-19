@@ -48,7 +48,7 @@ When you deploy an Azure Managed Instance for Apache Cassandra cluster, the serv
 
 1. From the Azure portal, open the Virtual Network where you deployed the managed instance and the Grafana Server. You should see a VM scale-set instance named **cassandra-jump (instance 0)**. This Prometheus metrics are hosted in this VM scale-set. Make a note of the IP address of this instance:
 
-   :::image type="content" source="./media/visualize-prometheus-grafana/prometheus.png" alt-text="Get Prometheus" border="true":::
+   :::image type="content" source="./media/visualize-prometheus-grafana/prometheus-instance-address.png" alt-text="Get Prometheus instance's IP address." border="true":::
 
 1. Connect to your newly created Ubuntu server by using [Azure CLI](../virtual-machines/linux/ssh-from-windows#ssh-clients) or your preferred client tool to connect via SSH.
 
@@ -94,19 +94,19 @@ When you deploy an Azure Managed Instance for Apache Cassandra cluster, the serv
 
 1. Enter the `./grafana.sh` command in the command prompt to install Grafana.
 
-1. After installation is complete, Grafana will be available at port 3000 in the server's IP address as shown in the following screenshot:
+1. After installation is complete, Grafana will be available at **port 3000** in the server's IP address as shown in the following screenshot:
 
-   :::image type="content" source="./media/visualize-prometheus-grafana/grafana.png" alt-text="View Grafana" border="true":::
+   :::image type="content" source="./media/visualize-prometheus-grafana/open-grafana-port.png" alt-text="Run Grafana at port 3000." border="true":::
 
 1. You can choose from open-source dashboards created for Apache Cassandra in Grafana such as the [cluster-overview](https://github.com/TheovanKraay/cassandra-exporter/blob/master/grafana/instaclustr/cluster-overview.json) JSON file. Download and import the dashboard's JSON definition into Grafana:
 
-   :::image type="content" source="./media/visualize-prometheus-grafana/grafana-import.png" alt-text="Import Grafana" border="true":::
+   :::image type="content" source="./media/visualize-prometheus-grafana/grafana-import.png" alt-text="Import Grafana JSON definition." border="true":::
 
-   :::image type="content" source="./media/visualize-prometheus-grafana/grafana-import-json.png" alt-text="Import Grafana JSON" border="true":::
+   :::image type="content" source="./media/visualize-prometheus-grafana/grafana-upload-json.png" alt-text="Upload Grafana JSON definition." border="true":::
 
 1. You can then monitor your cassandra managed instance cluster with the chosen dashboard:
 
-   :::image type="content" source="./media/visualize-prometheus-grafana/cassandra-monitor.gif" alt-text="View Cassandra Dashboard" border="true":::
+   :::image type="content" source="./media/visualize-prometheus-grafana/monitor-cassandra-metrics.gif" alt-text="View the Cassandra managed instance metrics in the dashboard." border="true":::
 
 ## Next steps
 
