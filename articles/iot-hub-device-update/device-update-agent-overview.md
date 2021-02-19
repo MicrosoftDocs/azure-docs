@@ -95,7 +95,7 @@ install or update the specified Debian package(s).
 
 ## Self-update Device update agent
 
-The device update agent and its dependencies can be updated through the Device Update for IoT Hub pipeline. If you are using an image-based update, include the latest device update agent in your new image. If you are using a package-based update, include the device update agent and its desired version in the apt manifest like any other package. [Learn more](device-update-apt-manifest.md) about apt manifest. You can check the version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of the IoT device. [Learn more about device properties here](device-update-plug-and-play.md#device-properties).
+The device update agent and its dependencies can be updated through the Device Update for IoT Hub pipeline. If you are using an image-based update, include the latest device update agent in your new image. If you are using a package-based update, include the device update agent and its desired version in the apt manifest like any other package. [Learn more](device-update-apt-manifest.md) about apt manifest. You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of the IoT device. [Learn more about device properties here](device-update-plug-and-play.md#device-properties).
 
 
 ## Next Steps
