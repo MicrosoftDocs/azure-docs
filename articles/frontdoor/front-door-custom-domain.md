@@ -65,7 +65,7 @@ To create a CNAME record with the afdverify subdomain:
     |---------------------------|-------|---------------------------------|
     | afdverify.www.contoso.com | CNAME | afdverify.contoso-frontend.azurefd.net |
 
-    - Source: Enter your custom domain name, including the afdverify subdomain, in the following format: afdverify._&lt;custom domain name&gt;_. For example, afdverify.www.contoso.com.
+    - Source: Enter your custom domain name, including the afdverify subdomain, in the following format: afdverify._&lt;custom domain name&gt;_. For example, afdverify.www.contoso.com. If you are mapping a wildcard domain, such as *.contoso.com, the source value is the same as it would be without the wildcard, i.e. afdverify.contoso.com.
 
     - Type: Enter *CNAME*.
 
