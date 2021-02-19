@@ -70,6 +70,9 @@ This section shows you how to create an event trigger within the Azure Data Fact
 
 In the preceding example, the trigger is configured to fire when a blob path ending in .csv is created in the folder event-testing in the container sample-data. The **folderPath** and **fileName** properties capture the location of the new blob. For example, when MoviesDB.csv is added to the path sample-data/event-testing, `@triggerBody().folderPath` has a value of `sample-data/event-testing` and `@triggerBody().fileName` has a value of `moviesDB.csv`. These values are mapped in the example to the pipeline parameters `sourceFolder` and `sourceFile` which can be used throughout the pipeline as `@pipeline().parameters.sourceFolder` and `@pipeline().parameters.sourceFile` respectively.
 
+> [!NOTE]
+> If you are creating your pipeline and trigger in Azure Synapse Analytics you must use `@trigger().outputs.body.fileName` and `@trigger().outputs.body.folderPath` as parameters to capture blob information instead of `@triggerBody().fileName` and `@triggerBody().folderPath`.
+
 ## JSON schema
 
 The following table provides an overview of the schema elements that are related to event-based triggers:
