@@ -19,7 +19,7 @@ bandwidth and helps reduce the time to download and install the update. Package
 updates typically allow for less downtime of devices when applying an update and
 avoid the overhead of creating images.
 
-This tutorial walks you through the steps to complete an end-to-end package-based update through Device Update for IoT Hub. We will use a sample package agent for Ubuntu Server 18.04 x64 for this tutorial. This OS platform was chosen because it's the most common scenario for Azure IoT solutions. Even if you plan on using a different OS platform configuration, this tutorial is still useful to learn about the tools and concepts in Device Update for IoT Hub. Complete this introduction to an end-to-end update process, then choose your preferred form of updating and OS platform to dive into the details.
+This tutorial walks you through the steps to complete an end-to-end package-based update through Device Update for IoT Hub. We will use a sample package agent for Ubuntu Server 18.04 x64 for this tutorial. This OS platform was chosen because it's the most common scenario for Azure IoT solutions. Even if you plan on using a different OS platform configuration, this tutorial is still useful to learn about the tools and concepts in Device Update for IoT Hub. Complete this introduction to an end-to-end update process, then choose your preferred form of updating and OS platform to dive into the details. You can use Device Update for IoT Hub to update an Azure IoT or Azure IoT Edge device using this tutorial. 
 
 In this tutorial you will learn how to:
 > [!div class="checklist"]
@@ -35,63 +35,62 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 * Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
-* A VM or an IoT device running Ubuntu Server 18.04 x64, connected to IoT Hub. 
+* An Azure IoT or Azure IoT Edge device running Ubuntu Server 18.04 x64, connected to IoT Hub.
+   * If you are using an Azure IoT Edge device, make sure it is on v1.2.0 of the Edge runtime or higher 
+* If you are not using an Azure IoT Edge device, then [install the latest `aziot-identity-service` package (preview) on your IoT device](https://github.com/Azure/iot-identity-service/actions/runs/575919358) 
 * [Device Update account and instance linked to the same IoT Hub as above.](create-device-update-account.md)
 
-## Download update agent packages
+## Configure device update package repository
 
-Download the latest .deb packages from the specified location and copy them to
-your pre-provisioned Azure IoT or Azure IoT Edge device running Ubuntu Server 18.04 x64.
+1. Install the repository configuration that matches your device operating system. For this tutorial, this will be Ubuntu Server 18.04. 
+   
+   ```shell
+      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+   ```
 
-Delivery Optimization Plugin: Download [here](https://github.com/microsoft/do-client/releases)
+2. Copy the generated list to the sources.list.d directory.
 
-Delivery Optimization SDK: Download [here](https://github.com/microsoft/do-client/releases)
+   ```shell
+      sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```
+   
+3. Install the Microsoft GPG public key.
 
-Delivery Optimization Simple Client: Download [here](https://github.com/microsoft/do-client/releases)
-
-Device Update Agent: Download [here](https://github.com/Azure/iot-hub-device-update)
+   ```shell
+      curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+      sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```
 
 ## Install Device Update .deb agent packages
 
-1. Copy over your downloaded .deb packages to your IoT device from your host machine using PowerShell.
+1. Update package lists on your device
 
    ```shell
-   PS> scp '<PATH_TO_DOWNLOADED_FILES>\*.deb' <USERNAME>@<EDGE IP ADDRESS>:~
+      sudo apt-get update
    ```
 
-2. Use apt-get to install the packages in the specified order
-
-   * Delivery Optimization Simple Client (ms-doclient-lite)
-   * Delivery Optimization SDK (ms-dosdkcpp)
-   * Delivery Optimization Plugin for APT (ms-dopapt)
-   * ADU Agent (adu-agent)
+2. Install the deviceupdate-agent package and its dependencies
 
    ```shell
-   sudo apt-get -y install ./<NAME_OF_PACKAGE>.deb
+      sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
    ```
 
-## Configure Device Update Agent
+Device Update for Azure IoT Hub software packages are subject to the following license terms:
+   * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
+   * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+   
+Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use that package.
 
-1. Open the Device Update configuration file
+## Configure Device Update Agent using Azure IoT Identity service (Preview)
 
-   ```shell
-   sudo nano /etc/adu/adu-conf.txt
-   ```
+1. If you are using an IoT Edge device, run `sudo iotedge init` to interactively set up the configuration through a manual provisioning method using connection string or through device provisioning service.
 
-2. Provide your primary connection string in the configuration file. To find a device's connection string go to Azure portal. Go to IoT device blade in IoT Hub. Click on device details page after clicking on the device name.
+2. If you are not using an IoT Edge device, run `sudo aziotctl init` to interactively set up the configuration through a manual provisioning method using connection string or through device provisioning service.
 
-3. Press Ctrl+X, Y, Enter to save and close the file
-
-4. Restart the Device Update Agent daemon
-
-   ```shell
-   sudo systemctl restart adu-agent
-   ```
-
-5. Optionally, you can verify that the services are running by
+3. Optionally, you can verify that the services are running by
 
    ```shell
-   sudo systemctl list-units --type=service | grep 'adu-agent\.service\|do-client-lite\.service'
+   sudo systemctl list-units --type=service | grep 'adu-agent\.service\|deliveryoptimization-agent\.service'
    ```
 
 The output should read:
@@ -99,7 +98,7 @@ The output should read:
 ```markdown
 adu-agent.service                   loaded active running Device Update for IoT Hub Agent daemon.
 
-do-client-lite.service               loaded active running do-client-lite.service: Performs content delivery optimization tasks   `
+deliveryoptimization-agent.service               loaded active running deliveryoptimization-agent.service: Performs content delivery optimization tasks   `
 ```
 
 ## Add a tag to your device
@@ -120,7 +119,9 @@ do-client-lite.service               loaded active running do-client-lite.servic
 
 ## Import update
 
-1. Download the following apt manifest and import manifest files. This apt manifest will install v1.0.0 of foo package to your IoT device. 
+1. Download the following [apt manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-apt-manifest.json) and [import manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-1.0.1-importManifest.json). This apt manifest will install the latest available version of `libcurl4-doc package` to your IoT device. 
+
+   Alternatively, you can download this [apt manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-7.58-apt-manifest.json) and [import manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-2-2.0.1-importManifest.json). This will install specific version v7.58.0 of the `libcurl4-doc package` to your IoT device. 
 
 2. In Azure portal, select the Device Updates option under Automatic Device Management from the left-hand navigation bar in your IoT Hub.
 
@@ -197,9 +198,15 @@ do-client-lite.service               loaded active running do-client-lite.servic
 
 You have now completed a successful end-to-end package update using Device Update for IoT Hub on a Ubuntu Server 18.04 x64 device. 
 
+## Bonus steps
+
+1. Download the following [apt manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-remove-apt-manifest.json) and [import manifest file](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-1.0.2-importManifest.json). This apt manifest will remove the installed `libcurl4-doc package` from your IoT device. 
+
+2. Repeat the "Import update" and "Deploy update" sections
+
 ## Clean up resources
 
-When no longer needed, clean up your device update account, instance, IoT Hub and IoT device. 
+When no longer needed, clean up your device update account, instance, IoT Hub and IoT device. You can do so, by going to each individual resource and selecting "Delete". Note that you need to clean up a device update instance before cleaning up the device update account. 
 
 ## Next steps
 
