@@ -42,7 +42,8 @@ If you're not able to add a co-administrator, contact a service administrator or
 3. Select the **Migrate to ARM** blade.
 
     > [!NOTE]
-    > If migrating a Cloud Services (classic) located inside a virtual network (classic), a banner message will appear prompting you to move the virtual network (classic) first. You will be brought to the virtual network (classic) blade to complete the remainder of the migration for both the virtual network (classic) and the Cloud Services (classic).
+    > If migrating a Cloud Services (classic) located inside a virtual network (classic), a banner message will appear prompting you to move the virtual network (classic) blade.
+    > You will be brought to the virtual network (classic) blade to complete the migration of both the virtual network (classic) and the Cloud Services (classic) deployments within it.
     > :::image type="content" source="media/in-place-migration-portal-2.png" alt-text="Image shows moving a virtual network classic in the Azure portal.":::
  
 
@@ -66,13 +67,13 @@ If you're not able to add a co-administrator, contact a service administrator or
 
     :::image type="content" source="media/in-place-migration-portal-5.png" alt-text="Image shows validation failure error.":::
 
-      After Prepare, all Cloud Services in a virtual network is available for read operations using both Cloud Services (classic) and Cloud Services (extended support) Azure portal blade. 
+      After Prepare, all Cloud Services in a virtual network is available for read operations using both Cloud Services (classic) and Cloud Services (extended support) Azure portal blade. The Cloud Service (extended support) deploy can now be tested to ensure proper functioning before finalizing the migration. 
  
     :::image type="content" source="media/in-place-migration-portal-6.png" alt-text="Image shows testing APIs in portal blade.":::
 
 6.	**(Optional)** Abort migration. 
     
-    If you chose to discontinue the migration, use the **Abort** button to roll back the previous steps.   
+    If you chose to discontinue the migration, use the **Abort** button to roll back the previous steps. The Cloud Services (classic) deploy is then unlocked for all CRUD operations.
 
     :::image type="content" source="media/in-place-migration-portal-7.png" alt-text="Image shows validation passing.":::
 
@@ -85,7 +86,7 @@ If you're not able to add a co-administrator, contact a service administrator or
     >[!IMPORTANT]
     > Once you commit to the migration, there is no option to roll back. 
     
-    Type in "yes" to confirm and commit to the migration. The migration is now complete. You should now see the migrated Cloud Services (classic) visible in the Cloud Services (extended support) blade.  
+    Type in "yes" to confirm and commit to the migration. The migration is now complete. The migrated Cloud Services (extended support) deployment is unlocked for all operations". 
 
 ## Next steps
-[Enable remote desktop](enable-rdp.md) for your new Cloud Services (extended support) deployment.
+Review the [Post migration changes](in-place-migration-overview.md#post-migration-changes) section to see changes in deployment files, automation and other attributes of your new Cloud Services (extended support) deployment. 
