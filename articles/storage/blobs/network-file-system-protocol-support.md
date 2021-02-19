@@ -22,22 +22,22 @@ It's always been a challenge to run large-scale legacy workloads, such as High P
 
 But now, Blob Storage supports a hierarchical namespace, and when combined with NFS 3.0 protocol support, Azure makes it much easier to run legacy applications on top of large-scale cloud object storage. 
 
-## NFS 3.0 support depends on a hierarchical namespace
+## NFS 3.0 and the hierarchical namespace
 
-NFS 3.0 protocol support depends on a hierarchical namespace. A hierarchical namespace was introduced to Blob Storage by Azure Data Lake Storage Gen2. It organizes objects (files) into a hierarchy of directories and subdirectories in the same way that the file system on your computer is organized.  The hierarchical namespace scales linearly and doesn't degrade data capacity or performance. Different protocols extend from the hierarchical namespace. The NFS 3.0 protocol is one of the these available protocols.   
+NFS 3.0 protocol support requires blobs to be organized into on a hierarchical namespace. You can enable a hierarchical namespace when you create a storage account. The ability to use a hierarchical namespace was introduced by Azure Data Lake Storage Gen2. It organizes objects (files) into a hierarchy of directories and subdirectories in the same way that the file system on your computer is organized.  The hierarchical namespace scales linearly and doesn't degrade data capacity or performance. Different protocols extend from the hierarchical namespace. The NFS 3.0 protocol is one of the these available protocols.   
 
 > [!div class="mx-imgBorder"]
 > ![hierarchical namespace](./media/network-protocol-support/hierarchical-namespace-and-nfs-support.png)
   
 ## Data stored as block blobs
 
-If you enable NFS 3.0 protocol support, all of the data in your storage account will be stored as block blobs. Block blobs are optimized for processing large amounts of read-heavy data efficiently. Block blobs are comprised of blocks. Each block is identified by a block ID. A block blob can include up to 50,000 blocks. Each block in a block blob can be a different size, up to the maximum size permitted for the service version that your account uses.
+If you enable NFS 3.0 protocol support, all of the data in your storage account will be stored as block blobs. Block blobs are optimized to efficiently process large amounts of read-heavy data. Block blobs are comprised of blocks. Each block is identified by a block ID. A block blob can include up to 50,000 blocks. Each block in a block blob can be a different size, up to the maximum size permitted for the service version that your account uses.
 
 When your application makes a request by using the NFS 3.0 protocol, that request is translated into combination of block blob operations. For example, NFS 3.0 read Remote Procedure Call (RPC) requests are translated into [Get Blob](/rest/api/storageservices/get-blob) operation. NFS 3.0 write RPC requests are translated into a combination of [Get Block List](/rest/api/storageservices/get-block-list), [Put Block](/rest/api/storageservices/put-block), and [Put Block List](/rest/api/storageservices/put-block-list).
 
 ## General workflow: Mounting a storage account container
 
-To mount a storage account container, you'll have to do these things.
+Your Windows or Linux clients can mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. To mount a storage account container, you'll have to do these things.
 
 1. Register NFS 3.0 protocol feature with your subscription.
 
@@ -127,4 +127,6 @@ A transaction is not charged during the preview. Pricing for transactions is sub
 
 ## Next steps
 
-To get started, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
+- To get started, see [Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
+
+- To optimize performance, see [Network File System (NFS) 3.0 performance considerations in Azure Blob storage (preview)](network-file-system-protocol-support-performance.md).
