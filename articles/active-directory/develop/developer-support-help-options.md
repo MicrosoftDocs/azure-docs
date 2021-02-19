@@ -76,7 +76,7 @@ If you don't find an answer and ask a new question, add one or more of the follo
 
 ## Create a GitHub issue
 
-If you ran into an issue with any of the MSAL libraries, create a new GitHub issue by selecting the link for the library you are developing for.
+If you need help with one of the Microsoft Authentication Libraries (MSAL), open an issue in its repository on GitHub.
 
 | MSAL Library| GitHub issues URL |
 |---------------------------------------------------|----------------------------|
