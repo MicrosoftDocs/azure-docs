@@ -916,6 +916,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-setup-msa-app.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-microsoft-account",
       "redirect_document_id": true
@@ -61867,6 +61872,11 @@
     {
       "source_path_from_root": "/articles/azure-monitor/platform/azure-monitor-agent-install.md",
       "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/azure-monitor-agent-overview.md",
+      "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-overview",
       "redirect_document_id": false
     },
     {
