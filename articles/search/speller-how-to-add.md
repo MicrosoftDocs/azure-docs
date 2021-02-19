@@ -26,7 +26,9 @@ You can improve recall by spell-correcting individual search query terms before 
 
   The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs.
 
-+ [A query request](/rest/api/searchservice/preview-api/search-documents) that uses spell correction has "api-version=2020-06-30-Preview", "speller=lexicon", and "queryLanguage=en-us"
++ [A query request](/rest/api/searchservice/preview-api/search-documents) that uses spell correction has "api-version=2020-06-30-Preview", "speller=lexicon", and "queryLanguage=en-us".
+
+  The queryLanguage is required for speller, and currently only "en-us" is supported.
 
 > [!Note]
 > The speller parameter is available on all tiers, at no extra charge, on all regions that provide semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
@@ -87,9 +89,11 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Language considerations
 
-The queryLanguage parameter used for spell check is independent of the field-level language properties associated with analyzers in the index schema, but it is co-dependent with other properties used in a semantic search query. Neither simple queries or full-syntax queries have a queryLanguage property, but both "answers" and "captions" require it, and the value specified on the request must work for all of the properties it serves.
+The queryLanguage parameter required for speller is independent of any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. Specified in a query request, the queryLanguage determines which dictionaries are used for spell check, and is also used as an input to the [semantic ranking algorithm](semantic-how-to-query-response.md) if you are using it. In contrast, language analyzers are used when indexing and retrieving strings in the search index.
 
-The speller applies to query terms the same way for all fields in the index, regardless of which lexical analyzer is configured on those fields. While content in a search index can be composed in multiple languages, the query input is most likely in one. It’s up to you to scope the query to the fields it applies to based on the language when the speller is enabled to avoid producing incorrect results. 
+In a query request, the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts. 
+
+While content in a search index can be composed in multiple languages, the query input is most likely in one. The search engine doesn't check for compatibility of queryLanguage, language analyzer, and the language in which content is composed, so be sure to scope queries accordingly to avoid producing incorrect results.
 
 ## Next steps
 

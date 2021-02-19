@@ -123,6 +123,12 @@ The following table summarizes the query parameters used in a semantic query. Fo
 | "searchFields": "<fields>" | Optional but recommended. Specifies the fields over which semantic ranking occurs. In contrast with simple and full query types, when used in a semantic query, this parameter is required. </br></br>The order in which fields are listed determines precedence, with "title" having priority over "url" and so forth, in how results are ranked. If you have a title or a short field that describes your document, we recommend that to be your first field. Follow that by the url (if any), then the body of the document, and then any other relevant fields. |
 | "answers": "extractive|count-3" | Optional. Returns up to three possible answers to the query, derived from content in the document. |
 
+The queryLanguage parameter required for a semantic query is independent of any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. Specified in a query request, the queryLanguage determines which dictionaries are used as an input to the [semantic ranking algorithm](semantic-how-to-query-response.md). In contrast, language analyzers are used when indexing and retrieving strings in the search index.
+
+In a query request, if you are also using [spelling correction](speller-how-to-add.md), the queryLanguage you set applies equally to speller, answers, and captions. There is no override for individual parts. 
+
+While content in a search index can be composed in multiple languages, the query input is most likely in one. The search engine doesn't check for compatibility of queryLanguage, language analyzer, and the language in which content is composed, so be sure to scope queries accordingly to avoid producing incorrect results.
+
 ## Query with Search explorer
 
 The following query targets the built-in Hotels sample index, using API version 2020-06-30-Preview, and runs in Search explorer. The `$select` clause limits the results to just a few fields, making it easier to scan in the verbose JSON in Search explorer.
