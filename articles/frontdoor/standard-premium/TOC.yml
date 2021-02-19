@@ -49,6 +49,8 @@
     href: how-to-configure-https-custom-domain.md  
   - name: Route Association
     href: how-to-configure-route.md
+  - name: Configure a Rule Set
+    href: how-to-configure-rule-set.md
   - name: Configure security headers with Rule Set
     href: how-to-add-security-headers.md
   - name: Cache purge
