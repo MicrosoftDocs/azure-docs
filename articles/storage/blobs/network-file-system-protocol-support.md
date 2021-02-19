@@ -18,6 +18,23 @@ Blob storage now supports the Network File System (NFS) 3.0 protocol. This suppo
 > [!NOTE]
 > NFS 3.0 protocol support in Azure Blob storage is in public preview. It supports GPV2 storage accounts with standard tier performance in the following regions: Australia East, Korea Central, and South Central US. The preview also supports block blob with premium performance tier in all public regions.
 
+NFS 3.0 protocol support provides Linux file system compatibility at object storage scale and prices. It was always a challenge to run large-scale legacy workloads, such as High Performance Computing (HPC) in the cloud. One reason is that traditional applications use traditional file protocols such as NFS or Server Message Block (SMB) to access data. Native cloud storage services focused on object storage with a flat namespace and extensive metadata instead of file systems that provide a hierarchical namespace and efficient metadata operations. 
+
+Azure Blob Storage already supports a hierarchical namespace. Combined with NFS 3.0 protocol support, Azure makes it much easier to run legacy applications on top of large-scale cloud object storage. 
+
+## NFS 3.0 support depends on a hierarchical namespace
+
+NFS 3.0 protocol support depends on a hierarchical namespace. A hierarchical namespace was introduced to Blob Storage by Azure Data Lake Storage Gen2. It organizes objects (files) into a hierarchy of directories and subdirectories in the same way that the file system on your computer is organized.  The hierarchical namespace scales linearly and doesn't degrade data capacity or performance. Different protocols extend from the hierarchical namespace. The NFS 3.0 protocol is one of the these available protocols.   
+
+> [!div class="mx-imgBorder"]
+> ![hierarchical namespace](./media/network-protocol-support/hierarchical-namespace-and-nfs-support.png)
+  
+## Data stored as block blobs
+
+If you enable NFS 3.0 protocol support, all of the data in your storage account will be stored as block blobs. Block blobs are optimized for processing large amounts of read-heavy data efficiently. Block blobs are comprised of blocks. Each block is identified by a block ID. A block blob can include up to 50,000 blocks. Each block in a block blob can be a different size, up to the maximum size permitted for the service version that your account uses.
+
+When your application makes a request by using the NFS 3.0 protocol, that request is translated into combination of block blob operations. For example, NFS 3.0 read Remote Procedure Call (RPC) requests are translated into [Get Blob](/rest/api/storageservices/get-blob) operation. NFS 3.0 write RPC requests are translated into a combination of [Get Block List](/rest/api/storageservices/get-block-list), [Put Block](/rest/api/storageservices/put-block), and [Put Block List](/rest/api/storageservices/put-block-list).
+
 ## General workflow: Mounting a storage account container
 
 To mount a storage account container, you'll have to do these things.
