@@ -14,7 +14,7 @@ In the [previous tutorial](template-tutorial-bicep-create-first-template.md), yo
 
 ## Prerequisites
 
-We recommend that you complete the [create first template](template-tutorial-bicep-create-first-template.md), but it's not required.
+We recommend that you complete the [create first Bicep template](template-tutorial-bicep-create-first-template.md), but it's not required.
 
 You must have Visual Studio Code with the Bicep extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-bicep-create-first-template.md#get-tools).
 
@@ -176,7 +176,7 @@ If you're stopping now, you might want to clean up the resources you deployed by
 
 ## Next steps
 
-You improved the template created in the [first tutorial](template-tutorial-create-first-template.md) by adding parameters. In the next tutorial, you'll learn about template functions.
+You improved the Bicep template created in the [first tutorial](template-tutorial-bicep-create-first-template.md) by adding parameters. In the next tutorial, you'll learn about template functions.
 
 > [!div class="nextstepaction"]
 > [Add template functions](template-tutorial-bicep-add-functions.md)

@@ -2,7 +2,7 @@
 title: Tutorial - Create & deploy Bicep template
 description: Create your first Azure Resource Manager template (ARM template) in Bicep. In the tutorial, you learn about the Bicep template file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
@@ -13,13 +13,11 @@ ms.custom:
 
 # Tutorial: Create and deploy your first ARM template in Bicep
 
-This tutorial introduces you to Azure Resource Manager templates (ARM templates) in Bicep. It shows you how to create a starter Bicep template and deploy it to Azure. You'll learn about the structure of the template and the tools you'll need for working with templates. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
+This tutorial introduces you to Azure Resource Manager templates (ARM templates) in Bicep. It shows you how to create a starter Bicep template and deploy it to Azure. You'll learn about the structure of the Bicep template and the tools you'll need for working with Bicep templates. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
 
-This tutorial is the first of a series. As you progress through the series, you modify the starting Bicep template step by step until you've explored all of the core parts of an ARM template. These elements are the building blocks for much more complex templates. We hope by the end of the series you're confident creating your own templates and ready to automate your deployments with templates.
+This tutorial is the first of a series. As you progress through the series, you modify the starting Bicep template step by step until you've explored all of the core parts of an ARM Bicep template. These elements are the building blocks for much more complex templates. We hope by the end of the series you're confident creating your own Bicep templates and ready to automate your deployments with Bicep templates.
 
-[jgao - update the overview link]
-
-If you want to learn about the benefits of using templates and why you should automate deployment with templates, see [ARM Bicep template overview](bicep-overview.md). To learn about ARM templates through a guided set of modules on Microsoft Learn, see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
+If you want to learn about the benefits of using templates and why you should automate deployment with templates, see [ARM Bicep template overview](bicep-overview.md).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -31,7 +29,7 @@ Let's start by making sure you have the tools you need to create and deploy Bice
 
 [jgao - update the vs code and extension installation link]
 
-To create Bicep templates, you need a good editor. We recommend Visual Studio Code with the Bicep extension. If you need to install these tools, see [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+To create Bicep templates, you need a good editor. We recommend Visual Studio Code with the Bicep extension. If you need to install these tools, see [Quickstart: Create ARM Bicep templates with Visual Studio Code](quickstart-create-bicep-templates-use-visual-studio-code.md).
 
 ### Command-line deployment
 
@@ -80,18 +78,18 @@ Okay, you're ready to start learning about templates.
 
     The resource declaration has four components:
 
-    - _resource_ - keyword.
-    - **symbolic name** (stg) - this is an identifier for referencing the resource throughout your bicep file. It is not what the name of the resource will be when it's deployed.
-    - **resource type** (Microsoft.Storage/storageAccounts@2019-06-01) - composed of the resource provider (Microsoft.Storage), resource type (storageAccounts), and apiVersion (2019-06-01). Each resource provider publishes its own API versions, so this value is specific to the type. You can find more types and apiVersions for various Azure resources from [ARM template reference](/azure/templates/).
-    - **properties** (everything inside = {...}) - these are the specific properties you would like to specify for the given resource type. These are exactly the same properties available to you in an ARM Template. Every resource has a name property. Most resources also have a `location` property, which sets the region where the resource is deployed. The other properties vary by resource type and API version. It's important to understand the connection between the API version and the available properties, so let's jump into more detail.
+    - **resource**: keyword.
+    - **symbolic name** (stg): This is an identifier for referencing the resource throughout your bicep file. It is not what the name of the resource will be when it's deployed. The name of the resource is defined by the **name** property.  See the fourth component in this list.
+    - **resource type** (Microsoft.Storage/storageAccounts@2019-06-01): It is composed of the resource provider (Microsoft.Storage), resource type (storageAccounts), and apiVersion (2019-06-01). Each resource provider publishes its own API versions, so this value is specific to the type. You can find more types and apiVersions for various Azure resources from [ARM template reference](/azure/templates/).
+    - **properties** (everything inside = {...}): These are the specific properties you would like to specify for the given resource type. These are exactly the same properties available to you in an ARM Template. Every resource has a `name` property. Most resources also have a `location` property, which sets the region where the resource is deployed. The other properties vary by resource type and API version. It's important to understand the connection between the API version and the available properties, so let's jump into more detail.
 
-    For this storage account, you can see that API version at [storageAccounts 2019-06-01](/azure/templates/microsoft.storage/2019-06-01/storageaccounts). Notice that you didn't add all of the properties to your template. Many of the properties are optional. The `Microsoft.Storage` resource provider could release a new API version, but the version you're deploying doesn't have to change. You can continue using that version and know that the results of your deployment will be consistent.
+        For this storage account, you can see that API version at [storageAccounts 2019-06-01](/azure/templates/microsoft.storage/2019-06-01/storageaccounts). Notice that you didn't add all of the properties to your template. Many of the properties are optional. The `Microsoft.Storage` resource provider could release a new API version, but the version you're deploying doesn't have to change. You can continue using that version and know that the results of your deployment will be consistent.
 
-    If you view an older API version, such as [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), you'll see that a smaller set of properties are available.
+        If you view an older API version, such as [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), you'll see that a smaller set of properties are available.
 
-    If you decide to change the API version for a resource, make sure you evaluate the properties for that version and adjust your template appropriately.
+        If you decide to change the API version for a resource, make sure you evaluate the properties for that version and adjust your template appropriately.
 
-1. Replace `{provide-unique-name}` and the curly braces `{}` with a unique storage account name.
+1. Replace `{provide-unique-name}` including the curly braces `{}` with a unique storage account name.
 
     > [!IMPORTANT]
     > The storage account name must be unique across Azure. The name must have only lowercase letters or numbers. It can be no longer than 24 characters. You might try a naming pattern like using **store1** as a prefix and then adding your initials and today's date. For example, the name you use could look like **store1abc09092019**.
@@ -162,7 +160,7 @@ az group create \
 
 ## Deploy template
 
-To deploy the Bicep template, use either Azure CLI or Azure PowerShell. Use the resource group you created. Give a name to the deployment so you can easily identify it in the deployment history. For convenience, also create a variable that stores the path to the template file. This variable makes it easier for you to run the deployment commands because you don't have to retype the path every time you deploy. Replace `{provide-the-path-to-the-template-file}` and the curly braces `{}` with the path to your template file.
+To deploy the Bicep template, use either Azure CLI or Azure PowerShell. Use the resource group you created. Give a name to the deployment so you can easily identify it in the deployment history. For convenience, also create a variable that stores the path to the Bicep template file. This variable makes it easier for you to run the deployment commands because you don't have to retype the path every time you deploy. Replace `{provide-the-path-to-the-template-file}` including the curly braces `{}` with the path to your Bicep template file with the .bicep file extension name.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -190,6 +188,8 @@ az deployment group create \
 
 The deployment command returns results. Look for `ProvisioningState` to see whether the deployment succeeded.
 
+[jgao - update the screenshots with the new template file extension name.]
+
 # [PowerShell](#tab/azure-powershell)
 
 ![PowerShell deployment provisioning state](./media/template-tutorial-bicep-create-first-template/resource-manager-deployment-provisioningstate.png)
@@ -205,7 +205,7 @@ The deployment command returns results. Look for `ProvisioningState` to see whet
 
 ## Verify deployment
 
-[jgao - update the screenshots]
+[jgao - update the screenshots with the new deployment name and the deployed storage account.]
 
 You can verify the deployment by exploring the resource group from the Azure portal.
 
