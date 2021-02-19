@@ -54,33 +54,33 @@ Click **Users capable of Azure multi-factor authentication**, **Users capable of
 
   ![Screenshot of users capable for registration](media/how-to-authentication-methods-usage-insights/users-capable.png)
 
-The **Users registered by authentication method** chart on the **Registration** tab shows how many users are registered for each authentication method. Click an authentication method to see which users are registered for that method. 
+**Users registered by authentication method** shows how many users are registered for each authentication method. Click an authentication method to see which users are registered for that method. 
 
 ![Screenshot of Users Registered](media/how-to-authentication-methods-usage-insights/users-registered.png)
 
-The **Recent registration by authentication method** chart on the **Registration** tab shows the number of successful and failed authentication method registrations by authentication method. Click an authentication method to see recent registration events for that method.
+**Recent registration by authentication method** shows the number of successful and failed authentication method registrations by authentication method. Click an authentication method to see recent registration events for that method.
 
 ![Screenshot of Recently Registered](media/how-to-authentication-methods-usage-insights/recently-registered.png)
 
 ## Usage details
 
-The **Usage** tab of the report shows which authentication methods users are using to sign-in and reset their passwords.
+The **Usage** report shows which authentication methods users are using to sign-in and reset their passwords.
 
 ![Screenshot of Usage page](media/how-to-authentication-methods-usage-insights/usage-page.png)
 
-The **Sign-ins by authentication requirement** chart on the **Usage** tab shows the number of successful user interactive sign-ins that were required to perform single-factor versus multi-factor authentication in Azure AD. This does not reflect sign-ins where MFA was enforced by a third-party MFA provider.
+**Sign-ins by authentication requirement** shows the number of successful user interactive sign-ins that were required to perform single-factor versus multi-factor authentication in Azure AD. This does not reflect sign-ins where MFA was enforced by a third-party MFA provider.
 
 ![Screenshot of sign ins by authentication requirement](media/how-to-authentication-methods-usage-insights/sign-ins-protected.png)
 
-The **Sign-ins by authentication method** chart on the **Usage** tab shows the number of user interactive sign-ins (success and failure) by authentication method used. It does not include sign-ins where the authentication requirement was satisfied by a claim in the token.
+**Sign-ins by authentication method** shows the number of user interactive sign-ins (success and failure) by authentication method used. It does not include sign-ins where the authentication requirement was satisfied by a claim in the token.
 
 ![Screenshot of sign ins by method](media/how-to-authentication-methods-usage-insights/sign-ins-by-method.png)
 
-The **Number of password resets and account unlocks** chart on the **Usage** tab shows the number of successful password changes and password resets (self-service and by admin) over time.
+**Number of password resets and account unlocks** shows the number of successful password changes and password resets (self-service and by admin) over time.
 
 ![Screenshot of resets and unlocks](media/how-to-authentication-methods-usage-insights/password-changes.png)
 
-The **Password resets by authentication method** chart on the **Usage** tab shows the  number of successful and failed authentications during the password reset flow by authentication method.
+**Password resets by authentication method** shows the  number of successful and failed authentications during the password reset flow by authentication method.
 
 ![Screenshot of Resets by method](media/how-to-authentication-methods-usage-insights/resets-by-method.png)
 
@@ -101,9 +101,9 @@ The registration details report shows the following information for each user:
 
   ![Screenshot of user registration details](media/how-to-authentication-methods-usage-insights/registration-details.png)
 
-## Registration and Reset Logs 
+## Registration and reset events 
 
-The Registration and reset logs shows registration and reset events from the last 24 hours, last 7 days or last 30 days including:
+**Registration and reset events** shows registration and reset events from the last 24 hours, last seven days, or last 30 days including:
 
 - Date
 - User name
