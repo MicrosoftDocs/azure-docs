@@ -22,7 +22,7 @@ This article offers query examples and more detailed instructions for using the 
 
 This article begins with sample queries that illustrate the query language structure and common query operations for digital twins. It then describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
 
-> [!TIP]
+> [!NOTE]
 > If you're running the sample queries below with an API or SDK call, you'll need to condense the query text into a single line.
 
 ## Show all digital twins
@@ -37,7 +37,7 @@ Get digital twins by **properties** (including ID and metadata):
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!TIP]
+> [!NOTE]
 > The ID of a digital twin is queried using the metadata field `$dtId`.
 
 You can also get twins based on **whether a certain property is defined**. Here is a query that gets twins that have a defined *Location* property:
