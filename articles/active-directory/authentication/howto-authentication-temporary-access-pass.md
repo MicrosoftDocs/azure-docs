@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 02/18/2021
 
 ms.author: justinha
 author: inbarckms
@@ -129,6 +129,7 @@ Keep these limitations in mind:
 - Guest users can't sign in with a TAP.
 - Users in scope for Self Service Password Reset (SSPR) registration policy will be required to register one of the SSPR methods after they have signed in with TAP. If the user is only going to use FIDO2 key, exclude them from the SSPR policy or disable the SSPR registration policy. 
 - TAP cannot be used with the Network Policy Server (NPS) extension and Active Directory Federation Services (AD FS) adapter.
+- A one-time TAP use is not enforced when Keep Me Signed In (KMSI) is enabled on the tenant.
 - When Seamless SSO is enabled on the tenant, the users are prompted to enter a password. The **Use your Temporary Access Pass instead** link will be available for the user to sign-in with TAP.
 
 ![Screenshot of Use a TAP instead](./media/how-to-authentication-temporary-access-pass/alternative.png)

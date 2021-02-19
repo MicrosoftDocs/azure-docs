@@ -270,7 +270,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
 ## Provide feedback
 
-We'd like to hear from you! To report bugs, provide feedback, or ask questions about this preview capability, [contact the Azure Logic Apps team](mailto:logicapps@microsoft.com).
+We'd like to hear from you! To report bugs, provide feedback, or ask questions about this preview capability, [contact the Azure Logic Apps team](mailto:logicappspm@microsoft.com).
 
 ## Next steps
 

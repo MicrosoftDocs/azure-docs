@@ -2,7 +2,7 @@
 title: "Azure Arc enabled Kubernetes Agent Architecture"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
@@ -88,5 +88,5 @@ Most on-prem datacenters enforce strict network rules that prevent inbound commu
 
 ## Next steps
 
-* [Connect a cluster to Azure Arc](./connect-cluster.md)
+* [Connect a cluster to Azure Arc](./quickstart-connect-cluster.md)
 * [Conceptual overview of configurations](./conceptual-configurations.md)
