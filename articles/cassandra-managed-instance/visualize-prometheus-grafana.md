@@ -1,6 +1,6 @@
 ---
 title: Configure Grafana to visualize metrics emitted from Azure Managed Instance for Apache Cassandra.
-description: Learn how to configure Grafana to visualize metrics emitted from the managed instance cluster. You will deploy a Ubuntu VM within the Azure Virtual Network where the managed instance is present, install Grafana in the VM, and import a dashboard to read the metrics.
+description: Learn how to install and configure Grafana in a VM to visualize metrics emitted from an Azure Managed Instance for Apache Cassandra cluster.
 author: TheovanKraay
 ms.service: cassandra-managed-instance
 ms.topic: how-to
@@ -110,7 +110,7 @@ When you deploy an Azure Managed Instance for Apache Cassandra cluster, the serv
 
 ## Next steps
 
-In this tutorial, you learned how to configure dashboards to visualize metrics in Prometheus using Grafana. Learn more about Azure Managed Instance for Apache Cassandra with the following articles:
+In this article, you learned how to configure dashboards to visualize metrics in Prometheus using Grafana. Learn more about Azure Managed Instance for Apache Cassandra with the following articles:
 
 * [Overview of Azure Managed Instance for Apache Cassandra](introduction.md)
 * [Deploy a Managed Apache Spark Cluster with Azure Databricks (Preview)](databricks.md)
