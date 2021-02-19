@@ -3,13 +3,13 @@ title: Using MSIXMGR tool - Azure
 description: How to use the MSIXMGR tool for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 02/19/2021
 ms.author: helohr
 manager: lizross
 ---
 # Using the MSIXMGR tool
 
-The MSIXMGR tool is for expanding MSIX packaged applications for MSIX app attach. The tool takes an MSIX-packaged application (.MSIX) and expands it into a VHD or VHDx image. The resulting MSIX image stores the storage account that's used for your Windows Virtual Desktop deployment. This article will show you how to use the MSIXMGR tool.
+The MSIXMGR tool is for expanding MSIX-packaged applications into MSIX images. The tool takes an MSIX-packaged application (.MSIX) and expands it into a VHD, VHDx, or CIM file. The resulting MSIX image is stored in the Azure Storage account that your Windows Virtual Desktop deployment uses.This article will show you how to use the MSIXMGR tool.
 
 >[!NOTE]
 >To guarantee compatibility, make sure the CIMs storing your MSIX images are generated on the OS version you're running in your Windows Virtual Desktop host pools. MSIXMGR can create CIM files, but you can only use those files with a host pool running Windows 10 20H2.
@@ -50,7 +50,7 @@ To expand an MSIX file:
 
 6. Now that you've created the image, go to the destination folder and make sure you successfully created the MSIX image (.VHDX).
 
-## Create CIM and VHDX images
+## Create an MSIX image in a CIM file
 
 You can also use the command in [step 5](#create-an-msix-image) to create CIM and VHDX files by replacing the file type and destination path.
 
