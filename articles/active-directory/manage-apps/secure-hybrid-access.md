@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 2/15/2021
+ms.date: 2/16/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
