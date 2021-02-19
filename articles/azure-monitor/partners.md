@@ -97,7 +97,7 @@ Through this unified experience, you will be able to:
 -	Streamline single-sign on (SSO) to Datadog—a separate sign-on from the Datadog portal is no longer required. 
 -	Get unified billing for the Datadog service through Azure subscription invoicing.
 
-Sign up for the [Public Preview](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) of the new Datadog integration with Azure.  Public preview will be available on Azure Marketplace starting October 2020.
+Subscribe to the preview of "Datadog integration with Azure" available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)
 
 If you are still using the previous manually configured integration, see the [documentation on the DataDog website](https://docs.datadoghq.com/integrations/azure/).
 
