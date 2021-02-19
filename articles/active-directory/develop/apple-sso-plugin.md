@@ -43,16 +43,16 @@ To use Microsoft Enterprise SSO plug-in for Apple devices:
 
 ### iOS requirements:
 - iOS 13.0 or higher must be installed on the device.
-- A Microsoft application that provides the Microsoft Enterprise SSO plug-in for Apple devices must be installed on the device. For Public Preview, these applications are the [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md).
+- A Microsoft application that provides the Microsoft Enterprise SSO plug-in for Apple devices must be installed on the device. For Public Preview, these applications are the [Microsoft Authenticator app](/intune/user-help/user-help-auth-app-overview.md).
 
 
 ### macOS requirements:
 - macOS 10.15 or higher must be installed on the device. 
-- A Microsoft application that provides the Microsoft Enterprise SSO plug-in for Apple devices must be installed on the device. For Public Preview, these applications include the [Intune Company Portal app](../user-help/user-help-auth-app-overview.md).
+- A Microsoft application that provides the Microsoft Enterprise SSO plug-in for Apple devices must be installed on the device. For Public Preview, these applications include the [Intune Company Portal app](/intune/user-help/enroll-your-device-in-intune-macos-cp.md).
 
 ## Enable the SSO plug-in with mobile device management (MDM)
 
-Microsoft includes the Enterprise SSO plug-in for Apple devices in the [Microsoft Authenticator app](..//user-help/user-help-auth-app-overview.md) for iOS and iPadOS or [Intune Company Portal](../user-help/enroll-your-device-in-intune-macos-cp.md) app on macOS. To enable the Microsoft Enterprise SSO plug-in for Apple devices, your devices need to be sent a signal through an MDM service to turn it on. If you use Intune, this configuration will automatically be done for you. [See this doc for more information](intune/configuration/device-features-configure#single-sign-on-app-extension)
+Microsoft includes the Enterprise SSO plug-in for Apple devices in the [Microsoft Authenticator app](/intune/user-help/user-help-auth-app-overview.md) for iOS and iPadOS or [Intune Company Portal](/intune/user-help/enroll-your-device-in-intune-macos-cp.md) app on macOS. To enable the Microsoft Enterprise SSO plug-in for Apple devices, your devices need to be sent a signal through an MDM service to turn it on. If you use Intune, this configuration will automatically be done for you. [See this doc for more information](intune/configuration/device-features-configure#single-sign-on-app-extension)
 
 If you not using Intune, use the following parameters to configure the Microsoft Enterprise SSO plug-in for Apple devices:
 
