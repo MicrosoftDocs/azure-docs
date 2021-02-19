@@ -61,7 +61,30 @@ Regions:
 Pricing:
 No additional cost to existing VM pricing.
 
+## Security Center integration
+
+Trusted Launch is integrated with Azure Security Center, to ensure your VMs are properly configured. Azure Security Center will continually assess compatible VMs, and issue relevant recommendations.
+
+- Recommendation to enable Secure Boot - This Recommendation only applies for VMs that support Trusted Launch. Azure Security Center will identify VMs that can enable Secure Boot, but have it disabled. It will issue a low severity recommendation to enable it.
+- Recommendation to enable vTPM - If your VM has vTPM enabled, Azure Security Center can use it to perform Guest Attestation and identify advanced threat patterns. If Azure Security Center identifies VMs that support Trusted Launch and have vTPM disabled, it will issue a low severity recommendation to enable it. 
+- Remote Attestation - If your VM has vTPM enabled, an extension of Azure Security Center can remotely validate that your VM booted in a healthy way. This is known as Remote Attestation. If your VM supports Remote Attestation, but the extension is not present, Azure Security Center will issue a low severity recommendation to install the extension.
+
+## Azure Defender integration
+
+If your VMs are properly set up with Trusted Launch, Azure Defender can detect and alert you of VM health problems.
+
+- Alert for  VM attestation failure - Azure Defender will periodically perform attestation on your VMs. This also happens after your VM boots. If the attestation fails, it will trigger a medium severity alert.
+    VM attestation can fail for the following reasons:
+    - The attested information, which includes a boot log, deviates from a trusted baseline. This can indicate that untrusted modules have been loaded, and the OS may be compromised.
+    - The attestation quote could not be verified to originate from the vTPM of the attested VM. This can indicate that malware is present and may be intercepting traffic to the vTPM.
+    - The Attestation extension on the VM is not responding. This can indicate a denial-of-service attack by malware, or an OS admin.
+
+> [!NOTE]
+>  This alert is available for VMs with vTPM enabled and the Attestation extension installed. Keeping Secure Boot enabled is needed for attestation to pass. Attestation will fail if Secure Boot is disabled. If you must disable Secure Boot, you may choose to suppress this alert to avoid false positives.
+
 ## FAQ
+
+Frequently asked questions about Trusted Launch.
 
 ### Why should I use Trusted Launch? What does Trusted Launch guard against?
 
