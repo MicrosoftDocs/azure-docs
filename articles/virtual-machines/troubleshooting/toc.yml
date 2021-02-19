@@ -273,6 +273,8 @@
     href: repair-windows-vm-using-azure-virtual-machine-repair-commands.md
   - name: Linux
     href: repair-linux-vm-using-azure-virtual-machine-repair-commands.md
+  - name: Repair a Linux VM with the help of ALAR
+    href: repair-linux-vm-using-ALAR.md
 - name: Windows Activation issues
   items:
   - name: Windows activation problems
