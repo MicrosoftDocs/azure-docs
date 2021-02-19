@@ -3,6 +3,7 @@ title: How to migrate - portal
 description: How to migrate to Cloud Services (extended support) using the Azure portal
 ms.topic: how-to
 ms.service: cloud-services-extended-support
+ms.subservice: classic-to-arm-migration
 author: tanmaygore
 ms.author: tagore
 ms.reviewer: mimckitt

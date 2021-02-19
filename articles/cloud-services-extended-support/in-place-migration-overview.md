@@ -3,6 +3,7 @@ title: Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended 
 description: Overview of migration from Cloud Services (classic) to Cloud Service (extended support)
 ms.topic: how-to
 ms.service: cloud-services-extended-support
+ms.subservice: classic-to-arm-migration
 author: tanmaygore
 ms.author: tagore
 ms.reviewer: mimckitt
