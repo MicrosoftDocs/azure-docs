@@ -230,7 +230,7 @@ You are now signed in to the Windows Server 2019 Azure virtual machine with the 
 
 The AADLoginForWindows extension must install successfully in order for the VM to complete the Azure AD join process. Perform the following steps if the VM extension fails to install correctly.
 
-1. RDP to the VM using the local administrator account and examine the CommandExecuti'n.log under  
+1. RDP to the VM using the local administrator account and examine the `CommandExecution.log` under:
    
    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0. 
 

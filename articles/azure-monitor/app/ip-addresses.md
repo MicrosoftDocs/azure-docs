@@ -250,21 +250,21 @@ Managing changes to Source IP addresses can be quite time consuming. Using **Ser
    1. Add the Resource Group Name and then enter *Instance Details*.
    1. Click on **Review + Create** and then click *Create*.
    
-   :::image type="content" source="../platform/media/action-groups/action-group-create-security-group.png" alt-text="Example on how to create a Network Security Group."border="true":::
+   :::image type="content" source="../platform/media/action-groups/action-group-create-security-group.png" alt-text="Example on how to create a Network Security Group." border="true":::
 
 3. Go to Resource Group and then click on *Network Security Group* you have created.
 
     1. Select *Inbound Security Rules*.
     1. Click on **Add**.
     
-    :::image type="content" source="../platform/media/action-groups/action-group-add-service-tag.png" alt-text="Example on how to add a service tag."border="true":::
+    :::image type="content" source="../platform/media/action-groups/action-group-add-service-tag.png" alt-text="Example on how to add a service tag." border="true":::
 
 4. A new window will open in right pane.
     1.  Select Source: **Service Tag**
     1.  Source Service Tag: **ActionGroup**
     1.  Click **Add**.
     
-    :::image type="content" source="../platform/media/action-groups/action-group-service-tag.png" alt-text="Example on how to add service tag."border="true":::
+    :::image type="content" source="../platform/media/action-groups/action-group-service-tag.png" alt-text="Example on how to add service tag." border="true":::
 
 
 ## Profiler

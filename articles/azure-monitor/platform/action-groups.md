@@ -133,11 +133,11 @@ If you are not receiving Notifications on your *primary email*, then you can try
 2. Click on All users (in left pane), you will see list of users (in right pane).
 3. Select the user for which you want to review the *primary email* information.
 
-  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Example on how to review user profile."border="true":::
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Example on how to review user profile." border="true":::
 
 4. In User profile under Contact Info if "Email" tab is blank then click on *edit* button on the top and add your *primary email* and hit *save* button on the top.
 
-  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Example on how to add primary email."border="true":::
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Example on how to add primary email." border="true":::
 
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 
