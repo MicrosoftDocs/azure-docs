@@ -29,7 +29,7 @@ information and status to Device Update services.
 |extendedResultCode|integer|device to cloud|A code that contains additional information about the result. Can be populated for either success or failure.|0x80004005|
 |state|integer|device to cloud|It is an integer that indicates the current state of the Device Update Agent. See below for details |Idle|
 |installedUpdateId|string|device to cloud|An ID of the update that is currently installed (through Device Update). This value will be null for a device that has never taken an update through Device Update.|Null|
-|deviceProperties|Map|device to cloud|The set of properties that contain the manufacturer and model.|See below for details
+|`deviceProperties`|Map|device to cloud|The set of properties that contain the manufacturer and model.|See below for details
 
 #### State
 
@@ -48,8 +48,8 @@ It is the set of properties that contain the manufacturer and model.
 
 |Name|Schema|Direction|Description|
 |----|------|---------|-----------|
-|manufacturer|string|device to cloud|The device manufacturer of the device, reported through 'DeviceProperties'. This property is read from one of two places-the 'AzureDeviceUpdateCore' interface will first attempt to read the 'aduc_manufacturer' value from the [Configuration file](device-update-configuration-file.md) file.  If the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MANUFACTURER. This property will only be reported at boot time.|
-|model|string|device to cloud|The device model of the device, reported through DeviceProperties. This property is read from one of two places-the AzureDeviceUpdateCore interface will first attempt to read the 'aduc_model' value from the [Configuration file](device-update-configuration-file.md) file.  If  the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MODEL. This property will only be reported at boot time.|
+|manufacturer|string|device to cloud|The device manufacturer of the device, reported through `deviceProperties`. This property is read from one of two places-the 'AzureDeviceUpdateCore' interface will first attempt to read the 'aduc_manufacturer' value from the [Configuration file](device-update-configuration-file.md) file.  If the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MANUFACTURER. This property will only be reported at boot time.|
+|model|string|device to cloud|The device model of the device, reported through `deviceProperties`. This property is read from one of two places-the AzureDeviceUpdateCore interface will first attempt to read the 'aduc_model' value from the [Configuration file](device-update-configuration-file.md) file.  If  the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MODEL. This property will only be reported at boot time.|
 |aduVer|string|device to cloud|Version of the Device Update agent running on the device. This value is read from the build only if during compile time ENABLE_ADU_TELEMETRY_REPORTING is set to 1 (true). Customers can choose to opt-out of version reporting by setting the value to 0 (false).|
 |doVer|string|device to cloud|Version of the Delivery Optimization agent running on the device. The value is read from the build only if during compile time ENABLE_ADU_TELEMETRY_REPORTING is set to 1 (true). Customers can choose to opt-out of the version reporting by setting the value to 0 (false).|
 
