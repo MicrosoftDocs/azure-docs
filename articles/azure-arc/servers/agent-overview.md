@@ -66,7 +66,7 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 
 ### Supported environments
 
-Arc enabled servers supports the installation of the Connected Machine agent on any physical server and virtual machine hosted *outside* of Azure. This includes virtual machines running on platforms like VMWare, Azure Stack HCI, and other cloud environments. Arc enabled servers does not support installing the agent on virtual machines running in Azure, or virtual machines running on Azure Stack Hub or Azure Stack Edge as these are already modeled as Azure VMs.
+Arc enabled servers support the installation of the Connected Machine agent on any physical server and virtual machine hosted *outside* of Azure. This includes virtual machines running on platforms like VMware, Azure Stack HCI, and other cloud environments. Arc enabled servers do not support installing the agent on virtual machines running in Azure, or virtual machines running on Azure Stack Hub or Azure Stack Edge as they are already modeled as Azure VMs.
 
 ### Supported operating systems
 
