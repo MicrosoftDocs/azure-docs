@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 02/16/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -37,13 +37,13 @@ You must:
 Perform the following steps to create an export job in the Azure portal.
 
 1. Log on to <https://portal.azure.com/>.
-2. Go to **All services > Storage > Import/export jobs**.
+2. Search for **import/export jobs**.
 
-    ![Go to Import/export jobs](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
+    ![Search for import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Click **Create Import/export Job**.
+3. Select **+ New**.
 
-    ![Click Import/export job](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
+    ![Select + New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. In **Basics**:
 
@@ -54,7 +54,7 @@ Perform the following steps to create an export job in the Azure portal.
     - Select a subscription.
     - Enter or select a resource group.
 
-        ![Basics](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
+        ![Basics](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
 
 5. In **Job details**:
 
@@ -63,17 +63,17 @@ Perform the following steps to create an export job in the Azure portal.
     - Specify the blob data you wish to export from your storage account to your blank drive or drives.
     - Choose to **Export all** blob data in the storage account.
 
-         ![Export all](./media/storage-import-export-data-from-blobs/export-from-blob4.png)
+         ![Export all](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
 
     - You can specify which containers and blobs to export.
         - **To specify a blob to export**: Use the **Equal To** selector. Specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.
         - **To specify all blobs starting with a prefix**: Use the **Starts With** selector. Specify the prefix, beginning with a forward slash '/'. The prefix may be the prefix of the container name, the complete container name, or the complete container name followed by the prefix of the blob name. You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).
 
-           ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob5.png)
+           ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
 
     - You can export from  the blob list file.
 
-        ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob6.png)
+        ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
 
    > [!NOTE]
    > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.

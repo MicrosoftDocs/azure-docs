@@ -89,7 +89,7 @@ Under **Monitoring**, you can enable or disable **Diagnostic settings**. Under *
 
 To learn more about the common Azure settings listed, see the following articles:
 
-- [Activity log](../azure-monitor/platform/platform-logs-overview.md)
+- [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
 - [Access control (IAM)](../role-based-access-control/overview.md)
 - [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

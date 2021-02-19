@@ -34,9 +34,9 @@ Every session undergoes multiple phases.
 
 ### Session startup
 
-When you ask ARR to [create a new session](../how-tos/session-rest-api.md#create-a-session), the first thing it does is to return a session [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). This UUID allows you to query information about the session. The UUID and some basic information about the session are persisted for 30 days, so you can query that information even after the session has been stopped. At this point, the **session state** will be reported as **Starting**.
+When you ask ARR to [create a new session](../how-tos/session-rest-api.md), the first thing it does is to return a session [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). This UUID allows you to query information about the session. The UUID and some basic information about the session are persisted for 30 days, so you can query that information even after the session has been stopped. At this point, the **session state** will be reported as **Starting**.
 
-Next, Azure Remote Rendering tries to find a server that can host your session. There are two parameters for this search. First, it will only reserve servers in your [region](../reference/regions.md). That's because the network latency across regions may be too high to guarantee a decent experience. The second factor is the desired *size* that you specified. In each region, there is a limited number of servers that can fulfill the [*Standard*](../reference/vm-sizes.md) or [*Premium*](../reference/vm-sizes.md) size request. Consequently, if all servers of the requested size are currently in use in your region, session creation will fail. The reason for failure [can be queried](../how-tos/session-rest-api.md#get-sessions-properties).
+Next, Azure Remote Rendering tries to find a server that can host your session. There are two parameters for this search. First, it will only reserve servers in your [region](../reference/regions.md). That's because the network latency across regions may be too high to guarantee a decent experience. The second factor is the desired *size* that you specified. In each region, there is a limited number of servers that can fulfill the [*Standard*](../reference/vm-sizes.md) or [*Premium*](../reference/vm-sizes.md) size request. Consequently, if all servers of the requested size are currently in use in your region, session creation will fail. The reason for failure [can be queried](../how-tos/session-rest-api.md).
 
 > [!IMPORTANT]
 > If you request a *Standard* server size and the request fails due to high demand, that doesn't imply that requesting a *Premium* server will fail, as well. So if it is an option for you, you can try falling back to a *Premium* server size.
@@ -72,7 +72,7 @@ In all cases, you won't be billed further once a session is stopped.
 
 #### Extend a session's lease time
 
-You can [extend the lease time](../how-tos/session-rest-api.md#modify-and-query-session-properties) of an active session, if it turns out that you need it longer.
+You can [extend the lease time](../how-tos/session-rest-api.md) of an active session, if it turns out that you need it longer.
 
 ## Example code
 

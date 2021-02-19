@@ -35,5 +35,5 @@ box.  Choose which destination(s) should receive the logs.
 
 ## Next steps
 
-- [Get started with log analytics queries](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Get started with log analytics queries](../azure-monitor/logs/log-analytics-tutorial.md)
 - Learn about [Azure event hubs](../event-hubs/event-hubs-about.md)

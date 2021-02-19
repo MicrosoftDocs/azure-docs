@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 02/17/2021
 ms.author: memildin
 
 ---
@@ -31,11 +31,29 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 Updates in February include:
 
+- [New security alerts page in the Azure portal released for General Availability (GA)](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
 - [Kubernetes workload protection recommendations released for General Availability (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
 - [Direct link to policy from recommendation details page](#direct-link-to-policy-from-recommendation-details-page)
 - [SQL data classification recommendation no longer affects your secure score](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
 - [Workflow automations can be triggered by changes to regulatory compliance assessments (preview)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
 - [Asset inventory page enhancements](#asset-inventory-page-enhancements)
+
+
+### New security alerts page in the Azure portal released for General Availability (GA)
+
+Azure Security Center's security alerts page has been redesigned to provide:
+
+- **Improved triage experience for alerts** - helping to reduce alerts fatigue and focus on the most relevant threats easier, the list includes customizable filters and grouping options.
+- **More information in the alerts list** - such as MITRE ATT&ACK tactics.
+- **Button to create sample alerts** - to evaluate Azure Defender capabilities and test your alerts. configuration (for SIEM integration, email notifications, and workflow automations), you can create sample alerts from all Azure Defender plans.
+- **Alignment with Azure Sentinel's incident experience** - for customers who use both products, switching between them is now a more straightforward experience and it's easy to learn one from the other.
+- **Better performance** for large alerts lists.
+- **Keyboard navigation** through the alert list.
+- **Alerts from Azure Resource Graph** - you can query alerts in Azure Resource Graph, the Kusto-like API for all of your resources. This is also useful if you're building your own alerts dashboards. [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
+- **Create sample alerts feature** - To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
+
 
 ### Kubernetes workload protection recommendations released for General Availability (GA)
 
