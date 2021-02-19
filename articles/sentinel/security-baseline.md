@@ -36,9 +36,9 @@ You cannot associate a virtual network, subnet, or network security group direct
 
 - [How to enable auditing in Azure Sentinel](resources.md)
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -72,7 +72,7 @@ You cannot associate a virtual network, subnet, or network security group direct
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure Sentinel workspaces according to your organization's compliance regulations.
 
-- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -164,7 +164,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Azure AD Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Sentinel-related resources. 
 
-- [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -340,7 +340,7 @@ Additionally, each Sentinel workbook is an Azure resource, and you can assign ro
 
 **Guidance**: Azure Sentinel and Azure Monitor Log Analytics workspaces currently use Microsoft-managed keys for encrypting any contained data at rest. The ability to bring your own key is not yet fully supported for Sentinel, but will be in the near future.
 
-- [Azure Monitor customer-managed key overview](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview)
+- [Azure Monitor customer-managed key overview](../azure-monitor/logs/customer-managed-keys.md#customer-managed-key-overview)
 
 - [Understand customer-managed keys in Azure Sentinel (Preview)](customer-managed-keys.md)
 
@@ -616,7 +616,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
 - [How to configure continuous export](../security-center/continuous-export.md)
 

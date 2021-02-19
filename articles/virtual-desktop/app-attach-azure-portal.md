@@ -3,7 +3,7 @@ title: Windows Virtual Desktop MSIX app attach portal preview - Azure
 description: How to set up MSIX app attach for Windows Virtual Desktop using the Azure portal.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 02/11/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -48,19 +48,10 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v
 
 reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Debug /v ContentDeliveryAllowedOverride /t REG_DWORD /d 0x2 /f
 
-rem Disable Windows Update:
-
-sc config wuauserv start=disabled
-```
-
-After you've disabled automatic updates, you must enable Hyper-V because you'll be using the `Mount-VHD` command to stage and and Dismount-VHD to destage.
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 
 >[!NOTE]
->This change will require that you restart the virtual machine.
+>We recommend that you restart the virtual machine after enabling Hyper-V.
 
 ## Configure the MSIX app attach management interface
 
@@ -68,7 +59,7 @@ Next, you'll need to download and configure the the MSIX app attach management i
 
 To set up the management interface:
 
-1. [Open the preview portal](https://preview.portal.azure.com/?feature.msixapplications=true#home).
+1. [Open the Azure portal](https://portal.azure.com).
 2. If you get a prompt asking if you consider the extension trustworthy, select **Allow**.
 
       > [!div class="mx-imgBorder"]
@@ -175,6 +166,9 @@ To publish the apps:
 ## Assign a user to an app group
 
 After assigning MSIX apps to an app group, you'll need to grant users access to them. You can assign access by adding users or user groups to an app group with published MSIX applications. Follow the instructions in [Manage app groups with the Azure portal](manage-app-groups.md) to assign your users to an app group.
+
+>[!NOTE]
+>MSIX app attach remote apps may disappear from the feed when you test remote apps during public preview. The apps don't appear because the host pool you're using in the evaluation environment is being served by an RD Broker in the production environment. Because the RD Broker in the production environment doesn't register the presence of the MSIX app attach remote apps, the apps won't appear in the feed.
 
 ## Change MSIX package state
 

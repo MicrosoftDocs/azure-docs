@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Manage custom models
+title: Manage DTDL models
 titleSuffix: Azure Digital Twins
 description: See how to create, edit, and delete a model within Azure Digital Twins.
 author: baanders
@@ -53,9 +53,6 @@ Following this method, you can go on to define models for the hospital's wards, 
 ## Upload models
 
 Once models are created, you can upload them to the Azure Digital Twins instance.
-
-> [!TIP]
-> It's recommended to validate your models offline before uploading them to your Azure Digital Twins instance. You can use the [DTDL client-side parser library](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) and [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) described in [*How-to: Parse and validate models*](how-to-parse-models.md) to check your models before you upload them to the service.
 
 When you're ready to upload a model, you can use the following code snippet:
 

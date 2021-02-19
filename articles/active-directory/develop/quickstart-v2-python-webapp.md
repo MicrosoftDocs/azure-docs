@@ -36,7 +36,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs).
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application.
 >
@@ -46,7 +46,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application, for example `python-webapp` . Users of your app might see this name, and you can change it later.
@@ -61,7 +61,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Type a key description (for instance app secret), leave the default expiration, and select **Add**.
 > 1. Note the **Value** of the **Client Secret** for later use.
 > 1. Under **Manage**, select **API permissions** > **Add a permission**.
->1.  Ensure that the **Microsoft APIs** tab is selected.
+> 1. Ensure that the **Microsoft APIs** tab is selected.
 > 1. From the *Commonly used Microsoft APIs* section, select **Microsoft Graph**.
 > 1. From the **Delegated permissions** section, ensure that the right permissions are checked: **User.ReadBasic.All**. Use the search box if necessary.
 > 1. Select the **Add permissions** button.
@@ -70,7 +70,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > #### Step 1: Configure your application in Azure portal
 >
-> For the code sample for this quickstart to work, you need to:
+> For the code sample in this quickstart to work:
 >
 > 1. Add a reply URL as `http://localhost:5000/getAToken`.
 > 1. Create a Client Secret.

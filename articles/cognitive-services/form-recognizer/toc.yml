@@ -20,6 +20,8 @@
     href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Form Recognizer with AI Builder
     href: tutorial-ai-builder.md
+  - name: Extract form data in bulk
+    href: tutorial-bulk-processing.md
 - name: Concepts
   items:
   - name: Layout extraction
@@ -86,4 +88,4 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
-    href: form-recognizer-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md

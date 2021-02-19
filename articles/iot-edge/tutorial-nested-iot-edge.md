@@ -59,6 +59,13 @@ To create a hierarchy of IoT Edge devices, you will need:
     --admin-password <REPLACE_WITH_PASSWORD>
    ```
 
+* Make sure that the following ports are open inbound: 8000, 443, 5671, 8883:
+  * 8000: Used to pull Docker container images through the API proxy.
+  * 443: Used between parent and child edge hubs for REST API calls.
+  * 5671, 8883: Used for AMQP and MQTT.
+
+  For more information, see [How to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md).
+
 You can also try out this scenario by following the scripted [Azure IoT Edge for Industrial IoT sample](https://aka.ms/iotedge-nested-sample), which deploys Azure virtual machines as preconfigured devices to simulate a factory environment.
 
 ## Configure your IoT Edge device hierarchy
@@ -177,6 +184,33 @@ Each device needs a copy of the root CA certificate and a copy of its own device
 
 Install IoT Edge by following these steps on both devices.
 
+1. Install the repository configuration that matches your device operating system.
+
+   * **Ubuntu Server 18.04**:
+
+     ```bash
+     curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+     ```
+
+   * **Raspberry Pi OS Stretch**:
+
+     ```bash
+     curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+     ```
+
+1. Copy the generated list to the sources.list.d directory.
+
+   ```bash
+   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```
+
+1. Install the Microsoft GPG public key.
+
+   ```bash
+   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```
+   
 1. Update package lists on your device.
 
    ```bash
@@ -192,7 +226,7 @@ Install IoT Edge by following these steps on both devices.
 1. Install the hsmlib and IoT Edge daemon. To see the assets for other Linux distributions, [visit the GitHub release](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1). <!-- Update with proper image links on release -->
 
    ```bash
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0.rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0_rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
    curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
    sudo dpkg -i ./libiothsm-std.deb
    sudo dpkg -i ./iotedge.deb
@@ -380,6 +414,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
                            "env": {
                                "REGISTRY_PROXY_REMOTEURL": {
                                    "value": "https://mcr.microsoft.com"
+                               } 
                            },
                            "status": "running",
                            "restartPolicy": "always"
@@ -408,7 +443,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
                    },
                    "runtime": {
                        "settings": {
-                           "minDockerVersion": "v1.25",
+                           "minDockerVersion": "v1.25"
                        },
                        "type": "docker"
                    },
@@ -530,7 +565,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
                    },
                    "runtime": {
                        "settings": {
-                           "minDockerVersion": "v1.25",
+                           "minDockerVersion": "v1.25"
                        },
                        "type": "docker"
                    },
@@ -589,6 +624,28 @@ Notice that the image URI that we used for the simulated temperature sensor modu
 
 On the device details page for your lower layer IoT Edge device, you should now see the temperature sensor module listed along the system modules as **Specified in deployment**. It may take a few minutes for the device to receive its new deployment, request the container image, and start the module. Refresh the page until you see the temperature sensor module listed as **Reported by device**.
 
+## IotEdge check
+
+Run the `iotedge check` command to verify the configuration and to troubleshoot errors.
+
+You can run `iotedge check` in a nested hierarchy, even if the child machines don't have direct internet access.
+
+When you run `iotedge check` from the lower layer, the program tries to pull the image from the parent through port 443.
+
+In this tutorial, we use port 8000, so we need to specify it:
+
+```bash
+sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2.0-rc2
+```
+   
+The `azureiotedge-diagnostics` value is pulled from the container registry that's linked with the registry module. This tutorial has it set by default to https://mcr.microsoft.com:
+
+| Name | Value |
+| - | - |
+| `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
+
+If you're using a private container registry, make sure that all the images (for example, IoTEdgeAPIProxy, edgeAgent, edgeHub, and diagnostics) are present in the container registry.    
+    
 ## View generated data
 
 The **Simulated Temperature Sensor** module that you pushed generates sample environment data. It sends messages that include ambient temperature and humidity, machine temperature and pressure, and a timestamp.

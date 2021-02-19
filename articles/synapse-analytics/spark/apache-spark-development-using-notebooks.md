@@ -299,6 +299,8 @@ Not supported.
 
 You can use ```%run <notebook path>``` magic command to reference another notebook within current notebook's context. All the variables defined in the reference notebook are available in the current notebook. ```%run``` magic command supports nested calls but not support recursive calls. You will receive an exception if the statement depth is larger than five. ```%run``` command currently only supports to pass a notebook path as parameter. 
 
+Example: ``` %run /path/notebookA ```.
+
 ---
 
 

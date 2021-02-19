@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 02/09/2021
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -29,7 +29,7 @@ To view a Reservation Order, go to **Reservations** > select the reservation, an
 
 ![Example of reservation order details showing Reservation order ID ](./media/manage-reserved-vm-instance/reservation-order-details.png)
 
-A reservation inherits permissions from its reservation order.
+A reservation inherits permissions from its reservation order. To exchange or refund a reservation, the user should be added to the reservation order.
 
 ## Change the reservation scope
 

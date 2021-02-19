@@ -59,7 +59,9 @@ if err != nil {
 
 If the connection is successful, [HTTP handlers](https://golang.org/pkg/net/http/#HandleFunc) are configured to handle `POST` and `GET` operations and the HTTP server is started. 
 
+> [!NOTE] 
 > [gorilla mux library](https://github.com/gorilla/mux) is used for routing (although it's not strictly necessary and we could have gotten away by using the standard library for this sample application).
+>
 
 ```go
 uh := userHandler{client: client}

@@ -9,7 +9,7 @@ ms.date: 11/09/2020
 
 # Precise answering
 
-The precise answering feature allows you to get the precise short answer from the best candidate answer passage present in the knowledge-base for any user query. This feature uses a deep learning model which on runtime, which understands the intent of the user query and 
+The precise answering feature introduced in QnA Maker managed (Preview), allows you to get the precise short answer from the best candidate answer passage present in the knowledge-base for any user query. This feature uses a deep learning model which on runtime, which understands the intent of the user query and 
 detects the precise short answer from the answer passage, if there is a short answer present as a fact in the answer passage. 
 
 This feature is on by-default in the test pane, so that you can test the functionality specific to your scenario. This feature is extremely beneficial for both content developers as well as 
@@ -30,7 +30,7 @@ The service also returns back the confidence score of the precise answer as an *
 
 ## Publishing a QnA Maker bot
 
-When you publish a bot, you get the precise answer enabled experience by default in your application, where you will see short answer along with the answer passage. User has the flexibility to choose other experiences by updating the template through th eBot app service. 
+When you publish a bot, you get the precise answer enabled experience by default in your application, where you will see short answer along with the answer passage. Refer to the API reference for [Generate Answer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerv5.0-preview.1/knowledgebase/generateanswer#answerspan) to see how to use the precise answer (called AnswerSpan) in the response. User has the flexibility to choose other experiences by updating the template through the Bot app service. 
 
 ## Language support
 

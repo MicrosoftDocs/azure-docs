@@ -212,7 +212,7 @@ To check the settings that were used to configure Azure Diagnostics:
 
 If your application connects to the Internet via a proxy or a firewall, you may need to update the rules to communicate with the Profiler service.
 
-The IPs used by Application Insights Profiler are included in the Azure Monitor service tag. For more information, see [Service Tags documentation](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+The IPs used by Application Insights Profiler are included in the Azure Monitor service tag. For more information, see [Service Tags documentation](../../virtual-network/service-tags-overview.md).
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

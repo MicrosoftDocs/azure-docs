@@ -4,7 +4,7 @@ description: Learn how to customize the expiration date for your federation cert
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

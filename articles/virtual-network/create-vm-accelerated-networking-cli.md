@@ -25,7 +25,7 @@ In this tutorial, you learn how to create a Linux virtual machine (VM) with Acce
 
 ![Comparison](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
-Without accelerated networking, all networking traffic in and out of the VM must traverse the host and the virtual switch. The virtual switch provides all policy enforcement, such as network security groups, access control lists, isolation, and other network virtualized services to network traffic. To learn more about virtual switches, read the [Hyper-V network virtualization and virtual switch](https://technet.microsoft.com/library/jj945275.aspx) article.
+Without accelerated networking, all networking traffic in and out of the VM must traverse the host and the virtual switch. The virtual switch provides all policy enforcement, such as network security groups, access control lists, isolation, and other network virtualized services to network traffic. To learn more about virtual switches, read the [Hyper-V network virtualization and virtual switch](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134230(v=ws.11)) article.
 
 With accelerated networking, network traffic arrives at the virtual machine's network interface (NIC), and is then forwarded to the VM. All network policies that the virtual switch applies are now offloaded and applied in hardware. Applying policy in hardware enables the NIC to forward network traffic directly to the VM, bypassing the host and the virtual switch, while maintaining all the policy it applied in the host.
 
@@ -52,11 +52,9 @@ The following distributions are supported out of the box from the Azure Gallery:
 ## Limitations and Constraints
 
 ### Supported VM instances
-Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs.  These supported series are: D/DSv2 and F/Fs
+Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs. On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. 
 
-On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/Dsv3, D/Dsv4, Dd/Ddv4, Da/Dasv4, E/Esv3, E/Esv4, Ed/Edsv4, Ea/Easv4, Fsv2, Lsv2, Ms/Mms and Ms/Mmsv2.
-
-For more information on VM instances, see [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Support for Accelerated Networking can be found in the individual [virtual machine sizes](../virtual-machines/sizes.md) documentation. 
 
 ### Custom Images
 If you are using a custom image, and your image supports Accelerated Networking, please make sure to have the required drivers to work with Mellanox ConnectX-3 and ConnectX-4 Lx NICs on Azure.
@@ -169,7 +167,7 @@ az vm create \
     --nics myNic
 ```
 
-For a list of all VM sizes and characteristics, see [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+For a list of all VM sizes and characteristics, see [Linux VM sizes](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Once the VM is created, output similar to the following example output is returned. Take note of the **publicIpAddress**. This address is used to access the VM in subsequent steps.
 
@@ -307,5 +305,4 @@ A VM with Accelerated Networking enabled cannot be resized to a VM instance that
 
 * Stop/Deallocate the VM or if in an availability set/VMSS, stop/deallocate all the VMs in the set/VMSS.
 * Accelerated Networking must be disabled on the NIC of the VM or if in an availability set/VMSS, all VMs in the set/VMSS.
-* Once Accelerated Networking is disabled, the VM/availability set/VMSS can be moved to a new size that does not support Accelerated Networking and restarted.  
-
+* Once Accelerated Networking is disabled, the VM/availability set/VMSS can be moved to a new size that does not support Accelerated Networking and restarted.

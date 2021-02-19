@@ -69,6 +69,9 @@ FROM
 
 ```
 
+> [!NOTE]
+> You must modify this script and change the target location to execute it again. External tables cannot be created on the location where you already have some data.
+
 ## Use the external table
 
 You can use the external table created through CETAS like a regular external table.
@@ -88,6 +91,14 @@ WHERE
 ORDER BY
     [population] DESC;
 ```
+
+## Remarks
+
+Once you store your results, the data in the external table cannot be modified. You cannot repeat this script because CETAS will not overwrite the underlying data created in the previous execution. Vote for the following feedback items if some of these are required in your scenarios, or propose the new ones on Azure feedback site:
+- [Enable inserting new data into external table](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/32981347-polybase-allow-insert-new-data-to-existing-exteran)
+- [Enable deleting data from external table](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/15158034-polybase-delete-from-external-tables)
+- [Specify partitions in CETAS](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/19520860-polybase-partitioned-by-functionality-when-creati)
+- [Specify file sizes and counts](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/42263617-cetas-specify-number-of-parquet-files-file-size)
 
 ## Next steps
 

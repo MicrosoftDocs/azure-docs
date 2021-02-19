@@ -4,7 +4,7 @@ description: Management console activation and setup ensures that sensors are re
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/24/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
 ---
@@ -46,7 +46,7 @@ After initial activation, the number of monitored devices might exceed the numbe
 
 ## Set up a certificate
 
-Following installation of the management console, a local self-signed certificate is generated and used to access the console. After an administrator signs in to the management console for the first time, that user is prompted to onboard an SSL/TLS certificate. We recommend that you work with a trusted CA-signed certificate and not use the locally generated self-signed certificate.
+Following installation of the management console, a local self-signed certificate is generated and used to access the console. After an administrator signs in to the management console for the first time, that user is prompted to onboard an SSL/TLS certificate. 
 
 Two levels of security are available:
 
@@ -56,7 +56,9 @@ Two levels of security are available:
 The console supports the following types of certificates:
 
 - Private and Enterprise Key Infrastructure (private PKI)
+
 - Public Key Infrastructure (public PKI)
+
 - Locally generated on the appliance (locally self-signed) 
 
   > [!IMPORTANT]
@@ -140,13 +142,13 @@ To set up tunneling on the sensor:
 
 ## Set up a site
 
-The default enterprise map provides an overall view of your assets according to several levels of geographical locations.
+The default enterprise map provides an overall view of your devices according to several levels of geographical locations.
 
-The view of your assets might be required where the organizational structure and user permissions are complex. In these cases, site setup might be determined by a global organizational structure, in addition to the standard site or zone structure.
+The view of your devices might be required where the organizational structure and user permissions are complex. In these cases, site setup might be determined by a global organizational structure, in addition to the standard site or zone structure.
 
 To support this environment, you need to create a global business topology that's based on your organization's business units, regions, sites, and zones. You also need to define user access permissions around these entities by using access groups.
 
-Access groups enable better control over where users manage and analyze assets in the Defender for IoT platform.
+Access groups enable better control over where users manage and analyze devices in the Defender for IoT platform.
 
 ### How it works
 
@@ -208,7 +210,7 @@ To delete a site:
 
 ## Create enterprise zones
 
-Zones are logical entities that enable you to divide assets within a site into groups according to various characteristics. For example, you can create groups for production lines, substations, site areas, or types of assets. You can define zones based on any characteristic that's suitable for your organization.
+Zones are logical entities that enable you to divide devices within a site into groups according to various characteristics. For example, you can create groups for production lines, substations, site areas, or types of devices. You can define zones based on any characteristic that's suitable for your organization.
 
 You configure zones as a part of the site configuration process.
 
@@ -224,7 +226,7 @@ The following table describes the parameters in the **Site Management** window.
 | Connectivity | The sensor connectivity status. The status can be **Connected** or **Disconnected**. |
 | Last Upgrade | The date of the last upgrade. |
 | Upgrade Progress | The progress bar shows the status of the upgrade process, as follows:<br />- Uploading package<br />- Preparing to install<br />- Stopping processes<br />- Backing up data<br />- Taking snapshot<br />- Updating configuration<br />- Updating dependencies<br />- Updating libraries<br />- Patching databases<br />- Starting processes<br />- Validating system sanity<br />- Validation succeeded<br />- Success<br />- Failure<br />- Upgrade started<br />- Starting installation<br /></br >For details about upgrading, refer to [Microsoft Support](https://support.microsoft.com/) for help. |
-| Assets | The number of OT assets that the sensor monitors. |
+| Devices | The number of OT devices that the sensor monitors. |
 | Alerts | The number of alerts on the sensor. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-icon.png" border="false"::: | Enables assigning a sensor to zones. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::| Enables deleting a disconnected sensor from the site. |

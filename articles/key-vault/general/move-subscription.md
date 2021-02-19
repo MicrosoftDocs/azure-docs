@@ -25,7 +25,7 @@ Customer intent: As a key vault administrator, I want to move my vault to anothe
 > Make sure you understand the impact of this change and follow the guidance in this article carefully before deciding to move key vault to a new subscription.
 > If you are using Managed Service Identities (MSI) please read the post-move instructions at the end of the document. 
 
-[Azure Key Vault](overview.md) is automatically tied to the default [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) tenant ID for the subscription in which it is created. You can find tenant ID associated with your subscription by following this [guide](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant). All access policy entries and roles assignments are also tied to this tenant ID.  If you move your Azure subscription from tenant A to tenant B, your existing key vaults will be inaccessible by the service principals (users and applications) in tenant B. To fix this issue, you need to:
+[Azure Key Vault](overview.md) is automatically tied to the default [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) tenant ID for the subscription in which it is created. You can find tenant ID associated with your subscription by following this [guide](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md). All access policy entries and roles assignments are also tied to this tenant ID.  If you move your Azure subscription from tenant A to tenant B, your existing key vaults will be inaccessible by the service principals (users and applications) in tenant B. To fix this issue, you need to:
 
 * Change the tenant ID associated with all existing key vaults in the subscription to tenant B.
 * Remove all existing access policy entries.
@@ -33,8 +33,8 @@ Customer intent: As a key vault administrator, I want to move my vault to anothe
 
 For more information about Azure Key Vault and Azure Active Directory, see
 - [About Azure Key Vault](overview.md)
-- [What is Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-- [How to find tenant ID](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant)
+- [What is Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
+- [How to find tenant ID](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md)
 
 ## Limitations
 
@@ -46,11 +46,11 @@ Some service principals (users and applications) are bound to a specific tenant.
 
 ## Prerequisites
 
-* [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) level access or higher to the current subscription where your key vault exists. You can assign role using [Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), or [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-* [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) level access or higher to the subscription where you want to move your key vault.You can assign role using [Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), or [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-* A resource group in the new subscription. You can create one using [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell), or [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli).
+* [Contributor](../../role-based-access-control/built-in-roles.md#contributor) level access or higher to the current subscription where your key vault exists. You can assign role using [Azure portal](../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../role-based-access-control/role-assignments-cli.md), or [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+* [Contributor](../../role-based-access-control/built-in-roles.md#contributor) level access or higher to the subscription where you want to move your key vault.You can assign role using [Azure portal](../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../role-based-access-control/role-assignments-cli.md), or [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+* A resource group in the new subscription. You can create one using [Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md), [PowerShell](../../azure-resource-manager/management/manage-resource-groups-powershell.md), or [Azure CLI](../../azure-resource-manager/management/manage-resource-groups-cli.md).
 
-You can check existing roles using [Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal), [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-cli), or [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-rest).
+You can check existing roles using [Azure portal](../../role-based-access-control/role-assignments-list-portal.md), [PowerShell](../../role-based-access-control/role-assignments-list-powershell.md), [Azure CLI](../../role-based-access-control/role-assignments-list-cli.md), or [REST API](../../role-based-access-control/role-assignments-list-rest.md).
 
 
 ## Moving a key vault to a new subscription
@@ -93,7 +93,7 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 ### Update access policies and role assignments
 
 > [!NOTE]
-> If Key Vault is using [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) permission model. You need to also remove key vault role assignments. You can remove role assignments using [Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), or [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell). 
+> If Key Vault is using [Azure RBAC](../../role-based-access-control/overview.md) permission model. You need to also remove key vault role assignments. You can remove role assignments using [Azure Portal](../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../role-based-access-control/role-assignments-cli.md), or [PowerShell](../../role-based-access-control/role-assignments-powershell.md). 
 
 Now that your vault is associated with the correct tenant ID and old access policy entries or role assignments are removed, set new access policy entries or role assignments.
 
@@ -103,9 +103,9 @@ For assigning policies, see:
 - [Assign an access policy using PowerShell](assign-access-policy-powershell.md)
 
 For adding role assignments, see:
-- [Add role assignment using Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
-- [Add role assignment using Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
-- [Add role assignment using PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Assign Azure roles using PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 
 ### Update managed identities

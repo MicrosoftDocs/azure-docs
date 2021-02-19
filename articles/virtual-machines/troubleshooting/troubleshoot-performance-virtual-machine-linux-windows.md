@@ -27,7 +27,7 @@ This article will walk through using monitoring to diagnose Performance bottlene
 
 ### Azure IAAS virtual machine monitoring
 
-To monitor the Guest VM, use the Azure VM Monitoring, which will alert you to certain high-level resource conditions. To check whether you have the VM diagnostics enabled, see [Azure Resource logs overview](../../azure-monitor/learn/tutorial-resource-logs.md). If you see the following, then you most likely don't have the diagnostics enabled:
+To monitor the Guest VM, use the Azure VM Monitoring, which will alert you to certain high-level resource conditions. To check whether you have the VM diagnostics enabled, see [Azure Resource logs overview](../../azure-monitor/essentials/tutorial-resource-logs.md). If you see the following, then you most likely don't have the diagnostics enabled:
 
 ![Monitoring isn't enabled](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -98,7 +98,7 @@ To identify if you have any resource bottlenecks, review your data. If your find
 
 ### CPU observe trends
 
-When looking at performance issues, be aware of the trends and understand if they affect you. In the next sections, we'll use the Monitoring graphs from the portal to show trends. They can also be useful for cross referencing difference resource behaviors in the same time period. To customize the graphs, click [Azure Monitor data platform](../../azure-monitor/platform/data-platform.md).
+When looking at performance issues, be aware of the trends and understand if they affect you. In the next sections, we'll use the Monitoring graphs from the portal to show trends. They can also be useful for cross referencing difference resource behaviors in the same time period. To customize the graphs, click [Azure Monitor data platform](../../azure-monitor/data-platform.md).
 
 Spiking – Spiking could be related to a scheduled task/known event. If you can identify the task, determine whether the task runs at the required performance level. If performance is acceptable, you may not need to increase resources.
 
@@ -205,7 +205,7 @@ To identify if you're hitting the IOPS limit, go into the Storage Account diagno
 
 With new disk offerings under Standard storage, the IOPS and Throughput limits could differ, but the cumulative limit of Standard Storage account is 20000 IOPS(Premium storage has different limits at account or Disk level). Read more about different standard storage disk offerings and per disk limits:
 
-* [Scalability and performance targets for VM disks on Windows](../windows/disk-scalability-targets.md).
+* [Scalability and performance targets for VM disks on Windows](../disks-scalability-targets.md).
 
 #### References
 
@@ -221,7 +221,7 @@ Check Throughput Limits of the VHDs attached to the VM. Add the VM Metrics Disk 
 
 New disk offerings under Standard storage have different IOPS and throughput limits (IOPS are not exposed per VHD). Look at the data to see if you're the hitting the limits of combined throughput MB of the VHD(s) at VM level using Disk Read and Write, then optimize your VM storage configuration to scale past single VHD limits. Read more about different standard storage disk offerings and per disk limits:
 
-* [Scalability and performance targets for VM disks on Windows](../windows/disk-scalability-targets.md).
+* [Scalability and performance targets for VM disks on Windows](../disks-scalability-targets.md).
 
 ### High disk utilization/latency remediation
 

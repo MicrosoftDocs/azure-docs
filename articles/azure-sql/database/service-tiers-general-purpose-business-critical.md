@@ -72,6 +72,7 @@ The following factors affect the amount of storage used for data and log files, 
   - For storage in the premium or business critical service tiers, increase or decrease the size in 250-GB increments.
 - In the general purpose service tier, `tempdb` uses an attached SSD, and this storage cost is included in the vCore price.
 - In the business critical service tier, `tempdb` shares the attached SSD with the MDF and LDF files, and the `tempdb` storage cost is included in the vCore price.
+- In the DTU premium service tier, `tempdb` shares the attached SSD with MDF and LDF files.
 - The storage size for a SQL Managed Instance must be specified in multiples of 32 GB.
 
 

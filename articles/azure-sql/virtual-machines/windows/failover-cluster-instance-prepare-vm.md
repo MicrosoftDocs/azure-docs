@@ -40,7 +40,7 @@ The configuration settings for your virtual machine vary depending on the storag
 
 ## Configure VM availability 
 
-The failover cluster feature requires virtual machines to be placed in an [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) or an [availability zone](../../../availability-zones/az-overview.md#availability-zones). If you choose availability sets, you can use [proximity placement groups](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) to locate the VMs closer. In fact, proximity placement groups are a prerequisite for using Azure shared disks. 
+The failover cluster feature requires virtual machines to be placed in an [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) or an [availability zone](../../../availability-zones/az-overview.md#availability-zones). If you choose availability sets, you can use [proximity placement groups](../../../virtual-machines/co-location.md#proximity-placement-groups) to locate the VMs closer. In fact, proximity placement groups are a prerequisite for using Azure shared disks. 
 
 Carefully select the VM availability option that matches your intended cluster configuration: 
 
@@ -64,7 +64,7 @@ On an Azure VM guest failover cluster, we recommend a single NIC per server (clu
 Place both virtual machines:
 
 - In the same Azure resource group as your availability set, if you're using availability sets.
-- On the same virtual network as your domain controller.
+- On the same virtual network as your domain controller or on a virtual network that has suitable connectivity to your domain controller.
 - On a subnet that has enough IP address space for both virtual machines and all FCIs that you might eventually use on the cluster.
 - In the Azure availability set or availability zone.
 

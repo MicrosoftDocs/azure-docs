@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.custom: contperf-fy21q3
+ms.custom: contperf-fy21q2
 ---
 
 # Known issues in Azure Digital Twins
@@ -25,8 +25,6 @@ This article provides information about known issues associated with Azure Digit
 ## Missing role assignment after scripted setup
 
 **Issue description:** Some users may experience issues with the role assignment portion of [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md). The script does not indicate failure, but the *Azure Digital Twins Data Owner* role is not successfully assigned to the user, and this issue will impact ability to create other resources down the road.
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |

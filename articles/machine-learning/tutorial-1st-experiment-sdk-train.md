@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-python
 ---
 
@@ -35,7 +35,8 @@ In this tutorial, you:
 
 ## Prerequisites
 
-* Completion of [part 2](tutorial-1st-experiment-hello-world.md) of the series.
+- [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://www.anaconda.com/download/) to manage Python virtual environments and install packages.
+- Completion of [part1](tutorial-1st-experiment-sdk-setup-local.md) and [part 2](tutorial-1st-experiment-hello-world.md) of the series.
 
 ## Create training scripts
 
@@ -53,18 +54,8 @@ Create a `train.py` script in the `src` subdirectory:
 
 You now have the following directory structure:
 
-```txt
-tutorial
-└──.azureml
-|  └──config.json
-└──src
-|  └──hello.py
-|  └──model.py
-|  └──train.py
-└──01-create-workspace.py
-└──02-create-compute.py
-└──03-run-hello.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="Directory structure shows train.py in src subdirectory":::
+
 
 > [!div class="nextstepaction"]
 > [I created the training scripts](?success=create-scripts#environment) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=create-scripts)
@@ -82,7 +73,7 @@ This environment has all the dependencies that your model and training script re
 
 ## <a name="test-local"></a> Test locally
 
-Use the following code to test your script locally in the new environment.  
+In a terminal or Anaconda Prompt window, use the following code to test your script locally in the new environment.  
 
 ```bash
 conda deactivate                                # If you are still using the tutorial environment, exit it

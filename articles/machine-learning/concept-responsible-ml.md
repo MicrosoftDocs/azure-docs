@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 12/21/2020
+ms.custom: responsible-ml
 #intent: As a data scientist, I want to know learn what responsible machine learning is and how I can use it in Azure Machine Learning
 ---
 

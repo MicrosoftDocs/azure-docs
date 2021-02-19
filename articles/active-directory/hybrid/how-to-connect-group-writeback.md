@@ -42,7 +42,13 @@ To enable group writeback, use the following steps:
 ```Powershell
 $AzureADConnectSWritebackAccountDN =  <MSOL_ account DN>
 Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\AdSyncConfig.psm1"
+
+# To grant the <MSOL_account> permission to all domains in the forest:
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN
+
+# To grant the <MSOL_account> permission to specific OU (eg. the OU chosen to writeback Office 365 Groups to):
+$GroupWritebackOU = <DN of OU where groups are to be written back to>
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN -ADObjectDN $GroupWritebackOU
 ```
 
 For additional information on configuring the Microsoft 365 groups see [Configure Microsoft 365 Groups with on-premises Exchange hybrid](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).

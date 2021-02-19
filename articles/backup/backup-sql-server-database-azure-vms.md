@@ -82,11 +82,11 @@ If you choose to allow access service IPs, refer to the IP ranges in the JSON fi
 
 You can also use the following FQDNs to allow access to the required services from your servers:
 
-| Service    | Domain  names to be accessed                             |
-| -------------- | ------------------------------------------------------------ |
-| Azure  Backup  | `*.backup.windowsazure.com`                             |
-| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Service    | Domain  names to be accessed                             | Ports
+| -------------- | ------------------------------------------------------------ | ---
+| Azure  Backup  | `*.backup.windowsazure.com`                             | 443
+| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` | 443
+| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | As applicable
 
 #### Use an HTTP proxy server to route traffic
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
 ---
 
@@ -63,7 +63,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-In the deployment manifest for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179) or other [desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), look for the *telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
+In the deployment manifest for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179), [desktop machine](https://go.microsoft.com/fwlink/?linkid=2152270), or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189), look for the *telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
 
 ```json
 
@@ -124,7 +124,7 @@ You can use `iotedge` command line tool to check the status and logs of the runn
 
 ## Collect log files with the diagnostics container
 
-Spatial analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets. The spatial analysis diagnostics module is available in the Microsoft Container Registry for you to download. In the manifest deployment file for your [Azure Stack Edge Device](https://go.microsoft.com/fwlink/?linkid=2142179) or other [desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), look for the *diagnostics* module.
+Spatial analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets. The spatial analysis diagnostics module is available in the Microsoft Container Registry for you to download. In the manifest deployment file for your [Azure Stack Edge Device](https://go.microsoft.com/fwlink/?linkid=2142179), [desktop machine](https://go.microsoft.com/fwlink/?linkid=2152270), or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) look for the *diagnostics* module.
 
 In the "env" section add the following configuration:
 
@@ -183,13 +183,13 @@ It can also be set through the IoT Edge Module Twin document either globally, fo
 > The `diagnostics` module does not affect the logging content, it is only assists in collecting, filtering, and uploading existing logs.
 > You must have Docker API version 1.40 or higher to use this module.
 
-The sample deployment manifest file for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179) or other [desktop machine](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)  includes a module named `diagnostics` that collects and uploads logs. This module is disabled by default and should be enabled through the IoT Edge module configuration when you need to access logs. 
+The sample deployment manifest file for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179), [desktop machine](https://go.microsoft.com/fwlink/?linkid=2152270), or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) includes a module named `diagnostics` that collects and uploads logs. This module is disabled by default and should be enabled through the IoT Edge module configuration when you need to access logs. 
 
 The `diagnostics` collection is on-demand and controlled via an IoT Edge direct method, and can send logs to an Azure Blob Storage.
 
 ### Configure diagnostics upload targets
 
-From the IoT Edge portal, select your device and then the **diagnostics** module. In the sample Deployment manifest file for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179) or other [desktop machines](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), look for the **Environment Variables** section for diagnostics, named `env`, and add the following information:
+From the IoT Edge portal, select your device and then the **diagnostics** module. In the sample Deployment manifest file for your [Azure Stack Edge device](https://go.microsoft.com/fwlink/?linkid=2142179), [desktop machines](https://go.microsoft.com/fwlink/?linkid=2152270), or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) look for the **Environment Variables** section for diagnostics, named `env`, and add the following information:
 
 **Configure Upload to Azure Blob Storage**
 

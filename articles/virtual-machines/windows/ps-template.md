@@ -67,7 +67,7 @@ The last PowerShell command from the previous script shows the virtual machine n
 ## Next Steps
 
 - If there were issues with the deployment, you might take a look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
-- Learn how to create and manage a virtual machine in [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Learn how to create and manage a virtual machine in [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md).
 
 To learn more about creating templates, view the JSON syntax and properties for the resources types you deployed:
 

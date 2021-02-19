@@ -37,6 +37,9 @@ There are various causes for stop errors. The most common causes are:
 
 ## Solution 
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 To resolve this problem, [contact support and submit a dump file](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file), which will help us diagnose the problem more quickly, or try the following self-help solution.
 
 ### Attach the OS disk to a recovery VM

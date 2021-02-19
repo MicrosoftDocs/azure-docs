@@ -20,7 +20,7 @@ The key features of ephemeral disks are:
 - Lower latency, similar to a temporary disk. 
 - Ephemeral OS disks are free, you incur no storage cost for OS disk.
 - They are available in all Azure regions. 
-- Ephemeral OS Disk is supported by [Shared Image Gallery](./linux/shared-image-galleries.md). 
+- Ephemeral OS Disk is supported by [Shared Image Gallery](./shared-image-galleries.md). 
  
 
  

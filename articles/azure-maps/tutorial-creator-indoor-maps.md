@@ -17,8 +17,6 @@ manager: philmea
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-
-
 This tutorial shows you how to create indoor maps. In this tutorial, you'll learn how to use the API to:
 
 > [!div class="checklist"]
@@ -407,6 +405,10 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 The [Feature Get States API](/rest/api/maps/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature `ID`. You can also delete the stateset and its resources by using the [Feature State Delete API](/rest/api/maps/featurestate/deletestatesetpreview).
 
 To learn more about the different Azure Maps Creator services (Preview) discussed in this article see, [Creator Indoor Maps](creator-indoor-maps.md).
+
+## Clean up resources
+
+There are no resources that require cleanup.
 
 ## Next steps
 

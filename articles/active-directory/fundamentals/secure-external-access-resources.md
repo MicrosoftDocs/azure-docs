@@ -1,6 +1,6 @@
 ---
 title: Securing external collaboration in Azure Active Directory
-description: A guide for architects and IT administrators on securing external access to internal resources
+description: A guide for architects and IT administrators on securing external access to internal resources 
 services: active-directory
 author: BarbaraSelden
 manager: daveba

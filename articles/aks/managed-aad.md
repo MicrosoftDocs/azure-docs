@@ -3,8 +3,8 @@ title: Use Azure AD in Azure Kubernetes Service
 description: Learn how to use Azure AD in Azure Kubernetes Service (AKS) 
 services: container-service
 ms.topic: article
-ms.date: 08/26/2020
-ms.author: thomasge
+ms.date: 02/1/2021
+ms.author: miwithro
 ---
 
 # AKS-managed Azure Active Directory integration
@@ -41,7 +41,6 @@ kubelogin --version
 ```
 
 Use [these instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/) for other operating systems.
-
 
 ## Before you begin
 
@@ -183,6 +182,50 @@ If you want to access the cluster, follow the steps [here][access-cluster].
 
 There are some non-interactive scenarios, such as continuous integration pipelines, that aren't currently available with kubectl. You can use [`kubelogin`](https://github.com/Azure/kubelogin) to access the cluster with non-interactive service principal sign-in.
 
+## Use Conditional Access with Azure AD and AKS
+
+When integrating Azure AD with your AKS cluster, you can also use [Conditional Access][aad-conditional-access] to control access to your cluster.
+
+> [!NOTE]
+> Azure AD Conditional Access is an Azure AD Premium capability.
+
+To create an example Conditional Access policy to use with AKS, complete the following steps:
+
+1. At the top of the Azure portal, search for and select Azure Active Directory.
+1. In the menu for Azure Active Directory on the left-hand side, select *Enterprise applications*.
+1. In the menu for Enterprise applications on the left-hand side, select *Conditional Access*.
+1. In the menu for Conditional Access on the left-hand side, select *Policies* then *New policy*.
+    :::image type="content" source="./media/managed-aad/conditional-access-new-policy.png" alt-text="Adding a Conditional Access policy":::
+1. Enter a name for the policy such as *aks-policy*.
+1. Select *Users and groups*, then under *Include* select *Select users and groups*. Choose the users and groups where you want to apply the policy. For this example, choose the same Azure AD group that has administration access to your cluster.
+    :::image type="content" source="./media/managed-aad/conditional-access-users-groups.png" alt-text="Selecting users or groups to apply the Conditional Access policy":::
+1. Select *Cloud apps or actions*, then under *Include* select *Select apps*. Search for *Azure Kubernetes Service* and select *Azure Kubernetes Service AAD Server*.
+    :::image type="content" source="./media/managed-aad/conditional-access-apps.png" alt-text="Selecting Azure Kubernetes Service AD Server for applying the Conditional Access policy":::
+1. Under *Access controls*, select *Grant*. Select *Grant access* then *Require device to be marked as compliant*.
+    :::image type="content" source="./media/managed-aad/conditional-access-grant-compliant.png" alt-text="Selecting to only allow compliant devices for the Conditional Access policy":::
+1. Under *Enable policy*, select *On* then *Create*.
+    :::image type="content" source="./media/managed-aad/conditional-access-enable-policy.png" alt-text="Enabling the Conditional Access policy":::
+
+Get the user credentials to access the cluster, for example:
+
+```azurecli-interactive
+ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
+```
+
+Follow the instructions to sign in.
+
+Use the `kubectl get nodes` command to view nodes in the cluster:
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+Follow the instructions to sign in again. Notice there is an error message stating you are successfully logged in, but your admin requires the device requesting access to be managed by your Azure AD to access the resource.
+
+In the Azure portal, navigate to Azure Active Directory, select *Enterprise applications* then under *Activity* select *Sign-ins*. Notice an entry at the top with a *Status* of *Failed* and a *Conditional Access* of *Success*. Select the entry then select *Conditional Access* in *Details*. Notice your Conditional Access policy is listed.
+
+:::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Failed sign-in entry due to Conditional Access policy":::
+
 ## Next steps
 
 * Learn about [Azure RBAC integration for Kubernetes Authorization][azure-rbac-integration]
@@ -197,6 +240,7 @@ There are some non-interactive scenarios, such as continuous integration pipelin
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
 
 <!-- LINKS - Internal -->
+[aad-conditional-access]: ../active-directory/conditional-access/overview.md
 [azure-rbac-integration]: manage-azure-rbac.md
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md

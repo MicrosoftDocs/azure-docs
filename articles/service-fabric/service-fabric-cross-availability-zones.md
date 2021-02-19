@@ -340,7 +340,7 @@ To enable zones on a virtual machine scale set you must include the following th
 
 * The first value is the **zones** property, which specifies the Availability Zones present in the virtual machine scale set.
 * The second value is the "singlePlacementGroup" property, which must be set to true. **The scale set spanned across 3 AZ's can scale upto 300 VMs even with "singlePlacementGroup = true".**
-* The third value is "zoneBalance" and is optional, which ensures strict zone balancing if set to true. Read about [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* The third value is "zoneBalance", which ensures strict zone balancing if set to true. We recommend setting this to true, to avoid unbalanced distribution of VMs across zones. Read about [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * The FaultDomain and UpgradeDomain overrides are not required to be configured.
 
 ```json
@@ -352,7 +352,7 @@ To enable zones on a virtual machine scale set you must include the following th
     "zones": ["1", "2", "3"],
     "properties": {
         "singlePlacementGroup": "true",
-        "zoneBalance": false
+        "zoneBalance": true
     }
 }
 ```
@@ -369,8 +369,8 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
 * The first value is **multipleAvailabilityZones** which should be set to true for the nodeType.
 * The second value is **sfZonalUpgradeMode** and is optional. This property can’t be modified if a nodetype with multiple AZ’s is already present in the cluster.
       The property controls the logical grouping of VMs in upgrade domains.
-          If value is set to false (flat mode): VMs under the node type will be grouped in UD ignoring the zone info in 5 UDs.
-          If value is omitted or set to true (hierarchical mode): VMs will be grouped to reflect the zonal distribution in up to 15 UDs. Each of the 3 zones will have 5 UDs.
+          If value is set to "Parallel": VMs under the nodetype will be grouped in UDs ignoring the zone info in 5 UDs.
+          If value is omitted or set to "Hierarchical": VMs will be grouped to reflect the zonal distribution in up to 15 UDs. Each of the 3 zones will have 5 UDs.
           This property only defines the upgrade behavior for ServiceFabric application and code upgrades. The underlying virtual machine scale set upgrades will still be parallel in all AZ’s.
       This property will not have any impact on the UD distribution for node types which do not have multiple zones enabled.
 * The third value is **vmssZonalUpgradeMode = Parallel**. This is a *mandatory* property to be configured in the cluster, if a nodeType with multiple AZs is added. This property defines the upgrade mode for the virtual machine scale set updates which will happen in parallel in all AZ’s at once.
@@ -388,6 +388,7 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
         "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
     ],
     "properties": {
+        "reliabilityLevel": "Platinum",
         "SFZonalUpgradeMode": "Hierarchical",
         "VMSSZonalUpgradeMode": "Parallel",
         "nodeTypes": [
@@ -411,11 +412,11 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
 
 ### Migration to the node type with multiple Availability Zones
 For all migration scenarios, a new nodeType needs to added which will have multiple availability zones supported. An existing nodeType can’t be migrated to support multiple zones.
-The article [here](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-primary-node-type ) captures the detailed steps of adding a new nodeType and also adding the other resources required for the new nodeType like the IP and LB resources. 
+The article [here](./service-fabric-scale-up-primary-node-type.md) captures the detailed steps of adding a new nodeType and also adding the other resources required for the new nodeType like the IP and LB resources. 
 The same article also describes now to retire the existing nodeType after the nodeType with multiple Availability zones is added to the cluster.
 
 * Migration from a nodeType which is using basic LB and IP resources:
-    This is already described [here](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one node type per AZ. 
+    This is already described [here](#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one node type per AZ. 
     For the new node type, the only difference is that there is only 1 virtual machine scale set and 1 nodetype for all AZ’s instead of 1 each per AZ.
 * Migration from a nodeType which is using the Standard SKU LB and IP resources with NSG:
     Follow the same procedure as described above with the exception that there is no need to add new LB, IP and NSG resources, and the same resources can be reused in the new nodeType.

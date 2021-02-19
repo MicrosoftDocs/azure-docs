@@ -263,8 +263,14 @@ This table shows the assessment confidence ratings, which depend on the percenta
 Here are a few reasons why an assessment could get a low confidence rating:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you create the assessment with performance duration set to one day, you must wait at least a day after you start discovery for all the data points to get collected.
-- Some VMs were shut down during the time for which the assessment was calculated. If any VMs are turned off for some duration, Server Assessment can't collect the performance data for that period.
-- Some VMs were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some VMs were created only a week ago. The performance history of the new VMs won't exist for the complete duration.
+- Assessment is not able to collect the performance data for some or all the VMs in the assessment period. For a high confidence rating, please ensure that: 
+    - VMs are powered on for the duration of the assessment
+    - Outbound connections on ports 443 are allowed
+    - For Hyper-V VMs dynamic memory is enabled 
+    
+    Please 'Recalculate' the assessment to reflect the latest changes in confidence rating.
+
+- Some VMs were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some VMs were created only a week ago. In this case, the performance data for the new VMs will not be available for the entire duration and the confidence rating would be low.
 
 > [!NOTE]
 > If the confidence rating of any assessment is less than five stars, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable. In that case, we recommend that you switch the assessment to on-premises sizing.

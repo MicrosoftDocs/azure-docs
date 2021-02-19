@@ -1,5 +1,5 @@
 ---
-title: Control a device from Azure IoT Hub quickstart (.NET) | Microsoft Docs
+title: Quickstart - Control a device from Azure IoT Hub quickstart (.NET) | Microsoft Docs
 description: In this quickstart, you run two sample C# applications. One application is a service application that can remotely control devices connected to your hub. The other application simulates a device connected to your hub that can be controlled remotely.
 author: robinsh
 manager: philmea
@@ -74,7 +74,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string \
+    az iot hub device-identity connection-string show \
       --hub-name {YourIoTHubName} \
       --device-id MyDotnetDevice \
       --output table
@@ -91,7 +91,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 You also need your IoT hub _service connection string_ to enable the service application to connect to the hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
 ```azurecli-interactive
-az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
+az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
 ```
 
 Make a note of the service connection string, which looks like:

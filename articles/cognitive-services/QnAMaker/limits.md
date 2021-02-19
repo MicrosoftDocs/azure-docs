@@ -94,6 +94,7 @@ These represent the limits for each create knowledge base action; that is, click
 * Recommended maximum number of alternate questions per answer: 300
 * Maximum number of URLs: 10
 * Maximum number of files: 10
+* Maximum number of QnAs permitted per call: 1000
 
 ## Update Knowledge base call limits
 These represent the limits for each update action; that is, clicking *Save and train* or calling the UpdateKnowledgeBase API.
@@ -101,6 +102,7 @@ These represent the limits for each update action; that is, clicking *Save and t
 * Recommended maximum number of alternate questions added or deleted: 300
 * Maximum number of metadata fields added or deleted: 10
 * Maximum number of URLs that can be refreshed: 5
+* Maximum number of QnAs permitted per call: 1000
 
 ## Next steps
 
