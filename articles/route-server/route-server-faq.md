@@ -40,6 +40,28 @@ Yes, only if the route has the same AS path length. When the VMs send traffic to
 
 Yes. If you peer a VNet hosting the Azure Route Server to another VNet and you enable Use Remote Gateway on that VNet. Azure Route Server will learn the address spaces of that VNet and send them to all the peered NVAs.
 
+### What ASNs (Autonomous System Numbers) can I use?
+You can use your own public ASNs or private ASNs for both your on-premises networks and Azure Route Server. You can't use the ranges reserved by Azure or IANA.
+
+The following ASNs are reserved by Azure or IANA:
+* ASNs reserved by Azure:
+  * Public ASNs: 8074, 8075, 12076
+  * Private ASNs: 65515, 65517, 65518, 65519, 65520
+* ASNs [reserved by IANA](http://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml):
+   * 23456, 64496-64511, 65535-65551 and 429496729
+
+You can't specify these ASNs for your on-premises VPN devices when you're connecting to Azure VPN gateways.
+
+### Can I use 32-bit (4-byte) ASNs?
+Yes, Azure Route Server supports 32-bit (4-byte) ASNs. To configure by using ASN in decimal format, use PowerShell, the Azure CLI, or the Azure SDK.
+
+### What private ASNs can I use?
+The useable ranges of private ASNs are:
+
+* 64512-65514 and 65521-65534
+
+These ASNs aren't reserved by IANA or Azure for use, and therefore can be used to assign to your Azure Route Server.
+
 ## <a name = "limitations"></a>Route Server Limits
 
 Azure Route Server has the following limits (per deployment).
