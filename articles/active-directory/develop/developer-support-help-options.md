@@ -75,15 +75,15 @@ If you don't find an answer and ask a new question, add one or more of the follo
 
 ## Create a GitHub issue
 
-To create a new GitHub issue, select the link for the library you are developing for.
+If you ran into an issue with any of the MSAL libraries, create a new GitHub issue by selecting the link for the library you are developing for.
 
 | MSAL Library| GitHub issues URL |
 |---------------------------------------------------|----------------------------|
-| MSAL for .NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
-|MSAL for Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
-| MSAL for js| https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-|MSAL for Python| https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
-| MSAL for Android| https://github.com/AzureAD/microsoft-authentication-library-for-android/issues |
+| MSAL for .NET | https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
+| MSAL for Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
+| MSAL for js | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
+| MSAL for Python | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
+| MSAL for Android | https://github.com/AzureAD/microsoft-authentication-library-for-android/issues |
 | MSAL for iOS/macOS | https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
 
 ## Submit feedback on Azure Feedback
@@ -107,10 +107,12 @@ To request new features, post them on Azure Feedback. Share your ideas for makin
     <img alt='Stay informed' src='https://docs.microsoft.com/media/common/i_blog.svg'>
 </div>
 
-Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=identity).
+- [Azure Updates](https://azure.microsoft.com/updates/?category=identity): Learn about important product updates, roadmap, and announcements.
 
-News and information about Azure AD is shared at the [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity).
+- [What's new in docs](https://docs.microsoft.com/azure/active-directory/develop/whats-new-docs): Get to know what's new in the Microsoft identity platform documentation.
 
-Also, share your experiences, engage and learn from experts in the [Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/).
+- [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): Get news and information about Azure AD.
+
+- [Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/): Share your experiences, engage and learn from experts.
 
 
