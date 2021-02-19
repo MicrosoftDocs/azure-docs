@@ -34,7 +34,7 @@ landingContent:
           - text: Connect a cluster to Azure Arc
             url: quickstart-connect-cluster.md
       
-  - title: Configure, govern and monitor clusters
+  - title: Configure, govern, and monitor clusters
     linkLists:
       - linkListType: how-to-guide
         links:  
