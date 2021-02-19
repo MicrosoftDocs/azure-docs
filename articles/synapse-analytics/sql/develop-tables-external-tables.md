@@ -329,7 +329,7 @@ The one to three-part name of the table to create. For an external table, server
 
 <column_definition>, ...*n* ]
 
-CREATE EXTERNAL TABLE supports the ability to configure column name, data type, nullability, and collation. You can't use the DEFAULT CONSTRAINT on external tables.
+CREATE EXTERNAL TABLE supports the ability to configure column name, data type, and collation. You can't use the DEFAULT CONSTRAINT on external tables.
 
 >[!IMPORTANT]
 >The column definitions, including the data types and number of columns, must match the data in the external files. If there's a mismatch, the file rows will be rejected when querying the actual data.
