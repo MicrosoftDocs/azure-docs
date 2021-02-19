@@ -72,7 +72,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 2. Install the deviceupdate-agent package and its dependencies
 
    ```shell
-      sudo apt-get install deviceupdate-agent microsoft-deliveryoptimization-apt-plugin
+      sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
    ```
 
 Device Update for Azure IoT Hub software packages are subject to the following license terms:
@@ -90,7 +90,7 @@ Read the license terms prior to using a package. Your installation and use of a 
 3. Optionally, you can verify that the services are running by
 
    ```shell
-   sudo systemctl list-units --type=service | grep 'adu-agent\.service\|do-client-lite\.service'
+   sudo systemctl list-units --type=service | grep 'adu-agent\.service\|deliveryoptimization-agent\.service'
    ```
 
 The output should read:
@@ -98,7 +98,7 @@ The output should read:
 ```markdown
 adu-agent.service                   loaded active running Device Update for IoT Hub Agent daemon.
 
-do-client-lite.service               loaded active running do-client-lite.service: Performs content delivery optimization tasks   `
+deliveryoptimization-agent.service               loaded active running deliveryoptimization-agent.service: Performs content delivery optimization tasks   `
 ```
 
 ## Add a tag to your device
