@@ -192,7 +192,7 @@ the Guest Assignment will only perform an audit of the machine.
 ```
 
 Guest Assignments are created automatically per machine by the Guest Configuration
-service. The resource type is "Microsoft.GuestConfiguration/guestConfigurationAssignments".
+service. The resource type is `Microsoft.GuestConfiguration/guestConfigurationAssignments`.
 Azure Policy uses the **complianceStatus** property of the Guest Assignment resource
 to report compliance status. For more information, see [getting compliance
 data](../how-to/get-compliance-data.md).
