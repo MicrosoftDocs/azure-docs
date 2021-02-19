@@ -45,7 +45,7 @@ The following access restrictions are applicable when data-exfiltration protecti
 
 1. Select **Azure Cosmos DB(SQL API)** account type > **Continue**.
 
-   :::image type="content" source="./media/analytical-store-private-endpoints/select-private-endpoint-sql.png" alt-text="Select Azure Cosmos DB SQL API to create a private endpoint." border="true":::
+   :::image type="content" source="./media/analytical-store-private-endpoints/select-private-endpoint.png" alt-text="Select Azure Cosmos DB SQL API to create a private endpoint." border="true":::
 
 1. Fill out the **New managed private endpoint** form with the following details:
 
@@ -68,7 +68,7 @@ The following access restrictions are applicable when data-exfiltration protecti
 
 1. Navigate back to Synapse Analytics workspace and click **Refresh** on the **Managed private endpoints** pane. Verify that private endpoint is in **Approved** state.
 
-   :::image type="content" source="./media/analytical-store-private-endpoints/private-endpoint-approved.png" alt-text="Verify that the private endpoint is approved." border="true":::
+   :::image type="content" source="./media/analytical-store-private-endpoints/approved-private-endpoint.png" alt-text="Verify that the private endpoint is approved." border="true":::
 
 ## Use Apache Spark for Azure Synapse Analytics
 
@@ -123,7 +123,7 @@ To configure network isolation for this account from a Synapse workspace:
 > [!IMPORTANT]
 > If you are using Azure Synapse Link and need network isolation for your data in analytical store, you must map the Azure Cosmos DB account into Synapse workspace using **Analytical** managed private endpoint.
 
-## Next Steps
+## Next steps
 
 * Get started with [querying Synapse Spark](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json&branch=master)
 * Get started with [querying using serverless SQL pools](../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json&branch=master)
