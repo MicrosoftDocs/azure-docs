@@ -116,7 +116,7 @@ To add Windows machines, you need the information on the **Agents management** p
 
 When complete, the **Microsoft Monitoring agent** appears in **Control Panel**. You can review your configuration there and verify that the agent is connected.
 
-For further information on installing and configuring the agent, see [Connect Windows machines](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
+For further information on installing and configuring the agent, see [Connect Windows machines](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard).
 
 ::: zone-end
 
