@@ -69,10 +69,10 @@ The preferred method is to use Azure Resource Graph to query for all VMs in a Vi
 | order by resourceGroup desc, name desc 
 ```
 
-Querying resources with [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) is a convenient and efficient way to query Azure resources and minimizes API calls to the resource provider. Azure Resource Graph is an eventually consistent cache where new or updated resources may not be reflected for up to 60 seconds. 
-- List VMs in a resource group or subscription
-- Use the expand option to retrieve the instance view (fault domain assignment, power and provisioning states) for all VMs in your subscription
-- Use the Get VM API and commands to get model and instance view for a single instance
+Querying resources with [Azure Resource Graph](../governance/resource-graph/overview) is a convenient and efficient way to query Azure resources and minimizes API calls to the resource provider. Azure Resource Graph is an eventually consistent cache where new or updated resources may not be reflected for up to 60 seconds. You can:
+- List VMs in a resource group or subscription.
+- Use the expand option to retrieve the instance view (fault domain assignment, power and provisioning states) for all VMs in your subscription.
+- Use the Get VM API and commands to get model and instance view for a single instance.
 
 ### Scale sets VM Batch operations
 Use the standard VM commands to start, stop, restart, delete instances, instead of the Virtual Machine Scale Set VM APIs. The Virtual Machine Scale Set VM Batch operations (start all, stop all, reimage all, etc.) are not used with Flexible orchestration mode. 
@@ -91,6 +91,7 @@ Use extensions targeted for standard virtual machines, instead of extensions tar
 
 
 ## Comparing Flexible, Uniform, and Availability Sets 
+The following table compares the Flexible orchestration mode, Uniform orchestration mode, and Availability Sets by their features.
 
 | Feature | Supported by Flexible orchestration (Preview) | Supported by Uniform orchestration (General Availability) | Supported by AvSets (General Availability) |
 |-|-|-|-|
@@ -173,11 +174,13 @@ az provider register --namespace Microsoft.Compute
 
 ## Get started with Flexible orchestration mode
 
+Get started with Flexible orchestration mode for your scale sets through the Azure portal, Azure CLI, Terraform, or REST API.
+
 ### Azure portal
 
 Create a virtual machine scale set in Flexible orchestration mode through the Azure portal.
 
-1. Log into the Azure portal.
+1. Log into the [Azure portal](https://portal.azure.com).
 1. In the search bar, search for and select **Virtual machine scale sets**. 
 1. Select **Create** on the **Virtual machine scale sets** page.
 1. On the **Create a virtual machine scale set** page, view the **Orchestration** section.
@@ -213,10 +216,10 @@ az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmssflexname --image Ubu
 
 ### Terraform
 Create a Flexible virtual machine scale set with Terraform. This process requires **Terraform Azurerm provider v2.15.0** or later. Note the following parameters:
-- When no zone is specified, `platform_fault_domain_count` can be 1, 2, or 3 depending on region
-- When a zone is specified, `the fault domain count` can be 1
-- `single_placement_group` parameter must be `false` for Flexible virtual machine scale sets
-- If you are doing a regional deployment, no need to specify `zones`
+- When no zone is specified, `platform_fault_domain_count` can be 1, 2, or 3 depending on region.
+- When a zone is specified, `the fault domain count` can be 1.
+- `single_placement_group` parameter must be `false` for Flexible virtual machine scale sets.
+- If you are doing a regional deployment, no need to specify `zones`.
 
 ```terraform
 resource "azurerm orchestrated_virtual_machine_scale_set" "tf_vmssflex" {
@@ -285,9 +288,11 @@ See [Azure quickstart](https://github.com/Azure/azure-quickstart-templates/tree/
 ## Frequently asked questions
 
 **How much scale does Flexible orchestration support?**
+
 You can add up to 1000 VMs to a scale set in Flexible orchestration mode.
 
 **How does availability with Flexible orchestration compare to Availability Sets or Uniform orchestration?**
+
 |   | Flexible orchestration  | Uniform orchestration  | Availability Sets  |
 |-|-|-|-|
 | Deploy across availability zones  | Coming soon  | Yes  | No  |
