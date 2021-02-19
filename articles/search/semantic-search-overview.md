@@ -35,7 +35,7 @@ Between preview launch on March 2 and April 2, there is no charge for semantic s
 
 ## Next steps
 
-A new semantic query type enables the relevance ranking and response structures. [Create a semantic query](semantic-how-to-query-request.md) explains how to get started. Or, visit either one of the following documents for related information.
+A new query type enables the relevance ranking and response structures of semantic search. [Create a semantic query](semantic-how-to-query-request.md) explains how to get started. Or, review either of the following articles for related information.
 
 + [Add spell check to query inputs](speller-how-to-add.md)
 + [Structure a semantic response](semantic-how-to-query-response.md)
