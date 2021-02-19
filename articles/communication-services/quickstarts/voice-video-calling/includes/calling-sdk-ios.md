@@ -174,7 +174,7 @@ let call = self.callAgent?.join(with: groupCallLocator, joinCallOptions: JoinCal
 ```
 
 ### Subscribe for incoming call
-Subscribe to inocming call event
+Subscribe to incoming call event
 
 ```
 final class IncomingCallHandler: NSObject, CallAgentDelegate, IncomingCallDelegate
@@ -268,20 +268,20 @@ callAgent.handlePush(notification: callNotification) { (error) in
     if (error != nil) {
         print("Handling of push notification failed")
     } else {
-        print("Handling of push notification was successful")
+        print("Handling of push notification was successfull")
     }
 }
 
 ```
 #### Unregister Push Notification
 
-Applications can unregister push notification at any time. Simply call the `unRegisterPushNotification` method on *CallAgent*.
+Applications can unregister push notification at any time. Simply call the `unregisterPushNotification` method on *CallAgent*.
 > [!NOTE]
 > Applications are not automatically unregistered from push notification on logout.
 
 ```swift
 
-callAgent.unRegisterPushNotifications { (error) in
+callAgent.unregisterPushNotifications { (error) in
     if (error != nil) {
         print("Unregister of push notification failed, please try again")
     } else {
@@ -334,8 +334,7 @@ let localVideoStream = LocalVideoStream(camera: firstCamera)
 call!.startVideo(stream: localVideoStream) { (error) in
     if (error == nil) {
         print("Local video started successfully")
-    }
-    else {
+    } else {
         print("Local video failed to start")
     }
 }
