@@ -23,15 +23,15 @@ Scale set orchestration modes allow you to have greater control over how virtual
 
 
 ## Scale sets with Uniform orchestration
-*Optimized for large-scale stateless workloads with identical instances.* 
+Optimized for large-scale stateless workloads with identical instances.
 
 Virtual machine scale sets with Uniform orchestration use a virtual machine profile or template to scale up to desired capacity. While there is some ability to manage or customize individual virtual machine instances, typically Uniform uses identical VM instances. Individual Uniform VM instances are exposed via the virtual machine scale set VM API commands, and are not compatible with the standard Azure IaaS VM API commands, Azure management features such as ARM resource tagging RBAC permissions, Azure Backup, Azure Site Recovery. Uniform orchestration provides fault domain high availability guarantees when configured with fewer than 100 instances. Uniform orchestration is generally available, and supports a full range of scale set management and orchestration, including metrics-based autoscaling, instance protection, automatic OS upgrades. 
 
 
 ## Scale sets with Flexible orchestration 
-*Achieve high availability at scale with identical or multiple virtual machine types.* 
+Achieve high availability at scale with identical or multiple virtual machine types.
 
-With Flexible orchestration, Azure provides a unified experience across the Azure VM ecosystem offering Availability Sets like high availability guarantees at VM scale set scale (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone. This enables you to scale out your application while maintaining fault domain isolation that is essential to run quorum-based or stateful workloads, including:
+With Flexible orchestration, Azure provides a unified experience across the Azure VM ecosystem. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone. This enables you to scale out your application while maintaining fault domain isolation that is essential to run quorum-based or stateful workloads, including:
 - Quorum-based workloads
 - Open-Source databases
 - Stateful applications
@@ -52,7 +52,7 @@ One of the main advantages of Flexible orchestration is that it provides orchest
 You can choose the number of fault domains for the Flexible orchestration scale set. By default, when you add a VM to a Flexible scale set, Azure evenly spreads instances across fault domains. While it is recommended to let Azure assign the fault domain, for advanced or troubleshooting scenarios you can override this default behavior and specify the fault domain where the instance will land.
 
 ```azurecli-interactive 
-az vm create –vmss “myVMSS”  –-platform_fault_domain 1
+az vm create –vmss "myVMSS"  –-platform_fault_domain 1
 ```
 
 ### Instance naming 
@@ -95,12 +95,12 @@ Use extensions targeted for standard virtual machines, instead of extensions tar
 | Feature | Supported by Flexible orchestration (Preview) | Supported by Uniform orchestration (General Availability) | Supported by AvSets (General Availability) |
 |-|-|-|-|
 |         Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  | Scale Set specific   VMs (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM   (Microsoft.compute /virtualmachines)  |
-|         SKUs supported  |            D series, E series, F series, A series,   B series, Intel, AMD  |            All SKUs  |            All SKUs  |
+|         SKUs supported  |            D series, E series, F series, A series,   B series, Intel, AMD (remaining sizes like storage optimized (L series), GPU (N series) and High-performance compute (H series) are planned)  |            All SKUs  |            All SKUs  |
 |         Availability Zones  |            Optionally specify all instances land in   a single availability zone |            Specify instances land across 1, 2 or 3   availability zones  |            Not supported  |
 |         Full control over VM, NICs, Disks  |            Yes  |            Limited control with virtual machien scale sets VM   API  |            Yes  |
 |         Automatic Scaling  |            Coming soon  |            Yes  |            No  |
 |         Assign VM to a   Specific Fault Domain  |            Yes  |             No   |            No  |
-|         Remove NICs and Disks when deleting   VM instances  |            Yes  |            Yes  |            No  |
+|         Remove NICs and Disks when deleting   VM instances  |            Coming soon  |            Yes  |            No  |
 |         Upgrade Policy (VM scale sets) |            Planned  |            Automatic, Rolling, Manual  |            N/A  |
 |         Automatic OS Updates (VM scale sets) |            Planned  |            Yes  |            N/A  |
 |         In Guest Security Patching  |            Yes  |            Coming soon  |            Yes  |
@@ -114,7 +114,7 @@ Use extensions targeted for standard virtual machines, instead of extensions tar
 |         Infiniband   |            No  |            Yes, single placement group only  |            Yes  |
 |         Write Accelerator   |            No  |            Yes  |            Yes  |
 |         Proximity Placement Groups   |            Yes  |            Yes  |            Yes  |
-|         Azure Dedicated Hosts   |            No  |            No  |            Yes  |
+|         Azure Dedicated Hosts   |            No  |            Yes  |            Yes  |
 |         Basic SLB   |            No  |            Yes  |            Yes  |
 |         Azure Load Balancer Standard SKU |            Yes  |            Yes  |            Yes  |
 |         Application Gateway  |            Coming soon  |            Yes  |            Yes  |
@@ -233,8 +233,8 @@ zones = ["1"]
 ### REST API
 
 1. Create an empty scale set. The following parameters are required:
-    1. API version 2019-12-01 (or greater) 
-    1. Single placement group must be `false` when creating a Flexible scale set
+    - API version 2019-12-01 (or greater) 
+    - Single placement group must be `false` when creating a Flexible scale set
 
 ```json
 {
@@ -296,7 +296,8 @@ You can add up to 1000 VMs to a scale set in Flexible orchestration mode.
 | Update domains  | None, maintenance or host updates are done fault domain by fault domain  | Up to 5 update domains  | Up to 20 update domains  |
 
 
-## Troubleshooting scale sets with Flexible orchestration
+## Troubleshoot scale sets with Flexible orchestration
+Find the right solution to your troubleshooting scenario. 
 
 ```
 InvalidParameter. The value 'False' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: True
