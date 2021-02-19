@@ -13,7 +13,7 @@ summary: |
   This article addresses frequently asked questions about the self-hosted version of the developer portal.
   
   > [!TIP]
-  > For general FAQs, refer to [the official Azure documentation](api-management-howto-developer-portal.md).
+  > For general FAQs, see the [developer portal overview](api-management-howto-developer-portal.md).
   
 
 sections:
@@ -29,22 +29,18 @@ sections:
         answer: |
           Provide the required parameters in the `scripts/cleanup.bat` script and execute it:
           
-          1. Go to the `scripts` folder:
+          1. Go to the `scripts` folder, where you will find the cleanup.bat script:
           
               ```console
               cd scripts
               ```
           
-          1. Open the `cleanup.bat` file and add the required info.
+          1. Open `cleanup.bat` with a text editor and add the required info.
+         
+          1. After you add the info to cleanup.bat, run it:
           
               ```console
               .\cleanup.bat
-              ```
-          
-          1. Go back to the `scripts` folder, then run the `cleanup.bat` file.
-          
-              ```console
-              cd ..
               ```
           
       - question: Next steps
