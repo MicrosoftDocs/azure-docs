@@ -327,7 +327,7 @@ Enterprise Library 6 (EntLib60) is a framework of .NET classes that helps you im
 Retry logic for handling transient errors is one area in which EntLib60 can assist. For more information, see [4 - Perseverance, secret of all triumphs: Use the Transient Fault Handling Application Block](/previous-versions/msp-n-p/dn440719(v=pandp.60)).
 
 > [!NOTE]
-> The source code for EntLib60 is available for public download from the [Download Center](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft has no plans to make further feature updates or maintenance updates to EntLib.
+> The source code for EntLib60 is available for public download from the [Download Center](https://github.com/MicrosoftArchive/enterprise-library). Microsoft has no plans to make further feature updates or maintenance updates to EntLib.
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 

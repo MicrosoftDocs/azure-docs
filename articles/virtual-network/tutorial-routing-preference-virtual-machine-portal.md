@@ -75,5 +75,5 @@ When no longer needed, delete the resource group and all of the resources it con
 
 ## Next steps
 - Learn more about [public IP with routing preference](routing-preference-overview.md).
-- Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
+- Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).

@@ -117,7 +117,6 @@ Instances that have failed to create are still present as a resource and:
 
 - Are not charged
 - Do not count towards resource limits (subnet or vCore quota)
-- Keep the instance name reserved - To deploy an instance with the same name, delete the failed instance to release the name
 
 
 > [!NOTE]

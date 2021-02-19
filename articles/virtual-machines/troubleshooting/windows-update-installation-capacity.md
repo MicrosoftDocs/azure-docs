@@ -35,6 +35,9 @@ In this situation, the operating system (OS) is unable to complete a Windows Upd
 
 ### Process Overview:
 
+> [!TIP]
+> If you have a recent backup of the VM, you may try [restoring the VM from the backup](../../backup/backup-azure-arm-restore-vms.md) to fix the boot problem.
+
 1. Create and access a Repair VM.
 1. Free space on disk.
 1. Enable serial console and memory dump collection.

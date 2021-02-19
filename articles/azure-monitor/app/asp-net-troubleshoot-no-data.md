@@ -35,6 +35,10 @@ ms.date: 05/21/2020
 
 * See [Troubleshooting Status Monitor](./monitor-performance-live-website-now.md#troubleshoot).
 
+> [!IMPORTANT]
+> New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./sdk-connection-string.md?tabs=net) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+
+
 ## FileNotFoundException: Could not load file or assembly 'Microsoft.AspNet TelemetryCorrelation
 
 For more information on this error see [GitHub issue 1610 ]
@@ -182,7 +186,7 @@ Performance data (CPU, IO rate, and so on) is available for [Java web services](
 * Check that you actually copied all the Microsoft. ApplicationInsights DLLs to the server, together with Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 * In your firewall, you might have to [open some TCP ports](./ip-addresses.md).
 * If you have to use a proxy to send out of your corporate network, set [defaultProxy](/previous-versions/dotnet/netframework-1.1/aa903360(v=vs.71)) in Web.config
-* Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
+* Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://web.archive.org/web/20150129090641/http://support.microsoft.com/kb/2600217).
 
 ## I used to see data, but it has stopped
 * Have you hit your monthly quota of data points? Open the Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).

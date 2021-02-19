@@ -28,13 +28,20 @@ Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog
     - **Disconnected**: The data factory has access to the catalog, but it's connected to another catalog. As a result, data lineage won't be reported to the catalog automatically.
     - **CannotAccess**: The current user doesn't have access to the data factory, so the connection status is unknown.
  >[!Note]
- >In order to view the Data Factory connections, you need to be assigned any one of the Azure build-in roles:
+ >In order to view the Data Factory connections, you need to be assigned any one of Purview roles:
  >- Contributor
  >- Owner
  >- Reader
  >- User Access Administrator
 
 ## Create new Data Factory connection
+
+>[!Note]
+>In order to add or remove the Data Factory connections, you need to be assigned any one of Purview roles:
+>- Owner
+>- User Access Administrator
+>
+> Besides, it requires the users to be the data factory’s “Owner”, or “Contributor”. 
 
 Follow the steps below to connect an existing Data Factory accounts to your Purview Data Catalog.
 
@@ -56,19 +63,24 @@ Follow the steps below to connect an existing Data Factory accounts to your Purv
 >[!Note]
 >We now support adding no more than 10 Data Factories at once. If you want to add more than 10 Data Factories at once, please file a support ticket.
 
+### How does the authentication work?
+
+When a Purview user registers an Data Factory to which they have access to, the following happens in the backend:
+
+1. The **Data Factory MSI** gets added to Purview RBAC role: **Purview Data Curator**.
+
+    :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Screenshot showing Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
+     
+2. The Data Factory pipeline needs to be executed again so that the lineage metadata can be pushed back into Purview.
+3. Post execution the Data Factory metadata is pushed into Purview.
 
 ### Remove data factory connections
 To remove a data factory connection, do the following:
 
 1. On the **Data Factory connection** page, select the **Remove** button next to one or more data factory connections.
-1. Select **Confirm** in the popup to delete the selected data factory connections.
+2. Select **Confirm** in the popup to delete the selected data factory connections.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
-
->[!Note]
->In order to add or remove the Data Factory connections, you need to be assigned any one of the Azure build-in roles:
->- Owner
->- User Access Administrator
 
 ## Configure a self-hosted IR to collect lineage from on-prem SQL
 
@@ -89,29 +101,29 @@ The integration between Data Factory and Purview supports only a subset of the d
 
 ### Data Factory Copy Data support
 
-| Data storage system | Supported as source | Supported as sink |
-| ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 (no JSON support) | Yes | Yes (non-binary copy only) |
-| ADLS Gen2 (no JSON support) | Yes | Yes |
-| Azure Blob (no JSON support) | Yes | Yes |
-| Azure Cosmos DB (SQL API) | Yes | Yes |
-| Azure Cosmos DB (Mongo API) | Yes | Yes |
-| Azure Cognitive Search | Yes | Yes |
-| Azure Data Explorer | Yes | Yes |
-| Azure Database for Maria DB \* | Yes | Yes |
-| Azure Database for MYSQL \* | Yes | Yes |
-| Azure Database for PostgreSQL \* | Yes | Yes |
-| Azure File Storage | Yes | Yes |
-| Azure Table Storage | Yes | Yes |
-| Azure SQL Database \* | Yes | Yes |
-| Azure SQL MI \* | Yes | Yes |
-| Azure Synapse Analytics(formerly SQL DW) \* | Yes | Yes |
-| SQL Server On-prem (SHIR required) \* | Yes | Yes |
-| Amazon S3 | Yes | Yes |
-| Teradata | Yes | Yes |
-| SAP s4 Hana | Yes | Yes |
-| SAP ECC | Yes | Yes |
-| Hive | Yes | Yes |
+| Data storage system | Supported as source | 
+| ------------------- | ------------------- | 
+| ADLS Gen1 | Yes | 
+| ADLS Gen2 | Yes | 
+| Azure Blob | Yes |
+| Azure Cosmos DB (SQL API) | Yes | 
+| Azure Cosmos DB (Mongo API) | Yes |
+| Azure Cognitive Search | Yes | 
+| Azure Data Explorer | Yes | 
+| Azure Database for Maria DB \* | Yes | 
+| Azure Database for MYSQL \* | Yes | 
+| Azure Database for PostgreSQL \* | Yes |
+| Azure File Storage | Yes | 
+| Azure Table Storage | Yes |
+| Azure SQL Database \* | Yes | 
+| Azure SQL MI \* | Yes | 
+| Azure Synapse Analytics(formerly SQL DW) \* | Yes | 
+| SQL Server On-prem  \* | Yes | 
+| Amazon S3 | Yes | 
+| Teradata | Yes | 
+| SAP Table connector | Yes |
+| SAP ECC | Yes | 
+| Hive | Yes | 
 
 > [!Note]
 > The lineage feature has certain performance overhead in Data Factory copy activity. For those who setup data factory connections in Purview, you may observe certain copy jobs taking longer to complete. Mostly the impact is none to negligible. Please contact support with time comparison if the copy jobs take significantly longer to finish than usual.
@@ -119,7 +131,7 @@ The integration between Data Factory and Purview supports only a subset of the d
 ### Data Factory Data Flow support
 
 | Data storage system | Supported |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- | 
 | ADLS Gen1 | Yes |
 | ADLS Gen2 | Yes |
 | Azure Blob | Yes |
@@ -129,7 +141,7 @@ The integration between Data Factory and Purview supports only a subset of the d
 ### Data Factory Execute SSIS Package support
 
 | Data storage system | Supported |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- |
 | Azure Blob | Yes |
 | ADLS Gen1 | Yes |
 | ADLS Gen2 | Yes |

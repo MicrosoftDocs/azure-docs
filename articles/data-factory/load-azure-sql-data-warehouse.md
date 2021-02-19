@@ -1,16 +1,12 @@
 ---
 title: Load data into Azure Synapse Analytics
 description: Use Azure Data Factory to copy data into Azure Synapse Analytics
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
+ms.date: 01/29/2020
 ---
 
 # Load data into Azure Synapse Analytics by using Azure Data Factory
@@ -97,7 +93,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     a. Click **+ Create new connection** to add a connection
 
-    b. Select **Azure Synapse Analytics** from the gallery, and select **Continue**. You can type "SQL" in the search box to filter the connectors.
+    b. Select **Azure Synapse Analytics** from the gallery, and select **Continue**.
 
     ![Select Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
@@ -121,7 +117,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     b. In the **New Linked Service** page, select your storage account, and select **Create** to deploy the linked service.
 
-    c. In the **Advanced settings** section, deselect the **Use type default** option, then select **Next**.
+    c. Deselect the **Use type default** option, and then select **Next**.
 
     ![Configure PolyBase](./media/load-azure-sql-data-warehouse/configure-polybase.png)
 

@@ -1,12 +1,12 @@
 ---
 title: Define multiple instances of a variable
-description: Use copy operation in an Azure Resource Manager template to iterate multiple times when creating a variable.
+description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a variable.
 ms.topic: conceptual
 ms.date: 02/13/2020
 ---
 # Variable iteration in ARM templates
 
-This article shows you how to create more than one value for a variable in your Azure Resource Manager (ARM) template. By adding the **copy** element to the variables section of your template, you can dynamically set the number of items for a variable during deployment. You also avoid having to repeat template syntax.
+This article shows you how to create more than one value for a variable in your Azure Resource Manager template (ARM template). By adding the `copy` element to the variables section of your template, you can dynamically set the number of items for a variable during deployment. You also avoid having to repeat template syntax.
 
 You can also use copy with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [outputs](copy-outputs.md).
 
@@ -24,9 +24,9 @@ The copy element has the following general format:
 ]
 ```
 
-The **name** property is any value that identifies the loop. The **count** property specifies the number of iterations you want for the variable.
+The `name` property is any value that identifies the loop. The `count` property specifies the number of iterations you want for the variable.
 
-The **input** property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the **input** property. It can be a single property (like a string), or an object with several properties.
+The `input` property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the `input` property. It can be a single property (like a string), or an object with several properties.
 
 ## Copy limits
 
@@ -86,7 +86,7 @@ The preceding template returns an array with the following values:
 ]
 ```
 
-The next example shows how to create an array of objects with three properties - name, diskSizeGB, and diskIndex.
+The next example shows how to create an array of objects with three properties - `name`, `diskSizeGB`, and `diskIndex`.
 
 ```json
 {
@@ -154,10 +154,10 @@ The preceding example returns an array with the following values:
 ```
 
 > [!NOTE]
-> Variable iteration supports an offset argument. The offset must come after the name of the iteration, such as copyIndex('diskNames', 1). If you don't provide an offset value, it defaults to 0 for the first instance.
+> Variable iteration supports an offset argument. The offset must come after the name of the iteration, such as `copyIndex('diskNames', 1)`. If you don't provide an offset value, it defaults to 0 for the first instance.
 >
 
-You can also use the copy element within a variable. The following example creates an object that has an array as one of its values.
+You can also use the `copy` element within a variable. The following example creates an object that has an array as one of its values.
 
 ```json
 {
@@ -230,7 +230,7 @@ The preceding example returns an object with the following values:
 }
 ```
 
-The next example shows the different ways you can use copy with variables.
+The next example shows the different ways you can use `copy` with variables.
 
 ```json
 {
@@ -315,11 +315,10 @@ The following examples show common scenarios for creating more than one value fo
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: create multiple resource instances using ARM templates](template-tutorial-create-multiple-instances.md).
+* To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
 * For other uses of the copy element, see:
   * [Resource iteration in ARM templates](copy-resources.md)
   * [Property iteration in ARM templates](copy-properties.md)
   * [Output iteration in ARM templates](copy-outputs.md)
-* If you want to learn about the sections of a template, see [Authoring ARM templates](template-syntax.md).
-* To learn how to deploy your template, see [Deploy an application with ARM template](deploy-powershell.md).
-
+* If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

@@ -8,7 +8,7 @@ ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1, automl
+ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
 ---
 
@@ -163,6 +163,7 @@ from azureml.automl.core.forecasting_parameters import ForecastingParameters
 forecasting_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                                forecast_horizon=50,
                                                time_series_id_column_names=["store"],
+                                               freq='W',
                                                target_lags='auto',
                                                target_rolling_window_size=10)
                                               
@@ -187,6 +188,14 @@ automl_config = AutoMLConfig(task='forecasting',
                              verbosity=logging.INFO,
                              **forecasting_parameters)
 ```
+
+The amount of data required to successfully train a forecasting model with automated ML is influenced by the `forecast_horizon`, `n_cross_validations`, and `target_lags` or `target_rolling_window_size` values specified when you configure your `AutoMLConfig`. 
+
+The following formula calculates the amount of historic data that what would be needed to construct time series features.
+
+Minimum historic data required: (2x `forecast_horizon`) + #`n_cross_validations` + max(max(`target_lags`), `target_rolling_window_size`)
+
+An Error exception will be raised for any series in the dataset that does not meet the required amount of historic data for the relevant settings specified. 
 
 ### Featurization steps
 
@@ -221,6 +230,9 @@ Supported customizations for `forecasting` tasks include:
 |**Drop columns** |Specifies columns to drop from being featurized.|
 
 To customize featurizations with the SDK, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. Learn more about [custom featurizations](how-to-configure-auto-features.md#customize-featurization).
+
+>[!NOTE]
+> The **drop columns** functionality is deprecated as of SDK version 1.19. Drop columns from your dataset as part of data cleansing, prior to consuming it in your automated ML experiment. 
 
 ```python
 featurization_config = FeaturizationConfig()
@@ -317,7 +329,7 @@ When you have your `AutoMLConfig` object ready, you can submit the experiment. A
 
 ```python
 ws = Workspace.from_config()
-experiment = Experiment(ws, "forecasting_example")
+experiment = Experiment(ws, "Tutorial-automl-forecasting")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
@@ -362,8 +374,7 @@ day_datetime,store,week_of_year
 Repeat the necessary steps to load this future data to a dataframe and then run `best_run.predict(test_data)` to predict future values.
 
 > [!NOTE]
-> Values cannot be predicted for number of periods greater than the `forecast_horizon`. The model must be re-trained with a larger horizon to predict future values beyond
-> the current horizon.
+> In-sample predictions are not supported for forecasting with automated ML when `target_lags` and/or `target_rolling_window_size` are enabled.
 
 
 ## Example notebooks

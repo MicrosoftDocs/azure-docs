@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 12/22/2020
 ms.author: tyao
 ---
 
@@ -13,7 +13,7 @@ ms.author: tyao
 
 This article shows you how to configure IP restriction rules in a Web Application Firewall (WAF) for Azure Front Door by using the Azure portal, Azure CLI, Azure PowerShell, or an Azure Resource Manager template.
 
-An IP address–based access control rule is a custom WAF rule that lets you control access to your web applications. It does this by specifying a list of IP addresses or IP address ranges in Classless Inter-Domain Routing (CIDR) format.
+An IP address–based access control rule is a custom WAF rule that lets you control access to your web applications. It does this by specifying a list of IP addresses or IP address ranges in Classless Inter-Domain Routing (CIDR) format. There are two type of match variables in IP address match, **RemoteAddr** and **SocketAddr**. RemoteAddr is the original client IP that is usually sent via X-Forwarded-For request header. SocketAddr is the source IP address WAF sees. If your user is behind a proxy, SocketAddr is often the proxy server address.
 
 By default, your web application is accessible from the Internet. If you want to limit access to clients from a list of known IP addresses or IP address ranges, you may create an IP matching rule that contains the list of IP addresses as matching values and sets operator to "Not" (negate is true) and the action to **Block**. After an IP restriction rule is applied, requests that originate from addresses outside this allowed list receive a 403 Forbidden response.
 

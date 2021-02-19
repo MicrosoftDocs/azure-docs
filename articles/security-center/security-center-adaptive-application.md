@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2020
+ms.date: 02/07/2021
 ms.author: memildin
 
 ---
@@ -40,13 +40,13 @@ By defining lists of known-safe applications, and generating alerts when anythin
 - Prevent specific software that's banned by your organization
 - Increase oversight of apps that access sensitive data
 
-
+No enforcement options are currently available. Adaptive application controls are intended to provide security alerts if any application runs other than the ones you've defined as safe.
 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|General Availability (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
 |Supported machines:|![Yes](./media/icons/yes-icon.png) Azure and non-Azure machines running Windows and Linux<br>![Yes](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
@@ -154,11 +154,6 @@ To edit the rules for a group of machines:
 
     :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="The group settings page for adaptive application controls" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
-    > [!IMPORTANT]
-    > The **Enforce** option, in the file type protection mode settings, is greyed out in **all** scenarios. No enforcement options are available at this time. 
-    >
-    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="The enforce mode for file protection is permanently grayed out. No enforcement options are available.":::
-
 1. Optionally, modify the group's name or file type protection modes.
 
 1. Select **Apply** and **Save**.
@@ -236,7 +231,12 @@ Some of the functions that are available from the REST API:
    > Remove the following properties before using the JSON in the Put request: recommendationStatus, configurationStatus, issues, location, and sourceSystem.
 
 
+## FAQ - Adaptive application controls
 
+### Are there any options to enforce the application controls?
+No enforcement options are currently available. Adaptive application controls are intended to provide **security alerts** if any application runs other than the ones you've defined as safe. They have a range of benefits ([What are the benefits of adaptive application controls?](#what-are-the-benefits-of-adaptive-application-controls)) and are extremely customizable as shown on this page.
+
+ 
 
 ## Next steps
 In this document, you learned how to use adaptive application control in Azure Security Center to define allow lists of applications running on your Azure and non-Azure machines. To learn more about some of Security Center's other cloud workload protection features, see:

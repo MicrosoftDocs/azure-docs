@@ -1,9 +1,9 @@
 ---
-title: Create a data source for a map | Microsoft Azure Maps
+title: Create a data source for a map in Microsoft Azure Maps
 description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps Web SDK uses: GeoJSON sources and vector tiles."
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/08/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -15,8 +15,8 @@ ms.custom: codepen, devx-track-js
 
 The Azure Maps Web SDK stores data in data sources. Using data sources optimizes the data operations for querying and rendering. Currently there are two types of data sources:
 
-- **GeoJSON source**: Manages raw location data in GeoJSON format locally. Good for small to medium data sets (upwards of hundreds of thousands of shapes).
-- **Vector tile source**: Loads data formatted as vector tiles for the current map view, based on the maps tiling system. Ideal for large to massive data sets (millions or billions of shapes).
+* **GeoJSON source**: Manages raw location data in GeoJSON format locally. Good for small to medium data sets (upwards of hundreds of thousands of shapes).
+* **Vector tile source**: Loads data formatted as vector tiles for the current map view, based on the maps tiling system. Ideal for large to massive data sets (millions or billions of shapes).
 
 ## GeoJSON data source
 
@@ -45,8 +45,8 @@ Once created, data sources can be added to the map through the `map.sources` pro
 
 ```javascript
 //Create a data source and add it to the map.
-var dataSource = new atlas.source.DataSource();
-map.sources.add(dataSource);
+var source = new atlas.source.DataSource();
+map.sources.add(source);
 ```
 
 The following code shows the different ways GeoJSON data can be added to a `DataSource`.
@@ -55,13 +55,13 @@ The following code shows the different ways GeoJSON data can be added to a `Data
 //GeoJsonData in the following code can be a single or array of GeoJSON features or geometries, a GeoJSON feature colleciton, or a single or array of atlas.Shape objects.
 
 //Add geoJSON object to data source. 
-dataSource.add(geoJsonData);
+source.add(geoJsonData);
 
 //Load geoJSON data from URL. URL should be on a CORs enabled endpoint.
-dataSource.importDataFromUrl(geoJsonUrl);
+source.importDataFromUrl(geoJsonUrl);
 
 //Overwrite all data in data source.
-dataSource.setShapes(geoJsonData);
+source.setShapes(geoJsonData);
 ```
 
 > [!TIP]
@@ -71,17 +71,17 @@ dataSource.setShapes(geoJsonData);
 
 A vector tile source describes how to access a vector tile layer. Use the [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource) class to instantiate a vector tile source. Vector tile layers are similar to tile layers, but they aren't the same. A tile layer is a raster image. Vector tile layers are a compressed file, in **PBF** format. This compressed file contains vector map data, and one or more layers. The file can be rendered and styled on the client, based on the style of each layer. The data in a vector tile contain geographic features in the form of points, lines, and polygons. There are several advantages of using vector tile layers instead of raster tile layers:
 
- - A file size of a vector tile is typically much smaller than an equivalent raster tile. As such, less bandwidth is used. It means lower latency, a faster map, and a better user experience.
- - Since vector tiles are rendered on the client, they adapt to the resolution of the device they're being displayed on. As a result, the rendered maps appear more well defined, with crystal clear labels.
- - Changing the style of the data in the vector maps doesn't require downloading the data again, since the new style can be applied on the client. In contrast, changing the style of a raster tile layer typically requires loading tiles from the server then applying the new style.
- - Since the data is delivered in vector form, there's less server-side processing required to prepare the data. As a result, the newer data can be made available faster.
+* A file size of a vector tile is typically much smaller than an equivalent raster tile. As such, less bandwidth is used. It means lower latency, a faster map, and a better user experience.
+* Since vector tiles are rendered on the client, they adapt to the resolution of the device they're being displayed on. As a result, the rendered maps appear more well defined, with crystal clear labels.
+* Changing the style of the data in the vector maps doesn't require downloading the data again, since the new style can be applied on the client. In contrast, changing the style of a raster tile layer typically requires loading tiles from the server then applying the new style.
+* Since the data is delivered in vector form, there's less server-side processing required to prepare the data. As a result, the newer data can be made available faster.
 
 Azure Maps adheres to the [Mapbox Vector Tile Specification](https://github.com/mapbox/vector-tile-spec), an open standard. Azure Maps provides the following vector tiles services as part of the platform:
 
 - Road tiles [documentation](/rest/api/maps/renderv2/getmaptilepreview) | [data format details](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
 - Traffic incidents [documentation](/rest/api/maps/traffic/gettrafficincidenttile) | [data format details](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
 - Traffic flow [documentation](/rest/api/maps/traffic/gettrafficflowtile) | [data format details](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Get Tile Render V2](/rest/api/maps/renderv2/getmaptilepreview)
+- Azure Maps Creator (Preview) also allows custom vector tiles to be created and accessed through the [Get Tile Render V2](/rest/api/maps/renderv2/getmaptilepreview)
 
 > [!TIP]
 > When using vector or raster image tiles from the Azure Maps render service with the web SDK, you can replace `atlas.microsoft.com` with the placeholder `{azMapsDomain}`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Azure Active Directory authentication.
@@ -90,14 +90,14 @@ To display data from a vector tile source on the map, connect the source to one 
 
 ```javascript
 //Create a vector tile source and add it to the map.
-var datasource = new atlas.source.VectorTileSource(null, {
+var source = new atlas.source.VectorTileSource(null, {
 	tiles: ['https://{azMapsDomain}/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}'],
 	maxZoom: 22
 });
-map.sources.add(datasource);
+map.sources.add(source);
 
 //Create a layer for traffic flow lines.
-var flowLayer = new atlas.layer.LineLayer(datasource, null, {
+var flowLayer = new atlas.layer.LineLayer(source, null, {
 	//The name of the data layer within the data source to pass into this rendering layer.
 	sourceLayer: 'Traffic flow',
 
@@ -138,30 +138,30 @@ map.layers.add(flowLayer, 'labels');
 
 Data is rendered on the map using rendering layers. A single data source can be referenced by one or more rendering layers. The following rendering layers require a data source:
 
-- [Bubble layer](map-add-bubble-layer.md) - renders point data as scaled circles on the map.
-- [Symbol layer](map-add-pin.md) - renders point data as icons or text.
-- [Heat map layer](map-add-heat-map-layer.md) - renders point data as a density heat map.
-- [Line layer](map-add-shape.md) - render a line and or render the outline of polygons. 
-- [Polygon layer](map-add-shape.md) - fills the area of a polygon with a solid color or image pattern.
+* [Bubble layer](map-add-bubble-layer.md) - renders point data as scaled circles on the map.
+* [Symbol layer](map-add-pin.md) - renders point data as icons or text.
+* [Heat map layer](map-add-heat-map-layer.md) - renders point data as a density heat map.
+* [Line layer](map-add-shape.md) - render a line and or render the outline of polygons. 
+* [Polygon layer](map-add-shape.md) - fills the area of a polygon with a solid color or image pattern.
 
 The following code shows how to create a data source, add it to the map, and connect it to a bubble layer. And then, import GeoJSON point data from a remote location into the data source. 
 
 ```javascript
 //Create a data source and add it to the map.
-var datasource = new atlas.source.DataSource();
-map.sources.add(datasource);
+var source = new atlas.source.DataSource();
+map.sources.add(source);
 
 //Create a layer that defines how to render points in the data source and add it to the map.
-map.layers.add(new atlas.layer.BubbleLayer(datasource));
+map.layers.add(new atlas.layer.BubbleLayer(source));
 
 //Load the earthquake data.
-datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
+source.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
 ```
 
 There are additional rendering layers that don't connect to these data sources, but they directly load the data for rendering. 
 
-- [Image layer](map-add-image-layer.md) - overlays a single image on top of the map and binds its corners to a set of specified coordinates.
-- [Tile layer](map-add-tile-layer.md) - superimposes a raster tile layer on top of the map.
+* [Image layer](map-add-image-layer.md) - overlays a single image on top of the map and binds its corners to a set of specified coordinates.
+* [Tile layer](map-add-tile-layer.md) - superimposes a raster tile layer on top of the map.
 
 ## One data source with multiple layers
 
@@ -175,34 +175,40 @@ With Azure Maps, all you need is a single polygon in a data source as shown in t
 
 ```javascript
 //Create a data source and add it to the map.
-var dataSource = new atlas.source.DataSource();
-map.sources.add(dataSource);
+var source = new atlas.source.DataSource();
+map.sources.add(source);
 
 //Create a polygon and add it to the data source.
-dataSource.add(new atlas.data.Polygon([[[/* Coordinates for polygon */]]]));
+source.add(new atlas.data.Polygon([[[/* Coordinates for polygon */]]]));
 
 //Create a polygon layer to render the filled in area of the polygon.
-var polygonLayer = new atlas.layer.PolygonLayer(dataSource, 'myPolygonLayer', {
+var polygonLayer = new atlas.layer.PolygonLayer(source, 'myPolygonLayer', {
      fillColor: 'rgba(255,165,0,0.2)'
 });
 
 //Create a line layer for greater control of rendering the outline of the polygon.
-var lineLayer = new atlas.layer.LineLayer(dataSource, 'myLineLayer', {
+var lineLayer = new atlas.layer.LineLayer(source, 'myLineLayer', {
      color: 'orange',
      width: 2
 });
 
 //Create a bubble layer to render the vertices of the polygon as scaled circles.
-var bubbleLayer = new atlas.layer.BubbleLayer(dataSource, 'myBubbleLayer', {
+var bubbleLayer = new atlas.layer.BubbleLayer(source, 'myBubbleLayer', {
      color: 'orange',
      radius: 5,
-     outlineColor: 'white',
-     outlineWidth: 2
+     strokeColor: 'white',
+     strokeWidth: 2
 });
 
 //Add all layers to the map.
 map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 ```
+
+> [!TIP]
+> When adding layers to the map using the `map.layers.add` function, the ID or instance of an existing layer can be passed in as a second parameter. This would tell that map to insert the new layer being added below the existing layer. In addition to passing in a layer ID this method also supports the following values.
+>
+> * `"labels"` - Inserts the new layer below the map label layers.
+> * `"transit"` - Inserts the new layer below the map road and transit layers.
 
 ## Next steps
 

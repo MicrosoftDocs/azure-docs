@@ -55,27 +55,29 @@ Run an Azure VMware Solution (AVS) assessment as follows:
 
     ![Screenshot shows Azure Migrate Servers with Assess selected under Assessment tools.](./media/how-to-create-assessment/assess.png)
 
-3. In **Assess servers**, select the assessment type as "Azure VMware Solution (AVS)", select the discovery source and specify the assessment name.
+3. In **Assess servers**, select the assessment type as "Azure VMware Solution (AVS)", select the discovery source.
 
-    ![Assessment Basics](./media/how-to-create-avs-assessment/assess-servers-avs.png)
+    :::image type="content" source="./media/how-to-create-avs-assessment/assess-servers-avs.png" alt-text="Add assessment basics":::
 
-4. Click **View all** to review the assessment properties.
+4. Click **Edit** to review the assessment properties.
 
-    ![AVS Assessment properties](./media/how-to-create-avs-assessment/avs-view-all.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Location of the Edit button to review assessment properties":::
 
-5. Click **next** to **Select machines to assess**. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
+1. In **Select machines to assess** > **Assessment name** > specify a name for the assessment. 
+ 
+1. In **Select or create a group** > select **Create New** and specify a group name. A group gathers one or more VMs together for assessment.
+    
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Add VMs to a group":::
 
-6. In **Add machines to the group**, select VMs to add to the group.
+1. In **Add machines to the group**, select VMs to add to the group.
 
-7. Click **next** to **Review + create assessment** to review the assessment details.
+1. Click **next** to **Review + create assessment** to review the assessment details.
 
-8. Click **Create Assessment** to create the group, and run the assessment.
+1. Click **Create Assessment** to create the group, and run the assessment.
 
-    ![Create an AVS assessment](./media/how-to-create-avs-assessment/avs-assessment-create.png)
+1. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
 
-9. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
-
-10. Click **Export assessment**, to download it as an Excel file.
+1. Click **Export assessment**, to download it as an Excel file.
 
 
 ## Review an Azure VMware Solution (AVS) assessment
@@ -85,6 +87,11 @@ An Azure VMware Solution (AVS) assessment describes:
 - **Azure VMware Solution (AVS) readiness**: Whether the on-premises VMs are suitable for migration to Azure VMware Solution (AVS).
 - **Number of AVS nodes**: Estimated number of AVS nodes required to run the VMs.
 - **Utilization across AVS nodes**: Projected CPU, memory, and storage utilization across all nodes.
+    - Utilization includes up front factoring in the following cluster management overheads such as the vCenter Server, NSX Manager (large),
+NSX Edge, if HCX is deployed also the HCX Manager and IX appliance consuming ~ 44vCPU (11 CPU), 75GB of RAM and 722GB of storage before 
+compression and deduplication.
+    - Memory, dedupe and compression are currently set to 100% utilization for memory and 1.5 dedupe and compression which will be a user defined
+input in coming releases further allowing user to fine tune their required sizing.
 - **Monthly cost estimation**: The estimated monthly costs for all Azure VMware Solution (AVS) nodes running the on-premises VMs.
 
 
@@ -94,7 +101,7 @@ An Azure VMware Solution (AVS) assessment describes:
 
 2. In **Assessments**, click on an assessment to open it.
 
-    ![AVS Assessment summary](./media/how-to-create-avs-assessment/avs-assessment-summary.png)
+    :::image type="content" source="./media/how-to-create-avs-assessment/avs-assessment-summary.png" alt-text="AVS Assessment summary":::
 
 ### Review Azure VMware Solution (AVS) readiness
 

@@ -87,7 +87,7 @@ There's some limitations to implementation: a migration to a hub and spoke archi
 This architecture can be implemented if you have configured connectivity with your on-premises network using either: 
 
 * [ExpressRoute](..\expressroute\expressroute-introduction.md)
-* [Site to Site VPN](..\vpn-gateway\vpn-gateway-howto-site-to-site-resource-manager-portal.md) 
+* [Site to Site VPN](../vpn-gateway/tutorial-site-to-site-portal.md) 
 
 If your security requirements require client traffic to services exposed via private endpoints to be routed through a security appliance, deploy this scenario.
 
@@ -101,7 +101,7 @@ The same considerations as in scenario 2 above apply. In this scenario, there ar
 * An Azure subscription.
 * A Log Analytics workspace.  
 
-See, [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md) to create a workspace if you don't have one in your subscription.
+See, [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md) to create a workspace if you don't have one in your subscription.
 
 
 ## Sign in to Azure

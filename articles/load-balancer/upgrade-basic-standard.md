@@ -17,11 +17,14 @@ There are two stages in an upgrade:
 1. Change IP allocation method from Dynamic to Static.
 2. Run the PowerShell script to complete the upgrade and traffic migration.
 
+> [!IMPORTANT]
+> The script is currently under maintenance. You can refer to instructions [here](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address-upgrade?tabs=option-upgrade-cli%2Coption-migrate-powershell#tabpanel_CeZOj-G++Q_option-upgrade-cli) on how to upgrade Public IP addresses from Basic SKU and Standard SKU.
+
 ## Upgrade overview
 
 An Azure PowerShell script is available that does the following:
 
-* Creates a Standard SKU Load Balancer in the resource group and location the you specify.
+* Creates a Standard SKU Load Balancer with location you specify in the same resource group of the Basic Standard Load Balancer.
 * Upgrades Public IP address from Basic SKU to Standard SKU in-place.
 * Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly create Standard Load Balancer.
 * Creates a default outbound rule which enables outbound connectivity.
@@ -53,7 +56,7 @@ An Azure PowerShell script is available that does the following:
 
 ## Download the script
 
-Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
+Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/4.0).
 ## Use the script
 
 There are two options for you depending on your local PowerShell environment setup and preferences:
@@ -87,14 +90,13 @@ To run the script:
 
    * **oldRgName: [String]: Required** – This is the resource group for your existing Basic Load Balancer you want to upgrade. To find this string value, navigate to Azure portal, select your Basic Load Balancer source, and click the **Overview** for the load balancer. The Resource Group is located on that page.
    * **oldLBName: [String]: Required** – This is the name of your existing Basic Balancer you want to upgrade. 
-   * **newrgName: [String]: Required** – This is the resource group in which the Standard Load Balancer will be created. It can be a new resource group or an existing one. If you pick an existing resource group, note that the name of the Load Balancer has to be unique within the resource group. 
    * **newLBName: [String]: Required** – This is the name for the Standard Load Balancer to be created.
 1. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
 
     **Example**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newLbName "LBForUpgrade"
    ```
 
 ### Create an outbound rule for outbound connection
@@ -116,10 +118,6 @@ It usually take about 5-10 minutes for the script to finish and it could take lo
 ### Does the Azure PowerShell script also switch over the traffic from my Basic Load Balancer to the newly created Standard Load Balancer?
 
 Yes. The Azure PowerShell script not only upgrades the Public IP address, copies the configuration from Basic to Standard Load Balancer, but also migrates VM to behind the newly created Standard Public Load Balancer as well. 
-
-### I ran into some issues with using this script. How can I get help?
-  
-You can send an email to slbupgradesupport@microsoft.com, open a support case with Azure Support, or do both.
 
 ## Next steps
 

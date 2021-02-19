@@ -146,5 +146,5 @@ When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/modu
 ## Next steps
 
 * Learn more about [routing preference in public IP addresses](routing-preference-overview.md).
-* Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
+* Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
 * Learn more about [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).

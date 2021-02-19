@@ -12,7 +12,7 @@ ms.author: cynthn
 
 # Create a proximity placement group using the portal
 
-To get VMs as close as possible, achieving the lowest possible latency, you should deploy them within a [proximity placement group](co-location.md#proximity-placement-groups).
+To get VMs as close as possible, achieving the lowest possible latency, you should deploy them within a [proximity placement group](../co-location.md#proximity-placement-groups).
 
 A proximity placement group is a logical grouping used to make sure that Azure compute resources are physically located close to each other. Proximity placement groups are useful for workloads where low latency is a requirement.
 
@@ -73,4 +73,3 @@ If the VM is part of the Availability set, you need to add the availability set 
 ## Next steps
 
 You can also use the [Azure PowerShell](proximity-placement-groups.md) to create proximity placement groups.
-

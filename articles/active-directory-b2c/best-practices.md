@@ -24,7 +24,7 @@ The following best practices and recommendations cover some of the primary aspec
 |--|--|
 | Choose user flows for most scenarios | The Identity Experience Framework of Azure AD B2C is the core strength of the service. Policies fully describe identity experiences such as sign-up, sign-in, or profile editing. To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called user flows. With user flows, you can create great user experiences in minutes, with just a few clicks. [Learn when to use user flows vs. custom policies](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
 | App registrations | Every application (web, native) and API that is being secured must be registered in Azure AD B2C. If an app has both a web and native version of iOS and Android, you can register them as one application in Azure AD B2C with the same client ID. Learn how to [register OIDC, SAML, web, and native apps](./tutorial-register-applications.md?tabs=applications). Learn more about [application types that can be used in Azure AD B2C](./application-types.md). |
-| Move to monthly active users billing | Azure AD B2C has moved from monthly active authentications to monthly active users (MAU) billing. Most customers will find this model cost-effective. [Learn more about monthly active users billing](https://azure.microsoft.com/updates/mau-billing/). [Save this link](b2clogin.md) |
+| Move to monthly active users billing | Azure AD B2C has moved from monthly active authentications to monthly active users (MAU) billing. Most customers will find this model cost-effective. [Learn more about monthly active users billing](https://azure.microsoft.com/updates/mau-billing/). |
 
 ## Planning and design
 
@@ -80,7 +80,7 @@ Manage your Azure AD B2C environment.
 | Setup active alerting and monitoring | [Track user behavior](./analytics-with-application-insights.md) in Azure AD B2C using Application Insights. |
 
 ## Support and Status Updates
-## Todays Support and Status Updates
+
 Stay up to date with the state of the service and find support options.
 
 | Best practice | Description |

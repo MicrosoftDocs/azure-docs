@@ -1,9 +1,6 @@
 ---
 title: Azure HDInsight Encryption in transit
 description: Learn about security features to provide encryption in transit for your Azure HDInsight cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
@@ -19,7 +16,7 @@ Azure HDInsight offers a variety of security features for securing your enterpri
 
 Encryption at rest is covered by server-side encryption on Azure storage accounts, as well as disk encryption on the Azure VMs that are a part of your HDInsight cluster.
 
-Encryption of data in transit on HDInsight is achieved with [Transport Layer Security (TLS)](../transport-layer-security.md) for accessing the cluster gateways and [Internet Protocol Security (IPSec)](https://wikipedia.org/wiki/IPsec) between cluster nodes. IPSec can be optionally enabled between all head nodes, worker nodes, edge nodes, and zookeeper nodes. It is not enabled for traffic between gateway or [id broker](./identity-broker.md) nodes which are Windows based VMs and other linux based nodes in the cluster.
+Encryption of data in transit on HDInsight is achieved with [Transport Layer Security (TLS)](../transport-layer-security.md) for accessing the cluster gateways and [Internet Protocol Security (IPSec)](https://wikipedia.org/wiki/IPsec) between cluster nodes. IPSec can be optionally enabled between all head nodes, worker nodes, edge nodes, zookeeper nodes as well as gateway and [id broker](./identity-broker.md) nodes.
 
 ## Enable encryption in transit
 
@@ -65,7 +62,7 @@ az account set --subscription <SUBSCRIPTION_ID>
 # Create resource group
 az group create --name <RESOURCEGROUPNAME> --location eastus2
 
-az group deployment create --name HDInsightEnterpriseSecDeployment \
+az deployment group create --name HDInsightEnterpriseSecDeployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-enterprise-security.json \
     --parameters parameters.json

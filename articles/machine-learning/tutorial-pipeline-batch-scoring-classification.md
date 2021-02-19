@@ -10,12 +10,10 @@ author: lobrien
 ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
-ms.custom: contperfq4, devx-track-python
+ms.custom: contperf-fy20q4, devx-track-python
 ---
 
 # Tutorial: Build an Azure Machine Learning pipeline for batch scoring
-
-
 
 In this advanced tutorial, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) to run a batch scoring job. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation. After you build and publish a pipeline, you configure a REST endpoint that you can use to trigger the pipeline from any HTTP library on any platform. 
 
@@ -74,26 +72,24 @@ def_data_store = ws.get_default_datastore()
 
 ## Create dataset objects
 
-When building pipelines, `Dataset` objects are used for reading data from workspace datastores, and `PipelineData` objects are used for transferring intermediate data between pipeline steps.
+When building pipelines, `Dataset` objects are used for reading data from workspace datastores, and `OutputFileDatasetConfig` objects are used for transferring intermediate data between pipeline steps.
 
 > [!Important]
 > The batch scoring example in this tutorial uses only one pipeline step. In use cases that have multiple steps, the typical flow will include these steps:
 >
-> 1. Use `Dataset` objects as *inputs* to fetch raw data, perform some transformation, and then *output* a `PipelineData` object.
+> 1. Use `Dataset` objects as *inputs* to fetch raw data, perform some transformation, and then *output* with an `OutputFileDatasetConfig` object.
 >
-> 2. Use the `PipelineData` *output object* in the preceding step as an *input object*. Repeat it for subsequent steps.
+> 2. Use the `OutputFileDatasetConfig` *output object* in the preceding step as an *input object*. Repeat it for subsequent steps.
 
-In this scenario, you create `Dataset` objects that correspond to the datastore directories for both the input images and the classification labels (y-test values). You also create a `PipelineData` object for the batch scoring output data.
+In this scenario, you create `Dataset` objects that correspond to the datastore directories for both the input images and the classification labels (y-test values). You also create an `OutputFileDatasetConfig` object for the batch scoring output data.
 
 ```python
 from azureml.core.dataset import Dataset
-from azureml.pipeline.core import PipelineData
+from azureml.data import OutputFileDatasetConfig
 
 input_images = Dataset.File.from_files((batchscore_blob, "batchscoring/images/"))
 label_ds = Dataset.File.from_files((batchscore_blob, "batchscoring/labels/"))
-output_dir = PipelineData(name="scores", 
-                          datastore=def_data_store, 
-                          output_path_on_compute="batchscoring/results")
+output_dir = OutputFileDatasetConfig(name="scores")
 ```
 
 Register the datasets to the workspace if you want to reuse it later. This step is optional.
@@ -340,7 +336,7 @@ from azureml.core import Experiment
 from azureml.pipeline.core import Pipeline
 
 pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
-pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline)
+pipeline_run = Experiment(ws, 'Tutorial-Batch-Scoring').submit(pipeline)
 pipeline_run.wait_for_completion(show_output=True)
 ```
 
@@ -404,7 +400,7 @@ import requests
 rest_endpoint = published_pipeline.endpoint
 response = requests.post(rest_endpoint, 
                          headers=auth_header, 
-                         json={"ExperimentName": "batch_scoring",
+                         json={"ExperimentName": "Tutorial-Batch-Scoring",
                                "ParameterAssignments": {"process_count_per_node": 6}})
 run_id = response.json()["Id"]
 ```
@@ -417,7 +413,7 @@ The new run will look similar to the pipeline you ran earlier in the tutorial. Y
 from azureml.pipeline.core.run import PipelineRun
 from azureml.widgets import RunDetails
 
-published_pipeline_run = PipelineRun(ws.experiments["batch_scoring"], run_id)
+published_pipeline_run = PipelineRun(ws.experiments["Tutorial-Batch-Scoring"], run_id)
 RunDetails(published_pipeline_run).show()
 ```
 

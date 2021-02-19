@@ -122,11 +122,11 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) (preview) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command:
+Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command:
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
-  --role "Key Vault Crypto Service Encryption (preview)" \
+  --role "Key Vault Crypto Service Encryption User" \
   --scope $keyvaultID
 ```
 
@@ -262,12 +262,12 @@ Configure a policy for the key vault so that the identity can access it.
 
 :::image type="content" source="media/container-registry-customer-managed-keys/add-key-vault-access-policy.png" alt-text="Create key vault access policy":::
 
-Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) (preview) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity.
+Alternatively, use [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) to assign permissions to the identity to access the key vault. For example, assign the Key Vault Crypto Service Encryption role to the identity.
 
 1. Navigate to your key vault.
 1. Select **Access control (IAM)** > **+Add** > **Add role assignment**.
 1. In the **Add role assignment** window:
-    1. Select **Key Vault Crypto Service Encryption (preview)** role. 
+    1. Select **Key Vault Crypto Service Encryption User** role. 
     1. Assign access to **User assigned managed identity**.
     1. Select the resource name of your user-assigned managed identity, and select **Save**.
 
@@ -561,21 +561,31 @@ After completing the preceding steps, rotate the key to a new key in the key vau
 
 ## Troubleshoot
 
-### Removing user-assigned identity
+### Removing managed identity
 
-If you try to remove a user-assigned identity from a registry that is used for encryption, you might see an error message similar to:
+
+If you try to remove a user-assigned or system-assigned managed identity from a registry that is used to configure encryption, you might see an error message similar to:
  
 ```
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-You will also be unable to change (rotate) the encryption key. If this issue occurs, first reassign the identity using the GUID displayed in the error message. For example:
+You will also be unable to change (rotate) the encryption key. The resolution steps depend on the type of identity used for encryption.
+
+**User-assigned identity**
+
+If this issue occurs with a user-assigned identity, first reassign the identity using the GUID displayed in the error message. For example:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
         
 Then, after changing the key and assigning a different identity, you can remove the original user-assigned identity.
+
+**System-assigned identity**
+
+If this issue occurs with a system-assigned identity, please [create an Azure support ticket](https://azure.microsoft.com/support/create-ticket/) for assistance to restore the identity.
+
 
 ## Next steps
 

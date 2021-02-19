@@ -1,8 +1,8 @@
 ---
 title: Azure App Configuration REST API - Azure Active Directory authorization
 description: Use Azure Active Directory for authorization against Azure App Configuration by using the REST API
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
@@ -38,4 +38,4 @@ HTTP/1.1 403 Forbidden
 
 ## Managing role assignments
 
-You can manage role assignments by using [RBAC procedures](../role-based-access-control/overview.md) that are standard across all Azure services. You can do this through the Azure CLI, PowerShell, and the Azure portal. For more information, see [Add or remove Azure role assignments by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+You can manage role assignments by using [Azure RBAC procedures](../role-based-access-control/overview.md) that are standard across all Azure services. You can do this through the Azure CLI, PowerShell, and the Azure portal. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).

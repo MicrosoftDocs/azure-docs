@@ -63,6 +63,10 @@ This article explains how to create a new flow in Power Automate to generate the
           "id": "/properties/LeadSource",
           "type": "string"
         },
+        "Description": {
+          "id": "/properties/Description",
+          "type": "string"
+        },
         "UserDetails": {
           "id": "/properties/UserDetails",
           "properties": {

@@ -1,6 +1,6 @@
 ---
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 1/31/2020

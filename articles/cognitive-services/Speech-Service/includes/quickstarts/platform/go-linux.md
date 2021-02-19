@@ -18,6 +18,7 @@ Linux; see the list of [supported Linux distributions and target architectures](
 
 To complete this quickstart, you'll need:
 
+* On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for your platform. Installing this for the first time may require a restart.
 * gcc
 * [Go binary (1.13 or later)](https://golang.org/dl/)
 
@@ -49,18 +50,20 @@ To complete this quickstart, you'll need:
 
 ## Configure Go environment
 
+Perform the following steps to set up your Go environment to find the Speech SDK. In both steps, replace `<architecture>` with the processor architecture of your CPU. This will be `x86`, `x64`, `arm32`, or `arm64`.
+
 1. Since the bindings rely on `cgo`, you need to set the environment variables so Go can find the SDK:
 
    ```sh
    export CGO_CFLAGS="-I$SPEECHSDK_ROOT/include/c_api"
-   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib -lMicrosoft.CognitiveServices.Speech.core"
+   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib/<architecture> -lMicrosoft.CognitiveServices.Speech.core"
    ```
 
-1. Additionally, to run applications including the SDK, we need to tell the OS
+1. To run applications including the SDK, we need to tell the OS
 where to find the libs:
 
    ```sh
-   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<arch>:$LD_LIBRARY_PATH"
+   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<architecture>:$LD_LIBRARY_PATH"
    ```
 
 ## Next steps

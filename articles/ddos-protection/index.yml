@@ -47,9 +47,11 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: View and configure DDoS protection telemetry
-            url: telemetry-monitoring-alerting.md
-          - text: Configure DDoS attack mitigation reports and flow logs
-            url: reports-and-flow-logs.md
+            url: telemetry.md
+          - text: View and configure DDoS diagnostic logging
+            url: diagnostic-logging.md
+          - text: View and configure DDoS protection alerts
+            url: alerts.md
 
   # Card
   - title: Responding to DDoS attacks

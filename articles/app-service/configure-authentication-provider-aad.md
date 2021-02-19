@@ -39,15 +39,17 @@ Follow these best practices when setting up your app and authentication:
    1. Choose **Select Existing AD app**, then click **Azure AD App**.
    2. Choose an existing app registration and click **OK**.
 
-3. Select **OK** to register the App Service app in Azure Active Directory. A new app registration is created.
+4. Select **OK** to register the App Service app in Azure Active Directory. A new app registration is created.
 
     ![Express settings in Azure Active Directory](./media/configure-authentication-provider-aad/express-settings.png)
 
-4. (Optional) By default, App Service provides authentication but doesn't restrict authorized access to your site content and APIs. You must authorize users in your app code. To restrict app access only to users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. When you set this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated to Azure Active Directory for authentication.
+5. (Optional) By default, App Service provides authentication but doesn't restrict authorized access to your site content and APIs. You must authorize users in your app code. To restrict app access only to users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. When you set this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated to Azure Active Directory for authentication.
 
     > [!CAUTION]
     > Restricting access in this way applies to all calls to your app, which might not be desirable for apps that have a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** might be preferred, with the app manually starting login itself. For more information, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
-5. Select **Save**.
+6. Select **Save**.
+
+For an example of configuring Azure AD login for a web app that accesses Azure Storage and Microsoft Graph, see [this tutorial](scenario-secure-app-authentication-app-service.md).
 
 ## <a name="advanced"> </a>Configure with advanced settings
 
@@ -71,7 +73,7 @@ Perform the following steps:
 1. Select **Azure Active Directory** > **App registrations** > **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.
 1. In **Redirect URI**, select **Web** and type `<app-url>/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
-1. Select **Create**.
+1. Select **REGISTER**.
 1. After the app registration is created, copy the **Application (client) ID** and the **Directory (tenant) ID** for later.
 1. Select **Authentication**. Under **Implicit grant**, enable **ID tokens** to allow OpenID Connect user sign-ins from App Service.
 1. (Optional) Select **Branding**. In **Home page URL**, enter the URL of your App Service app and select **Save**.
@@ -152,6 +154,7 @@ You have now configured a daemon client application that can access your App Ser
 ## <a name="related-content"> </a>Next steps
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
+* [Tutorial: Authenticate and authorize users in a web app that accesses Azure Storage and Microsoft Graph](scenario-secure-app-authentication-app-service.md)
 * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md)
 <!-- URLs. -->
 

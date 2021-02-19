@@ -153,9 +153,9 @@ For a resource in your Azure Machine Learning virtual network that support the D
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to Azure Machine Learning. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -194,9 +194,9 @@ analytics, and use Azure Storage accounts for long term and archival storage. Al
 
 You can also correlate Machine Learning service operation logs for security and compliance purposes.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Enable logging in Azure Machine Learning](./how-to-track-experiments.md)
 
@@ -212,7 +212,7 @@ You can also correlate Machine Learning service operation logs for security and 
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For any compute resources that are owned by your organization, use Azure Security Center to monitor the operating system. 
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Understand Azure Security Center data collection](../security-center/security-center-enable-data-collection.md)
 
@@ -224,7 +224,7 @@ Azure Machine Learning has varying support across different compute resources an
 
 **Guidance**: In Azure Monitor, set the log retention period for Log Analytics workspaces associated with your Azure Machine Learning instances according to your organization's compliance regulations.
 
-- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -242,9 +242,9 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Getting started with Log Analytics queries](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Getting started with Log Analytics queries](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -258,7 +258,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 - [For more information on Azure Machine Learning alerts](monitor-azure-machine-learning.md#alerts)
 
-- [How to alert on Log Analytics workspace log data](../azure-monitor/learn/tutorial-response.md)
+- [How to alert on Log Analytics workspace log data](../azure-monitor/alerts/tutorial-response.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -368,7 +368,7 @@ You can also enable a just-in-time access to administrative accounts by using Az
 a secure, Azure-managed workstation (also known as a Privileged Access Workstation,
 or PAW) for administrative tasks that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand secure, Azure-managed workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -568,7 +568,7 @@ Microsoft manages the underlying infrastructure for Machine Learning and has imp
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Machine Learning and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -882,9 +882,9 @@ Note that Azure Marketplace virtual machine Images published by Microsoft are ma
 
 - [Create a Windows virtual machine in the Azure portal ](../virtual-machines/windows/quick-create-portal.md)
 
-- [Information on how to download the VM template](../virtual-machines/windows/download-template.md)
+- [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
-- [Sample script to upload a VHD to Azure and create a new VM](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Sample script to upload a VHD to Azure and create a new VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -914,7 +914,7 @@ Azure Machine Learning fully supports Git repositories for tracking work; you ca
 
 - [How to configure Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Shared Image Gallery overview](../virtual-machines/windows/shared-image-galleries.md)
+- [Shared Image Gallery overview](../virtual-machines/shared-image-galleries.md)
 
 - [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 

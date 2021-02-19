@@ -992,4 +992,4 @@ For more information, see [Delta Lake Project](https://github.com/delta-io/delta
 ## Next steps
 
 * [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [Azure Synapse Analytics](../index.yml)

@@ -161,10 +161,8 @@ For [Java agent 3.0](./java-in-process-agent.md) the cloud role name is set as f
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "roleName": "my cloud role name"
-    }
+  "role": {
+    "name": "my cloud role name"
   }
 }
 ```
@@ -221,6 +219,21 @@ appInsights.addTelemetryInitializer((envelope) => {
   envelope.tags["ai.cloud.roleInstance"] = "your role instance";
 });
 });
+```
+
+# [Python](#tab/python)
+
+For Python, [OpenCensus Python telemetry processors](api-filtering-sampling.md#opencensus-python-telemetry-processors) can be used.
+
+```python
+def callback_function(envelope):
+   envelope.tags['ai.cloud.role'] = 'new_role_name'
+   
+# AzureLogHandler
+handler.add_telemetry_processor(callback_function)
+
+# AzureExporter
+exporter.add_telemetry_processor(callback_function)
 ```
 ---
 

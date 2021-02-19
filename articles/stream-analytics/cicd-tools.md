@@ -4,7 +4,7 @@ description: This article describes how to use Azure Stream Analytics CI/CD tool
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
@@ -154,7 +154,7 @@ If you want the test validation to ignore a certain output, set the **Required**
       "ExpectedOutputs": [
         {
           "OutputAlias": [Output alias string],
-          "FilePath": "Required",
+          "FilePath": [Required],
           "Required": true
         }
       ]

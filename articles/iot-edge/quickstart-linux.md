@@ -28,8 +28,6 @@ This quickstart walks you through creating a Linux virtual machine that's config
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 ## Prerequisites
 
 Prepare your environment for the Azure CLI.
