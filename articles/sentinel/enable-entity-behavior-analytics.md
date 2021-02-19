@@ -37,6 +37,9 @@ To enable or disable this feature (these prerequisites are not required to use t
 
 - Your workspace must not have any Azure resource locks applied to it. [Learn more about Azure resource locking](../azure-resource-manager/management/lock-resources.md).
 
+> [!NOTE]
+> No special license is required to add UEBA functionality to Azure Sentinel, but **additional charges** may apply.
+
 ## How to enable User and Entity Behavior Analytics
 
 1. From the Azure Sentinel navigation menu, select **Entity behavior**.

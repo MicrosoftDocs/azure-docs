@@ -13,9 +13,9 @@ Learn how to import a new update into Device Update for IoT Hub.
 
 ## Prerequisites
 
-* Access to an IoT Hub with Device Update for IoT Hub enabled.
-* An IoT device (or [simulator](./device-update-simulator.md)) provisioned within the IoT Hub, running either Azure RTOS ThreadX or Ubuntu 18.04 x64.
-    * If using a real device, you’ll need an update image file (for example, Yocto image) for image update, or APT Manifest file for package update.
+* [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). It is recommended that you use a S1 (Standard) tier or above for your IoT Hub. 
+* An IoT device (or simulator) provisioned for Device Update within IoT Hub.
+   * If using a real device, you’ll need an update image file for image update, or [APT Manifest file](device-update-apt-manifest.md) for package update.
 * [PowerShell 5](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) or later.
 * Supported browsers:
   * [Microsoft Edge](https://www.microsoft.com/edge)
@@ -29,7 +29,7 @@ Learn how to import a new update into Device Update for IoT Hub.
 1. Ensure that your update image file or APT Manifest file is located in a directory accessible from PowerShell.
 
 2. Clone [Device Update for IoT Hub repository](https://github.com/azure/iot-hub-device-update), or download it as a .zip file to
-a location accessible from PowerShell (Once the zip file is downloaded, right click for `Properties` > `General` tab > check `Unblock` in the `Security` section to avoid PowerShell security warning prompts).
+a location accessible from PowerShell (once the zip file is downloaded, right click for `Properties` > `General` tab > check `Unblock` in the `Security` section to avoid PowerShell security warning prompts).
 
 3. In PowerShell, navigate to `tools/AduCmdlets` directory and run:
 
@@ -60,7 +60,7 @@ a location accessible from PowerShell (Once the zip file is downloaded, right cl
     | updateVersion | Update version, for example, 2.0
     | updateType | <ul><li>Specify `microsoft/swupdate:1` for image update</li><li>Specify `microsoft/apt:1` for package update</li></ul>
     | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify recommended value for `microsoft/apt:1` update type.
-    | updateFilePath(s) | Path to the update file(s) on your PC
+    | updateFilePath(s) | Path to the update file(s) on your computer
 
     Full import manifest schema
 
@@ -68,7 +68,7 @@ a location accessible from PowerShell (Once the zip file is downloaded, right cl
     | --------- | --------- | --------- | --------- |
     | UpdateId | `UpdateId` object | Update identity. |
     | UpdateType | string | Update type: <ul><li>Specify `microsoft/apt:1` when performing a package-based update using reference agent.</li><li>Specify `microsoft/swupdate:1` when performing an image-based update using reference agent.</li><li>Specify `microsoft/simulator:1` when using sample agent simulator.</li><li>Specify a custom type if developing a custom agent.</li></ul> | <ul><li>Format: `{provider}/{type}:{typeVersion}`</li><li>Maximum of 32 characters total</li></ul> |
-    | InstalledCriteria | string | String interpreted by the agent to determine if the update completed successfully:  <ul><li>Specify **value** of SWVersion for update type `microsoft/swupdate:1`.</li><li>Specify `{name}-{version}` for update type `microsoft/apt:1`, of which name and version are obtained from the APT file.</li><li>Specify hash of the update file for update type `microsoft/simulator:1`.</li><li>Specify a custom string if developing a custom agent.</li></ul> | Maximum of 64 characters |
+    | InstalledCriteria | string | String interpreted by the agent to determine whether the update was applied successfully:  <ul><li>Specify **value** of SWVersion for update type `microsoft/swupdate:1`.</li><li>Specify `{name}-{version}` for update type `microsoft/apt:1`, of which name and version are obtained from the APT file.</li><li>Specify hash of the update file for update type `microsoft/simulator:1`.</li><li>Specify a custom string if developing a custom agent.</li></ul> | Maximum of 64 characters |
     | Compatibility | Array of `CompatibilityInfo` objects | Compatibility information of device compatible with this update. | Maximum of 10 items |
     | CreatedDateTime | date/time | Date and time at which the update was created. | Delimited ISO 8601 date and time format, in UTC |
     | ManifestVersion | string | Import manifest schema version. Specify `2.0`, which will be compatible with `urn:azureiot:AzureDeviceUpdateCore:1` interface and `urn:azureiot:AzureDeviceUpdateCore:4` interface.</li></ul> | Must be `2.0` |
@@ -121,42 +121,46 @@ Example:
 
 ## Import update
 
-1. Log into Azure portal using [this link](https://portal.azure.com) and navigate to your IoT Hub with Device Update.
+1. Log in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub with Device Update.
 
 2. On the left-hand side of the page, select "Device Updates" under "Automatic Device Management".
 
-   ![Import Updates](media/import-update/import-updates-2.png)
+   :::image type="content" source="media/import-update/import-updates-3.png" alt-text="Import Updates" lightbox="media/import-update/import-updates-3.png":::
 
 3. You will see several tabs across the top of the screen. Select the Updates tab.
 
-   ![Updates](media/import-update/updates-tab.png)
+   :::image type="content" source="media/import-update/updates-tab.png" alt-text="Updates" lightbox="media/import-update/updates-tab.png":::
 
 4. Select "+ Import New Update" below the "Ready to Deploy" header.
 
-   ![Import New Update](media/import-update/import-new-update-2.png)
+   :::image type="content" source="media/import-update/import-new-update-2.png" alt-text="Import New Update" lightbox="media/import-update/import-new-update-2.png":::
 
 5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created previously using the PowerShell cmdlet. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select your update file(s).
 
-   ![Select Update Files](media/import-update/select-update-files.png)
+   :::image type="content" source="media/import-update/select-update-files.png" alt-text="Select Update Files" lightbox="media/import-update/select-update-files.png":::
 
-6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
+6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account. The storage container is used to stage the update files temporarily.
 
-   ![Storage Account](media/import-update/storage-account.png)
+   :::image type="content" source="media/import-update/storage-account.png" alt-text="Storage Account" lightbox="media/import-update/storage-account.png":::
 
 7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
 
-   ![Select Container](media/import-update/container.png)
+   :::image type="content" source="media/import-update/container.png" alt-text="Select Container" lightbox="media/import-update/container.png":::
 
 8. Select "Submit" to start the import process.
 
-   ![Publish Update](media/import-update/publish-update.png)
+   :::image type="content" source="media/import-update/publish-update.png" alt-text="Publish Update" lightbox="media/import-update/publish-update.png":::
 
-9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
+9. The import process begins, and the screen switches to to the "Import History" section. Select "Refresh" to view progress until the import process completes (depending on the size of the update, this may complete in a few minutes but could take longer).
 
-   ![Update Import Sequencing](media/import-update/update-publishing-sequence-2.png)
+   :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Update Import Sequencing" lightbox="media/import-update/update-publishing-sequence-2.png":::
 
 10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
 
-    ![Job Status](media/import-update/update-ready.png)
+   :::image type="content" source="media/import-update/update-ready.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
 
-[Next Step: Create Groups](create-update-group.md)
+## Next Steps
+
+[Create Groups](create-update-group.md)
+
+[Learn about import concepts](import-concepts.md)
