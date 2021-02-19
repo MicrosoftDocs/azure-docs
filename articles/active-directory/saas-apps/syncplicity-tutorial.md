@@ -81,9 +81,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Syncplicity Client support team](https://www.syncplicity.com/contact-us) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Edit**. Then in the dialog click the ellipsis button next to your active certificate and select **PEM certificate download**.
 
    ![The Certificate download link](common/certificatebase64.png)
+
+    > [!NOTE]
+    > You need the PEM certificate, as Syncplicity does not accept certificates in CER format.
 
 6. On the **Set up Syncplicity** section, copy the appropriate URL(s) based on your requirement.
 
@@ -137,11 +140,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. Select **Add user/group**, then click **Users** in the **Add Assignment** page.
+1. Select **Add user/group**.
 
 	![The Add User link](common/add-assign-user.png)
-
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** page select **Users**. 
+1. In the **Users** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** page, click the **Assign** button.
 
