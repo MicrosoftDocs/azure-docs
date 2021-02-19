@@ -5,7 +5,7 @@ author: MikeDodaro
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 02/05/2021
-ms.author: brendanm
+ms.author: brendm
 ms.custom: devx-track-java
 ---
 
