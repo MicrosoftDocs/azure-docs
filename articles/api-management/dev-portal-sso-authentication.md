@@ -1,5 +1,5 @@
 ---
-title: Single sign-on authentication
+title: SSO authentication in developer portal
 titleSuffix: Azure API Management
 description: Learn how to use single sign-on (SSO) authentication with your self-hosted developer portal.
 author: dlepow
@@ -9,7 +9,7 @@ ms.service: api-management
 ms.topic: how-to
 ---
 
-# Single sign-on authentication
+# SSO authentication in developer portal
 
 Among other authentication methods, the developer portal supports single sign-on (SSO).
 
