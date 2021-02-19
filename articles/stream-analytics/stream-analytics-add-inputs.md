@@ -1,8 +1,8 @@
 ---
 title: Understand inputs for Azure Stream Analytics
 description: This article describe the concept of inputs in an Azure Stream Analytics job, comparing streaming input to reference data input.
-author: jseb225
-ms.author: krishmam
+author: JasonWHowell
+ms.author: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/29/2020
