@@ -33,7 +33,6 @@ Follow the steps in [Create a Media Services account](./create-account-howto.md)
 
 [!INCLUDE [task-create-copyallbitratenoninterleaved.md](./includes/task-create-copyallbitratenoninterleaved.md)]
 
-
 ## Next steps
 
-[Media Services Overview](media-services-overview.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

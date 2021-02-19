@@ -69,11 +69,11 @@ To install the security agent, use the following workflow:
 This script does the following actions:
 
 * Installs prerequisites.
-* Adds a service user (with interactive sign in disabled).
+* Adds a service user (with interactive sign-in disabled).
 * Installs the agent as a **System Service**.
 * Configures the agent with the provided authentication parameters.
 
-For additional help, use the Get-Help command in PowerShell.
+For extra help, use the Get-Help command in PowerShell.
 
 Get-Help example:    ```Get-Help .\InstallSecurityAgent.ps1```
 
@@ -115,7 +115,7 @@ To turn on logging:
 
 1. Restart the agent by running the following PowerShell or command line:
 
-    **Powershell**
+    **PowerShell**
 
      ```
      Restart-Service "ASC IoT Agent"
