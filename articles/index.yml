@@ -475,7 +475,6 @@ productDirectory:
       summary: Automate deployment and scaling operations for managed open-source Apache Cassandra datacenters
       imageSrc: ./media/index/managed-instance-apache-cassandra.svg
       azureCategories:
-        - featured
         - databases
       url: cassandra-managed-instance/index.yml
     # Card
