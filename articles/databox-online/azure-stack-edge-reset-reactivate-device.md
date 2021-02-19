@@ -13,30 +13,42 @@ ms.author: alkohli
 
 # Reset and reactive your Azure Stack Edge Pro device
 
-This article describes how to wipe the data from your Azure Stack Edge Pro device and then reset it.<!--What's the scenario?-->
+This article describes how to reset, reconfigure, and reactivate an Azure Stack Edge Pro device if you're having issues with the device or need to start fresh for some other reason.
+
+After you reset the device to remove the data, you'll need to reactivate the device as a new resource. And, because resetting a device removes all the local data and the device configuration, you'll need to reconfigure the device via the local web UI.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 >
 > * Wipe the data off the data disks on the device
-> * Reactivate the device by creating a new order for the existing device
+> * Reactivate the device by creating a new order, reconfiguring the device, and activating it
 
 ## Reset data from the device
 
 [!INCLUDE] [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)
 
-> [!NOTE]
-> The device reset only deletes all the local data off the device. The data that is in the cloud isn't deleted and collects [charges](https://azure.microsoft.com/pricing/details/storage/). This data needs to be deleted separately using a cloud storage management tool like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).<!--Is this relevant to the reset and reactivate scenario?-->
 
 ## Reactivate device
 
-To reactive the device:
+After you reset the device, you'll need to reactivate the device as a new resource. After placing a new order, you'll need to reconfigure and then reactivate the new resource.
 
-1. Create a new order by following the steps in [Create a new resource](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#create-a-new-resource). On the **Shipping address** tab, select **I already have a device**.
+To reactivate your existing device, follow these steps:
 
-1. Reactivate the device by following the steps in [Get the activation key](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#get-the-activation-key).
+1. Create a new order for the existing device by following the steps in [Create a new resource](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#create-a-new-resource). On the **Shipping address** tab, select **I already have a device**.
+c
+1. [Get the activation key](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal#get-the-activation-key).
+
+1. [Connect to the device](azure-stack-edge-gpu-deploy-connect.md).
+
+1. [Configure the network for the device](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+
+1. [Configure device settings](azure-stack-edge-gpu-deploy-set-up-device-update-time.md).
+
+1. [Configure certificaes](azure-stack-edge-gpu-deploy-configure-certificates.md).
+
+1. [Activate the device](databox-online/azure-stack-edge-gpu-deploy-activate.md).
 
 ## Next steps
-<!--Do they need to do any install, connect activities after they reactivate a device?-->
-- Learn how to [Get a replacement Azure Stack Edge Pro device](azure-stack-edge-replace-device.md).
+
+- Learn how to [Connect to an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-connect.md).
