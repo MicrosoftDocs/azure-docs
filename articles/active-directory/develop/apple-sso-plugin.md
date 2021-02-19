@@ -156,9 +156,11 @@ We recommend enabling this flag to get more consistent experience across all app
 
 #### Enable SSO through cookies for specific application
 
-A small number of apps might be incompatible with the SSO extension. Specifically, apps that have advanced network settings, might experience unexpected issues when they are enabled for the SSO (e.g. you might see an error that network request got cancelled or interrupted). 
+A small number of apps might be incompatible with the SSO extension. Specifically, apps that have advanced network settings, might experience unexpected issues when they are enabled for the SSO (e.g. you might see an error that network request got canceled or interrupted). 
 
-If you are experiencing problems signing in using method described in the `Enable SSO for apps that don't use MSAL` section, you could try alternative configuration for those apps. Use the following parameters to configure the Microsoft Enterprise SSO plug-in for those specific apps:
+If you are experiencing problems signing in using method described in the `Enable SSO for apps that don't use MSAL` section, you could try alternative configuration for those apps. 
+
+Use the following parameters to configure the Microsoft Enterprise SSO plug-in for those specific apps:
 
 - **Key**: `AppCookieSSOAllowList`
 - **Type**: `String`
@@ -175,7 +177,7 @@ As stated before, you can use Microsoft Intune as your MDM service to ease confi
 
 ## Using the SSO plug-in in your application
 
-The [Microsoft Authentication Library (MSAL) for Apple devices](https://github.com/AzureAD/microsoft-authentication-library-for-objc) version 1.1.0 and higher supports the Microsoft Enterprise SSO plug-in for Apple devices. It is the recommended way to add support for the Microsoft Enterprise SSO plug-in and ensures you get the full capabilties of the Microsoft identity platform.
+The [Microsoft Authentication Library (MSAL) for Apple devices](https://github.com/AzureAD/microsoft-authentication-library-for-objc) version 1.1.0 and higher supports the Microsoft Enterprise SSO plug-in for Apple devices. It is the recommended way to add support for the Microsoft Enterprise SSO plug-in and ensures you get the full capabilities of the Microsoft identity platform.
 
 If you're building an application for Frontline Worker scenarios, see [Shared device mode for iOS devices](msal-ios-shared-devices.md) for additional setup of the feature.
 
