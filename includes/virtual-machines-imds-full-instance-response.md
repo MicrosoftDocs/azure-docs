@@ -216,7 +216,7 @@ ms.reviewer: azmetadatadev
                     "storageAccountType": "Standard_LRS"
                 },
                 "name": "exampleosdiskname",
-                "osType": "linux",
+                "osType": "Linux",
                 "vhd": {
                     "uri": ""
                 },
@@ -252,3 +252,5 @@ ms.reviewer: azmetadatadev
     }
 }
 ```
+
+---

@@ -709,6 +709,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 }
 ```
 
+---
 
 #### Sample 4: Get the Azure Environment where the VM is running
 
