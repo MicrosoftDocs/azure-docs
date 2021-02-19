@@ -26,7 +26,7 @@ Use the following steps to set up the enterprise application:
 1. Select **New Application**.
 1. In **Add from the gallery**, search for *Datadog*. Select the search result then select **Add**.
 
-   :::image type="content" source="media/create/datadog-aad-app-gallery.png" alt-text="Datadog application in the AAD enterprise gallery." border="true":::
+   :::image type="content" source="media/create/datadog-azure-ad-app-gallery.png" alt-text="Datadog application in the AAD enterprise gallery." border="true":::
 
 1. Once the app is created, go to properties from the side panel. Set **User assignment required?** to **No**, and select **Save**.
 
