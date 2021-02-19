@@ -96,10 +96,7 @@ eastus      AzureArcTest
 
 ## Connect an existing Kubernetes cluster
 
-1. Verify connectivity to your Kubernetes cluster using one of the following:
-   * `KUBECONFIG`
-   * `~/.kube/config`
-   * `--kube-config`
+1. Verify connectivity to your Kubernetes cluster using `kubectl cluster-info`.
 
 1. Connect your Kubernetes cluster to Azure Arc using the following command:
     ```console
