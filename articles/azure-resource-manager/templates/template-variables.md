@@ -96,6 +96,9 @@ The following example shows how to use the variable for a resource property.
 In a JSON template, you reference the value for the variable by using the [variables](template-functions-deployment.md#variables) function.
 
 ```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+},
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
@@ -110,6 +113,8 @@ In a JSON template, you reference the value for the variable by using the [varia
 In a Bicep file, you reference the value for the variable by providing the variable name.
 
 ```bicep
+var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
+
 resource demoAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageName
 ```
