@@ -29,7 +29,7 @@ Public preview features include:
 
 ## Availability and pricing
 
-Semantic search is available through [sign-up registration](https://aka.ms/TBD), on search services created at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe, West Europe.
+Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup), on search services created at a Standard tier (S1, S2, S3), located in one of these regions: North Central US, West US, West US 2, East US 2, North Europe, West Europe.
 
 Between preview launch on March 2 and April 2, there is no charge for semantic search. After April 2, the computational costs of semantic search will become a billable event. Once billing details are finalized, you'll find cost information documented in the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
 
