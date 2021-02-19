@@ -23,7 +23,7 @@ The Cards tab has changed to Credentials to more accurately reflect what the use
 
 When creating a new credential in the Verifiable Credentials (Preview), you can now select the Rules and Display file from blob storage without needing to provide the URL. 
 
-![New credential select from blob storage](media/whats-new/New_Credential.jpg)
+![New credential select from blob storage](media/whats-new/new-credential.jpg)
 
 #### Breaking Change: Update Redirect URI
 

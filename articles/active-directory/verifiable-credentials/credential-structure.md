@@ -220,7 +220,7 @@ In the Azure Portal, navigate to the **Verifiable Credentials (Preview)** blade.
 </div>
 </div>
  
-![New credential select from blob storage](media/credential-structure/new_credential.jpg)
+![New credential select from blob storage](media/credential-structure/new-credential.jpg)
 
 You've now successfully defined the properties and contents of your Verifiable Credential. If you'd like to reference a working example of a rules file, please see our [code sample on GitHub](https://github.com/Azure-Samples/active-directory-verifiable-credentials).
 

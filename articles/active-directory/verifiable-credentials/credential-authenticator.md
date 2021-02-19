@@ -30,13 +30,13 @@ Once you have the Authenticator app set up, it's time to get your first Verifiab
 
 If you don't have any accounts configured, there will be a blue button on the middle of the page that says "Add Account", otherwise tap the plus button in the top right. Then choose 'Other account' and scan the QR code created from the [developer documentation.](credential-issue-flow.md) 
 
-![Scan QR code](/media/credential-authenticator/scan_qr.png)
+![Scan QR code](/media/credential-authenticator/scan-qr.png)
 
 ## Issuance flow
 
 Now that you've scanned a QR code, you will go through the issuance flow based on the rules file that was set up in the earlier articles. The following is an example of what you should see in Authenticator.
 
-![Add a card](/media/credential-authenticator/add_card.png)
+![Add a card](/media/credential-authenticator/add-card.png)
 
 ## Next Steps
 
