@@ -40,7 +40,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 PS> Install-Module Az -Scope CurrentUser
 ```
 
-### Create a software device using WSL (Windows Subsystem for Linux)
+### Enable WSL on your Windows device (Windows Subsystem for Linux)
 
 1. Open PowerShell as Administrator on your machine and run the following command (you might be asked to restart after each step; restart when asked):
 
@@ -71,7 +71,7 @@ PS> wsl --list
 
 7. You should see: **Ubuntu-18.04 (Default)**
 
-## Download Ubuntu update agent
+## Download Device Update Ubuntu (18.04 x64) Simulator Reference Agent
 
 The Ubuntu update image can be downloaded from the *Assets* section from release notes [here](https://github.com/Azure/iot-hub-device-update/releases).
 
@@ -124,14 +124,15 @@ Start Device Update Agent on your new Software Devices.
 1. Start Ubuntu.
 2. Run the Device Update Agent and specify the device connection string from the previous section wrapped with apostrophes:
 
+Replace '<device connection string>' with your connection string
 ```shell
-./AducIotAgentSim-microsoft-swupdate '{device connection string}'
+./AducIotAgentSim-microsoft-swupdate -c '<device connection string>'
 ```
 
 or
 
 ```shell
-./AducIotAgentSim-microsoft-apt '{device connection string}'
+./AducIotAgentSim-microsoft-apt -c '<device connection string>'
 ```
 
 3. Scroll up and look for the string indicating that the device is in "Idle" state. An "Idle" state signifies that the device is ready for service commands:
