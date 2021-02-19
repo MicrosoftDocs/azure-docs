@@ -24,26 +24,27 @@ Azure Form Recognizer is a cognitive service that lets you build automated data 
 Form Recognizer is composed of custom document processing models, prebuilt models for invoices, receipts and business cards, and the layout model. You can call Form Recognizer models by using a REST API or client library SDKs to reduce complexity and integrate it into your workflow or application.
 
 Form Recognizer is composed of the following services:
+
 * **[Layout API](#layout-api)** - Extract text, selection marks, and tables structures, along with their bounding box coordinates, from documents.
 * **[Custom models](#custom-models)** - Extract text, key/value pairs, selection marks, and table data from forms. These models are trained with your own data, so they're tailored to your forms.
 * **[Prebuilt models](#prebuilt-models)** - Extract data from unique form types using prebuilt models. Currently available are the following prebuilt models
-    * [Invoices](./concept-invoices.md)
-    * [Sales receipts](./concept-receipts.md)
-    * [Business cards](./concept-business-cards.md)
-
+  * [Invoices](./concept-invoices.md)
+  * [Sales receipts](./concept-receipts.md)
+  * [Business cards](./concept-business-cards.md)
 
 ## Try it out
 
 To try out the Form Recognizer Service, go to the online Sample UI Tool:
-
-
-# [v2.0](#tab/v2-0)
-> [!div class="nextstepaction"]
-> [Try Form Recognizer](https://fott.azurewebsites.net/)
-
+<!-- markdownlint-disable MD025 -->
 # [v2.1 preview](#tab/v2-1)
+
 > [!div class="nextstepaction"]
 > [Try Form Recognizer](https://fott-preview.azurewebsites.net/)
+
+# [v2.0](#tab/v2-0)
+
+> [!div class="nextstepaction"]
+> [Try Form Recognizer](https://fott.azurewebsites.net/)
 
 ---
 
@@ -134,12 +135,11 @@ You'll use the following APIs to train models and extract structured data from f
 | **Analyze Receipt** | Analyze a receipt document to extract key information, and other receipt text.|
 | **Analyze Business Card** | Analyze a business card to extract key information and text.|
 
+# [v2.1 preview](#tab/v2-1)
+Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
 
 # [v2.0](#tab/v2-0)
 Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
-
-# [v2.1](#tab/v2-1)
-Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
 
 ---
 
