@@ -19,15 +19,12 @@ These steps show you how to use Azure PowerShell commands to migrate from [Cloud
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## 1) Plan for migration
-Planning is the most important step for a successful migration experience. Review the below articles prior to beginning your migration journey. 
-
-* Read through the [Cloud Services (extended support) overview](overview.md) to see a list of supported and unsupported scenarios for migration. 
-* Read through [Planning for migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-plan.md?context=/azure/cloud-services-extended-support/context/context)
+Planning is the most important step for a successful migration experience. Review the [Cloud Services (extended support) overview](overview.md) and [Planning for migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-plan.md) prior to beginning any migration steps. 
 
 ## 2) Install the latest version of PowerShell
 There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
 
-For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/).
+For installation instructions, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0&preserve-view=true).
 
 ## 3) Ensure Admin permissions
 To perform this migration, you must be added as a coadministrator for the subscription in the [Azure portal](https://portal.azure.com).
@@ -38,7 +35,7 @@ To perform this migration, you must be added as a coadministrator for the subscr
 
 If you're not able to add a co-administrator, contact a service administrator or co-administrator for the subscription to get yourself added.
 
-## 4) Register the classic provider
+## 4) Register the classic provider and CloudService feature
 First, start a PowerShell prompt. For migration, set up your environment for both classic and Resource Manager.
 
 Sign in to your account for the Resource Manager model.
@@ -69,15 +66,28 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMi
 >
 > *BadRequest : Subscription is not registered for migration.*
 
-Wait five minutes for the registration to finish. Check the status of the approval by using the following command:
+Register the CloudServices feature for your subscription. The registrations may take several minutes to complete. 
+
+```powershell
+Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
+```
+
+Wait five minutes for the registration to finish. 
+
+Check the status of the classic provider approval by using the following command:
 
 ```powershell
 Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
-Make sure that RegistrationState is `Registered` before you proceed.
+Check the status of registration using the following:  
+```powershell
+Get-AzProviderFeature -FeatureName CloudServices
+```
 
-Before switching to the classic deployment model, make sure that you have enough Azure Resource Manager virtual machine vCPUs in the Azure region of your current deployment or virtual network. You can use the following PowerShell command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
+Make sure that RegistrationState is `Registered` for both before you proceed.
+
+Before switching to the classic deployment model, make sure that you have enough Azure Resource Manager vCPU quota in the Azure region of your current deployment or virtual network. You can use the following PowerShell command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
 
 This example checks the availability in the **West US** region. Replace the example region name with your own.
 
@@ -179,8 +189,4 @@ Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 
 
 ## Next steps
-* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
-* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-deep-dive.md)
-* [Planning for migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-plan.md)
-* [Review most common migration errors](../virtual-machines/migration-classic-resource-manager-errors.md)
-* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-faq.md)
+Review the [Post migration changes](in-place-migration-overview.md#post-migration-changes) section to see changes in deployment files, automation and other attributes of your new Cloud Services (extended support) deployment. 
