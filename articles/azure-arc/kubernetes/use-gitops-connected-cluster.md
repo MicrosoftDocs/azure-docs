@@ -3,7 +3,7 @@ title: "Deploy configurations using GitOps on Arc enabled Kubernetes cluster (Pr
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -17,7 +17,7 @@ This article demonstrates applying configurations on an Azure Arc enabled Kubern
 
 ## Before you begin
 
-* Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./connect-cluster.md).
+* Verify you have an existing Azure Arc enabled Kubernetes connected cluster. If you need a connected cluster, see the [Connect an Azure Arc enabled Kubernetes cluster quickstart](./quickstart-connect-cluster.md).
 
 * Review the [Configurations and GitOps with Arc for Kubernetes article](./conceptual-configurations.md) to understand the benefits and architecture of this feature.
 
@@ -129,7 +129,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > HTTPS Helm release private auth is supported only with Helm operator chart version 1.2.0+ (default).
 > HTTPS Helm release private auth is not supported currently for Azure Kubernetes Services-managed clusters.
-> If you need Flux to access the Git repository through your proxy, then you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./connect-cluster.md#connect-using-an-outbound-proxy-server).
+> If you need Flux to access the Git repository through your proxy, then you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
 
 #### Additional Parameters
 

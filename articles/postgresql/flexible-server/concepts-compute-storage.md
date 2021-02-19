@@ -115,6 +115,9 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 
 When marked with a \*, IOPS are limited by the VM type you selected. Otherwise IOPS are limited by the selected storage size.
 
+>[!NOTE]
+> You may see higher IOPS due to disk level bursting. Please see the [documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting) for more details. 
+
 ### Maximum I/O bandwidth (MiB/sec) for your configuration
 
 |SKU Name            |Storage Size, GiB                             |32 |64 |128 |256 |512  |1,024|2,048|4,096|8,192 |16,384|
