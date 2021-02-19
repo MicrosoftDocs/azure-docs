@@ -4,15 +4,10 @@ description: Learn about the caching policies available for use in Azure API Man
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
 
-ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 02/19/2021
 ms.author: apimpm
 ---
 # API Management caching policies
@@ -130,7 +125,7 @@ The `cache-store` policy caches responses according to the specified cache setti
 ### Policy statement
 
 ```xml
-<cache-store duration="seconds" />
+<cache-store duration="seconds" cache-response="response" />
 ```
 
 ### Examples
@@ -185,7 +180,8 @@ For more information, see [Policy expressions](api-management-policy-expressions
 
 | Name             | Description                                                                                                                                                                                                                                                                                                                                                 | Required | Default           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| duration         | Time-to-live of the cached entries, specified in seconds.                                                                                                                                                                                                                                                                                                   | Yes      | N/A               |
+| duration         | Time-to-live of the cached entries, specified in seconds.     | Yes      | N/A               |
+| cache-response         | HTTP responses to cache. Typically provided using a policy expression. If this attribute isn't specified, only HTTP responses with the status code `200 OK` are cached.                           | No      | N/A               |
 
 ### Usage
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
