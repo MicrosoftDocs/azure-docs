@@ -916,6 +916,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-setup-li-app.md",
+      "redirect_url": "/azure/active-directory-b2c/identity-provider-linkedin",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-setup-msa-app.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-microsoft-account",
       "redirect_document_id": true
@@ -32565,6 +32570,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/security-center/security-center-investigation-user-data.md",
+      "redirect_url": "/azure/security-center/security-center-intro",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security-center/security-center-secure-score.md",
       "redirect_url": "/azure/security-center/secure-score-security-controls",
       "redirect_document_id": false
@@ -40492,6 +40502,11 @@
     {
       "source_path_from_root": "/articles/frontdoor/waf-front-door-rate-limit-powershell.md",
       "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-rate-limit-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-enable-private-link.md",
+      "redirect_url": "/azure/frontdoor/standard-premium/how-to-enable-private-link-web-app",
       "redirect_document_id": false
     },
     {
@@ -61862,6 +61877,11 @@
     {
       "source_path_from_root": "/articles/azure-monitor/platform/azure-monitor-agent-install.md",
       "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/platform/azure-monitor-agent-overview.md",
+      "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-overview",
       "redirect_document_id": false
     },
     {
