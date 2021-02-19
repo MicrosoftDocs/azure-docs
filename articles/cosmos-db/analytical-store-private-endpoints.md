@@ -24,7 +24,7 @@ The following access restrictions are applicable when data-exfiltration protecti
 
 * If you are using Azure Spark for Azure Synapse Analytics, access is only allowed to the approved managed private endpoints for Azure Cosmos DB analytical store.
 
-* If you are using Synapse serverless SQL pools, you can query any Azure Cosmos DB account using Azure Synapse Link. However, write requests that use external tables (CETAS), are only allowed to the approved managed private endpoints in the workspace virtual network.
+* If you are using Synapse serverless SQL pools, you can query any Azure Cosmos DB account using Azure Synapse Link. However, write requests that [create external tables as select (CETAS)](../synapse-analytics/sql/develop-tables-cetas.md) are only allowed to the approved manage private endpoints in the workspace virtual network.
 
 > [!NOTE]
 > You cannot change managed virtual network and data-exfiltration configuration after the workspace is created.
@@ -86,8 +86,8 @@ To allow access to Azure Cosmos DB data:
   
   YOURDATAFRAME.write\
     .format("cosmos.oltp")\
-    .option("spark.synapse.linkedService", "CosmosDB1")\
-    .option("spark.cosmos.container","container1")\
+    .option("spark.synapse.linkedService", "<your-Cosmos-DB-linked-service-name>")\
+    .option("spark.cosmos.container","<your-Cosmos-DB-container-name>")\
     .option("spark.cosmos.write.upsertEnabled", "true")\
     .option("spark.cosmos.connection.mode", "Gateway")\
     .mode('append')\
@@ -125,5 +125,5 @@ To configure network isolation for this account from a Synapse workspace:
 
 ## Next steps
 
-* Get started with [querying Synapse Spark](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json&branch=master)
-* Get started with [querying using serverless SQL pools](../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json&branch=master)
+* Get started with [querying analytical store with Azure Synapse Spark](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json&branch=master)
+* Get started with [querying analytical store with Azure Synapse serverless SQL pools](../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json&branch=master)
