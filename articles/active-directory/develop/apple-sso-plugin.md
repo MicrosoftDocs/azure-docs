@@ -71,7 +71,7 @@ The profile settings that enable the SSO plug-in are automatically applied to th
 
 If you're not using Microsoft Intune for mobile device management, use the following parameters to configure the Microsoft Enterprise SSO plug-in for Apple devices.
 
-### iOS settings:
+#### iOS settings:
 
 - **Extension ID**: `com.microsoft.azureauthenticator.ssoextension`
 - **Team ID**: (this field is not needed for iOS)
