@@ -88,11 +88,11 @@ The following is a list of error codes pertaining to the content service compone
 |---------------------------------------------------|-------------------------------------------------------------|------------------------------------|
 | ContentErrorCode.ContentAlreadyExists             | Update with the same identity already exists.               |                                    |
 | ContentErrorCode.DuplicateContentImport           | Identical content imported simultaneously multiple times.   |                                    |
-| ContentErrorCode.CannotProcessImportManifest      | Error processing import manifest.                           |                                    |
+| ContentErrorCode.CannotProcessImportManifest      | Error processing import manifest.                           | Refer to [import concepts](./import-concepts.md) and [import update](./import-update.md) documentation for proper import manifest formatting.                                   |
 | ContentErrorCode.ImportManifestCannotDownload     | Cannot download import manifest.                            |                                    |
 | ContentErrorCode.ImportManifestCannotParse        | Cannot parse import manifest.                               |                                    |
 | ContentErrorCode.ImportManifestUnsupportedVersion | Import manifest schema version is not supported.            |                                    |
-| ContentErrorCode.ExceedContentLimit               | Error importing update due to exceeded limit.               |                                    |
+| ContentErrorCode.ExceedContentLimit               | Error importing update due to exceeded limit.               | When defining device manufacturer and device model compatibility properties in an import manifest, keep in mind that Device Update for IoT Hub supports a single Provider and Name combination for a given manufacturer/model. This means if you try to use the same manufacturer/model compatibility properties with more than one Provider/Name combination, you will see these errors. To resolve this, make sure that all updates for a given device (as defined by manufacturer/model) use the same Provider and Name. While not required, you may want to consider making the Provider the same as the manufacturer and the Name the same as the model, just for simplicity. |
 | ContentErrorCode.ContentLimitNamespace            | Cannot import a new update provider.                        |                                    |
 | ContentErrorCode.ContentLimitName                 | Cannot import a new update name for the specified provider. |                                    |
 | ContentErrorCode.ContentLimitVersion              | Cannot import a new update version for the specified provider and name. |                                    |
@@ -101,3 +101,5 @@ The following is a list of error codes pertaining to the content service compone
 | ContentErrorCode.ContentLimitVersionCompatibility | Cannot import additional update version with the specified compatibility. |                                    |
 | ContentErrorCode.CannotProcessContentFile | Error processing source file. |                                    |
 | ContentErrorCode.ContentFileCannotDownload | Cannot download source file. |                                    |
+
+**[Next Step: Troubleshoot issues with Device Update](.\troubleshoot-device-update.md)**

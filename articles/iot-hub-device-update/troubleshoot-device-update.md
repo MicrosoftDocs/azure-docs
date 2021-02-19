@@ -24,7 +24,7 @@ _You may not have access permissions configured correctly. Please ensure you hav
 _An error code in the 500 range may indicate an issue with the Device Update service. Please wait 5 minutes, then try again. If the same error persists, please follow the instructions in the [Contacting Microsoft Support](#contact) section to file a support request with Microsoft._
 
 ### Q: I'm encountering an error code when importing content and would like to parse it.
-_Please refer to the [Device Update Error Codes](./device-update-error-codes.md) documentation for information on parsing error codes.
+_Please refer to the [Device Update Error Codes](./device-update-error-codes.md) documentation for information on parsing error codes._
 
 ## <a name="device-failure"></a>Device failures
 
@@ -39,7 +39,9 @@ _There are many possible root causes for a device update failure. Please validat
 ### Q: I've deployed an update to my device(s), but the compliance status says it isn't on the latest update. What should I do?
 _The device compliance status can take up to 5 minutes to refresh. Please wait, then check again._
 ### Q: My device's deployment status shows incompatible, what should I do?
-_The manufacturer and model may have been changed after connecting the device to IoT Hub._
+_The manufacturer and model properties of a targeted device may have been changed after connecting the device to IoT Hub, causing the device to now be considered incompatible with the update content of the current deployment._
+
+_Check the [ADU Core Interface](./device-update-plug-and-play) to see what manufacturer and model your device is reporting to the Device Update service, and make sure it matches the manufacturer and model you specified in the [import manifest](./import-concepts.md) of the update content being deployed. You can change these properties for a given device using the [Device Update configuration file](./device-update-cofiguration-file.md)._
 
 ### Q: I see my deployment is in "Active" stage but none of my devices are "In progress" with the update. What should I do?
 _Ensure that your deployment start date is not set in the future. When you create a new deployment, the deployment start date is defaulted to the next day as a safeguard unless you explicitly change it. You can either wait for the deployment start date to arrive, or cancel the ongoing deployment and create a new deployment with the desired start date._
@@ -172,3 +174,5 @@ The configuration file is optional and created by the user following the instruc
 You may be asked to provide your import manifest file when reporting an issue related to importing or deploying an update.
 
 The import manifest is a file created by the customer when importing update content to the Device Update service.
+
+**[Next Step: Learn more about Device Update error codes](.\device-update-error-codes.md)**
