@@ -25,6 +25,7 @@ IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual ma
   * Install production certificates
   * Have a device management plan
   * Use Moby as the container engine
+  * Don't use the same device ID for more than one IoT Edge device
 
 * **Helpful**
   * Choose upstream protocol
@@ -56,6 +57,18 @@ For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.m
 
 A container engine is a prerequisite for any IoT Edge device. Only moby-engine is supported in production. Other container engines, like Docker, do work with IoT Edge and it's ok to use these engines for development. The moby-engine can be redistributed when used with Azure IoT Edge, and Microsoft provides servicing for this engine.
 
+### Don't use the same device ID for more than one IoT Edge device
+
+A device connection string can't be shared between two or more IoT Edge devices. IoT Edge devices that have the same device ID might appear to work properly, but sharing a device ID can lead to the following issues before the condition is detected and resolved:
+
+* Huge spike in module and device connects/disconnects
+* Huge spike in module device-to-cloud `get twin` operations
+* Duplication of module messages, depending on how the route is set up
+
+If these issues develop because of a shared device ID, you might see unexpected *message quota exhaustion* on the IoT Hub side and an increase in *data usage bill*, especially if you're using a cellular or satellite data connection. IoT Hub message quota exhaustion might stall the entire solution because IoT Hub stops accepting new messages until the quota is reset or the quota is increased.
+
+To check for this condition, you can monitor the frequency of connect/disconnects of modules and devices by using Azure diagnostics logs for IoT Hub.
+
 ### Choose upstream protocol
 
 You can configure the protocol (which determines the port used) for upstream communication to IoT Hub for both the IoT Edge agent and the IoT Edge hub. The default protocol is AMQP, but you may want to change that depending on your network setup.
@@ -77,8 +90,7 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
   * Be consistent with upstream protocol
   * Set up host storage for system modules
   * Reduce memory space used by the IoT Edge hub
-  * Do not use debug versions of module images
-  * Do not share the unique device id with other IoT Edge device 
+  * Don't use debug versions of module images 
 
 ### Be consistent with upstream protocol
 
@@ -124,20 +136,9 @@ The IoT Edge hub module stores messages temporarily if they cannot be delivered 
 
 The default value of the timeToLiveSecs parameter is 7200 seconds, which is two hours.
 
-### Do not use debug versions of module images
+### Don't use debug versions of module images
 
 When moving from test scenarios to production scenarios, remember to remove debug configurations from deployment manifests. Check that none of the module images in the deployment manifests have the **\.debug** suffix. If you added create options to expose ports in the modules for debugging, remove those create options as well.
-
-### Do not share the unique device id  with other IoT Edge device 
-
-Please make sure unique IoT Edge device id (identity) is **not** inadvertently **shared** between 2 or more separate IoT Edge devices for any authentication type.
-IoT Edges devices sharing the same device id may appear to work properly but it can lead to following issues before condition is detected and fixed
-
-* Huge spike in module and device connects/disconnects
-* Huge spike in module D2C Get Twin operations
-* Duplication of module messages depending of how the route is setup
-
-Consequence of this may result in unexpected **IoT Hub message quota exhaustion** on IoT Hub side and increase in **data usage bill** specifically if using cellular or satellite data connection. IoT Hub message quota exhaustion may stall the entire solution as IoT Hub will stop accepting new messages till quota is reset or there is increase in quota. To check for this condition you can monitor the frequency of connect/disconnects of modules and devices using Azure Diagnostics logs for IoT Hub.
 
 ## Container management
 
