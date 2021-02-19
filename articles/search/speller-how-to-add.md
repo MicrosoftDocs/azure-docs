@@ -1,7 +1,7 @@
 ---
 title: Add spell check
 titleSuffix: Azure Cognitive Search
-description: Attach a spell check to query parsing, checking and correcting for common misspellings and typos on query inputs before executing the query.
+description: Attach spelling correction to the query pipeline, to fix typos on query terms before executing the query.
 
 manager: nitinme
 author: HeidiSteen
@@ -29,7 +29,7 @@ You can improve recall by spell-correcting individual search query terms before 
 + [A query request](/rest/api/searchservice/preview-api/search-documents) that uses spell correction has "api-version=2020-06-30-Preview", "speller=lexicon", and "queryLanguage=en-us"
 
 > [!Note]
-> The speller parameter is available on all tiers, in all regions that provide Azure Cognitive Search.
+> The speller parameter is available on all tiers, at no extra charge, on all regions that provide semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 ## Spell correction with simple search
 
@@ -49,12 +49,12 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Spell correction with full Lucene
 
-Spelling correction occurs just prior to text analysis. As such, you can use the speller parameter with any full Lucene queries that undergo text analysis.
+Spelling correction occurs on individual query terms that undergo analysis, which is why you can use the speller parameter with some Lucene queries, but not others.
 
-+ Incompatible query forms include: wildcard, regex, fuzzy
++ Incompatible query forms that bypass text analysis include: wildcard, regex, fuzzy
 + Compatible query forms include: fielded search, proximity, term boosting
 
-This example uses fielded search over the Category field, with full Lucene syntax, and a misspelled query string. Without speller, there are no matches on Suite.
+This example uses fielded search over the Category field, with full Lucene syntax, and a misspelled query string. By including speller, the typo in "Suiite" is corrected and the query succeeds.
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview
@@ -70,9 +70,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Spell correction with semantic search
 
-This query, with typos in every term except one, undergoes spelling corrections to return relevant results using simple syntax (no fuzzy search).
-
-In a semantic query, the order of fields in the `searchFields` parameter informs search rank. To learn more, see [Create a semantic query](semantic-how-to-query-request.md).
+This query, with typos in every term except one, undergoes spelling corrections to return relevant results. In a semantic query, the order of fields in the `searchFields` parameter informs search rank. To learn more, see [Create a semantic query](semantic-how-to-query-request.md).
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30     
@@ -81,7 +79,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
     "queryType": "semantic",
     "speller": "lexicon",
     "queryLanguage": "en-us",
-    "searchFields": "HotelName,Tags,Description,Tags",
+    "searchFields": "HotelName,Tags,Description",
     "select": "HotelId,HotelName,Description,Category,Tags",
     "count": true
 }
