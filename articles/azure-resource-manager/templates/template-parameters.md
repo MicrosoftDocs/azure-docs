@@ -1,17 +1,163 @@
 ---
 title: Parameters in templates
-description: Describes how to define parameters in an Azure Resource Manager template (ARM template).
+description: Describes how to define parameters in an Azure Resource Manager template (ARM template) and Bicep file.
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 02/19/2021
 ---
 
 # Parameters in ARM templates
 
-This article describes how to define and use parameters in your Azure Resource Manager template (ARM template). By providing different values for parameters, you can reuse a template for different environments.
+This article describes how to define and use parameters in your Azure Resource Manager template (ARM template) and Bicep file. By providing different values for parameters, you can reuse a template for different environments.
 
 Resource Manager resolves parameter values before starting the deployment operations. Wherever the parameter is used in the template, Resource Manager replaces it with the resolved value.
 
 Each parameter must be set to one of the [data types](template-syntax.md#data-types).
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
+## Minimal declaration
+
+At a minimum, every parameter needs a name and type. In Bicep, a parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
+
+# [JSON](#tab/json)
+
+```json
+"parameters": {
+  "demoString": {
+    "type": "string"
+  },
+  "demoInt": {
+    "type": "int"
+  },
+  "demoBool": {
+    "type": "bool"
+  },
+  "demoObject": {
+    "type": "object"
+  },
+  "demoArray": {
+    "type": "array"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param demoString string
+param demoInt int
+param demoBool bool
+param demoObject object
+param demoArray array
+```
+
+---
+
+## Secure parameters
+
+You can mark specific parameters as secure. The parameter must be either a string or object. When you mark a parameter as secure, the value of the parameter isn't saved to the deployment history and isn't logged.
+
+# [JSON](#tab/json)
+
+```json
+"parameters": {
+  "demoPassword": {
+    "type": "secureString"
+  },
+  "demoSecretObject": {
+    "type": "secureObject"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param demoPassword string { 
+  secure: true
+}
+
+param demoSecretObject object { 
+  secure: true
+}
+```
+
+---
+
+## Allowed values
+
+You specify which values are allowed for parameter. You provide the allowed values in an array.
+
+# [JSON](#tab/json)
+
+```json
+"parameters": {
+  "demoEnum": {
+    "type": "string",
+    "allowedValues": [
+      "one",
+      "two"
+    ]
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param demoEnum string {
+  allowed: [
+    'one'
+    'two'
+  ]
+}
+```
+
+---
+
+## Default value
+
+You can specify a default value for a parameter. The default value is used when a value isn't provided during deployment.
+
+# [JSON](#tab/json)
+
+```json
+"parameters": {
+  "demoParam": {
+    "type": "string",
+    "defaultValue": "Contoso"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param demoParam string = 'Contoso'
+```
+
+---
+
+To specify a default value and other properties for the parameter, use the following syntax.
+
+# [JSON](#tab/json)
+
+```json
+"parameters": {
+  "demoParam": {
+    "type": "string",
+    "defaultValue": "Contoso"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param demoParam string = 'Contoso'
+```
+
+---
 
 ## Define parameter
 
