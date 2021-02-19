@@ -65,7 +65,7 @@ _This may have been caused by a service performance issue, a service bug, or a c
 ## <a name="download"></a> Downloading updates onto devices
 
 ### Q: How do I resume a download when a device has reconnected after a period of disconnection?
-_The download will self-resume when connectivity is restored within a 24-hour period. After 24 hours, the download will need to be re-initiated by the user._
+_The download will self-resume when connectivity is restored within a 24-hour period. After 24 hours, the download will need to be reinitiated by the user._
 ## <a name="mcc"></a> Using Microsoft Connected Cache (MCC)
 
 ### Q: I am encountering an issue when attempting to deploy the MCC module on my IoT Edge device.
@@ -73,10 +73,10 @@ _Refer to the [IoT Edge documentation]() for deploying Edge modules to IoT Edge 
 ### Q: One of my IoT devices is attempting to download an update through MCC, but is failing.
 _There are several issues that could be causing an IoT device to fail in connecting to MCC. In order to diagnose the issue, please collect the DO client and Nginx logs from the failing device (see the [Contacting Microsoft Support](#contact) section for instructions on gathering client logs)._
 
-_Your device may be failing to pull content from the Internet to pass to its MCC module because the URL it’s using isn’t allowed. To determine if so, you will need to check your IoT Edge environment variables in Azure Portal._
+_Your device may be failing to pull content from the Internet to pass to its MCC module because the URL it’s using isn’t allowed. To determine if so, you will need to check your IoT Edge environment variables in Azure portal._
 ## <a name="contact"></a> Contacting Microsoft Support
 
-If you run into issues that can't be resolved using the FAQs above, you can file a support request with Microsoft Support through the Azure Portal interface. Depending on which category you indicate your issue belongs to, you may be asked to gather and share additional data to help Microsoft Support investigate your issue. 
+If you run into issues that can't be resolved using the FAQs above, you can file a support request with Microsoft Support through the Azure portal interface. Depending on which category you indicate your issue belongs to, you may be asked to gather and share additional data to help Microsoft Support investigate your issue. 
 
 Please see below for instructions on how to gather each data type. You can use [getDevices]() to check for
 additional information in the payload response of the API.
@@ -126,7 +126,7 @@ Error codes can be obtained by looking at the [ADUCoreInterface](./device-update
 ### Trace ID
 You may be asked to provide a trace ID when reporting an issue related to importing or deploying an update.
 
-The trace ID for a given user-action can be found within the API response, or in the Import History section of the Azure Portal user interface. 
+The trace ID for a given user-action can be found within the API response, or in the Import History section of the Azure portal user interface. 
 
 Currently, trace IDs for deployment actions are only accessible through the API response.
 
@@ -135,7 +135,7 @@ You may be asked to provide a deployment ID when reporting an issue related to d
 
 The deployment ID is created by the user when calling the API to initiate a deployment.
 
-Currently, deployment IDs for deployments initiated from the Azure Portal user interface are automatically generated and not surfaced to the user.
+Currently, deployment IDs for deployments initiated from the Azure portal user interface are automatically generated and not surfaced to the user.
 
 ### IoT Hub instance name
 You may be asked to provide your IoT Hub instance's name when reporting an issue related to device failures or deploying an update.
@@ -148,16 +148,16 @@ You may be asked to provide your Device Update account's name when reporting an 
 The Device Update account name is chosen by the user when first signing up for the service. More information can be found in the [Device Update resources](./device-update-resources.md) documentation.
 
 ### Device Update instance name
-You may be asked to provide your Device Update instance's name when reporting an issue related to importing an update, device failures or deploying an update.
+You may be asked to provide your Device Update instance's name when reporting an issue related to importing an update, device failures, or deploying an update.
 
 The Device Update instance name is chosen by the user when first provisioned. More information can be found in the [Device Update resources](./device-update-resources.md) documentation.
 
-### Device Id
+### Device ID
 You may be asked to provide a device ID when reporting an issue related to device failures or deploying an update.
 
 The device ID is defined by the customer when the device is first provisioned. It can also be retrieved from the device's Device Twin.
 
-### Update Id
+### Update ID
 You may be asked to provide an update ID when reporting an issue related to deploying an update.
 
 The update ID is defined by the customer when initiating a deployment.
