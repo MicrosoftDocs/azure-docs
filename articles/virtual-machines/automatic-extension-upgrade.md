@@ -260,4 +260,4 @@ Automatic Extension Upgrades can also be applied when a VM or virtual machine sc
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Learn about the Application Health Extension](./windows/automatic-vm-guest-patching.md)
+> [Learn about the Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md)
