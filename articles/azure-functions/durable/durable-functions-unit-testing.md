@@ -50,7 +50,7 @@ First, we use a mocking framework ([moq](https://github.com/moq/moq4) in this ca
 
 ```csharp
 // Mock IDurableClient
-    var durableClientMock = new Mock<IDurableClient>();
+var durableClientMock = new Mock<IDurableClient>();
 ```
 
 > [!NOTE]
@@ -59,7 +59,7 @@ First, we use a mocking framework ([moq](https://github.com/moq/moq4) in this ca
 Then `StartNewAsync` method is mocked to return a well-known instance ID.
 
 ```csharp
-    // Mock StartNewAsync method
+// Mock StartNewAsync method
 durableClientMock.
     Setup(x => x.StartNewAsync(functionName, It.IsAny<object>())).
     ReturnsAsync(instanceId);
@@ -68,53 +68,53 @@ durableClientMock.
 Next `CreateCheckStatusResponse` is mocked to always return an empty HTTP 200 response.
 
 ```csharp
-    // Mock CreateCheckStatusResponse method
-    durableClientMock
-        // Notice that even though the HttpStart function does not call IDurableClient.CreateCheckStatusResponse() 
-        // with the optional parameter returnInternalServerErrorOnFailure, moq requires the method to be set up
-        // with each of the optional parameters provided. Simply use It.IsAny<> for each optional parameter
-        .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId, returnInternalServerErrorOnFailure: It.IsAny<bool>())
-        .Returns(new HttpResponseMessage
+// Mock CreateCheckStatusResponse method
+durableClientMock
+    // Notice that even though the HttpStart function does not call IDurableClient.CreateCheckStatusResponse() 
+    // with the optional parameter returnInternalServerErrorOnFailure, moq requires the method to be set up
+    // with each of the optional parameters provided. Simply use It.IsAny<> for each optional parameter
+    .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId, returnInternalServerErrorOnFailure: It.IsAny<bool>())
+    .Returns(new HttpResponseMessage
+    {
+        StatusCode = HttpStatusCode.OK,
+        Content = new StringContent(string.Empty),
+        Headers =
         {
-            StatusCode = HttpStatusCode.OK,
-            Content = new StringContent(string.Empty),
-            Headers =
-            {
-                RetryAfter = new RetryConditionHeaderValue(TimeSpan.FromSeconds(10))
-            }
-        });
+            RetryAfter = new RetryConditionHeaderValue(TimeSpan.FromSeconds(10))
+        }
+    });
 ```
 
 `ILogger` is also mocked:
 
 ```csharp
-    // Mock ILogger
-    var loggerMock = new Mock<ILogger>();
+// Mock ILogger
+var loggerMock = new Mock<ILogger>();
 ```  
 
 Now the `Run` method is called from the unit test:
 
 ```csharp
-    // Call Orchestration trigger function
-    var result = await HttpStart.Run(
-        new HttpRequestMessage()
-        {
-            Content = new StringContent("{}", Encoding.UTF8, "application/json"),
-            RequestUri = new Uri("http://localhost:7071/orchestrators/E1_HelloSequence"),
-        },
-        durableClientMock.Object,
-        functionName,
-        loggerMock.Object);
+// Call Orchestration trigger function
+var result = await HttpStart.Run(
+    new HttpRequestMessage()
+    {
+        Content = new StringContent("{}", Encoding.UTF8, "application/json"),
+        RequestUri = new Uri("http://localhost:7071/orchestrators/E1_HelloSequence"),
+    },
+    durableClientMock.Object,
+    functionName,
+    loggerMock.Object);
  ```
 
  The last step is to compare the output with the expected value:
 
 ```csharp
-    // Validate that output is not null
-    Assert.NotNull(result.Headers.RetryAfter);
+// Validate that output is not null
+Assert.NotNull(result.Headers.RetryAfter);
 
-    // Validate output's Retry-After header value
-    Assert.Equal(TimeSpan.FromSeconds(10), result.Headers.RetryAfter.Delta);
+// Validate output's Retry-After header value
+Assert.Equal(TimeSpan.FromSeconds(10), result.Headers.RetryAfter.Delta);
 ```
 
 After combining all steps, the unit test will have the following code:
@@ -132,30 +132,30 @@ In this section the unit tests will validate the output of the `E1_HelloSequence
 The unit test code will start with creating a mock:
 
 ```csharp
-    var durableOrchestrationContextMock = new Mock<IDurableOrchestrationContext>();
+var durableOrchestrationContextMock = new Mock<IDurableOrchestrationContext>();
 ```
 
 Then the activity method calls will be mocked:
 
 ```csharp
-    durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Tokyo")).ReturnsAsync("Hello Tokyo!");
-    durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Seattle")).ReturnsAsync("Hello Seattle!");
-    durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "London")).ReturnsAsync("Hello London!");
+durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Tokyo")).ReturnsAsync("Hello Tokyo!");
+durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Seattle")).ReturnsAsync("Hello Seattle!");
+durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "London")).ReturnsAsync("Hello London!");
 ```
 
 Next the unit test will call `HelloSequence.Run` method:
 
 ```csharp
-    var result = await HelloSequence.Run(durableOrchestrationContextMock.Object);
+var result = await HelloSequence.Run(durableOrchestrationContextMock.Object);
 ```
 
 And finally the output will be validated:
 
 ```csharp
-    Assert.Equal(3, result.Count);
-    Assert.Equal("Hello Tokyo!", result[0]);
-    Assert.Equal("Hello Seattle!", result[1]);
-    Assert.Equal("Hello London!", result[2]);
+Assert.Equal(3, result.Count);
+Assert.Equal("Hello Tokyo!", result[0]);
+Assert.Equal("Hello Seattle!", result[1]);
+Assert.Equal("Hello London!", result[2]);
 ```
 
 After combining all steps, the unit test will have the following code:
