@@ -23,7 +23,7 @@ Entities behave a bit like tiny services that communicate via messages. Each ent
 To prevent conflicts, all operations on a single entity are guaranteed to execute serially, that is, one after another.
 
 > [!NOTE]
-> When an entity is invoked, it processes its payload to completion and immediately schedules a new entity invocation that blocks for input. As a result, your entity execution logs might show an extra execution after each entity invocation; this is expected.
+> When an entity is invoked, it processes its payload to completion and then schedules a new execution to activate once future inputs arrive. As a result, your entity execution logs might show an extra execution after each entity invocation; this is expected.
 
 ### Entity ID
 Entities are accessed via a unique identifier, the *entity ID*. An entity ID is simply a pair of strings that uniquely identifies an entity instance. It consists of an:
