@@ -1590,6 +1590,8 @@
         href: segment-tutorial.md
       - name: Seismic
         href: seismic-tutorial.md
+      - name: SendPro Enterprise
+        href: sendpro-enterprise-tutorial.md
       - name: SendSafely
         href: sendsafely-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
