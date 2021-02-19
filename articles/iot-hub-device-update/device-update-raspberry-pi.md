@@ -102,7 +102,7 @@ IoT Hub, a connection string will be generated for the device.
 
 ## Provision connection string on SD card
 
-1. Make sure that the Raspberry Pi3 is conencted to the network.
+1. Make sure that the Raspberry Pi3 is connected to the network.
 2. In PowerShell, use the below command to ssh into the device
    ```markdown
    ssh raspberrypi3 -l root
