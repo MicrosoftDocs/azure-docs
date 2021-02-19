@@ -34,6 +34,8 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
 1. Select the origin group that contains the Web App origin you want to enable Private Link for.
 
+1. Select **+ Add an origin** to add a new web app origin or select a previously created web app origin from the list.
+
     :::image type="content" source="../media/how-to-enable-private-link-web-app/private-endpoint-web-app.png" alt-text="Screenshot of enabling private link to a Web App.":::
 
 1. For **Select an Azure resource**, select **In my directory**. Select or enter the following settings to configure the site you want Azure Front Door Premium to connect with privately.
@@ -64,6 +66,6 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
     :::image type="content" source="../media/how-to-enable-private-link-web-app/private-endpoint-approved.png" alt-text="Screenshot of approved endpoint request.":::
 
-## Next Steps
+## Next steps
 
 Learn about [Private Link service with Azure Web App](../../app-service/networking/private-endpoint).
