@@ -124,7 +124,7 @@ Start Device Update Agent on your new Software Devices.
 1. Start Ubuntu.
 2. Run the Device Update Agent and specify the device connection string from the previous section wrapped with apostrophes:
 
-Replace '<device connection string>' with your connection string
+Replace `<device connection string>` with your connection string
 ```shell
 ./AducIotAgentSim-microsoft-swupdate -c '<device connection string>'
 ```
