@@ -146,7 +146,7 @@ Next, make note of each IoT Edge device's connection string. They will be used l
 
 ---
 
-If you completed the above steps correctly, you can check that your parent-child relationships are correct in the Azure portal or Azure CLI.
+If you completed the above steps correctly, you can use the following steps to check that your parent-child relationships are correct in the Azure portal or Azure CLI.
 
 # [Portal](#tab/azure-portal)
 
