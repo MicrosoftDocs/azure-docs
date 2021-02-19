@@ -255,16 +255,16 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 sudo az login
 ```
 ```bash
-sudo az account set --subscription <name or ID of Azure Subscription>
+sudo az account set --subscription "<name or ID of Azure Subscription>"
 ```
 ```bash
-sudo az group create --name <resource-group-name> --location "WestUS"
+sudo az group create --name "<resource-group-name>" --location "WestUS"
 ```
 ```bash
-sudo az iot hub create --name <iothub-group-name> --sku S1 --resource-group <resource-group-name>
+sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
 ```
 ```bash
-sudo az iot hub device-identity create --hub-name <iothub-name> --device-id <device-name> --edge-enabled
+sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
 You will need to install [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) version 1.0.9. Follow these steps to download the correct version:
@@ -417,16 +417,16 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 sudo az login
 ```
 ```bash
-sudo az account set --subscription <name or ID of Azure Subscription>
+sudo az account set --subscription "<name or ID of Azure Subscription>"
 ```
 ```bash
-sudo az group create --name <resource-group-name> --location "WestUS"
+sudo az group create --name "<resource-group-name>" --location "WestUS"
 ```
 ```bash
-sudo az iot hub create --name <iothub-group-name> --sku S1 --resource-group <resource-group-name>
+sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
 ```
 ```bash
-sudo az iot hub device-identity create --hub-name <iothub-name> --device-id <device-name> --edge-enabled
+sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
 You will need to install [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) version 1.0.9. Follow these steps to download the correct version:
@@ -514,7 +514,7 @@ Once you update the Deployment manifest for [Azure Stack Edge devices](https://g
 ```azurecli
 sudo az login
 sudo az extension add --name azure-iot
-sudo az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
+sudo az iot edge set-modules --hub-name "<iothub-name>" --device-id "<device-name>" --content DeploymentManifest.json --subscription "<name or ID of Azure Subscription>"
 ```
 
 |Parameter  |Description  |
