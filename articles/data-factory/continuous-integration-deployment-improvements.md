@@ -1,14 +1,10 @@
 ---
 title: Automated publishing for continuous integration and delivery
 description: Learn how to publish for continuous integration and delivery automatically.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: maghan
-manager: weetok
 ms.topic: conceptual
 ms.date: 02/02/2021
 ---
@@ -118,7 +114,7 @@ Follow the below steps to get started:
             "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
         },
         "dependencies":{
-            "@microsoft/azure-data-factory-utilities":"^0.1.2"
+            "@microsoft/azure-data-factory-utilities":"^0.1.3"
         }
     } 
     ```

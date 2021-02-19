@@ -51,7 +51,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
     ![Choose event types](./media/export-stream-analytics/080.png)
 
-1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../platform/metrics-charts.md) and individual events in [diagnostic search](./diagnostic-search.md). 
+1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../essentials/metrics-charts.md) and individual events in [diagnostic search](./diagnostic-search.md). 
    
     And also, the data will export to your storage. 
 2. Inspect the exported data. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)

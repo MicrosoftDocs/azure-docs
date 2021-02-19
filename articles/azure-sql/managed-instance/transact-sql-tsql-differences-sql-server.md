@@ -9,7 +9,7 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 11/10/2020
+ms.date: 1/12/2021
 ms.custom: seoapril2019, sqldbrb=1
 ---
 
@@ -279,6 +279,7 @@ For more information, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-
 ### SQL Server Agent
 
 - Enabling and disabling SQL Server Agent is currently not supported in SQL Managed Instance. SQL Agent is always running.
+- Job schedule trigger based on an idle CPU is not supported.
 - SQL Server Agent settings are read only. The procedure `sp_set_agent_properties` isn't supported in SQL Managed Instance. 
 - Jobs
   - T-SQL job steps are supported.
@@ -300,14 +301,8 @@ For more information, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-
   - Alerts aren't yet supported.
   - Proxies aren't supported.
 - EventLog isn't supported.
-- User must be directly mapped to Azure AD server principal (login) to create, modify, or execute SQL Agent jobs. Users that are not directly mapped, for example, users that belong to an Azure AD group that has the rights to create, modify, or execute SQL Agent jobs, will not effectively be able to perform those actions. This is due to Managed Instance impersonation and [EXECUTE AS limitations](#logins-and-users).
-
-The following SQL Agent features currently aren't supported:
-
-- Proxies
-- Scheduling jobs on an idle CPU
-- Enabling or disabling an Agent
-- Alerts
+- User must be directly mapped to Azure AD server principal (login) to create, modify, or execute SQL Agent jobs. Users that are not directly mapped, for example, users that belong to an Azure AD group that has the rights to create, modify or execute SQL Agent jobs, will not effectively be able to perform those actions. This is due to Managed Instance impersonation and [EXECUTE AS limitations](#logins-and-users).
+- The Multi Server Administration feature for master/target (MSX/TSX) jobs are not supported.
 
 For information about SQL Server Agent, see [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
@@ -486,7 +481,7 @@ Cross-instance service broker isn't supported:
   - `scan for startup procs`
 - `sp_execute_external_scripts` isn't supported. See [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` isn't supported. See [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` aren't supported, which includes `sp_addextendedproc` and `sp_dropextendedproc`. See [Extended stored procedures](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `Extended stored procedures` aren't supported, and this includes `sp_addextendedproc` and `sp_dropextendedproc`. This functionality won't be supported because it's on a deprecation path for SQL Server. For more details, see [Extended Stored Procedures](/sql/relational-databases/extended-stored-procedures-programming/database-engine-extended-stored-procedures-programming).
 - `sp_attach_db`, `sp_attach_single_file_db`, and `sp_detach_db` aren't supported. See [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), and [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ### System functions and variables

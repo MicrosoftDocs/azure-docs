@@ -1,20 +1,23 @@
 ---
-title: How to set up geo-replication for Azure Cache for Redis | Microsoft Docs
-description: Learn how to replicate your Azure Cache for Redis instances across geographical regions.
+title: Configure geo-replication for Premium Azure Cache for Redis instances
+description: Learn how to replicate your Azure Cache for Redis Premium instances across Azure regions
 author: yegu-ms
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 02/08/2021
 ms.author: yegu
-
 ---
-# How to set up geo-replication for Azure Cache for Redis
+# Configure geo-replication for Premium Azure Cache for Redis instances
 
-Geo-replication provides a mechanism for linking two Premium tier Azure Cache for Redis instances. One cache is chosen as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and data written to the primary cache is replicated to the secondary linked cache. Data transfer between the primary and secondary cache instances is secured by TLS. Geo-replication can be used to set up a cache that spans two Azure regions. This article provides a guide to configuring geo-replication for your Premium tier Azure Cache for Redis instances.
+In this article, you'll learn how to configure a geo-replicated Azure Cache using the Azure portal.
+
+Geo-replication links together two Premium Azure Cache for Redis instances and creates a data replication relationship. These cache instances are usually located in different Azure regions, though they aren't required to. One instance acts as the primary, and the other as the secondary. The primary handles read and write requests and propagates changes to the secondary. This process continues until the link between the two instances is removed.
 
 > [!NOTE]
-> Geo-replication is designed as a disaster-recovery solution. By default, your application will write to and read from the primary region. It can optionally be configured to read from the secondary region. Geo-replication doesn't provide automatic failover due to concerns over added network latency between regions if the rest of your application remains in the primary region. You'll need to manage and initiate the failover by unlinking the secondary cache. This will promote it to be the new primary instance.
+> Geo-replication is designed as a disaster-recovery solution.
+>
+>
 
 ## Geo-replication prerequisites
 
@@ -107,7 +110,7 @@ After geo-replication is configured, the following restrictions apply to your li
 - [Why did the operation fail when I tried to delete my linked cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [What region should I use for my secondary linked cache?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [How does failing over to the secondary linked cache work?](#how-does-failing-over-to-the-secondary-linked-cache-work)
-- [Can i configure Firewall with geo-replication?](#can-i-configure-a-firewall-with-geo-replication)
+- [Can I configure Firewall with geo-replication?](#can-i-configure-a-firewall-with-geo-replication)
 
 ### Can I use geo-replication with a Standard or Basic tier cache?
 
