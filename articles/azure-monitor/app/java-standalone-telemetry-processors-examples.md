@@ -94,7 +94,7 @@ This span doesn't match the exclude properties, and the processor actions are ap
 }
 ```
 
-### ExcludeMulti spans
+### Exclude spans by using multiple criteria
 
 This section demonstrates how to exclude spans for an attribute processor. Spans that match the properties aren't processed by this processor.
 
@@ -227,7 +227,7 @@ The following sample inserts the new attribute `{"attribute1": "attributeValue1"
 
 ### Insert from another key
 
-The following sample uses the value from attribute `anotherkey` to insert the new attribute `{"newKey": "value from attribute 'anotherkey'}` into spans where the key `newKey` doesn't exist. If the attribute `anotherkey` doesn't exist, no new attribute is inserted into spans.
+The following sample uses the value from attribute `anotherkey` to insert the new attribute `{"newKey": "<value from attribute anotherkey>"}` into spans where the key `newKey` doesn't exist. If the attribute `anotherkey` doesn't exist, no new attribute is inserted into spans.
 
 ```json
 {
@@ -251,7 +251,7 @@ The following sample uses the value from attribute `anotherkey` to insert the ne
 
 ### Update
 
-The following sample updates the attribute to `{ "db.secret": "redacted"}`. It updates the attribute `boo` by using the value from attribute `foo`. Spans that don't have the attribute `boo` don't change.
+The following sample updates the attribute to `{"db.secret": "redacted"}`. It updates the attribute `boo` by using the value from attribute `foo`. Spans that don't have the attribute `boo` don't change.
 
 ```json
 {
@@ -280,7 +280,7 @@ The following sample updates the attribute to `{ "db.secret": "redacted"}`. It u
 
 ### Delete
 
-The following sample shows how to delete an attribute by using the key `credit_card`.
+The following sample shows how to delete an attribute that has the key `credit_card`.
 
 ```json
 {
@@ -327,7 +327,7 @@ The following sample shows how to hash existing attribute values.
 ### Extract
 
 The following sample shows how to use a regular expression (regex) to create new attributes based on the value of another attribute.
-For example, given `http.url = 'http://example.com/path?queryParam1=value1,queryParam2=value2'`, the following attributes are inserted:
+For example, given `http.url = http://example.com/path?queryParam1=value1,queryParam2=value2`, the following attributes are inserted:
 * httpProtocol: `http`
 * httpDomain: `example.com`
 * httpPath: `path`
@@ -399,7 +399,7 @@ and where the span name doesn't match `login.*`.
 
 ### Name a span
 
-The following sample specifies the values of attributes `db.svc`, `operation`, and `id`. It forms the new name of the span by using that order of attributes, separated by the value `::`.
+The following sample specifies the values of attributes `db.svc`, `operation`, and `id`. It forms the new name of the span by using those attributes, in that order, separated by the value `::`.
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
@@ -446,7 +446,7 @@ Let's assume the input span name is `/api/v1/document/12345678/update`. The foll
 
 ### Extract attributes from a span name by using include and exclude
 
-The following sample shows how to rename the span name as `{operation_website}`. It adds the attribute `{Key: operation_website, Value: oldSpanName }` when the span has the following properties:
+The following sample shows how to change the span name to `{operation_website}`. It adds an attribute with key `operation_website` and value `{oldSpanName}` when the span has the following properties:
 - The span name contains `/` anywhere in the string.
 - The span name isn't `donot/change`.
 ```json

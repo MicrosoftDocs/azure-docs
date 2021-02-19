@@ -18,7 +18,7 @@ The Java 3.0 agent for Application Insights can process telemetry data before th
 Here are some use cases for telemetry processors:
  * Create sensitive data.
  * Conditionally add custom dimensions.
- * Update the name that's used for aggregation and display it in the Azure portal.
+ * Update the span name, which is used to aggregate similar telemetry in the Azure portal.
  * Drop span attributes to control ingestion costs.
 
 ## Terminology
@@ -263,7 +263,7 @@ The span processor modifies either the span name or attributes of a span based o
 
 ### Name a span
 
-The `name` section requires the `fromAttributes` setting. This attribute value for the keys is used to create a new name in the order that the configuration specifies. When all attribute keys are specified in the span, the processor can rename the span.
+The `name` section requires the `fromAttributes` setting. The values from these attributes are used to create a new name, concatenated in the order that the configuration specifies. The processor will change the span name only if all of these attributes are present on the span.
 
 The `separator` setting is optional. This setting is a string. It's specified to split values.
 > [!NOTE]
@@ -288,7 +288,7 @@ The `separator` setting is optional. This setting is a string. It's specified to
 
 The `toAttributes` section lists the regular expressions to match the span name against. It extracts attributes based on subexpressions.
 
-The `rules` setting is required. This setting lists the rules that are necessary to extract attribute values from the span name. 
+The `rules` setting is required. This setting lists the rules that are used to extract attribute values from the span name. 
 
 The values in the span name are replaced by extracted attribute names. Each rule in the list is a regular expression (regex) pattern string. 
 
@@ -330,7 +330,7 @@ This section lists some common span attributes that telemetry processors can use
 | Attribute  | Type | Description | 
 |---|---|---|
 | `http.method` | string | HTTP request method.|
-| `http.url` | string | Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`. The fragment isn't usually transmitted over HTTP. But if the HTTP request URL is known, it should be included.|
+| `http.url` | string | Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`. The fragment isn't usually transmitted over HTTP. But if the fragment is known, it should be included.|
 | `http.status_code` | number | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).|
 | `http.flavor` | string | Type of HTTP protocol. |
 | `http.user_agent` | string | Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client. |
