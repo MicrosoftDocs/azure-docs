@@ -33,7 +33,7 @@ You have migrated if your LUIS authoring experience is tied to an Authoring reso
 
     When the user's email is found, select the account and select **Save**.
 
-    If you have trouble with this role assignment, review [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) and [Azure access control troubleshooting](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
+    If you have trouble with this role assignment, review [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md) and [Azure access control troubleshooting](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
 
 ## View the app as a contributor
 
