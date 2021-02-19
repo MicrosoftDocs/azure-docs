@@ -6,7 +6,7 @@ ms.date: 02/19/2021
 ms.author: alkohli
 ---
 
-To wipe the data off the data disks of your device, you need to reset your device. You can reset your device using the local web UI or the PowerShell interface.
+To wipe the data off the data disks of your device, you need to reset your device. You can reset your device in the local web UI or in PowerShell.
 
 Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container.
 
