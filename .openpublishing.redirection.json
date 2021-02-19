@@ -61875,6 +61875,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/platform/azure-monitor-agent-overview.md",
+      "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/platform/data-collection-rule-azure-monitor-agent.md",
       "redirect_url": "/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent",
       "redirect_document_id": false
