@@ -21,7 +21,7 @@ Azure storage provides a layered security model that enables you to secure and c
 ## Synapse workspaces and virtual networks
 When you create a Synapse workspace, you can choose to enable a Managed virtual network to be associated with it. If you do not enable Managed virtual network for your workspace when you create it, your workspace is in a shared virtual network along with other Synapse workspaces that do not have a Managed virtual network associated with it. If you enabled Managed virtual network when you created the workspace, then your workspace is associated with a dedicated virtual network managed by Azure Synapse. These virtual networks are not created in your customer subscription. Therefore, you will not be able to grant traffic from these virtual networks access to your secured storage account using network rules described above.  
 
-## Enabling access from your workspace to your secure storage account
+## Access a secured storage account
 Synapse operates from networks that cannot be included in your network rules. The following needs to be done to enable access from your workspace to your secure storage account.
 
 * Create an Azure Synapse workspace with a managed virtual network associated with it and create managed private endpoints from it to the secure storage account
@@ -35,7 +35,7 @@ Analytic capabilities such as Dedicated SQL pool and Serverless SQL pool use mul
 
 In Azure portal, navigate to your secured storage account. Select **Networking** from the left navigation pane. In the **Resource instances** section, select *Microsoft.Synapse/workspaces* as the **Resource type** and enter your workspace name for **Instance name**. Select **Save**.
 
-![Storage account network configuration](./media/connect-to-a-secure-storage-account/secured-storage-access.png)
+![Storage account network configuration.](./media/connect-to-a-secure-storage-account/secured-storage-access.png)
 
 You should now be able to access your secured storage account from the workspace.
 

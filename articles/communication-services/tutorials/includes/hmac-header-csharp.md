@@ -85,15 +85,15 @@ namespace SignHmacTutorial
 ```
 ## Create a request message
 
-For this example we'll sign a request to create a new identity using the Communication Services Authentication API (version `2020-07-20-preview2`)
+For this example we'll sign a request to create a new identity using the Communication Services Authentication API (version `2021-03-07`)
 
 Add following code to the `Main` method:
 
 ```csharp
 string resourceEndpoint = "resourceEndpoint";
 //Create an uri you are going to call
-var requestUri = new Uri($"{resourceEndpoint}/identities?api-version=2020-07-20-preview2");
-//Endpoint identities?api-version=2020-07-20-preview2 accepts list of scopes as a body
+var requestUri = new Uri($"{resourceEndpoint}/identities?api-version=2021-03-07");
+//Endpoint identities?api-version=2021-03-07 accepts list of scopes as a body
 var body = new[] { "chat" }; 
 var serializedBody = JsonConvert.SerializeObject(body);
 var requestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)

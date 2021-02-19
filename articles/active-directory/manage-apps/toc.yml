@@ -212,8 +212,10 @@
           href: application-proxy-integrate-with-microsoft-cloud-application-security.md
         - name: Integrate with Remote Desktop
           href: application-proxy-integrate-with-remote-desktop-services.md
-        - name: Integrate with SharePoint
+        - name: Integrate with SharePoint (Kerberos)
           href: application-proxy-integrate-with-sharepoint-server.md
+        - name: Integrate with SharePoint (SAML)
+          href: application-proxy-integrate-with-sharepoint-server-saml.md
         - name: Integrate with Teams
           href: application-proxy-integrate-with-teams.md
         - name: Integrate with Tableau

@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/12/2021
 ms.author: banders
 ---
 
@@ -35,10 +35,6 @@ The Azure reservation discount is applied to running Premium v3 instances on an 
 4.	For hour 4, instance 1 runs for 0.5 hours and instance 2 runs for 1 hour. Instance 1 is fully covered by the reservation and 0.5 hours of instance 2 is covered. You’re charged the pay-as-you-go rate for the remaining 0.5 hours.
 
 To understand and view the application of your Azure Reservations in billing usage reports, see [Understand reservation usage](understand-reserved-instance-usage-ea.md).
-
-### Discount can apply to different sizes
-
-When you buy a Reserved Premium v3 Instance and select **Optimized for instance size flexibility**, the discount coverage applies to the Premium v3 instance size you select. It can also apply to other instance sizes that are in the same series instance size flexibility group.
 
 ## How reservation discounts apply to Isolated Stamps
 
