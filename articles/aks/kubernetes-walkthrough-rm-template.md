@@ -71,11 +71,10 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
     * **DNS prefix**: Enter a unique DNS prefix for your cluster, such as *myakscluster*.
     * **Linux Admin Username**: Enter a username to connect using SSH, such as *azureuser*.
     * **SSH RSA Public Key**: Copy and paste the *public* part of your SSH key pair (by default, the contents of *~/.ssh/id_rsa.pub*).
-    * **I agree to the terms and conditions state above**: Check this box to agree.
 
     ![Resource Manager template to create an Azure Kubernetes Service cluster in the portal](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. Select **Purchase**.
+3. Select **Review + Create**.
 
 It takes a few minutes to create the AKS cluster. Wait for the cluster to be successfully deployed before you move on to the next step.
 
