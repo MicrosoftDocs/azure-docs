@@ -27,6 +27,7 @@ A [service connection](/azure/devops/pipelines/library/service-endpoints) allows
 1. In Azure DevOps, go to the project containing your target pipeline and open the **Project settings** at the bottom left.
 1. Under **Pipelines** select **Service connections** and select **New service connection** in the top right.
 1. Select **Azure Resource Manager**.
+![Screenshot shows selecting Azure Resource Manager from the New service connection dropdown list.](./media/new-service-connection.png)
 1. Select **Service principal (automatic)**.
 1. Fill in your subscription and resource. Give your service connection a name.
 
@@ -36,6 +37,7 @@ Now that your service connection is created, find the name of the service princi
 1. Select the service connection that you created in the previous section.
 1. Select **Manage Service Principal**.
 1. Note the **Display name** listed.
+![Screenshot shows the service principal display name.](./media/service-principal-display-name.png)
 
 ## Add role assignment
 
@@ -43,19 +45,27 @@ Assign the proper App Configuration role assignments to the credentials being us
 
 1. Navigate to your target App Configuration store. 
 1. On the left, select **Access control (IAM)**.
-1. At the top, select **+ Add** and pick **Add role assignment**.
+1. On the right side, click the **Add role assignments** button.
+![Screenshot shows the Add role assignments button.](./media/add-role-assignment-button.png)
 1. Under **Role**, select **App Configuration Data Owner**. This role allows the task to read from and write to the App Configuration store. 
 1. Select the service principal associated with the service connection that you created in the previous section.
+![Screenshot shows the Add role assignment dialog.](./media/add-role-assignment.png)
+
   
 ## Use in builds
 
 This section will cover how to use the Azure App Configuration Push task in an Azure DevOps build pipeline.
 
 1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. Documentation for build pipelines can be found [here](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
-      - If you're creating a new build pipeline, select **Show assistant** on the right side of the pipeline, and search for the **Azure App Configuration Push** task.
-      - If you're using an existing build pipeline, navigate to the **Tasks** tab when editing the pipeline, and search for the **Azure App Configuration Push** Task.
-2. Configure the necessary parameters for the task to push the key-values from the configuration file to the App Configuration store. The **Configuration File Path** parameter begins at the root of the file repository.
-3. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
+      - If you're creating a new build pipeline, on the last step of the process, on the **Review** tab, select **Show assistant** on the right side of the pipeline, and search for the **Azure App Configuration Push** task.
+      ![Screenshot shows the Show assistant button for a new pipeline.](./media/new-pipeline-show-assistant.png)
+      - If you're using an existing build pipeline, click the **Edit** button at the top-right.
+      ![Screenshot shows the Edit button for an existing pipeline.](./media/existing-pipeline-show-assistant.png)
+1. Search for the **Azure App Configuration Push** Task.
+![Screenshot shows the Add Task dialog with Azure App Configuration Push in the search box.](./media/add-azure-app-configuration-push-task.png)
+1. Configure the necessary parameters for the task to push the key-values from the configuration file to the App Configuration store. Explanations of the parameters are available in the **Parameters** section below, and in tooltips next to each parameter.
+![Screenshot shows the app configuration push task parameters.](./media/azure-app-configuration-push-parameters.png)
+1. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
 
 ## Use in releases
 
@@ -64,8 +74,11 @@ This section will cover how to use the Azure App Configuration Push task in an A
 1. Navigate to release pipeline page by selecting **Pipelines** > **Releases**. Documentation for release pipelines can be found [here](/azure/devops/pipelines/release).
 1. Choose an existing release pipeline. If you don’t have one, select **+ New** to create a new one.
 1. Select the **Edit** button in the top-right corner to edit the release pipeline.
-1. Choose the **Stage** to add the task. More information about stages can be found [here](/azure/devops/pipelines/release/environments).
-1. Select **+** for that Job, then add the **Azure App Configuration Push** task under the **Deploy** tab.
+1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found [here](/azure/devops/pipelines/release/environments).
+![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
+1. Click **+** next to the Job to which you want to add a new task.
+![Screenshot shows the selected stage in the Tasks dropdown.](./media/add-task-to-job.png)
+1. In the **Add tasks** dialog, type **Azure App Configuration Push** into the search box and select it.
 1. Configure the necessary parameters within the task to push your key-values from your configuration file to your App Configuration store. Explanations of the parameters are available in the **Parameters** section below, and in tooltips next to each parameter.
 1. Save and queue a release. The release log will display any failures encountered during the execution of the task.
 
@@ -75,7 +88,7 @@ The following parameters are used by the App Configuration Push task:
 
 - **Azure subscription**: A drop-down containing your available Azure service connections. To update and refresh your list of available Azure service connections, press the **Refresh Azure subscription** button to the right of the textbox.
 - **App Configuration Name**: A drop-down that loads your available configuration stores under the selected subscription. To update and refresh your list of available configuration stores, press the **Refresh App Configuration Name** button to the right of the textbox.
-- **Configuration File Path**: The path to your configuration file. You can browse through your build artifact to select a configuration file. (`...` button to the right of the textbox).
+- **Configuration File Path**: The path to your configuration file. The **Configuration File Path** parameter begins at the root of the file repository. You can browse through your build artifact to select a configuration file. (`...` button to the right of the textbox). 
 - **Separator**: The separator that's used to flatten .json and .yml files.
 - **Depth**: The depth that the .json and .yml files will be flattened to.
 - **Prefix**: A string that's appended to the beginning of each key pushed to the App Configuration store.
