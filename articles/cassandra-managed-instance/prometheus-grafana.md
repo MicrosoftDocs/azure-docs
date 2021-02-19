@@ -1,102 +1,116 @@
 ---
-title: Configure metrics with Grafana  
-description: Configure metrics with Grafana    
+title: Configure Grafana to visualize metrics emitted from the managed instance cluster
+description: Learn how to configure Grafana to visualize metrics emitted from the managed instance cluster. You will deploy a Ubuntu VM within the Azure Virtual Network where the managed instance is present, install Grafana in the VM, and import a dashboard to read the metrics.
 author: TheovanKraay
 ms.service: cassandra-managed-instance
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/02/2021
 ms.author: thvankra
 
 ---
-# Configure metrics with Grafana 
+
+# Configure Grafana to visualize metrics emitted from the managed instance cluster
 
 > [!IMPORTANT]
 > Azure Managed Instance for Apache Cassandra is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When you deploy an Azure Managed Instance for Apache Cassandra cluster, the service provisions a server hosting [Prometheus](https://prometheus.io/), an open-source monitoring solution. The service will emit metrics and retains 10 minutes or 10 GB of data (whichever threshold is reached first). The following guide describes how to:
+When you deploy an Azure Managed Instance for Apache Cassandra cluster, the service provisions a server that hosts [Prometheus](https://prometheus.io/) which can be consumed by various client tools. Prometheus is an open-source monitoring solution. The managed instance will emit metrics and retains 10 minutes or 10 GB of data (whichever threshold reaches first). This article describes how to configure Grafana to visualize metrics emitted from the managed instance cluster. The following tasks are required to visualize metrics:
 
-- Deploy a Ubuntu Virtual Machine inside your Azure Virtual Network
-- Install the open-source [Grafana dahsboarding tool](https://grafana.com/grafana/) to visual metrics emitted from Prometheus.
+* Deploy a Ubuntu Virtual Machine inside the Azure Virtual Network where the managed instance is present.
+* Install the open-source [Grafana tool](https://grafana.com/grafana/) to build dashboards and visualize metrics emitted from Prometheus.
 
-## Deploy Ubuntu Server
+## Deploy a Ubuntu server
 
-1. First navigate to the resource group where you created your Cassandra Managed Instance, click `Add` and search for the latest Ubuntu Server:
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-    :::image type="content" source="./media/prometheus-grafana/ubuntu.png" alt-text="Find Ubuntu Server" border="false":::
+1. Navigate to the resource group where your managed instance cluster is located. Select **Add** and search for **Ubuntu Server 18.04 LTS** image:
 
-2. Click `Create`. In the create blade, you will need to create a name for the VM, and authentication type, and a region. Ensure you select the region in which your VNET has been deployed:
+   :::image type="content" source="./media/visualize-prometheus-grafana/select-ubuntu-image.png" alt-text="Find Ubuntu server image from the Azure portal." border="true":::
 
-    :::image type="content" source="./media/prometheus-grafana/ubuntu-create.png" alt-text="Create Ubuntu Server" border="false":::
+1. Pick the image and select **Create**.
 
-3. In the networking blade, ensure you select the VNET in which your Cassandra Managed Instance is deployed before creating the VM:
+1. In the **Create a virtual machine** blade, enter values for the following fields, you can leave default values for other fields:
 
-    :::image type="content" source="./media/prometheus-grafana/ubuntu-networking.png" alt-text="Ubuntu Server Network settings" border="false":::
+   * **Virtual machine name** - Enter a name for you VM.
+   * **Region** - Select the same region where your Virtual Network has been deployed.
 
-Finally click `Review + Create` to create your Grafana server.
+   :::image type="content" source="./media/visualize-prometheus-grafana/create-vm-ubuntu.png" alt-text="Fill out the form to create a VM with Ubuntu server image." border="true":::
+
+1. In the **Networking** tab, select the Virtual Network in which your managed instance is deployed:
+
+   :::image type="content" source="./media/visualize-prometheus-grafana/configure-networking-details.png" alt-text="Configure the Ubuntu server's network settings." border="true":::
+
+1. Finally select **Review + Create** to create your Grafana server.
 
 ## Install Grafana
 
-1. First, open up the Virtual Network resource in which you have deployed your Cassandra Managed Instance and Grafana Server. You should see a VM scale-set instance named "cassandra-jump (instance 0)". This is the resource on which Prometheus metrics are being hosted. Take note of the IP address of this instance:
+1. From the Azure portal, open the Virtual Network where you deployed the managed instance and the Grafana Server. You should see a VM scale-set instance named **cassandra-jump (instance 0)**. This Prometheus metrics are hosted in this VM scale-set. Make a note of the IP address of this instance:
 
-    :::image type="content" source="./media/prometheus-grafana/prometheus.png" alt-text="Get Prometheus" border="false":::
+   :::image type="content" source="./media/visualize-prometheus-grafana/prometheus.png" alt-text="Get Prometheus" border="true":::
 
-2. Connect to your newly created Ubuntu server (you can use [Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#ssh-clients) or your preferred client tool to connect via SSH). When connected to the VM, use `nano` to open a file and paste the below script, replacing `<prometheus IP address>` with the IP address you recorded above. 
+1. Connect to your newly created Ubuntu server by using [Azure CLI](../virtual-machines/linux/ssh-from-windows#ssh-clients) or your preferred client tool to connect via SSH.
 
-    ```bash
-    #!/bin/bash
-    
-    echo "Installing Grafana..."
-    
-    if ! $SSH dpkg -s grafana prometheus > /dev/null; then
-        echo "Installing packages."
-        echo 'deb https://packages.grafana.com/oss/deb stable main' | $SSH sudo tee /etc/apt/sources.list.d/grafana.list > /dev/null
-        curl https://packages.grafana.com/gpg.key | $SSH sudo apt-key add -
-        $SSH sudo apt-get update
-        $SSH sudo apt-get install -y grafana prometheus
-    else
-        echo "Skipping package installation"
-    fi
-    
-    echo "Configureing grafana"
-    cat <<EOF | $SSH sudo tee /etc/grafana/provisioning/datasources/prometheus.yml
-    apiVersion: 1
-    datasources:
-      - name: Prometheus
-        type: prometheus
-        url: https://<prometheus IP address>:9443
-        jsonData:
-          tlsSkipVerify: true
-    EOF
-    
-    echo "Restarting Grafana"
-    $SSH sudo systemctl enable grafana-server
-    $SSH sudo systemctl restart grafana-server
-    
-    echo "Installing Grafana plugins"
-    $SSH sudo grafana-cli plugins install natel-discrete-panel
-    $SSH sudo grafana-cli plugins install grafana-polystat-panel
-    $SSH sudo systemctl restart grafana-server
-    ```
+1. After connecting to the VM, you have to install and configure Grafana to connect to the VM scale-set where the metrics are hosted. Open a command prompt and enter the `nano` command to open a Nano text editor. Paste the following script into the text editor, make sure to replace the `<prometheus IP address>` with the IP address you recorded in the previous step:
 
-    Press ctrl + X to save the file with a name like `grafana.sh`, and then run the script by typing `./grafana.sh` then enter.
+   ```bash
+   #!/bin/bash
+   
+   echo "Installing Grafana..."
+   
+   if ! $SSH dpkg -s grafana prometheus > /dev/null; then
+       echo "Installing packages."
+       echo 'deb https://packages.grafana.com/oss/deb stable main' | $SSH sudo tee /etc/apt/sources.list.d/grafana.list > /dev/null
+       curl https://packages.grafana.com/gpg.key | $SSH sudo apt-key add -
+       $SSH sudo apt-get update
+       $SSH sudo apt-get install -y grafana prometheus
+   else
+       echo "Skipping package installation"
+   fi
+   
+   echo "Configuring grafana"
+   cat <<EOF | $SSH sudo tee /etc/grafana/provisioning/datasources/prometheus.yml
+   apiVersion: 1
+   datasources:
+     - name: Prometheus
+       type: prometheus
+       url: https://<prometheus IP address>:9443
+       jsonData:
+         tlsSkipVerify: true
+   EOF
+   
+   echo "Restarting Grafana"
+   $SSH sudo systemctl enable grafana-server
+   $SSH sudo systemctl restart grafana-server
+   
+   echo "Installing Grafana plugins"
+   $SSH sudo grafana-cli plugins install natel-discrete-panel
+   $SSH sudo grafana-cli plugins install grafana-polystat-panel
+   $SSH sudo systemctl restart grafana-server
+   ```
 
-3. When installed, Grafana will be available at port 3000 in the server's IP address:
+1. Type `ctrl + X` to save the file. You can name the file `grafana.sh`.
 
-    :::image type="content" source="./media/prometheus-grafana/grafana.png" alt-text="View Grafana" border="false":::
+1. Enter the `./grafana.sh` command in the command prompt to install Grafana.
 
-    You can choose from open-source dashboards created for Apache Cassandra in Grafana such as [this](https://github.com/TheovanKraay/cassandra-exporter/blob/master/grafana/instaclustr/cluster-overview.json). Download and import the dashboard's JSON definition into Grafana:
+1. After installation is complete, Grafana will be available at port 3000 in the server's IP address as shown in the following screenshot:
 
-    :::image type="content" source="./media/prometheus-grafana/grafana-import.png" alt-text="Import Grafana" border="false":::
-    :::image type="content" source="./media/prometheus-grafana/grafana-import-json.png" alt-text="Import Grafana JSON" border="false":::
+   :::image type="content" source="./media/visualize-prometheus-grafana/grafana.png" alt-text="View Grafana" border="true":::
 
-4. You can then monitor your cassandra cluster with your chosen dashboard:
-    :::image type="content" source="./media/prometheus-grafana/cassandra-monitor.gif" alt-text="View Cassandra Dashboard" border="false":::
+1. You can choose from open-source dashboards created for Apache Cassandra in Grafana such as the [cluster-overview](https://github.com/TheovanKraay/cassandra-exporter/blob/master/grafana/instaclustr/cluster-overview.json) JSON file. Download and import the dashboard's JSON definition into Grafana:
+
+   :::image type="content" source="./media/visualize-prometheus-grafana/grafana-import.png" alt-text="Import Grafana" border="true":::
+
+   :::image type="content" source="./media/visualize-prometheus-grafana/grafana-import-json.png" alt-text="Import Grafana JSON" border="true":::
+
+1. You can then monitor your cassandra managed instance cluster with the chosen dashboard:
+
+   :::image type="content" source="./media/visualize-prometheus-grafana/cassandra-monitor.gif" alt-text="View Cassandra Dashboard" border="true":::
 
 ## Next steps
 
-Azure Managed Instance for Apache Cassandra hosts a prometheus server which can be consumed by various client tools. In this tutorial, you learned how to configure dashboards for metrics in Prometheus using Grafana. Learn more about Azure Managed Instance for Apache Cassandra:
+In this tutorial, you learned how to configure dashboards to visualize metrics in Prometheus using Grafana. Learn more about Azure Managed Instance for Apache Cassandra with the following articles:
 
-- [Overview of Azure Managed Instance for Apache Cassandra](introduction.md)
-- [Deploy a Managed Apache Spark Cluster with Azure Databricks (Preview)](databricks.md)
+* [Overview of Azure Managed Instance for Apache Cassandra](introduction.md)
+* [Deploy a Managed Apache Spark Cluster with Azure Databricks (Preview)](databricks.md)
