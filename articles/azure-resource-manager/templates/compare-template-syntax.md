@@ -1,18 +1,18 @@
 ---
-title: Convert Azure Resource Manager templates from JSON to Bicep
+title: Convert Azure Resource Manager templates between JSON and Bicep
 description: Compares Azure Resource Manager templates developed with JSON and Bicep.
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 02/19/2021
 ---
 # Comparing JSON and Bicep for templates
 
-This article compares Bicep syntax with JSON syntax for Azure Resource Manager templates (ARM templates). One goal of Bicep is to provide syntax that is less verbose than the equivalent in JSON.
+This article compares Bicep syntax with JSON syntax for Azure Resource Manager templates (ARM templates). In most cases, Bicep provides syntax that is less verbose than the equivalent in JSON.
 
 ## Syntax equivalents
 
 If you're familiar with using JSON to develop ARM templates, use the following table to learn about the equivalent syntax for Bicep.
 
-| Scenario | ARM Template | Bicep |
+| Scenario | ARM template | Bicep |
 | -------- | ------------ | ----- |
 | Author an expression | `[func()]` | `func()` |
 | Concatenate strings | `concat('John', ' ', parameters('lastName'))` | `'John ${lastName}'` |
@@ -60,6 +60,14 @@ bicep decompile main.json
 [Export the template](export-template-portal.md) through the portal. Use `bicep decompile <filename>` on the downloaded file.
 
 ---
+
+## Build JSON from Bicep
+
+The Bicep CLI also provides a command to convert Bicep to JSON. To build a JSON file, use: `bicep build "path/to/file.json"`
+
+## Side-by-side view
+
+The [Bicep playground](https://aka.ms/bicepdemo) enables you to view equivalent JSON and Bicep files side by side. You can select a sample template to see both versions. Or, select `Decompile` to upload your own JSON template and view the equivalent Bicep file.
 
 ## Next steps
 
