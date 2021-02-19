@@ -367,6 +367,9 @@ If cloud tiering is enabled, solutions that directly back up the server endpoint
 
 If you prefer to use an on-premises backup solution, backups should be performed on a server in the sync group that has cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will be synced to all endpoints in the sync group and existing files will be replaced with the version restored from backup.  Volume-level restores will not replace newer file versions in the Azure file share or other server endpoints.
 
+> [!WARNING]
+> RoboCopy /B switch is not supported with Azure File Sync. Using the RoboCopy /B switch with an AFS server endpoint as the source may lead to file corruption.
+
 > [!Note]  
 > Bare-metal (BMR) restore can cause unexpected results and is not currently supported.
 
