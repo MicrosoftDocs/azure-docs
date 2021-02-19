@@ -1069,7 +1069,11 @@
       - name: Windows
         href: ./windows/image-builder.md
     - name: PowerShell
-      href: ./windows/image-builder-powershell.md
+      items:
+      - name: Windows 
+        href: ./windows/image-builder-powershell.md
+      - name: Windows Virtual Desktop
+        href: ./windows/image-builder-virtual-desktop.md
     - name: Use a VNET
       items:
       - name: CLI
