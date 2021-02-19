@@ -13,14 +13,14 @@ ms.custom: references_regions
 
 # Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)
 
-Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Windows or Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. 
+Blob storage now supports the Network File System (NFS) 3.0 protocol. This support provides Linux file system compatibility at object storage scale and prices and enables Windows or Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. 
 
 > [!NOTE]
 > NFS 3.0 protocol support in Azure Blob storage is in public preview. It supports GPV2 storage accounts with standard tier performance in the following regions: Australia East, Korea Central, and South Central US. The preview also supports block blob with premium performance tier in all public regions.
 
-NFS 3.0 protocol support provides Linux file system compatibility at object storage scale and prices. It was always a challenge to run large-scale legacy workloads, such as High Performance Computing (HPC) in the cloud. One reason is that traditional applications use traditional file protocols such as NFS or Server Message Block (SMB) to access data. Native cloud storage services focused on object storage with a flat namespace and extensive metadata instead of file systems that provide a hierarchical namespace and efficient metadata operations. 
+It's always been a challenge to run large-scale legacy workloads, such as High Performance Computing (HPC) in the cloud. One reason is that applications often use traditional file protocols such as NFS or Server Message Block (SMB) to access data. Also, native cloud storage services focused on object storage that have a flat namespace and extensive metadata instead of file systems that provide a hierarchical namespace and efficient metadata operations. 
 
-Azure Blob Storage already supports a hierarchical namespace. Combined with NFS 3.0 protocol support, Azure makes it much easier to run legacy applications on top of large-scale cloud object storage. 
+But now, Blob Storage supports a hierarchical namespace, and when combined with NFS 3.0 protocol support, Azure makes it much easier to run legacy applications on top of large-scale cloud object storage. 
 
 ## NFS 3.0 support depends on a hierarchical namespace
 
