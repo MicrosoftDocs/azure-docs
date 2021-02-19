@@ -83,14 +83,45 @@ Read the license terms prior to using a package. Your installation and use of a 
 
 ## Configure Device Update Agent using Azure IoT Identity service (Preview)
 
-1. If you are using an IoT Edge device, run `sudo iotedge init` to interactively set up the configuration through a manual provisioning method using connection string or through device provisioning service.
+Once you have the required packages installed, you need to provision the device with its cloud identity and authentication information.
 
-2. If you are not using an IoT Edge device, run `sudo aziotctl init` to interactively set up the configuration through a manual provisioning method using connection string or through device provisioning service.
-
-3. Optionally, you can verify that the services are running by
+1. Open the configuration file
 
    ```shell
-   sudo systemctl list-units --type=service | grep 'adu-agent\.service\|deliveryoptimization-agent\.service'
+      sudo nano /etc/aziot/config.toml
+   ```
+
+2. Find the provisioning configuration section of the file. Uncomment the "Manual provisioning with connection string" section. Update the value of the connection_string with the connection string for your IoT (Edge) device. Ensure that all other provisioning sections are commented out.
+
+
+   ```toml
+      # Manual provisioning configuration using a connection string
+      provisioning:
+        source: "manual"
+        device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+        dynamic_reprovisioning: false
+   ```
+
+3. Save and close the file using Ctrl+X, Y
+
+4. Apply the configuration. 
+
+   If you are using an IoT Edge device, use the following command. 
+   
+   ```shell
+      sudo iotedge config apply
+   ```
+   
+   If you are using an IoT device, with the `aziot-identity-service` package installed, then use the following command. 
+      
+   ```shell
+      sudo aziotctl config apply
+   ```
+
+5 Optionally, you can verify that the services are running by
+
+   ```shell
+      sudo systemctl list-units --type=service | grep 'adu-agent\.service\|deliveryoptimization-agent\.service'
    ```
 
 The output should read:
