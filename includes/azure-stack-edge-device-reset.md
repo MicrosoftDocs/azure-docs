@@ -10,7 +10,7 @@ To wipe the data off the data disks of your device, you need to reset your devic
 
 Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container.
 
-You can initiate the device return even before the device is reset. 
+You can initiate the device return even before the device is reset.
 
 To reset your device using the local web UI, take the following steps.
 
@@ -25,4 +25,4 @@ To reset your device using the local web UI, take the following steps.
 
 The reset erases the data off the device data disks. Depending on the amount of data on your device, this process takes about 30-40 minutes.
 
-Alternatively, connect to the PowerShell interface of the device and use the `Reset-HcsAppliance` cmdlet to erase the data from the data disks. For more information, see [Reset your device](../articles/databox-online/azure-stack-edge-connect-powershell-interface.md#reset-your-device).
+You can instead connect to the PowerShell interface of the device and use the `Reset-HcsAppliance` cmdlet to erase the data from the data disks. For more information, see [Reset your device](../articles/databox-online/azure-stack-edge-connect-powershell-interface.md#reset-your-device).

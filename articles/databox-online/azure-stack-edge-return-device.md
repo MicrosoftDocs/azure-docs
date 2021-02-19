@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/19/2021
 ms.author: alkohli
 ---
 
@@ -46,7 +46,7 @@ To begin the return process, take the following steps.
     
     ![Device serial number 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
 
-    2. Enter the service tag number which is a five or more character identifier that is unique to your device. The service tag is located on the bottom right corner of the device (as you face the device). Pull out the information tag (it is a slide-out label panel). This panel contains system information such as service tag, NIC, MAC address, and so on. 
+    2. Enter the service tag number. The service tag number is an identifier with five or more characters that is unique to your device. The service tag is located on the bottom-right corner of the device (as you face the device). Pull out the information tag (it is a slide-out label panel). This panel contains system information such as service tag, NIC, MAC address, and so on. 
     
     ![Service tag number 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
 
@@ -86,7 +86,7 @@ To schedule a pickup, take the following steps.
 
     1. Call the local UPS (country/region-specific toll free number).
     2. In your call, quote the reverse shipment tracking number as shown on your printed label.
-    3. If the tracking number isn't quoted, UPS will require you to pay an additional charge during pickup.
+    3. If the tracking number isn't quoted, UPS will require you to pay an extra charge during pickup.
 
     Instead of scheduling the pickup, you can also drop off the Azure Stack Edge Pro at the nearest drop-off location.
 
