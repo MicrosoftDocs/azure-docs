@@ -307,22 +307,14 @@ Customize properties:
 
 #### Super user privileges
 For commands to run with super user privileges, they must be prefixed with `sudo`, you can add these into scripts or use it inline commands, for example:
-``json
-            {
+```json
                 "type": "Shell",
                 "name": "setupBuildPath",
                 "inline": [
                     "sudo mkdir /buildArtifacts",
-                    "sudo cp /tmp/index.html /buildArtifacts/index.html" ]	}
+                    "sudo cp /tmp/index.html /buildArtifacts/index.html"
 ```
-
-```json
-            {
-                "type": "Shell",
-                "name": "RunScriptFromSource",
-                "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azcloud-init/master/tester.sh"	}
-```
-tester.sh:
+Example of a script using sudo that you can reference using scriptUri:
 ```bash
 #!/bin/bash -e
 
