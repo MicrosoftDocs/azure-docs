@@ -1,6 +1,6 @@
 ---
 title: Configure private endpoints for Azure Cosmos DB analytical store.
-description: Learn how to set up managed private endpoints for Azure Cosmos DB analytical store. With private endpoints, you can restrict network access of Azure Cosmos DB analytical store, to Azure Synapse managed virtual network. Managed private endpoints establish a private link to your analytical store.
+description: Learn how to set up managed private endpoints for Azure Cosmos DB analytical store to restrict network access.
 author: AnithaAdusumilli
 ms.service: cosmos-db
 ms.topic: how-to
@@ -125,5 +125,5 @@ To configure network isolation for this account from a Synapse workspace:
 
 ## Next steps
 
-* Get started with [querying analytical store with Azure Synapse Spark](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json&branch=master)
-* Get started with [querying analytical store with Azure Synapse serverless SQL pools](../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json&branch=master)
+* Get started with [querying analytical store with Azure Synapse Spark](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
+* Get started with [querying analytical store with Azure Synapse serverless SQL pools](../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
