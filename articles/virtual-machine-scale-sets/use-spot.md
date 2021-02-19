@@ -42,7 +42,7 @@ The following [offer types](https://azure.microsoft.com/support/legal/offer-deta
 -	Enterprise Agreement
 -	Pay-as-you-go offer code 003P
 -	Sponsored
-- For Cloud Service Provider (CSP), contact your partner
+- For Cloud Service Provider (CSP), see the [Partner Center](/partner-center/azure-plan-get-started) or contact your partner directly.
 
 ## Eviction policy
 
@@ -54,18 +54,18 @@ If you would like your instances in your Azure Spot Virtual Machine scale set to
 
 Users can opt in to receive in-VM notifications through [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 
-## Try-restore (preview)
+## Try & restore (preview)
 
 This new platform-level feature will use AI to automatically try to restore evicted Spot instances inside a Virtual Machine Scale Sets (VMSS) to maintain the target instance count. 
 
-Try-restore benefits:
-- Enables by default when deploying Azure Spot Virtual Machines in a scale set.
+Try & restore benefits:
+- Enabled by default when deploying Azure Spot Virtual Machines in a scale set.
 - Attempts to restore Azure Spot Virtual Machines evicted due to capacity.
 - Restored Azure Spot Virtual Machines are expected to run for a longer duration with a lower probability of a capacity triggered eviction.
 - Improves the lifespan of an Azure Spot Virtual Machine, so workloads run for a longer duration.
 - Helps Virtual Machine Scale Sets to maintain the target count for Azure Spot Virtual Machines, similar to maintain target count feature that already exist for Pay-As-You-Go VMs.
 
-For the preview, Try-restore only works with manual scaling. You cannot use Try-restore with auto-scale at this time.
+Try & restore is disabled in scale sets that use [Autoscale](). The number of VMs in the scale set would be driven by the Autoscale rules configured by the customers.
 
 ## Placement Groups
 
@@ -147,6 +147,24 @@ Add the `priority`, `evictionPolicy` and `billingProfile` properties to the `"vi
 ```
 
 To delete the instance after it has been evicted, change the `evictionPolicy` parameter to `Delete`.
+
+
+## Simulate an eviction
+
+You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot Virtual Machine, to testing how well your application will repond to a sudden eviction. 
+
+Replace the following with your information: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
+
 
 ## FAQ
 
