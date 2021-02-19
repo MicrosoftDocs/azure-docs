@@ -1,6 +1,6 @@
 ---
-title: Orchestration modes for Virtual Machine Scale Sets in Azure
-description: Learn how to use Flexible and Uniform orchestration modes for Virtual Machine Scale Sets in Azure.
+title: Orchestration modes for virtual machine scale sets in Azure
+description: Learn how to use Flexible and Uniform orchestration modes for virtual machine scale sets in Azure.
 author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.custom: mimckitt
 
 ---
 
-# Preview: Orchestration modes for Virtual Machine Scale Sets in Azure 
+# Preview: Orchestration modes for virtual machine scale sets in Azure 
 
 Virtual machines scale sets provide a logical grouping of platform-managed virtual machines. With scale sets, you create a virtual machine configuration model, automatically add or remove additional instances based on CPU or memory load, and automatically upgrade to the latest OS version. Traditionally, scale sets allow you to create virtual machines using a VM configuration model provided at time of scale set creation, and the scale set can only manage virtual machines that are implicitly created based on the configuration model. 
 
@@ -25,7 +25,7 @@ Scale set orchestration modes allow you to have greater control over how virtual
 ## Scale sets with Uniform orchestration
 Optimized for large-scale stateless workloads with identical instances.
 
-Virtual machine scale sets with Uniform orchestration use a virtual machine profile or template to scale up to desired capacity. While there is some ability to manage or customize individual virtual machine instances, typically Uniform uses identical VM instances. Individual Uniform VM instances are exposed via the virtual machine scale set VM API commands, and are not compatible with the standard Azure IaaS VM API commands, Azure management features such as ARM resource tagging RBAC permissions, Azure Backup, Azure Site Recovery. Uniform orchestration provides fault domain high availability guarantees when configured with fewer than 100 instances. Uniform orchestration is generally available, and supports a full range of scale set management and orchestration, including metrics-based autoscaling, instance protection, automatic OS upgrades. 
+Virtual machine scale sets with Uniform orchestration use a virtual machine profile or template to scale up to desired capacity. While there is some ability to manage or customize individual virtual machine instances, typically Uniform uses identical VM instances. Individual Uniform VM instances are exposed via the virtual machine scale set VM API commands, and are not compatible with the standard Azure IaaS VM API commands, Azure management features such as Azure Resource Manager resource tagging RBAC permissions, Azure Backup, Azure Site Recovery. Uniform orchestration provides fault domain high availability guarantees when configured with fewer than 100 instances. Uniform orchestration is generally available, and supports a full range of scale set management and orchestration, including metrics-based autoscaling, instance protection, automatic OS upgrades. 
 
 
 ## Scale sets with Flexible orchestration 
@@ -96,19 +96,19 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | Feature | Supported by Flexible orchestration (Preview) | Supported by Uniform orchestration (General Availability) | Supported by AvSets (General Availability) |
 |-|-|-|-|
 |         Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  | Scale Set specific   VMs (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM   (Microsoft.compute /virtualmachines)  |
-|         SKUs supported  |            D series, E series, F series, A series,   B series, Intel, AMD (remaining sizes like storage optimized (L series), GPU (N series) and High-performance compute (H series) are planned)  |            All SKUs  |            All SKUs  |
+|         SKUs supported  |            D series, E series, F series, A series,   B series, Intel, AMD  |            All SKUs  |            All SKUs  |
 |         Availability Zones  |            Optionally specify all instances land in   a single availability zone |            Specify instances land across 1, 2 or 3   availability zones  |            Not supported  |
-|         Full control over VM, NICs, Disks  |            Yes  |            Limited control with virtual machien scale sets VM   API  |            Yes  |
-|         Automatic Scaling  |            Coming soon  |            Yes  |            No  |
+|         Full control over VM, NICs, Disks  |            Yes  |            Limited control with virtual machine scale sets VM   API  |            Yes  |
+|         Automatic Scaling  |            No  |            Yes  |            No  |
 |         Assign VM to a   Specific Fault Domain  |            Yes  |             No   |            No  |
-|         Remove NICs and Disks when deleting   VM instances  |            Coming soon  |            Yes  |            No  |
-|         Upgrade Policy (VM scale sets) |            Planned  |            Automatic, Rolling, Manual  |            N/A  |
-|         Automatic OS Updates (VM scale sets) |            Planned  |            Yes  |            N/A  |
-|         In Guest Security Patching  |            Yes  |            Coming soon  |            Yes  |
-|         Terminate Notifications (VM scale sets) |            Coming soon  |            Yes  |            N/A  |
-|         Instance Repair (VM scale sets) |            Coming soon  |            Yes   |            N/A  |
+|         Remove NICs and Disks when deleting   VM instances  |            No  |            Yes  |            No  |
+|         Upgrade Policy (VM scale sets) |            No  |            Automatic, Rolling, Manual  |            N/A  |
+|         Automatic OS Updates (VM scale sets) |            No  |            Yes  |            N/A  |
+|         In Guest Security Patching  |            Yes  |            No  |            Yes  |
+|         Terminate Notifications (VM scale sets) |            No  |            Yes  |            N/A  |
+|         Instance Repair (VM scale sets) |            No  |            Yes   |            N/A  |
 |         Accelerated networking  |            Yes  |            Yes  |            Yes  |
-|         Spot instances and pricing   |            Yes, you can have both Spot and Regular   priority instances  |            Yes, instances must either be all Spot or all   Regular  |            Yes, you can have both Spot and regular   priority instances  |
+|         Spot instances and pricing   |            Yes, you can have both Spot and Regular   priority instances  |            Yes, instances must either be all Spot or all   Regular  |            No, Regular priority instances only  |
 |         Mix operating systems  |            Yes, Linux and Windows can reside in the   same Flexible scale set |            No, instances are the same operating   system  |               Yes, Linux and Windows can reside in the same Flexible scale set |
 |         Monitor Application Health  |            Application health extension  |            Application health extension or Azure Load balancer   probe  |            Application health extension  |
 |         UltraSSD Disks   |            Yes  |            Yes, for zonal deployments only  |            No  |
@@ -118,14 +118,14 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 |         Azure Dedicated Hosts   |            No  |            Yes  |            Yes  |
 |         Basic SLB   |            No  |            Yes  |            Yes  |
 |         Azure Load Balancer Standard SKU |            Yes  |            Yes  |            Yes  |
-|         Application Gateway  |            Coming soon  |            Yes  |            Yes  |
-|         Maintenance Control   |            Coming soon  |            Yes  |            Yes  |
+|         Application Gateway  |            No  |            Yes  |            Yes  |
+|         Maintenance Control   |            No  |            Yes  |            Yes  |
 |         List VMs in Set  |            Yes  |            Yes  |            Yes, list VMs in AvSet  |
-|         Azure Alerts  |            Coming soon  |            Yes  |            Yes  |
-|         VM Insights  |            Coming soon  |            Yes  |            Yes  |
+|         Azure Alerts  |            No  |            Yes  |            Yes  |
+|         VM Insights  |            No  |            Yes  |            Yes  |
 |         Azure Backup  |            Yes  |            Yes  |            Yes  |
 |         Azure Site Recovery  |            Yes, PowerShell only  |            Yes  |            Yes  |
-|         Add/remove existing VM to the group  |            Planned  |            No  |            No  | 
+|         Add/remove existing VM to the group  |            No  |            No  |            No  | 
 
 
 ## Register for Flexible orchestration mode
@@ -188,7 +188,7 @@ Create a virtual machine scale set in Flexible orchestration mode through the Az
 1. Set the **Fault domain count**.
 1. Finish creating your scale set. See [create a scale set in the Azure portal](quick-create-portal.md#create-virtual-machine-scale-set) for more information on how to create a scale set.
 
-:::image type="content" source="./media/virtual-machine-scale-sets-orchestration-modes/vmss-portal-create-orchestration-mode-flexible.png" alt-text="Orchestration mode in Portal when creating a scale set":::
+:::image type="content" source="./media/virtual-machine-scale-sets-orchestration-modes/portal-create-orchestration-mode-flexible.png" alt-text="Orchestration mode in Portal when creating a scale set":::
 
 Add a virtual machine to the scale set in Flexible orchestration mode.
 
@@ -239,48 +239,48 @@ zones = ["1"]
     - API version 2019-12-01 (or greater) 
     - Single placement group must be `false` when creating a Flexible scale set
 
-```json
-{
-"type": "Microsoft.Compute/virtualMachineScaleSets",
-"name": "[parameters('virtualMachineScaleSetName')]",
-"apiVersion": "2019-12-01",
-"location": "[parameters('location')]",
-"properties": {
-	"singlePlacementGroup": false,
-	"platformFaultDomainCount": "[parameters('virtualMachineScaleSetPlatformFaultDomainCount')]"
-	},
-"zones": "[variables('selectedZone')]"
-}
-```
+	```json
+	{
+	"type": "Microsoft.Compute/virtualMachineScaleSets",
+	"name": "[parameters('virtualMachineScaleSetName')]",
+	"apiVersion": "2019-12-01",
+	"location": "[parameters('location')]",
+	"properties": {
+		"singlePlacementGroup": false,
+		"platformFaultDomainCount": "[parameters('virtualMachineScaleSetPlatformFaultDomainCount')]"
+		},
+	"zones": "[variables('selectedZone')]"
+	}
+	```
 
 2. Add virtual machines to the scale set.
     1. Assign the `virtualMachineScaleSet` property to the scale set you have previously created. You are required to specify the `virtualMachineScaleSet` property at the time of VM creation. 
-    1. You can use the **copy()** ARM template function to create multiple VMs at the same time. See [Resource iteration](https://docs.microsoft.com/azure/azure-resource-manager/templates/copy-resources#iteration-for-a-child-resource) in ARM templates. 
+    1. You can use the **copy()** Azure Resource Manager template function to create multiple VMs at the same time. See [Resource iteration](https://docs.microsoft.com/azure/azure-resource-manager/templates/copy-resources#iteration-for-a-child-resource) in Azure Resource Manager templates. 
 
-```json
-{
-"type": "Microsoft.Compute/virtualMachines",
-"name": "[concat(parameters('virtualMachineNamePrefix'), copyIndex(1))]",
-"apiVersion": "2019-12-01",
-"location": "[parameters('location')]",
-"copy": {
-	"name": "VMcopy",
-	"count": "[parameters('virtualMachineCount')]"
-	},
-"dependsOn": [
-	"
-	[resourceID('Microsoft.Compute/virtualMachineScaleSets', parameters('virtualMachineScaleSetName'))]",
-	"
-	[resourceID('Microsoft.Storage/storageAccounts', variables('diagnosticsStorageAccountName'))]",
-	"
-	[resourceID('Microsoft.Network/networkInterfaces', concat(parameters('virtualMachineNamePrefix'), copyIndex(1), '-NIC1'))]"
-	],
-"properties": {
-	"virtualMachineScaleSet": {
-		"id": "[resourceID('Microsoft.Compute/virtualMachineScaleSets', parameters('virtualMachineScaleSetName'))]"
+    ```json
+    {
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[concat(parameters('virtualMachineNamePrefix'), copyIndex(1))]",
+    "apiVersion": "2019-12-01",
+    "location": "[parameters('location')]",
+    "copy": {
+    	"name": "VMcopy",
+    	"count": "[parameters('virtualMachineCount')]"
+    	},
+    "dependsOn": [
+    	"
+    	[resourceID('Microsoft.Compute/virtualMachineScaleSets', parameters('virtualMachineScaleSetName'))]",
+    	"
+    	[resourceID('Microsoft.Storage/storageAccounts', variables('diagnosticsStorageAccountName'))]",
+    	"
+    	[resourceID('Microsoft.Network/networkInterfaces', concat(parameters('virtualMachineNamePrefix'), copyIndex(1), '-NIC1'))]"
+    	],
+    "properties": {
+    	"virtualMachineScaleSet": {
+    		"id": "[resourceID('Microsoft.Compute/virtualMachineScaleSets', parameters('virtualMachineScaleSetName'))]"
+        }
     }
-}
-```
+    ```
 
 See [Azure quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-vmss-flexible-orchestration-mode) for a full example.
 
@@ -295,7 +295,7 @@ You can add up to 1000 VMs to a scale set in Flexible orchestration mode.
 
 |   | Flexible orchestration  | Uniform orchestration  | Availability Sets  |
 |-|-|-|-|
-| Deploy across availability zones  | Coming soon  | Yes  | No  |
+| Deploy across availability zones  | No  | Yes  | No  |
 | Fault domain availability guarantees within a region  | Yes, up to 1000 instances can be spread across up to 3 fault domains in the region. Maximum fault domain count varies by region  | Yes, up to 100 instances  | Yes, up to 200 instances  |
 | Placement groups  | Flexible mode always uses multiple placement groups (singlePlacementGroup = false)  | You can choose Single Placement Group or Multiple Placement Groups | N/A  |
 | Update domains  | None, maintenance or host updates are done fault domain by fault domain  | Up to 5 update domains  | Up to 20 update domains  |
