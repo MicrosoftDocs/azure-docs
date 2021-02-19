@@ -89,7 +89,7 @@ The text box will be used to enter the Teams meeting context and the button will
 
 ## Enable the Teams UI controls
 
-Replace content of MainActivity.java file with following snippet.
+Replace the content of `MainActivity.java` with following snippet.
 
 ```java
 
