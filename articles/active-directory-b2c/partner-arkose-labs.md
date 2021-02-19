@@ -219,7 +219,7 @@ To enable the API connector, in the **API connector** settings for your user flo
 
 4. Go through the sign-up flow and create an account
 
-5. Sign-out
+5. Sign out
 
 6. Go through the sign-in flow  
 
@@ -227,7 +227,7 @@ To enable the API connector, in the **API connector** settings for your user flo
 
 ## Additional resources
 
-- [Sample codes](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose) for Azure AD B2C sign-up user flow.
+- [Sample codes](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose) for Azure AD B2C sign-up user flow
 
 - [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
 
