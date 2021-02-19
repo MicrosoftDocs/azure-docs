@@ -38,19 +38,19 @@ The configuration file for the app would declare two `authorities`. One for each
 ### `app/src/main/res/raw/msal_config.json`
 ```json
 {
-	"client_id": "<your_client_id_here>",
-	"redirect_uri": "<your_redirect_uri_here>",
-	"account_mode" : "MULTIPLE",
-	"authorities": [{
-			"type": "B2C",
-			"authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
-			"default": true
-		},
-		{
-			"type": "B2C",
-			"authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_EditProfile/"
-		}
-	]
+  "client_id": "<your_client_id_here>",
+  "redirect_uri": "<your_redirect_uri_here>",
+  "account_mode" : "MULTIPLE",
+  "authorities": [{
+      "type": "B2C",
+      "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
+      "default": true
+    },
+    {
+      "type": "B2C",
+      "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_EditProfile/"
+    }
+  ]
 }
 ```
 

@@ -60,7 +60,7 @@ Connect to the [Serial Console, and then open a PowerShell instance](serial-con
 
     *   Make sure that the RDP rule is turned on in Windows Firewall.
 
-    *   If the previous steps don’t work, manually reset the firewall rule. To do this, query all the rules that contain the name "Remote Desktop" by running the following command:
+    *   If the previous steps don’t work, manually reset the firewall rule. To do this, query all the rules that contain the name "Remote Desktop" by running the following command:
 
         ```cmd
         netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(Name.*Remote Desktop)" -context 9,4 | more
