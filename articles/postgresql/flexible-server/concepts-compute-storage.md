@@ -5,7 +5,7 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/19/2021
 ---
 
 # Compute and Storage options in Azure Database for PostgreSQL - Flexible Server
