@@ -53,7 +53,7 @@ Except for more write latency, disks using ZRS are identical to disks using LRS.
 
 You need to use the `2020-12-01` API with your Azure Resource Manager template to create a ZRS disk.
 
-#### Create VMs with ZRS data disks with Read caching enabled  
+#### Create a VM with ZRS disks
 
 ```
 $vmName = "yourVMName" 
