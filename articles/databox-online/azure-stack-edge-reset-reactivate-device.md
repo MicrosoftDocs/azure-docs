@@ -13,9 +13,11 @@ ms.author: alkohli
 
 # Reset and reactive your Azure Stack Edge Pro device
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
 This article describes how to reset, reconfigure, and reactivate an Azure Stack Edge Pro device if you're having issues with the device or need to start fresh for some other reason.
 
-After you reset the device to remove the data, you'll need to reactivate the device as a new resource. And, because resetting a device removes all the local data and the device configuration, you'll need to reconfigure the device via the local web UI.
+After you reset the device to remove the data, you'll need to reactivate the device as a new resource. Resetting a device removes the device configuration, so you'll need to reconfigure the device via the local web UI.
 
 In this article, you learn how to:
 
@@ -45,7 +47,7 @@ c
 
 1. [Configure device settings](azure-stack-edge-gpu-deploy-set-up-device-update-time.md).
 
-1. [Configure certificaes](azure-stack-edge-gpu-deploy-configure-certificates.md).
+1. [Configure certificates](azure-stack-edge-gpu-deploy-configure-certificates.md).
 
 1. [Activate the device](databox-online/azure-stack-edge-gpu-deploy-activate.md).
 
