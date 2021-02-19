@@ -250,13 +250,21 @@ Use the Azure CLI to create an instance of Azure IoT Hub. Replace the parameters
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+```bash
 sudo az login
+```
+```bash
 sudo az account set --subscription <name or ID of Azure Subscription>
-sudo az group create --name "test-resource-group" --location "WestUS"
-
-sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
-
-sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+```bash
+sudo az group create --name <resource-group-name> --location "WestUS"
+```
+```bash
+sudo az iot hub create --name <iothub-group-name> --sku S1 --resource-group <resource-group-name>
+```
+```bash
+sudo az iot hub device-identity create --hub-name <iothub-name> --device-id <device-name> --edge-enabled
 ```
 
 You will need to install [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) version 1.0.9. Follow these steps to download the correct version:
@@ -275,6 +283,8 @@ Install the Microsoft GPG public key.
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+```bash
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
@@ -402,13 +412,21 @@ Use the Azure CLI to create an instance of Azure IoT Hub. Replace the parameters
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+```bash
 sudo az login
+```
+```bash
 sudo az account set --subscription <name or ID of Azure Subscription>
-sudo az group create --name "test-resource-group" --location "WestUS"
-
-sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
-
-sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+```bash
+sudo az group create --name <resource-group-name> --location "WestUS"
+```
+```bash
+sudo az iot hub create --name <iothub-group-name> --sku S1 --resource-group <resource-group-name>
+```
+```bash
+sudo az iot hub device-identity create --hub-name <iothub-name> --device-id <device-name> --edge-enabled
 ```
 
 You will need to install [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) version 1.0.9. Follow these steps to download the correct version:
@@ -427,6 +445,8 @@ Install the Microsoft GPG public key.
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+```bash
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
