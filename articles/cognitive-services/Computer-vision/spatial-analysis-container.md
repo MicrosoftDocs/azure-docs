@@ -132,7 +132,7 @@ When the Edge compute role is set up on the Edge device, it creates two devices:
 3. Assign a variable to the device IP address. 
     
     ```powershell
-    $ip = "" Replace with the IP address of your device. 
+    $ip = "<device-IP-address>" 
     ```
     
 4. To add the IP address of your device to the client’s trusted hosts list, use the following command: 
