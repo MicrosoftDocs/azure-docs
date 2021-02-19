@@ -3,7 +3,7 @@ title: "Connect an Azure Arc enabled Kubernetes cluster (Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -273,5 +273,5 @@ You can delete a `Microsoft.Kubernetes/connectedcluster` resource using the Azur
 
 ## Next steps
 
-* [Use GitOps in a connected cluster](./use-gitops-connected-cluster.md)
+* [Use GitOps in a connected cluster](./tutorial-use-gitops-connected-cluster.md)
 * [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

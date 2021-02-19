@@ -4,6 +4,10 @@
   items:
   - name: About Arc enabled Kubernetes
     href: overview.md
+- name: Tutorials
+  items:
+  - name: Deploy configurations using GitOps
+    href: tutorial-use-gitops-connected-cluster.md
 - name: Concepts
   items:
   - name: Agent architecture
@@ -22,8 +26,6 @@
       href: create-onboarding-service-principal.md
   - name: Scenarios
     items:
-    - name: Deploy configurations using GitOps
-      href: use-gitops-connected-cluster.md
     - name: Deploy Helm charts using GitOps
       href: use-gitops-with-helm.md
     - name: Enforce GitOps using Azure Policy

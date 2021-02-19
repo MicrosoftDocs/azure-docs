@@ -3,7 +3,7 @@ title: "Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster(Previe
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/15/2021
+ms.date: 02/19/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -82,7 +82,7 @@ az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 
 
 ### Configuration Parameters
 
-To customize the creation of the configuration, [learn about additional parameters you may use](./use-gitops-connected-cluster.md#additional-parameters).
+To customize the creation of the configuration, [learn about additional parameters you may use](./tutorial-use-gitops-connected-cluster.md#additional-parameters).
 
 ## Validate the Configuration
 

@@ -2,7 +2,7 @@
 title: "Azure Arc enabled Kubernetes frequently asked questions"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
@@ -66,5 +66,5 @@ This feature applies baseline configurations (like network policies, role bindin
 ## Next steps
 
 * [Connect a cluster to Azure Arc](./connect-cluster.md)
-* [Create configurations on your Arc enabled Kubernetes cluster](./use-gitops-connected-cluster.md)
+* [Create configurations on your Arc enabled Kubernetes cluster](./tutorial-use-gitops-connected-cluster.md)
 * [Use Azure Policy to apply configurations at scale](./use-azure-policy.md)
