@@ -161,3 +161,9 @@ Future versions of Hyperscale (Citus) will incrementally lift the current limita
 * No support for AFTER ... FOR EACH ROW triggers
 * No UNLOGGED columnar tables
 * No TEMPORARY columnar tables
+
+## Next steps
+
+* See an example of columnar storage in a Citus [timeseries
+  tutorial](https://docs.citusdata.com/en/stable/use_cases/timeseries.html#archiving-with-columnar-storage)
+  (external link).
