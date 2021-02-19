@@ -18,8 +18,7 @@ In this quickstart, you'll learn how to join a Teams meeting using the Azure Com
 
 ## Add the Teams UI controls and Enable the Teams UI controls
 
-Replace code in ContentView.swift with following snippet.
-The text box will be used to enter the Teams meeting context and the button will be used to join the specified meeting:
+Replace code in ContentView.swift with following snippet. The text box will be used to enter the Teams meeting context and the button will be used to join the specified meeting:
 
 ```swift
 
@@ -174,8 +173,7 @@ struct ContentView_Previews: PreviewProvider {
 ## Get the Teams meeting link
 
 The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-The Communication Services Calling client library accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta)
-You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+The Communication Services Calling client library accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta). You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
 ## Launch the app and join Teams meeting
 
