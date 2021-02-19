@@ -21,9 +21,9 @@ ms.custom: aaddev
 >[!IMPORTANT]
 > This feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
-The *Microsoft Enterprise SSO plug-in for Apple devices* provides single sign-on (SSO) for Azure Active Directory (Azure AD) accounts across all applications that support Apple's [Enterprise Single Sign-On](https://developer.apple.com/documentation/authenticationservices) feature. Microsoft worked closely with Apple to develop this plug-in to increase your application's usability while providing the best protection that Apple and Microsoft can provide.
+The *Microsoft Enterprise SSO plug-in for Apple devices* is a breakthrough feature that provides single sign-on (SSO) for Azure Active Directory (Azure AD) accounts across all applications that support Apple's [Enterprise Single Sign-On](https://developer.apple.com/documentation/authenticationservices) feature, even older applications that your business depends on but don't support the latest identity libraries or protocols. Microsoft worked closely with Apple to develop this plug-in to increase your application's usability while providing the best protection that Apple and Microsoft can provide.
 
-In this Public Preview release, the Enterprise SSO plug-in is available only for iOS devices and is distributed in certain Microsoft applications.
+In this Public Preview release, the Enterprise SSO plug-in is available only for iOS devices and is distributed in the Microsoft Authenticator app.
 
 ## Features
 
@@ -31,21 +31,23 @@ The Microsoft Enterprise SSO plug-in for Apple devices offers the following bene
 
 - Provides SSO for Azure AD accounts across all applications that support Apple's Enterprise Single Sign-On feature.
 - Delivered automatically in the Microsoft Authenticator and can be enabled by any mobile device management (MDM) solution.
+- Extends SSO to applications that do not yet use Microsoft SDKs.
+- Extends SSO to applications that use OAuth2, OpenID Connect, and SAML.
 
 ## Requirements
 
 To use Microsoft Enterprise SSO plug-in for Apple devices:
 
 - iOS 13.0 or higher must be installed on the device.
-- A Microsoft application that provides the Microsoft Enterprise SSO plug-in for Apple devices must be installed on the device. For Public Preview, these applications include the [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md).
+- A Microsoft application that provides the Microsoft Enterprise SSO plug-in for Apple devices must be installed on the device. For Public Preview, these applications are the [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md).
 - Device must be MDM-enrolled (for example, with Microsoft Intune).
 - Configuration must be pushed to the device to enable the Microsoft Enterprise SSO plug-in for Apple devices on the device. This security constraint is required by Apple.
 
 ## Enable the SSO plug-in with mobile device management (MDM)
 
-To enable the Microsoft Enterprise SSO plug-in for Apple devices, your devices need to be sent a signal through an MDM service. Since Microsoft includes the Enterprise SSO plug-in in the [Microsoft Authenticator app](..//user-help/user-help-auth-app-overview.md), use your MDM to configure the app to enable the Microsoft Enterprise SSO plug-in.
+Microsoft includes the Enterprise SSO plug-in for Apple devices in the [Microsoft Authenticator app](..//user-help/user-help-auth-app-overview.md). To enable the Microsoft Enterprise SSO plug-in for Apple devices, your devices need to be sent a signal through an MDM service to turn it on. If you use Intune this configuration will automatically be done for you. [See this doc for more information](../../../../../..//en-us/mem/intune/configuration/device-features-configure#single-sign-on-app-extension)
 
-Use the following parameters to configure the Microsoft Enterprise SSO plug-in for Apple devices:
+If you not using Intune, use the following parameters to configure the Microsoft Enterprise SSO plug-in for Apple devices:
 
 - **Type**: Redirect
 - **Extension ID**: `com.microsoft.azureauthenticator.ssoextension`
@@ -64,7 +66,7 @@ Use the following parameters to configure the Microsoft Enterprise SSO plug-in f
 ### Additional configuration options
 Additional configuration options can be added to extend SSO functionality to additional apps.
 
-#### Enable SSO for apps that don't use MSAL
+#### Enable SSO for apps that don't use a Microsoft identity platform library
 
 The SSO plug-in allows any application to participate in single sign-on even if it was not developed using a Microsoft SDK like the Microsoft Authentication Library (MSAL).
 
@@ -81,13 +83,14 @@ Use the following parameters to configure the Microsoft Enterprise SSO plug-in f
 
 [Consented apps](./application-consent-experience.md) that are allowed by the MDM admin to participate in the SSO can silently get a token for the end user. Therefore, it is important to only add trusted applications to the allow list. 
 
-You don't need to add applications that use MSAL or ASWebAuthenticationSession to this list. Those applications are enabled by default. 
+>[!NOTE]
+> You don't need to add applications that use MSAL or ASWebAuthenticationSession to this list. Those applications are enabled by default. 
 
-#### Allow creating SSO session from any application
+#### Allow user to sign-in from unknown applications and the Safari browser.
 
-By default, the Microsoft Enterprise SSO plug-in provides SSO for authorized apps only when the SSO plug-in already has a shared credential. The Microsoft Enterprise SSO plug-in can acquire a shared credential when it is called by another ADAL or MSAL-based application during token acquisition. Most of the Microsoft apps use Microsoft Authenticator or SSO plug-in. That means that by default SSO outside of native app flows is best effort.  
+By default, the Microsoft Enterprise SSO plug-in provides SSO for authorized apps only when a user has signed in from an app that uses a Microsoft identity platform library like ADAL or MSAL. The Microsoft Enterprise SSO plug-in can also acquire a shared credential when it is called by another app that uses a Microsoft identity platform library during a new token acquisition.
 
-Enabling `browser_sso_interaction_enabled` flag enables non-MSAL apps and Safari browser to do the initial bootstrapping and get a shared credential. If the Microsoft Enterprise SSO plug-in doesn’t have a shared credential yet, it will try to get one whenever a sign-in is requested from an Azure AD URL inside Safari browser, ASWebAuthenticationSession, SafariViewController, or another permitted native application.  
+Enabling `browser_sso_interaction_enabled` flag enables app that do not use a Microsoft identity platform library to do the initial bootstrapping and get a shared credential. It also allows Safari browser to do the initial bootstrapping and get a shared credential. If the Microsoft Enterprise SSO plug-in doesn’t have a shared credential yet, it will try to get one whenever a sign-in is requested from an Azure AD URL inside Safari browser, ASWebAuthenticationSession, SafariViewController, or another permitted native application.  
 
 - **Key**: `browser_sso_interaction_enabled`
 - **Type**: `Integer`
@@ -97,7 +100,7 @@ We recommend enabling this flag to get more consistent experience across all app
 
 #### Disable OAuth2 application prompts
 
-The Microsoft Enterprise SSO plug-in provides SSO by appending shared credentials to network requests coming from allowed applications. Some OAuth2 applications might be enforcing end-user prompt on the protocol layer. Shared credential would be ignored for those apps.  
+The Microsoft Enterprise SSO plug-in provides SSO by appending shared credentials to network requests coming from allowed applications. However, some OAuth2 applications might not be aware of this and enforce end-user prompts at the protocol layer. If this is happening, you'll see that shared credentials are ignored for those apps and your user is prompted to sign in even though the Microsoft Enterprise SSO plug-in is working for other applications.  
 
 Enabling `disable_explicit_app_prompt` flag restricts ability of both native and web applications to force an end-user prompt on the protocol layer and bypass SSO.
 
@@ -109,11 +112,11 @@ We recommend enabling this flag to get more consistent experience across all app
 
 #### Use Intune for simplified configuration
 
-You can use Microsoft Intune as your MDM service to ease configuration of the Microsoft Enterprise SSO plug-in. For more information, see the [Intune configuration documentation](/intune/configuration/ios-device-features-settings).
+As stated before, you can use Microsoft Intune as your MDM service to ease configuration of the Microsoft Enterprise SSO plug-in including enabling the plug-in and adding your older apps to an allow list so they get SSO. For more information, see the [Intune configuration documentation](/intune/configuration/ios-device-features-settings).
 
 ## Using the SSO plug-in in your application
 
-The [Microsoft Authentication Library (MSAL) for Apple devices](https://github.com/AzureAD/microsoft-authentication-library-for-objc) version 1.1.0 and higher supports the Microsoft Enterprise SSO plug-in for Apple devices.
+The [Microsoft Authentication Library (MSAL) for Apple devices](https://github.com/AzureAD/microsoft-authentication-library-for-objc) version 1.1.0 and higher supports the Microsoft Enterprise SSO plug-in for Apple devices. It is the recommended way to add support for the Microsoft Enterprise SSO plug-in and ensures you get the full capabilties of the Microsoft identity platform.
 
 If you're building an application for Frontline Worker scenarios, see [Shared device mode for iOS devices](msal-ios-shared-devices.md) for additional setup of the feature.
 
@@ -124,7 +127,7 @@ The Microsoft Enterprise SSO plug-in relies on the [Apple's Enterprise Single Si
 Native applications can also implement custom operations and talk directly to the SSO plug-in.
 You can learn about Single Sign-in framework in this [2019 WWDC video from Apple](https://developer.apple.com/videos/play/tech-talks/301/)
 
-### Applications that use MSAL
+### Applications that use a Microsoft identity platform library
 
 The [Microsoft Authentication Library (MSAL) for Apple devices](https://github.com/AzureAD/microsoft-authentication-library-for-objc) version 1.1.0 and higher supports the Microsoft Enterprise SSO plug-in for Apple devices natively for work and school accounts. 
 
@@ -132,7 +135,7 @@ There's no special configuration needed if you've followed [all recommended step
 
 If the SSO plug-in is not enabled by MDM, but the Microsoft Authenticator app is present on the device, MSAL will instead use the Microsoft Authenticator app for any interactive token requests. The SSO plug-in shares SSO with the Microsoft Authenticator app.
 
-### Applications that don't use MSAL
+### Applications that don't use a Microsoft identity platform library
 
 Applications that don't use MSAL can still get SSO if an administrator adds them to the allow list explicitly. 
 
