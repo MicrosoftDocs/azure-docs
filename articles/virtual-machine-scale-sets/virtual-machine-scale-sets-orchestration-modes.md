@@ -14,7 +14,7 @@ ms.custom: mimckitt
 
 # Preview: Orchestration modes for virtual machine scale sets in Azure 
 
-Virtual machines scale sets provide a logical grouping of platform-managed virtual machines. With scale sets, you create a virtual machine configuration model, automatically add or remove additional instances based on CPU or memory load, and automatically upgrade to the latest OS version. Traditionally, scale sets allow you to create virtual machines using a VM configuration model provided at time of scale set creation, and the scale set can only manage virtual machines that are implicitly created based on the configuration model. 
+Virtual Machines Scale Sets provide a logical grouping of platform-managed virtual machines. With scale sets, you create a virtual machine configuration model, automatically add or remove additional instances based on CPU or memory load, and automatically upgrade to the latest OS version. Traditionally, scale sets allow you to create virtual machines using a VM configuration model provided at the time of scale set creation, and the scale set can only manage virtual machines that are implicitly created based on the configuration model. 
 
 Scale set orchestration modes allow you to have greater control over how virtual machine instances are managed by the scale set. 
 
@@ -25,7 +25,7 @@ Scale set orchestration modes allow you to have greater control over how virtual
 ## Scale sets with Uniform orchestration
 Optimized for large-scale stateless workloads with identical instances.
 
-Virtual machine scale sets with Uniform orchestration use a virtual machine profile or template to scale up to desired capacity. While there is some ability to manage or customize individual virtual machine instances, typically Uniform uses identical VM instances. Individual Uniform VM instances are exposed via the virtual machine scale set VM API commands, and are not compatible with the standard Azure IaaS VM API commands, Azure management features such as Azure Resource Manager resource tagging RBAC permissions, Azure Backup, Azure Site Recovery. Uniform orchestration provides fault domain high availability guarantees when configured with fewer than 100 instances. Uniform orchestration is generally available, and supports a full range of scale set management and orchestration, including metrics-based autoscaling, instance protection, automatic OS upgrades. 
+Virtual machine scale sets with Uniform orchestration use a virtual machine profile or template to scale up to desired capacity. While there is some ability to manage or customize individual virtual machine instances, Uniform uses identical VM instances. Individual Uniform VM instances are exposed via the virtual machine scale set VM API commands. Individual instances are not compatible with the standard Azure IaaS VM API commands, Azure management features such as Azure Resource Manager resource tagging RBAC permissions, Azure Backup, or Azure Site Recovery. Uniform orchestration provides fault domain high availability guarantees when configured with fewer than 100 instances. Uniform orchestration is generally available and supports a full range of scale set management and orchestration, including metrics-based autoscaling, instance protection, and automatic OS upgrades. 
 
 
 ## Scale sets with Flexible orchestration 
@@ -41,12 +41,12 @@ With Flexible orchestration, Azure provides a unified experience across the Azur
 
 > [!IMPORTANT]
 > Virtual machine scale sets in Flexible orchestration mode is currently in public preview. An opt-in procedure is needed to use the public preview functionality described below.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> This preview version is provided without a service level agreement and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## What has changed with Flexible orchestration mode?
-One of the main advantages of Flexible orchestration is that it provides orchestration features over standard Azure IaaS VMs, instead of scale set child virtual machines. This means you can use all of the standard VM APIs when managing Flexible orchestration instances, instead of the virtual machine scale set VM APIs you use with Uniform orchestration. During the preview period, there are several differences between managing instances in Flexible orchestration versus Uniform orchestration. In general, where possible it is preferred to use the standard Azure IaaS VM APIs. Here we highlight examples of best practices for managing VM instances with Flexible orchestration.  
+One of the main advantages of Flexible orchestration is that it provides orchestration features over standard Azure IaaS VMs, instead of scale set child virtual machines. This means you can use all of the standard VM APIs when managing Flexible orchestration instances, instead of the virtual machine scale set VM APIs you use with Uniform orchestration. During the preview period, there are several differences between managing instances in Flexible orchestration versus Uniform orchestration. In general, we recommend that you use the standard Azure IaaS VM APIs when possible. In this section, we highlight examples of best practices for managing VM instances with Flexible orchestration.  
 
 ### Assign fault domain during VM creation
 You can choose the number of fault domains for the Flexible orchestration scale set. By default, when you add a VM to a Flexible scale set, Azure evenly spreads instances across fault domains. While it is recommended to let Azure assign the fault domain, for advanced or troubleshooting scenarios you can override this default behavior and specify the fault domain where the instance will land.
@@ -90,7 +90,7 @@ Use the standard VM APIs and commands to retrieve instance Boot Diagnostics data
 Use extensions targeted for standard virtual machines, instead of extensions targeted for Uniform orchestration mode instances.
 
 
-## Comparing Flexible, Uniform, and Availability Sets 
+## A comparison of Flexible, Uniform, and Availability Sets 
 The following table compares the Flexible orchestration mode, Uniform orchestration mode, and Availability Sets by their features.
 
 | Feature | Supported by Flexible orchestration (Preview) | Supported by Uniform orchestration (General Availability) | Supported by AvSets (General Availability) |
@@ -129,13 +129,13 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 
 
 ## Register for Flexible orchestration mode
-Before you can deploy virtual machine scale sets in Flexible orchestration mode, you must first register your subscription for the preview feature. The registration may take several minutes to complete.
+Before you can deploy virtual machine scale sets in Flexible orchestration mode, you must first register your subscription for the preview feature. The registration may take several minutes to complete. You can use the following Azure PowerShell or Azure CLI commands to register.
 
 ### Azure PowerShell 
 Use the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet to enable the preview for your subscription. 
 
 ```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute
+Register-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute `
 Register-AzProviderFeature -FeatureName VMOrchestratorSingleFD -ProviderNamespace Microsoft.Compute  
 ```
 
@@ -190,7 +190,7 @@ Create a virtual machine scale set in Flexible orchestration mode through the Az
 
 :::image type="content" source="./media/virtual-machine-scale-sets-orchestration-modes/portal-create-orchestration-mode-flexible.png" alt-text="Orchestration mode in Portal when creating a scale set":::
 
-Add a virtual machine to the scale set in Flexible orchestration mode.
+Next, add a virtual machine to the scale set in Flexible orchestration mode.
 
 1. In the search bar, search for and select **Virtual machines**.
 1. Select **Add** on the **Virtual machines** page.
