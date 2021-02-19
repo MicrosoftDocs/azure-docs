@@ -258,7 +258,7 @@ For limits on scopes, see [Limits and config](../logic-apps/logic-apps-limits-an
 
 ### Get context and results for failures
 
-Although catching failures from a scope is useful, you might also want context to help you understand exactly which actions failed plus any errors or status codes that were returned. The [`result()` function](../logic-apps/workflow-definition-language-functions-reference.md#result) provides context about the results from the top-level actions in a scope by accepting a single parameter, which is the scope's name, and returns an array that contains the results from the first-level actions in that scope. These action objects include the same attributes as those returned by the `actions()` function, such as the action's start time, end time, status, inputs, correlation IDs, and outputs. 
+Although catching failures from a scope is useful, you might also want context to help you understand exactly which actions failed plus any errors or status codes that were returned. The [`result()` function](../logic-apps/workflow-definition-language-functions-reference.md#result) provides context about the results from the top-level actions in a scope by accepting a single parameter, which is the scope's name, and returning an array that contains the results from the first-level actions in that scope. These action objects include the same attributes as those returned by the `actions()` function, such as the action's start time, end time, status, inputs, correlation IDs, and outputs. 
 
 > [!NOTE]
 > The `result()` function returns the results from *only* the first-level actions and not from deeper nested actions such as switch or condition actions.
