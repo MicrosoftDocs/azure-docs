@@ -1421,7 +1421,7 @@
           href: monitor-cosmos-db.md
         - name: Use Azure monitor metrics
           items:
-            - name: Azure Monitor for Cosmos (preview)
+            - name: Azure Monitor for Cosmos DB
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Scenarios to monitor
               href: use-metrics.md
