@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
@@ -20,7 +20,11 @@ Blob storage now supports the Network File System (NFS) 3.0 protocol. This suppo
 
 It's always been a challenge to run large-scale legacy workloads, such as High Performance Computing (HPC) in the cloud. One reason is that applications often use traditional file protocols such as NFS or Server Message Block (SMB) to access data. Also, native cloud storage services focused on object storage that have a flat namespace and extensive metadata instead of file systems that provide a hierarchical namespace and efficient metadata operations. 
 
-But now, Blob Storage supports a hierarchical namespace, and when combined with NFS 3.0 protocol support, Azure makes it much easier to run legacy applications on top of large-scale cloud object storage. 
+Blob Storage now supports a hierarchical namespace, and when combined with NFS 3.0 protocol support, Azure makes it much easier to run legacy applications on top of large-scale cloud object storage. 
+
+## Applications and workloads suited for this feature
+
+The NFS 3.0 protocol feature is best suited for processing high throughput, high scale, read heavy workloads such as media processing, risk simulations, and genomics sequencing. You should consider using this feature for any other type of workload that uses multiple readers and many threads, which require high bandwidth. 
 
 ## NFS 3.0 and the hierarchical namespace
 
@@ -31,7 +35,7 @@ NFS 3.0 protocol support requires blobs to be organized into on a hierarchical n
   
 ## Data stored as block blobs
 
-If you enable NFS 3.0 protocol support, all of the data in your storage account will be stored as block blobs. Block blobs are optimized to efficiently process large amounts of read-heavy data. Block blobs are comprised of blocks. Each block is identified by a block ID. A block blob can include up to 50,000 blocks. Each block in a block blob can be a different size, up to the maximum size permitted for the service version that your account uses.
+If you enable NFS 3.0 protocol support, all of the data in your storage account will be stored as block blobs. Block blobs are optimized to efficiently process large amounts of read-heavy data. Block blobs are composed of blocks. Each block is identified by a block ID. A block blob can include up to 50,000 blocks. Each block in a block blob can be a different size, up to the maximum size permitted for the service version that your account uses.
 
 When your application makes a request by using the NFS 3.0 protocol, that request is translated into combination of block blob operations. For example, NFS 3.0 read Remote Procedure Call (RPC) requests are translated into [Get Blob](/rest/api/storageservices/get-blob) operation. NFS 3.0 write RPC requests are translated into a combination of [Get Block List](/rest/api/storageservices/get-block-list), [Put Block](/rest/api/storageservices/put-block), and [Put Block List](/rest/api/storageservices/put-block-list).
 
@@ -70,7 +74,7 @@ A client can connect over a public or a [private endpoint](../common/storage-pri
 
 - The VNet that you configure for your storage account. 
 
-  For the purpose of this article, we'll refer to that VNet as the *primary VNet*. To learn more, see [Grant access from a virtual network](../common/storage-network-security.md#grant-access-from-a-virtual-network).
+  In this article, we'll refer to that VNet as the *primary VNet*. To learn more, see [Grant access from a virtual network](../common/storage-network-security.md#grant-access-from-a-virtual-network).
 
 - A peered VNet that is in the same region as the primary VNet.
 
@@ -109,7 +113,7 @@ The following NFS 3.0 features aren't yet supported with Azure Data Lake Storage
 
 - Locking files with Network Lock Manager (NLM). Mount commands must include the `-o nolock` parameter.
 
-- Mounting sub-directories. You can only mount the root directory (Container).
+- Mounting subdirectories. You can only mount the root directory (Container).
 
 - Listing mounts (For example: by using the command `showmount -a`)
 
