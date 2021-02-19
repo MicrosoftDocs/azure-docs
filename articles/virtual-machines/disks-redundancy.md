@@ -21,7 +21,7 @@ Locally-redundant storage (LRS) replicates your data three times within a single
 There are a few ways you can get better availability for VMs using LRS disks:
 - Use an application like SQL Server AlwaysOn, that can synchronously write data to two zones, and automatically failover to another zone during a disaster.
 - Take frequent backups of LRS disks with ZRS snapshots.
-- Enable cross-zone disaster recovery for LRS disks via [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md). However, this doesn't provide zero Recovery Point Objective (RPO).
+- Enable cross-zone disaster recovery for LRS disks via [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md). However, cross-zone disaster recovery doesn't provide zero Recovery Point Objective (RPO).
 
 If your workflow doesn't support application-level synchronous writes across zones, or your application must meet zero RPO, then ZRS disks would ideal.
 
@@ -29,7 +29,7 @@ If your workflow doesn't support application-level synchronous writes across zon
 
 Zone-redundant storage (ZRS) replicates your Azure managed disk synchronously across three Azure availability zones in the selected region. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS is recommended for workloads that value availability over write latency.
 
-ZRS disks allow you to recover from failures in availability zones. If an entire zone went down, a ZRS disk can be attached to a VM in a different zone. You can also use ZRS disks in combination with shared disks to provide improved availability for clustered or distributed applications like SQL FCI, SAP ASCS/SCS, or GFS2. You can attach a shared ZRS disk to primary and secondary VMs allocated on different zones to take advantage of both ZRS disks and [Availability Zones](../availability-zones/az-overview.md) for VMs for higher availability. In the event of a primary zone failure, you can quickly fail over to the secondary VM using [SCSI persistent reservation](disks-shared-enable.md#supported-scsi-pr-commands).
+ZRS disks allow you to recover from failures in availability zones. If an entire zone went down, a ZRS disk can be attached to a VM in a different zone. You can also use ZRS disks in combination with shared disks to provide improved availability for clustered or distributed applications like SQL FCI, SAP ASCS/SCS, or GFS2. You can attach a shared ZRS disk to primary and secondary VMs in different zones to take advantage of both ZRS and [Availability Zones](../availability-zones/az-overview.md). If your primary zone fails, you can quickly fail over to the secondary VM using [SCSI persistent reservation](disks-shared-enable.md#supported-scsi-pr-commands).
 
 ### Limitations
 
