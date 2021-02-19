@@ -40,10 +40,6 @@ landingContent:
         links:   
           - text: Frequently asked questions
             url: faq.md 
-      - linkListType: video
-        links:
-          - text: Modernize your applications with the managed instance
-            url: https://tbc 
 
   # Card 
   - title: Deploy and manage the managed instance
