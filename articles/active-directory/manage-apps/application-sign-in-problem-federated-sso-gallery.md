@@ -3,7 +3,7 @@ title: Problems signing in to SAML-based single sign-on configured apps
 description: Guidance for the specific errors when signing into an application you have configured for SAML-based federated single sign-on with Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -49,7 +49,7 @@ Ensure that the `Issuer` attribute in the SAML request matches the Identifier va
 On the SAML-based SSO configuration page, in the **Basic SAML configuration** section, verify that the value in the Identifier textbox matches the value for the identifier value displayed in the error.
 
 ## The reply address does not match the reply addresses configured for the application
-`Error AADSTS50011: The reply address 'https:\//contoso.com' does not match the reply addresses configured for the application.`
+`Error AADSTS50011: The reply URL specified in the request does not match the reply URLs configured for the application: '{application identifier}'.`
 
 **Possible cause**
 

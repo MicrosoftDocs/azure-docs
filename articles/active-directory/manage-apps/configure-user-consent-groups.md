@@ -3,7 +3,7 @@ title: Configure group owner consent to apps accessing group data using Azure AD
 description: Learn manage whether group and team owners can consent to applications that will have access to the group or team's data.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

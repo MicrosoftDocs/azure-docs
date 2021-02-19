@@ -110,8 +110,38 @@
       href: cosmosdb-jupyter-notebooks.md
     - name: Service quotas
       href: concepts-limits.md
-    - name: Enterprise readiness - Compliance
-      href: compliance.md
+    - name: Enterprise readiness 
+      items:
+        - name: Backup and restore introduction
+          href: online-backup-and-restore.md
+        - name: Continuous backup
+          items:
+          - name: Continuous backup - Introduction
+            href: continuous-backup-restore-introduction.md
+          - name: Continuous backup - FAQ
+            href: continuous-backup-restore-frequently-asked-questions.md
+          - name: Continuous backup - Resource model
+            items:
+            - name: Resource model overview
+              href: continuous-backup-restore-resource-model.md
+            - name: Restorable accounts - List
+              href: restorable-database-accounts-list.md
+            - name: Restorable accounts - List by location
+              href: restorable-database-accounts-list-by-location.md
+            - name: Restorable SQL resources - List
+              href: restorable-sql-resources-list.md
+            - name: Restorable SQL databases - List
+              href: restorable-sql-databases-list.md
+            - name: Restorable SQL containers - List
+              href: restorable-sql-containers-list.md
+            - name: Restorable MongoDB resources - List
+              href: restorable-mongodb-resources-list.md
+            - name: Restorable MongoDB collections - List
+              href: restorable-mongodb-collections-list.md
+            - name: Restorable MongoDB databases - List
+              href: restorable-mongodb-databases-list.md
+        - name: Compliance
+          href: compliance.md
     - name: Automatic recommendations
       href: automated-recommendations.md
 - name: SQL/Core API
@@ -736,6 +766,8 @@
                   href: troubleshoot-not-found.md
                 - name: Troubleshoot unauthorized
                   href: troubleshoot-unauthorized.md
+                - name: Troubleshoot forbidden
+                  href: troubleshoot-forbidden.md
                 - name: Availability issues in multiregional environments
                   href: troubleshoot-sdk-availability.md
             - name: .NET
@@ -900,7 +932,7 @@
         - name: REST (Management plane)
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
@@ -966,8 +998,6 @@
               href: cassandra-migrate-cosmos-db-blitzz.md
             - name: Migrate - Apache Cassandra to Cassandra API using Databricks
               href: cassandra-migrate-cosmos-db-databricks.md
-            - name: Migrate - Apache Cassandra to Cassandra API using Databricks
-              href: cassandra-migrate-cosmos-db-databricks.md
             - name: Migrate - PostgreSQL to Cassandra API using Apache Kafka
               href: postgres-migrate-cosmos-db-kafka.md
         - name: Change feed
@@ -1020,7 +1050,7 @@
         - name: REST resource provider
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
 - name: MongoDB API
@@ -1087,6 +1117,8 @@
           items:
             - name: Pre-migration guide
               href: mongodb-pre-migration.md
+            - name: MongoDB native tools (offline)
+              href: tutorial-mongotools-cosmos-db.md                            
             - name: Database Migration Service (online)
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Database Migration Service (offline)
@@ -1145,7 +1177,7 @@
         - name: REST resource provider
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
 - name: Gremlin API
@@ -1223,7 +1255,7 @@
         - name: Response Headers
           href: gremlin-headers.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: REST resource provider
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Resource Manager template
@@ -1309,7 +1341,7 @@
         - name: Python
           href: table-sdk-python.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Table storage REST APIs
           href: /rest/api/storageservices/table-service-rest-api
 - name: How-to guides
@@ -1367,8 +1399,20 @@
           href: how-to-setup-cmk.md
     - name: Enterprise readiness
       items:
-        - name: Online backup and on-demand restore
-          href: online-backup-and-restore.md
+        - name: Manage continuous backup
+          items:
+            - name: Continuous backup - Permissions and roles
+              href: continuous-backup-restore-permissions.md
+            - name: Continuous backup - Portal
+              href: continuous-backup-restore-portal.md
+            - name: Continuous backup - PowerShell
+              href: continuous-backup-restore-powershell.md
+            - name: Continuous backup - CLI
+              href: continuous-backup-restore-command-line.md
+            - name: Continuous backup - ARM
+              href: continuous-backup-restore-template.md
+        - name: Manage periodic backup
+          href: configure-periodic-backup-restore.md 
         - name: Request quota increase
           href: create-support-request-quota-increase.md
     - name: Monitor
@@ -1377,7 +1421,7 @@
           href: monitor-cosmos-db.md
         - name: Use Azure monitor metrics
           items:
-            - name: Azure Monitor for Cosmos (preview)
+            - name: Azure Monitor for Cosmos DB
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Scenarios to monitor
               href: use-metrics.md

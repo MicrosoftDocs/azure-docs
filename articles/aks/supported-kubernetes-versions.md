@@ -136,7 +136,6 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | Sep-19-19  | Jan 2019   | Mar 2020  | Jan 2021| 
 | 1.17  | Dec-09-19  | Jan 2019   | Jul 2020  | 1.20 GA | 
 | 1.18  | Mar-23-20  | May 2020   | Aug 2020  | 1.21 GA | 
 | 1.19  | Aug-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 

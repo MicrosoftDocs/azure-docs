@@ -21,7 +21,7 @@ This article gives you a brief description of all the available fields in the ap
 
 ## Register a new application
 
--   To register a new application, navigate to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+-   To register a new application, navigate to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 
 -   From the left navigation pane, click **Azure Active Directory.**
 

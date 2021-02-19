@@ -8,6 +8,8 @@ This tutorial requires the following Azure resources:
 For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 
 1. Open [Azure Cloud Shell](https://ms.portal.azure.com/#cloudshell/).
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/quickstarts/cloud-shell.png" alt-text="Cloud Shell":::
 1. If you're using Cloud Shell for the first time, you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud Shell session information. This storage account is separate from the account the script will create to use with your Azure Media Services account.
 1. In the drop-down menu on the left side of the Cloud Shell window, select **Bash** as your environment.
 

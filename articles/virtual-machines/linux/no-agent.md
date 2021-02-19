@@ -150,7 +150,7 @@ wireserver_conn.close()
 
 If your VM doesn't have Python installed or available, you can programmatically reproduce this above script logic with the following steps:
 
-1. Retrieve the `ContainerId` and `InstanceId` by parsing the response from the WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://$168.63.129.16/machine?comp=goalstate`.
+1. Retrieve the `ContainerId` and `InstanceId` by parsing the response from the WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate`.
 
 2. Construct the following XML data, injecting the parsed `ContainerId` and `InstanceId` from the above step:
    ```xml
