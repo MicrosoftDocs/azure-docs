@@ -26,6 +26,8 @@ the machine. They don't apply configurations. The exception is one built-in poli
 To audit the state of machines in your environment, including machines in Azure and Arc Connected
 Machines, review the following details.
 
+[Watch a "Getting Started" video (10 minutes)](https://youtu.be/I87bJojsu9E)
+
 ## Resource provider
 
 Before you can use Guest Configuration, you must register the resource provider. The resource
