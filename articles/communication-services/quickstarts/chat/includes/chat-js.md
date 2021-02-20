@@ -15,7 +15,7 @@ ms.author: mikben
 ## Prerequisites
 Before you get started, make sure to:
 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
 - Create *three* ACS Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**. The full demo creates a thread with two initial participants and then adds a third participant to the thread.
@@ -29,7 +29,7 @@ First, open your terminal or command window create a new directory for your app,
 ```console
 mkdir chat-quickstart && cd chat-quickstart
 ```
-   
+
 Run `npm init -y` to create a **package.json** file with default settings.
 
 ```console
@@ -43,7 +43,7 @@ Use the `npm install` command to install the below Communication Services client
 ```console
 npm install @azure/communication-common --save
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 npm install @azure/communication-signaling --save
 
@@ -81,7 +81,7 @@ Create a file in the root directory of your project called **client.js** to cont
 
 ### Create a chat client
 
-To create a chat client in your web app, you'll use the Communications Service **endpoint** and the **access token** that was generated as part of pre-requisite steps. 
+To create a chat client in your web app, you'll use the Communications Service **endpoint** and the **access token** that was generated as part of pre-requisite steps.
 
 User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. This quickstart does not cover creating a service tier to manage tokens for your chat application. See [chat concepts](../../../concepts/chat/concepts.md) for more information about chat architecture, and [user access tokens](../../access-tokens.md) for more information about access tokens.
 
@@ -117,7 +117,7 @@ In the developer tools console within your browser you should see following:
 Azure Communication Chat client created!
 ```
 
-## Object model 
+## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for JavaScript.
 
 | Name                                   | Description                                                                                                                                                                           |
@@ -132,7 +132,7 @@ Use the `createThread` method to create a chat thread.
 
 `createThreadRequest` is used to describe the thread request:
 
-- Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function. 
+- Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
 - Use `participants` to list the participants to be added to the chat thread.
 
 When resolved, `createChatThread` method returns a `CreateChatThreadResponse`. This model contains a `chatThread` property where you can access the `id` of the newly created thread. You can then use the `id` to get an instance of a `ChatThreadClient`. The `ChatThreadClient` can then be used to perform operation within the thread such as sending messages or listing participants.
@@ -198,7 +198,7 @@ Use `sendMessage` method to send a chat message to the thread you just created, 
 
 `sendMessageOptions` describes the optional fields of chat message request:
 
-- Use `priority` to specify the chat message priority level, such as 'Normal' or 'High'; this property can be used to have UI indicator for the recipient user in your app to bring attention to the message or execute custom business logic.   
+- Use `priority` to specify the chat message priority level, such as 'Normal' or 'High'; this property can be used to have UI indicator for the recipient user in your app to bring attention to the message or execute custom business logic.
 - Use `senderDisplayName` to specify the display name of the sender;
 
 The response `sendChatMessageResult` contains an ID, which is the unique ID of that message.
@@ -241,7 +241,7 @@ chatClient.on("chatMessageReceived", (e) => {
 Add this code in place of `<RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>` comment in **client.js**.
 Refresh your browser tab, you should see in the console a message `Notification chatMessageReceived`;
 
-Alternatively you can retrieve chat messages by polling the `listMessages` method at specified intervals. 
+Alternatively you can retrieve chat messages by polling the `listMessages` method at specified intervals.
 
 ```JavaScript
 

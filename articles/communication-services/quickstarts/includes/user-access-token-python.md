@@ -32,7 +32,7 @@ ms.author: tchladek
 
    ```python
    import os
-   from azure.communication.administration import CommunicationIdentityClient
+   from azure.communication.identity import CommunicationIdentityClient
 
    try:
       print('Azure Communication Services - Access Tokens Quickstart')
@@ -44,7 +44,7 @@ ms.author: tchladek
 
 ### Install the package
 
-While still in the application directory, install the Azure Communication Services Administration client library for Python package by using the `pip install` command.
+While still in the application directory, install the Azure Communication Services Identity client library for Python package by using the `pip install` command.
 
 ```console
 pip install azure-communication-identity
@@ -92,7 +92,7 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 To refresh an access token, use the `CommunicationUser` object to reissue:
 
-```python  
+```python
 # Value existingIdentity represents identity of Azure Communication Services stored during identity creation
 identity = CommunicationUser(existingIdentity)
 token_result = client.issue_token( identity, ["voip"])
@@ -102,7 +102,7 @@ token_result = client.issue_token( identity, ["voip"])
 
 In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `revoke_tokens` invalidates all active access tokens, that were issued to the identity.
 
-```python  
+```python
 client.revoke_tokens(identity)
 print("\nSuccessfully revoked all access tokens for identity with ID: " + identity.identifier)
 ```

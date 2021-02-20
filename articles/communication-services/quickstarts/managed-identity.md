@@ -13,9 +13,9 @@ ms.reviewer: mikben
 
 # Use managed identities (.NET)
 
-Get started with Azure Communication Services by using managed identities in .NET. The Communication Services Administration and SMS client libraries support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+Get started with Azure Communication Services by using managed identities in .NET. The Communication Services Identity and SMS client libraries support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This quickstart shows you how to authorize access to the Administration and SMS client libraries from an Azure environment that supports managed identities. It also describes how to test your code in a development environment.
+This quickstart shows you how to authorize access to the Identity and SMS client libraries from an Azure environment that supports managed identities. It also describes how to test your code in a development environment.
 
 ## Prerequisites
 
@@ -78,13 +78,13 @@ The examples below are using the [DefaultAzureCredential](/dotnet/api/azure.iden
 The following code example shows how to create a service client object with Azure Active Directory tokens, then use the client to issue a token for a new user:
 
 ```csharp
-     public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(Uri resourceEdnpoint) 
+     public async Task<Response<CommunicationUserToken>> CreateIdentityAndIssueTokenAsync(Uri resourceEdnpoint)
      {
           TokenCredential credential = new DefaultAzureCredential();
-     
+
           var client = new CommunicationIdentityClient(resourceEndpoint, credential);
           var identityResponse = await client.CreateUserAsync();
-     
+
           var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
 
           return tokenResponse;
@@ -100,7 +100,7 @@ The following code example shows how to create a service client object with Azur
      public async Task SendSmsAsync(Uri resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
      {
           TokenCredential credential = new DefaultAzureCredential();
-     
+
           SmsClient smsClient = new SmsClient(resourceEndpoint, credential);
           smsClient.Send(
                from: from,

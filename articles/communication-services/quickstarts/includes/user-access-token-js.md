@@ -37,7 +37,7 @@ npm init -y
 
 ### Install the package
 
-Use the `npm install` command to install the Azure Communication Services Administration client library for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Identity client library for JavaScript.
 
 ```console
 
@@ -115,7 +115,7 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Refresh access tokens
 
-Refreshing access tokens is as easy as calling `issueToken` with the same identity that was used to issue the tokens. You also need to provide the `scopes` of the refreshed tokens. 
+Refreshing access tokens is as easy as calling `issueToken` with the same identity that was used to issue the tokens. You also need to provide the `scopes` of the refreshed tokens.
 
 ```javascript
 // // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
@@ -127,7 +127,7 @@ let refreshedTokenResponse = await identityClient.issueToken(identityResponse, [
 
 In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `revokeTokens` invalidate all active access tokens, that were issued to the identity.
 
-```javascript  
+```javascript
 await identityClient.revokeTokens(identityResponse);
 console.log(`\nSuccessfully revoked all access tokens for identity with ID: ${identityResponse.communicationUserId}`);
 ```
