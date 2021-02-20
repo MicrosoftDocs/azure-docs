@@ -4,7 +4,7 @@ description: Learn how to create a logic app action to process Azure Monitor ale
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 02/19/2021
 ms.subservice: alerts
 ---
 # How to trigger complex actions with Azure Monitor alerts
@@ -29,29 +29,15 @@ The process is similar if you want the logic app to perform a different action.
 
 ## Create an activity log alert: Administrative
 
-1.  In the Azure portal, select **Create a resource** in the upper-left corner.
+1. [Create a Logic App](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-2.  Search for and select **Logic App**, then select **Create**.
+2.  Select the trigger: **When a HTTP request is received**.
 
-3.  Give your logic app a **Name**, choose a **Resource group**, and so on.
+1. In the dialog for **When an HTTP request is received**, select **Use sample payload to generate schema**.
 
-    ![Create a logic app](media/action-groups-logic-app/create-logic-app-dialog.png "Create a logic app")
+    ![Screenshot that shows the When an H T T P request dialog box and the Use sample payload to generate schema opion selected. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
 
-4.  Select **Create** to create the logic app. A pop-up message indicates that the logic app is created. Select **Launch Resource** to open the **Logic Apps Designer**.
-
-5.  Select the trigger: **When a HTTP request is received**.
-
-    ![Logic app triggers](media/action-groups-logic-app/logic-app-triggers.png "Logic app triggers")
-
-6.  Select **Edit** to change the HTTP request trigger.
-
-    ![HTTP request triggers](media/action-groups-logic-app/http-request-trigger-shape.png "HTTP request triggers")
-
-7.  Select **Use sample payload to generate schema**.
-
-    ![Use a sample payload](media/action-groups-logic-app/use-sample-payload-button.png "Use a sample payload")
-
-8.  Copy and paste the following sample payload into the dialog box:
+3.  Copy and paste the following sample payload into the dialog box:
 
     ```json
         {
@@ -132,8 +118,8 @@ The next time an alert calls your action group, your logic app is called.
 
 Azure Service Health entries are part of the activity log. The process for creating the alert is similar to [creating an activity log alert](#create-an-activity-log-alert-administrative), but with a few changes:
 
-- Steps 1 through 7 are the same.
-- For step 8, use the following sample payload for the HTTP request trigger:
+- Steps 1 through 3 are the same.
+- For step 4, use the following sample payload for the HTTP request trigger:
 
     ```json
     {
@@ -177,8 +163,8 @@ Azure Service Health entries are part of the activity log. The process for creat
     }
     ```
 
--  Steps 9 and 10 are the same.
--  For steps 11 through 14, use the following process:
+-  Steps 5 and 6 are the same.
+-  For steps 7 through 11, use the following process:
 
    1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions so the logic app executes only when the input data matches the values below.  When entering the version value into the text box, put quotes around it ("0.1.1") to make sure that it's evaluated as a string and not a numeric type.  The system does not show the quotes if you return to the page, but the underlying code still maintains the string type.   
        - `schemaId == Microsoft.Insights/activityLogs`
@@ -220,8 +206,8 @@ Azure Service Health entries are part of the activity log. The process for creat
 
 The process for creating a metric alert is similar to [creating an activity log alert](#create-an-activity-log-alert-administrative), but with a few changes:
 
-- Steps 1 through 7 are the same.
-- For step 8, use the following sample payload for the HTTP request trigger:
+- Steps 1 through 3 are the same.
+- For step 4, use the following sample payload for the HTTP request trigger:
 
     ```json
     {
@@ -265,8 +251,8 @@ The process for creating a metric alert is similar to [creating an activity log 
     }
     ```
 
-- Steps 9 and 10 are the same.
-- For steps 11 through 14, use the following process:
+- Steps 5 and 6 are the same.
+- For steps 7 through 11, use the following process:
 
   1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions so the logic app executes only when the input data matches these values below. When entering the version value into the text box, put quotes around it ("2.0") to makes sure that it's evaluated as a string and not a numeric type.  The system does not show the quotes if you return to the page, but the underlying code still maintains the string type. 
      - `schemaId == AzureMonitorMetricAlert`
