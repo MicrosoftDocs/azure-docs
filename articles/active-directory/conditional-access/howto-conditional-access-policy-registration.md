@@ -19,11 +19,11 @@ ms.collection: M365-identity-device-management
 
 Securing when and how users register for Azure AD Multi-Factor Authentication and self-service password reset is possible with user actions in a Conditional Access policy. This feature is available to organizations who have enabled the [combined registration](../authentication/concept-registration-mfa-sspr-combined.md). This functionality allows organizations to treat the registration process like any application in a Conditional Access policy and use the full power of Conditional Access to secure the experience. 
 
-Some organizations in the past may have used trusted network location or device compliance as a means to secure the registration experience. With the addition of [Temporary Access Pass](../authentication/howto-authentication-temporary-access-pass.md) in Azure AD administrators can provision time-limited credentials to their users that allow them to register from any device or location. Temporary Access Pass credentials satisfy Conditional Access requirements for multi-factor authentication.
+Some organizations in the past may have used trusted network location or device compliance as a means to secure the registration experience. With the addition of [Temporary Access Pass](../authentication/howto-authentication-temporary-access-pass.md) in Azure AD, administrators can provision time-limited credentials to their users that allow them to register from any device or location. Temporary Access Pass credentials satisfy Conditional Access requirements for multi-factor authentication.
 
 ## Create a policy to secure registration
 
-The following policy applies to the selected users, who attempt to register using the combined registration experience, and requires them to perform multi-factor authentication or use Temporary Access Pass credentials.
+The following policy applies to the selected users, who attempt to register using the combined registration experience. The policy requires users to perform multi-factor authentication or use Temporary Access Pass credentials.
 
 1. In the **Azure portal**, browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
@@ -49,7 +49,7 @@ The following policy applies to the selected users, who attempt to register usin
 1. Set **Enable policy** to **On**.
 1. Then select **Create**.
 
-Administrators will now have to issue Temporary Access Pass credentials to new users so they can satisfy the requirements for multi-factor authentication to register. Steps to accomplish this are found in the section [Create a TAP in the Azure AD Portal](../authentication/howto-authentication-temporary-access-pass.md#create-a-tap-in-the-azure-ad-portal).
+Administrators will now have to issue Temporary Access Pass credentials to new users so they can satisfy the requirements for multi-factor authentication to register. Steps to accomplish this task, are found in the section [Create a TAP in the Azure AD Portal](../authentication/howto-authentication-temporary-access-pass.md#create-a-tap-in-the-azure-ad-portal).
 
 ### Guest users
 
