@@ -1,15 +1,16 @@
 ---
 title: Tutorial - add variable to template
-description: Add variables to your Azure Resource Manager template to simplify the syntax.
+description: Add variables to your Azure Resource Manager template (ARM template) to simplify the syntax.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
+ms.custom:
 ---
 
 # Tutorial: Add variables to your ARM template
 
-In this tutorial, you learn how to add a variable to your Azure Resource Manager (ARM) template. Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to add a variable to your Azure Resource Manager template (ARM template). Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
@@ -31,17 +32,17 @@ The following example highlights the changes to add a variable to your template 
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
-Notice that it includes a variable named **uniqueStorageName**. This variable uses four functions to construct a string value.
+Notice that it includes a variable named `uniqueStorageName`. This variable uses four functions to construct a string value.
 
 You're already familiar with the [parameters](template-functions-deployment.md#parameters) function, so we won't examine it.
 
-You're also familiar with the [resourceGroup](template-functions-resource.md#resourcegroup) function. In this case, you get the **id** property instead of the **location** property, as shown in the previous tutorial. The **id** property returns the full identifier of the resource group, including the subscription ID and resource group name.
+You're also familiar with the [resourceGroup](template-functions-resource.md#resourcegroup) function. In this case, you get the `id` property instead of the `location` property, as shown in the previous tutorial. The `id` property returns the full identifier of the resource group, including the subscription ID and resource group name.
 
 The [uniqueString](template-functions-string.md#uniquestring) function creates a 13 character hash value. The returned value is determined by the parameters you pass in. For this tutorial, you use the resource group ID as the input for the hash value. That means you could deploy this template to different resource groups and get a different unique string value. However, you get the same value if you deploy to the same resource group.
 
-The [concat](template-functions-string.md#concat) function takes values and combines them. For this variable, it takes the string from the parameter and the string from the uniqueString function, and combines them into one string.
+The [concat](template-functions-string.md#concat) function takes values and combines them. For this variable, it takes the string from the parameter and the string from the `uniqueString` function, and combines them into one string.
 
-The **storagePrefix** parameter enables you to pass in a prefix that helps you identify storage accounts. You can create your own naming convention that makes it easier to identify storage accounts after deployment from a long list of resources.
+The `storagePrefix` parameter enables you to pass in a prefix that helps you identify storage accounts. You can create your own naming convention that makes it easier to identify storage accounts after deployment from a long list of resources.
 
 Finally, notice that the storage name is now set to the variable instead of a parameter.
 
@@ -49,7 +50,7 @@ Finally, notice that the storage name is now set to the variable instead of a pa
 
 Let's deploy the template. Deploying this template is easier than the previous templates because you provide just the prefix for the storage name.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -77,7 +78,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
+> If the deployment failed, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
 
 ## Verify deployment
 

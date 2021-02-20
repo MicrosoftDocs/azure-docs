@@ -15,13 +15,13 @@ Have questions about the [user behavior analytics tools in Application Insights]
 ## Counting Users
 **The user behavior analytics tools show that my app has one user/session, but I know my app has many users/sessions. How can I fix these incorrect counts?**
 
-All telemetry events in Application Insights have an [anonymous user ID](../../azure-monitor/app/data-model-context.md) and a [session ID](../../azure-monitor/app/data-model-context.md) as two of their standard properties. By default, all of the usage analytics tools count users and sessions based on these IDs. If these standard properties aren't being populated with unique IDs for each user and session of your app, you'll see an incorrect count of users and sessions in the usage analytics tools.
+All telemetry events in Application Insights have an [anonymous user ID](./data-model-context.md) and a [session ID](./data-model-context.md) as two of their standard properties. By default, all of the usage analytics tools count users and sessions based on these IDs. If these standard properties aren't being populated with unique IDs for each user and session of your app, you'll see an incorrect count of users and sessions in the usage analytics tools.
 
-If you're monitoring a web app, the easiest solution is to add the [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md) to your app, and make sure the script snippet is loaded on each page you want to monitor. The JavaScript SDK automatically generates anonymous user and session IDs, then populates telemetry events with these IDs as they're sent from your app.
+If you're monitoring a web app, the easiest solution is to add the [Application Insights JavaScript SDK](./javascript.md) to your app, and make sure the script snippet is loaded on each page you want to monitor. The JavaScript SDK automatically generates anonymous user and session IDs, then populates telemetry events with these IDs as they're sent from your app.
 
 If you're monitoring a web service (no user interface), [create a telemetry initializer that populates the anonymous user ID and session ID properties](usage-send-user-context.md) according to your service's notions of unique users and sessions.
 
-If your app is sending [authenticated user IDs](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), you can count based on authenticated user IDs in the Users tool. In the "Show" dropdown, choose "Authenticated users."
+If your app is sending [authenticated user IDs](./api-custom-events-metrics.md#authenticated-users), you can count based on authenticated user IDs in the Users tool. In the "Show" dropdown, choose "Authenticated users."
 
 The user behavior analytics tools don't currently support counting users or sessions based on properties other than anonymous user ID, authenticated user ID, or session ID.
 

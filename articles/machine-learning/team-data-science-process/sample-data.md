@@ -20,9 +20,8 @@ The following articles describe how to sample data that is stored in one of thre
 * [**SQL Server data**](sample-data-sql-server.md) is sampled using both SQL and the Python Programming Language. 
 * [**Hive table data**](sample-data-hive.md) is sampled using Hive queries.
 
-This sampling task is a step in the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+This sampling task is a step in the [Team Data Science Process (TDSP)](./index.yml).
 
 **Why sample data?**
 
 If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. Downsizing may facilitate data understanding, exploration, and feature engineering. This sampling role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
-

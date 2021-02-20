@@ -16,23 +16,25 @@ You will need to perform the following steps before you scan and apply the updat
    
     **Sample output for Test-Connection when fixed IPs can connect to the Internet**
 
-        Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
+    ```output
+    Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
 
-        Source      Destination     IPV4Address      IPV6Address
-        ----------------- -----------  -----------
-        HCSNODE0  bing.com        204.79.197.200
-        HCSNODE0  bing.com        204.79.197.200
-        HCSNODE0  bing.com        204.79.197.200
-        HCSNODE0  bing.com        204.79.197.200
+    Source      Destination     IPV4Address      IPV6Address
+    ----------------- -----------  -----------
+    HCSNODE0  bing.com        204.79.197.200
+    HCSNODE0  bing.com        204.79.197.200
+    HCSNODE0  bing.com        204.79.197.200
+    HCSNODE0  bing.com        204.79.197.200
 
-        Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
+    Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
 
-        Source      Destination       IPV4Address    IPV6Address
-        ----------------- -----------  -----------
-        HCSNODE0  204.79.197.200  204.79.197.200
-        HCSNODE0  204.79.197.200  204.79.197.200
-        HCSNODE0  204.79.197.200  204.79.197.200
-        HCSNODE0  204.79.197.200  204.79.197.200
+    Source      Destination       IPV4Address    IPV6Address
+    ----------------- -----------  -----------
+    HCSNODE0  204.79.197.200  204.79.197.200
+    HCSNODE0  204.79.197.200  204.79.197.200
+    HCSNODE0  204.79.197.200  204.79.197.200
+    HCSNODE0  204.79.197.200  204.79.197.200
+    ```
 
 After you have successfully completed these manual pre-checks, you can proceed to scan and install the updates.
 

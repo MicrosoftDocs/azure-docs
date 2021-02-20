@@ -1,13 +1,13 @@
 ---
 title: Create, change, or delete an Azure route table
 titlesuffix: Azure Virtual Network
-description: Learn how to create, change, or delete a route table.
+description: Learn where to find information about virtual network traffic routing, and how to create, change, or delete a route table.
 services: virtual-network
 documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
@@ -80,7 +80,7 @@ Go to the [Azure portal](https://portal.azure.com) to manage your virtual networ
 
 To learn more about common Azure settings, see the following information:
 
-- [Activity log](../azure-monitor/platform/platform-logs-overview.md)
+- [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
 - [Access control (IAM)](../role-based-access-control/overview.md)
 - [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -343,4 +343,4 @@ To do tasks on route tables and routes, your account must be assigned to the [Ne
 ## Next steps
 
 - Create a route table using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or Azure [Resource Manager templates](template-samples.md)
-- Create and assign [Azure Policy definitions](policy-samples.md) for virtual networks
+- Create and assign [Azure Policy definitions](./policy-reference.md) for virtual networks

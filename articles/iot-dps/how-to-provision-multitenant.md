@@ -12,7 +12,7 @@ services: iot-dps
 
 # How to provision for multitenancy 
 
-The allocation policies defined by the provisioning service support a variety of allocation scenarios. Two common scenarios are:
+This article demonstrates how to securely provision multiple symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). Allocation policies defined by the provisioning service support a variety of allocation scenarios. Two common scenarios are:
 
 * **Geolocation / GeoLatency**: As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs. 
 
@@ -34,11 +34,8 @@ This article uses a simulated device sample from the [Azure IoT C SDK](https://g
 
 ## Prerequisites
 
-* Completion of the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart.
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- Completion of the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create two regional IoT hubs
 
@@ -79,7 +76,7 @@ In this section, you will use the Azure Cloud Shell to create two new regional I
 
 In this section, you will create a new enrollment group for the tenant devices.  
 
-For simplicity, this article uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-security.md#x509-certificates) with a chain of trust.
+For simplicity, this article uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and open your Device Provisioning Service instance.
 

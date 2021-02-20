@@ -32,7 +32,7 @@ You learn how to:
 Before you start:
 
 - Make sure that you understand the [scenario architecture and components](vmware-azure-architecture.md).
-- Review the [support requirements](site-recovery-support-matrix-to-azure.md) for all components.
+- Review the [support requirements](./vmware-physical-azure-support-matrix.md) for all components.
 - You have the Azure PowerShell `Az`  module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## Log into Azure
@@ -493,4 +493,4 @@ In this step, we fail over the virtual machine Win2K12VM1 to a specific recovery
 2. Once failed over successfully, you can commit the failover operation, and set up reverse replication from Azure back to the on-premises VMware site.
 
 ## Next steps
-Learn how to automate more tasks using the [Azure Site Recovery PowerShell reference](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).
+Learn how to automate more tasks using the [Azure Site Recovery PowerShell reference](/powershell/module/Az.RecoveryServices).

@@ -1,13 +1,14 @@
 ---
-title: Set up Azure Key Vault for Linux VMs 
-description: How to set up Key Vault for use with an Azure Resource Manager virtual machine with the Azure CLI.
+title: Set up Azure Key Vault using CLI 
+description: How to set up Key Vault for virtual machine using the Azure CLI.
 author: mimckitt
 manager: vashan
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/24/2017
-ms.author: mimckitt
+ms.author: mimckitt 
+ms.custom: devx-track-azurecli
 
 ---
 # How to set up Key Vault for virtual machines with the Azure CLI

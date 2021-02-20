@@ -45,7 +45,7 @@ Let's look at a complete example using Initializer CodePackages.
 > [!IMPORTANT]
 > The following example assumes familiarity with creating [Windows container applications using Service Fabric and Docker][containers-getting-started-link].
 >
-> This example references mcr.microsoft.com/windows/nanoserver:1809. Windows Server containers are not compatible across all versions of a host OS. To learn more, see [Windows Container Version Compatibility](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+> This example references mcr.microsoft.com/windows/nanoserver:1809. Windows Server containers are not compatible across all versions of a host OS. To learn more, see [Windows Container Version Compatibility](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
 The following ServiceManifest.xml builds upon the ServiceManifest snippet described earlier. *InitCodePackage0*, *InitCodePackage1* and *WorkloadCodePackage* are CodePackages which represent containers. Upon activation, *InitCodePackage0* is executed first. It logs a message to a file and exits. Next, *InitCodePackage1* is executed which also logs a message to a file and exits. Finally, the *WorkloadCodePackage* begins execution. It also logs a message to a file, outputs the contents of the file to **stdout** and then pings forever.
 
@@ -146,4 +146,3 @@ See the following articles for related information.
 [application-model-link]: service-fabric-application-model.md
 [hosting-model-link]: service-fabric-hosting-model.md
 [setup-entry-point-link]: service-fabric-run-script-at-service-startup.md
-

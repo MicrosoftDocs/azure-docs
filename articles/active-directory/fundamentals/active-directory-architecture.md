@@ -2,7 +2,7 @@
 title: Architecture overview - Azure Active Directory | Microsoft Docs
 description: Learn what an Azure Active Directory tenant is and how to manage Azure using Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
@@ -119,4 +119,4 @@ Using operational controls such as multi-factor authentication (MFA) for any ope
 
 ## Next steps
 
-[Azure Active Directory developer's guide](https://docs.microsoft.com/azure/active-directory/develop)
+[Azure Active Directory developer's guide](../develop/index.yml)

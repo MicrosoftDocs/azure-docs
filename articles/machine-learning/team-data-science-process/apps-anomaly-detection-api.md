@@ -19,7 +19,7 @@ ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 > This item is under maintenance. We encourage you to use the [Anomaly Detector API service](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) powered by a gallery of Machine Learning algorithms under Azure Cognitive Services to detect anomalies from business, operational, and IoT metrics.
 
 ## Overview
-[Anomaly Detection API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.
+[Anomaly Detection API](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2) is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.
 
 This API can detect the following types of anomalous patterns in time series data:
 
@@ -34,20 +34,20 @@ The Anomaly Detection offering comes with useful tools to get you started.
 * The [web application](https://anomalydetection-aml.azurewebsites.net/) helps you evaluate and visualize the results of anomaly detection APIs on your data.
 
 > [!NOTE]
-> Try **IT Anomaly Insights solution** powered by [this API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
+> Try **IT Anomaly Insights solution** powered by [this API](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2)
 >
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
 -->
 
 ## API Deployment
-In order to use the API, you must deploy it to your Azure subscription where it will be hosted as an Azure Machine Learning web service.  You can do this from the [Azure AI Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  This will deploy two Azure Machine Learning Studio (classic) Web Services (and their related resources) to your Azure subscription - one for anomaly detection with seasonality detection, and one without seasonality detection.  Once the deployment has completed, you will be able to manage your APIs from the [Azure Machine Learning Studio (classic) web services](https://services.azureml.net/webservices/) page.  From this page, you will be able to find your endpoint locations, API keys, as well as sample code for calling the API.  More detailed instructions are available [here](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+In order to use the API, you must deploy it to your Azure subscription where it will be hosted as an Azure Machine Learning web service.  You can do this from the [Azure AI Gallery](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).  This will deploy two Azure Machine Learning Studio (classic) Web Services (and their related resources) to your Azure subscription - one for anomaly detection with seasonality detection, and one without seasonality detection.  Once the deployment has completed, you will be able to manage your APIs from the [Azure Machine Learning Studio (classic) web services](https://services.azureml.net/webservices/) page.  From this page, you will be able to find your endpoint locations, API keys, as well as sample code for calling the API.  More detailed instructions are available [here](../classic/manage-new-webservice.md).
 
 ## Scaling the API
 By default, your deployment will have a free Dev/Test billing plan that includes 1,000 transactions/month and 2 compute hours/month.  You can upgrade to another plan as per your needs.  Details on the pricing of different plans are available [here](https://azure.microsoft.com/pricing/details/machine-learning/) under "Production Web API pricing".
 
 ## Managing AML Plans
-You can manage your billing plan [here](https://services.azureml.net/plans/).  The plan name will be based on the resource group name you chose when deploying the API, plus a string that is unique to your subscription.  Instructions on how to upgrade your plan are available [here](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) under the "Managing billing plans" section.
+You can manage your billing plan [here](https://services.azureml.net/plans/).  The plan name will be based on the resource group name you chose when deploying the API, plus a string that is unique to your subscription.  Instructions on how to upgrade your plan are available [here](../classic/manage-new-webservice.md) under the "Managing billing plans" section.
 
 ## API Definition
 The web service provides a REST-based API over HTTPS that can be consumed in different ways including a web or mobile application, R, Python, Excel, etc.  You send your time series data to this service via a REST API call, and it runs a combination of the three anomaly types described below.
@@ -58,44 +58,48 @@ In order to call the API, you will need to know the endpoint location and API ke
 ### Sample Request Body
 The request contains two objects: `Inputs` and `GlobalParameters`.  In the example request below, some parameters are sent explicitly while others are not (scroll down for a full list of parameters for each endpoint).  Parameters that are not sent explicitly in the request will use the default values given below.
 
-	{
-                "Inputs": {
-                        "input1": {
-                                "ColumnNames": ["Time", "Data"],
-                                "Values": [
-                                        ["5/30/2010 18:07:00", "1"],
-                                        ["5/30/2010 18:08:00", "1.4"],
-                                        ["5/30/2010 18:09:00", "1.1"]
-                                ]
-                        }
-                },
-		"GlobalParameters": {
-			"tspikedetector.sensitivity": "3",
-			"zspikedetector.sensitivity": "3",
-			"bileveldetector.sensitivity": "3.25",
-			"detectors.spikesdips": "Both"
-		}
+```json
+{
+            "Inputs": {
+                    "input1": {
+                            "ColumnNames": ["Time", "Data"],
+                            "Values": [
+                                    ["5/30/2010 18:07:00", "1"],
+                                    ["5/30/2010 18:08:00", "1.4"],
+                                    ["5/30/2010 18:09:00", "1.1"]
+                            ]
+                    }
+            },
+	"GlobalParameters": {
+		"tspikedetector.sensitivity": "3",
+		"zspikedetector.sensitivity": "3",
+		"bileveldetector.sensitivity": "3.25",
+		"detectors.spikesdips": "Both"
 	}
+}
+```
 
 ### Sample Response
 In order to see the `ColumnNames` field, you must include `details=true` as a URL parameter in your request.  See the tables below for the meaning behind each of these fields.
 
-	{
-		"Results": {
-			"output1": {
-				"type": "table",
-				"value": {
-					"Values": [
-						["5/30/2010 6:07:00 PM", "1", "1", "0", "0", "-0.687952590518378", "0", "-0.687952590518378", "0", "-0.687952590518378", "0"],
-						["5/30/2010 6:08:00 PM", "1.4", "1.4", "0", "0", "-1.07030497733224", "0", "-0.884548154298423", "0", "-1.07030497733224", "0"],
-						["5/30/2010 6:09:00 PM", "1.1", "1.1", "0", "0", "-1.30229513613974", "0", "-1.173800281031", "0", "-1.30229513613974", "0"]
-					],
-					"ColumnNames": ["Time", "OriginalData", "ProcessedData", "TSpike", "ZSpike", "BiLevelChangeScore", "BiLevelChangeAlert", "PosTrendScore", "PosTrendAlert", "NegTrendScore", "NegTrendAlert"],
-					"ColumnTypes": ["DateTime", "Double", "Double", "Double", "Double", "Double", "Int32", "Double", "Int32", "Double", "Int32"]
-				}
+```json
+{
+	"Results": {
+		"output1": {
+			"type": "table",
+			"value": {
+				"Values": [
+					["5/30/2010 6:07:00 PM", "1", "1", "0", "0", "-0.687952590518378", "0", "-0.687952590518378", "0", "-0.687952590518378", "0"],
+					["5/30/2010 6:08:00 PM", "1.4", "1.4", "0", "0", "-1.07030497733224", "0", "-0.884548154298423", "0", "-1.07030497733224", "0"],
+					["5/30/2010 6:09:00 PM", "1.1", "1.1", "0", "0", "-1.30229513613974", "0", "-1.173800281031", "0", "-1.30229513613974", "0"]
+				],
+				"ColumnNames": ["Time", "OriginalData", "ProcessedData", "TSpike", "ZSpike", "BiLevelChangeScore", "BiLevelChangeAlert", "PosTrendScore", "PosTrendAlert", "NegTrendScore", "NegTrendAlert"],
+				"ColumnTypes": ["DateTime", "Double", "Double", "Double", "Double", "Double", "Int32", "Double", "Int32", "Double", "Int32"]
 			}
 		}
 	}
+}
+```
 
 
 ## Score API
@@ -188,4 +192,3 @@ The API runs all detectors on your time series data and returns anomaly scores a
 
 [1]: ./media/apps-anomaly-detection-api/anomaly-detection-score.png
 [2]: ./media/apps-anomaly-detection-api/anomaly-detection-seasonal.png
-

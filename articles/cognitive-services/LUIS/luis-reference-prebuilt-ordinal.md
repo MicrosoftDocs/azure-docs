@@ -3,14 +3,14 @@ title: Ordinal Prebuilt entity - LUIS
 titleSuffix: Azure Cognitive Services
 description: This article contains ordinal prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/14/2019
-ms.author: diberry
+
 ---
 
 # Ordinal prebuilt entity for a LUIS app

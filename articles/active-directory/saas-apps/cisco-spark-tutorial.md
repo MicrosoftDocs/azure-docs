@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with Cisco Webex | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Cisco Webex.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory Single sign-on (SSO) integration with Cisco Webex
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate Cisco Webex with Azure Active Di
 * Enable your users to be automatically signed-in to Cisco Webex with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -42,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Cisco Webex supports **SP** initiated SSO.
 * Cisco Webex supports **Automated** user provisioning.
-* Once you configure Cisco Webex you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure Cisco Webex you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Cisco Webex from the gallery
 
@@ -152,13 +146,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Select **Settings** and under the **Authentication** section, click **Modify**.
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
+    ![Screenshot shows Authentication Settings where you can select Modify.](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 5. Select **Integrate a 3rd-party identity provider. (Advanced)** and go to the next screen.
 
 6. On the **Import Idp Metadata** page, either drag and drop the Azure AD metadata file onto the page or use the file browser option to locate and upload the Azure AD metadata file. Then, select **Require certificate signed by a certificate authority in Metadata (more secure)** and click **Next**.
 
-	![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
+	![Screenshot shows Import I d P Metadata page.](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 7. Select **Test SSO Connection**, and when a new browser tab opens, authenticate with Azure AD by signing in.
 
@@ -172,13 +166,13 @@ In this section, you create a user called B.Simon in Cisco Webex. In this sectio
 
 2. Click **Users** and then **Manage Users**.
    
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
+    ![Screenshot shows the Users page where you can Manage Users.](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. In the **Manage User** window, select **Manually add or modify users** and click **Next**.
 
 4. Select **Names and Email address**. Then, fill out the textbox as follows:
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
+    ![Screenshot shows the Mange Users dialog box where you can manually add or modify users.](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
 	a. In the **First Name** textbox, type first name of user like **B**.
 
@@ -192,18 +186,18 @@ In this section, you create a user called B.Simon in Cisco Webex. In this sectio
 
 ## Test SSO
 
-When you select the Cisco Webex tile in the Access Panel, you should be automatically signed in to the Cisco Webex for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Cisco Webex tile in the Access Panel, you should be automatically signed in to the Cisco Webex for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Cisco Webex with Azure AD](https://aad.portal.azure.com)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect Cisco Webex with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/protect-webex)
+- [How to protect Cisco Webex with advanced visibility and controls](/cloud-app-security/protect-webex)

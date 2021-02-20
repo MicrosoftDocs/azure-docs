@@ -2,10 +2,10 @@
 title: SRE event list | Microsoft Docs
 description: Participate in the global SRE community by attending these events.
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 09/14/2020
 ms.author: dnb
 
 ---

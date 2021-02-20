@@ -3,9 +3,8 @@ title: High availability and load balancing - Azure AD Application Proxy
 description: How traffic distribution works with your Application Proxy deployment. Includes tips for how to optimize connector performance and use load balancing for back-end servers.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -35,7 +34,7 @@ Connectors establish their connections based on principles for high availability
 
 1. A user on a client device tries to access an on-premises application published through Application Proxy.
 2. The request goes through an Azure Load Balancer to determine which Application Proxy service instance should take the request. Per region, there are tens of instances available to accept the request. This method helps to evenly distribute the traffic across the service instances.
-3. The request is sent to [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/).
+3. The request is sent to [Service Bus](../../service-bus-messaging/index.yml).
 4. Service Bus signals to an available connector. The connector then picks up the request from Service Bus.
    - In step 2, requests go to different Application Proxy service instances, so connections are more likely to be made with different connectors. As a result, connectors are almost evenly used within the group.
 5. The connector passes the request to the application’s back-end server. Then the application sends the response back to the connector.
@@ -95,4 +94,4 @@ Refer to your software vendor's documentation to understand the load-balancing r
 - [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Enable Conditional Access](application-proxy-integrate-with-sharepoint-server.md)
 - [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)
-- [Learn how Azure AD architecture supports high availability](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
+- [Learn how Azure AD architecture supports high availability](../fundamentals/active-directory-architecture.md)

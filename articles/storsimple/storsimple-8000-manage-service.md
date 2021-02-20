@@ -1,6 +1,6 @@
 ---
 title: Deploy the StorSimple Device Manager service in Azure | Microsoft Docs
-description: Explains how to create and delete the StorSimple Device Manager service in the Azure portal, and describes how to manage the service registration key.
+description: Learn about the steps required for the creation, deletion, migration of the service and the management of the service registration key.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -101,7 +101,7 @@ Perform the following steps to regenerate a service registration key.
 ### To regenerate the service registration key
 1. In the **StorSimple Device Manager** blade, go to **Management &gt;** **Keys**.
     
-    ![Keys blade](./media/storsimple-8000-manage-service/regenregkey2.png)
+    ![Go to Keys blade](./media/storsimple-8000-manage-service/regenregkey2.png)
 
 2. In the **Keys** blade, click **Regenerate**.
 

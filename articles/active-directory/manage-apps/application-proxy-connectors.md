@@ -1,15 +1,15 @@
 ---
 title: Understand Azure AD Application Proxy connectors | Microsoft Docs
-description: Covers the basics about Azure AD Application Proxy connectors.
+description: Learn about the Azure AD Application Proxy connectors.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ---
@@ -20,7 +20,7 @@ Connectors are what make Azure AD Application Proxy possible. They're simple, ea
 
 ## What is an Application Proxy connector?
 
-Connectors are lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. Connectors must be installed on a Windows Server that has access to the backend application. You can organize connectors into connector groups, with each group handling traffic to specific applications.
+Connectors are lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. Connectors must be installed on a Windows Server that has access to the backend application. You can organize connectors into connector groups, with each group handling traffic to specific applications. For more infromation on Application proxy and a diagrammatic representation of application proxy architecture see [Using Azure AD Application Proxy to publish on-premises apps for remote users](what-is-application-proxy.md#application-proxy-connectors)
 
 ## Requirements and deployment
 
@@ -32,7 +32,7 @@ You need a server running Windows Server 2012 R2 or later on which you can insta
 The windows server needs to have TLS 1.2 enabled before you install the Application Proxy connector. To enable TLS 1.2 on the server:
 
 1. Set the following registry keys:
-	
+
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
@@ -99,7 +99,7 @@ In general, the more users you have, the larger a machine you'll need. Below is 
 > [!NOTE]
 > There is not much difference in the maximum TPS between 4, 8, and 16 core machines. The main difference between those is in the expected latency.
 >
-> This table also focuses on the expected performance of a connector based on the type of machine it is installed on. This is separate from the Application Proxy service's throttling limits, see [Service limits and restrictions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+> This table also focuses on the expected performance of a connector based on the type of machine it is installed on. This is separate from the Application Proxy service's throttling limits, see [Service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
 
 ## Security and networking
 
@@ -150,14 +150,17 @@ The certificates used are specific to the Application Proxy service. They get cr
 
 After the first successful certificate renewal the Azure AD Application Proxy Connector service (Network Service) has no permission to remove the old certificate from the local machine store. If the certificate has expired or it won't be used by the service anymore, you can delete it safely.
 
-To avoid problems with the certificate renewal, ensure that the network communication from the connector towards the [documented destinations](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) is enabled.
+To avoid problems with the certificate renewal, ensure that the network communication from the connector towards the [documented destinations](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) is enabled.
 
 If a connector is not connected to the service for several months, its certificates may be outdated. In this case, uninstall and reinstall the connector to trigger registration. You can run the following PowerShell commands:
 
 ```
 Import-module AppProxyPSModule
-Register-AppProxyConnector
+Register-AppProxyConnector -EnvironmentName "AzureCloud"
 ```
+
+For government, use `-EnvironmentName "AzureUSGovernment"`. For more details, see [Install Agent for the Azure Government Cloud](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
+
 To learn more about how to verify the certificate and troubleshoot problems see [Verify Machine and backend components support for Application Proxy trust certificate](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
 
 ## Under the hood
@@ -170,9 +173,9 @@ and Windows performance counters.
 
 ![Add counters to the connector with the Performance Monitor](./media/application-proxy-connectors/performance-monitor.png)
 
-The connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details.
+The connectors have both **Admin** and **Session** logs. The **Admin** log includes key events and their errors. The **Session** log includes all the transactions and their processing details.
 
-To see the logs, go to the Event Viewer, open the **View** menu, and enable **Show analytic and debug logs**. Then, enable them to start collecting events. These logs do not appear in Web Application Proxy in Windows Server 2012 R2, as the connectors are based on a more recent version.
+To see the logs, open **Event Viewer** and go to **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector**. To make the **Session** log visible, on the **View** menu, select **Show Analytic and Debug Logs**. The **Session** log is typically used for troubleshooting, and it's disabled by default. Enable it to start collecting events and disable it when it's no longer needed.
 
 You can examine the state of the service in the Services window. The connector is made up of two Windows Services: the actual connector, and the updater. Both of them must run all the time.
 

@@ -1,16 +1,12 @@
 ---
 title: Copy and transform data in Azure Cosmos DB (SQL API)
 description: Learn how to copy data to and from Azure Cosmos DB (SQL API), and transform data in Azure Cosmos DB (SQL API) by using Data Factory.
-services: data-factory, cosmosdb
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-ms.service: multiple
-ms.workload: data-services
+ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/11/2019
+ms.date: 01/29/2021
 ---
 
 # Copy and transform data in Azure Cosmos DB (SQL API) by using Azure Data Factory
@@ -38,7 +34,7 @@ This Azure Cosmos DB (SQL API) connector is supported for the following activiti
 
 For Copy activity, this Azure Cosmos DB (SQL API) connector supports:
 
-- Copy data from and to the Azure Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Copy data from and to the Azure Cosmos DB [SQL API](../cosmos-db/introduction.md).
 - Write to Azure Cosmos DB as **insert** or **upsert**.
 - Import and export JSON documents as-is, or copy data from or to a tabular dataset. Examples include a SQL database and a CSV file. To copy documents as-is to or from JSON files or to or from another Azure Cosmos DB collection, see [Import and export JSON documents](#import-and-export-json-documents).
 
@@ -155,6 +151,7 @@ The following properties are supported in the Copy Activity **source** section:
 | query |Specify the Azure Cosmos DB query to read data.<br/><br/>Example:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>If not specified, this SQL statement is executed: `select <columns defined in structure> from mycollection` |
 | preferredRegions | The preferred list of regions to connect to when retrieving data from Cosmos DB. | No |
 | pageSize | The number of documents per page of the query result. Default is "-1" which means uses the service side dynamic page size up to 1000. | No |
+| detectDatetime | Whether to detect datetime from the string values in the documents. Allowed values are: **true** (default), **false**. | No |
 
 If you use "DocumentDbCollectionSource" type source, it is still supported as-is for backward compatibility. You are suggested to use the new model going forward which provide richer capabilities to copy data from Cosmos DB.
 
@@ -199,7 +196,7 @@ When copy data from Cosmos DB, unless you want to [export JSON documents as-is](
 
 To copy data to Azure Cosmos DB (SQL API), set the **sink** type in Copy Activity to **DocumentDbCollectionSink**. 
 
-The following properties are supported in the Copy Activity **source** section:
+The following properties are supported in the Copy Activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -290,13 +287,16 @@ Settings specific to Azure Cosmos DB are available in the **Settings** tab of th
 * None: No action will be done to the collection.
 * Recreate: The collection will get dropped and recreated
 
-**Batch size**: Controls how many rows are being written in each bucket. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data.
+**Batch size**: An integer that represents how many objects are being written to Cosmos DB collection in each batch. Usually, starting with the default batch size is sufficient. To further tune this value, note:
 
-**Partition Key:** Enter a string that represents the partition key for your collection. Example: ```/movies/title```
+- Cosmos DB limits single request's size to 2MB. The formula is "Request Size = Single Document Size * Batch Size". If you hit error saying "Request size is too large", reduce the batch size value.
+- The larger the batch size, the better throughput ADF can achieve, while make sure you allocate enough RUs to empower your workload.
+
+**Partition key:** Enter a string that represents the partition key for your collection. Example: ```/movies/title```
 
 **Throughput:** Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow. Minimum is 400.
 
-**Write throughput budget:** An integer that represents the number of RUs you want to allocate to the bulk ingestion Spark job. This number is out of the total throughput allocated to the collection.
+**Write throughput budget:** An integer that represents the RUs you want to allocate for this Data Flow write operation, out of the total throughput allocated to the collection.
 
 ## Lookup activity properties
 

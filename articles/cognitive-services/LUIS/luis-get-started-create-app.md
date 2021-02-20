@@ -1,8 +1,10 @@
 ---
 title: "Quickstart: create app - LUIS"
 description:  This quickstart shows how to create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 10/13/2020
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query.
 ---
 
@@ -17,37 +19,50 @@ In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomat
 ## Create a new app
 You can create and manage your applications on **My Apps**.
 
-1. On the My apps list, select **+ New app for conversation**.
+### Create an application
 
-1. In the dialog box, name your application `Home Automation`. Select **English** as the culture. The description is optional and isn't used for authoring or prediction. The prediction resource is also optional when creating a LUIS app. Select **Done**.
+To create an application, click  **+ New app**. 
 
-    LUIS creates the app. When you publish your app to production, you should assign a prediction resource so your app can handle many requests.
+In the window that appears, enter the following information:
 
-    ![In the dialog box, name your application `Home Automation`](./media/create-new-app-details.png)
+|Name  |Description  |
+|---------|---------|
+|AName     | A name for the your app. For example "home automation".        |
+|Culture     | The language that your app understands and speaks.   |
+|Description | A description for your app.
+|Prediction resource | The prediction resource that will receive queries. |
 
-    >[!NOTE]
-    >The culture cannot be changed once the application is created.
+Select **Done**.
+
+>[!NOTE]
+>The culture cannot be changed once the application is created.
 
 ## Add prebuilt domain
 
-Select **Prebuilt domains** then search for **HomeAutomation**. Select **Add domain** on the HomeAutomation card.
+1. In the left navigation, select **Prebuilt domains**.
+1. Search for **HomeAutomation**.
+1. Select **Add domain** on the HomeAutomation card.
 
-![Select 'Prebuilt domains' then search for 'HomeAutomation'. Select 'Add domain' on the HomeAutomation card.](media/luis-quickstart-new-app/home-automation.png)
+    > [!div class="mx-imgBorder"]
+    > ![Select 'Prebuilt domains' then search for 'HomeAutomation'. Select 'Add domain' on the HomeAutomation card.](media/luis-quickstart-new-app/home-automation.png)
 
-When the domain is successfully added, the prebuilt domain box displays a **Remove domain** button.
+    When the domain is successfully added, the prebuilt domain box displays a **Remove domain** button.
 
 ## Intents and entities
 
-Select **Intents** to review the HomeAutomation domain intents. The prebuilt domain intents have sample utterances.
+1. Select **Intents** in the left navigation menu to see the HomeAutomation domain intents. It has example utterances, such as `HomeAutomation.QueryState` and     `HomeAutomation.SetDevice`.
 
-![Screenshot of HomeAutomation intents list](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot of HomeAutomation intents list")
+    > [!NOTE]
+    > **None** is an intent provided by all LUIS apps. You use it to handle utterances that don't correspond to functionality your app provides.
 
-> [!NOTE]
-> **None** is an intent provided by all LUIS apps. You use it to handle utterances that don't correspond to functionality your app provides.
+1. Select the **HomeAutomation.TurnOff** intent. The intent contains a list of example utterances that are labeled with entities.
 
-Select the **HomeAutomation.TurnOff** intent. You can see that the intent contains a list of utterances that are labeled with entities.
+    > [!div class="mx-imgBorder"]
+    > [![Screenshot of HomeAutomation.TurnOff intent](media/luis-quickstart-new-app/home-automation-turnoff.png "Screenshot of HomeAutomation.TurnOff intent")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
-[![Screenshot of HomeAutomation.TurnOff intent](media/luis-quickstart-new-app/home-automation-turnoff.png "Screenshot of HomeAutomation.TurnOff intent")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+1. If you want to view the entities for the app, select **Entities**. If you click on one of the entities, such as **HomeAutomation.DeviceName** you will see a list of values associated with it. 
+ 
+    :::image type="content" source="media/luis-quickstart-new-app/entities-page.png" alt-text="Image alt text" lightbox="media/luis-quickstart-new-app/entities-page.png":::
 
 ## Train the LUIS app
 
@@ -56,21 +71,18 @@ Select the **HomeAutomation.TurnOff** intent. You can see that the intent contai
 ## Test your app
 Once you've trained your app, you can test it.
 
-1. Select **Test** from the top-right navigation. 1. Type a test utterance like `Turn off the lights` into the interactive test pane, and press Enter.
+1. Select **Test** from the top-right navigation.
 
-    ```
-    Turn off the lights
-    ```
-
-    Check that the top scoring intent corresponds to the intent you expected for each test utterance.
+1. Type a test utterance like `Turn off the lights` into the interactive test pane, and press Enter. For example, *Turn off the lights*.
 
     In this example, `Turn off the lights` is correctly identified as the top scoring intent of **HomeAutomation.TurnOff**.
 
     ![Screenshot of Test panel with utterance highlighted](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
-1. Select **Inspect** to review more information about the prediction.
+1. Select **Inspect** to view more information about the prediction.
 
-    ![Screenshot of Test panel with inspection information](media/luis-quickstart-new-app/test.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of Test panel with inspection information](media/luis-quickstart-new-app/test.png)
 
 1. Close the test pane.
 
@@ -78,7 +90,18 @@ Once you've trained your app, you can test it.
 
 ## Publish the app to get the endpoint URL
 
-[!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)]
+In order to receive a LUIS prediction in a chat bot or other client application, you need to publish the app to the prediction endpoint.
+
+1. Select **Publish** in the top-right corner of the window.
+
+1. Select the **Production** slot, then select **Done**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of LUIS publish to endpoint](media/howto-publish/publish-app-popup.png)
+
+1. Select the **Access your endpoint URLs** link in the notification to go to the **Azure Resources** page. The endpoint URLs are listed as the **Example Query**.
+
+<!-- [!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)] -->
 
 <a name="query-the-v2-api-prediction-endpoint"></a>
 
@@ -102,25 +125,25 @@ Once you've trained your app, you can test it.
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {
-                    "score": 0.984315455
+                    "score": 0.969448864
                 },
                 "HomeAutomation.QueryState": {
-                    "score": 0.009912962
-                },
-                "HomeAutomation.TurnDown": {
-                    "score": 0.00626645749
+                    "score": 0.0122336326
                 },
                 "HomeAutomation.TurnUp": {
-                    "score": 0.00572059769
+                    "score": 0.006547436
+                },
+                "HomeAutomation.TurnDown": {
+                    "score": 0.0050634006
                 },
                 "HomeAutomation.SetDevice": {
-                    "score": 0.00379381469
+                    "score": 0.004951761
                 },
                 "HomeAutomation.TurnOn": {
-                    "score": 0.00366983772
+                    "score": 0.00312553928
                 },
                 "None": {
-                    "score": 0.000623856
+                    "score": 0.000552945654
                 }
             },
             "entities": {
@@ -144,7 +167,7 @@ Once you've trained your app, you can test it.
                             "text": "living room",
                             "startIndex": 13,
                             "length": 11,
-                            "score": 0.907323956,
+                            "score": 0.902181149,
                             "modelTypeId": 1,
                             "modelType": "Entity Extractor",
                             "recognitionSources": [
@@ -196,4 +219,4 @@ Once you've trained your app, you can test it.
 You can call the endpoint from code:
 
 > [!div class="nextstepaction"]
-> [Call a LUIS endpoint using code](luis-get-started-cs-get-intent.md)
+> [Call a LUIS endpoint using code](./luis-get-started-get-intent-from-rest.md)

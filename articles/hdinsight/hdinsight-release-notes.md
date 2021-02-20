@@ -1,15 +1,12 @@
 ---
 title: Release notes for Azure HDInsight 
 description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive, and more.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 02/08/2021
 ---
-# Release notes
+# Azure HDInsight release notes
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
@@ -17,56 +14,52 @@ This article provides information about the **most recent** Azure HDInsight rele
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 
-## Release date: 01/09/2020
+If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, please wait for the release being live in your region in several days.
+## Release date: 02/05/2021
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
 
 ## New features
-### TLS 1.2 enforcement
-Transport Layer Security (TLS) and Secure Sockets Layer (SSL) are cryptographic protocols that provide communications security over a computer network. Learn more about [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HDInsight uses TLS 1.2 on public HTTPs endpoints but TLS 1.1 is still supported for backward compatibility. 
+### Dav4-series support
+HDInsight added Dav4-series support in this release. Learn more about [Dav4-series here](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series).
 
-With this release, customers can opt into TLS 1.2 only for all connections through the public cluster endpoint. To support this, the new property **minSupportedTlsVersion** is introduced and can be specified during cluster creation. If the property is not set, the cluster still supports TLS 1.0, 1.1 and 1.2, which is the same as today's behavior. Customers can set the value for this property to "1.2", which means that the cluster only supports TLS 1.2 and above. For more information, see [Transport Layer Security](./transport-layer-security.md).
-
-### Bring your own key for disk encryption
-All managed disks in HDInsight are protected with Azure Storage Service Encryption (SSE). Data on those disks is encrypted by Microsoft-managed keys by default. Starting from this release, you can Bring Your Own Key (BYOK) for disk encryption and manage it using Azure Key Vault. BYOK encryption is a one-step configuration during cluster creation with no additional cost. Just register HDInsight as a managed identity with Azure Key Vault and add the encryption key when you create your cluster. For more information, see [Customer-managed key disk encryption](https://docs.microsoft.com/azure/hdinsight/disk-encryption).
-
-## Deprecation
-No deprecations for this release. To get ready for upcoming deprecations, see [Upcoming changes](#upcoming-changes).
-
-## Behavior changes
-No behavior changes for this release. To get ready for upcoming changes, see [Upcoming changes](#upcoming-changes).
-
-## Upcoming changes
-The following changes will happen in upcoming releases. 
-
-### Deprecate Spark 2.1 and 2.2 for HDInsight 3.6 Spark cluster
-Starting from July 1 2020, customers will not be able to create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6. Existing clusters will run as is without the support from Microsoft. Consider to move to Spark 2.3 on HDInight 3.6 by June 30 2020 to avoid potential system/support interruption.
-
-### Deprecate Spark 2.3 for HDInsight 4.0 Spark cluster
-Starting from July 1 2020, customers will not be able to create new Spark clusters with Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider to move to Spark 2.4 on HDInight 4.0 by June 30 2020 to avoid potential system/support interruption.
-
-### Deprecate Kafka 1.1 for HDInsight 4.0 Kafka cluster
-Starting from July 1 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider to move to Kafka 2.1 on HDInight 4.0 by June 30 2020 to avoid potential system/support interruption.
-
-### HBase 2.0 to 2.1
-In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.
-
-### A minimum 4-core VM is required for Head Node 
-A minimum 4-core VM is required for Head Node to ensure the high availability and reliability of HDInsight clusters. Starting from April 6 2020, customers can only choose 4-core or above VM as Head Node for the new HDInsight clusters. Existing clusters will continue to run as expected. 
-
-### ESP Spark cluster node size change 
-In the upcoming release, the minimum allowed node size for ESP Spark cluster will be changed to Standard_D13_V2. 
-A-series VMs could cause ESP cluster issues because of relatively low CPU and memory capacity. A-series VMs will be deprecated for creating new ESP clusters.
+### Kafka REST Proxy GA 
+Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTPS. Kafka Rest Proxy is general available starting from this release. Learn more about [Kafka REST Proxy here](https://docs.microsoft.com/azure/hdinsight/kafka/rest-proxy).
 
 ### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. In the upcoming release, HDInsight will use Azure virtual machine scale sets instead. See more about Azure virtual machine scale sets.
+HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+
+## Deprecation
+### Disabled VM sizes
+Starting form January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+
+## Behavior changes
+### Default cluster VM size changes to Ev3-series 
+Default cluster VM sizes will be changed from D-series to Ev3-series. This change applies to head nodes and worker nodes. To avoid this change impacting your tested workflows, specify the VM sizes that you want to use in the ARM template.
+
+### Network interface resource not visible for clusters running on Azure virtual machine scale sets
+HDInsight is gradually migrating to Azure virtual machine scale sets. Network interfaces for virtual machines are no longer visible to customers for clusters that use Azure virtual machine scale sets.
+
+
+### Breaking change for .NET for Apache Spark 1.0.0
+With the latest release, HDInsight introduces the first official version v1.0.0 of the [“.NET for Apache Spark”](https://github.com/dotnet/spark) library. It provides DataFrame API completeness for Spark 2.4.x and Spark 3.0.x along with a host of [other features](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md). There will be breaking changes for this major version, refer to [the .NET for Apache Spark migration guide](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) to understand steps needed to update your code and pipelines. To learn more, refer to this [.NET for Apache Spark v1.0 on Azure HDInsight guide](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
+
+
+## Upcoming changes
+The following changes will happen in upcoming releases.
+
+### Default cluster version will be changed to 4.0
+Starting February 2021, the default version of HDInsight cluster will be changed from 3.6 to 4.0. For more information about available versions, see [available versions](./hdinsight-component-versioning.md). Learn more about what is new in [HDInsight 4.0](./hdinsight-version-release.md).
+
+### OS version upgrade
+HDInsight is upgrading OS version from Ubuntu 16.04 to 18.04. The upgrade will complete before April 2021.
+
+### HDInsight 3.6 end of support on June 30 2021
+HDInsight 3.6 will be end of support. Starting form June 30 2021, customers can't create new HDInsight 3.6 clusters. Existing clusters will run as is without the support from Microsoft. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
 
 ## Bug fixes
 HDInsight continues to make cluster reliability and performance improvements. 
 
 ## Component version change
-No component version change for this release. You could find the current component versions for HDInsight 4.0 ad HDInsight 3.6 here.
-
+No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).

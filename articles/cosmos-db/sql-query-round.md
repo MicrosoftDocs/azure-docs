@@ -3,12 +3,15 @@ title: ROUND in Azure Cosmos DB query language
 description: Learn about SQL system function ROUND in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ---
 # ROUND (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a numeric value, rounded to the closest integer value.  
   
 ## Syntax
@@ -28,7 +31,7 @@ ROUND(<numeric_expr>)
   
 ## Remarks
   
-  The rounding operation performed follows midpoint rounding away from zero. If the input is a numeric expression which falls exactly between two integers then the result will be the closest integer value away from zero.  
+  The rounding operation performed follows midpoint rounding away from zero. If the input is a numeric expression which falls exactly between two integers then the result will be the closest integer value away from zero. This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
   
   |<numeric_expr>|Rounded|
   |-|-|
@@ -50,10 +53,6 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 ```json
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
-
-## Remarks
-
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
 
 ## Next steps
 

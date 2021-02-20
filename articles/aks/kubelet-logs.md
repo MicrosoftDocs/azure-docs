@@ -31,6 +31,12 @@ Once you have connected to the node, run the following command to pull the *kube
 sudo journalctl -u kubelet -o cat
 ```
 
+> [!NOTE]
+> For Windows nodes, the log data is in `C:\k` and can be viewed using the *more* command:
+> ```
+> more C:\k\kubelet.log
+> ```
+
 The following sample output shows the *kubelet* log data:
 
 ```
@@ -67,4 +73,4 @@ If you need additional troubleshooting information from the Kubernetes master, s
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [aks-master-logs]: view-master-logs.md
-[azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md
+[azure-container-logs]: ../azure-monitor/containers/container-insights-overview.md

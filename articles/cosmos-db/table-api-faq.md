@@ -3,12 +3,14 @@ title: Frequently asked questions about the Table API in Azure Cosmos DB
 description: Get answers to frequently asked questions about the Table API in Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 08/12/2020
 ms.author: sngun
 ---
 
 # Frequently asked questions about the Table API in Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 The Azure Cosmos DB Table API is available in the [Azure portal](https://portal.azure.com) First you must sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB Table API account to your Azure subscription, and then add tables to your account. You can find the supported languages and associated quick-starts in the [Introduction to Azure Cosmos DB Table API](table-introduction.md).
 
@@ -40,10 +42,10 @@ There are some behavior differences that users coming from Azure Table storage w
 
   | Rest Method(s) | Rest Endpoint/Query Option | Doc URLs | Explanation |
   | ------------| ------------- | ---------- | ----------- |
-  | GET, PUT | `/?restype=service@comp=properties`| [Set Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) and [Get Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | This endpoint is used to set CORS rules, storage analytics configuration, and logging settings. CORS is currently not supported and analytics and logging are handled differently in Azure Cosmos DB than Azure Storage Tables |
-  | OPTIONS | `/<table-resource-name>` | [Pre-flight CORS table request](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | This is part of CORS which Azure Cosmos DB doesn't currently support. |
-  | GET | `/?restype=service@comp=stats` | [Get Table Service Stats](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Provides information how quickly data is replicating between primary and secondaries. This isn't needed in Cosmos DB as the replication is part of writes. |
-  | GET, PUT | `/mytable?comp=acl` | [Get Table ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) and [Set Table ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | This gets and sets the stored access policies used to manage Shared Access Signatures (SAS). Although SAS is supported, they are set and managed differently. |
+  | GET, PUT | `/?restype=service@comp=properties`| [Set Table Service Properties](/rest/api/storageservices/set-table-service-properties) and [Get Table Service Properties](/rest/api/storageservices/get-table-service-properties) | This endpoint is used to set CORS rules, storage analytics configuration, and logging settings. CORS is currently not supported and analytics and logging are handled differently in Azure Cosmos DB than Azure Storage Tables |
+  | OPTIONS | `/<table-resource-name>` | [Pre-flight CORS table request](/rest/api/storageservices/preflight-table-request) | This is part of CORS which Azure Cosmos DB doesn't currently support. |
+  | GET | `/?restype=service@comp=stats` | [Get Table Service Stats](/rest/api/storageservices/get-table-service-stats) | Provides information how quickly data is replicating between primary and secondaries. This isn't needed in Cosmos DB as the replication is part of writes. |
+  | GET, PUT | `/mytable?comp=acl` | [Get Table ACL](/rest/api/storageservices/get-table-acl) and [Set Table ACL](/rest/api/storageservices/set-table-acl) | This gets and sets the stored access policies used to manage Shared Access Signatures (SAS). Although SAS is supported, they are set and managed differently. |
 
 * Azure Cosmos DB Table API only supports the JSON format, not ATOM.
 
@@ -92,7 +94,7 @@ You can use the Azure portal to browse the data. You can also use the Table API 
 
 ### Which tools work with the Table API?
 
-You can use the [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Tools with the flexibility to take a connection string in the format specified previously can support the new Table API. A list of table tools is provided on the [Azure Storage Client Tools](../storage/common/storage-explorers.md) page.
 
@@ -110,7 +112,7 @@ Yes, you can connect by creating two separate instances of the CloudTableClient,
 
 ### How do I migrate an existing Azure Table storage application to this offering?
 
-[AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) and the [Azure Cosmos DB Data Migration Tool](import-data.md) are both supported.
+[AzCopy](../storage/common/storage-use-azcopy-v10.md) and the [Azure Cosmos DB Data Migration Tool](import-data.md) are both supported.
 
 ### How is expansion of the storage size done for this service if, for example, I start with *n* GB of data and my data will grow to 1 TB over time?
 
@@ -226,7 +228,7 @@ From the .NET SDK it can be submitted in the app.config file:
 
 ### Azure Cosmos DB as a platform seems to have lot of capabilities, such as sorting, aggregates, hierarchy, and other functionality. Will you be adding these capabilities to the Table API?
 
-The Table API provides the same query functionality as Azure Table storage. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. For more information, see [SQL queries](how-to-sql-query.md).
+The Table API provides the same query functionality as Azure Table storage. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. For more information, see [SQL queries](./sql-query-getting-started.md).
 
 ### When should I change TableThroughput for the Table API?
 
@@ -269,7 +271,7 @@ Azure Cosmos DB is designed to be a globally distributed, SLA-based system with 
 
 ### I never get a quota full" notification (indicating that a partition is full) when I ingest data into Azure Table storage. With the Table API, I do get this message. Is this offering limiting me and forcing me to change my existing application?
 
-Azure Cosmos DB is an SLA-based system that provides unlimited scale, with guarantees for latency, throughput, availability, and consistency. To ensure guaranteed premium performance, make sure that your data size and index are manageable and scalable. The 10-GB limit on the number of entities or items per partition key is to ensure that we provide great lookup and query performance. To ensure that your application scales well, even for Azure Storage, we recommend that you *not* create a hot partition by storing all information in one partition and querying it.
+Azure Cosmos DB is an SLA-based system that provides unlimited scale, with guarantees for latency, throughput, availability, and consistency. To ensure guaranteed premium performance, make sure that your data size and index are manageable and scalable. The 20-GB limit on the number of entities or items per partition key is to ensure that we provide great lookup and query performance. To ensure that your application scales well, even for Azure Storage, we recommend that you *not* create a hot partition by storing all information in one partition and querying it.
 
 ### So PartitionKey and RowKey are still required with the Table API?
 
@@ -288,7 +290,7 @@ Azure Cosmos DB is an SLA-based system that provides latency, throughput, availa
 You can share your feedback in any of the following ways:
 
 * [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
+* [Microsoft Q&A question page](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
 ## Next steps

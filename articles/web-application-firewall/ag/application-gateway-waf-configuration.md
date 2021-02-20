@@ -26,7 +26,6 @@ The following attributes can be added to exclusion lists by name. The values of 
 * Request attribute name (args) can be added as an exclusion element, such as:
 
    * Form field name
-   * XML entity
    * JSON entity
    * URL query string args
 
@@ -85,7 +84,7 @@ So if the URL `http://www.contoso.com/?user%281%29=fdafdasfda` is passed to the 
 
 Web Application Firewall allows you to configure request size limits within lower and upper bounds. The following two size limits configurations are available:
 
-- The maximum request body size field is specified in kilobytes and controls overall request size limit excluding any file uploads. This field can range from 1-KB minimum to 128-KB maximum value. The default value for request body size is 128 KB.
+- The maximum request body size field is specified in kilobytes and controls overall request size limit excluding any file uploads. This field has a minimum value of 1 KB and a maximum value of 128 KB. The default value for request body size is 128 KB.
 - The file upload limit field is specified in MB and it governs the maximum allowed file upload size. This field can have a minimum value of 1 MB and the following maximums:
 
    - 100 MB for v1 Medium WAF gateways

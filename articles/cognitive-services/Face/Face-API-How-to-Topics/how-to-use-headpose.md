@@ -10,6 +10,7 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/29/2019
 ms.author: pafarley
+ms.custom: devx-track-csharp
 ---
 
 # Use the HeadPose attribute

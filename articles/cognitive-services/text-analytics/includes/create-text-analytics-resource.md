@@ -6,8 +6,9 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 02/09/2021
 ms.author: aahi
 ---
 
@@ -31,5 +32,5 @@ ms.author: aahi
 
     |Resource tab in portal|Setting|Value|
     |--|--|--|
-    |**Overview**|Endpoint|Copy the endpoint. It appears similar to `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`.|
+    |**Overview**|Endpoint|Copy the endpoint. It appears similar to `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.0`.|
     |**Keys**|API Key|Copy one of the two keys. It's a 32-character alphanumeric string with no spaces or dashes: <`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`>.|

@@ -51,7 +51,7 @@ scope=user.read%20openid%20profile
 | --- | --- | --- |
 | `tenant` | Required | Can be /common, /consumers, or /organizations.  It can also be the directory tenant that you want to request permission from in GUID or friendly name format.  |
 | `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
-| `scope` | Recommended | A space-separated list of [scopes](v2-permissions-and-consent.md) that you want the user to consent to.  |
+| `scope` | Required | A space-separated list of [scopes](v2-permissions-and-consent.md) that you want the user to consent to.  |
 
 ### Device authorization response
 

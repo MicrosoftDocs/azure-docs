@@ -5,7 +5,7 @@ services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/31/2018
 ms.author: cherylmc
 

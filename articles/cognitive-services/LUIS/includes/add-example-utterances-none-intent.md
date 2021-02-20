@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 02/14/2020
 ms.subservice: language-understanding
-ms.author: diberry
+
 ---
 
 The client application needs to know if an utterance is not meaningful or appropriate for the application. The **None** intent is added to each application as part of the creation process to determine if an utterance shouldn't be answered by the client application.

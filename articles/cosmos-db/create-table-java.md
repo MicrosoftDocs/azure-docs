@@ -6,18 +6,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 05/28/2020
 ms.author: sngun
-ms.custom: seo-java-august2019, seo-java-september2019
-
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ---
+
 # Quickstart: Build a Java app to manage Azure Cosmos DB Table API data
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
-> * [Python](create-table-python.md)
+> * [Python](./table-storage-how-to-use-python.md)
 > 
 
 In this quickstart, you create an Azure Cosmos DB Table API account, and use Data Explorer and a Java app cloned from GitHub to create tables and entities. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
@@ -67,8 +68,86 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
     git clone https://github.com/Azure-Samples/storage-table-java-getting-started.git 
     ```
 
-> ![TIP]
+> [!TIP]
 > For a more detailed walkthrough of similar code, see the [Cosmos DB Table API sample](table-storage-how-to-use-java.md) article. 
+
+## Review the code
+
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [update the connection string](#update-your-connection-string) section of this doc.
+
+* The following code shows how to create a table within the Azure Storage:
+
+  ```java
+  private static CloudTable createTable(CloudTableClient tableClient, String tableName) throws StorageException, RuntimeException, IOException, InvalidKeyException,   IllegalArgumentException, URISyntaxException, IllegalStateException {
+  
+    // Create a new table
+    CloudTable table = tableClient.getTableReference(tableName);
+    try {
+        if (table.createIfNotExists() == false) {
+            throw new IllegalStateException(String.format("Table with name \"%s\" already exists.", tableName));
+        }
+    }
+    catch (StorageException s) {
+        if (s.getCause() instanceof java.net.ConnectException) {
+            System.out.println("Caught connection exception from the client. If running with the default configuration please make sure you have started the storage emulator.");
+        }
+        throw s;
+    }
+
+    return table;
+  }
+  ```
+
+* The following code shows how to insert data into the table:
+
+  ```javascript
+  private static void batchInsertOfCustomerEntities(CloudTable table) throws StorageException {
+  
+  // Create the batch operation
+  TableBatchOperation batchOperation1 = new TableBatchOperation();
+  for (int i = 1; i <= 50; i++) {
+      CustomerEntity entity = new CustomerEntity("Smith", String.format("%04d", i));
+      entity.setEmail(String.format("smith%04d@contoso.com", i));
+      entity.setHomePhoneNumber(String.format("425-555-%04d", i));
+      entity.setWorkPhoneNumber(String.format("425-556-%04d", i));
+      batchOperation1.insertOrMerge(entity);
+  }
+  
+  // Execute the batch operation
+  table.execute(batchOperation1);
+  }
+  ```
+
+* The following code shows how to query data from the table:
+
+  ```java
+  private static void partitionScan(CloudTable table, String partitionKey) throws StorageException {
+  
+      // Create the partition scan query
+      TableQuery<CustomerEntity> partitionScanQuery = TableQuery.from(CustomerEntity.class).where(
+          (TableQuery.generateFilterCondition("PartitionKey", QueryComparisons.EQUAL, partitionKey)));
+  
+      // Iterate through the results
+      for (CustomerEntity entity : table.execute(partitionScanQuery)) {
+          System.out.println(String.format("\tCustomer: %s,%s\t%s\t%s\t%s", entity.getPartitionKey(), entity.getRowKey(), entity.getEmail(), entity.getHomePhoneNumber(), entity.  getWorkPhoneNumber()));
+      }
+  }
+  ```
+
+* The following code shows how to delete data from the table:
+
+  ```java
+  
+  System.out.print("\nDelete any tables that were created.");
+  
+  if (table1 != null && table1.deleteIfExists() == true) {
+      System.out.println(String.format("\tSuccessfully deleted the table: %s", table1.getName()));
+  }
+  
+  if (table2 != null && table2.deleteIfExists() == true) {
+      System.out.println(String.format("\tSuccessfully deleted the table: %s", table2.getName()));
+  }
+  ```
 
 ## Update your connection string
 
@@ -76,7 +155,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-   ![View the connection string information in the Connection String pane](./media/create-table-java/cosmos-db-quickstart-connection-string.png)
+   :::image type="content" source="./media/create-table-java/cosmos-db-quickstart-connection-string.png" alt-text="View the connection string information in the Connection String pane":::
 
 2. Copy the PRIMARY CONNECTION STRING using the copy button on the right.
 

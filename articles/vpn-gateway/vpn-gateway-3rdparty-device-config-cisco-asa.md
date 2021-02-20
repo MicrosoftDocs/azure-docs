@@ -5,8 +5,8 @@ services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 10/19/2018
+ms.topic: how-to
+ms.date: 09/03/2020
 ms.author: yushwang
 
 ---
@@ -15,17 +15,14 @@ This article provides sample configurations for connecting Cisco Adaptive Securi
 
 ## Device at a glance
 
-|                        |                                   |
-| ---                    | ---                               |
-| Device vendor          | Cisco                             |
-| Device model           | ASA                               |
-| Target version         | 8.4 and later                     |
-| Tested model           | ASA 5505                          |
-| Tested version         | 9.2                               |
-| IKE version            | IKEv2                             |
-| BGP                    | No                                |
-| Azure VPN gateway type | Route-based VPN gateway           |
-|                        |                                   |
+* Device vendor: **Cisco**
+* Device model: **ASA**           
+* Target version: **8.4 and later**
+* Tested model: **ASA 5505**
+* Tested version: **9.2**             
+* IKE version: **IKEv2**                  
+* BGP: **No**      
+* Azure VPN gateway type: **Route-based VPN gateway**
 
 > [!NOTE]
 > The sample configuration connects a Cisco ASA device to an Azure **route-based** VPN gateway. The connection uses a custom IPsec/IKE policy with the **UsePolicyBasedTrafficSelectors** option, as described in [this article](vpn-gateway-connect-multiple-policybased-rm-ps.md).

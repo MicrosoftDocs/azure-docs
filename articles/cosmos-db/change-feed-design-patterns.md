@@ -4,10 +4,12 @@ description: Overview of common change feed design patterns
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/08/2020
 ---
 # Change feed design patterns in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The Azure Cosmos DB change feed enables efficient processing of large datasets with a high volume of writes. Change feed also offers an alternative to querying an entire dataset to identify what has changed. This document focuses on common change feed design patterns, design tradeoffs, and change feed limitations.
 
@@ -19,11 +21,11 @@ Azure Cosmos DB is well-suited for IoT, gaming, retail, and operational logging 
 
 The change feed in Azure Cosmos DB enables you to build efficient and scalable solutions for each of these patterns, as shown in the following image:
 
-![Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios](./media/change-feed/changefeedoverview.png)
+:::image type="content" source="./media/change-feed/changefeedoverview.png" alt-text="Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios" border="false":::
 
 ## Event computing and notifications
 
-The Azure Cosmos DB change feed can simplify scenarios that need to trigger a notification or a call to an API based on a certain event. You can use the [Change Feed Process Library](change-feed-processor.md) to automatically poll your container for changes and call an external API each time there is a write or update.
+The Azure Cosmos DB change feed can simplify scenarios that need to trigger a notification or send a call to an API based on a certain event. You can use the [Change Feed Process Library](change-feed-processor.md) to automatically poll your container for changes and call an external API each time there is a write or update.
 
 You can also selectively trigger a notification or send a call to an API based on specific criteria. For example, if you are reading from the change feed using [Azure Functions](change-feed-functions.md), you can put logic into the function to only send a notification if a specific criteria has been met. While the Azure Function code would execute during each write and update, the notification would only be sent if specific criteria had been met.
 
@@ -32,7 +34,7 @@ You can also selectively trigger a notification or send a call to an API based o
 The Azure Cosmos DB change feed can be used for real-time stream processing for IoT or real-time analytics processing on operational data.
 For example, you might receive and store event data from devices, sensors, infrastructure and applications, and process these events in real time, using [Spark](../hdinsight/spark/apache-spark-overview.md). The following image shows how you can implement a lambda architecture using the Azure Cosmos DB via change feed:
 
-![Azure Cosmos DB-based lambda pipeline for ingestion and query](./media/change-feed/lambda.png)
+:::image type="content" source="./media/change-feed/lambda.png" alt-text="Azure Cosmos DB-based lambda pipeline for ingestion and query" border="false":::
 
 In many cases, stream processing implementations first receive a high volume of incoming data into a temporary message queue such as Azure Event Hub or Apache Kafka. The change feed is a great alternative due to Azure Cosmos DB's ability to support a sustained high rate of data ingestion with guaranteed low read and write latency. The advantages of the Azure Cosmos DB change feed over a message queue include:
 
@@ -46,7 +48,7 @@ In addition to reading from a Cosmos container's change feed, you can also run S
 
 ### High availability
 
-Azure Cosmos DB offers up to 99.999% read and write availability. Unlike many message queues, Azure Cosmos DB data can be easily globally distributed and configured with an [RTO (Recovery Time Objective)](consistency-levels-tradeoffs.md#rto) of zero.
+Azure Cosmos DB offers up to 99.999% read and write availability. Unlike many message queues, Azure Cosmos DB data can be easily globally distributed and configured with an [RTO (Recovery Time Objective)](./consistency-levels.md#rto) of zero.
 
 After processing items in the change feed, you can build a materialized view and persist aggregated values back in Azure Cosmos DB. If you're using Azure Cosmos DB to build a game, you can, for example, use change feed to implement real-time leaderboards based on scores from completed games.
 
@@ -67,7 +69,7 @@ When you have to [denormalize data across partitions and containers](how-to-mode
 
 ## Event sourcing
 
-The [event sourcing pattern](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) involves using an append-only store to record the full series of actions on that data. Azure Cosmos DB's change feed is a great choice as a central data store in event sourcing architectures where all data ingestion is modeled as writes (no updates or deletes). In this case, each write to Azure Cosmos DB is an "event" and you'll have a full record of past events in the change feed. Typical uses of the events published by the central event store are for maintaining materialized views or for integration with external systems. Because there is no time limit for retention in the change feed, you can replay all past events by reading from the beginning of your Cosmos container's change feed.
+The [event sourcing pattern](/azure/architecture/patterns/event-sourcing) involves using an append-only store to record the full series of actions on that data. Azure Cosmos DB's change feed is a great choice as a central data store in event sourcing architectures where all data ingestion is modeled as writes (no updates or deletes). In this case, each write to Azure Cosmos DB is an "event" and you'll have a full record of past events in the change feed. Typical uses of the events published by the central event store are for maintaining materialized views or for integration with external systems. Because there is no time limit for retention in the change feed, you can replay all past events by reading from the beginning of your Cosmos container's change feed.
 
 You can have [multiple change feed consumers subscribe to the same container's change feed](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers). Aside from the [lease container's](change-feed-processor.md#components-of-the-change-feed-processor) provisioned throughput, there is no cost to utilize the change feed. The change feed is available in every container regardless of whether it is utilized.
 

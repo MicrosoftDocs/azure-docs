@@ -5,323 +5,450 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 02/06/2020
+ms.date: 02/17/2021
 ms.author: aahi
 ---
 
-## Personal information entity types:
+> [!NOTE]
+> To detect protected health information (PHI), use the `domain=phi` parameter and model version `2020-04-01` or later.
+>
+> For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi&model-version=2021-01-15`
+ 
+The following entity categories are returned when you're sending requests to the `/v3.1-preview.3/entities/recognition/pii` endpoint.
 
-### Person
-Recognize person names in text.
 
-Languages:
-* Public preview: `English`
+| Category   |  Description                          |
+|------------|-------------|
+| [Person](#category-person)      |  Names of people.  |
+| [PersonType](#category-persontype) | Job types or roles held by a person. |
+| [Phone number](#category-phonenumber) |Phone numbers (US and EU phone numbers only). |
+| [Organization](#category-organization) |  Companies, groups, government bodies, and other organizations.  |
+| [Address](#category-address) | Full mailing addresses.  |
+| [Email](#category-email) | Email addresses.   |
+| [URL](#category-url) | URLs to websites.  |
+| [IP](#category-ip) | Network IP addresses.  |
+| [DateTime](#category-datetime) | Dates and times of day. | 
+| [Quantity](#category-quantity) | Numbers and numeric quantities.  |
+| [Azure information](#azure-information) | Identifiable Azure information, such as authentication information.  |
+| [Identification](#identification) | Financial and country specific identification.  |
 
-| Subtype name | Description                                               | Available starting with model version |
-|--------------|-----------------------------------------------------------|----------------------------------------|
-| N/A          | Recognized names, for example `Bill Gates`, `Marie Curie` | `2020-02-01`                           |
+### Category: Person
 
-### Organization  
+This category contains the following entity:
 
-Recognize organizations, corporations, agencies, companies, clubs and other groups of people.
+:::row:::
+    :::column span="":::
+        **Entity**
 
-Languages: 
+        Person
 
-* Public preview: `English`
+    :::column-end:::
+    :::column span="2":::
+        **Details**
 
-| Subtype name | Description                                                                                       | Available starting with model version|
-|--------------|---------------------------------------------------------------------------------------------------|--------------|
-| N/A          | organizations, for example `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration` | `2020-02-01` |
+        Names of people. Also returned with `domain=phi`.
+      
+    :::column-end:::
+:::row-end:::
 
-### Phone Number
+### Category: PersonType
 
-Phone numbers (US Phone numbers only). 
+This category contains the following entity:
 
-Languages:
 
-* Public preview: `English`
+:::row:::
+    :::column span="":::
+        **Entity**
 
-| Subtype name | Description                                    | Available starting with model version |
-|--------------|------------------------------------------------|----------------------------------------|
-| N/A          | US phone numbers, for example `(312) 555-0176` | `2020-02-01`                           |
+        PersonType
 
-### Email
+    :::column-end:::
+    :::column span="2":::
+        **Details**
 
-Email address. 
+        Job types or roles held by a person.
+      
+    :::column-end:::
+:::row-end:::
 
-Languages:
+### Category: PhoneNumber
 
-* Public preview: `English`
+This category contains the following entity:
 
-| Subtype name | Description                                      | Available starting with model version |
-|--------------|--------------------------------------------------|----------------------------------------|
-| N/A          | Email address, for example `support@contoso.com` | `2020-02-01`                           |
+:::row:::
+    :::column span="":::
+        **Entity**
 
-### URL
+        PhoneNumber
 
-Internet URLs.
+    :::column-end:::
+    :::column span="2":::
+        **Details**
 
-Languages:
+        Phone numbers (US and EU phone numbers only). Also returned with `domain=phi`.
+      
+    :::column-end:::
+:::row-end:::
 
-* Public preview: `English`
 
-| Subtype name | Description                                          | Available starting with model version |
-|--------------|------------------------------------------------------|----------------------------------------|
-| N/A          | URLs to websites, for example `https://www.bing.com` | `2020-02-01`                           |
+### Category: Organization
 
-### IP Address
+This category contains the following entity:
 
-Internet Protocol Address
+:::row:::
+    :::column span="":::
+        **Entity**
 
-Languages:
+        Organization
 
-* Public preview: `English`
+    :::column-end:::
+    :::column span="2":::
+        **Details**
 
-| Subtype name | Description                              | Available starting with model version |
-|--------------|------------------------------------------|----------------------------------------|
-| N/A          | Network address for example `10.0.0.101` | `2020-02-01`                           |
+        Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type.
+      
+    :::column-end:::
+:::row-end:::
 
-### Quantity 
+#### Subcategories
 
-Numeric quantities
+The entity in this category can have the following subcategories.
 
-Languages:
+:::row:::
+    :::column span="":::
+        **Entity subcategory**
 
-* Public preview: `English`
+        Medical
 
-| Subtype name | Description                   | Available starting with model version |
-|--------------|-------------------------------|----------------------------------------|
-| Age          | `90 days old`, `30 years old` | `2020-02-01`                           |
+    :::column-end:::
+    :::column span="2":::
+        **Details**
 
-### DateTime
+        Medical companies and groups.
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-Date and Time entities
+        Stock exchange
 
-Languages:
+    :::column-end:::
+    :::column span="2":::
 
-* Public preview: `English`
+        Stock exchange groups. 
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-| Subtype name | Description                   | Available starting with model version |
-|--------------|-------------------------------|----------------------------------------|
-| Date         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
+        Sports
 
-### EU GPS Coordinates
+    :::column-end:::
+    :::column span="2":::
 
- GPS coordinates for locations within the European Union. 
+        Sports-related organizations.
+      
+    :::column-end:::
 
-Languages:
+:::row-end:::
 
-* Public preview: `English`
 
-| Subtype name | Description                               | Available starting with model version |
-|--------------|-------------------------------------------|----------------------------------------|
-| N/A          | GPS coordinates within the European Union | `2019-10-01`                           |
+### Category: Address
+
+This category contains the following entity:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Address
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Full mailing address.
+      
+    :::column-end:::
+:::row-end:::
+
+### Category: Email
+
+This category contains the following entity:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Email
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Email addresses.
+      
+    :::column-end:::
+:::row-end:::
+
+### Category: URL
+
+This category contains the following entity:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        URL
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        URLs to websites. 
+      
+    :::column-end:::
+:::row-end:::
+
+### Category: IP
+
+This category contains the following entity:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        IP
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        network IP addresses. 
+      
+    :::column-end:::
+:::row-end:::
+
+### Category: DateTime
+
+This category contains the following entities:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        DateTime
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Dates and times of day. 
+      
+    :::column-end:::
+:::row-end:::
+
+#### Subcategories
+
+The entity in this category can have the following subcategories.
+
+:::row:::
+    :::column span="":::
+        **Entity subcategory**
+
+        Date
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Calender dates.
+      
+    :::column-end:::
+:::row-end:::
+
+### Category: Quantity
+
+This category contains the following entities:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Quantity
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Numbers and numeric quantities.
+      
+    :::column-end:::
+:::row-end:::
+
+#### Subcategories
+
+The entity in this category can have the following subcategories.
+
+:::row:::
+    :::column span="":::
+        **Entity subcategory**
+
+        Age
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Ages.
+      
+    :::column-end:::
+:::row-end:::
 
 ### Azure information
 
-Identifiable Azure information including authentication information, and connection strings. 
+These entity categories includes identifiable Azure information, including authentication information and connection strings. Not returned with the `domain=phi` parameter.
 
-* Available starting with model version `2019-10-01`.
+:::row:::
+    :::column span="":::
+        **Entity**
 
-Languages:
+        Azure DocumentDB Auth Key 
 
-* Public preview: `English`
+    :::column-end:::
+    :::column span="2":::
+        **Details**
 
-| Subtype name                          | Description                                                                 |
-|---------------------------------------|-----------------------------------------------------------------------------|
-| Azure DocumentDB Auth Key             | Authorization key for an Azure DocumentDB server.                           |
-| Azure IAAS Database Connection String | Connection string for an Azure Infrastructure as a service (IaaS) database. |
-| Azure SQL Connection String           | Connection string for an Azure SQL database.                                |
-| Azure IoT Connection String           | Connection string for Azure Internet of things(IoT).                        |
-| Azure Publish Setting Password        | Password for Azure Publish settings.                                        |
-| Azure Redis Cache Connection String   | Connection string for an Azure Cache for Redis.                             |
-| Azure SAS                             | Connection string for Azure Software as a Service(SAS).                     |
-| Azure Service Bus Connection String   | Connection string for an Azure service bus.                                |
-| Azure Storage Account Key             | Account key for an Azure storage account.                                   |
-| Azure Storage Account Key (Generic)   | Generic account key for an Azure storage account.                           |
-| SQL Server Connection String          | Connection string for a SQL server.                                         |
+        Authorization key for an Azure Cosmos DB server.   
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Azure IAAS Database Connection String and Azure SQL Connection String
+
+    :::column-end:::
+    :::column span="2":::
+
+        Connection string for an Azure infrastructure as a service (IaaS) database, and SQL connection string.
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Azure SQL Connection String
+
+    :::column-end:::
+    :::column span="2":::
+
+        Connection string for a database in Azure SQL Database.
+      
+    :::column-end:::
+
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Azure IoT Connection String  
+
+    :::column-end:::
+    :::column span="2":::
+
+        Connection string for Azure IoT. 
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Azure Publish Setting Password  
+
+    :::column-end:::
+    :::column span="2":::
+
+        Password for Azure publish settings.
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Azure Redis Cache Connection String 
+
+    :::column-end:::
+    :::column span="2":::
+
+        Connection string for a Redis cache.
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Azure SAS 
+
+    :::column-end:::
+    :::column span="2":::
+
+        Connection string for Azure software as a service (SaaS).
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Azure Service Bus Connection String
+
+    :::column-end:::
+    :::column span="2":::
+
+        Connection string for an Azure service bus.
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Azure Storage Account Key 
+
+    :::column-end:::
+    :::column span="2":::
+
+       Account key for an Azure storage account. 
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Azure Storage Account Key (Generic)
+
+    :::column-end:::
+    :::column span="2":::
+
+       Generic account key for an Azure storage account.
+      
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        SQL Server Connection String 
+
+    :::column-end:::
+    :::column span="2":::
+
+       Connection string for a computer running SQL Server.
+      
+    :::column-end:::
+:::row-end:::
 
 ### Identification
 
-* Available starting with model version `2019-10-01`.
-
-Languages:
-
-* Public preview: `English`
-
-#### Financial Account Identification
-
-| Subtype name               | Description                                                                |
-|----------------------------|----------------------------------------------------------------------------|
-| ABA Routing Numbers        | American Banker Association(ABA) transit routing numbers.                  |
-| SWIFT Code                 | SWIFT codes for payment instruction information.                           |
-| Credit Card                | Credit card numbers.                                                       |
-| IBAN Code                  | IBAN codes for payment instruction information.                            |
-
-#### Government and country-specific Identification
-
-The entities below are grouped and listed by country:
-
-Argentina
-* National Identity (DNI) Number
-
-Australia
-* Tax file number 
-* Driver's license ID
-* Passport ID
-* Medical account number
-* bank account numbers (for example checking, savings and debit accounts)
-
-Belgium
-* National number
-
-Brazil
-* Legal Entity Number (CNPJ)
-* CPF number
-* National ID Card (RG)
-
-Canada
-* Passport ID
-* Driver's license ID
-* Health insurance Number
-* Personal health ID Number (PHIN)
-* Social Security Number
-* bank account numbers (for example checking, savings and debit accounts)
-
-Chile
-* Identity card number 
-
-China
-* Identity card number
-* Resident ID card (PRC) number
-
-Croatia
-* ID card number
-* Personal ID (OIB) number
-
-Czech Republic
-* National ID card number
-
-Denmark
-* Personal ID number
-
-European Union (EU)
-* National ID number
-* Passport ID
-* Driver's license ID
-* Social Security Number (SSN) or equivalent ID
-* EU Tax Identification Number (TIN)
-* EU Debit Card Number
-
-Finland
-* National ID number
-* Passport ID
-
-France
-* National ID card (CNI)
-* Social Security number (INSEE)
-* Passport ID
-* Driver's license ID
-
-Germany
-* ID Card number
-* Passport ID
-* Driver's license ID
-
-Greece 
-* National ID card number
-
-Hong Kong
-* ID card (HKID) number
-
-India
-* Permanent Account number (PAN)
-* Unique ID (Aadhaar) Number
-
-Indonesia
-* ID card number (KTP)
-
-Ireland
-* Personal Public Service (PPS) Number
-
-Israel
-* National ID
-* bank account numbers (for example checking, savings and debit accounts)
-
-Italy
-* Driver's license ID
-
-Japan
-* Resident registration number
-* Residence card number
-* Driver's license ID
-* Social Insurance Number (SIN)
-* Passport ID
-* bank account numbers (for example checking, savings and debit accounts)
-
-Malaysia
-* ID card number
-
-Netherlands
-* Citizen's Service (BSN) number
-
-New Zealand
-* Ministry of Health Number
-
-Norway
-* ID card number
-
-Philippines
-* Unified Multi-Purpose ID Number
-
-Poland
-* ID Card number
-* National ID (PESEL)
-* Passport ID
-
-Portugal 
-* Citizen Card Number
-
-Saudi Arabia
-* National ID
-
-Singapore
-* National Registration ID Card (NRIC) number
-
-South Africa
-* ID Number
-* Resident Registration number
-
-South Korea
-* Resident Registration Number
-
-Spain 
-* Social Security Number (SSN)
-
-Sweden
-* National ID
-* Passport ID
-
-Taiwan 
-* National ID
-* Resident Certificate (ARC/TARC) number
-* Passport ID
-
-Thailand
-* Population Identification code
-
-United Kingdom
-* Passport ID
-* Driver's license ID
-* National Insurance number (NINO)
-* National Health Service (NHS) number
-
-United States
-* Social Security Number (SSN)
-* Driver's license ID
-* Passport ID
-* Electoral roll number
-* Individual Tax ID Number (ITIN)
-* Drug Enforcement Agency (DEA) number
-* bank account numbers (for example checking, savings and debit accounts)
+[!INCLUDE [supported identification entities](./identification-entities.md)]

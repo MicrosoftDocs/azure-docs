@@ -8,7 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/11/2019
+ms.date: 10/15/2020
+ms.custom: devx-track-java
 ms.author: erhopf
 ---
 

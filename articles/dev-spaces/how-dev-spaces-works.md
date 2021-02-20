@@ -1,13 +1,15 @@
 ---
 title: "How Azure Dev Spaces works"
 services: azure-dev-spaces
-ms.date: 03/24/2020
+ms.date: 06/02/2020
 ms.topic: "conceptual"
 description: "Describes the processes that power Azure Dev Spaces"
 keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 ---
 
 # How Azure Dev Spaces works
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Developing a Kubernetes application can be challenging. You need Docker and Kubernetes configuration files. You need to figure out how to test your application locally and interact with other dependent services. You might need to handle developing and testing multiple services at once and with a team of developers.
 
@@ -17,9 +19,9 @@ Azure Dev Spaces provides you with multiple ways to rapidly iterate and debug Ku
 
 Azure Dev Spaces reduces the effort to develop, test, and iterate your Kubernetes application in the context of your AKS cluster. This reduction in effort allows developers to focus on the business logic of their applications and not configuring their services to run in Kubernetes.
 
-### Connect your development machine to AKS
+### Bridge to Kubernetes
 
-With Azure Dev Spaces, you can connect your development computer to your AKS cluster, allowing you to run and debug code on your development computer as if it were running on the cluster. Azure Dev Spaces redirects traffic between your connected AKS cluster by running a pod on your cluster that acts as a remote agent to redirect traffic between your development machine and the cluster. This traffic redirection allows code on your development computer and services running in your AKS cluster to communicate as if they were in the same AKS cluster. For more information about connecting your development machine to AKS, see [How connecting your development computer to your AKS cluster works][how-it-works-connect].
+With Bridge to Kubernetes, you can connect your development computer to your Kubernetes cluster, allowing you to run and debug code on your development computer as if it were running on the cluster. Bridge to Kubernetes redirects traffic between your connected cluster by running a pod on your cluster that acts as a remote agent to redirect traffic between your development computer and the cluster. This traffic redirection allows code on your development computer and services running in your cluster to communicate as if they were in the same cluster. For more information about connecting your development computer to a Kubernetes cluster, see [How Bridge to Kubernetes works][how-it-works-bridge-to-kubernetes].
 
 ### Run your code in AKS
 
@@ -39,16 +41,14 @@ You can also use GitHub Actions with Azure Dev Spaces to test changes to your ap
 
 ## Next steps
 
-To get started connecting your local development machine to your AKS cluster, see [Connect your development machine to an AKS cluster][connect].
+To get started connecting your local development computer to your AKS cluster, see [Connect your development computer to an AKS cluster][connect].
 
-To get started using Azure Dev Spaces for team development, see the [team development in Azure Dev Spaces][quickstart-team] quickstart.
 
-[connect]: how-to/connect.md
-[how-it-works-connect]: how-dev-spaces-works-connect.md
+[connect]: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+[how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md
 [how-it-works-up]: how-dev-spaces-works-up.md
 [pr-flow]: how-to/github-actions.md
-[quickstart-team]: quickstart-team-development.md
 [routing]: #team-development

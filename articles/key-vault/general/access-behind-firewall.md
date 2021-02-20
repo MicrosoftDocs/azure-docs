@@ -1,6 +1,6 @@
 ---
 title: Access Key Vault behind a firewall - Azure Key Vault | Microsoft Docs
-description: Learn how to access Azure Key Vault from an application behind a firewall
+description: Learn about the ports, hosts, or IP addresses to open to enable a key vault client application behind a firewall to access a key vault.
 services: key-vault
 author: amitbapat
 manager: rkarlin
@@ -8,7 +8,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: ambapat
 
@@ -39,7 +39,7 @@ Key vault client applications will need to access Azure Active Directory endpoin
 | User or service principal using a work or school account with Azure AD (for example, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
 | User or service principal using a work or school account, plus Active Directory Federation Services (AD FS) or other federated endpoint (for example, user@contoso.com) |All endpoints for a work or school account, plus AD FS or other federated endpoints |
 
-There are other possible complex scenarios. Refer to [Azure Active Directory Authentication Flow](../../active-directory/develop/authentication-scenarios.md), [Integrating Applications with Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md), and [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) for additional information.  
+There are other possible complex scenarios. Refer to [Azure Active Directory Authentication Flow](../../active-directory/develop/authentication-vs-authorization.md), [Integrating Applications with Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md), and [Active Directory Authentication Protocols](/previous-versions/azure/dn151124(v=azure.100)) for additional information.  
 
 ## Key Vault management
 
@@ -70,4 +70,4 @@ Authentication and Identity (Azure Active Directory) is a global service and may
 
 ## Next steps
 
-If you have questions about Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+If you have questions about Key Vault, visit the [Microsoft Q&A question page for Azure Key Vault](/answers/topics/azure-key-vault.html).

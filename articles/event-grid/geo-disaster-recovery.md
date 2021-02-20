@@ -1,13 +1,8 @@
 ---
 title: Geo disaster recovery in Azure Event Grid | Microsoft Docs
 description: Describes how Azure Event Grid supports geo disaster recovery (GeoDR) automatically. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2019
-ms.author: spelluru
+ms.date: 11/19/2020
 ---
 
 # Server-side geo disaster recovery in Azure Event Grid
@@ -15,8 +10,8 @@ Event Grid now has an automatic geo disaster recovery (GeoDR) of meta-data not o
 
 Disaster recovery is measured with two metrics:
 
-- [Recovery Point Objective (RPO)](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_Point_Objective): the minutes or hours of data that may be lost.
-- [Recovery Time Objective (RTO)](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_time_objective): the minutes of hours the service may be down.
+- Recovery Point Objective (RPO): the minutes or hours of data that may be lost.
+- Recovery Time Objective (RTO): the minutes or hours the service may be down.
 
 Event Grid’s automatic failover has different RPOs and RTOs for your metadata (event subscriptions etc.) and data (events). If you need different specification from the following ones, you can still implement your own [client-side fail over using the topic health apis](custom-disaster-recovery.md).
 

@@ -7,7 +7,7 @@ author: careyjmac
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/17/2020
 ms.author: chalton
 ---
 # Document Extraction cognitive skill
@@ -20,7 +20,8 @@ The **Document Extraction** skill extracts content from a file within the enrich
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in indexing. There are no charges for text extraction from documents.
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [pricing page](https://azure.microsoft.com/pricing/details/search/).
+
 ## @odata.type  
 Microsoft.Skills.Util.DocumentExtractionSkill
 
@@ -28,10 +29,10 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 
 Parameters are case-sensitive.
 
-| Inputs	        | Allowed Values | Description |
+| Inputs | Allowed Values | Description |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Set to `default` for document extraction from files that are not pure text or json. Set to `text` to improve performance on plain text files. Set to `json` to extract structured content from json files. If `parsingMode` is not defined explicitly, it will be set to `default`. |
-| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Set to `contentAndMetadata` to extract all metadata and textual content from each file. Set to `allMetadata` to extract only the [content-type specific metadata](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (for example, metadata unique to just .png files). If `dataToExtract` is not defined explicitly, it will be set to `contentAndMetadata`. |
+| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Set to `contentAndMetadata` to extract all metadata and textual content from each file. Set to `allMetadata` to extract only the [metadata properties for the content type](search-blob-metadata-properties.md) (for example, metadata unique to just .png files). If `dataToExtract` is not defined explicitly, it will be set to `contentAndMetadata`. |
 | `configuration` | See below. | A dictionary of optional parameters that adjust how the document extraction is performed. See the below table for descriptions of supported configuration properties. |
 
 | Configuration Parameter	| Allowed Values | Description |
@@ -46,7 +47,7 @@ Parameters are case-sensitive.
 
 | Input name	 | Description |
 |--------------------|-------------|
-| file_data | The file that content should be extracted from. |
+| `file_data` | The file that content should be extracted from. |
 
 The "file_data" input must be an object defined as follows:
 
@@ -69,8 +70,8 @@ This file reference object can be generated one of 3 ways:
 
 | Output name	 | Description |
 |--------------|-------------|
-| content | The textual content of the document. |
-| normalized_images	| When the `imageAction` is set to a value other then `none`, the new *normalized_images* field will contain an array of images. See [the documentation for image extraction](cognitive-search-concept-image-scenarios.md) for more details on the output format of each image. |
+| `content` | The textual content of the document. |
+| `normalized_images`	| When the `imageAction` is set to a value other then `none`, the new *normalized_images* field will contain an array of images. See [the documentation for image extraction](cognitive-search-concept-image-scenarios.md) for more details on the output format of each image. |
 
 ##	Sample definition
 
@@ -94,11 +95,11 @@ This file reference object can be generated one of 3 ways:
     "outputs": [
       {
         "name": "content",
-        "targetName": "content"
+        "targetName": "extracted_content"
       },
       {
         "name": "normalized_images",
-        "targetName": "normalized_images"
+        "targetName": "extracted_normalized_images"
       }
     ]
   }

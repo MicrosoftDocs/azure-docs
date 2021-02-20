@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -32,7 +32,7 @@ The primary resources you work with in an Azure AD B2C tenant are:
   * *Social* identity providers like Facebook, LinkedIn, or Twitter that you want to support in your applications.
   * *External* identity providers that support standard identity protocols like OAuth 2.0, OpenID Connect, and more.
   * *Local* accounts that enable users to sign up and sign in with a username (or email address or other ID) and password.
-* **Keys** - Add and manage encryption keys for signing and validating tokens.
+* **Keys** - Add and manage encryption keys for signing and validating tokens, client secrets, certificates, and passwords.
 
 An Azure AD B2C tenant is the first resource you need to create to get started with Azure AD B2C. Learn how in [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
 
@@ -52,30 +52,30 @@ With a *consumer* account, users can sign in to the applications that you've sec
 
 A consumer account can be associated with these identity types:
 
-* **Local** identity, with the username and password stored locally in the Azure AD B2C directory. We often refer to these identities as as "local accounts."
+* **Local** identity, with the username and password stored locally in the Azure AD B2C directory. We often refer to these identities as "local accounts."
 * **Social** or **enterprise** identities, where the identity of the user is managed by a federated identity provider like Facebook, Microsoft, ADFS, or Salesforce.
 
 A user with a consumer account can sign in with multiple identities, for example username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social.
 
 ![Consumer account identities](media/technical-overview/identities.png)<br/>*Figure: A single consumer account with multiple identities in Azure AD B2C*
 
-Azure AD B2C lets you manage common attributes of consumer account profiles like display name, surname, given name, city, and others. You can also extend the Azure AD schema to store additional information about your users. For example, their country or residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multi-factor authentication.
+Azure AD B2C lets you manage common attributes of consumer account profiles like display name, surname, given name, city, and others. You can also extend the Azure AD schema to store additional information about your users. For example, their country/region or residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multi-factor authentication.
 
 Learn more about the user account types in Azure AD B2C in [Overview of user accounts in Azure Active Directory B2C](user-overview.md).
 
 ## External identity providers
 
-You can configure Azure AD B2C to allow users to sign in to your application with credentials from external social or enterprise identity providers (IdP). Azure AD B2C supports external identity providers like Facebook, Microsoft account, Google, Twitter, and any identity provider that supports OAuth 1.0, OAuth 2.0, OpenID Connect, SAML, or WS-Federation protocols.
+You can configure Azure AD B2C to allow users to sign in to your application with credentials from external social or enterprise identity providers (IdP). Azure AD B2C supports external identity providers like Facebook, Microsoft account, Google, Twitter, and any identity provider that supports OAuth 1.0, OAuth 2.0, OpenID Connect, and SAML protocols.
 
 ![External identity providers](media/technical-overview/external-idps.png)
 
 With external identity provider federation, you can offer your consumers the ability to sign in with their existing social or enterprise accounts, without having to create a new account just for your application.
 
-On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers the user can choose for sign-in. Once they select one of the external identity providers, they're taken (redirected) to the selected provider's website to complete the sign in process. After the user successfully signs in, they're returned back to Azure AD B2C for authentication of the account in your application.
+On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers the user can choose for sign-in. Once they select one of the external identity providers, they're taken (redirected) to the selected provider's website to complete the sign in process. After the user successfully signs in, they're returned to Azure AD B2C for authentication of the account in your application.
 
 ![Mobile sign-in example with a social account (Facebook)](media/technical-overview/external-idp.png)
 
-To see how to add identity providers in Azure AD B2C, see [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](tutorial-add-identity-providers.md).
+To see how to add identity providers in Azure AD B2C, see [Add identity providers to your applications in Azure Active Directory B2C](add-identity-provider.md).
 
 ## Identity experiences: user flows or custom policies
 
@@ -96,8 +96,8 @@ To help you quickly set up the most common identity tasks, the Azure portal incl
 You can configure user flow settings like these to control identity experience behaviors in your applications:
 
 * Account types used for sign-in, such as social accounts like a Facebook, or local accounts that use an email address and password for sign-in
-* Attributes to be collected from the consumer, such as first name, postal code, or country of residency
-* Azure Multi-Factor Authentication (MFA)
+* Attributes to be collected from the consumer, such as first name, postal code, or country/region of residency
+* Azure AD Multi-Factor Authentication (MFA)
 * Customization of the user interface
 * Set of claims in a token that your application receives after the user completes the user flow
 * Session management
@@ -130,15 +130,13 @@ Learn more about custom policies in [Custom policies in Azure Active Directory B
 
 ## Protocols and tokens
 
-Azure AD B2C supports the [OpenID Connect and OAuth 2.0 protocols](protocols-overview.md) for user journeys. In the Azure AD B2C implementation of OpenID Connect, your application starts the user journey by issuing authentication requests to Azure AD B2C.
+- For applications, Azure AD B2C supports the [OAuth 2.0](protocols-overview.md), [OpenID Connect](openid-connect.md), and [SAML protocols](connect-with-saml-service-providers.md) for user journeys. Your application starts the user journey by issuing authentication requests to Azure AD B2C. The result of a request to Azure AD B2C is a security token, such as an [ID token, access token](tokens-overview.md), or SAML token. This security token defines the user's identity within the application.
 
-The result of a request to Azure AD B2C is a security token, such as an [ID token or access token](tokens-overview.md). This security token defines the user's identity. Tokens are received from Azure AD B2C endpoints like the `/token` or `/authorize` endpoint. With these tokens, you can access claims that can be used to validate an identity and allow access to secure resources.
+- For external identities, Azure AD B2C supports federation with any OAuth 1.0, OAuth 2.0, OpenID Connect, and SAML identity providers.
 
-For external identities, Azure AD B2C supports federation with any OAuth 1.0, OAuth 2.0, OpenID Connect, SAML, and WS-Fed identity provider.
+The following diagram shows how Azure AD B2C can communicate using a variety of protocols within the same authentication flow:
 
 ![Diagram of OIDC-based client app federating with a SAML-based IdP](media/technical-overview/protocols.png)
-
-The preceding diagram shows how Azure AD B2C can communicate using variety of protocols within the same authentication flow:
 
 1. The relying party application initiates an authorization request to Azure AD B2C using OpenID Connect.
 1. When a user of the application chooses to sign in using an external identity provider that uses the SAML protocol, Azure AD B2C invokes the SAML protocol to communicate with that identity provider.
@@ -160,7 +158,7 @@ In Azure AD B2C, you can craft your users' identity experiences so that the page
 
 ![Screenshots of brand-customized sign-up sign-in page](media/technical-overview/seamless-ux.png)
 
-For information on UI customization, see [About user interface customization in Azure Active Directory B2C](customize-ui-overview.md).
+For information on UI customization, see [About user interface customization in Azure Active Directory B2C](customize-ui-with-html.md).
 
 ## Localization
 
@@ -168,7 +166,7 @@ Language customization in Azure AD B2C allows you to accommodate different langu
 
 ![Three sign-up sign-in pages showing UI text in different languages](media/technical-overview/localization.png)
 
-See how localization works in [Language customization in Azure Active Directory B2C](user-flow-language-customization.md).
+See how localization works in [Language customization in Azure Active Directory B2C](language-customization.md).
 
 ## Add your own business logic
 
@@ -213,13 +211,13 @@ You can assign roles to control who can perform certain administrative actions i
 * Create and manage trust framework policies in the Identity Experience Framework (custom policies)
 * Manage secrets for federation and encryption in the Identity Experience Framework (custom policies)
 
-For more information about Azure AD roles, including Azure AD B2C administration role support, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+For more information about Azure AD roles, including Azure AD B2C administration role support, see [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ### Multi-factor authentication (MFA)
 
 Azure AD B2C multi-factor authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. It provides additional security by requiring a second form of authentication, and delivers strong authentication by offering a range of easy-to-use authentication methods. Your users may or may not be challenged for MFA based on configuration decisions that you can make as an administrator.
 
-See how to enable MFA in user flows in [Enable multi-factor authentication in Azure Active Directory B2C](custom-policy-multi-factor-authentication.md).
+See how to enable MFA in user flows in [Enable multi-factor authentication in Azure Active Directory B2C](multi-factor-authentication.md).
 
 ### Smart account lockout
 
@@ -233,7 +231,7 @@ For more information about managing password protection settings, see [Manage th
 
 During sign up or password reset, your users must supply a password that meets complexity rules. By default, Azure AD B2C enforces a strong password policy. Azure AD B2C also provides configuration options for specifying the complexity requirements of the passwords your customers use.
 
-You can configure password complexity requirements in both [user flows](user-flow-password-complexity.md) and [custom policies](custom-policy-password-complexity.md).
+You can configure password complexity requirements in both [user flows](password-complexity.md) and [custom policies](password-complexity.md).
 
 ## Auditing and logs
 
@@ -260,7 +258,4 @@ Find out more about usage analytics in [Track user behavior in Azure Active Dire
 
 ## Next steps
 
-Now that you have deeper view into the features and technical aspects of Azure Active Directory B2C, get started with the service by creating a B2C tenant:
-
-> [!div class="nextstepaction"]
-> [Tutorial: Create an Azure Active Directory B2C tenant >](tutorial-create-tenant.md)
+Now that you have deeper view into the features and technical aspects of Azure Active Directory B2C, get started with our [tutorial for creating an Azure Active Directory B2C tenant](tutorial-create-tenant.md).

@@ -15,6 +15,7 @@ This tutorial teaches you how to mount NFS clients to the Azure FXT Edge Filer c
 This tutorial teaches:
 
 > [!div class="checklist"]
+>
 > * Strategies for load balancing clients across the range of client-facing IP addresses
 > * How to construct a mount path from a client-facing IP address and namespace junction
 > * Which arguments to use in a mount command
@@ -88,14 +89,14 @@ To ensure a seamless client mount, pass these settings and arguments in your mou
 
 ``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-| Required settings | |
+| Required settings | Description |
 --- | ---
 ``hard`` | Soft mounts to the Azure FXT Edge Filer cluster are associated with application failures and possible data loss.
 ``proto=netid`` | This option supports appropriate handling of NFS network errors.
 ``mountproto=netid`` | This option supports appropriate handling of network errors for mount operations.
 ``retry=n`` | Set ``retry=30`` to avoid transient mount failures. (A different value is recommended in foreground mounts.)
 
-| Preferred settings  | |
+| Preferred settings  | Description |
 --- | ---
 ``nointr``            | If your clients use older OS kernels (before April 2008) that support this option, use it. The option "intr" is the default.
 
@@ -103,6 +104,6 @@ To ensure a seamless client mount, pass these settings and arguments in your mou
 
 After you have mounted clients, you can test your workflow and get started with your cluster.
 
-If you need to move data to a new cloud core filer, take advantage of the cache structure by using parallel data ingest. Some strategies are described in [Moving data to a vFXT cluster](https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-data-ingest). (Avere vFXT for Azure is a cloud-based product that uses caching technology very similar to the Azure FXT Edge Filer.)
+If you need to move data to a new cloud core filer, take advantage of the cache structure by using parallel data ingest. Some strategies are described in [Moving data to a vFXT cluster](../avere-vfxt/avere-vfxt-data-ingest.md). (Avere vFXT for Azure is a cloud-based product that uses caching technology very similar to the Azure FXT Edge Filer.)
 
 Read [Monitor Azure FXT Edge Filer hardware status](fxt-monitor.md) if you need to troubleshoot any hardware issues.

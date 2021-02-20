@@ -6,10 +6,12 @@ ms.service: media-services
 ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
-ms.date: 03/25/2020
+ms.date: 08/31/2020
 ---
 
 # Create an Azure Media Services live stream
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This quickstart will help you create an Azure Media Services live stream by using the Azure portal and Telestream Wirecast. It assumes that you have an Azure subscription and have created a Media Services account.
 

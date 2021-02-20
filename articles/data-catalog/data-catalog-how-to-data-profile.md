@@ -4,11 +4,12 @@ description: How-to article highlighting how to include table- and column-level 
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
 ---
-
 # How to data profile data sources in Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## Introduction
 
@@ -24,7 +25,7 @@ Data profiling examines the data in the data source being registered, and collec
 
 The following data sources support data profiling:
 
-* SQL Server (including Azure SQL DB and Azure SQL Data Warehouse) tables and views
+* SQL Server (including Azure SQL DB and Azure Synapse Analytics) tables and views
 * Oracle tables and views
 * Teradata tables and views
 * Hive tables
@@ -40,7 +41,7 @@ Including data profiles when registering data assets helps users answer question
 > You can also add documentation to an asset to describe how data could be integrated into an application. See [How to document data sources](data-catalog-how-to-documentation.md).
 >
 
-<a name="howto"/>
+<a name="howto"></a>
 
 ## How to include a data profile when registering a data source
 

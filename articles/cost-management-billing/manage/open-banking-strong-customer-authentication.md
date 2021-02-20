@@ -5,14 +5,15 @@ author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
 # Open Banking (PSD2) and Strong Customer Authentication (SCA) for Azure customers
 
-As of September 14, 2019, banks in the 31 countries of the [European Economic Area](https://en.wikipedia.org/wiki/European_Economic_Area) are required to verify the identity of the person making an online purchase before the payment is processed. This verification requires multi-factor authentication to help ensure your online purchases are secure and protected. The date for this verification requirement will be delayed for some countries. For more information, see the [Microsoft FAQ about PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
+As of September 14, 2019, banks in the 31 countries/regions of the [European Economic Area](https://en.wikipedia.org/wiki/European_Economic_Area) are required to verify the identity of the person making an online purchase before the payment is processed. This verification requires multi-factor authentication to help ensure your online purchases are secure and protected. The date for this verification requirement will be delayed for some countries/regions. For more information, see the [Microsoft FAQ about PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
 
 ## What PSD2 means for Azure customers
 

@@ -1,9 +1,8 @@
 ---
 title: Azure Batch pool resize start event
 description: Reference for Batch pool resize start event. Example shows the body of a pool resize start event for a pool resizing from 0 to 2 nodes with a manual resize.
-ms.topic: article
-ms.date: 04/20/2017
-ms.author: labrenne
+ms.topic: reference
+ms.date: 12/28/2020
 ---
 
 # Pool resize start event
@@ -14,14 +13,14 @@ ms.author: labrenne
 
 ```
 {
-	"id": "myPool1",
-	"nodeDeallocationOption": "Invalid",
-	"currentDedicatedNodes": 0,
-	"targetDedicatedNodes": 2,
-	"currentLowPriorityNodes": 0,
-	"targetLowPriorityNodes": 2,
-	"enableAutoScale": false,
-	"isAutoPool": false
+   "id": "myPool1",
+   "nodeDeallocationOption": "Invalid",
+   "currentDedicatedNodes": 0,
+   "targetDedicatedNodes": 2,
+   "currentLowPriorityNodes": 0,
+   "targetLowPriorityNodes": 2,
+   "enableAutoScale": false,
+   "isAutoPool": false
 }
 ```
 

@@ -8,6 +8,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
+ms.custom: devx-track-js
 ---
 
 The Bing Web Search client library makes it easy to integrate Bing Web Search into your Node.js application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
@@ -40,11 +41,11 @@ Let's start by setting up the development environment for our Node.js project.
     npm init
     ```
 
-1. Now, let's install some azure modules and add them to the `package.json`:
+1. Now, let's install some Azure modules and add them to the `package.json`:
 
     ```console
-    npm install --save azure-cognitiveservices-websearch
-    npm install --save ms-rest-azure
+    npm install --save @azure/cognitiveservices-websearch
+    npm install --save @azure/ms-rest-azure-js
     ```
 
 ## Create a project and declare required modules
@@ -54,13 +55,13 @@ In the same directory as your `package.json`, create a new Node.js project using
 Next, copy this code into your project. It loads the modules installed in the previous section.
 
 ```javascript
-const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-const WebSearchAPIClient = require('azure-cognitiveservices-websearch');
+const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
+const WebSearchAPIClient = require('@azure/cognitiveservices-websearch');
 ```
 
 ## Instantiate the client
 
-This code instantiates a client and using the `azure-cognitiveservices-websearch` module. Make sure that you enter a valid subscription key for your Azure account before continuing.
+This code instantiates a client and using the `@azure/cognitiveservices-websearch` module. Make sure that you enter a valid subscription key for your Azure account before continuing.
 
 ```javascript
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
@@ -101,4 +102,4 @@ When you're done with this project, make sure to remove your subscription key fr
 
 ## See also
 
-* [Azure Node SDK reference](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/)
+* [Azure Node SDK reference](/javascript/api/@azure/cognitiveservices-websearch/)

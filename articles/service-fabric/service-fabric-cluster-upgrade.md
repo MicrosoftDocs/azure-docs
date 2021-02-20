@@ -3,7 +3,6 @@ title: Upgrade an Azure Service Fabric cluster
 description: Learn about upgrading the version or configuration of an Azure Service Fabric cluster—setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and what you can expect when the upgrades are performed.
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.custom: sfrev
 ---
 # Upgrading and updating an Azure Service Fabric cluster
 
@@ -99,7 +98,7 @@ The patch orchestration application (POA) is a Service Fabric application that a
 ## Next steps
 
 * Learn how to customize some of the [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md)
-* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md)
+* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-in-out.md)
 * Learn about [application upgrades](service-fabric-application-upgrade.md)
 
 <!--Image references-->

@@ -2,11 +2,21 @@
   href: overview.md
 - name: Red Hat Enterprise Linux Images
   items:
-  - name: Red Hat Enterprise Linux Image Overview
+  - name: RHEL Image Overview
     href: redhat-images.md
-  - name: Red Hat Enterprise Linux Image List
+  - name: RHEL Image List
     href: redhat-imagelist.md
+- name: Red Hat Java Quickstarts
+  items: 
+  - name: JBoss EAP + RHEL on VM/VMSS
+    href: jboss-eap-on-rhel.md
+  - name: WildFly + CentOS on VM
+    href: wildfly-on-centos.md
 - name: Red Hat Update Infrastructure in Azure
   href: redhat-rhui.md
 - name: Red Hat Enterprise Linux BYOS Image Offer
   href: byos.md
+- name: Red Hat Enterprise Linux Extended Lifecycle Support
+  href: redhat-extended-lifecycle-support.md
+- name: In-place upgrade of Red Hat Enterprise images on Azure
+  href: redhat-in-place-upgrade.md

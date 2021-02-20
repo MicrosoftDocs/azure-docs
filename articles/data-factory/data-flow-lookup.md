@@ -7,7 +7,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/23/2020
+ms.date:  10/30/2020
 ---
 
 # Lookup transformation in mapping data flow
@@ -16,11 +16,13 @@ ms.date: 03/23/2020
 
 Use the lookup transformation to reference data from another source in a data flow stream. The lookup transformation appends columns from matched data to your source data.
 
-A lookup transformation is similar to a left outer join. All rows from the primary stream will exist in the output stream with additional columns from the lookup stream. 
+A lookup transformation is similar to a left outer join. All rows from the primary stream will exist in the output stream with additional columns from the lookup stream.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xsVT]
 
 ## Configuration
 
-![Lookup Transformation](media/data-flow/lookup1.png "Lookup")
+![Screenshot shows the Lookup settings tab with the labels described in the following text.](media/data-flow/lookup1.png "Lookup")
 
 **Primary stream:** The incoming stream of data. This stream is equivalent to the left side of a join.
 
@@ -35,6 +37,12 @@ A lookup transformation is similar to a left outer join. All rows from the prima
 The lookup transformation only supports equality matches. To customize the lookup expression to include other operators such as greater than, it's recommended to use a [cross join in the join transformation](data-flow-join.md#custom-cross-join). A cross join will avoid any possible cartesian product errors on execution.
 
 All columns from both streams are included in the output data. To drop duplicate or unwanted columns, add a [select transformation](data-flow-select.md) after your lookup transformation. Columns can also be dropped or renamed in a sink transformation.
+
+### Non-equi joins
+
+To use a conditional operator such as not equals (!=) or greater than (>) in your lookup conditions, change the operator dropdown between the two columns. Non-equi joins require at least one of the two streams to be broadcasted using **Fixed** broadcasting in the **Optimize** tab.
+
+![Non-equi lookup](media/data-flow/non-equi-lookup.png "Non-equi lookup")
 
 ## Analyzing matched rows
 
@@ -56,6 +64,10 @@ In joins, lookups and exists transformation, if one or both data streams fit int
 
 It's not recommended to disable broadcasting via the **Off** option unless your joins are running into timeout errors.
 
+## Cached lookup
+
+If you're doing multiple smaller lookups on the same source, a cached sink and lookup maybe a better use case than the lookup transformation. Common examples where a cache sink may be better are looking up a max value on a data store and matching error codes to an error message database. For more information, learn about [cache sinks](data-flow-sink.md#cache-sink) and [cached lookups](concepts-data-flow-expression-builder.md#cached-lookup).
+
 ## Data flow script
 
 ### Syntax
@@ -72,7 +84,7 @@ It's not recommended to disable broadcasting via the **Off** option unless your 
 ```
 ### Example
 
-![Lookup Transformation](media/data-flow/lookup-dsl-example.png "Lookup")
+![Screenshot shows the Lookup settings tab for the following code.](media/data-flow/lookup-dsl-example.png "Lookup")
 
 The data flow script for the above lookup configuration is in the code snippet below.
 

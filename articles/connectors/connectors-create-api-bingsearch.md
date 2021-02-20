@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect to Bing Search
 description: Automate tasks and workflows that find results in Bing Search by using Azure Logic Apps
 services: logic-apps
@@ -25,7 +25,7 @@ If you're new to logic apps, review
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 For connector-specific technical information, see the 
-[Bing Search connector reference](https://docs.microsoft.com/connectors/bingsearch/).
+[Bing Search connector reference](/connectors/bingsearch/).
 
 ## Prerequisites
 
@@ -207,3 +207,4 @@ see the [connector's reference page](/connectors/bingsearch/).
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+

@@ -3,7 +3,7 @@ title: Service principals for Azure Kubernetes Services (AKS)
 description: Create and manage an Azure Active Directory service principal for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 06/16/2020
 
 
 #Customer intent: As a cluster operator, I want to understand how to create a service principal and delegate permissions for AKS to access required resources. In large enterprise environments, the user that deploys the cluster (or CI/CD system), may not have permissions to create this service principal automatically when the cluster is created.
@@ -87,6 +87,9 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 The `--scope` for a resource needs to be a full resource ID, such as */subscriptions/\<guid\>/resourceGroups/myResourceGroup* or */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
 
+> [!NOTE]
+> If you have removed the Contributor role assignment from the node resource group, the operations below may fail.  
+
 The following sections detail common delegations that you may need to make.
 
 ### Azure Container Registry
@@ -95,16 +98,7 @@ If you use Azure Container Registry (ACR) as your container image store, you nee
 
 ### Networking
 
-You may use advanced networking where the virtual network and subnet or public IP addresses are in another resource group. Assign one of the following set of role permissions:
-
-- Create a [custom role][rbac-custom-role] and define the following role permissions:
-  - *Microsoft.Network/virtualNetworks/subnets/join/action*
-  - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/virtualNetworks/subnets/write*
-  - *Microsoft.Network/publicIPAddresses/join/action*
-  - *Microsoft.Network/publicIPAddresses/read*
-  - *Microsoft.Network/publicIPAddresses/write*
-- Or, assign the [Network Contributor][rbac-network-contributor] built-in role on the subnet within the virtual network
+You may use advanced networking where the virtual network and subnet or public IP addresses are in another resource group. Assign the [Network Contributor][rbac-network-contributor] built-in role on the subnet within the virtual network. Alternatively, you can create a [custom role][rbac-custom-role] with permissions to access the network resources in that resource group. See [AKS service permissions][aks-permissions] for more details.
 
 ### Storage
 
@@ -132,7 +126,7 @@ When using AKS and Azure AD service principals, keep the following consideration
 - If you do not specifically pass a service principal in additional AKS CLI commands, the default service principal located at `~/.azure/aksServicePrincipal.json` is used.  
 - You can also optionally remove the aksServicePrincipal.json file, and AKS will create a new service principal.
 - When you delete an AKS cluster that was created by [az aks create][az-aks-create], the service principal that was created automatically is not deleted.
-    - To delete the service principal, query for your cluster *servicePrincipalProfile.clientId* and then delete with [az ad app delete][az-ad-app-delete]. Replace the following resource group and cluster names with your own values:
+    - To delete the service principal, query for your cluster *servicePrincipalProfile.clientId* and then delete with [az ad sp delete][az-ad-sp-delete]. Replace the following resource group and cluster names with your own values:
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
@@ -181,3 +175,4 @@ For information on how to update the credentials, see [Update or rotate the cred
 [aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md
+[aks-permissions]: concepts-identity.md#aks-service-permissions

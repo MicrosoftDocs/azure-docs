@@ -54,7 +54,7 @@ Get a Microsoft [Azure account](https://azure.microsoft.com/).
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
 - Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
-- Verify and modify [role-based access](../role-based-access-control/role-assignments-portal.md) permissions. 
+- Verify and modify [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) permissions. 
 
 
 
@@ -107,7 +107,7 @@ Set up the configuration server, register it in the vault, and discover VMs.
 4. Download the Site Recovery Unified Setup installation file.
 5. Download the vault registration key. You need this when you run Unified Setup. The key is valid for five days after you generate it.
 
-   ![Set up source](./media/physical-azure-disaster-recovery/source-environment.png)
+   ![Screenshot showing the options to download the installation file and registration key.](./media/physical-azure-disaster-recovery/source-environment.png)
 
 
 ### Register the configuration server in the vault
@@ -115,7 +115,7 @@ Set up the configuration server, register it in the vault, and discover VMs.
 Do the following before you start: 
 
 #### Verify time accuracy
-On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
+On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](/windows-server/networking/windows-time-service/windows-time-service-top). It should match. If it's 15 minutes in front or behind, setup might fail.
 
 #### Verify connectivity
 Make sure the machine can access these URLs based on your environment: 
@@ -132,7 +132,6 @@ Run Unified Setup as a Local Administrator, to install the configuration server.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-After registration finishes, the configuration server is displayed on the **Settings** > **Servers** page in the vault.
 
 ## Set up the target environment
 
@@ -142,7 +141,7 @@ Select and verify target resources.
 2. Specify the target deployment model.
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
-   ![Target](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Screenshot of the options for setting up the target environment.](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## Create a replication policy
@@ -153,7 +152,7 @@ Select and verify target resources.
 4. In **Recovery point retention**, specify how long (in hours) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 24 hours retention is supported for machines replicated to premium storage, and 72 hours for standard storage.
 5. In **App-consistent snapshot frequency**, specify how often (in minutes) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
 
-    ![Replication policy](./media/physical-azure-disaster-recovery/replication-policy.png)
+    ![Screenshot of the options for creating a replication policy.](./media/physical-azure-disaster-recovery/replication-policy.png)
 
 
 The policy is automatically associated with the configuration server. By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then a failback policy **rep-policy-failback** is created. This policy isn't used until you initiate a failback from Azure.
