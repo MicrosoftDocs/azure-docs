@@ -315,6 +315,9 @@ The examples below use a service principal with a `ClientSecretCredential` insta
 
 ### In .NET
 
+> [!NOTE]
+> You must use the `preview` version of the Azure Cosmos DB .NET SDK to access this feature.
+
 ```csharp
 TokenCredential servicePrincipal = new ClientSecretCredential(
     "<azure-ad-tenant-id>",
@@ -344,7 +347,7 @@ When using the Azure Cosmos DB RBAC, [diagnostic logs](cosmosdb-monitor-resource
 
 This additional information flows in the **DataPlaneRequests** log category and consists of two extra columns:
 
-- `aadPrincipalId_g` shows the principal ID of the AAD identity that was used to issue the request.
+- `aadPrincipalId_g` shows the principal ID of the AAD identity that was used to authenticate the request.
 - `aadAppliedRoleAssignmentId_g` shows the [role assignment](#role-assignments) that was honored when authorizing the request.
 
 ## Frequently asked questions
