@@ -31,7 +31,6 @@ Clusters configured with Azure CNI networking require additional planning. The s
 
 IP addresses for the pods and the cluster's nodes are assigned from the specified subnet within the virtual network. Each node is configured with a primary IP address. By default, 30 additional IP addresses are pre-configured by Azure CNI that are assigned to pods scheduled on the node. When you scale out your cluster, each node is similarly configured with IP addresses from the subnet. You can also view the [maximum pods per node](#maximum-pods-per-node).
 
-
 > [!IMPORTANT]
 > The number of IP addresses required should include considerations for upgrade and scaling operations. If you set the IP address range to only support a fixed number of nodes, you cannot upgrade or scale your cluster.
 >
@@ -153,6 +152,7 @@ To alleviate the shortcomings of Azure CNI regarding IP exhaustion, a feature ha
 The prerequisites already listed for Azure CNI still apply, but there are a few additional limitations:
 
 * Only linux node clusters and node pools are supported.
+* AKS Engine and DIY clusters are not supported.
 * more...
 
 ### Planning IP addressing
@@ -232,6 +232,7 @@ The following questions and answers apply to the **Azure CNI* network configurat
 
 * What virtual network policies can be configured for pods?
   The following VNet policies can be configured for pods – NSG, UDR, Regional and Global Peering, Private Link, Service Endpoints, DNS resolution (both custom and Azure DNS, including Private Zones), placing pods directly behind a Standard Load Balancer (ELB only), and Gateways.
+* more...
 
 ## AKS Engine
 
