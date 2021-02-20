@@ -10,7 +10,7 @@ ms.custom: how-to, automl
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
-ms.date: 06/16/2020
+ms.date: 02/23/2021
 
 ---
 
@@ -22,7 +22,7 @@ In Azure Machine Learning, when you use automated ML to build multiple ML models
 
 Automated ML experiments perform model validation automatically. The following sections describe how you can further customize validation settings with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
-For a low-code or no-code experience, see [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md). 
+For a low-code or no-code experience, see [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment). 
 
 > [!NOTE]
 > The studio currently supports training and validation data splits as well as cross-validation options, but it does not support specifying individual data files for your validation set. 
@@ -69,6 +69,9 @@ If you do not explicitly specify either a `validation_data` or `n_cross_validati
 
 In this case, you can either start with a single data file and split it into training data and validation data sets or you can provide a separate data file for the validation set. Either way, the `validation_data` parameter in your `AutoMLConfig` object assigns which data to use as your validation set. This parameter only accepts data sets in the form of an [Azure Machine Learning dataset](how-to-create-register-datasets.md) or pandas dataframe.   
 
+> [!NOTE]
+> The `validation_size` parameter is not supported in forecasting scenarios.
+
 The following code example explicitly defines which portion of the provided data in `dataset` to use for training and validation.
 
 ```python
@@ -93,6 +96,9 @@ In this case, only a single dataset is provided for the experiment. That is, the
 
 In your `AutoMLConfig` object, you can set the `validation_size` parameter to hold out a portion of the training data for validation. This means that the validation set will be split by AutoML from the initial `training_data` provided. This value should be between 0.0 and 1.0 non-inclusive (for example, 0.2 means 20% of the data is held out for validation data).
 
+> [!NOTE]
+> The `validation_size` parameter is not supported in forecasting scenarios. 
+
 See the following code example:
 
 ```python
@@ -113,6 +119,9 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 To perform k-fold cross-validation, include the `n_cross_validations` parameter and set it to a value. This parameter sets how many cross validations to perform, based on the same number of folds.
 
+> [!NOTE]
+> The `n_cross_validations` parameter is not supported in classification scenarios that use deep neural networks.
+ 
 In the following code, five folds for cross-validation are defined. Hence, five different trainings, each training using 4/5 of the data, and each validation using 1/5 of the data with a different holdout fold each time.
 
 As a result, metrics are calculated with the average of the five validation metrics.
@@ -136,7 +145,10 @@ To perform Monte Carlo cross validation, include both the `validation_size` and 
 
 For Monte Carlo cross validation, AutoML sets aside the portion of the training data specified by the `validation_size` parameter for validation, and then assigns the rest of the data for training. This process is then repeated based on the value specified in the `n_cross_validations` parameter; which generates new training and validation splits, at random, each time.
 
-In the following, 7 folds for cross-validation are defined. Hence, 7 different trainings, each training using 4/5 of the data, and each validation using 1/5 of the data with a different holdout fold each time.
+> [!NOTE]
+> The Monte Carlo cross-validation is not supported in forecasting scenarios.
+
+The follow code defines, 7 folds for cross-validation and 20% of the training data should be used for validation. Hence, 7 different trainings, each training uses 80% of the data, and each validation uses 20% of the data with a different holdout fold each time.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
