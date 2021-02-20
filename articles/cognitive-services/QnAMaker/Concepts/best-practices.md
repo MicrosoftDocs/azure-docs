@@ -13,7 +13,7 @@ The [knowledge base development lifecycle](../Concepts/development-lifecycle-kno
 
 ## Extraction
 
-The QnA Maker service is continually improving the algorithms that extract QnAs from content and expanding the list of supported file and HTML formats. Follow the [guidelines](../index.yml) for data extraction based on your document type.
+The QnA Maker service is continually improving the algorithms that extract QnAs from content and expanding the list of supported file and HTML formats. Follow the [guidelines](../Concepts/data-sources-and-content.md) for data extraction based on your document type.
 
 In general, FAQ pages should be stand-alone and not combined with other information. Product manuals should have clear headings and preferably an index page.
 
@@ -142,7 +142,7 @@ QnA Maker allows users to collaborate on a knowledge base. Users need access to 
 
 ## Active learning
 
-[Active learning](../How-to/use-active-learning.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you can **[filter by suggestions](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** then review and accept or reject those suggestions.
+[Active learning](../How-to/use-active-learning.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you can **[filter by suggestions](../How-To/improve-knowledge-base.md)** then review and accept or reject those suggestions.
 
 ## Next steps
 

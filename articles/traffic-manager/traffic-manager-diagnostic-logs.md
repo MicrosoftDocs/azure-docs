@@ -62,7 +62,7 @@ If you run PowerShell from your computer, you need the Azure PowerShell module, 
 ## Traffic Manager log schema
 
 All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events. 
-For top-level resource logs schema, see [Supported services, schemas, and categories for Azure Resource Logs](../azure-monitor/platform/resource-logs-schema.md).
+For top-level resource logs schema, see [Supported services, schemas, and categories for Azure Resource Logs](../azure-monitor/essentials/resource-logs-schema.md).
 
 The following table includes logs schema specific to the Azure Traffic Manager profile resource.
 

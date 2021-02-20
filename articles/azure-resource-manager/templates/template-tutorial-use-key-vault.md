@@ -136,7 +136,7 @@ By using the static ID method, you don't need to make any changes to the templat
     "adminPassword": {
         "reference": {
             "keyVault": {
-            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+                "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
             },
             "secretName": "vmAdminPassword"
         }

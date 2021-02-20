@@ -26,9 +26,9 @@ Machines, review the following details.
 
 ## Resource provider
 
-Before you can use Guest Configuration, you must register the resource provider. The resource
-provider is registered automatically if assignment of a Guest Configuration policy is done through
-the portal. You can manually register through the
+Before you can use Guest Configuration, you must register the resource provider. If assignment of a Guest Configuration policy is done through
+the portal, or if the subscription is enrolled in Azure Security Center, the resource
+provider is registered automatically. You can manually register through the
 [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal),
 [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell),
 or
@@ -168,12 +168,33 @@ are met on the machine. The requirements are described in section
 > [!IMPORTANT]
 > In a prior release of Guest Configuration, an initiative was required to combine
 > **DeployIfNoteExists** and **AuditIfNotExists** definitions. **DeployIfNotExists** definitions are
-> no longer required. The definitions and intiaitives are labeled `[Deprecated]` but existing
+> no longer required. The definitions and initiatives are labeled `[Deprecated]` but existing
 > assignments will continue to function. For information see the blog post:
 > [Important change released for Guest Configuration audit policies](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
-Azure Policy uses the Guest Configuration resource provider **complianceStatus** property to report
-compliance in the **Compliance** node. For more information, see [getting compliance
+### What is a Guest Assignment?
+
+When an Azure Policy is assigned, if it's in the category "Guest Configuration"
+there's metadata included to describe a Guest Assignment.
+You can think of a Guest Assignment as a link between a machine and an Azure Policy scenario.
+For example, the snippet below associates the Azure Windows Baseline configuration
+with minimum version `1.0.0` to any machines in scope of the policy. By default,
+the Guest Assignment will only perform an audit of the machine.
+
+```json
+"metadata": {
+    "category": "Guest Configuration",
+    "guestConfiguration": {
+        "name": "AzureWindowsBaseline",
+        "version": "1.*"
+    }
+//additional metadata properties exist
+```
+
+Guest Assignments are created automatically per machine by the Guest Configuration
+service. The resource type is `Microsoft.GuestConfiguration/guestConfigurationAssignments`.
+Azure Policy uses the **complianceStatus** property of the Guest Assignment resource
+to report compliance status. For more information, see [getting compliance
 data](../how-to/get-compliance-data.md).
 
 #### Auditing operating system settings following industry baselines
@@ -215,12 +236,17 @@ The Audit policy definitions available for Guest Configuration include the
 [Azure Arc for servers](../../../azure-arc/servers/overview.md) that are in the scope of the policy
 assignment are automatically included.
 
+## Troubleshooting guest configuration
+
+For more information about troubleshooting Guest Configuration, see
+[Azure Policy troubleshooting](../troubleshoot/general.md).
+
 ### Multiple assignments
 
 Guest Configuration policy definitions currently only support assigning the same Guest Assignment
 once per machine, even if the Policy assignment uses different parameters.
 
-## Client log files
+### Client log files
 
 The Guest Configuration extension writes log files to the following locations:
 
@@ -260,6 +286,15 @@ linesToIncludeAfterMatch=10
 logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
 egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
+
+### Client files
+
+The Guest Configuration client downloads content packages to a machine and extracts the contents.
+To verify what content has been downloaded and stored, view the folder locations given below.
+
+Windows: `c:\programdata\guestconfig\configurations`
+
+Linux: `/var/lib/guestconfig/configurations`
 
 ## Guest Configuration samples
 
