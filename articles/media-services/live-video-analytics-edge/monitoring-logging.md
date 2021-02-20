@@ -339,6 +339,8 @@ Using [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) along 
       }
     }
     ```
+    > [!NOTE]
+    > The modules `edgeHub`, `edgeAgent` and `lvaEdge` are the names of the modules defined in the deployment manifest file. Please make sure that the names of the modules match.   
 
     You can get your `LogAnalyticsWorkspaceId` and `LogAnalyticsSharedKey` values by following these steps:
     1. Go to the Azure portal

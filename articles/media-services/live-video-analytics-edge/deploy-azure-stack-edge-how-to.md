@@ -231,7 +231,7 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 
 * **Kubernetes API Access (kubectl)**
 
-    * Follow the documentation to configure your machine for [access to the Kubernetes cluster](https://review.docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-create-kubernetes-cluster?toc=%2Fazure%2Fdatabox-online%2Fazure-stack-edge-gpu%2Ftoc.json&bc=%2Fazure%2Fdatabox-online%2Fazure-stack-edge-gpu%2Fbreadcrumb%2Ftoc.json&branch=release-tzl#debug-kubernetes-issues).
+    * Follow the documentation to configure your machine for [access to the Kubernetes cluster](https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-create-kubernetes-cluster).
     * All deployed IoT Edge modules use the `iotedge` namespace. Make sure to include that when using kubectl.  
 
 * **Module Logs**
