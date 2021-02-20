@@ -4,7 +4,7 @@ description: Learn how to install a sensor and the on-premises management consol
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/2/2020
+ms.date: 02/18/2021
 ms.topic: how-to
 ms.service: azure
 ---
@@ -207,52 +207,6 @@ To configure Dell BIOS:
 
 7. Select **Back** > **Finish**.
 
-#### Import the BIOS configuration file
-
-This article describes how to configure the BIOS by using the configuration file.
-
-1. Plug in a PC with a static preconfigured IP address **10.100.100.200** to the **iDRAC** port.
-
-   :::image type="content" source="media/tutorial-install-components/idrac-port.png" alt-text="Screenshot of the preconfigured IP address port.":::
-
-2. Open a browser and enter **10.100.100.250** to connect to iDRAC web interface.
-
-3. Sign in with Dell default administrator privileges:
-
-   - Username: **root**
-
-   - Password: **calvin**
-
-4. The appliance's credentials are:
-
-   - Username: **XXX**
-
-   - Password: **XXX**
-
-     The import server profile operation is initiated.
-
-     > [!NOTE]
-     > Before you import the file, make sure:
-     > - You're the only user who is currently connected to iDRAC.
-     > - The system is not in the BIOS menu.
-
-5. Go to **Configuration** > **Server Configuration Profile**. Set the following parameters:
-
-   :::image type="content" source="media/tutorial-install-components/configuration-screen.png" alt-text="Screenshot that shows the configuration of your server profile.":::
-
-   | Parameter | Configuration |
-   |--|--|
-   | Location Type | Select **Local**. |
-   | File Path | Select **Choose File** and add the configuration XML file. |
-   | Import Components | Select **BIOS, NIC, RAID**. |
-   | Maximum wait time | Select **20 minutes**. |
-
-6. Select **Import**.
-
-7. To monitor the process, go to **Maintenance** > **Job Queue**.
-
-   :::image type="content" source="media/tutorial-install-components/view-the-job-queue.png" alt-text="Screenshot that shows Job Queue.":::
-
 #### Manually configuring BIOS 
 
 You need to manually configure the appliance BIOS if:
@@ -353,7 +307,7 @@ To install:
 
 ## HPE ProLiant DL20 installation
 
-This article describes the HPE ProLiant DL20 installation process, which includes the following steps:
+This section describes the HPE ProLiant DL20 installation process, which includes the following steps:
 
   - Enable remote access and update the default administrator password.
   - Configure BIOS and RAID settings.
@@ -553,7 +507,7 @@ To install:
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows selecting the version.":::
 
-6. In the Installation Wizard, define the appliance profile and network properties.
+6. In the Installation screen, define the appliance profile and network properties.
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
@@ -562,7 +516,7 @@ To install:
     | **Hardware profile** | Select **corporate**. |
     | **Management interface** | **eno2** |
     | **Default network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
-    | **input interfaces:**  | The system generates a list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator.<br/><br/>Note that there's no need to configure the bridge interface. This option is used for special use cases only. |
+    | **Input interfaces**  | The system generates a list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator.<br/><br/>Note that there's no need to configure the bridge interface. This option is used for special use cases only. |
 
 7. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **support** user.
 
@@ -570,10 +524,75 @@ To install:
 
 9. Select **Enter** to continue.
 
+## HPE Edgeline EL300 installation
+
+This section describes the Edgeline EL300 installation.
+
+- A default administrative user and password are provided. We recommend that you change these credentials.
+- During the configuration, you'll configure the iSM port.
+- The installation process takes about 20 minutes. After the installation, the system is restarted several times.
+
+:::image type="content" source="media/tutorial-install-components/edgeline-el300-panel.png" alt-text="Edgeline EL300 panel.":::
+
+### Edgeline appliance configuration
+
+This section describes how to configure the Edgleine appliance.
+
+To configure:
+
+1. Connect a screen and a keyboard to the appliance, turn on the appliance.
+1. Type the iSM IP address in your browser.
+1. Log in using the default username and the password, which can be found on the appliance. The Information-iSM Overview screen opens.
+1. Select the Wired and Wireless Network menu and then the IPv4 tab.
+1. Disable the DHCPv4 Configuration toggle.
+1. Define the IP address configuration as follows: IPV4 Address 192.168.1.125, IPV4 Subnet Mask  255.255.255.0, 
+IPV4 Gateway 192.168.1.1
+1. Scroll down and select **Apply**.
+1. Exit the Edgeline iSM and reboot the appliance.
+
+### BIOS setup
+
+This section describes how to set up the BIOS.
+
+To set up:
+
+1. Select **F9**when the appliance starts to access the BIOS.
+1. Select the Advanced tab and scroll down to CSM support.
+1. The CSM support option is disabled by default. Enable CSM support by selecting the **Enter** option.
+1. Additional options appear. In the Option ROM execution section, change Storage and Video to **Legacy.**
+1. Go to the Boot tab.
+1. Change the Boot mode select option to **Legacy**.
+1. Go to **F4: Save & Exit** and select **Save Changes and Exit**.
+1. Select **Yes** in the confirmation dialog box. The appliance will reboot.
+
+### Software installation 
+
+This section describes how to install the software.
+To install:
+
+1. Connect the screen and keyboard to the appliance.
+1. Connect an external CD or disk on the key with the ISO image that you downloaded from the Updates page in the Defender for IoT portal.
+1. Start the appliance.
+1. Select **F11**to enter to the Boot Menu and choose the device that contains the Sensor image (DVD or USB).
+1. Select **English**. The Microsoft screen opens.
+1. Select the **sensor Office** option.
+1. The installation parameter options appear.  Define the appliance profile and network properties:
+
+| Parameter | Configuration |
+| ----------| ------------- |
+    | **Hardware profile** | Select **office** |
+    | **Management interface** | **enp3s0** |
+    | **Default network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
+    | **input interfaces:**  | The system generates a list of input interfaces for you.<br/><br/>To mirror the input interface, enter enp4s0. Do not list enp0s31f6 for Edgeline EL300. <br/><br/> Note that there's no need to configure the bridge interface. This option is used for special use cases only. |
+
+1. After about 10 minutes, the two sets of credentials appear. One is for a CyberX user, and one is for a Support user.
+1. Save the appliance's ID and passwords. You'll need the credentials to access the platform for the first time.
+1. Select **Enter** to continue.
+
+
 ## Sensor installation for the virtual appliance
 
 You can deploy the virtual machine for the Defender for IoT sensor in the following architectures:
-
 
 | Architecture | Specifications | Usage | Comments |
 |---|---|---|---|
@@ -686,7 +705,7 @@ To install:
     | **Hardware profile** | &lt;required architecture&gt; |
     | **Management interface** | **ens192** |
     | **Network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**default gateway:** <br/>**input interfaces:**|
-    | **bridge interfaces:** | There's no need to configure the bridge interface. This option is for special use cases only. |
+    | **bridge interfaces** | There's no need to configure the bridge interface. This option is for special use cases only. |
 
 5. Enter **Y** to accept the settings.
 
