@@ -19,7 +19,7 @@ bandwidth and helps reduce the time to download and install the update. Package
 updates typically allow for less downtime of devices when applying an update and
 avoid the overhead of creating images.
 
-This tutorial walks you through the steps to complete an end-to-end package-based update through Device Update for IoT Hub. We will use a sample package agent for Ubuntu Server 18.04 x64 for this tutorial. This OS platform was chosen because it's the most common scenario for Azure IoT solutions. Even if you plan on using a different OS platform configuration, this tutorial is still useful to learn about the tools and concepts in Device Update for IoT Hub. Complete this introduction to an end-to-end update process, then choose your preferred form of updating and OS platform to dive into the details. You can use Device Update for IoT Hub to update an Azure IoT or Azure IoT Edge device using this tutorial. 
+This tutorial walks you through the steps to complete an end-to-end package-based update through Device Update for IoT Hub. We will use a sample package agent for Ubuntu Server 18.04 x64 for this tutorial. Even if you plan on using a different OS platform configuration, this tutorial is still useful to learn about the tools and concepts in Device Update for IoT Hub. Complete this introduction to an end-to-end update process, then choose your preferred form of updating and OS platform to dive into the details. You can use Device Update for IoT Hub to update an Azure IoT or Azure IoT Edge device using this tutorial. 
 
 In this tutorial you will learn how to:
 > [!div class="checklist"]
@@ -96,10 +96,11 @@ Once you have the required packages installed, you need to provision the device 
 
    ```toml
       # Manual provisioning configuration using a connection string
-      provisioning:
-        source: "manual"
-        device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-        dynamic_reprovisioning: false
+      [provisioning]
+      source = "manual"
+      iothub_hostname = "<REQUIRED IOTHUB HOSTNAME>"
+      device_id = "<REQUIRED DEVICE ID PROVISIONED IN IOTHUB>"
+      dynamic_reprovisioning = false 
    ```
 
 3. Save and close the file using Ctrl+X, Y
