@@ -3,9 +3,9 @@ title: Create automation tasks to manage and monitor Azure resources
 description: Set up automated tasks that help you manage Azure resources and monitor costs by creating workflows that run on Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, jonfan, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/19/2021
 ---
 
 # Manage Azure resources and monitor costs by creating automation tasks (preview)
@@ -69,7 +69,7 @@ By comparison, Azure Automation is a cloud-based automation and configuration se
 
    ![Screenshot that shows the storage account "Tasks" pane where the toolbar has "Add" selected](./media/create-automation-tasks-azure-resources/add-automation-task.png)
 
-1. On the **Add a Task** pane, under **Select a template**, select the template for the task that you want to create, and select **Next: Authentication**.
+1. On the **Add a Task** pane, under **Select a template**, select the template for the task that you want to create. If the next page doesn't appear, select **Next: Authentication**.
 
    This example continues by selecting the **Send monthly cost for resource** task template.
 
@@ -87,7 +87,7 @@ By comparison, Azure Automation is a cloud-based automation and configuration se
 
    ![Screenshot that shows successfully created connection](./media/create-automation-tasks-azure-resources/create-connection-success.png)
 
-1. After you authenticate all the required connections, select **Next: Configuration**.
+1. After you authenticate all the connections, select **Next: Configuration**.
 
 1. Under **Configuration**, provide a name for the task and any other information required for the task. When you're done, select **Create**.
 
