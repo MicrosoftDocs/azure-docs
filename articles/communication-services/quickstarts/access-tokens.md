@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create and manage access tokens
 titleSuffix: An Azure Communication Services quickstart
-description: Learn how to manage identities and access tokens using the Azure Communication Services Administration client library.
+description: Learn how to manage identities and access tokens using the Azure Communication Services Identity client library.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -16,7 +16,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Get started with Azure Communication Services by using the Communication Services Administration client library. It allows you to create identities and manage your access tokens. Identity is representing entity of your application in the Azure Communication Service (for example, user or device). Access tokens let your Chat and Calling client libraries authenticate directly against Azure Communication Services. We recommend generating access tokens on a server-side service. Access tokens are then used to initialize the Communication Services client libraries on client devices.
+Get started with Azure Communication Services by using the Communication Services Identity client library. It allows you to create identities and manage your access tokens. Identity is representing entity of your application in the Azure Communication Service (for example, user or device). Access tokens let your Chat and Calling client libraries authenticate directly against Azure Communication Services. We recommend generating access tokens on a server-side service. Access tokens are then used to initialize the Communication Services client libraries on client devices.
 
 Any prices seen in images throughout this tutorial are for demonstration purposes only.
 
@@ -64,7 +64,7 @@ In this quickstart, you learned how to:
 > [!div class="checklist"]
 > * Manage identities
 > * Issue access tokens
-> * Use the Communication Services Administration client library
+> * Use the Communication Services Identity client library
 
 
 > [!div class="nextstepaction"]
@@ -75,4 +75,3 @@ You may also want to:
  - [Learn about authentication](../concepts/authentication.md)
  - [Add chat to your app](./chat/get-started.md)
  - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
- 
